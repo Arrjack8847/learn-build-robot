@@ -45,8 +45,20 @@ function readStored(): StudentProgress {
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return emptyProgress;
-    const parsed = JSON.parse(raw) as Partial<StudentProgress>;
-    return { ...emptyProgress, ...parsed };
+    const parsed = JSON.parse(raw) as Partial<StudentProgress> | null;
+    if (!parsed || typeof parsed !== "object") return emptyProgress;
+
+    return {
+      studentName: typeof parsed.studentName === "string" ? parsed.studentName : emptyProgress.studentName,
+      completedLessonIds: Array.isArray(parsed.completedLessonIds)
+        ? parsed.completedLessonIds.filter((id): id is string => typeof id === "string")
+        : [],
+      completedStepIds: Array.isArray(parsed.completedStepIds)
+        ? parsed.completedStepIds.filter((id): id is string => typeof id === "string")
+        : [],
+      quizAttempts: Array.isArray(parsed.quizAttempts) ? parsed.quizAttempts : [],
+      practicalGrades: Array.isArray(parsed.practicalGrades) ? parsed.practicalGrades : [],
+    };
   } catch {
     return emptyProgress;
   }
