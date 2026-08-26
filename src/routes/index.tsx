@@ -3,6 +3,7 @@ import {
   ArrowRight,
   BookOpen,
   Bot,
+  BrainCircuit,
   CheckCircle2,
   ClipboardCheck,
   Sparkles,
@@ -27,6 +28,7 @@ const statsConfig = [
 
 function DashboardPage() {
   const { progress, stats, hydrated } = useProgress();
+  const latestQuiz = progress.quizAttempts[0];
   const nextLesson =
     allLessons.find((lesson) => !progress.completedLessonIds.includes(lesson.id)) ?? allLessons[0];
 
@@ -132,6 +134,64 @@ function DashboardPage() {
           </Link>
         </article>
       </section>
+
+      {hydrated && latestQuiz ? (
+        <section
+          aria-labelledby="latest-quiz-heading"
+          className="rounded-3xl border bg-card p-6 shadow-card sm:p-8"
+        >
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex items-start gap-4">
+              <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-primary-soft text-primary">
+                <BrainCircuit aria-hidden="true" className="size-6" />
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                  Latest quiz feedback
+                </p>
+                <h2 id="latest-quiz-heading" className="mt-1 text-xl font-bold">
+                  {latestQuiz.lessonTitle}
+                </h2>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  <span className="font-semibold text-success">Strength:</span>{" "}
+                  {latestQuiz.strengths[0] ?? "Quiz completed"}
+                  <span aria-hidden="true"> · </span>
+                  <span className="font-semibold text-warning">Review:</span>{" "}
+                  {latestQuiz.review[0] ?? "No review needed"}
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 lg:pl-6">
+              <span
+                className={`grid size-20 shrink-0 place-items-center rounded-full text-xl font-bold ${
+                  latestQuiz.percentage >= 80
+                    ? "bg-success-soft text-success"
+                    : "bg-warning-soft text-warning"
+                }`}
+              >
+                {latestQuiz.percentage}%
+              </span>
+              <div className="space-y-2">
+                <Link
+                  className="flex min-h-10 items-center gap-2 text-sm font-semibold text-primary hover:underline"
+                  params={{ lessonId: latestQuiz.lessonId }}
+                  to="/theory/$lessonId"
+                >
+                  Revisit lesson
+                  <ArrowRight aria-hidden="true" className="size-4" />
+                </Link>
+                <Link
+                  className="flex min-h-10 items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground"
+                  to="/progress"
+                >
+                  All results
+                  <ArrowRight aria-hidden="true" className="size-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section aria-labelledby="learning-paths-heading">
         <div className="mb-4">
