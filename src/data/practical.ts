@@ -11,12 +11,21 @@ function baseSteps(prefix: string, titles: [string, string][]): PracticalProject
     number: i + 1,
     title,
     description,
-    note:
-      i === 1
-        ? { type: "warning" as const, text: "Keep the power disconnected while you build this part." }
-        : i === 4
-          ? { type: "tip" as const, text: "Test this stage on its own before continuing — it is much easier to debug now." }
-          : undefined,
+    ...(i === 1
+      ? {
+          note: {
+            type: "warning" as const,
+            text: "Keep the power disconnected while you build this part.",
+          },
+        }
+      : i === 4
+        ? {
+            note: {
+              type: "tip" as const,
+              text: "Test this stage on its own before continuing — it is much easier to debug now.",
+            },
+          }
+        : {}),
   }));
 }
 
