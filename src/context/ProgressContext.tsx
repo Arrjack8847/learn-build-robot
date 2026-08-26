@@ -6,6 +6,11 @@ import { practicalProjects } from "@/data/practical";
 import type { PracticalGrade, QuizAttempt, StudentProgress } from "@/types/learning";
 
 const STORAGE_KEY = "robolearn.progress.v1";
+const validLessonIds = new Set(allLessons.map((lesson) => lesson.id));
+const validProjectIds = new Set(practicalProjects.map((project) => project.id));
+const validStepIds = new Set(
+  practicalProjects.flatMap((project) => project.steps.map((step) => step.id)),
+);
 
 const emptyProgress: StudentProgress = {
   studentName: DEMO_STUDENT_NAME,
@@ -40,6 +45,62 @@ interface ProgressContextValue {
 
 const ProgressContext = createContext<ProgressContextValue | null>(null);
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
+}
+
+function isStringArray(value: unknown): value is string[] {
+  return Array.isArray(value) && value.every((item) => typeof item === "string");
+}
+
+function isQuizAttempt(value: unknown): value is QuizAttempt {
+  if (!isRecord(value)) return false;
+  const candidate = value as Partial<QuizAttempt>;
+  return (
+    typeof candidate.id === "string" &&
+    typeof candidate.lessonId === "string" &&
+    validLessonIds.has(candidate.lessonId) &&
+    typeof candidate.lessonTitle === "string" &&
+    typeof candidate.score === "number" &&
+    typeof candidate.total === "number" &&
+    typeof candidate.percentage === "number" &&
+    typeof candidate.takenAt === "string" &&
+    Array.isArray(candidate.results) &&
+    candidate.results.every(
+      (result) =>
+        isRecord(result) &&
+        typeof result["questionId"] === "string" &&
+        typeof result["answer"] === "string" &&
+        typeof result["correct"] === "boolean",
+    ) &&
+    isStringArray(candidate.strengths) &&
+    isStringArray(candidate.review)
+  );
+}
+
+function isPracticalGrade(value: unknown): value is PracticalGrade {
+  if (!isRecord(value)) return false;
+  const candidate = value as Partial<PracticalGrade>;
+  if (!isRecord(candidate.breakdown)) return false;
+  const breakdown = candidate.breakdown as Partial<PracticalGrade["breakdown"]>;
+  return (
+    typeof candidate.id === "string" &&
+    typeof candidate.projectId === "string" &&
+    validProjectIds.has(candidate.projectId) &&
+    typeof candidate.projectTitle === "string" &&
+    typeof candidate.total === "number" &&
+    typeof breakdown.assembly === "number" &&
+    typeof breakdown.components === "number" &&
+    typeof breakdown.functionality === "number" &&
+    typeof breakdown.explanation === "number" &&
+    isStringArray(candidate.strengths) &&
+    isStringArray(candidate.issues) &&
+    isStringArray(candidate.improvements) &&
+    isStringArray(candidate.recommendedModuleIds) &&
+    typeof candidate.gradedAt === "string"
+  );
+}
+
 function readStored(): StudentProgress {
   if (typeof window === "undefined") return emptyProgress;
   try {
@@ -51,13 +112,21 @@ function readStored(): StudentProgress {
     return {
       studentName: typeof parsed.studentName === "string" ? parsed.studentName : emptyProgress.studentName,
       completedLessonIds: Array.isArray(parsed.completedLessonIds)
-        ? parsed.completedLessonIds.filter((id): id is string => typeof id === "string")
+        ? parsed.completedLessonIds.filter(
+            (id): id is string => typeof id === "string" && validLessonIds.has(id),
+          )
         : [],
       completedStepIds: Array.isArray(parsed.completedStepIds)
-        ? parsed.completedStepIds.filter((id): id is string => typeof id === "string")
+        ? parsed.completedStepIds.filter(
+            (id): id is string => typeof id === "string" && validStepIds.has(id),
+          )
         : [],
-      quizAttempts: Array.isArray(parsed.quizAttempts) ? parsed.quizAttempts : [],
-      practicalGrades: Array.isArray(parsed.practicalGrades) ? parsed.practicalGrades : [],
+      quizAttempts: Array.isArray(parsed.quizAttempts)
+        ? parsed.quizAttempts.filter(isQuizAttempt).slice(0, 20)
+        : [],
+      practicalGrades: Array.isArray(parsed.practicalGrades)
+        ? parsed.practicalGrades.filter(isPracticalGrade).slice(0, 20)
+        : [],
     };
   } catch {
     return emptyProgress;
