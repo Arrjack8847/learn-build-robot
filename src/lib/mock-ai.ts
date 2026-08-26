@@ -126,7 +126,7 @@ export async function gradeQuiz({
     takenAt: new Date().toISOString(),
     results,
     strengths: strengths.length ? unique(strengths) : ["You completed the full quiz without skipping."],
-    review: review.length ? unique(review) : ["Nothing to review — revisit this lesson before the practical."],
+    review: review.length ? unique(review) : ["No concepts need review — you are ready to continue."],
   };
 }
 
