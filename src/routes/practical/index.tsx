@@ -60,7 +60,11 @@ function PracticalCataloguePage() {
                 params={{ projectId: project.id }}
                 to="/practical/$projectId"
               >
-                {projectProgress.status === "Not Started" ? "Start project" : "Continue project"}
+                {projectProgress.status === "Not Started"
+                  ? "Start project"
+                  : projectProgress.status === "Completed"
+                    ? "Review project"
+                    : "Continue project"}
                 <ArrowRight aria-hidden="true" className="size-4" />
               </Link>
             </article>
