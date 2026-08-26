@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
 import {
   ArrowLeft,
   ArrowRight,
@@ -27,54 +28,59 @@ export function QuizExperience({ lesson }: { lesson: TheoryLesson }) {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [currentIndex, setCurrentIndex] = useState(0);
   const [attempt, setAttempt] = useState<QuizAttempt | null>(null);
-  const [error, setError] = useState<string | null>(null);
 
-  const currentQuestion = questions[currentIndex];
-  const currentAnswer = currentQuestion ? (answers[currentQuestion.id] ?? "") : "";
-  const currentAnswered = currentAnswer.trim().length > 0;
-
-  async function handleGenerate() {
-    setError(null);
-    setStage("generating");
-    try {
-      const generated = await generateQuiz(lesson);
+  const generation = useMutation({
+    mutationFn: () => generateQuiz(lesson),
+    onSuccess: (generated) => {
       setQuestions(generated);
       setAnswers({});
       setCurrentIndex(0);
       setAttempt(null);
       setStage("answering");
-    } catch {
-      setError("The quiz could not be generated. Please try again.");
-      setStage("idle");
-    }
-  }
+    },
+    onError: () => setStage("idle"),
+  });
 
-  async function handleSubmit() {
-    if (!currentAnswered) return;
-    setError(null);
-    setStage("grading");
-    try {
-      const gradedAttempt = await gradeQuiz({ lesson, questions, answers });
+  const grading = useMutation({
+    mutationFn: () => gradeQuiz({ lesson, questions, answers }),
+    onSuccess: (gradedAttempt) => {
       addQuizAttempt(gradedAttempt);
       setAttempt(gradedAttempt);
       setStage("results");
-    } catch {
-      setError("Your answers could not be graded. Please try submitting again.");
-      setStage("answering");
-    }
+    },
+    onError: () => setStage("answering"),
+  });
+
+  const currentQuestion = questions[currentIndex];
+  const currentAnswer = currentQuestion ? (answers[currentQuestion.id] ?? "") : "";
+  const currentAnswered = currentAnswer.trim().length > 0;
+
+  function handleGenerate() {
+    generation.reset();
+    grading.reset();
+    setStage("generating");
+    generation.mutate();
+  }
+
+  function handleSubmit() {
+    if (!currentAnswered) return;
+    grading.reset();
+    setStage("grading");
+    grading.mutate();
   }
 
   function handleRetry() {
     setAnswers({});
     setCurrentIndex(0);
     setAttempt(null);
-    setError(null);
+    grading.reset();
     setStage("answering");
   }
 
   function handleCloseResults() {
     setAttempt(null);
-    setError(null);
+    generation.reset();
+    grading.reset();
     setStage("idle");
   }
 
@@ -108,7 +114,11 @@ export function QuizExperience({ lesson }: { lesson: TheoryLesson }) {
             Generate AI quiz
           </Button>
         </div>
-        {error ? <p className="mt-4 text-sm font-medium text-destructive">{error}</p> : null}
+        {generation.isError ? (
+          <p className="mt-4 text-sm font-medium text-destructive" role="alert">
+            The quiz could not be generated. Please try again.
+          </p>
+        ) : null}
       </section>
     );
   }
@@ -197,7 +207,11 @@ export function QuizExperience({ lesson }: { lesson: TheoryLesson }) {
         />
       </div>
 
-      {error ? <p className="mt-5 text-sm font-medium text-destructive">{error}</p> : null}
+      {grading.isError ? (
+        <p className="mt-5 text-sm font-medium text-destructive" role="alert">
+          Your answers could not be graded. Please try submitting again.
+        </p>
+      ) : null}
 
       <div className="mt-8 flex flex-col-reverse gap-3 border-t pt-6 sm:flex-row sm:justify-between">
         <Button
