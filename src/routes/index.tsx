@@ -29,6 +29,7 @@ const statsConfig = [
 function DashboardPage() {
   const { progress, stats, hydrated } = useProgress();
   const latestQuiz = progress.quizAttempts[0];
+  const latestPractical = progress.practicalGrades[0];
   const nextLesson =
     allLessons.find((lesson) => !progress.completedLessonIds.includes(lesson.id)) ?? allLessons[0];
 
@@ -178,6 +179,64 @@ function DashboardPage() {
                   to="/theory/$lessonId"
                 >
                   Revisit lesson
+                  <ArrowRight aria-hidden="true" className="size-4" />
+                </Link>
+                <Link
+                  className="flex min-h-10 items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground"
+                  to="/progress"
+                >
+                  All results
+                  <ArrowRight aria-hidden="true" className="size-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {hydrated && latestPractical ? (
+        <section
+          aria-labelledby="latest-practical-heading"
+          className="rounded-3xl border bg-card p-6 shadow-card sm:p-8"
+        >
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex items-start gap-4">
+              <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-success-soft text-success">
+                <Bot aria-hidden="true" className="size-6" />
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                  Latest practical feedback
+                </p>
+                <h2 id="latest-practical-heading" className="mt-1 text-xl font-bold">
+                  {latestPractical.projectTitle}
+                </h2>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  <span className="font-semibold text-success">Strength:</span>{" "}
+                  {latestPractical.strengths[0] ?? "Project submitted"}
+                  <span aria-hidden="true"> · </span>
+                  <span className="font-semibold text-warning">Improve:</span>{" "}
+                  {latestPractical.improvements[0] ?? "Continue testing"}
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 lg:pl-6">
+              <span
+                className={`grid size-20 shrink-0 place-items-center rounded-full text-xl font-bold ${
+                  latestPractical.total >= 80
+                    ? "bg-success-soft text-success"
+                    : "bg-warning-soft text-warning"
+                }`}
+              >
+                {latestPractical.total}%
+              </span>
+              <div className="space-y-2">
+                <Link
+                  className="flex min-h-10 items-center gap-2 text-sm font-semibold text-primary hover:underline"
+                  params={{ projectId: latestPractical.projectId }}
+                  to="/practical/$projectId"
+                >
+                  Revisit project
                   <ArrowRight aria-hidden="true" className="size-4" />
                 </Link>
                 <Link
