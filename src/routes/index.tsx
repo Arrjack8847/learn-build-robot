@@ -219,14 +219,14 @@ function MobileCompetitionHome() {
         </p>
       </section>
 
-      <section className="relative z-10 mt-2 h-[31svh] min-h-[170px] max-h-[270px] shrink-0 overflow-hidden rounded-[22px] border border-slate-100 bg-[#edf3f8] shadow-[0_10px_28px_rgba(24,72,120,0.11)] [@media(max-height:700px)]:mt-1.5 [@media(max-height:700px)]:h-[27svh] [@media(max-height:700px)]:min-h-[145px] [@media(max-height:700px)]:max-h-[190px] [@media(max-height:700px)]:rounded-[18px] [@media(min-height:850px)]:mt-3 [@media(min-height:850px)]:h-[31svh] [@media(min-height:850px)]:max-h-[285px] [@media(min-height:850px)]:rounded-[26px]">
+      <section className="relative z-10 mt-2 aspect-[3/2] w-full shrink-0 overflow-hidden rounded-[22px] border border-slate-100 bg-[#edf3f8] shadow-[0_10px_28px_rgba(24,72,120,0.11)] [@media(max-height:700px)]:mt-1.5 [@media(max-height:700px)]:aspect-[5/3] [@media(max-height:700px)]:rounded-[18px] [@media(min-height:850px)]:mt-3 [@media(min-height:850px)]:rounded-[26px]">
         <img
           alt="Students preparing a robot in a robotics competition arena"
           className="h-full w-full object-cover"
           decoding="async"
           fetchPriority="high"
           src={COMPETITION_PHOTO}
-          style={{ objectPosition: "center 58%" }}
+          style={{ objectPosition: "center 56%" }}
         />
 
         <div className="absolute inset-x-2 bottom-2 grid h-9 grid-cols-4 divide-x divide-slate-200 rounded-[13px] bg-white/95 px-0.5 shadow-[0_6px_18px_rgba(17,53,92,0.13)] backdrop-blur-sm [@media(max-height:700px)]:bottom-1.5 [@media(max-height:700px)]:h-8 [@media(min-height:850px)]:inset-x-3 [@media(min-height:850px)]:bottom-3 [@media(min-height:850px)]:h-10 [@media(min-height:850px)]:rounded-[15px]">
@@ -240,6 +240,16 @@ function MobileCompetitionHome() {
           ))}
         </div>
       </section>
+
+      <Button
+        asChild
+        className="relative z-10 mt-2 h-12 shrink-0 rounded-full bg-[#1598ea] text-[16px] font-black shadow-[0_9px_22px_rgba(21,152,234,0.23)] hover:bg-[#0f8bdd] [@media(max-height:700px)]:mt-1.5 [@media(max-height:700px)]:h-11 [@media(max-height:700px)]:text-[15px] [@media(min-height:850px)]:mt-3 [@media(min-height:850px)]:h-[54px] [@media(min-height:850px)]:text-[17px]"
+      >
+        <Link to="/join">
+          Start Journey
+          <ArrowRight className="ml-2 size-5" />
+        </Link>
+      </Button>
 
       <section className="relative z-10 shrink-0 pt-2 [@media(max-height:700px)]:pt-1.5 [@media(min-height:850px)]:pt-3">
         <div className="mb-1 px-1 [@media(max-height:700px)]:mb-0.5 [@media(min-height:850px)]:mb-1.5">
@@ -285,16 +295,6 @@ function MobileCompetitionHome() {
           <Rocket className="absolute -right-2 top-1 size-5 -rotate-12 text-[#ec168c] [@media(max-height:700px)]:-right-1 [@media(max-height:700px)]:top-0.5 [@media(max-height:700px)]:size-[18px] [@media(min-height:850px)]:-right-2 [@media(min-height:850px)]:top-2 [@media(min-height:850px)]:size-6" strokeWidth={2.3} />
         </div>
       </section>
-
-      <Button
-        asChild
-        className="relative z-10 mt-2 h-12 shrink-0 rounded-full bg-[#1598ea] text-[16px] font-black shadow-[0_9px_22px_rgba(21,152,234,0.23)] hover:bg-[#0f8bdd] [@media(max-height:700px)]:mt-1.5 [@media(max-height:700px)]:h-11 [@media(max-height:700px)]:text-[15px] [@media(min-height:850px)]:mt-3 [@media(min-height:850px)]:h-[54px] [@media(min-height:850px)]:text-[17px]"
-      >
-        <Link to="/join">
-          Start Journey
-          <ArrowRight className="ml-2 size-5" />
-        </Link>
-      </Button>
     </main>
   );
 }
