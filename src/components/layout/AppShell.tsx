@@ -19,6 +19,8 @@ export function AppShell({ children }: { children: ReactNode }) {
     pathname === "/" ||
     pathname === "/join" ||
     pathname === "/choose" ||
+    pathname === "/quiz" ||
+    pathname.startsWith("/theory") ||
     pathname.startsWith("/practical");
 
   if (immersive) {
