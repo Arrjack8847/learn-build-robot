@@ -7,6 +7,7 @@ import type { PracticalGrade, QuizAttempt, StudentProgress } from "@/types/learn
 
 const STORAGE_KEY = "robolearn.progress.v1";
 const validLessonIds = new Set(allLessons.map((lesson) => lesson.id));
+const validModuleIds = new Set(theoryModules.map((module) => module.id));
 const validProjectIds = new Set(practicalProjects.map((project) => project.id));
 const validStepIds = new Set(
   practicalProjects.flatMap((project) => project.steps.map((step) => step.id)),
@@ -15,6 +16,7 @@ const validStepIds = new Set(
 const emptyProgress: StudentProgress = {
   studentName: DEMO_STUDENT_NAME,
   completedLessonIds: [],
+  lastTheoryPageByModule: {},
   completedStepIds: [],
   quizAttempts: [],
   practicalGrades: [],
@@ -26,6 +28,7 @@ interface ProgressContextValue {
   setStudentName: (name: string) => void;
   isLessonCompleted: (lessonId: string) => boolean;
   toggleLessonCompleted: (lessonId: string, value?: boolean) => void;
+  setLastTheoryPage: (moduleId: string, pageIndex: number) => void;
   isStepCompleted: (stepId: string) => boolean;
   toggleStepCompleted: (stepId: string, value?: boolean) => void;
   addQuizAttempt: (attempt: QuizAttempt) => void;
@@ -52,6 +55,24 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 function isStringArray(value: unknown): value is string[] {
   return Array.isArray(value) && value.every((item) => typeof item === "string");
+}
+
+function readTheoryPages(value: unknown) {
+  const pages: Record<string, number> = {};
+  if (!isRecord(value)) return pages;
+
+  for (const [moduleId, pageIndex] of Object.entries(value)) {
+    if (
+      validModuleIds.has(moduleId) &&
+      typeof pageIndex === "number" &&
+      Number.isInteger(pageIndex) &&
+      pageIndex >= 0 &&
+      pageIndex < 100
+    ) {
+      pages[moduleId] = pageIndex;
+    }
+  }
+  return pages;
 }
 
 function isQuizAttempt(value: unknown): value is QuizAttempt {
@@ -117,6 +138,7 @@ function readStored(): StudentProgress {
             (id): id is string => typeof id === "string" && validLessonIds.has(id),
           )
         : [],
+      lastTheoryPageByModule: readTheoryPages(parsed.lastTheoryPageByModule),
       completedStepIds: Array.isArray(parsed.completedStepIds)
         ? parsed.completedStepIds.filter(
             (id): id is string => typeof id === "string" && validStepIds.has(id),
@@ -206,6 +228,16 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         setProgress((prev) => ({ ...prev, studentName: name.trim().slice(0, 32) })),
       isLessonCompleted: (id) => progress.completedLessonIds.includes(id),
       toggleLessonCompleted: (id, v) => toggleInList("completedLessonIds", id, v),
+      setLastTheoryPage: (moduleId, pageIndex) => {
+        if (!validModuleIds.has(moduleId) || !Number.isInteger(pageIndex) || pageIndex < 0) return;
+        setProgress((prev) => ({
+          ...prev,
+          lastTheoryPageByModule: {
+            ...prev.lastTheoryPageByModule,
+            [moduleId]: Math.min(pageIndex, 99),
+          },
+        }));
+      },
       isStepCompleted: (id) => progress.completedStepIds.includes(id),
       toggleStepCompleted: (id, v) => toggleInList("completedStepIds", id, v),
       addQuizAttempt: (attempt) =>
