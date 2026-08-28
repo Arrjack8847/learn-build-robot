@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Bot, CircuitBoard, Sparkles } from "lucide-react";
 
@@ -5,13 +6,112 @@ import { Button } from "@/components/ui/button";
 import { APP_NAME, IS_DEMO_CONTENT } from "@/config/app";
 import { competitionInfo } from "@/data/competition";
 
+const MOBILE_INTRO_STORAGE_KEY = "be-stem-ready-mobile-intro-seen";
+const MOBILE_INTRO_FADE_MS = 350;
+const MOBILE_INTRO_FALLBACK_MS = 6500;
+
 export const Route = createFileRoute("/")({
   component: CompetitionWelcomePage,
 });
 
+function MobileLogoIntro() {
+  const [isVisible, setIsVisible] = useState(true);
+  const [isFading, setIsFading] = useState(false);
+  const exitTimerRef = useRef<number | null>(null);
+
+  const finishIntro = () => {
+    if (isFading) return;
+
+    try {
+      window.sessionStorage.setItem(MOBILE_INTRO_STORAGE_KEY, "true");
+    } catch {
+      // Storage can be unavailable in private/restricted browsing modes.
+    }
+
+    setIsFading(true);
+    exitTimerRef.current = window.setTimeout(() => {
+      setIsVisible(false);
+    }, MOBILE_INTRO_FADE_MS);
+  };
+
+  useEffect(() => {
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    let hasSeenIntro = false;
+    try {
+      hasSeenIntro =
+        window.sessionStorage.getItem(MOBILE_INTRO_STORAGE_KEY) === "true";
+    } catch {
+      // If storage is unavailable, simply play the intro normally.
+    }
+
+    if (!isMobile || prefersReducedMotion || hasSeenIntro) {
+      setIsVisible(false);
+      return;
+    }
+
+    const fallbackTimer = window.setTimeout(
+      finishIntro,
+      MOBILE_INTRO_FALLBACK_MS,
+    );
+
+    return () => {
+      window.clearTimeout(fallbackTimer);
+      if (exitTimerRef.current !== null) {
+        window.clearTimeout(exitTimerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    if (!isMobile) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isVisible]);
+
+  if (!isVisible) return null;
+
+  return (
+    <div
+      aria-hidden="true"
+      className={`fixed inset-0 z-[100] grid place-items-center bg-white transition-opacity duration-300 md:hidden ${
+        isFading ? "pointer-events-none opacity-0" : "opacity-100"
+      }`}
+    >
+      <video
+        autoPlay
+        className="h-full w-full object-contain"
+        muted
+        onEnded={finishIntro}
+        onError={finishIntro}
+        playsInline
+        preload="auto"
+      >
+        <source
+          src="/intro/Animated_logo_intro_sequence_1080p_202608281622.mp4"
+          type="video/mp4"
+        />
+      </video>
+    </div>
+  );
+}
+
 function CompetitionWelcomePage() {
   return (
     <div className="relative flex h-full flex-col overflow-hidden bg-navy text-navy-foreground">
+      <MobileLogoIntro />
+
       <div aria-hidden="true" className="circuit-grid-dark absolute inset-0 opacity-50" />
 
       <header className="relative flex min-h-16 items-center justify-between border-b border-white/10 px-4 sm:px-8">
