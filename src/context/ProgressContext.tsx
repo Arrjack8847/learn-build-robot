@@ -23,6 +23,7 @@ const emptyProgress: StudentProgress = {
 interface ProgressContextValue {
   progress: StudentProgress;
   hydrated: boolean;
+  setStudentName: (name: string) => void;
   isLessonCompleted: (lessonId: string) => boolean;
   toggleLessonCompleted: (lessonId: string, value?: boolean) => void;
   isStepCompleted: (stepId: string) => boolean;
@@ -201,6 +202,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     return {
       progress,
       hydrated,
+      setStudentName: (name) =>
+        setProgress((prev) => ({ ...prev, studentName: name.trim().slice(0, 32) })),
       isLessonCompleted: (id) => progress.completedLessonIds.includes(id),
       toggleLessonCompleted: (id, v) => toggleInList("completedLessonIds", id, v),
       isStepCompleted: (id) => progress.completedStepIds.includes(id),
