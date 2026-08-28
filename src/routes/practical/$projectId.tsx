@@ -1,240 +1,300 @@
+import { useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import {
   ArrowLeft,
   ArrowRight,
-  BookOpen,
-  CheckCircle2,
-  Clock3,
-  PackageCheck,
+  Check,
+  ChevronLeft,
+  CircleHelp,
+  Lightbulb,
   ShieldCheck,
-  Target,
-  Wrench,
+  Sparkles,
+  Trophy,
+  TriangleAlert,
 } from "lucide-react";
 
-import { PracticalAssessment } from "@/components/practical/PracticalAssessment";
-import { ProjectWorkspace } from "@/components/practical/ProjectWorkspace";
+import { RobotIllustration } from "@/components/journey/RobotIllustration";
+import { Button } from "@/components/ui/button";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Progress } from "@/components/ui/progress";
-import { useProjectProgress } from "@/context/ProgressContext";
-import { getProject, practicalProjects } from "@/data/practical";
-import { getModule } from "@/data/theory";
+import { useProgress } from "@/context/ProgressContext";
+import { getProject } from "@/data/practical";
+import type { PracticalProject } from "@/types/learning";
 
 export const Route = createFileRoute("/practical/$projectId")({
   component: PracticalProjectPage,
 });
 
+type SessionStage = "steps" | "complete";
+
 function PracticalProjectPage() {
   const { projectId = "" } = Route.useParams();
   const project = getProject(projectId);
-  const getProjectProgress = useProjectProgress();
+  const { hydrated } = useProgress();
 
   if (!project) {
     return <MissingProject />;
   }
 
-  const projectProgress = getProjectProgress(project.id);
-  const projectIndex = practicalProjects.findIndex((item) => item.id === project.id);
-  const previousProject = projectIndex > 0 ? practicalProjects[projectIndex - 1] : undefined;
-  const nextProject =
-    projectIndex < practicalProjects.length - 1 ? practicalProjects[projectIndex + 1] : undefined;
-  const relatedModules = project.relatedModuleIds
-    .map((moduleId) => getModule(moduleId))
-    .filter((module) => module !== undefined);
+  if (!hydrated) {
+    return <BuildLoading />;
+  }
+
+  return <BuildSession key={project.id} project={project} />;
+}
+
+function BuildSession({ project }: { project: PracticalProject }) {
+  const { progress, isStepCompleted, toggleStepCompleted } = useProgress();
+  const firstIncompleteIndex = project.steps.findIndex((step) => !isStepCompleted(step.id));
+  const [currentIndex, setCurrentIndex] = useState(
+    firstIncompleteIndex >= 0 ? firstIncompleteIndex : 0,
+  );
+  const [stage, setStage] = useState<SessionStage>("steps");
+  const currentStep = project.steps[currentIndex];
+
+  if (!currentStep) {
+    return <MissingProject />;
+  }
+
+  if (stage === "complete") {
+    return (
+      <BuildCelebration
+        onReview={() => {
+          setCurrentIndex(0);
+          setStage("steps");
+        }}
+        project={project}
+        studentName={progress.studentName || "Builder"}
+      />
+    );
+  }
+
+  const isLastStep = currentIndex === project.steps.length - 1;
+  const currentStepId = currentStep.id;
+  const displayedPercent = Math.round(((currentIndex + 1) / project.steps.length) * 100);
+  const helpItem = project.troubleshooting[currentIndex % project.troubleshooting.length];
+
+  function finishCurrentStep() {
+    toggleStepCompleted(currentStepId, true);
+    if (isLastStep) {
+      setStage("complete");
+      return;
+    }
+    setCurrentIndex((index) => index + 1);
+  }
 
   return (
-    <div className="mx-auto w-full max-w-6xl space-y-6">
-      <Link
-        className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary hover:underline"
-        to="/practical"
-      >
-        <ArrowLeft aria-hidden="true" className="size-4" />
-        Back to practical
-      </Link>
-
-      <header className="relative overflow-hidden rounded-3xl bg-navy text-navy-foreground shadow-lift">
-        <div aria-hidden="true" className="circuit-grid-dark absolute inset-0 opacity-60" />
-        <div className="relative p-6 sm:p-8">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-            <div className="max-w-3xl">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-navy-muted">
-                Project {project.number} · {project.difficulty}
-              </p>
-              <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{project.title}</h1>
-              <p className="mt-3 max-w-3xl text-sm leading-6 text-navy-muted sm:text-base">
-                {project.objective}
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold">
-                <span className="inline-flex items-center gap-2 rounded-full bg-navy-hover px-3 py-1.5">
-                  <Clock3 aria-hidden="true" className="size-3.5" /> {project.buildMinutes} minutes
-                </span>
-                <span className="inline-flex items-center gap-2 rounded-full bg-navy-hover px-3 py-1.5">
-                  <PackageCheck aria-hidden="true" className="size-3.5" /> {project.components.length}{" "}
-                  components
-                </span>
-                <span className="inline-flex items-center gap-2 rounded-full bg-navy-hover px-3 py-1.5">
-                  <Wrench aria-hidden="true" className="size-3.5" /> {project.steps.length} steps
-                </span>
-              </div>
-            </div>
-            <span
-              className={`inline-flex w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold ${
-                projectProgress.status === "Completed"
-                  ? "bg-success-soft text-success"
-                  : "bg-navy-hover text-navy-foreground"
-              }`}
-            >
-              {projectProgress.status === "Completed" ? (
-                <CheckCircle2 aria-hidden="true" className="size-4" />
-              ) : null}
-              {projectProgress.status}
-            </span>
-          </div>
+    <div className="flex h-full flex-col overflow-hidden bg-background">
+      <header className="flex min-h-16 items-center justify-between gap-3 border-b bg-card px-4 sm:px-8">
+        <Link
+          aria-label="Exit project and choose a robot"
+          className="grid size-11 shrink-0 place-items-center rounded-2xl border text-foreground transition hover:bg-secondary"
+          to="/practical"
+        >
+          <ArrowLeft aria-hidden="true" className="size-5" />
+        </Link>
+        <div className="min-w-0 text-center">
+          <p className="truncate text-sm font-bold">{project.title}</p>
+          <p className="text-xs text-muted-foreground">
+            Step {currentIndex + 1} of {project.steps.length}
+          </p>
         </div>
-        <div className="relative border-t border-white/10 bg-navy-hover/70 px-6 py-4 sm:px-8">
-          <div className="flex items-center justify-between gap-4 text-xs font-semibold text-navy-muted">
-            <span>
-              {projectProgress.completed} of {projectProgress.total} build steps complete
-            </span>
-            <span>{projectProgress.percent}%</span>
-          </div>
-          <Progress
-            aria-label={`${projectProgress.percent}% of ${project.title} completed`}
-            className="mt-2 bg-navy [&>div]:bg-success"
-            value={projectProgress.percent}
-          />
-        </div>
+        <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-success-soft text-success">
+          <Check aria-hidden="true" className="size-5" />
+        </span>
       </header>
 
-      <section className="grid gap-4 lg:grid-cols-[1fr_0.8fr]">
-        <article className="rounded-3xl border bg-card p-6 shadow-card sm:p-7">
-          <div className="flex items-center gap-3">
-            <span className="grid size-10 place-items-center rounded-xl bg-primary-soft text-primary">
-              <Target aria-hidden="true" className="size-5" />
-            </span>
-            <h2 className="text-lg font-bold">Project objective</h2>
-          </div>
-          <p className="mt-4 text-sm leading-7 text-muted-foreground">{project.description}</p>
-          <p className="mt-3 text-sm leading-7 text-foreground">{project.objective}</p>
-        </article>
+      <Progress
+        aria-label={`Step ${currentIndex + 1} of ${project.steps.length}`}
+        className="h-1.5 rounded-none bg-secondary [&>div]:bg-success"
+        value={displayedPercent}
+      />
 
-        <aside className="rounded-3xl border border-warning/20 bg-warning-soft p-6 sm:p-7">
-          <div className="flex items-center gap-3 text-warning">
-            <ShieldCheck aria-hidden="true" className="size-5" />
-            <h2 className="font-bold">Safety first</h2>
-          </div>
-          <p className="mt-4 text-sm leading-6 text-foreground/80">{project.safetyNote}</p>
-        </aside>
-      </section>
+      <main className="flex min-h-0 flex-1 items-center px-4 py-3 sm:px-8 sm:py-5">
+        <div className="mx-auto grid w-full max-w-5xl items-center gap-4 md:grid-cols-[0.9fr_1.1fr] md:gap-8">
+          <RobotIllustration
+            className="min-h-24 sm:min-h-52 md:min-h-[22rem]"
+            variant={project.number - 1}
+          />
 
-      <ProjectWorkspace key={project.id} project={project} />
+          <section className="min-w-0">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+              Do this now
+            </p>
+            <h1 className="mt-2 text-2xl font-bold tracking-tight sm:text-4xl">
+              {currentStep.title}
+            </h1>
+            <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted-foreground sm:mt-3 sm:text-base sm:leading-7">
+              {currentStep.description}
+            </p>
 
-      <PracticalAssessment key={project.id} project={project} />
+            {currentStep.note ? (
+              <div
+                className={`mt-4 flex items-start gap-3 rounded-2xl p-3 text-sm leading-6 sm:p-4 ${
+                  currentStep.note.type === "warning"
+                    ? "bg-warning-soft text-foreground"
+                    : "bg-primary-soft text-foreground"
+                }`}
+              >
+                {currentStep.note.type === "warning" ? (
+                  <TriangleAlert aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-warning" />
+                ) : (
+                  <Lightbulb aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-primary" />
+                )}
+                <p className="line-clamp-2 sm:line-clamp-none">{currentStep.note.text}</p>
+              </div>
+            ) : null}
 
-      <section className="grid gap-4 lg:grid-cols-2">
-        <article className="rounded-3xl border bg-card p-6 shadow-card sm:p-8">
-          <h2 className="text-xl font-bold">Troubleshooting</h2>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Start with the symptom that best matches your build.
-          </p>
-          <Accordion className="mt-4" collapsible type="single">
-            {project.troubleshooting.map((item, index) => (
-              <AccordionItem key={item.question} value={`issue-${index}`}>
-                <AccordionTrigger>{item.question}</AccordionTrigger>
-                <AccordionContent className="leading-6 text-muted-foreground">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </article>
-
-        <article className="rounded-3xl border bg-card p-6 shadow-card sm:p-8">
-          <div className="flex items-center gap-3">
-            <span className="grid size-10 place-items-center rounded-xl bg-secondary text-primary">
-              <BookOpen aria-hidden="true" className="size-5" />
-            </span>
-            <h2 className="text-xl font-bold">Related theory</h2>
-          </div>
-          <p className="mt-3 text-sm leading-6 text-muted-foreground">
-            These modules explain the ideas used in this practical project.
-          </p>
-          <div className="mt-5 space-y-3">
-            {relatedModules.map((module) => {
-              const firstLesson = module.lessons[0];
-              return firstLesson ? (
-                <Link
-                  className="group flex items-center justify-between gap-4 rounded-xl bg-secondary p-4 transition hover:bg-primary-soft"
-                  key={module.id}
-                  params={{ lessonId: firstLesson.id }}
-                  to="/theory/$lessonId"
-                >
-                  <span>
-                    <span className="block text-xs font-semibold text-muted-foreground">
-                      Module {module.number}
-                    </span>
-                    <span className="mt-1 block text-sm font-bold">{module.title}</span>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button className="mt-4 rounded-2xl" type="button" variant="outline">
+                  <CircleHelp aria-hidden="true" />
+                  I Need Help
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-md rounded-3xl">
+                <DialogHeader>
+                  <span className="mb-2 grid size-12 place-items-center rounded-2xl bg-primary-soft text-primary">
+                    <CircleHelp aria-hidden="true" className="size-6" />
                   </span>
-                  <ArrowRight
-                    aria-hidden="true"
-                    className="size-4 shrink-0 text-primary transition-transform group-hover:translate-x-1"
-                  />
-                </Link>
-              ) : null;
-            })}
-          </div>
-        </article>
-      </section>
+                  <DialogTitle>Let’s solve it together</DialogTitle>
+                  <DialogDescription className="leading-6">
+                    Check this common problem before changing your build.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="rounded-2xl bg-secondary p-4">
+                  <p className="text-sm font-bold">{helpItem?.question || "Check the current step"}</p>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    {helpItem?.answer || project.safetyNote}
+                  </p>
+                </div>
+                <div className="flex items-start gap-3 rounded-2xl bg-warning-soft p-4 text-sm leading-6">
+                  <ShieldCheck aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-warning" />
+                  <p>{project.safetyNote}</p>
+                </div>
+                <DialogFooter>
+                  <DialogClose asChild>
+                    <Button className="rounded-2xl" type="button">
+                      I’m Ready to Try
+                    </Button>
+                  </DialogClose>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+          </section>
+        </div>
+      </main>
 
-      <nav aria-label="Project navigation" className="grid gap-3 sm:grid-cols-2">
-        {previousProject ? (
-          <Link
-            className="group rounded-2xl border bg-card p-5 shadow-card transition hover:border-primary/30"
-            params={{ projectId: previousProject.id }}
-            to="/practical/$projectId"
+      <footer className="border-t bg-card px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 sm:px-8 sm:py-4">
+        <div className="mx-auto flex w-full max-w-5xl gap-3">
+          <Button
+            aria-label="Go to previous step"
+            className="min-h-12 rounded-2xl px-4 sm:px-6"
+            disabled={currentIndex === 0}
+            onClick={() => setCurrentIndex((index) => Math.max(0, index - 1))}
+            type="button"
+            variant="outline"
           >
-            <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-              <ArrowLeft aria-hidden="true" className="size-4 transition-transform group-hover:-translate-x-1" />
-              Previous project
-            </span>
-            <span className="mt-2 block font-bold">{previousProject.title}</span>
-          </Link>
-        ) : (
-          <span aria-hidden="true" />
-        )}
-        {nextProject ? (
-          <Link
-            className="group rounded-2xl border bg-card p-5 text-right shadow-card transition hover:border-primary/30"
-            params={{ projectId: nextProject.id }}
-            to="/practical/$projectId"
+            <ChevronLeft aria-hidden="true" />
+            <span className="hidden sm:inline">Previous</span>
+          </Button>
+          <Button
+            className="min-h-12 flex-1 rounded-2xl text-base font-bold"
+            onClick={finishCurrentStep}
+            type="button"
           >
-            <span className="flex items-center justify-end gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-              Next project
-              <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover:translate-x-1" />
-            </span>
-            <span className="mt-2 block font-bold">{nextProject.title}</span>
-          </Link>
-        ) : null}
-      </nav>
+            {isLastStep ? "Finish My Robot" : "Done — Next Step"}
+            {isLastStep ? (
+              <Sparkles aria-hidden="true" />
+            ) : (
+              <ArrowRight aria-hidden="true" />
+            )}
+          </Button>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+function BuildCelebration({
+  project,
+  studentName,
+  onReview,
+}: {
+  project: PracticalProject;
+  studentName: string;
+  onReview: () => void;
+}) {
+  return (
+    <div className="relative grid h-full place-items-center overflow-hidden bg-navy px-5 py-6 text-center text-navy-foreground">
+      <div aria-hidden="true" className="circuit-grid-dark absolute inset-0 opacity-50" />
+      <main className="relative w-full max-w-2xl">
+        <span className="mx-auto grid size-24 place-items-center rounded-[2rem] bg-warning-soft text-warning shadow-lift sm:size-28">
+          <Trophy aria-hidden="true" className="size-12 sm:size-14" />
+        </span>
+        <div className="mt-5 flex justify-center gap-2 text-warning" aria-hidden="true">
+          <Sparkles className="size-5" />
+          <Sparkles className="size-7" />
+          <Sparkles className="size-5" />
+        </div>
+        <p className="mt-4 text-sm font-bold uppercase tracking-[0.18em] text-primary">
+          Robot complete
+        </p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-5xl">
+          Amazing work, {studentName}!
+        </h1>
+        <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-navy-muted sm:text-base sm:leading-7">
+          You built {project.title} one step at a time. Now let’s prepare it for competition day.
+        </p>
+
+        <div className="mx-auto mt-7 grid max-w-md gap-3">
+          <Button asChild className="min-h-12 rounded-2xl text-base font-bold">
+            <Link params={{ projectId: project.id }} to="/practical/$projectId/competition">
+              Learn How to Win
+              <ArrowRight aria-hidden="true" />
+            </Link>
+          </Button>
+          <Button
+            className="min-h-12 rounded-2xl border-white/15 bg-navy-hover text-navy-foreground hover:bg-navy-hover/80"
+            onClick={onReview}
+            type="button"
+            variant="outline"
+          >
+            Review Build Steps
+          </Button>
+        </div>
+      </main>
     </div>
   );
 }
 
 function MissingProject() {
   return (
-    <div className="mx-auto max-w-xl rounded-3xl border bg-card p-8 text-center shadow-card">
-      <h1 className="text-2xl font-bold">Project not found</h1>
-      <p className="mt-2 text-sm text-muted-foreground">This demonstration project is not available.</p>
-      <Link
-        className="mt-5 inline-flex min-h-11 items-center rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground"
-        to="/practical"
-      >
-        Return to practical
-      </Link>
+    <div className="grid h-full place-items-center bg-background px-5 text-center">
+      <div>
+        <h1 className="text-2xl font-bold">We couldn’t find that robot.</h1>
+        <Link className="mt-5 inline-flex items-center gap-2 font-semibold text-primary" to="/practical">
+          <ArrowLeft aria-hidden="true" className="size-4" />
+          Choose a robot
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function BuildLoading() {
+  return (
+    <div aria-live="polite" className="grid h-full place-items-center bg-background">
+      <p className="text-sm font-semibold text-muted-foreground">Finding your next step…</p>
     </div>
   );
 }
