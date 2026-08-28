@@ -27,6 +27,7 @@ export interface PracticalStep {
   number: number;
   title: string;
   description: string;
+  image?: string;
   note?: { type: "warning" | "tip"; text: string };
 }
 
@@ -36,10 +37,10 @@ export interface PracticalProject {
   title: string;
   description: string;
   objective: string;
-  difficulty: Difficulty;
-  buildMinutes: number;
+  difficulty?: Difficulty;
+  buildMinutes?: number;
   components: string[];
-  safetyNote: string;
+  safetyNote?: string;
   relatedModuleIds: string[];
   steps: PracticalStep[];
   troubleshooting: { question: string; answer: string }[];
