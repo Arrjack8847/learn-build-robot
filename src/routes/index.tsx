@@ -219,20 +219,21 @@ function MobileCompetitionHome() {
         </p>
       </section>
 
-      <section className="relative z-10 mt-2 h-[25svh] min-h-[138px] max-h-[220px] shrink-0 overflow-hidden rounded-[22px] border border-slate-100 bg-[#edf3f8] shadow-[0_10px_28px_rgba(24,72,120,0.11)] [@media(max-height:700px)]:mt-1.5 [@media(max-height:700px)]:h-[22svh] [@media(max-height:700px)]:min-h-[118px] [@media(max-height:700px)]:rounded-[18px] [@media(min-height:850px)]:mt-3 [@media(min-height:850px)]:h-[26svh] [@media(min-height:850px)]:max-h-[235px] [@media(min-height:850px)]:rounded-[26px]">
+      <section className="relative z-10 mt-2 h-[31svh] min-h-[170px] max-h-[270px] shrink-0 overflow-hidden rounded-[22px] border border-slate-100 bg-[#edf3f8] shadow-[0_10px_28px_rgba(24,72,120,0.11)] [@media(max-height:700px)]:mt-1.5 [@media(max-height:700px)]:h-[27svh] [@media(max-height:700px)]:min-h-[145px] [@media(max-height:700px)]:max-h-[190px] [@media(max-height:700px)]:rounded-[18px] [@media(min-height:850px)]:mt-3 [@media(min-height:850px)]:h-[31svh] [@media(min-height:850px)]:max-h-[285px] [@media(min-height:850px)]:rounded-[26px]">
         <img
           alt="Students preparing a robot in a robotics competition arena"
-          className="h-full w-full object-cover object-center"
+          className="h-full w-full object-cover"
           decoding="async"
           fetchPriority="high"
           src={COMPETITION_PHOTO}
+          style={{ objectPosition: "center 58%" }}
         />
 
-        <div className="absolute inset-x-2 bottom-2 grid h-10 grid-cols-4 divide-x divide-slate-200 rounded-[14px] bg-white/95 px-0.5 shadow-[0_6px_18px_rgba(17,53,92,0.13)] backdrop-blur-sm [@media(max-height:700px)]:bottom-1.5 [@media(max-height:700px)]:h-9 [@media(min-height:850px)]:inset-x-3 [@media(min-height:850px)]:bottom-3 [@media(min-height:850px)]:h-[46px] [@media(min-height:850px)]:rounded-[16px]">
+        <div className="absolute inset-x-2 bottom-2 grid h-9 grid-cols-4 divide-x divide-slate-200 rounded-[13px] bg-white/95 px-0.5 shadow-[0_6px_18px_rgba(17,53,92,0.13)] backdrop-blur-sm [@media(max-height:700px)]:bottom-1.5 [@media(max-height:700px)]:h-8 [@media(min-height:850px)]:inset-x-3 [@media(min-height:850px)]:bottom-3 [@media(min-height:850px)]:h-10 [@media(min-height:850px)]:rounded-[15px]">
           {stats.map(({ label, icon: Icon, color }) => (
             <div className="flex min-w-0 flex-col items-center justify-center gap-px" key={label}>
-              <Icon className="size-3.5 [@media(max-height:700px)]:size-3 [@media(min-height:850px)]:size-4" style={{ color }} strokeWidth={2.2} />
-              <span className="truncate text-[6.5px] font-extrabold uppercase tracking-[0.02em] text-[#14254a] [@media(max-width:340px)]:text-[5.8px] [@media(min-height:850px)]:text-[7px]">
+              <Icon className="size-3 [@media(max-height:700px)]:size-[11px] [@media(min-height:850px)]:size-3.5" style={{ color }} strokeWidth={2.2} />
+              <span className="truncate text-[6px] font-extrabold uppercase tracking-[0.02em] text-[#14254a] [@media(max-width:340px)]:text-[5.5px] [@media(min-height:850px)]:text-[6.5px]">
                 {label}
               </span>
             </div>
@@ -241,9 +242,8 @@ function MobileCompetitionHome() {
       </section>
 
       <section className="relative z-10 shrink-0 pt-2 [@media(max-height:700px)]:pt-1.5 [@media(min-height:850px)]:pt-3">
-        <div className="mb-1 flex items-center gap-1.5 px-1 [@media(max-height:700px)]:mb-0.5 [@media(min-height:850px)]:mb-1.5">
+        <div className="mb-1 px-1 [@media(max-height:700px)]:mb-0.5 [@media(min-height:850px)]:mb-1.5">
           <h2 className="text-[13px] font-black tracking-tight text-[#14254a] [@media(max-height:700px)]:text-[12px] [@media(min-height:850px)]:text-[14px]">Your Journey</h2>
-          <Sparkles className="size-3.5 text-[#1598ea] [@media(min-height:850px)]:size-4" />
         </div>
 
         <div className="relative grid grid-cols-3 gap-1.5">
@@ -254,12 +254,12 @@ function MobileCompetitionHome() {
             viewBox="0 0 300 32"
           >
             <path
-              d="M0 8 C48 8 49 27 96 27 C143 27 145 8 192 8 C236 8 251 22 300 13"
+              d="M0 16 C40 0 67 31 108 16 S177 1 218 16 S264 30 300 16"
               fill="none"
               stroke="#8b98ab"
-              strokeDasharray="5 5"
+              strokeDasharray="4 6"
               strokeLinecap="round"
-              strokeWidth="5"
+              strokeWidth="4.5"
             />
           </svg>
 
@@ -274,7 +274,7 @@ function MobileCompetitionHome() {
                 </span>
                 <Icon className="size-6 [@media(max-height:700px)]:size-5 [@media(min-height:850px)]:size-7" strokeWidth={2.4} />
               </div>
-              <p className="mt-1 whitespace-nowrap text-[9.5px] font-black leading-none [@media(max-width:340px)]:text-[8.5px] [@media(max-height:700px)]:text-[8.5px] [@media(min-height:850px)]:mt-1.5 [@media(min-height:850px)]:text-[10px]" style={{ color }}>
+              <p className="mt-1.5 whitespace-nowrap text-[9.5px] font-black leading-none [@media(max-width:340px)]:text-[8.5px] [@media(max-height:700px)]:mt-1 [@media(max-height:700px)]:text-[8.5px] [@media(min-height:850px)]:mt-2 [@media(min-height:850px)]:text-[10px]" style={{ color }}>
                 {title}
               </p>
               <p className="mt-1 hidden max-w-[105px] text-[9px] font-medium leading-[11px] text-[#425273] [@media(min-height:850px)]:block">
@@ -282,7 +282,7 @@ function MobileCompetitionHome() {
               </p>
             </div>
           ))}
-          <Rocket className="absolute -right-0.5 top-4 size-6 -rotate-12 text-[#ec168c] [@media(max-height:700px)]:top-3 [@media(max-height:700px)]:size-5 [@media(min-height:850px)]:-right-1 [@media(min-height:850px)]:top-5 [@media(min-height:850px)]:size-7" strokeWidth={2.3} />
+          <Rocket className="absolute -right-2 top-1 size-5 -rotate-12 text-[#ec168c] [@media(max-height:700px)]:-right-1 [@media(max-height:700px)]:top-0.5 [@media(max-height:700px)]:size-[18px] [@media(min-height:850px)]:-right-2 [@media(min-height:850px)]:top-2 [@media(min-height:850px)]:size-6" strokeWidth={2.3} />
         </div>
       </section>
 
