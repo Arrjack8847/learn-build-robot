@@ -98,6 +98,7 @@ export interface PracticalGrade {
 export interface StudentProgress {
   studentName: string;
   completedLessonIds: string[];
+  lastTheoryPageByModule: Record<string, number>;
   completedStepIds: string[];
   quizAttempts: QuizAttempt[];
   practicalGrades: PracticalGrade[];
