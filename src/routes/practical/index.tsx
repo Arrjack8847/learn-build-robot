@@ -130,17 +130,21 @@ function RobotPicker() {
                         </p>
 
                         <div className="mt-3 flex flex-wrap gap-2 text-xs font-semibold text-muted-foreground sm:mt-4">
-                          <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1.5">
-                            <Clock3 aria-hidden="true" className="size-3.5" />
-                            {project.buildMinutes} min
-                          </span>
+                          {project.buildMinutes ? (
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1.5">
+                              <Clock3 aria-hidden="true" className="size-3.5" />
+                              {project.buildMinutes} min
+                            </span>
+                          ) : null}
                           <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1.5">
                             <ListChecks aria-hidden="true" className="size-3.5" />
                             {project.steps.length} easy steps
                           </span>
-                          <span className="hidden rounded-full bg-secondary px-3 py-1.5 sm:inline">
-                            {project.difficulty}
-                          </span>
+                          {project.difficulty ? (
+                            <span className="hidden rounded-full bg-secondary px-3 py-1.5 sm:inline">
+                              {project.difficulty}
+                            </span>
+                          ) : null}
                         </div>
 
                         {projectProgress.status !== "Not Started" ? (
