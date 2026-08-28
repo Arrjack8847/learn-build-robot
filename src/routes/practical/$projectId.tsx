@@ -81,7 +81,11 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const isLastStep = currentIndex === project.steps.length - 1;
   const currentStepId = currentStep.id;
   const displayedPercent = Math.round(((currentIndex + 1) / project.steps.length) * 100);
-  const helpItem = project.troubleshooting[currentIndex % project.troubleshooting.length];
+  const helpItem =
+    project.troubleshooting.length > 0
+      ? project.troubleshooting[currentIndex % project.troubleshooting.length]
+      : undefined;
+  const hasHelp = Boolean(helpItem || project.safetyNote);
 
   function finishCurrentStep() {
     toggleStepCompleted(currentStepId, true);
@@ -121,10 +125,21 @@ function BuildSession({ project }: { project: PracticalProject }) {
 
       <main className="flex min-h-0 flex-1 items-center px-4 py-3 sm:px-8 sm:py-5">
         <div className="mx-auto grid w-full max-w-5xl items-center gap-4 md:grid-cols-[0.9fr_1.1fr] md:gap-8">
-          <RobotIllustration
-            className="min-h-24 sm:min-h-52 md:min-h-[22rem]"
-            variant={project.number - 1}
-          />
+          {currentStep.image ? (
+            <div className="flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-[2rem] bg-secondary/40 p-2 sm:p-3">
+              <img
+                alt={`${project.title} step ${currentStep.number}: ${currentStep.title}`}
+                className="h-full w-full object-contain"
+                loading="eager"
+                src={currentStep.image}
+              />
+            </div>
+          ) : (
+            <RobotIllustration
+              className="min-h-24 sm:min-h-52 md:min-h-[22rem]"
+              variant={project.number - 1}
+            />
+          )}
 
           <section className="min-w-0">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
@@ -133,7 +148,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
             <h1 className="mt-2 text-2xl font-bold tracking-tight sm:text-4xl">
               {currentStep.title}
             </h1>
-            <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted-foreground sm:mt-3 sm:text-base sm:leading-7">
+            <p className="mt-2 text-sm leading-6 text-muted-foreground sm:mt-3 sm:text-base sm:leading-7">
               {currentStep.description}
             </p>
 
@@ -150,46 +165,52 @@ function BuildSession({ project }: { project: PracticalProject }) {
                 ) : (
                   <Lightbulb aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-primary" />
                 )}
-                <p className="line-clamp-2 sm:line-clamp-none">{currentStep.note.text}</p>
+                <p>{currentStep.note.text}</p>
               </div>
             ) : null}
 
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button className="mt-4 rounded-2xl" type="button" variant="outline">
-                  <CircleHelp aria-hidden="true" />
-                  I Need Help
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-md rounded-3xl">
-                <DialogHeader>
-                  <span className="mb-2 grid size-12 place-items-center rounded-2xl bg-primary-soft text-primary">
-                    <CircleHelp aria-hidden="true" className="size-6" />
-                  </span>
-                  <DialogTitle>Let’s solve it together</DialogTitle>
-                  <DialogDescription className="leading-6">
-                    Check this common problem before changing your build.
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="rounded-2xl bg-secondary p-4">
-                  <p className="text-sm font-bold">{helpItem?.question || "Check the current step"}</p>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                    {helpItem?.answer || project.safetyNote}
-                  </p>
-                </div>
-                <div className="flex items-start gap-3 rounded-2xl bg-warning-soft p-4 text-sm leading-6">
-                  <ShieldCheck aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-warning" />
-                  <p>{project.safetyNote}</p>
-                </div>
-                <DialogFooter>
-                  <DialogClose asChild>
-                    <Button className="rounded-2xl" type="button">
-                      I’m Ready to Try
-                    </Button>
-                  </DialogClose>
-                </DialogFooter>
-              </DialogContent>
-            </Dialog>
+            {hasHelp ? (
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="mt-4 rounded-2xl" type="button" variant="outline">
+                    <CircleHelp aria-hidden="true" />
+                    I Need Help
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-md rounded-3xl">
+                  <DialogHeader>
+                    <span className="mb-2 grid size-12 place-items-center rounded-2xl bg-primary-soft text-primary">
+                      <CircleHelp aria-hidden="true" className="size-6" />
+                    </span>
+                    <DialogTitle>Let’s solve it together</DialogTitle>
+                    <DialogDescription className="leading-6">
+                      Check this guidance before changing your build.
+                    </DialogDescription>
+                  </DialogHeader>
+                  {helpItem ? (
+                    <div className="rounded-2xl bg-secondary p-4">
+                      <p className="text-sm font-bold">{helpItem.question}</p>
+                      <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                        {helpItem.answer}
+                      </p>
+                    </div>
+                  ) : null}
+                  {project.safetyNote ? (
+                    <div className="flex items-start gap-3 rounded-2xl bg-warning-soft p-4 text-sm leading-6">
+                      <ShieldCheck aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-warning" />
+                      <p>{project.safetyNote}</p>
+                    </div>
+                  ) : null}
+                  <DialogFooter>
+                    <DialogClose asChild>
+                      <Button className="rounded-2xl" type="button">
+                        I’m Ready to Try
+                      </Button>
+                    </DialogClose>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+            ) : null}
           </section>
         </div>
       </main>
