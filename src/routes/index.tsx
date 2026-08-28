@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Bot, CircuitBoard, Sparkles } from "lucide-react";
 
@@ -17,10 +17,12 @@ export const Route = createFileRoute("/")({
 function MobileLogoIntro() {
   const [isVisible, setIsVisible] = useState(true);
   const [isFading, setIsFading] = useState(false);
+  const hasStartedExitRef = useRef(false);
   const exitTimerRef = useRef<number | null>(null);
 
-  const finishIntro = () => {
-    if (isFading) return;
+  const finishIntro = useCallback(() => {
+    if (hasStartedExitRef.current) return;
+    hasStartedExitRef.current = true;
 
     try {
       window.sessionStorage.setItem(MOBILE_INTRO_STORAGE_KEY, "true");
@@ -32,7 +34,7 @@ function MobileLogoIntro() {
     exitTimerRef.current = window.setTimeout(() => {
       setIsVisible(false);
     }, MOBILE_INTRO_FADE_MS);
-  };
+  }, []);
 
   useEffect(() => {
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
@@ -64,7 +66,7 @@ function MobileLogoIntro() {
         window.clearTimeout(exitTimerRef.current);
       }
     };
-  }, []);
+  }, [finishIntro]);
 
   useEffect(() => {
     if (!isVisible) return;
