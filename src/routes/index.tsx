@@ -169,57 +169,57 @@ function MobileCompetitionHome() {
   ] as const;
 
   return (
-    <main className="relative flex h-[100dvh] flex-col overflow-hidden bg-white px-4 pb-3 pt-2 text-[#14254a] md:hidden">
+    <main className="relative flex h-[100svh] flex-col overflow-hidden bg-white px-3 pb-[max(10px,env(safe-area-inset-bottom))] pt-1 text-[#14254a] md:hidden [@media(min-height:850px)]:px-4 [@media(min-height:850px)]:pt-2">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <Cog className="absolute -left-5 top-[22%] size-20 text-[#1598ea]/10" strokeWidth={1.5} />
-        <Cog className="absolute left-16 top-[31%] size-10 text-[#1598ea]/10" strokeWidth={1.5} />
-        <Rocket className="absolute -right-4 top-[27%] size-20 -rotate-12 text-[#ec168c]/12" strokeWidth={1.6} />
-        <Cog className="absolute right-4 top-[40%] size-9 text-[#f5a400]/12" strokeWidth={1.6} />
+        <Cog className="absolute -left-5 top-[23%] size-16 text-[#1598ea]/9 [@media(min-height:850px)]:size-20" strokeWidth={1.5} />
+        <Cog className="absolute left-16 top-[31%] size-9 text-[#1598ea]/9 [@media(min-height:850px)]:size-10" strokeWidth={1.5} />
+        <Rocket className="absolute -right-4 top-[28%] size-16 -rotate-12 text-[#ec168c]/10 [@media(min-height:850px)]:size-20" strokeWidth={1.6} />
+        <Cog className="absolute right-4 top-[40%] size-8 text-[#f5a400]/10 [@media(min-height:850px)]:size-9" strokeWidth={1.6} />
       </div>
 
-      <header className="relative z-10 flex h-14 shrink-0 items-center justify-between">
+      <header className="relative z-10 flex h-12 shrink-0 items-center justify-between [@media(max-height:700px)]:h-11 [@media(min-height:850px)]:h-14">
         <button
           aria-label={soundOn ? "Mute sounds" : "Turn on sounds"}
           aria-pressed={soundOn}
-          className="grid size-11 place-items-center rounded-full border border-slate-200 bg-white text-[#1598ea] shadow-[0_6px_18px_rgba(18,50,93,0.10)] transition active:scale-95"
+          className="grid size-10 place-items-center rounded-full border border-slate-200 bg-white text-[#1598ea] shadow-[0_5px_14px_rgba(18,50,93,0.09)] transition active:scale-95 [@media(max-height:700px)]:size-9 [@media(min-height:850px)]:size-11"
           onClick={() => setSoundOn((value) => !value)}
           type="button"
         >
-          {soundOn ? <Volume2 className="size-5" /> : <VolumeX className="size-5" />}
+          {soundOn ? <Volume2 className="size-[18px]" /> : <VolumeX className="size-[18px]" />}
         </button>
 
         <img
           alt="BE STEM READY"
-          className="absolute left-1/2 top-1/2 h-12 w-auto -translate-x-1/2 -translate-y-1/2 object-contain"
+          className="absolute left-1/2 top-1/2 h-10 w-auto -translate-x-1/2 -translate-y-1/2 object-contain [@media(max-height:700px)]:h-9 [@media(min-height:850px)]:h-11"
           src="/home/be-stem-ready-logo.svg"
         />
 
         <Link
           aria-label="Open profile and progress"
-          className="grid size-11 place-items-center rounded-full border border-slate-200 bg-white text-[#1598ea] shadow-[0_6px_18px_rgba(18,50,93,0.10)] transition active:scale-95"
+          className="grid size-10 place-items-center rounded-full border border-slate-200 bg-white text-[#1598ea] shadow-[0_5px_14px_rgba(18,50,93,0.09)] transition active:scale-95 [@media(max-height:700px)]:size-9 [@media(min-height:850px)]:size-11"
           to="/progress"
         >
-          <UserRound className="size-5" strokeWidth={2.2} />
+          <UserRound className="size-[18px]" strokeWidth={2.2} />
         </Link>
       </header>
 
       <section className="relative z-10 shrink-0 text-center">
-        <div className="mx-auto mt-1 inline-flex items-center gap-2 rounded-full border border-[#1598ea]/35 bg-white/95 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.08em] text-[#1598ea] shadow-sm">
-          <Trophy className="size-3.5" />
+        <div className="mx-auto inline-flex items-center gap-1.5 rounded-full border border-[#1598ea]/35 bg-white/95 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-[0.07em] text-[#1598ea] shadow-sm [@media(max-width:340px)]:px-2 [@media(max-width:340px)]:text-[8px] [@media(min-height:850px)]:mt-1 [@media(min-height:850px)]:px-3 [@media(min-height:850px)]:py-1.5 [@media(min-height:850px)]:text-[10px]">
+          <Trophy className="size-3 [@media(min-height:850px)]:size-3.5" />
           CIPTRIX Robotics Practice
         </div>
 
-        <h1 className="mt-3 text-[clamp(2.3rem,10vw,3.15rem)] font-black leading-[0.96] tracking-[-0.045em]">
+        <h1 className="mt-2 text-[clamp(2rem,9.2vw,2.8rem)] font-black leading-[0.9] tracking-[-0.048em] [@media(max-height:700px)]:mt-1.5 [@media(max-height:700px)]:text-[clamp(1.85rem,8.6vw,2.35rem)] [@media(min-height:850px)]:mt-3 [@media(min-height:850px)]:text-[clamp(2.25rem,9.6vw,3rem)]">
           <span className="block text-[#1598ea]">Train Today.</span>
-          <span className="mt-1 block text-[#ec168c]">Compete Tomorrow.</span>
+          <span className="mt-1 block text-[#ec168c] [@media(max-height:700px)]:mt-0.5">Compete Tomorrow.</span>
         </h1>
 
-        <p className="mx-auto mt-3 max-w-[345px] text-[14px] font-medium leading-5 text-[#23365d] [@media(max-height:720px)]:mt-2 [@media(max-height:720px)]:text-[13px] [@media(max-height:720px)]:leading-[18px]">
+        <p className="mx-auto mt-2 max-w-[335px] text-[12.5px] font-medium leading-[17px] text-[#23365d] [@media(max-height:700px)]:mt-1.5 [@media(max-height:700px)]:max-w-[310px] [@media(max-height:700px)]:text-[11.5px] [@media(max-height:700px)]:leading-[15px] [@media(min-height:850px)]:mt-3 [@media(min-height:850px)]:max-w-[350px] [@media(min-height:850px)]:text-[14px] [@media(min-height:850px)]:leading-5">
           Learn the challenge, build your robot step by step, and get ready for real competition day.
         </p>
       </section>
 
-      <section className="relative z-10 mt-3 min-h-[145px] flex-1 overflow-hidden rounded-[26px] border border-slate-100 bg-[#edf3f8] shadow-[0_14px_35px_rgba(24,72,120,0.12)] [@media(max-height:720px)]:mt-2">
+      <section className="relative z-10 mt-2 h-[25svh] min-h-[138px] max-h-[220px] shrink-0 overflow-hidden rounded-[22px] border border-slate-100 bg-[#edf3f8] shadow-[0_10px_28px_rgba(24,72,120,0.11)] [@media(max-height:700px)]:mt-1.5 [@media(max-height:700px)]:h-[22svh] [@media(max-height:700px)]:min-h-[118px] [@media(max-height:700px)]:rounded-[18px] [@media(min-height:850px)]:mt-3 [@media(min-height:850px)]:h-[26svh] [@media(min-height:850px)]:max-h-[235px] [@media(min-height:850px)]:rounded-[26px]">
         <img
           alt="Students preparing a robot in a robotics competition arena"
           className="h-full w-full object-cover object-center"
@@ -228,11 +228,11 @@ function MobileCompetitionHome() {
           src={COMPETITION_PHOTO}
         />
 
-        <div className="absolute inset-x-3 bottom-3 grid h-[50px] grid-cols-4 divide-x divide-slate-200 rounded-[18px] bg-white/95 px-1 shadow-[0_8px_24px_rgba(17,53,92,0.14)] backdrop-blur-sm">
+        <div className="absolute inset-x-2 bottom-2 grid h-10 grid-cols-4 divide-x divide-slate-200 rounded-[14px] bg-white/95 px-0.5 shadow-[0_6px_18px_rgba(17,53,92,0.13)] backdrop-blur-sm [@media(max-height:700px)]:bottom-1.5 [@media(max-height:700px)]:h-9 [@media(min-height:850px)]:inset-x-3 [@media(min-height:850px)]:bottom-3 [@media(min-height:850px)]:h-[46px] [@media(min-height:850px)]:rounded-[16px]">
           {stats.map(({ label, icon: Icon, color }) => (
-            <div className="flex min-w-0 flex-col items-center justify-center gap-0.5" key={label}>
-              <Icon className="size-4" style={{ color }} strokeWidth={2.2} />
-              <span className="truncate text-[7px] font-extrabold uppercase tracking-[0.03em] text-[#14254a]">
+            <div className="flex min-w-0 flex-col items-center justify-center gap-px" key={label}>
+              <Icon className="size-3.5 [@media(max-height:700px)]:size-3 [@media(min-height:850px)]:size-4" style={{ color }} strokeWidth={2.2} />
+              <span className="truncate text-[6.5px] font-extrabold uppercase tracking-[0.02em] text-[#14254a] [@media(max-width:340px)]:text-[5.8px] [@media(min-height:850px)]:text-[7px]">
                 {label}
               </span>
             </div>
@@ -240,16 +240,16 @@ function MobileCompetitionHome() {
         </div>
       </section>
 
-      <section className="relative z-10 shrink-0 pt-3 [@media(max-height:720px)]:pt-2">
-        <div className="mb-1.5 flex items-center gap-2 px-1">
-          <h2 className="text-[14px] font-black tracking-tight text-[#14254a]">Your Journey</h2>
-          <Sparkles className="size-4 text-[#1598ea]" />
+      <section className="relative z-10 shrink-0 pt-2 [@media(max-height:700px)]:pt-1.5 [@media(min-height:850px)]:pt-3">
+        <div className="mb-1 flex items-center gap-1.5 px-1 [@media(max-height:700px)]:mb-0.5 [@media(min-height:850px)]:mb-1.5">
+          <h2 className="text-[13px] font-black tracking-tight text-[#14254a] [@media(max-height:700px)]:text-[12px] [@media(min-height:850px)]:text-[14px]">Your Journey</h2>
+          <Sparkles className="size-3.5 text-[#1598ea] [@media(min-height:850px)]:size-4" />
         </div>
 
-        <div className="relative grid grid-cols-3 gap-2">
+        <div className="relative grid grid-cols-3 gap-1.5">
           <svg
             aria-hidden="true"
-            className="pointer-events-none absolute left-[13%] right-[13%] top-[31px] h-8 w-[74%]"
+            className="pointer-events-none absolute left-[13%] right-[13%] top-[27px] h-7 w-[74%] [@media(max-height:700px)]:top-[24px] [@media(min-height:850px)]:top-[31px] [@media(min-height:850px)]:h-8"
             preserveAspectRatio="none"
             viewBox="0 0 300 32"
           >
@@ -266,29 +266,29 @@ function MobileCompetitionHome() {
           {journey.map(({ title, detail, icon: Icon, color }, index) => (
             <div className="relative flex min-w-0 flex-col items-center text-center" key={title}>
               <div
-                className="relative z-10 grid size-[62px] place-items-center rounded-full border-[4px] border-white text-white shadow-[0_7px_18px_rgba(28,60,100,0.13)] [@media(max-height:720px)]:size-[56px]"
+                className="relative z-10 grid size-14 place-items-center rounded-full border-[4px] border-white text-white shadow-[0_6px_16px_rgba(28,60,100,0.12)] [@media(max-height:700px)]:size-12 [@media(min-height:850px)]:size-[62px]"
                 style={{ backgroundColor: color }}
               >
-                <span className="absolute -top-2 grid size-5 place-items-center rounded-full border-2 border-white bg-inherit text-[9px] font-black">
+                <span className="absolute -top-2 grid size-5 place-items-center rounded-full border-2 border-white bg-inherit text-[9px] font-black [@media(max-height:700px)]:size-[18px] [@media(max-height:700px)]:text-[8px]">
                   {index + 1}
                 </span>
-                <Icon className="size-7 [@media(max-height:720px)]:size-6" strokeWidth={2.4} />
+                <Icon className="size-6 [@media(max-height:700px)]:size-5 [@media(min-height:850px)]:size-7" strokeWidth={2.4} />
               </div>
-              <p className="mt-1.5 whitespace-nowrap text-[10px] font-black leading-none" style={{ color }}>
+              <p className="mt-1 whitespace-nowrap text-[9.5px] font-black leading-none [@media(max-width:340px)]:text-[8.5px] [@media(max-height:700px)]:text-[8.5px] [@media(min-height:850px)]:mt-1.5 [@media(min-height:850px)]:text-[10px]" style={{ color }}>
                 {title}
               </p>
-              <p className="mt-1 max-w-[105px] text-[9px] font-medium leading-[11px] text-[#425273] [@media(max-height:720px)]:hidden">
+              <p className="mt-1 hidden max-w-[105px] text-[9px] font-medium leading-[11px] text-[#425273] [@media(min-height:850px)]:block">
                 {detail}
               </p>
             </div>
           ))}
-          <Rocket className="absolute -right-1 top-5 size-7 -rotate-12 text-[#ec168c]" strokeWidth={2.3} />
+          <Rocket className="absolute -right-0.5 top-4 size-6 -rotate-12 text-[#ec168c] [@media(max-height:700px)]:top-3 [@media(max-height:700px)]:size-5 [@media(min-height:850px)]:-right-1 [@media(min-height:850px)]:top-5 [@media(min-height:850px)]:size-7" strokeWidth={2.3} />
         </div>
       </section>
 
       <Button
         asChild
-        className="relative z-10 mt-3 h-[54px] shrink-0 rounded-full bg-[#1598ea] text-[17px] font-black shadow-[0_12px_28px_rgba(21,152,234,0.25)] hover:bg-[#0f8bdd] [@media(max-height:720px)]:mt-2 [@media(max-height:720px)]:h-[50px]"
+        className="relative z-10 mt-2 h-12 shrink-0 rounded-full bg-[#1598ea] text-[16px] font-black shadow-[0_9px_22px_rgba(21,152,234,0.23)] hover:bg-[#0f8bdd] [@media(max-height:700px)]:mt-1.5 [@media(max-height:700px)]:h-11 [@media(max-height:700px)]:text-[15px] [@media(min-height:850px)]:mt-3 [@media(min-height:850px)]:h-[54px] [@media(min-height:850px)]:text-[17px]"
       >
         <Link to="/join">
           Start Journey
