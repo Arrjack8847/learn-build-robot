@@ -1,250 +1,360 @@
+import { useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import {
   ArrowLeft,
   ArrowRight,
   BookOpen,
+  Check,
   CheckCircle2,
+  ChevronLeft,
   FlaskConical,
   Lightbulb,
+  Sparkles,
   Target,
+  Trophy,
+  type LucideIcon,
 } from "lucide-react";
 
-import { LessonOutline } from "@/components/learning/LessonOutline";
-import { QuizExperience } from "@/components/quiz/QuizExperience";
+import { LearningIllustration } from "@/components/journey/LearningIllustration";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { useProgress } from "@/context/ProgressContext";
-import { allLessons, getLesson, getModuleForLesson } from "@/data/theory";
+import { getModule, getModuleForLesson } from "@/data/theory";
+import type { TheoryModule } from "@/types/learning";
 
 export const Route = createFileRoute("/theory/$lessonId")({
   component: TheoryLessonPage,
 });
 
-function TheoryLessonPage() {
-  const { lessonId = "" } = Route.useParams();
-  const lesson = getLesson(lessonId);
-  const module = getModuleForLesson(lessonId);
-  const { isLessonCompleted, toggleLessonCompleted } = useProgress();
+type LearningStage = "pages" | "complete";
+type LearningPageKind = "overview" | "explanation" | "concept" | "example";
 
-  if (!lesson || !module) {
-    return <MissingLesson />;
+interface LearningPage {
+  id: string;
+  lessonId: string;
+  lessonTitle: string;
+  kind: LearningPageKind;
+  eyebrow: string;
+  title: string;
+  body: string;
+  bullets?: string[];
+}
+
+const pageIcons: Record<LearningPageKind, LucideIcon> = {
+  overview: Target,
+  explanation: BookOpen,
+  concept: Lightbulb,
+  example: FlaskConical,
+};
+
+function TheoryLessonPage() {
+  const { lessonId: moduleId = "" } = Route.useParams();
+  const module = getModule(moduleId) ?? getModuleForLesson(moduleId);
+  const { hydrated } = useProgress();
+
+  if (!module) {
+    return <MissingTopic />;
   }
 
-  const completed = isLessonCompleted(lesson.id);
-  const completedInModule = module.lessons.filter((item) => isLessonCompleted(item.id)).length;
-  const modulePercent = Math.round((completedInModule / module.lessons.length) * 100);
-  const lessonNumber = module.lessons.findIndex((item) => item.id === lesson.id) + 1;
-  const globalIndex = allLessons.findIndex((item) => item.id === lesson.id);
-  const previousLesson = globalIndex > 0 ? allLessons[globalIndex - 1] : undefined;
-  const nextLesson = globalIndex < allLessons.length - 1 ? allLessons[globalIndex + 1] : undefined;
+  if (!hydrated) {
+    return <LearningLoading />;
+  }
+
+  return <LearningSession key={module.id} module={module} />;
+}
+
+function LearningSession({ module }: { module: TheoryModule }) {
+  const {
+    progress,
+    isLessonCompleted,
+    setLastTheoryPage,
+    toggleLessonCompleted,
+  } = useProgress();
+  const pages = createLearningPages(module);
+  const firstIncompletePage = pages.findIndex((page) => !isLessonCompleted(page.lessonId));
+  const moduleCompleted = module.lessons.every((lesson) => isLessonCompleted(lesson.id));
+  const savedPage = progress.lastTheoryPageByModule[module.id] ?? 0;
+  const safeSavedPage = Math.min(Math.max(savedPage, 0), Math.max(pages.length - 1, 0));
+  const savedLearningPage = pages[safeSavedPage];
+  const savedPageIsCurrent = savedLearningPage
+    ? !isLessonCompleted(savedLearningPage.lessonId)
+    : false;
+  const [currentIndex, setCurrentIndex] = useState(() =>
+    moduleCompleted
+      ? 0
+      : savedPageIsCurrent
+        ? safeSavedPage
+        : Math.max(firstIncompletePage, 0),
+  );
+  const [stage, setStage] = useState<LearningStage>("pages");
+  const currentPage = pages[currentIndex];
+
+  if (!currentPage) {
+    return <MissingTopic />;
+  }
+
+  if (stage === "complete") {
+    return (
+      <LearningCelebration
+        module={module}
+        onReview={() => {
+          setCurrentIndex(0);
+          setStage("pages");
+        }}
+        studentName={progress.studentName || "Builder"}
+      />
+    );
+  }
+
+  const PageIcon = pageIcons[currentPage.kind];
+  const currentLessonId = currentPage.lessonId;
+  const isLastPage = currentIndex === pages.length - 1;
+  const nextPage = pages[currentIndex + 1];
+  const isLastPageInLesson = !nextPage || nextPage.lessonId !== currentPage.lessonId;
+  const displayedPercent = Math.round(((currentIndex + 1) / pages.length) * 100);
+  const lessonIndex = module.lessons.findIndex((lesson) => lesson.id === currentPage.lessonId);
+
+  function finishCurrentPage() {
+    if (isLastPageInLesson) {
+      toggleLessonCompleted(currentLessonId, true);
+    }
+
+    if (isLastPage) {
+      setLastTheoryPage(module.id, pages.length - 1);
+      setStage("complete");
+      return;
+    }
+
+    const newIndex = currentIndex + 1;
+    setLastTheoryPage(module.id, newIndex);
+    setCurrentIndex(newIndex);
+  }
+
+  function goToPreviousPage() {
+    const newIndex = Math.max(0, currentIndex - 1);
+    setLastTheoryPage(module.id, newIndex);
+    setCurrentIndex(newIndex);
+  }
 
   return (
-    <div className="mx-auto w-full max-w-7xl space-y-6">
-      <Link
-        className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary hover:underline"
-        to="/theory"
-      >
-        <ArrowLeft aria-hidden="true" className="size-4" />
-        Back to theory
-      </Link>
-
-      <header className="overflow-hidden rounded-3xl border bg-card shadow-card">
-        <div className="p-6 sm:p-8">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-            <div className="max-w-3xl">
-              <p className="text-sm font-semibold text-primary">
-                Module {module.number} · Lesson {lessonNumber} of {module.lessons.length}
-              </p>
-              <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">{lesson.title}</h1>
-              <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base">
-                {module.description}
-              </p>
-            </div>
-            <Button
-              className={`min-h-11 shrink-0 rounded-xl px-5 ${
-                completed ? "bg-success-soft text-success shadow-none hover:bg-success-soft/80" : ""
-              }`}
-              onClick={() => toggleLessonCompleted(lesson.id)}
-            >
-              <CheckCircle2 aria-hidden="true" />
-              {completed ? "Lesson completed" : "Mark lesson complete"}
-            </Button>
-          </div>
+    <div className="flex h-full flex-col overflow-hidden bg-background">
+      <header className="flex min-h-16 items-center justify-between gap-3 border-b bg-card px-4 sm:px-8">
+        <Link
+          aria-label="Exit topic and choose another learning topic"
+          className="grid size-11 shrink-0 place-items-center rounded-2xl border text-foreground transition hover:bg-secondary"
+          to="/theory"
+        >
+          <ArrowLeft aria-hidden="true" className="size-5" />
+        </Link>
+        <div className="min-w-0 text-center">
+          <p className="truncate text-sm font-bold">{module.title}</p>
+          <p className="text-xs text-muted-foreground">
+            Page {currentIndex + 1} of {pages.length}
+          </p>
         </div>
-        <div className="border-t bg-secondary/60 px-6 py-4 sm:px-8">
-          <div className="flex items-center justify-between gap-4 text-xs font-semibold text-muted-foreground">
-            <span>{module.title}</span>
-            <span>{modulePercent}% complete</span>
-          </div>
-          <Progress
-            aria-label={`${modulePercent}% of ${module.title} completed`}
-            className="mt-2 bg-background [&>div]:bg-success"
-            value={modulePercent}
-          />
-        </div>
+        <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-primary-soft text-primary">
+          <Check aria-hidden="true" className="size-5" />
+        </span>
       </header>
 
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
-        <LessonOutline lessonId={lesson.id} module={module} />
+      <Progress
+        aria-label={`Page ${currentIndex + 1} of ${pages.length}`}
+        className="h-1.5 rounded-none bg-secondary [&>div]:bg-primary"
+        value={displayedPercent}
+      />
 
-        <main className="space-y-6 lg:col-start-1 lg:row-start-1">
-          <section
-            aria-labelledby="objectives-heading"
-            className="scroll-mt-6 rounded-3xl border bg-card p-6 shadow-card sm:p-8"
-            id="objectives"
-          >
-            <div className="flex items-center gap-3">
-              <span className="grid size-11 place-items-center rounded-2xl bg-primary-soft text-primary">
-                <Target aria-hidden="true" className="size-5" />
-              </span>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                  Start here
-                </p>
-                <h2 id="objectives-heading" className="text-xl font-bold">
-                  Learning objectives
-                </h2>
-              </div>
+      <main className="flex min-h-0 flex-1 items-center px-4 py-3 sm:px-8 sm:py-5">
+        <div className="mx-auto grid w-full max-w-5xl items-center gap-4 md:grid-cols-[0.9fr_1.1fr] md:gap-8">
+          <LearningIllustration
+            className="min-h-24 sm:min-h-52 md:min-h-[22rem]"
+            icon={module.icon}
+            variant={module.number - 1}
+          />
+
+          <section className="min-w-0">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-primary">
+              <PageIcon aria-hidden="true" className="size-4" />
+              {currentPage.eyebrow}
             </div>
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-              {lesson.objectives.map((objective) => (
-                <li
-                  className="flex gap-3 rounded-2xl bg-secondary/70 p-4 text-sm leading-6"
-                  key={objective}
-                >
-                  <CheckCircle2 aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-success" />
-                  {objective}
-                </li>
-              ))}
-            </ul>
-          </section>
+            <p className="mt-2 text-xs font-semibold text-muted-foreground">
+              Lesson {lessonIndex + 1} of {module.lessons.length} · {currentPage.lessonTitle}
+            </p>
+            <h1 className="mt-2 text-2xl font-bold tracking-tight sm:text-4xl">
+              {currentPage.title}
+            </h1>
+            <p className="mt-2 line-clamp-4 text-sm leading-6 text-muted-foreground sm:mt-3 sm:line-clamp-none sm:text-base sm:leading-7">
+              {currentPage.body}
+            </p>
 
-          <article
-            aria-labelledby="lesson-heading"
-            className="scroll-mt-6 rounded-3xl border bg-card p-6 shadow-card sm:p-8"
-            id="lesson"
-          >
-            <div className="flex items-center gap-3 border-b pb-5">
-              <span className="grid size-11 place-items-center rounded-2xl bg-secondary text-primary">
-                <BookOpen aria-hidden="true" className="size-5" />
-              </span>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                  Lesson notes
-                </p>
-                <h2 id="lesson-heading" className="text-xl font-bold">
-                  {lesson.title}
-                </h2>
-              </div>
-            </div>
-            <div className="mt-6 space-y-5 text-base leading-8 text-muted-foreground">
-              {lesson.content.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-          </article>
-
-          <section
-            aria-labelledby="key-concept-heading"
-            className="scroll-mt-6 overflow-hidden rounded-3xl border border-warning/20 bg-warning-soft/60 shadow-card"
-            id="key-concept"
-          >
-            <div className="p-6 sm:p-8">
-              <div className="flex items-center gap-3 text-warning">
-                <Lightbulb aria-hidden="true" className="size-6" />
-                <p className="text-xs font-bold uppercase tracking-[0.16em]">Key concept</p>
-              </div>
-              <h2 id="key-concept-heading" className="mt-4 text-2xl font-bold text-foreground">
-                {lesson.concept.title}
-              </h2>
-              <p className="mt-3 text-base leading-8 text-foreground/80">{lesson.concept.body}</p>
-            </div>
-          </section>
-
-          <section
-            aria-labelledby="worked-example-heading"
-            className="scroll-mt-6 rounded-3xl bg-navy p-6 text-navy-foreground shadow-lift sm:p-8"
-            id="worked-example"
-          >
-            <div className="flex items-center gap-3 text-primary">
-              <FlaskConical aria-hidden="true" className="size-6" />
-              <p className="text-xs font-bold uppercase tracking-[0.16em]">Worked example</p>
-            </div>
-            <h2 id="worked-example-heading" className="mt-4 text-2xl font-bold">
-              {lesson.example.title}
-            </h2>
-            <p className="mt-3 text-base leading-8 text-navy-muted">{lesson.example.body}</p>
-          </section>
-
-          <QuizExperience key={lesson.id} lesson={lesson} />
-
-          <section className="rounded-3xl border bg-card p-6 shadow-card sm:p-8">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <h2 className="text-lg font-bold">Finished reading?</h2>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  Mark the lesson complete when you are comfortable with the key idea.
-                </p>
-              </div>
-              <Button
-                className={`min-h-11 rounded-xl px-5 ${
-                  completed ? "bg-success-soft text-success shadow-none hover:bg-success-soft/80" : ""
-                }`}
-                onClick={() => toggleLessonCompleted(lesson.id)}
-              >
-                <CheckCircle2 aria-hidden="true" />
-                {completed ? "Completed" : "Mark complete"}
-              </Button>
-            </div>
-          </section>
-
-          <nav aria-label="Lesson navigation" className="grid gap-3 sm:grid-cols-2">
-            {previousLesson ? (
-              <Link
-                className="group rounded-2xl border bg-card p-5 shadow-card transition hover:border-primary/30"
-                params={{ lessonId: previousLesson.id }}
-                to="/theory/$lessonId"
-              >
-                <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                  <ArrowLeft aria-hidden="true" className="size-4 transition-transform group-hover:-translate-x-1" />
-                  Previous lesson
-                </span>
-                <span className="mt-2 block font-bold">{previousLesson.title}</span>
-              </Link>
+            {currentPage.bullets ? (
+              <ul className="mt-3 grid gap-2 sm:mt-4">
+                {currentPage.bullets.slice(0, 3).map((bullet) => (
+                  <li
+                    className="flex items-start gap-2 rounded-xl bg-secondary px-3 py-2 text-xs font-semibold leading-5 sm:text-sm"
+                    key={bullet}
+                  >
+                    <CheckCircle2
+                      aria-hidden="true"
+                      className="mt-0.5 size-4 shrink-0 text-success"
+                    />
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
             ) : (
-              <span aria-hidden="true" />
+              <div className="mt-4 flex items-start gap-3 rounded-2xl bg-primary-soft p-3 text-sm leading-6 sm:p-4">
+                <Lightbulb aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-primary" />
+                <p>Read it once, then explain the idea in your own words.</p>
+              </div>
             )}
-            {nextLesson ? (
-              <Link
-                className="group rounded-2xl border bg-card p-5 text-right shadow-card transition hover:border-primary/30"
-                params={{ lessonId: nextLesson.id }}
-                to="/theory/$lessonId"
-              >
-                <span className="flex items-center justify-end gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                  Next lesson
-                  <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover:translate-x-1" />
-                </span>
-                <span className="mt-2 block font-bold">{nextLesson.title}</span>
-              </Link>
-            ) : null}
-          </nav>
-        </main>
+          </section>
+        </div>
+      </main>
+
+      <footer className="border-t bg-card px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 sm:px-8 sm:py-4">
+        <div className="mx-auto flex w-full max-w-5xl gap-3">
+          <Button
+            aria-label="Go to previous learning page"
+            className="min-h-12 rounded-2xl px-4 sm:px-6"
+            disabled={currentIndex === 0}
+            onClick={goToPreviousPage}
+            type="button"
+            variant="outline"
+          >
+            <ChevronLeft aria-hidden="true" />
+            <span className="hidden sm:inline">Previous</span>
+          </Button>
+          <Button
+            className="min-h-12 flex-1 rounded-2xl text-base font-bold"
+            onClick={finishCurrentPage}
+            type="button"
+          >
+            {isLastPage ? "Finish Topic" : "Got It — Next Page"}
+            {isLastPage ? (
+              <Sparkles aria-hidden="true" />
+            ) : (
+              <ArrowRight aria-hidden="true" />
+            )}
+          </Button>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+function LearningCelebration({
+  module,
+  studentName,
+  onReview,
+}: {
+  module: TheoryModule;
+  studentName: string;
+  onReview: () => void;
+}) {
+  return (
+    <div className="relative grid h-full place-items-center overflow-hidden bg-navy px-5 py-6 text-center text-navy-foreground">
+      <div aria-hidden="true" className="circuit-grid-dark absolute inset-0 opacity-50" />
+      <main className="relative w-full max-w-2xl">
+        <span className="mx-auto grid size-24 place-items-center rounded-[2rem] bg-primary-soft text-primary shadow-lift sm:size-28">
+          <Trophy aria-hidden="true" className="size-12 sm:size-14" />
+        </span>
+        <div className="mt-5 flex justify-center gap-2 text-warning" aria-hidden="true">
+          <Sparkles className="size-5" />
+          <Sparkles className="size-7" />
+          <Sparkles className="size-5" />
+        </div>
+        <p className="mt-4 text-sm font-bold uppercase tracking-[0.18em] text-primary">
+          Topic complete
+        </p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-5xl">
+          Great learning, {studentName}!
+        </h1>
+        <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-navy-muted sm:text-base sm:leading-7">
+          You finished {module.title}. Your learning progress has been saved and your Quiz unlock
+          progress is updated.
+        </p>
+
+        <div className="mx-auto mt-7 grid max-w-md gap-3">
+          <Button asChild className="min-h-12 rounded-2xl text-base font-bold">
+            <Link to="/choose">
+              Continue My Journey
+              <ArrowRight aria-hidden="true" />
+            </Link>
+          </Button>
+          <Button
+            className="min-h-12 rounded-2xl border-white/15 bg-navy-hover text-navy-foreground hover:bg-navy-hover/80"
+            onClick={onReview}
+            type="button"
+            variant="outline"
+          >
+            Review This Topic
+          </Button>
+        </div>
+      </main>
+    </div>
+  );
+}
+
+function createLearningPages(module: TheoryModule): LearningPage[] {
+  return module.lessons.flatMap((lesson) => [
+    {
+      id: `${lesson.id}-overview`,
+      lessonId: lesson.id,
+      lessonTitle: lesson.title,
+      kind: "overview" as const,
+      eyebrow: "What you will learn",
+      title: lesson.title,
+      body: lesson.content[0] ?? module.description,
+      bullets: lesson.objectives,
+    },
+    {
+      id: `${lesson.id}-explanation`,
+      lessonId: lesson.id,
+      lessonTitle: lesson.title,
+      kind: "explanation" as const,
+      eyebrow: "How it works",
+      title: "Look at the whole system",
+      body: lesson.content[1] ?? lesson.content[0] ?? module.description,
+    },
+    {
+      id: `${lesson.id}-concept`,
+      lessonId: lesson.id,
+      lessonTitle: lesson.title,
+      kind: "concept" as const,
+      eyebrow: "Key idea",
+      title: lesson.concept.title,
+      body: lesson.concept.body,
+    },
+    {
+      id: `${lesson.id}-example`,
+      lessonId: lesson.id,
+      lessonTitle: lesson.title,
+      kind: "example" as const,
+      eyebrow: "Real robot example",
+      title: lesson.example.title,
+      body: lesson.example.body,
+    },
+  ]);
+}
+
+function MissingTopic() {
+  return (
+    <div className="grid h-full place-items-center bg-background px-5 text-center">
+      <div>
+        <h1 className="text-2xl font-bold">We couldn’t find that learning topic.</h1>
+        <Link className="mt-5 inline-flex items-center gap-2 font-semibold text-primary" to="/theory">
+          <ArrowLeft aria-hidden="true" className="size-4" />
+          Choose a topic
+        </Link>
       </div>
     </div>
   );
 }
 
-function MissingLesson() {
+function LearningLoading() {
   return (
-    <div className="mx-auto max-w-xl rounded-3xl border bg-card p-8 text-center shadow-card">
-      <h1 className="text-2xl font-bold">Lesson not found</h1>
-      <p className="mt-2 text-sm text-muted-foreground">This demonstration lesson is not available.</p>
-      <Link
-        className="mt-5 inline-flex min-h-11 items-center rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground"
-        to="/theory"
-      >
-        Return to theory
-      </Link>
+    <div aria-live="polite" className="grid h-full place-items-center bg-background">
+      <p className="text-sm font-semibold text-muted-foreground">Finding your learning page…</p>
     </div>
   );
 }
