@@ -2,7 +2,8 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { BookOpen, Bot, CircuitBoard, Home, LineChart, UserRound } from "lucide-react";
 import type { ReactNode } from "react";
 
-import { APP_NAME, APP_TAGLINE, DEMO_STUDENT_NAME, IS_DEMO_CONTENT } from "@/config/app";
+import { APP_NAME, APP_TAGLINE, IS_DEMO_CONTENT } from "@/config/app";
+import { useProgress } from "@/context/ProgressContext";
 
 const navigation = [
   { label: "Home", shortLabel: "Home", to: "/", icon: Home },
@@ -13,6 +14,28 @@ const navigation = [
 
 export function AppShell({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const { progress } = useProgress();
+  const immersive =
+    pathname === "/" ||
+    pathname === "/join" ||
+    pathname === "/choose" ||
+    pathname.startsWith("/practical");
+
+  if (immersive) {
+    return (
+      <div className="h-[100dvh] overflow-hidden bg-background text-foreground">
+        <a
+          className="sr-only z-50 rounded-lg bg-primary px-4 py-2 text-primary-foreground focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+          href="#main-content"
+        >
+          Skip to content
+        </a>
+        <main className="h-full overflow-hidden" id="main-content">
+          {children}
+        </main>
+      </div>
+    );
+  }
 
   const isActive = (to: (typeof navigation)[number]["to"]) =>
     to === "/" ? pathname === "/" : pathname.startsWith(to);
@@ -69,7 +92,9 @@ export function AppShell({ children }: { children: ReactNode }) {
                 <UserRound aria-hidden="true" className="size-4" />
               </span>
               <span>
-                <span className="block text-sm font-semibold">{DEMO_STUDENT_NAME}</span>
+                <span className="block text-sm font-semibold">
+                  {progress.studentName || "Student"}
+                </span>
                 <span className="block text-xs text-navy-muted">Student</span>
               </span>
             </div>
