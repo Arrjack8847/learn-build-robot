@@ -241,16 +241,6 @@ function MobileCompetitionHome() {
         </div>
       </section>
 
-      <Button
-        asChild
-        className="relative z-10 mt-2 h-12 shrink-0 rounded-full bg-[#1598ea] text-[16px] font-black shadow-[0_9px_22px_rgba(21,152,234,0.23)] hover:bg-[#0f8bdd] [@media(max-height:700px)]:mt-1.5 [@media(max-height:700px)]:h-11 [@media(max-height:700px)]:text-[15px] [@media(min-height:850px)]:mt-3 [@media(min-height:850px)]:h-[54px] [@media(min-height:850px)]:text-[17px]"
-      >
-        <Link to="/join">
-          Start Journey
-          <ArrowRight className="ml-2 size-5" />
-        </Link>
-      </Button>
-
       <section className="relative z-10 shrink-0 pt-2 [@media(max-height:700px)]:pt-1.5 [@media(min-height:850px)]:pt-3">
         <div className="mb-1 px-1 [@media(max-height:700px)]:mb-0.5 [@media(min-height:850px)]:mb-1.5">
           <h2 className="text-[13px] font-black tracking-tight text-[#14254a] [@media(max-height:700px)]:text-[12px] [@media(min-height:850px)]:text-[14px]">Your Journey</h2>
@@ -295,6 +285,16 @@ function MobileCompetitionHome() {
           <Rocket className="absolute -right-2 top-1 size-5 -rotate-12 text-[#ec168c] [@media(max-height:700px)]:-right-1 [@media(max-height:700px)]:top-0.5 [@media(max-height:700px)]:size-[18px] [@media(min-height:850px)]:-right-2 [@media(min-height:850px)]:top-2 [@media(min-height:850px)]:size-6" strokeWidth={2.3} />
         </div>
       </section>
+
+      <Button
+        asChild
+        className="relative z-10 mt-2 h-12 shrink-0 rounded-full bg-[#1598ea] text-[16px] font-black shadow-[0_9px_22px_rgba(21,152,234,0.23)] hover:bg-[#0f8bdd] [@media(max-height:700px)]:mt-1.5 [@media(max-height:700px)]:h-11 [@media(max-height:700px)]:text-[15px] [@media(min-height:850px)]:mt-3 [@media(min-height:850px)]:h-[54px] [@media(min-height:850px)]:text-[17px]"
+      >
+        <Link to="/join">
+          Start Journey
+          <ArrowRight className="ml-2 size-5" />
+        </Link>
+      </Button>
     </main>
   );
 }
