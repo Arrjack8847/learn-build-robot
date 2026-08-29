@@ -46,88 +46,82 @@ function ChooseCategoryPage() {
   const studentName = progress.studentName || "Builder";
   const requirements = getJourneyRequirements(progress);
   const quizComplete = progress.quizAttempts.length > 0;
-  const completedJourneySteps =
-    Number(requirements.learningComplete) +
-    Number(requirements.robotComplete) +
-    Number(quizComplete);
 
   return (
-    <div className="relative flex h-full flex-col overflow-hidden bg-white text-[#132654]">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <Cog className="absolute -left-8 top-28 size-24 text-[#2587e8]/10" strokeWidth={1.5} />
-        <Rocket className="absolute -right-7 top-[24%] size-24 -rotate-12 text-[#ec168c]/10" strokeWidth={1.5} />
-        <Puzzle className="absolute -right-7 bottom-4 size-24 text-[#39b54a]/8" strokeWidth={1.5} />
-        <Cog className="absolute -left-8 bottom-3 size-20 text-[#f3a10a]/10" strokeWidth={1.5} />
+    <div className="relative h-[100svh] overflow-y-auto bg-white text-[#132654]">
+      <div aria-hidden="true" className="pointer-events-none fixed inset-0 overflow-hidden">
+        <Cog className="absolute -left-9 top-[24%] size-20 text-[#2587e8]/8 sm:size-28" strokeWidth={1.4} />
+        <Rocket className="absolute -right-8 top-[31%] size-20 -rotate-12 text-[#ec168c]/8 sm:size-28" strokeWidth={1.4} />
+        <Puzzle className="absolute -right-8 bottom-[6%] size-20 text-[#39b54a]/7 sm:size-28" strokeWidth={1.4} />
+        <Cog className="absolute -left-8 bottom-[4%] size-16 text-[#f3a10a]/8 sm:size-24" strokeWidth={1.4} />
       </div>
 
-      <header className="relative z-10 flex h-[70px] shrink-0 items-center justify-between border-b border-slate-100 px-4 sm:h-[78px] sm:px-8">
+      <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-slate-100 bg-white/95 px-3 backdrop-blur sm:h-16 sm:px-6 lg:px-8 [@media(max-height:700px)]:h-12">
         <Link
           aria-label="Back to name entry"
-          className="grid size-11 place-items-center rounded-full border border-slate-200 bg-white text-[#132654] shadow-[0_5px_16px_rgba(20,44,84,0.08)] transition active:scale-95 sm:size-12"
+          className="grid size-10 place-items-center rounded-full border border-slate-200 bg-white text-[#132654] shadow-[0_4px_12px_rgba(20,44,84,0.07)] transition active:scale-95 sm:size-11 [@media(max-height:700px)]:size-9"
           to="/join"
         >
-          <ArrowLeft aria-hidden="true" className="size-5 sm:size-6" />
+          <ArrowLeft aria-hidden="true" className="size-5" />
         </Link>
 
         <img
           alt="BE STEM READY"
-          className="h-[52px] w-auto object-contain sm:h-[60px]"
+          className="h-10 w-auto object-contain sm:h-12 [@media(max-height:700px)]:h-9"
           src="/home/be-stem-ready-logo.svg"
         />
 
         <Link
           aria-label="View progress"
-          className="grid size-11 place-items-center rounded-full border border-slate-200 bg-white text-[#132654] shadow-[0_5px_16px_rgba(20,44,84,0.08)] transition active:scale-95 sm:size-12"
+          className="grid size-10 place-items-center rounded-full border border-slate-200 bg-white text-[#132654] shadow-[0_4px_12px_rgba(20,44,84,0.07)] transition active:scale-95 sm:size-11 [@media(max-height:700px)]:size-9"
           to="/progress"
         >
-          <LineChart aria-hidden="true" className="size-5 sm:size-6" />
+          <LineChart aria-hidden="true" className="size-5" />
         </Link>
       </header>
 
-      <main className="relative z-10 flex min-h-0 flex-1 flex-col px-4 pb-3 pt-3 sm:px-8 sm:pb-5 sm:pt-5">
-        <div className="mx-auto flex min-h-0 w-full max-w-6xl flex-1 flex-col">
-          <header className="shrink-0 text-center">
-            <p className="text-[13px] font-extrabold text-[#2587e8] sm:text-base">
-              Welcome, {studentName}!
-            </p>
-            <h1 className="mx-auto mt-1 max-w-3xl text-[clamp(2rem,9vw,3.25rem)] font-black leading-[0.95] tracking-[-0.045em] text-[#132654]">
-              Choose your next activity
-            </h1>
-            <p className="mx-auto mt-2 max-w-xl text-[12px] font-medium leading-4 text-slate-500 sm:text-sm sm:leading-5">
-              Finish Learning and Build to unlock Quiz.
-            </p>
-          </header>
+      <main className="relative z-10 mx-auto w-full max-w-6xl px-3 pb-[max(16px,env(safe-area-inset-bottom))] pt-3 sm:px-6 sm:pb-6 sm:pt-5 lg:px-8 [@media(max-height:700px)]:pt-2">
+        <header className="text-center">
+          <p className="text-[12px] font-extrabold text-[#2587e8] sm:text-sm [@media(max-height:700px)]:text-[11px]">
+            Welcome, {studentName}!
+          </p>
+          <h1 className="mx-auto mt-1 max-w-3xl text-[clamp(1.85rem,8vw,3.1rem)] font-black leading-[0.94] tracking-[-0.045em] text-[#132654] sm:mt-1.5 [@media(max-height:700px)]:text-[clamp(1.6rem,7vw,2.35rem)]">
+            Choose your next activity
+          </h1>
+          <p className="mx-auto mt-1.5 max-w-xl text-[11.5px] font-medium leading-4 text-slate-500 sm:mt-2 sm:text-sm sm:leading-5 [@media(max-height:700px)]:mt-1 [@media(max-height:700px)]:text-[10.5px]">
+            Finish Learning and Build to unlock Quiz.
+          </p>
+        </header>
 
-          <JourneyProgress
-            completed={completedJourneySteps}
-            hydrated={hydrated}
-            learningComplete={requirements.learningComplete}
-            quizComplete={quizComplete}
-            quizUnlocked={requirements.quizUnlocked}
-            robotComplete={requirements.robotComplete}
+        <JourneyProgress
+          completedRequirements={requirements.completedRequirements}
+          hydrated={hydrated}
+          learningComplete={requirements.learningComplete}
+          quizComplete={quizComplete}
+          quizUnlocked={requirements.quizUnlocked}
+          robotComplete={requirements.robotComplete}
+        />
+
+        <div className="mt-3 grid gap-2.5 sm:mt-4 sm:gap-3 lg:grid-cols-3 lg:gap-5 [@media(max-height:700px)]:mt-2 [@media(max-height:700px)]:gap-2">
+          <ActivityChoice
+            accent={BRAND.blue}
+            completed={requirements.learningComplete}
+            description="Understand how your robot works."
+            icon={BookOpen}
+            label="Learning"
+            softBackground="#eaf5ff"
+            to="/theory"
           />
-
-          <div className="mt-3 grid min-h-0 flex-1 grid-rows-3 gap-2.5 lg:grid-cols-3 lg:grid-rows-1 lg:gap-5">
-            <ActivityChoice
-              accent={BRAND.blue}
-              completed={requirements.learningComplete}
-              description="Understand how your robot works."
-              icon={BookOpen}
-              label="Learning"
-              softBackground="#eaf5ff"
-              to="/theory"
-            />
-            <ActivityChoice
-              accent={BRAND.orange}
-              completed={requirements.robotComplete}
-              description="Build it one easy step at a time."
-              icon={Bot}
-              label="Build a Robot"
-              softBackground="#fff4d9"
-              to="/practical"
-            />
-            <QuizChoice hydrated={hydrated} quizComplete={quizComplete} {...requirements} />
-          </div>
+          <ActivityChoice
+            accent={BRAND.orange}
+            completed={requirements.robotComplete}
+            description="Build it one easy step at a time."
+            icon={Bot}
+            label="Build a Robot"
+            softBackground="#fff4d9"
+            to="/practical"
+          />
+          <QuizChoice hydrated={hydrated} quizComplete={quizComplete} {...requirements} />
         </div>
       </main>
     </div>
@@ -140,14 +134,14 @@ function JourneyProgress({
   robotComplete,
   quizComplete,
   quizUnlocked,
-  completed,
+  completedRequirements,
 }: {
   hydrated: boolean;
   learningComplete: boolean;
   robotComplete: boolean;
   quizComplete: boolean;
   quizUnlocked: boolean;
-  completed: number;
+  completedRequirements: number;
 }) {
   const steps = [
     { label: "LEARN", icon: BookOpen, color: BRAND.blue, complete: learningComplete, locked: false },
@@ -156,30 +150,33 @@ function JourneyProgress({
   ] as const;
 
   return (
-    <section className="mx-auto mt-3 w-full max-w-3xl shrink-0 sm:mt-5">
-      <div className="relative rounded-[24px] border border-slate-200/90 bg-white/95 px-3 py-2.5 shadow-[0_8px_24px_rgba(35,77,126,0.08)] sm:px-5 sm:py-4">
-        <div className="pointer-events-none absolute left-[17%] right-[17%] top-[32px] border-t-2 border-dashed border-slate-300 sm:top-[41px]" />
-        <div className="relative grid grid-cols-3 gap-2">
+    <section className="mx-auto mt-2.5 w-full max-w-3xl sm:mt-4 [@media(max-height:700px)]:mt-2">
+      <div className="relative rounded-[20px] border border-slate-200/90 bg-white/95 px-2.5 py-2 shadow-[0_6px_20px_rgba(35,77,126,0.07)] sm:rounded-[24px] sm:px-5 sm:py-3 [@media(max-height:700px)]:py-1.5">
+        <div className="pointer-events-none absolute left-[17%] right-[17%] top-[26px] border-t-2 border-dashed border-slate-300 sm:top-[34px] [@media(max-height:700px)]:top-[23px]" />
+        <div className="relative grid grid-cols-3 gap-1">
           {steps.map(({ label, icon: Icon, color, complete, locked }, index) => (
             <div className="flex min-w-0 flex-col items-center text-center" key={label}>
               <div
-                className="relative z-10 grid size-[52px] place-items-center rounded-full border-[3px] border-white bg-white shadow-[0_6px_14px_rgba(25,55,90,0.10)] sm:size-[68px]"
-                style={{ boxShadow: `0 0 0 2px ${color}24, 0 6px 14px rgba(25,55,90,0.10)` }}
+                className="relative z-10 grid size-11 place-items-center rounded-full border-[3px] border-white bg-white sm:size-14 [@media(max-height:700px)]:size-10"
+                style={{ boxShadow: `0 0 0 2px ${color}24, 0 5px 12px rgba(25,55,90,0.08)` }}
               >
-                <Icon className="size-5 sm:size-7" style={{ color: locked ? "#94a3b8" : color }} strokeWidth={2.3} />
+                <Icon className="size-[18px] sm:size-6 [@media(max-height:700px)]:size-4" style={{ color: locked ? "#94a3b8" : color }} strokeWidth={2.3} />
                 <span
-                  className="absolute -left-1 -top-1 grid size-5 place-items-center rounded-full text-[9px] font-black text-white sm:size-6 sm:text-[10px]"
+                  className="absolute -left-1 -top-1 grid size-[18px] place-items-center rounded-full text-[8px] font-black text-white sm:size-5 sm:text-[9px]"
                   style={{ backgroundColor: complete ? color : locked ? "#a8b2c3" : color }}
                 >
                   {complete ? <Check className="size-3" /> : index + 1}
                 </span>
                 {locked ? (
-                  <span className="absolute -right-1 -top-1 grid size-5 place-items-center rounded-full bg-slate-700 text-white sm:size-6">
+                  <span className="absolute -right-1 -top-1 grid size-[18px] place-items-center rounded-full bg-slate-700 text-white sm:size-5">
                     <LockKeyhole className="size-3" />
                   </span>
                 ) : null}
               </div>
-              <p className="mt-1.5 truncate text-[8.5px] font-black tracking-[0.02em] sm:mt-2 sm:text-[10px]" style={{ color: locked ? "#7b8798" : color }}>
+              <p
+                className="mt-1 truncate text-[7.5px] font-black tracking-[0.015em] sm:mt-1.5 sm:text-[9px] [@media(max-height:700px)]:text-[7px]"
+                style={{ color: locked ? "#7b8798" : color }}
+              >
                 {label}
               </p>
             </div>
@@ -187,11 +184,11 @@ function JourneyProgress({
         </div>
       </div>
 
-      <div className="mx-auto -mt-1.5 flex w-fit items-center gap-2 rounded-full border border-[#2587e8]/20 bg-white px-3 py-1 text-[10px] font-bold text-[#132654] shadow-sm sm:px-4 sm:py-1.5 sm:text-xs">
-        <span className="grid size-5 place-items-center rounded-full bg-[#2587e8] text-white">
-          <Check className="size-3" />
+      <div className="mx-auto mt-1.5 flex w-fit items-center gap-1.5 rounded-full border border-[#2587e8]/20 bg-white px-2.5 py-1 text-[9px] font-bold text-[#132654] shadow-sm sm:mt-2 sm:px-3 sm:text-[10px] [@media(max-height:700px)]:mt-1 [@media(max-height:700px)]:py-0.5">
+        <span className="grid size-4 place-items-center rounded-full bg-[#2587e8] text-white sm:size-[18px]">
+          <Check className="size-2.5" />
         </span>
-        {hydrated ? `${completed} of 3 completed` : "Checking progress…"}
+        {hydrated ? `${completedRequirements} / 2 requirements complete` : "Checking progress…"}
       </div>
     </section>
   );
@@ -216,33 +213,33 @@ function ActivityChoice({
 }) {
   return (
     <Link
-      className="group relative flex min-h-0 items-center gap-3 overflow-hidden rounded-[24px] border bg-white p-3 text-left shadow-[0_8px_24px_rgba(29,65,108,0.08)] transition active:scale-[0.99] sm:gap-4 sm:p-4 lg:flex-col lg:justify-center lg:p-6 lg:text-center"
+      className="group relative flex min-h-[106px] items-center gap-3 overflow-hidden rounded-[22px] border bg-white p-2.5 pr-3 text-left shadow-[0_6px_20px_rgba(29,65,108,0.07)] transition active:scale-[0.99] sm:min-h-[118px] sm:gap-4 sm:p-3.5 lg:min-h-[230px] lg:flex-col lg:justify-center lg:p-5 lg:text-center [@media(max-height:700px)]:min-h-[96px] [@media(max-height:700px)]:p-2"
       style={{ borderColor: `${accent}35` }}
       to={to}
     >
-      <span className="absolute inset-y-0 left-0 w-1.5 rounded-l-[24px]" style={{ backgroundColor: accent }} />
+      <span className="absolute inset-y-0 left-0 w-1.5 rounded-l-[22px]" style={{ backgroundColor: accent }} />
 
       <span
-        className="relative grid size-[74px] shrink-0 place-items-center rounded-[22px] sm:size-[86px] lg:size-28 lg:rounded-[28px]"
+        className="relative grid size-16 shrink-0 place-items-center rounded-[18px] sm:size-[72px] lg:size-24 lg:rounded-[24px] [@media(max-height:700px)]:size-14"
         style={{ backgroundColor: softBackground }}
       >
-        <Icon aria-hidden="true" className="size-9 sm:size-10 lg:size-12" style={{ color: accent }} strokeWidth={2.1} />
+        <Icon aria-hidden="true" className="size-8 sm:size-9 lg:size-11 [@media(max-height:700px)]:size-7" style={{ color: accent }} strokeWidth={2.1} />
         {completed ? (
-          <span className="absolute -right-1 -top-1 grid size-7 place-items-center rounded-full border-[3px] border-white text-white shadow-sm" style={{ backgroundColor: accent }}>
-            <Check aria-hidden="true" className="size-4" />
+          <span className="absolute -right-1 -top-1 grid size-6 place-items-center rounded-full border-[3px] border-white text-white shadow-sm [@media(max-height:700px)]:size-5" style={{ backgroundColor: accent }}>
+            <Check aria-hidden="true" className="size-3.5 [@media(max-height:700px)]:size-3" />
           </span>
         ) : null}
       </span>
 
       <span className="min-w-0 flex-1 lg:flex-none">
-        <span className="block text-[19px] font-black leading-tight tracking-[-0.02em] text-[#132654] sm:text-[22px] lg:text-2xl">
+        <span className="block text-[18px] font-black leading-tight tracking-[-0.02em] text-[#132654] sm:text-xl lg:text-2xl [@media(max-height:700px)]:text-[16px]">
           {label}
         </span>
-        <span className="mt-1 line-clamp-2 block text-[11px] font-medium leading-[15px] text-slate-500 sm:text-xs sm:leading-4 lg:mt-2 lg:text-sm lg:leading-5">
+        <span className="mt-0.5 line-clamp-2 block text-[11px] font-medium leading-[14px] text-slate-500 sm:mt-1 sm:text-xs sm:leading-4 lg:mt-2 lg:text-sm lg:leading-5 [@media(max-height:700px)]:text-[10px] [@media(max-height:700px)]:leading-[13px]">
           {description}
         </span>
         <span
-          className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-white px-0 py-0.5 text-[11px] font-extrabold sm:text-xs lg:mt-4"
+          className="mt-1.5 inline-flex items-center gap-1 text-[11px] font-extrabold sm:mt-2 sm:text-xs lg:mt-4 [@media(max-height:700px)]:mt-1 [@media(max-height:700px)]:text-[10px]"
           style={{ color: accent }}
         >
           {completed ? "Review" : "Choose"}
@@ -289,26 +286,26 @@ function QuizChoice({
     <Dialog>
       <DialogTrigger asChild>
         <button
-          className="group relative flex min-h-0 w-full items-center gap-3 overflow-hidden rounded-[24px] border border-[#39b54a]/25 bg-white p-3 text-left shadow-[0_8px_24px_rgba(29,65,108,0.08)] transition active:scale-[0.99] sm:gap-4 sm:p-4 lg:flex-col lg:justify-center lg:p-6 lg:text-center"
+          className="group relative flex min-h-[106px] w-full items-center gap-3 overflow-hidden rounded-[22px] border border-[#39b54a]/25 bg-white p-2.5 pr-3 text-left shadow-[0_6px_20px_rgba(29,65,108,0.07)] transition active:scale-[0.99] sm:min-h-[118px] sm:gap-4 sm:p-3.5 lg:min-h-[230px] lg:flex-col lg:justify-center lg:p-5 lg:text-center [@media(max-height:700px)]:min-h-[96px] [@media(max-height:700px)]:p-2"
           type="button"
         >
-          <span className="absolute inset-y-0 left-0 w-1.5 rounded-l-[24px] bg-[#39b54a]" />
+          <span className="absolute inset-y-0 left-0 w-1.5 rounded-l-[22px] bg-[#39b54a]" />
 
-          <span className="relative grid size-[74px] shrink-0 place-items-center rounded-[22px] bg-[#eef7ec] sm:size-[86px] lg:size-28 lg:rounded-[28px]">
-            <BrainCircuit aria-hidden="true" className="size-9 text-[#39b54a] sm:size-10 lg:size-12" strokeWidth={2.1} />
-            <span className="absolute -right-1 -top-1 grid size-7 place-items-center rounded-full border-[3px] border-white bg-slate-700 text-white shadow-sm">
-              <LockKeyhole aria-hidden="true" className="size-3.5" />
+          <span className="relative grid size-16 shrink-0 place-items-center rounded-[18px] bg-[#eef7ec] sm:size-[72px] lg:size-24 lg:rounded-[24px] [@media(max-height:700px)]:size-14">
+            <BrainCircuit aria-hidden="true" className="size-8 text-[#39b54a] sm:size-9 lg:size-11 [@media(max-height:700px)]:size-7" strokeWidth={2.1} />
+            <span className="absolute -right-1 -top-1 grid size-6 place-items-center rounded-full border-[3px] border-white bg-slate-700 text-white shadow-sm [@media(max-height:700px)]:size-5">
+              <LockKeyhole aria-hidden="true" className="size-3.5 [@media(max-height:700px)]:size-3" />
             </span>
           </span>
 
           <span className="min-w-0 flex-1 lg:flex-none">
-            <span className="block text-[19px] font-black leading-tight tracking-[-0.02em] text-[#132654] sm:text-[22px] lg:text-2xl">Quiz</span>
-            <span className="mt-1 line-clamp-2 block text-[11px] font-medium leading-[15px] text-slate-500 sm:text-xs sm:leading-4 lg:mt-2 lg:text-sm lg:leading-5">
+            <span className="block text-[18px] font-black leading-tight tracking-[-0.02em] text-[#132654] sm:text-xl lg:text-2xl [@media(max-height:700px)]:text-[16px]">Quiz</span>
+            <span className="mt-0.5 line-clamp-2 block text-[11px] font-medium leading-[14px] text-slate-500 sm:mt-1 sm:text-xs sm:leading-4 lg:mt-2 lg:text-sm lg:leading-5 [@media(max-height:700px)]:text-[10px] [@media(max-height:700px)]:leading-[13px]">
               Complete Learning and Robot first.
             </span>
-            <span className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-[#eef7ec] px-2.5 py-1 text-[10px] font-extrabold text-slate-600 sm:text-[11px]">
-              <LockKeyhole aria-hidden="true" className="size-3.5" />
-              {hydrated ? `${completedRequirements}/2 completed` : "Checking progress…"}
+            <span className="mt-1.5 inline-flex items-center gap-1.5 rounded-full bg-[#eef7ec] px-2 py-0.5 text-[9.5px] font-extrabold text-slate-600 sm:mt-2 sm:text-[10.5px] lg:mt-4 [@media(max-height:700px)]:mt-1 [@media(max-height:700px)]:text-[9px]">
+              <LockKeyhole aria-hidden="true" className="size-3" />
+              {hydrated ? `${completedRequirements}/2 completed` : "Checking…"}
             </span>
           </span>
         </button>
