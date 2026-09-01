@@ -32,7 +32,7 @@ const BRAND = {
   blue: "#168eea",
   navy: "#132654",
   pink: "#ec168c",
-  orange: "#f5a400",
+  orange: "#ff7900",
   green: "#39b54a",
 };
 
@@ -68,10 +68,10 @@ function RobotPicker() {
   return (
     <div className="relative min-h-[100svh] overflow-x-hidden bg-white text-[#132654]">
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 overflow-hidden">
-        <Cog className="absolute -left-8 top-[18%] size-24 text-[#f5a400]/12 sm:size-32" strokeWidth={1.4} />
+        <Cog className="absolute -left-8 top-[18%] size-24 text-[#168eea]/10 sm:size-32" strokeWidth={1.4} />
         <Puzzle className="absolute -right-7 top-[26%] size-24 rotate-12 text-[#39b54a]/10 sm:size-28" strokeWidth={1.4} />
         <Rocket className="absolute -right-5 bottom-[6%] size-24 -rotate-12 text-[#ec168c]/10 sm:size-28" strokeWidth={1.4} />
-        <Cog className="absolute -left-6 bottom-[4%] size-20 text-[#168eea]/10 sm:size-24" strokeWidth={1.4} />
+        <Cog className="absolute -left-6 bottom-[4%] size-20 text-[#ff7900]/10 sm:size-24" strokeWidth={1.4} />
       </div>
 
       <header className="relative z-20 flex h-16 items-center justify-between border-b border-slate-100 bg-white/95 px-4 backdrop-blur sm:h-[76px] sm:px-8 [@media(max-height:720px)]:h-14">
@@ -89,7 +89,7 @@ function RobotPicker() {
           src="/home/be-stem-ready-logo.svg"
         />
 
-        <span className="grid min-w-[54px] place-items-center rounded-full border border-[#f5a400]/40 bg-white px-3 py-2 text-sm font-black text-[#d58a00] shadow-sm sm:min-w-[64px] sm:text-base [@media(max-height:720px)]:py-1.5 [@media(max-height:720px)]:text-xs">
+        <span className="grid min-w-[54px] place-items-center rounded-full border border-[#168eea]/40 bg-white px-3 py-2 text-sm font-black text-[#168eea] shadow-sm sm:min-w-[64px] sm:text-base [@media(max-height:720px)]:py-1.5 [@media(max-height:720px)]:text-xs">
           {selectedIndex + 1}/{practicalProjects.length}
         </span>
       </header>
@@ -100,13 +100,13 @@ function RobotPicker() {
             <span className="block text-[clamp(1.9rem,7.2vw,3rem)] text-[#132654] [@media(max-height:720px)]:text-[clamp(1.55rem,6.5vw,2.15rem)]">
               Choose a
             </span>
-            <span className="mt-1 block text-[clamp(2.25rem,9.2vw,4rem)] text-[#f5a400] [@media(max-height:720px)]:text-[clamp(1.9rem,8vw,2.7rem)]">
+            <span className="mt-1 block text-[clamp(2.25rem,9.2vw,4rem)] text-[#ff7900] [@media(max-height:720px)]:text-[clamp(1.9rem,8vw,2.7rem)]">
               Build Robot
             </span>
           </h1>
 
           <div className="mt-3 flex items-center justify-center gap-2 text-[13px] font-semibold text-slate-500 sm:mt-4 sm:text-sm [@media(max-height:720px)]:mt-2 [@media(max-height:720px)]:text-xs">
-            <Hand aria-hidden="true" className="size-5 text-[#f5a400] [@media(max-height:720px)]:size-4" />
+            <Hand aria-hidden="true" className="size-5 text-[#168eea] [@media(max-height:720px)]:size-4" />
             Swipe to see the next robot
           </div>
         </section>
@@ -140,7 +140,7 @@ function RobotPicker() {
 
                     <div className="flex min-h-0 flex-col justify-center p-4 sm:p-6 md:p-8 [@media(max-height:720px)]:p-3.5">
                       <div className="flex items-center justify-between gap-3">
-                        <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[#d58a00] sm:text-xs">
+                        <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[#168eea] sm:text-xs">
                           Robot {project.number}
                         </p>
                         <span
@@ -148,7 +148,7 @@ function RobotPicker() {
                             projectProgress.status === "Completed"
                               ? "bg-[#eaf8ea] text-[#2f9d3e]"
                               : projectProgress.status === "In Progress"
-                                ? "bg-[#fff4d9] text-[#d68b00]"
+                                ? "bg-[#fff1e5] text-[#d96200]"
                                 : "bg-slate-100 text-slate-500"
                           }`}
                         >
@@ -171,7 +171,7 @@ function RobotPicker() {
                             {project.buildMinutes} min
                           </span>
                         ) : null}
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#fff4d9] px-3 py-1.5 text-[#b97900] [@media(max-height:720px)]:px-2.5 [@media(max-height:720px)]:py-1">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#fff1e5] px-3 py-1.5 text-[#d96200] [@media(max-height:720px)]:px-2.5 [@media(max-height:720px)]:py-1">
                           <ListChecks aria-hidden="true" className="size-4" />
                           {project.steps.length} easy steps
                         </span>
@@ -190,7 +190,7 @@ function RobotPicker() {
                       ) : null}
 
                       <Link
-                        className="mt-4 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#f5a400] px-5 text-sm font-black text-white shadow-[0_10px_24px_rgba(245,164,0,0.24)] transition hover:bg-[#e89b00] active:scale-[0.99] sm:min-h-[52px] sm:text-base [@media(max-height:720px)]:mt-3 [@media(max-height:720px)]:min-h-11 [@media(max-height:720px)]:text-[13px]"
+                        className="mt-4 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#168eea] px-5 text-sm font-black text-white shadow-[0_10px_24px_rgba(22,142,234,0.24)] transition hover:bg-[#0e82dd] active:scale-[0.99] sm:min-h-[52px] sm:text-base [@media(max-height:720px)]:mt-3 [@media(max-height:720px)]:min-h-11 [@media(max-height:720px)]:text-[13px]"
                         params={{ projectId: project.id }}
                         to="/practical/$projectId"
                       >
@@ -232,7 +232,7 @@ function RobotPicker() {
             <span
               aria-hidden="true"
               className={`h-2 rounded-full transition-all ${
-                selectedIndex === index ? "w-8 bg-[#f5a400]" : "w-2 bg-slate-200"
+                selectedIndex === index ? "w-8 bg-[#168eea]" : "w-2 bg-slate-200"
               }`}
               key={project.id}
             />
