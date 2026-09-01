@@ -8,7 +8,6 @@ import {
   CircleHelp,
   Cog,
   Lightbulb,
-  ListChecks,
   Puzzle,
   Rocket,
   ShieldCheck,
@@ -38,14 +37,6 @@ export const Route = createFileRoute("/practical/$projectId")({
 });
 
 type SessionStage = "steps" | "complete";
-
-const BRAND = {
-  blue: "#168eea",
-  navy: "#132654",
-  pink: "#ec168c",
-  orange: "#f5a400",
-  green: "#39b54a",
-};
 
 function PracticalProjectPage() {
   const { projectId = "" } = Route.useParams();
@@ -108,18 +99,17 @@ function BuildSession({ project }: { project: PracticalProject }) {
   }
 
   return (
-    <div className="relative min-h-[100svh] overflow-x-hidden bg-white text-[#132654]">
-      <div aria-hidden="true" className="pointer-events-none fixed inset-0 overflow-hidden">
-        <Cog className="absolute -left-10 top-[24%] size-28 text-[#168eea]/8" strokeWidth={1.35} />
-        <Puzzle className="absolute -right-8 top-[17%] size-24 rotate-12 text-[#39b54a]/8" strokeWidth={1.35} />
-        <Rocket className="absolute -right-6 bottom-[18%] size-20 -rotate-12 text-[#ec168c]/8" strokeWidth={1.35} />
-        <Cog className="absolute -left-6 bottom-[6%] size-20 text-[#f5a400]/8" strokeWidth={1.35} />
+    <div className="relative flex h-[100svh] flex-col overflow-hidden bg-white text-[#132654]">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <Cog className="absolute -left-12 top-[34%] size-24 text-[#168eea]/6 sm:size-28" strokeWidth={1.25} />
+        <Puzzle className="absolute -right-9 top-[24%] size-20 rotate-12 text-[#39b54a]/6 sm:size-24" strokeWidth={1.25} />
+        <Rocket className="absolute -right-7 bottom-[19%] size-16 -rotate-12 text-[#ec168c]/6 sm:size-20" strokeWidth={1.25} />
       </div>
 
-      <header className="relative z-20 flex h-16 items-center justify-between border-b border-slate-100 bg-white/95 px-4 backdrop-blur sm:h-[76px] sm:px-8 [@media(max-height:720px)]:h-14">
+      <header className="relative z-20 flex h-[66px] shrink-0 items-center justify-between border-b border-slate-100 bg-white/95 px-4 backdrop-blur sm:h-[76px] sm:px-8 [@media(max-height:700px)]:h-[58px]">
         <Link
           aria-label="Exit project and choose a robot"
-          className="grid size-11 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-[#132654] shadow-[0_6px_18px_rgba(20,44,84,0.08)] transition active:scale-95 sm:size-12 [@media(max-height:720px)]:size-10"
+          className="grid size-11 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-[#132654] shadow-[0_6px_18px_rgba(20,44,84,0.08)] transition active:scale-95 sm:size-12 [@media(max-height:700px)]:size-10"
           to="/practical"
         >
           <ArrowLeft aria-hidden="true" className="size-5 sm:size-6" />
@@ -127,151 +117,132 @@ function BuildSession({ project }: { project: PracticalProject }) {
 
         <img
           alt="BE STEM READY"
-          className="absolute left-1/2 top-1/2 h-12 w-auto -translate-x-1/2 -translate-y-1/2 object-contain sm:h-14 [@media(max-height:720px)]:h-10"
+          className="absolute left-1/2 top-1/2 h-[54px] w-auto -translate-x-1/2 -translate-y-1/2 object-contain sm:h-[62px] [@media(max-height:700px)]:h-11"
           src="/home/be-stem-ready-logo.svg"
         />
 
-        <span className="inline-flex min-w-[66px] items-center justify-center gap-1.5 rounded-full border border-[#168eea]/30 bg-[#eaf5ff] px-3 py-2 text-xs font-black text-[#0f69bd] shadow-sm sm:min-w-[76px] sm:text-sm [@media(max-height:720px)]:py-1.5">
+        <span className="inline-flex min-w-[66px] items-center justify-center gap-1.5 rounded-full border border-[#168eea]/30 bg-[#eaf5ff] px-3 py-2 text-xs font-black text-[#0f69bd] shadow-sm sm:min-w-[76px] sm:text-sm [@media(max-height:700px)]:py-1.5">
           <CheckCircle2 aria-hidden="true" className="size-4" />
           {currentIndex + 1}/{project.steps.length}
         </span>
       </header>
 
-      <main className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-28 pt-3 sm:px-8 sm:pb-32 sm:pt-5 [@media(max-height:720px)]:pt-2">
-        <section className="text-center">
-          <h1 className="mx-auto max-w-3xl text-[clamp(1.6rem,6.4vw,2.5rem)] font-black leading-tight tracking-[-0.035em] text-[#132654] [@media(max-height:720px)]:text-[clamp(1.35rem,5.8vw,2rem)]">
-            {project.title}
-          </h1>
-          <p className="mt-1 text-sm font-bold text-[#168eea] sm:text-base">
-            Step {currentIndex + 1} <span className="font-semibold text-slate-400">of {project.steps.length}</span>
-          </p>
+      <main className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain">
+        <div className="mx-auto w-full max-w-6xl px-4 pb-4 pt-2.5 sm:px-8 sm:pb-6 sm:pt-4 [@media(max-height:700px)]:pt-2">
+          <section className="text-center">
+            <h1 className="mx-auto max-w-3xl text-[clamp(1.45rem,6vw,2.35rem)] font-black leading-tight tracking-[-0.035em] text-[#132654] [@media(max-height:700px)]:text-[clamp(1.25rem,5.5vw,1.8rem)]">
+              {project.title}
+            </h1>
+            <p className="mt-0.5 text-[13px] font-bold text-[#168eea] sm:mt-1 sm:text-base">
+              Step {currentIndex + 1} <span className="font-semibold text-slate-400">of {project.steps.length}</span>
+            </p>
 
-          <div className="mx-auto mt-3 flex max-w-4xl items-center gap-3 [@media(max-height:720px)]:mt-2">
-            <Rocket aria-hidden="true" className="size-5 shrink-0 -rotate-12 text-[#ec168c]" />
-            <div className="h-2 flex-1 overflow-hidden rounded-full bg-slate-100">
-              <div
-                className="h-full rounded-full bg-[#168eea] transition-all duration-300"
-                style={{ width: `${displayedPercent}%` }}
-              />
+            <div className="mx-auto mt-2.5 max-w-4xl [@media(max-height:700px)]:mt-2">
+              <div className="h-2 overflow-hidden rounded-full bg-slate-100">
+                <div
+                  className="h-full rounded-full bg-[#168eea] transition-all duration-300"
+                  style={{ width: `${displayedPercent}%` }}
+                />
+              </div>
             </div>
-            <span className="min-w-[40px] rounded-full bg-[#eaf8ea] px-2 py-1 text-[11px] font-black text-[#2f9d3e]">
-              {displayedPercent}%
-            </span>
-          </div>
-        </section>
+          </section>
 
-        <div className="mx-auto mt-4 grid w-full max-w-5xl gap-4 md:mt-6 md:grid-cols-[1.05fr_0.95fr] md:items-center md:gap-7 [@media(max-height:720px)]:mt-3">
-          <div className="relative overflow-hidden rounded-[28px] border-2 border-[#168eea]/25 bg-[#eef7ff] p-2 shadow-[0_16px_40px_rgba(21,75,125,0.10)] sm:p-3 md:rounded-[34px]">
-            <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-35" />
-            {currentStep.image ? (
-              <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-[22px] bg-white/70 p-2 sm:p-3 md:min-h-[430px] md:rounded-[28px] [@media(max-height:720px)]:min-h-0">
+          <div className="mx-auto mt-3 grid w-full max-w-5xl gap-3.5 md:mt-5 md:grid-cols-[1.02fr_0.98fr] md:items-center md:gap-7 [@media(max-height:700px)]:mt-2.5">
+            <div className="relative flex w-full items-center justify-center overflow-hidden rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:min-h-[420px] md:rounded-[32px]">
+              <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-20" />
+              {currentStep.image ? (
                 <img
                   alt={`${project.title} step ${currentStep.number}: ${currentStep.title}`}
-                  className="h-full w-full object-contain"
+                  className="relative block max-h-[285px] w-full object-contain sm:max-h-[360px] md:max-h-[430px]"
                   loading="eager"
                   src={currentStep.image}
                 />
-              </div>
-            ) : (
-              <RobotIllustration
-                className="relative min-h-[220px] rounded-[22px] sm:min-h-[300px] md:min-h-[430px] md:rounded-[28px]"
-                variant={project.number - 1}
-              />
-            )}
+              ) : (
+                <RobotIllustration
+                  className="relative min-h-[220px] w-full rounded-[22px] sm:min-h-[300px] md:min-h-[420px] md:rounded-[28px]"
+                  variant={project.number - 1}
+                />
+              )}
+            </div>
+
+            <section className="min-w-0 md:rounded-[30px] md:border md:border-slate-200/90 md:bg-white md:p-7 md:shadow-[0_14px_36px_rgba(20,55,90,0.08)]">
+              <p className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] text-[#168eea] sm:text-xs">
+                <CheckCircle2 aria-hidden="true" className="size-4" />
+                Do this now
+              </p>
+              <h2 className="mt-1.5 text-[clamp(1.8rem,7.5vw,2.8rem)] font-black leading-[1.02] tracking-[-0.04em] text-[#132654] md:text-4xl [@media(max-height:700px)]:text-[1.55rem]">
+                {currentStep.title}
+              </h2>
+              <div className="mt-2 h-1 w-10 rounded-full bg-[#f5a400]" />
+              <p className="mt-3 text-[14px] font-medium leading-6 text-slate-500 sm:text-base sm:leading-7 [@media(max-height:700px)]:mt-2 [@media(max-height:700px)]:text-[12px] [@media(max-height:700px)]:leading-5">
+                {currentStep.description}
+              </p>
+
+              {currentStep.note ? (
+                <div
+                  className={`mt-4 flex items-start gap-3 rounded-2xl p-3 text-sm leading-6 sm:p-4 ${
+                    currentStep.note.type === "warning"
+                      ? "bg-[#fff4d9] text-[#132654]"
+                      : "bg-[#eaf5ff] text-[#132654]"
+                  }`}
+                >
+                  {currentStep.note.type === "warning" ? (
+                    <TriangleAlert aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-[#d68b00]" />
+                  ) : (
+                    <Lightbulb aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-[#168eea]" />
+                  )}
+                  <p>{currentStep.note.text}</p>
+                </div>
+              ) : null}
+
+              {hasHelp ? (
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button className="mt-4 rounded-full border-[#168eea]/25 text-[#0f69bd]" type="button" variant="outline">
+                      <CircleHelp aria-hidden="true" />
+                      I Need Help
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-md rounded-3xl">
+                    <DialogHeader>
+                      <span className="mb-2 grid size-12 place-items-center rounded-2xl bg-[#eaf5ff] text-[#168eea]">
+                        <CircleHelp aria-hidden="true" className="size-6" />
+                      </span>
+                      <DialogTitle>Let’s solve it together</DialogTitle>
+                      <DialogDescription className="leading-6">
+                        Check this guidance before changing your build.
+                      </DialogDescription>
+                    </DialogHeader>
+                    {helpItem ? (
+                      <div className="rounded-2xl bg-secondary p-4">
+                        <p className="text-sm font-bold">{helpItem.question}</p>
+                        <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                          {helpItem.answer}
+                        </p>
+                      </div>
+                    ) : null}
+                    {project.safetyNote ? (
+                      <div className="flex items-start gap-3 rounded-2xl bg-warning-soft p-4 text-sm leading-6">
+                        <ShieldCheck aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-warning" />
+                        <p>{project.safetyNote}</p>
+                      </div>
+                    ) : null}
+                    <DialogFooter>
+                      <DialogClose asChild>
+                        <Button className="rounded-2xl" type="button">
+                          I’m Ready to Try
+                        </Button>
+                      </DialogClose>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
+              ) : null}
+            </section>
           </div>
-
-          <section className="min-w-0 md:rounded-[30px] md:border md:border-slate-200/90 md:bg-white md:p-7 md:shadow-[0_14px_36px_rgba(20,55,90,0.08)]">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#fff4d9] px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.14em] text-[#b97900] sm:text-xs">
-              <ListChecks aria-hidden="true" className="size-4" />
-              Step {currentStep.number}
-            </div>
-
-            <p className="mt-4 text-[11px] font-black uppercase tracking-[0.2em] text-[#168eea] sm:text-xs [@media(max-height:720px)]:mt-3">
-              Do this now
-            </p>
-            <h2 className="mt-1.5 text-[clamp(1.9rem,8vw,3rem)] font-black leading-[1.02] tracking-[-0.04em] text-[#132654] md:text-4xl [@media(max-height:720px)]:text-[1.65rem]">
-              {currentStep.title}
-            </h2>
-            <div className="mt-2 h-1 w-10 rounded-full bg-[#f5a400]" />
-            <p className="mt-3 text-[14px] font-medium leading-6 text-slate-500 sm:text-base sm:leading-7 [@media(max-height:720px)]:mt-2 [@media(max-height:720px)]:text-[12px] [@media(max-height:720px)]:leading-5">
-              {currentStep.description}
-            </p>
-
-            <div className="mt-4 grid grid-cols-2 gap-2.5 [@media(max-height:720px)]:mt-3">
-              <div className="rounded-2xl border border-[#168eea]/20 bg-[#f2f8ff] p-3">
-                <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">Current step</p>
-                <p className="mt-1 text-sm font-black text-[#0f69bd]">{currentIndex + 1} of {project.steps.length}</p>
-              </div>
-              <div className="rounded-2xl border border-[#f5a400]/25 bg-[#fffaf0] p-3">
-                <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">Build progress</p>
-                <p className="mt-1 text-sm font-black text-[#b97900]">{displayedPercent}% complete</p>
-              </div>
-            </div>
-
-            {currentStep.note ? (
-              <div
-                className={`mt-4 flex items-start gap-3 rounded-2xl p-3 text-sm leading-6 sm:p-4 ${
-                  currentStep.note.type === "warning"
-                    ? "bg-[#fff4d9] text-[#132654]"
-                    : "bg-[#eaf5ff] text-[#132654]"
-                }`}
-              >
-                {currentStep.note.type === "warning" ? (
-                  <TriangleAlert aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-[#d68b00]" />
-                ) : (
-                  <Lightbulb aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-[#168eea]" />
-                )}
-                <p>{currentStep.note.text}</p>
-              </div>
-            ) : null}
-
-            {hasHelp ? (
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button className="mt-4 rounded-full border-[#168eea]/25 text-[#0f69bd]" type="button" variant="outline">
-                    <CircleHelp aria-hidden="true" />
-                    I Need Help
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="max-w-md rounded-3xl">
-                  <DialogHeader>
-                    <span className="mb-2 grid size-12 place-items-center rounded-2xl bg-[#eaf5ff] text-[#168eea]">
-                      <CircleHelp aria-hidden="true" className="size-6" />
-                    </span>
-                    <DialogTitle>Let’s solve it together</DialogTitle>
-                    <DialogDescription className="leading-6">
-                      Check this guidance before changing your build.
-                    </DialogDescription>
-                  </DialogHeader>
-                  {helpItem ? (
-                    <div className="rounded-2xl bg-secondary p-4">
-                      <p className="text-sm font-bold">{helpItem.question}</p>
-                      <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                        {helpItem.answer}
-                      </p>
-                    </div>
-                  ) : null}
-                  {project.safetyNote ? (
-                    <div className="flex items-start gap-3 rounded-2xl bg-warning-soft p-4 text-sm leading-6">
-                      <ShieldCheck aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-warning" />
-                      <p>{project.safetyNote}</p>
-                    </div>
-                  ) : null}
-                  <DialogFooter>
-                    <DialogClose asChild>
-                      <Button className="rounded-2xl" type="button">
-                        I’m Ready to Try
-                      </Button>
-                    </DialogClose>
-                  </DialogFooter>
-                </DialogContent>
-              </Dialog>
-            ) : null}
-          </section>
         </div>
       </main>
 
-      <footer className="fixed inset-x-0 bottom-0 z-30 border-t border-slate-100 bg-white/95 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 shadow-[0_-10px_30px_rgba(20,55,90,0.06)] backdrop-blur sm:px-8 sm:py-4">
+      <footer className="relative z-30 shrink-0 border-t border-slate-100 bg-white/97 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 shadow-[0_-8px_24px_rgba(20,55,90,0.05)] sm:px-8 sm:py-4">
         <div className="mx-auto flex w-full max-w-5xl gap-3">
           <Button
             aria-label="Go to previous step"
