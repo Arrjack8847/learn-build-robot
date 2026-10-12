@@ -33,14 +33,14 @@ export const STL_MEASUREMENTS_MM = {
     ] as Pt3[],
     thickness: 7.8,
   },
-  pinPin: { length: 16, throughAxis: "+Z", stopCollarAtMidpoint: true },
+  pinPin: { length: 16, throughAxis: "+Z", stopCollarAtMidpoint: true, stopCollarThickness: 1.4934 },
 } as const;
 
 // These axial placements are explicitly provisional; do not label as verified.
 export const UNVERIFIED_AXIAL_MM = {
   axleInsertedInsideMotor: 8,
   discRearFaceGapFromMotor: 8,
-  stopCollarGap: 0.5,
+  stopCollarGap: 1.5, // measured flange approx. z=7.2533..8.7467 mm in pin_pin.stl
 } as const;
 
 /**
