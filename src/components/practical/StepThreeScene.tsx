@@ -110,6 +110,16 @@ function preparedGeometry(source: BufferGeometry, anchor: "beam" | "lBeam" | "ce
 
 const MOVING: StepThreePartId[] = ["longPinA", "longPinB", "leftLPin", "rightLPin"];
 
+function focusFor(phase: number, config: StepThreeConfig): Vector3 {
+  if (phase === 1) return new Vector3(holeX(config.firstHole), 0, 0);
+  if (phase === 2) return new Vector3(holeX(config.firstHole + 1), 0, 0);
+  if (phase === 3) return new Vector3(...LEFT_L);
+  if (phase === 4) return new Vector3(...RIGHT_L);
+  if (phase === 5) return new Vector3(-1.8, 3.1, 0);
+  if (phase === 6) return new Vector3(4.8, 3.1, 0);
+  return new Vector3(0, 0, 0);
+}
+
 function ModelStage({
   phase, paused, replayKey, resetCameraKey, config,
 }: {
@@ -132,6 +142,13 @@ function ModelStage({
   const connectorGeometry = config.longConnector === "long" ? geometry.long : geometry.pinLong;
   const controls = useRef<OrbitControlsImpl>(null);
   const moving = useRef<Partial<Record<StepThreePartId, Group>>>({});
+  const axleRef = useRef<Group>(null);
+  const axleConnectorRef = useRef<Group>(null);
+  const inspectionClock = useRef(0);
+  const cameraTravel = useRef<{
+    elapsed: number; fromTarget: Vector3; toTarget: Vector3;
+    fromPosition: Vector3; toPosition: Vector3;
+  } | null>(null);
   const initialized = useRef(false);
   const previous = useRef({ phase, replayKey, configKey: "" });
   const travel = useRef<{
@@ -170,20 +187,52 @@ function ModelStage({
   }, [phase, replayKey, configKey, config]);
 
   useLayoutEffect(() => {
+    const current = controls.current;
+    if (!current) return;
+    const target = focusFor(phase, config);
+    const direction = current.object.position.clone().sub(current.target).normalize();
+    const distance = phase >= 1 && phase <= 4 ? 16 : phase === 5 || phase === 6 ? 12 : 27;
+    cameraTravel.current = {
+      elapsed: 0,
+      fromTarget: current.target.clone(),
+      toTarget: target,
+      fromPosition: current.object.position.clone(),
+      toPosition: target.clone().addScaledVector(direction, distance),
+    };
+  }, [phase, configKey, config]);
+
+  useLayoutEffect(() => {
     controls.current?.reset();
+    cameraTravel.current = null;
   }, [resetCameraKey]);
 
-  useFrame((_, delta) => {
-    const animation = travel.current;
-    if (!animation || paused) return;
-    animation.elapsed = Math.min(animation.duration, animation.elapsed + Math.min(delta, 0.08));
-    const t = animation.elapsed / animation.duration;
-    const eased = t * t * (3 - 2 * t);
-    for (const part of MOVING) {
-      const item = moving.current[part], from = animation.from[part], to = animation.to[part];
-      if (item && from && to) item.position.lerpVectors(from, to, eased);
+  useFrame((state, delta) => {
+    if (paused) return;
+    const dt = Math.min(delta, 0.08);
+    const cameraAnimation = cameraTravel.current;
+    if (cameraAnimation && controls.current) {
+      cameraAnimation.elapsed = Math.min(0.9, cameraAnimation.elapsed + dt);
+      const q = cameraAnimation.elapsed / 0.9;
+      const smooth = q * q * (3 - 2 * q);
+      controls.current.target.lerpVectors(cameraAnimation.fromTarget, cameraAnimation.toTarget, smooth);
+      state.camera.position.lerpVectors(cameraAnimation.fromPosition, cameraAnimation.toPosition, smooth);
+      controls.current.update();
+      if (q >= 1) cameraTravel.current = null;
     }
-    if (t >= 1) travel.current = null;
+    const animation = travel.current;
+    if (animation) {
+      animation.elapsed = Math.min(animation.duration, animation.elapsed + dt);
+      const t = animation.elapsed / animation.duration;
+      const eased = t * t * (3 - 2 * t);
+      for (const part of MOVING) {
+        const item = moving.current[part], from = animation.from[part], to = animation.to[part];
+        if (item && from && to) item.position.lerpVectors(from, to, eased);
+      }
+      if (t >= 1) travel.current = null;
+    }
+    inspectionClock.current += dt;
+    if (axleRef.current) axleRef.current.rotation.x = phase === 5 ? Math.sin(inspectionClock.current * 1.3) * 0.35 : 0;
+    if (axleConnectorRef.current) axleConnectorRef.current.rotation.x = phase === 6 ? Math.sin(inspectionClock.current * 1.3) * 0.35 : 0;
   });
 
   const positions = poses(phase, config);
@@ -256,12 +305,12 @@ function ModelStage({
         ]} color="#f59e0b" lineWidth={2} dashed />
       )}
 
-      <group position={positions.mediumAxle.position} rotation={positions.mediumAxle.rotation}>
+      <group ref={axleRef} position={positions.mediumAxle.position} rotation={positions.mediumAxle.rotation}>
         <mesh geometry={geometry.axle} castShadow>
           <meshStandardMaterial color={phase === 5 ? "#de932b" : "#67798a"} roughness={0.53} />
         </mesh>
       </group>
-      <group position={positions.axleConnector.position} rotation={positions.axleConnector.rotation}>
+      <group ref={axleConnectorRef} position={positions.axleConnector.position} rotation={positions.axleConnector.rotation}>
         <mesh geometry={geometry.axleConnector} castShadow>
           <meshStandardMaterial color={phase === 6 ? "#de932b" : "#3d4a56"} roughness={0.58} />
         </mesh>
