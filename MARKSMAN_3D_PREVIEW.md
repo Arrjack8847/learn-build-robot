@@ -1,60 +1,52 @@
-# Marksman 3D instruction preview (Steps 1–4)
+# Marksman 3D Motor Unit — Steps 1 and 2
 
-The `/practical/marksmanship` guide preserves the original 31-step manual. For **steps 1–4 only**, it includes a **3D Preview (Beta)** toggle next to **Original manual**.
+This is a **beta interactive instruction player** in the existing `/practical/marksmanship` page. Use the **3D Preview (Beta)** tab on Steps 1 or 2. The **Original manual** tab remains available.
 
-## What this preview does
+## Implementation
 
-- Renders the actual Marksman STL shapes from `3D for marksman/` and the uploaded `mortor.glb` using Three.js, `STLLoader`, and `GLTFLoader`.
-- Normalizes the unexpectedly offset STL pin geometries and displays the models in one orbitable scene.
-- Demonstrates exploded-to-illustrative connected poses for steps 2 and 4; parts-preparation layouts are shown for steps 1 and 3.
-- Provides Play/Pause, Replay, timeline scrubbing, orbit and zoom, plus manual-image comparison and a fallback when WebGL/assets cannot load.
-- Leaves steps 5–31 and their existing images and progress controls unchanged.
+- `src/components/practical/MarksmanMotorAssembly.tsx`: **shared WebGL scene** for Steps 1 and 2. It keeps the original loaded GLB/STL models alive when switching between those steps, provides labels, orbit, pinch/zoom, Reset View, timeline, forward/pause, reverse Previous, replay, manual comparison and a final camera-only orbit.
+- `src/components/practical/marksmanAssemblyGeometry.ts`: measured geometry and explicitly identified calibration assumptions, separate from UI.
+- `src/components/practical/Marksman3DPreview.tsx`: wrapper retains the previous beta scenes for Steps 3 and 4, which are **not** changed by this correction.
+- `src/routes/practical/$projectId.tsx`: connects **Start Assembly** to Step 2 while preserving the WebGL subtree, and retains the physical-step progress controls. Merely finishing animation never marks the physical robot completed.
+- `scripts/verify-marksman-assets.mjs`: validates original asset files, STL dimensions, pin flange thickness and that the motor GLB contains an output hub and cable.
 
-## Important limitations
+The previous `MarksmanStep2Tutorial.tsx` remains in source as a historical prototype but is no longer rendered.
 
-**This is not a verified assembly animation yet.** The photos and instruction diagrams do not provide exact 3D transforms for every internal hole, connector and motor mount. All part end poses are manually authored illustrative placeholders in `src/components/practical/Marksman3DPreview.tsx`. They must be calibrated to the physical robot and approved against the actual guide **before** labeling them accurate instructions. The imported L-motor may not perfectly match the original hardware. The controller box is not yet modeled.
+## Correct mechanical teaching order
 
-The player deliberately does **not** require users to drag components or auto-complete progress; it is an instruction player rather than a simulator game.
+1. **Step 1:** Five separate genuine assets: motor, short axle, circular disc, 5-hole beam, connector.
+2. **2.1:** Short axle aligns to the candidate motor output face, slides axially toward motor, ends with visible exposed shaft.
+3. **2.2:** Circular disc's central X-shaped opening aligns coaxially with the exposed shaft; disc slides along that same axle, leaving a visible gap from motor.
+4. **2.3a:** Connector is inserted into a disc **outer round hole**, not the central X-shaped axle socket.
+5. **2.3b:** The beam's first end hole is aligned to the connector and slides onto its other side. The connector has a **middle stop collar**, which physically prevents pushing the same connector completely through two flush parts after the parts are mated. This two-stage docking is intentional and differs from some simplified illustrated wording.
+6. **2.4:** Rotate only the camera around the fixed connected subassembly. Keep the unit for Step 26.
 
-## Development and QA
+## Measured from supplied STLs
 
-```sh
-npm install
-npm run build
-npm run dev
-```
+| Physical part | Measured geometry |
+| --- | --- |
+| 24 mm short axle | Axis local +X; exact cross section in the STL |
+| Round disc | ~23.846 mm diameter × 4 mm thick, local +Z through-axis |
+| Round disc outer holes | **6** outer circles centred on 8 mm radius: (0, ±8), (±6.928, ±4) mm |
+| 5-hole beam | 39.3 × 7.286 × 7.8 mm; through-holes at local X 0, 8, 16, 24, 32 mm before re-centring |
+| `pin_pin.stl` | 16 mm long, Z-axis; centre stop collar **~1.4934 mm** thick |
+| Motor `mortor.glb` | GLB metadata units **metres**; contains motor housing, output hub `10091.dat`, and cable nodes `u9190` |
 
-Open `/practical/marksmanship`, navigate to steps 1–4, click **3D Preview (Beta)**. Check step 1 and 3 model layouts, step 2 and 4 replay, orbit/zoom, timeline scrub, reference toggle, small screens, reduced-motion preference and manual fallback. Check steps 5–31 remain unaffected.
+All STL models use one uniform factor `0.05 units/mm`. The motor model uses `50 units/metre`, **never fitted by its cable-inclusive bounding box**.
 
-The branch changes `package.json` to add `three` and `@types/three`. **Regenerate and commit `bun.lock` if using frozen Bun installs; it has not been regenerated here.** GitHub Actions now confirms both `npm run build` and `npx tsc --noEmit` pass with `npm install`; real-browser and physical placement validation are still pending. Do not merge or ship to learners until those checks and physical placement verification pass.
+## DO NOT CONSIDER PHYSICALLY VERIFIED
 
-## Next milestone
+- The exact motor socket plane and insertion depth remain **unverified**. The motor GLB's 10091.dat hub node suggests a front plane at GLB local `[-0.0076, 0.0158, 0.01134]` metres, with native output -Z rotated to tutorial +Z. This is a candidate transform inferred from GLB hierarchy, not a measured socket-hole surface.
+- The motor-axle insertion depth **8 mm** and disc rear-face spacing **8 mm** are **provisional**. They are shown as beta teaching positions, not certified against the physical assembly.
+- A lower-left disc outer hole `(-6.928,-4)` mm was chosen based on the visual reference and measured hole geometry; this specific mounting hole and beam orientation are not yet confirmed by a calibrated front-side reference.
+- `pin_pin.stl` is a **candidate**, not proven to be the gold-coloured connector shown in the illustrated reference; its underlying model is displayed neutral-grey. Do not colour a potentially incorrect part gold to hide the mismatch.
+- The manual inconsistently labels the axle a "3-hole long axle" in Step 1 and a short axle in Step 2. The Step 2 brief requests `axles/short.stl`; confirm the actual physical component.
+- No automated proof of non-intersection against the motor GLB or physically exact assembly exists. **Do not use this as an authoritative final instruction until reviewed against the real kit.**
 
-Map named anchors to 8 mm Technic hole pitch, validate each connector axis and individual part transform against physical photos/step diagrams, then replace illustrative poses with precise assembly snapshots. Only then extend the same animation engine to steps 5–31.
+## QA checklist
 
-## Step 2 interactive storyboard (October 12, 2026)
+Run `npm install`, `npm run build`, `npx tsc --noEmit`, `node scripts/verify-marksman-assets.mjs` and targeted ESLint. Check GitHub Actions for exact run results.
 
-The new `src/components/practical/MarksmanStep2Tutorial.tsx` replaces the old 4.5-second simultaneous motion for Step 2. It is deliberately **four user-controlled actions**, not one video:
+In an actual desktop and mobile browser, verify GLB/STL loads, Step 1 → Step 2 **without canvas remount**, all five actions, reverse path, replay, timeline, manual comparison, orbit, zoom, Reset View and reduced-motion behavior. Confirm the final connection from front, side and angled physical-photo views. Browser/device tests must be reported separately; passing CI does not prove their results.
 
-1. Identify all five parts and read their labels/instruction.
-2. Insert the short axle along the displayed motor-output axis (3 seconds).
-3. Attach the disc to the first beam hole, then rotate/insert the pin along the beam-hole axis (3 seconds).
-4. Translate the disc/beam/pin subassembly as one group toward the motor and inspect it (4 seconds).
-
-The tutorial provides camera keyframes with manual-orbit override, optional sound, active-part highlight/dimming, dashed axis guides, connection-point rings, action-by-action Previous / Next / Replay / Pause, reduced-motion considerations, and a scrubber. The parent step-complete/next-step button is disabled while Step 2's 3D tutorial is unfinished; students can instead follow the original manual, which is always available. Animation NEVER automatically marks the build completed.
-
-### Coordinate measurements and physical verification
-
-The models in the uploaded STL pack give **8 mm centre-to-centre spacing** on the five-hole beam, and the small beam is **39.3 mm overall**. In the preview, all STLs use `0.05 scene units/mm`, so the first beam hole is `x = -16mm * 0.05 = -0.8` relative to the beam midpoint. The 24 mm short axle, 16 mm pin, and ~24 mm circular disc use the same scale.
-
-The motor GLB was imported from an LDraw assembly and has its own object/cable transforms. Therefore **the exact motor axle socket position, orientation, beam-to-motor connection and final depth have not been physically verified**. The preview explicitly tells students to use the original manual for those dimensions. Don't promote it as exact until calibrated against the physical robot.
-
-This new player changes **Step 2 only**. Steps 1, 3 and 4 retain the earlier illustrative preview; steps 5–31 retain the 2D manual. No media or STL/GLB files were modified.
-
-### Remaining QA gates
-
-- Run `npm install`, `npm run build`, and `npx tsc --noEmit`; check the branch GitHub Actions run.
-- Test Step 2 on desktop and mobile in an actual browser: orbit/zoom, Next blocked during a running action, Replay, Previous, timeline, manual reference, optional sound, reduced motion, and error fallback.
-- Photograph/reference the motor's exact output socket and beam anchor positions to make final coupling precise.
-- Improve the GLB normalization so a long motor cable cannot affect body-only physical scaling; currently the bound includes the cable.
-- Reuse the action engine for other steps only after geometry is calibrated.
+The **main branch remains untouched** and the pull request should remain a draft until mechanical and live-browser verification is completed. All original STL, GLB, PNG and MP4 files are preserved.
