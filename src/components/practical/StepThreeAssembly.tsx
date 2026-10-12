@@ -76,7 +76,7 @@ export function StepThreeAssembly({ onReadyChange }: { onReadyChange: (ready: bo
   const [resetCameraKey, setResetCameraKey] = useState(0);
   const [paused, setPaused] = useState(false);
   const [showReference, setShowReference] = useState(false);
-  const instruction = INSTRUCTIONS[phase];
+  const instruction = INSTRUCTIONS[phase] ?? INSTRUCTIONS[0];
   const ready = phase === 7;
 
   useEffect(() => {
