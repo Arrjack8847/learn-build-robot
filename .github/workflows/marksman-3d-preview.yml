@@ -6,6 +6,9 @@ on:
   pull_request:
     paths:
       - "src/components/practical/Marksman3DPreview.tsx"
+      - "src/components/practical/MarksmanMotorAssembly.tsx"
+      - "src/components/practical/marksmanAssemblyGeometry.ts"
+      - "scripts/verify-marksman-assets.mjs"
       - "src/routes/practical/**"
       - "package.json"
       - "bun.lock"
@@ -23,3 +26,7 @@ jobs:
         run: npm run build
       - name: Type check
         run: npx tsc --noEmit
+      - name: Validate supplied 3D model geometry
+        run: node scripts/verify-marksman-assets.mjs
+      - name: ESLint for assembly implementation (formatting excluded)
+        run: npx eslint src/components/practical/MarksmanMotorAssembly.tsx src/components/practical/marksmanAssemblyGeometry.ts --rule "prettier/prettier: off"
