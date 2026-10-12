@@ -84,6 +84,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
 
   const isLastStep = currentIndex === project.steps.length - 1;
   const currentStepId = currentStep.id;
+  const isStepThree = project.id === "marksmanship" && currentStep.number === 3;
   const displayedPercent = Math.round(((currentIndex + 1) / project.steps.length) * 100);
   const helpItem =
     project.troubleshooting.length > 0
@@ -92,7 +93,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const hasHelp = Boolean(helpItem || project.safetyNote);
 
   function finishCurrentStep() {
-    if (project.id === "marksmanship" && currentStep.number === 3 && !stepThreeReady) return;
+    if (isStepThree && !stepThreeReady) return;
     toggleStepCompleted(currentStepId, true);
     if (isLastStep) {
       setStage("complete");
