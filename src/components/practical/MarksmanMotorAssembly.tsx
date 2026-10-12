@@ -250,7 +250,6 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
     setReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
     let dead = false;
     let frame = 0;
-    let resize: ResizeObserver | undefined;
     const scene = new THREE.Scene();
     const objects = new Map<PartName, THREE.Object3D>();
     const materials = new Map<PartName, THREE.MeshStandardMaterial[]>();
@@ -389,7 +388,7 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       offset = vec(a?.cameraOffset ?? [4.2, -7.2, 4]);
     };
 
-    resize = new ResizeObserver(() => {
+    const resize = new ResizeObserver(() => {
       const w = Math.max(1, host.clientWidth), h = Math.max(1, host.clientHeight);
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
