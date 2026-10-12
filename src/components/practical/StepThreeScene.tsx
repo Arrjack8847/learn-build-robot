@@ -121,13 +121,13 @@ function ModelStage({
 }) {
   const sources = useLoader(STLLoader, PATHS);
   const geometry = useMemo(() => ({
-    beam: preparedGeometry(sources[0], "beam"),
-    lBeam: preparedGeometry(sources[1], "lBeam"),
-    long: preparedGeometry(sources[2], "center"),
-    pinLong: preparedGeometry(sources[3], "center"),
-    pin: preparedGeometry(sources[4], "center"),
-    axle: preparedGeometry(sources[5], "center"),
-    axleConnector: preparedGeometry(sources[6], "center"),
+    beam: preparedGeometry(sources[0]!, "beam"),
+    lBeam: preparedGeometry(sources[1]!, "lBeam"),
+    long: preparedGeometry(sources[2]!, "center"),
+    pinLong: preparedGeometry(sources[3]!, "center"),
+    pin: preparedGeometry(sources[4]!, "center"),
+    axle: preparedGeometry(sources[5]!, "center"),
+    axleConnector: preparedGeometry(sources[6]!, "center"),
   }), [sources]);
   const connectorGeometry = config.longConnector === "long" ? geometry.long : geometry.pinLong;
   const controls = useRef<OrbitControlsImpl>(null);
