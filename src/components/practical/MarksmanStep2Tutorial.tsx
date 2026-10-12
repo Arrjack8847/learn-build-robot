@@ -39,14 +39,14 @@ const actions: AssemblyAction[] = [
     title: "Identify the five components",
     caption: "Inspect the motor, 24 mm short axle, 5-hole beam, circular disc and pin connector. This is a parts overview.",
     duration: 0, active: ["motor", "axle", "beam", "disc", "pin"],
-    camera: [3.2, -7.5, 5.0], focus: [0, 0, 0],
+    camera: [3.5, -7.0, 4.3], focus: [-0.15, 0.0, 0.12],
   },
   {
     title: "Insert the short axle",
-    caption: "Focus on the motor output. Align the short axle with the output axis, then slide it in. Motor socket position is still being calibrated.",
+    caption: "The motor stays horizontal with its output facing right. Slide the short axle left along the output axis; verify the exact socket depth against your real motor.",
     duration: 3, active: ["motor", "axle"],
-    camera: [-0.6, -4.7, 2.6], focus: [-1.25, -0.18, 0.22],
-    guide: { from: [-1.15, -1.65, 0.3], to: [-1.15, 0.2, 0.3] },
+    camera: [1.85, -4.4, 2.65], focus: [-0.8, 0.2, 0.2],
+    guide: { from: [0.95, 0.2, 0.2], to: [-0.7, 0.2, 0.2] },
   },
   {
     title: "Attach the circular disc",
@@ -59,20 +59,22 @@ const actions: AssemblyAction[] = [
     title: "Combine and inspect",
     caption: "Bring the beam-and-disc subassembly toward the motor. The final motor coupling is a teaching approximation pending socket and hole verification.",
     duration: 4, active: ["motor", "axle", "beam", "disc", "pin"],
-    camera: [1.8, -5.6, 3.5], focus: [-0.2, 0.05, 0.0],
+    camera: [3.1, -5.8, 3.5], focus: [-0.55, 0.10, 0.05],
     guide: { from: [1.2, -0.3, -0.4], to: [-0.9, -0.15, -0.35] },
   },
 ];
 
 const start: Record<Part, Pose> = {
   motor: { position: [-1.8, 0.2, 0.2] },
-  axle: { position: [-1.15, -1.9, 0.3], rotation: [0, 0, RAD] },
+  axle: { position: [0.95, 0.2, 0.2] },
   beam: { position: [2.0, 0.2, -0.4] },
   // A beam STL is centred on its midspan. Hole 1 = -16 mm = -0.8 scene units.
   disc: { position: [1.2, -1.45, -0.4], rotation: [RAD, 0, 0] },
   pin: { position: [1.75, -1.9, 0.3] },
 };
-const axleInserted: Vec = [-1.15, -0.52, 0.3];
+// With the motor shaft pointing +X, insert from the right along -X.
+// This is still a preview target pending physical socket calibration.
+const axleInserted: Vec = [-0.35, 0.2, 0.2];
 const discAttached: Vec = [1.2, -0.44, -0.4];
 const pinAttached: Vec = [1.2, -0.11, -0.4];
 const joinedOffset = new THREE.Vector3(-2.1, 0.15, 0.05);
@@ -272,7 +274,7 @@ export function MarksmanStep2Tutorial({
       const line = new THREE.Line(geometry, guideMaterial);
       line.computeLineDistances();
       guides.add(line);
-      const snapPoint: Vec = index === 1 ? [-1.15, -0.4, 0.3]
+      const snapPoint: Vec = index === 1 ? [-0.7, 0.2, 0.2]
         : index === 2 ? [1.2, -0.28, -0.4]
         : [-0.9, -0.15, -0.35];
       const ring = new THREE.Mesh(
@@ -312,25 +314,78 @@ export function MarksmanStep2Tutorial({
         return;
       }
       const motorVisual = motor.scene.clone(true);
-      // The GLB includes its cable; bounding-box fit is display-only, not a physical calibration.
-      const box = new THREE.Box3().setFromObject(motorVisual);
-      const centre = box.getCenter(new THREE.Vector3());
-      const size = box.getSize(new THREE.Vector3());
-      motorVisual.position.sub(centre);
+      // LDraw motor arrived upright in the browser (output toward +Z).
+      // Keep the original GLB intact: normalize body-only size and rotate its
+      // local +Z output direction toward world +X. The motor stays stationary
+      // while the short axle approaches from the right.
+      //
+      // Exclude imported coiled wiring from the motor-body measurements. Its
+      // shape and name vary across LDraw exports, so treat recognized cable
+      // branches separately; do not remove or edit the actual GLB asset.
+      const cableNames = /cable|wire|cord|u9190|flex[-_ ]?tube/i;
+      motorVisual.traverse((child) => {
+        if (cableNames.test(child.name)) child.visible = false;
+      });
+      const bodyBounds = new THREE.Box3().setFromObject(motorVisual);
+      const bodySize = bodyBounds.getSize(new THREE.Vector3());
+      const bodyCenter = bodyBounds.getCenter(new THREE.Vector3());
+      if (bodyBounds.isEmpty() || Math.max(bodySize.x, bodySize.y, bodySize.z) < 0.0001) {
+        throw new Error("Motor housing geometry could not be identified");
+      }
+      motorVisual.position.sub(bodyCenter);
+      // Rotate the *pivot*, not the translated GLB root, to keep it centred.
+      const bodyPivot = new THREE.Group();
+      bodyPivot.add(motorVisual);
+      bodyPivot.rotation.y = Math.PI / 2;
       const motorGroup = new THREE.Group();
-      motorGroup.add(motorVisual);
-      motorGroup.scale.setScalar(2.2 / Math.max(size.x, size.y, size.z, 0.001));
+      motorGroup.add(bodyPivot);
+      motorGroup.scale.setScalar(2.2 / Math.max(bodySize.x, bodySize.y, bodySize.z));
       scene.add(motorGroup);
+
+      // A clean, independent dark cable drops downward from the BACK (-X)
+      // of the horizontal housing. The source model and its metadata remain
+      // untouched. The cable route is illustrative until the real wiring is
+      // measured. Keeping it separate avoids the large upright yellow loop.
+      const cablePath = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(-2.88, 0.23, 0.28),
+        new THREE.Vector3(-3.06, 0.23, 0.09),
+        new THREE.Vector3(-3.09, 0.25, -0.32),
+        new THREE.Vector3(-2.99, 0.28, -0.76),
+        new THREE.Vector3(-2.85, 0.28, -1.02),
+      ]);
+      const cableMesh = new THREE.Mesh(
+        new THREE.TubeGeometry(cablePath, 28, 0.024, 6, false),
+        new THREE.MeshStandardMaterial({ color: 0x222830, roughness: 0.93 }),
+      );
+      scene.add(cableMesh);
+
       const motorMaterials: THREE.Material[] = [];
       motorVisual.traverse((node) => {
-        if (node instanceof THREE.Mesh) {
-          const list = Array.isArray(node.material) ? node.material : [node.material];
-          node.material = Array.isArray(node.material) ? list.map((m) => m.clone()) : list[0]!.clone();
-          const cloneList = Array.isArray(node.material) ? node.material : [node.material];
-          motorMaterials.push(...cloneList);
+        if (node instanceof THREE.Mesh && node.visible) {
+          const existing = Array.isArray(node.material) ? node.material : [node.material];
+          const updated = existing.map((oldMat) => {
+            const mat = new THREE.MeshStandardMaterial({
+              color: 0xbec6cf, roughness: 0.62, metalness: 0.07,
+              side: THREE.DoubleSide,
+            });
+            // Preserve genuinely orange output details if the LDraw material
+            // has a recognisable orange name or color. Avoid yellow highlighting
+            // washing out the whole housing, as in the supplied screenshot.
+            const oldColor = (oldMat as THREE.MeshStandardMaterial).color;
+            if (/orange/i.test(oldMat.name) ||
+              (oldColor && oldColor.r > 0.6 && oldColor.g > 0.15 &&
+                oldColor.g < 0.65 && oldColor.b < 0.3)) {
+              mat.color.setHex(0xdd8127);
+            }
+            return mat;
+          });
+          node.material = Array.isArray(node.material) ? updated : updated[0]!;
+          motorMaterials.push(...updated);
         }
       });
-      entries.set("motor", { node: motorGroup, initialScale: motorGroup.scale.clone(), materials: motorMaterials });
+      // Motor body is never tinted as a single giant active highlight.
+      // Only the output socket gets the guide ring.
+      entries.set("motor", { node: motorGroup, initialScale: motorGroup.scale.clone(), materials: [] });
 
       const ids: Array<Exclude<Part, "motor">> = ["axle", "beam", "disc", "pin"];
       for (let i = 0; i < geometries.length; i++) {
@@ -342,8 +397,22 @@ export function MarksmanStep2Tutorial({
         const mat = new THREE.MeshStandardMaterial({ color: palette[id], roughness: 0.43, metalness: 0.06, side: THREE.DoubleSide });
         const mesh = new THREE.Mesh(geometry, mat);
         mesh.scale.setScalar(scaleMm);
-        scene.add(mesh);
-        entries.set(id, { node: mesh, initialScale: mesh.scale.clone(), materials: [mat] });
+        // STL axes are not consistent across exports. Align the longest
+        // dimension of the axle with world +X, so its movement into the
+        // right-facing socket follows a single shared straight axis.
+        if (id === "axle") {
+          geometry.computeBoundingBox();
+          const boxSize = geometry.boundingBox!.getSize(new THREE.Vector3());
+          const axis = boxSize.x >= boxSize.y && boxSize.x >= boxSize.z
+            ? new THREE.Vector3(1, 0, 0)
+            : boxSize.y >= boxSize.z ? new THREE.Vector3(0, 1, 0)
+            : new THREE.Vector3(0, 0, 1);
+          mesh.quaternion.setFromUnitVectors(axis, new THREE.Vector3(1, 0, 0));
+        }
+        const partPivot = new THREE.Group();
+        partPivot.add(mesh);
+        scene.add(partPivot);
+        entries.set(id, { node: partPivot, initialScale: partPivot.scale.clone(), materials: [mat] });
       }
       paintGuide(0);
       setActiveMaterials(0);
@@ -484,7 +553,7 @@ export function MarksmanStep2Tutorial({
         {finished && action === actions.length - 1 && <p role="status" className="mt-1 inline-flex items-center gap-1 text-xs font-bold text-green-700"><CheckCircle2 className="size-4" /> All four animation actions completed. Verify the real parts before marking Step 2 done.</p>}
       </div>
       <p className="rounded-lg bg-amber-50 px-3 py-2 text-[11px] leading-4 text-amber-900">
-        Illustrative tutorial: beam hole spacing is measured from STL, but the motor socket and final coupling are not verified. Follow the original instruction image for physically accurate assembly.
+        The motor now lies horizontally, output on the right, with cable directed downward. Socket depth and cable routing are visual estimates, not physically verified connections. Use the original manual for exact assembly.
       </p>
       {referenceOpen && <img src={referenceImage} alt="Original manual, Step 2" className="mx-auto max-h-[240px] max-w-full rounded-xl border border-slate-200 object-contain" />}
       <div className="flex flex-wrap items-center gap-2">
