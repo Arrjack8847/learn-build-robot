@@ -27,7 +27,7 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Verify original STL assets
         run: npm run test:step3
+      - name: Production build (regenerates router types)
+        run: npm run build
       - name: Type-check interactive tutorial
         run: npx tsc --noEmit
-      - name: Production build
-        run: npm run build
