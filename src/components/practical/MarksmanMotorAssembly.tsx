@@ -556,7 +556,7 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
             <button type="button" disabled={!loaded || Boolean(failure) || !finishedAction || action === actions.length - 1} onClick={goNext} className="inline-flex min-h-10 flex-1 items-center justify-center gap-1 rounded-full bg-[#168eea] px-3 text-xs font-bold text-white disabled:opacity-40">Next <ArrowRight className="size-4" /></button>
             <button type="button" disabled={!loaded || Boolean(failure) || reducedMotion} onClick={replay} className="inline-flex min-h-10 items-center gap-1 rounded-full border border-slate-200 bg-white px-3 text-xs font-bold text-[#132654] disabled:opacity-40"><RotateCcw className="size-4"/> Replay</button>
             <button type="button" disabled={!loaded || Boolean(failure) || reducedMotion} onClick={() => {
-              if (timeRef.current >= 1) moveTo(actionRef.current, 0, true);
+              if (timeRef.current >= 1) replay();
               else { playingRef.current = !playingRef.current; directionRef.current = 1; setPlaying(playingRef.current); }
             }} aria-label={playing ? "Pause animation" : "Play animation"} className="inline-flex min-h-10 items-center justify-center rounded-full border border-slate-200 bg-white px-3 text-[#132654] disabled:opacity-40">
               {playing ? <Pause className="size-4"/> : <Play className="size-4"/>}
