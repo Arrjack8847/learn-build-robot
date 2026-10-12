@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { MarksmanStep2Tutorial } from "./MarksmanStep2Tutorial";
+import { MarksmanMotorAssembly } from "./MarksmanMotorAssembly";
 import { Pause, Play, RotateCcw } from "lucide-react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -69,9 +69,22 @@ function eased(t: number) { return t * t * (3 - 2 * t); }
 function vector(v: V3) { return new THREE.Vector3(v[0], v[1], v[2]); }
 
 export function Marksman3DPreview({
-  step, referenceImage, onReadyChange,
-}: { step: number; referenceImage: string; onReadyChange?: ((ready: boolean) => void) | undefined }) {
-  if (step === 2) return <MarksmanStep2Tutorial referenceImage={referenceImage} onReadyChange={onReadyChange} />;
+  step, referenceImage, onReadyChange, onBeginStep2,
+}: {
+  step: number; referenceImage: string;
+  onReadyChange?: ((ready: boolean) => void) | undefined;
+  onBeginStep2?: (() => void) | undefined;
+}) {
+  if (step <= 2) {
+    return (
+      <MarksmanMotorAssembly
+        step={step}
+        referenceImage={referenceImage}
+        onReadyChange={onReadyChange}
+        onBeginStep2={onBeginStep2}
+      />
+    );
+  }
   return <LegacyMarksmanPreview step={step} referenceImage={referenceImage} />;
 }
 
