@@ -63,6 +63,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
   );
   const [stage, setStage] = useState<SessionStage>("steps");
   const [preview3D, setPreview3D] = useState(false);
+  const [previewStep2Ready, setPreviewStep2Ready] = useState(false);
   const currentStep = project.steps[currentIndex];
 
   if (!currentStep) {
@@ -165,7 +166,10 @@ function BuildSession({ project }: { project: PracticalProject }) {
                     type="button"
                     aria-pressed={preview3D}
                     className={`min-h-10 rounded-full border px-4 py-2 text-sm font-bold transition-colors ${preview3D ? "border-[#168eea] bg-[#168eea] text-white" : "border-slate-200 bg-white text-[#132654]"}`}
-                    onClick={() => setPreview3D(true)}
+                    onClick={() => {
+                      setPreviewStep2Ready(false);
+                      setPreview3D(true);
+                    }}
                   >
                     3D Preview (Beta)
                   </button>
@@ -174,7 +178,12 @@ function BuildSession({ project }: { project: PracticalProject }) {
               <div className="relative flex w-full items-center justify-center overflow-hidden rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:min-h-[420px] md:rounded-[32px]">
               <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-20" />
               {project.id === "marksmanship" && currentStep.number <= 4 && preview3D && currentStep.image ? (
-                <Marksman3DPreview key={currentStep.number} step={currentStep.number} referenceImage={currentStep.image} />
+                <Marksman3DPreview
+                  key={currentStep.number}
+                  step={currentStep.number}
+                  referenceImage={currentStep.image}
+                  onReadyChange={setPreviewStep2Ready}
+                />
               ) : currentStep.image ? (
                 <img
                   alt={`${project.title} step ${currentStep.number}: ${currentStep.title}`}
@@ -269,6 +278,11 @@ function BuildSession({ project }: { project: PracticalProject }) {
       </main>
 
       <footer className="relative z-30 shrink-0 border-t border-slate-100 bg-white/97 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 shadow-[0_-8px_24px_rgba(20,55,90,0.05)] sm:px-8 sm:py-4">
+        {project.id === "marksmanship" && currentStep.number === 2 && preview3D && !previewStep2Ready && (
+          <p className="mx-auto mb-2 max-w-5xl text-center text-xs font-semibold text-[#132654]">
+            Finish all four 3D tutorial actions to continue, or switch to the original manual.
+          </p>
+        )}
         <div className="mx-auto flex w-full max-w-5xl gap-3">
           <Button
             aria-label="Go to previous step"
@@ -283,6 +297,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
           </Button>
           <Button
             className="min-h-12 flex-1 rounded-full bg-[#168eea] text-base font-black text-white shadow-[0_10px_26px_rgba(22,142,234,0.24)] hover:bg-[#0e82dd] sm:min-h-[52px]"
+            disabled={project.id === "marksmanship" && currentStep.number === 2 && preview3D && !previewStep2Ready}
             onClick={finishCurrentStep}
             type="button"
           >
