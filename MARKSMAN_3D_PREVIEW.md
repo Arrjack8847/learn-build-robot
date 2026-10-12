@@ -26,7 +26,7 @@ npm run dev
 
 Open `/practical/marksmanship`, navigate to steps 1–4, click **3D Preview (Beta)**. Check step 1 and 3 model layouts, step 2 and 4 replay, orbit/zoom, timeline scrub, reference toggle, small screens, reduced-motion preference and manual fallback. Check steps 5–31 remain unaffected.
 
-The branch changes `package.json` to add `three` and `@types/three`. **Regenerate and commit `bun.lock` if using frozen Bun installs; it has not been regenerated here.** The build has not yet been verified in a full dependency-installed environment. Do not merge or ship to learners until those checks and physical placement verification pass.
+The branch changes `package.json` to add `three` and `@types/three`. **Regenerate and commit `bun.lock` if using frozen Bun installs; it has not been regenerated here.** GitHub Actions now confirms both `npm run build` and `npx tsc --noEmit` pass with `npm install`; real-browser and physical placement validation are still pending. Do not merge or ship to learners until those checks and physical placement verification pass.
 
 ## Next milestone
 
