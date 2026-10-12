@@ -193,13 +193,13 @@ export function MarksmanStep2Tutorial({
   };
   const next = () => {
     if (actionRef.current < actions.length - 1 && animationRef.current >= 1) {
-      seek(actionRef.current + 1, 0, true);
+      seek(actionRef.current + 1, reducedMotion ? 1 : 0, !reducedMotion);
     }
   };
   const previous = () => {
     if (actionRef.current > 0) seek(actionRef.current - 1, 1);
   };
-  const replay = () => seek(actionRef.current, actionRef.current === 0 ? 1 : 0, actionRef.current !== 0);
+  const replay = () => seek(actionRef.current, (actionRef.current === 0 || reducedMotion) ? 1 : 0, actionRef.current !== 0 && !reducedMotion);
 
   useEffect(() => {
     const host = canvasRef.current;
@@ -259,7 +259,10 @@ export function MarksmanStep2Tutorial({
       while (guides.children.length) {
         const child = guides.children[0];
         guides.remove(child);
-        if (child instanceof THREE.Line) child.geometry.dispose();
+        if (child instanceof THREE.Line || child instanceof THREE.Mesh) child.geometry.dispose();
+        if (child instanceof THREE.Mesh) {
+          for (const mat of (Array.isArray(child.material) ? child.material : [child.material])) mat.dispose();
+        }
       }
       const guide = actions[index].guide;
       if (!guide) return;
@@ -267,6 +270,16 @@ export function MarksmanStep2Tutorial({
       const line = new THREE.Line(geometry, guideMaterial);
       line.computeLineDistances();
       guides.add(line);
+      const snapPoint: Vec = index === 1 ? [-1.15, -0.4, 0.3]
+        : index === 2 ? [1.2, -0.28, -0.4]
+        : [-0.9, -0.15, -0.35];
+      const ring = new THREE.Mesh(
+        new THREE.TorusGeometry(0.15, 0.025, 8, 32),
+        new THREE.MeshBasicMaterial({ color: 0x168eea, transparent: true, opacity: 0.82, depthTest: false }),
+      );
+      ring.rotation.x = RAD;
+      ring.position.copy(vector(snapPoint));
+      guides.add(ring);
     };
 
     const setActiveMaterials = (index: number) => {
@@ -372,7 +385,7 @@ export function MarksmanStep2Tutorial({
           playingRef.current = false;
           setPlaying(false);
           if (index === actions.length - 1) onReadyRef.current?.(true);
-          if (!wasPlaying) playSnap(soundRef.current);
+          if (wasPlaying) playSnap(soundRef.current);
         }
       }
       wasPlaying = playingRef.current;
