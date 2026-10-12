@@ -134,12 +134,9 @@ function poseAt(action: number, progress: number, part: Part): Pose {
   return { position: pinPosition.addScaledVector(joinedOffset, joinT).toArray() as Vec, rotation: pinRotation };
 }
 
-function playSnap(muted: boolean) {
-  if (muted || typeof window === "undefined") return;
+function playSnap(muted: boolean, context: AudioContext | null) {
+  if (muted || !context || context.state !== "running") return;
   try {
-    const AudioContextType = window.AudioContext;
-    if (!AudioContextType) return;
-    const context = new AudioContextType();
     const oscillator = context.createOscillator();
     const gain = context.createGain();
     oscillator.type = "sine";
@@ -151,7 +148,6 @@ function playSnap(muted: boolean) {
     gain.connect(context.destination);
     oscillator.start();
     oscillator.stop(context.currentTime + 0.11);
-    oscillator.onended = () => { void context.close(); };
   } catch {
     // Sound is optional. Never block assembly instruction playback.
   }
@@ -169,6 +165,7 @@ export function MarksmanStep2Tutorial({
   const animationRef = useRef(1);
   const playingRef = useRef(false);
   const soundRef = useRef(true);
+  const soundContextRef = useRef<AudioContext | null>(null);
   const onReadyRef = useRef(onReadyChange);
   const [action, setAction] = useState(0);
   const [animation, setAnimation] = useState(1);
@@ -385,7 +382,7 @@ export function MarksmanStep2Tutorial({
           playingRef.current = false;
           setPlaying(false);
           if (index === actions.length - 1) onReadyRef.current?.(true);
-          if (wasPlaying) playSnap(soundRef.current);
+          if (wasPlaying) playSnap(soundRef.current, soundContextRef.current);
         }
       }
       wasPlaying = playingRef.current;
@@ -413,6 +410,10 @@ export function MarksmanStep2Tutorial({
     frame = window.requestAnimationFrame(tick);
     return () => {
       disposed = true;
+      if (soundContextRef.current) {
+        void soundContextRef.current.close();
+        soundContextRef.current = null;
+      }
       window.cancelAnimationFrame(frame);
       resize?.disconnect();
       controls.removeEventListener("start", stopCamera);
@@ -468,7 +469,18 @@ export function MarksmanStep2Tutorial({
         }} disabled={action === 0 || loading || Boolean(error) || reducedMotion} aria-label={playing ? "Pause current action" : "Play current action"}>
           {playing ? <Pause className="size-4" /> : <Play className="size-4" />}
         </button>
-        <button className="inline-flex min-h-10 items-center justify-center rounded-full border border-slate-200 bg-white px-3 text-[#132654]" type="button" onClick={() => setMuted((v) => !v)} aria-label={muted ? "Enable snap sound" : "Mute snap sound"}>{muted ? <VolumeX className="size-4"/> : <Volume2 className="size-4"/>}</button>
+        <button className="inline-flex min-h-10 items-center justify-center rounded-full border border-slate-200 bg-white px-3 text-[#132654]" type="button" onClick={() => {
+          if (muted) {
+            try {
+              const context = soundContextRef.current ?? new window.AudioContext();
+              soundContextRef.current = context;
+              void context.resume();
+            } catch {
+              // Browser audio permission or device may deny optional sound.
+            }
+          }
+          setMuted((v) => !v);
+        }} aria-label={muted ? "Enable snap sound" : "Mute snap sound"}>{muted ? <VolumeX className="size-4"/> : <Volume2 className="size-4"/>}</button>
       </div>
       {action !== 0 && <label className="flex items-center gap-2 text-xs text-slate-600">
         <span className="sr-only">Current action timeline</span>
