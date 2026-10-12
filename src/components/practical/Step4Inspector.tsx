@@ -1,8 +1,8 @@
-import { Suspense, useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
-import { Box3, MathUtils, Vector3, type Mesh, type BufferGeometry } from "three";
+import { MeshStandardMaterial, Vector3, type Mesh, type BufferGeometry } from "three";
 import { ChevronLeft, ChevronRight, CircleAlert, Pause, Play, RotateCcw, ScanSearch } from "lucide-react";
 
 type PartId = "long-beam" | "beam-pin-a" | "beam-pin-b" | "left-l" | "right-l" | "axle" | "axle-connector";
@@ -57,21 +57,22 @@ function InspectMesh({ part, selected, replay }: { part: InspectPart; selected: 
   const loaded = useLoader(STLLoader, part.src);
   const geometry = useMemo(() => {
     const clone: BufferGeometry = loaded.clone();
-    const bounds = new Box3().setFromBufferAttribute(clone.getAttribute("position"));
-    const center = bounds.getCenter(new Vector3());
-    clone.translate(-center.x, -center.y, -center.z);
+    clone.computeBoundingBox();
+    const center = clone.boundingBox?.getCenter(new Vector3());
+    if (center) clone.translate(-center.x, -center.y, -center.z);
     return clone;
   }, [loaded]);
-  const mesh = useMemo(() => ({ current: null as Mesh | null }), []);
+  const mesh = useRef<Mesh>(null);
   useFrame(({ clock }) => {
-    if (mesh.current && selected) {
-      // A restrained visual emphasis, NOT an assembly motion.
-      mesh.current.material && (mesh.current.scale.y = 0.065 * (1 + 0.012 * Math.sin(clock.elapsedTime * 2.5 + replay)));
+    // Only the light emphasis changes. Never distort the original STL geometry.
+    const material = mesh.current?.material;
+    if (material instanceof MeshStandardMaterial) {
+      material.emissiveIntensity = selected ? 0.18 + 0.10 * Math.sin(clock.elapsedTime * 3 + replay) : 0;
     }
   });
   return (
     <mesh
-      ref={(node) => { mesh.current = node; }}
+      ref={mesh}
       geometry={geometry}
       position={part.position}
       rotation={[-Math.PI / 2, 0, 0]}
@@ -79,7 +80,7 @@ function InspectMesh({ part, selected, replay }: { part: InspectPart; selected: 
       castShadow
       receiveShadow
     >
-      <meshStandardMaterial color={part.color} transparent opacity={selected ? 1 : 0.48} roughness={0.66} metalness={0.08} />
+      <meshStandardMaterial color={part.color} emissive="#168eea" transparent opacity={selected ? 1 : 0.48} roughness={0.66} metalness={0.08} />
     </mesh>
   );
 }
