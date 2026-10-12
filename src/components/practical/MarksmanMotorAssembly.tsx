@@ -191,13 +191,13 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
   useEffect(() => {
     stageRef.current = step;
     actionRef.current = 0;
-    timeRef.current = 0;
+    timeRef.current = reducedMotion && step === 2 ? 1 : 0;
     directionRef.current = 1;
     reverseRef.current = null;
     playingRef.current = step === 2 && !reducedMotion;
     setPlaying(playingRef.current);
     setAction(0);
-    setFraction(0);
+    setFraction(timeRef.current);
     onReadyRef.current?.(false);
     resetCameraRef.current += 1;
   }, [step, reducedMotion]);
@@ -247,6 +247,7 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
   useEffect(() => {
     const host = hostRef.current;
     if (!host) return;
+    setReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
     let dead = false;
     let frame = 0;
     let resize: ResizeObserver | undefined;
@@ -461,7 +462,7 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
         orbit.target.lerpVectors(focusFrom, focusTarget, ease(cameraFraction));
       } else if (currentStep === 2 && id === actions.length - 1 && playingRef.current && !manualOrbit) {
         // Orbit ONLY the camera; all connected meshes remain still.
-        const angle = fractionNow * Math.PI * 1.5;
+        const angle = clamp((fractionNow - 0.24) / 0.76) * Math.PI * 1.5;
         camera.position.copy(orbitAt(a?.cameraOffset ?? [3, -3, 3], a?.focus ?? [0, 0, 0], angle));
         orbit.target.copy(vec(a?.focus ?? [0, 0, 0]));
       }
@@ -536,6 +537,7 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       {step === 1 ? (
         <div className="space-y-2">
           <p className="text-sm text-[#132654]">Inspect the five parts independently. None are connected. Rotate or zoom, then choose Start Assembly.</p>
+          <button type="button" onClick={() => { resetCameraRef.current += 1; }} className="mb-2 inline-flex min-h-10 items-center gap-1 rounded-full border border-slate-200 bg-white px-3 text-xs font-bold text-[#132654]"><Scan className="size-4" /> Reset View</button>
           <button type="button" disabled={!loaded || Boolean(failure)} onClick={() => onBeginStep2?.()} className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#168eea] px-4 text-sm font-bold text-white disabled:opacity-40">
             <Wrench className="size-4" /> Start Assembly — Step 2 <ArrowRight className="size-4" />
           </button>
