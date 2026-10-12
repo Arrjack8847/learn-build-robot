@@ -179,10 +179,13 @@ function BuildSession({ project }: { project: PracticalProject }) {
               <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-20" />
               {project.id === "marksmanship" && currentStep.number <= 4 && preview3D && currentStep.image ? (
                 <Marksman3DPreview
-                  key={currentStep.number}
                   step={currentStep.number}
                   referenceImage={currentStep.image}
                   onReadyChange={setPreviewStep2Ready}
+                  onBeginStep2={() => {
+                    setPreviewStep2Ready(false);
+                    setCurrentIndex(1);
+                  }}
                 />
               ) : currentStep.image ? (
                 <img
