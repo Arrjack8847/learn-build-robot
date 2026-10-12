@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { MarksmanStep2Tutorial } from "./MarksmanStep2Tutorial";
 import { Pause, Play, RotateCcw } from "lucide-react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -67,7 +68,14 @@ const PREVIEW: Record<1 | 2 | 3 | 4, Piece[]> = {
 function eased(t: number) { return t * t * (3 - 2 * t); }
 function vector(v: V3) { return new THREE.Vector3(v[0], v[1], v[2]); }
 
-export function Marksman3DPreview({ step, referenceImage }: { step: number; referenceImage: string }) {
+export function Marksman3DPreview({
+  step, referenceImage, onReadyChange,
+}: { step: number; referenceImage: string; onReadyChange?: (ready: boolean) => void }) {
+  if (step === 2) return <MarksmanStep2Tutorial referenceImage={referenceImage} onReadyChange={onReadyChange} />;
+  return <LegacyMarksmanPreview step={step} referenceImage={referenceImage} />;
+}
+
+function LegacyMarksmanPreview({ step, referenceImage }: { step: number; referenceImage: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef(0);
   const playingRef = useRef(true);
