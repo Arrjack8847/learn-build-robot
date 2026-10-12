@@ -30,12 +30,11 @@ const PATHS = [
 ];
 
 const HOLE_PITCH_MM = 8;
-const world = (mm: number) => mm / HOLE_PITCH_MM;
 const holeX = (index: number) => index - 7;
 const LEFT_L: [number, number, number] = [-4.1, -3.15, 0];
 const RIGHT_L: [number, number, number] = [4.1, -3.15, 0];
 const LEFT_ANGLE = 0;
-const RIGHT_ANGLE = Math.PI;
+const RIGHT_ANGLE = 0;
 
 function lPinAt(origin: [number, number, number], angle: number, hole: StepThreeConfig["lHole"]) {
   const local = new Vector3(0, hole === "oneDown" ? -1 : 0, 0);
@@ -57,7 +56,7 @@ function poses(phase: number, config: StepThreeConfig): Record<StepThreePartId, 
     leftL: { position: LEFT_L, rotation: zRotation(LEFT_ANGLE) },
     rightL: { position: RIGHT_L, rotation: zRotation(RIGHT_ANGLE) },
     leftLPin: { position: getPos(lp.clone().add(new Vector3(0, 0, phase >= 3 ? 0 : 2.4))), rotation: [0, 0, 0] },
-    rightLPin: { position: getPos(rp.clone().add(new Vector3(0, 0, phase >= 4 ? 0 : 2.4))), rotation: [0, 0, 0] },
+    rightLPin: { position: getPos(rp.clone().add(new Vector3(0, 0, phase >= 4 ? 0 : 2.4))), rotation: [0, Math.PI, 0] },
     mediumAxle: { position: [-1.8, 3.1, 0], rotation: [0, 0, 0] },
     axleConnector: { position: [4.8, 3.1, 0], rotation: [0, Math.PI / 2, 0] },
   };
@@ -190,7 +189,6 @@ function ModelStage({
   const positions = poses(phase, config);
   const activeBeamHole = phase === 1 ? config.firstHole : phase === 2 ? config.firstHole + 1 : -1;
   const activeL = phase === 3 ? "left" : phase === 4 ? "right" : null;
-  const lY = config.lHole === "oneDown" ? -1 : 0;
   const lSpotL = lPinAt(LEFT_L, LEFT_ANGLE, config.lHole);
   const lSpotR = lPinAt(RIGHT_L, RIGHT_ANGLE, config.lHole);
 
