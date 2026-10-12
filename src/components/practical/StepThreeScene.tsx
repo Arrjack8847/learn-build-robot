@@ -243,7 +243,7 @@ function ModelStage({
         </mesh>
       )}
       {(["leftLPin", "rightLPin"] as const).map((part) => (
-        <group key={part} ref={(node) => { if (node) moving.current[part] = node; }}>
+        <group key={part} rotation={positions[part].rotation} ref={(node) => { if (node) moving.current[part] = node; }}>
           <mesh geometry={geometry.pin} castShadow>
             <meshStandardMaterial color="#3e4b5a" roughness={0.56} />
           </mesh>
