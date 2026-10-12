@@ -29,4 +29,7 @@ jobs:
       - name: Validate supplied 3D model geometry
         run: node scripts/verify-marksman-assets.mjs
       - name: ESLint for assembly implementation (formatting excluded)
-        run: npx eslint src/components/practical/MarksmanMotorAssembly.tsx src/components/practical/marksmanAssemblyGeometry.ts --rule "prettier/prettier: off"
+        run: >-
+          npx eslint src/components/practical/MarksmanMotorAssembly.tsx
+          src/components/practical/marksmanAssemblyGeometry.ts
+          --rule "prettier/prettier: off"
