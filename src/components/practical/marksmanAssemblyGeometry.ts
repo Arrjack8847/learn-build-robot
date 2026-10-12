@@ -86,6 +86,7 @@ export const BEAM_CENTRE_Y = FRAME.selectedDiscOuterHole[1];
 
 export const VALIDATION_NOTES = [
   "STL dimensions and hole centres are mesh-derived.",
+  "Sampled cross-sections show ~0.05 mm possible axle/disc X-profile interference on one transverse axis; press-fit tolerance must be checked physically.",
   "Motor GLB socket datum is inferred from LDraw node transforms; must be checked against model and real motor.",
   "Connector pin_pin has a central stop collar. It cannot be pushed fully through two flush parts after both have been joined.",
   "Photo's gold connector material and actual part number remain unverified.",
