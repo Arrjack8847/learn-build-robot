@@ -41,6 +41,7 @@ All STL models use one uniform factor `0.05 units/mm`. The motor model uses `50 
 - A lower-left disc outer hole `(-6.928,-4)` mm was chosen based on the visual reference and measured hole geometry; this specific mounting hole and beam orientation are not yet confirmed by a calibrated front-side reference.
 - `pin_pin.stl` is a **candidate**, not proven to be the gold-coloured connector shown in the illustrated reference; its underlying model is displayed neutral-grey. Do not colour a potentially incorrect part gold to hide the mismatch.
 - The manual inconsistently labels the axle a "3-hole long axle" in Step 1 and a short axle in Step 2. The Step 2 brief requests `axles/short.stl`; confirm the actual physical component.
+- Sampled STL cross-sections show the short axle has approximately 2.40 mm half-height versus about 2.35 mm of clearance in one direction of the disc central cross opening. This is a possible ~0.05 mm **press-fit/interference** in the static meshes. It must be checked on the real components; neither source mesh was stretched or edited.
 - No automated proof of non-intersection against the motor GLB or physically exact assembly exists. **Do not use this as an authoritative final instruction until reviewed against the real kit.**
 
 ## QA checklist
