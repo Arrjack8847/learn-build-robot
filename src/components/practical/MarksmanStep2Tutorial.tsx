@@ -77,6 +77,10 @@ const discAttached: Vec = [1.2, -0.44, -0.4];
 const pinAttached: Vec = [1.2, -0.11, -0.4];
 const joinedOffset = new THREE.Vector3(-2.1, 0.15, 0.05);
 const subjects: Part[] = ["motor", "axle", "beam", "disc", "pin"];
+const partNames: Record<Part, string> = {
+  motor: "Motor", axle: "Short axle", beam: "5-hole beam",
+  disc: "Circular disc", pin: "Pin connector",
+};
 const modelUrl: Record<Exclude<Part, "motor">, string> = { beam: beamUrl, disc: discUrl, axle: axleUrl, pin: pinUrl };
 const palette: Record<Exclude<Part, "motor">, number> = {
   beam: 0xdde4e9, disc: 0x9cabb9, axle: 0x354154, pin: 0x2972d2,
@@ -175,6 +179,7 @@ export function MarksmanStep2Tutorial({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [partLabels, setPartLabels] = useState<Array<{ part: Part; x: number; y: number }>>([]);
 
   useEffect(() => { onReadyRef.current = onReadyChange; }, [onReadyChange]);
   useEffect(() => { soundRef.current = muted; }, [muted]);
@@ -401,6 +406,20 @@ export function MarksmanStep2Tutorial({
       }
       controls.update();
       renderer.render(scene, camera);
+      if (now - previousUpdate > 110) {
+        camera.updateMatrixWorld();
+        const visibleLabels: Array<{ part: Part; x: number; y: number }> = [];
+        for (const part of actions[index]?.active ?? []) {
+          const entry = entries.get(part);
+          if (!entry) continue;
+          const projected = entry.node.getWorldPosition(new THREE.Vector3());
+          projected.z += part === "motor" ? 0.85 : 0.3;
+          projected.project(camera);
+          if (projected.z < -1 || projected.z > 1 || Math.abs(projected.x) > 1.05 || Math.abs(projected.y) > 1.05) continue;
+          visibleLabels.push({ part, x: (projected.x + 1) * 50, y: (1 - projected.y) * 50 });
+        }
+        setPartLabels(visibleLabels);
+      }
       if (now - previousUpdate > 70) {
         setAnimation(animationRef.current);
         previousUpdate = now;
@@ -442,6 +461,15 @@ export function MarksmanStep2Tutorial({
       </div>
       <div className="relative h-[250px] w-full overflow-hidden rounded-xl border border-slate-200 bg-[#f2f8fd] sm:h-[330px] md:h-[380px]">
         <div ref={canvasRef} className="absolute inset-0 touch-none" aria-label="Three-dimensional robot viewer. Drag to rotate, pinch to zoom."/>
+        {!loading && !error && (
+          <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+            {partLabels.map(({ part, x, y }) => (
+              <span key={part} className="absolute whitespace-nowrap rounded-full border border-[#168eea]/30 bg-white/90 px-1.5 py-0.5 text-[10px] font-bold text-[#0f69bd] shadow-sm backdrop-blur-sm" style={{ left: x + "%", top: y + "%", transform: "translate(-50%, -130%)" }}>
+                {partNames[part]}
+              </span>
+            ))}
+          </div>
+        )}
         {loading && !error && <div className="absolute inset-0 grid place-items-center bg-[#f2f8fd] text-sm font-semibold text-slate-600">Loading the real STL and GLB files…</div>}
         {error && <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-[#f2f8fd] px-3"><p role="alert" className="text-sm text-amber-900">{error}</p><img src={referenceImage} alt="Manual step 2" className="max-h-[175px] max-w-full object-contain" /></div>}
       </div>
