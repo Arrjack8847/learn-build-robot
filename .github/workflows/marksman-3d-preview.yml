@@ -1,0 +1,23 @@
+name: Marksman 3D preview build
+on:
+  push:
+    branches:
+      - feat/marksman-3d-instruction-preview
+  pull_request:
+    paths:
+      - "src/components/practical/Marksman3DPreview.tsx"
+      - "src/routes/practical/**"
+      - "package.json"
+      - "bun.lock"
+jobs:
+  check-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Build
+        run: npm run build
