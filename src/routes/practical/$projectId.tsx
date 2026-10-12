@@ -183,6 +183,9 @@ function BuildSession({ project }: { project: PracticalProject }) {
                   referenceImage={currentStep.image}
                   onReadyChange={setPreviewStep2Ready}
                   onBeginStep2={() => {
+                    // This is an explicit learner action confirming parts prepared.
+                    // Playing the animation alone never marks Step 2 completed.
+                    toggleStepCompleted(currentStepId, true);
                     setPreviewStep2Ready(false);
                     setCurrentIndex(1);
                   }}
