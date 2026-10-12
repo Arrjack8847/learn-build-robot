@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 
 import { RobotIllustration } from "@/components/journey/RobotIllustration";
+import { Step4Inspector } from "@/components/practical/Step4Inspector";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -148,9 +149,14 @@ function BuildSession({ project }: { project: PracticalProject }) {
           </section>
 
           <div className="mx-auto mt-3 grid w-full max-w-5xl gap-3.5 md:mt-5 md:grid-cols-[1.02fr_0.98fr] md:items-center md:gap-7 [@media(max-height:700px)]:mt-2.5">
-            <div className="relative flex w-full items-center justify-center overflow-hidden rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:min-h-[420px] md:rounded-[32px]">
+            <div className={`relative flex w-full rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:rounded-[32px] ${project.id === "marksmanship" && currentStep.number === 4 ? "items-start justify-start md:min-h-[680px]" : "items-center justify-center overflow-hidden md:min-h-[420px]"}`}>
               <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-20" />
-              {currentStep.image ? (
+              {project.id === "marksmanship" && currentStep.number === 4 ? (
+                <Step4Inspector
+                  onStep3={() => setCurrentIndex(2)}
+                  onStep5={() => setCurrentIndex(4)}
+                />
+              ) : currentStep.image ? (
                 <img
                   alt={`${project.title} step ${currentStep.number}: ${currentStep.title}`}
                   className="relative block max-h-[285px] w-full object-contain sm:max-h-[360px] md:max-h-[430px]"
