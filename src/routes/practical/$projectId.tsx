@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 
 import { RobotIllustration } from "@/components/journey/RobotIllustration";
+import { Marksman3DPreview } from "@/components/practical/Marksman3DPreview";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -61,6 +62,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
     firstIncompleteIndex >= 0 ? firstIncompleteIndex : 0,
   );
   const [stage, setStage] = useState<SessionStage>("steps");
+  const [preview3D, setPreview3D] = useState(false);
   const currentStep = project.steps[currentIndex];
 
   if (!currentStep) {
@@ -148,9 +150,32 @@ function BuildSession({ project }: { project: PracticalProject }) {
           </section>
 
           <div className="mx-auto mt-3 grid w-full max-w-5xl gap-3.5 md:mt-5 md:grid-cols-[1.02fr_0.98fr] md:items-center md:gap-7 [@media(max-height:700px)]:mt-2.5">
-            <div className="relative flex w-full items-center justify-center overflow-hidden rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:min-h-[420px] md:rounded-[32px]">
+            <div className="min-w-0">
+              {project.id === "marksmanship" && currentStep.number <= 4 && (
+                <div aria-label="Assembly instruction view" className="mb-2 flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    aria-pressed={!preview3D}
+                    className={`min-h-10 rounded-full border px-4 py-2 text-sm font-bold transition-colors ${!preview3D ? "border-[#168eea] bg-[#168eea] text-white" : "border-slate-200 bg-white text-[#132654]"}`}
+                    onClick={() => setPreview3D(false)}
+                  >
+                    Original manual
+                  </button>
+                  <button
+                    type="button"
+                    aria-pressed={preview3D}
+                    className={`min-h-10 rounded-full border px-4 py-2 text-sm font-bold transition-colors ${preview3D ? "border-[#168eea] bg-[#168eea] text-white" : "border-slate-200 bg-white text-[#132654]"}`}
+                    onClick={() => setPreview3D(true)}
+                  >
+                    3D Preview (Beta)
+                  </button>
+                </div>
+              )}
+              <div className="relative flex w-full items-center justify-center overflow-hidden rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:min-h-[420px] md:rounded-[32px]">
               <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-20" />
-              {currentStep.image ? (
+              {project.id === "marksmanship" && currentStep.number <= 4 && preview3D && currentStep.image ? (
+                <Marksman3DPreview key={currentStep.number} step={currentStep.number} referenceImage={currentStep.image} />
+              ) : currentStep.image ? (
                 <img
                   alt={`${project.title} step ${currentStep.number}: ${currentStep.title}`}
                   className="relative block max-h-[285px] w-full object-contain sm:max-h-[360px] md:max-h-[430px]"
@@ -163,6 +188,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
                   variant={project.number - 1}
                 />
               )}
+            </div>
             </div>
 
             <section className="min-w-0 md:rounded-[30px] md:border md:border-slate-200/90 md:bg-white md:p-7 md:shadow-[0_14px_36px_rgba(20,55,90,0.08)]">
