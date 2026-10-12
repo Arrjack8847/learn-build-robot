@@ -21,7 +21,7 @@ import pinUrl from "../../../3D for marksman/connector/pin_pin.stl?url";
  */
 type Part = "motor" | "axle" | "beam" | "disc" | "pin";
 type Vec = [number, number, number];
-type Pose = { position: Vec; rotation?: Vec };
+type Pose = { position: Vec; rotation?: Vec | undefined };
 type AssemblyAction = {
   title: string;
   caption: string;
@@ -162,7 +162,7 @@ export function MarksmanStep2Tutorial({
   onReadyChange,
 }: {
   referenceImage: string;
-  onReadyChange?: (ready: boolean) => void;
+  onReadyChange?: ((ready: boolean) => void) | undefined;
 }) {
   const canvasRef = useRef<HTMLDivElement>(null);
   const actionRef = useRef(0);
@@ -227,9 +227,9 @@ export function MarksmanStep2Tutorial({
     }
     const camera = new THREE.PerspectiveCamera(40, 1, 0.05, 200);
     camera.up.set(0, 0, 1);
-    camera.position.copy(vector(actions[0].camera));
+    camera.position.copy(vector(actions[0]!.camera));
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.target.copy(vector(actions[0].focus));
+    controls.target.copy(vector(actions[0]!.focus));
     controls.enableDamping = true;
     controls.minDistance = 2.3;
     controls.maxDistance = 18;
@@ -257,14 +257,14 @@ export function MarksmanStep2Tutorial({
     });
     const paintGuide = (index: number) => {
       while (guides.children.length) {
-        const child = guides.children[0];
+        const child = guides.children[0]!;
         guides.remove(child);
         if (child instanceof THREE.Line || child instanceof THREE.Mesh) child.geometry.dispose();
         if (child instanceof THREE.Mesh) {
           for (const mat of (Array.isArray(child.material) ? child.material : [child.material])) mat.dispose();
         }
       }
-      const guide = actions[index].guide;
+      const guide = actions[index]?.guide;
       if (!guide) return;
       const geometry = new THREE.BufferGeometry().setFromPoints([vector(guide.from), vector(guide.to)]);
       const line = new THREE.Line(geometry, guideMaterial);
@@ -283,7 +283,7 @@ export function MarksmanStep2Tutorial({
     };
 
     const setActiveMaterials = (index: number) => {
-      const active = actions[index].active;
+      const active = (actions[index] ?? actions[0]!).active;
       for (const [part, item] of entries) {
         const highlighted = active.includes(part);
         for (const material of item.materials) {
@@ -323,7 +323,7 @@ export function MarksmanStep2Tutorial({
       motorVisual.traverse((node) => {
         if (node instanceof THREE.Mesh) {
           const list = Array.isArray(node.material) ? node.material : [node.material];
-          node.material = Array.isArray(node.material) ? list.map((m) => m.clone()) : list[0].clone();
+          node.material = Array.isArray(node.material) ? list.map((m) => m.clone()) : list[0]!.clone();
           const cloneList = Array.isArray(node.material) ? node.material : [node.material];
           motorMaterials.push(...cloneList);
         }
@@ -332,8 +332,8 @@ export function MarksmanStep2Tutorial({
 
       const ids: Array<Exclude<Part, "motor">> = ["axle", "beam", "disc", "pin"];
       for (let i = 0; i < geometries.length; i++) {
-        const id = ids[i];
-        const geometry = geometries[i];
+        const id = ids[i]!;
+        const geometry = geometries[i]!;
         // Recentring the STL doesn't change the calibrated hole pitch.
         geometry.center();
         geometry.computeVertexNormals();
@@ -378,7 +378,7 @@ export function MarksmanStep2Tutorial({
         paintGuide(index);
         setActiveMaterials(index);
       }
-      const current = actions[index];
+      const current = actions[index] ?? actions[0]!;
       if (playingRef.current && entries.size === subjects.length) {
         animationRef.current = clamp(animationRef.current + delta / current.duration);
         if (animationRef.current >= 1) {
@@ -429,7 +429,7 @@ export function MarksmanStep2Tutorial({
     };
   }, []);
 
-  const current = actions[action];
+  const current = actions[action] ?? actions[0]!;
   const finished = animation >= 1;
   return (
     <section aria-label="Step 2 interactive assembly instructions" className="relative flex w-full min-w-0 flex-col gap-2 text-left">
