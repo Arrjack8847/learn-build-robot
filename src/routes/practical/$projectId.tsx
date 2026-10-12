@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 
 import { RobotIllustration } from "@/components/journey/RobotIllustration";
+import { StepThreeAssembly } from "@/components/practical/StepThreeAssembly";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -61,6 +62,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
     firstIncompleteIndex >= 0 ? firstIncompleteIndex : 0,
   );
   const [stage, setStage] = useState<SessionStage>("steps");
+  const [stepThreeReady, setStepThreeReady] = useState(false);
   const currentStep = project.steps[currentIndex];
 
   if (!currentStep) {
@@ -90,6 +92,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const hasHelp = Boolean(helpItem || project.safetyNote);
 
   function finishCurrentStep() {
+    if (project.id === "marksmanship" && currentStep.number === 3 && !stepThreeReady) return;
     toggleStepCompleted(currentStepId, true);
     if (isLastStep) {
       setStage("complete");
@@ -150,7 +153,9 @@ function BuildSession({ project }: { project: PracticalProject }) {
           <div className="mx-auto mt-3 grid w-full max-w-5xl gap-3.5 md:mt-5 md:grid-cols-[1.02fr_0.98fr] md:items-center md:gap-7 [@media(max-height:700px)]:mt-2.5">
             <div className="relative flex w-full items-center justify-center overflow-hidden rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:min-h-[420px] md:rounded-[32px]">
               <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-20" />
-              {currentStep.image ? (
+              {project.id === "marksmanship" && currentStep.number === 3 ? (
+                <StepThreeAssembly onReadyChange={setStepThreeReady} />
+              ) : currentStep.image ? (
                 <img
                   alt={`${project.title} step ${currentStep.number}: ${currentStep.title}`}
                   className="relative block max-h-[285px] w-full object-contain sm:max-h-[360px] md:max-h-[430px]"
@@ -258,6 +263,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
           <Button
             className="min-h-12 flex-1 rounded-full bg-[#168eea] text-base font-black text-white shadow-[0_10px_26px_rgba(22,142,234,0.24)] hover:bg-[#0e82dd] sm:min-h-[52px]"
             onClick={finishCurrentStep}
+            disabled={project.id === "marksmanship" && currentStep.number === 3 && !stepThreeReady}
+            title={project.id === "marksmanship" && currentStep.number === 3 && !stepThreeReady ? "Complete all seven 3D actions first" : undefined}
             type="button"
           >
             {isLastStep ? "Finish My Robot" : "Done — Next Step"}
