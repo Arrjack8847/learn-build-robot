@@ -326,7 +326,16 @@ export function MarksmanStep2Tutorial({
       motorVisual.traverse((child) => {
         if (cableNames.test(child.name)) child.visible = false;
       });
-      const bodyBounds = new THREE.Box3().setFromObject(motorVisual);
+      // Box3.setFromObject() does not reliably omit invisible descendants.
+      // Measure visible housing meshes only so an imported cable does not
+      // shift the motor's origin or shrink the body in the 3D instruction.
+      const bodyBounds = new THREE.Box3().makeEmpty();
+      motorVisual.updateMatrixWorld(true);
+      motorVisual.traverseVisible((node) => {
+        if (node instanceof THREE.Mesh) {
+          bodyBounds.union(new THREE.Box3().setFromObject(node));
+        }
+      });
       const bodySize = bodyBounds.getSize(new THREE.Vector3());
       const bodyCenter = bodyBounds.getCenter(new THREE.Vector3());
       if (bodyBounds.isEmpty() || Math.max(bodySize.x, bodySize.y, bodySize.z) < 0.0001) {
