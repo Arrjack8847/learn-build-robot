@@ -23,12 +23,15 @@ type Action = {
   focus: Pt3; cameraOffset: Pt3; active: PartName[];
   target?: Pt3; guide?: readonly [Pt3, Pt3];
 };
+// Stage the individual genuine components around the DOWNWARD-facing socket.
+// All insertion paths enter toward +Z (into the motor); the exposed assembly
+// extends away from the motor along -Z. Do not invert the motor again.
 const step1Poses: Record<PartName, Pose> = {
   motor: { position: [0, 0, 0] },
-  axle: { position: [1.1, -0.85, 1.8], rotation: [0, -Math.PI / 2, 0] },
-  disc: { position: [-1.55, 0.4, 1.45] },
-  beam: { position: [2.55, -0.9, 1.65] },
-  pin: { position: [-1.35, -0.85, 1.7] },
+  axle: { position: [1.1, -0.85, -1.65], rotation: [0, Math.PI / 2, 0] },
+  disc: { position: [-1.55, 0.4, -1.45] },
+  beam: { position: [2.55, -0.9, -1.35] },
+  pin: { position: [-1.35, -0.85, -1.5] },
 };
 
 const discPos: Pt3 = [0, 0, DISC_CENTER_Z];
@@ -37,13 +40,15 @@ const pinPos: Pt3 = [
   FRAME.selectedDiscOuterHole[0], FRAME.selectedDiscOuterHole[1], CONNECTOR_COLLAR_Z,
 ];
 const beamPos: Pt3 = [BEAM_CENTRE_X, BEAM_CENTRE_Y, BEAM_CENTRE_Z];
-const ALIGNED_Z = 1.85;
-const alignedAxle: Pt3 = [0, 0, ALIGNED_Z];
-const alignedDisc: Pt3 = [0, 0, ALIGNED_Z];
-const alignedPin: Pt3 = [pinPos[0], pinPos[1], 1.5];
-const alignedBeam: Pt3 = [beamPos[0], beamPos[1], 1.65];
+// All parts approach the downward-facing socket from BELOW (-Z), then
+// translate toward +Z into their seats. The staged positions are teaching
+// poses, while the final depths come from the geometry configuration.
+const alignedAxle: Pt3 = [0, 0, -1.75];
+const alignedDisc: Pt3 = [0, 0, -1.65];
+const alignedPin: Pt3 = [pinPos[0], pinPos[1], -1.6];
+const alignedBeam: Pt3 = [beamPos[0], beamPos[1], -1.9];
 const baselineRot = {
-  motor: [0, 0, 0], axle: [0, -Math.PI / 2, 0], disc: [0, 0, 0],
+  motor: [0, 0, 0], axle: [0, Math.PI / 2, 0], disc: [0, 0, 0],
   beam: [0, 0, 0], pin: [0, 0, 0],
 } as const satisfies Record<PartName, Pt3>;
 
@@ -53,28 +58,28 @@ const actions: Action[] = [
     instruction: "Find the cross-shaped socket at the front of the motor. Align the short axle with the socket and push it straight inside.",
     duration: 3.0, active: ["motor", "axle"], focus: [0, 0, 0.5],
     cameraOffset: [2, -4, 3.2], target: [0, 0, 0],
-    guide: [[0, 0, -0.4], [0, 0, 2.1]],
+    guide: [[0, 0, -2.1], [0, 0, 0.4]],
   },
   {
     id: "2.2", title: "Slide the disc onto the axle",
     instruction: "Locate the X-shaped hole in the centre of the circular disc. Align it with the black axle and slide the disc onto the axle.",
     duration: 3.0, active: ["motor", "axle", "disc"], focus: [0, 0, 0.6],
     cameraOffset: [1.5, -3.3, 3.6], target: [0, 0, 0.5],
-    guide: [[0, 0, 0.4], [0, 0, 2.2]],
+    guide: [[0, 0, -2.2], [0, 0, -0.3]],
   },
   {
     id: "2.3a", title: "Seat the connector in the disc",
-    instruction: "Locate the lower-left outer round hole of the disc. Insert the connector halfway, stopping at its middle collar. Check the actual connector against your kit.",
+    instruction: "Locate the selected outer round hole of the disc (not its central X-hole). Insert the connector from below until its stop collar seats. Confirm this connector against your physical kit.",
     duration: 2.2, active: ["disc", "pin"], focus: [pinPos[0], pinPos[1], 0.75],
     cameraOffset: [1.8, -3.4, 3.2], target: [pinPos[0], pinPos[1], 0.55],
-    guide: [[pinPos[0], pinPos[1], 0.28], [pinPos[0], pinPos[1], 1.7]],
+    guide: [[pinPos[0], pinPos[1], -1.7], [pinPos[0], pinPos[1], -0.3]],
   },
   {
     id: "2.3b", title: "Attach the 5-hole beam",
-    instruction: "Align the beam's first round hole with the protruding connector and slide the beam onto the connector. The connector has a central stop collar, so it must not pass through two already-flush parts.",
+    instruction: "Align the first hole of the 5-hole beam with the connector protruding downward from the disc. Slide the beam toward the disc until it meets the central stop collar.",
     duration: 2.8, active: ["disc", "pin", "beam"], focus: [pinPos[0] + 0.35, pinPos[1], 0.9],
     cameraOffset: [1.8, -3.5, 3.6], target: [pinPos[0], pinPos[1], 0.85],
-    guide: [[pinPos[0], pinPos[1], 0.58], [pinPos[0], pinPos[1], 1.9]],
+    guide: [[pinPos[0], pinPos[1], -2.1], [pinPos[0], pinPos[1], -0.55]],
   },
   {
     id: "2.4", title: "Inspect the motor subassembly",
