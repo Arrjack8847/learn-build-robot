@@ -12,7 +12,8 @@
     "format": "prettier --write .",
     "test:step3": "node --test tests/marksmanship-step3.test.mjs",
     "test:step4": "node --test tests/marksmanship-step4.test.mjs",
-    "test:step5": "node --test tests/marksmanship-step5.test.mjs"
+    "test:step5": "node --test tests/marksmanship-step5.test.mjs",
+    "test:step6": "node --test tests/marksmanship-step6.test.mjs"
   },
   "overrides": {
     "rolldown": "1.2.1"
