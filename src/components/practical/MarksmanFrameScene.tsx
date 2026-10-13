@@ -1,5 +1,5 @@
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
-import { Html, Line, OrbitControls } from "@react-three/drei";
+import { Line, OrbitControls, Text } from "@react-three/drei";
 import { Component, Suspense, useLayoutEffect, useMemo, useRef } from "react";
 import { BufferGeometry, Group, Vector3 } from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
@@ -106,12 +106,10 @@ function HoleMarkers({
               </mesh>
             )}
             {labels && (
-              <Html center position={[0, -0.52, 0.08]} distanceFactor={12}
-                style={{ pointerEvents: "none", userSelect: "none" }}>
-                <span style={{ display: "block", minWidth: 17, padding: "1px 3px",
-                  borderRadius: 5, background: active ? "#ffc947" : "rgba(255,255,255,.92)",
-                  color: "#22354d", fontSize: 12, fontWeight: 800, textAlign: "center" }}>{i + 1}</span>
-              </Html>
+              <Text position={[0, -0.57, 0.08]} fontSize={0.3} color={active ? "#b77700" : "#233c53"}
+                outlineColor="#ffffff" outlineWidth={0.018} anchorX="center" anchorY="middle">
+                {String(i + 1)}
+              </Text>
             )}
           </group>
         );
@@ -334,7 +332,7 @@ export function MarksmanFrameScene({
         camera={{ fov: 43, near: 0.1, far: 150, position: [14, -16, 20], up: [0, 0, 1] }}
         dpr={[1, 1.6]} gl={{ antialias: true, powerPreference: "low-power" }}
         style={{ width: "100%", height: "100%", touchAction: "none" }}>
-        <Suspense fallback={<Html center><div className="whitespace-nowrap rounded-lg bg-white p-3 text-xs">Loading original STL components…</div></Html>}>
+        <Suspense fallback={null}>
           <ModelStage phase={phase} config={config} replayKey={replayKey}
             resetCameraKey={resetCameraKey} zoomKey={zoomKey}
             zoomDirection={zoomDirection} paused={paused} spin={spin}
