@@ -191,6 +191,13 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
   const [showManual, setShowManual] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [labels, setLabels] = useState<Array<{ id: PartName; x: number; y: number }>>([]);
+  const [showOriginalCable, setShowOriginalCable] = useState(false);
+  const cableNodesRef = useRef<THREE.Object3D[]>([]);
+  // Show the full original cable on demand without changing its 3D geometry.
+  // It has outsized loops in the supplied GLB that obscure the assembly.
+  useEffect(() => {
+    for (const node of cableNodesRef.current) node.visible = showOriginalCable;
+  }, [showOriginalCable]);
 
   useEffect(() => { onReadyRef.current = onReadyChange; }, [onReadyChange]);
   useEffect(() => {
@@ -347,11 +354,40 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       const socket = correctedUnits.localToWorld(vec(MOTOR_GLB_SOCKET_CANDIDATE_METERS));
       correctedUnits.position.sub(socket);
       objects.set("motor", motorPivot);
+
+      // GLB exporter flattened the original LDraw colour palette to yellow
+      // on every material. Correct the DISPLAY MATERIALS on cloned instances;
+      // neither mortor.glb nor the geometry or child cable shapes are edited.
+      const motorColors: Record<string, number> = {
+        "4": 0xbac3cc,   // light motor housing
+        "72": 0x59636e,  // dark cap
+        "79": 0x7b858f,  // dark grey detail
+        "0": 0x252a30,   // rubber and cable
+        "25": 0xee8e26, // orange output detail
+        "494": 0x4c5660, // metal/dark detail
+      };
+      const cableGroups: THREE.Object3D[] = [];
+      motor.scene.traverse((node) => {
+        if (node.name.toLowerCase().includes("u9190") &&
+            !node.parent?.name.toLowerCase().includes("u9190")) {
+          cableGroups.push(node);
+        }
+      });
+      cableNodesRef.current = cableGroups;
+      for (const node of cableGroups) node.visible = false;
       const motorMats: THREE.MeshStandardMaterial[] = [];
       motor.scene.traverse((child) => {
         if (!(child instanceof THREE.Mesh)) return;
         const old = Array.isArray(child.material) ? child.material : [child.material];
-        const cloned = old.map((m) => m.clone());
+        const cloned = old.map((m) => {
+          const copy = m.clone();
+          if (copy instanceof THREE.MeshStandardMaterial) {
+            const match = /^Material_(\d+)_c$/.exec(m.name);
+            const replacement = match ? motorColors[match[1]!] : undefined;
+            if (replacement !== undefined) copy.color.setHex(replacement);
+          }
+          return copy;
+        });
         child.material = Array.isArray(child.material) ? cloned : cloned[0]!;
         for (const m of cloned) if (m instanceof THREE.MeshStandardMaterial) motorMats.push(m);
       });
@@ -487,7 +523,7 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
         const highlighted = currentStep === 1 || (actions[actionRef.current]?.active.includes(part) ?? false);
         for (const mat of materials.get(part) ?? []) {
           mat.transparent = !highlighted;
-          mat.opacity = highlighted ? 1 : 0.34;
+          mat.opacity = highlighted ? 1 : 0.78;
           mat.emissive.setHex(highlighted && currentStep === 2 ? 0x4b2605 : 0x000000);
           mat.emissiveIntensity = highlighted ? 0.11 : 0;
         }
@@ -517,7 +553,11 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
           if (name !== "motor") point.z += 0.25;
           point.project(camera);
           if (point.z < -1 || point.z > 1 || Math.abs(point.x) > 1.1 || Math.abs(point.y) > 1.1) continue;
-          markers.push({ id: name, x: (point.x + 1) * 50, y: (1 - point.y) * 50 });
+          markers.push({
+            id: name,
+            x: Math.max(12, Math.min(88, (point.x + 1) * 50)),
+            y: Math.max(9, Math.min(93, (1 - point.y) * 50)),
+          });
         }
         setLabels(markers);
       }
@@ -530,6 +570,7 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       resize?.disconnect();
       orbit.removeEventListener("start", onOrbitStart);
       orbit.dispose();
+      cableNodesRef.current = [];
       disposeGuide();
       guidesMat.dispose();
       scene.traverse((node) => {
@@ -569,6 +610,9 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
         {!loaded && !failure && <p className="absolute inset-0 grid place-items-center bg-[#f8f5ee] text-sm text-slate-600">Loading real motor, disc, axle, beam and connector models…</p>}
         {failure && <div className="absolute inset-0 grid place-items-center bg-[#f8f5ee] p-4 text-sm text-amber-900" role="alert">{failure}</div>}
       </div>
+      <button type="button" onClick={() => setShowOriginalCable(v => !v)} className="inline-flex min-h-9 items-center rounded-full border border-slate-200 bg-white px-3 text-xs font-semibold text-slate-600">
+        {showOriginalCable ? "Hide full motor cable" : "Show original motor cable"}
+      </button>
       {showManual && <img src={referenceImage} alt={"Original Marksman manual Step " + step} className="mx-auto max-h-[240px] w-full rounded-lg border border-slate-200 object-contain" />}
       {step === 1 ? (
         <div className="space-y-2">
