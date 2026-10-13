@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 
 import { RobotIllustration } from "@/components/journey/RobotIllustration";
+import { Marksman3DPreview } from "@/components/practical/Marksman3DPreview";
 import { StepThreeAssembly } from "@/components/practical/StepThreeAssembly";
 import { Button } from "@/components/ui/button";
 import {
@@ -63,6 +64,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
   );
   const [stage, setStage] = useState<SessionStage>("steps");
   const [stepThreeReady, setStepThreeReady] = useState(false);
+  const [preview3D, setPreview3D] = useState(false);
+  const [previewStep2Ready, setPreviewStep2Ready] = useState(false);
   const currentStep = project.steps[currentIndex];
 
   if (!currentStep) {
@@ -152,9 +155,46 @@ function BuildSession({ project }: { project: PracticalProject }) {
           </section>
 
           <div className="mx-auto mt-3 grid w-full max-w-5xl gap-3.5 md:mt-5 md:grid-cols-[1.02fr_0.98fr] md:items-center md:gap-7 [@media(max-height:700px)]:mt-2.5">
-            <div className="relative flex w-full items-center justify-center overflow-hidden rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:min-h-[420px] md:rounded-[32px]">
+            <div className="min-w-0">
+              {project.id === "marksmanship" && currentStep.number <= 2 && (
+                <div aria-label="Assembly instruction view" className="mb-2 flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    aria-pressed={!preview3D}
+                    className={`min-h-10 rounded-full border px-4 py-2 text-sm font-bold transition-colors ${!preview3D ? "border-[#168eea] bg-[#168eea] text-white" : "border-slate-200 bg-white text-[#132654]"}`}
+                    onClick={() => setPreview3D(false)}
+                  >
+                    Original manual
+                  </button>
+                  <button
+                    type="button"
+                    aria-pressed={preview3D}
+                    className={`min-h-10 rounded-full border px-4 py-2 text-sm font-bold transition-colors ${preview3D ? "border-[#168eea] bg-[#168eea] text-white" : "border-slate-200 bg-white text-[#132654]"}`}
+                    onClick={() => {
+                      setPreviewStep2Ready(false);
+                      setPreview3D(true);
+                    }}
+                  >
+                    3D Preview (Beta)
+                  </button>
+                </div>
+              )}
+              <div className="relative flex w-full items-center justify-center overflow-hidden rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:min-h-[420px] md:rounded-[32px]">
               <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-20" />
-              {project.id === "marksmanship" && currentStep.number === 3 ? (
+              {project.id === "marksmanship" && currentStep.number <= 2 && preview3D && currentStep.image ? (
+                <Marksman3DPreview
+                  step={currentStep.number}
+                  referenceImage={currentStep.image}
+                  onReadyChange={setPreviewStep2Ready}
+                  onBeginStep2={() => {
+                    // This is an explicit learner action confirming parts prepared.
+                    // Playing the animation alone never marks Step 2 completed.
+                    toggleStepCompleted(currentStepId, true);
+                    setPreviewStep2Ready(false);
+                    setCurrentIndex(1);
+                  }}
+                />
+              ) : project.id === "marksmanship" && currentStep.number === 3 ? (
                 <StepThreeAssembly onReadyChange={setStepThreeReady} />
               ) : currentStep.image ? (
                 <img
@@ -170,6 +210,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
                 />
               )}
             </div>
+            </div>
 
             <section className="min-w-0 md:rounded-[30px] md:border md:border-slate-200/90 md:bg-white md:p-7 md:shadow-[0_14px_36px_rgba(20,55,90,0.08)]">
               <p className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] text-[#168eea] sm:text-xs">
@@ -181,7 +222,11 @@ function BuildSession({ project }: { project: PracticalProject }) {
               </h2>
               <div className="mt-2 h-1 w-10 rounded-full bg-[#f5a400]" />
               <p className="mt-3 text-[14px] font-medium leading-6 text-slate-500 sm:text-base sm:leading-7 [@media(max-height:700px)]:mt-2 [@media(max-height:700px)]:text-[12px] [@media(max-height:700px)]:leading-5">
-                {currentStep.description}
+                {project.id === "marksmanship" && preview3D && currentStep.number === 1
+                    ? "Inspect the five separate 3D models. This preview uses the 24 mm short axle named in Step 2; the original Step 1 manual calls it a 3-hole long axle. Check your kit before building."
+                    : project.id === "marksmanship" && preview3D && currentStep.number === 2
+                      ? "Follow five guided 3D actions: line up the X-shaped short axle on the RIGHT with the motor’s front orange output socket, slide it LEFT into the motor, then attach the disc, connector and 5-hole beam on that same axle assembly. Exact seating depths and connector identity still require physical verification."
+                      : currentStep.description}
               </p>
 
               {currentStep.note ? (
@@ -249,6 +294,11 @@ function BuildSession({ project }: { project: PracticalProject }) {
       </main>
 
       <footer className="relative z-30 shrink-0 border-t border-slate-100 bg-white/97 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 shadow-[0_-8px_24px_rgba(20,55,90,0.05)] sm:px-8 sm:py-4">
+        {project.id === "marksmanship" && currentStep.number === 2 && preview3D && !previewStep2Ready && (
+          <p className="mx-auto mb-2 max-w-5xl text-center text-xs font-semibold text-[#132654]">
+            Complete all five guided 3D actions to continue, or switch to the original manual.
+          </p>
+        )}
         <div className="mx-auto flex w-full max-w-5xl gap-3">
           <Button
             aria-label="Go to previous step"
@@ -261,20 +311,26 @@ function BuildSession({ project }: { project: PracticalProject }) {
             <ChevronLeft aria-hidden="true" />
             <span className="hidden sm:inline">Previous</span>
           </Button>
-          <Button
-            className="min-h-12 flex-1 rounded-full bg-[#168eea] text-base font-black text-white shadow-[0_10px_26px_rgba(22,142,234,0.24)] hover:bg-[#0e82dd] sm:min-h-[52px]"
-            onClick={finishCurrentStep}
-            disabled={project.id === "marksmanship" && currentStep.number === 3 && !stepThreeReady}
-            title={project.id === "marksmanship" && currentStep.number === 3 && !stepThreeReady ? "Complete all seven 3D actions first" : undefined}
-            type="button"
-          >
-            {isLastStep ? "Finish My Robot" : "Done — Next Step"}
-            {isLastStep ? (
-              <Sparkles aria-hidden="true" />
-            ) : (
-              <ArrowRight aria-hidden="true" />
-            )}
-          </Button>
+          {project.id === "marksmanship" && currentStep.number === 1 && preview3D ? (
+            <div className="flex min-h-12 flex-1 items-center justify-center rounded-full bg-[#eaf5ff] px-4 text-center text-sm font-bold text-[#0f69bd]">
+              Use “Start Assembly — Step 2” in the 3D viewer
+            </div>
+          ) : (
+            <Button
+              className="min-h-12 flex-1 rounded-full bg-[#168eea] text-base font-black text-white shadow-[0_10px_26px_rgba(22,142,234,0.24)] hover:bg-[#0e82dd] sm:min-h-[52px]"
+              disabled={(project.id === "marksmanship" && currentStep.number === 2 && preview3D && !previewStep2Ready) || (isStepThree && !stepThreeReady)}
+              title={isStepThree && !stepThreeReady ? "Complete all seven Step 3 actions first" : undefined}
+              onClick={finishCurrentStep}
+              type="button"
+            >
+              {isLastStep ? "Finish My Robot" : "Done — Next Step"}
+              {isLastStep ? (
+                <Sparkles aria-hidden="true" />
+              ) : (
+                <ArrowRight aria-hidden="true" />
+              )}
+            </Button>
+          )}
         </div>
       </footer>
     </div>
