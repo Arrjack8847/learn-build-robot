@@ -20,6 +20,7 @@ import { RobotIllustration } from "@/components/journey/RobotIllustration";
 import { Marksman3DPreview } from "@/components/practical/Marksman3DPreview";
 import { StepThreeAssembly } from "@/components/practical/StepThreeAssembly";
 import { StepFourAssembly } from "@/components/practical/StepFourAssembly";
+import { MarksmanFramePreparation } from "@/components/practical/MarksmanFramePreparation";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -66,6 +67,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const [stage, setStage] = useState<SessionStage>("steps");
   const [stepThreeReady, setStepThreeReady] = useState(false);
   const [stepFourReady, setStepFourReady] = useState(false);
+  const [showFrameTutorial, setShowFrameTutorial] = useState(false);
   const [preview3D, setPreview3D] = useState(false);
   const [previewStep2Ready, setPreviewStep2Ready] = useState(false);
   const currentStep = project.steps[currentIndex];
@@ -295,6 +297,30 @@ function BuildSession({ project }: { project: PracticalProject }) {
               ) : null}
             </section>
           </div>
+          {project.id === "marksmanship" && (
+            <section className="mx-auto mt-5 w-full max-w-5xl rounded-2xl border border-sky-200 bg-white p-3 shadow-sm sm:p-5">
+              <button type="button"
+                aria-expanded={showFrameTutorial}
+                className="flex min-h-12 w-full items-center justify-between gap-3 rounded-xl bg-sky-50 p-3 text-left"
+                onClick={() => setShowFrameTutorial((open) => !open)}>
+                <span>
+                  <span className="block text-sm font-extrabold text-[#132654]">Photo-based frame preparation · optional 3D tutorial</span>
+                  <span className="mt-1 block text-xs text-slate-600">
+                    Prepare the 7-hole and 5-hole rectangular frame plus a separate 15-hole beam.
+                    Not an official numbered step.
+                  </span>
+                </span>
+                <span className="shrink-0 text-sm font-bold text-[#116eaf]">
+                  {showFrameTutorial ? "Close" : "Open"}
+                </span>
+              </button>
+              {showFrameTutorial && (
+                <div className="mt-4">
+                  <MarksmanFramePreparation />
+                </div>
+              )}
+            </section>
+          )}
         </div>
       </main>
 
