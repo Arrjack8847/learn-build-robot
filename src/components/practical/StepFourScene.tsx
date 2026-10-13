@@ -186,7 +186,8 @@ function Stage({
           part?.rotation.set(...beginning[id].rotation);
         }
       }
-      motion.current = { action: phase, elapsed: 0, duration: 1.65, from, to: next };
+      // Rewind the same alignment/insertion path on Previous, rather than cutting through parts.
+      motion.current = { action: Math.max(prev, phase), elapsed: 0, duration: 1.65, from, to: next };
     }
     previous.current = { phase, replayKey };
   }, [phase, replayKey]);
