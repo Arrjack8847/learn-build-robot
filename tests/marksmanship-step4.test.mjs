@@ -50,7 +50,7 @@ test("Axle-first preparation, L-beam pairing, reversible controls and Step 4 com
   assert.ok(guide.includes("Fit the second L-beam on the other side"));
   assert.ok(guide.includes("Return to Step 3"));
   assert.ok(guide.includes("Replay action"));
-  assert.ok(scene.includes('phase >= 3 ? 0 : AXLE_START_Z'));
+  assert.ok(scene.includes('phase >= 3 ? [AXLE_X, 0, 0] : [-1.8, 3.1, 0]'));
   assert.ok(scene.includes('phase >= 4 ? R_END'));
   assert.ok(scene.includes('if (amount < 0.5)'));
   assert.ok(route.includes("StepFourAssembly"));
