@@ -24,7 +24,7 @@ The scene retains individual part IDs and poses; snapshots are stored in localSt
 
 ## Items requiring physical validation
 
-The 3D meshes verify dimensions and hole center spacing. They **cannot establish** exactly which adjacent holes and which of two similar 24 mm pin meshes match the physical reference photograph. The defaults (holes 1–2 and long connector) are **provisional**, not confirmed. The user may select another adjacent hole pair, alternate long pin, and the corner or next-leg L hole. Changing the choice resets Step 3.
+The 3D meshes verify dimensions and hole center spacing. They **cannot establish** exactly which adjacent holes and which of two similar 24 mm pin meshes match the physical reference photograph. The defaults (holes 1–2 and long connector) are **provisional**, not confirmed. The user may select another adjacent hole pair and an alternate long pin. Each L-beam pin is now fixed to the free-end hole of the short arm, 8 mm from the corner (local model coordinates x=8 mm, y=0 mm); the invalid corner/next-leg selector was removed. The original L-beam orientations and connector models remain unchanged. Changing a configurable part resets Step 3.
 
 Before treating Step 3 as a mechanically accepted build, compare the actual physical photo with the existing manual Step 3 image, verify hole counts and stopper faces, and dry-fit the real pins. Saved state deliberately includes mechanicallyVerified = false.
 
