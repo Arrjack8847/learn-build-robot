@@ -21,6 +21,7 @@ import { Marksman3DPreview } from "@/components/practical/Marksman3DPreview";
 import { StepThreeAssembly } from "@/components/practical/StepThreeAssembly";
 import { StepFourAssembly } from "@/components/practical/StepFourAssembly";
 import { StepFiveAssembly } from "@/components/practical/StepFiveAssembly";
+import { StepSixAssembly } from "@/components/practical/StepSixAssembly";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -68,6 +69,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const [stepThreeReady, setStepThreeReady] = useState(false);
   const [stepFourReady, setStepFourReady] = useState(false);
   const [stepFiveReady, setStepFiveReady] = useState(false);
+  const [stepSixReady, setStepSixReady] = useState(false);
   const [preview3D, setPreview3D] = useState(false);
   const [previewStep2Ready, setPreviewStep2Ready] = useState(false);
   const currentStep = project.steps[currentIndex];
@@ -94,6 +96,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const isStepThree = project.id === "marksmanship" && currentStep.number === 3;
   const isStepFour = project.id === "marksmanship" && currentStep.number === 4;
   const isStepFive = project.id === "marksmanship" && currentStep.number === 5;
+  const isStepSix = project.id === "marksmanship" && currentStep.number === 6;
   const displayedPercent = Math.round(((currentIndex + 1) / project.steps.length) * 100);
   const helpItem =
     project.troubleshooting.length > 0
@@ -102,7 +105,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const hasHelp = Boolean(helpItem || project.safetyNote);
 
   function finishCurrentStep() {
-    if ((isStepThree && !stepThreeReady) || (isStepFour && !stepFourReady) || (isStepFive && !stepFiveReady)) return;
+    if ((isStepThree && !stepThreeReady) || (isStepFour && !stepFourReady) || (isStepFive && !stepFiveReady) || (isStepSix && !stepSixReady)) return;
     toggleStepCompleted(currentStepId, true);
     if (isLastStep) {
       setStage("complete");
@@ -208,6 +211,10 @@ function BuildSession({ project }: { project: PracticalProject }) {
                 <StepFiveAssembly onReadyChange={setStepFiveReady}
                   onBackToStep4={() => setCurrentIndex(3)}
                   onContinueToStep6={finishCurrentStep} />
+              ) : isStepSix ? (
+                <StepSixAssembly onReadyChange={setStepSixReady}
+                  onBackToStep5={() => setCurrentIndex(4)}
+                  onContinueToStep7={finishCurrentStep} />
               ) : currentStep.image ? (
                 <img
                   alt={`${project.title} step ${currentStep.number}: ${currentStep.title}`}
@@ -330,8 +337,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
           ) : (
             <Button
               className="min-h-12 flex-1 rounded-full bg-[#168eea] text-base font-black text-white shadow-[0_10px_26px_rgba(22,142,234,0.24)] hover:bg-[#0e82dd] sm:min-h-[52px]"
-              disabled={(project.id === "marksmanship" && currentStep.number === 2 && preview3D && !previewStep2Ready) || (isStepThree && !stepThreeReady) || (isStepFour && !stepFourReady) || (isStepFive && !stepFiveReady)}
-              title={isStepThree && !stepThreeReady ? "Complete all seven Step 3 actions first" : isStepFour && !stepFourReady ? "Complete all five Step 4 actions first" : isStepFive && !stepFiveReady ? "Confirm physical Step 5 preparation to proceed" : undefined}
+              disabled={(project.id === "marksmanship" && currentStep.number === 2 && preview3D && !previewStep2Ready) || (isStepThree && !stepThreeReady) || (isStepFour && !stepFourReady) || (isStepFive && !stepFiveReady) || (isStepSix && !stepSixReady)}
+              title={isStepThree && !stepThreeReady ? "Complete all seven Step 3 actions first" : isStepFour && !stepFourReady ? "Complete all five Step 4 actions first" : isStepFive && !stepFiveReady ? "Confirm physical Step 5 preparation to proceed" : isStepSix && !stepSixReady ? "Finish and physically confirm all Step 6 attachments first" : undefined}
               onClick={finishCurrentStep}
               type="button"
             >
