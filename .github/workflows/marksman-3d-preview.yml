@@ -26,6 +26,8 @@ jobs:
         run: npm run build
       - name: Type check
         run: npx tsc --noEmit
+      - name: Verify Step 4 hole mapping and assembly flow
+        run: npm run test:step4
       - name: Validate supplied 3D model geometry
         run: node scripts/verify-marksman-assets.mjs
       - name: Verify actual motor GLB runtime orientation
