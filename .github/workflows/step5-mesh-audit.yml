@@ -1,0 +1,18 @@
+name: Step 5 geometry audit
+on:
+  pull_request:
+    paths:
+      - "scripts/audit-step5-geometry.mjs"
+      - "48989.stl"
+      - "15100_fixed.stl"
+      - "src/components/practical/StepFiveAssembly.tsx"
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Inspect exact uploaded mesh geometry and cross sections
+        run: node scripts/audit-step5-geometry.mjs
