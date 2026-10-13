@@ -41,8 +41,14 @@ try {
   await page.waitForTimeout(1000);
   await canvas.scrollIntoViewIfNeeded();
   await canvas.screenshot({ path: output + "/rectangular-mobile.png" });
+  await page.setViewportSize({ width: 1280, height: 1800 });
+  // Prepare the two black pins and verify the 15-hole beam is still separate.
+  for (let n = 0; n < 3; n++) await next.click();
+  await page.waitForTimeout(1100);
+  await canvas.scrollIntoViewIfNeeded();
+  await canvas.screenshot({ path: output + "/final-two-separate-units.png" });
   if (logs.length) throw new Error("Browser page errors: " + logs.join("; "));
-  console.log("Captured headless browser evidence: U shape, rectangle desktop/mobile.");
+  console.log("Captured U shape, rectangle desktop/mobile, and separate final units.");
   await context.close();
 } finally {
   await browser.close();
