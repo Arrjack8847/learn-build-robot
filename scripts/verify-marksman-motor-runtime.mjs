@@ -1,6 +1,6 @@
 /**
  * Regression test: load the REAL motor GLB using Three.js GLTFLoader,
- * resolve the front output hub, and ensure our upright socket alignment
+ * resolve the front output hub, and ensure the 180-degree upside-down socket alignment
  * does not throw. Does not need WebGL or modify source assets.
  */
 import assert from "node:assert/strict";
@@ -29,7 +29,9 @@ const nativeAxis = socketHub
 const pivot = new THREE.Group();
 const correction = new THREE.Group();
 correction.scale.setScalar(50);
-correction.quaternion.setFromUnitVectors(nativeAxis.normalize(), new THREE.Vector3(0, 0, 1));
+const uprightOrientation = new THREE.Quaternion().setFromUnitVectors(nativeAxis.normalize(), new THREE.Vector3(0, 0, 1));
+const halfTurn = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), Math.PI);
+correction.quaternion.copy(uprightOrientation).premultiply(halfTurn);
 correction.add(model.scene);
 pivot.add(correction);
 pivot.updateMatrixWorld(true);
@@ -39,7 +41,7 @@ correction.position.sub(socket);
 pivot.updateMatrixWorld(true);
 
 const result = nativeAxis.clone().applyQuaternion(correction.quaternion);
-assert.ok(result.distanceTo(new THREE.Vector3(0, 0, 1)) < 0.001, "Output socket must face +Z");
+assert.ok(result.distanceTo(new THREE.Vector3(0, 0, -1)) < 0.001, "Flipped output socket must face -Z");
 const atOrigin = correction.localToWorld(localSocket.clone());
 assert.ok(atOrigin.length() < 0.001, "Output socket must coincide with axle insertion origin");
 assert.ok(names.length > 0, "Real GLB nodes must be present");
