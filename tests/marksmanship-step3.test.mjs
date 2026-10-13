@@ -50,3 +50,19 @@ test("Step 3 logic keeps L beams and axle independent", () => {
   assert.ok(source.includes("step4Applied: false"), "Step 4 must remain unimplemented");
   assert.ok(source.includes("mechanicallyVerified: false"), "Unverified choices must be explicit");
 });
+
+test("Step 3 L connectors use only the 8 mm short-arm end hole", () => {
+  const scene = readFileSync(resolve("src/components/practical/StepThreeScene.tsx"), "utf8");
+  const guide = readFileSync(resolve("src/components/practical/StepThreeAssembly.tsx"), "utf8");
+  assert.ok(scene.includes("const local = new Vector3(1, 0, 0);"), "L-pin position must target short-arm tip (8 mm, 0 mm)");
+  assert.ok(scene.includes("const lp = lPinAt(LEFT_L, LEFT_ANGLE);"));
+  assert.ok(scene.includes("const rp = lPinAt(RIGHT_L, RIGHT_ANGLE);"));
+  assert.ok(scene.includes("const lSpotL = lPinAt(LEFT_L, LEFT_ANGLE);"), "Highlight must target corrected hole");
+  assert.ok(scene.includes("if (phase === 3) return lPinAt(LEFT_L, LEFT_ANGLE);"), "Camera focus must target corrected hole");
+  assert.ok(scene.includes('l: "short arm free-end hole (x=8 mm, y=0 mm)"'));
+  assert.ok(!scene.includes("config.lHole"), "Removed incorrect mounting-hole configuration");
+  assert.ok(!guide.includes("Choose L-beam connector hole"), "Removed invalid hole selector");
+  assert.ok(guide.includes("free-end hole of the short arm"), "Instructions should match the physical assembly");
+  assert.ok(scene.includes("const LEFT_ANGLE = 0;"));
+  assert.ok(scene.includes("const RIGHT_ANGLE = 0;"), "Existing L-beam orientations must remain untouched");
+});
