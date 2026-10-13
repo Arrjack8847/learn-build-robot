@@ -17,6 +17,19 @@ const model = await new Promise((resolve, reject) => {
 assert.ok(model.scene, "GLB scene loaded");
 
 model.scene.updateMatrixWorld(true);
+// Report the actual LDraw hub and cable-retainer node transforms. In the
+// source parts library, 10095.dat is the axle hub and 10091.dat the rear
+// cable retainer. Output these before any tutorial-space corrections.
+const found = [];
+model.scene.traverse((part) => {
+  if (!/10095|10091|10090|10092|10089|99499/.test(part.name)) return;
+  const p = part.getWorldPosition(new THREE.Vector3());
+  const forward = new THREE.Vector3(0, 0, -1).transformDirection(part.matrixWorld);
+  found.push({name:part.name,parent:part.parent?.name ?? "(none)",
+    position:p.toArray().map(x => +x.toFixed(6)),
+    localMinusZ:forward.toArray().map(x=>+x.toFixed(5))});
+});
+console.log("ACTUAL IMPORTED MOTOR LDraw part node transforms", JSON.stringify(found));
 let socketHub;
 const names = [];
 model.scene.traverse((part) => {
