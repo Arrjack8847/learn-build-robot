@@ -69,7 +69,7 @@ export function framePoses(phase: number, config: FrameConfig, exploded = false)
     FRAME_BEAM_7_A: pose(phase >= 1 ? [-2, 3 - first, 0] : [-5.3, 0, 0], railZ),
     FRAME_BEAM_7_B: pose(phase >= 3 ? [2, 3 - first, 0] : [4.6, 0, 0], railZ),
     FRAME_BEAM_5_A: pose(phase >= 5 ? [0, 0, BEAM_LEVEL_Z] : [-2.5, -7, BEAM_LEVEL_Z]),
-    FRAME_BEAM_5_B: pose(phase >= 7 ? [0, 4 - first, BEAM_LEVEL_Z] : [2.5, -7, BEAM_LEVEL_Z]),
+    FRAME_BEAM_5_B: pose(phase >= 7 ? [0, 4 - first, BEAM_LEVEL_Z] : phase >= 5 ? [4.3, -0.5, BEAM_LEVEL_Z] : [2.5, -7, BEAM_LEVEL_Z]),
     FRAME_LONG_PIN_01: pose(phase >= 1 ? longPinAnchor("A", 0, config) : loosePins[0]!),
     FRAME_LONG_PIN_02: pose(phase >= 2 ? longPinAnchor("A", 1, config) : loosePins[1]!),
     FRAME_LONG_PIN_03: pose(phase >= 3 ? longPinAnchor("B", 0, config) : loosePins[2]!),
