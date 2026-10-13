@@ -22,7 +22,7 @@ import blackUrl from "../../../3D for marksman/connector/pin_pin.stl?url";
 const URLS = [beam7Url, beam5Url, beam15Url, longUrl, pinLongUrl, blackUrl];
 type Models = Record<FramePartId, BufferGeometry>;
 type Poses = Record<FramePartId, Pose>;
-type Travel = { from: Poses; to: Poses; duration: number; elapsed: number; inserting?: FramePartId; reverse: boolean };
+type Travel = { from: Poses; to: Poses; duration: number; elapsed: number; inserting: FramePartId | undefined; reverse: boolean };
 type CameraTravel = {
   from: Vector3; to: Vector3; fromTarget: Vector3; toTarget: Vector3;
   elapsed: number; duration: number;
