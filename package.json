@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "test:step3": "node --test tests/marksmanship-step3.test.mjs"
+    "test:step3": "node --test tests/marksmanship-step3.test.mjs",
+    "test:step4": "node --test tests/marksmanship-step4.test.mjs"
   },
   "overrides": {
     "rolldown": "1.2.1"
