@@ -216,7 +216,11 @@ function BuildSession({ project }: { project: PracticalProject }) {
               </h2>
               <div className="mt-2 h-1 w-10 rounded-full bg-[#f5a400]" />
               <p className="mt-3 text-[14px] font-medium leading-6 text-slate-500 sm:text-base sm:leading-7 [@media(max-height:700px)]:mt-2 [@media(max-height:700px)]:text-[12px] [@media(max-height:700px)]:leading-5">
-                {currentStep.description}
+                {project.id === "marksmanship" && preview3D && currentStep.number === 1
+                    ? "Inspect the five separate 3D models. This preview uses the 24 mm short axle named in Step 2; the original Step 1 manual calls it a 3-hole long axle. Check your kit before building."
+                    : project.id === "marksmanship" && preview3D && currentStep.number === 2
+                      ? "Follow five guided 3D actions: insert the axle upward into the downward-facing motor socket, slide the disc onto its exposed end, seat the connector in an outer disc hole, then attach the beam. Exact placement and connector identity remain under verification."
+                      : currentStep.description}
               </p>
 
               {currentStep.note ? (
@@ -286,7 +290,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
       <footer className="relative z-30 shrink-0 border-t border-slate-100 bg-white/97 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 shadow-[0_-8px_24px_rgba(20,55,90,0.05)] sm:px-8 sm:py-4">
         {project.id === "marksmanship" && currentStep.number === 2 && preview3D && !previewStep2Ready && (
           <p className="mx-auto mb-2 max-w-5xl text-center text-xs font-semibold text-[#132654]">
-            Finish all four 3D tutorial actions to continue, or switch to the original manual.
+            Complete all five guided 3D actions to continue, or switch to the original manual.
           </p>
         )}
         <div className="mx-auto flex w-full max-w-5xl gap-3">
@@ -301,19 +305,25 @@ function BuildSession({ project }: { project: PracticalProject }) {
             <ChevronLeft aria-hidden="true" />
             <span className="hidden sm:inline">Previous</span>
           </Button>
-          <Button
-            className="min-h-12 flex-1 rounded-full bg-[#168eea] text-base font-black text-white shadow-[0_10px_26px_rgba(22,142,234,0.24)] hover:bg-[#0e82dd] sm:min-h-[52px]"
-            disabled={project.id === "marksmanship" && currentStep.number === 2 && preview3D && !previewStep2Ready}
-            onClick={finishCurrentStep}
-            type="button"
-          >
-            {isLastStep ? "Finish My Robot" : "Done — Next Step"}
-            {isLastStep ? (
-              <Sparkles aria-hidden="true" />
-            ) : (
-              <ArrowRight aria-hidden="true" />
-            )}
-          </Button>
+          {project.id === "marksmanship" && currentStep.number === 1 && preview3D ? (
+            <div className="flex min-h-12 flex-1 items-center justify-center rounded-full bg-[#eaf5ff] px-4 text-center text-sm font-bold text-[#0f69bd]">
+              Use “Start Assembly — Step 2” in the 3D viewer
+            </div>
+          ) : (
+            <Button
+              className="min-h-12 flex-1 rounded-full bg-[#168eea] text-base font-black text-white shadow-[0_10px_26px_rgba(22,142,234,0.24)] hover:bg-[#0e82dd] sm:min-h-[52px]"
+              disabled={project.id === "marksmanship" && currentStep.number === 2 && preview3D && !previewStep2Ready}
+              onClick={finishCurrentStep}
+              type="button"
+            >
+              {isLastStep ? "Finish My Robot" : "Done — Next Step"}
+              {isLastStep ? (
+                <Sparkles aria-hidden="true" />
+              ) : (
+                <ArrowRight aria-hidden="true" />
+              )}
+            </Button>
+          )}
         </div>
       </footer>
     </div>
