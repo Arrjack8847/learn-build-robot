@@ -135,3 +135,10 @@ test("Step 6 desktop gives 3D viewer a dedicated wide workspace",()=>{
   assert.ok(ui.indexOf('className="relative h-[clamp') < ui.indexOf('Mounting setup · confirm with real parts'),"Viewer before form on narrow mobile screens");
   assert.ok(ui.includes("onReadyChange(ready)"),"Physical confirmation gate preserved");
 });
+
+
+test("Entering Step 6 resets inherited Step 5 scroll position",()=>{
+  assert.ok(route.includes("previousStepIndex.current !== 5"));
+  assert.ok(route.includes("lessonScrollArea.current.scrollTop = 0"));
+  assert.ok(route.includes("<main ref={lessonScrollArea}"));
+});

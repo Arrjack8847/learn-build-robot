@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import {
   ArrowLeft,
@@ -65,6 +65,17 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const [currentIndex, setCurrentIndex] = useState(
     firstIncompleteIndex >= 0 ? firstIncompleteIndex : 0,
   );
+  const lessonScrollArea = useRef<HTMLElement>(null);
+  const previousStepIndex = useRef(currentIndex);
+  useLayoutEffect(() => {
+    // Step 5 is taller than the old illustration layout. When entering
+    // Step 6, put the expanded 3D workspace at its beginning, not at
+    // the scroll position inherited from the preceding lesson screen.
+    if (currentIndex === 5 && previousStepIndex.current !== 5 && lessonScrollArea.current) {
+      lessonScrollArea.current.scrollTop = 0;
+    }
+    previousStepIndex.current = currentIndex;
+  }, [currentIndex]);
   const [stage, setStage] = useState<SessionStage>("steps");
   const [stepThreeReady, setStepThreeReady] = useState(false);
   const [stepFourReady, setStepFourReady] = useState(false);
@@ -143,7 +154,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
         </span>
       </header>
 
-      <main className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain">
+      <main ref={lessonScrollArea} className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain">
         <div className={`mx-auto w-full px-4 pb-4 pt-2.5 sm:px-8 sm:pb-6 sm:pt-4 [@media(max-height:700px)]:pt-2 ${isStepSix ? "max-w-[1580px]" : "max-w-6xl"}`}>
           <section className="text-center">
             <h1 className="mx-auto max-w-3xl text-[clamp(1.45rem,6vw,2.35rem)] font-black leading-tight tracking-[-0.035em] text-[#132654] [@media(max-height:700px)]:text-[clamp(1.25rem,5.5vw,1.8rem)]">
