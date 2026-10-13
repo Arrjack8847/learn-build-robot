@@ -231,9 +231,13 @@ function ModelStage({
         for (const id of PART_IDS) {
           const obj = refs.current[id];
           if (!obj) continue;
+          const movingRail = (animation.inserting === "FRAME_LONG_PIN_01" && id === "FRAME_BEAM_7_A") ||
+            (animation.inserting === "FRAME_LONG_PIN_03" && id === "FRAME_BEAM_7_B");
+          // The rail settles before the connector starts its downward insertion.
           const p = id === animation.inserting
             ? insertedTravel(animation.from[id], animation.to[id], fraction, animation.reverse)
-            : blend(animation.from[id], animation.to[id], fraction);
+            : blend(animation.from[id], animation.to[id],
+                movingRail && !animation.reverse ? Math.min(1, fraction / 0.35) : fraction);
           obj.position.set(...p.position);
           obj.rotation.set(...p.rotation);
         }
@@ -295,7 +299,7 @@ function ModelStage({
       )}
       <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.075}
         enablePan={false} minDistance={2.6} maxDistance={40}
-        autoRotate={spin && phase === 10 && !paused && !exploded}
+        autoRotate={spin && !paused && !exploded}
         autoRotateSpeed={0.42} />
     </>
   );
@@ -304,9 +308,9 @@ function ModelStage({
 class FrameErrorBoundary extends Component<
   { children: React.ReactNode }, { error: string | null }
 > {
-  state = { error: null as string | null };
+  override state = { error: null as string | null };
   static getDerivedStateFromError(error: Error) { return { error: error.message }; }
-  render() {
+  override render() {
     if (this.state.error) return (
       <div role="alert" className="grid h-full place-items-center p-5 text-center text-sm text-red-800">
         3D models could not be displayed: {this.state.error}. Check the source STL files.
