@@ -9,7 +9,8 @@ import {
   type StepThreeConfig,
 } from "@/components/practical/StepThreeScene";
 
-const STORAGE_PHASE = "robot:marksmanship:step3:phase:v1";
+// A new phase key makes returning students replay the corrected connector placement.
+const STORAGE_PHASE = "robot:marksmanship:step3:phase:v2";
 const STORAGE_CONFIG = "robot:marksmanship:step3:config:v1";
 export const STEP_THREE_SNAPSHOT = "robot:marksmanship:step3:prepared:v1";
 
@@ -28,11 +29,11 @@ const INSTRUCTIONS = [
   },
   {
     title: "Prepare L-beam 1",
-    text: "Locate the inside corner of the first small L-shaped beam and identify the selected connector hole. Insert one pin through that hole; do not connect this L-beam to the long beam.",
+    text: "Find the free-end hole of the short arm (8 mm from the corner) on the first small L-shaped beam. Insert the pin through that hole; keep the L-beam separate from the long beam.",
   },
   {
     title: "Prepare L-beam 2",
-    text: "Repeat the same insertion on the second L-shaped beam. Orient the pin so both prepared beams will be able to face outward in Step 4. Leave both L-shaped beams separate.",
+    text: "Insert the second pin into the free-end hole of the short arm (8 mm from the corner). Keep the existing connector direction and leave both prepared L-shaped beams separate.",
   },
   {
     title: "Inspect the medium axle",
@@ -56,15 +57,14 @@ function readPhase(): number {
   } catch { return 0; }
 }
 function readConfig(): StepThreeConfig {
-  const fallback: StepThreeConfig = { firstHole: 0, longConnector: "long", lHole: "corner" };
+  const fallback: StepThreeConfig = { firstHole: 0, longConnector: "long" };
   if (typeof window === "undefined") return fallback;
   try {
     const saved = JSON.parse(window.localStorage.getItem(STORAGE_CONFIG) ?? "null");
     if (
       saved && Number.isInteger(saved.firstHole) && saved.firstHole >= 0 && saved.firstHole <= 13 &&
-      (saved.longConnector === "long" || saved.longConnector === "pinLong") &&
-      (saved.lHole === "corner" || saved.lHole === "oneDown")
-    ) return saved;
+      (saved.longConnector === "long" || saved.longConnector === "pinLong")
+    ) return { firstHole: saved.firstHole, longConnector: saved.longConnector };
   } catch { /* Invalid local demo storage is harmless. */ }
   return fallback;
 }
@@ -187,9 +187,9 @@ export function StepThreeAssembly({ onReadyChange }: { onReadyChange: (ready: bo
           Verify fit against the physical reference
         </summary>
         <p className="mt-2 text-xs leading-5 text-amber-950">
-          The original STLs establish the 8 mm hole spacing and part dimensions. The user's photographed hole indices and correct long-pin variant are not machine-verifiable from the source models. The defaults are provisional: confirm the exact holes before assembling the real robot.
+          The original STLs establish the 8 mm hole spacing and part dimensions. Both L-beam connectors now use the free-end hole of the short arm, matching the photograph. The 15-hole beam's exact hole indices and long-pin variant still need verification against the physical reference.
         </p>
-        <div className="mt-3 grid gap-2 sm:grid-cols-3">
+        <div className="mt-3 grid gap-2 sm:grid-cols-2">
           <label className="text-xs font-semibold text-slate-700">
             First of two adjacent holes
             <select
@@ -213,18 +213,6 @@ export function StepThreeAssembly({ onReadyChange }: { onReadyChange: (ready: bo
             >
               <option value="long">Long connector (24 mm)</option>
               <option value="pinLong">Pin–long–pin (24 mm)</option>
-            </select>
-          </label>
-          <label className="text-xs font-semibold text-slate-700">
-            L-beam connector hole
-            <select
-              aria-label="Choose L-beam connector hole"
-              className="mt-1 block min-h-10 w-full rounded-lg border border-slate-300 bg-white px-2 text-sm"
-              value={config.lHole}
-              onChange={(event) => updateConfig({ lHole: event.target.value as StepThreeConfig["lHole"] })}
-            >
-              <option value="corner">Corner hole (x0, y0)</option>
-              <option value="oneDown">Next hole along leg (y−8 mm)</option>
             </select>
           </label>
         </div>
