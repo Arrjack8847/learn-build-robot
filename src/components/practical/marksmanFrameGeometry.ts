@@ -119,8 +119,9 @@ export function frameFocus(phase: number, config: FrameConfig): Pt3 {
   if (phase === 2) return longPinAnchor("A", 1, config);
   if (phase === 3) return longPinAnchor("B", 0, config);
   if (phase === 4) return longPinAnchor("B", 1, config);
-  if (phase === 5 || phase === 6) return [0, 1.5, BEAM_LEVEL_Z / 2];
-  if (phase === 7) return [0, 4 - config.firstMount, BEAM_LEVEL_Z / 2];
+  // Frame construction/inspection uses a complete U/rectangle overview, not
+  // a close-up that clips the rails on narrow mobile canvases.
+  if (phase === 5 || phase === 6 || phase === 7) return [0, 2.5 - config.firstMount / 2, BEAM_LEVEL_Z / 2];
   if (phase === 8) return beam15Hole(config.beam15Holes[0]);
   if (phase === 9) return beam15Hole(config.beam15Holes[1]);
   return [3, 1.5, 0];
