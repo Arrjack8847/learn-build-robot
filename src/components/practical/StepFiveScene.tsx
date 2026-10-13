@@ -193,7 +193,7 @@ function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete}:
 
   const showPin=(index:number)=>{
     const current=PIN_LOOSE[index]!;
-    return <group key={STEP5_PART_IDS[5+index]}
+    return <group key={STEP5_PART_IDS[5+index]!}
       name={STEP5_PART_IDS[5+index]!}
       ref={node=>{pinRefs.current[index]=node;}}
       position={current}>
@@ -225,7 +225,7 @@ function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete}:
     </group>
     {BRIDGE_ORIGINS.map((position,i)=>{
       const targetIndex=i*2;
-      return <group key={i} name={STEP5_PART_IDS[i+1]} position={position}>
+      return <group key={i} name={STEP5_PART_IDS[i+1]!} position={position}>
         <mesh geometry={meshes.bridge} castShadow receiveShadow>
           <meshStandardMaterial color="#b8c2ce" metalness={0.06} roughness={0.63}/>
         </mesh>
@@ -243,7 +243,7 @@ function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete}:
     })}
     {HOLLOW_ORIGINS.map((position,i)=>{
       const pinIndex=i+4;
-      return <group key={i} name={STEP5_PART_IDS[i+3]} position={position}>
+      return <group key={i} name={STEP5_PART_IDS[i+3]!} position={position}>
         <mesh geometry={meshes.hollow} castShadow receiveShadow>
           <meshStandardMaterial color="#b8c2ce" metalness={0.06} roughness={0.63}/>
         </mesh>
