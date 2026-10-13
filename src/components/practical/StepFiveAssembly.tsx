@@ -63,7 +63,7 @@ function SceneContents({phase,replay}:{phase:number,replay:number}) {
     <directionalLight position={[4,8,12]} intensity={2}/>
     <gridHelper args={[18,18,"#dce7f0","#eef3f7"]} rotation={[Math.PI/2,0,0]} position={[0,0,-1.6]}/>
     <group position={[0,2.65,0]}>
-      <mesh geometry={geometries[0]}><meshStandardMaterial color="#eee5d5" roughness={0.7}/></mesh>
+      <mesh geometry={geometries[0]!}><meshStandardMaterial color="#eee5d5" roughness={0.7}/></mesh>
     </group>
     {(phase===0 || phase===5) && Array.from({length:11},(_,i)=>
       <Html key={i} position={[i-5,1.72,0.7]} center style={{pointerEvents:"none"}}>
@@ -72,7 +72,7 @@ function SceneContents({phase,replay}:{phase:number,replay:number}) {
     )}
     {PIN_POSITIONS.map((position,i) =>
       <group key={i} ref={node=>{refs.current[i]=node;}} position={position}>
-        <mesh geometry={geometries[i<4?1:2]}>
+        <mesh geometry={geometries[i<4?1:2]!}>
           <meshStandardMaterial color={i<4?"#2279c9":"#353d49"} roughness={0.58}/>
         </mesh>
       </group>
