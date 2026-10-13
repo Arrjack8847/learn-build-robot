@@ -15,10 +15,10 @@ The previous `MarksmanStep2Tutorial.tsx` remains in source as a historical proto
 ## Correct mechanical teaching order
 
 1. **Step 1:** Five separate genuine assets: motor, short axle, circular disc, 5-hole beam, connector. A display-material correction removes the all-yellow GLB importer palette. The original motor cable is available through **Show original motor cable**; it is hidden by default because its oversized coils block the building view. Original GLB and cable geometry are unchanged.
-2. **2.1:** **Motor socket faces downward (-Z)** following the approved 180° flip; the short axle starts below it, aligns along -Z, then slides upward (+Z) into the motor. The exposed section points down.
-3. **2.2:** Circular disc's central X-shaped opening aligns coaxially below the exposed shaft; the disc slides upward (+Z) along that same axle, leaving a visible gap from the motor.
-4. **2.3a:** Connector is inserted **upward from below (+Z)** into a disc **outer round hole**, not the central X-shaped axle socket.
-5. **2.3b:** The beam's first end hole is aligned below the connector and slides **upward** onto its other side. The connector has a **middle stop collar**, which physically prevents pushing the same connector completely through two flush parts after the parts are mated. This two-stage docking is intentional and differs from some simplified illustrated wording.
+2. **2.1:** **Motor socket faces right (world +X)**, matching the supplied Blender screenshot. The black cross-section axle starts on the right, aligns coaxially with the orange front output, then slides **left (-X)** into the motor. The exposed section remains on the right.
+3. **2.2:** Circular disc's central X-shaped opening aligns coaxially on the right side of the exposed shaft; the disc slides left (-X) along that same axle, leaving a visible gap from the motor.
+4. **2.3a:** Connector follows the rotated socket axis, inserting **leftward (-X)** into a disc **outer round hole**, not the central X-shaped axle socket.
+5. **2.3b:** The beam's first end hole is aligned with the protruding connector on the right and slides **leftward** onto its other side. The connector has a **middle stop collar**, which physically prevents pushing the same connector completely through two flush parts after the parts are mated. This two-stage docking is intentional and differs from some simplified illustrated wording.
 6. **2.4:** Rotate only the camera around the fixed connected subassembly. Keep the unit for Step 26.
 
 ## Measured from supplied STLs
@@ -36,7 +36,7 @@ All STL models use one uniform factor `0.05 units/mm`. The motor model uses `50 
 
 ## DO NOT CONSIDER PHYSICALLY VERIFIED
 
-- The exact motor socket plane and insertion depth remain **unverified**. The motor GLB's 10091.dat hub node suggests a front plane at GLB local `[-0.0076, 0.0158, 0.01134]` metres, with native output -Z calibrated and the entire motor rotated to make the tutorial socket face downward (-Z). This is a candidate transform inferred from GLB hierarchy, not a measured socket-hole surface.
+- The exact motor socket plane and insertion depth remain **unverified**. The motor GLB's 10091.dat hub node suggests a front plane at GLB local `[-0.0076, 0.0158, 0.01134]` metres, with native socket-facing calibration in the model's local -Z frame and a shared assembly-root -90° Y rotation that makes the output face right (+X) in world space. This is a candidate transform inferred from GLB hierarchy, not a measured socket-hole surface.
 - The motor-axle insertion depth **8 mm** and disc rear-face spacing **8 mm** are **provisional**. They are shown as beta teaching positions, not certified against the physical assembly.
 - A lower-left disc outer hole `(-6.928,-4)` mm was chosen based on the visual reference and measured hole geometry; this specific mounting hole and beam orientation are not yet confirmed by a calibrated front-side reference.
 - `pin_pin.stl` is a **candidate**, not proven to be the gold-coloured connector shown in the illustrated reference; its underlying model is displayed neutral-grey. Do not colour a potentially incorrect part gold to hide the mismatch.
@@ -56,7 +56,13 @@ The **main branch remains untouched** and the pull request should remain a draft
 
 ## October 13 — Review and verification status
 
-- The previous upside-down motor rendered a socket facing **-Z**, but the axle/disc/pin/beam motion was still based on **+Z**. The five-part staging and connection poses now all use one **-Z** assembly axis. Positive Z is the insertion direction into the motor from below.
+- The previous upside-down motor rendered a socket facing **-Z**; a later Blender reference clarifies the desired sideways connection. The complete Step 1–2 scene now uses one rotated socket-local frame: motor output is **world +X**, and the axle enters from the right along **world -X**, without altering the camera's framing parameters.
 - Motor material overrides are **visual only**. The six all-yellow exported GLB materials receive approximate LDraw-based gray, charcoal and orange display colors. Cable geometry is not edited and can be shown with the view toggle.
-- The camera setup, lesson routes, Step 3–31 assets and the original manual image remain unchanged.
+- The camera angle, offsets and projection remain unchanged; existing action focus points are transformed into world space so they still follow the assembly. Lesson routes, Step 3–31 assets and the original manual images remain unchanged.
 - This is a mechanically consistent preview along the currently identified axis, **not** a physical-validation certificate. Photos must still confirm exact socket face, axle depth, connector identity, and selected outer disc hole.
+
+## Blender reference — motor socket and short X axle (October 13)
+
+The reference photo shows the motor's front central output hole and a cross-shaped axle extending to the **right**. A shared **assemblyRoot** group rotates the original socket-local -Z motor geometry, the complete axle, disc, connector, beam and dashed insertion guides by **-90° about world Y**. The motor's socket therefore points **+X**, with the axle aligned on that same X axis and inserted left (**-X**). The GLB motor hub's identified centre remains the anchor at the scene origin. All five Step 2 actions remain connected and the original camera orbit angle/offset is preserved.
+
+The Blender screenshot establishes visual direction and target identity, not a measured tolerance or the true insertion depth. These still require real-kit acceptance. Updated automated runtime tests validate the rotated motor hub, shaft axis, connection direction, and disc/connector hole normals.
