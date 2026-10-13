@@ -8,7 +8,6 @@ import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 export type StepThreeConfig = {
   firstHole: number;
   longConnector: "long" | "pinLong";
-  lHole: "corner" | "oneDown";
 };
 
 export type StepThreePartId =
@@ -36,8 +35,10 @@ const RIGHT_L: [number, number, number] = [4.1, -3.15, 0];
 const LEFT_ANGLE = 0;
 const RIGHT_ANGLE = 0;
 
-function lPinAt(origin: [number, number, number], angle: number, hole: StepThreeConfig["lHole"]) {
-  const local = new Vector3(0, hole === "oneDown" ? -1 : 0, 0);
+function lPinAt(origin: [number, number, number], angle: number) {
+  // Original L-beam STL: corner (0, 0) mm; short arm's free-end hole (8, 0) mm.
+  // Geometry is uniformly scaled to 8 mm per world unit.
+  const local = new Vector3(1, 0, 0);
   local.applyEuler(new Euler(0, 0, angle));
   return new Vector3(...origin).add(local);
 }
@@ -45,8 +46,8 @@ function lPinAt(origin: [number, number, number], angle: number, hole: StepThree
 function poses(phase: number, config: StepThreeConfig): Record<StepThreePartId, PartTransform> {
   const first = holeX(config.firstHole);
   const second = holeX(config.firstHole + 1);
-  const lp = lPinAt(LEFT_L, LEFT_ANGLE, config.lHole);
-  const rp = lPinAt(RIGHT_L, RIGHT_ANGLE, config.lHole);
+  const lp = lPinAt(LEFT_L, LEFT_ANGLE);
+  const rp = lPinAt(RIGHT_L, RIGHT_ANGLE);
   const getPos = (vector: Vector3): [number, number, number] => [vector.x, vector.y, vector.z];
   const zRotation = (angle: number): [number, number, number] => [0, 0, angle];
   return {
@@ -80,7 +81,7 @@ export function getPreparedStepThreeTransforms(config: StepThreeConfig) {
     },
     selectedHoles: {
       beam: [config.firstHole + 1, config.firstHole + 2],
-      l: config.lHole === "corner" ? "corner" : "one hole from corner",
+      l: "short arm free-end hole (x=8 mm, y=0 mm)",
     },
     transforms: poses(7, config),
     // Remains false until the physical photo/manual comparison is performed.
@@ -113,8 +114,8 @@ const MOVING: StepThreePartId[] = ["longPinA", "longPinB", "leftLPin", "rightLPi
 function focusFor(phase: number, config: StepThreeConfig): Vector3 {
   if (phase === 1) return new Vector3(holeX(config.firstHole), 0, 0);
   if (phase === 2) return new Vector3(holeX(config.firstHole + 1), 0, 0);
-  if (phase === 3) return new Vector3(...LEFT_L);
-  if (phase === 4) return new Vector3(...RIGHT_L);
+  if (phase === 3) return lPinAt(LEFT_L, LEFT_ANGLE);
+  if (phase === 4) return lPinAt(RIGHT_L, RIGHT_ANGLE);
   if (phase === 5) return new Vector3(-1.8, 3.1, 0);
   if (phase === 6) return new Vector3(4.8, 3.1, 0);
   return new Vector3(0, 0, 0);
@@ -157,7 +158,7 @@ function ModelStage({
     from: Record<string, Vector3>;
     to: Record<string, Vector3>;
   } | null>(null);
-  const configKey = [config.firstHole, config.lHole, config.longConnector].join(":");
+  const configKey = [config.firstHole, config.longConnector].join(":");
 
   useLayoutEffect(() => {
     const next = poses(phase, config);
@@ -238,8 +239,8 @@ function ModelStage({
   const positions = poses(phase, config);
   const activeBeamHole = phase === 1 ? config.firstHole : phase === 2 ? config.firstHole + 1 : -1;
   const activeL = phase === 3 ? "left" : phase === 4 ? "right" : null;
-  const lSpotL = lPinAt(LEFT_L, LEFT_ANGLE, config.lHole);
-  const lSpotR = lPinAt(RIGHT_L, RIGHT_ANGLE, config.lHole);
+  const lSpotL = lPinAt(LEFT_L, LEFT_ANGLE);
+  const lSpotR = lPinAt(RIGHT_L, RIGHT_ANGLE);
 
   return (
     <>
