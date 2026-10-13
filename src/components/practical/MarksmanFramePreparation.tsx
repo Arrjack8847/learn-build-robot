@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowLeft, ArrowRight, CheckCircle2, ChevronDown, Eye, EyeOff, Maximize2,
   Minus, Pause, Play, Plus, Rotate3D, RotateCcw, ScanSearch, SkipBack,
-  SlidersHorizontal, TriangleAlert,
+  SlidersHorizontal, TriangleAlert, Upload,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MarksmanFrameScene } from "./MarksmanFrameScene";
@@ -60,6 +60,8 @@ const ACTIONS = [
   },
 ] as const;
 
+type PhotoStage = "inventory" | "pins" | "firstCrossbeam" | "uShape" | "rectangle";
+
 function readReducedMotion() {
   return typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -69,9 +71,11 @@ export function MarksmanFramePreparation({
   photoUrls,
 }: {
   /** Real user photos can be wired here when their actual repository URLs are available. */
-  photoUrls?: Partial<Record<"inventory" | "pins" | "firstCrossbeam" | "uShape" | "rectangle", string>>;
+  photoUrls?: Partial<Record<PhotoStage, string>>;
 }) {
   const [phase, setPhase] = useState(0);
+  const [localPhotos, setLocalPhotos] = useState<Partial<Record<PhotoStage, string>>>({});
+  const transientPhotoUrls = useRef<string[]>([]);
   const [config, setConfig] = useState<FrameConfig>(DEFAULT_FRAME_CONFIG);
   const [paused, setPaused] = useState(false);
   const [replayKey, setReplayKey] = useState(0);
@@ -92,6 +96,17 @@ export function MarksmanFramePreparation({
     media.addEventListener("change", update);
     return () => media.removeEventListener("change", update);
   }, []);
+
+  useEffect(() => {
+    return () => { for (const url of transientPhotoUrls.current) URL.revokeObjectURL(url); };
+  }, []);
+
+  function attachOriginalPhoto(stage: PhotoStage, file: File | undefined) {
+    if (!file || !file.type.startsWith("image/")) return;
+    const url = URL.createObjectURL(file);
+    transientPhotoUrls.current.push(url);
+    setLocalPhotos((old) => ({ ...old, [stage]: url }));
+  }
 
   function go(next: number) {
     setExploded(false);
@@ -114,7 +129,7 @@ export function MarksmanFramePreparation({
   const photoId =
     phase === 0 ? "inventory" : phase <= 4 ? "pins" :
     phase === 5 ? "firstCrossbeam" : phase === 6 ? "uShape" : "rectangle";
-  const photo = photoUrls?.[photoId];
+  const photo = localPhotos[photoId] ?? photoUrls?.[photoId];
   return (
     <div className="w-full min-w-0 space-y-3 text-left">
       <div className="flex flex-wrap items-center justify-between gap-2">
@@ -226,6 +241,12 @@ export function MarksmanFramePreparation({
 
       {showReference && (
         <div className="rounded-xl border border-slate-200 bg-white p-3">
+          <label className="mb-3 flex flex-wrap items-center gap-2 rounded-lg border border-sky-200 bg-sky-50 p-3 text-xs font-bold text-[#132654]">
+            <Upload className="size-4" /> Choose your original {photoId} photo for side-by-side comparison
+            <input aria-label={"Select real " + photoId + " photograph"} type="file" accept="image/*"
+              className="block min-w-0 max-w-full text-xs file:mr-2 file:rounded-lg file:border-0 file:bg-white file:px-3 file:py-2"
+              onChange={(event) => attachOriginalPhoto(photoId, event.target.files?.[0])} />
+          </label>
           {photo ? (
             <div>
               <p className="mb-2 text-xs font-bold">Original assembly photograph · {photoId}</p>
@@ -235,10 +256,10 @@ export function MarksmanFramePreparation({
           ) : (
             <div role="status" className="rounded-lg bg-amber-50 p-3 text-xs leading-5 text-amber-900">
               <TriangleAlert className="mr-1 inline size-4" />
-              Your real photographs are not yet stored under a confirmed repository URL.
-              This viewer does not substitute generated photos or claim that its provisional fit is verified.
-              For now, compare the original photos in your conversation; the official manual
-              pictures below are different references, not those user photographs.
+              The original photo for this stage is not bundled in the repository.
+              Select that real photo above to compare locally in the viewer; it stays
+              on your device and is not uploaded. The official manual pictures below
+              are different references and are not used as photo-based geometry proof.
             </div>
           )}
           <div className="mt-3 grid gap-3 sm:grid-cols-2">
