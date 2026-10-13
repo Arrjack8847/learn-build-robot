@@ -81,3 +81,40 @@ for(const path of parts){
   }
  }
 }
+
+
+// Precisely sample the bores and pin profiles. A face-wide maximum
+// diameter is NOT a valid proxy for a flexible Technic pin's shaft.
+function intervalAtZ(s,z,xy,dir,maxRadius=4){
+ const seg=sliceSegments(s,2,z).segments;
+ let pattern="";
+ let current=null,intervals=[];
+ for(let r=0;r<=maxRadius+0.001;r+=0.05) {
+   const x=xy[0]+(dir==="x"?r:0),y=xy[1]+(dir==="y"?r:0);
+   const solid=insideSegments(seg,x,y);
+   if(current===null){current=solid;intervals.push({from:0,solid});}
+   if(current!==solid){intervals[intervals.length-1].to=round(r);
+     intervals.push({from:round(r),solid});current=solid;
+   }
+ }
+ intervals[intervals.length-1].to=maxRadius;
+ return intervals.map(x=>({from:x.from,to:x.to,solid:x.solid}));
+}
+const specs=[
+ ["48989.stl",[[-8,4],[8,4]], [1,2,4,6,7]],
+ ["15100_fixed.stl",[[-4,0]], [1,2,4,6,7]],
+ ["3D for marksman/connector/long connector.stl",[[0,0]],[1,4,7,8.5,11,15,16.5,20,23]],
+ ["3D for marksman/connector/pin_pin.stl",[[135.0667,94.4612]],[1,4,7,8.5,11,15]],
+ ["3D for marksman/connector/pin_short.stl",[[111.1607,103.2404]],[1,4,7,8.5,9.1]]
+];
+for(const [p,centers,zList] of specs) {
+ const s=readTriangles(p);
+ console.log("\n--- Precise radial profiles of "+p+" ---");
+ for(const z of zList){
+   if(z>s.bounds[1][2])continue;
+   for(const xy of centers){
+     const x=intervalAtZ(s,z,xy,"x"), y=intervalAtZ(s,z,xy,"y");
+     console.log(JSON.stringify({z,xy,x,y}));
+   }
+ }
+}
