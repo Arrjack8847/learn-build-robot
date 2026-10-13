@@ -300,13 +300,30 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       const motorPivot = new THREE.Group();
       const correctedUnits = new THREE.Group();
       correctedUnits.scale.setScalar(METERS_TO_SCENE);
-      // Native motor GLB output points toward local -Z. Rotate the complete
-      // motor (INCLUDING cable) to point along the tutorial's +Z.
-      correctedUnits.rotation.y = Math.PI;
+
+      // The actual LDraw output socket is the 10091.dat hub on the front cap.
+      // Its outward-facing surface is local +Y (the hub extends toward -Y).
+      // Resolve that direction through the imported GLB hierarchy instead
+      // of assuming a fixed root rotation. Keep it pointing straight UP (+Z).
+      // This changes only the motor/cable assembly transform — NEVER the camera.
+      motor.scene.updateMatrixWorld(true);
+      const socketHub = motor.scene.getObjectByName("00006_10091.dat");
+      if (!socketHub) {
+        throw new Error("Motor output hub 10091.dat was not found in mortor.glb");
+      }
+      const nativeSocketOut = new THREE.Vector3(0, 1, 0)
+        .transformDirection(socketHub.matrixWorld);
+      correctedUnits.quaternion.setFromUnitVectors(
+        nativeSocketOut,
+        new THREE.Vector3(0, 0, 1),
+      );
       correctedUnits.add(motor.scene);
       motorPivot.add(correctedUnits);
       scene.add(motorPivot);
       correctedUnits.updateMatrixWorld(true);
+
+      // Keep the identified socket centred on the existing insertion guide
+      // and the short axle's +Z insertion path. Other parts do not move.
       const socket = correctedUnits.localToWorld(vec(MOTOR_GLB_SOCKET_CANDIDATE_METERS));
       correctedUnits.position.sub(socket);
       objects.set("motor", motorPivot);
