@@ -208,7 +208,7 @@ export function StepFiveAssembly({onReadyChange,onBackToStep4,onContinueToStep6}
         All four pin assemblies fit and remain separate from the empty 11-hole beam.
         This is a physical self-check; automated STL analysis is not a mechanical certification.</span>
     </label>}
-    {ready&&<Button block type="button" className="rounded-xl bg-[#168eea] text-white hover:bg-[#0e82dd]"
+    {ready&&<Button type="button" className="w-full rounded-xl bg-[#168eea] text-white hover:bg-[#0e82dd]"
       onClick={onContinueToStep6}>
       Continue to Step 6 <ArrowRight className="size-4"/>
     </Button>}

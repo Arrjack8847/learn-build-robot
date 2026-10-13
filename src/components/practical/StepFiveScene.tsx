@@ -50,16 +50,16 @@ export function getStepFivePreparedSnapshot() {
     STEP5_BEAM_11: {parent:null,position:[0,4.1,0],rotation:[0,0,0],model:"beam11.stl"},
   };
   for(let i=0;i<2;i++){
-    transforms[STEP5_PART_IDS[1+i]]={
+    transforms[STEP5_PART_IDS[1+i]!]={
       parent:null,position:BRIDGE_ORIGINS[i]!,rotation:[0,0,0],model:"bridge-48989.stl",
     };
-    transforms[STEP5_PART_IDS[3+i]]={
+    transforms[STEP5_PART_IDS[3+i]!]={
       parent:null,position:HOLLOW_ORIGINS[i]!,rotation:[0,0,0],model:"hollow-15100.stl",
     };
   }
   for(let i=0;i<6;i++){
-    transforms[STEP5_PART_IDS[5+i]]={
-      parent:STEP5_PART_IDS[i<4?1+Math.floor(i/2):3+(i-4)],
+    transforms[STEP5_PART_IDS[5+i]!]={
+      parent:STEP5_PART_IDS[i<4?1+Math.floor(i/2):3+(i-4)]!,
       position:PIN_FINAL[i]!,
       rotation:i<4?[Math.PI,0,0]:[0,0,0],
       model:i<4?"pin-long-step5.stl":"pin-pin-step5.stl",
@@ -190,12 +190,11 @@ function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete}:
     if(t>=1){animation.current=null;completion.current();}
   });
   const activePin=phase>=1 && phase<=6 ? phase-1:-1;
-  const parentGroups=[...BRIDGE_ORIGINS,...HOLLOW_ORIGINS];
 
   const showPin=(index:number)=>{
     const current=PIN_LOOSE[index]!;
     return <group key={STEP5_PART_IDS[5+index]}
-      name={STEP5_PART_IDS[5+index]}
+      name={STEP5_PART_IDS[5+index]!}
       ref={node=>{pinRefs.current[index]=node;}}
       position={current}>
       <mesh geometry={index<4?meshes.long:meshes.short}
