@@ -30,19 +30,19 @@ The previous `MarksmanStep2Tutorial.tsx` remains in source as a historical proto
 | Round disc outer holes | **6** outer circles centred on 8 mm radius: (0, ±8), (±6.928, ±4) mm |
 | 5-hole beam | 39.3 × 7.286 × 7.8 mm; through-holes at local X 0, 8, 16, 24, 32 mm before re-centring |
 | `pin_pin.stl` | 16 mm long, Z-axis; centre stop collar **~1.4934 mm** thick |
-| Motor `mortor.glb` | GLB metadata units **metres**; contains motor housing, output hub `10091.dat`, and cable nodes `u9190` |
+| Motor `mortor.glb` | GLB metadata units **metres**; contains motor housing, actual FRONT output hub `10095.dat`, REAR cable retainer `10091.dat`, and cable nodes `u9190` |
 
 All STL models use one uniform factor `0.05 units/mm`. The motor model uses `50 units/metre`, **never fitted by its cable-inclusive bounding box**.
 
 ## DO NOT CONSIDER PHYSICALLY VERIFIED
 
-- The exact motor socket plane and insertion depth remain **unverified**. The motor GLB's 10091.dat hub node suggests a front plane at GLB local `[-0.0076, 0.0158, 0.01134]` metres, with native socket-facing calibration in the model's local -Z frame and a shared assembly-root -90° Y rotation that makes the output face right (+X) in world space. This is a candidate transform inferred from GLB hierarchy, not a measured socket-hole surface.
+- The exact motor socket plane and insertion depth remain **unverified**. The motor GLB's actual front axle hub 10095.dat lies at GLB scene `[-0.0076, 0.0158, 0.06494]` metres. The rear cable retainer 10091.dat is at `[-0.0076, 0.0158, 0.01134]` metres, 53.6 mm behind the front. The real FRONT datum is used for the axle insertion target. This is a candidate transform inferred from GLB hierarchy, not a measured socket-hole surface.
 - The motor-axle insertion depth **8 mm** and disc rear-face spacing **8 mm** are **provisional**. They are shown as beta teaching positions, not certified against the physical assembly.
 - A lower-left disc outer hole `(-6.928,-4)` mm was chosen based on the visual reference and measured hole geometry; this specific mounting hole and beam orientation are not yet confirmed by a calibrated front-side reference.
 - `pin_pin.stl` is a **candidate**, not proven to be the gold-coloured connector shown in the illustrated reference; its underlying model is displayed neutral-grey. Do not colour a potentially incorrect part gold to hide the mismatch.
 - The manual inconsistently labels the axle a "3-hole long axle" in Step 1 and a short axle in Step 2. The Step 2 brief requests `axles/short.stl`; confirm the actual physical component.
 - Sampled STL cross-sections show the short axle has approximately 2.40 mm half-height versus about 2.35 mm of clearance in one direction of the disc central cross opening. This is a possible ~0.05 mm **press-fit/interference** in the static meshes. It must be checked on the real components; neither source mesh was stretched or edited.
-- The UI right-side Step 1 wording now warns about the manual axle naming inconsistency. Step 2 in 3D mode describes the downward-socket connection, its footer correctly says **five actions**, and the competing bottom **Done — Next Step** button is replaced with an instruction to use **Start Assembly** during 3D Step 1.
+- The UI right-side Step 1 wording now warns about the manual axle naming inconsistency. Step 2 in 3D mode describes the right-facing front output socket connection, its footer correctly says **five actions**, and the competing bottom **Done — Next Step** button is replaced with an instruction to use **Start Assembly** during 3D Step 1.
 - Step 1 component label positions are clamped inside the viewer and inactive parts are shown at 78% opacity for recognizability.
 - No automated proof of non-intersection against the motor GLB or physically exact assembly exists. **Do not use this as an authoritative final instruction until reviewed against the real kit.**
 
@@ -63,6 +63,10 @@ The **main branch remains untouched** and the pull request should remain a draft
 
 ## Blender reference — motor socket and short X axle (October 13)
 
-The reference photo shows the motor's front central output hole and a cross-shaped axle extending to the **right**. A shared **assemblyRoot** group rotates the original socket-local -Z motor geometry, the complete axle, disc, connector, beam and dashed insertion guides by **-90° about world Y**. The motor's socket therefore points **+X**, with the axle aligned on that same X axis and inserted left (**-X**). The GLB motor hub's identified centre remains the anchor at the scene origin. All five Step 2 actions remain connected and the original camera orbit angle/offset is preserved.
+The reference photo shows the motor's front central output hole and a cross-shaped axle extending to the **right**. A shared **assemblyRoot** group rotates the original socket-local -Z motor geometry, the complete axle, disc, connector, beam and dashed insertion guides by **-90° about world Y**. The motor's socket therefore points **+X**, with the axle aligned on that same X axis and inserted left (**-X**). The verified front axle hub 10095 centre, NOT the rear 10091 cable retainer, is the anchor at the scene origin. All five Step 2 actions remain connected and the original camera orbit angle/offset is preserved.
 
 The Blender screenshot establishes visual direction and target identity, not a measured tolerance or the true insertion depth. These still require real-kit acceptance. Updated automated runtime tests validate the rotated motor hub, shaft axis, connection direction, and disc/connector hole normals.
+
+## Critical front-vs-back correction
+
+Earlier code incorrectly identified the rear cable retainer 10091.dat as the output socket. Official LDraw names 10095.dat as the actual FRONT motor axle hub. The motor viewer now aligns the short cross-axle to the centre of 10095, not 10091. The two nodes' original GLB positions differ by 53.6 mm along the motor body. The real GLB runtime test asserts that the front hub is the insertion origin and the rear retainer stays behind it. Browser screenshots and real-kit insertion depth remain to be verified.
