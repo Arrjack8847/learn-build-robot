@@ -144,7 +144,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
       </header>
 
       <main className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain">
-        <div className="mx-auto w-full max-w-6xl px-4 pb-4 pt-2.5 sm:px-8 sm:pb-6 sm:pt-4 [@media(max-height:700px)]:pt-2">
+        <div className={`mx-auto w-full px-4 pb-4 pt-2.5 sm:px-8 sm:pb-6 sm:pt-4 [@media(max-height:700px)]:pt-2 ${isStepSix ? "max-w-[1580px]" : "max-w-6xl"}`}>
           <section className="text-center">
             <h1 className="mx-auto max-w-3xl text-[clamp(1.45rem,6vw,2.35rem)] font-black leading-tight tracking-[-0.035em] text-[#132654] [@media(max-height:700px)]:text-[clamp(1.25rem,5.5vw,1.8rem)]">
               {project.title}
@@ -163,7 +163,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
             </div>
           </section>
 
-          <div className="mx-auto mt-3 grid w-full max-w-5xl gap-3.5 md:mt-5 md:grid-cols-[1.02fr_0.98fr] md:items-center md:gap-7 [@media(max-height:700px)]:mt-2.5">
+          <div className={isStepSix ? "mx-auto mt-3 w-full max-w-[1540px] md:mt-4" : "mx-auto mt-3 grid w-full max-w-5xl gap-3.5 md:mt-5 md:grid-cols-[1.02fr_0.98fr] md:items-center md:gap-7 [@media(max-height:700px)]:mt-2.5"}>
             <div className="min-w-0">
               {project.id === "marksmanship" && currentStep.number <= 2 && (
                 <div aria-label="Assembly instruction view" className="mb-2 flex flex-wrap gap-2">
@@ -188,8 +188,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
                   </button>
                 </div>
               )}
-              <div className="relative flex w-full items-center justify-center overflow-hidden rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:min-h-[420px] md:rounded-[32px]">
-              <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-20" />
+              <div className={isStepSix ? "relative w-full min-w-0" : "relative flex w-full items-center justify-center overflow-hidden rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:min-h-[420px] md:rounded-[32px]"}>
+              {!isStepSix && <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-20" />}
               {project.id === "marksmanship" && currentStep.number <= 2 && preview3D && currentStep.image ? (
                 <Marksman3DPreview
                   step={currentStep.number}
@@ -231,7 +231,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
             </div>
             </div>
 
-            <section className="min-w-0 md:rounded-[30px] md:border md:border-slate-200/90 md:bg-white md:p-7 md:shadow-[0_14px_36px_rgba(20,55,90,0.08)]">
+            {!isStepSix && <section className="min-w-0 md:rounded-[30px] md:border md:border-slate-200/90 md:bg-white md:p-7 md:shadow-[0_14px_36px_rgba(20,55,90,0.08)]">
               <p className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] text-[#168eea] sm:text-xs">
                 <CheckCircle2 aria-hidden="true" className="size-4" />
                 Do this now
@@ -307,7 +307,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
                   </DialogContent>
                 </Dialog>
               ) : null}
-            </section>
+            </section>}
           </div>
         </div>
       </main>

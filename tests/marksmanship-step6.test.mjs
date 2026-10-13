@@ -123,3 +123,15 @@ test("Final assembly uses stable Step 5 IDs, declares uncertainty and Step 8 han
   assert.equal(snapshot.attachments.length,4);
   assert.equal(snapshot.stepFiveAssemblyId,"marksman-step5-prepared-connectors");
 });
+
+
+test("Step 6 desktop gives 3D viewer a dedicated wide workspace",()=>{
+  assert.ok(route.includes('isStepSix ? "max-w-[1580px]"'),"Full-width lesson container");
+  assert.ok(route.includes('isStepSix ? "mx-auto mt-3 w-full max-w-[1540px]'),"Remove standard two-column lesson grid");
+  assert.ok(route.includes('!isStepSix && <section className="min-w-0 md:rounded-[30px]'),"No empty generic instruction sidebar");
+  assert.ok(ui.includes("lg:grid-cols-[minmax(0,1.8fr)_minmax(315px,0.95fr)]"),"Large viewer next to configuration");
+  assert.ok(ui.includes('h-[clamp(340px,55vh,620px)]'),"Viewer above fold on normal desktop height");
+  assert.ok(ui.indexOf('The 3D workspace is ready') < ui.indexOf('Mounting setup · confirm with real parts'),"Immediate status");
+  assert.ok(ui.indexOf('className="relative h-[clamp') < ui.indexOf('Mounting setup · confirm with real parts'),"Viewer before form on narrow mobile screens");
+  assert.ok(ui.includes("onReadyChange(ready)"),"Physical confirmation gate preserved");
+});

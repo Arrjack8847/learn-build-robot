@@ -162,31 +162,14 @@ export function StepSixAssembly({onReadyChange,onBackToStep5,onContinueToStep7}:
       Finish and confirm Step 5 first.
       <Button type="button" size="sm" variant="outline" className="ml-2" onClick={returnToFive}>Open Step 5</Button>
     </div>}
-    <div className="rounded-xl border border-slate-200 bg-white p-3 text-left">
-      <h4 className="text-sm font-extrabold text-[#132654]">Calibrate the actual beam mounting positions</h4>
-      <p className="mt-1 text-xs leading-5 text-slate-600">
-        The official manual places the hollow units at holes 1 and 2, but does not
-        unambiguously identify the two bridge hole pairs or the mounting faces.
-        Use your original physical photos. Front (+Z) is the camera-facing beam face;
-        Back (-Z) is the opposite. These choices are not assumed or auto-verified.
-      </p>
-      <div className="mt-3 grid gap-3 sm:grid-cols-2">
-        {faceSelect("hollowASide","Hollow A · hole 1 · installation face")}
-        {faceSelect("hollowBSide","Hollow B · hole 2 · installation face")}
-        {pairSelect("bridgeAStart","Bridge A · first two-hole pair",A_OPTIONS)}
-        {faceSelect("bridgeASide","Bridge A · installation face")}
-        {pairSelect("bridgeBStart","Bridge B · far-end two-hole pair",B_OPTIONS)}
-        {faceSelect("bridgeBSide","Bridge B · installation face")}
-      </div>
-      <p className="mt-2 text-xs font-bold text-[#145e9f]">
-        Bridge A: {pairA} · Bridge B: {pairB} · 16 mm mounting-hole spacing.
-      </p>
-      {errors.length>0&&<p role="status" className="mt-2 text-xs leading-5 text-amber-800">
-        <TriangleAlert className="mr-1 inline size-3.5"/>
-        {errors[0]} Animations are disabled until mounting points are selected.
-      </p>}
-    </div>
-    <div className="relative h-[310px] overflow-hidden rounded-2xl border border-[#cddceb] bg-[#f7fafc] sm:h-[370px] md:h-[440px]">
+    <div className="grid w-full min-w-0 items-start gap-4 lg:grid-cols-[minmax(0,1.8fr)_minmax(315px,0.95fr)] xl:gap-6">
+      <div className="min-w-0 space-y-3">
+    {prepared&&!calibrated&&<div className="flex items-start gap-2 rounded-xl border border-amber-200 bg-amber-50 p-3 text-left text-xs leading-5 text-amber-900" role="status">
+      <TriangleAlert className="mt-0.5 size-4 shrink-0"/>
+      <span>The 3D workspace is ready. Choose the six <strong>Mounting setup</strong> options
+        in the panel beside the viewer (or below it on mobile) to unlock Next and Replay.</span>
+    </div>}
+    <div className="relative h-[clamp(340px,55vh,620px)] min-w-0 overflow-hidden rounded-2xl border border-[#cddceb] bg-[#f7fafc]">
       {prepared?<StepSixScene phase={phase} prepared={prepared} config={config}
         replayKey={replayKey} paused={paused} resetCameraKey={resetCameraKey}
         reducedMotion={reducedMotion} onMotionComplete={()=>setBusy(false)}/>
@@ -245,6 +228,32 @@ export function StepSixAssembly({onReadyChange,onBackToStep5,onContinueToStep7}:
         <ArrowLeft className="size-4"/> Return to Step 5
       </Button>
     </div>
+      </div>
+      <aside aria-label="Step 6 mounting settings and verification"
+        className="min-w-0 space-y-3 lg:sticky lg:top-3 lg:max-h-[calc(100svh-185px)] lg:overflow-y-auto lg:pr-1">
+    <div className="rounded-2xl border border-slate-200 bg-white p-4 text-left shadow-[0_10px_28px_rgba(20,55,90,0.06)]">
+      <h4 className="text-sm font-extrabold text-[#132654]">Mounting setup · confirm with real parts</h4>
+      <p className="mt-1 text-xs leading-5 text-slate-600">
+        First compare with your real Step 6 assembly: the hollow units use holes 1–2,
+        but the bridge pairs and mounting faces still need confirmation.
+        Front is the +Z face; Back is −Z. Select all six fields to unlock animations.
+      </p>
+      <div className="mt-3 grid gap-3">
+        {faceSelect("hollowASide","Hollow A · hole 1 · installation face")}
+        {faceSelect("hollowBSide","Hollow B · hole 2 · installation face")}
+        {pairSelect("bridgeAStart","Bridge A · first two-hole pair",A_OPTIONS)}
+        {faceSelect("bridgeASide","Bridge A · installation face")}
+        {pairSelect("bridgeBStart","Bridge B · far-end two-hole pair",B_OPTIONS)}
+        {faceSelect("bridgeBSide","Bridge B · installation face")}
+      </div>
+      <p className="mt-2 text-xs font-bold text-[#145e9f]">
+        Bridge A: {pairA} · Bridge B: {pairB} · 16 mm mounting-hole spacing.
+      </p>
+      {errors.length>0&&<p role="status" className="mt-2 text-xs leading-5 text-amber-800">
+        <TriangleAlert className="mr-1 inline size-3.5"/>
+        {errors[0]} Animations are disabled until mounting points are selected.
+      </p>}
+    </div>
     {showManual&&<div className="rounded-xl border border-slate-200 bg-white p-3">
       <img className="mx-auto max-h-80 w-full object-contain"
         src="/marksmanship/steps/6.png" alt="Official Marksmanship Step 6 assembly illustration"/>
@@ -267,5 +276,7 @@ export function StepSixAssembly({onReadyChange,onBackToStep5,onContinueToStep7}:
       spacing is measured, but selected hole numbers, faces, elastic fit and insertion depths
       require confirmation on the actual kit. Step 7 remains unchanged.
     </p>
+      </aside>
+    </div>
   </div>;
 }
