@@ -23,15 +23,16 @@ type Action = {
   focus: Pt3; cameraOffset: Pt3; active: PartName[];
   target?: Pt3; guide?: readonly [Pt3, Pt3];
 };
-// Stage the individual genuine components around the DOWNWARD-facing socket.
-// All insertion paths enter toward +Z (into the motor); the exposed assembly
-// extends away from the motor along -Z. Do not invert the motor again.
+// Model poses are authored in a socket-local frame with the output pointing
+// toward -Z. The shared assembly root below rotates this frame into the
+// Blender reference orientation: socket faces world +X, axle approaches from
+// the right, and insertion moves toward world -X. Camera setup is unchanged.
 const step1Poses: Record<PartName, Pose> = {
   motor: { position: [0, 0, 0] },
-  axle: { position: [1.1, -0.85, -1.65], rotation: [0, Math.PI / 2, 0] },
-  disc: { position: [-1.55, 0.4, -1.45] },
-  beam: { position: [2.55, -0.9, -1.35] },
-  pin: { position: [-1.35, -0.85, -1.5] },
+  axle: { position: [0.45, -0.85, -2.6], rotation: [0, Math.PI / 2, 0] },
+  disc: { position: [-1.5, 0.95, 2.2] },
+  beam: { position: [1.8, 2.15, -1.2] },
+  pin: { position: [-1.3, -1.9, 1.3] },
 };
 
 const discPos: Pt3 = [0, 0, DISC_CENTER_Z];
@@ -40,9 +41,8 @@ const pinPos: Pt3 = [
   FRAME.selectedDiscOuterHole[0], FRAME.selectedDiscOuterHole[1], CONNECTOR_COLLAR_Z,
 ];
 const beamPos: Pt3 = [BEAM_CENTRE_X, BEAM_CENTRE_Y, BEAM_CENTRE_Z];
-// All parts approach the downward-facing socket from BELOW (-Z), then
-// translate toward +Z into their seats. The staged positions are teaching
-// poses, while the final depths come from the geometry configuration.
+// The socket-local -Z positions below become world +X after assembly-root
+// rotation. Axle/disc/beam start to the RIGHT and move LEFT (world -X).
 const alignedAxle: Pt3 = [0, 0, -1.75];
 const alignedDisc: Pt3 = [0, 0, -1.65];
 const alignedPin: Pt3 = [pinPos[0], pinPos[1], -1.6];
@@ -55,14 +55,14 @@ const baselineRot = {
 const actions: Action[] = [
   {
     id: "2.1", title: "Insert the short axle",
-    instruction: "Find the cross-shaped socket at the front of the motor. Align the short axle with the socket and push it straight inside.",
+    instruction: "Find the orange centre output socket on the motor's front face, as in the Blender reference. Align the black X-shaped axle from the RIGHT, then push it straight LEFT into the socket. Leave the end exposed for the disc.",
     duration: 3.0, active: ["motor", "axle"], focus: [0, 0, 0.5],
     cameraOffset: [2, -4, 3.2], target: [0, 0, 0],
     guide: [[0, 0, -2.1], [0, 0, 0.4]],
   },
   {
     id: "2.2", title: "Slide the disc onto the axle",
-    instruction: "Locate the X-shaped hole in the centre of the circular disc. Align it with the black axle and slide the disc onto the axle.",
+    instruction: "Align the disc's central X-shaped hole with the axle protruding to the RIGHT of the motor. Slide the disc LEFT along that same axis without tilting it.",
     duration: 3.0, active: ["motor", "axle", "disc"], focus: [0, 0, 0.6],
     cameraOffset: [1.5, -3.3, 3.6], target: [0, 0, 0.5],
     guide: [[0, 0, -2.2], [0, 0, -0.3]],
@@ -266,8 +266,15 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
     const scene = new THREE.Scene();
     const objects = new Map<PartName, THREE.Object3D>();
     const materials = new Map<PartName, THREE.MeshStandardMaterial[]>();
+    // Physical tutorial models share one socket-local frame. A -90° world-Y
+    // rotation maps socket-local -Z to world +X (Blender: motor front faces
+    // right, X axle enters from right to left). Rotate every component and
+    // guide together, never the camera or the imported source assets.
+    const assemblyRoot = new THREE.Group();
+    assemblyRoot.rotation.y = -Math.PI / 2;
+    scene.add(assemblyRoot);
     const guide = new THREE.Group();
-    scene.add(guide);
+    assemblyRoot.add(guide);
     let guideLine: THREE.Line | undefined;
     let ring: THREE.Mesh | undefined;
     let renderer: THREE.WebGLRenderer;
@@ -314,11 +321,10 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       const correctedUnits = new THREE.Group();
       correctedUnits.scale.setScalar(METERS_TO_SCENE);
 
-      // The physical motor has been deliberately flipped 180 degrees
-      // upside down around the WORLD X axis at the output socket.
-      // The front X-shaped socket now faces DOWN (-Z), as requested.
-      // Camera, short axle, connector and every other model remain unchanged.
-      // The cable is part of the imported motor and turns with its housing.
+      // Keep the previously verified GLB hub orientation in socket-local -Z.
+      // assemblyRoot rotates that full motor, axle, disc, beam and guides
+      // together so the motor output points world +X (right), like Blender.
+      // Cable nodes keep their geometry. Camera settings are untouched.
       motor.scene.updateMatrixWorld(true);
       // The imported GLB contains output hub 10091.dat. Some Three.js
       // loader versions merge/sanitize node names, so its absence by name
@@ -349,11 +355,12 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       scene.add(motorPivot);
       correctedUnits.updateMatrixWorld(true);
 
-      // Keep the socket centred at its existing origin after the flip.
-      // Step 2 axle and disc have matching negative-Z seats; the axle now
-      // approaches upward from below along the same motor output axis.
+      // Calibrate the socket centre while the motor still has an unrotated
+      // parent; afterwards reparent it under the rotated assembly root.
+      // This prevents mixing world-space offset with socket-local position.
       const socket = correctedUnits.localToWorld(vec(MOTOR_GLB_SOCKET_CANDIDATE_METERS));
       correctedUnits.position.sub(socket);
+      assemblyRoot.add(motorPivot);
       objects.set("motor", motorPivot);
 
       // GLB exporter flattened the original LDraw colour palette to yellow
@@ -403,7 +410,7 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
         });
         const mesh = new THREE.Mesh(shape, mat);
         mesh.scale.setScalar(MM_TO_SCENE);
-        scene.add(mesh);
+        assemblyRoot.add(mesh);
         objects.set(definition.id, mesh);
         materials.set(definition.id, [mat]);
       });
@@ -458,7 +465,9 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       cameraFraction = 0;
       manualOrbit = false;
       const a = stepNow === 2 ? actions[actionId] : undefined;
-      focusTarget = vec(a?.focus ?? [0, 0, 0]);
+      // Translate the action's focus into world space; leave camera offset
+      // and angle exactly as they were. Only the model's axis is rotated.
+      focusTarget = vec(a?.focus ?? [0, 0, 0]).applyQuaternion(assemblyRoot.quaternion);
       offset = vec(a?.cameraOffset ?? [4.2, -7.2, 4]);
     };
 
@@ -536,8 +545,10 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       } else if (currentStep === 2 && id === actions.length - 1 && playingRef.current && !manualOrbit) {
         // Orbit ONLY the camera; all connected meshes remain still.
         const angle = clamp((fractionNow - 0.24) / 0.76) * Math.PI * 1.5;
-        camera.position.copy(orbitAt(a?.cameraOffset ?? [3, -3, 3], a?.focus ?? [0, 0, 0], angle));
-        orbit.target.copy(vec(a?.focus ?? [0, 0, 0]));
+        const rotatedFocus = vec(a?.focus ?? [0, 0, 0]).applyQuaternion(assemblyRoot.quaternion);
+        const worldFocus: Pt3 = [rotatedFocus.x, rotatedFocus.y, rotatedFocus.z];
+        camera.position.copy(orbitAt(a?.cameraOffset ?? [3, -3, 3], worldFocus, angle));
+        orbit.target.copy(rotatedFocus);
       }
       orbit.update();
       renderer.render(scene, camera);
