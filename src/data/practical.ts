@@ -28,9 +28,9 @@ const marksmanshipSteps: PracticalProject["steps"] = [
   {
     id: "marksmanship-s4",
     number: 4,
-    title: "Attach the L-beams",
+    title: "Connect the L-beams and medium axle",
     description:
-      "Connect both L-beams to the connectors on the 15-hole beam, with each L-beam connector facing outward. Then insert the axle at the end. Keep this assembly for later.",
+      "First slide the small grey axle connector to the middle of the black medium axle. Use the two blue pins in holes 1 and 2 at the prepared end of the white 15-hole beam to mount the two circular holes nearest each grey L-beam's corner. Attach the first L-beam, slide the prepared axle through its far cross-shaped X hole, then attach the second L-beam on the opposite side using the same hole pair. Keep both L-beam connectors facing outward. Save the finished subassembly for Steps 29–30.",
     image: "/marksmanship/steps/4.png",
   },
   {
