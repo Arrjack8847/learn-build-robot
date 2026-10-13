@@ -21,7 +21,7 @@ const STEPS = [
   },
   {
     title: "Fit the first L-beam onto white beam holes 1 and 2",
-    text: "Count along the grey L-beam's longer arm FROM ITS CORNER: hole 1 (at the corner) and hole 2 (the next circular hole) receive the two blue pins on the white 15-hole beam. Align both holes, then push straight onto the pins. The pin already attached to the L-beam must point outward.",
+    text: "Count along the grey L-beam's longer arm FROM ITS CORNER: hole 1 (at the corner) and hole 2 (the next circular hole) receive the two blue pins on the white 15-hole beam. White hole 1 receives the L-beam's second circular hole, and white hole 2 receives the L-beam's corner circular hole. Align both holes, then push straight onto the pins. The pin already attached to the L-beam must point outward.",
   },
   {
     title: "Insert the prepared axle through the first L-beam",
@@ -147,6 +147,11 @@ export function StepFourAssembly({
             <p className="mt-1 text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6">{step.text}</p>
           </div>
         </div>
+      </div>
+      <div className="grid gap-1.5 rounded-xl border border-sky-100 bg-sky-50/80 p-2.5 text-center text-[11px] font-bold text-[#145e9f] sm:grid-cols-3">
+        <span>White hole 1 ↔ grey L hole 2</span>
+        <span>White hole 2 ↔ grey L corner hole 1</span>
+        <span>Black axle ↔ far X hole</span>
       </div>
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex flex-wrap gap-2">
