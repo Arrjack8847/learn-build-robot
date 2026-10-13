@@ -52,19 +52,21 @@ export const UNVERIFIED_AXIAL_MM = {
  */
 export const MOTOR_GLB_SOCKET_CANDIDATE_METERS: Pt3 = [-0.0076, 0.0158, 0.01134];
 export const MOTOR_NATIVE_OUTPUT_AXIS: Pt3 = [0, 0, -1];
-export const MOTOR_SCENE_OUTPUT_AXIS: Pt3 = [0, 0, 1];
+export const MOTOR_SCENE_OUTPUT_AXIS: Pt3 = [0, 0, -1];
 
 const unit = (mm: number) => mm * MM_TO_SCENE;
 export const FRAME = {
   motorSocket: [0, 0, 0] as Pt3,
   axle: {
-    // 24 mm long, 8 mm inserted: -8 mm to +16 mm from socket plane.
-    center: [0, 0, unit(4)] as Pt3,
+    // Downward (-Z) socket: axle runs +8 mm inside the motor, -16 mm exposed.
+    // The shaft midpoint lies 4 mm below the socket plane.
+    center: [0, 0, -unit(4)] as Pt3,
     exposedLength: unit(16),
   },
   disc: {
-    // Back of the 4 mm disc sits 8 mm in front of the motor.
-    center: [0, 0, unit(10)] as Pt3,
+    // Downward (-Z): disc is centred 10 mm below socket, so its inward
+    // face is 8 mm below the motor. This spacing remains provisional.
+    center: [0, 0, -unit(10)] as Pt3,
   },
   // The physical reference has the beam connected at the lower-left outer
   // hole; -6.928,-4 mm is the geometric candidate. This hole selection and
@@ -76,10 +78,13 @@ export const FRAME = {
   },
 } as const;
 export const DISC_CENTER_Z = FRAME.disc.center[2];
-export const DISC_FRONT_Z = DISC_CENTER_Z + unit(STL_MEASUREMENTS_MM.disc.thickness) / 2;
+// All outward-facing attachments proceed toward -Z, away from the motor.
+// These distances are constructed from measured part thicknesses and collar,
+// NOT verified connection depths or precise optical photo measurements.
+export const DISC_FRONT_Z = DISC_CENTER_Z - unit(STL_MEASUREMENTS_MM.disc.thickness) / 2;
 export const BEAM_CENTRE_Z =
-  DISC_FRONT_Z + FRAME.pin.collarGap + unit(STL_MEASUREMENTS_MM.beam.thickness) / 2;
-export const CONNECTOR_COLLAR_Z = DISC_FRONT_Z + FRAME.pin.collarGap / 2;
+  DISC_FRONT_Z - FRAME.pin.collarGap - unit(STL_MEASUREMENTS_MM.beam.thickness) / 2;
+export const CONNECTOR_COLLAR_Z = DISC_FRONT_Z - FRAME.pin.collarGap / 2;
 export const BEAM_CENTRE_X =
   FRAME.selectedDiscOuterHole[0] - FRAME.beamHoleLocalAfterCenter[0];
 export const BEAM_CENTRE_Y = FRAME.selectedDiscOuterHole[1];
@@ -87,6 +92,7 @@ export const BEAM_CENTRE_Y = FRAME.selectedDiscOuterHole[1];
 export const VALIDATION_NOTES = [
   "STL dimensions and hole centres are mesh-derived.",
   "Sampled cross-sections show ~0.05 mm possible axle/disc X-profile interference on one transverse axis; press-fit tolerance must be checked physically.",
+  "Motor socket is oriented downward (-Z); shaft, disc, connector and beam now share that assembly axis.",
   "Motor GLB socket datum is inferred from LDraw node transforms; must be checked against model and real motor.",
   "Connector pin_pin has a central stop collar. It cannot be pushed fully through two flush parts after both have been joined.",
   "Photo's gold connector material and actual part number remain unverified.",
