@@ -1,0 +1,33 @@
+name: Marksmanship Step 3 3D checks
+
+on:
+  push:
+    branches:
+      - feat/marksmanship-step3-3d-20261012
+  pull_request:
+    paths:
+      - src/components/practical/StepThreeScene.tsx
+      - src/components/practical/StepThreeAssembly.tsx
+      - src/routes/practical/**
+      - public/marksmanship/models/**
+      - package.json
+      - tests/marksmanship-step3.test.mjs
+      - .github/workflows/step3-3d.yml
+
+jobs:
+  verify-step3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Verify original STL assets
+        run: npm run test:step3
+      - name: Production build (regenerates router types)
+        run: npm run build
+      - name: Type-check interactive tutorial
+        run: npx tsc --noEmit
