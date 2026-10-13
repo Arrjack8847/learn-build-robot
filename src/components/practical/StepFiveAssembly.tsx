@@ -1,163 +1,223 @@
-
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { Html, OrbitControls } from "@react-three/drei";
-import { Suspense, useEffect, useMemo, useRef, useState } from "react";
-import { BufferGeometry, Group, Vector3 } from "three";
-import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
-import { ArrowLeft, ArrowRight, Eye, RotateCcw, TriangleAlert } from "lucide-react";
+import { useEffect, useState } from "react";
+import {
+  ArrowLeft, ArrowRight, CheckCircle2, Eye, Pause, Play, RotateCcw,
+  ScanSearch, TriangleAlert,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getStepFivePreparedSnapshot, STEP5_SNAPSHOT_KEY, StepFiveScene } from "./StepFiveScene";
 
-const STEP_FOUR = "robot:marksmanship:step4:assembled:v1";
-const RESULT = "robot:marksmanship:step5:prepared:v1";
-const ROOT = "/marksmanship/models/";
-const MODEL_PATHS = [ROOT + "beam11.stl", ROOT + "pin-long-step5.stl", ROOT + "pin-short-step5.stl"];
-const PIN_POSITIONS: [number,number,number][] = [
-  [-4,-0.85,0], [-2.6,-0.85,0], [-4,-2.75,0], [-2.6,-2.75,0],
-  [2,-0.85,0], [3.5,-0.85,0],
-];
-const PHASES = [
-  ["Identify the 11-hole beam","Place the empty 11-hole beam horizontally. Count all eleven circular holes. Do not attach anything to it."],
-  ["Prepare bridge connector 1","Using your real bridge body, insert one long pin into each of its two mounting openings until both are parallel. The missing bridge body cannot be animated accurately."],
-  ["Prepare bridge connector 2","Repeat with the second real bridge body and the remaining two long pins. Keep this assembly separate from the beam."],
-  ["Prepare hollow connector 1","Insert one short pin into the first real hollow right-angle connector following the reference photograph. Its original 3D body is missing."],
-  ["Prepare hollow connector 2","Prepare the second right-angle connector with its short pin. Place both physical connector units alongside the bridge units."],
-  ["Check your prepared parts","Place the empty 11-hole beam at the top. Below it place two prepared bridge units and two prepared hollow right-angle units. These five units remain apart until Step 6."],
+const STEP_FOUR_RESULT = "robot:marksmanship:step4:assembled:v1";
+const PHASE_STORAGE = "robot:marksmanship:step5:phase:v2";
+
+const ACTIONS = [
+  {
+    number: "5.1", title: "Inspect the 11-hole beam",
+    instruction: "Take the straight beam with 11 circular holes. Check that all holes are empty. Keep the beam above the loose connector pieces.",
+    note: "Original 11.stl: 11 holes, 8 mm pitch. No connectors touch the beam during Step 5.",
+  },
+  {
+    number: "5.2A", title: "Insert the first long pin into bridge A",
+    instruction: "Find the left through-hole of the first 48989 bridge. Line up the long pin with the hole's axis, then insert the shaft toward the opposite face until its collar stops at the near face.",
+    note: "Hole centre: x=-8, y=4 mm (source STL); insertion along negative Z. The bridge already includes its own perpendicular posts.",
+  },
+  {
+    number: "5.2B", title: "Insert the second long pin into bridge A",
+    instruction: "Find the second mounting hole on this bridge. Insert the next long pin on the same parallel axis. Inspect both projecting ends without attaching the unit to the beam.",
+    note: "Second centre: x=+8, y=4 mm. Both long pins remain children of bridge A.",
+  },
+  {
+    number: "5.3A", title: "Insert the first long pin into bridge B",
+    instruction: "Take the second 48989 bridge. Align the third long pin with the first mounting hole and slide it into place, as you did for bridge A.",
+    note: "The second bridge has identical geometry, with no invented additional posts or connector parts.",
+  },
+  {
+    number: "5.3B", title: "Insert the second long pin into bridge B",
+    instruction: "Insert the fourth long pin into the remaining mounting hole. Both completed bridge units should have matching pin positions and face directions.",
+    note: "The two bridge subassemblies remain separate from the 11-hole beam.",
+  },
+  {
+    number: "5.4", title: "Prepare hollow connector A",
+    instruction: "Identify the hollow cylindrical opening on the first 15100 right-angle connector. Insert one two-sided 16 mm pin along the opening's Z axis, stopping the central collar against the outer face.",
+    note: "The opening is at native x=-4, y=0 mm. It is a close press-fit profile; check the real kit before treating the assembly as certified.",
+  },
+  {
+    number: "5.5", title: "Prepare hollow connector B",
+    instruction: "Repeat with the second 15100 body and the remaining two-sided pin. Keep its built-in perpendicular projection untouched.",
+    note: "Both hollow connector bodies have their own child pin for reversible animation and later reuse.",
+  },
+  {
+    number: "5.6", title: "Inspect the five separate prepared units",
+    instruction: "Check the empty 11-hole beam above two bridge assemblies and two hollow connector assemblies. Each bridge has two long pins. Each hollow connector has one short two-sided pin. Do not install anything on the beam until Step 6.",
+    note: "STEP 5 COMPLETE — ALL COMPONENTS PREPARED IN 3D. Confirm actual physical fit below before continuing.",
+  },
 ] as const;
-
-function prepare(mesh: BufferGeometry, beam: boolean) {
-  const result = mesh.clone();
-  result.computeBoundingBox();
-  if (beam) result.translate(-40,-3.65,-3.9);
-  else {
-    const center = result.boundingBox!.getCenter(new Vector3());
-    result.translate(-center.x,-center.y,-center.z);
-  }
-  result.scale(0.125,0.125,0.125);
-  result.computeVertexNormals();
-  return result;
+function initialPhase(){
+  if(typeof window==="undefined")return 0;
+  try{
+    const n=Number(window.localStorage.getItem(PHASE_STORAGE));
+    return Number.isInteger(n)&&n>=0&&n<ACTIONS.length?n:0;
+  }catch{return 0;}
 }
-function SceneContents({phase,replay}:{phase:number,replay:number}) {
-  const files = useLoader(STLLoader,MODEL_PATHS);
-  const geometries = useMemo(() => [
-    prepare(files[0]!,true),prepare(files[1]!,false),prepare(files[2]!,false),
-  ],[files]);
-  const refs = useRef<(Group|null)[]>([]);
-  const clock = useRef(0);
-  useEffect(() => {clock.current = 0;},[phase,replay]);
-  useFrame((_,delta) => {
-    clock.current = Math.min(2,clock.current+Math.min(delta,0.06));
-    const lift = Math.sin(Math.PI*clock.current/2);
-    refs.current.forEach((part,i) => {
-      if (!part) return;
-      const active = (phase===1 && i<2) || (phase===2 && i>=2 && i<4)
-        || (phase===3 && i===4) || (phase===4 && i===5);
-      const pos = PIN_POSITIONS[i]!;
-      part.position.set(pos[0],pos[1],active ? lift*0.6 : 0);
-      part.rotation.y = active ? lift*0.35 : 0;
-    });
-  });
-  return <>
-    <color attach="background" args={["#f6f9fc"]}/>
-    <ambientLight intensity={1.6}/>
-    <hemisphereLight args={["#ffffff","#c8dae9",1.3]}/>
-    <directionalLight position={[4,8,12]} intensity={2}/>
-    <gridHelper args={[18,18,"#dce7f0","#eef3f7"]} rotation={[Math.PI/2,0,0]} position={[0,0,-1.6]}/>
-    <group position={[0,2.65,0]}>
-      <mesh geometry={geometries[0]!}><meshStandardMaterial color="#eee5d5" roughness={0.7}/></mesh>
-    </group>
-    {(phase===0 || phase===5) && Array.from({length:11},(_,i)=>
-      <Html key={i} position={[i-5,1.72,0.7]} center style={{pointerEvents:"none"}}>
-        <span style={{fontSize:10,fontWeight:800,background:"white",padding:"2px 4px",borderRadius:5,color:"#174c79",border:"1px solid #d9e0e5"}}>{i+1}</span>
-      </Html>
-    )}
-    {PIN_POSITIONS.map((position,i) =>
-      <group key={i} ref={node=>{refs.current[i]=node;}} position={position}>
-        <mesh geometry={geometries[i<4?1:2]!}>
-          <meshStandardMaterial color={i<4?"#2279c9":"#353d49"} roughness={0.58}/>
-        </mesh>
-      </group>
-    )}
-    <OrbitControls makeDefault enableDamping dampingFactor={0.08} minDistance={6} maxDistance={33}/>
-  </>;
+function initialPhysicalCheck(){
+  if(typeof window==="undefined")return false;
+  try{
+    const raw=window.localStorage.getItem(STEP5_SNAPSHOT_KEY);
+    return JSON.parse(raw||"null")?.physicallySelfConfirmed===true;
+  }catch{return false;}
 }
-function Scene({phase,replay}:{phase:number,replay:number}) {
-  return <Canvas aria-label="11-hole beam and six loose pins, source STL inspection only"
-    camera={{position:[3,7,19],fov:43,near:0.1,far:100}}
-    dpr={[1,1.6]} gl={{antialias:true,powerPreference:"high-performance"}}
-    style={{width:"100%",height:"100%",touchAction:"none"}}>
-    <Suspense fallback={null}><SceneContents phase={phase} replay={replay}/></Suspense>
-  </Canvas>;
-}
-export function StepFiveAssembly({onReadyChange}:{onReadyChange:(value:boolean)=>void}) {
-  const [phase,setPhase]=useState(0);
-  const [replay,setReplay]=useState(0);
+export function StepFiveAssembly({onReadyChange,onBackToStep4,onContinueToStep6}:{
+  onReadyChange:(ready:boolean)=>void;
+  onBackToStep4:()=>void;
+  onContinueToStep6:()=>void;
+}){
+  const [phase,setPhase]=useState(initialPhase);
+  const [confirmedPhysical,setConfirmedPhysical]=useState(initialPhysicalCheck);
+  const [busy,setBusy]=useState(false);
+  const [paused,setPaused]=useState(false);
+  const [replayKey,setReplayKey]=useState(0);
+  const [resetCameraKey,setResetCameraKey]=useState(0);
   const [showManual,setShowManual]=useState(false);
-  const [physicalDone,setPhysicalDone]=useState(false);
-  const [savedFour,setSavedFour]=useState(false);
-  const ready=phase===5 && physicalDone;
+  const [hasStepFour,setHasStepFour]=useState(false);
+  const ready=phase===ACTIONS.length-1&&!busy&&confirmedPhysical;
+
   useEffect(()=>{
-    try {setSavedFour(Boolean(window.localStorage.getItem(STEP_FOUR)));}
-    catch { /* Storage is optional. */ }
+    try{setHasStepFour(Boolean(window.localStorage.getItem(STEP_FOUR_RESULT)));}
+    catch{setHasStepFour(false);}
   },[]);
   useEffect(()=>{
     onReadyChange(ready);
-    try {
-      if(ready) window.localStorage.setItem(RESULT,JSON.stringify({
-        version:1,beam:"beams/11.stl",longPins:4,shortPins:2,
-        doubleSidedBodies:2,hollowRightAngleBodies:2,
-        beamUnattached:true,physicallySelfConfirmed:true,
-        full3DMeshesAvailable:false,mechanicallyVerified:false
-      }));
-      else window.localStorage.removeItem(RESULT);
-    } catch { /* Storage is optional. */ }
-    // Step 4 snapshot is NEVER altered.
-  },[ready,onReadyChange]);
+    try{
+      window.localStorage.setItem(PHASE_STORAGE,String(phase));
+      if(ready){
+        window.localStorage.setItem(STEP5_SNAPSHOT_KEY,JSON.stringify({
+          ...getStepFivePreparedSnapshot(),
+          physicallySelfConfirmed:true,
+          preparedAt:new Date().toISOString(),
+        }));
+      }else{
+        window.localStorage.removeItem(STEP5_SNAPSHOT_KEY);
+      }
+      // Step 4 shooting mechanism snapshot is NEVER modified.
+    }catch{/* Browser storage is optional. */}
+  },[phase,ready,onReadyChange]);
+
+  const changePhase=(next:number)=>{
+    if(busy)return;
+    setPaused(false);setBusy(true);
+    setPhase(Math.max(0,Math.min(ACTIONS.length-1,next)));
+  };
+  const restart=()=>{
+    setPaused(false);setBusy(false);setConfirmedPhysical(false);
+    setPhase(0);setReplayKey(0);
+    setResetCameraKey(k=>k+1);
+  };
+  const action=ACTIONS[phase]!;
   return <div className="relative z-10 w-full space-y-3">
-    <div className="rounded-xl border border-amber-300 bg-amber-50 p-3 text-left text-xs leading-5 text-amber-950" role="status">
-      <TriangleAlert className="mr-1 inline size-4" aria-hidden="true"/>
-      <strong>Missing original STL bodies:</strong> two double-sided bridges and two hollow right-angle connectors.
-      This 3D inspection shows the genuine 11-hole beam plus four long and two short candidate pins,
-      all loose. No connector insertions are simulated or mechanically verified.
+    <div className="flex flex-wrap items-center justify-between gap-2 px-1">
+      <p className="text-xs font-black uppercase tracking-[0.12em] text-[#116eaf]">
+        STEP 5 — PREPARE THE 11-HOLE BEAM AND CONNECTORS
+      </p>
+      <span className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-slate-600">
+        <Eye className="mr-1 inline size-3.5"/> Orbit · zoom · pinch
+      </span>
     </div>
-    <div className="relative h-[295px] overflow-hidden rounded-2xl border border-slate-200 sm:h-[360px] md:h-[410px]">
-      <Scene phase={phase} replay={replay}/>
-      {savedFour && <span className="pointer-events-none absolute left-2 top-2 rounded-lg bg-white/90 p-2 text-[10px] font-bold text-slate-700">Step 4 shooting assembly saved separately</span>}
+    <div className="relative h-[310px] overflow-hidden rounded-2xl border border-[#cddceb] bg-[#f6f9fc] sm:h-[365px] md:h-[430px]">
+      <StepFiveScene phase={phase} replayKey={replayKey} paused={paused}
+        resetCameraKey={resetCameraKey} onMotionComplete={()=>setBusy(false)}/>
+      {hasStepFour&&<span className="pointer-events-none absolute left-2 top-2 rounded-lg bg-white/90 p-2 text-[10px] font-bold text-slate-700">
+        Step 4 shooting assembly saved separately
+      </span>}
+      {ready&&<span className="pointer-events-none absolute right-2 top-2 rounded-lg bg-emerald-50/95 px-3 py-2 text-xs font-bold text-emerald-800">
+        <CheckCircle2 className="mr-1 inline size-4"/> Five prepared units · beam empty
+      </span>}
     </div>
     <div aria-live="polite" className="rounded-xl border border-sky-100 bg-white p-3 text-left sm:p-4">
-      <p className="text-xs font-extrabold uppercase tracking-wider text-[#116eaf]">Step 5 · Inspection {phase+1} of 6</p>
-      <h3 className="mt-1 text-base font-bold text-[#132654]">{PHASES[phase]![0]}</h3>
-      <p className="mt-1 text-sm leading-6 text-slate-700">{PHASES[phase]![1]}</p>
+      <div className="flex items-start gap-3">
+        <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[#eaf5ff] text-[11px] font-black text-[#116eaf]">
+          {action.number}
+        </span>
+        <div>
+          <h3 className="text-sm font-extrabold text-[#132654] sm:text-base">{action.title}</h3>
+          <p className="mt-1 text-xs leading-5 text-slate-700 sm:text-sm sm:leading-6">{action.instruction}</p>
+          <p className="mt-2 text-xs leading-5 text-[#25658f]">{action.note}</p>
+        </div>
+      </div>
     </div>
-    <div className="grid gap-2 rounded-xl bg-sky-50 p-3 text-xs font-semibold text-sky-900 sm:grid-cols-3">
-      <span>1 empty 11-hole beam</span>
-      <span>2 bridge bodies + 4 long pins</span>
-      <span>2 hollow bodies + 2 short pins</span>
+    <div className="grid gap-2 rounded-xl border border-sky-100 bg-sky-50/80 p-3 text-xs font-semibold text-sky-900 sm:grid-cols-3">
+      <span>1 beam · 11 empty holes</span>
+      <span>2 bridges · 4 long pins</span>
+      <span>2 hollow elbows · 2 short pins</span>
     </div>
     <div className="flex flex-wrap items-center justify-between gap-2">
-      <div className="flex gap-2">
-        <Button size="sm" type="button" variant="outline" disabled={phase===0}
-          onClick={()=>setPhase(p=>Math.max(0,p-1))}><ArrowLeft className="size-4"/> Previous</Button>
-        <Button size="sm" type="button" variant="outline" onClick={()=>setReplay(k=>k+1)}>
-          <RotateCcw className="size-4"/> Replay inspection
+      <div className="flex flex-wrap gap-2">
+        <Button className="rounded-xl" size="sm" type="button" variant="outline"
+          disabled={phase===0||busy} onClick={()=>changePhase(phase-1)}>
+          <ArrowLeft className="size-4"/> Previous
+        </Button>
+        <Button className="rounded-xl" size="sm" type="button" variant="outline"
+          disabled={phase===0||busy} onClick={()=>{
+            setPaused(false);setBusy(true);setReplayKey(k=>k+1);
+          }}>
+          <RotateCcw className="size-4"/> Replay
+        </Button>
+        <Button className="rounded-xl" size="sm" type="button" variant="outline"
+          onClick={()=>setPaused(v=>!v)}>
+          {paused?<Play className="size-4"/>:<Pause className="size-4"/>}
+          {paused?"Resume":"Pause"}
         </Button>
       </div>
-      <Button size="sm" type="button" disabled={phase===5}
-        onClick={()=>setPhase(p=>Math.min(5,p+1))} className="bg-[#168eea] text-white">
-        Next inspection <ArrowRight className="size-4"/>
+      <Button className="rounded-xl bg-[#168eea] text-white hover:bg-[#0e82dd]"
+        size="sm" type="button" disabled={phase===ACTIONS.length-1||busy}
+        onClick={()=>changePhase(phase+1)}>
+        {phase===ACTIONS.length-2?"Inspect finished units":"Next action"}
+        <ArrowRight className="size-4"/>
       </Button>
     </div>
-    <Button size="sm" type="button" variant="ghost" onClick={()=>setShowManual(v=>!v)}>
-      <Eye className="size-4"/> {showManual?"Hide":"Show"} official Steps 5–6
-    </Button>
-    {showManual && <div className="grid gap-2 sm:grid-cols-2">
-      <img src="/marksmanship/steps/5.png" alt="Official Step 5 separate components" className="w-full rounded-lg bg-white object-contain"/>
-      <img src="/marksmanship/steps/6.png" alt="Official Step 6 placement, not to be performed until next step" className="w-full rounded-lg bg-white object-contain"/>
+    <div className="flex flex-wrap gap-2">
+      <Button variant="ghost" size="sm" type="button"
+        onClick={()=>setResetCameraKey(k=>k+1)}>
+        <ScanSearch className="size-4"/> Reset view
+      </Button>
+      <Button variant="ghost" size="sm" type="button"
+        onClick={()=>setShowManual(v=>!v)}>
+        <Eye className="size-4"/> {showManual?"Hide":"Show"} manual Steps 5–6
+      </Button>
+      <Button variant="ghost" size="sm" type="button" onClick={restart}>
+        <RotateCcw className="size-4"/> Restart Step 5
+      </Button>
+      <Button variant="outline" size="sm" type="button" onClick={onBackToStep4}>
+        <ArrowLeft className="size-4"/> Return to Step 4
+      </Button>
+    </div>
+    {showManual&&<div className="grid gap-3 rounded-2xl border border-slate-200 bg-white p-3 sm:grid-cols-2">
+      <figure>
+        <img src="/marksmanship/steps/5.png" className="w-full object-contain"
+          alt="Official manual Step 5 with 11-hole beam and connector units separate"/>
+        <figcaption className="text-center text-xs text-slate-600">Step 5 reference</figcaption>
+      </figure>
+      <figure>
+        <img src="/marksmanship/steps/6.png" className="w-full object-contain"
+          alt="Official Step 6 assembly, for reference only; do not attach yet"/>
+        <figcaption className="text-center text-xs text-slate-600">Step 6 — reference only</figcaption>
+      </figure>
     </div>}
-    {phase===5 && <label className="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-3 text-sm leading-6 text-slate-700">
-      <input type="checkbox" className="mt-1 size-4 accent-[#168eea]"
-        checked={physicalDone} onChange={e=>setPhysicalDone(e.target.checked)}/>
-      <span>I have prepared the two bridge units and two hollow units using the <strong>real physical pieces and manual</strong>, and kept them separate from the empty beam. This is manual self-confirmation, not 3D mechanical verification.</span>
+    {phase===ACTIONS.length-1&&<label className="flex cursor-pointer items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs leading-5 text-amber-950 sm:text-sm">
+      <input className="mt-1 size-4 shrink-0 accent-[#168eea]" type="checkbox"
+        checked={confirmedPhysical} onChange={e=>setConfirmedPhysical(e.target.checked)}/>
+      <span>I compared these connections with <strong>my actual kit and the manual</strong>.
+        All four pin assemblies fit and remain separate from the empty 11-hole beam.
+        This is a physical self-check; automated STL analysis is not a mechanical certification.</span>
     </label>}
-    <p className="text-xs leading-5 text-slate-500">Source models are never substituted with inaccurate solids. Full Step 5 assembly animations must wait for the correct two connector-body meshes and seating references.</p>
+    {ready&&<Button block type="button" className="rounded-xl bg-[#168eea] text-white hover:bg-[#0e82dd]"
+      onClick={onContinueToStep6}>
+      Continue to Step 6 <ArrowRight className="size-4"/>
+    </Button>}
+    <p className="text-[11px] leading-5 text-slate-500">
+      <TriangleAlert className="mr-1 inline size-3.5"/>
+      The original 48989 and 15100 bodies and genuine pin STLs are used at measured bore centres.
+      Long pins align with 5 mm bridge bores. The 15100 hollow bore is tight against the 16 mm
+      two-sided pin and may require real-world press-fit verification. Positions are
+      geometry-informed, with no simulated beam attachment or geometry stretching.
+    </p>
   </div>;
 }

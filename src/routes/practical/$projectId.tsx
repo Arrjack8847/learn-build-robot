@@ -205,7 +205,9 @@ function BuildSession({ project }: { project: PracticalProject }) {
               ) : project.id === "marksmanship" && currentStep.number === 4 ? (
                 <StepFourAssembly onReadyChange={setStepFourReady} onBackToStep3={() => setCurrentIndex(2)} />
               ) : isStepFive ? (
-                <StepFiveAssembly onReadyChange={setStepFiveReady} />
+                <StepFiveAssembly onReadyChange={setStepFiveReady}
+                  onBackToStep4={() => setCurrentIndex(3)}
+                  onContinueToStep6={finishCurrentStep} />
               ) : currentStep.image ? (
                 <img
                   alt={`${project.title} step ${currentStep.number}: ${currentStep.title}`}
