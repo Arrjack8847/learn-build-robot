@@ -40,7 +40,7 @@ export const STEP_FOUR_HOLES = {
 const L_END: [number, number, number] = [-6, 0, 1];
 const R_END: [number, number, number] = [-6, 0, -1];
 const AXLE_X = -9; // Three 8-mm pitches beyond beam hole 2, at the L-beam X-hole.
-const AXLE_START_Z = 6;
+const AXLE_START_Z = 6; // Clear approach distance once the prepared axle is reoriented
 const L_TURN = -Math.PI / 2;
 
 function xyz(x: number, y: number, z: number): [number, number, number] {
@@ -56,8 +56,16 @@ function poses(phase: number): Record<StepFourPart, Transform> {
     longPinB: makePose([-6, 0, 0]),
     firstL: makePose(phase >= 2 ? L_END : [-4.1, -3.15, 0], phase >= 2 ? L_TURN : 0),
     secondL: makePose(phase >= 4 ? R_END : [4.1, -3.15, 0], phase >= 4 ? L_TURN : 0),
-    mediumAxle: { position: [AXLE_X, 0, phase >= 3 ? 0 : AXLE_START_Z], rotation: [0, -Math.PI / 2, 0] },
-    axleConnector: makePose([AXLE_X, 0, phase >= 3 ? 0 : phase >= 1 ? AXLE_START_Z : AXLE_START_Z + 2.2]),
+    // Begin at the SAME loose axle/connector poses as the completed Step 3 viewer.
+    // Phase 1 pushes the grey connector along the axle's original X axis to its midpoint.
+    mediumAxle: {
+      position: phase >= 3 ? [AXLE_X, 0, 0] : [-1.8, 3.1, 0],
+      rotation: [0, phase >= 3 ? -Math.PI / 2 : 0, 0],
+    },
+    axleConnector: {
+      position: phase >= 3 ? [AXLE_X, 0, 0] : phase >= 1 ? [-1.8, 3.1, 0] : [4.8, 3.1, 0],
+      rotation: [0, phase >= 3 ? 0 : Math.PI / 2, 0],
+    },
   };
 }
 export function getStepFourTransforms() {
@@ -106,6 +114,16 @@ function lerpPose(from: Transform, to: Transform, amount: number): Transform {
 function animatedPose(part: StepFourPart, from: Transform, to: Transform, amount: number, action: number): Transform {
   // L-beams rotate into an axial alignment plane first, then slide onto
   // the pins without sweeping through the long beam's solid plastic.
+  if ((part === "mediumAxle" || part === "axleConnector") && action === 3) {
+    // Move the paired axle/connector together to the X-hole axis, rotate both
+    // into coaxial alignment, then insert straight along the Z axis.
+    const aligned: Transform = {
+      position: [AXLE_X, 0, AXLE_START_Z],
+      rotation: part === "mediumAxle" ? [0, -Math.PI / 2, 0] : [0, 0, 0],
+    };
+    if (amount < 0.5) return lerpPose(from, aligned, amount * 2);
+    return lerpPose(aligned, to, (amount - 0.5) * 2);
+  }
   if ((part === "firstL" && action === 2) || (part === "secondL" && action === 4)) {
     const guide: Transform = makePose(
       [to.position[0], to.position[1], part === "firstL" ? 3.4 : -3.4], L_TURN,
@@ -117,7 +135,7 @@ function animatedPose(part: StepFourPart, from: Transform, to: Transform, amount
 }
 const MOVERS: StepFourPart[] = ["firstL", "secondL", "mediumAxle", "axleConnector"];
 function focusAt(phase: number) {
-  if (phase === 1) return new Vector3(AXLE_X, 0, AXLE_START_Z);
+  if (phase === 1) return new Vector3(-1.8, 3.1, 0);
   if (phase === 2) return new Vector3(-6.5, 0, 1.5);
   if (phase === 3) return new Vector3(AXLE_X, 0, 1);
   if (phase === 4) return new Vector3(-6.5, 0, -1.5);
@@ -242,7 +260,6 @@ function Stage({
 
   const first = phase === 2 || phase === 3;
   const second = phase === 4;
-  const axle = phase === 1 || phase === 3;
   const mkPin = (id: "longPinA" | "longPinB", x: number) => (
     <group key={id} position={[x, 0, 0]}>
       <mesh geometry={longPin} castShadow>
@@ -298,7 +315,7 @@ function Stage({
       {lBeam("firstL", true)}
       {lBeam("secondL", false)}
       <group ref={(node) => { if (node) refs.current.mediumAxle = node; }}>
-        <mesh geometry={meshes.axle} rotation={[0, -Math.PI / 2, 0]} castShadow>
+        <mesh geometry={meshes.axle} castShadow>
           <meshStandardMaterial color="#25292f" roughness={0.54} />
         </mesh>
       </group>
@@ -307,7 +324,7 @@ function Stage({
           <meshStandardMaterial color="#abb2bc" roughness={0.65} />
         </mesh>
       </group>
-      {axle && (
+      {phase === 3 && (
         <Line points={[[AXLE_X, 0, AXLE_START_Z + 4.5], [AXLE_X, 0, -4.5]]}
           color="#23a0d9" lineWidth={1.7} dashed dashSize={0.15} gapSize={0.12} />
       )}
