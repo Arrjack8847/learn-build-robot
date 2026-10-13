@@ -36,9 +36,9 @@ const marksmanshipSteps: PracticalProject["steps"] = [
   {
     id: "marksmanship-s5",
     number: 5,
-    title: "Gather the next parts",
+    title: "Prepare the 11-hole beam and connector units",
     description:
-      "Gather an 11-hole beam, a 2-sided connector with long connector, and a hollow connector with connector pre-attached.",
+      "Keep one empty 11-hole beam separate. Prepare two double-sided bridge connectors with two long pins each, and two hollow right-angle connectors with one short pin each. Attach them to the beam only in Step 6. The 3D viewer displays available genuine STLs while the connector-body meshes remain missing.",
     image: "/marksmanship/steps/5.png",
   },
   {
