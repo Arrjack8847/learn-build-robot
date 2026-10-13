@@ -34,13 +34,13 @@ correction.add(model.scene);
 pivot.add(correction);
 pivot.updateMatrixWorld(true);
 const localSocket = new THREE.Vector3(-0.0076, 0.0158, 0.01134);
-const socket = correction.localToWorld(localSocket);
+const socket = correction.localToWorld(localSocket.clone());
 correction.position.sub(socket);
 pivot.updateMatrixWorld(true);
 
 const result = nativeAxis.clone().applyQuaternion(correction.quaternion);
 assert.ok(result.distanceTo(new THREE.Vector3(0, 0, 1)) < 0.001, "Output socket must face +Z");
-const atOrigin = correction.localToWorld(localSocket);
+const atOrigin = correction.localToWorld(localSocket.clone());
 assert.ok(atOrigin.length() < 0.001, "Output socket must coincide with axle insertion origin");
 assert.ok(names.length > 0, "Real GLB nodes must be present");
 
