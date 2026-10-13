@@ -28,6 +28,8 @@ jobs:
         run: npx tsc --noEmit
       - name: Validate supplied 3D model geometry
         run: node scripts/verify-marksman-assets.mjs
+      - name: Verify actual motor GLB runtime orientation
+        run: node scripts/verify-marksman-motor-runtime.mjs
       - name: ESLint for assembly implementation (formatting excluded)
         run: >-
           npx eslint src/components/practical/MarksmanMotorAssembly.tsx
