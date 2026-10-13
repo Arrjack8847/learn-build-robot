@@ -321,35 +321,34 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       const correctedUnits = new THREE.Group();
       correctedUnits.scale.setScalar(METERS_TO_SCENE);
 
-      // Keep the previously verified GLB hub orientation in socket-local -Z.
-      // assemblyRoot rotates that full motor, axle, disc, beam and guides
-      // together so the motor output points world +X (right), like Blender.
-      // Cable nodes keep their geometry. Camera settings are untouched.
+      // CRITICAL: LDraw 10095.dat is the FRONT CROSS-AXLE OUTPUT HUB.
+      // 10091.dat is the REAR CABLE RETAINER, never an axle insertion hole!
+      // In this real GLB, the front hub is at Z=.06494 metres and the
+      // retainer at Z=.01134 metres. The native output points from rear
+      // toward front (+Z), NOT outward from the cable retainer.
       motor.scene.updateMatrixWorld(true);
-      // The imported GLB contains output hub 10091.dat. Some Three.js
-      // loader versions merge/sanitize node names, so its absence by name
-      // must NEVER stop all five parts from loading.
-      let socketHub: THREE.Object3D | undefined;
+      let frontAxleHub: THREE.Object3D | undefined;
+      let rearCableRetainer: THREE.Object3D | undefined;
       motor.scene.traverse((part) => {
-        if (part.name.includes("10091")) socketHub = part;
+        if (part.name.includes("10095")) frontAxleHub = part;
+        if (part.name.includes("10091")) rearCableRetainer = part;
       });
-      // The GLB hierarchy establishes the native outward output direction
-      // as -Z. Prefer the hub's measured local axis when it is available;
-      // otherwise use the known GLB-space direction as a safe fallback.
-      const nativeSocketOut = socketHub
-        ? new THREE.Vector3(0, 1, 0).transformDirection(socketHub.matrixWorld)
-        : new THREE.Vector3(0, 0, -1);
-      const uprightOrientation = new THREE.Quaternion().setFromUnitVectors(
-        nativeSocketOut.normalize(),
-        new THREE.Vector3(0, 0, 1),
+      // Names can change during GLTF import. Use the measured front hub
+      // position as a fallback so the whole viewer cannot go blank.
+      const frontSocketDatum = frontAxleHub
+        ? frontAxleHub.getWorldPosition(new THREE.Vector3())
+        : vec(MOTOR_GLB_SOCKET_CANDIDATE_METERS);
+      const rearDatum = rearCableRetainer?.getWorldPosition(new THREE.Vector3());
+      const nativeFrontDirection = rearDatum
+        ? frontSocketDatum.clone().sub(rearDatum).normalize()
+        : new THREE.Vector3(0, 0, 1);
+      // The shared assembly root maps its local -Z into world +X. Point
+      // the ACTUAL FRONT hub along this axis; axle approaches from the right
+      // and moves left into its cross-shaped opening.
+      correctedUnits.quaternion.setFromUnitVectors(
+        nativeFrontDirection,
+        new THREE.Vector3(0, 0, -1),
       );
-      const halfTurn = new THREE.Quaternion().setFromAxisAngle(
-        new THREE.Vector3(1, 0, 0),
-        Math.PI,
-      );
-      // Premultiply the previous +Z alignment to flip it about world X.
-      // Socket stays at the same origin after the translation below.
-      correctedUnits.quaternion.copy(uprightOrientation).premultiply(halfTurn);
       correctedUnits.add(motor.scene);
       motorPivot.add(correctedUnits);
       scene.add(motorPivot);
@@ -358,7 +357,7 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       // Calibrate the socket centre while the motor still has an unrotated
       // parent; afterwards reparent it under the rotated assembly root.
       // This prevents mixing world-space offset with socket-local position.
-      const socket = correctedUnits.localToWorld(vec(MOTOR_GLB_SOCKET_CANDIDATE_METERS));
+      const socket = correctedUnits.localToWorld(frontSocketDatum.clone());
       correctedUnits.position.sub(socket);
       assemblyRoot.add(motorPivot);
       objects.set("motor", motorPivot);
