@@ -18,6 +18,7 @@ import {
 
 import { RobotIllustration } from "@/components/journey/RobotIllustration";
 import { StepThreeAssembly } from "@/components/practical/StepThreeAssembly";
+import { StepFourAssembly } from "@/components/practical/StepFourAssembly";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -63,6 +64,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
   );
   const [stage, setStage] = useState<SessionStage>("steps");
   const [stepThreeReady, setStepThreeReady] = useState(false);
+  const [stepFourReady, setStepFourReady] = useState(false);
   const currentStep = project.steps[currentIndex];
 
   if (!currentStep) {
@@ -85,6 +87,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const isLastStep = currentIndex === project.steps.length - 1;
   const currentStepId = currentStep.id;
   const isStepThree = project.id === "marksmanship" && currentStep.number === 3;
+  const isStepFour = project.id === "marksmanship" && currentStep.number === 4;
   const displayedPercent = Math.round(((currentIndex + 1) / project.steps.length) * 100);
   const helpItem =
     project.troubleshooting.length > 0
@@ -93,7 +96,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const hasHelp = Boolean(helpItem || project.safetyNote);
 
   function finishCurrentStep() {
-    if (isStepThree && !stepThreeReady) return;
+    if ((isStepThree && !stepThreeReady) || (isStepFour && !stepFourReady)) return;
     toggleStepCompleted(currentStepId, true);
     if (isLastStep) {
       setStage("complete");
@@ -156,6 +159,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
               <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-20" />
               {project.id === "marksmanship" && currentStep.number === 3 ? (
                 <StepThreeAssembly onReadyChange={setStepThreeReady} />
+              ) : project.id === "marksmanship" && currentStep.number === 4 ? (
+                <StepFourAssembly onReadyChange={setStepFourReady} onBackToStep3={() => setCurrentIndex(2)} />
               ) : currentStep.image ? (
                 <img
                   alt={`${project.title} step ${currentStep.number}: ${currentStep.title}`}
@@ -264,8 +269,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
           <Button
             className="min-h-12 flex-1 rounded-full bg-[#168eea] text-base font-black text-white shadow-[0_10px_26px_rgba(22,142,234,0.24)] hover:bg-[#0e82dd] sm:min-h-[52px]"
             onClick={finishCurrentStep}
-            disabled={project.id === "marksmanship" && currentStep.number === 3 && !stepThreeReady}
-            title={project.id === "marksmanship" && currentStep.number === 3 && !stepThreeReady ? "Complete all seven 3D actions first" : undefined}
+            disabled={(isStepThree && !stepThreeReady) || (isStepFour && !stepFourReady)}
+            title={isStepThree && !stepThreeReady ? "Complete all seven Step 3 preparation actions first" : isStepFour && !stepFourReady ? "Complete all five Step 4 assembly actions first" : undefined}
             type="button"
           >
             {isLastStep ? "Finish My Robot" : "Done — Next Step"}
