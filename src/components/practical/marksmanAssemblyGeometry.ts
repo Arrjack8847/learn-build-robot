@@ -52,7 +52,9 @@ export const UNVERIFIED_AXIAL_MM = {
  */
 export const MOTOR_GLB_SOCKET_CANDIDATE_METERS: Pt3 = [-0.0076, 0.0158, 0.01134];
 export const MOTOR_NATIVE_OUTPUT_AXIS: Pt3 = [0, 0, -1];
-export const MOTOR_SCENE_OUTPUT_AXIS: Pt3 = [0, 0, -1];
+// Blender reference: the front X-shaped hub now faces right in world space.
+// Internal assembly poses retain socket-local -Z and rotate together in the viewer.
+export const MOTOR_SCENE_OUTPUT_AXIS: Pt3 = [1, 0, 0];
 
 const unit = (mm: number) => mm * MM_TO_SCENE;
 export const FRAME = {
@@ -92,7 +94,7 @@ export const BEAM_CENTRE_Y = FRAME.selectedDiscOuterHole[1];
 export const VALIDATION_NOTES = [
   "STL dimensions and hole centres are mesh-derived.",
   "Sampled cross-sections show ~0.05 mm possible axle/disc X-profile interference on one transverse axis; press-fit tolerance must be checked physically.",
-  "Motor socket is oriented downward (-Z); shaft, disc, connector and beam now share that assembly axis.",
+  "Blender-matched socket faces right (+X); short X axle approaches from right and inserts left (-X). All remaining components rotate together with its socket-local assembly axis.",
   "Motor GLB socket datum is inferred from LDraw node transforms; must be checked against model and real motor.",
   "Connector pin_pin has a central stop collar. It cannot be pushed fully through two flush parts after both have been joined.",
   "Photo's gold connector material and actual part number remain unverified.",
