@@ -185,9 +185,9 @@ function ModelStage({
     const initialOverview = phase === 0 || phase === 10;
     const frameOverview = phase >= 5 && phase <= 7;
     const offset = new Vector3(
-      frameOverview ? 9 : initialOverview ? 12 : 6.5,
-      frameOverview ? -11 : initialOverview ? -17 : -7.5,
-      frameOverview ? 16 : initialOverview ? 19 : 10.5,
+      frameOverview ? 6.5 : initialOverview ? 12 : 6.5,
+      frameOverview ? -8 : initialOverview ? -17 : -7.5,
+      frameOverview ? 11.5 : initialOverview ? 19 : 10.5,
     );
     const destination = focal.clone().add(offset);
     if (first.current) {
@@ -214,9 +214,9 @@ function ModelStage({
     const wide = phase === 0 || phase === 10;
     const frame = phase >= 5 && phase <= 7;
     camera.position.copy(focus).add(new Vector3(
-      frame ? 9 : wide ? 12 : 6.5,
-      frame ? -11 : wide ? -17 : -7.5,
-      frame ? 16 : wide ? 19 : 10.5,
+      frame ? 6.5 : wide ? 12 : 6.5,
+      frame ? -8 : wide ? -17 : -7.5,
+      frame ? 11.5 : wide ? 19 : 10.5,
     ));
     orbit.current?.target.copy(focus);
     cameraMovement.current = null;
@@ -280,7 +280,11 @@ function ModelStage({
       <directionalLight position={[8, -6, 15]} intensity={2.4} />
       <gridHelper args={[28, 28, "#d4e0eb", "#e5edf4"]} rotation={[Math.PI / 2, 0, 0]} position={[1, 0, -1.2]} />
       {PART_IDS.map((id) => (
-        <group key={id} ref={(node) => { if (node) refs.current[id] = node; else delete refs.current[id]; }}
+        <group key={id}
+          visible={phase === 0 || phase >= 8 || (
+            id !== "FRAME_BEAM_15" && !id.startsWith("FRAME_BLACK_PIN")
+          )}
+          ref={(node) => { if (node) refs.current[id] = node; else delete refs.current[id]; }}
           position={start[id].position} rotation={start[id].rotation}>
           <mesh geometry={meshFor(id)} castShadow>
             <meshStandardMaterial color={colorFor(id)} roughness={0.48} metalness={0.07} side={2}
