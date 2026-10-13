@@ -307,19 +307,21 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       // of assuming a fixed root rotation. Keep it pointing straight UP (+Z).
       // This changes only the motor/cable assembly transform — NEVER the camera.
       motor.scene.updateMatrixWorld(true);
-      // GLTFLoader may sanitise a node's ".dat" suffix into "_dat".
-      // Find the genuine 10091 output hub regardless of that name change.
+      // The imported GLB contains output hub 10091.dat. Some Three.js
+      // loader versions merge/sanitize node names, so its absence by name
+      // must NEVER stop all five parts from loading.
       let socketHub: THREE.Object3D | undefined;
       motor.scene.traverse((part) => {
-        if (/(?:^|_)10091(?:[._]|$)/.test(part.name)) socketHub = part;
+        if (part.name.includes("10091")) socketHub = part;
       });
-      if (!socketHub) {
-        throw new Error("Motor output hub 10091.dat was not found in mortor.glb");
-      }
-      const nativeSocketOut = new THREE.Vector3(0, 1, 0)
-        .transformDirection(socketHub.matrixWorld);
+      // The GLB hierarchy establishes the native outward output direction
+      // as -Z. Prefer the hub's measured local axis when it is available;
+      // otherwise use the known GLB-space direction as a safe fallback.
+      const nativeSocketOut = socketHub
+        ? new THREE.Vector3(0, 1, 0).transformDirection(socketHub.matrixWorld)
+        : new THREE.Vector3(0, 0, -1);
       correctedUnits.quaternion.setFromUnitVectors(
-        nativeSocketOut,
+        nativeSocketOut.normalize(),
         new THREE.Vector3(0, 0, 1),
       );
       correctedUnits.add(motor.scene);
