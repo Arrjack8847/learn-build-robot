@@ -301,11 +301,11 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       const correctedUnits = new THREE.Group();
       correctedUnits.scale.setScalar(METERS_TO_SCENE);
 
-      // The actual LDraw output socket is the 10091.dat hub on the front cap.
-      // Its outward-facing surface is local +Y (the hub extends toward -Y).
-      // Resolve that direction through the imported GLB hierarchy instead
-      // of assuming a fixed root rotation. Keep it pointing straight UP (+Z).
-      // This changes only the motor/cable assembly transform — NEVER the camera.
+      // The physical motor has been deliberately flipped 180 degrees
+      // upside down around the WORLD X axis at the output socket.
+      // The front X-shaped socket now faces DOWN (-Z), as requested.
+      // Camera, short axle, connector and every other model remain unchanged.
+      // The cable is part of the imported motor and turns with its housing.
       motor.scene.updateMatrixWorld(true);
       // The imported GLB contains output hub 10091.dat. Some Three.js
       // loader versions merge/sanitize node names, so its absence by name
@@ -320,17 +320,25 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       const nativeSocketOut = socketHub
         ? new THREE.Vector3(0, 1, 0).transformDirection(socketHub.matrixWorld)
         : new THREE.Vector3(0, 0, -1);
-      correctedUnits.quaternion.setFromUnitVectors(
+      const uprightOrientation = new THREE.Quaternion().setFromUnitVectors(
         nativeSocketOut.normalize(),
         new THREE.Vector3(0, 0, 1),
       );
+      const halfTurn = new THREE.Quaternion().setFromAxisAngle(
+        new THREE.Vector3(1, 0, 0),
+        Math.PI,
+      );
+      // Premultiply the previous +Z alignment to flip it about world X.
+      // Socket stays at the same origin after the translation below.
+      correctedUnits.quaternion.copy(uprightOrientation).premultiply(halfTurn);
       correctedUnits.add(motor.scene);
       motorPivot.add(correctedUnits);
       scene.add(motorPivot);
       correctedUnits.updateMatrixWorld(true);
 
-      // Keep the identified socket centred on the existing insertion guide
-      // and the short axle's +Z insertion path. Other parts do not move.
+      // Keep the socket at its existing origin after the flip.
+      // Note: the unchanged short axle remains above it, so Step 2 insertion
+      // is NOT physically valid until the axle path is reworked separately.
       const socket = correctedUnits.localToWorld(vec(MOTOR_GLB_SOCKET_CANDIDATE_METERS));
       correctedUnits.position.sub(socket);
       objects.set("motor", motorPivot);
