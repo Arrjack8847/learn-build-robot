@@ -307,7 +307,12 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       // of assuming a fixed root rotation. Keep it pointing straight UP (+Z).
       // This changes only the motor/cable assembly transform — NEVER the camera.
       motor.scene.updateMatrixWorld(true);
-      const socketHub = motor.scene.getObjectByName("00006_10091.dat");
+      // GLTFLoader may sanitise a node's ".dat" suffix into "_dat".
+      // Find the genuine 10091 output hub regardless of that name change.
+      let socketHub: THREE.Object3D | undefined;
+      motor.scene.traverse((part) => {
+        if (/(?:^|_)10091(?:[._]|$)/.test(part.name)) socketHub = part;
+      });
       if (!socketHub) {
         throw new Error("Motor output hub 10091.dat was not found in mortor.glb");
       }
