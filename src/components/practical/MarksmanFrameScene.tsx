@@ -183,7 +183,12 @@ function ModelStage({
     }
     const focal = new Vector3(...frameFocus(phase, config));
     const initialOverview = phase === 0 || phase === 10;
-    const offset = new Vector3(initialOverview ? 12 : 6.5, initialOverview ? -17 : -7.5, initialOverview ? 19 : 10.5);
+    const frameOverview = phase >= 5 && phase <= 7;
+    const offset = new Vector3(
+      frameOverview ? 9 : initialOverview ? 12 : 6.5,
+      frameOverview ? -11 : initialOverview ? -17 : -7.5,
+      frameOverview ? 16 : initialOverview ? 19 : 10.5,
+    );
     const destination = focal.clone().add(offset);
     if (first.current) {
       camera.up.set(0, 0, 1);
@@ -207,7 +212,12 @@ function ModelStage({
     if (resetCameraKey === 0) return;
     const focus = new Vector3(...frameFocus(phase, config));
     const wide = phase === 0 || phase === 10;
-    camera.position.copy(focus).add(new Vector3(wide ? 12 : 6.5, wide ? -17 : -7.5, wide ? 19 : 10.5));
+    const frame = phase >= 5 && phase <= 7;
+    camera.position.copy(focus).add(new Vector3(
+      frame ? 9 : wide ? 12 : 6.5,
+      frame ? -11 : wide ? -17 : -7.5,
+      frame ? 16 : wide ? 19 : 10.5,
+    ));
     orbit.current?.target.copy(focus);
     cameraMovement.current = null;
     orbit.current?.update();
