@@ -1,0 +1,31 @@
+name: Marksmanship Step 5 3D safety checks
+
+on:
+  pull_request:
+    paths:
+      - "src/components/practical/StepFiveAssembly.tsx"
+      - "src/routes/practical/**"
+      - "public/marksmanship/models/beam11.stl"
+      - "public/marksmanship/models/pin-long-step5.stl"
+      - "public/marksmanship/models/pin-short-step5.stl"
+      - "tests/marksmanship-step5.test.mjs"
+      - "package.json"
+      - ".github/workflows/step5-3d.yml"
+
+jobs:
+  verify-step5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Assert unmodified Step 5 STLs and missing-asset disclosures
+        run: npm run test:step5
+      - name: Build all lessons
+        run: npm run build
+      - name: Type-check application
+        run: npx tsc --noEmit
