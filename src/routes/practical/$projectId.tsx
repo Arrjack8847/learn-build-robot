@@ -219,7 +219,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
                 {project.id === "marksmanship" && preview3D && currentStep.number === 1
                     ? "Inspect the five separate 3D models. This preview uses the 24 mm short axle named in Step 2; the original Step 1 manual calls it a 3-hole long axle. Check your kit before building."
                     : project.id === "marksmanship" && preview3D && currentStep.number === 2
-                      ? "Follow five guided 3D actions: insert the axle upward into the downward-facing motor socket, slide the disc onto its exposed end, seat the connector in an outer disc hole, then attach the beam. Exact placement and connector identity remain under verification."
+                      ? "Follow five guided 3D actions: line up the X-shaped short axle on the RIGHT with the motor’s front orange output socket, slide it LEFT into the motor, then attach the disc, connector and 5-hole beam on that same axle assembly. Exact seating depths and connector identity still require physical verification."
                       : currentStep.description}
               </p>
 
