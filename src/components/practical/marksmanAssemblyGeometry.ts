@@ -4,8 +4,10 @@
  * STL coordinates are in millimetres. The disc and beam centre/openings below
  * were inspected by slicing the actual STL meshes; do not edit to "look right".
  *
- * The motor GLB has metres as units. Its socket plane is inferred from the
- * 10091.dat submesh, not yet physically confirmed. Likewise the reference
+ * The motor GLB has metres as units. Its FRONT axle hub is part 10095.dat;
+ * part 10091.dat is the REAR cable retainer and must never anchor an axle.
+ * The front hub datum is inferred from LDraw nodes, not physically verified.
+ * Likewise the reference
  * photograph does not provide a calibrated measurement of axle insertion
  * depth, disc offset, or gold connector identity.
  */
@@ -44,14 +46,15 @@ export const UNVERIFIED_AXIAL_MM = {
 } as const;
 
 /**
- * World coordinates of candidate front socket in GLB root space, metres.
- * GLB scene: root node 99499c01 at (-.0076,.0158,.06494);
- * body has X=-90° rotation; front hub node 10091 at +.0536 local Y.
- * Therefore front plane is z=.06494-.0536=.01134 metres.
- * This identifies an axis and a candidate face, not a proven X-hole depth.
+ * Candidate FRONT axle-hole entry in imported GLB scene metres.
+ * GLTFLoader: 10095dat is the output axle hub, at (-.0076,.0158,.06494).
+ * The 10091dat rear CABLE RETAINER is at (-.0076,.0158,.01134).
+ * Their measured separation is 53.6 mm in GLB units and the REAL front
+ * output points native +Z, AWAY from the cable retainer.
+ * Actual insertion depth remains provisional.
  */
-export const MOTOR_GLB_SOCKET_CANDIDATE_METERS: Pt3 = [-0.0076, 0.0158, 0.01134];
-export const MOTOR_NATIVE_OUTPUT_AXIS: Pt3 = [0, 0, -1];
+export const MOTOR_GLB_SOCKET_CANDIDATE_METERS: Pt3 = [-0.0076, 0.0158, 0.06494];
+export const MOTOR_NATIVE_OUTPUT_AXIS: Pt3 = [0, 0, 1];
 // Blender reference: the front X-shaped hub now faces right in world space.
 // Internal assembly poses retain socket-local -Z and rotate together in the viewer.
 export const MOTOR_SCENE_OUTPUT_AXIS: Pt3 = [1, 0, 0];
@@ -60,14 +63,14 @@ const unit = (mm: number) => mm * MM_TO_SCENE;
 export const FRAME = {
   motorSocket: [0, 0, 0] as Pt3,
   axle: {
-    // Downward (-Z) socket: axle runs +8 mm inside the motor, -16 mm exposed.
-    // The shaft midpoint lies 4 mm below the socket plane.
+    // Socket-local -Z becomes world +X (right) after assembly rotation.
+    // The axle is tentatively 8 mm inserted, 16 mm exposed outward (+X).
     center: [0, 0, -unit(4)] as Pt3,
     exposedLength: unit(16),
   },
   disc: {
-    // Downward (-Z): disc is centred 10 mm below socket, so its inward
-    // face is 8 mm below the motor. This spacing remains provisional.
+    // Socket-local -Z becomes world +X; disc sits 10 mm toward the right.
+    // Face spacing of 8 mm from the front socket remains provisional.
     center: [0, 0, -unit(10)] as Pt3,
   },
   // The physical reference has the beam connected at the lower-left outer
@@ -95,7 +98,7 @@ export const VALIDATION_NOTES = [
   "STL dimensions and hole centres are mesh-derived.",
   "Sampled cross-sections show ~0.05 mm possible axle/disc X-profile interference on one transverse axis; press-fit tolerance must be checked physically.",
   "Blender-matched socket faces right (+X); short X axle approaches from right and inserts left (-X). All remaining components rotate together with its socket-local assembly axis.",
-  "Motor GLB socket datum is inferred from LDraw node transforms; must be checked against model and real motor.",
+  "The axle targets LDraw front output hub 10095; rear cable retainer 10091 is explicitly excluded. The front datum is model-derived, and physical insertion depth still needs real-kit verification.",
   "Connector pin_pin has a central stop collar. It cannot be pushed fully through two flush parts after both have been joined.",
   "Photo's gold connector material and actual part number remain unverified.",
   "Motor insertion depth, disc spacing and outer-hole choice are provisional and cannot be certified from photos alone.",
