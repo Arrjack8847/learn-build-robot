@@ -77,9 +77,18 @@ export function StepFiveAssembly({onReadyChange,onBackToStep4,onContinueToStep6}
   const [replayKey,setReplayKey]=useState(0);
   const [resetCameraKey,setResetCameraKey]=useState(0);
   const [showManual,setShowManual]=useState(false);
+  const [reducedMotion,setReducedMotion]=useState(false);
   const [hasStepFour,setHasStepFour]=useState(false);
   const ready=phase===ACTIONS.length-1&&!busy&&confirmedPhysical;
 
+  useEffect(()=>{
+    const media=window.matchMedia?.("(prefers-reduced-motion: reduce)");
+    if(!media)return;
+    const update=()=>setReducedMotion(media.matches);
+    update();
+    media.addEventListener?.("change",update);
+    return ()=>media.removeEventListener?.("change",update);
+  },[]);
   useEffect(()=>{
     try{setHasStepFour(Boolean(window.localStorage.getItem(STEP_FOUR_RESULT)));}
     catch{setHasStepFour(false);}
@@ -123,7 +132,7 @@ export function StepFiveAssembly({onReadyChange,onBackToStep4,onContinueToStep6}
     </div>
     <div className="relative h-[310px] overflow-hidden rounded-2xl border border-[#cddceb] bg-[#f6f9fc] sm:h-[365px] md:h-[430px]">
       <StepFiveScene phase={phase} replayKey={replayKey} paused={paused}
-        resetCameraKey={resetCameraKey} onMotionComplete={()=>setBusy(false)}/>
+        reducedMotion={reducedMotion} resetCameraKey={resetCameraKey} onMotionComplete={()=>setBusy(false)}/>
       {hasStepFour&&<span className="pointer-events-none absolute left-2 top-2 rounded-lg bg-white/90 p-2 text-[10px] font-bold text-slate-700">
         Step 4 shooting assembly saved separately
       </span>}

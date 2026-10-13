@@ -1,4 +1,4 @@
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { Html, Line, OrbitControls } from "@react-three/drei";
 import { Suspense, useLayoutEffect, useMemo, useRef } from "react";
 import { BufferGeometry, Group, Vector3 } from "three";
@@ -117,10 +117,12 @@ function focusFor(phase:number):Vector3 {
   if(phase===5 || phase===6)return new Vector3(...HOLLOW_ORIGINS[phase-5]!);
   return new Vector3(0,0,0);
 }
-function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete}:{
+function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete,reducedMotion}:{
   phase:number; replayKey:number; paused:boolean; resetCameraKey:number;
-  onMotionComplete:()=>void;
+  onMotionComplete:()=>void; reducedMotion:boolean;
 }){
+  const {size}=useThree();
+  const narrowScreen=size.width/Math.max(1,size.height)<0.96;
   const originals=useLoader(STLLoader,[...STEP5_MODEL_PATHS]);
   const meshes=useMemo(()=>({
     beam:geometryFor(originals[0]!,"beam"),
@@ -154,7 +156,7 @@ function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete}:
           else if(replay)node.position.set(...PIN_LOOSE[i]!);
         });
       }
-      animation.current={index,forward,elapsed:0,duration:index>=0 && index<6?2.3:1.3};
+      animation.current={index,forward,elapsed:0,duration:reducedMotion?0.08:index>=0 && index<6?2.3:1.3};
     }
     previous.current={phase,replayKey};
   },[phase,replayKey]);
@@ -162,9 +164,15 @@ function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete}:
     const ctrl=controls.current;
     if(!ctrl)return;
     const center=focusFor(phase);
-    const pos=center.clone().add(new Vector3(phase===0||phase===7?7:4,phase===0||phase===7?8:5,phase===0||phase===7?23:12));
-    cameraMotion.current={from:ctrl.target.clone(),to:center,fromPos:ctrl.object.position.clone(),toPos:pos,elapsed:0};
-  },[phase]);
+    const overview=phase===0||phase===7;
+    const pos=center.clone().add(new Vector3(overview?7:4,overview?8:5,
+      overview?(narrowScreen?34:23):(narrowScreen?16:12)));
+    if(reducedMotion){
+      ctrl.target.copy(center);ctrl.object.position.copy(pos);ctrl.update();cameraMotion.current=null;
+    }else{
+      cameraMotion.current={from:ctrl.target.clone(),to:center,fromPos:ctrl.object.position.clone(),toPos:pos,elapsed:0};
+    }
+  },[phase,narrowScreen,reducedMotion]);
   useLayoutEffect(()=>{controls.current?.reset();cameraMotion.current=null;},[resetCameraKey]);
 
   useFrame((state,dt)=>{
@@ -260,15 +268,15 @@ function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete}:
     })}
     <OrbitControls ref={controls} makeDefault enableDamping dampingFactor={0.075}
       enablePan minDistance={5} maxDistance={40}
-      autoRotate={phase===7&&!paused} autoRotateSpeed={0.28}/>
+      autoRotate={phase===7&&!paused&&!reducedMotion} autoRotateSpeed={0.28}/>
   </>;
 }
 export function StepFiveScene(props:{
   phase:number;replayKey:number;paused:boolean;resetCameraKey:number;
-  onMotionComplete:()=>void;
+  onMotionComplete:()=>void; reducedMotion:boolean;
 }){
   return <Canvas aria-label="Step 5 real STL 3D connector insertion tutorial"
-    camera={{position:[7,8,23],fov:45,near:0.1,far:130}}
+    camera={{position:[7,9,32],fov:45,near:0.1,far:130}}
     dpr={[1,1.6]}
     gl={{antialias:true,powerPreference:"high-performance"}}
     style={{height:"100%",width:"100%",touchAction:"none"}}>
