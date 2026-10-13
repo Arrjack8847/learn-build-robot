@@ -41,3 +41,23 @@ jobs:
           src/components/practical/MarksmanFramePreparation.tsx
           src/components/practical/marksmanFrameGeometry.ts
           --rule "prettier/prettier: off"
+      - name: Install browser QA tools
+        run: |
+          npm install --no-save --no-audit --no-fund playwright
+          npx playwright install --with-deps chromium
+      - name: Capture desktop and mobile rendered 3D states
+        run: |
+          npm run dev -- --host 127.0.0.1 --port 4173 > /tmp/frame-vite.log 2>&1 &
+          for i in {1..60}; do
+            curl -fsS http://127.0.0.1:4173/ > /dev/null && break
+            sleep 2
+          done
+          node scripts/capture-marksman-frame.mjs
+      - name: Upload 3D screenshots for PR review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: marksman-frame-review-screenshots
+          path: artifacts/marksman-frame/*.png
+          if-no-files-found: warn
+          retention-days: 14
