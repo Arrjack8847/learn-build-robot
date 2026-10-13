@@ -4,6 +4,7 @@ import { createHash } from "node:crypto";
 import { resolve } from "node:path";
 import test from "node:test";
 import ts from "typescript";
+import { Euler, Vector3 } from "three";
 
 const source=(path)=>readFileSync(resolve(path),"utf8");
 const geometrySource=source("src/components/practical/StepSixGeometry.ts");
@@ -141,4 +142,42 @@ test("Entering Step 6 resets inherited Step 5 scroll position",()=>{
   assert.ok(route.includes("previousStepIndex.current !== 5"));
   assert.ok(route.includes("lessonScrollArea.current.scrollTop = 0"));
   assert.ok(route.includes("<main ref={lessonScrollArea}"));
+});
+
+
+test("Single real photo suggests bridge 4/6 and 9/11 on opposite sides, never auto-verified",()=>{
+  const photo=geometry.STEP_SIX_PHOTO_SUGGESTION;
+  assert.deepEqual(geometry.getStepSixAttachments(photo).map(x=>x.beamHoles),
+    [[1],[2],[4,6],[9,11]]);
+  assert.equal(photo.bridgeASide,"front");
+  assert.equal(photo.bridgeBSide,"back");
+  assert.equal(photo.hollowASide,"front");
+  assert.equal(photo.hollowBSide,"back");
+  assert.ok(geometry.STEP_SIX_PHOTO_SUGGESTION_STATUS.includes("requires physical confirmation"));
+  assert.equal(geometry.configComplete(geometry.EMPTY_MOUNT_CONFIG),false);
+  assert.ok(ui.includes("Use photographed layout (estimated)"));
+  assert.ok(ui.includes("Verify the photographed"));
+});
+test("Both 15100 black pin axes remain world-upright while pegs face inward",()=>{
+  const config=geometry.STEP_SIX_PHOTO_SUGGESTION;
+  for(const id of ["STEP5_HOLLOW_A","STEP5_HOLLOW_B"]){
+    const pose=geometry.seatedPose(id,config,4.1);
+    const r=new Euler(...pose.rotation,"XYZ");
+    const blackPinDirection=new Vector3(0,0,1).applyEuler(r);
+    assert.ok(blackPinDirection.distanceTo(new Vector3(0,1,0))<1e-6,id+" black pin must point up");
+    const pegDirection=new Vector3(1,0,0).applyEuler(r);
+    const inward=id==="STEP5_HOLLOW_A"?-1:1;
+    assert.ok(pegDirection.distanceTo(new Vector3(0,0,inward))<1e-6,id+" peg must enter beam");
+  }
+});
+test("Far bridge mirrors full prepared assembly including both pins",()=>{
+  const config=geometry.STEP_SIX_PHOTO_SUGGESTION;
+  const near=geometry.seatedPose("STEP5_BRIDGE_A",config,4.1);
+  const far=geometry.seatedPose("STEP5_BRIDGE_B",config,4.1);
+  assert.deepEqual(near.rotation,[0,0,0]);
+  assert.deepEqual(far.rotation,[0,Math.PI,0]);
+  assert.deepEqual(geometry.getStepSixAttachments(config).slice(2).map(x=>x.side),
+    ["front","back"]);
+  assert.ok(scene.includes("previousConfig"));
+  assert.ok(scene.includes("Math.abs(phase-previous.current.phase)>1"));
 });

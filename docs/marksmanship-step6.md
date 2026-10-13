@@ -102,3 +102,45 @@ npx tsc --noEmit
 Test manually with prepared Step 5 browser state, long/short connector
 orientation, bridge span, previous/replay without duplicate children,
 Step 5 return state, narrow-screen controls and real hardware photos.
+
+
+## Follow-up physical reference: IMG_0530 (user-supplied image)
+
+The image shows two black connector pins upright together at one end of
+the 11-hole beam; two larger gray bridges farther along; the blue long
+pins extend in opposite directions on the near and far beam faces.
+The visible gaps and original manual are consistent with this mounting
+candidate, counting from the black-pin end:
+
+- Hollow A: hole 1, near/front face (+Z)
+- Hollow B: hole 2, far/back face (-Z)
+- Bridge A (middle): holes **4 and 6**, near/front face (+Z)
+- Bridge B (edge): holes **9 and 11**, far/back face (-Z)
+
+The **exact pairs 4/6 and 9/11 are photo estimates** rather than calibrated
+measurements; they are offered as an **optional button preset**. They
+are *not* prefilled silently. The user must inspect the photographed
+assembly and physically confirm before recording completion.
+
+The prior Y-only rotation for the 15100 units was incompatible with
+the photograph: it rotated their existing black pin (native +Z) into
+world X, i.e. parallel to the beam length. Correct group Euler XYZ:
+front [-PI/2, 0, +PI/2], back [-PI/2, 0, -PI/2].
+This maps the **native +X built-in peg** toward the beam (world ∓Z)
+while preserving **native +Z black-pin direction upright** (world +Y).
+No individual child pin orientation is changed or detached.
+
+The far/back 48989 bridge is rotated [0, PI, 0], as an entire saved
+subassembly; this turns its original pair of long pins outward from
+the far face and maintains upright integrated posts. The middle/near
+bridge stays at [0, 0, 0]. These group rotations are tested using actual
+Three.js Euler/Vector3 operations, not appearance-only approximations.
+
+Changing the mounting photo preset, selecting different holes, or
+restarting Step 6 restores **all four** prepared assemblies to the
+appropriate exact poses, rather than leaving stray units mounted.
+The original Step 5 snapshot and any Step 7 code remain unchanged.
+
+This still requires comparison with other photos and the real kit for
+final mechanical confirmation. Do not remove mechanicallyVerified=false
+or close this draft PR solely on the basis of this single perspective.

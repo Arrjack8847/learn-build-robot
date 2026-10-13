@@ -49,6 +49,21 @@ export const EMPTY_MOUNT_CONFIG: StepSixMountConfig = {
   bridgeBStart: 0, bridgeBSide: "",
 };
 
+/**
+ * Suggested from the user's real Step 6 photograph (IMG_0530):
+ * at the near/left photographed end, two upright black pins at holes 1 & 2;
+ * centre/near-side bridge approximately holes 4 & 6; far-side end bridge
+ * approximately holes 9 & 11. Student MUST confirm the numbers and sides.
+ * This preset is not claimed as mechanically or photographically calibrated.
+ */
+export const STEP_SIX_PHOTO_SUGGESTION: Readonly<StepSixMountConfig> = {
+  hollowASide:"front", hollowBSide:"back",
+  bridgeAStart:4, bridgeASide:"front",
+  bridgeBStart:9, bridgeBSide:"back",
+};
+export const STEP_SIX_PHOTO_SUGGESTION_STATUS =
+  "estimated-from-one-user-photograph; requires physical confirmation";
+
 export function validateMountConfig(config: StepSixMountConfig): string[] {
   const errors: string[] = [];
   if (!config.hollowASide || !config.hollowBSide)
@@ -64,6 +79,8 @@ export function validateMountConfig(config: StepSixMountConfig): string[] {
     errors.push("The two bridge mounting pairs must be ordered and non-overlapping.");
   if (!config.bridgeASide || !config.bridgeBSide)
     errors.push("Choose the installation face for both bridges.");
+  if (config.bridgeASide && config.bridgeBSide && config.bridgeASide === config.bridgeBSide)
+    errors.push("The supplied reference photo shows the two bridge units on opposite beam faces.");
   return errors;
 }
 export const configComplete = (config: StepSixMountConfig) =>
@@ -114,12 +131,15 @@ export function seatedPose(id: StepSixPart, config: StepSixMountConfig,
   const attachment=getStepSixAttachments(config).find(a=>a.id===id)!;
   const sign=attachment.side==="front"?1:-1;
   if(id==="STEP5_HOLLOW_A" || id==="STEP5_HOLLOW_B"){
-    // Native 15100 built-in +X projecting peg enters the beam along Z.
-    // +X -> -Z on the front face, +X -> +Z on the back face.
-    // Its shoulder is at native X≈0; the tip reaches ~8 mm into the beam.
+    // The user's photograph has BOTH black pins upright (world +Y),
+    // while each 15100's built-in +X projecting peg enters beam ±Z.
+    // The previous rotation around Y only incorrectly pointed the
+    // black pin along the 11-hole beam's length (world X).
+    // Three.js intrinsic Euler XYZ [-90°,0°,±90°] makes local
+    // +X -> ∓Z AND local +Z -> +Y on each side without geometry edits.
     return {
       position:[beamHoleX(attachment.beamHoles[0]!),beamY,sign*BEAM_FACE_WORLD],
-      rotation:[0,sign*Math.PI/2,0],
+      rotation:[-Math.PI/2,0,sign*Math.PI/2],
     };
   }
   const start=attachment.beamHoles[0]!;
@@ -128,7 +148,11 @@ export function seatedPose(id: StepSixPart, config: StepSixMountConfig,
   return {
     position:[(beamHoleX(start)+beamHoleX(start+2))/2,beamY,
       sign*(BEAM_FACE_WORLD+BRIDGE_BODY_FACE_WORLD)],
-    rotation:[0,0,0],
+    // The centre bridge's blue pins point to the camera/near side.
+    // The far-end bridge is installed on the opposite face, so its
+    // prepared, rigid body and BOTH pin children rotate 180° about Y.
+    // This keeps the native bridge post direction along +Y.
+    rotation:[0,sign>0?0:Math.PI,0],
   };
 }
 export function approachPose(id:StepSixPart,config:StepSixMountConfig,

@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { STEP5_SNAPSHOT_KEY } from "./StepFiveScene";
 import { StepSixScene, type StepSixPreparedSnapshot } from "./StepSixScene";
 import {
-  EMPTY_MOUNT_CONFIG, STEP_SIX_DRAFT, STEP_SIX_RESULT, configComplete,
+  EMPTY_MOUNT_CONFIG, STEP_SIX_DRAFT, STEP_SIX_RESULT,
+  STEP_SIX_PHOTO_SUGGESTION, configComplete,
   getStepSixSnapshot, validateMountConfig,
   type StepSixMountConfig, type StepSixSide,
 } from "./StepSixGeometry";
@@ -108,6 +109,13 @@ export function StepSixAssembly({onReadyChange,onBackToStep5,onContinueToStep7}:
     }catch{/* Browser storage optional. Step 5 handoff still required. */}
   },[ready,prepared,config,phase,confirmed,onReadyChange]);
 
+  function usePhotoLayout(){
+    if(busy)return;
+    // Suggested from the user's Step 6 reference, NOT mechanically certified.
+    setConfig({...STEP_SIX_PHOTO_SUGGESTION});
+    setPhase(0);setConfirmed(false);setPaused(false);
+    setResetCameraKey(n=>n+1);
+  }
   function choose<K extends keyof StepSixMountConfig>(key:K,value:StepSixMountConfig[K]){
     if(busy)return;
     setConfig(c=>({...c,[key]:value}));setPhase(0);setConfirmed(false);setPaused(false);
@@ -238,6 +246,19 @@ export function StepSixAssembly({onReadyChange,onBackToStep5,onContinueToStep7}:
         but the bridge pairs and mounting faces still need confirmation.
         Front is the +Z face; Back is −Z. Select all six fields to unlock animations.
       </p>
+      <div className="mt-3 rounded-xl border border-sky-200 bg-sky-50 p-3">
+        <p className="text-xs font-semibold leading-5 text-[#145e9f]">
+          Latest physical photo suggests: hollow connectors at 1 &amp; 2 on opposite
+          sides, centre bridge at 4 &amp; 6 (near face), far-end bridge at 9 &amp; 11
+          (back face). Both black pins stay upright. Verify the photographed
+          hole indices and orientation against the actual parts.
+        </p>
+        <Button type="button" size="sm" variant="outline"
+          className="mt-2 border-sky-300 bg-white text-[#145e9f]"
+          disabled={busy} onClick={usePhotoLayout}>
+          Use photographed layout (estimated)
+        </Button>
+      </div>
       <div className="mt-3 grid gap-3">
         {faceSelect("hollowASide","Hollow A · hole 1 · installation face")}
         {faceSelect("hollowBSide","Hollow B · hole 2 · installation face")}
@@ -272,9 +293,11 @@ export function StepSixAssembly({onReadyChange,onBackToStep5,onContinueToStep7}:
     </Button>}
     <p className="text-[11px] leading-5 text-slate-500">
       <TriangleAlert className="mr-1 inline size-3.5"/>
-      Authentic Step 5 bodies/pins are reused from the saved transforms. Bridge-hole
-      spacing is measured, but selected hole numbers, faces, elastic fit and insertion depths
-      require confirmation on the actual kit. Step 7 remains unchanged.
+      Authentic Step 5 bodies/pins are reused from saved transforms. The photograph
+      indicates near-side and far-side bridge assemblies, with both black pins upright.
+      The suggested 4/6 and 9/11 pairs are estimates from a single angled photo.
+      Confirm those positions, elastic fit and insertion depths on the actual kit.
+      Step 7 remains unchanged.
     </p>
       </aside>
     </div>

@@ -112,6 +112,7 @@ function ModelStage({phase,config,prepared,replayKey,paused,resetCameraKey,
   const groups=useRef<Partial<Record<StepSixPart,Group>>>({});
   const orbit=useRef<OrbitControlsImpl>(null);
   const previous=useRef({phase,replayKey});
+  const previousConfig=useRef(config);
   const initialized=useRef(false);
   const motion=useRef<{
     id:StepSixPart;from:StepSixPose;to:StepSixPose;
@@ -124,19 +125,34 @@ function ModelStage({phase,config,prepared,replayKey,paused,resetCameraKey,
   const configured=configComplete(config);
 
   useLayoutEffect(()=>{
-    if(!initialized.current){
+    const configChanged=previousConfig.current!==config;
+    previousConfig.current=config;
+    if(!initialized.current || configChanged ||
+      Math.abs(phase-previous.current.phase)>1){
+      // A different physical-photo calibration or Restart must reset
+      // ALL four prepared groups, not leave older mounted units on the beam.
+      motion.current=null;
       PARTS.forEach(id=>{
         const pose=poseAtPhase(id,phase,config,prepared.transforms,beamY);
         const part=groups.current[id];
         part?.position.set(...pose.position);part?.rotation.set(...pose.rotation);
       });
-      initialized.current=true;complete.current();
+      initialized.current=true;
+      complete.current();
     }else if(phase!==previous.current.phase || replayKey!==previous.current.replayKey){
       const replay=previous.current.replayKey!==replayKey;
       const fromPhase=previous.current.phase;
       const relevantAction=replay?phase:Math.max(phase,fromPhase);
       const id=ACTIVE_BY_PHASE[relevantAction];
       if(id && configured) {
+        // Non-active connectors are stable at their exact Step 5 or
+        // previously seated pose; preserve every pin's child transform.
+        PARTS.forEach(other=>{
+          if(other===id)return;
+          const pose=poseAtPhase(other,phase,config,prepared.transforms,beamY);
+          groups.current[other]?.position.set(...pose.position);
+          groups.current[other]?.rotation.set(...pose.rotation);
+        });
         const target=poseAtPhase(id,phase,config,prepared.transforms,beamY);
         const part=groups.current[id];
         const start=replay
