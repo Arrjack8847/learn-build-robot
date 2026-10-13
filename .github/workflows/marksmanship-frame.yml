@@ -1,0 +1,43 @@
+name: Marksmanship photo-frame 3D checks
+
+on:
+  push:
+    branches:
+      - feat/marksman-photo-frame-tutorial-20261013
+  pull_request:
+    paths:
+      - "src/components/practical/MarksmanFrameScene.tsx"
+      - "src/components/practical/MarksmanFramePreparation.tsx"
+      - "src/components/practical/marksmanFrameGeometry.ts"
+      - "src/routes/practical/**"
+      - "tests/marksmanship-frame.test.mjs"
+      - ".github/workflows/marksmanship-frame.yml"
+
+jobs:
+  verify-frame:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Verify frame and source STL geometry
+        run: node --test tests/marksmanship-frame.test.mjs
+      - name: Existing Step 3/4 regression tests
+        run: |
+          npm run test:step3
+          npm run test:step4
+      - name: Production build
+        run: npm run build
+      - name: TypeScript
+        run: npx tsc --noEmit
+      - name: Check frame source lint
+        run: >-
+          npx eslint
+          src/components/practical/MarksmanFrameScene.tsx
+          src/components/practical/MarksmanFramePreparation.tsx
+          src/components/practical/marksmanFrameGeometry.ts
+          --rule "prettier/prettier: off"
