@@ -193,9 +193,10 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
   const [labels, setLabels] = useState<Array<{ id: PartName; x: number; y: number }>>([]);
   const [showOriginalCable, setShowOriginalCable] = useState(false);
   const cableNodesRef = useRef<THREE.Object3D[]>([]);
-  // Show the full original cable on demand without changing its 3D geometry.
-  // It has outsized loops in the supplied GLB that obscure the assembly.
+  const showCableRef = useRef(false);
+  // Show the full original cable on demand without changing its geometry.
   useEffect(() => {
+    showCableRef.current = showOriginalCable;
     for (const node of cableNodesRef.current) node.visible = showOriginalCable;
   }, [showOriginalCable]);
 
@@ -348,9 +349,9 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       scene.add(motorPivot);
       correctedUnits.updateMatrixWorld(true);
 
-      // Keep the socket at its existing origin after the flip.
-      // Note: the unchanged short axle remains above it, so Step 2 insertion
-      // is NOT physically valid until the axle path is reworked separately.
+      // Keep the socket centred at its existing origin after the flip.
+      // Step 2 axle and disc have matching negative-Z seats; the axle now
+      // approaches upward from below along the same motor output axis.
       const socket = correctedUnits.localToWorld(vec(MOTOR_GLB_SOCKET_CANDIDATE_METERS));
       correctedUnits.position.sub(socket);
       objects.set("motor", motorPivot);
@@ -374,7 +375,7 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
         }
       });
       cableNodesRef.current = cableGroups;
-      for (const node of cableGroups) node.visible = false;
+      for (const node of cableGroups) node.visible = showCableRef.current;
       const motorMats: THREE.MeshStandardMaterial[] = [];
       motor.scene.traverse((child) => {
         if (!(child instanceof THREE.Mesh)) return;
