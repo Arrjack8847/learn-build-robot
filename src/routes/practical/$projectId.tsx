@@ -20,7 +20,7 @@ import { RobotIllustration } from "@/components/journey/RobotIllustration";
 import { Marksman3DPreview } from "@/components/practical/Marksman3DPreview";
 import { StepThreeAssembly } from "@/components/practical/StepThreeAssembly";
 import { StepFourAssembly } from "@/components/practical/StepFourAssembly";
-import { MarksmanFramePreparation } from "@/components/practical/MarksmanFramePreparation";
+import { StepSevenAssembly } from "@/components/practical/StepSevenAssembly";
 import { StepFiveAssembly } from "@/components/practical/StepFiveAssembly";
 import { StepSixAssembly } from "@/components/practical/StepSixAssembly";
 import { Button } from "@/components/ui/button";
@@ -82,6 +82,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const [stepFourReady, setStepFourReady] = useState(false);
   const [stepFiveReady, setStepFiveReady] = useState(false);
   const [stepSixReady, setStepSixReady] = useState(false);
+  const [stepSevenReady, setStepSevenReady] = useState(false);
   const [preview3D, setPreview3D] = useState(false);
   const [previewStep2Ready, setPreviewStep2Ready] = useState(false);
   const currentStep = project.steps[currentIndex];
@@ -109,6 +110,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const isStepFour = project.id === "marksmanship" && currentStep.number === 4;
   const isStepFive = project.id === "marksmanship" && currentStep.number === 5;
   const isStepSix = project.id === "marksmanship" && currentStep.number === 6;
+  const isStepSeven = project.id === "marksmanship" && currentStep.number === 7;
   const displayedPercent = Math.round(((currentIndex + 1) / project.steps.length) * 100);
   const helpItem =
     project.troubleshooting.length > 0
@@ -117,7 +119,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const hasHelp = Boolean(helpItem || project.safetyNote);
 
   function finishCurrentStep() {
-    if ((isStepThree && !stepThreeReady) || (isStepFour && !stepFourReady) || (isStepFive && !stepFiveReady) || (isStepSix && !stepSixReady)) return;
+    if ((isStepThree && !stepThreeReady) || (isStepFour && !stepFourReady) || (isStepFive && !stepFiveReady) || (isStepSix && !stepSixReady) || (isStepSeven && !stepSevenReady)) return;
     toggleStepCompleted(currentStepId, true);
     if (isLastStep) {
       setStage("complete");
@@ -156,7 +158,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
       </header>
 
       <main ref={lessonScrollArea} className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain">
-        <div className={`mx-auto w-full px-4 pb-4 pt-2.5 sm:px-8 sm:pb-6 sm:pt-4 [@media(max-height:700px)]:pt-2 ${isStepSix ? "max-w-[1580px]" : "max-w-6xl"}`}>
+        <div className={`mx-auto w-full px-4 pb-4 pt-2.5 sm:px-8 sm:pb-6 sm:pt-4 [@media(max-height:700px)]:pt-2 ${isStepSix || isStepSeven ? "max-w-[1580px]" : "max-w-6xl"}`}>
           <section className="text-center">
             <h1 className="mx-auto max-w-3xl text-[clamp(1.45rem,6vw,2.35rem)] font-black leading-tight tracking-[-0.035em] text-[#132654] [@media(max-height:700px)]:text-[clamp(1.25rem,5.5vw,1.8rem)]">
               {project.title}
@@ -175,7 +177,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
             </div>
           </section>
 
-          <div className={isStepSix ? "mx-auto mt-3 w-full max-w-[1540px] md:mt-4" : "mx-auto mt-3 grid w-full max-w-5xl gap-3.5 md:mt-5 md:grid-cols-[1.02fr_0.98fr] md:items-center md:gap-7 [@media(max-height:700px)]:mt-2.5"}>
+          {!isStepSeven && <div className={isStepSix ? "mx-auto mt-3 w-full max-w-[1540px] md:mt-4" : "mx-auto mt-3 grid w-full max-w-5xl gap-3.5 md:mt-5 md:grid-cols-[1.02fr_0.98fr] md:items-center md:gap-7 [@media(max-height:700px)]:mt-2.5"}>
             <div className="min-w-0">
               {project.id === "marksmanship" && currentStep.number <= 2 && (
                 <div aria-label="Assembly instruction view" className="mb-2 flex flex-wrap gap-2">
@@ -320,28 +322,27 @@ function BuildSession({ project }: { project: PracticalProject }) {
                 </Dialog>
               ) : null}
             </section>}
-          </div>
-          {project.id === "marksmanship" && currentStep.number === 7 && (
-            <section
-              aria-label="Step 7 photo-based frame animation"
-              className="mx-auto mt-5 w-full max-w-5xl rounded-2xl border border-sky-200 bg-white p-3 shadow-sm sm:p-5"
-            >
-              <div className="mb-4 rounded-xl bg-sky-50 p-3 sm:p-4">
-                <p className="text-xs font-black uppercase tracking-wider text-[#116eaf]">
-                  Step 7 · Interactive 3D assembly
+          </div>}
+          {isStepSeven && (
+            <div className="mx-auto mt-2 w-full max-w-[1540px]">
+              <StepSevenAssembly onReadyChange={setStepSevenReady}
+                onBackToStep6={() => setCurrentIndex(5)}
+                onContinueToStep8={finishCurrentStep} />
+              <details className="mx-auto mt-3 max-w-5xl rounded-2xl border border-slate-200 bg-white p-4">
+                <summary className="cursor-pointer text-sm font-bold text-[#132654]">
+                  Original Step 7 manual — preserved for reference
+                </summary>
+                <p className="mt-3 text-sm font-bold">{currentStep.title}</p>
+                <p className="mt-1 text-sm leading-6 text-slate-600">{currentStep.description}</p>
+                {currentStep.image && <img src={currentStep.image}
+                  alt="Unchanged official Marksmanship manual Step 7 illustration"
+                  className="mx-auto mt-3 max-h-[420px] w-full object-contain" />}
+                <p className="mt-2 text-xs text-amber-800">
+                  The approved custom Step 7 frame tutorial differs from the original manual.
+                  The remaining official steps have not been renumbered or rewritten.
                 </p>
-                <h3 className="mt-1 text-lg font-extrabold text-[#132654]">
-                  Photo-based frame preparation
-                </h3>
-                <p className="mt-1 text-xs leading-5 text-slate-600 sm:text-sm">
-                  Follow the frame assembly shown in your photographs: two 7-hole beams,
-                  two 5-hole beams and a separate 15-hole beam. This photo-based
-                  sequence differs from the official Step 7 diagram above,
-                  which remains the reference for the manual instructions.
-                </p>
-              </div>
-              <MarksmanFramePreparation />
-            </section>
+              </details>
+            </div>
           )}
         </div>
       </main>
@@ -371,8 +372,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
           ) : (
             <Button
               className="min-h-12 flex-1 rounded-full bg-[#168eea] text-base font-black text-white shadow-[0_10px_26px_rgba(22,142,234,0.24)] hover:bg-[#0e82dd] sm:min-h-[52px]"
-              disabled={(project.id === "marksmanship" && currentStep.number === 2 && preview3D && !previewStep2Ready) || (isStepThree && !stepThreeReady) || (isStepFour && !stepFourReady) || (isStepFive && !stepFiveReady) || (isStepSix && !stepSixReady)}
-              title={isStepThree && !stepThreeReady ? "Complete all seven Step 3 actions first" : isStepFour && !stepFourReady ? "Complete all five Step 4 actions first" : isStepFive && !stepFiveReady ? "Confirm physical Step 5 preparation to proceed" : isStepSix && !stepSixReady ? "Finish and physically confirm all Step 6 attachments first" : undefined}
+              disabled={(project.id === "marksmanship" && currentStep.number === 2 && preview3D && !previewStep2Ready) || (isStepThree && !stepThreeReady) || (isStepFour && !stepFourReady) || (isStepFive && !stepFiveReady) || (isStepSix && !stepSixReady) || (isStepSeven && !stepSevenReady)}
+              title={isStepThree && !stepThreeReady ? "Complete all seven Step 3 actions first" : isStepFour && !stepFourReady ? "Complete all five Step 4 actions first" : isStepFive && !stepFiveReady ? "Confirm physical Step 5 preparation to proceed" : isStepSix && !stepSixReady ? "Finish and physically confirm all Step 6 attachments first" : isStepSeven && !stepSevenReady ? "Complete the Step 7 3D assembly sequence first" : undefined}
               onClick={finishCurrentStep}
               type="button"
             >
