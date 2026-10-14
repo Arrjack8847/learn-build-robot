@@ -300,7 +300,7 @@ function ModelStage({
           <meshStandardMaterial color="#e3e8ec" metalness={0.08} roughness={0.68} />
         </mesh>
       </group>
-      {activeL && (
+      {guideVisible && activeL && (
         <mesh position={[activeL === "left" ? lSpotL.x : lSpotR.x, activeL === "left" ? lSpotL.y : lSpotR.y, 0.54]}>
           <torusGeometry args={[0.33, 0.065, 10, 36]} />
           <meshBasicMaterial color="#168eea" depthTest={false} />
@@ -313,7 +313,7 @@ function ModelStage({
           </mesh>
         </group>
       ))}
-      {activeL && (
+      {guideVisible && activeL && (
         <Line points={[
           [activeL === "left" ? lSpotL.x : lSpotR.x, activeL === "left" ? lSpotL.y : lSpotR.y, 0.6],
           [activeL === "left" ? lSpotL.x : lSpotR.x, activeL === "left" ? lSpotL.y : lSpotR.y, 3.2],
