@@ -17,8 +17,8 @@ The 32-entry count includes the real photographed two-assembly handoff at Step 9
 1. Source STLs: 11-hole beam, both bridge 48989, both hollow 15100, existing original long and short pins from the Step 5 asset paths, two 15-hole beam STLs, and long blue connector candidate.
 2. For the custom frame: `5.stl`, `7.stl`, `15 beams.stl`, `long connector.stl`, `pin_pin.stl` (last is a provisional black-connector candidate).
 3. The 8 mm native beam hole pitch is established by existing model normalization. This does **not** establish elastic press-fit, connector collar depth, or exact engagement.
-4. Step 7 **candidate** receiving hole pairs default to first long rail 6/8 and second long rail 11/13, matched in the scene to the two Step 6 bridge mounting pairs. The user photograph set IMG_1707, IMG_1709 and IMG_1712 must be inspected to confirm actual indices and beam extension. The rail layer gap is adjustable; its default is **not physically measured**.
-5. Step 7's two *additional* blue connectors remain loose in the demonstration because their true connection locations are not verified.
+4. Current Step 7 **candidate** receiving hole pairs are first long rail 11/13 and second long rail 6/8 (counted from the grey-mounting end). Each rail also receives one existing black mounting pin. This matches the three-point coaxial photo interpretation, but exact physical hole indices and press fit remain **unverified**. The rail layer offset is adjustable and not measured.
+5. Both *additional* Step 7 blue connectors install only AFTER both white beams are attached: one at Hole 1 of each beam's exposed free end (equivalent to Hole 15 counted from the grey-mounting end), entering from the SAME face as the black mounting pins. The connector shoulders and seating depths remain unmeasured.
 6. Step 8's 7-hole receiving pairs, 15-hole black-pin positions, insertion axes, connector identity, and seating depth are candidates. They require IMG_1688, IMG_1690, IMG_1692–IMG_1696 and real kit inspection. The final frame is presented as a **demonstration** with learner confirmation required.
 7. The source images named above were not found as verified accessible repository files in the integration process. The UI accepts local image upload for comparison; uploaded photos remain on the learner's device.
 
@@ -40,7 +40,7 @@ The 32-entry count includes the real photographed two-assembly handoff at Step 9
 
 The original 31-step manual and source STL meshes are not changed by this feature branch.
 
-## Photo-aligned Step 7 revision (IMG_1713, IMG_1714, IMG_1716)
+## Previous photo-aligned Step 7 revision (superseded by three-point correction below)
 
 - Earlier placeholder mounting pairs 6/8 and 11/13 have been replaced by photo-aligned **6/8 for the beam on the later bridge** and **1/3 for the opposite beam on the earlier bridge**. Count from the grey/bridge-connector end. These pairs must not be confused with the holes used to fix the 11-hole central support.
 - The two rails share the same longitudinal positioning relative to the bridge pairs when Step 6 uses the photographed 4/6 and 9/11 bridge placements.
@@ -48,7 +48,7 @@ The original 31-step manual and source STL meshes are not changed by this featur
 - Guided actions now separate approach, seating and insertion of each end pin (eight actions). Step 9 renders the completed eight-action state.
 - The actual 24-mm-long blue connector mesh is retained. Rail-to-center clearance and pin shoulder seating are still scene estimates, **not a measured mechanical fit**. No geometry should be marked certified until tested on the physical kit.
 
-## Step 7 photo-guided animation correction (IMG_1729–1733)
+## Previous Step 7 motion revision (retained for history; hole-pair guesses superseded)
 
 - Updated interactive Step 7 has eight actions: prepare, align first rail, press grey core onto first rail, align second rail, press grey core (with already-attached first rail) onto second rail, insert first free-end blue pin, insert second free-end blue pin, inspect.
 - Unlike the earlier side-sliding demonstration, the grey Step 6 support moves along the candidate connector axis onto a supported white beam. Both attachments use the same press-fit motion and previously mounted parts move rigidly with the central support during the second press.
@@ -65,3 +65,11 @@ The original 31-step manual and source STL meshes are not changed by this featur
 - The source assembly is rotated in the teaching scene so native black and grey +Y shafts face down. Both 15-hole rail meshes rotate 90 degrees to expose vertical hole axes, and the core presses down; the first beam travels rigidly with the grey assembly when seating the second.
 - Both end blue pins insert last, into the exposed free-end holes. Step 8 and the original STL parts and Step 1–6 lessons are unchanged.
 - Hole fit, shaft collar depth and vertical separation remain provisional and require testing on the physical kit.
+
+## Final exposed-end connector orientation (IMG_1732–1734)
+
+- The physical confirmation is specifically about the **side** of each additional blue connector, not just its free-end hole: install both blue pins **from the black-connector face** of the white beam.
+- Count Hole 1 from each beam's exposed free end. This maps to Hole 15 when counting from the grey/bridge-mounting end. The pins project back out from the same face through which they were inserted.
+- Step 7 local coordinates: black connector insertion face = **-local Y**; each blue long pin approaches from **-local Y** and travels **+local Y** into its hole. The scene's 180-degree Z rotation does not change this material-relative side.
+- The scene highlights each free-end hole on the black-facing beam surface during actions 7.6 and 7.7, and animates both extra pins along this axis. Existing blue pins projecting laterally from the Step 6 grey units must not be moved.
+- Both rails are attached via one black pin and two grey shafts BEFORE either extra blue end pin installs. The user-visible steps remain eight actions. Exact mechanical seating depth is still provisional and must be compared with the physical kit.
