@@ -223,31 +223,7 @@ function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete,r
       <mesh geometry={meshes.beam} castShadow receiveShadow>
         <meshStandardMaterial color="#eee5d8" roughness={0.7}/>
       </mesh>
-      {(phase===0 || phase===7) && Array.from({length:11},(_,i)=>
-        <Html key={i} center position={[i-5,0.91,0.55]}
-          style={{pointerEvents:"none"}}>
-          <span style={{fontSize:10,fontWeight:800,color:"#185a92",background:"#fff",
-            borderRadius:5,padding:"2px 4px",border:"1px solid #d8e2ec"}}>{i+1}</span>
-        </Html>
-      )}
-    </group>
-    {BRIDGE_ORIGINS.map((position,i)=>{
-      const targetIndex=i*2;
-      return <group key={i} name={STEP5_PART_IDS[i+1]!} position={position}>
-        <mesh geometry={meshes.bridge} castShadow receiveShadow>
-          <meshStandardMaterial color="#b8c2ce" metalness={0.06} roughness={0.63}/>
-        </mesh>
-        {showPin(targetIndex)}{showPin(targetIndex+1)}
-        {(activePin===targetIndex || activePin===targetIndex+1) && <>
-          <mesh position={[activePin===targetIndex?-1:1,0,0.52]}>
-            <torusGeometry args={[0.38,0.055,9,40]}/>
-            <meshBasicMaterial color="#f7a600" depthTest={false}/>
-          </mesh>
-          <Line points={[[activePin===targetIndex?-1:1,0,3.2],
-            [activePin===targetIndex?-1:1,0,-0.6]]}
-            color="#168eea" dashed dashSize={0.17} gapSize={0.11} lineWidth={1.6}/>
-        </>}
-      </group>;
+     </group>;
     })}
     {HOLLOW_ORIGINS.map((position,i)=>{
       const pinIndex=i+4;
@@ -268,7 +244,7 @@ function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete,r
     })}
     <OrbitControls ref={controls} makeDefault enableDamping dampingFactor={0.075}
       enablePan minDistance={5} maxDistance={40}
-      autoRotate={phase===7&&!paused&&!reducedMotion} autoRotateSpeed={0.28}/>
+      onStart={() => { cameraMotion.current = null; }} autoRotate={false} autoRotateSpeed={0.28}/>
   </>;
 }
 export function StepFiveScene(props:{
