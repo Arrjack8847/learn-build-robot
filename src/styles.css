@@ -200,7 +200,12 @@
   background: #f4f8fc;
   box-shadow: 0 12px 36px rgba(20, 55, 90, .08);
 }
-.assembly-lesson-canvas { position: absolute; inset: 0; z-index: 0; }
+.assembly-lesson-canvas {
+  /* Reserve the dock footprint in the 3D camera viewport, so active joints stay visible. */
+  position: absolute;
+  inset: 0 0 clamp(155px, 28%, 225px);
+  z-index: 0;
+}
 .assembly-lesson-canvas > * { height: 100%; width: 100%; }
 .assembly-lesson-tools {
   position: absolute;
@@ -244,6 +249,7 @@
     height: max(530px, calc(100svh - 160px));
     border-radius: 18px;
   }
+  .assembly-lesson-canvas { bottom: clamp(160px, 30%, 220px); }
   .assembly-lesson-dock-wrapper { inset-inline: 8px; bottom: max(8px, env(safe-area-inset-bottom, 0px)); }
   .assembly-lesson-dock { padding: 10px 12px 8px; max-height: min(45%, 270px); }
   .assembly-lesson-status { top: 9px; left: 9px; max-width: 45%; }
