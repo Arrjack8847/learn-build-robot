@@ -103,7 +103,7 @@ test("Both beams are attached before inserting either new blue free-end pin",()=
   assert.ok(f>0&&b>f&&p>b&&q>p);
   assert.ok(scene.includes('STEP_SEVEN_PIN_IDS.map'));
   assert.ok(scene.includes('pinInsertion'));
-  assert.ok(railConfig.includes('STEP_SEVEN_END_PIN_HOLE = 15'));
+  assert.ok(railConfig.includes('STEP_SEVEN_END_PIN_HOLE = 1'));
   assert.ok(rails.includes('bothRailsMountedBeforeEndPins:true'));
   assert.ok(read("src/components/practical/StepNineAssemblyReview.tsx").includes("phase={STEP_SEVEN_FINAL_PHASE}"));
 });
@@ -112,14 +112,31 @@ test("Both extra Step 7 pins enter exposed Hole 1 from the black-connector face"
   assert.ok(railConfig.includes('STEP_SEVEN_END_PIN_FACE = "black-connector-side"'));
   assert.ok(railConfig.includes('STEP_SEVEN_END_PIN_INSERTION_AXIS = "+local-Y"'));
   assert.ok(railConfig.includes("holeFromExposedEnd:1 as const"));
-  assert.ok(railConfig.includes("holeFromGreyEnd:STEP_SEVEN_END_PIN_HOLE"));
+  assert.ok(railConfig.includes("holeFromMeshStart:STEP_SEVEN_END_PIN_HOLE"));
   assert.ok(railConfig.includes("rail.position[1]-STEP_SEVEN_END_PIN_PROJECTION_OFFSET"));
   assert.ok(railConfig.includes("final[1]-2.5"));
   assert.ok(railConfig.includes("occupied.includes(STEP_SEVEN_END_PIN_HOLE)"));
   assert.ok(scene.includes("endPinMount(id,config,beamY,stepSixConfig)"));
   assert.ok(scene.includes('name={id+"-black-side-end-hole"}'));
   assert.ok(scene.includes("pinInsertion"));
-  assert.ok(rails.includes("holeFromExposedEnd:1,installationFace:STEP_SEVEN_END_PIN_FACE"));
+  assert.ok(rails.includes("hole:1,holeFromExposedEnd:1,installationFace:STEP_SEVEN_END_PIN_FACE"));
+  assert.ok(railConfig.includes("holeFromOppositeEnd:16-STEP_SEVEN_END_PIN_HOLE"));
+  assert.ok(scene.includes("STEP_SEVEN_END_PIN_HOLE-8"));
+  assert.ok(scene.includes('name={id+"-black-side-end-hole"}'));
   assert.ok(rails.includes("additionalBlueConnectorInsertionAxis:STEP_SEVEN_END_PIN_INSERTION_AXIS"));
   assert.ok(rails.includes("BLACK-CONNECTOR SIDE"));
+});
+
+test("Step 7 moves both added end pins to the opposite/right-hand free end without moving rails",()=>{
+  // The scene root is rotated 180 degrees around Z. Local hole 1 (x=-7)
+  // consequently maps to the screenshot's exposed right-hand rail end.
+  assert.match(railConfig,/STEP_SEVEN_END_PIN_HOLE = 1;/);
+  assert.ok(railConfig.includes("const x=rail.position[0]+STEP_SEVEN_END_PIN_HOLE-8"));
+  assert.ok(scene.includes("STEP_SEVEN_END_PIN_HOLE-8"));
+  assert.ok(scene.includes("endPinPose(id,phase,config,beamY,stepSixConfig)"));
+  assert.ok(railConfig.includes("railPose(id:StepSevenRailId,phase:number"));
+  assert.ok(rails.includes('rail:"STEP7_RAIL_FRONT_15",hole:1'));
+  assert.ok(rails.includes('rail:"STEP7_RAIL_BACK_15",hole:1'));
+  assert.ok(!rails.includes('rail:"STEP7_RAIL_FRONT_15",hole:15'));
+  assert.ok(!rails.includes('rail:"STEP7_RAIL_BACK_15",hole:15'));
 });
