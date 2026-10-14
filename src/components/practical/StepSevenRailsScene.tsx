@@ -111,11 +111,12 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     const interest=pinPhase
       ?new Vector3(activeRail.position[0]+STEP_SEVEN_END_PIN_HOLE-8,0,activeRail.position[2])
       :phase===STEP_SEVEN_FINAL_PHASE||phase===0
-        ?new Vector3((firstFinal.position[0]+secondFinal.position[0])/2+1,0,0)
+        ?new Vector3((firstFinal.position[0]+secondFinal.position[0])/2,0,0)
         :new Vector3(activeRail.position[0],0,activeRail.position[2]);
-    const reach=phase===0||phase===STEP_SEVEN_FINAL_PHASE?(mobile?29:23):(mobile?21:15);
+    const reach=phase===0||phase===STEP_SEVEN_FINAL_PHASE?(mobile?20:17):(mobile?18:13.5);
     const sign=railBridge(first?STEP_SEVEN_RAIL_IDS[0]:STEP_SEVEN_RAIL_IDS[1],stepSixConfig).side==="front"?1:-1;
-    const destination=interest.clone().add(new Vector3(8,9,(phase===0||phase===STEP_SEVEN_FINAL_PHASE?1:sign)*reach));
+    const overview=phase===0||phase===STEP_SEVEN_FINAL_PHASE;
+    const destination=interest.clone().add(new Vector3(overview?(mobile?14:10):8,overview?(mobile?13:10):9,(overview?1:sign)*reach));
     if(!mounted.current||reducedMotion){
       ctrl.target.copy(interest);camera.position.copy(destination);ctrl.update();flight.current=null;
     }else{
@@ -127,8 +128,8 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
   useLayoutEffect(()=>{
     if(resetCameraKey===0)return;
     const ctrl=orbit.current;if(!ctrl)return;
-    ctrl.target.set((firstFinal.position[0]+secondFinal.position[0])/2+1,0,0);
-    camera.position.copy(ctrl.target).add(new Vector3(8,10,mobile?26:20));
+    ctrl.target.set((firstFinal.position[0]+secondFinal.position[0])/2,0,0);
+    camera.position.copy(ctrl.target).add(new Vector3(mobile?14:10,mobile?13:10,mobile?20:17));
     flight.current=null;ctrl.update();
   },[resetCameraKey]);
 
@@ -168,20 +169,20 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
   const highlighted=phase===1||phase===2?STEP_SEVEN_RAIL_IDS[0]:
     phase===4||phase===5?STEP_SEVEN_RAIL_IDS[1]:null;
   return <>
-    <color attach="background" args={["#f6f9fc"]}/>
-    <ambientLight intensity={1.6}/>
-    <hemisphereLight args={["#ffffff","#c5d9e8",1.5]}/>
-    <directionalLight position={[8,9,14]} intensity={2}/>
-    <gridHelper args={[29,29,"#d1dfed","#eaf0f5"]} position={[0,-2,0]}/>
+    <color attach="background" args={["#f3f6fa"]}/>
+    <ambientLight intensity={0.85}/>
+    <hemisphereLight args={["#ffffff","#b9d1e5",0.9]}/>
+    <directionalLight position={[8,9,14]} intensity={1.3}/>
+    <gridHelper args={[29,29,"#e4eaf0","#f1f4f7"]} position={[0,-2,0]}/>
     <group name="STEP7_ASSEMBLY_A" position={[0,-beamY,0]}>
       <group name="STEP5_BEAM_11" position={prepared["STEP5_BEAM_11"]!.position} rotation={prepared["STEP5_BEAM_11"]!.rotation}>
-        <mesh geometry={meshes.beam11}><meshStandardMaterial color="#adb8c4" roughness={0.63}/></mesh>
+        <mesh geometry={meshes.beam11}><meshStandardMaterial color="#97a4b4" roughness={0.63}/></mesh>
       </group>
       {PART_IDS.map(id=>{
         const pose=seatedPose(id,stepSixConfig,beamY);
         return <group key={id} name={id} position={pose.position} rotation={pose.rotation}>
           <mesh geometry={id.includes("BRIDGE")?meshes.bridge:meshes.hollow}>
-            <meshStandardMaterial color="#a3aeb9" roughness={0.6}/>
+            <meshStandardMaterial color="#8d9cae" roughness={0.6}/>
           </mesh>
           {CHILD_PINS[id].map(pin)}
         </group>;
@@ -192,7 +193,7 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
         const receiving=id===STEP_SEVEN_RAIL_IDS[0]?config.firstRailHole:config.secondRailHole;
         return <group key={id} name={id} position={initial.position} rotation={initial.rotation}
           ref={node=>{if(node)nodes.current[id]=node;else delete nodes.current[id];}}>
-          <mesh geometry={meshes.beam15}><meshStandardMaterial color="#f2f0ea" roughness={0.65}/></mesh>
+          <mesh geometry={meshes.beam15}><meshStandardMaterial color="#e9e6df" roughness={0.65}/></mesh>
           {selected&&[receiving,receiving+2].map(hole=><mesh key={hole} position={[hole-8,0,0.54]}>
             <torusGeometry args={[0.32,0.055,8,30]}/>
             <meshBasicMaterial color="#18a4f5" depthTest={false}/>
