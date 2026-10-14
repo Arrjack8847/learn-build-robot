@@ -56,3 +56,12 @@ The original 31-step manual and source STL meshes are not changed by this featur
 - The stepSevenCoreOffsetZ() approach clearance of 1.65 scene units is provisional, not a measurement of penetration or collar seating; grey/black shafts require physical kit calibration.
 - Reconstructed deterministic step poses ensure reliable reverse, replay and restart behavior after React Three Fiber updates the scene.
 - The Step 8 frame lesson and original Step 1–6 mechanics, models and manual files remain unchanged.
+
+
+## Three-point Step 7 attachment correction (October 14)
+
+- IMG_1729/1731 show each white 15-hole beam receiving **one existing black pin plus two native grey bridge shafts**, pressed together in the downward direction. Both beams use the SAME method; outward-facing original blue pins remain untouched.
+- The older presumed grey pairs 6/8 and 1/3 do not also accommodate the black pin for the saved Step 6 geometry. New **coaxial demonstration candidates** are grey 11/13 plus black 4 on the later bridge, and grey 6/8 plus black 3 on the earlier bridge (for the Step 6 photo preset). The selected black hole is always derived from the Step 6 source hole displacement; a black pin falling outside the white rail is blocked. These numbers are *not certified from a measured kit*.
+- The source assembly is rotated in the teaching scene so native black and grey +Y shafts face down. Both 15-hole rail meshes rotate 90 degrees to expose vertical hole axes, and the core presses down; the first beam travels rigidly with the grey assembly when seating the second.
+- Both end blue pins insert last, into the exposed free-end holes. Step 8 and the original STL parts and Step 1–6 lessons are unchanged.
+- Hole fit, shaft collar depth and vertical separation remain provisional and require testing on the physical kit.

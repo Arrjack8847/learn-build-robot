@@ -81,39 +81,29 @@ test("Independent Assembly A and B are both required at Step 9",()=>{
   assert.ok(stage.includes("physicallySelfConfirmed!==true"));
 });
 
-test("Step 7 uses photographed beam hole pairs and animates both installed free-end blue pins",()=>{
-  assert.match(railConfig,/firstRailHole:6,secondRailHole:1/);
-  assert.match(railConfig,/STEP_SEVEN_END_PIN_HOLE = 15/);
-  assert.match(railConfig,/start:cfg.bridgeBStart/);
-  assert.match(railConfig,/start:cfg.bridgeAStart/);
-  assert.ok(railConfig.includes("endPinPose"));
-  assert.ok(scene.includes("STEP_SEVEN_PIN_IDS.map"));
-  assert.ok(scene.includes("pinInsertion"));
-  assert.ok(rails.includes("additionalBlueConnectorsInstalled:true"));
-  assert.ok(rails.includes("additionalBlueConnectorMounts:["));
-  assert.ok(railConfig.includes('title:"Insert the first blue end pin'));
-  assert.ok(railConfig.includes('title:"Insert the second blue end pin'));
-  assert.ok(railConfig.includes("stepSevenCoreOffsetZ"));
-  assert.ok(scene.includes("STEP7_GREY_CORE"));
-  assert.ok(scene.includes("greyCore.current.position.z"));
-  assert.ok(scene.includes("pinInsertion"));
-  assert.ok(rails.includes("bothRailsMountedBeforeEndPins:true"));
-  assert.ok(read("src/components/practical/StepNineAssemblyReview.tsx").includes("phase={STEP_SEVEN_FINAL_PHASE}"));
+test("Step 7 aligns one black and two grey connectors on each rail",()=>{
+  assert.match(railConfig,/firstRailHole:11,secondRailHole:6/);
+  assert.ok(railConfig.includes('receivingBlackHole:receiving+black.beamHoles[0]!-bridge.beamHoles[0]!'));
+  assert.ok(railConfig.includes('sourceBlackHole:black.beamHoles[0]!'));
+  assert.ok(railConfig.includes('item.side===bridge.side')||railConfig.includes('v.side===bridge.side'));
+  assert.ok(railConfig.includes('m.receivingBlackHole<1||m.receivingBlackHole>15'));
+  assert.ok(scene.includes('rotation={[0,0,Math.PI]}'));
+  assert.ok(scene.includes('greyCore.current.position.y'));
+  assert.ok(scene.includes('mount.receivingBlackHole'));
+  assert.ok(rails.includes('threePointEngagement:true'));
+  assert.ok(rails.includes('railConfigurationErrors(config,handoff?.stepSixConfig)'));
   assert.ok(railConfig.includes("STEP_SEVEN_MECHANICALLY_VERIFIED = false"));
 });
-
-test("Photographed operation order seats BOTH beams before either blue end pin",()=>{
-  const actions=railConfig.slice(railConfig.indexOf("export const STEP_SEVEN_ACTIONS = ["),railConfig.indexOf("] as const;",railConfig.indexOf("export const STEP_SEVEN_ACTIONS = [")));
-  const firstSeat=actions.indexOf('title:"Press the first grey joints');
-  const secondSeat=actions.indexOf('title:"Press the second grey joints');
-  const firstPin=actions.indexOf('title:"Insert the first blue end pin');
-  const secondPin=actions.indexOf('title:"Insert the second blue end pin');
-  assert.ok(firstSeat>0 && secondSeat>firstSeat && firstPin>secondSeat && secondPin>firstPin);
-  assert.ok(scene.includes("const oldPhase=replay?Math.max(0,phase-1):was"));
-  assert.ok(scene.includes("const from=snapshot(oldPhase)"));
-  assert.ok(scene.includes("pose=t<0.42"));
-  assert.ok(scene.includes("STEP_SEVEN_RAIL_IDS.map"));
-  assert.ok(scene.includes("STEP_SEVEN_PIN_IDS.map"));
-  assert.match(railConfig,/if\(first&&phase===3\)/);
-  assert.match(railConfig,/if\(phase!==1&&phase!==3\)return 0/);
+test("Both beams are attached before inserting either new blue free-end pin",()=>{
+  const seq=railConfig.slice(railConfig.indexOf("export const STEP_SEVEN_ACTIONS"),railConfig.indexOf("] as const;",railConfig.indexOf("export const STEP_SEVEN_ACTIONS")));
+  const f=seq.indexOf('title:"Lower all three joints into the first');
+  const b=seq.indexOf('title:"Lower all three joints into the second');
+  const p=seq.indexOf('title:"Insert first blue');
+  const q=seq.indexOf('title:"Insert second blue');
+  assert.ok(f>0&&b>f&&p>b&&q>p);
+  assert.ok(scene.includes('STEP_SEVEN_PIN_IDS.map'));
+  assert.ok(scene.includes('pinInsertion'));
+  assert.ok(railConfig.includes('STEP_SEVEN_END_PIN_HOLE = 15'));
+  assert.ok(rails.includes('bothRailsMountedBeforeEndPins:true'));
+  assert.ok(read("src/components/practical/StepNineAssemblyReview.tsx").includes("phase={STEP_SEVEN_FINAL_PHASE}"));
 });
