@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 export function AssemblyLessonHeader({
   step, title, actionIndex, actionCount, hint = "Drag to orbit · pinch to zoom", trailing,
 }: {
-  step: number; title: string; actionIndex?: number; actionCount?: number;
+  step: number; title: string; actionIndex?: number | undefined; actionCount?: number | undefined;
   hint?: string; trailing?: ReactNode;
 }) {
   return (
@@ -63,12 +63,12 @@ export function AssemblyActionCard({
 export function AssemblyPlaybackControls({
   onPrevious, onReplay, onTogglePause, onNext,
   paused, previousDisabled = false, replayDisabled = false,
-  pauseDisabled = false, nextDisabled = false, nextLabel = "Next action",
+  pauseDisabled = false, nextDisabled = false, nextLabel = "Next action", replayLabel = "Replay",
 }: {
   onPrevious: () => void; onReplay: () => void; onTogglePause: () => void;
   onNext: () => void; paused: boolean;
   previousDisabled?: boolean; replayDisabled?: boolean; pauseDisabled?: boolean;
-  nextDisabled?: boolean; nextLabel?: string;
+  nextDisabled?: boolean; nextLabel?: string; replayLabel?: string;
 }) {
   return (
     <nav aria-label="3D action playback" className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:items-center">
@@ -78,7 +78,7 @@ export function AssemblyPlaybackControls({
       </Button>
       <Button type="button" variant="outline" className="min-h-11 rounded-xl px-2 sm:px-4"
         disabled={replayDisabled} onClick={onReplay}>
-        <RotateCcw aria-hidden="true" /> Replay
+        <RotateCcw aria-hidden="true" /> {replayLabel}
       </Button>
       <Button type="button" variant="outline" className="min-h-11 rounded-xl px-2 sm:px-4"
         disabled={pauseDisabled} onClick={onTogglePause}>
