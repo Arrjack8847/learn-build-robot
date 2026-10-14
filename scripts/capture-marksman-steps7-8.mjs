@@ -67,11 +67,20 @@ try{
   await webglCanvas.waitFor({state:"visible",timeout:30000});
   await page.waitForTimeout(2000);
   const next7=page.getByRole("button",{name:"Next Action"});
-  for(let i=0;i<4;i++){
-    await next7.click({timeout:10000});
-    await page.waitForTimeout(300);
+  for(let i=0;i<3;i++){
+    await next7.click({timeout:15000});
+    await page.waitForTimeout(250);
   }
-  await page.getByText("Inspect Assembly A",{exact:true}).first().waitFor({
+  await page.getByText("Insert the first blue end connector · hole 15",{exact:true}).first().waitFor({
+    state:"visible",timeout:15000,
+  });
+  await page.waitForTimeout(1500);
+  await page.locator(".assembly-lesson-stage").screenshot({path:output+"/step7-first-beam-with-pin-desktop.png"});
+  for(let i=3;i<7;i++){
+    await next7.click({timeout:15000});
+    await page.waitForTimeout(250);
+  }
+  await page.getByText("Inspect the finished two-rail assembly",{exact:true}).first().waitFor({
     state:"visible",timeout:15000,
   });
   await page.waitForTimeout(1000);
