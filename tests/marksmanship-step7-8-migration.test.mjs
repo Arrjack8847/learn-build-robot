@@ -107,3 +107,19 @@ test("Both beams are attached before inserting either new blue free-end pin",()=
   assert.ok(rails.includes('bothRailsMountedBeforeEndPins:true'));
   assert.ok(read("src/components/practical/StepNineAssemblyReview.tsx").includes("phase={STEP_SEVEN_FINAL_PHASE}"));
 });
+
+test("Both extra Step 7 pins enter exposed Hole 1 from the black-connector face",()=>{
+  assert.ok(railConfig.includes('STEP_SEVEN_END_PIN_FACE = "black-connector-side"'));
+  assert.ok(railConfig.includes('STEP_SEVEN_END_PIN_INSERTION_AXIS = "+local-Y"'));
+  assert.ok(railConfig.includes("holeFromExposedEnd:1 as const"));
+  assert.ok(railConfig.includes("holeFromGreyEnd:STEP_SEVEN_END_PIN_HOLE"));
+  assert.ok(railConfig.includes("rail.position[1]-STEP_SEVEN_END_PIN_PROJECTION_OFFSET"));
+  assert.ok(railConfig.includes("final[1]-2.5"));
+  assert.ok(railConfig.includes("occupied.includes(STEP_SEVEN_END_PIN_HOLE)"));
+  assert.ok(scene.includes("endPinMount(id,config,beamY,stepSixConfig)"));
+  assert.ok(scene.includes('name={id+"-black-side-end-hole"}'));
+  assert.ok(scene.includes("pinInsertion"));
+  assert.ok(rails.includes("holeFromExposedEnd:1,installationFace:STEP_SEVEN_END_PIN_FACE"));
+  assert.ok(rails.includes("additionalBlueConnectorInsertionAxis:STEP_SEVEN_END_PIN_INSERTION_AXIS"));
+  assert.ok(rails.includes("BLACK-CONNECTOR SIDE"));
+});
