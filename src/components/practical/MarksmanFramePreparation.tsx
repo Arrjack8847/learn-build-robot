@@ -86,6 +86,7 @@ export function MarksmanFramePreparation({
   const transientPhotoUrls = useRef<string[]>([]);
   const [config, setConfig] = useState<FrameConfig>(DEFAULT_FRAME_CONFIG);
   const [paused, setPaused] = useState(false);
+  const [busy, setBusy] = useState(false);
   const [replayKey, setReplayKey] = useState(0);
   const [resetCameraKey, setResetCameraKey] = useState(0);
   const [zoomKey, setZoomKey] = useState(0);
@@ -97,7 +98,7 @@ export function MarksmanFramePreparation({
   const [showManual, setShowManual] = useState(false);
   const [showCalibration, setShowCalibration] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(readReducedMotion);
-  const finished = phase === ACTIONS.length - 1;
+  const finished = phase === ACTIONS.length - 1 && !busy;
   useEffect(() => {
     try { window.localStorage.setItem(STEP_SEVEN_PHASE_KEY, String(phase)); }
     catch { /* The tutorial remains usable without storage. */ }
@@ -122,6 +123,7 @@ export function MarksmanFramePreparation({
   }
 
   function go(next: number) {
+    setBusy(true);
     setExploded(false);
     setSpin(false);
     setPaused(false);
@@ -156,7 +158,7 @@ export function MarksmanFramePreparation({
         scene={<MarksmanFrameScene phase={phase} config={config} replayKey={replayKey}
           resetCameraKey={resetCameraKey} zoomKey={zoomKey} zoomDirection={zoomDirection}
           paused={paused} spin={false} exploded={false} labels={false}
-          reducedMotion={reducedMotion} />}
+          reducedMotion={reducedMotion} onMotionComplete={() => setBusy(false)} />}
         status={finished ? <span className="rounded-xl bg-emerald-50/95 p-2 text-xs font-bold text-emerald-900">Frame tutorial complete</span> : null}
         tools={<AssemblyUtilityControls step={7} manualShown={showManual}
           onResetView={()=>setResetCameraKey(v=>v+1)}
@@ -166,9 +168,9 @@ export function MarksmanFramePreparation({
           <AssemblyActionCard actionIndex={phase} actionCount={ACTIONS.length}
             title={current.title} instruction={current.text} />
           <AssemblyPlaybackControls paused={paused} previousDisabled={phase===0}
-            isFinalAction={finished} onComplete={onCompleteStep}
+            isFinalAction={phase === ACTIONS.length - 1} completeDisabled={!finished} onComplete={onCompleteStep}
             onPrevious={()=>go(phase-1)}
-            onReplay={()=>{setPaused(false);setReplayKey(value=>value+1);}}
+            onReplay={()=>{setPaused(false);setBusy(true);setReplayKey(value=>value+1);}}
             onTogglePause={()=>setPaused(v=>!v)}
             onNext={()=>go(phase+1)} />
         </>}
