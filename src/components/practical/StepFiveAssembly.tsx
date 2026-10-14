@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowLeft, CheckCircle2, TriangleAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { AssemblyLessonHeader, AssemblyActionCard, AssemblyPlaybackControls, AssemblyUtilityControls } from "./AssemblyLessonUI";
+import { AssemblyLessonHeader, AssemblyActionCard, AssemblyPlaybackControls, AssemblyUtilityControls, AssemblyStage } from "./AssemblyLessonUI";
 import { getStepFivePreparedSnapshot, STEP5_SNAPSHOT_KEY, StepFiveScene } from "./StepFiveScene";
 
 const STEP_FOUR_RESULT = "robot:marksmanship:step4:assembled:v1";
@@ -46,7 +46,7 @@ const ACTIONS = [
   {
     number: "5.6", title: "Inspect the five separate prepared units",
     instruction: "Check the empty 11-hole beam above two bridge assemblies and two hollow connector assemblies. Each bridge has two long pins. Each hollow connector has one short two-sided pin. Do not install anything on the beam until Step 6.",
-    note: "STEP 5 COMPLETE — ALL COMPONENTS PREPARED IN 3D. Confirm actual physical fit below before continuing.",
+    note: "This completes the 3D tutorial; real-world fit is not automatically verified.",
   },
 ] as const;
 function initialPhase(){
@@ -69,7 +69,7 @@ export function StepFiveAssembly({onReadyChange,onBackToStep4,onContinueToStep6}
   onContinueToStep6:()=>void;
 }){
   const [phase,setPhase]=useState(initialPhase);
-  const [confirmedPhysical,setConfirmedPhysical]=useState(initialPhysicalCheck);
+  
   const [busy,setBusy]=useState(false);
   const [paused,setPaused]=useState(false);
   const [replayKey,setReplayKey]=useState(0);
@@ -77,7 +77,7 @@ export function StepFiveAssembly({onReadyChange,onBackToStep4,onContinueToStep6}
   const [showManual,setShowManual]=useState(false);
   const [reducedMotion,setReducedMotion]=useState(false);
   const [hasStepFour,setHasStepFour]=useState(false);
-  const ready=phase===ACTIONS.length-1&&!busy&&confirmedPhysical;
+  const ready=phase===ACTIONS.length-1&&!busy;
 
   useEffect(()=>{
     const media=window.matchMedia?.("(prefers-reduced-motion: reduce)");
@@ -114,7 +114,7 @@ export function StepFiveAssembly({onReadyChange,onBackToStep4,onContinueToStep6}
     setPhase(Math.max(0,Math.min(ACTIONS.length-1,next)));
   };
   const restart=()=>{
-    setPaused(false);setBusy(false);setConfirmedPhysical(false);
+    setPaused(false);setBusy(false);
     setPhase(0);setReplayKey(0);
     setResetCameraKey(k=>k+1);
   };
@@ -122,38 +122,29 @@ export function StepFiveAssembly({onReadyChange,onBackToStep4,onContinueToStep6}
   return <div className="relative z-10 w-full space-y-3">
     <AssemblyLessonHeader step={5} title="Prepare the 11-hole beam and connectors"
       actionIndex={phase} actionCount={ACTIONS.length} />
-    <div className="relative h-[310px] overflow-hidden rounded-2xl border border-[#cddceb] bg-[#f6f9fc] sm:h-[365px] md:h-[430px]">
-      <StepFiveScene phase={phase} replayKey={replayKey} paused={paused}
-        reducedMotion={reducedMotion} resetCameraKey={resetCameraKey} onMotionComplete={()=>setBusy(false)}/>
-      {hasStepFour&&<span className="pointer-events-none absolute left-2 top-2 rounded-lg bg-white/90 p-2 text-[10px] font-bold text-slate-700">
-        Step 4 shooting assembly saved separately
-      </span>}
-      {ready&&<span className="pointer-events-none absolute right-2 top-2 rounded-lg bg-emerald-50/95 px-3 py-2 text-xs font-bold text-emerald-800">
-        <CheckCircle2 className="mr-1 inline size-4"/> Five prepared units · beam empty
-      </span>}
-    </div>
-    <AssemblyActionCard actionIndex={phase} actionCount={ACTIONS.length}
-      title={action.title} instruction={action.instruction} note={action.note} />
-    <div className="grid gap-2 rounded-xl border border-sky-100 bg-sky-50/80 p-3 text-xs font-semibold text-sky-900 sm:grid-cols-3">
-      <span>1 beam · 11 empty holes</span>
-      <span>2 bridges · 4 long pins</span>
-      <span>2 hollow elbows · 2 short pins</span>
-    </div>
-    <AssemblyPlaybackControls paused={paused}
-      previousDisabled={phase===0||busy} replayDisabled={phase===0||busy}
-      nextDisabled={phase===ACTIONS.length-1||busy}
-      nextLabel={phase===ACTIONS.length-2?"Inspect finished units":"Next action"}
-      onPrevious={()=>changePhase(phase-1)}
-      onReplay={()=>{setPaused(false);setBusy(true);setReplayKey(k=>k+1);}}
-      onTogglePause={()=>setPaused(v=>!v)}
-      onNext={()=>changePhase(phase+1)} />
-    <AssemblyUtilityControls step={5} manualShown={showManual}
-      onResetView={()=>setResetCameraKey(k=>k+1)}
-      onToggleManual={()=>setShowManual(v=>!v)}
-      onRestart={restart} />
-    <Button variant="outline" className="min-h-11 rounded-xl" type="button" onClick={onBackToStep4}>
-      <ArrowLeft aria-hidden="true" /> Return to Step 4
-    </Button>
+    <AssemblyStage
+      scene={<StepFiveScene phase={phase} replayKey={replayKey} paused={paused}
+        reducedMotion={reducedMotion} resetCameraKey={resetCameraKey}
+        onMotionComplete={()=>setBusy(false)}/>}
+      status={ready ? <span className="rounded-xl bg-emerald-50/95 p-2 text-xs font-bold text-emerald-900">Step 5 tutorial complete · beam remains empty</span> : null}
+      tools={<AssemblyUtilityControls step={5} manualShown={showManual}
+        onResetView={()=>setResetCameraKey(k=>k+1)}
+        onToggleManual={()=>setShowManual(v=>!v)}
+        onRestart={restart}/>}
+      dock={<>
+        <AssemblyActionCard actionIndex={phase} actionCount={ACTIONS.length}
+          title={action.title} instruction={action.instruction}/>
+        <AssemblyPlaybackControls paused={paused}
+          previousDisabled={phase===0||busy} replayDisabled={busy}
+          nextDisabled={phase===ACTIONS.length-1||busy}
+          isFinalAction={phase===ACTIONS.length-1}
+          completeDisabled={!ready} onComplete={onContinueToStep6}
+          onPrevious={()=>changePhase(phase-1)}
+          onReplay={()=>{setPaused(false);setBusy(true);setReplayKey(k=>k+1);}}
+          onTogglePause={()=>setPaused(v=>!v)}
+          onNext={()=>changePhase(phase+1)}/>
+      </>}
+    />
     {showManual&&<div className="grid gap-3 rounded-2xl border border-slate-200 bg-white p-3 sm:grid-cols-2">
       <figure>
         <img src="/marksmanship/steps/5.png" className="w-full object-contain"
@@ -166,13 +157,6 @@ export function StepFiveAssembly({onReadyChange,onBackToStep4,onContinueToStep6}
         <figcaption className="text-center text-xs text-slate-600">Step 6 — reference only</figcaption>
       </figure>
     </div>}
-    {phase===ACTIONS.length-1&&<label className="flex cursor-pointer items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs leading-5 text-amber-950 sm:text-sm">
-      <input className="mt-1 size-4 shrink-0 accent-[#168eea]" type="checkbox"
-        checked={confirmedPhysical} onChange={e=>setConfirmedPhysical(e.target.checked)}/>
-      <span>I compared these connections with <strong>my actual kit and the manual</strong>.
-        All four pin assemblies fit and remain separate from the empty 11-hole beam.
-        This is a physical self-check; automated STL analysis is not a mechanical certification.</span>
-    </label>}
     <p className="text-[11px] leading-5 text-slate-500">
       <TriangleAlert className="mr-1 inline size-3.5"/>
       The original 48989 and 15100 bodies and genuine pin STLs are used at measured bore centres.
