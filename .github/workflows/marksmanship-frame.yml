@@ -52,12 +52,12 @@ jobs:
             curl -fsS http://127.0.0.1:4173/ > /dev/null && break
             sleep 2
           done
-          node scripts/capture-marksman-frame.mjs
+          node scripts/capture-marksman-step7.mjs
       - name: Upload 3D screenshots for PR review
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: marksman-frame-review-screenshots
-          path: artifacts/marksman-frame/*.png
+          path: artifacts/marksman-step7/*.png
           if-no-files-found: warn
           retention-days: 14

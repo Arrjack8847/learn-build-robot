@@ -90,9 +90,10 @@ test("photo-based frame animation is mounted only in Step 7; official 31-step re
   assert.ok(data.includes("attach two long connectors to each at holes 2 and 5"));
   assert.ok(data.includes("attach connectors at holes 5 and 8"));
   const route = readFileSync(resolve("src/routes/practical/$projectId.tsx"), "utf8");
-  assert.ok(route.includes("MarksmanFramePreparation"));
-  assert.match(route, /project\.id === "marksmanship" && currentStep\.number === 7 && \(/);
-  assert.equal((route.match(/<MarksmanFramePreparation\s*\/>/g) ?? []).length, 1);
+  assert.ok(route.includes("StepSevenAssembly"));
+  assert.match(route, /isStepSeven && \(/);
+  assert.equal((route.match(/<StepSevenAssembly\s/g) ?? []).length, 1);
+  assert.ok(route.includes("Original Step 7 manual — preserved for reference"));
   assert.ok(!route.includes("showFrameTutorial"), "must not be globally mounted");
   assert.ok(!route.includes("Not an official numbered step."));
   for (const old of ["StepThreeAssembly", "StepFourAssembly", "Marksman3DPreview"])

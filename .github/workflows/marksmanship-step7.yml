@@ -1,0 +1,67 @@
+name: Marksmanship Step 7 geometry and browser QA
+
+on:
+  push:
+    branches:
+      - feat/marksman-step7-final-frame
+  pull_request:
+    paths:
+      - "src/components/practical/StepSeven*"
+      - "src/components/practical/stepSevenGeometry.ts"
+      - "src/routes/practical/**"
+      - "tests/marksmanship-step7.test.mjs"
+      - "tests/marksmanship-frame.test.mjs"
+      - ".github/workflows/marksmanship-step7.yml"
+
+jobs:
+  verify-step7:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Original 3D frame and Step 7 geometry tests
+        run: |
+          node --test tests/marksmanship-frame.test.mjs
+          npm run test:step7
+      - name: Steps 3 to 6 regression tests
+        run: |
+          npm run test:step3
+          npm run test:step4
+          npm run test:step5
+          npm run test:step6
+      - name: Vite production build
+        run: npm run build
+      - name: TypeScript validation
+        run: npx tsc --noEmit
+      - name: ESLint on Step 7 source (formatting disabled)
+        run: >-
+          npx eslint
+          src/components/practical/StepSevenScene.tsx
+          src/components/practical/StepSevenAssembly.tsx
+          src/components/practical/stepSevenGeometry.ts
+          --rule "prettier/prettier: off"
+      - name: Install browser QA
+        run: |
+          npm install --no-save --no-audit --no-fund playwright
+          npx playwright install --with-deps chromium
+      - name: Capture desktop and mobile rendered states
+        run: |
+          npm run dev -- --host 127.0.0.1 --port 4173 > /tmp/step7-vite.log 2>&1 &
+          for i in {1..60}; do
+            curl -fsS http://127.0.0.1:4173/ > /dev/null && break
+            sleep 2
+          done
+          node scripts/capture-marksman-step7.mjs
+      - name: Upload actual rendered screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: marksmanship-step7-review-screenshots
+          path: artifacts/marksman-step7/*.png
+          if-no-files-found: warn
+          retention-days: 14
