@@ -56,7 +56,7 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
   const callback=useRef(onMotionComplete);callback.current=onMotionComplete;
   const {size}=useThree();
   const mobile=size.width/Math.max(1,size.height)<0.95;
-  const beamY=prepared.STEP5_BEAM_11?.position[1]??4.1;
+  const beamY=prepared["STEP5_BEAM_11"]?.position[1]??4.1;
   const configKey=JSON.stringify(config);
 
   useLayoutEffect(()=>{
@@ -131,7 +131,7 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     <directionalLight position={[8,9,14]} intensity={2}/>
     <gridHelper args={[25,25,"#d1dfed","#eaf0f5"]} position={[0,-2,0]}/>
     <group name="STEP7_ASSEMBLY_A" position={[0,-beamY,0]}>
-      <group name="STEP5_BEAM_11" position={prepared.STEP5_BEAM_11!.position} rotation={prepared.STEP5_BEAM_11!.rotation}>
+      <group name="STEP5_BEAM_11" position={prepared["STEP5_BEAM_11"]!.position} rotation={prepared["STEP5_BEAM_11"]!.rotation}>
         <mesh geometry={meshes.beam11}><meshStandardMaterial color="#eee8dd" roughness={0.7}/></mesh>
       </group>
       {PART_IDS.map(id=>{
