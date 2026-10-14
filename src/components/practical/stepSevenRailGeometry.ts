@@ -30,14 +30,14 @@ export const STEP_SEVEN_PROVISIONAL = STEP_SEVEN_PHOTO_CONFIG;
 export const STEP_SEVEN_END_PIN_HOLE = 15;
 export const STEP_SEVEN_MECHANICALLY_VERIFIED = false;
 export const STEP_SEVEN_ACTIONS = [
-  {title:"Prepare the Step 6 support and side beams",instruction:"Keep the finished grey Step 6 connector support centered. Prepare two white 15-hole beams and two additional blue long connectors."},
-  {title:"Align the first 15-hole beam · holes 6 & 8",instruction:"On the rail with the two visible blue-head holes, count from the grey-connector end. Align holes 6 and 8 with the later Step 6 bridge's two pins. Approach along the connector axis."},
-  {title:"Seat the first 15-hole beam",instruction:"Press the first rail straight onto its two matching pins until securely seated. Do not bend the connectors or move the completed Step 6 support."},
-  {title:"Insert the first blue end connector · hole 15",instruction:"From the grey-connector end, count to the opposite free end (hole 15). Insert the new blue long connector there with its exposed tip facing out, as photographed."},
-  {title:"Align the opposite beam · holes 1 & 3",instruction:"Move to the opposite side. From the grey-connector end, align the second white beam's holes 1 and 3 with the earlier Step 6 bridge."},
-  {title:"Seat the second 15-hole beam",instruction:"Move the second beam along its connector axis to its seated position. Both rails should be parallel, with the central grey support between them."},
-  {title:"Insert the second blue end connector · hole 15",instruction:"At the second beam's free end, insert the second blue long connector into hole 15 (hole 1 if counting from the free end). Both exposed end pins should point the same way."},
-  {title:"Inspect the finished two-rail assembly",instruction:"Orbit the completed rigid assembly. Compare with IMG_1716: two parallel white rails, the original grey support and connectors, plus two blue pins at the free ends."},
+  {title:"Prepare the Step 6 support and side beams",instruction:"Keep the finished grey Step 6 connector support intact. Lay out the two separate white 15-hole beams and two additional blue long connectors."},
+  {title:"Align the first white beam · candidate holes 6 & 8",instruction:"Place the first white beam below its grey mounting shafts. The first rail's photographed candidate holes are 6 and 8, counted from the connector end. Move the grey assembly up to expose the insertion path."},
+  {title:"Press the first grey joints into the white beam",instruction:"Support the first white beam and lower the grey assembly straight along the connector shafts, seating its existing joints into the matching white-beam holes. Existing blue side pins stay outward."},
+  {title:"Align the second white beam · candidate holes 1 & 3",instruction:"Keep the first rail attached to the grey assembly. Position the second white rail below the opposite connector units; its photographed candidate receiving pair is holes 1 and 3."},
+  {title:"Press the second grey joints into the white beam",instruction:"Lower the connected grey assembly and first rail together onto the second white beam. Seat all matching grey mounting shafts vertically; leave the first beam firmly attached."},
+  {title:"Insert the first blue end pin · free-end hole 1",instruction:"After BOTH white beams are mounted, insert the first additional long blue connector vertically into the exposed free-end hole of the first rail (hole 15 from the grey-connector end)."},
+  {title:"Insert the second blue end pin · free-end hole 1",instruction:"Insert the second blue long connector into the matching exposed end hole of the opposite rail. Keep both pins upright, with their projecting ends exposed."},
+  {title:"Inspect the completed two-rail assembly",instruction:"Orbit Assembly A, comparing with IMG_1716, IMG_1724–1727 and IMG_1731–1733. All connector shafts and both end pins should stay rigidly attached; physically confirm the joints."},
 ] as const;
 export const STEP_SEVEN_FINAL_PHASE = STEP_SEVEN_ACTIONS.length-1;
 
@@ -58,23 +58,39 @@ export function railBridge(id:StepSevenRailId,cfg:StepSixMountConfig){
     ? {start:cfg.bridgeBStart,side:cfg.bridgeBSide}
     : {start:cfg.bridgeAStart,side:cfg.bridgeASide};
 }
+/**
+ * The photographs show a hand lowering the GREY Step 6 structure onto each
+ * supported white rail. Both operations are normal to the beam hole faces
+ * (beam-local Z). The clearance is a demonstration value, NOT a measured pin
+ * seating depth. During the second operation, the first rail travels rigidly
+ * with the Step 6 core.
+ */
+export const STEP_SEVEN_PRESS_CLEARANCE = 1.65;
+export function stepSevenCoreOffsetZ(phase:number,stepSixConfig:StepSixMountConfig):number {
+  if(phase!==1&&phase!==3)return 0;
+  const railId=phase===1?STEP_SEVEN_RAIL_IDS[0]:STEP_SEVEN_RAIL_IDS[1];
+  const side=railBridge(railId,stepSixConfig).side;
+  return (side==="front"?-1:1)*STEP_SEVEN_PRESS_CLEARANCE;
+}
 export function railPose(id:StepSevenRailId,phase:number,c:StepSevenRailConfig,
   beamY:number,stepSixConfig:StepSixMountConfig):StepSixPose {
   const first=id===STEP_SEVEN_RAIL_IDS[0];
   const bridge=railBridge(id,stepSixConfig);
   const sign=bridge.side==="front"?1:-1;
   const receiving=first?c.firstRailHole:c.secondRailHole;
-  // Both sets of physical receiving holes share the same 8 mm pitch.
-  // The calculated X offset aligns both pairs without stretching the STLs.
   const offsetX=beamHoleX(bridge.start)-(receiving-8);
-  const alignmentPhase=first?1:4, seatedPhase=first?2:5;
-  if(phase<alignmentPhase) {
-    return {position:[offsetX,beamY-2.7,sign*(c.railCenterDistance+4.6)],rotation:[0,0,0]};
+  const alignPhase=first?1:3;
+  const finalZ=sign*c.railCenterDistance;
+  if(phase<alignPhase){
+    // Stage the rail loosely away from the connected grey body.
+    return {position:[offsetX,beamY-2.7,finalZ+sign*4.6],rotation:[0,0,0]};
   }
-  if(phase<seatedPhase){
-    return {position:[offsetX,beamY,sign*(c.railCenterDistance+1.65)],rotation:[0,0,0]};
+  if(first&&phase===3) {
+    // While lowering the core onto rail #2, rail #1 is already attached.
+    return {position:[offsetX,beamY,finalZ+stepSevenCoreOffsetZ(phase,stepSixConfig)],rotation:[0,0,0]};
   }
-  return {position:[offsetX,beamY,sign*c.railCenterDistance],rotation:[0,0,0]};
+  // The target rail is held still while the GREY assembly is pressed in.
+  return {position:[offsetX,beamY,finalZ],rotation:[0,0,0]};
 }
 export function endPinPose(id:StepSevenPinId,phase:number,c:StepSevenRailConfig,
   beamY:number,stepSixConfig:StepSixMountConfig):StepSixPose {
@@ -82,9 +98,10 @@ export function endPinPose(id:StepSevenPinId,phase:number,c:StepSevenRailConfig,
   const railId=STEP_SEVEN_RAIL_IDS[first?0:1];
   const rail=railPose(railId,STEP_SEVEN_FINAL_PHASE,c,beamY,stepSixConfig);
   const x=rail.position[0]+STEP_SEVEN_END_PIN_HOLE-8;
-  // Original long-connector STL is centered with its length along native Z.
-  // Its photographic seating offset is provisional pending measured shoulders.
-  if(phase<(first?3:6)) return {
+  // Both blue end pins use the same upward world-Z orientation in the photo.
+  // The shaft shoulder overlap remains provisional until a real kit fit check.
+  const insertionPhase=first?5:6;
+  if(phase<insertionPhase) return {
     position:[x+1.7,beamY-1.9,rail.position[2]+3.8],rotation:[0,0,0],
   };
   return {position:[x,beamY,rail.position[2]+0.95],rotation:[0,0,0]};
@@ -103,7 +120,7 @@ export function railGuide(config:StepSixMountConfig,rail:StepSevenRailId,c:StepS
   const receiving=first?c.firstRailHole:c.secondRailHole;
   return {
     sourceMountingHoles,candidateReceivingHoles:[receiving,receiving+2],
-    insertionAxis:bridge.side==="front"?"-Z":"+Z",
+    insertionAxis:bridge.side==="front"?"+Z":"-Z",
     mechanicallyVerified:false as const,seatingDepthMm:null as null,
   };
 }
