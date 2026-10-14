@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  ArrowLeft, ArrowRight, CheckCircle2, Eye, Pause, Play,
-  RotateCcw, Settings2, SkipBack, ZoomIn,
-} from "lucide-react";
+import { Settings2 } from "lucide-react";
 import { AssemblyLessonHeader, AssemblyActionCard, AssemblyPlaybackControls, AssemblyUtilityControls } from "./AssemblyLessonUI";
 import {
   getPreparedStepThreeTransforms, StepThreeScene,
