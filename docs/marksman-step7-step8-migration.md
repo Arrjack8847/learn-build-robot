@@ -47,3 +47,12 @@ The original 31-step manual and source STL meshes are not changed by this featur
 - Each additional blue long pin now animates into **hole 15 from the bridge end** (the endmost hole, hole 1 when counted from the opposite free end). Original six Step 5/6 pins remain untouched.
 - Guided actions now separate approach, seating and insertion of each end pin (eight actions). Step 9 renders the completed eight-action state.
 - The actual 24-mm-long blue connector mesh is retained. Rail-to-center clearance and pin shoulder seating are still scene estimates, **not a measured mechanical fit**. No geometry should be marked certified until tested on the physical kit.
+
+## Step 7 photo-guided animation correction (IMG_1729–1733)
+
+- Updated interactive Step 7 has eight actions: prepare, align first rail, press grey core onto first rail, align second rail, press grey core (with already-attached first rail) onto second rail, insert first free-end blue pin, insert second free-end blue pin, inspect.
+- Unlike the earlier side-sliding demonstration, the grey Step 6 support moves along the candidate connector axis onto a supported white beam. Both attachments use the same press-fit motion and previously mounted parts move rigidly with the central support during the second press.
+- Receiving-hole pairs 6/8 and 1/3 remain photo-based candidates, not certified geometry. Both blue end pins install only after both beams are attached, in the exposed free-end holes (hole 15 counted from the opposite end).
+- The stepSevenCoreOffsetZ() approach clearance of 1.65 scene units is provisional, not a measurement of penetration or collar seating; grey/black shafts require physical kit calibration.
+- Reconstructed deterministic step poses ensure reliable reverse, replay and restart behavior after React Three Fiber updates the scene.
+- The Step 8 frame lesson and original Step 1–6 mechanics, models and manual files remain unchanged.
