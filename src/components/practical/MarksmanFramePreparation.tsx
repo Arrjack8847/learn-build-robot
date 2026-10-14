@@ -167,7 +167,8 @@ export function MarksmanFramePreparation({
         dock={<>
           <AssemblyActionCard actionIndex={phase} actionCount={ACTIONS.length}
             title={current.title} instruction={current.text} />
-          <AssemblyPlaybackControls paused={paused} previousDisabled={phase===0}
+          <AssemblyPlaybackControls paused={paused} previousDisabled={phase===0||busy}
+            replayDisabled={busy} nextDisabled={busy}
             isFinalAction={phase === ACTIONS.length - 1} completeDisabled={!finished} onComplete={onCompleteStep}
             onPrevious={()=>go(phase-1)}
             onReplay={()=>{setPaused(false);setBusy(true);setReplayKey(value=>value+1);}}
