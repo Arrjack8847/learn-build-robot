@@ -15,8 +15,9 @@ const frameGeom=read("src/components/practical/stepEightGeometry.ts");
 const frameScene=read("src/components/practical/StepEightScene.tsx");
 
 test("Thirty-two interactive entries without duplicate IDs or step numbers",()=>{
-  const ids=[...data.matchAll(/^    id: "([^"]+)",/gm)].map(x=>x[1]);
-  const numbers=[...data.matchAll(/^    number: (\d+),/gm)].map(x=>Number(x[1]));
+  const stepData=data.slice(data.indexOf("const marksmanshipSteps:"),data.indexOf("export const practicalProjects:"));
+  const ids=[...stepData.matchAll(/^    id: "([^"]+)",/gm)].map(x=>x[1]);
+  const numbers=[...stepData.matchAll(/^    number: (\d+),/gm)].map(x=>Number(x[1]));
   assert.equal(ids.length,32);
   assert.equal(new Set(ids).size,32);
   assert.deepEqual(numbers,Array.from({length:32},(_,i)=>i+1));
