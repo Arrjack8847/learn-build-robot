@@ -67,8 +67,8 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
         blackConnectorPerRail:1,greyConnectorShaftsPerRail:2,threePointEngagement:true,
         additionalBlueConnectorCount:2,
         additionalBlueConnectorMounts:[
-          {rail:"STEP7_RAIL_FRONT_15",hole:15,holeFromExposedEnd:1,installationFace:STEP_SEVEN_END_PIN_FACE},
-          {rail:"STEP7_RAIL_BACK_15",hole:15,holeFromExposedEnd:1,installationFace:STEP_SEVEN_END_PIN_FACE},
+          {rail:"STEP7_RAIL_FRONT_15",hole:1,holeFromExposedEnd:1,installationFace:STEP_SEVEN_END_PIN_FACE},
+          {rail:"STEP7_RAIL_BACK_15",hole:1,holeFromExposedEnd:1,installationFace:STEP_SEVEN_END_PIN_FACE},
         ],
         additionalBlueConnectorInsertionAxis:STEP_SEVEN_END_PIN_INSERTION_AXIS,
         additionalBlueConnectorsInstalled:true,
@@ -156,7 +156,7 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
       </label>
       {photo&&<img alt="Locally provided Step 7 reference" src={photo} className="mt-2 max-h-72 w-full object-contain"/>}
       <p className="mt-3 text-amber-900"><TriangleAlert className="mr-1 inline size-4"/>
-        Both blue long connectors enter Hole 1 counted from their exposed free ends (Hole 15 counted from the grey end) FROM THE BLACK-CONNECTOR FACE. Their tips project back out of that face. Connector shoulder depth and exact STL engagement remain unmeasured; visually compare with your real assembled kit.</p>
+        Both blue long connectors enter the right-hand exposed Hole 1 of their respective white beams (STL hole index 1, not 15), FROM THE BLACK-CONNECTOR FACE. Their tips project back out of that face. Connector shoulder depth and exact STL engagement remain unmeasured; visually compare with your real assembled kit.</p>
     </details>
   </div>;
 }
