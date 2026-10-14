@@ -14,12 +14,14 @@ export type StepSevenRailConfig = {
   firstRailHole:number;
   secondRailHole:number;
 };
-/** Three-point COAXIAL candidate, not photo-certified hole numbering.
- * The previous 6/8 and 1/3 guesses cannot mount the black shaft as well
- * as both grey bridge shafts under the saved Step 6 photo preset.
+/** User-approved Step 7 mounting configuration (October 14 screenshot).
+ * The displayed side-rail arrangement was aligned in the local viewer with
+ * an offset of 0.9 and grey-shaft receiving holes 13 / 8. With the saved
+ * Step 6 photo preset, this aligns black+grey positions 6/13/15 and 5/8/10.
+ * These are user-selected scene positions, NOT measured press-fit depths.
  */
 export const STEP_SEVEN_PHOTO_CONFIG:ReadOnlyRailConfig = {
-  railCenterDistance:1.55,firstRailHole:11,secondRailHole:6,
+  railCenterDistance:0.9,firstRailHole:13,secondRailHole:8,
 };
 type ReadOnlyRailConfig = Readonly<StepSevenRailConfig>;
 /** Compatibility alias for existing stored demo configurations. */
