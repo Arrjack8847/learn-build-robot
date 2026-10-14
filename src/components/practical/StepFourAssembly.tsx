@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { TriangleAlert } from "lucide-react";
-import { AssemblyLessonHeader, AssemblyActionCard, AssemblyPlaybackControls, AssemblyUtilityControls } from "./AssemblyLessonUI";
+import { AssemblyLessonHeader, AssemblyActionCard, AssemblyPlaybackControls, AssemblyUtilityControls, AssemblyStage } from "./AssemblyLessonUI";
 import { STEP_THREE_SNAPSHOT } from "./StepThreeAssembly";
 import type { StepThreeConfig } from "./StepThreeScene";
 import { getStepFourTransforms, StepFourScene } from "./StepFourScene";
@@ -66,10 +66,11 @@ function readPhase() {
 }
 
 export function StepFourAssembly({
-  onReadyChange, onBackToStep3,
+  onReadyChange, onBackToStep3, onCompleteStep,
 }: {
   onReadyChange: (ready: boolean) => void;
   onBackToStep3: () => void;
+  onCompleteStep: () => void;
 }) {
   const [prep, setPrep] = useState<Prep>(() => ({valid: false, reason: "", connector: "long"}));
   const [phase, setPhase] = useState(readPhase);
@@ -115,39 +116,30 @@ export function StepFourAssembly({
   return (
     <div className="relative z-10 w-full space-y-3">
       <AssemblyLessonHeader step={4} title="Connect the L-beams and medium axle" actionIndex={phase} actionCount={STEPS.length} />
-      <div className="relative h-[300px] w-full overflow-hidden rounded-2xl border border-[#ccdcea] bg-[#f8fbfd] sm:h-[350px] md:h-[410px]">
-        <StepFourScene
-          phase={phase} replayKey={replayKey} paused={paused}
+      <AssemblyStage
+        scene={<StepFourScene phase={phase} replayKey={replayKey} paused={paused}
           resetCameraKey={resetCameraKey} connector={prep.connector}
-          onMotionComplete={() => setBusy(false)}
-        />
-        {ready && (
-          <span className="pointer-events-none absolute left-3 top-3 rounded-xl bg-emerald-50/95 px-3 py-2 text-xs font-extrabold text-emerald-800">
-            Step 4 sequence complete · keep for Steps 29–30
-          </span>
-        )}
-      </div>
-      <AssemblyActionCard actionIndex={phase} actionCount={STEPS.length}
-        title={step.title} instruction={step.text} />
-      <div className="grid gap-1.5 rounded-xl border border-sky-100 bg-sky-50/80 p-2.5 text-center text-[11px] font-bold text-[#145e9f] sm:grid-cols-3">
-        <span>White hole 1 ↔ grey L hole 2</span>
-        <span>White hole 2 ↔ grey L corner hole 1</span>
-        <span>Black axle ↔ far X hole</span>
-      </div>
-      <AssemblyPlaybackControls paused={paused}
-        previousDisabled={phase === 0 || busy || !prep.valid}
-        replayDisabled={phase === 0 || busy || !prep.valid} replayLabel="Replay action"
-        pauseDisabled={!prep.valid}
-        nextDisabled={phase >= STEPS.length - 1 || busy || !prep.valid}
-        nextLabel={phase === STEPS.length - 2 ? "Inspect assembly" : "Next action"}
-        onPrevious={() => changePhase(phase - 1)}
-        onReplay={() => { setPaused(false); setBusy(true); setReplayKey(n => n + 1); }}
-        onTogglePause={() => setPaused(v => !v)}
-        onNext={() => changePhase(phase + 1)} />
-      <AssemblyUtilityControls step={4} manualShown={showReference}
-        onResetView={() => setResetCameraKey(n => n + 1)}
-        onToggleManual={() => setShowReference(v => !v)}
-        onRestart={restart} />
+          onMotionComplete={() => setBusy(false)} />}
+        status={ready ? <span className="rounded-xl bg-emerald-50/95 p-2 text-xs font-bold text-emerald-900">Step 4 demonstration complete</span> : null}
+        tools={<AssemblyUtilityControls step={4} manualShown={showReference}
+          onResetView={() => setResetCameraKey(n => n + 1)}
+          onToggleManual={() => setShowReference(v => !v)}
+          onRestart={restart} />}
+        dock={<>
+          <AssemblyActionCard actionIndex={phase} actionCount={STEPS.length}
+            title={step.title} instruction={step.text} />
+          <AssemblyPlaybackControls paused={paused}
+            previousDisabled={phase === 0 || busy || !prep.valid}
+            nextDisabled={phase >= STEPS.length - 1 || busy || !prep.valid}
+            isFinalAction={phase === STEPS.length - 1}
+            completeDisabled={!ready} onComplete={onCompleteStep}
+            pauseDisabled={!prep.valid}
+            onPrevious={() => changePhase(phase - 1)}
+            onReplay={() => { setPaused(false); setBusy(true); setReplayKey(n => n + 1); }}
+            onTogglePause={() => setPaused(v => !v)}
+            onNext={() => changePhase(phase + 1)} />
+        </>}
+      />
       {showReference && (
         <div className="rounded-2xl border border-slate-200 bg-white p-3">
           <img className="mx-auto max-h-72 w-full object-contain" src="/marksmanship/steps/4.png"
