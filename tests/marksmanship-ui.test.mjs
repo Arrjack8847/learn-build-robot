@@ -38,8 +38,9 @@ test("Action numbering is one-based and matches every lesson's action count",()=
   assert.ok(source("src/components/practical/MarksmanFramePreparation.tsx").includes("actionCount={ACTIONS.length}"));
 });
 
-test("Single sticky footer controls lesson-level completion",()=>{
-  assert.ok(route.includes("Done — Next Step"));
+test("Single in-view floating dock controls Steps 1–7 completion",()=>{
+  assert.ok(route.includes("!isInteractiveMarksman && <footer"));
+  assert.ok(ui.includes("isFinalAction ? \"Complete Step\""));
   assert.ok(route.includes("isStepFive && !stepFiveReady"));
   assert.ok(route.includes("isStepSix && !stepSixReady"));
   assert.ok(!source("src/components/practical/StepFiveAssembly.tsx").includes(">Continue to Step 6"));
@@ -49,18 +50,20 @@ test("Single sticky footer controls lesson-level completion",()=>{
 
 test("Step 7 supplementary instructions are clearly separated from the official manual",()=>{
   const step7=source("src/components/practical/MarksmanFramePreparation.tsx");
-  assert.ok(route.includes('<MarksmanFramePreparation />'));
+  assert.ok(route.includes('<MarksmanFramePreparation onCompleteStep={finishCurrentStep} />'));
   assert.ok(step7.includes("This is a supplementary photo-based frame sequence"));
   assert.ok(step7.includes("Official Step 7 manual (authoritative)"));
   assert.ok(step7.includes("STEP_SEVEN_PHASE_KEY"));
   assert.ok(step7.includes("setItem(STEP_SEVEN_PHASE_KEY"));
 });
 
-test("All lesson changes reset the scroller and mobile mounting settings precede Step 6 viewer",()=>{
+test("Step 6 uses one full-screen 3D stage without a mounting panel",()=>{
   assert.ok(route.includes("currentIndex !== previousStepIndex.current"));
   assert.ok(route.includes("lessonScrollArea.current.scrollTop = 0"));
   const step6=source("src/components/practical/StepSixAssembly.tsx");
-  assert.ok(step6.includes("order-first min-w-0"));
-  assert.ok(step6.includes("lg:order-none"));
+  assert.ok(step6.includes("AssemblyStage"));
+  assert.ok(!step6.includes("Mounting setup · confirm with real parts"));
+  assert.ok(!step6.includes('type="checkbox"'));
+  assert.ok(step6.includes("Photo-estimated layout"));
   assert.ok(ui.includes("min-h-11"),"Touch targets should be at least 44px high");
 });
