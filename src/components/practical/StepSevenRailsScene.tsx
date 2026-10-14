@@ -65,7 +65,7 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     const oldPhase=replay?Math.max(0,phase-1):was;
     for(const id of STEP_SEVEN_RAIL_IDS) {
       const node=railGroups.current[id];if(!node)continue;
-      const destination=railPose(id,phase,config,beamY);
+      const destination=railPose(id,phase,config,beamY,stepSixConfig);
       // Preserve the active rail's previous transform for smooth insertion;
       // only stationary rails snap to their deterministic phase pose.
       if(!initial.current||id!==active||Math.abs(phase-was)>1||reducedMotion){
@@ -74,12 +74,12 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     }
     const current=active&&railGroups.current[active];
     if(initial.current&&active&&current&&(phase!==was||replay)&&!reducedMotion){
-      const start=replay?railPose(active,oldPhase,config,beamY):{
+      const start=replay?railPose(active,oldPhase,config,beamY,stepSixConfig):{
         position:[current.position.x,current.position.y,current.position.z] as [number,number,number],
         rotation:[current.rotation.x,current.rotation.y,current.rotation.z] as [number,number,number],
       };
       if(replay)current.position.set(...start.position);
-      moving.current={id:active,from:start,to:railPose(active,phase,config,beamY),time:0,duration:1.55};
+      moving.current={id:active,from:start,to:railPose(active,phase,config,beamY,stepSixConfig),time:0,duration:1.55};
     }else {moving.current=null;callback.current();}
     previous.current={phase,replayKey};initial.current=true;
   },[phase,replayKey,configKey,config,beamY,reducedMotion]);
@@ -144,7 +144,7 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
         </group>;
       })}
       {STEP_SEVEN_RAIL_IDS.map((id,i)=>{
-        const initialPose=railPose(id,phase,config,beamY);
+        const initialPose=railPose(id,phase,config,beamY,stepSixConfig);
         return <group key={id} name={id} position={initialPose.position} rotation={initialPose.rotation}
           ref={node=>{if(node)railGroups.current[id]=node;else delete railGroups.current[id];}}>
           <mesh geometry={meshes.beam15}>
