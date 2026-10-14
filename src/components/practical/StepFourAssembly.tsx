@@ -139,7 +139,7 @@ export function StepFourAssembly({
       </div>
       <AssemblyPlaybackControls paused={paused}
         previousDisabled={phase === 0 || busy || !prep.valid}
-        replayDisabled={phase === 0 || busy || !prep.valid}
+        replayDisabled={phase === 0 || busy || !prep.valid} replayLabel="Replay action"
         pauseDisabled={!prep.valid}
         nextDisabled={phase >= STEPS.length - 1 || busy || !prep.valid}
         nextLabel={phase === STEPS.length - 2 ? "Inspect assembly" : "Next action"}
