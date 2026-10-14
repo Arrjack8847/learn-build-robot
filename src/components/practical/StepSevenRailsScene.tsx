@@ -8,7 +8,7 @@ import { STEP5_MODEL_PATHS } from "./StepFiveScene";
 import { beamHoleX, seatedPose, type StepSixMountConfig, type StepSixPose, type StepSixStepFiveTransforms } from "./StepSixGeometry";
 import {
   STEP_SEVEN_END_PIN_HOLE, STEP_SEVEN_FINAL_PHASE, STEP_SEVEN_PIN_IDS, STEP_SEVEN_RAIL_IDS,
-  endPinPose, railMounts, railPose, stepSevenCoreOffsetY, stepSevenPose,
+  endPinMount, endPinPose, railMounts, railPose, stepSevenCoreOffsetY, stepSevenPose,
   type StepSevenMovingPart, type StepSevenRailConfig, type StepSevenRailId,
 } from "./stepSevenRailGeometry";
 import beam15Url from "../../../3D for marksman/beams/15 beams.stl?url";
@@ -155,8 +155,9 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
       const node=nodes.current[id];if(!node)continue;
       let pose=lerp(m.from[id],m.to[id],t);
       if(id===m.pinInsertion){
-        // Move the genuine long-connector STL coaxially above its free-end
-        // receiving hole, then insert along beam-local Z.
+        // Move the original long-connector STL above its actual free-end hole
+        // on the BLACK-PIN-facing side of the white beam. After alignment the
+        // pin travels along +local Y toward the beam, never through its back.
         const target=m.to[id];
         const hover:StepSixPose={
           position:[target.position[0],target.position[1]-2.25,target.position[2]],
@@ -206,6 +207,7 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
       {STEP_SEVEN_RAIL_IDS.map(id=>{
         const initial=railPose(id,phase,config,beamY,stepSixConfig);
         const selected=highlighted===id;
+        const endSelected=phase===(id===STEP_SEVEN_RAIL_IDS[0]?5:6);
         const mount=railMounts(id,stepSixConfig,config);
         const receiving=[mount.receivingBlackHole,...mount.receivingGreyHoles];
         return <group key={id} name={id} position={initial.position} rotation={initial.rotation}
@@ -215,8 +217,23 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
             <torusGeometry args={[0.32,0.055,8,30]}/>
             <meshBasicMaterial color={i===0?"#253246":"#18a4f5"} depthTest={false}/>
           </mesh>)}
+          {endSelected&&<mesh name={id+"-black-side-end-hole"} position={[STEP_SEVEN_END_PIN_HOLE-8,0,0.55]}>
+            <torusGeometry args={[0.37,0.075,8,30]}/>
+            <meshBasicMaterial color="#e4a51c" depthTest={false}/>
+          </mesh>}
         </group>;
       })}
+      {(phase===5||phase===6)&&(()=>{
+        const id=STEP_SEVEN_PIN_IDS[phase===5?0:1];
+        const mount=endPinMount(id,config,beamY,stepSixConfig);
+        const [x,y,z]=mount.position;
+        // Alignment line is intentionally on the same side as the black pin,
+        // leading down +local Y to the seated blue end connector.
+        return <Line key={id+"-insertion-axis"}
+          points={[[x,y-2.2,z],[x,y-0.36,z]]}
+          dashed dashSize={0.17} gapSize={0.12}
+          lineWidth={2} color="#e4a51c"/>;
+      })()}
       {STEP_SEVEN_PIN_IDS.map((id,i)=>{
         const initial=endPinPose(id,phase,config,beamY,stepSixConfig);
         const selected=phase===(i===0?5:6);
