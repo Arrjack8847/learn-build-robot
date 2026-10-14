@@ -28,6 +28,12 @@ export interface PracticalStep {
   title: string;
   description: string;
   image?: string;
+  /** Immutable manual references; independent from the interactive step number. */
+  originalManualStepNumbers?: number[];
+  /** Historic/overlapping manual reference: not a new physical operation. */
+  referenceOnly?: boolean;
+  /** Independently reusable assembly produced by the lesson. */
+  assemblyOutputId?: string;
   note?: { type: "warning" | "tip"; text: string };
 }
 
@@ -100,6 +106,8 @@ export interface StudentProgress {
   completedLessonIds: string[];
   lastTheoryPageByModule: Record<string, number>;
   completedStepIds: string[];
+  /** Unmapped historic Step 7/8 completion records, retained without auto-certification. */
+  legacyStepCompletionIds?: string[];
   quizAttempts: QuizAttempt[];
   practicalGrades: PracticalGrade[];
 }
