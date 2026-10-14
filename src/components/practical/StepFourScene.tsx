@@ -329,7 +329,7 @@ function Stage({
           color="#23a0d9" lineWidth={1.7} dashed dashSize={0.15} gapSize={0.12} />
       )}
       <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.07}
-        minDistance={7} maxDistance={36} enablePan autoRotate={phase === 5 && !paused}
+        minDistance={7} maxDistance={36} enablePan onStart={() => { cameraMove.current = null; }} autoRotate={false}
         autoRotateSpeed={0.35} />
     </>
   );
