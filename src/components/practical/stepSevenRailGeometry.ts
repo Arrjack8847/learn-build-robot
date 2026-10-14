@@ -31,19 +31,27 @@ export function railConfigurationErrors(c: StepSevenRailConfig): string[] {
   const errors: string[]=[];
   if (!Number.isFinite(c.railCenterDistance) || c.railCenterDistance < 1.4 || c.railCenterDistance > 4)
     errors.push("Rail separation outside the inspection range.");
-  if (!Number.isInteger(c.firstRailHole) || c.firstRailHole<1 || c.firstRailHole>15)
+  if (!Number.isInteger(c.firstRailHole) || c.firstRailHole<1 || c.firstRailHole>13)
     errors.push("First rail hole must be within 1–15.");
-  if (!Number.isInteger(c.secondRailHole) || c.secondRailHole<1 || c.secondRailHole>15)
+  if (!Number.isInteger(c.secondRailHole) || c.secondRailHole<1 || c.secondRailHole>13)
     errors.push("Second rail hole must be within 1–15.");
   return errors;
 }
-export function railPose(id: StepSevenRailId, phase: number, c:StepSevenRailConfig, beamY:number): StepSixPose {
+export function railPose(id: StepSevenRailId, phase: number, c:StepSevenRailConfig,
+  beamY:number, stepSixConfig:StepSixMountConfig): StepSixPose {
   const first=id===STEP_SEVEN_RAIL_IDS[0], sign=first?1:-1;
+  const side=first?"front":"back";
+  const bridgeIndex=stepSixConfig.bridgeASide===side
+    ?stepSixConfig.bridgeAStart:stepSixConfig.bridgeBStart;
+  const receivingIndex=first?c.firstRailHole:c.secondRailHole;
+  // 11-hole beam #1 is x=-5, centered 15-hole beam #1 is x=-7.
+  // Align matching first bridge and receiving holes; indices remain provisional.
+  const offsetX=(bridgeIndex-6)-(receivingIndex-8);
   const positioned=first?phase>=1:phase>=3;
   const seated=first?phase>=2:phase>=3;
   const position:[number,number,number] = !positioned
-    ? [0,beamY+(first?-4:4),sign*(c.railCenterDistance+3.7)]
-    : [0,beamY,sign*(c.railCenterDistance+(seated?0:1.9))];
+    ? [offsetX,beamY+(first?-4:4),sign*(c.railCenterDistance+3.7)]
+    : [offsetX,beamY,sign*(c.railCenterDistance+(seated?0:1.9))];
   return {position,rotation:[0,0,0]};
 }
 export function railGuide(config:StepSixMountConfig,rail:StepSevenRailId,c:StepSevenRailConfig) {
