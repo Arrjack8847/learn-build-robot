@@ -1,6 +1,7 @@
 /**
  * Browser screenshot QA for the optional photo frame tutorial.
  * Only captures what headless Chromium actually renders (not ground truth).
+ * The lesson interface is now full-screen with a floating dock.
  * Run against a locally running Vite dev server.
  */
 import { chromium } from "playwright";
@@ -29,32 +30,34 @@ try {
     }));
   });
   await page.goto(baseURL + "/practical/marksmanship", { waitUntil: "networkidle" });
-  await page.getByRole("heading", { name: "Photo-based frame preparation" })
+  await page.getByText("Photo-based frame preparation", { exact: true }).first()
     .waitFor({ state: "visible", timeout: 20000 });
   const canvas = page.getByLabel("Interactive photo-based Marksmanship frame assembly 3D viewer");
+  const stage = page.locator(".assembly-lesson-stage");
+  await stage.waitFor({ state: "visible", timeout: 20000 });
   await canvas.waitFor({ state: "visible", timeout: 20000 });
-  // Capture uncluttered geometry first; hole labels remain separately interactive.
-  const next = page.getByRole("button", { name: "Next action" });
+  // Capture complete student-visible lesson stage, including the floating instruction dock.
+  const next = page.getByRole("button", { name: "Next Action" });
   for (let n = 0; n < 6; n++) await next.click();
   await page.waitForTimeout(1200); // reduced-motion poses apply immediately
   await canvas.scrollIntoViewIfNeeded();
-  await canvas.screenshot({ path: output + "/u-shaped-desktop.png" });
+  await stage.screenshot({ path: output + "/u-shaped-desktop.png" });
   await next.click();
   await page.waitForTimeout(1200);
-  await canvas.screenshot({ path: output + "/rectangular-desktop.png" });
+  await stage.screenshot({ path: output + "/rectangular-desktop.png" });
   // Phone viewport — verify canvas interaction and controls remain reachable.
   await page.setViewportSize({ width: 390, height: 1600 });
   await page.waitForTimeout(1000);
   await canvas.scrollIntoViewIfNeeded();
-  await canvas.screenshot({ path: output + "/rectangular-mobile.png" });
+  await stage.screenshot({ path: output + "/rectangular-mobile.png" });
   await page.setViewportSize({ width: 1280, height: 1800 });
   // Prepare the two black pins and verify the 15-hole beam is still separate.
   for (let n = 0; n < 3; n++) await next.click();
   await page.waitForTimeout(1100);
   await canvas.scrollIntoViewIfNeeded();
-  await canvas.screenshot({ path: output + "/final-two-separate-units.png" });
+  await stage.screenshot({ path: output + "/final-two-separate-units.png" });
   // The viewer is only mounted inside Step 7, not Step 8 or every step.
-  await page.getByRole("button", { name: /Done — Next Step/ }).click();
+  await page.getByRole("button", { name: /Complete Step/ }).click();
   await canvas.waitFor({ state: "detached", timeout: 10000 });
   await page.getByRole("button", { name: "Go to previous step" }).click();
   await canvas.waitFor({ state: "visible", timeout: 10000 });
