@@ -44,13 +44,14 @@ test("Two bridges, two hollow elbows, and six separate source pin meshes",()=>{
     assert.ok(scene.includes(part),part);
   }
 });
-test("Safety gate, previous/replay, Step 4 unchanged, Step 6 unmodified",()=>{
-  for(const part of ["confirmedPhysical","Return to Step 4","onBackToStep4","onContinueToStep6","AssemblyPlaybackControls","AssemblyUtilityControls","actual kit and the manual","robot:marksmanship:step4:assembled:v1"]){
+test("No physical checkbox, replay controls, preserved Step 4 state and honest Step 5 handoff",()=>{
+  for(const part of ["onBackToStep4","onContinueToStep6","AssemblyPlaybackControls","AssemblyUtilityControls","AssemblyStage","tutorialCompleted:true","physicallySelfConfirmed:false","robot:marksmanship:step4:assembled:v1"]){
     assert.ok(controls.includes(part),part);
   }
   const shared=readFileSync(resolve("src/components/practical/AssemblyLessonUI.tsx"),"utf8");
   for(const label of ["Replay","Resume","Reset view"]){assert.ok(shared.includes(label),label);}
-  assert.ok(!controls.includes(">Continue to Step 6"),"Only the shared lesson footer may advance steps");
+  assert.ok(!controls.includes("type=\"checkbox\""),"Physical verification must not be implied by tutorial completion");
+  assert.ok(shared.includes("Complete Step"),"The floating dock owns lesson completion");
   assert.ok(route.includes("isStepFive && !stepFiveReady"));
   assert.ok(route.includes("StepFiveAssembly"));
   assert.ok(route.includes("onBackToStep4"));
