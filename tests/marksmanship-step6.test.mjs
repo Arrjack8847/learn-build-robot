@@ -99,12 +99,13 @@ test("Step 6 requires Step 5 saved state and never edits Steps 1–5 or Step 7",
   assert.ok(ui.includes("STEP5_SNAPSHOT_KEY"));
   assert.ok(ui.includes("physicallySelfConfirmed!==true"));
   assert.ok(ui.includes("beamUnattached!==true"));
-  assert.ok(ui.includes("Continue to Step 7"));
+  assert.ok(ui.includes("onContinueToStep7"));
   assert.ok(ui.includes("Return to Step 5"));
-  assert.ok(ui.includes("Previous"));
-  assert.ok(ui.includes("Replay"));
-  assert.ok(ui.includes("Pause"));
-  assert.ok(ui.includes("Reset camera"));
+  assert.ok(ui.includes("AssemblyPlaybackControls"));
+  assert.ok(ui.includes("AssemblyUtilityControls"));
+  assert.ok(!ui.includes(">Continue to Step 7"),"Single shared lesson footer advances to the next step");
+  const shared=source("src/components/practical/AssemblyLessonUI.tsx");
+  for(const label of ["Previous","Replay","Pause","Reset view"]){assert.ok(shared.includes(label),label);}
   assert.ok(ui.includes("prefers-reduced-motion"));
   assert.ok(scene.includes("autoRotate={phase===7&&!paused&&!reducedMotion}"));
   assert.ok(scene.includes("guidePoseReverse"));
@@ -133,13 +134,13 @@ test("Step 6 desktop gives 3D viewer a dedicated wide workspace",()=>{
   assert.ok(ui.includes("lg:grid-cols-[minmax(0,1.8fr)_minmax(315px,0.95fr)]"),"Large viewer next to configuration");
   assert.ok(ui.includes('h-[clamp(340px,55vh,620px)]'),"Viewer above fold on normal desktop height");
   assert.ok(ui.indexOf('The 3D workspace is ready') < ui.indexOf('Mounting setup · confirm with real parts'),"Immediate status");
-  assert.ok(ui.indexOf('className="relative h-[clamp') < ui.indexOf('Mounting setup · confirm with real parts'),"Viewer before form on narrow mobile screens");
+  assert.ok(ui.includes("order-first min-w-0"),"Required mounting controls render before viewer on mobile");
   assert.ok(ui.includes("onReadyChange(ready)"),"Physical confirmation gate preserved");
 });
 
 
-test("Entering Step 6 resets inherited Step 5 scroll position",()=>{
-  assert.ok(route.includes("previousStepIndex.current !== 5"));
+test("Every new lesson resets inherited 3D workspace scroll position",()=>{
+  assert.ok(route.includes("currentIndex !== previousStepIndex.current"));
   assert.ok(route.includes("lessonScrollArea.current.scrollTop = 0"));
   assert.ok(route.includes("<main ref={lessonScrollArea}"));
 });
