@@ -158,7 +158,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
       </header>
 
       <main ref={lessonScrollArea} className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain">
-        <div className={`mx-auto w-full px-4 pb-4 pt-2.5 sm:px-8 sm:pb-6 sm:pt-4 [@media(max-height:700px)]:pt-2 ${isStepSix || isStepSeven ? "max-w-[1580px]" : "max-w-6xl"}`}>
+        <div className={`mx-auto w-full px-4 pb-4 pt-2.5 sm:px-8 sm:pb-6 sm:pt-4 [@media(max-height:700px)]:pt-2 ${isStepSix ? "max-w-[1580px]" : isStepSeven ? "max-w-[1580px]" : "max-w-6xl"}`}>
           <section className="text-center">
             <h1 className="mx-auto max-w-3xl text-[clamp(1.45rem,6vw,2.35rem)] font-black leading-tight tracking-[-0.035em] text-[#132654] [@media(max-height:700px)]:text-[clamp(1.25rem,5.5vw,1.8rem)]">
               {project.title}
