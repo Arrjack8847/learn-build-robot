@@ -1,9 +1,10 @@
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { Line, OrbitControls } from "@react-three/drei";
-import { Suspense, useLayoutEffect, useMemo, useRef } from "react";
+import { Suspense, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { BufferGeometry, Euler, Group, Vector3 } from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
+import { motionEase, motionThreeStage } from "./marksmanLessonMotion";
 
 export type StepThreeConfig = {
   firstHole: number;
@@ -132,6 +133,9 @@ function ModelStage({
   onMotionComplete: () => void;
 }) {
   const sources = useLoader(STLLoader, PATHS);
+  const { size } = useThree();
+  const portrait = size.width / Math.max(1, size.height) < 0.96;
+  const [guideVisible, setGuideVisible] = useState(false);
   const geometry = useMemo(() => ({
     beam: preparedGeometry(sources[0]!, "beam"),
     lBeam: preparedGeometry(sources[1]!, "lBeam"),
@@ -148,7 +152,7 @@ function ModelStage({
   const moving = useRef<Partial<Record<StepThreePartId, Group>>>({});
   const axleRef = useRef<Group>(null);
   const axleConnectorRef = useRef<Group>(null);
-  const inspectionClock = useRef(0);
+
   const cameraTravel = useRef<{
     elapsed: number; fromTarget: Vector3; toTarget: Vector3;
     fromPosition: Vector3; toPosition: Vector3;
@@ -170,6 +174,7 @@ function ModelStage({
     if (!initialized.current || configChanged) {
       for (const part of MOVING) moving.current[part]?.position.set(...next[part].position);
       travel.current = null;
+      setGuideVisible(false);
       initialized.current = true;
     } else if (phase !== change.phase || replayKey !== change.replayKey) {
       const replay = phase === change.phase;
@@ -184,8 +189,9 @@ function ModelStage({
         to[part] = new Vector3(...next[part].position);
       }
       travel.current = {
-        elapsed: 0, duration: phase === 0 ? 1 : 1.5, from, to,
+        elapsed: 0, duration: phase === 0 ? 0.9 : 1.85, from, to,
       };
+      setGuideVisible(phase >= 1 && phase <= 4);
     }
     previous.current = { phase, replayKey, configKey };
   }, [phase, replayKey, configKey, config]);
@@ -195,7 +201,7 @@ function ModelStage({
     if (!current) return;
     const target = focusFor(phase, config);
     const direction = current.object.position.clone().sub(current.target).normalize();
-    const distance = phase >= 1 && phase <= 4 ? 16 : phase === 5 || phase === 6 ? 12 : 27;
+    const distance = phase >= 1 && phase <= 4 ? (portrait ? 21 : 13.5) : phase === 5 || phase === 6 ? (portrait ? 17 : 12) : portrait ? 34 : 27;
     cameraTravel.current = {
       elapsed: 0,
       fromTarget: current.target.clone(),
@@ -203,7 +209,7 @@ function ModelStage({
       fromPosition: current.object.position.clone(),
       toPosition: target.clone().addScaledVector(direction, distance),
     };
-  }, [phase, configKey, config]);
+  }, [phase, configKey, config, portrait]);
 
   useLayoutEffect(() => {
     controls.current?.reset();
@@ -217,7 +223,7 @@ function ModelStage({
     if (cameraAnimation && controls.current) {
       cameraAnimation.elapsed = Math.min(0.9, cameraAnimation.elapsed + dt);
       const q = cameraAnimation.elapsed / 0.9;
-      const smooth = q * q * (3 - 2 * q);
+      const smooth = motionEase(q);
       controls.current.target.lerpVectors(cameraAnimation.fromTarget, cameraAnimation.toTarget, smooth);
       state.camera.position.lerpVectors(cameraAnimation.fromPosition, cameraAnimation.toPosition, smooth);
       controls.current.update();
@@ -227,16 +233,27 @@ function ModelStage({
     if (animation) {
       animation.elapsed = Math.min(animation.duration, animation.elapsed + dt);
       const t = animation.elapsed / animation.duration;
-      const eased = t * t * (3 - 2 * t);
       for (const part of MOVING) {
         const item = moving.current[part], from = animation.from[part], to = animation.to[part];
-        if (item && from && to) item.position.lerpVectors(from, to, eased);
+        if (item && from && to) {
+          // Only the active pin follows the clearance path; already-installed
+          // connectors must remain perfectly seated as the next part moves.
+          if (from.distanceToSquared(to) < 1e-8) {
+            item.position.copy(to);
+            continue;
+          }
+          const reverse = from.z < to.z;
+          const seated = reverse ? from : to;
+          const aligned: [number, number, number] = [seated.x, seated.y, seated.z + 2.8];
+          item.position.set(...motionThreeStage([from.x, from.y, from.z], aligned, [to.x, to.y, to.z], t, 0.38));
+        }
       }
-      if (t >= 1) { travel.current = null; completed.current(); }
+      if (t >= 1) { travel.current = null; setGuideVisible(false); completed.current(); }
     }
-    inspectionClock.current += dt;
-    if (axleRef.current) axleRef.current.rotation.x = phase === 5 ? Math.sin(inspectionClock.current * 1.3) * 0.35 : 0;
-    if (axleConnectorRef.current) axleConnectorRef.current.rotation.x = phase === 6 ? Math.sin(inspectionClock.current * 1.3) * 0.35 : 0;
+    const inspection = travel.current;
+    const amount = inspection ? Math.sin(motionEase(inspection.elapsed / inspection.duration) * Math.PI) * 0.24 : 0;
+    if (axleRef.current) axleRef.current.rotation.x = phase === 5 ? amount : 0;
+    if (axleConnectorRef.current) axleConnectorRef.current.rotation.x = phase === 6 ? amount : 0;
   });
 
   const positions = poses(phase, config);
@@ -261,14 +278,14 @@ function ModelStage({
       <mesh geometry={geometry.beam} castShadow receiveShadow>
         <meshStandardMaterial color="#e7e9eb" metalness={0.15} roughness={0.65} />
       </mesh>
-      {[...Array(15)].map((_, i) => (
+      {[activeBeamHole].filter((value) => guideVisible && value >= 0).map((i) => (
         <mesh key={i} position={[holeX(i), 0, 0.51]}>
           <torusGeometry args={[0.31, i === activeBeamHole ? 0.065 : 0.017, 8, 28]} />
           <meshBasicMaterial color={i === activeBeamHole ? "#f59e0b" : "#7f97a6"} transparent opacity={i === activeBeamHole ? 0.95 : 0.32} depthTest={false} />
         </mesh>
       ))}
-      {activeBeamHole >= 0 && (
-        <Line points={[[holeX(activeBeamHole), 0, 0.55], [holeX(activeBeamHole), 0, 3.5]]} color="#f59e0b" lineWidth={2} dashed dashSize={0.15} gapSize={0.13} />
+      {guideVisible && activeBeamHole >= 0 && (
+        <Line points={[[holeX(activeBeamHole), 0, 0.55], [holeX(activeBeamHole), 0, 3.5]]} color="#168eea" lineWidth={2} dashed dashSize={0.15} gapSize={0.13} />
       )}
 
       {(["longPinA", "longPinB"] as const).map((part) => (
@@ -289,10 +306,10 @@ function ModelStage({
           <meshStandardMaterial color="#e3e8ec" metalness={0.08} roughness={0.68} />
         </mesh>
       </group>
-      {activeL && (
+      {guideVisible && activeL && (
         <mesh position={[activeL === "left" ? lSpotL.x : lSpotR.x, activeL === "left" ? lSpotL.y : lSpotR.y, 0.54]}>
           <torusGeometry args={[0.33, 0.065, 10, 36]} />
-          <meshBasicMaterial color="#f59e0b" depthTest={false} />
+          <meshBasicMaterial color="#168eea" depthTest={false} />
         </mesh>
       )}
       {(["leftLPin", "rightLPin"] as const).map((part) => (
@@ -302,21 +319,21 @@ function ModelStage({
           </mesh>
         </group>
       ))}
-      {activeL && (
+      {guideVisible && activeL && (
         <Line points={[
           [activeL === "left" ? lSpotL.x : lSpotR.x, activeL === "left" ? lSpotL.y : lSpotR.y, 0.6],
           [activeL === "left" ? lSpotL.x : lSpotR.x, activeL === "left" ? lSpotL.y : lSpotR.y, 3.2],
-        ]} color="#f59e0b" lineWidth={2} dashed />
+        ]} color="#168eea" lineWidth={2} dashed />
       )}
 
       <group ref={axleRef} position={positions.mediumAxle.position} rotation={positions.mediumAxle.rotation}>
         <mesh geometry={geometry.axle} castShadow>
-          <meshStandardMaterial color={phase === 5 ? "#de932b" : "#67798a"} roughness={0.53} />
+          <meshStandardMaterial color="#67798a" roughness={0.53} />
         </mesh>
       </group>
       <group ref={axleConnectorRef} position={positions.axleConnector.position} rotation={positions.axleConnector.rotation}>
         <mesh geometry={geometry.axleConnector} castShadow>
-          <meshStandardMaterial color={phase === 6 ? "#de932b" : "#3d4a56"} roughness={0.58} />
+          <meshStandardMaterial color="#3d4a56" roughness={0.58} />
         </mesh>
       </group>
       <OrbitControls ref={controls} makeDefault enableDamping dampingFactor={0.075} enablePan maxDistance={42} minDistance={9} onStart={() => { cameraTravel.current = null; }} autoRotate={false} autoRotateSpeed={0.35} />

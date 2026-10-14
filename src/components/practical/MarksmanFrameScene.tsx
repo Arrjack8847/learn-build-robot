@@ -1,6 +1,6 @@
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { Line, OrbitControls, Text } from "@react-three/drei";
-import { Component, Suspense, useLayoutEffect, useMemo, useRef } from "react";
+import { Component, Suspense, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { BufferGeometry, Group, Vector3 } from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
@@ -10,6 +10,7 @@ import {
   longPinAnchor, railHole,
 } from "./marksmanFrameGeometry";
 import type { FrameConfig, FramePartId, Pose, Pt3 } from "./marksmanFrameGeometry";
+import { motionEase, motionGuidedPose } from "./marksmanLessonMotion";
 
 // Vite fingerprints the unmodified source STLs; no boxes or generated proxy meshes.
 import beam7Url from "../../../3D for marksman/beams/7.stl?url";
@@ -44,7 +45,7 @@ function normalizedMesh(source: BufferGeometry, expectedX: number | null, expect
   mesh.computeVertexNormals();
   return mesh;
 }
-const ease = (x: number) => x * x * (3 - 2 * x);
+const ease = motionEase;
 function blend(a: Pose, b: Pose, t: number): Pose {
   const f = ease(Math.max(0, Math.min(1, t)));
   return {
@@ -61,16 +62,15 @@ function blend(a: Pose, b: Pose, t: number): Pose {
   };
 }
 function insertedTravel(a: Pose, b: Pose, amount: number, reverse: boolean): Pose {
-  // Align at a clearance height first, then translate along the shared hole
-  // axis with no rotation during insertion. Backward navigation reverses it.
+  // Match Step 6: line up directly over the actual target, then insert
+  // vertically along the original through-hole axis without scaling STL parts.
+  // Rewinding runs through the same clearance pose in reverse order.
   const seated = reverse ? a : b;
-  const raised: Pose = {
+  const aligned: Pose = {
     position: [seated.position[0], seated.position[1], seated.position[2] + 3],
-    rotation: b.rotation,
+    rotation: seated.rotation,
   };
-  return amount < 0.46
-    ? blend(a, raised, amount / 0.46)
-    : blend(raised, b, (amount - 0.46) / 0.54);
+  return motionGuidedPose(a, aligned, b, amount, 0.4);
 }
 const ID_TO_MESH = (id: FramePartId) =>
   id.startsWith("FRAME_BEAM_7") ? "beam7" :
@@ -79,8 +79,8 @@ const ID_TO_MESH = (id: FramePartId) =>
   id.startsWith("FRAME_LONG_PIN") ? "long" : "black";
 
 function HoleMarkers({
-  id, phase, config, labels,
-}: { id: FramePartId; phase: number; config: FrameConfig; labels: boolean }) {
+  id, phase, config, labels, activeGuide,
+}: { id: FramePartId; phase: number; config: FrameConfig; labels: boolean; activeGuide: boolean }) {
   const beam = id.startsWith("FRAME_BEAM_7") ? 7 : id.startsWith("FRAME_BEAM_5") ? 5 : id === "FRAME_BEAM_15" ? 15 : 0;
   if (!beam) return null;
   const target = (() => {
@@ -98,15 +98,15 @@ function HoleMarkers({
         const x = i - (beam - 1) / 2;
         return (
           <group key={i} position={[x, 0, BEAM_THICKNESS_MM / (2 * PITCH_MM) + 0.017]}>
-            {(labels || active) && (
+            {(labels || (active && activeGuide)) && (
               <mesh>
                 <torusGeometry args={[0.3, active ? 0.052 : 0.018, 7, 25]} />
-                <meshBasicMaterial color={active ? "#f6a800" : "#4281b5"}
+                <meshBasicMaterial color={active ? "#168eea" : "#4281b5"}
                   transparent opacity={active ? 1 : 0.55} depthTest={!active} />
               </mesh>
             )}
             {labels && (
-              <Text position={[0, -0.57, 0.08]} fontSize={0.3} color={active ? "#b77700" : "#233c53"}
+              <Text position={[0, -0.57, 0.08]} fontSize={0.3} color={active ? "#116eaf" : "#233c53"}
                 outlineColor="#ffffff" outlineWidth={0.018} anchorX="center" anchorY="middle">
                 {String(i + 1)}
               </Text>
@@ -151,7 +151,9 @@ function ModelStage({
   const first = useRef(true);
   const movement = useRef<Travel | null>(null);
   const cameraMovement = useRef<CameraTravel | null>(null);
-  const { camera } = useThree();
+  const { camera, size } = useThree();
+  const portrait = size.width / Math.max(1, size.height) < 0.96;
+  const [guideVisible, setGuideVisible] = useState(false);
   const configKey = [config.firstMount, ...config.beam15Holes, config.longConnector].join(":");
 
   useLayoutEffect(() => {
@@ -174,9 +176,13 @@ function ModelStage({
     const changed = !first.current;
     const activeAction = replaying ? phase : reverse ? oldPhase : phase;
     movement.current = changed && !reducedMotion
-      ? { from, to: target, duration: PHASE_DURATION[activeAction] ?? 1.2,
+      ? { from, to: target,
+          duration: INSERTING_PART[activeAction]
+            ? Math.max(1.85, PHASE_DURATION[activeAction] ?? 1.85)
+            : PHASE_DURATION[activeAction] ?? 0.9,
           elapsed: 0, reverse, inserting: INSERTING_PART[activeAction] }
       : null;
+    setGuideVisible(Boolean(movement.current?.inserting));
     if (!movement.current) {
       completeRef.current();
       for (const id of PART_IDS) {
@@ -188,10 +194,13 @@ function ModelStage({
     const focal = new Vector3(...frameFocus(phase, config));
     const initialOverview = phase === 0 || phase === 10;
     const frameOverview = phase >= 5 && phase <= 7;
+    // Wider framing for the entire rectangle; portrait screens need extra
+    // distance so neither rail is clipped by the floating instruction dock.
     const offset = new Vector3(
-      frameOverview ? 6.5 : initialOverview ? 12 : 6.5,
-      frameOverview ? -8 : initialOverview ? -17 : -7.5,
-      frameOverview ? 11.5 : initialOverview ? 19 : 10.5,
+      frameOverview ? 6.5 : initialOverview ? 12 : 4.5,
+      frameOverview ? -8 : initialOverview ? -17 : -6.2,
+      portrait ? (frameOverview ? 19 : initialOverview ? 29 : 14.5)
+        : (frameOverview ? 13 : initialOverview ? 20 : 10.5),
     );
     const destination = focal.clone().add(offset);
     if (first.current) {
@@ -210,7 +219,7 @@ function ModelStage({
     first.current = false;
     previousPhase.current = phase;
     lastReplayKey.current = replayKey;
-  }, [phase, configKey, config, replayKey, exploded, reducedMotion, camera]);
+  }, [phase, configKey, config, replayKey, exploded, reducedMotion, camera, portrait]);
 
   useLayoutEffect(() => {
     if (resetCameraKey === 0) return;
@@ -218,9 +227,10 @@ function ModelStage({
     const wide = phase === 0 || phase === 10;
     const frame = phase >= 5 && phase <= 7;
     camera.position.copy(focus).add(new Vector3(
-      frame ? 6.5 : wide ? 12 : 6.5,
-      frame ? -8 : wide ? -17 : -7.5,
-      frame ? 11.5 : wide ? 19 : 10.5,
+      frame ? 6.5 : wide ? 12 : 4.5,
+      frame ? -8 : wide ? -17 : -6.2,
+      portrait ? (frame ? 19 : wide ? 29 : 14.5)
+        : (frame ? 13 : wide ? 20 : 10.5),
     ));
     orbit.current?.target.copy(focus);
     cameraMovement.current = null;
@@ -253,7 +263,7 @@ function ModelStage({
           obj.position.set(...p.position);
           obj.rotation.set(...p.rotation);
         }
-        if (fraction === 1) { movement.current = null; completeRef.current(); }
+        if (fraction === 1) { movement.current = null; setGuideVisible(false); completeRef.current(); }
       }
       const c = cameraMovement.current;
       if (c) {
@@ -292,22 +302,22 @@ function ModelStage({
           position={start[id].position} rotation={start[id].rotation}>
           <mesh geometry={meshFor(id)} castShadow>
             <meshStandardMaterial color={colorFor(id)} roughness={0.48} metalness={0.07} side={2}
-              emissive={id === active ? "#563500" : "#000000"} emissiveIntensity={id === active ? 0.2 : 0} />
+              emissive={guideVisible && id === active ? "#154d87" : "#000000"} emissiveIntensity={guideVisible && id === active ? 0.16 : 0} />
           </mesh>
-          <HoleMarkers id={id} phase={phase} config={config} labels={labels} />
+          <HoleMarkers id={id} phase={phase} config={config} labels={labels} activeGuide={guideVisible} />
         </group>
       ))}
-      {!exploded && destination && (
+      {!exploded && guideVisible && destination && (
         <>
           <Line points={[[destination[0], destination[1], destination[2] + 3.1],
             [destination[0], destination[1], destination[2] - 0.55]]}
-            color="#e5a217" lineWidth={1.8} dashed dashSize={0.16} gapSize={0.1} />
+            color="#168eea" lineWidth={1.8} dashed dashSize={0.16} gapSize={0.1} />
           {active === "FRAME_BEAM_5_A" || active === "FRAME_BEAM_5_B" ? (
             <>
               {(["A", "B"] as const).map((side) => {
                 const h = crossbeamHole(side, active === "FRAME_BEAM_5_A" ? 0 : 1, config);
                 return <Line key={side} points={[[h[0], h[1], h[2] + 3], h]}
-                  color="#f6b431" dashed dashSize={0.1} gapSize={0.1} />;
+                  color="#168eea" dashed dashSize={0.1} gapSize={0.1} />;
               })}
             </>
           ) : null}

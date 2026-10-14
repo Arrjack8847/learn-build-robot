@@ -1,9 +1,10 @@
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { Html, Line, OrbitControls } from "@react-three/drei";
-import { Suspense, useLayoutEffect, useMemo, useRef } from "react";
+import { Suspense, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { BufferGeometry, Group, Vector3 } from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
+import { motionEase } from "./marksmanLessonMotion";
 import { STEP5_MODEL_PATHS, STEP5_PART_IDS } from "./StepFiveScene";
 import {
   approachPose, beamHoleX, configComplete, getStepSixAttachments, loosePose,
@@ -46,7 +47,7 @@ function geometryFor(source:BufferGeometry, kind:"beam"|"bridge"|"hollow"|"pin")
   copy.scale(UNITS,UNITS,UNITS);copy.computeVertexNormals();
   return copy;
 }
-function smooth(v:number){const a=Math.min(1,Math.max(0,v));return a*a*(3-2*a);}
+const smooth = motionEase;
 function interpolate(a:StepSixPose,b:StepSixPose,t:number):StepSixPose{
   const k=smooth(t);
   return {
@@ -123,6 +124,7 @@ function ModelStage({phase,config,prepared,replayKey,paused,resetCameraKey,
   }|null>(null);
   const complete=useRef(onMotionComplete);complete.current=onMotionComplete;
   const configured=configComplete(config);
+  const [guideVisible,setGuideVisible]=useState(false);
 
   useLayoutEffect(()=>{
     const configChanged=previousConfig.current!==config;
@@ -132,6 +134,7 @@ function ModelStage({phase,config,prepared,replayKey,paused,resetCameraKey,
       // A different physical-photo calibration or Restart must reset
       // ALL four prepared groups, not leave older mounted units on the beam.
       motion.current=null;
+      setGuideVisible(false);
       PARTS.forEach(id=>{
         const pose=poseAtPhase(id,phase,config,prepared.transforms,beamY);
         const part=groups.current[id];
@@ -164,8 +167,10 @@ function ModelStage({phase,config,prepared,replayKey,paused,resetCameraKey,
         motion.current={id,from:start,to:target,phase,
           fromPhase:replay?phase-1:fromPhase,
           time:0,duration:reducedMotion?0.12:(phase===3||phase===5?1.25:2.05)};
+         setGuideVisible(true);
       }else {
         motion.current=null;
+        setGuideVisible(false);
         complete.current();
       }
     }
@@ -205,7 +210,7 @@ function ModelStage({phase,config,prepared,replayKey,paused,resetCameraKey,
       step.phase,step.fromPhase,ratio);
     groups.current[step.id]?.position.set(...p.position);
     groups.current[step.id]?.rotation.set(...p.rotation);
-    if(ratio>=1){motion.current=null;complete.current();}
+    if(ratio>=1){motion.current=null;setGuideVisible(false);complete.current();}
   });
 
   const pin=(id:string)=>{
@@ -219,7 +224,7 @@ function ModelStage({phase,config,prepared,replayKey,paused,resetCameraKey,
     </group>;
   };
   const activeId=ACTIVE_BY_PHASE[phase];
-  const highlighted=configured && activeId
+  const highlighted=configured && guideVisible && activeId
     ?getStepSixAttachments(config).find(a=>a.id===activeId)
     :null;
   return <>

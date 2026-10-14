@@ -1,10 +1,11 @@
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { Line, OrbitControls } from "@react-three/drei";
-import { Suspense, useLayoutEffect, useMemo, useRef } from "react";
+import { Suspense, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { BufferGeometry, Group, Vector3 } from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import type { StepThreeConfig } from "./StepThreeScene";
+import { motionEase } from "./marksmanLessonMotion";
 
 export type StepFourPart =
   | "beam15" | "longPinA" | "longPinB" | "firstL" | "secondL"
@@ -92,10 +93,7 @@ function preparedGeometry(source: BufferGeometry, kind: "beam" | "l" | "center")
   copy.computeVertexNormals();
   return copy;
 }
-function smooth(t: number) {
-  const v = Math.min(1, Math.max(0, t));
-  return v * v * (3 - 2 * v);
-}
+const smooth = motionEase;
 function lerpPose(from: Transform, to: Transform, amount: number): Transform {
   const t = smooth(amount);
   return {
@@ -154,6 +152,9 @@ function Stage({
   onMotionComplete: () => void;
 }) {
   const sources = useLoader(STLLoader, FILES);
+  const { size } = useThree();
+  const portrait = size.width / Math.max(1, size.height) < 0.96;
+  const [guideVisible, setGuideVisible] = useState(false);
   const meshes = useMemo(() => ({
     beam: preparedGeometry(sources[0]!, "beam"),
     l: preparedGeometry(sources[1]!, "l"),
@@ -186,6 +187,7 @@ function Stage({
         refs.current[id]?.rotation.set(...next[id].rotation);
       }
       initialized.current = true;
+      setGuideVisible(false);
       completed.current();
     } else if (phase !== previous.current.phase || replayKey !== previous.current.replayKey) {
       const prev = previous.current.phase;
@@ -205,7 +207,8 @@ function Stage({
         }
       }
       // Rewind the same alignment/insertion path on Previous, rather than cutting through parts.
-      motion.current = { action: Math.max(prev, phase), elapsed: 0, duration: 1.65, from, to: next };
+      motion.current = { action: Math.max(prev, phase), elapsed: 0, duration: phase === 0 ? 0.9 : 1.95, from, to: next };
+      setGuideVisible(phase >= 1 && phase <= 4);
     }
     previous.current = { phase, replayKey };
   }, [phase, replayKey]);
@@ -220,9 +223,9 @@ function Stage({
       fromTarget: ctrl.target.clone(),
       toTarget: target,
       fromPosition: ctrl.object.position.clone(),
-      toPosition: target.clone().addScaledVector(offset, phase === 0 || phase === 5 ? 23 : 13),
+      toPosition: target.clone().addScaledVector(offset, phase === 0 || phase === 5 ? (portrait ? 29 : 23) : portrait ? 19 : 12.5),
     };
-  }, [phase]);
+  }, [phase, portrait]);
   useLayoutEffect(() => {
     orbit.current?.reset();
     cameraMove.current = null;
@@ -253,13 +256,14 @@ function Stage({
       }
       if (t >= 1) {
         motion.current = null;
+        setGuideVisible(false);
         completed.current();
       }
     }
   });
 
-  const first = phase === 2 || phase === 3;
-  const second = phase === 4;
+  const first = guideVisible && (phase === 2 || phase === 3);
+  const second = guideVisible && phase === 4;
   const mkPin = (id: "longPinA" | "longPinB", x: number) => (
     <group key={id} position={[x, 0, 0]}>
       <mesh geometry={longPin} castShadow>
@@ -282,13 +286,13 @@ function Stage({
         <>
           <mesh position={[0, 0, front ? 0.53 : -0.53]}>
             <torusGeometry args={[0.33, 0.06, 8, 32]} />
-            <meshBasicMaterial color="#f59e0b" depthTest={false} />
+            <meshBasicMaterial color="#168eea" depthTest={false} />
           </mesh>
           <mesh position={[0, -1, front ? 0.53 : -0.53]}>
             <torusGeometry args={[0.33, 0.06, 8, 32]} />
-            <meshBasicMaterial color="#f59e0b" depthTest={false} />
+            <meshBasicMaterial color="#168eea" depthTest={false} />
           </mesh>
-          {phase === 3 && (
+          {guideVisible && phase === 3 && (
             <mesh position={[0, -3, front ? 0.54 : -0.54]}>
               <torusGeometry args={[0.33, 0.065, 8, 32]} />
               <meshBasicMaterial color="#23a0d9" depthTest={false} />

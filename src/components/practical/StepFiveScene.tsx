@@ -1,9 +1,10 @@
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { Html, Line, OrbitControls } from "@react-three/drei";
-import { Suspense, useLayoutEffect, useMemo, useRef } from "react";
+import { Suspense, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { BufferGeometry, Group, Vector3 } from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
+import { motionEase } from "./marksmanLessonMotion";
 
 // All transforms share the native STL pitch: 8 mm per world unit.
 // Native 48989: two Z-through bores at x=-8,+8, y=4, z=0..7.8.
@@ -101,10 +102,7 @@ function geometryFor(source:BufferGeometry, kind:"beam"|"bridge"|"hollow"|"pin")
   copy.computeVertexNormals();
   return copy;
 }
-function ease(v:number){
-  const t=Math.max(0,Math.min(1,v));
-  return t*t*(3-2*t);
-}
+const ease = motionEase;
 function mix(a:number,b:number,t:number){return a+(b-a)*t;}
 function interpolated(loose:[number,number,number],align:[number,number,number],
   done:[number,number,number],t:number):[number,number,number]{
@@ -124,6 +122,7 @@ function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete,r
   const {size}=useThree();
   const narrowScreen=size.width/Math.max(1,size.height)<0.96;
   const originals=useLoader(STLLoader,[...STEP5_MODEL_PATHS]);
+  const [guideVisible,setGuideVisible]=useState(false);
   const meshes=useMemo(()=>({
     beam:geometryFor(originals[0]!,"beam"),
     bridge:geometryFor(originals[1]!,"bridge"),
@@ -145,6 +144,7 @@ function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete,r
     if(!initialized.current){
       pinRefs.current.forEach((node,i)=>node?.position.set(...(i<phase?PIN_FINAL[i]!:PIN_LOOSE[i]!)));
       initialized.current=true;
+      setGuideVisible(false);
       completion.current();
     }else if(was!==phase || replay){
       const index=replay?phase-1:Math.max(was,phase)-1;
@@ -156,7 +156,8 @@ function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete,r
           else if(replay)node.position.set(...PIN_LOOSE[i]!);
         });
       }
-      animation.current={index,forward,elapsed:0,duration:reducedMotion?0.08:index>=0 && index<6?2.3:1.3};
+      animation.current={index,forward,elapsed:0,duration:reducedMotion?0.08:index>=0 && index<6?2.25:1.05};
+      setGuideVisible(index>=0 && index<6);
     }
     previous.current={phase,replayKey};
   },[phase,replayKey]);
@@ -195,7 +196,7 @@ function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete,r
       const v=interpolated(PIN_LOOSE[i]!,PIN_APPROACH[i]!,PIN_FINAL[i]!,motion.forward?t:1-t);
       pinRefs.current[i]?.position.set(...v);
     }
-    if(t>=1){animation.current=null;completion.current();}
+    if(t>=1){animation.current=null;setGuideVisible(false);completion.current();}
   });
   const activePin=phase>=1 && phase<=6 ? phase-1:-1;
 
@@ -232,10 +233,10 @@ function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete,r
           <meshStandardMaterial color="#b8c2ce" metalness={0.06} roughness={0.63}/>
         </mesh>
         {showPin(targetIndex)}{showPin(targetIndex+1)}
-        {(activePin===targetIndex || activePin===targetIndex+1) && <>
+        {guideVisible && (activePin===targetIndex || activePin===targetIndex+1) && <>
           <mesh position={[activePin===targetIndex?-1:1,0,0.52]}>
             <torusGeometry args={[0.38,0.055,9,40]}/>
-            <meshBasicMaterial color="#f7a600" depthTest={false}/>
+            <meshBasicMaterial color="#168eea" depthTest={false}/>
           </mesh>
           <Line points={[[activePin===targetIndex?-1:1,0,3.2],
             [activePin===targetIndex?-1:1,0,-0.6]]}
@@ -250,10 +251,10 @@ function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete,r
           <meshStandardMaterial color="#b8c2ce" metalness={0.06} roughness={0.63}/>
         </mesh>
         {showPin(pinIndex)}
-        {activePin===pinIndex && <>
+        {guideVisible && activePin===pinIndex && <>
           <mesh position={[-0.5,0,0.52]}>
             <torusGeometry args={[0.35,0.05,9,40]}/>
-            <meshBasicMaterial color="#f7a600" depthTest={false}/>
+            <meshBasicMaterial color="#168eea" depthTest={false}/>
           </mesh>
           <Line points={[[-0.5,0,2.7],[-0.5,0,-0.6]]}
             color="#168eea" dashed dashSize={0.17} gapSize={0.11} lineWidth={1.6}/>

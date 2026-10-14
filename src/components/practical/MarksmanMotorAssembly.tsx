@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Scan, Wrench } from "lucide-react";
 import { AssemblyLessonHeader, AssemblyActionCard, AssemblyPlaybackControls, AssemblyStage } from "./AssemblyLessonUI";
+import { motionEase } from "./marksmanLessonMotion";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
@@ -104,10 +105,7 @@ const names: Record<PartName, string> = {
 
 const vec = (p: Pt3) => new THREE.Vector3(p[0], p[1], p[2]);
 const clamp = (x: number) => Math.min(1, Math.max(0, x));
-const ease = (x: number) => {
-  const t = clamp(x);
-  return t * t * (3 - 2 * t);
-};
+const ease = motionEase;
 const pos = (from: Pt3, to: Pt3, t: number): Pt3 => {
   const p = vec(from).lerp(vec(to), ease(t));
   return [p.x, p.y, p.z];
@@ -303,7 +301,7 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
     const keyLight = new THREE.DirectionalLight(0xffffff, 3);
     keyLight.position.set(4, -5, 9);
     scene.add(keyLight, new THREE.HemisphereLight(0xffffff, 0xaeb9c4, 2));
-    const floor = new THREE.GridHelper(10, 20, 0xdac9ab, 0xe9e2d8);
+    const floor = new THREE.GridHelper(10, 20, 0xd6e3ee, 0xeaf0f6);
     floor.rotation.x = Math.PI / 2;
     floor.position.z = -3;
     scene.add(floor);
@@ -421,7 +419,7 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       if (!dead) setFailure("A robot model did not load. Refer to the original manual.");
     });
 
-    const guidesMat = new THREE.LineDashedMaterial({ color: 0xdb7a27, dashSize: 0.1, gapSize: 0.06 });
+    const guidesMat = new THREE.LineDashedMaterial({ color: 0x168eea, dashSize: 0.1, gapSize: 0.06 });
     const disposeGuide = () => {
       if (guideLine) { guide.remove(guideLine); guideLine.geometry.dispose(); guideLine = undefined; }
       if (ring) {
@@ -443,7 +441,7 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
         guide.add(guideLine);
       }
       if (action.target) {
-        const mat = new THREE.MeshBasicMaterial({ color: 0xe8892e, transparent: true, opacity: 0.75, depthTest: false });
+        const mat = new THREE.MeshBasicMaterial({ color: 0x168eea, transparent: true, opacity: 0.75, depthTest: false });
         ring = new THREE.Mesh(new THREE.TorusGeometry(0.135, 0.018, 8, 32), mat);
         ring.position.copy(vec(action.target));
         guide.add(ring);
@@ -524,6 +522,7 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       }
       if (id !== actions.length - 1 || timeRef.current < 1) completedSignal = false;
       const fractionNow = timeRef.current;
+       guide.visible = currentStep === 2 && fractionNow < 1;
       for (const [part, object] of objects) {
         const pose = poseAt(actionRef.current, fractionNow, part, currentStep);
         object.position.copy(vec(pose.position));
@@ -535,7 +534,7 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
         for (const mat of materials.get(part) ?? []) {
           mat.transparent = !highlighted;
           mat.opacity = highlighted ? 1 : 0.78;
-          mat.emissive.setHex(highlighted && currentStep === 2 ? 0x4b2605 : 0x000000);
+          mat.emissive.setHex(highlighted && currentStep === 2 && timeRef.current < 1 ? 0x145e9f : 0x000000);
           mat.emissiveIntensity = highlighted ? 0.11 : 0;
         }
       }
