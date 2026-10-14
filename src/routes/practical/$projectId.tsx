@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import {
   ArrowLeft,
@@ -21,6 +21,8 @@ import { Marksman3DPreview } from "@/components/practical/Marksman3DPreview";
 import { StepThreeAssembly } from "@/components/practical/StepThreeAssembly";
 import { StepFourAssembly } from "@/components/practical/StepFourAssembly";
 import { MarksmanFramePreparation } from "@/components/practical/MarksmanFramePreparation";
+import { StepFiveAssembly } from "@/components/practical/StepFiveAssembly";
+import { StepSixAssembly } from "@/components/practical/StepSixAssembly";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -64,9 +66,22 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const [currentIndex, setCurrentIndex] = useState(
     firstIncompleteIndex >= 0 ? firstIncompleteIndex : 0,
   );
+  const lessonScrollArea = useRef<HTMLElement>(null);
+  const previousStepIndex = useRef(currentIndex);
+  useLayoutEffect(() => {
+    // Step 5 is taller than the old illustration layout. When entering
+    // Step 6, put the expanded 3D workspace at its beginning, not at
+    // the scroll position inherited from the preceding lesson screen.
+    if (currentIndex === 5 && previousStepIndex.current !== 5 && lessonScrollArea.current) {
+      lessonScrollArea.current.scrollTop = 0;
+    }
+    previousStepIndex.current = currentIndex;
+  }, [currentIndex]);
   const [stage, setStage] = useState<SessionStage>("steps");
   const [stepThreeReady, setStepThreeReady] = useState(false);
   const [stepFourReady, setStepFourReady] = useState(false);
+  const [stepFiveReady, setStepFiveReady] = useState(false);
+  const [stepSixReady, setStepSixReady] = useState(false);
   const [preview3D, setPreview3D] = useState(false);
   const [previewStep2Ready, setPreviewStep2Ready] = useState(false);
   const currentStep = project.steps[currentIndex];
@@ -92,6 +107,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const currentStepId = currentStep.id;
   const isStepThree = project.id === "marksmanship" && currentStep.number === 3;
   const isStepFour = project.id === "marksmanship" && currentStep.number === 4;
+  const isStepFive = project.id === "marksmanship" && currentStep.number === 5;
+  const isStepSix = project.id === "marksmanship" && currentStep.number === 6;
   const displayedPercent = Math.round(((currentIndex + 1) / project.steps.length) * 100);
   const helpItem =
     project.troubleshooting.length > 0
@@ -100,7 +117,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const hasHelp = Boolean(helpItem || project.safetyNote);
 
   function finishCurrentStep() {
-    if ((isStepThree && !stepThreeReady) || (isStepFour && !stepFourReady)) return;
+    if ((isStepThree && !stepThreeReady) || (isStepFour && !stepFourReady) || (isStepFive && !stepFiveReady) || (isStepSix && !stepSixReady)) return;
     toggleStepCompleted(currentStepId, true);
     if (isLastStep) {
       setStage("complete");
@@ -138,8 +155,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
         </span>
       </header>
 
-      <main className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain">
-        <div className="mx-auto w-full max-w-6xl px-4 pb-4 pt-2.5 sm:px-8 sm:pb-6 sm:pt-4 [@media(max-height:700px)]:pt-2">
+      <main ref={lessonScrollArea} className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain">
+        <div className={`mx-auto w-full px-4 pb-4 pt-2.5 sm:px-8 sm:pb-6 sm:pt-4 [@media(max-height:700px)]:pt-2 ${isStepSix ? "max-w-[1580px]" : "max-w-6xl"}`}>
           <section className="text-center">
             <h1 className="mx-auto max-w-3xl text-[clamp(1.45rem,6vw,2.35rem)] font-black leading-tight tracking-[-0.035em] text-[#132654] [@media(max-height:700px)]:text-[clamp(1.25rem,5.5vw,1.8rem)]">
               {project.title}
@@ -158,7 +175,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
             </div>
           </section>
 
-          <div className="mx-auto mt-3 grid w-full max-w-5xl gap-3.5 md:mt-5 md:grid-cols-[1.02fr_0.98fr] md:items-center md:gap-7 [@media(max-height:700px)]:mt-2.5">
+          <div className={isStepSix ? "mx-auto mt-3 w-full max-w-[1540px] md:mt-4" : "mx-auto mt-3 grid w-full max-w-5xl gap-3.5 md:mt-5 md:grid-cols-[1.02fr_0.98fr] md:items-center md:gap-7 [@media(max-height:700px)]:mt-2.5"}>
             <div className="min-w-0">
               {project.id === "marksmanship" && currentStep.number <= 2 && (
                 <div aria-label="Assembly instruction view" className="mb-2 flex flex-wrap gap-2">
@@ -183,8 +200,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
                   </button>
                 </div>
               )}
-              <div className="relative flex w-full items-center justify-center overflow-hidden rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:min-h-[420px] md:rounded-[32px]">
-              <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-20" />
+              <div className={isStepSix ? "relative w-full min-w-0" : "relative flex w-full items-center justify-center overflow-hidden rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:min-h-[420px] md:rounded-[32px]"}>
+              {!isStepSix && <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-20" />}
               {project.id === "marksmanship" && currentStep.number <= 2 && preview3D && currentStep.image ? (
                 <Marksman3DPreview
                   step={currentStep.number}
@@ -202,6 +219,14 @@ function BuildSession({ project }: { project: PracticalProject }) {
                 <StepThreeAssembly onReadyChange={setStepThreeReady} />
               ) : project.id === "marksmanship" && currentStep.number === 4 ? (
                 <StepFourAssembly onReadyChange={setStepFourReady} onBackToStep3={() => setCurrentIndex(2)} />
+              ) : isStepFive ? (
+                <StepFiveAssembly onReadyChange={setStepFiveReady}
+                  onBackToStep4={() => setCurrentIndex(3)}
+                  onContinueToStep6={finishCurrentStep} />
+              ) : isStepSix ? (
+                <StepSixAssembly onReadyChange={setStepSixReady}
+                  onBackToStep5={() => setCurrentIndex(4)}
+                  onContinueToStep7={finishCurrentStep} />
               ) : currentStep.image ? (
                 <img
                   alt={`${project.title} step ${currentStep.number}: ${currentStep.title}`}
@@ -218,7 +243,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
             </div>
             </div>
 
-            <section className="min-w-0 md:rounded-[30px] md:border md:border-slate-200/90 md:bg-white md:p-7 md:shadow-[0_14px_36px_rgba(20,55,90,0.08)]">
+            {!isStepSix && <section className="min-w-0 md:rounded-[30px] md:border md:border-slate-200/90 md:bg-white md:p-7 md:shadow-[0_14px_36px_rgba(20,55,90,0.08)]">
               <p className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] text-[#168eea] sm:text-xs">
                 <CheckCircle2 aria-hidden="true" className="size-4" />
                 Do this now
@@ -294,7 +319,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
                   </DialogContent>
                 </Dialog>
               ) : null}
-            </section>
+            </section>}
           </div>
           {project.id === "marksmanship" && currentStep.number === 7 && (
             <section
@@ -346,8 +371,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
           ) : (
             <Button
               className="min-h-12 flex-1 rounded-full bg-[#168eea] text-base font-black text-white shadow-[0_10px_26px_rgba(22,142,234,0.24)] hover:bg-[#0e82dd] sm:min-h-[52px]"
-              disabled={(project.id === "marksmanship" && currentStep.number === 2 && preview3D && !previewStep2Ready) || (isStepThree && !stepThreeReady) || (isStepFour && !stepFourReady)}
-              title={isStepThree && !stepThreeReady ? "Complete all seven Step 3 actions first" : isStepFour && !stepFourReady ? "Complete all five Step 4 actions first" : undefined}
+              disabled={(project.id === "marksmanship" && currentStep.number === 2 && preview3D && !previewStep2Ready) || (isStepThree && !stepThreeReady) || (isStepFour && !stepFourReady) || (isStepFive && !stepFiveReady) || (isStepSix && !stepSixReady)}
+              title={isStepThree && !stepThreeReady ? "Complete all seven Step 3 actions first" : isStepFour && !stepFourReady ? "Complete all five Step 4 actions first" : isStepFive && !stepFiveReady ? "Confirm physical Step 5 preparation to proceed" : isStepSix && !stepSixReady ? "Finish and physically confirm all Step 6 attachments first" : undefined}
               onClick={finishCurrentStep}
               type="button"
             >
