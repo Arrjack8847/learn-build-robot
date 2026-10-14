@@ -107,10 +107,8 @@ export function stepSevenPoses(phase:number,config:StepSevenConfig):Record<StepS
     poses[("BLUE_"+(i+1)) as "BLUE_1"|"BLUE_2"|"BLUE_3"|"BLUE_4"] =
       xyz(p[0],p[1],p[2]);
   });
-  const blackY1 = -2;
-  const blackY2 = 2;
-  const firstY = longAligned ? blackY1 : blackY1;
-  const secondY = longAligned ? blackY2 : blackY2;
+  const firstY = longAligned ? -2 : config.fifteenNearHole - 8;
+  const secondY = firstY + 4;
   poses.BLACK_1=phase>=7
     ? xyz(longX,firstY,longZ+STEP_SEVEN_LEVEL/2)
     : xyz(5.6,-5.4,1.3);
