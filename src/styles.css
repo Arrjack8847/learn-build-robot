@@ -186,3 +186,72 @@
     linear-gradient(to bottom, oklch(1 0 0 / 7%) 1px, transparent 1px);
   background-size: 28px 28px;
 }
+
+/* Shared, full-screen Marksmanship 3D lesson. The controls never steal orbit gestures outside the dock. */
+.assembly-lesson-stage {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: clamp(520px, calc(100svh - 185px), 860px);
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #d7e4f0;
+  border-radius: 24px;
+  background: #f4f8fc;
+  box-shadow: 0 12px 36px rgba(20, 55, 90, .08);
+}
+.assembly-lesson-canvas { position: absolute; inset: 0; z-index: 0; }
+.assembly-lesson-canvas > * { height: 100%; width: 100%; }
+.assembly-lesson-tools {
+  position: absolute;
+  z-index: 3;
+  top: 12px;
+  right: 12px;
+  max-width: calc(100% - 24px);
+}
+.assembly-lesson-status {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  max-width: min(50%, 340px);
+}
+.assembly-lesson-dock-wrapper {
+  position: absolute;
+  inset-inline: 12px;
+  bottom: max(12px, env(safe-area-inset-bottom, 0px));
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+.assembly-lesson-dock {
+  width: min(100%, 670px);
+  max-height: min(43%, 260px);
+  padding: 13px 15px 10px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  pointer-events: auto;
+  border: 1px solid rgba(219, 232, 244, .94);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .97);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 12px 36px rgba(19, 46, 84, .16);
+}
+@media(max-width:640px) {
+  .assembly-lesson-stage {
+    height: max(530px, calc(100svh - 160px));
+    border-radius: 18px;
+  }
+  .assembly-lesson-dock-wrapper { inset-inline: 8px; bottom: max(8px, env(safe-area-inset-bottom, 0px)); }
+  .assembly-lesson-dock { padding: 10px 12px 8px; max-height: min(45%, 270px); }
+  .assembly-lesson-status { top: 9px; left: 9px; max-width: 45%; }
+  .assembly-lesson-tools { top: 8px; right: 8px; }
+}
+@media(prefers-reduced-motion: reduce) {
+  .assembly-lesson-stage *, .assembly-lesson-stage *::before, .assembly-lesson-stage *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
