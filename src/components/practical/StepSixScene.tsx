@@ -134,6 +134,7 @@ function ModelStage({phase,config,prepared,replayKey,paused,resetCameraKey,
       // A different physical-photo calibration or Restart must reset
       // ALL four prepared groups, not leave older mounted units on the beam.
       motion.current=null;
+      setGuideVisible(false);
       PARTS.forEach(id=>{
         const pose=poseAtPhase(id,phase,config,prepared.transforms,beamY);
         const part=groups.current[id];
@@ -166,8 +167,10 @@ function ModelStage({phase,config,prepared,replayKey,paused,resetCameraKey,
         motion.current={id,from:start,to:target,phase,
           fromPhase:replay?phase-1:fromPhase,
           time:0,duration:reducedMotion?0.12:(phase===3||phase===5?1.25:2.05)};
+         setGuideVisible(true);
       }else {
         motion.current=null;
+        setGuideVisible(false);
         complete.current();
       }
     }
@@ -221,7 +224,7 @@ function ModelStage({phase,config,prepared,replayKey,paused,resetCameraKey,
     </group>;
   };
   const activeId=ACTIVE_BY_PHASE[phase];
-  const highlighted=configured && activeId
+  const highlighted=configured && guideVisible && activeId
     ?getStepSixAttachments(config).find(a=>a.id===activeId)
     :null;
   return <>
