@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  ArrowLeft, ArrowRight, CheckCircle2, Eye, Pause, Play, RotateCcw,
-  ScanSearch, TriangleAlert,
-} from "lucide-react";
+import { ArrowLeft, CheckCircle2, TriangleAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AssemblyLessonHeader, AssemblyActionCard, AssemblyPlaybackControls, AssemblyUtilityControls } from "./AssemblyLessonUI";
 import { getStepFivePreparedSnapshot, STEP5_SNAPSHOT_KEY, StepFiveScene } from "./StepFiveScene";
