@@ -71,7 +71,7 @@ try{
     await next7.click({timeout:15000});
     await page.waitForTimeout(250);
   }
-  await page.getByText("Press the first grey joints into the white beam",{exact:true}).first().waitFor({
+  await page.getByText("Lower all three joints into the first beam",{exact:true}).first().waitFor({
     state:"visible",timeout:15000,
   });
   await page.waitForTimeout(1500);
@@ -80,7 +80,7 @@ try{
     await next7.click({timeout:15000});
     await page.waitForTimeout(250);
   }
-  await page.getByText("Inspect the completed two-rail assembly",{exact:true}).first().waitFor({
+  await page.getByText("Inspect Assembly A",{exact:true}).first().waitFor({
     state:"visible",timeout:15000,
   });
   await page.waitForTimeout(1000);
