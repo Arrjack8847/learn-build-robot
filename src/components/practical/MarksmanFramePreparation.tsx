@@ -5,6 +5,7 @@ import {
   SlidersHorizontal, TriangleAlert, Upload,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AssemblyLessonHeader, AssemblyActionCard, AssemblyPlaybackControls, AssemblyUtilityControls } from "./AssemblyLessonUI";
 import { MarksmanFrameScene } from "./MarksmanFrameScene";
 import { DEFAULT_FRAME_CONFIG, VERIFICATION } from "./marksmanFrameGeometry";
 import type { FrameConfig } from "./marksmanFrameGeometry";
@@ -87,6 +88,7 @@ export function MarksmanFramePreparation({
   const [exploded, setExploded] = useState(false);
   const [labels, setLabels] = useState(false);
   const [showReference, setShowReference] = useState(false);
+  const [showManual, setShowManual] = useState(false);
   const [showCalibration, setShowCalibration] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(readReducedMotion);
   const finished = phase === ACTIONS.length - 1;
@@ -133,20 +135,13 @@ export function MarksmanFramePreparation({
   const photo = localPhotos[photoId] ?? photoUrls?.[photoId];
   return (
     <div className="w-full min-w-0 space-y-3 text-left">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <div>
-          <p className="text-xs font-black uppercase tracking-wider text-[#116eaf]">
-            Step 7 · photo-based 3D animation
-          </p>
-          <p className="mt-1 text-xs text-slate-500">
-            Photo-guided frame sequence · Action {phase + 1} of {ACTIONS.length}
-          </p>
-        </div>
-        <span className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[11px] font-bold text-amber-900">
-          Physical fit not verified
-        </span>
-      </div>
-
+      <AssemblyLessonHeader step={7} title="Photo-based frame preparation"
+        actionIndex={phase} actionCount={ACTIONS.length}
+        trailing={<span className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-900">Physical fit not verified</span>} />
+      <p className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm leading-5 text-amber-950">
+        This is a supplementary photo-based frame sequence, not the official Step 7 instruction.
+        Check the official manual before continuing to Step 8.
+      </p>
       <div className="relative h-[330px] min-h-[280px] overflow-hidden rounded-2xl border border-[#cadbe8] bg-[#f5f9fd] sm:h-[450px] lg:h-[520px]">
         <MarksmanFrameScene phase={phase} config={config} replayKey={replayKey}
           resetCameraKey={resetCameraKey} zoomKey={zoomKey} zoomDirection={zoomDirection}
@@ -167,48 +162,24 @@ export function MarksmanFramePreparation({
         )}
       </div>
 
-      <div aria-live="polite" className="rounded-xl border border-sky-100 bg-white p-3 shadow-sm sm:p-4">
-        <div className="flex items-start gap-3">
-          <span className="grid size-9 shrink-0 place-items-center rounded-full bg-[#e9f4fe] text-sm font-black text-[#0e70b7]">
-            {finished ? <CheckCircle2 className="size-5" /> : phase + 1}
-          </span>
-          <div className="min-w-0">
-            <h3 className="text-sm font-extrabold text-[#132654] sm:text-base">{current.title}</h3>
-            <p className="mt-1 text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6">
-              {current.text}
-            </p>
-          </div>
+      <AssemblyActionCard actionIndex={phase} actionCount={ACTIONS.length}
+        title={current.title} instruction={current.text} />
+      <AssemblyPlaybackControls paused={paused} previousDisabled={phase===0}
+        replayDisabled={phase===0} nextDisabled={finished}
+        onPrevious={()=>go(phase-1)}
+        onReplay={()=>{setPaused(false);setReplayKey(value=>value+1);}}
+        onTogglePause={()=>setPaused(v=>!v)}
+        onNext={()=>go(phase+1)} />
+      <AssemblyUtilityControls step={7} manualShown={showManual}
+        onResetView={()=>setResetCameraKey(v=>v+1)}
+        onToggleManual={()=>setShowManual(v=>!v)}
+        onRestart={()=>{go(0);setResetCameraKey(v=>v+1);}} />
+      {showManual && (
+        <div className="rounded-xl border border-slate-200 bg-white p-3">
+          <p className="mb-2 text-sm font-bold text-[#132654]">Official Step 7 manual (authoritative)</p>
+          <img src="/marksmanship/steps/7.png" alt="Official Marksmanship Step 7 instructions" className="mx-auto max-h-80 w-full object-contain"/>
         </div>
-        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-100">
-          <div className="h-full rounded-full bg-[#168eea] transition-[width] duration-200"
-            style={{ width: String((phase / (ACTIONS.length - 1)) * 100) + "%" }} />
-        </div>
-      </div>
-
-      <div className="flex flex-wrap items-center gap-2">
-        <Button type="button" size="sm" variant="outline" className="min-h-10 rounded-xl"
-          disabled={phase === 0} onClick={() => go(phase - 1)}>
-          <SkipBack className="size-4" /> Previous
-        </Button>
-        <Button type="button" size="sm" variant="outline" className="min-h-10 rounded-xl"
-          disabled={phase === 0} onClick={() => {
-            setPaused(false);
-            setExploded(false);
-            setReplayKey((value) => value + 1);
-          }}>
-          <RotateCcw className="size-4" /> Replay
-        </Button>
-        <Button type="button" size="sm" variant="outline" className="min-h-10 rounded-xl"
-          aria-pressed={paused} onClick={() => setPaused((value) => !value)}>
-          {paused ? <Play className="size-4" /> : <Pause className="size-4" />}
-          {paused ? "Resume" : "Pause"}
-        </Button>
-        <Button type="button" size="sm" className="min-h-10 rounded-xl bg-[#168eea] text-white hover:bg-[#0f7fda] sm:ml-auto"
-          disabled={finished} onClick={() => go(phase + 1)}>
-          Next action <ArrowRight className="size-4" />
-        </Button>
-      </div>
-
+      )}
       <div className="flex flex-wrap items-center gap-1.5">
         <Button type="button" size="sm" variant={spin ? "secondary" : "ghost"}
           className="min-h-10 rounded-lg" aria-pressed={spin}
@@ -219,10 +190,7 @@ export function MarksmanFramePreparation({
           onClick={() => zoom(1)}><Plus className="size-4" /> Zoom in</Button>
         <Button type="button" size="sm" variant="ghost" className="min-h-10 rounded-lg"
           onClick={() => zoom(-1)}><Minus className="size-4" /> Zoom out</Button>
-        <Button type="button" size="sm" variant="ghost" className="min-h-10 rounded-lg"
-          onClick={() => setResetCameraKey((value) => value + 1)}>
-          <ScanSearch className="size-4" /> Reset camera
-        </Button>
+
         <Button type="button" size="sm" variant={exploded ? "secondary" : "ghost"}
           className="min-h-10 rounded-lg" aria-pressed={exploded}
           onClick={() => setExploded((value) => !value)}>
@@ -340,12 +308,7 @@ export function MarksmanFramePreparation({
         clearance, exact black-pin model, and 15-hole mounting indices are not physically verified.
         {VERIFICATION.mechanicallyVerified ? " Measured fit verified." : " Physical dry fit is required before classroom use."}
       </p>
-      <div className="flex flex-wrap gap-2">
-        <Button type="button" size="sm" variant="outline" className="rounded-xl"
-          onClick={() => { go(0); setResetCameraKey((value) => value + 1); }}>
-          <ArrowLeft className="size-4" /> Restart preparation
-        </Button>
-      </div>
+
     </div>
   );
 }
