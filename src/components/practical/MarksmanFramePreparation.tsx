@@ -15,6 +15,15 @@ import type { FrameConfig } from "./marksmanFrameGeometry";
  * from the official Step 7 diagram, and does not alter manual Steps 9 or 11.
  * No progress is written into the official progress-tracking system.
  */
+const STEP_SEVEN_PHASE_KEY = "robot:marksmanship:step7:photo-phase:v1";
+function readSavedStepSevenPhase(): number {
+  if (typeof window === "undefined") return 0;
+  try {
+    const n = Number(window.localStorage.getItem(STEP_SEVEN_PHASE_KEY) ?? "0");
+    return Number.isInteger(n) && n >= 0 && n < 11 ? n : 0;
+  } catch { return 0; }
+}
+
 const ACTIONS = [
   {
     title: "Prepare all eleven loose parts",
@@ -75,7 +84,7 @@ export function MarksmanFramePreparation({
   /** Real user photos can be wired here when their actual repository URLs are available. */
   photoUrls?: Partial<Record<PhotoStage, string>>;
 }) {
-  const [phase, setPhase] = useState(0);
+  const [phase, setPhase] = useState(readSavedStepSevenPhase);
   const [localPhotos, setLocalPhotos] = useState<Partial<Record<PhotoStage, string>>>({});
   const transientPhotoUrls = useRef<string[]>([]);
   const [config, setConfig] = useState<FrameConfig>(DEFAULT_FRAME_CONFIG);
@@ -92,6 +101,10 @@ export function MarksmanFramePreparation({
   const [showCalibration, setShowCalibration] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(readReducedMotion);
   const finished = phase === ACTIONS.length - 1;
+  useEffect(() => {
+    try { window.localStorage.setItem(STEP_SEVEN_PHASE_KEY, String(phase)); }
+    catch { /* The tutorial remains usable without storage. */ }
+  }, [phase]);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
