@@ -24,8 +24,13 @@ export const STEP_SEVEN_PHOTO_CONFIG:ReadOnlyRailConfig = {
 type ReadOnlyRailConfig = Readonly<StepSevenRailConfig>;
 /** Compatibility alias for existing stored demo configurations. */
 export const STEP_SEVEN_PROVISIONAL = STEP_SEVEN_PHOTO_CONFIG;
-/** Hole 15 when counted from the grey/bridge end = Hole 1 from the free end. */
-export const STEP_SEVEN_END_PIN_HOLE = 15;
+/** Original beam STL is centred with Hole 1 at local x=-7 and Hole 15
+ * at local x=+7. The Step 7 assembly root rotates 180 degrees about Z:
+ * local x=-7 is therefore the exposed RIGHT end in the learner's view.
+ * The previous index 15 incorrectly placed both blue pins on the LEFT.
+ * Keep the beams and all three-point mounting transforms unchanged.
+ */
+export const STEP_SEVEN_END_PIN_HOLE = 1;
 /** Both extra blue pins enter from the same beam face as the black mounting
  * connector (the -Y face in this Step 7 local frame). The stage's 180 degree
  * Z rotation changes screen direction, never the physically defined face.
@@ -117,8 +122,8 @@ export function railPose(id:StepSevenRailId,phase:number,c:StepSevenRailConfig,
   return {position:[m.offsetX,y,mount.position[2]],rotation};
 }
 /** The black mounting pin and both grey shafts are on the same entry face.
- * The extra blue pin's free end projects back out of that face. Hole 15 is
- * the same physical end hole as Hole 1 when counted from the exposed end.
+ * The extra blue pin projects from that face, at the RIGHT/free end of
+ * each existing 15-hole rail (STL local hole #1, before root rotation).
  */
 export function endPinMount(id:StepSevenPinId,c:StepSevenRailConfig,
   beamY:number,cfg:StepSixMountConfig){
@@ -129,7 +134,8 @@ export function endPinMount(id:StepSevenPinId,c:StepSevenRailConfig,
   return {
     railId,
     holeFromExposedEnd:1 as const,
-    holeFromGreyEnd:STEP_SEVEN_END_PIN_HOLE,
+    holeFromMeshStart:STEP_SEVEN_END_PIN_HOLE,
+    holeFromOppositeEnd:16-STEP_SEVEN_END_PIN_HOLE,
     insertionFace:STEP_SEVEN_END_PIN_FACE,
     insertionAxis:STEP_SEVEN_END_PIN_INSERTION_AXIS,
     outwardNormal:STEP_SEVEN_END_PIN_OUTWARD_NORMAL,
