@@ -7,7 +7,7 @@ const source=(path)=>readFileSync(resolve(path),"utf8");
 const ui=source("src/components/practical/AssemblyLessonUI.tsx");
 const route=source("src/routes/practical/$projectId.tsx");
 
-test("All seven 3D lessons use a consistent header",()=>{
+test("Core 3D lessons retain the common header through insertion",()=>{
   for(const [step,path] of [
     [1,"src/components/practical/MarksmanMotorAssembly.tsx"],
     [3,"src/components/practical/StepThreeAssembly.tsx"],
@@ -38,7 +38,7 @@ test("Action numbering is one-based and matches every lesson's action count",()=
   assert.ok(source("src/components/practical/MarksmanFramePreparation.tsx").includes("actionCount={ACTIONS.length}"));
 });
 
-test("Single in-view floating dock controls Steps 1–7 completion",()=>{
+test("Single in-view floating dock controls Steps 1–9 completion",()=>{
   assert.ok(route.includes("!isInteractiveMarksman && <footer"));
   assert.ok(ui.includes("isFinalAction ? \"Complete Step\""));
   assert.ok(route.includes("isStepFive && !stepFiveReady"));
@@ -48,13 +48,15 @@ test("Single in-view floating dock controls Steps 1–7 completion",()=>{
   assert.ok(route.includes("const [preview3D, setPreview3D] = useState(true)"));
 });
 
-test("Step 7 supplementary instructions are clearly separated from the official manual",()=>{
-  const step7=source("src/components/practical/MarksmanFramePreparation.tsx");
-  assert.ok(route.includes('<MarksmanFramePreparation onCompleteStep={finishCurrentStep} />'));
-  assert.ok(step7.includes("This is a supplementary photo-based frame sequence"));
-  assert.ok(step7.includes("Official Step 7 manual (authoritative)"));
-  assert.ok(step7.includes("STEP_SEVEN_PHASE_KEY"));
-  assert.ok(step7.includes("setItem(STEP_SEVEN_PHASE_KEY"));
+test("Step 7 is the saved Step 6 rail handoff, Step 8 is the separate frame",()=>{
+  const step7=source("src/components/practical/StepSevenRailsAssembly.tsx");
+  const step8=source("src/components/practical/StepEightAssembly.tsx");
+  assert.ok(route.includes('<StepSevenRailsAssembly onCompleteStep={finishCurrentStep} />'));
+  assert.ok(route.includes('<StepEightAssembly onReadyChange={() => {}}'));
+  assert.ok(step7.includes("STEP_SIX_RESULT"));
+  assert.ok(step7.includes("STEP_SEVEN_RESULT_KEY"));
+  assert.ok(step8.includes("STEP_EIGHT_RESULT_KEY"));
+  assert.ok(step8.includes("physicalCheck"));
 });
 
 test("Previous Step stays visible and navigates by lesson rather than animation action",()=>{
