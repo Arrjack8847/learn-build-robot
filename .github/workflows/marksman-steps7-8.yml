@@ -22,10 +22,10 @@ jobs:
         with:
           node-version: '22'
       - run: npm install --no-audit --no-fund
+      - name: Production build and route generation
+        run: npm run build
       - name: TypeScript
         run: npx tsc --noEmit
-      - name: Production build
-        run: npm run build
       - name: Step mapping / animation regression tests
         run: |
           node --test tests/marksmanship-step7-8-migration.test.mjs
