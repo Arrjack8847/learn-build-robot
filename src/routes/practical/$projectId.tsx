@@ -69,10 +69,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const lessonScrollArea = useRef<HTMLElement>(null);
   const previousStepIndex = useRef(currentIndex);
   useLayoutEffect(() => {
-    // Step 5 is taller than the old illustration layout. When entering
-    // Step 6, put the expanded 3D workspace at its beginning, not at
-    // the scroll position inherited from the preceding lesson screen.
-    if (currentIndex === 5 && previousStepIndex.current !== 5 && lessonScrollArea.current) {
+    // Every new lesson starts at its heading, regardless of the preceding 3D workspace height.
+    if (currentIndex !== previousStepIndex.current && lessonScrollArea.current) {
       lessonScrollArea.current.scrollTop = 0;
     }
     previousStepIndex.current = currentIndex;
@@ -82,7 +80,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const [stepFourReady, setStepFourReady] = useState(false);
   const [stepFiveReady, setStepFiveReady] = useState(false);
   const [stepSixReady, setStepSixReady] = useState(false);
-  const [preview3D, setPreview3D] = useState(false);
+  const [preview3D, setPreview3D] = useState(true);
   const [previewStep2Ready, setPreviewStep2Ready] = useState(false);
   const currentStep = project.steps[currentIndex];
 
@@ -109,7 +107,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const isStepFour = project.id === "marksmanship" && currentStep.number === 4;
   const isStepFive = project.id === "marksmanship" && currentStep.number === 5;
   const isStepSix = project.id === "marksmanship" && currentStep.number === 6;
-  const displayedPercent = Math.round(((currentIndex + 1) / project.steps.length) * 100);
+  const completedCount = project.steps.filter(step => isStepCompleted(step.id)).length;
+  const displayedPercent = Math.round((completedCount / project.steps.length) * 100);
   const helpItem =
     project.troubleshooting.length > 0
       ? project.troubleshooting[currentIndex % project.troubleshooting.length]
@@ -166,7 +165,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
             </p>
 
             <div className="mx-auto mt-2.5 max-w-4xl [@media(max-height:700px)]:mt-2">
-              <div className="h-2 overflow-hidden rounded-full bg-slate-100">
+              <div role="progressbar" aria-label="Completed robot building steps" aria-valuemin={0} aria-valuemax={100} aria-valuenow={displayedPercent} className="h-2 overflow-hidden rounded-full bg-slate-100">
                 <div
                   className="h-full rounded-full bg-[#168eea] transition-all duration-300"
                   style={{ width: `${displayedPercent}%` }}
@@ -175,7 +174,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
             </div>
           </section>
 
-          <div className={isStepSix ? "mx-auto mt-3 w-full max-w-[1540px] md:mt-4" : "mx-auto mt-3 grid w-full max-w-5xl gap-3.5 md:mt-5 md:grid-cols-[1.02fr_0.98fr] md:items-center md:gap-7 [@media(max-height:700px)]:mt-2.5"}>
+          <div className={isStepSix ? "mx-auto mt-3 w-full max-w-[1540px] md:mt-4" : "mx-auto mt-3 grid w-full max-w-5xl gap-3.5 md:mt-5 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-7 [@media(max-height:700px)]:mt-2.5"}>
             <div className="min-w-0">
               {project.id === "marksmanship" && currentStep.number <= 2 && (
                 <div aria-label="Assembly instruction view" className="mb-2 flex flex-wrap gap-2">
@@ -196,7 +195,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
                       setPreview3D(true);
                     }}
                   >
-                    3D Preview (Beta)
+                    Interactive 3D
                   </button>
                 </div>
               )}
@@ -227,6 +226,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
                 <StepSixAssembly onReadyChange={setStepSixReady}
                   onBackToStep5={() => setCurrentIndex(4)}
                   onContinueToStep7={finishCurrentStep} />
+              ) : project.id === "marksmanship" && currentStep.number === 7 ? (
+                <MarksmanFramePreparation />
               ) : currentStep.image ? (
                 <img
                   alt={`${project.title} step ${currentStep.number}: ${currentStep.title}`}
@@ -321,28 +322,6 @@ function BuildSession({ project }: { project: PracticalProject }) {
               ) : null}
             </section>}
           </div>
-          {project.id === "marksmanship" && currentStep.number === 7 && (
-            <section
-              aria-label="Step 7 photo-based frame animation"
-              className="mx-auto mt-5 w-full max-w-5xl rounded-2xl border border-sky-200 bg-white p-3 shadow-sm sm:p-5"
-            >
-              <div className="mb-4 rounded-xl bg-sky-50 p-3 sm:p-4">
-                <p className="text-xs font-black uppercase tracking-wider text-[#116eaf]">
-                  Step 7 · Interactive 3D assembly
-                </p>
-                <h3 className="mt-1 text-lg font-extrabold text-[#132654]">
-                  Photo-based frame preparation
-                </h3>
-                <p className="mt-1 text-xs leading-5 text-slate-600 sm:text-sm">
-                  Follow the frame assembly shown in your photographs: two 7-hole beams,
-                  two 5-hole beams and a separate 15-hole beam. This photo-based
-                  sequence differs from the official Step 7 diagram above,
-                  which remains the reference for the manual instructions.
-                </p>
-              </div>
-              <MarksmanFramePreparation />
-            </section>
-          )}
         </div>
       </main>
 
