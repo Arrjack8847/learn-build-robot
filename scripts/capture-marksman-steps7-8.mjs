@@ -63,7 +63,7 @@ try{
   await page.getByText("Connect two 15-hole side beams",{exact:true}).first().waitFor({
     state:"visible",timeout:30000,
   });
-  const webglCanvas=page.locator('canvas[aria-label*="Step 7"]');
+  const webglCanvas=page.locator(".assembly-lesson-stage canvas");
   await webglCanvas.waitFor({state:"visible",timeout:30000});
   await page.waitForTimeout(2000);
   const next7=page.getByRole("button",{name:"Next Action"});
@@ -85,7 +85,7 @@ try{
   await page.getByText("Step 8 — Assemble and lock the rectangular frame",{exact:true}).first().waitFor({
     state:"visible",timeout:15000,
   });
-  await page.locator('canvas[aria-label*="Step 8"]').waitFor({state:"visible",timeout:30000});
+  await page.locator("section[aria-label='Step 8 assemble and lock the rectangular frame'] canvas").waitFor({state:"visible",timeout:30000});
   await page.waitForTimeout(1500);
   const next8=page.getByRole("button",{name:"Next action"});
   for(let i=0;i<11;i++){
@@ -97,12 +97,12 @@ try{
   });
   await page.waitForTimeout(1100);
   await page.locator("section[aria-label='Step 8 assemble and lock the rectangular frame'] > div").filter({
-    has:page.locator('canvas[aria-label*="Step 8"]'),
+    has:page.locator("section[aria-label='Step 8 assemble and lock the rectangular frame'] canvas"),
   }).first().screenshot({path:output+"/step8-final-desktop.png"});
   await page.setViewportSize({width:390,height:844});
   await page.waitForTimeout(900);
   await page.locator("section[aria-label='Step 8 assemble and lock the rectangular frame'] > div").filter({
-    has:page.locator('canvas[aria-label*="Step 8"]'),
+    has:page.locator("section[aria-label='Step 8 assemble and lock the rectangular frame'] canvas"),
   }).first().screenshot({path:output+"/step8-final-mobile.png"});
   if(errors.length)throw new Error("Browser console errors: "+errors.join("; ").slice(0,3000));
   console.log("QA snapshots recorded. Connector fit is NOT physically verified.");
