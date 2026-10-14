@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, Pause, Play, RotateCcw, Scan, Wrench } from "lucide-react";
+import { ArrowRight, Scan, Wrench } from "lucide-react";
+import { AssemblyLessonHeader, AssemblyActionCard, AssemblyPlaybackControls } from "./AssemblyLessonUI";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
@@ -601,15 +602,13 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
   const finishedAction = fraction >= 1;
   return (
     <section aria-label="Step 1 and 2 connected motor assembly viewer" className="relative w-full min-w-0 space-y-2 text-left">
-      <div className="flex items-center justify-between gap-2">
-        <span className="text-xs font-black uppercase tracking-wide text-[#98521f]">
-          {step === 1 ? "Step 1 — Prepare five components" : "Step 2 — Assemble the motor unit"}
-        </span>
-        <button type="button" className="text-xs font-semibold text-[#98521f] underline" onClick={() => setShowManual(v => !v)}>
-          {showManual ? "Hide manual" : "Compare manual"}
-        </button>
-      </div>
-      <div className="relative h-[270px] w-full overflow-hidden rounded-2xl border border-[#d9cdbd] bg-[#f8f5ee] sm:h-[360px] md:h-[430px]">
+      <AssemblyLessonHeader step={step} title={step === 1 ? "Prepare the motor components" : "Build the motor assembly"}
+        actionIndex={step === 2 ? action : undefined} actionCount={step === 2 ? actions.length : undefined}
+        trailing={<button type="button" className="min-h-11 rounded-xl px-3 text-xs font-bold text-[#116eaf] underline underline-offset-2"
+          onClick={() => setShowManual(v => !v)} aria-expanded={showManual}>
+          {showManual ? "Hide manual" : "View manual"}
+        </button>} />
+      <div className="relative h-[270px] w-full overflow-hidden rounded-2xl border border-[#cddceb] bg-[#f6f9fc] sm:h-[360px] md:h-[430px]">
         <div ref={hostRef} className="absolute inset-0 touch-none" aria-label="Rotate 3D parts by dragging; pinch or scroll to zoom." />
         {!failure && loaded && <div className="pointer-events-none absolute inset-0" aria-hidden="true">
           {labels.map(label => (
@@ -618,8 +617,8 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
             </span>
           ))}
         </div>}
-        {!loaded && !failure && <p className="absolute inset-0 grid place-items-center bg-[#f8f5ee] text-sm text-slate-600">Loading real motor, disc, axle, beam and connector models…</p>}
-        {failure && <div className="absolute inset-0 grid place-items-center bg-[#f8f5ee] p-4 text-sm text-amber-900" role="alert">{failure}</div>}
+        {!loaded && !failure && <p className="absolute inset-0 grid place-items-center bg-[#f6f9fc] text-sm text-slate-600">Loading real motor, disc, axle, beam and connector models…</p>}
+        {failure && <div className="absolute inset-0 grid place-items-center bg-[#f6f9fc] p-4 text-sm text-amber-900" role="alert">{failure}</div>}
       </div>
       <button type="button" onClick={() => setShowOriginalCable(v => !v)} className="inline-flex min-h-9 items-center rounded-full border border-slate-200 bg-white px-3 text-xs font-semibold text-slate-600">
         {showOriginalCable ? "Hide full motor cable" : "Show original motor cable"}
@@ -638,23 +637,25 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
           <div className="grid grid-cols-5 gap-1" aria-label="Step 2 assembly action progress">
             {actions.map((a, i) => <span key={a.id} className={"h-1.5 rounded-full " + (i <= action ? "bg-orange-500" : "bg-slate-200")} />)}
           </div>
-          <div className="rounded-xl bg-[#fff2e6] px-3 py-2">
-            <p className="text-sm font-bold text-[#783911]">Action {currentAction.id} — {currentAction.title}</p>
-            <p className="mt-1 text-xs leading-5 text-[#132654]">{currentAction.instruction}</p>
-            {isFinal && <p role="status" className="mt-1 text-xs font-bold text-green-800">Step 2 animation complete — retain the motor subassembly for Step 26. Physical connector and final axial measurements are still pending verification.</p>}
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <button type="button" disabled={!loaded || Boolean(failure)} onClick={goPrevious} className="inline-flex min-h-10 items-center gap-1 rounded-full border border-slate-200 bg-white px-3 text-xs font-bold text-[#132654]"><ArrowLeft className="size-4" /> Previous</button>
-            <button type="button" disabled={!loaded || Boolean(failure) || !finishedAction || action === actions.length - 1} onClick={goNext} className="inline-flex min-h-10 flex-1 items-center justify-center gap-1 rounded-full bg-[#168eea] px-3 text-xs font-bold text-white disabled:opacity-40">Next <ArrowRight className="size-4" /></button>
-            <button type="button" disabled={!loaded || Boolean(failure) || reducedMotion} onClick={replay} className="inline-flex min-h-10 items-center gap-1 rounded-full border border-slate-200 bg-white px-3 text-xs font-bold text-[#132654] disabled:opacity-40"><RotateCcw className="size-4"/> Replay</button>
-            <button type="button" disabled={!loaded || Boolean(failure) || reducedMotion} onClick={() => {
-              if (timeRef.current >= 1) replay();
-              else { playingRef.current = !playingRef.current; directionRef.current = 1; setPlaying(playingRef.current); }
-            }} aria-label={playing ? "Pause animation" : "Play animation"} className="inline-flex min-h-10 items-center justify-center rounded-full border border-slate-200 bg-white px-3 text-[#132654] disabled:opacity-40">
-              {playing ? <Pause className="size-4"/> : <Play className="size-4"/>}
-            </button>
-            <button type="button" onClick={() => { resetCameraRef.current += 1; }} className="inline-flex min-h-10 items-center gap-1 rounded-full border border-slate-200 bg-white px-3 text-xs font-bold text-[#132654]"><Scan className="size-4"/> Reset View</button>
-          </div>
+          <AssemblyActionCard actionIndex={action} actionCount={actions.length}
+            title={currentAction.title} instruction={currentAction.instruction} />
+          {isFinal && <p role="status" className="rounded-xl bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-800">
+            Step 2 sequence complete. Keep the motor unit for Step 26; physical measurements still need checking.
+          </p>}
+          <AssemblyPlaybackControls paused={!playing}
+            previousDisabled={!loaded||Boolean(failure)}
+            replayDisabled={!loaded||Boolean(failure)||reducedMotion}
+            pauseDisabled={!loaded||Boolean(failure)||reducedMotion}
+            nextDisabled={!loaded||Boolean(failure)||!finishedAction||action===actions.length-1}
+            onPrevious={goPrevious} onNext={goNext} onReplay={replay}
+            onTogglePause={()=>{
+              if(timeRef.current>=1) replay();
+              else { playingRef.current=!playingRef.current; directionRef.current=1; setPlaying(playingRef.current); }
+            }} />
+          <button type="button" onClick={()=>{resetCameraRef.current+=1;}}
+            className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-[#132654]">
+            <Scan aria-hidden="true" className="size-4" /> Reset view
+          </button>
           <label className="flex items-center gap-2 px-1 text-xs text-slate-600">
             <span className="sr-only">Current action animation position</span>
             <input aria-label="Animation timeline" type="range" min={0} max={100} step={1} value={Math.round(fraction * 100)} disabled={!loaded || Boolean(failure)} onChange={event => {
