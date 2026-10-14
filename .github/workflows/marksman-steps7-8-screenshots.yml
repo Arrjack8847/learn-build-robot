@@ -5,6 +5,9 @@ on:
       - feat/marksman-insert-step7-shift-frame-step8
     paths:
       - 'scripts/capture-marksman-steps7-8.mjs'
+      - 'src/components/practical/StepSevenRailsScene.tsx'
+      - 'src/components/practical/StepSevenRailsAssembly.tsx'
+      - 'src/components/practical/stepSevenRailGeometry.ts'
       - '.github/workflows/marksman-steps7-8-screenshots.yml'
   workflow_dispatch:
 jobs:
