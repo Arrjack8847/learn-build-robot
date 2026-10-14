@@ -66,7 +66,9 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     for(const id of STEP_SEVEN_RAIL_IDS) {
       const node=railGroups.current[id];if(!node)continue;
       const destination=railPose(id,phase,config,beamY);
-      if(!initial.current||id!==active||Math.abs(phase-was)>1){
+      // Preserve the active rail's previous transform for smooth insertion;
+      // only stationary rails snap to their deterministic phase pose.
+      if(!initial.current||id!==active||Math.abs(phase-was)>1||reducedMotion){
         node.position.set(...destination.position);node.rotation.set(...destination.rotation);
       }
     }
