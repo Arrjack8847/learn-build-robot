@@ -57,7 +57,7 @@ test("Genuine Step 6 model/connector identity carries into Step 7 without invent
   assert.ok(scene.includes("15 beams.stl?url"));
   assert.ok(scene.includes("long connector.stl?url"));
   assert.ok(rails.includes("physicallySelfConfirmed:true"));
-  assert.ok(rails.includes("additionalBlueConnectorMounts:\"unverified\""));
+  assert.ok(rails.includes("additionalBlueConnectorsInstalled:true"));
   assert.ok(railConfig.includes("STEP_SEVEN_MECHANICALLY_VERIFIED = false"));
 });
 test("Step 8 frame retains all eleven STL parts and real 5-hole connector order",()=>{
