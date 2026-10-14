@@ -522,6 +522,7 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
       }
       if (id !== actions.length - 1 || timeRef.current < 1) completedSignal = false;
       const fractionNow = timeRef.current;
+       guide.visible = currentStep === 2 && fractionNow < 1;
       for (const [part, object] of objects) {
         const pose = poseAt(actionRef.current, fractionNow, part, currentStep);
         object.position.copy(vec(pose.position));
