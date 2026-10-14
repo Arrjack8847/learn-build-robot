@@ -49,7 +49,9 @@ test("Axle-first preparation, L-beam pairing, reversible controls and Step 4 com
   assert.ok(guide.includes("Insert the prepared axle through the first L-beam"));
   assert.ok(guide.includes("Fit the second L-beam on the other side"));
   assert.ok(guide.includes("Return to Step 3"));
-  assert.ok(guide.includes("Replay action"));
+  assert.ok(guide.includes("AssemblyPlaybackControls"));
+  const dock = readFileSync(resolve("src/components/practical/AssemblyLessonUI.tsx"), "utf8");
+  assert.ok(dock.includes("Replay current action"));
   assert.ok(scene.includes('phase >= 3 ? [AXLE_X, 0, 0] : [-1.8, 3.1, 0]'));
   assert.ok(scene.includes('phase >= 4 ? R_END'));
   assert.ok(scene.includes('if (amount < 0.5)'));
