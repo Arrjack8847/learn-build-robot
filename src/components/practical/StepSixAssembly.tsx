@@ -67,7 +67,8 @@ function readDraft():{config:StepSixMountConfig;phase:number}{
     };
     const phase=configComplete(config)&&Number.isInteger(saved.phase)
       &&saved.phase>=0&&saved.phase<8?saved.phase:0;
-    return {config:configComplete(config) ? config : {...STEP_SIX_PHOTO_SUGGESTION},phase};
+    const valid=validateMountConfig(config).length===0;
+    return {config:valid ? config : {...STEP_SIX_PHOTO_SUGGESTION},phase:valid?phase:0};
   }catch{return empty;}
 }
 
