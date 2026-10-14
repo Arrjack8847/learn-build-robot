@@ -36,6 +36,14 @@ try {
   const stage = page.locator(".assembly-lesson-stage");
   await stage.waitFor({ state: "visible", timeout: 20000 });
   await canvas.waitFor({ state: "visible", timeout: 20000 });
+  // Test lesson-level navigation independently from Previous Action playback.
+  const stepNavigation = page.getByRole("navigation", { name: "Robot step navigation" });
+  await stepNavigation.getByRole("button", { name: "Previous Step" }).click();
+  await stepNavigation.getByText("Step 6 of 31").waitFor({ state: "visible", timeout: 10000 });
+  // Progress is unchanged by going back, so the initial Step 7 is restored on reload.
+  await page.reload({ waitUntil: "networkidle" });
+  await stepNavigation.getByText("Step 7 of 31").waitFor({ state: "visible", timeout: 10000 });
+  await canvas.waitFor({ state: "visible", timeout: 10000 });
   // Capture complete student-visible lesson stage, including the floating instruction dock.
   const next = page.getByRole("button", { name: "Next Action" });
   for (let n = 0; n < 6; n++) await next.click();
