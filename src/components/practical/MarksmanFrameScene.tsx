@@ -311,7 +311,7 @@ function ModelStage({
       )}
       <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.075}
         enablePan={false} minDistance={2.6} maxDistance={40}
-        autoRotate={spin && !paused && !exploded}
+        onStart={() => { cameraMovement.current = null; }} autoRotate={false}
         autoRotateSpeed={0.42} />
     </>
   );
