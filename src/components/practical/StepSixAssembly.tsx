@@ -27,7 +27,7 @@ const ACTIONS = [
   ["6.7", "Insert bridge B as one rigid unit",
     "Insert both long pins together through the chosen pair. Their original positions relative to the bridge body stay fixed."],
   ["6.8", "Inspect the finished connector beam",
-    "Inspect from the top, left and right. Two hollow and two bridge units must be attached to the 11-hole beam. Keep this assembly for Step 8."],
+    "Inspect from the top, left and right. Two hollow and two bridge units must be attached to the 11-hole beam. Keep this assembly for the new Step 7 side-rail attachment."],
 ] as const;
 const A_OPTIONS=[3,4,5,6,7] as const;
 const B_OPTIONS=[6,7,8,9] as const;

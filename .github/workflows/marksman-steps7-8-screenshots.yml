@@ -1,0 +1,43 @@
+name: Marksman Steps 7-8 visual screenshots
+on:
+  push:
+    branches:
+      - feat/marksman-insert-step7-shift-frame-step8
+    paths:
+      - 'scripts/capture-marksman-steps7-8.mjs'
+      - 'src/components/practical/StepSevenRailsScene.tsx'
+      - 'src/components/practical/StepSevenRailsAssembly.tsx'
+      - 'src/components/practical/stepSevenRailGeometry.ts'
+      - '.github/workflows/marksman-steps7-8-screenshots.yml'
+  workflow_dispatch:
+jobs:
+  screenshot-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund
+      - run: npm install --no-save --no-audit --no-fund playwright
+      - run: npx playwright install --with-deps chromium
+      - name: Run Vite for browser captures
+        run: |
+          npm run dev -- --host 127.0.0.1 --port 4173 > /tmp/marksman-vite.log 2>&1 &
+          echo $! > /tmp/marksman-vite.pid
+          for i in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:4173/practical/marksmanship > /dev/null; then exit 0; fi
+            sleep 2
+          done
+          cat /tmp/marksman-vite.log
+          exit 1
+      - name: Render Steps 7 and 8
+        run: node scripts/capture-marksman-steps7-8.mjs
+      - name: Upload rendered screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: marksman-steps7-8-screenshots
+          path: artifacts/marksman-steps7-8/*.png
+          if-no-files-found: warn

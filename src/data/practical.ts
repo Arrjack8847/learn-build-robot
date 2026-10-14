@@ -8,6 +8,7 @@ const marksmanshipSteps: PracticalProject["steps"] = [
     description:
       "Prepare the motor, DC 5-hole beam, circle piece, 3-hole long axle and pin connector.",
     image: "/marksmanship/steps/1.png",
+    originalManualStepNumbers: [1],
   },
   {
     id: "marksmanship-s2",
@@ -16,6 +17,7 @@ const marksmanshipSteps: PracticalProject["steps"] = [
     description:
       "Insert the short axle into the motor. Attach the circular piece to the beam using the connector and combine them. Keep this assembly for later.",
     image: "/marksmanship/steps/2.png",
+    originalManualStepNumbers: [2],
   },
   {
     id: "marksmanship-s3",
@@ -24,6 +26,7 @@ const marksmanshipSteps: PracticalProject["steps"] = [
     description:
       "Attach the long connector to the end of a 15-hole beam. Prepare the medium axle, axle connector, and two short L-beams with a connector on each.",
     image: "/marksmanship/steps/3.png",
+    originalManualStepNumbers: [3],
   },
   {
     id: "marksmanship-s4",
@@ -32,6 +35,7 @@ const marksmanshipSteps: PracticalProject["steps"] = [
     description:
       "First slide the small grey axle connector to the middle of the black medium axle. Use the two blue pins in holes 1 and 2 at the prepared end of the white 15-hole beam to mount the two circular holes nearest each grey L-beam's corner. Attach the first L-beam, slide the prepared axle through its far cross-shaped X hole, then attach the second L-beam on the opposite side using the same hole pair. Keep both L-beam connectors facing outward. Save the finished subassembly for Steps 29–30.",
     image: "/marksmanship/steps/4.png",
+    originalManualStepNumbers: [4],
   },
   {
     id: "marksmanship-s5",
@@ -40,6 +44,7 @@ const marksmanshipSteps: PracticalProject["steps"] = [
     description:
       "Keep one empty 11-hole beam separate. Prepare two double-sided bridge connectors with two long pins each, and two hollow right-angle connectors with one short pin each. Attach them to the beam only in Step 6. The 3D viewer uses genuine beam and connector models; check the physical press-fit before continuing.",
     image: "/marksmanship/steps/5.png",
+    originalManualStepNumbers: [5],
   },
   {
     id: "marksmanship-s6",
@@ -48,205 +53,243 @@ const marksmanshipSteps: PracticalProject["steps"] = [
     description:
       "Attach the 2-sided connector at the edge and middle of the beam, and the hollow connector to holes 1 and 2.",
     image: "/marksmanship/steps/6.png",
+    originalManualStepNumbers: [6],
   },
   {
-    id: "marksmanship-s7",
+    id: "marksmanship-side-rails-v1",
     number: 7,
-    title: "Prepare two 15-hole beams",
-    description:
-      "Take two 15-hole beams and attach a long connector at the 3rd hole of each.",
-    image: "/marksmanship/steps/7.png",
+    title: "Connect Two 15-Hole Side Beams",
+    description: "Start with the completed Step 6 structure. Align and securely attach two parallel 15-hole side rails; original manual Steps 7 and 8 are combined into this interactive lesson. Physical fit must be confirmed with the real kit.",
+    originalManualStepNumbers: [7, 8],
+    assemblyOutputId: "marksman-assembly-a-side-rails-v1",
   },
   {
-    id: "marksmanship-s8",
+    id: "marksmanship-rectangular-frame-v1",
     number: 8,
-    title: "Connect the long beams",
-    description:
-      "Connect both 15-hole beams to the previous assembly as shown in the picture.",
-    image: "/marksmanship/steps/8.png",
+    title: "Assemble and Lock the Rectangular Frame",
+    description: "Install four blue pins at Holes 2 and 4 on the two 5-hole beams, attach both 7-hole beams, then lock the central 15-hole beam using the two black connectors. Verify all unmeasured joints with your kit.",
+    originalManualStepNumbers: [],
+    assemblyOutputId: "marksman-assembly-b-rectangular-frame-v1",
+  },
+  {
+    id: "marksmanship-inspect-assemblies-v1",
+    number: 9,
+    title: "Inspect Assembly A and Assembly B",
+    description: "Keep the completed side-rail assembly and the independently built rectangular frame separate, as in IMG_1697. Do not connect these structures until their mechanical alignment is confirmed.",
+    originalManualStepNumbers: [],
+    referenceOnly: true,
   },
   {
     id: "marksmanship-s9",
-    number: 9,
+    number: 10,
     title: "Flip and prepare the 7-hole beams",
-    description:
-      "Flip the main assembly over. Prepare two 7-hole beams and attach two long connectors to each at holes 2 and 5.",
+    description: "Original manual Step 9: physical operation is pending reconciliation with interactive Step 8. Review the illustration only; do not repeat an already completed attachment.",
     image: "/marksmanship/steps/9.png",
+    referenceOnly: true,
+    note: { type: "warning", text: "Original manual operation may overlap the separate rectangular-frame assembly. Do not repeat it until photo/kit mapping is verified." },
+    originalManualStepNumbers: [9],
   },
   {
     id: "marksmanship-s10",
-    number: 10,
+    number: 11,
     title: "Attach the 7-hole beams",
-    description:
-      "Attach both 7-hole beams to the middle of the main assembly as shown.",
+    description: "Original manual Step 10: physical operation is pending reconciliation with interactive Step 8. Review the illustration only; do not repeat an already completed attachment.",
     image: "/marksmanship/steps/10.png",
+    referenceOnly: true,
+    note: { type: "warning", text: "Original manual operation may overlap the separate rectangular-frame assembly. Do not repeat it until photo/kit mapping is verified." },
+    originalManualStepNumbers: [10],
   },
   {
     id: "marksmanship-s11",
-    number: 11,
+    number: 12,
     title: "Prepare another 15-hole beam",
-    description:
-      "Take another 15-hole beam and attach connectors at holes 5 and 8.",
+    description: "Original manual Step 11: physical operation is pending reconciliation with interactive Step 8. Review the illustration only; do not repeat an already completed attachment.",
     image: "/marksmanship/steps/11.png",
+    referenceOnly: true,
+    note: { type: "warning", text: "Original manual operation may overlap the separate rectangular-frame assembly. Do not repeat it until photo/kit mapping is verified." },
+    originalManualStepNumbers: [11],
   },
   {
     id: "marksmanship-s12",
-    number: 12,
+    number: 13,
     title: "Place the 15-hole beam",
-    description:
-      "Temporarily place the 15-hole beam between the grey pieces attached in Step 10.",
+    description: "Original manual Step 12: physical operation is pending reconciliation with interactive Step 8. Review the illustration only; do not repeat an already completed attachment.",
     image: "/marksmanship/steps/12.png",
+    referenceOnly: true,
+    note: { type: "warning", text: "Original manual operation may overlap the separate rectangular-frame assembly. Do not repeat it until photo/kit mapping is verified." },
+    originalManualStepNumbers: [12],
   },
   {
     id: "marksmanship-s13",
-    number: 13,
+    number: 14,
     title: "Prepare two 5-hole beams",
-    description:
-      "Prepare two 5-hole beams to secure the 15-hole beam in place.",
+    description: "Original manual Step 13: physical operation is pending reconciliation with interactive Step 8. Review the illustration only; do not repeat an already completed attachment.",
     image: "/marksmanship/steps/13.png",
+    referenceOnly: true,
+    note: { type: "warning", text: "Original manual operation may overlap the separate rectangular-frame assembly. Do not repeat it until photo/kit mapping is verified." },
+    originalManualStepNumbers: [13],
   },
   {
     id: "marksmanship-s14",
-    number: 14,
+    number: 15,
     title: "Secure the 15-hole beam",
-    description:
-      "Attach the two 5-hole beams to both the main assembly and the 15-hole beam.",
+    description: "Original manual Step 14: physical operation is pending reconciliation with interactive Step 8. Review the illustration only; do not repeat an already completed attachment.",
     image: "/marksmanship/steps/14.png",
+    referenceOnly: true,
+    note: { type: "warning", text: "Original manual operation may overlap the separate rectangular-frame assembly. Do not repeat it until photo/kit mapping is verified." },
+    originalManualStepNumbers: [14],
   },
   {
     id: "marksmanship-s15",
-    number: 15,
+    number: 16,
     title: "Prepare the 13-hole beam",
     description:
       "Take a 13-hole beam, attach a long connector at the end and a connector at hole 3.",
     image: "/marksmanship/steps/15.png",
+    originalManualStepNumbers: [15],
   },
   {
     id: "marksmanship-s16",
-    number: 16,
+    number: 17,
     title: "Attach the 13-hole beams",
     description:
       "Attach both 13-hole beams to the back of the main part at holes 1 and 3, one hole apart from the existing grey piece.",
     image: "/marksmanship/steps/16.png",
+    originalManualStepNumbers: [16],
   },
   {
     id: "marksmanship-s17",
-    number: 17,
+    number: 18,
     title: "Prepare the L-shaped beams",
     description:
       "Take two 7-hole L-shaped beams and attach a connector with stopper at the 2nd hole on the long side of each.",
     image: "/marksmanship/steps/17.png",
+    originalManualStepNumbers: [17],
   },
   {
     id: "marksmanship-s18",
-    number: 18,
+    number: 19,
     title: "Attach the L-shaped beams",
     description:
       "Attach both L-beams to the main assembly with the right side facing forward and the left side facing backward.",
     image: "/marksmanship/steps/18.png",
+    originalManualStepNumbers: [18],
   },
   {
     id: "marksmanship-s19",
-    number: 19,
+    number: 20,
     title: "Prepare the T-shaped beam",
     description:
       "Take the 4-hole T-shaped beam and attach a connector at the end.",
     image: "/marksmanship/steps/19.png",
+    originalManualStepNumbers: [19],
   },
   {
     id: "marksmanship-s20",
-    number: 20,
+    number: 21,
     title: "Attach the T-beam",
     description:
       "Attach the T-beam to the long connector on the main assembly from Step 16.",
     image: "/marksmanship/steps/20.png",
+    originalManualStepNumbers: [20],
   },
   {
     id: "marksmanship-s21",
-    number: 21,
+    number: 22,
     title: "Prepare the small parts",
     description:
       "Prepare three connectors, one stopper, and a 3-hole beam.",
     image: "/marksmanship/steps/21.png",
+    originalManualStepNumbers: [21],
   },
   {
     id: "marksmanship-s22",
-    number: 22,
+    number: 23,
     title: "Build the small unit",
     description:
       "Combine the three connectors, stopper, and 3-hole beam into one unit.",
     image: "/marksmanship/steps/22.png",
+    originalManualStepNumbers: [22],
   },
   {
     id: "marksmanship-s23",
-    number: 23,
+    number: 24,
     title: "Attach the rear unit",
     description:
       "Attach the assembled unit to the very back end of the main assembly.",
     image: "/marksmanship/steps/23.png",
+    originalManualStepNumbers: [23],
   },
   {
     id: "marksmanship-s24",
-    number: 24,
+    number: 25,
     title: "Prepare two 9-hole beams",
     description:
       "Take two 9-hole beams and attach a long connector at holes 1 and 7 on each.",
     image: "/marksmanship/steps/24.png",
+    originalManualStepNumbers: [24],
   },
   {
     id: "marksmanship-s25",
-    number: 25,
+    number: 26,
     title: "Attach the 9-hole beams",
     description:
       "Attach both 9-hole beams to the main body, positioned close to the T-beam assembled earlier.",
     image: "/marksmanship/steps/25.png",
+    originalManualStepNumbers: [25],
   },
   {
     id: "marksmanship-s26",
-    number: 26,
+    number: 27,
     title: "Prepare the motor and controller",
     description:
       "Take the motor assembly from Step 2 and a microcontroller box with two connectors attached at holes 2 and 4 on one side.",
     image: "/marksmanship/steps/26.png",
+    originalManualStepNumbers: [26],
   },
   {
     id: "marksmanship-s27",
-    number: 27,
+    number: 28,
     title: "Mount the motor",
     description:
       "Mount the motor onto the main body's connectors, facing toward the back.",
     image: "/marksmanship/steps/27.png",
+    originalManualStepNumbers: [27],
   },
   {
     id: "marksmanship-s28",
-    number: 28,
+    number: 29,
     title: "Attach the microcontroller",
     description:
       "Attach the microcontroller box underneath the motor as shown in the picture.",
     image: "/marksmanship/steps/28.png",
+    originalManualStepNumbers: [28],
   },
   {
     id: "marksmanship-s29",
-    number: 29,
+    number: 30,
     title: "Bring back the Step 4 assembly",
     description: "Now take the assembly from Step 4.",
     image: "/marksmanship/steps/29.png",
+    originalManualStepNumbers: [29],
   },
   {
     id: "marksmanship-s30",
-    number: 30,
+    number: 31,
     title: "Install the shooting mechanism",
     description:
       "Slide the Step 4 assembly into the main body. This serves as the shooting mechanism.",
     image: "/marksmanship/steps/30.png",
+    originalManualStepNumbers: [30],
   },
   {
     id: "marksmanship-s31",
-    number: 31,
+    number: 32,
     title: "Attach the rubber band",
     description:
       "Attach a rubber band to the main body to assist the spring mechanism on the Step 4 part.",
     image: "/marksmanship/steps/31.png",
+    originalManualStepNumbers: [31],
   },
 ];
 
@@ -258,7 +301,7 @@ export const practicalProjects: PracticalProject[] = [
     description:
       "Build the Marksmanship robot one step at a time, then prepare its motor and spring shooting mechanism.",
     objective:
-      "Complete the 31-step assembly and prepare the microcontroller so the motor can act as the trigger for the spring mechanism.",
+      "Complete the revised 32-entry interactive assembly and prepare the microcontroller so the motor can act as the trigger for the spring mechanism.",
     components: [
       "DC motor",
       "Microcontroller box",
