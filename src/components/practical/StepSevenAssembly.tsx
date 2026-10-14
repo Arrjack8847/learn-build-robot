@@ -29,6 +29,7 @@ export function StepSevenAssembly({
   const [resetCameraKey,setResetCameraKey]=useState(0);
   const [reducedMotion,setReducedMotion]=useState(false);
   const [autoInspect,setAutoInspect]=useState(true);
+  const [cameraView,setCameraView]=useState<"iso"|"top"|"side"|"bottom">("iso");
   const [reference,setReference]=useState<string|null>(null);
   const ready=phase===STEP_SEVEN_SEQUENCE.length-1 &&
     stepSevenConfigurationErrors(config).length===0;
@@ -49,7 +50,7 @@ export function StepSevenAssembly({
   },[reference]);
   function go(target:number){
     const next=Math.max(0,Math.min(STEP_SEVEN_SEQUENCE.length-1,target));
-    setPaused(false);setAutoInspect(true);setPhase(next);
+    setPaused(false);setAutoInspect(true);setCameraView("iso");setPhase(next);
   }
   function edit(patch:Partial<StepSevenConfig>){
     setConfig(previous=>({...previous,...patch}));
@@ -82,7 +83,8 @@ export function StepSevenAssembly({
         shadow-[0_16px_45px_rgba(19,38,84,0.09)] sm:rounded-[28px]">
         <StepSevenScene phase={phase} config={config} paused={paused}
           replayKey={replayKey} resetCameraKey={resetCameraKey}
-          reducedMotion={reducedMotion} autoInspect={autoInspect}/>
+          reducedMotion={reducedMotion} autoInspect={autoInspect}
+          cameraView={cameraView}/>
         <span className="pointer-events-none absolute left-3 top-3 rounded-full
           bg-white/90 px-3 py-1.5 text-[10px] font-bold text-slate-600 shadow-sm
           backdrop-blur sm:text-xs">
@@ -92,10 +94,21 @@ export function StepSevenAssembly({
           className="absolute right-3 top-3 grid size-10 place-items-center rounded-full
             border border-slate-200 bg-white/95 text-slate-700 shadow-sm
             hover:bg-sky-50 focus-visible:outline-2 focus-visible:outline-sky-500"
-          onClick={()=>setResetCameraKey(key=>key+1)}>
+          onClick={()=>{setCameraView("iso");setResetCameraKey(key=>key+1);}}>
           <ScanSearch className="size-4.5"/>
         </button>
 
+        {ready&&<div aria-label="Completed frame inspection viewpoints"
+          className="absolute left-3 top-14 flex flex-wrap gap-1.5 rounded-xl
+            border border-slate-200 bg-white/90 p-1.5 shadow-sm backdrop-blur">
+          {(["top","side","bottom","iso"] as const).map(view=>
+            <button key={view} type="button" aria-pressed={cameraView===view}
+              onClick={()=>{setAutoInspect(false);setCameraView(view);}}
+              className={"min-h-9 rounded-lg px-2.5 text-[11px] font-bold capitalize "+
+                (cameraView===view?"bg-[#168eea] text-white":"bg-white text-slate-700")}>
+              {view==="iso"?"Isometric":view}
+            </button>)}
+        </div>}
         <div className="absolute inset-x-2 bottom-2 z-10 mx-auto max-w-[780px]
           rounded-2xl border border-white/80 bg-white/95 p-3 text-[#132654]
           shadow-[0_12px_35px_rgba(16,38,69,0.16)] backdrop-blur-lg
