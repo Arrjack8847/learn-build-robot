@@ -80,3 +80,19 @@ test("Independent Assembly A and B are both required at Step 9",()=>{
   assert.ok(stage.includes("Do not connect Assembly A and B yet"));
   assert.ok(stage.includes("physicallySelfConfirmed!==true"));
 });
+
+test("Step 7 uses photographed beam hole pairs and animates both installed free-end blue pins",()=>{
+  assert.match(railConfig,/firstRailHole:6,secondRailHole:1/);
+  assert.match(railConfig,/STEP_SEVEN_END_PIN_HOLE = 15/);
+  assert.match(railConfig,/start:cfg.bridgeBStart/);
+  assert.match(railConfig,/start:cfg.bridgeAStart/);
+  assert.ok(railConfig.includes("endPinPose"));
+  assert.ok(scene.includes("STEP_SEVEN_PIN_IDS.map"));
+  assert.ok(scene.includes("pinInsertion"));
+  assert.ok(rails.includes("additionalBlueConnectorsInstalled:true"));
+  assert.ok(rails.includes("additionalBlueConnectorMounts:["));
+  assert.ok(railConfig.includes('title:"Insert the first blue end connector'));
+  assert.ok(railConfig.includes('title:"Insert the second blue end connector'));
+  assert.ok(read("src/components/practical/StepNineAssemblyReview.tsx").includes("phase={STEP_SEVEN_FINAL_PHASE}"));
+  assert.ok(railConfig.includes("STEP_SEVEN_MECHANICALLY_VERIFIED = false"));
+});

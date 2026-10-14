@@ -4,7 +4,7 @@ import { StepSevenRailsScene } from "./StepSevenRailsScene";
 import { StepEightScene } from "./StepEightScene";
 import { STEP5_SNAPSHOT_KEY } from "./StepFiveScene";
 import { STEP_SIX_RESULT, type StepSixMountConfig, type StepSixStepFiveTransforms } from "./StepSixGeometry";
-import { STEP_SEVEN_RESULT_KEY, STEP_EIGHT_RESULT_KEY, type StepSevenRailConfig } from "./stepSevenRailGeometry";
+import { STEP_SEVEN_FINAL_PHASE, STEP_SEVEN_RESULT_KEY, STEP_EIGHT_RESULT_KEY, type StepSevenRailConfig } from "./stepSevenRailGeometry";
 import { STEP_EIGHT_DEMO_CONFIG, type StepEightConfig } from "./stepEightGeometry";
 
 type ReadyState = {
@@ -43,7 +43,7 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
     <AssemblyStage
       scene={!ready?<div role="alert" className="grid h-full place-items-center p-5 text-center text-sm text-amber-900">
         Both Step 7 and Step 8 need a saved physical self-check in this browser. Return to those lessons to complete their independent assemblies.
-      </div>:view==="A"?<StepSevenRailsScene phase={4} config={ready.a.mountingChoices}
+      </div>:view==="A"?<StepSevenRailsScene phase={STEP_SEVEN_FINAL_PHASE} config={ready.a.mountingChoices}
         stepSixConfig={ready.stepSixConfig} prepared={ready.transforms} replayKey={0}
         paused={false} resetCameraKey={0} reducedMotion={true} onMotionComplete={()=>{}}/>
         :<StepEightScene phase={11} config={ready.b.config??STEP_EIGHT_DEMO_CONFIG}

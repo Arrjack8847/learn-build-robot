@@ -6,7 +6,7 @@ import { STEP_SIX_RESULT, validateMountConfig, type StepSixMountConfig, type Ste
 import { StepSevenRailsScene } from "./StepSevenRailsScene";
 import {
   STEP_SEVEN_ACTIONS, STEP_SEVEN_ASSEMBLY_ID, STEP_SEVEN_MECHANICALLY_VERIFIED,
-  STEP_SEVEN_PROVISIONAL, STEP_SEVEN_RESULT_KEY, railConfigurationErrors,
+  STEP_SEVEN_PHOTO_CONFIG, STEP_SEVEN_RESULT_KEY, railConfigurationErrors,
   railGuide, type StepSevenRailConfig,
 } from "./stepSevenRailGeometry";
 
@@ -32,7 +32,7 @@ function readHandoff():Handoff|null {
 }
 export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>void}){
   const [handoff]=useState(readHandoff);
-  const [config,setConfig]=useState<StepSevenRailConfig>({...STEP_SEVEN_PROVISIONAL});
+  const [config,setConfig]=useState<StepSevenRailConfig>({...STEP_SEVEN_PHOTO_CONFIG});
   const [phase,setPhase]=useState(0);
   const [busy,setBusy]=useState(false);
   const [paused,setPaused]=useState(false);
@@ -63,7 +63,7 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
         version:1,assemblyId:STEP_SEVEN_ASSEMBLY_ID,stepSixAssemblyId:handoff.stepSixId,
         railComponents:["STEP7_RAIL_FRONT_15","STEP7_RAIL_BACK_15"],
         centralComponentIds:["STEP5_BEAM_11","STEP5_HOLLOW_A","STEP5_HOLLOW_B","STEP5_BRIDGE_A","STEP5_BRIDGE_B"],
-        additionalBlueConnectorCount:2,additionalBlueConnectorMounts:"unverified",
+        additionalBlueConnectorCount:2,additionalBlueConnectorMounts:[{rail:"STEP7_RAIL_FRONT_15",hole:15},{rail:"STEP7_RAIL_BACK_15",hole:15}],additionalBlueConnectorsInstalled:true,
         mountingChoices:config,mechanicallyVerified:STEP_SEVEN_MECHANICALLY_VERIFIED,
         physicallySelfConfirmed:true,source:"learner-physical-attestation",completedAt:new Date().toISOString(),
       }));
@@ -99,7 +99,7 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
       dock={<>
         <AssemblyActionCard actionIndex={phase} actionCount={STEP_SEVEN_ACTIONS.length}
           title={item.title} instruction={item.instruction}
-          note="The 15-hole receiving holes, two additional connector locations, insertion axes and seating depths still require physical calibration."/>
+          note="Photo-aligned receiving pairs: first rail holes 6/8, opposite rail holes 1/3. New blue end pins go into hole 15 counted from the grey-connector end. Fit and seating depth require kit verification."/>
         <AssemblyPlaybackControls paused={paused} onPrevious={()=>nextPhase(phase-1)}
           onReplay={()=>{if(!handoff)return;setBusy(true);setPaused(false);setReplayKey(v=>v+1);}}
           onTogglePause={()=>setPaused(v=>!v)} onNext={()=>nextPhase(phase+1)}
@@ -121,22 +121,15 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
     </div>}
     <details className="rounded-xl border border-slate-200 bg-white p-3 text-xs text-slate-600">
       <summary className="cursor-pointer font-bold text-[#132654]">Physical geometry and reference calibration</summary>
-      <p className="mt-2 leading-5">The two side rails and six existing connector pins use unchanged source STLs. These mounting holes and the pictured rail offset are visual candidates only. Compare IMG_1707, IMG_1709 and IMG_1712 before teaching a certified fit. No guess has been recorded as a measured seating depth.</p>
-      <div className="mt-2 grid gap-2 sm:grid-cols-3">
-        <label>Rail separation · provisional scene units
+      <p className="mt-2 leading-5">The original STL components are unchanged. IMG_1713 and IMG_1714 show first rail holes 6 and 8 on the later Step 6 bridge and second rail holes 1 and 3 on the earlier bridge. IMG_1716 confirms two new blue pins in the exposed free-end holes (hole 15 from the grey-connector end). Rail spacing and pin seating depth remain provisional and require a physical fit check.</p>
+      <div className="mt-2 grid gap-2 sm:grid-cols-2">
+        <label>Rail-to-center offset · provisional scene units
           <input className="mt-1 block w-full rounded-lg border px-2 py-2" type="number" min="1.4" max="4" step="0.1"
             value={config.railCenterDistance} onChange={e=>{setConfig(c=>({...c,railCenterDistance:Number(e.target.value)}));setPhase(0);}}/>
         </label>
-        <label>First rail candidate hole
-          <input className="mt-1 block w-full rounded-lg border px-2 py-2" type="number" min="1" max="13"
-            value={config.firstRailHole} onChange={e=>{setConfig(c=>({...c,firstRailHole:Number(e.target.value)}));setPhase(0);}}/>
-        </label>
-        <label>Second rail candidate hole
-          <input className="mt-1 block w-full rounded-lg border px-2 py-2" type="number" min="1" max="13"
-            value={config.secondRailHole} onChange={e=>{setConfig(c=>({...c,secondRailHole:Number(e.target.value)}));setPhase(0);}}/>
-        </label>
+        <div className="rounded-lg bg-sky-50 p-2 text-xs leading-5 text-sky-900"><strong>Photo-matched hole pairs</strong><p>First beam: holes 6 and 8 · second beam: holes 1 and 3, counted from the grey connector end. New blue pins: both hole 15 at the exposed free end.</p></div>
       </div>
-      {front&&back&&<p className="mt-2">Step 6 bridge holes: front [{front.sourceMountingHoles.join(", ")}], back [{back.sourceMountingHoles.join(", ")}]. Candidate rail holes: front [{front.candidateReceivingHoles.join(", ")}], back [{back.candidateReceivingHoles.join(", ")}]. The actual insertion axes and collar seating remain unverified.</p>}
+      {front&&back&&<p className="mt-2">Step 6 bridge mounting holes: first [{front.sourceMountingHoles.join(", ")}], second [{back.sourceMountingHoles.join(", ")}]. 15-hole receiving holes: first [{front.candidateReceivingHoles.join(", ")}], second [{back.candidateReceivingHoles.join(", ")}]. The actual insertion axes and collar seating remain unverified.</p>}
       <label className="mt-3 flex flex-wrap items-center gap-2"><Upload className="size-4"/>
         Compare an original photo (local only)
         <input aria-label="Choose real Step 7 physical assembly photograph" type="file" accept="image/*"
@@ -144,8 +137,7 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
       </label>
       {photo&&<img alt="Locally provided Step 7 reference" src={photo} className="mt-2 max-h-72 w-full object-contain"/>}
       <p className="mt-3 text-amber-900"><TriangleAlert className="mr-1 inline size-4"/>
-        Additional long blue connector positions are unresolved; both remain separate in the learning scene.
-        Do not infer their mounting from this demo.</p>
+        Both blue long connectors are installed at the photographed free-end holes. Connector shoulder depth and exact STL engagement remain unmeasured; visually compare with your real assembled kit.</p>
     </details>
   </div>;
 }

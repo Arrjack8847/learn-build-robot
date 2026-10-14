@@ -39,3 +39,11 @@ The 32-entry count includes the real photographed two-assembly handoff at Step 9
 - Run the branch-specific GitHub Actions validation job. No screenshot is mechanical fit proof by itself.
 
 The original 31-step manual and source STL meshes are not changed by this feature branch.
+
+## Photo-aligned Step 7 revision (IMG_1713, IMG_1714, IMG_1716)
+
+- Earlier placeholder mounting pairs 6/8 and 11/13 have been replaced by photo-aligned **6/8 for the beam on the later bridge** and **1/3 for the opposite beam on the earlier bridge**. Count from the grey/bridge-connector end. These pairs must not be confused with the holes used to fix the 11-hole central support.
+- The two rails share the same longitudinal positioning relative to the bridge pairs when Step 6 uses the photographed 4/6 and 9/11 bridge placements.
+- Each additional blue long pin now animates into **hole 15 from the bridge end** (the endmost hole, hole 1 when counted from the opposite free end). Original six Step 5/6 pins remain untouched.
+- Guided actions now separate approach, seating and insertion of each end pin (eight actions). Step 9 renders the completed eight-action state.
+- The actual 24-mm-long blue connector mesh is retained. Rail-to-center clearance and pin shoulder seating are still scene estimates, **not a measured mechanical fit**. No geometry should be marked certified until tested on the physical kit.
