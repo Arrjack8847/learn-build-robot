@@ -3,7 +3,7 @@ import {
   ArrowLeft, ArrowRight, CheckCircle2, Eye, Pause, Play,
   RotateCcw, Settings2, SkipBack, ZoomIn,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { AssemblyLessonHeader, AssemblyActionCard, AssemblyPlaybackControls, AssemblyUtilityControls } from "./AssemblyLessonUI";
 import {
   getPreparedStepThreeTransforms, StepThreeScene,
   type StepThreeConfig,
@@ -102,16 +102,7 @@ export function StepThreeAssembly({ onReadyChange }: { onReadyChange: (ready: bo
 
   return (
     <div className="relative z-10 w-full space-y-3">
-      <div className="flex flex-wrap items-center justify-between gap-2 px-1">
-        <p className="text-xs font-black uppercase tracking-[0.14em] text-[#116eaf]">
-          Interactive 3D · Step 3 · {phase}/7 actions
-        </p>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-slate-600">
-          <Eye aria-hidden="true" className="size-3.5" />
-          Drag to orbit · scroll/pinch to zoom
-        </span>
-      </div>
-
+      <AssemblyLessonHeader step={3} title="Prepare the long beam assembly" actionIndex={phase} actionCount={INSTRUCTIONS.length} />
       <div className="relative h-[300px] w-full overflow-hidden rounded-2xl border border-[#ccdcea] bg-[#f8fbfd] sm:h-[350px] md:h-[420px]">
         <StepThreeScene
           config={config}
@@ -127,53 +118,19 @@ export function StepThreeAssembly({ onReadyChange }: { onReadyChange: (ready: bo
         )}
       </div>
 
-      <div aria-live="polite" className="rounded-xl border border-blue-100 bg-white p-3 text-left sm:p-4">
-        <div className="flex items-start gap-3">
-          <span className="grid size-9 shrink-0 place-items-center rounded-full bg-[#eaf5ff] text-sm font-black text-[#116eaf]">
-            {ready ? <CheckCircle2 aria-hidden="true" className="size-5" /> : phase + 1}
-          </span>
-          <div>
-            <h3 className="text-sm font-extrabold text-[#132654] sm:text-base">{instruction.title}</h3>
-            <p className="mt-1 text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6">{instruction.text}</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="flex flex-wrap gap-2">
-          <Button className="rounded-xl" size="sm" type="button" variant="outline" disabled={phase === 0} onClick={() => { setPaused(false); setPhase((p) => Math.max(0, p - 1)); }}>
-            <SkipBack aria-hidden="true" className="size-3.5" /> Previous
-          </Button>
-          <Button className="rounded-xl" size="sm" type="button" variant="outline" disabled={phase === 0} onClick={() => { setPaused(false); setReplayKey((key) => key + 1); }}>
-            <RotateCcw aria-hidden="true" className="size-3.5" /> Replay
-          </Button>
-          <Button className="rounded-xl" size="sm" type="button" variant="outline" onClick={() => setPaused((value) => !value)}>
-            {paused ? <Play aria-hidden="true" className="size-3.5" /> : <Pause aria-hidden="true" className="size-3.5" />}
-            {paused ? "Resume" : "Pause"}
-          </Button>
-        </div>
-        <Button
-          className="rounded-xl bg-[#168eea] text-white hover:bg-[#0e82dd]"
-          size="sm" type="button"
-          disabled={ready}
-          onClick={() => { setPaused(false); setPhase((p) => Math.min(7, p + 1)); }}
-        >
-          {phase === 6 ? "Finish inspection" : "Next action"}
-          <ArrowRight aria-hidden="true" className="size-3.5" />
-        </Button>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        <Button className="rounded-lg" size="sm" type="button" variant="ghost" onClick={() => setResetCameraKey((key) => key + 1)}>
-          <ZoomIn aria-hidden="true" className="size-4" /> Reset camera
-        </Button>
-        <Button className="rounded-lg" size="sm" type="button" variant="ghost" onClick={() => setShowReference((value) => !value)}>
-          <Eye aria-hidden="true" className="size-4" /> {showReference ? "Hide" : "Show"} manual Step 3
-        </Button>
-        <Button className="rounded-lg" size="sm" type="button" variant="ghost" onClick={() => { setPhase(0); setPaused(false); setResetCameraKey((key) => key + 1); }}>
-          <ArrowLeft aria-hidden="true" className="size-4" /> Restart Step 3
-        </Button>
-      </div>
-
+      <AssemblyActionCard actionIndex={phase} actionCount={INSTRUCTIONS.length}
+        title={instruction.title} instruction={instruction.text} />
+      <AssemblyPlaybackControls paused={paused}
+        previousDisabled={phase === 0} replayDisabled={phase === 0} nextDisabled={ready}
+        nextLabel={phase === 6 ? "Finish inspection" : "Next action"}
+        onPrevious={() => { setPaused(false); setPhase(p => Math.max(0, p - 1)); }}
+        onReplay={() => { setPaused(false); setReplayKey(k => k + 1); }}
+        onTogglePause={() => setPaused(value => !value)}
+        onNext={() => { setPaused(false); setPhase(p => Math.min(7, p + 1)); }} />
+      <AssemblyUtilityControls step={3} manualShown={showReference}
+        onResetView={() => setResetCameraKey(k => k + 1)}
+        onToggleManual={() => setShowReference(v => !v)}
+        onRestart={() => { setPhase(0); setPaused(false); setResetCameraKey(k => k + 1); }} />
       {showReference && (
         <div className="rounded-2xl border border-slate-200 bg-white p-3">
           <p className="mb-2 text-xs font-bold text-slate-600">Manual reference · compare the holes and pin orientation</p>
