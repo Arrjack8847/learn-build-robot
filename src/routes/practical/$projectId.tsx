@@ -156,6 +156,24 @@ function BuildSession({ project }: { project: PracticalProject }) {
       </header>
 
       <main ref={lessonScrollArea} className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain">
+        {isInteractiveMarksman && (
+          <nav aria-label="Robot step navigation" className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-slate-100 bg-white/95 px-4 py-2 backdrop-blur sm:px-8">
+            <Button
+              type="button"
+              variant="outline"
+              aria-label="Previous Step"
+              className="min-h-11 rounded-xl border-[#cddceb] bg-white px-4 text-sm font-bold text-[#132654] shadow-sm hover:bg-[#eaf5ff]"
+              disabled={currentIndex === 0}
+              onClick={() => setCurrentIndex((index) => Math.max(0, index - 1))}
+            >
+              <ChevronLeft aria-hidden="true" className="size-4" />
+              Previous Step
+            </Button>
+            <span className="text-xs font-semibold tabular-nums text-slate-500">
+              Step {currentIndex + 1} of {project.steps.length}
+            </span>
+          </nav>
+        )}
         <div className={`mx-auto w-full px-4 pb-4 pt-2.5 sm:px-8 sm:pb-6 sm:pt-4 [@media(max-height:700px)]:pt-2 ${isInteractiveMarksman ? "max-w-[1580px]" : "max-w-6xl"}`}>
           <section className={isInteractiveMarksman ? "text-left sm:text-center" : "text-center"}>
             <h1 className="mx-auto max-w-3xl text-[clamp(1.3rem,4vw,2.1rem)] font-black leading-tight tracking-[-0.035em] text-[#132654] [@media(max-height:700px)]:text-[clamp(1.25rem,5.5vw,1.8rem)]">
