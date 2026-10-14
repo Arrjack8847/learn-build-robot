@@ -28,7 +28,7 @@ export function AssemblyLessonHeader({
     <div className="flex flex-wrap items-center justify-between gap-2 px-1">
       <div className="min-w-0">
         <p className="text-[11px] font-black uppercase tracking-[0.13em] text-[#116eaf]">
-          Marksmanship Robot · Step {step} of 31
+          Marksmanship Robot · Step {step} of 32
         </p>
         <p className="mt-0.5 text-sm font-extrabold text-[#132654] sm:text-lg">{title}</p>
       </div>
