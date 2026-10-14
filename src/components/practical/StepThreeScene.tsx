@@ -316,7 +316,7 @@ function ModelStage({
           <meshStandardMaterial color={phase === 6 ? "#de932b" : "#3d4a56"} roughness={0.58} />
         </mesh>
       </group>
-      <OrbitControls ref={controls} makeDefault enableDamping dampingFactor={0.075} enablePan maxDistance={42} minDistance={9} autoRotate={phase === 7 && !paused} autoRotateSpeed={0.35} />
+      <OrbitControls ref={controls} makeDefault enableDamping dampingFactor={0.075} enablePan maxDistance={42} minDistance={9} onStart={() => { cameraTravel.current = null; }} autoRotate={false} autoRotateSpeed={0.35} />
     </>
   );
 }
