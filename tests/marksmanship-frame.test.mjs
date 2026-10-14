@@ -91,7 +91,7 @@ test("photo-based frame animation is mounted only in Step 7; official 31-step re
   assert.ok(data.includes("attach connectors at holes 5 and 8"));
   const route = readFileSync(resolve("src/routes/practical/$projectId.tsx"), "utf8");
   assert.ok(route.includes("MarksmanFramePreparation"));
-  assert.match(route, /project\.id === "marksmanship" && currentStep\.number === 7 && \(/);
+  assert.match(route, /project\.id === "marksmanship" && currentStep\.number === 7 \? \(/);
   assert.equal((route.match(/<MarksmanFramePreparation\s*\/>/g) ?? []).length, 1);
   assert.ok(!route.includes("showFrameTutorial"), "must not be globally mounted");
   assert.ok(!route.includes("Not an official numbered step."));
@@ -111,7 +111,11 @@ test("unresolved photo-specific mounting details remain explicitly not verified"
   assert.ok(guide.includes("unverified"));
   assert.ok(guide.includes("official Step 9"));
   assert.ok(guide.includes("reducedMotion"));
-  for (const control of ["Previous", "Next action", "Replay", "Pause", "Reset camera",
-    "Zoom in", "Zoom out", "Exploded", "Rotate 360", "Hole labels"])
-    assert.ok(guide.includes(control), "missing control: " + control);
+  for (const control of ["Zoom in", "Zoom out", "Exploded", "Rotate 360", "Hole labels"])
+    assert.ok(guide.includes(control), "missing advanced tool: " + control);
+  const shared = readFileSync(resolve("src/components/practical/AssemblyLessonUI.tsx"), "utf8");
+  for (const control of ["Previous", "Next action", "Replay", "Pause", "Reset view"])
+    assert.ok(shared.includes(control), "missing shared 3D control: " + control);
+  assert.ok(guide.includes("AssemblyPlaybackControls"));
+  assert.ok(guide.includes("AssemblyUtilityControls"));
 });
