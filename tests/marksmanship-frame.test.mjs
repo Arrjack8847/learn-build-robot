@@ -92,7 +92,7 @@ test("photo-based frame animation is mounted only in Step 7; official 31-step re
   const route = readFileSync(resolve("src/routes/practical/$projectId.tsx"), "utf8");
   assert.ok(route.includes("MarksmanFramePreparation"));
   assert.match(route, /project\.id === "marksmanship" && currentStep\.number === 7 \? \(/);
-  assert.equal((route.match(/<MarksmanFramePreparation\s*\/>/g) ?? []).length, 1);
+  assert.equal((route.match(/<MarksmanFramePreparation\s+onCompleteStep=\{finishCurrentStep\}\s*\/>/g) ?? []).length, 1);
   assert.ok(!route.includes("showFrameTutorial"), "must not be globally mounted");
   assert.ok(!route.includes("Not an official numbered step."));
   for (const old of ["StepThreeAssembly", "StepFourAssembly", "Marksman3DPreview"])
@@ -108,13 +108,14 @@ test("unresolved photo-specific mounting details remain explicitly not verified"
   assert.equal(g.DEFAULT_FRAME_CONFIG.firstMount, 0);
   assert.deepEqual(g.DEFAULT_FRAME_CONFIG.beam15Holes, [4, 7]);
   const guide = readFileSync(resolve("src/components/practical/MarksmanFramePreparation.tsx"), "utf8");
-  assert.ok(guide.includes("unverified"));
-  assert.ok(guide.includes("official Step 9"));
+  assert.ok(guide.includes("not physically verified"));
+  assert.ok(guide.includes("Official Step 9"));
   assert.ok(guide.includes("reducedMotion"));
-  for (const control of ["Zoom in", "Zoom out", "Exploded", "Rotate 360", "Hole labels"])
-    assert.ok(guide.includes(control), "missing advanced tool: " + control);
+  assert.ok(guide.includes("AssemblyStage"),"Floating-dock 3D stage must be used");
+  assert.ok(guide.includes("Original STL meshes"),"Mechanical disclaimer must stay visible");
+  assert.ok(!guide.includes("Calibration choices (unverified)"),"Calibration selectors are not student controls");
   const shared = readFileSync(resolve("src/components/practical/AssemblyLessonUI.tsx"), "utf8");
-  for (const control of ["Previous", "Next action", "Replay", "Pause", "Reset view"])
+  for (const control of ["Previous", "Next Action", "Replay", "Pause", "Reset view"])
     assert.ok(shared.includes(control), "missing shared 3D control: " + control);
   assert.ok(guide.includes("AssemblyPlaybackControls"));
   assert.ok(guide.includes("AssemblyUtilityControls"));
