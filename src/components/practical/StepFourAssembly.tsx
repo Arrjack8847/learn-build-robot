@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  ArrowLeft, ArrowRight, CheckCircle2, Eye, Pause, Play,
-  RotateCcw, ScanSearch, SkipBack, TriangleAlert,
-} from "lucide-react";
+import { TriangleAlert } from "lucide-react";
 import { AssemblyLessonHeader, AssemblyActionCard, AssemblyPlaybackControls, AssemblyUtilityControls } from "./AssemblyLessonUI";
 import { STEP_THREE_SNAPSHOT } from "./StepThreeAssembly";
 import type { StepThreeConfig } from "./StepThreeScene";
