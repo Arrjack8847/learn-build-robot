@@ -20,7 +20,9 @@ import { RobotIllustration } from "@/components/journey/RobotIllustration";
 import { Marksman3DPreview } from "@/components/practical/Marksman3DPreview";
 import { StepThreeAssembly } from "@/components/practical/StepThreeAssembly";
 import { StepFourAssembly } from "@/components/practical/StepFourAssembly";
-import { MarksmanFramePreparation } from "@/components/practical/MarksmanFramePreparation";
+import { StepSevenRailsAssembly } from "@/components/practical/StepSevenRailsAssembly";
+import { StepEightAssembly } from "@/components/practical/StepEightAssembly";
+import { StepNineAssemblyReview } from "@/components/practical/StepNineAssemblyReview";
 import { StepFiveAssembly } from "@/components/practical/StepFiveAssembly";
 import { StepSixAssembly } from "@/components/practical/StepSixAssembly";
 import { Button } from "@/components/ui/button";
@@ -107,7 +109,10 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const isStepFour = project.id === "marksmanship" && currentStep.number === 4;
   const isStepFive = project.id === "marksmanship" && currentStep.number === 5;
   const isStepSix = project.id === "marksmanship" && currentStep.number === 6;
-  const isInteractiveMarksman = project.id === "marksmanship" && currentStep.number >= 1 && currentStep.number <= 7;
+  const isStepSeven = project.id === "marksmanship" && currentStep.number === 7;
+  const isStepEight = project.id === "marksmanship" && currentStep.number === 8;
+  const isStepNine = project.id === "marksmanship" && currentStep.number === 9;
+  const isInteractiveMarksman = project.id === "marksmanship" && currentStep.number >= 1 && currentStep.number <= 9;
   const completedCount = project.steps.filter(step => isStepCompleted(step.id)).length;
   const displayedPercent = Math.round((completedCount / project.steps.length) * 100);
   const helpItem =
@@ -223,8 +228,14 @@ function BuildSession({ project }: { project: PracticalProject }) {
                 <StepSixAssembly onReadyChange={setStepSixReady}
                   onBackToStep5={() => setCurrentIndex(4)}
                   onContinueToStep7={finishCurrentStep} />
-              ) : project.id === "marksmanship" && currentStep.number === 7 ? (
-                <MarksmanFramePreparation onCompleteStep={finishCurrentStep} />
+              ) : isStepSeven ? (
+                <StepSevenRailsAssembly onCompleteStep={finishCurrentStep} />
+              ) : isStepEight ? (
+                <StepEightAssembly onReadyChange={() => {}}
+                  onBackToStep7={() => setCurrentIndex(6)}
+                  onContinueToStep9={finishCurrentStep} />
+              ) : isStepNine ? (
+                <StepNineAssemblyReview onCompleteStep={finishCurrentStep} />
               ) : currentStep.image ? (
                 <img
                   alt={`${project.title} step ${currentStep.number}: ${currentStep.title}`}
