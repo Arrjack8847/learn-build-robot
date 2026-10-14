@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Scan, Wrench } from "lucide-react";
-import { AssemblyLessonHeader, AssemblyActionCard, AssemblyPlaybackControls } from "./AssemblyLessonUI";
+import { AssemblyLessonHeader, AssemblyActionCard, AssemblyPlaybackControls, AssemblyStage } from "./AssemblyLessonUI";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
@@ -171,10 +171,11 @@ type Props = {
   referenceImage: string;
   onReadyChange?: ((finished: boolean) => void) | undefined;
   onBeginStep2?: (() => void) | undefined;
+  onCompleteStep?: (() => void) | undefined;
 };
 
 /** The same component and WebGL canvas is reused as the parent changes Step 1 to 2. */
-export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onBeginStep2 }: Props) {
+export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onBeginStep2, onCompleteStep }: Props) {
   const hostRef = useRef<HTMLDivElement>(null);
   const onReadyRef = useRef(onReadyChange);
   const stageRef = useRef(step);
@@ -281,7 +282,7 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
     let renderer: THREE.WebGLRenderer;
     try {
       renderer = new THREE.WebGLRenderer({ alpha: false, antialias: true, powerPreference: "low-power" });
-      renderer.setClearColor(0xf8f5ee);
+      renderer.setClearColor(0xf6f9fc);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
       renderer.outputColorSpace = THREE.SRGBColorSpace;
       host.appendChild(renderer.domElement);
@@ -601,81 +602,66 @@ export function MarksmanMotorAssembly({ step, referenceImage, onReadyChange, onB
   const isFinal = step === 2 && action === actions.length - 1 && fraction >= 1;
   const finishedAction = fraction >= 1;
   return (
-    <section aria-label="Step 1 and 2 connected motor assembly viewer" className="relative w-full min-w-0 space-y-2 text-left">
+    <section aria-label="Motor assembly 3D learning experience" className="w-full min-w-0 space-y-3 text-left">
       <AssemblyLessonHeader step={step} title={step === 1 ? "Prepare the motor components" : "Build the motor assembly"}
-        actionIndex={step === 2 ? action : undefined} actionCount={step === 2 ? actions.length : undefined}
-        trailing={<button type="button" className="min-h-11 rounded-xl px-3 text-xs font-bold text-[#116eaf] underline underline-offset-2"
-          onClick={() => setShowManual(v => !v)} aria-expanded={showManual}>
-          {showManual ? "Hide manual" : "View manual"}
-        </button>} />
-      <div className="relative h-[270px] w-full overflow-hidden rounded-2xl border border-[#cddceb] bg-[#f6f9fc] sm:h-[360px] md:h-[430px]">
-        <div ref={hostRef} className="absolute inset-0 touch-none" aria-label="Rotate 3D parts by dragging; pinch or scroll to zoom." />
-        {!failure && loaded && <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-          {labels.map(label => (
-            <span key={label.id} className="absolute whitespace-nowrap rounded-full border border-amber-300/80 bg-white/90 px-1.5 py-0.5 text-[10px] font-bold text-[#824718] shadow-sm" style={{ left: label.x + "%", top: label.y + "%", transform: "translate(-50%,-150%)" }}>
-              {names[label.id]}
-            </span>
-          ))}
+        actionIndex={step === 2 ? action : undefined} actionCount={step === 2 ? actions.length : undefined} />
+      <AssemblyStage
+        scene={<>
+          <div ref={hostRef} className="absolute inset-0 touch-none" aria-label="Rotate 3D parts by dragging; pinch or scroll to zoom." />
+          {!failure && loaded && <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+            {labels.filter(label => step === 1 || (playing && currentAction.active.includes(label.id))).map(label => (
+              <span key={label.id} className="absolute whitespace-nowrap rounded-full border border-sky-200 bg-white/90 px-1.5 py-0.5 text-[10px] font-bold text-[#145e9f] shadow-sm" style={{ left: label.x + "%", top: label.y + "%", transform: "translate(-50%,-150%)" }}>
+                {names[label.id]}
+              </span>
+            ))}
+          </div>}
+          {!loaded && !failure && <p className="absolute inset-0 grid place-items-center bg-[#f6f9fc] p-4 text-center text-sm text-slate-600">Loading the original motor and connector models…</p>}
+          {failure && <div className="absolute inset-0 grid place-items-center bg-[#f6f9fc] p-4 text-sm text-amber-900" role="alert">{failure}</div>}
+        </>}
+        tools={<div className="flex flex-wrap justify-end gap-1">
+          <button type="button" aria-label="Reset view" title="Reset camera" onClick={() => { resetCameraRef.current += 1; }}
+            className="inline-flex min-h-11 items-center gap-1 rounded-xl border border-slate-200 bg-white/95 px-3 text-xs font-bold text-[#132654] shadow-sm">
+            <Scan aria-hidden="true" className="size-4"/> <span className="hidden sm:inline">Reset view</span>
+          </button>
+          <button type="button" onClick={() => setShowManual(v => !v)}
+            className="inline-flex min-h-11 items-center rounded-xl border border-slate-200 bg-white/95 px-3 text-xs font-bold text-[#132654] shadow-sm"
+            aria-expanded={showManual}>{showManual ? "Hide manual" : "View manual"}</button>
         </div>}
-        {!loaded && !failure && <p className="absolute inset-0 grid place-items-center bg-[#f6f9fc] text-sm text-slate-600">Loading real motor, disc, axle, beam and connector models…</p>}
-        {failure && <div className="absolute inset-0 grid place-items-center bg-[#f6f9fc] p-4 text-sm text-amber-900" role="alert">{failure}</div>}
-      </div>
-      <button type="button" onClick={() => setShowOriginalCable(v => !v)} className="inline-flex min-h-9 items-center rounded-full border border-slate-200 bg-white px-3 text-xs font-semibold text-slate-600">
-        {showOriginalCable ? "Hide full motor cable" : "Show original motor cable"}
+        dock={step === 1 ?
+          <>
+            <AssemblyActionCard actionIndex={0} actionCount={1} title="Inspect the five components"
+              instruction="Find the motor, short axle, round disc, connector and 5-hole beam. Rotate the view and identify each part before continuing." />
+            <button type="button" disabled={!loaded || Boolean(failure)} onClick={() => onBeginStep2?.()}
+              className="mt-2 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#168eea] px-4 text-sm font-extrabold text-white disabled:opacity-40">
+              <Wrench className="size-4" /> Start Assembly — Step 2 <ArrowRight className="size-4" />
+            </button>
+          </> :
+          <>
+            <AssemblyActionCard actionIndex={action} actionCount={actions.length}
+              title={currentAction.title} instruction={currentAction.instruction} />
+            <AssemblyPlaybackControls paused={!playing}
+              previousDisabled={!loaded||Boolean(failure)||action===0}
+              replayDisabled={!loaded||Boolean(failure)||reducedMotion}
+              pauseDisabled={!loaded||Boolean(failure)||reducedMotion}
+              nextDisabled={!loaded||Boolean(failure)||!finishedAction||action===actions.length-1}
+              isFinalAction={action===actions.length-1}
+              completeDisabled={!loaded||Boolean(failure)||!isFinal}
+              onComplete={onCompleteStep}
+              onPrevious={goPrevious} onNext={goNext} onReplay={replay}
+              onTogglePause={()=>{
+                if(timeRef.current>=1) replay();
+                else { playingRef.current=!playingRef.current; directionRef.current=1; setPlaying(playingRef.current); }
+              }} />
+          </>}
+      />
+      <button type="button" onClick={() => setShowOriginalCable(v => !v)} className="inline-flex min-h-11 items-center rounded-xl border border-slate-200 bg-white px-3 text-xs font-semibold text-slate-600">
+        {showOriginalCable ? "Hide full motor cable" : "Show full motor cable"}
       </button>
-      {showManual && <img src={referenceImage} alt={"Original Marksman manual Step " + step} className="mx-auto max-h-[240px] w-full rounded-lg border border-slate-200 object-contain" />}
-      {step === 1 ? (
-        <div className="space-y-2">
-          <p className="text-sm text-[#132654]">Inspect the five parts independently. None are connected. Rotate or zoom, then choose Start Assembly.</p>
-          <button type="button" onClick={() => { resetCameraRef.current += 1; }} className="mb-2 inline-flex min-h-10 items-center gap-1 rounded-full border border-slate-200 bg-white px-3 text-xs font-bold text-[#132654]"><Scan className="size-4" /> Reset View</button>
-          <button type="button" disabled={!loaded || Boolean(failure)} onClick={() => onBeginStep2?.()} className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#168eea] px-4 text-sm font-bold text-white disabled:opacity-40">
-            <Wrench className="size-4" /> Start Assembly — Step 2 <ArrowRight className="size-4" />
-          </button>
-        </div>
-      ) : (
-        <div className="space-y-2">
-          <div className="grid grid-cols-5 gap-1" aria-label="Step 2 assembly action progress">
-            {actions.map((a, i) => <span key={a.id} className={"h-1.5 rounded-full " + (i <= action ? "bg-orange-500" : "bg-slate-200")} />)}
-          </div>
-          <AssemblyActionCard actionIndex={action} actionCount={actions.length}
-            title={currentAction.title} instruction={currentAction.instruction} />
-          {isFinal && <p role="status" className="rounded-xl bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-800">
-            Step 2 sequence complete. Keep the motor unit for Step 26; physical measurements still need checking.
-          </p>}
-          <AssemblyPlaybackControls paused={!playing}
-            previousDisabled={!loaded||Boolean(failure)}
-            replayDisabled={!loaded||Boolean(failure)||reducedMotion}
-            pauseDisabled={!loaded||Boolean(failure)||reducedMotion}
-            nextDisabled={!loaded||Boolean(failure)||!finishedAction||action===actions.length-1}
-            onPrevious={goPrevious} onNext={goNext} onReplay={replay}
-            onTogglePause={()=>{
-              if(timeRef.current>=1) replay();
-              else { playingRef.current=!playingRef.current; directionRef.current=1; setPlaying(playingRef.current); }
-            }} />
-          <button type="button" onClick={()=>{resetCameraRef.current+=1;}}
-            className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-[#132654]">
-            <Scan aria-hidden="true" className="size-4" /> Reset view
-          </button>
-          <label className="flex items-center gap-2 px-1 text-xs text-slate-600">
-            <span className="sr-only">Current action animation position</span>
-            <input aria-label="Animation timeline" type="range" min={0} max={100} step={1} value={Math.round(fraction * 100)} disabled={!loaded || Boolean(failure)} onChange={event => {
-              const progress = Number(event.target.value) / 100;
-              timeRef.current = progress;
-              playingRef.current = false;
-              setPlaying(false);
-              setFraction(progress);
-              onReadyRef.current?.(actionRef.current === actions.length - 1 && progress === 1);
-            }} className="min-w-0 flex-1 accent-orange-600" />
-            <span className="w-9 text-right tabular-nums">{Math.round(fraction * 100)}%</span>
-          </label>
-        </div>
-      )}
-      <p className="rounded-lg bg-amber-50 px-3 py-2 text-[11px] leading-4 text-amber-950">
-        Geometry-driven beta. Disc and beam hole centres are measured. Motor socket location, axle insertion depth, disc spacing, connector identity and outer-hole selection are not yet physically verified. Use the original manual when assembling your kit.
-      </p>
-      <details className="px-1 text-[11px] text-slate-600">
-        <summary className="cursor-pointer font-semibold">Mechanical verification checklist</summary>
-        <ul className="ml-4 mt-1 list-disc space-y-1">
+      {showManual && <img src={referenceImage} alt={"Original Marksman manual Step " + step} className="mx-auto max-h-[350px] w-full rounded-lg border border-slate-200 object-contain" />}
+      <details className="rounded-xl border border-amber-100 bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-950">
+        <summary className="cursor-pointer font-bold">Important: mechanical verification notes</summary>
+        <p className="mt-2">These animations teach the assembly sequence but do not certify all motor socket depths or connector fit. Compare the real kit with the retained manual.</p>
+        <ul className="ml-4 mt-2 list-disc space-y-1">
           {VALIDATION_NOTES.map(note => <li key={note}>{note}</li>)}
         </ul>
       </details>
