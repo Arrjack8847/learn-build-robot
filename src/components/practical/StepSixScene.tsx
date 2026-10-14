@@ -251,6 +251,9 @@ function ModelStage({phase,config,prepared,replayKey,paused,resetCameraKey,
           <torusGeometry args={[0.34,0.055,8,38]}/>
           <meshBasicMaterial color="#168eea" depthTest={false}/>
         </mesh>
+        <Html center position={[x,beamY,sign*1.3]} style={{pointerEvents:"none"}}>
+          <span style={{display:"inline-block",whiteSpace:"nowrap",fontSize:10,padding:"3px 6px",background:"rgba(255,255,255,0.95)",border:"1px solid #cbd9e8",borderRadius:6,fontWeight:800,color:"#145e9f"}}>Hole {hole} · estimated</span>
+        </Html>
         <Line points={[[x,beamY,sign*3.8],[x,beamY,sign*0.1]]}
           dashed dashSize={0.2} gapSize={0.14} lineWidth={1.7}
           color={i===0?"#168eea":"#2298bd"}/>
