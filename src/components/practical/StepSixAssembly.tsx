@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, Eye, Pause, Play, RotateCcw, ScanSearch, TriangleAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AssemblyLessonHeader, AssemblyActionCard, AssemblyPlaybackControls, AssemblyUtilityControls } from "./AssemblyLessonUI";
 import { STEP5_SNAPSHOT_KEY } from "./StepFiveScene";
 import { StepSixScene, type StepSixPreparedSnapshot } from "./StepSixScene";
 import {
@@ -156,14 +157,8 @@ export function StepSixAssembly({onReadyChange,onBackToStep5,onContinueToStep7}:
     </label>
   );
   return <div className="relative z-10 w-full space-y-3">
-    <div className="flex flex-wrap items-center justify-between gap-2 px-1">
-      <p className="text-xs font-black uppercase tracking-[0.12em] text-[#116eaf]">
-        STEP 6 — ATTACH THE CONNECTORS TO THE 11-HOLE BEAM
-      </p>
-      <span className="rounded-full bg-white p-2 text-[11px] font-semibold text-slate-600">
-        <Eye className="mr-1 inline size-3.5"/> Orbit · zoom · pinch
-      </span>
-    </div>
+    <AssemblyLessonHeader step={6} title="Attach connectors to the 11-hole beam"
+      actionIndex={phase} actionCount={ACTIONS.length} />
     {!prepared&&<div role="alert" className="rounded-xl border border-amber-300 bg-amber-50 p-3 text-xs leading-5 text-amber-950">
       <TriangleAlert className="mr-1 inline size-4"/>
       No physically confirmed Step 5 saved state was found in this browser.
@@ -175,7 +170,7 @@ export function StepSixAssembly({onReadyChange,onBackToStep5,onContinueToStep7}:
     {prepared&&!calibrated&&<div className="flex items-start gap-2 rounded-xl border border-amber-200 bg-amber-50 p-3 text-left text-xs leading-5 text-amber-900" role="status">
       <TriangleAlert className="mt-0.5 size-4 shrink-0"/>
       <span>The 3D workspace is ready. Choose the six <strong>Mounting setup</strong> options
-        in the panel beside the viewer (or below it on mobile) to unlock Next and Replay.</span>
+        in the panel beside the viewer (or above it on mobile) to unlock Next and Replay.</span>
     </div>}
     <div className="relative h-[clamp(340px,55vh,620px)] min-w-0 overflow-hidden rounded-2xl border border-[#cddceb] bg-[#f7fafc]">
       {prepared?<StepSixScene phase={phase} prepared={prepared} config={config}
@@ -188,57 +183,31 @@ export function StepSixAssembly({onReadyChange,onBackToStep5,onContinueToStep7}:
         <CheckCircle2 className="mr-1 inline size-4"/> Prepared for Step 7
       </span>}
     </div>
-    <div aria-live="polite" className="rounded-xl border border-sky-100 bg-white p-3 text-left sm:p-4">
-      <p className="text-xs font-extrabold uppercase tracking-[0.1em] text-[#116eaf]">
-        Action {phase+1}/8 · {action[0]}
-      </p>
-      <h3 className="mt-1 text-base font-extrabold text-[#132654]">{action[1]}</h3>
-      <p className="mt-1 text-sm leading-6 text-slate-700">{action[2]}</p>
-    </div>
+    <AssemblyActionCard actionIndex={phase} actionCount={ACTIONS.length}
+      title={action[1]} instruction={action[2]} />
     <div className="grid gap-2 rounded-xl bg-sky-50 p-3 text-xs font-bold text-sky-900 sm:grid-cols-3">
       <span>Hollow units: holes 1 & 2</span>
       <span>Bridge A: {pairA}</span>
       <span>Bridge B: {pairB}</span>
     </div>
-    <div className="flex flex-wrap items-center justify-between gap-2">
-      <div className="flex flex-wrap gap-2">
-        <Button type="button" size="sm" variant="outline" disabled={phase===0||busy}
-          onClick={()=>changePhase(phase-1)}>
-          <ArrowLeft className="size-4"/> Previous
-        </Button>
-        <Button type="button" size="sm" variant="outline" disabled={phase===0||busy||!calibrated}
-          onClick={()=>{setPaused(false);setBusy(true);setReplayKey(k=>k+1);}}>
-          <RotateCcw className="size-4"/> Replay
-        </Button>
-        <Button type="button" size="sm" variant="outline" disabled={!prepared}
-          onClick={()=>setPaused(p=>!p)}>
-          {paused?<Play className="size-4"/>:<Pause className="size-4"/>}
-          {paused?"Resume":"Pause"}
-        </Button>
-      </div>
-      <Button type="button" size="sm" disabled={!calibrated||!prepared||busy||phase===7}
-        className="bg-[#168eea] text-white" onClick={()=>changePhase(phase+1)}>
-        {phase===6?"Final inspection":"Next action"} <ArrowRight className="size-4"/>
-      </Button>
-    </div>
-    <div className="flex flex-wrap gap-2">
-      <Button type="button" size="sm" variant="ghost" onClick={()=>setResetCameraKey(k=>k+1)}>
-        <ScanSearch className="size-4"/> Reset camera
-      </Button>
-      <Button type="button" size="sm" variant="ghost" onClick={()=>setShowManual(v=>!v)}>
-        <Eye className="size-4"/> {showManual?"Hide":"Show"} Step 6 manual
-      </Button>
-      <Button type="button" size="sm" variant="ghost"
-        onClick={()=>{setPhase(0);setConfirmed(false);setPaused(false);setBusy(false);}}>
-        <RotateCcw className="size-4"/> Restart Step 6
-      </Button>
-      <Button type="button" size="sm" variant="outline" onClick={returnToFive}>
-        <ArrowLeft className="size-4"/> Return to Step 5
-      </Button>
-    </div>
+    <AssemblyPlaybackControls paused={paused}
+      previousDisabled={phase===0||busy} replayDisabled={phase===0||busy||!calibrated}
+      pauseDisabled={!prepared} nextDisabled={!calibrated||!prepared||busy||phase===7}
+      nextLabel={phase===6?"Final inspection":"Next action"}
+      onPrevious={()=>changePhase(phase-1)}
+      onReplay={()=>{setPaused(false);setBusy(true);setReplayKey(k=>k+1);}}
+      onTogglePause={()=>setPaused(p=>!p)}
+      onNext={()=>changePhase(phase+1)} />
+    <AssemblyUtilityControls step={6} manualShown={showManual}
+      onResetView={()=>setResetCameraKey(k=>k+1)}
+      onToggleManual={()=>setShowManual(v=>!v)}
+      onRestart={()=>{setPhase(0);setConfirmed(false);setPaused(false);setBusy(false);}} />
+    <Button type="button" variant="outline" className="min-h-11 rounded-xl" onClick={returnToFive}>
+      <ArrowLeft aria-hidden="true" /> Return to Step 5
+    </Button>
       </div>
       <aside aria-label="Step 6 mounting settings and verification"
-        className="min-w-0 space-y-3 lg:sticky lg:top-3 lg:max-h-[calc(100svh-185px)] lg:overflow-y-auto lg:pr-1">
+        className="order-first min-w-0 space-y-3 lg:order-none lg:sticky lg:top-3 lg:max-h-[calc(100svh-185px)] lg:overflow-y-auto lg:pr-1">
     <div className="rounded-2xl border border-slate-200 bg-white p-4 text-left shadow-[0_10px_28px_rgba(20,55,90,0.06)]">
       <h4 className="text-sm font-extrabold text-[#132654]">Mounting setup · confirm with real parts</h4>
       <p className="mt-1 text-xs leading-5 text-slate-600">
@@ -287,10 +256,6 @@ export function StepSixAssembly({onReadyChange,onBackToStep5,onContinueToStep7}:
         with my <strong>actual Step 6 physical assembly</strong>. The displayed seating
         depths are geometry-informed and not certified by STL collision testing.</span>
     </label>}
-    {ready&&<Button type="button" className="w-full bg-[#168eea] text-white"
-      onClick={onContinueToStep7}>
-      Continue to Step 7 <ArrowRight className="size-4"/>
-    </Button>}
     <p className="text-[11px] leading-5 text-slate-500">
       <TriangleAlert className="mr-1 inline size-3.5"/>
       Authentic Step 5 bodies/pins are reused from saved transforms. The photograph
