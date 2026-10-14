@@ -72,9 +72,10 @@ export function StepThreeAssembly({ onReadyChange, onCompleteStep }: { onReadyCh
   const [replayKey, setReplayKey] = useState(0);
   const [resetCameraKey, setResetCameraKey] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [busy, setBusy] = useState(false);
   const [showReference, setShowReference] = useState(false);
   const instruction = INSTRUCTIONS[phase] ?? INSTRUCTIONS[0];
-  const ready = phase === 7;
+  const ready = phase === 7 && !busy;
 
   useEffect(() => {
     onReadyChange(ready);
@@ -102,22 +103,24 @@ export function StepThreeAssembly({ onReadyChange, onCompleteStep }: { onReadyCh
       <AssemblyLessonHeader step={3} title="Prepare the long beam assembly" actionIndex={phase} actionCount={INSTRUCTIONS.length} />
       <AssemblyStage
         scene={<StepThreeScene config={config} paused={paused} phase={phase}
-          replayKey={replayKey} resetCameraKey={resetCameraKey} />}
+          replayKey={replayKey} resetCameraKey={resetCameraKey}
+          onMotionComplete={() => setBusy(false)} />}
         status={ready ? <span className="rounded-xl bg-emerald-50/95 p-2 text-xs font-bold text-emerald-900">Step 3 demonstration complete</span> : null}
         tools={<AssemblyUtilityControls step={3} manualShown={showReference}
           onResetView={() => setResetCameraKey(k => k + 1)}
           onToggleManual={() => setShowReference(v => !v)}
-          onRestart={() => { setPhase(0); setPaused(false); setResetCameraKey(k => k + 1); }} />}
+          onRestart={() => { setPhase(0); setBusy(false); setPaused(false); setResetCameraKey(k => k + 1); }} />}
         dock={<>
           <AssemblyActionCard actionIndex={phase} actionCount={INSTRUCTIONS.length}
             title={instruction.title} instruction={instruction.text} />
           <AssemblyPlaybackControls paused={paused}
-            previousDisabled={phase === 0} nextDisabled={ready} isFinalAction={ready}
+            previousDisabled={phase === 0 || busy} nextDisabled={busy} isFinalAction={phase === INSTRUCTIONS.length - 1}
+            completeDisabled={!ready}
             onComplete={onCompleteStep} nextLabel="Next Action"
-            onPrevious={() => { setPaused(false); setPhase(p => Math.max(0, p - 1)); }}
-            onReplay={() => { setPaused(false); setReplayKey(k => k + 1); }}
+            onPrevious={() => { setPaused(false); setBusy(true); setPhase(p => Math.max(0, p - 1)); }}
+            onReplay={() => { setPaused(false); setBusy(true); setReplayKey(k => k + 1); }}
             onTogglePause={() => setPaused(value => !value)}
-            onNext={() => { setPaused(false); setPhase(p => Math.min(7, p + 1)); }} />
+            onNext={() => { setPaused(false); setBusy(true); setPhase(p => Math.min(7, p + 1)); }} />
         </>}
       />
       {showReference && (
