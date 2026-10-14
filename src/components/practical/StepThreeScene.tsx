@@ -122,13 +122,14 @@ function focusFor(phase: number, config: StepThreeConfig): Vector3 {
 }
 
 function ModelStage({
-  phase, paused, replayKey, resetCameraKey, config,
+  phase, paused, replayKey, resetCameraKey, config, onMotionComplete,
 }: {
   phase: number;
   paused: boolean;
   replayKey: number;
   resetCameraKey: number;
   config: StepThreeConfig;
+  onMotionComplete: () => void;
 }) {
   const sources = useLoader(STLLoader, PATHS);
   const geometry = useMemo(() => ({
@@ -142,6 +143,8 @@ function ModelStage({
   }), [sources]);
   const connectorGeometry = config.longConnector === "long" ? geometry.long : geometry.pinLong;
   const controls = useRef<OrbitControlsImpl>(null);
+  const completed = useRef(onMotionComplete);
+  completed.current = onMotionComplete;
   const moving = useRef<Partial<Record<StepThreePartId, Group>>>({});
   const axleRef = useRef<Group>(null);
   const axleConnectorRef = useRef<Group>(null);
@@ -229,7 +232,7 @@ function ModelStage({
         const item = moving.current[part], from = animation.from[part], to = animation.to[part];
         if (item && from && to) item.position.lerpVectors(from, to, eased);
       }
-      if (t >= 1) travel.current = null;
+      if (t >= 1) { travel.current = null; completed.current(); }
     }
     inspectionClock.current += dt;
     if (axleRef.current) axleRef.current.rotation.x = phase === 5 ? Math.sin(inspectionClock.current * 1.3) * 0.35 : 0;
@@ -322,13 +325,14 @@ function ModelStage({
 }
 
 export function StepThreeScene({
-  phase, paused, replayKey, resetCameraKey, config,
+  phase, paused, replayKey, resetCameraKey, config, onMotionComplete,
 }: {
   phase: number;
   paused: boolean;
   replayKey: number;
   resetCameraKey: number;
   config: StepThreeConfig;
+  onMotionComplete: () => void;
 }) {
   return (
     <Canvas
@@ -339,7 +343,7 @@ export function StepThreeScene({
       style={{ height: "100%", width: "100%", touchAction: "none" }}
     >
       <Suspense fallback={null}>
-        <ModelStage phase={phase} paused={paused} replayKey={replayKey} resetCameraKey={resetCameraKey} config={config} />
+        <ModelStage phase={phase} paused={paused} replayKey={replayKey} resetCameraKey={resetCameraKey} config={config} onMotionComplete={onMotionComplete} />
       </Suspense>
     </Canvas>
   );
