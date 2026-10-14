@@ -1,0 +1,41 @@
+name: Marksman Steps 7-8 migration validation
+on:
+  push:
+    branches:
+      - feat/marksman-insert-step7-shift-frame-step8
+  pull_request:
+    paths:
+      - 'src/components/practical/**'
+      - 'src/context/**'
+      - 'src/data/practical.ts'
+      - 'src/routes/practical/**'
+      - 'src/types/learning.ts'
+      - 'tests/marksmanship-*.test.mjs'
+      - '.github/workflows/marksman-steps7-8.yml'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: TypeScript
+        run: npx tsc --noEmit
+      - name: Production build
+        run: npm run build
+      - name: Step mapping / animation regression tests
+        run: |
+          node --test tests/marksmanship-step7-8-migration.test.mjs
+          npm run test:ui
+          npm run test:step3
+          npm run test:step4
+          npm run test:step5
+          npm run test:step6
+          node --test tests/marksmanship-guided-motion.test.mjs
+      - name: ESLint (nonblocking existing baseline review)
+        run: npm run lint
+        continue-on-error: true
