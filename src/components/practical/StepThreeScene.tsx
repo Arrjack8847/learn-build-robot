@@ -236,6 +236,12 @@ function ModelStage({
       for (const part of MOVING) {
         const item = moving.current[part], from = animation.from[part], to = animation.to[part];
         if (item && from && to) {
+          // Only the active pin follows the clearance path; already-installed
+          // connectors must remain perfectly seated as the next part moves.
+          if (from.distanceToSquared(to) < 1e-8) {
+            item.position.copy(to);
+            continue;
+          }
           const reverse = from.z < to.z;
           const seated = reverse ? from : to;
           const aligned: [number, number, number] = [seated.x, seated.y, seated.z + 2.8];
