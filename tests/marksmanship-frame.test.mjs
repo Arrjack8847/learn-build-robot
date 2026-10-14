@@ -87,8 +87,8 @@ test("each animation state keeps a stable part set, frame is U then rectangular"
 test("historic frame source remains available while the revised frame is routed only to Step 8", () => {
   const data = readFileSync(resolve("src/data/practical.ts"), "utf8");
   const list=data.slice(data.indexOf("const marksmanshipSteps:"),data.indexOf("export const practicalProjects:"));
-  assert.equal([...list.matchAll(/^    number: (\\d+),/gm)].length, 32);
-  assert.equal([...list.matchAll(/id: "marksmanship-s\\d+"/g)].length, 29);
+  assert.equal([...list.matchAll(/^    number: ([0-9]+),/gm)].length, 32);
+  assert.equal([...list.matchAll(/id: "marksmanship-s[0-9]+"/g)].length, 29);
   assert.ok(list.includes('originalManualStepNumbers: [7, 8]'));
   for(let step=9;step<=31;step++)
     assert.ok(list.includes("originalManualStepNumbers: ["+step+"]"));
