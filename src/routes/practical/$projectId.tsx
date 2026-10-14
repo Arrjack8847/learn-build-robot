@@ -107,6 +107,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const isStepFour = project.id === "marksmanship" && currentStep.number === 4;
   const isStepFive = project.id === "marksmanship" && currentStep.number === 5;
   const isStepSix = project.id === "marksmanship" && currentStep.number === 6;
+  const isInteractiveMarksman = project.id === "marksmanship" && currentStep.number >= 1 && currentStep.number <= 7;
   const completedCount = project.steps.filter(step => isStepCompleted(step.id)).length;
   const displayedPercent = Math.round((completedCount / project.steps.length) * 100);
   const helpItem =
@@ -155,9 +156,9 @@ function BuildSession({ project }: { project: PracticalProject }) {
       </header>
 
       <main ref={lessonScrollArea} className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain">
-        <div className={`mx-auto w-full px-4 pb-4 pt-2.5 sm:px-8 sm:pb-6 sm:pt-4 [@media(max-height:700px)]:pt-2 ${isStepSix ? "max-w-[1580px]" : "max-w-6xl"}`}>
-          <section className="text-center">
-            <h1 className="mx-auto max-w-3xl text-[clamp(1.45rem,6vw,2.35rem)] font-black leading-tight tracking-[-0.035em] text-[#132654] [@media(max-height:700px)]:text-[clamp(1.25rem,5.5vw,1.8rem)]">
+        <div className={`mx-auto w-full px-4 pb-4 pt-2.5 sm:px-8 sm:pb-6 sm:pt-4 [@media(max-height:700px)]:pt-2 ${isInteractiveMarksman ? "max-w-[1580px]" : "max-w-6xl"}`}>
+          <section className={isInteractiveMarksman ? "text-left sm:text-center" : "text-center"}>
+            <h1 className="mx-auto max-w-3xl text-[clamp(1.3rem,4vw,2.1rem)] font-black leading-tight tracking-[-0.035em] text-[#132654] [@media(max-height:700px)]:text-[clamp(1.25rem,5.5vw,1.8rem)]">
               {project.title}
             </h1>
             <p className="mt-0.5 text-[13px] font-bold text-[#168eea] sm:mt-1 sm:text-base">
@@ -174,38 +175,16 @@ function BuildSession({ project }: { project: PracticalProject }) {
             </div>
           </section>
 
-          <div className={isStepSix ? "mx-auto mt-3 w-full max-w-[1540px] md:mt-4" : "mx-auto mt-3 grid w-full max-w-5xl gap-3.5 md:mt-5 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-7 [@media(max-height:700px)]:mt-2.5"}>
+          <div className={isInteractiveMarksman ? "mx-auto mt-2 w-full max-w-[1540px]" : "mx-auto mt-3 grid w-full max-w-5xl gap-3.5 md:mt-5 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-7 [@media(max-height:700px)]:mt-2.5"}>
             <div className="min-w-0">
-              {project.id === "marksmanship" && currentStep.number <= 2 && (
-                <div aria-label="Assembly instruction view" className="mb-2 flex flex-wrap gap-2">
-                  <button
-                    type="button"
-                    aria-pressed={!preview3D}
-                    className={`min-h-10 rounded-full border px-4 py-2 text-sm font-bold transition-colors ${!preview3D ? "border-[#168eea] bg-[#168eea] text-white" : "border-slate-200 bg-white text-[#132654]"}`}
-                    onClick={() => setPreview3D(false)}
-                  >
-                    Original manual
-                  </button>
-                  <button
-                    type="button"
-                    aria-pressed={preview3D}
-                    className={`min-h-10 rounded-full border px-4 py-2 text-sm font-bold transition-colors ${preview3D ? "border-[#168eea] bg-[#168eea] text-white" : "border-slate-200 bg-white text-[#132654]"}`}
-                    onClick={() => {
-                      setPreviewStep2Ready(false);
-                      setPreview3D(true);
-                    }}
-                  >
-                    Interactive 3D
-                  </button>
-                </div>
-              )}
-              <div className={isStepSix ? "relative w-full min-w-0" : "relative flex w-full items-center justify-center overflow-hidden rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:min-h-[420px] md:rounded-[32px]"}>
-              {!isStepSix && <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-20" />}
+              <div className={isInteractiveMarksman ? "relative w-full min-w-0" : "relative flex w-full items-center justify-center overflow-hidden rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:min-h-[420px] md:rounded-[32px]"}>
+              {!isInteractiveMarksman && <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-20" />}
               {project.id === "marksmanship" && currentStep.number <= 2 && preview3D && currentStep.image ? (
                 <Marksman3DPreview
                   step={currentStep.number}
                   referenceImage={currentStep.image}
                   onReadyChange={setPreviewStep2Ready}
+                   onCompleteStep={finishCurrentStep}
                   onBeginStep2={() => {
                     // This is an explicit learner action confirming parts prepared.
                     // Playing the animation alone never marks Step 2 completed.
@@ -215,9 +194,9 @@ function BuildSession({ project }: { project: PracticalProject }) {
                   }}
                 />
               ) : project.id === "marksmanship" && currentStep.number === 3 ? (
-                <StepThreeAssembly onReadyChange={setStepThreeReady} />
+                <StepThreeAssembly onReadyChange={setStepThreeReady} onCompleteStep={finishCurrentStep} />
               ) : project.id === "marksmanship" && currentStep.number === 4 ? (
-                <StepFourAssembly onReadyChange={setStepFourReady} onBackToStep3={() => setCurrentIndex(2)} />
+                <StepFourAssembly onReadyChange={setStepFourReady} onBackToStep3={() => setCurrentIndex(2)} onCompleteStep={finishCurrentStep} />
               ) : isStepFive ? (
                 <StepFiveAssembly onReadyChange={setStepFiveReady}
                   onBackToStep4={() => setCurrentIndex(3)}
@@ -227,7 +206,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
                   onBackToStep5={() => setCurrentIndex(4)}
                   onContinueToStep7={finishCurrentStep} />
               ) : project.id === "marksmanship" && currentStep.number === 7 ? (
-                <MarksmanFramePreparation />
+                <MarksmanFramePreparation onCompleteStep={finishCurrentStep} />
               ) : currentStep.image ? (
                 <img
                   alt={`${project.title} step ${currentStep.number}: ${currentStep.title}`}
@@ -244,7 +223,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
             </div>
             </div>
 
-            {!isStepSix && <section className="min-w-0 md:rounded-[30px] md:border md:border-slate-200/90 md:bg-white md:p-7 md:shadow-[0_14px_36px_rgba(20,55,90,0.08)]">
+            {!isInteractiveMarksman && <section className="min-w-0 md:rounded-[30px] md:border md:border-slate-200/90 md:bg-white md:p-7 md:shadow-[0_14px_36px_rgba(20,55,90,0.08)]">
               <p className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] text-[#168eea] sm:text-xs">
                 <CheckCircle2 aria-hidden="true" className="size-4" />
                 Do this now
@@ -325,7 +304,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
         </div>
       </main>
 
-      <footer className="relative z-30 shrink-0 border-t border-slate-100 bg-white/97 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 shadow-[0_-8px_24px_rgba(20,55,90,0.05)] sm:px-8 sm:py-4">
+      {!isInteractiveMarksman && <footer className="relative z-30 shrink-0 border-t border-slate-100 bg-white/97 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 shadow-[0_-8px_24px_rgba(20,55,90,0.05)] sm:px-8 sm:py-4">
         {project.id === "marksmanship" && currentStep.number === 2 && preview3D && !previewStep2Ready && (
           <p className="mx-auto mb-2 max-w-5xl text-center text-xs font-semibold text-[#132654]">
             Complete all five guided 3D actions to continue, or switch to the original manual.
@@ -364,7 +343,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
             </Button>
           )}
         </div>
-      </footer>
+      </footer>}
     </div>
   );
 }
