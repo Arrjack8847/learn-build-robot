@@ -105,7 +105,7 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     const focus=phase===5&&!finalOverview
       ?new Vector3((pinA[0]+pinB[0])/2,0,(pinA[2]+pinB[2])/2)
       :new Vector3(0,0,phase>=3&&phase<=4?-1:phase>=1&&phase<=2?1:0);
-    const distance=finalOverview?(mobile?68:36):
+    const distance=finalOverview?(mobile?38:18):
       phase===0?(mobile?62:31):(mobile?28:17);
     const camera=focus.clone().add(new Vector3(8,9,distance));
     if(reducedMotion){
@@ -145,7 +145,7 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
         if(!moving.current){
           if(phase===5&&orbit.current){
             cameraFlight.current={from:orbit.current.target.clone(),to:new Vector3(0,0,0),
-              fromPos:state.camera.position.clone(),toPos:new Vector3(8,9,mobile?68:36),elapsed:0};
+              fromPos:state.camera.position.clone(),toPos:new Vector3(8,9,mobile?38:18),elapsed:0};
           }
           callback.current();
         }
