@@ -6,6 +6,8 @@ on:
       - "src/routes/practical/**"
       - "tests/marksmanship-step6.test.mjs"
       - "docs/marksmanship-step6.md"
+      - "src/components/practical/AssemblyLessonUI.tsx"
+      - "tests/marksmanship-ui.test.mjs"
       - "package.json"
       - ".github/workflows/step6-3d.yml"
 jobs:
@@ -25,6 +27,8 @@ jobs:
         run: npm run test:step5
       - name: Step 4 regression checks
         run: npm run test:step4
+      - name: Shared lesson UI regression checks
+        run: npm run test:ui
       - name: Production build
         run: npm run build
       - name: TypeScript validation
