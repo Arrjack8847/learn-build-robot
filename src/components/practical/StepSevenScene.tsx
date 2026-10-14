@@ -204,10 +204,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
         const t=Math.min(1,travel.elapsed/travel.duration);
         for(const id of STEP_SEVEN_PARTS){
           const part=parts.current[id];if(!part)continue;
-          const rigidCompanion=(travel.phase===9||travel.phase===10)&&
-            (id==="BLACK_1"||id==="BLACK_2");
-          const pose=(id===travel.target&&!rigidCompanion&&
-            (travel.phase!==9||travel.phase!==10)&&travel.phase!==11&&travel.phase!==0)
+          const pose=(id===travel.target&&travel.phase>=1&&travel.phase<=8)
             ?insertion(travel.from[id],travel.to[id],t,travel.phase,travel.reverse)
             :interpolate(travel.from[id],travel.to[id],t);
           part.position.set(...pose.position);
