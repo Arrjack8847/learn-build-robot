@@ -1,9 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import {
-  ArrowLeft, ArrowRight, CheckCircle2, ChevronDown, Eye, EyeOff, Maximize2,
-  Minus, Pause, Play, Plus, Rotate3D, RotateCcw, ScanSearch, SkipBack,
-  SlidersHorizontal, TriangleAlert, Upload,
-} from "lucide-react";
+import { ChevronDown, Eye, EyeOff, Maximize2, Minus, Plus, Rotate3D, SlidersHorizontal, TriangleAlert, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AssemblyLessonHeader, AssemblyActionCard, AssemblyPlaybackControls, AssemblyUtilityControls } from "./AssemblyLessonUI";
 import { MarksmanFrameScene } from "./MarksmanFrameScene";
