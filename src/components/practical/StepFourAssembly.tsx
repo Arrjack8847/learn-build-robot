@@ -3,7 +3,7 @@ import {
   ArrowLeft, ArrowRight, CheckCircle2, Eye, Pause, Play,
   RotateCcw, ScanSearch, SkipBack, TriangleAlert,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { AssemblyLessonHeader, AssemblyActionCard, AssemblyPlaybackControls, AssemblyUtilityControls } from "./AssemblyLessonUI";
 import { STEP_THREE_SNAPSHOT } from "./StepThreeAssembly";
 import type { StepThreeConfig } from "./StepThreeScene";
 import { getStepFourTransforms, StepFourScene } from "./StepFourScene";
@@ -117,14 +117,7 @@ export function StepFourAssembly({
 
   return (
     <div className="relative z-10 w-full space-y-3">
-      <div className="flex flex-wrap items-center justify-between gap-2 px-1">
-        <p className="text-xs font-black uppercase tracking-[0.14em] text-[#116eaf]">
-          Interactive 3D · Step 4 · {phase}/5 actions
-        </p>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-slate-600">
-          <Eye aria-hidden="true" className="size-3.5" /> Drag to orbit · pinch to zoom
-        </span>
-      </div>
+      <AssemblyLessonHeader step={4} title="Connect the L-beams and medium axle" actionIndex={phase} actionCount={STEPS.length} />
       <div className="relative h-[300px] w-full overflow-hidden rounded-2xl border border-[#ccdcea] bg-[#f8fbfd] sm:h-[350px] md:h-[410px]">
         <StepFourScene
           phase={phase} replayKey={replayKey} paused={paused}
@@ -137,61 +130,27 @@ export function StepFourAssembly({
           </span>
         )}
       </div>
-      <div aria-live="polite" className="rounded-xl border border-blue-100 bg-white p-3 text-left sm:p-4">
-        <div className="flex items-start gap-3">
-          <span className="grid size-9 shrink-0 place-items-center rounded-full bg-[#eaf5ff] text-sm font-black text-[#116eaf]">
-            {ready ? <CheckCircle2 aria-hidden="true" className="size-5" /> : phase + 1}
-          </span>
-          <div>
-            <h3 className="text-sm font-extrabold text-[#132654] sm:text-base">{step.title}</h3>
-            <p className="mt-1 text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6">{step.text}</p>
-          </div>
-        </div>
-      </div>
+      <AssemblyActionCard actionIndex={phase} actionCount={STEPS.length}
+        title={step.title} instruction={step.text} />
       <div className="grid gap-1.5 rounded-xl border border-sky-100 bg-sky-50/80 p-2.5 text-center text-[11px] font-bold text-[#145e9f] sm:grid-cols-3">
         <span>White hole 1 ↔ grey L hole 2</span>
         <span>White hole 2 ↔ grey L corner hole 1</span>
         <span>Black axle ↔ far X hole</span>
       </div>
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="flex flex-wrap gap-2">
-          <Button className="rounded-xl" size="sm" variant="outline" type="button"
-            disabled={phase === 0 || busy || !prep.valid}
-            onClick={() => changePhase(phase - 1)}>
-            <SkipBack aria-hidden="true" className="size-3.5" /> Previous
-          </Button>
-          <Button className="rounded-xl" size="sm" variant="outline" type="button"
-            disabled={phase === 0 || busy || !prep.valid}
-            onClick={() => { setPaused(false); setBusy(true); setReplayKey((n) => n + 1); }}>
-            <RotateCcw aria-hidden="true" className="size-3.5" /> Replay action
-          </Button>
-          <Button className="rounded-xl" size="sm" variant="outline" type="button"
-            disabled={!prep.valid} onClick={() => setPaused((v) => !v)}>
-            {paused ? <Play aria-hidden="true" className="size-3.5" /> : <Pause aria-hidden="true" className="size-3.5" />}
-            {paused ? "Resume" : "Pause"}
-          </Button>
-        </div>
-        <Button className="rounded-xl bg-[#168eea] text-white hover:bg-[#0e82dd]"
-          size="sm" type="button" disabled={phase >= STEPS.length - 1 || busy || !prep.valid}
-          onClick={() => changePhase(phase + 1)}>
-          {phase === STEPS.length - 2 ? "Inspect assembly" : "Next action"}
-          <ArrowRight aria-hidden="true" className="size-3.5" />
-        </Button>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        <Button className="rounded-lg" size="sm" type="button" variant="ghost"
-          onClick={() => setResetCameraKey((n) => n + 1)}>
-          <ScanSearch aria-hidden="true" className="size-4" /> Reset view
-        </Button>
-        <Button className="rounded-lg" size="sm" type="button" variant="ghost"
-          onClick={() => setShowReference((v) => !v)}>
-          <Eye aria-hidden="true" className="size-4" />
-          {showReference ? "Hide" : "Show"} manual Step 4
-        </Button>
-        <Button className="rounded-lg" size="sm" type="button" variant="ghost"
-          onClick={restart}><ArrowLeft aria-hidden="true" className="size-4" /> Restart Step 4
-        </Button>
-      </div>
+      <AssemblyPlaybackControls paused={paused}
+        previousDisabled={phase === 0 || busy || !prep.valid}
+        replayDisabled={phase === 0 || busy || !prep.valid}
+        pauseDisabled={!prep.valid}
+        nextDisabled={phase >= STEPS.length - 1 || busy || !prep.valid}
+        nextLabel={phase === STEPS.length - 2 ? "Inspect assembly" : "Next action"}
+        onPrevious={() => changePhase(phase - 1)}
+        onReplay={() => { setPaused(false); setBusy(true); setReplayKey(n => n + 1); }}
+        onTogglePause={() => setPaused(v => !v)}
+        onNext={() => changePhase(phase + 1)} />
+      <AssemblyUtilityControls step={4} manualShown={showReference}
+        onResetView={() => setResetCameraKey(n => n + 1)}
+        onToggleManual={() => setShowReference(v => !v)}
+        onRestart={restart} />
       {showReference && (
         <div className="rounded-2xl border border-slate-200 bg-white p-3">
           <img className="mx-auto max-h-72 w-full object-contain" src="/marksmanship/steps/4.png"
