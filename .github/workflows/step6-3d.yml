@@ -7,6 +7,13 @@ on:
       - "tests/marksmanship-step6.test.mjs"
       - "docs/marksmanship-step6.md"
       - "src/components/practical/AssemblyLessonUI.tsx"
+      - "src/components/practical/marksmanLessonMotion.ts"
+      - "src/components/practical/MarksmanMotorAssembly.tsx"
+      - "src/components/practical/StepThreeScene.tsx"
+      - "src/components/practical/StepFourScene.tsx"
+      - "src/components/practical/StepFiveScene.tsx"
+      - "src/components/practical/MarksmanFrameScene.tsx"
+      - "tests/marksmanship-guided-motion.test.mjs"
       - "tests/marksmanship-ui.test.mjs"
       - "package.json"
       - ".github/workflows/step6-3d.yml"
@@ -29,6 +36,8 @@ jobs:
         run: npm run test:step4
       - name: Shared lesson UI regression checks
         run: npm run test:ui
+      - name: Shared guided motion tests
+        run: npm run test:motion
       - name: Production build
         run: npm run build
       - name: TypeScript validation
