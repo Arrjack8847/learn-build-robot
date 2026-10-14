@@ -90,7 +90,7 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
         reducedMotion={reducedMotion} onMotionComplete={()=>setBusy(false)}/>
         :<div className="grid h-full place-items-center p-5 text-sm text-slate-600">Missing saved Step 6 assembly</div>}
       status={<span className="rounded-xl border border-amber-200 bg-amber-50/95 px-2.5 py-2 text-[11px] font-bold text-amber-900">
-        Actual STL parts · provisional mounting clearance
+        Photo-aligned holes · fit unverified
       </span>}
       tools={<AssemblyUtilityControls step={7} manualShown={manual}
         onResetView={()=>setResetCameraKey(v=>v+1)}
@@ -99,7 +99,7 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
       dock={<>
         <AssemblyActionCard actionIndex={phase} actionCount={STEP_SEVEN_ACTIONS.length}
           title={item.title} instruction={item.instruction}
-          note="Photo-aligned receiving pairs: first rail holes 6/8, opposite rail holes 1/3. New blue end pins go into hole 15 counted from the grey-connector end. Fit and seating depth require kit verification."/>
+          note="Photo-matched holes: first rail 6/8, second rail 1/3; blue end pins in hole 15. Verify seating with the real kit."/>
         <AssemblyPlaybackControls paused={paused} onPrevious={()=>nextPhase(phase-1)}
           onReplay={()=>{if(!handoff)return;setBusy(true);setPaused(false);setReplayKey(v=>v+1);}}
           onTogglePause={()=>setPaused(v=>!v)} onNext={()=>nextPhase(phase+1)}
