@@ -67,9 +67,9 @@ test("Never silently guess the unverified physical mounting locations or faces",
   const invalid={hollowASide:"front",hollowBSide:"front",
     bridgeAStart:4,bridgeASide:"front",bridgeBStart:6,bridgeBSide:"back"};
   assert.ok(geometry.validateMountConfig(invalid).length>=2);
-  assert.ok(ui.includes("physical assembly"));
-  assert.ok(ui.includes("confirmed"));
-  assert.ok(ui.includes("Select from physical reference"));
+  assert.ok(ui.includes("Photo-estimated layout"),"The model must be disclosed as an estimate");
+  assert.ok(ui.includes("physicallyVerified:false"),"Tutorial completion must not be called physical certification");
+  assert.ok(!ui.includes("<select"),"The student cannot be asked to configure technical faces/holes");
 });
 test("Source child-pin poses preserved under rigid parent while approaching beam",()=>{
   const prior={
@@ -97,7 +97,7 @@ test("Source child-pin poses preserved under rigid parent while approaching beam
 });
 test("Step 6 requires Step 5 saved state and never edits Steps 1–5 or Step 7",()=>{
   assert.ok(ui.includes("STEP5_SNAPSHOT_KEY"));
-  assert.ok(ui.includes("physicallySelfConfirmed!==true"));
+  assert.ok(ui.includes("snap.tutorialCompleted!==true && snap.physicallySelfConfirmed!==true"));
   assert.ok(ui.includes("beamUnattached!==true"));
   assert.ok(ui.includes("onContinueToStep7"));
   assert.ok(ui.includes("Return to Step 5"));
@@ -107,7 +107,7 @@ test("Step 6 requires Step 5 saved state and never edits Steps 1–5 or Step 7",
   const shared=source("src/components/practical/AssemblyLessonUI.tsx");
   for(const label of ["Previous","Replay","Pause","Reset view"]){assert.ok(shared.includes(label),label);}
   assert.ok(ui.includes("prefers-reduced-motion"));
-  assert.ok(scene.includes("autoRotate={phase===7&&!paused&&!reducedMotion}"));
+  assert.ok(scene.includes("autoRotate={false}"),"Final assembly should stop and await the learner");
   assert.ok(scene.includes("guidePoseReverse"));
   assert.ok(route.includes("StepSixAssembly"));
   assert.ok(route.includes("isStepSix && !stepSixReady"));
@@ -127,15 +127,18 @@ test("Final assembly uses stable Step 5 IDs, declares uncertainty and Step 8 han
 });
 
 
-test("Step 6 desktop gives 3D viewer a dedicated wide workspace",()=>{
-  assert.ok(route.includes('isStepSix ? "max-w-[1580px]"'),"Full-width lesson container");
-  assert.ok(route.includes('isStepSix ? "mx-auto mt-3 w-full max-w-[1540px]'),"Remove standard two-column lesson grid");
-  assert.ok(route.includes('!isStepSix && <section className="min-w-0 md:rounded-[30px]'),"No empty generic instruction sidebar");
-  assert.ok(ui.includes("lg:grid-cols-[minmax(0,1.8fr)_minmax(315px,0.95fr)]"),"Large viewer next to configuration");
-  assert.ok(ui.includes('h-[clamp(340px,55vh,620px)]'),"Viewer above fold on normal desktop height");
-  assert.ok(ui.indexOf('The 3D workspace is ready') < ui.indexOf('Mounting setup · confirm with real parts'),"Immediate status");
-  assert.ok(ui.includes("order-first min-w-0"),"Required mounting controls render before viewer on mobile");
-  assert.ok(ui.includes("onReadyChange(ready)"),"Physical confirmation gate preserved");
+test("Step 6 uses a single full-screen 3D stage with a compact floating dock",()=>{
+  const shared=source("src/components/practical/AssemblyLessonUI.tsx");
+  const css=source("src/styles.css");
+  assert.ok(route.includes('isInteractiveMarksman ? "mx-auto mt-2 w-full max-w-[1540px]"'));
+  assert.ok(route.includes('!isInteractiveMarksman && <section'));
+  assert.ok(route.includes('!isInteractiveMarksman && <footer'));
+  assert.ok(ui.includes("AssemblyStage"),"Single wide stage must replace sidebar layout");
+  assert.ok(ui.includes("AssemblyPlaybackControls"),"Floating dock is always available");
+  assert.ok(css.includes(".assembly-lesson-dock"),"Responsive floating dock layout is defined");
+  assert.ok(!ui.includes("Mounting setup · confirm with real parts"));
+  assert.ok(!ui.includes('type="checkbox"'));
+  assert.ok(ui.includes("onReadyChange(ready)"),"Tutorial readiness still gates completion");
 });
 
 
@@ -156,8 +159,9 @@ test("Single real photo suggests bridge 4/6 and 9/11 on opposite sides, never au
   assert.equal(photo.hollowBSide,"back");
   assert.ok(geometry.STEP_SIX_PHOTO_SUGGESTION_STATUS.includes("requires physical confirmation"));
   assert.equal(geometry.configComplete(geometry.EMPTY_MOUNT_CONFIG),false);
-  assert.ok(ui.includes("Use photographed layout (estimated)"));
-  assert.ok(ui.includes("Verify the photographed"));
+  assert.ok(ui.includes("STEP_SIX_PHOTO_SUGGESTION"));
+  assert.ok(ui.includes("Photo-estimated layout"));
+  assert.ok(ui.includes("not mechanically verified"));
 });
 test("Both 15100 black pin axes remain world-upright while pegs face inward",()=>{
   const config=geometry.STEP_SIX_PHOTO_SUGGESTION;
