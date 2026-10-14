@@ -3,9 +3,13 @@ on:
   push:
     branches:
       - feat/marksman-insert-step7-shift-frame-step8
+      - feat/marksman-step7-end-connectors-*
     paths:
       - 'scripts/capture-marksman-steps7-8.mjs'
       - '.github/workflows/marksman-steps7-8-screenshots.yml'
+      - 'src/components/practical/StepSevenRailsScene.tsx'
+      - 'src/components/practical/stepSevenRailGeometry.ts'
+      - 'src/components/practical/StepSevenRailsAssembly.tsx'
   workflow_dispatch:
 jobs:
   screenshot-qa:

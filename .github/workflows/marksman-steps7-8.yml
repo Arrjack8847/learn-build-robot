@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - feat/marksman-insert-step7-shift-frame-step8
+      - feat/marksman-step7-end-connectors-*
   pull_request:
     paths:
       - 'src/components/practical/**'

@@ -67,14 +67,14 @@ try{
   await webglCanvas.waitFor({state:"visible",timeout:30000});
   await page.waitForTimeout(2000);
   const next7=page.getByRole("button",{name:"Next Action"});
-  for(let i=0;i<4;i++){
+  for(let i=0;i<5;i++){
     await next7.click({timeout:10000});
     await page.waitForTimeout(300);
   }
-  await page.getByText("Inspect Assembly A",{exact:true}).first().waitFor({
+  await page.getByText("Insert both blue end connectors",{exact:true}).first().waitFor({
     state:"visible",timeout:15000,
   });
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(3600);
   await page.locator(".assembly-lesson-stage").screenshot({path:output+"/step7-final-desktop.png"});
   await page.setViewportSize({width:390,height:844});
   await page.waitForTimeout(1200);
