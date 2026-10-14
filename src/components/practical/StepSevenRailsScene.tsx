@@ -113,15 +113,21 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     const first=phase<=2||phase===5;
     const pinPhase=phase===5||phase===6;
     const activeRail=first?firstFinal:secondFinal;
+    // On both pin-insertion actions, frame the pin AND most of the completed
+    // assembly instead of zooming onto the end hole and cropping the robot.
+    // Keep the camera on one consistent side when switching between pins,
+    // avoiding a flight through the model as front/back rail identities change.
+    const endWorldX=-(activeRail.position[0]+STEP_SEVEN_END_PIN_HOLE-8);
+    const railCenterWorldX=-activeRail.position[0];
     const interest=pinPhase
-      ?new Vector3(-(activeRail.position[0]+STEP_SEVEN_END_PIN_HOLE-8),-0.9,activeRail.position[2])
+      ?new Vector3((endWorldX+railCenterWorldX)/2,-0.9,activeRail.position[2]*0.5)
       :phase===STEP_SEVEN_FINAL_PHASE||phase===0
         ?new Vector3(-(firstFinal.position[0]+secondFinal.position[0])/2,-0.9,0)
         :new Vector3(-activeRail.position[0],-0.9,activeRail.position[2]);
-    const reach=phase===0||phase===STEP_SEVEN_FINAL_PHASE?(mobile?20:17):(mobile?18:13.5);
-    const sign=railMounts(first?STEP_SEVEN_RAIL_IDS[0]:STEP_SEVEN_RAIL_IDS[1],stepSixConfig,config).side==="front"?1:-1;
     const overview=phase===0||phase===STEP_SEVEN_FINAL_PHASE;
-    const destination=interest.clone().add(new Vector3(overview?(mobile?14:10):8,overview?(mobile?13:10):9,(overview?1:sign)*reach));
+    const reach=overview?(mobile?20:17):pinPhase?(mobile?26:20):(mobile?18:13.5);
+    const sign=railMounts(first?STEP_SEVEN_RAIL_IDS[0]:STEP_SEVEN_RAIL_IDS[1],stepSixConfig,config).side==="front"?1:-1;
+    const destination=interest.clone().add(new Vector3(overview?(mobile?14:10):8,overview?(mobile?13:10):9,(overview||pinPhase?1:sign)*reach));
     if(!mounted.current||reducedMotion){
       ctrl.target.copy(interest);camera.position.copy(destination);ctrl.update();flight.current=null;
     }else{
