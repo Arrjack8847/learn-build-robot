@@ -91,8 +91,29 @@ test("Step 7 uses photographed beam hole pairs and animates both installed free-
   assert.ok(scene.includes("pinInsertion"));
   assert.ok(rails.includes("additionalBlueConnectorsInstalled:true"));
   assert.ok(rails.includes("additionalBlueConnectorMounts:["));
-  assert.ok(railConfig.includes('title:"Insert the first blue end connector'));
-  assert.ok(railConfig.includes('title:"Insert the second blue end connector'));
+  assert.ok(railConfig.includes('title:"Insert the first blue end pin'));
+  assert.ok(railConfig.includes('title:"Insert the second blue end pin'));
+  assert.ok(railConfig.includes("stepSevenCoreOffsetZ"));
+  assert.ok(scene.includes("STEP7_GREY_CORE"));
+  assert.ok(scene.includes("greyCore.current.position.z"));
+  assert.ok(scene.includes("pinInsertion"));
+  assert.ok(rails.includes("bothRailsMountedBeforeEndPins:true"));
   assert.ok(read("src/components/practical/StepNineAssemblyReview.tsx").includes("phase={STEP_SEVEN_FINAL_PHASE}"));
   assert.ok(railConfig.includes("STEP_SEVEN_MECHANICALLY_VERIFIED = false"));
+});
+
+test("Photographed operation order seats BOTH beams before either blue end pin",()=>{
+  const actions=railConfig.slice(railConfig.indexOf("export const STEP_SEVEN_ACTIONS = ["),railConfig.indexOf("] as const;",railConfig.indexOf("export const STEP_SEVEN_ACTIONS = [")));
+  const firstSeat=actions.indexOf('title:"Press the first grey joints');
+  const secondSeat=actions.indexOf('title:"Press the second grey joints');
+  const firstPin=actions.indexOf('title:"Insert the first blue end pin');
+  const secondPin=actions.indexOf('title:"Insert the second blue end pin');
+  assert.ok(firstSeat>0 && secondSeat>firstSeat && firstPin>secondSeat && secondPin>firstPin);
+  assert.ok(scene.includes("const oldPhase=replay?Math.max(0,phase-1):was"));
+  assert.ok(scene.includes("const from=snapshot(oldPhase)"));
+  assert.ok(scene.includes("pose=t<0.42"));
+  assert.ok(scene.includes("STEP_SEVEN_RAIL_IDS.map"));
+  assert.ok(scene.includes("STEP_SEVEN_PIN_IDS.map"));
+  assert.match(railConfig,/if\(first&&phase===3\)/);
+  assert.match(railConfig,/if\(phase!==1&&phase!==3\)return 0/);
 });
