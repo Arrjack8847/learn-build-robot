@@ -222,7 +222,6 @@ function ModelStage({phase,config,prepared,replayKey,paused,resetCameraKey,
   const highlighted=configured && activeId
     ?getStepSixAttachments(config).find(a=>a.id===activeId)
     :null;
-  const labelHoles=phase===0||phase===3||phase===5||phase===7;
   return <>
     <color attach="background" args={["#f7fafc"]}/>
     <ambientLight intensity={1.6}/>
@@ -235,15 +234,7 @@ function ModelStage({phase,config,prepared,replayKey,paused,resetCameraKey,
       <mesh geometry={meshes.beam} castShadow receiveShadow>
         <meshStandardMaterial color="#efe9df" roughness={0.7}/>
       </mesh>
-      {labelHoles&&Array.from({length:11},(_,i)=><Html key={i}
-        position={[i-5,0.88,0.72]} center style={{pointerEvents:"none"}}>
-        <span style={{fontSize:10,padding:"2px 3px",minWidth:18,textAlign:"center",
-          background:"rgba(255,255,255,0.95)",color:"#165b90",
-          border:"1px solid #cbd9e8",borderRadius:5,fontWeight:800}}>
-          {i+1}
-        </span>
-      </Html>)}
-    </group>
+          </group>
     {PARTS.map(id=><group key={id} name={id}
       ref={node=>{if(node)groups.current[id]=node;else delete groups.current[id];}}>
       <mesh geometry={id.includes("BRIDGE")?meshes.bridge:meshes.hollow}
@@ -258,7 +249,7 @@ function ModelStage({phase,config,prepared,replayKey,paused,resetCameraKey,
       return <group key={hole}>
         <mesh position={[x,beamY,sign*0.55]}>
           <torusGeometry args={[0.34,0.055,8,38]}/>
-          <meshBasicMaterial color="#f1a100" depthTest={false}/>
+          <meshBasicMaterial color="#168eea" depthTest={false}/>
         </mesh>
         <Line points={[[x,beamY,sign*3.8],[x,beamY,sign*0.1]]}
           dashed dashSize={0.2} gapSize={0.14} lineWidth={1.7}
@@ -267,7 +258,7 @@ function ModelStage({phase,config,prepared,replayKey,paused,resetCameraKey,
     })}
     <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.08}
       enablePan minDistance={6} maxDistance={46}
-      autoRotate={phase===7&&!paused&&!reducedMotion} autoRotateSpeed={0.3}/>
+      onStart={() => { cameraMotion.current = null; }} autoRotate={false} autoRotateSpeed={0.3}/>
   </>;
 }
 export function StepSixScene(props:{
