@@ -6,7 +6,7 @@ import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { STEP5_MODEL_PATHS } from "./StepFiveScene";
 import { seatedPose, type StepSixMountConfig, type StepSixPose, type StepSixStepFiveTransforms } from "./StepSixGeometry";
-import { STEP_SEVEN_RAIL_IDS, STEP_SEVEN_END_PIN_IDS, endPinPose, endPinGuidedPose, railPose, type StepSevenEndPinId, type StepSevenRailConfig, type StepSevenRailId } from "./stepSevenRailGeometry";
+import { STEP_SEVEN_RAIL_IDS, STEP_SEVEN_END_PIN_IDS, STEP_SEVEN_UPWARD_PRESENTATION_ROTATION_X, endPinPose, endPinGuidedPose, railPose, type StepSevenEndPinId, type StepSevenRailConfig, type StepSevenRailId } from "./stepSevenRailGeometry";
 import beam15Url from "../../../3D for marksman/beams/15 beams.stl?url";
 import longConnectorUrl from "../../../3D for marksman/connector/long connector.stl?url";
 
@@ -103,8 +103,10 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     // insertion point and clips the far ends of both 15-hole rails.
     const finalOverview=phase===5&&!blueMotion.current;
     const focus=phase===5&&!finalOverview
-      ?new Vector3((pinA[0]+pinB[0])/2,0,(pinA[2]+pinB[2])/2)
-      :new Vector3(0,0,phase>=3&&phase<=4?-1:phase>=1&&phase<=2?1:0);
+      ?new Vector3((pinA[0]+pinB[0])/2,-(pinA[2]+pinB[2])/2,0)
+      :new Vector3(0,phase===1?-(config.railCenterDistance+1.9)
+        :phase===2?-config.railCenterDistance
+        :phase>=3&&phase<=4?config.railCenterDistance:0,0);
     const distance=finalOverview?(mobile?38:18):
       phase===0?(mobile?62:31):(mobile?28:17);
     const camera=focus.clone().add(new Vector3(8,9,distance));
@@ -173,7 +175,12 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     <ambientLight intensity={1.6}/>
     <hemisphereLight args={["#ffffff","#c5d9e8",1.5]}/>
     <directionalLight position={[8,9,14]} intensity={2}/>
-    <gridHelper args={[25,25,"#d1dfed","#eaf0f5"]} position={[0,-2,0]}/>
+    <gridHelper args={[25,25,"#d1dfed","#eaf0f5"]} position={[0,-8,0]}/>
+    {/* The original mating-pin axis is local Z. Keep all source STL
+        transforms intact and rotate the complete Step 7 presentation:
+        local -Z becomes world +Y (up), with the front rail underneath. */}
+    <group name="STEP7_UPWARD_PRESENTATION"
+      rotation={[STEP_SEVEN_UPWARD_PRESENTATION_ROTATION_X,0,0]}>
     <group name="STEP7_ASSEMBLY_A" position={[0,-beamY,0]}>
       <group name="STEP5_BEAM_11" position={prepared["STEP5_BEAM_11"]!.position} rotation={prepared["STEP5_BEAM_11"]!.rotation}>
         <mesh geometry={meshes.beam11}><meshStandardMaterial color="#9daab7" roughness={0.7}/></mesh>
@@ -221,6 +228,7 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     {(phase>=1&&phase<=4)&&<Line
       points={[[0,0,phase>=3?-4.5:4.5],[0,0,phase>=3?-1.3:1.3]]}
       dashed dashSize={0.16} gapSize={0.12} lineWidth={1.6} color="#e4a51c"/>}
+    </group>
     <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.08}
       enablePan={false} minDistance={5} maxDistance={90} autoRotate={false}
       onStart={()=>{cameraFlight.current=null;}}/>
@@ -231,7 +239,7 @@ export function StepSevenRailsScene(props:{
   prepared:StepSixStepFiveTransforms;replayKey:number;paused:boolean;
   resetCameraKey:number;reducedMotion:boolean;onMotionComplete:()=>void;
 }){
-  return <Canvas aria-label="Step 7 actual STL side-rail assembly, provisional connector calibration"
+  return <Canvas aria-label="Step 7 original STL first 15-hole beam pushing upward from underneath, with provisional mechanical fit"
     camera={{position:[8,9,30],fov:45,near:0.1,far:140}}
     dpr={[1,1.6]} gl={{antialias:true,powerPreference:"low-power"}}
     style={{width:"100%",height:"100%",touchAction:"none"}}>

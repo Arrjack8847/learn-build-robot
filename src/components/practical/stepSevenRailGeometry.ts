@@ -26,10 +26,14 @@ export const STEP_SEVEN_PROVISIONAL: StepSevenRailConfig = {
   secondRailHole: 11,
 };
 export const STEP_SEVEN_MECHANICALLY_VERIFIED = false;
+/** Rotate all unmodified original STLs together: local -Z (pin insertion)
+ * becomes world +Y, so the first rail comes from underneath and rises.
+ * Hole choices and depth remain provisional until physically checked. */
+export const STEP_SEVEN_UPWARD_PRESENTATION_ROTATION_X = Math.PI / 2;
 export const STEP_SEVEN_ACTIONS = [
   {title:"Prepare both side rails",instruction:"Start with completed Step 6. Lay out two disconnected 15-hole white beams and two separate blue long connectors."},
-  {title:"Align the first rail",instruction:"Move the first white rail alongside the grey central structure and align the matching connector holes."},
-  {title:"Secure the first rail",instruction:"Slide the first rail straight onto the receiving connectors and confirm it is firmly seated."},
+  {title:"Align the first rail underneath",instruction:"Place the first 15-hole white beam underneath the grey Step 6 structure. Line up its receiving holes directly below the existing connector pins without attaching it yet."},
+  {title:"Push the first rail upward",instruction:"Push the first white 15-hole beam UP from underneath along the existing pin axes until the mounting holes engage. Confirm the actual fit before continuing."},
   {title:"Align the opposite rail",instruction:"Rotate the camera to the opposite side. Align the second white beam parallel to the first without inserting it yet."},
   {title:"Secure the second rail",instruction:"Slide the second rail onto the receiving connectors, leaving two parallel secured white beams."},
   {title:"Insert both blue end connectors",instruction:"At the exposed end of each white 15-hole beam, insert one blue long connector into the endmost hole. Both pins face the same direction, matching IMG_1716. Inspect the completed structure before continuing."},

@@ -94,3 +94,16 @@ test("IMG_1716 final Step 7 action seats two distinct STL long blue connectors",
   assert.ok(rails.includes("IMG_1716"));
   assert.ok(read("src/components/practical/StepNineAssemblyReview.tsx").includes("<StepSevenRailsScene phase={5}"));
 });
+
+test("first 15-hole rail approaches from below and moves upward along the rotated pin axis",()=>{
+  const localZtoWorldY = z => -Math.sin(Math.PI / 2) * z;
+  const gap = 2.1;
+  assert.ok(localZtoWorldY(gap+1.9) < localZtoWorldY(gap));
+  assert.ok(localZtoWorldY(gap) < 0);
+  assert.ok(railConfig.includes("STEP_SEVEN_UPWARD_PRESENTATION_ROTATION_X = Math.PI / 2"));
+  assert.ok(scene.includes('name="STEP7_UPWARD_PRESENTATION"'));
+  assert.ok(scene.includes("rotation={[STEP_SEVEN_UPWARD_PRESENTATION_ROTATION_X,0,0]}"));
+  assert.ok(railConfig.includes('title:"Align the first rail underneath"'));
+  assert.ok(railConfig.includes('title:"Push the first rail upward"'));
+  assert.ok(railConfig.includes("const seated=first?phase>=2:phase>=4"));
+});

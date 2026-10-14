@@ -67,7 +67,17 @@ try{
   await webglCanvas.waitFor({state:"visible",timeout:30000});
   await page.waitForTimeout(2000);
   const next7=page.getByRole("button",{name:"Next Action"});
-  for(let i=0;i<5;i++){
+  // Photograph the first beam directly below the grey support, then seated
+  // after its upward approach; later actions remain as previously authored.
+  await next7.click({timeout:10000});
+  await page.getByText("Align the first rail underneath",{exact:true}).first().waitFor();
+  await page.waitForTimeout(500);
+  await page.locator(".assembly-lesson-stage").screenshot({path:output+"/step7-first-rail-underneath.png"});
+  await next7.click({timeout:10000});
+  await page.getByText("Push the first rail upward",{exact:true}).first().waitFor();
+  await page.waitForTimeout(700);
+  await page.locator(".assembly-lesson-stage").screenshot({path:output+"/step7-first-rail-upward-seated.png"});
+  for(let i=2;i<5;i++){
     await next7.click({timeout:10000});
     await page.waitForTimeout(300);
   }
