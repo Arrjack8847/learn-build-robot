@@ -50,7 +50,8 @@ function interpolate(a:StepSevenPose,b:StepSevenPose,t:number):StepSevenPose {
     rotation:[0,1,2].map(i=>a.rotation[i]!+(b.rotation[i]!-a.rotation[i]!)*k) as V3,
   };
 }
-function insertion(a:StepSevenPose,b:StepSevenPose,t:number,phase:number,reverse:boolean) {
+function insertion(a:StepSevenPose,b:StepSevenPose,t:number,phase:number,reverse:boolean):StepSevenPose {
+  if(reverse)return insertion(b,a,1-t,phase,false);
   // Transition via a coaxial clearance position; never stretch any STL mesh.
   // Rail 7 enters from below; pins on upper beams enter from above.
   const sign=phase===5||phase===6||phase===10?-1:1;
@@ -62,9 +63,7 @@ function insertion(a:StepSevenPose,b:StepSevenPose,t:number,phase:number,reverse
   const forward=(x:number)=>x<0.44
     ?interpolate(a,mid,x/0.44)
     :interpolate(mid,b,(x-0.44)/0.56);
-  return reverse ? (t<0.56
-    ?interpolate(a,mid,t/0.56)
-    :interpolate(mid,b,(t-0.56)/0.44)) : forward(t);
+  return forward(t);
 }
 function interest(phase:number,config:StepSevenConfig):V3 {
   if(phase<=2)return [-0.6,-7.3,0];
@@ -115,9 +114,10 @@ function NumberedHoles({id,phase,config}:{
     })}
   </group>;
 }
-function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoInspect}:{
+function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoInspect,cameraView}:{
   phase:number;config:StepSevenConfig;paused:boolean;replayKey:number;
   resetCameraKey:number;reducedMotion:boolean;autoInspect:boolean;
+  cameraView:"iso"|"top"|"side"|"bottom";
 }) {
   const loaded=useLoader(STLLoader,SOURCES);
   const geometries=useMemo(()=>({
@@ -139,7 +139,11 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
   const initial=useMemo(()=>stepSevenPoses(phase,config),[]);
   const setupCamera=()=>{
     const point=new Vector3(...interest(phase,config));
-    const offset=new Vector3(...focusDistance(phase,narrow));
+    const offset=phase!==11?new Vector3(...focusDistance(phase,narrow)):
+      cameraView==="top"?new Vector3(0.01,0.01,21):
+      cameraView==="bottom"?new Vector3(0.01,0.01,-21):
+      cameraView==="side"?new Vector3(0,-21,3):
+      new Vector3(...focusDistance(phase,narrow));
     return {point,position:point.clone().add(offset)};
   };
   const configKey=config.sevenNearHole+":"+config.fifteenNearHole;
@@ -187,7 +191,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
     priorPhase.current=phase;
     priorReplay.current=replayKey;
     first.current=false;
-  },[phase,configKey,config,replayKey,reducedMotion,camera,narrow]);
+  },[phase,configKey,config,replayKey,reducedMotion,camera,narrow,cameraView]);
   useLayoutEffect(()=>{
     if(resetCameraKey===0)return;
     const view=setupCamera();
@@ -257,7 +261,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
       color="#e2a315" lineWidth={1.5} dashed dashSize={0.12} gapSize={0.12}/>}
     <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.08}
       enablePan={false} minDistance={4.5} maxDistance={48}
-      autoRotate={phase===11&&autoInspect&&!paused&&!reducedMotion}
+      autoRotate={phase===11&&cameraView==="iso"&&autoInspect&&!paused&&!reducedMotion}
       autoRotateSpeed={0.5}/>
   </>;
 }
@@ -271,9 +275,10 @@ class ViewerBoundary extends Component<{children:React.ReactNode},{message:strin
       </div>:this.props.children;
   }
 }
-export function StepSevenScene({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoInspect}:{
+export function StepSevenScene({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoInspect,cameraView}:{
   phase:number;config:StepSevenConfig;paused:boolean;replayKey:number;
   resetCameraKey:number;reducedMotion:boolean;autoInspect:boolean;
+  cameraView:"iso"|"top"|"side"|"bottom";
 }){
   return <ViewerBoundary>
     <Canvas camera={{fov:43,near:0.1,far:120,position:[12,-16,19],up:[0,0,1]}}
@@ -283,7 +288,7 @@ export function StepSevenScene({phase,config,paused,replayKey,resetCameraKey,red
       <Suspense fallback={null}>
         <Stage phase={phase} config={config} paused={paused} replayKey={replayKey}
           resetCameraKey={resetCameraKey} reducedMotion={reducedMotion}
-          autoInspect={autoInspect}/>
+          autoInspect={autoInspect} cameraView={cameraView}/>
       </Suspense>
     </Canvas>
   </ViewerBoundary>;
