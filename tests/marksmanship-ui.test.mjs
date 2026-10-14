@@ -57,6 +57,17 @@ test("Step 7 supplementary instructions are clearly separated from the official 
   assert.ok(step7.includes("setItem(STEP_SEVEN_PHASE_KEY"));
 });
 
+test("Previous Step stays visible and navigates by lesson rather than animation action",()=>{
+  assert.ok(route.includes('aria-label="Robot step navigation"'),"Shared step navigation must be visible");
+  assert.ok(route.includes('className="sticky top-0 z-30'),"Previous Step remains visible during lesson scrolling");
+  assert.ok(route.includes('aria-label="Previous Step"'),"The control has an accessible, distinct name");
+  assert.ok(route.includes('disabled={currentIndex === 0}'),"The first step has no previous step");
+  assert.ok(route.includes('onClick={() => setCurrentIndex((index) => Math.max(0, index - 1))}'),
+    "Step 7 must navigate back to Step 6, and Step 6 must navigate back to Step 5");
+  assert.ok(ui.includes('aria-label="Previous action"'),"Previous Action remains a separate control");
+  assert.ok(route.includes('to="/practical"'),"Existing exit-project navigation remains intact");
+});
+
 test("Step 6 uses one full-screen 3D stage without a mounting panel",()=>{
   assert.ok(route.includes("currentIndex !== previousStepIndex.current"));
   assert.ok(route.includes("lessonScrollArea.current.scrollTop = 0"));
