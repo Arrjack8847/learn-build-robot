@@ -8,7 +8,7 @@ import { STEP5_MODEL_PATHS } from "./StepFiveScene";
 import { beamHoleX, seatedPose, type StepSixMountConfig, type StepSixPose, type StepSixStepFiveTransforms } from "./StepSixGeometry";
 import {
   STEP_SEVEN_END_PIN_HOLE, STEP_SEVEN_FINAL_PHASE, STEP_SEVEN_PIN_IDS, STEP_SEVEN_RAIL_IDS,
-  endPinPose, railBridge, railPose, stepSevenPose,
+  endPinPose, railBridge, railPose, stepSevenCoreOffsetZ, stepSevenPose,
   type StepSevenMovingPart, type StepSevenRailConfig, type StepSevenRailId,
 } from "./stepSevenRailGeometry";
 import beam15Url from "../../../3D for marksman/beams/15 beams.stl?url";
@@ -37,14 +37,12 @@ function lerp(a:StepSixPose,b:StepSixPose,t:number):StepSixPose{
     rotation:[0,1,2].map(i=>a.rotation[i]!+(b.rotation[i]!-a.rotation[i]!)*k) as [number,number,number],
   };
 }
-type Movement={id:StepSevenMovingPart;from:StepSixPose;to:StepSixPose;time:number;duration:number;pinInsertion:boolean};
-function activePart(phase:number):StepSevenMovingPart|null{
-  if(phase===1||phase===2)return STEP_SEVEN_RAIL_IDS[0];
-  if(phase===3)return STEP_SEVEN_PIN_IDS[0];
-  if(phase===4||phase===5)return STEP_SEVEN_RAIL_IDS[1];
-  if(phase===6)return STEP_SEVEN_PIN_IDS[1];
-  return null;
-}
+type PoseSnapshot=Record<StepSevenMovingPart,StepSixPose>;
+type Movement={
+  from:PoseSnapshot;to:PoseSnapshot;fromCoreZ:number;toCoreZ:number;
+  time:number;duration:number;pinInsertion:StepSevenMovingPart|null;
+};
+const MOVING_PARTS:readonly StepSevenMovingPart[]=[...STEP_SEVEN_RAIL_IDS,...STEP_SEVEN_PIN_IDS];
 function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCameraKey,reducedMotion,onMotionComplete}:{
   phase:number;config:StepSevenRailConfig;stepSixConfig:StepSixMountConfig;
   prepared:StepSixStepFiveTransforms;replayKey:number;paused:boolean;resetCameraKey:number;
@@ -58,8 +56,9 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     blue:normalized(loaded[6]!,"pin"),
   }),[loaded]);
   const nodes=useRef<Partial<Record<StepSevenMovingPart,Group>>>({});
+  const greyCore=useRef<Group>(null);
   const orbit=useRef<OrbitControlsImpl>(null);
-  const previous=useRef({phase,replayKey});
+  const previous=useRef({phase,replayKey,configKey:JSON.stringify(config)});
   const mounted=useRef(false);
   const movement=useRef<Movement|null>(null);
   const flight=useRef<{from:Vector3;to:Vector3;fromPos:Vector3;toPos:Vector3;elapsed:number}|null>(null);
@@ -74,39 +73,45 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
   useLayoutEffect(()=>{
     const was=previous.current.phase;
     const replay=replayKey!==previous.current.replayKey;
-    const adjacent=Math.abs(phase-was)<=1;
-    const active=adjacent?(phase<was?activePart(was):activePart(phase)):null;
+    const changed=was!==phase||replay;
+    const configChanged=configKey!==previous.current.configKey;
+    const adjacent=Math.abs(was-phase)<=1;
     const oldPhase=replay?Math.max(0,phase-1):was;
-    const canAnimate=mounted.current&&!reducedMotion&&Boolean(active)&&(phase!==was||replay);
-    for(const id of [...STEP_SEVEN_RAIL_IDS,...STEP_SEVEN_PIN_IDS]){
-      const node=nodes.current[id];if(!node)continue;
-      const destination=stepSevenPose(id,phase,config,beamY,stepSixConfig);
-      if(!canAnimate||active!==id){
-        node.position.set(...destination.position);node.rotation.set(...destination.rotation);
+    const snapshot=(which:number):PoseSnapshot=>Object.fromEntries(
+      MOVING_PARTS.map(id=>[id,stepSevenPose(id,which,config,beamY,stepSixConfig)])
+    ) as PoseSnapshot;
+    const apply=(poses:PoseSnapshot,coreZ:number)=>{
+      for(const id of MOVING_PARTS){
+        const node=nodes.current[id];const pose=poses[id];if(!node)continue;
+        node.position.set(...pose.position);node.rotation.set(...pose.rotation);
       }
-    }
-    const current=active?nodes.current[active]:undefined;
-    if(canAnimate&&active&&current){
-      const from=replay?stepSevenPose(active,oldPhase,config,beamY,stepSixConfig):{
-        position:[current.position.x,current.position.y,current.position.z] as [number,number,number],
-        rotation:[current.rotation.x,current.rotation.y,current.rotation.z] as [number,number,number],
-      };
-      current.position.set(...from.position);current.rotation.set(...from.rotation);
-      const pinInsertion=active===STEP_SEVEN_PIN_IDS[0]||active===STEP_SEVEN_PIN_IDS[1];
-      movement.current={
-        id:active,from,to:stepSevenPose(active,phase,config,beamY,stepSixConfig),
-        time:0,duration:pinInsertion?1.2:(phase===2||phase===5)?1.6:1.4,pinInsertion:pinInsertion&&phase>was,
-      };
+      if(greyCore.current)greyCore.current.position.z=coreZ;
+    };
+    const to=snapshot(phase);
+    const toCoreZ=stepSevenCoreOffsetZ(phase,stepSixConfig);
+    if(!mounted.current||!changed||configChanged||!adjacent||reducedMotion){
+      movement.current=null;apply(to,toCoreZ);callback.current();
     }else{
-      movement.current=null;callback.current();
+      // React Three Fiber may update group.position before layout effects run:
+      // always reconstruct the OLD deterministic poses, rather than reading
+      // the already-updated mesh positions. This fixes skipped/replayed moves.
+      const from=snapshot(oldPhase);
+      const fromCoreZ=stepSevenCoreOffsetZ(oldPhase,stepSixConfig);
+      apply(from,fromCoreZ);
+      movement.current={
+        from,to,fromCoreZ,toCoreZ,time:0,
+        duration:phase===2||phase===4?1.8:phase===5||phase===6?1.25:1.45,
+        pinInsertion:phase>oldPhase&&phase===5?STEP_SEVEN_PIN_IDS[0]
+          :phase>oldPhase&&phase===6?STEP_SEVEN_PIN_IDS[1]:null,
+      };
     }
-    previous.current={phase,replayKey};mounted.current=true;
+    previous.current={phase,replayKey,configKey};mounted.current=true;
   },[phase,replayKey,configKey,beamY,reducedMotion,stepSixConfig]);
 
   useLayoutEffect(()=>{
     const ctrl=orbit.current;if(!ctrl)return;
-    const first=phase<=3;
-    const pinPhase=phase===3||phase===6;
+    const first=phase<=2||phase===5;
+    const pinPhase=phase===5||phase===6;
     const activeRail=first?firstFinal:secondFinal;
     const interest=pinPhase
       ?new Vector3(activeRail.position[0]+STEP_SEVEN_END_PIN_HOLE-8,0,activeRail.position[2])
@@ -146,16 +151,25 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     const m=movement.current;if(!m)return;
     m.time=Math.min(m.duration,m.time+delta);
     const t=m.time/m.duration;
-    let pose=lerp(m.from,m.to,t);
-    if(m.pinInsertion){
-      // First approach the hole coaxially, then insert straight down the original STL Z axis.
-      const hover:StepSixPose={
-        position:[m.to.position[0],m.to.position[1],m.to.position[2]+2.25],rotation:m.to.rotation,
-      };
-      pose=t<0.45?lerp(m.from,hover,t/0.45):lerp(hover,m.to,(t-0.45)/0.55);
+    for(const id of MOVING_PARTS){
+      const node=nodes.current[id];if(!node)continue;
+      let pose=lerp(m.from[id],m.to[id],t);
+      if(id===m.pinInsertion){
+        // Move the genuine long-connector STL coaxially above its free-end
+        // receiving hole, then insert along beam-local Z.
+        const target=m.to[id];
+        const hover:StepSixPose={
+          position:[target.position[0],target.position[1],target.position[2]+2.25],
+          rotation:target.rotation,
+        };
+        pose=t<0.42?lerp(m.from[id],hover,t/0.42)
+          :lerp(hover,target,(t-0.42)/0.58);
+      }
+      node.position.set(...pose.position);node.rotation.set(...pose.rotation);
     }
-    nodes.current[m.id]?.position.set(...pose.position);
-    nodes.current[m.id]?.rotation.set(...pose.rotation);
+    if(greyCore.current){
+      greyCore.current.position.z=m.fromCoreZ+(m.toCoreZ-m.fromCoreZ)*ease(t);
+    }
     if(m.time===m.duration){movement.current=null;callback.current();}
   });
   const pin=(id:string)=>{
@@ -167,7 +181,7 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     </group>;
   };
   const highlighted=phase===1||phase===2?STEP_SEVEN_RAIL_IDS[0]:
-    phase===4||phase===5?STEP_SEVEN_RAIL_IDS[1]:null;
+    phase===3||phase===4?STEP_SEVEN_RAIL_IDS[1]:null;
   return <>
     <color attach="background" args={["#f3f6fa"]}/>
     <ambientLight intensity={0.85}/>
@@ -175,6 +189,7 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     <directionalLight position={[8,9,14]} intensity={1.3}/>
     <gridHelper args={[29,29,"#e4eaf0","#f1f4f7"]} position={[0,-2,0]}/>
     <group name="STEP7_ASSEMBLY_A" position={[0,-beamY,0]}>
+      <group ref={greyCore} name="STEP7_GREY_CORE" position={[0,0,stepSevenCoreOffsetZ(phase,stepSixConfig)]}>
       <group name="STEP5_BEAM_11" position={prepared["STEP5_BEAM_11"]!.position} rotation={prepared["STEP5_BEAM_11"]!.rotation}>
         <mesh geometry={meshes.beam11}><meshStandardMaterial color="#97a4b4" roughness={0.63}/></mesh>
       </group>
@@ -187,6 +202,7 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
           {CHILD_PINS[id].map(pin)}
         </group>;
       })}
+      </group>
       {STEP_SEVEN_RAIL_IDS.map(id=>{
         const initial=railPose(id,phase,config,beamY,stepSixConfig);
         const selected=highlighted===id;
@@ -202,7 +218,7 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
       })}
       {STEP_SEVEN_PIN_IDS.map((id,i)=>{
         const initial=endPinPose(id,phase,config,beamY,stepSixConfig);
-        const selected=phase===(i===0?3:6);
+        const selected=phase===(i===0?5:6);
         return <group key={id} name={id} position={initial.position} rotation={initial.rotation}
           ref={node=>{if(node)nodes.current[id]=node;else delete nodes.current[id];}}>
           <mesh geometry={meshes.blue}>
@@ -216,7 +232,8 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
       const pair=railBridge(highlighted,stepSixConfig);
       const sign=pair.side==="front"?1:-1;
       const x=beamHoleX(pair.start+n);
-      return <Line key={n} points={[[x,0,sign*0.9],[x,0,sign*(config.railCenterDistance+1.7)]]}
+      const target=railPose(highlighted,phase,config,beamY,stepSixConfig);
+      return <Line key={n} points={[[x,0,sign*0.9+stepSevenCoreOffsetZ(phase,stepSixConfig)],[x,0,target.position[2]]]}
         dashed dashSize={0.18} gapSize={0.12} lineWidth={1.6} color="#e6a418"/>;
     })}
     <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.08}
