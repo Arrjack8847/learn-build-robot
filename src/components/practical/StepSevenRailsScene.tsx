@@ -98,9 +98,15 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     const ctrl=orbit.current;if(!ctrl)return;
     const pinA=endPinPose(STEP_SEVEN_END_PIN_IDS[0],5,config,beamY,stepSixConfig).position;
     const pinB=endPinPose(STEP_SEVEN_END_PIN_IDS[1],5,config,beamY,stepSixConfig).position;
-    const focus=phase===5?new Vector3((pinA[0]+pinB[0])/2,0,(pinA[2]+pinB[2])/2)
+    // On a resize after the final pins are seated, retain the completed
+    // assembly overview. Otherwise mobile resizing re-focuses on the tiny
+    // insertion point and clips the far ends of both 15-hole rails.
+    const finalOverview=phase===5&&!blueMotion.current;
+    const focus=phase===5&&!finalOverview
+      ?new Vector3((pinA[0]+pinB[0])/2,0,(pinA[2]+pinB[2])/2)
       :new Vector3(0,0,phase>=3&&phase<=4?-1:phase>=1&&phase<=2?1:0);
-    const distance=phase===0?(mobile?62:31):(mobile?28:17);
+    const distance=finalOverview?(mobile?68:36):
+      phase===0?(mobile?62:31):(mobile?28:17);
     const camera=focus.clone().add(new Vector3(8,9,distance));
     if(reducedMotion){
       ctrl.target.copy(focus);ctrl.object.position.copy(camera);ctrl.update();cameraFlight.current=null;
