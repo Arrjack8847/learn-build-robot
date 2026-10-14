@@ -69,11 +69,12 @@ function eased(t: number) { return t * t * (3 - 2 * t); }
 function vector(v: V3) { return new THREE.Vector3(v[0], v[1], v[2]); }
 
 export function Marksman3DPreview({
-  step, referenceImage, onReadyChange, onBeginStep2,
+  step, referenceImage, onReadyChange, onBeginStep2, onCompleteStep,
 }: {
   step: number; referenceImage: string;
   onReadyChange?: ((ready: boolean) => void) | undefined;
   onBeginStep2?: (() => void) | undefined;
+  onCompleteStep?: (() => void) | undefined;
 }) {
   if (step <= 2) {
     return (
@@ -82,6 +83,7 @@ export function Marksman3DPreview({
         referenceImage={referenceImage}
         onReadyChange={onReadyChange}
         onBeginStep2={onBeginStep2}
+        onCompleteStep={onCompleteStep}
       />
     );
   }
