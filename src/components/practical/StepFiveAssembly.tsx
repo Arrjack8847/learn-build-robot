@@ -98,7 +98,8 @@ export function StepFiveAssembly({onReadyChange,onBackToStep4,onContinueToStep6}
       if(ready){
         window.localStorage.setItem(STEP5_SNAPSHOT_KEY,JSON.stringify({
           ...getStepFivePreparedSnapshot(),
-          physicallySelfConfirmed:true,
+          physicallySelfConfirmed:false,
+          tutorialCompleted:true,
           preparedAt:new Date().toISOString(),
         }));
       }else{
