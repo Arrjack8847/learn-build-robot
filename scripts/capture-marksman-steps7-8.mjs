@@ -97,12 +97,12 @@ try{
   });
   await page.waitForTimeout(1100);
   await page.locator("section[aria-label='Step 8 assemble and lock the rectangular frame'] > div").filter({
-    has:page.locator("section[aria-label='Step 8 assemble and lock the rectangular frame'] canvas"),
+    has:page.locator("canvas"),
   }).first().screenshot({path:output+"/step8-final-desktop.png"});
   await page.setViewportSize({width:390,height:844});
   await page.waitForTimeout(900);
   await page.locator("section[aria-label='Step 8 assemble and lock the rectangular frame'] > div").filter({
-    has:page.locator("section[aria-label='Step 8 assemble and lock the rectangular frame'] canvas"),
+    has:page.locator("canvas"),
   }).first().screenshot({path:output+"/step8-final-mobile.png"});
   if(errors.length)throw new Error("Browser console errors: "+errors.join("; ").slice(0,3000));
   console.log("QA snapshots recorded. Connector fit is NOT physically verified.");
