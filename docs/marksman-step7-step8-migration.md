@@ -17,7 +17,7 @@ The 32-entry count includes the real photographed two-assembly handoff at Step 9
 1. Source STLs: 11-hole beam, both bridge 48989, both hollow 15100, existing original long and short pins from the Step 5 asset paths, two 15-hole beam STLs, and long blue connector candidate.
 2. For the custom frame: `5.stl`, `7.stl`, `15 beams.stl`, `long connector.stl`, `pin_pin.stl` (last is a provisional black-connector candidate).
 3. The 8 mm native beam hole pitch is established by existing model normalization. This does **not** establish elastic press-fit, connector collar depth, or exact engagement.
-4. Current Step 7 **candidate** receiving hole pairs are first long rail 11/13 and second long rail 6/8 (counted from the grey-mounting end). Each rail also receives one existing black mounting pin. This matches the three-point coaxial photo interpretation, but exact physical hole indices and press fit remain **unverified**. The rail layer offset is adjustable and not measured.
+4. Current **user-approved viewer settings** (October 14 screenshot) are vertical mounting offset **0.9 scene units**, first rail grey receiving holes **13/15** (black connector **hole 6**), and second rail grey receiving holes **8/10** (black connector **hole 5**) with the pictured Step 6 mounting configuration. These values are visual calibration, **not measured physical press-fit clearance**.
 5. Both *additional* Step 7 blue connectors install only AFTER both white beams are attached: one at Hole 1 of each beam's exposed RIGHT end (actual STL hole index 1, not 15), entering from the SAME face as the black mounting pins. The connector shoulders and seating depths remain unmeasured.
 6. Step 8's 7-hole receiving pairs, 15-hole black-pin positions, insertion axes, connector identity, and seating depth are candidates. They require IMG_1688, IMG_1690, IMG_1692–IMG_1696 and real kit inspection. The final frame is presented as a **demonstration** with learner confirmation required.
 7. The source images named above were not found as verified accessible repository files in the integration process. The UI accepts local image upload for comparison; uploaded photos remain on the learner's device.
@@ -80,3 +80,12 @@ The original 31-step manual and source STL meshes are not changed by this featur
 - Root cause: the scene root rotates 180° about Z, reversing the direction of the STL beam's X axis. The earlier index 15 (local x=+7 pitch units) is the left end after that rotation; the correct right exposed end is index **1** (local x=-7).
 - Updated only `STEP_SEVEN_END_PIN_HOLE`, its corresponding saved completion metadata, and documentation/regression tests. All beam placement and three-point black/grey connector transforms are deliberately unchanged. Scene pin transforms, ring highlights and camera focus already derive from this shared constant and therefore target the new right-hand holes.
 - Both extra pins retain the user's confirmed insertion face: **black-connector side**. Physical pin shoulder depth remains provisional; screenshot/kit visual review is still needed.
+
+## User-approved Step 7 calibration (October 14, later screenshot)
+
+- Persist new starting/default controls: **vertical mounting offset = 0.9**, **first rail first grey hole = 13**, **second rail first grey hole = 8**.
+- Derived grey receiving pairs: **13/15** and **8/10**. The corresponding black-pin holes are **6** and **5**, with the user's saved Step 6 assembly shown in the screenshot.
+- Do not adjust either rail's 3D transform formula, grey/black connector model, or completed Step 8 frame as part of this change.
+- The two additional long blue pins remain at **STL Hole 1**, at the exposed RIGHT ends of both white rails, entering from the **black-connector face**.
+- The pin-insertion camera uses a wider target between the rail midpoint and end-pin hole. It stays on one side for both insertions to avoid clipping the complete assembly during the camera change. No physical component position is changed by this camera improvement.
+- These are accepted lesson-viewer coordinates; measured connector seating depth and real device visual confirmation remain separate QA tasks.
