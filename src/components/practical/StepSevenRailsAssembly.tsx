@@ -54,7 +54,7 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
   useEffect(()=>()=>{if(photo)URL.revokeObjectURL(photo);},[photo]);
   function nextPhase(value:number){
     if(busy||!handoff||!valid)return;
-    setBusy(true);setPaused(false);setPhase(Math.max(0,Math.min(STEP_SEVEN_ACTIONS.length-1,value)));
+    setBusy(true);setPaused(false);setPhysicalCheck(false);setPhase(Math.max(0,Math.min(STEP_SEVEN_ACTIONS.length-1,value)));
   }
   function finish(){
     if(!ready||!handoff)return;
@@ -64,6 +64,9 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
         railComponents:["STEP7_RAIL_FRONT_15","STEP7_RAIL_BACK_15"],
         centralComponentIds:["STEP5_BEAM_11","STEP5_HOLLOW_A","STEP5_HOLLOW_B","STEP5_BRIDGE_A","STEP5_BRIDGE_B"],
         additionalBlueConnectorCount:2,additionalBlueConnectorMounts:[{rail:"STEP7_RAIL_FRONT_15",hole:15},{rail:"STEP7_RAIL_BACK_15",hole:15}],additionalBlueConnectorsInstalled:true,
+        additionalBlueConnectorIds:["STEP7_END_BLUE_FIRST","STEP7_END_BLUE_SECOND"],
+        attachmentMethod:"grey-connector-assembly-pressed-onto-each-supported-rail",
+        bothRailsMountedBeforeEndPins:true,
         mountingChoices:config,mechanicallyVerified:STEP_SEVEN_MECHANICALLY_VERIFIED,
         physicallySelfConfirmed:true,source:"learner-physical-attestation",completedAt:new Date().toISOString(),
       }));
@@ -99,7 +102,7 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
       dock={<>
         <AssemblyActionCard actionIndex={phase} actionCount={STEP_SEVEN_ACTIONS.length}
           title={item.title} instruction={item.instruction}
-          note="Photo-matched holes: first rail 6/8, second rail 1/3; blue end pins in hole 15. Verify seating with the real kit."/>
+          note="Both white beams attach first. Candidate holes: first rail 6/8, second rail 1/3. Both blue pins enter the exposed end holes afterwards. Confirm connector fit with your physical kit."/>
         <AssemblyPlaybackControls paused={paused} onPrevious={()=>nextPhase(phase-1)}
           onReplay={()=>{if(!handoff)return;setBusy(true);setPaused(false);setReplayKey(v=>v+1);}}
           onTogglePause={()=>setPaused(v=>!v)} onNext={()=>nextPhase(phase+1)}
@@ -112,7 +115,7 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
     {finished&&<label className="flex items-start gap-3 rounded-xl border border-sky-200 bg-sky-50 p-3 text-sm text-[#132654]">
       <input type="checkbox" checked={physicalCheck} className="mt-1 size-4 shrink-0"
         onChange={e=>setPhysicalCheck(e.target.checked)}/>
-      I inspected my physical robot and confirm both 15-hole side rails are securely attached. This is my own inspection, not a certified model-geometry fit.
+      I inspected my physical robot: both white rails are securely attached to the grey mounting joints and BOTH blue pins are installed in their exposed end holes. This is my own inspection, not a certified model-geometry fit.
     </label>}
     {manual&&<div className="grid gap-3 rounded-xl border border-slate-200 p-3 sm:grid-cols-2">
       {[7,8].map(n=><figure key={n}><img className="mx-auto max-h-64 w-full object-contain"
@@ -121,7 +124,7 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
     </div>}
     <details className="rounded-xl border border-slate-200 bg-white p-3 text-xs text-slate-600">
       <summary className="cursor-pointer font-bold text-[#132654]">Physical geometry and reference calibration</summary>
-      <p className="mt-2 leading-5">The original STL components are unchanged. IMG_1713 and IMG_1714 show first rail holes 6 and 8 on the later Step 6 bridge and second rail holes 1 and 3 on the earlier bridge. IMG_1716 confirms two new blue pins in the exposed free-end holes (hole 15 from the grey-connector end). Rail spacing and pin seating depth remain provisional and require a physical fit check.</p>
+      <p className="mt-2 leading-5">IMG_1729 and IMG_1731 show the grey assembly pressed down onto a supported white beam; IMG_1732–1733 show the two extra end pins fitted after both rails are mounted. Source STLs are unchanged. Candidate rail receiving pairs remain 6/8 and 1/3, and the new blue pins go in free-end hole 1 (numbered hole 15 from the grey-connector end). The exact grey/black shaft engagement and seating depth still require a real-kit check.</p>
       <div className="mt-2 grid gap-2 sm:grid-cols-2">
         <label>Rail-to-center offset · provisional scene units
           <input className="mt-1 block w-full rounded-lg border px-2 py-2" type="number" min="1.4" max="4" step="0.1"
@@ -129,7 +132,7 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
         </label>
         <div className="rounded-lg bg-sky-50 p-2 text-xs leading-5 text-sky-900"><strong>Photo-matched hole pairs</strong><p>First beam: holes 6 and 8 · second beam: holes 1 and 3, counted from the grey connector end. New blue pins: both hole 15 at the exposed free end.</p></div>
       </div>
-      {front&&back&&<p className="mt-2">Step 6 bridge mounting holes: first [{front.sourceMountingHoles.join(", ")}], second [{back.sourceMountingHoles.join(", ")}]. 15-hole receiving holes: first [{front.candidateReceivingHoles.join(", ")}], second [{back.candidateReceivingHoles.join(", ")}]. The actual insertion axes and collar seating remain unverified.</p>}
+      {front&&back&&<p className="mt-2">Step 6 bridge mounting holes: first [{front.sourceMountingHoles.join(", ")}], second [{back.sourceMountingHoles.join(", ")}]. 15-hole receiving holes: first [{front.candidateReceivingHoles.join(", ")}], second [{back.candidateReceivingHoles.join(", ")}]. The exact grey/black shaft engagement and collar seating remain unverified.</p>}
       <label className="mt-3 flex flex-wrap items-center gap-2"><Upload className="size-4"/>
         Compare an original photo (local only)
         <input aria-label="Choose real Step 7 physical assembly photograph" type="file" accept="image/*"
