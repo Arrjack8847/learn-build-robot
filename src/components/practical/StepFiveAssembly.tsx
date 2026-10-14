@@ -4,6 +4,7 @@ import {
   ScanSearch, TriangleAlert,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AssemblyLessonHeader, AssemblyActionCard, AssemblyPlaybackControls, AssemblyUtilityControls } from "./AssemblyLessonUI";
 import { getStepFivePreparedSnapshot, STEP5_SNAPSHOT_KEY, StepFiveScene } from "./StepFiveScene";
 
 const STEP_FOUR_RESULT = "robot:marksmanship:step4:assembled:v1";
@@ -122,14 +123,8 @@ export function StepFiveAssembly({onReadyChange,onBackToStep4,onContinueToStep6}
   };
   const action=ACTIONS[phase]!;
   return <div className="relative z-10 w-full space-y-3">
-    <div className="flex flex-wrap items-center justify-between gap-2 px-1">
-      <p className="text-xs font-black uppercase tracking-[0.12em] text-[#116eaf]">
-        STEP 5 — PREPARE THE 11-HOLE BEAM AND CONNECTORS
-      </p>
-      <span className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-slate-600">
-        <Eye className="mr-1 inline size-3.5"/> Orbit · zoom · pinch
-      </span>
-    </div>
+    <AssemblyLessonHeader step={5} title="Prepare the 11-hole beam and connectors"
+      actionIndex={phase} actionCount={ACTIONS.length} />
     <div className="relative h-[310px] overflow-hidden rounded-2xl border border-[#cddceb] bg-[#f6f9fc] sm:h-[365px] md:h-[430px]">
       <StepFiveScene phase={phase} replayKey={replayKey} paused={paused}
         reducedMotion={reducedMotion} resetCameraKey={resetCameraKey} onMotionComplete={()=>setBusy(false)}/>
@@ -140,64 +135,28 @@ export function StepFiveAssembly({onReadyChange,onBackToStep4,onContinueToStep6}
         <CheckCircle2 className="mr-1 inline size-4"/> Five prepared units · beam empty
       </span>}
     </div>
-    <div aria-live="polite" className="rounded-xl border border-sky-100 bg-white p-3 text-left sm:p-4">
-      <div className="flex items-start gap-3">
-        <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[#eaf5ff] text-[11px] font-black text-[#116eaf]">
-          {action.number}
-        </span>
-        <div>
-          <h3 className="text-sm font-extrabold text-[#132654] sm:text-base">{action.title}</h3>
-          <p className="mt-1 text-xs leading-5 text-slate-700 sm:text-sm sm:leading-6">{action.instruction}</p>
-          <p className="mt-2 text-xs leading-5 text-[#25658f]">{action.note}</p>
-        </div>
-      </div>
-    </div>
+    <AssemblyActionCard actionIndex={phase} actionCount={ACTIONS.length}
+      title={action.title} instruction={action.instruction} note={action.note} />
     <div className="grid gap-2 rounded-xl border border-sky-100 bg-sky-50/80 p-3 text-xs font-semibold text-sky-900 sm:grid-cols-3">
       <span>1 beam · 11 empty holes</span>
       <span>2 bridges · 4 long pins</span>
       <span>2 hollow elbows · 2 short pins</span>
     </div>
-    <div className="flex flex-wrap items-center justify-between gap-2">
-      <div className="flex flex-wrap gap-2">
-        <Button className="rounded-xl" size="sm" type="button" variant="outline"
-          disabled={phase===0||busy} onClick={()=>changePhase(phase-1)}>
-          <ArrowLeft className="size-4"/> Previous
-        </Button>
-        <Button className="rounded-xl" size="sm" type="button" variant="outline"
-          disabled={phase===0||busy} onClick={()=>{
-            setPaused(false);setBusy(true);setReplayKey(k=>k+1);
-          }}>
-          <RotateCcw className="size-4"/> Replay
-        </Button>
-        <Button className="rounded-xl" size="sm" type="button" variant="outline"
-          onClick={()=>setPaused(v=>!v)}>
-          {paused?<Play className="size-4"/>:<Pause className="size-4"/>}
-          {paused?"Resume":"Pause"}
-        </Button>
-      </div>
-      <Button className="rounded-xl bg-[#168eea] text-white hover:bg-[#0e82dd]"
-        size="sm" type="button" disabled={phase===ACTIONS.length-1||busy}
-        onClick={()=>changePhase(phase+1)}>
-        {phase===ACTIONS.length-2?"Inspect finished units":"Next action"}
-        <ArrowRight className="size-4"/>
-      </Button>
-    </div>
-    <div className="flex flex-wrap gap-2">
-      <Button variant="ghost" size="sm" type="button"
-        onClick={()=>setResetCameraKey(k=>k+1)}>
-        <ScanSearch className="size-4"/> Reset view
-      </Button>
-      <Button variant="ghost" size="sm" type="button"
-        onClick={()=>setShowManual(v=>!v)}>
-        <Eye className="size-4"/> {showManual?"Hide":"Show"} manual Steps 5–6
-      </Button>
-      <Button variant="ghost" size="sm" type="button" onClick={restart}>
-        <RotateCcw className="size-4"/> Restart Step 5
-      </Button>
-      <Button variant="outline" size="sm" type="button" onClick={onBackToStep4}>
-        <ArrowLeft className="size-4"/> Return to Step 4
-      </Button>
-    </div>
+    <AssemblyPlaybackControls paused={paused}
+      previousDisabled={phase===0||busy} replayDisabled={phase===0||busy}
+      nextDisabled={phase===ACTIONS.length-1||busy}
+      nextLabel={phase===ACTIONS.length-2?"Inspect finished units":"Next action"}
+      onPrevious={()=>changePhase(phase-1)}
+      onReplay={()=>{setPaused(false);setBusy(true);setReplayKey(k=>k+1);}}
+      onTogglePause={()=>setPaused(v=>!v)}
+      onNext={()=>changePhase(phase+1)} />
+    <AssemblyUtilityControls step={5} manualShown={showManual}
+      onResetView={()=>setResetCameraKey(k=>k+1)}
+      onToggleManual={()=>setShowManual(v=>!v)}
+      onRestart={restart} />
+    <Button variant="outline" className="min-h-11 rounded-xl" type="button" onClick={onBackToStep4}>
+      <ArrowLeft aria-hidden="true" /> Return to Step 4
+    </Button>
     {showManual&&<div className="grid gap-3 rounded-2xl border border-slate-200 bg-white p-3 sm:grid-cols-2">
       <figure>
         <img src="/marksmanship/steps/5.png" className="w-full object-contain"
@@ -217,10 +176,6 @@ export function StepFiveAssembly({onReadyChange,onBackToStep4,onContinueToStep6}
         All four pin assemblies fit and remain separate from the empty 11-hole beam.
         This is a physical self-check; automated STL analysis is not a mechanical certification.</span>
     </label>}
-    {ready&&<Button type="button" className="w-full rounded-xl bg-[#168eea] text-white hover:bg-[#0e82dd]"
-      onClick={onContinueToStep6}>
-      Continue to Step 6 <ArrowRight className="size-4"/>
-    </Button>}
     <p className="text-[11px] leading-5 text-slate-500">
       <TriangleAlert className="mr-1 inline size-3.5"/>
       The original 48989 and 15100 bodies and genuine pin STLs are used at measured bore centres.
