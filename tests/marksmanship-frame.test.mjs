@@ -84,14 +84,17 @@ test("each animation state keeps a stable part set, frame is U then rectangular"
     assert.deepEqual(g.framePoses(phase, cfg).FRAME_BEAM_15.position, [7.5, 1.5, 0]);
 });
 
-test("new UI is supplementary; official 31-step records and old scenes are preserved", () => {
+test("photo-based frame animation is mounted only in Step 7; official 31-step records stay preserved", () => {
   const data = readFileSync(resolve("src/data/practical.ts"), "utf8");
   assert.equal([...data.matchAll(/id: "marksmanship-s\d+"/g)].length, 31);
   assert.ok(data.includes("attach two long connectors to each at holes 2 and 5"));
   assert.ok(data.includes("attach connectors at holes 5 and 8"));
   const route = readFileSync(resolve("src/routes/practical/$projectId.tsx"), "utf8");
   assert.ok(route.includes("MarksmanFramePreparation"));
-  assert.ok(route.includes("Not an official numbered step."));
+  assert.match(route, /project\.id === "marksmanship" && currentStep\.number === 7 && \(/);
+  assert.equal((route.match(/<MarksmanFramePreparation\s*\/>/g) ?? []).length, 1);
+  assert.ok(!route.includes("showFrameTutorial"), "must not be globally mounted");
+  assert.ok(!route.includes("Not an official numbered step."));
   for (const old of ["StepThreeAssembly", "StepFourAssembly", "Marksman3DPreview"])
     assert.ok(route.includes(old), old + " integration must remain");
   const scene = readFileSync(resolve("src/components/practical/MarksmanFrameScene.tsx"), "utf8");
