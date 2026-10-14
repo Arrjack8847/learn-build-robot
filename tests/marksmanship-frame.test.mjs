@@ -84,23 +84,26 @@ test("each animation state keeps a stable part set, frame is U then rectangular"
     assert.deepEqual(g.framePoses(phase, cfg).FRAME_BEAM_15.position, [7.5, 1.5, 0]);
 });
 
-test("photo-based frame animation is mounted only in Step 7; official 31-step records stay preserved", () => {
+test("historic frame source remains available while the revised frame is routed only to Step 8", () => {
   const data = readFileSync(resolve("src/data/practical.ts"), "utf8");
-  assert.equal([...data.matchAll(/id: "marksmanship-s\d+"/g)].length, 31);
-  assert.ok(data.includes("attach two long connectors to each at holes 2 and 5"));
-  assert.ok(data.includes("attach connectors at holes 5 and 8"));
+  const list=data.slice(data.indexOf("const marksmanshipSteps:"),data.indexOf("export const practicalProjects:"));
+  assert.equal([...list.matchAll(/^    number: (\\d+),/gm)].length, 32);
+  assert.equal([...list.matchAll(/id: "marksmanship-s\\d+"/g)].length, 29);
+  assert.ok(list.includes('originalManualStepNumbers: [7, 8]'));
+  for(let step=9;step<=31;step++)
+    assert.ok(list.includes("originalManualStepNumbers: ["+step+"]"));
   const route = readFileSync(resolve("src/routes/practical/$projectId.tsx"), "utf8");
-  assert.ok(route.includes("MarksmanFramePreparation"));
-  assert.match(route, /project\.id === "marksmanship" && currentStep\.number === 7 \? \(/);
-  assert.equal((route.match(/<MarksmanFramePreparation\s+onCompleteStep=\{finishCurrentStep\}\s*\/>/g) ?? []).length, 1);
+  assert.ok(route.includes('<StepSevenRailsAssembly onCompleteStep={finishCurrentStep} />'));
+  assert.ok(route.includes('<StepEightAssembly onReadyChange={() => {}}'));
+  assert.ok(!route.includes('<MarksmanFramePreparation onCompleteStep={finishCurrentStep} />'),
+    "old pre-migration frame viewer must not remain mounted as interactive Step 7");
   assert.ok(!route.includes("showFrameTutorial"), "must not be globally mounted");
-  assert.ok(!route.includes("Not an official numbered step."));
-  for (const old of ["StepThreeAssembly", "StepFourAssembly", "Marksman3DPreview"])
-    assert.ok(route.includes(old), old + " integration must remain");
-  const scene = readFileSync(resolve("src/components/practical/MarksmanFrameScene.tsx"), "utf8");
-  for (const file of ["7.stl?url", "5.stl?url", "15 beams.stl?url",
-    "long connector.stl?url", "pin_long_pin.stl?url", "pin_pin.stl?url"])
-    assert.ok(scene.includes(file), file + " original mesh must be loaded");
+  for(const old of ["StepThreeAssembly","StepFourAssembly","Marksman3DPreview"])
+    assert.ok(route.includes(old),old+" integration must remain");
+  const scene=readFileSync(resolve("src/components/practical/StepEightScene.tsx"),"utf8");
+  for(const file of ["7.stl?url","5.stl?url","15 beams.stl?url",
+    "long connector.stl?url","pin_pin.stl?url"])
+    assert.ok(scene.includes(file),file+" original mesh must remain loaded");
 });
 
 test("unresolved photo-specific mounting details remain explicitly not verified", () => {
