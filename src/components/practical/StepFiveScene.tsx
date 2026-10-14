@@ -223,7 +223,25 @@ function StepFiveStage({phase,replayKey,paused,resetCameraKey,onMotionComplete,r
       <mesh geometry={meshes.beam} castShadow receiveShadow>
         <meshStandardMaterial color="#eee5d8" roughness={0.7}/>
       </mesh>
-     </group>;
+
+    </group>
+    {BRIDGE_ORIGINS.map((position,i)=>{
+      const targetIndex=i*2;
+      return <group key={i} name={STEP5_PART_IDS[i+1]!} position={position}>
+        <mesh geometry={meshes.bridge} castShadow receiveShadow>
+          <meshStandardMaterial color="#b8c2ce" metalness={0.06} roughness={0.63}/>
+        </mesh>
+        {showPin(targetIndex)}{showPin(targetIndex+1)}
+        {(activePin===targetIndex || activePin===targetIndex+1) && <>
+          <mesh position={[activePin===targetIndex?-1:1,0,0.52]}>
+            <torusGeometry args={[0.38,0.055,9,40]}/>
+            <meshBasicMaterial color="#f7a600" depthTest={false}/>
+          </mesh>
+          <Line points={[[activePin===targetIndex?-1:1,0,3.2],
+            [activePin===targetIndex?-1:1,0,-0.6]]}
+            color="#168eea" dashed dashSize={0.17} gapSize={0.11} lineWidth={1.6}/>
+        </>}
+      </group>;
     })}
     {HOLLOW_ORIGINS.map((position,i)=>{
       const pinIndex=i+4;
