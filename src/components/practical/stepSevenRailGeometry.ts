@@ -6,6 +6,13 @@ export const STEP_SEVEN_RESULT_KEY = "robot:marksmanship:step7:assembly-a:v1";
 export const STEP_EIGHT_RESULT_KEY = "robot:marksmanship:step8:assembly-b:v1";
 export const STEP_SEVEN_RAIL_IDS = ["STEP7_RAIL_FRONT_15","STEP7_RAIL_BACK_15"] as const;
 export type StepSevenRailId = (typeof STEP_SEVEN_RAIL_IDS)[number];
+/** IMG_1716: one blue connector in each free end hole, same facing direction. */
+export const STEP_SEVEN_END_PIN_IDS = ["STEP7_END_BLUE_A","STEP7_END_BLUE_B"] as const;
+export type StepSevenEndPinId = (typeof STEP_SEVEN_END_PIN_IDS)[number];
+export const STEP_SEVEN_END_HOLE = 1;
+export const STEP_SEVEN_END_PIN_AXIS = "+Z" as const;
+/** Provisional connector collar depth: not measured from the real kit. */
+export const STEP_SEVEN_END_PIN_UNVERIFIED_OFFSET = 1;
 export type StepSevenRailConfig = {
   /** Physical photo/kit calibration required before certifying the rail engagement. */
   railCenterDistance: number;
@@ -20,11 +27,12 @@ export const STEP_SEVEN_PROVISIONAL: StepSevenRailConfig = {
 };
 export const STEP_SEVEN_MECHANICALLY_VERIFIED = false;
 export const STEP_SEVEN_ACTIONS = [
-  { title:"Prepare two long side rails", instruction:"Keep both 15-hole beams and the two loose blue connectors separate. Inspect the completed Step 6 connector beam in the center." },
-  { title:"Align the first 15-hole rail", instruction:"Bring the first rail toward one side. Align the candidate mounting holes with the installed bridge connectors; confirm hole indices against your physical kit." },
-  { title:"Seat the first side rail", instruction:"Move the rigid beam straight along the candidate insertion axis. Check that the real pins enter the correct holes and are securely seated before proceeding." },
-  { title:"Align and connect the opposite rail", instruction:"Repeat on the opposite side. Keep both 15-hole rails parallel and verify the real connector engagement." },
-  { title:"Inspect Assembly A", instruction:"Orbit to inspect both side rails and the 11-hole support. Confirm the physical build separately; two additional blue connector positions remain unverified." },
+  {title:"Prepare both side rails",instruction:"Start with completed Step 6. Lay out two disconnected 15-hole white beams and two separate blue long connectors."},
+  {title:"Align the first rail",instruction:"Move the first white rail alongside the grey central structure and align the matching connector holes."},
+  {title:"Secure the first rail",instruction:"Slide the first rail straight onto the receiving connectors and confirm it is firmly seated."},
+  {title:"Align the opposite rail",instruction:"Rotate the camera to the opposite side. Align the second white beam parallel to the first without inserting it yet."},
+  {title:"Secure the second rail",instruction:"Slide the second rail onto the receiving connectors, leaving two parallel secured white beams."},
+  {title:"Insert both blue end connectors",instruction:"At the exposed end of each white 15-hole beam, insert one blue long connector into the endmost hole. Both pins face the same direction, matching IMG_1716. Inspect the completed structure before continuing."},
 ] as const;
 
 export function railConfigurationErrors(c: StepSevenRailConfig): string[] {
@@ -48,11 +56,34 @@ export function railPose(id: StepSevenRailId, phase: number, c:StepSevenRailConf
   // Align matching first bridge and receiving holes; indices remain provisional.
   const offsetX=(bridgeIndex-6)-(receivingIndex-8);
   const positioned=first?phase>=1:phase>=3;
-  const seated=first?phase>=2:phase>=3;
+  const seated=first?phase>=2:phase>=4;
   const position:[number,number,number] = !positioned
     ? [offsetX,beamY+(first?-4:4),sign*(c.railCenterDistance+3.7)]
     : [offsetX,beamY,sign*(c.railCenterDistance+(seated?0:1.9))];
   return {position,rotation:[0,0,0]};
+}
+/** Exact end-hole identity is photo-supported; collar depth and axis sign are unverified.
+ * Both rail STLs have native hole-centres at x=-7..7 in 8mm world units. */
+export function endPinPose(id:StepSevenEndPinId,phase:number,c:StepSevenRailConfig,
+  beamY:number,stepSixConfig:StepSixMountConfig):StepSixPose {
+  const rail=id===STEP_SEVEN_END_PIN_IDS[0]?STEP_SEVEN_RAIL_IDS[0]:STEP_SEVEN_RAIL_IDS[1];
+  const beam=railPose(rail,4,c,beamY,stepSixConfig);
+  const x=beam.position[0]-7+(STEP_SEVEN_END_HOLE-1);
+  const z=beam.position[2]+STEP_SEVEN_END_PIN_UNVERIFIED_OFFSET;
+  if(phase>=5)return {position:[x,beamY,z],rotation:[0,0,0]};
+  return {position:[x+1.1,beamY-3.4,z+5.5],rotation:[0,0,0]};
+}
+export function endPinGuidedPose(id:StepSevenEndPinId,t:number,c:StepSevenRailConfig,
+  beamY:number,stepSixConfig:StepSixMountConfig):StepSixPose {
+  const loose=endPinPose(id,4,c,beamY,stepSixConfig);
+  const end=endPinPose(id,5,c,beamY,stepSixConfig);
+  const align:StepSixPose={position:[end.position[0],end.position[1],end.position[2]+3.2],rotation:end.rotation};
+  const amount=Math.max(0,Math.min(1,t));
+  const start=amount<=0.42?loose:align, finish=amount<=0.42?align:end;
+  const part=amount<=0.42?amount/0.42:(amount-0.42)/0.58;
+  const ease=part*part*(3-2*part);
+  return {position:[0,1,2].map(i=>start.position[i]!+(finish.position[i]!-start.position[i]!)*ease) as [number,number,number],
+    rotation:[0,0,0]};
 }
 export function railGuide(config:StepSixMountConfig,rail:StepSevenRailId,c:StepSevenRailConfig) {
   if(validateMountConfig(config).length) return null;

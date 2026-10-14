@@ -18,7 +18,7 @@ The 32-entry count includes the real photographed two-assembly handoff at Step 9
 2. For the custom frame: `5.stl`, `7.stl`, `15 beams.stl`, `long connector.stl`, `pin_pin.stl` (last is a provisional black-connector candidate).
 3. The 8 mm native beam hole pitch is established by existing model normalization. This does **not** establish elastic press-fit, connector collar depth, or exact engagement.
 4. Step 7 **candidate** receiving hole pairs default to first long rail 6/8 and second long rail 11/13, matched in the scene to the two Step 6 bridge mounting pairs. The user photograph set IMG_1707, IMG_1709 and IMG_1712 must be inspected to confirm actual indices and beam extension. The rail layer gap is adjustable; its default is **not physically measured**.
-5. Step 7's two *additional* blue connectors remain loose in the demonstration because their true connection locations are not verified.
+5. IMG_1716 confirms the two *additional* blue connectors enter the exposed endmost holes (one per 15-hole rail). The final interactive action now inserts both real STL parts in sequence, with the same facing direction. Exact pin seating depth and local axis sign still need mechanical calibration.
 6. Step 8's 7-hole receiving pairs, 15-hole black-pin positions, insertion axes, connector identity, and seating depth are candidates. They require IMG_1688, IMG_1690, IMG_1692–IMG_1696 and real kit inspection. The final frame is presented as a **demonstration** with learner confirmation required.
 7. The source images named above were not found as verified accessible repository files in the integration process. The UI accepts local image upload for comparison; uploaded photos remain on the learner's device.
 
@@ -29,7 +29,7 @@ The 32-entry count includes the real photographed two-assembly handoff at Step 9
 - Assembly B: `robot:marksmanship:step8:assembly-b:v1` / `marksman-assembly-b-rectangular-frame-v1`.
 - A physical **self-confirmation** is required to save each assembly. Neither self-attestation nor a theoretical STL coincidence asserts certified mechanical verification.
 - Legacy progress IDs `marksmanship-s7` and `marksmanship-s8` are kept in `legacyStepCompletionIds` but **not** automatically credited to either new assembly. Historic Step 9+ IDs retain their meaning despite the new displayed numbering.
-- Step 9 requires both independent saved assembly results and never combines them.
+- Step 9 requires both independent saved assembly results and never combines them. The Assembly A preview shows both end pins installed.
 
 ## Before main-branch merge
 

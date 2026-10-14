@@ -6,7 +6,7 @@ import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { STEP5_MODEL_PATHS } from "./StepFiveScene";
 import { seatedPose, type StepSixMountConfig, type StepSixPose, type StepSixStepFiveTransforms } from "./StepSixGeometry";
-import { STEP_SEVEN_RAIL_IDS, railPose, type StepSevenRailConfig, type StepSevenRailId } from "./stepSevenRailGeometry";
+import { STEP_SEVEN_RAIL_IDS, STEP_SEVEN_END_PIN_IDS, endPinPose, endPinGuidedPose, railPose, type StepSevenEndPinId, type StepSevenRailConfig, type StepSevenRailId } from "./stepSevenRailGeometry";
 import beam15Url from "../../../3D for marksman/beams/15 beams.stl?url";
 import longConnectorUrl from "../../../3D for marksman/connector/long connector.stl?url";
 
@@ -48,11 +48,13 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     looseBlue:normalized(loaded[6]!,"pin"),
   }),[loaded]);
   const railGroups=useRef<Partial<Record<StepSevenRailId,Group>>>({});
+  const blueGroups=useRef<Partial<Record<StepSevenEndPinId,Group>>>({});
   const orbit=useRef<OrbitControlsImpl>(null);
   const previous=useRef({phase,replayKey});
   const initial=useRef(false);
   const moving=useRef<{id:StepSevenRailId;from:StepSixPose;to:StepSixPose;time:number;duration:number}|null>(null);
   const cameraFlight=useRef<{from:Vector3;to:Vector3;fromPos:Vector3;toPos:Vector3;elapsed:number}|null>(null);
+  const blueMotion=useRef<{time:number;duration:number;reverse:boolean}|null>(null);
   const callback=useRef(onMotionComplete);callback.current=onMotionComplete;
   const {size}=useThree();
   const mobile=size.width/Math.max(1,size.height)<0.95;
@@ -60,41 +62,52 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
   const configKey=JSON.stringify(config);
 
   useLayoutEffect(()=>{
-    const was=previous.current.phase, replay=previous.current.replayKey!==replayKey;
-    const active:StepSevenRailId|null=(phase===1||phase===2)?"STEP7_RAIL_FRONT_15":phase===3?"STEP7_RAIL_BACK_15":null;
-    const oldPhase=replay?Math.max(0,phase-1):was;
-    for(const id of STEP_SEVEN_RAIL_IDS) {
+    const was=previous.current.phase;
+    const replay=replayKey!==previous.current.replayKey;
+    const reversingBlue=was===5&&phase===4;
+    const animBlue=(phase===5&&(was===4||replay))||reversingBlue;
+    const active:StepSevenRailId|null=!reversingBlue&&phase>=1&&phase<=4
+      ?phase<=2?STEP_SEVEN_RAIL_IDS[0]:STEP_SEVEN_RAIL_IDS[1]:null;
+    for(const id of STEP_SEVEN_RAIL_IDS){
       const node=railGroups.current[id];if(!node)continue;
-      const destination=railPose(id,phase,config,beamY,stepSixConfig);
-      // Preserve the active rail's previous transform for smooth insertion;
-      // only stationary rails snap to their deterministic phase pose.
+      const target=railPose(id,phase,config,beamY,stepSixConfig);
       if(!initial.current||id!==active||Math.abs(phase-was)>1||reducedMotion){
-        node.position.set(...destination.position);node.rotation.set(...destination.rotation);
+        node.position.set(...target.position);node.rotation.set(...target.rotation);
       }
     }
     const current=active&&railGroups.current[active];
-    if(initial.current&&active&&current&&(phase!==was||replay)&&!reducedMotion){
-      const start=replay?railPose(active,oldPhase,config,beamY,stepSixConfig):{
+    if(initial.current&&current&&active&&(phase!==was||replay)&&!reducedMotion){
+      const start=replay?railPose(active,Math.max(0,phase-1),config,beamY,stepSixConfig):{
         position:[current.position.x,current.position.y,current.position.z] as [number,number,number],
         rotation:[current.rotation.x,current.rotation.y,current.rotation.z] as [number,number,number],
       };
-      if(replay)current.position.set(...start.position);
+      if(replay){current.position.set(...start.position);current.rotation.set(...start.rotation);}
       moving.current={id:active,from:start,to:railPose(active,phase,config,beamY,stepSixConfig),time:0,duration:1.55};
-    }else {moving.current=null;callback.current();}
+    }else moving.current=null;
+    STEP_SEVEN_END_PIN_IDS.forEach(id=>{
+      const node=blueGroups.current[id];if(!node)return;
+      const p=endPinPose(id,animBlue&&!reducedMotion?(reversingBlue?5:4):phase,config,beamY,stepSixConfig);
+      node.position.set(...p.position);node.rotation.set(...p.rotation);
+    });
+    blueMotion.current=animBlue&&!reducedMotion?{time:0,duration:3.2,reverse:reversingBlue}:null;
+    if(!blueMotion.current&&!moving.current)callback.current();
     previous.current={phase,replayKey};initial.current=true;
-  },[phase,replayKey,configKey,config,beamY,reducedMotion]);
+  },[phase,replayKey,configKey,config,beamY,reducedMotion,stepSixConfig]);
 
   useLayoutEffect(()=>{
     const ctrl=orbit.current;if(!ctrl)return;
-    const focus=new Vector3(phase===4?0:phase===3?0:0,0,phase===3?-1:phase>=1&&phase<=2?1:0);
-    const distance=phase===0||phase===4?(mobile?31:23):(mobile?23:15.5);
+    const pinA=endPinPose(STEP_SEVEN_END_PIN_IDS[0],5,config,beamY,stepSixConfig).position;
+    const pinB=endPinPose(STEP_SEVEN_END_PIN_IDS[1],5,config,beamY,stepSixConfig).position;
+    const focus=phase===5?new Vector3((pinA[0]+pinB[0])/2,0,(pinA[2]+pinB[2])/2)
+      :new Vector3(0,0,phase>=3&&phase<=4?-1:phase>=1&&phase<=2?1:0);
+    const distance=phase===0?(mobile?31:23):(mobile?23:15.5);
     const camera=focus.clone().add(new Vector3(8,9,distance));
     if(reducedMotion){
       ctrl.target.copy(focus);ctrl.object.position.copy(camera);ctrl.update();cameraFlight.current=null;
     }else cameraFlight.current={
       from:ctrl.target.clone(),to:focus,fromPos:ctrl.object.position.clone(),toPos:camera,elapsed:0,
     };
-  },[phase,mobile,reducedMotion]);
+  },[phase,mobile,reducedMotion,beamY,config,stepSixConfig]);
   useLayoutEffect(()=>{
     if(resetCameraKey!==0){orbit.current?.reset();cameraFlight.current=null;}
   },[resetCameraKey]);
@@ -109,12 +122,37 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
       orbit.current.update();
       if(c.elapsed===1)cameraFlight.current=null;
     }
-    const move=moving.current;if(!move)return;
-    move.time=Math.min(move.duration,move.time+delta);
-    const next=lerp(move.from,move.to,move.time/move.duration);
-    railGroups.current[move.id]?.position.set(...next.position);
-    railGroups.current[move.id]?.rotation.set(...next.rotation);
-    if(move.time===move.duration){moving.current=null;callback.current();}
+    const insert=blueMotion.current;
+    if(insert){
+      insert.time=Math.min(insert.duration,insert.time+delta);
+      const progress=insert.time/insert.duration;
+      STEP_SEVEN_END_PIN_IDS.forEach((id,i)=>{
+        // Connectors move one at a time. Reverse undoes the second first.
+        const amount=insert.reverse
+          ?1-Math.max(0,Math.min(1,progress*2-(1-i)))
+          :Math.max(0,Math.min(1,progress*2-i));
+        const pose=endPinGuidedPose(id,amount,config,beamY,stepSixConfig);
+        blueGroups.current[id]?.position.set(...pose.position);
+      });
+      if(insert.time===insert.duration){
+        blueMotion.current=null;
+        if(!moving.current){
+          if(phase===5&&orbit.current){
+            cameraFlight.current={from:orbit.current.target.clone(),to:new Vector3(0,0,0),
+              fromPos:state.camera.position.clone(),toPos:new Vector3(8,9,mobile?33:25),elapsed:0};
+          }
+          callback.current();
+        }
+      }
+    }
+    const move=moving.current;
+    if(move){
+      move.time=Math.min(move.duration,move.time+delta);
+      const next=lerp(move.from,move.to,move.time/move.duration);
+      railGroups.current[move.id]?.position.set(...next.position);
+      railGroups.current[move.id]?.rotation.set(...next.rotation);
+      if(move.time===move.duration){moving.current=null;if(!blueMotion.current)callback.current();}
+    }
   });
   function pin(id:string){
     const p=prepared[id];if(!p)return null;
@@ -152,18 +190,34 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
           </mesh>
         </group>;
       })}
-      {[-1,1].map((side,i)=><group key={side} name={"STEP7_LOOSE_BLUE_"+(i+1)}
-        position={[side*4.4,beamY-5.5,3.5]}>
-        <mesh geometry={meshes.looseBlue}>
-          <meshStandardMaterial color="#1478d3" roughness={0.5}/>
-        </mesh>
-      </group>)}
+      {STEP_SEVEN_END_PIN_IDS.map((id,i)=>{
+        const pose=endPinPose(id,phase,config,beamY,stepSixConfig);
+        const end=endPinPose(id,5,config,beamY,stepSixConfig).position;
+        return <group key={id}>
+          <group name={id} position={pose.position} rotation={pose.rotation}
+            ref={node=>{if(node)blueGroups.current[id]=node;else delete blueGroups.current[id];}}>
+            <mesh geometry={meshes.looseBlue} castShadow>
+              <meshStandardMaterial color="#1478d3" roughness={0.5}/>
+            </mesh>
+          </group>
+          {phase===5&&<group>
+            <mesh position={[end[0],end[1],end[2]-0.9]}>
+              <torusGeometry args={[0.34,0.05,8,32]}/>
+              <meshBasicMaterial color="#168eea" depthTest={false}/>
+            </mesh>
+            <Line points={[[end[0],end[1],end[2]+3.2],[end[0],end[1],end[2]-0.7]]}
+              dashed dashSize={0.16} gapSize={0.12} lineWidth={1.6}
+              color={i===0?"#168eea":"#239ec6"}/>
+          </group>}
+        </group>;
+      })}
     </group>
-    {(phase===1||phase===2||phase===3)&&<Line
-      points={[[0,0,phase===3?-4.5:4.5],[0,0,phase===3?-1.3:1.3]]}
+    {(phase>=1&&phase<=4)&&<Line
+      points={[[0,0,phase>=3?-4.5:4.5],[0,0,phase>=3?-1.3:1.3]]}
       dashed dashSize={0.16} gapSize={0.12} lineWidth={1.6} color="#e4a51c"/>}
     <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.08}
-      enablePan={false} minDistance={5} maxDistance={55}/>
+      enablePan={false} minDistance={5} maxDistance={55} autoRotate={false}
+      onStart={()=>{cameraFlight.current=null;}}/>
   </>;
 }
 export function StepSevenRailsScene(props:{

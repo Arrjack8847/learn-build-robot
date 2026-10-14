@@ -6,7 +6,7 @@ import { STEP_SIX_RESULT, validateMountConfig, type StepSixMountConfig, type Ste
 import { StepSevenRailsScene } from "./StepSevenRailsScene";
 import {
   STEP_SEVEN_ACTIONS, STEP_SEVEN_ASSEMBLY_ID, STEP_SEVEN_MECHANICALLY_VERIFIED,
-  STEP_SEVEN_PROVISIONAL, STEP_SEVEN_RESULT_KEY, railConfigurationErrors,
+  STEP_SEVEN_PROVISIONAL, STEP_SEVEN_RESULT_KEY, STEP_SEVEN_END_PIN_IDS, STEP_SEVEN_END_HOLE, railConfigurationErrors,
   railGuide, type StepSevenRailConfig,
 } from "./stepSevenRailGeometry";
 
@@ -63,7 +63,12 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
         version:1,assemblyId:STEP_SEVEN_ASSEMBLY_ID,stepSixAssemblyId:handoff.stepSixId,
         railComponents:["STEP7_RAIL_FRONT_15","STEP7_RAIL_BACK_15"],
         centralComponentIds:["STEP5_BEAM_11","STEP5_HOLLOW_A","STEP5_HOLLOW_B","STEP5_BRIDGE_A","STEP5_BRIDGE_B"],
-        additionalBlueConnectorCount:2,additionalBlueConnectorMounts:"unverified",
+        additionalBlueConnectorCount:2,
+        additionalBlueConnectorMounts:STEP_SEVEN_END_PIN_IDS.map((id,i)=>({
+          componentId:id,railId:i===0?"STEP7_RAIL_FRONT_15":"STEP7_RAIL_BACK_15",
+          hole:STEP_SEVEN_END_HOLE,axis:"+Z",
+          photo:"IMG_1716.jpeg",seatingDepthVerified:false,
+        })),
         mountingChoices:config,mechanicallyVerified:STEP_SEVEN_MECHANICALLY_VERIFIED,
         physicallySelfConfirmed:true,source:"learner-physical-attestation",completedAt:new Date().toISOString(),
       }));
@@ -99,7 +104,7 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
       dock={<>
         <AssemblyActionCard actionIndex={phase} actionCount={STEP_SEVEN_ACTIONS.length}
           title={item.title} instruction={item.instruction}
-          note="The 15-hole receiving holes, two additional connector locations, insertion axes and seating depths still require physical calibration."/>
+          note="IMG_1716 locates both end pins at the exposed endmost holes. The pin seating depth and the original side-rail attachment coordinates still require physical measurement."/>
         <AssemblyPlaybackControls paused={paused} onPrevious={()=>nextPhase(phase-1)}
           onReplay={()=>{if(!handoff)return;setBusy(true);setPaused(false);setReplayKey(v=>v+1);}}
           onTogglePause={()=>setPaused(v=>!v)} onNext={()=>nextPhase(phase+1)}
@@ -112,7 +117,7 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
     {finished&&<label className="flex items-start gap-3 rounded-xl border border-sky-200 bg-sky-50 p-3 text-sm text-[#132654]">
       <input type="checkbox" checked={physicalCheck} className="mt-1 size-4 shrink-0"
         onChange={e=>setPhysicalCheck(e.target.checked)}/>
-      I inspected my physical robot and confirm both 15-hole side rails are securely attached. This is my own inspection, not a certified model-geometry fit.
+      I confirm both 15-hole side rails are securely attached and the two blue long pins are seated in the endmost hole of each rail. This is a learner inspection, not a mechanically certified model fit.
     </label>}
     {manual&&<div className="grid gap-3 rounded-xl border border-slate-200 p-3 sm:grid-cols-2">
       {[7,8].map(n=><figure key={n}><img className="mx-auto max-h-64 w-full object-contain"
@@ -121,7 +126,7 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
     </div>}
     <details className="rounded-xl border border-slate-200 bg-white p-3 text-xs text-slate-600">
       <summary className="cursor-pointer font-bold text-[#132654]">Physical geometry and reference calibration</summary>
-      <p className="mt-2 leading-5">The two side rails and six existing connector pins use unchanged source STLs. These mounting holes and the pictured rail offset are visual candidates only. Compare IMG_1707, IMG_1709 and IMG_1712 before teaching a certified fit. No guess has been recorded as a measured seating depth.</p>
+      <p className="mt-2 leading-5">The two side rails and six existing connector pins use unchanged source STLs. The original rail mounting locations and offsets remain unverified. IMG_1716 shows one added blue pin in the exposed end hole of each white beam; exact seating depth remains unmeasured. Compare IMG_1707, IMG_1709, IMG_1712 and IMG_1716 against the physical kit. No guess has been recorded as a measured seating depth.</p>
       <div className="mt-2 grid gap-2 sm:grid-cols-3">
         <label>Rail separation · provisional scene units
           <input className="mt-1 block w-full rounded-lg border px-2 py-2" type="number" min="1.4" max="4" step="0.1"
@@ -144,8 +149,7 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
       </label>
       {photo&&<img alt="Locally provided Step 7 reference" src={photo} className="mt-2 max-h-72 w-full object-contain"/>}
       <p className="mt-3 text-amber-900"><TriangleAlert className="mr-1 inline size-4"/>
-        Additional long blue connector positions are unresolved; both remain separate in the learning scene.
-        Do not infer their mounting from this demo.</p>
+        Both extra blue connectors now insert at the two exposed beam ends during the final action, matching IMG_1716. Exact collar depths remain unverified.</p>
     </details>
   </div>;
 }

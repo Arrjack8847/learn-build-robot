@@ -57,7 +57,8 @@ test("Genuine Step 6 model/connector identity carries into Step 7 without invent
   assert.ok(scene.includes("15 beams.stl?url"));
   assert.ok(scene.includes("long connector.stl?url"));
   assert.ok(rails.includes("physicallySelfConfirmed:true"));
-  assert.ok(rails.includes("additionalBlueConnectorMounts:\"unverified\""));
+  assert.ok(rails.includes("additionalBlueConnectorMounts:STEP_SEVEN_END_PIN_IDS.map"));
+  assert.ok(rails.includes("seatingDepthVerified:false"));
   assert.ok(railConfig.includes("STEP_SEVEN_MECHANICALLY_VERIFIED = false"));
 });
 test("Step 8 frame retains all eleven STL parts and real 5-hole connector order",()=>{
@@ -79,4 +80,17 @@ test("Independent Assembly A and B are both required at Step 9",()=>{
   assert.ok(stage.includes("StepEightScene"));
   assert.ok(stage.includes("Do not connect Assembly A and B yet"));
   assert.ok(stage.includes("physicallySelfConfirmed!==true"));
+});
+
+test("IMG_1716 final Step 7 action seats two distinct STL long blue connectors",()=>{
+  assert.ok(railConfig.includes("STEP_SEVEN_END_HOLE = 1"));
+  assert.ok(railConfig.includes("STEP_SEVEN_END_PIN_IDS"));
+  assert.ok(railConfig.includes("endPinGuidedPose("));
+  assert.ok(railConfig.includes('title:"Insert both blue end connectors"'));
+  assert.ok(scene.includes("STEP_SEVEN_END_PIN_IDS.map"));
+  assert.ok(scene.includes("blueGroups.current[id]"));
+  assert.ok(scene.includes("endPinGuidedPose(id,amount"));
+  assert.ok(scene.includes("insert.reverse"));
+  assert.ok(rails.includes("IMG_1716"));
+  assert.ok(read("src/components/practical/StepNineAssemblyReview.tsx").includes("<StepSevenRailsScene phase={5}"));
 });
