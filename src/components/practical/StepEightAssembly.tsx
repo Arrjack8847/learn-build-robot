@@ -4,6 +4,7 @@ import {
   RotateCcw, ScanSearch, TriangleAlert, Upload,
 } from "lucide-react";
 import { StepEightScene } from "./StepEightScene";
+import { STEP_EIGHT_RESULT_KEY } from "./stepSevenRailGeometry";
 import {
   STEP_EIGHT_DEMO_CONFIG, STEP_EIGHT_MECHANICALLY_VERIFIED,
   STEP_EIGHT_SEQUENCE, stepEightConfigurationErrors,
@@ -23,6 +24,7 @@ export function StepEightAssembly({
   onContinueToStep9:()=>void;
 }) {
   const [phase,setPhase]=useState(0);
+  const [physicalCheck,setPhysicalCheck]=useState(false);
   const [config,setConfig]=useState<StepEightConfig>({...STEP_EIGHT_DEMO_CONFIG});
   const [paused,setPaused]=useState(false);
   const [replayKey,setReplayKey]=useState(0);
@@ -31,8 +33,9 @@ export function StepEightAssembly({
   const [autoInspect,setAutoInspect]=useState(true);
   const [cameraView,setCameraView]=useState<"iso"|"top"|"side"|"bottom">("iso");
   const [reference,setReference]=useState<string|null>(null);
-  const ready=phase===STEP_EIGHT_SEQUENCE.length-1 &&
+  const finished=phase===STEP_EIGHT_SEQUENCE.length-1 &&
     stepEightConfigurationErrors(config).length===0;
+  const ready=finished&&physicalCheck;
   const details=STEP_EIGHT_SEQUENCE[phase]!;
   useEffect(()=>{
     onReadyChange(ready);
@@ -54,11 +57,24 @@ export function StepEightAssembly({
   }
   function edit(patch:Partial<StepEightConfig>){
     setConfig(previous=>({...previous,...patch}));
-    setPhase(0);setPaused(false);setResetCameraKey(value=>value+1);
+    setPhase(0);setPhysicalCheck(false);setPaused(false);setResetCameraKey(value=>value+1);
   }
   function uploadPhoto(file:File|undefined){
     if(!file||!file.type.startsWith("image/"))return;
     setReference(URL.createObjectURL(file));
+  }
+  function completeStepEight(){
+    if(!ready)return;
+    try{
+      window.localStorage.setItem(STEP_EIGHT_RESULT_KEY,JSON.stringify({
+        version:1,assemblyId:"marksman-assembly-b-rectangular-frame-v1",
+        componentIds:["FIVE_A","FIVE_B","SEVEN_A","SEVEN_B","FIFTEEN","BLUE_1","BLUE_2","BLUE_3","BLUE_4","BLACK_1","BLACK_2"],config,mechanicallyVerified:false,
+        physicallySelfConfirmed:true,blueConnectorsOnFiveHoleBeams:[2,4],
+        unverified:["sevenHoleReceiverIndices","blackPinReceivingHoles","lockingInsertionDepth"],
+        completedAt:new Date().toISOString(),
+      }));
+    }catch{/* storage not guaranteed */}
+    onContinueToStep9();
   }
   return (
     <section aria-label="Step 8 assemble and lock the rectangular frame"
@@ -98,7 +114,7 @@ export function StepEightAssembly({
           <ScanSearch className="size-4.5"/>
         </button>
 
-        {ready&&<div aria-label="Completed frame inspection viewpoints"
+        {finished&&<div aria-label="Completed frame inspection viewpoints"
           className="absolute left-3 top-14 flex flex-wrap gap-1.5 rounded-xl
             border border-slate-200 bg-white/90 p-1.5 shadow-sm backdrop-blur">
           {(["top","side","bottom","iso"] as const).map(view=>
@@ -152,20 +168,26 @@ export function StepEightAssembly({
               <RotateCcw className="size-4"/>
             </button>
             <button type="button"
-              onClick={()=>ready?onContinueToStep9():go(phase+1)}
+              disabled={finished&&!physicalCheck}
+              onClick={()=>finished?completeStepEight():go(phase+1)}
               className="ml-auto inline-flex min-h-11 items-center justify-center gap-1
                 rounded-xl bg-[#168eea] px-3 text-xs font-extrabold text-white
                 transition-colors hover:bg-[#0e7ac8] sm:px-5 sm:text-sm">
-              {ready?"Continue to Step 9":"Next action"}<ArrowRight className="size-4"/>
+              {finished?"Complete Step 8":"Next action"}<ArrowRight className="size-4"/>
             </button>
           </div>
-          {ready&&<p className="mt-2 text-center text-[11px] font-semibold text-emerald-800">
+          {finished&&<p className="mt-2 text-center text-[11px] font-semibold text-emerald-800">
             <CheckCircle2 className="mr-1 inline size-3.5"/>
-            Step 8 demonstration complete · inspect your physical locking joints
+            Step 8 demonstration complete · confirm physical locking joints before continuing
           </p>}
         </div>
       </div>
 
+      {finished&&<label className="mt-3 flex items-start gap-3 rounded-xl border border-sky-200 bg-sky-50 p-3 text-sm text-[#132654]">
+        <input type="checkbox" checked={physicalCheck} className="mt-1 size-4 shrink-0"
+          onChange={event=>setPhysicalCheck(event.target.checked)}/>
+        I inspected my actual frame and confirm that both black connectors lock the central 15-hole beam into the rectangular frame. This is my own physical confirmation, not a certified fit calculation.
+      </label>}
       <details className="mt-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700">
         <summary className="flex cursor-pointer list-none items-center justify-between
           gap-3 font-bold text-[#132654]">
