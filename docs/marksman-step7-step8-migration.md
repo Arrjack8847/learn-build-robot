@@ -18,7 +18,7 @@ The 32-entry count includes the real photographed two-assembly handoff at Step 9
 2. For the custom frame: `5.stl`, `7.stl`, `15 beams.stl`, `long connector.stl`, `pin_pin.stl` (last is a provisional black-connector candidate).
 3. The 8 mm native beam hole pitch is established by existing model normalization. This does **not** establish elastic press-fit, connector collar depth, or exact engagement.
 4. Current Step 7 **candidate** receiving hole pairs are first long rail 11/13 and second long rail 6/8 (counted from the grey-mounting end). Each rail also receives one existing black mounting pin. This matches the three-point coaxial photo interpretation, but exact physical hole indices and press fit remain **unverified**. The rail layer offset is adjustable and not measured.
-5. Both *additional* Step 7 blue connectors install only AFTER both white beams are attached: one at Hole 1 of each beam's exposed free end (equivalent to Hole 15 counted from the grey-mounting end), entering from the SAME face as the black mounting pins. The connector shoulders and seating depths remain unmeasured.
+5. Both *additional* Step 7 blue connectors install only AFTER both white beams are attached: one at Hole 1 of each beam's exposed RIGHT end (actual STL hole index 1, not 15), entering from the SAME face as the black mounting pins. The connector shoulders and seating depths remain unmeasured.
 6. Step 8's 7-hole receiving pairs, 15-hole black-pin positions, insertion axes, connector identity, and seating depth are candidates. They require IMG_1688, IMG_1690, IMG_1692–IMG_1696 and real kit inspection. The final frame is presented as a **demonstration** with learner confirmation required.
 7. The source images named above were not found as verified accessible repository files in the integration process. The UI accepts local image upload for comparison; uploaded photos remain on the learner's device.
 
@@ -66,10 +66,17 @@ The original 31-step manual and source STL meshes are not changed by this featur
 - Both end blue pins insert last, into the exposed free-end holes. Step 8 and the original STL parts and Step 1–6 lessons are unchanged.
 - Hole fit, shaft collar depth and vertical separation remain provisional and require testing on the physical kit.
 
-## Final exposed-end connector orientation (IMG_1732–1734)
+## Connector insertion face (IMG_1732–1734), corrected right-end index below
 
 - The physical confirmation is specifically about the **side** of each additional blue connector, not just its free-end hole: install both blue pins **from the black-connector face** of the white beam.
-- Count Hole 1 from each beam's exposed free end. This maps to Hole 15 when counting from the grey/bridge-mounting end. The pins project back out from the same face through which they were inserted.
+- Count Hole 1 at the exposed RIGHT end of each white rail in the app screenshot. The correct STL local index is **1** (x=-7 hole pitches); the assembly root rotates 180° around Z, so index 15 (x=+7) had incorrectly placed both pins on the LEFT. The pins still enter from the black-connector face.
 - Step 7 local coordinates: black connector insertion face = **-local Y**; each blue long pin approaches from **-local Y** and travels **+local Y** into its hole. The scene's 180-degree Z rotation does not change this material-relative side.
-- The scene highlights each free-end hole on the black-facing beam surface during actions 7.6 and 7.7, and animates both extra pins along this axis. Existing blue pins projecting laterally from the Step 6 grey units must not be moved.
+- The scene highlights the corrected RIGHT-end hole on the black-facing beam surface during actions 7.6 and 7.7, and animates both extra pins along this axis. Existing blue pins projecting laterally from the Step 6 grey units must not be moved.
 - Both rails are attached via one black pin and two grey shafts BEFORE either extra blue end pin installs. The user-visible steps remain eight actions. Exact mechanical seating depth is still provisional and must be compared with the physical kit.
+
+## Right-hand end-pin placement fix (user's October 14 screenshot)
+
+- The displayed Step 7 had both added blue long pins at the **left** ends, contrary to the user's real assembly photos and confirmation that they belong at the **right** exposed ends.
+- Root cause: the scene root rotates 180° about Z, reversing the direction of the STL beam's X axis. The earlier index 15 (local x=+7 pitch units) is the left end after that rotation; the correct right exposed end is index **1** (local x=-7).
+- Updated only `STEP_SEVEN_END_PIN_HOLE`, its corresponding saved completion metadata, and documentation/regression tests. All beam placement and three-point black/grey connector transforms are deliberately unchanged. Scene pin transforms, ring highlights and camera focus already derive from this shared constant and therefore target the new right-hand holes.
+- Both extra pins retain the user's confirmed insertion face: **black-connector side**. Physical pin shoulder depth remains provisional; screenshot/kit visual review is still needed.
