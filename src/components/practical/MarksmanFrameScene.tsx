@@ -120,11 +120,12 @@ function HoleMarkers({
 
 function ModelStage({
   phase, config, replayKey, resetCameraKey, zoomKey, zoomDirection,
-  paused, spin, exploded, labels, reducedMotion,
+  paused, spin, exploded, labels, reducedMotion, onMotionComplete,
 }: {
   phase: number; config: FrameConfig; replayKey: number; resetCameraKey: number;
   zoomKey: number; zoomDirection: 1 | -1; paused: boolean;
   spin: boolean; exploded: boolean; labels: boolean; reducedMotion: boolean;
+  onMotionComplete: () => void;
 }) {
   const sources = useLoader(STLLoader, URLS);
   const geometry = useMemo(() => ({
@@ -143,6 +144,8 @@ function ModelStage({
   const start = useMemo(() => framePoses(phase, config, exploded), []);
   const refs = useRef<Partial<Record<FramePartId, Group>>>({});
   const orbit = useRef<OrbitControlsImpl>(null);
+  const completeRef = useRef(onMotionComplete);
+  completeRef.current = onMotionComplete;
   const previousPhase = useRef(phase);
   const lastReplayKey = useRef(replayKey);
   const first = useRef(true);
@@ -175,6 +178,7 @@ function ModelStage({
           elapsed: 0, reverse, inserting: INSERTING_PART[activeAction] }
       : null;
     if (!movement.current) {
+      completeRef.current();
       for (const id of PART_IDS) {
         const obj = refs.current[id];
         obj?.position.set(...target[id].position);
@@ -249,7 +253,7 @@ function ModelStage({
           obj.position.set(...p.position);
           obj.rotation.set(...p.rotation);
         }
-        if (fraction === 1) movement.current = null;
+        if (fraction === 1) { movement.current = null; completeRef.current(); }
       }
       const c = cameraMovement.current;
       if (c) {
@@ -334,11 +338,12 @@ class FrameErrorBoundary extends Component<
 
 export function MarksmanFrameScene({
   phase, config = DEFAULT_FRAME_CONFIG, replayKey, resetCameraKey,
-  zoomKey, zoomDirection, paused, spin, exploded, labels, reducedMotion,
+  zoomKey, zoomDirection, paused, spin, exploded, labels, reducedMotion, onMotionComplete,
 }: {
   phase: number; config?: FrameConfig; replayKey: number; resetCameraKey: number;
   zoomKey: number; zoomDirection: 1 | -1; paused: boolean;
   spin: boolean; exploded: boolean; labels: boolean; reducedMotion: boolean;
+  onMotionComplete: () => void;
 }) {
   return (
     <FrameErrorBoundary>
@@ -350,7 +355,7 @@ export function MarksmanFrameScene({
           <ModelStage phase={phase} config={config} replayKey={replayKey}
             resetCameraKey={resetCameraKey} zoomKey={zoomKey}
             zoomDirection={zoomDirection} paused={paused} spin={spin}
-            exploded={exploded} labels={labels} reducedMotion={reducedMotion} />
+            exploded={exploded} labels={labels} reducedMotion={reducedMotion} onMotionComplete={onMotionComplete} />
         </Suspense>
       </Canvas>
     </FrameErrorBoundary>
