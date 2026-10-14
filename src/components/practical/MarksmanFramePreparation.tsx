@@ -10,8 +10,9 @@ import { DEFAULT_FRAME_CONFIG, VERIFICATION } from "./marksmanFrameGeometry";
 import type { FrameConfig } from "./marksmanFrameGeometry";
 
 /**
- * Supplemental PHOTO-BASED tutorial. It is NOT official manual Step 7, 9 or 11;
- * no state is written into the official progress-tracking system.
+ * Step 7-only photo-based animation. The photographed frame sequence differs
+ * from the official Step 7 diagram, and does not alter manual Steps 9 or 11.
+ * No progress is written into the official progress-tracking system.
  */
 const ACTIONS = [
   {
@@ -135,10 +136,10 @@ export function MarksmanFramePreparation({
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div>
           <p className="text-xs font-black uppercase tracking-wider text-[#116eaf]">
-            Supplementary photo-based 3D preparation
+            Step 7 · photo-based 3D animation
           </p>
           <p className="mt-1 text-xs text-slate-500">
-            Independent of the official 31-step manual · Action {phase + 1} of {ACTIONS.length}
+            Photo-guided frame sequence · Action {phase + 1} of {ACTIONS.length}
           </p>
         </div>
         <span className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[11px] font-bold text-amber-900">
@@ -322,7 +323,7 @@ export function MarksmanFramePreparation({
               </label>
             ))}
             <p className="sm:col-span-2 text-xs leading-5 text-amber-950">
-              These choices affect only this tutorial, never the official manual.
+              These choices affect only the Step 7 animation, never the official manual.
               Pin holes 5/8 on the separate beam are borrowed as editable candidates,
               not claimed as verified matches to the uploaded photos.
               {config.beam15Holes[0] === config.beam15Holes[1] ? (
