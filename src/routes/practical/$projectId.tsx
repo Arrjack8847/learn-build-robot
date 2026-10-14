@@ -67,7 +67,6 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const [stage, setStage] = useState<SessionStage>("steps");
   const [stepThreeReady, setStepThreeReady] = useState(false);
   const [stepFourReady, setStepFourReady] = useState(false);
-  const [showFrameTutorial, setShowFrameTutorial] = useState(false);
   const [preview3D, setPreview3D] = useState(false);
   const [previewStep2Ready, setPreviewStep2Ready] = useState(false);
   const currentStep = project.steps[currentIndex];
@@ -297,28 +296,26 @@ function BuildSession({ project }: { project: PracticalProject }) {
               ) : null}
             </section>
           </div>
-          {project.id === "marksmanship" && (
-            <section className="mx-auto mt-5 w-full max-w-5xl rounded-2xl border border-sky-200 bg-white p-3 shadow-sm sm:p-5">
-              <button type="button"
-                aria-expanded={showFrameTutorial}
-                className="flex min-h-12 w-full items-center justify-between gap-3 rounded-xl bg-sky-50 p-3 text-left"
-                onClick={() => setShowFrameTutorial((open) => !open)}>
-                <span>
-                  <span className="block text-sm font-extrabold text-[#132654]">Photo-based frame preparation · optional 3D tutorial</span>
-                  <span className="mt-1 block text-xs text-slate-600">
-                    Prepare the 7-hole and 5-hole rectangular frame plus a separate 15-hole beam.
-                    Not an official numbered step.
-                  </span>
-                </span>
-                <span className="shrink-0 text-sm font-bold text-[#116eaf]">
-                  {showFrameTutorial ? "Close" : "Open"}
-                </span>
-              </button>
-              {showFrameTutorial && (
-                <div className="mt-4">
-                  <MarksmanFramePreparation />
-                </div>
-              )}
+          {project.id === "marksmanship" && currentStep.number === 7 && (
+            <section
+              aria-label="Step 7 photo-based frame animation"
+              className="mx-auto mt-5 w-full max-w-5xl rounded-2xl border border-sky-200 bg-white p-3 shadow-sm sm:p-5"
+            >
+              <div className="mb-4 rounded-xl bg-sky-50 p-3 sm:p-4">
+                <p className="text-xs font-black uppercase tracking-wider text-[#116eaf]">
+                  Step 7 · Interactive 3D assembly
+                </p>
+                <h3 className="mt-1 text-lg font-extrabold text-[#132654]">
+                  Photo-based frame preparation
+                </h3>
+                <p className="mt-1 text-xs leading-5 text-slate-600 sm:text-sm">
+                  Follow the frame assembly shown in your photographs: two 7-hole beams,
+                  two 5-hole beams and a separate 15-hole beam. This photo-based
+                  sequence differs from the official Step 7 diagram above,
+                  which remains the reference for the manual instructions.
+                </p>
+              </div>
+              <MarksmanFramePreparation />
             </section>
           )}
         </div>

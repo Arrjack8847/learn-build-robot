@@ -1,8 +1,15 @@
-# Marksmanship — supplementary photo-based frame preparation (feature branch)
+# Marksmanship — Step 7 photo-based frame animation
 
-This is an **optional interactive frame tutorial** attached below the existing
-Marksmanship practical page. It does not replace, rename, unlock, reorder, or
-write progress for the **31 official manual steps**.
+This **interactive 3D animation appears only in Marksmanship Step 7**, not on
+any other step. It is integrated under the Step 7 manual diagram without
+adding a 32nd step or changing the names, descriptions or completion records
+of the **31 official manual steps**.
+
+**Important mismatch:** The photo-guided animation builds a two-7-hole/two-5-hole
+rectangular frame and a separate 15-hole beam. The *official* Step 7 diagram
+instead asks students to prepare two 15-hole beams with a connector at Hole 3.
+The interface explicitly labels these as different instructions and retains
+the official Step 7 image for students following the manual.
 
 ## Original STL assets
 
@@ -76,15 +83,16 @@ stable 11 part IDs rather than cloning or incrementally accumulating meshes.
 
 ```powershell
 git fetch origin
-git switch feat/marksman-photo-frame-tutorial-20261013
+git switch main
 npm install
 npm run dev
 ```
 
-Open the Marksmanship practical page via the app's Practical Projects list.
-Expand **Photo-based frame preparation · optional 3D tutorial** below the
-official step content. Test Next/Previous/Replay/Pause, auto-rotate,
-zoom, reset, explosion, labels, and reference panel.
+Complete or preload Steps 1–6, open **Step 7** in the Marksmanship practical
+page and scroll below the original Step 7 diagram to the interactive 3D
+sequence. The animation is not mounted on any other step. Test
+Next/Previous/Replay/Pause, auto-rotate, zoom, reset, exploded mode, hole
+labels and the reference panel.
 
 For automated checks:
 
@@ -111,6 +119,6 @@ changes instead of overwriting them.
 - **CI:** see branch's `marksmanship-frame.yml` run and PR checks;
   do not treat pending checks as passed.
 
-The feature remains on its own branch for review. Do **not** merge without
-reviewing the actual photos, inspecting physical connector positions, and
-testing on at least one narrow phone screen.
+The Step 7-only placement does **not** verify photo-specific geometry.
+Inspect the original photos, physical connector fit and mobile behavior
+before relying on this assembly sequence for classroom instruction.
