@@ -18,6 +18,7 @@ const emptyProgress: StudentProgress = {
   completedLessonIds: [],
   lastTheoryPageByModule: {},
   completedStepIds: [],
+  legacyStepCompletionIds: [],
   quizAttempts: [],
   practicalGrades: [],
 };
@@ -144,6 +145,13 @@ function readStored(): StudentProgress {
             (id): id is string => typeof id === "string" && validStepIds.has(id),
           )
         : [],
+      // Historical s7/s8 were manual operations or a custom frame sharing s7's ID.
+      // Neither can safely be mapped to the inserted rail or frame lesson.
+      // Keep them as historic evidence, never mark the new physical tasks completed.
+      legacyStepCompletionIds: [...new Set([
+        ...(Array.isArray(parsed.legacyStepCompletionIds) ? parsed.legacyStepCompletionIds : []),
+        ...(Array.isArray(parsed.completedStepIds) ? parsed.completedStepIds : []),
+      ].filter((id): id is string => id === "marksmanship-s7" || id === "marksmanship-s8"))],
       quizAttempts: Array.isArray(parsed.quizAttempts)
         ? parsed.quizAttempts.filter(isQuizAttempt).slice(0, 20)
         : [],
