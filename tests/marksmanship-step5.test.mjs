@@ -34,7 +34,9 @@ test("Source dimensional facts and 11-hole correct pitch",()=>{
   assert.ok(scene.includes("STEP5_BRIDGE_HOLES_MM = [[-8, 4], [8, 4]]"));
   assert.ok(scene.includes("STEP5_HOLLOW_HOLE_MM = [-4, 0]"));
   assert.ok(scene.includes("copy.translate(-40,-3.65,-3.9)"));
-  assert.ok(scene.includes("Array.from({length:11}"));
+  assert.ok(scene.includes("beamHoleCount:11"),"The 11-hole physical beam is preserved");
+  assert.ok(scene.includes("{BRIDGE_ORIGINS.map((position,i)=>"),"Both bridges must still render");
+  assert.ok(!scene.includes("Array.from({length:11}"),"Show only contextual labels, not all holes");
 });
 test("Two bridges, two hollow elbows, and six separate source pin meshes",()=>{
   for(const id of ["STEP5_BEAM_11","STEP5_BRIDGE_A","STEP5_BRIDGE_B","STEP5_HOLLOW_A","STEP5_HOLLOW_B","STEP5_LONG_PIN_04","STEP5_SHORT_PIN_02"]){
