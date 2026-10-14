@@ -132,7 +132,7 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
     </div>}
     <details className="rounded-xl border border-slate-200 bg-white p-3 text-xs text-slate-600">
       <summary className="cursor-pointer font-bold text-[#132654]">Physical geometry and reference calibration</summary>
-      <p className="mt-2 leading-5">IMG_1729 and IMG_1731 show the grey assembly pressed down onto a supported white beam; IMG_1732–1733 show the two extra end pins fitted after both rails are mounted. Source STLs are unchanged. The previous pair guesses 6/8 and 1/3 cannot align the paired black shafts for this saved Step 6 arrangement. New candidate pairs 11/13 and 6/8 align the black shafts as well. Both blue end pins install at the exposed free-end holes. Exact shaft depth still requires a real-kit fit check.</p>
+      <p className="mt-2 leading-5">IMG_1729 and IMG_1731 show the grey assembly pressed down onto a supported white beam; IMG_1732–1733 show the two extra end pins fitted after both rails are mounted. Source STLs are unchanged. The previous pair guesses 6/8 and 1/3 cannot align the paired black shafts for this saved Step 6 arrangement. Your approved mounting settings are vertical offset 0.9, first rail grey holes 13/15 (black at hole 6), and second rail grey holes 8/10 (black at hole 5) for the pictured Step 6 configuration. Both blue end pins install at the exposed free-end holes. Exact shaft depth still requires a real-kit fit check.</p>
       <div className="mt-2 grid gap-2 sm:grid-cols-2">
         <label>Vertical mounting offset · provisional scene units
           <input className="mt-1 block w-full rounded-lg border px-2 py-2" type="number" min="0.9" max="2.5" step="0.1"
