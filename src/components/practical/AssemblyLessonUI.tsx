@@ -63,7 +63,7 @@ export function AssemblyActionCard({
         </div>
       </div>
       <h2 className="text-sm font-extrabold leading-5 text-[#132654] sm:text-base">{title}</h2>
-      <p className="text-xs leading-[1.45] text-slate-700 sm:text-sm">{instruction}</p>
+      <p className="text-sm leading-5 text-slate-700">{instruction}</p>
       {note && <p className="text-[11px] leading-4 text-slate-500">{note}</p>}
     </div>
   );
@@ -98,7 +98,8 @@ export function AssemblyPlaybackControls({
       <Button type="button" className="ml-auto min-h-11 min-w-0 flex-1 rounded-xl bg-[#168eea] px-2 text-xs font-extrabold text-white hover:bg-[#0e82dd] sm:flex-none sm:px-5 sm:text-sm"
         disabled={isFinalAction ? completeDisabled : nextDisabled}
         onClick={isFinalAction ? onComplete : onNext}>
-        {isFinalAction ? "Complete Step" : nextLabel}
+        <span className="hidden sm:inline">{isFinalAction ? "Complete Step" : nextLabel}</span>
+        <span className="sm:hidden">{isFinalAction ? "Complete" : "Next"}</span>
         <ArrowRight aria-hidden="true" className="size-4" />
       </Button>
     </nav>
