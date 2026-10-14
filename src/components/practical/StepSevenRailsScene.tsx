@@ -100,7 +100,7 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     const pinB=endPinPose(STEP_SEVEN_END_PIN_IDS[1],5,config,beamY,stepSixConfig).position;
     const focus=phase===5?new Vector3((pinA[0]+pinB[0])/2,0,(pinA[2]+pinB[2])/2)
       :new Vector3(0,0,phase>=3&&phase<=4?-1:phase>=1&&phase<=2?1:0);
-    const distance=phase===0?(mobile?31:23):(mobile?23:15.5);
+    const distance=phase===0?(mobile?62:31):(mobile?28:17);
     const camera=focus.clone().add(new Vector3(8,9,distance));
     if(reducedMotion){
       ctrl.target.copy(focus);ctrl.object.position.copy(camera);ctrl.update();cameraFlight.current=null;
@@ -139,7 +139,7 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
         if(!moving.current){
           if(phase===5&&orbit.current){
             cameraFlight.current={from:orbit.current.target.clone(),to:new Vector3(0,0,0),
-              fromPos:state.camera.position.clone(),toPos:new Vector3(8,9,mobile?33:25),elapsed:0};
+              fromPos:state.camera.position.clone(),toPos:new Vector3(8,9,mobile?68:36),elapsed:0};
           }
           callback.current();
         }
@@ -170,13 +170,13 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
     <gridHelper args={[25,25,"#d1dfed","#eaf0f5"]} position={[0,-2,0]}/>
     <group name="STEP7_ASSEMBLY_A" position={[0,-beamY,0]}>
       <group name="STEP5_BEAM_11" position={prepared["STEP5_BEAM_11"]!.position} rotation={prepared["STEP5_BEAM_11"]!.rotation}>
-        <mesh geometry={meshes.beam11}><meshStandardMaterial color="#eee8dd" roughness={0.7}/></mesh>
+        <mesh geometry={meshes.beam11}><meshStandardMaterial color="#9daab7" roughness={0.7}/></mesh>
       </group>
       {PART_IDS.map(id=>{
         const p=seatedPose(id,stepSixConfig,beamY);
         return <group key={id} name={id} position={p.position} rotation={p.rotation}>
           <mesh geometry={id.includes("BRIDGE")?meshes.bridge:meshes.hollow}>
-            <meshStandardMaterial color="#b8c7d5" roughness={0.65}/>
+            <meshStandardMaterial color="#909eab" roughness={0.65}/>
           </mesh>
           {CHILD_PINS[id].map(pin)}
         </group>;
@@ -216,7 +216,7 @@ function Stage({phase,config,stepSixConfig,prepared,replayKey,paused,resetCamera
       points={[[0,0,phase>=3?-4.5:4.5],[0,0,phase>=3?-1.3:1.3]]}
       dashed dashSize={0.16} gapSize={0.12} lineWidth={1.6} color="#e4a51c"/>}
     <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.08}
-      enablePan={false} minDistance={5} maxDistance={55} autoRotate={false}
+      enablePan={false} minDistance={5} maxDistance={90} autoRotate={false}
       onStart={()=>{cameraFlight.current=null;}}/>
   </>;
 }

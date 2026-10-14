@@ -74,7 +74,7 @@ try{
   await page.getByText("Insert both blue end connectors",{exact:true}).first().waitFor({
     state:"visible",timeout:15000,
   });
-  await page.waitForTimeout(3600);
+  await page.waitForTimeout(4700);
   await page.locator(".assembly-lesson-stage").screenshot({path:output+"/step7-final-desktop.png"});
   await page.setViewportSize({width:390,height:844});
   await page.waitForTimeout(1200);
