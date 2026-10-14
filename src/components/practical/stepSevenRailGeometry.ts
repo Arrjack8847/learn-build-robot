@@ -26,6 +26,17 @@ type ReadOnlyRailConfig = Readonly<StepSevenRailConfig>;
 export const STEP_SEVEN_PROVISIONAL = STEP_SEVEN_PHOTO_CONFIG;
 /** Hole 15 when counted from the grey/bridge end = Hole 1 from the free end. */
 export const STEP_SEVEN_END_PIN_HOLE = 15;
+/** Both extra blue pins enter from the same beam face as the black mounting
+ * connector (the -Y face in this Step 7 local frame). The stage's 180 degree
+ * Z rotation changes screen direction, never the physically defined face.
+ */
+export const STEP_SEVEN_END_PIN_FACE = "black-connector-side" as const;
+export const STEP_SEVEN_END_PIN_INSERTION_AXIS = "+local-Y" as const;
+export const STEP_SEVEN_END_PIN_OUTWARD_NORMAL = [0,-1,0] as const;
+/** Photo-based placement measured in normalized 8 mm-pitch scene units;
+ * collar/penetration depth still requires physical validation.
+ */
+export const STEP_SEVEN_END_PIN_PROJECTION_OFFSET = 0.82;
 export const STEP_SEVEN_MECHANICALLY_VERIFIED = false;
 export const STEP_SEVEN_ACTIONS = [
   {title:"Prepare all parts",instruction:"Keep the completed Step 6 assembly and its two black pins, four grey mounting shafts and original blue pins intact. Prepare two white 15-hole beams and two extra blue end pins."},
@@ -33,8 +44,8 @@ export const STEP_SEVEN_ACTIONS = [
   {title:"Lower all three joints into the first beam",instruction:"Press the grey assembly downward so its black connector and two grey connector shafts engage the first white beam together. Do not move the sideways blue pins."},
   {title:"Align the second beam · three joints",instruction:"Keep the first beam attached. Position the second beam under the opposite black connector and two grey shafts."},
   {title:"Lower all three joints into the second beam",instruction:"Lower the connected assembly and first rail together onto the second beam, seating one black and two grey mounting shafts simultaneously."},
-  {title:"Insert first blue free-end pin",instruction:"Insert one extra long blue pin into hole 1 counting from the exposed free end of the first 15-hole beam."},
-  {title:"Insert second blue free-end pin",instruction:"Insert the remaining blue long pin into the exposed endmost hole of the second 15-hole beam."},
+  {title:"Insert first blue free-end pin · black side",instruction:"At the first beam’s exposed free end, highlight Hole 1. Insert a blue long pin from the SAME SIDE as its black mounting connector, leaving the pin projecting from that face."},
+  {title:"Insert second blue free-end pin · black side",instruction:"Repeat at Hole 1 of the second white beam’s exposed end, again entering from its BLACK-CONNECTOR SIDE. Do not reverse either pin or move the existing sideways blue pins."},
   {title:"Inspect Assembly A",instruction:"Orbit the final model: each side uses THREE connectors (one black, two grey), both blue free-end pins are installed, and existing sideways pins remain unchanged."},
 ] as const;
 export const STEP_SEVEN_FINAL_PHASE = STEP_SEVEN_ACTIONS.length-1;
@@ -74,6 +85,11 @@ export function railConfigurationErrors(c:StepSevenRailConfig,cfg?:StepSixMountC
       const m=railMounts(id,cfg,c);
       if(m.receivingBlackHole<1||m.receivingBlackHole>15)
         errors.push("The black pin misses "+id+". Adjust this rail's grey receiving pair.");
+      const occupied=[m.receivingBlackHole,...m.receivingGreyHoles];
+      if(new Set(occupied).size!==3)
+        errors.push("The black and two grey shafts must occupy three distinct holes on "+id+".");
+      if(occupied.includes(STEP_SEVEN_END_PIN_HOLE))
+        errors.push("The exposed Hole 1 end-pin position overlaps an existing mounting shaft on "+id+".");
     }
   return errors;
 }
@@ -100,16 +116,37 @@ export function railPose(id:StepSevenRailId,phase:number,c:StepSevenRailConfig,
   };
   return {position:[m.offsetX,y,mount.position[2]],rotation};
 }
+/** The black mounting pin and both grey shafts are on the same entry face.
+ * The extra blue pin's free end projects back out of that face. Hole 15 is
+ * the same physical end hole as Hole 1 when counted from the exposed end.
+ */
+export function endPinMount(id:StepSevenPinId,c:StepSevenRailConfig,
+  beamY:number,cfg:StepSixMountConfig){
+  const first=id===STEP_SEVEN_PIN_IDS[0];
+  const railId=STEP_SEVEN_RAIL_IDS[first?0:1];
+  const rail=railPose(railId,STEP_SEVEN_FINAL_PHASE,c,beamY,cfg);
+  const x=rail.position[0]+STEP_SEVEN_END_PIN_HOLE-8;
+  return {
+    railId,
+    holeFromExposedEnd:1 as const,
+    holeFromGreyEnd:STEP_SEVEN_END_PIN_HOLE,
+    insertionFace:STEP_SEVEN_END_PIN_FACE,
+    insertionAxis:STEP_SEVEN_END_PIN_INSERTION_AXIS,
+    outwardNormal:STEP_SEVEN_END_PIN_OUTWARD_NORMAL,
+    position:[x,rail.position[1]-STEP_SEVEN_END_PIN_PROJECTION_OFFSET,rail.position[2]] as StepSixPose["position"],
+    rotation:[Math.PI/2,0,0] as StepSixPose["rotation"],
+  };
+}
 export function endPinPose(id:StepSevenPinId,phase:number,c:StepSevenRailConfig,
   beamY:number,cfg:StepSixMountConfig):StepSixPose{
+  const mount=endPinMount(id,c,beamY,cfg);
   const first=id===STEP_SEVEN_PIN_IDS[0];
-  const rail=railPose(STEP_SEVEN_RAIL_IDS[first?0:1],STEP_SEVEN_FINAL_PHASE,c,beamY,cfg);
-  const x=rail.position[0]+STEP_SEVEN_END_PIN_HOLE-8;
-  const y=rail.position[1]-0.82,z=rail.position[2];
-  const rotation:StepSixPose["rotation"]=[Math.PI/2,0,0];
+  const final=mount.position;
+  // First approach from the black-facing (-local Y) side, then move down
+  // the shared mounting axis (+local Y) into the end hole.
   return phase<(first?5:6)
-    ?{position:[x+1.7,y-2.5,z],rotation}
-    :{position:[x,y,z],rotation};
+    ?{position:[final[0]+1.7,final[1]-2.5,final[2]],rotation:mount.rotation}
+    :{position:[...final],rotation:mount.rotation};
 }
 export function stepSevenPose(id:StepSevenMovingPart,phase:number,c:StepSevenRailConfig,
   beamY:number,cfg:StepSixMountConfig):StepSixPose{
