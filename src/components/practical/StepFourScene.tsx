@@ -207,7 +207,8 @@ function Stage({
         }
       }
       // Rewind the same alignment/insertion path on Previous, rather than cutting through parts.
-      motion.current = { action: Math.max(prev, phase), elapsed: 0, duration: 1.65, from, to: next };
+      motion.current = { action: Math.max(prev, phase), elapsed: 0, duration: phase === 0 ? 0.9 : 1.95, from, to: next };
+      setGuideVisible(phase >= 1 && phase <= 4);
     }
     previous.current = { phase, replayKey };
   }, [phase, replayKey]);
