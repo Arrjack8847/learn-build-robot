@@ -45,9 +45,12 @@ test("Two bridges, two hollow elbows, and six separate source pin meshes",()=>{
   }
 });
 test("Safety gate, previous/replay, Step 4 unchanged, Step 6 unmodified",()=>{
-  for(const part of ["confirmedPhysical","Return to Step 4","Continue to Step 6","onBackToStep4","onContinueToStep6","Replay","Resume","Reset view","actual kit and the manual","robot:marksmanship:step4:assembled:v1"]){
+  for(const part of ["confirmedPhysical","Return to Step 4","onBackToStep4","onContinueToStep6","AssemblyPlaybackControls","AssemblyUtilityControls","actual kit and the manual","robot:marksmanship:step4:assembled:v1"]){
     assert.ok(controls.includes(part),part);
   }
+  const shared=source("src/components/practical/AssemblyLessonUI.tsx");
+  for(const label of ["Replay","Resume","Reset view"]){assert.ok(shared.includes(label),label);}
+  assert.ok(!controls.includes(">Continue to Step 6"),"Only the shared lesson footer may advance steps");
   assert.ok(route.includes("isStepFive && !stepFiveReady"));
   assert.ok(route.includes("StepFiveAssembly"));
   assert.ok(route.includes("onBackToStep4"));
