@@ -105,7 +105,7 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
       dock={<>
         <AssemblyActionCard actionIndex={phase} actionCount={STEP_SEVEN_ACTIONS.length}
           title={item.title} instruction={item.instruction}
-          note="EACH white beam receives ONE black pin and TWO grey shafts vertically. The existing sideways blue pins stay installed. After BOTH rails are secured, insert each new blue pin into exposed Hole 1 FROM THE BLACK-CONNECTOR SIDE. Exact seating depth remains provisional."/>
+          note="FRONT beam: black Hole 5 + grey Holes 6 and 8. BACK beam: black Hole 4 + grey Holes 10 and 12. Existing sideways blue pins stay installed. After BOTH rails are secured, insert each new blue pin into exposed Hole 1 FROM THE BLACK-CONNECTOR SIDE. Exact seating depth remains provisional."/>
         <AssemblyPlaybackControls paused={paused} onPrevious={()=>nextPhase(phase-1)}
           onReplay={()=>{if(!handoff)return;setBusy(true);setPaused(false);setReplayKey(v=>v+1);}}
           onTogglePause={()=>setPaused(v=>!v)} onNext={()=>nextPhase(phase+1)}
