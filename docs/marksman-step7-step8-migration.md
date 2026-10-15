@@ -134,3 +134,11 @@ The original 31-step manual and source STL meshes are not changed by this featur
 - Alignment guides follow Step 7's moving receiving holes (four guide lines parented to its root, not to an individual pin), matching the mounting motion. Action 4 adds a dedicated bottom camera view to inspect the two grey cross-supports and four blue pin heads visible in the latest downward-view photograph.
 - The four agreed receiving holes and saved Step 7 180-degree horizontal yaw are unchanged. Original Steps 7 and 8 are left untouched. Step 9 completion metadata documents the stationary lower Step 8, descending Step 7 and underside inspection.
 - The visuals are photo-guided. An existing Step 7 mounting shaft may overlap a proposed receiving hole under the saved Step 7 calibration. Do not silently relocate or remove it or declare precise press-fit depth verified without user checking the actual assembled part.
+
+## Latest Step 9 correction — Step 8 already oriented correctly
+
+- The user confirms the Step 8 completed assembly is ALREADY in the correct position/orientation. Do **not** flip it again during Step 9.
+- Action 0 presents the completed Step 8 in its final, upward-blue-pin orientation. Action 1 is now a guided orientation CHECK and small translational repositioning only; Step 8's rigid rotation matrix stays identical from preparation through final inspection. The redundant upside-down rotation, loose-pose quaternion, and flip-completion claim were removed.
+- Maintain the prior Step 7 horizontal turn, four original Step 8 pin-to-Step 7 hole 7/11 mappings, Step 8's longest front-facing white beam, Action 2 positioning, Action 3 lowering ONLY Step 7, and Action 4 top/side/bottom inspection.
+- No changes to the completed Step 7 or Step 8 lesson scenes or to their saved physical part positions. The Step 9 stored completion metadata now records `stepEightOrientationPreserved: true` and `stepEightRotatedInStep9: false`.
+- This latest correction supersedes the earlier notes in this document instructing the Step 8 flip during Action 1. The photo-guided mechanical seating depth and possible rail-hole overlap still need physical inspection.
