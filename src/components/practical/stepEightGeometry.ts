@@ -19,6 +19,16 @@ export const STEP_EIGHT_THICKNESS_MM = 7.8;
 export const STEP_EIGHT_UNVERIFIED_CLEARANCE_MM = 1.5;
 export const STEP_EIGHT_LEVEL =
   (STEP_EIGHT_THICKNESS_MM + STEP_EIGHT_UNVERIFIED_CLEARANCE_MM) / STEP_EIGHT_PITCH_MM;
+/**
+ * 24 mm is the original blue connector STL's Z extent. Its lowest point
+ * seats flush with (a hair above) the BOTTOM of a 5-hole beam. The exposed
+ * portion stays ABOVE the beam, as in the photographed assembly.
+ * This deliberately changes blue-pin seating; receiving hole indices do not change.
+ */
+export const STEP_EIGHT_BLUE_CONNECTOR_LENGTH_MM = 24;
+export const STEP_EIGHT_BLUE_PIN_SEATED_Z =
+  STEP_EIGHT_LEVEL - STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM) +
+  STEP_EIGHT_BLUE_CONNECTOR_LENGTH_MM/(2*STEP_EIGHT_PITCH_MM) + 0.02;
 export type StepEightConfig = {
   /** First receiving hole in each 7-hole beam; second is four holes later. */
   sevenNearHole: 1 | 2 | 3;
@@ -77,12 +87,12 @@ const xyz = (x:number,y:number,z:number,rotation:V3=[0,0,0]):StepEightPose =>
 export const STEP_EIGHT_PREPARATION_LAYOUT: Readonly<Record<StepEightPart,V3>> = {
   FIVE_A: [0,-8.3,STEP_EIGHT_LEVEL],
   FIVE_B: [0,8.3,STEP_EIGHT_LEVEL],
-  // All four loose pins start BELOW the 5-hole beams. During insertion
-  // they approach along -Z and seat toward +Z without ever crossing a beam.
-  BLUE_1: [-5.7,-10.2,-2.25],
-  BLUE_2: [-5.7,-6.5,-2.25],
-  BLUE_3: [5.7,10.2,-2.25],
-  BLUE_4: [5.7,6.5,-2.25],
+  // All four blue pins start ABOVE the beams. The guided path inserts them
+  // downward; the installed part stays opaque and clear of the bottom face.
+  BLUE_1: [-5.7,-10.2,5.7],
+  BLUE_2: [-5.7,-6.5,5.7],
+  BLUE_3: [5.7,10.2,5.7],
+  BLUE_4: [5.7,6.5,5.7],
   SEVEN_A: [-8.5,0,0],
   SEVEN_B: [4,0,0],
   FIFTEEN: [9,0,0],
@@ -128,12 +138,14 @@ export function stepEightPoses(phase:number,config:StepEightConfig):Record<StepE
   // Preserve all four REAL blue connector STL poses in every action.
   // Once seated, their centers continue travelling rigidly with their
   // corresponding 5-hole beam, rather than hiding or changing scale.
+  // The blue tip remains exposed on TOP; no blue STL geometry pokes out
+  // through the bottom of the 5-hole beam.
   phasesBlue.forEach((activation,i) => {
     const beam=i<2?"A":"B";
     const hole=i%2===0?2:4;
     const beamY=beam==="A"?frameA:frameB;
     const seated = phase>=activation;
-    const p=seated ? [hole-3,beamY,STEP_EIGHT_LEVEL/2] as V3 : blueLoose[i]!;
+    const p=seated ? [hole-3,beamY,STEP_EIGHT_BLUE_PIN_SEATED_Z] as V3 : blueLoose[i]!;
     poses[("BLUE_"+(i+1)) as "BLUE_1"|"BLUE_2"|"BLUE_3"|"BLUE_4"] =
       xyz(p[0],p[1],p[2]);
   });
@@ -162,10 +174,10 @@ export function stepEightGuide(phase:number,config:StepEightConfig):V3|null {
 }
 export const STEP_EIGHT_SEQUENCE = [
   {number:"8.1",title:"Prepare two matching 5-hole beam groups",instruction:"Group A: one 5-hole beam and two blue connectors. Group B: the other 5-hole beam and two blue connectors. Keep the two 7-hole beams, long beam and black connectors nearby for later."},
-  {number:"8.2",title:"Beam A · insert blue connector 1",instruction:"From UNDERNEATH Beam A, align blue connector 1 with Hole 2. Follow the underside target ring and push straight upward. Leave the installed connector visible."},
-  {number:"8.2",title:"Beam A · insert blue connector 2",instruction:"Keep blue connector 1 installed in Hole 2. From UNDERNEATH the same beam, push blue connector 2 upward into Hole 4. Both connectors stay attached."},
-  {number:"8.3",title:"Beam B · insert blue connector 3",instruction:"Leave both connectors installed in Beam A. Move to Beam B and push blue connector 3 upward from UNDERNEATH into Hole 2."},
-  {number:"8.3",title:"Beam B · insert blue connector 4",instruction:"From UNDERNEATH Beam B, insert blue connector 4 upward into Hole 4. Keep connector 3 in Hole 2; all four blue connectors remain installed."},
+  {number:"8.2",title:"Beam A · insert blue connector 1",instruction:"Position blue connector 1 ABOVE Beam A. Align with Hole 2 and push DOWNWARD into the top face. The blue end stays visible above; no shaft protrudes below."},
+  {number:"8.2",title:"Beam A · insert blue connector 2",instruction:"Keep connector 1 in Hole 2. Place connector 2 ABOVE Beam A, align with Hole 4 and push DOWNWARD. Both exposed blue ends remain visible."},
+  {number:"8.3",title:"Beam B · insert blue connector 3",instruction:"Move to Beam B. From ABOVE, align blue connector 3 with Hole 2 and push DOWNWARD. Do not disturb the two installed connectors in Beam A."},
+  {number:"8.3",title:"Beam B · insert blue connector 4",instruction:"Align connector 4 ABOVE Hole 4 of Beam B and push DOWNWARD. Keep all four blue connectors visible from above, with nothing protruding underneath."},
   {number:"8.4",title:"Connect the first 7-hole beam",instruction:"Line up the two exposed blue pins with the first 7-hole beam's highlighted receiving holes and seat the beam underneath."},
   {number:"8.5",title:"Close the rectangular frame",instruction:"Attach the second 7-hole beam to the remaining two pins and inspect all four joints."},
   {number:"8.6",title:"Fit the first black connector",instruction:"Insert the first black connector into the selected hole of the separate 15-hole beam."},
