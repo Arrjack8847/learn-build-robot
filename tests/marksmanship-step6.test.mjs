@@ -67,7 +67,7 @@ test("Never silently guess the unverified physical mounting locations or faces",
   const invalid={hollowASide:"front",hollowBSide:"front",
     bridgeAStart:4,bridgeASide:"front",bridgeBStart:6,bridgeBSide:"back"};
   assert.ok(geometry.validateMountConfig(invalid).length>=2);
-  assert.ok(ui.includes("Photo-estimated layout"),"The model must be disclosed as an estimate");
+  assert.ok(ui.includes("face orientation provisional"),"The face assignment must be disclosed as provisional");
   assert.ok(ui.includes("physicallyVerified:false"),"Tutorial completion must not be called physical certification");
   assert.ok(!ui.includes("<select"),"The student cannot be asked to configure technical faces/holes");
 });
@@ -149,19 +149,19 @@ test("Every new lesson resets inherited 3D workspace scroll position",()=>{
 });
 
 
-test("Single real photo suggests bridge 4/6 and 9/11 on opposite sides, never auto-verified",()=>{
+test("User-confirmed Step 6 bridge holes 3/5 and 7/9 retain unverified black-face alignment",()=>{
   const photo=geometry.STEP_SIX_PHOTO_SUGGESTION;
   assert.deepEqual(geometry.getStepSixAttachments(photo).map(x=>x.beamHoles),
-    [[1],[2],[4,6],[9,11]]);
+    [[1],[2],[3,5],[7,9]]);
   assert.equal(photo.bridgeASide,"front");
   assert.equal(photo.bridgeBSide,"back");
-  assert.equal(photo.hollowASide,"front");
-  assert.equal(photo.hollowBSide,"back");
+  assert.equal(photo.hollowASide,"back");
+  assert.equal(photo.hollowBSide,"front");
   assert.ok(geometry.STEP_SIX_PHOTO_SUGGESTION_STATUS.includes("requires physical confirmation"));
   assert.equal(geometry.configComplete(geometry.EMPTY_MOUNT_CONFIG),false);
   assert.ok(ui.includes("STEP_SIX_PHOTO_SUGGESTION"));
-  assert.ok(ui.includes("Photo-estimated layout"));
-  assert.ok(ui.includes("not mechanically verified"));
+  assert.ok(ui.includes("Confirmed hole pairs"));
+  assert.ok(ui.includes("face orientation provisional"));
 });
 test("Both 15100 black pin axes remain world-upright while pegs face inward",()=>{
   const config=geometry.STEP_SIX_PHOTO_SUGGESTION;
@@ -171,7 +171,8 @@ test("Both 15100 black pin axes remain world-upright while pegs face inward",()=
     const blackPinDirection=new Vector3(0,0,1).applyEuler(r);
     assert.ok(blackPinDirection.distanceTo(new Vector3(0,1,0))<1e-6,id+" black pin must point up");
     const pegDirection=new Vector3(1,0,0).applyEuler(r);
-    const inward=id==="STEP5_HOLLOW_A"?-1:1;
+    const side=id==="STEP5_HOLLOW_A"?config.hollowASide:config.hollowBSide;
+    const inward=side==="front"?-1:1;
     assert.ok(pegDirection.distanceTo(new Vector3(0,0,inward))<1e-6,id+" peg must enter beam");
   }
 });
@@ -185,4 +186,27 @@ test("Far bridge mirrors full prepared assembly including both pins",()=>{
     ["front","back"]);
   assert.ok(scene.includes("previousConfig"));
   assert.ok(scene.includes("Math.abs(phase-previous.current.phase)>1"));
+});
+
+test("Confirmed Step 6 mounts rigidly align Step 7 at black 5 / grey 6,8 and black 4 / grey 10,12",async()=>{
+  const railSource=source("src/components/practical/stepSevenRailGeometry.ts");
+  const railTranspiled=ts.transpileModule(railSource,{
+    compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022},
+  }).outputText;
+  const stepSixUrl="data:text/javascript;base64,"+Buffer.from(result.outputText).toString("base64");
+  const railJs=railTranspiled.replace('"./StepSixGeometry"',JSON.stringify(stepSixUrl));
+  assert.notEqual(railJs,railTranspiled,"Geometry module import must resolve to current Step 6");
+  const rails=await import("data:text/javascript;base64,"+Buffer.from(railJs).toString("base64"));
+  const setup=geometry.STEP_SIX_PHOTO_SUGGESTION;
+  const chosen=rails.STEP_SEVEN_PHOTO_CONFIG;
+  const first=rails.railMounts(rails.STEP_SEVEN_RAIL_IDS[0],setup,chosen);
+  const second=rails.railMounts(rails.STEP_SEVEN_RAIL_IDS[1],setup,chosen);
+  assert.deepEqual([first.side,first.sourceBlackHole,first.sourceGreyHoles],["front",2,[3,5]]);
+  assert.deepEqual([second.side,second.sourceBlackHole,second.sourceGreyHoles],["back",1,[7,9]]);
+  assert.deepEqual([first.receivingBlackHole,...first.receivingGreyHoles],[5,6,8]);
+  assert.deepEqual([second.receivingBlackHole,...second.receivingGreyHoles],[4,10,12]);
+  assert.equal(first.offsetX,second.offsetX,"One rigid translation aligns both rail connectors");
+  assert.deepEqual(rails.railConfigurationErrors(chosen,setup),[]);
+  assert.equal(geometry.STEP_SIX_RESULT,"robot:marksmanship:step6:assembled:v2");
+  assert.equal(rails.STEP_SEVEN_RESULT_KEY,"robot:marksmanship:step7:assembly-a:v2");
 });
