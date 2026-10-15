@@ -10,6 +10,10 @@ export type StepTenPose = { position: Vec3; rotation: Vec3 };
 export const STEP_TEN_ASSEMBLY_ID = "marksman-step10-twin-rail-end-bridge-v1";
 export const STEP_TEN_RESULT_KEY = "marksman.step10.twinRailEndBridge.v1";
 export const STEP_TEN_PITCH_MM = 8;
+/** Gray beam is on +Z; Hole 3 black pins extend from the opposite, -Z face. */
+export const STEP_TEN_GRAY_CENTER_Z = 1.12;
+export const STEP_TEN_BLUE_TWO_BEAM_CENTER_Z = STEP_TEN_GRAY_CENTER_Z / 2;
+export const STEP_TEN_BLACK_HOLE3_CENTER_Z = -0.68;
 export const STEP_TEN_WHITE_HOLES = { endBlue: 1, blackFree: 3, grayBlueFirst: 6, grayBlueSecond: 12, blackBridge: 15 } as const;
 export const STEP_TEN_GRAY_HOLES = { first: 3, second: 9 } as const;
 export const STEP_TEN_GRAY_OVERLAP: readonly number[] = [4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -40,14 +44,14 @@ export const STEP_TEN_ACTIONS = [
   { number: "2", title: "First end blue pin — Hole 1", instruction: "Insert the blue connector through White A Hole 1. Its two ends must remain visible on both faces of the white beam." },
   { number: "3", title: "First gray mounting pin — Hole 6", instruction: "Insert the next blue pin through White A Hole 6 from the gray-beam side. Leave enough connector exposed to receive Gray Hole 3." },
   { number: "4", title: "Second gray mounting pin — Hole 12", instruction: "Insert the third blue pin through White A Hole 12, in the same direction as the Hole 6 pin. This will engage Gray Hole 9." },
-  { number: "5", title: "First black pin — Hole 3", instruction: "Insert a black connector into White A Hole 3, counting from the blue end. This is Hole 3, NOT Hole 2." },
+  { number: "5", title: "First black pin — Hole 3", instruction: "From the OPPOSITE face of the white beam to its gray-beam mounting side, insert the black connector into White A Hole 3 (NOT Hole 2). Its free end must protrude below the white beam, away from the gray beam." },
   { number: "6", title: "Bridge black pin — Hole 15", instruction: "Insert the black connector into White A Hole 15 from the underside. Preserve its outward-facing end for the later 3-hole bridge." },
   { number: "7", title: "Seat first gray 9-hole beam", instruction: "Line Gray A Hole 3 up with White A Hole 6, and Gray A Hole 9 with White A Hole 12. Slide the gray beam onto both blue pins simultaneously until parallel and seated." },
   { number: "8", title: "Position second white beam", instruction: "Place the second white 15-hole beam separately. Use the same hole numbering, counted from its through-blue-pin end." },
   { number: "9", title: "Second end blue pin — Hole 1", instruction: "Insert the blue through-pin into White B Hole 1, leaving it visible on both sides." },
   { number: "10", title: "Second unit — Blue Hole 6", instruction: "Install a blue pin at White B Hole 6 to receive Gray B Hole 3." },
   { number: "11", title: "Second unit — Blue Hole 12", instruction: "Install the second gray mounting pin at White B Hole 12 to receive Gray B Hole 9." },
-  { number: "12", title: "Second unit — Black Hole 3", instruction: "Insert the black pin into White B Hole 3, never Hole 2." },
+  { number: "12", title: "Second unit — Black Hole 3", instruction: "Insert the black pin into White B Hole 3 (never Hole 2) from the OPPOSITE face to Gray B, leaving its end exposed away from the gray beam." },
   { number: "13", title: "Second unit — Black Hole 15", instruction: "Insert the final outer black pin at White B Hole 15, pointing toward the future black 3-hole bridge." },
   { number: "14", title: "Seat second gray 9-hole beam", instruction: "Mount Gray B: its Hole 3 meets White B Hole 6, and its Hole 9 meets White B Hole 12. Both blue tips must protrude on the gray side." },
   { number: "15", title: "Align both completed side assemblies", instruction: "Bring the two identical white-and-gray units beside each other with gray faces upward. Their White Hole 15 ends face the common black bridge; free Hole 1 ends stay apart." },
@@ -102,20 +106,27 @@ export function stepTenPoses(phase: number): Record<StepTenPart, StepTenPose> {
       pose([whiteReady ? 0 : unit === "A" ? -0.8 : 0.8, y, 0]);
     const grayReady = phase >= (unit === "A" ? 7 : 14);
     result[("GRAY_" + unit) as "GRAY_A" | "GRAY_B"] =
-      grayReady ? pose([0, y, 1.12])
+      grayReady ? pose([0, y, STEP_TEN_GRAY_CENTER_Z])
       : pose([0, unit === "A" ? -6.9 : 6.9, 0]);
     for (const [hole, index] of ([1, 6, 12] as const).map((h, i) => [h, i] as const)) {
       const id = ("BLUE_" + unit + "_" + hole) as keyof typeof bluePhases;
       const mounted = phase >= bluePhases[id];
       result[id] = mounted
-        ? pose([whiteHoleX(hole), y, hole === 1 ? 0 : 1.03])
+        // Long blue pins at Holes 6/12 cross BOTH beam thicknesses with
+        // approximately equal visible tips beyond the outer white/gray faces.
+        ? pose([whiteHoleX(hole), y, hole === 1 ? 0 : STEP_TEN_BLUE_TWO_BEAM_CENTER_Z])
         : pose(loose(unit, whiteHoleX(hole), index));
     }
     for (const [hole, index] of ([3, 15] as const).map((h, i) => [h, i] as const)) {
       const id = ("BLACK_" + unit + "_" + hole) as keyof typeof blackPhases;
       result[id] = phase >= blackPhases[id]
-        ? pose([whiteHoleX(hole), y, hole === 3 ? 0.68 : -0.66])
-        : pose(loose(unit, whiteHoleX(hole), 3 + index));
+        // Hole 3 points away from Gray (+Z); bridge pin Hole 15 is unchanged.
+        ? pose([whiteHoleX(hole), y, hole === 3 ? STEP_TEN_BLACK_HOLE3_CENTER_Z : -0.66])
+        : hole === 3
+          // Also start BELOW the white beam, so the approach path never
+          // sweeps through the white plastic before coaxial alignment.
+          ? pose([whiteHoleX(hole), unit === "A" ? -9 : 9, -1.85])
+          : pose(loose(unit, whiteHoleX(hole), 3 + index));
     }
   }
   // The short black beam is perpendicular to the white rails: 3 holes along Y.
@@ -140,5 +151,6 @@ export function stepTenHighlight(phase: number): { unit: "A" | "B"; holes: numbe
   const isB = phase >= 9 && phase <= 14;
   if (!isA && !isB) return null;
   const hole = ({ 2: 1, 3: 6, 4: 12, 5: 3, 6: 15, 9: 1, 10: 6, 11: 12, 12: 3, 13: 15 } as Record<number, number>)[phase];
-  return { unit: isA ? "A" : "B", holes: hole ? [hole] : [6, 12], face: phase === 6 || phase === 13 ? -1 : 1 };
+  return { unit: isA ? "A" : "B", holes: hole ? [hole] : [6, 12],
+    face: phase === 5 || phase === 12 || phase === 6 || phase === 13 ? -1 : 1 };
 }
