@@ -338,8 +338,10 @@ test("Step 8 blue connectors enter from underneath and remain real opaque meshes
   assert.ok(frameScene.includes('frustumCulled={false}'));
   assert.ok(frameScene.includes('transparent={false} opacity={1}'),
     "Actual 3D parts must never fade; only guides may fade");
-  assert.ok(!frameScene.includes('material.opacity=opacity'),
-    "Opacity animation must never target the real connector materials");
+  assert.equal((frameScene.match(/\\.opacity=opacity/g)||[]).length,1,
+    "The only animated opacity must belong to the temporary guide group");
+  assert.ok(frameScene.includes('if(line.material)line.material.opacity=opacity'),
+    "Guide fade must never touch the opaque STL connector materials");
   assert.ok(frameScene.includes('guideGroup.current?.traverse'),
     "Temporary guide fading must remain isolated from actual part meshes");
   assert.ok(frameGeom.includes('fifteenNearHole: 7') &&
