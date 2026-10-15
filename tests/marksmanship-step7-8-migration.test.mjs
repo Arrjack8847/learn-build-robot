@@ -151,3 +151,24 @@ test("Approved Step 7 rail calibration and visible end-pin camera framing",()=>{
   assert.ok(scene.includes("overview||pinPhase?1:sign"));
   assert.ok(scene.includes("pinPhase?(mobile?26:20)"));
 });
+
+
+test("Step 8 guided motion stays reversible, camera-safe and physically unchanged",()=>{
+  assert.ok(frameScene.includes('from "./marksmanLessonMotion"'));
+  assert.ok(frameScene.includes("const seated=reverse?a:b;"),
+    "Reverse withdrawal must begin at the actual seated pose");
+  assert.ok(frameScene.includes("const aligned:StepEightPose"),
+    "Approach and reverse must share a coaxial clearance waypoint");
+  assert.ok(frameScene.includes('travel.phase===10&&(id==="FIFTEEN"||id==="BLACK_1"||id==="BLACK_2")'),
+    "The two black pins must travel rigidly with the 15-hole beam on final locking");
+  assert.ok(frameScene.includes("const firstCamera=useRef(true)"));
+  assert.ok(frameScene.includes("onStart={()=>{cameraFlight.current=null;}}"),
+    "Manual orbit must interrupt the automatic camera flight");
+  assert.ok(frameScene.includes("previousConfigKey.current=configKey"),
+    "Photo calibration must reset rather than interpolate between incompatible hole choices");
+  assert.ok(frame.includes("onMotionComplete={()=>setAnimating(false)}"));
+  assert.ok(frame.includes("disabled={animating||(finished&&!physicalCheck)}"),
+    "Do not advance while a connector is still moving");
+  assert.ok(frameGeom.includes("sevenNearHole: 2"));
+  assert.ok(frameGeom.includes("fifteenNearHole: 6"));
+});
