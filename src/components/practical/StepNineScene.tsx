@@ -372,9 +372,9 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
             model==="five"?"#e6ebf1":model==="seven"?"#bac9d9":"#f1f3f7";
           return <group key={id} name={"STEP8_"+id} position={p.position} rotation={p.rotation}>
             <mesh geometry={meshes[model]} castShadow receiveShadow
-              ref={id.startsWith("BLUE")
-                ?node=>{mountingPins.current[Number(id.slice(-1))-1]=node;}
-                :undefined}>
+              ref={node=>{
+                if(id.startsWith("BLUE"))mountingPins.current[Number(id.slice(-1))-1]=node;
+              }}>
               <meshStandardMaterial color={color} roughness={0.54} side={DoubleSide}
                 transparent={id.startsWith("BLUE")}
                 opacity={id.startsWith("BLUE")&&phase>=3?0:1}
