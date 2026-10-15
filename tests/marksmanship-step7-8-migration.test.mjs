@@ -242,3 +242,37 @@ test("Early Step 8 actions teach a clear preparation, approach and connection se
   assert.ok(frameScene.includes('phase===5?["BLUE_1","BLUE_3"]'));
   assert.ok(frameScene.includes('phase===6?["BLUE_2","BLUE_4"]'));
 });
+
+test("Step 8 preparation keeps all eleven original STL parts visibly separated",()=>{
+  const match=frameGeom.match(/export const STEP_EIGHT_PREPARATION_LAYOUT:[^\n]* = \{([\s\S]*?)\n\};/);
+  assert.ok(match,"A single explicit preparation layout is the source of truth");
+  const prep=new Function("STEP_EIGHT_LEVEL",`return ({${match[1]}});`)((7.8+1.5)/8);
+  const ids=["FIVE_A","FIVE_B","SEVEN_A","SEVEN_B","FIFTEEN",
+    "BLUE_1","BLUE_2","BLUE_3","BLUE_4","BLACK_1","BLACK_2"];
+  assert.deepEqual(Object.keys(prep).sort(),ids.sort());
+  const footprint=id=>id.startsWith("FIVE")?[5,1.15]:
+    id.startsWith("SEVEN")?[1.15,7]:
+    id==="FIFTEEN"?[1.15,15]:[1.35,1.35];
+  for(let i=0;i<ids.length;i++)for(let j=i+1;j<ids.length;j++){
+    const a=ids[i],b=ids[j];
+    const [aw,ah]=footprint(a),[bw,bh]=footprint(b);
+    const gapX=Math.abs(prep[a][0]-prep[b][0])-(aw+bw)/2;
+    const gapY=Math.abs(prep[a][1]-prep[b][1])-(ah+bh)/2;
+    assert.ok(gapX>=0.5||gapY>=0.5,
+      `${a} and ${b} have insufficient separation in the preparation layout`);
+  }
+  assert.ok(frameGeom.includes("fifteenNearHole: 7"),"Keep approved black holes 7 and 11");
+  assert.ok(frameGeom.includes("hole5:2")&&frameGeom.includes("hole5:4"));
+  assert.ok(frameGeom.includes("receiverHole:3"));
+  assert.ok(frameGeom.includes("longAtFrame ? 0 : longAligned ? -3.2 : 0"),
+    "Preserve existing locked beam depth");
+  assert.ok(frameGeom.includes("phase>=5?-1:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_A[0]"),
+    "Only loose beam A positions may change");
+  assert.ok(frameGeom.includes("phase>=6?1:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_B[0]"),
+    "Only loose beam B positions may change");
+  assert.ok(frameScene.includes("if(phase===0){")&&
+    frameScene.includes("0.87/aspect")&&frameScene.includes("new Vector3(0,-6.5*scale,39*scale)"),
+    "Use a responsive near-overhead view so parts do not overlap in projection");
+  assert.ok(frameScene.includes("maxDistance={110}"),
+    "Permit sufficient camera distance for portrait screens");
+});
