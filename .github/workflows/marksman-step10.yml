@@ -1,0 +1,31 @@
+name: Marksman Step 10 photo-guided assembly
+on:
+  push:
+    branches:
+      - feat/marksman-step10-twin-rail-20261015
+  pull_request:
+    paths:
+      - 'src/components/practical/StepTen*'
+      - 'src/components/practical/stepTenGeometry.ts'
+      - 'src/routes/practical/$projectId.tsx'
+      - 'src/data/practical.ts'
+      - 'tests/marksmanship-step10.test.mjs'
+      - '.github/workflows/marksman-step10.yml'
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund
+      - name: Check photo-approved Step 10 joints and timeline
+        run: node --test tests/marksmanship-step10.test.mjs
+      - name: Validate prior lesson mapping
+        run: node --test tests/marksmanship-step7-8-migration.test.mjs
+      - name: Compile TypeScript
+        run: npx tsc --noEmit
+      - name: Verify production bundle
+        run: npm run build
