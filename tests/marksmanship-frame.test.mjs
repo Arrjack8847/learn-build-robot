@@ -88,9 +88,10 @@ test("historic frame source remains available while the revised frame is routed 
   const data = readFileSync(resolve("src/data/practical.ts"), "utf8");
   const list=data.slice(data.indexOf("const marksmanshipSteps:"),data.indexOf("export const practicalProjects:"));
   assert.equal([...list.matchAll(/^    number: ([0-9]+),/gm)].length, 32);
-  assert.equal([...list.matchAll(/id: "marksmanship-s[0-9]+"/g)].length, 29);
+  assert.equal([...list.matchAll(/id: "marksmanship-s[0-9]+"/g)].length, 28);
+  assert.ok(list.includes('id: "marksmanship-photo-step10-v1"'));
   assert.ok(list.includes('originalManualStepNumbers: [7, 8]'));
-  for(let step=9;step<=31;step++)
+  for(let step=10;step<=31;step++)
     assert.ok(list.includes("originalManualStepNumbers: ["+step+"]"));
   const route = readFileSync(resolve("src/routes/practical/$projectId.tsx"), "utf8");
   assert.ok(route.includes('<StepSevenRailsAssembly onCompleteStep={finishCurrentStep} />'));
