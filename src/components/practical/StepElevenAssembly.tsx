@@ -34,7 +34,7 @@ function loadReady(): Ready | null {
         seven?.assemblyId !== "marksman-assembly-a-side-rails-v1" ||
         eight?.assemblyId !== "marksman-assembly-b-rectangular-frame-v1" ||
         !seven.mountingChoices || !six?.mountingChoices ||
-        !five?.transforms?.STEP5_BEAM_11) return null;
+        !five?.transforms?.["STEP5_BEAM_11"]) return null;
     return { railConfig: seven.mountingChoices,
       // Preserve the finished Step 9 frame's corrected approved hole layout.
       frameConfig: STEP_EIGHT_DEMO_CONFIG,
@@ -54,7 +54,7 @@ export function StepElevenAssembly({ onCompleteStep }: { onCompleteStep: () => v
   const [physicallyChecked, setPhysicallyChecked] = useState(false);
   const final = phase === STEP_ELEVEN_FINAL_PHASE;
   const action = STEP_ELEVEN_ACTIONS[phase]!;
-  const beamY = ready?.prepared.STEP5_BEAM_11?.position[1] ?? 4.1;
+  const beamY = ready?.prepared["STEP5_BEAM_11"]?.position[1] ?? 4.1;
   const placement = ready
     ? stepElevenPlacement(ready.railConfig, ready.stepSixConfig, beamY) : null;
   useEffect(() => {
