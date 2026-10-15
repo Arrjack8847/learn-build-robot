@@ -24,6 +24,17 @@ type Travel = {
   from:Poses; to:Poses; elapsed:number; duration:number;
   target:StepEightPart|null; phase:number; reverse:boolean;
 };
+/** Same category timings as Step 7. No extra pauses between actions. */
+function actionDuration(phase:number):number {
+  if(phase===5||phase===6||phase===10)return 1.8; // Press a beam onto its joints
+  if((phase>=1&&phase<=4)||phase===7||phase===8)return 1.25; // Insert one connector
+  return 1.45; // Prepare/align; camera itself always uses 0.85 seconds
+}
+function posesDiffer(a:Poses,b:Poses):boolean {
+  return STEP_EIGHT_PARTS.some(id=>
+    a[id].position.some((coordinate,i)=>coordinate!==b[id].position[i])||
+    a[id].rotation.some((angle,i)=>angle!==b[id].rotation[i]));
+}
 function modelName(id:StepEightPart):ModelName {
   if(id.startsWith("FIVE"))return "five";
   if(id.startsWith("SEVEN"))return "seven";
@@ -73,8 +84,9 @@ function insertion(a:StepEightPose,b:StepEightPose,t:number,phase:number,reverse
     :interpolate(aligned,b,(t-0.42)/0.58);
 }
 function interest(phase:number,config:StepEightConfig):V3 {
-  if(phase<=2)return [-0.6,-8.3,0];
-  if(phase<=4)return [0.6,8.3,0];
+  if(phase===0)return [0,0,STEP_EIGHT_LEVEL/2]; // All eleven parts in the preparation overview
+  if(phase<=2)return [0,-8.3,STEP_EIGHT_LEVEL/2];
+  if(phase<=4)return [0,8.3,STEP_EIGHT_LEVEL/2];
   if(phase<=6)return [0,0,STEP_EIGHT_LEVEL/2];
   if(phase<=8)return [6.4,0,0];
   return [0,0,STEP_EIGHT_LEVEL/2];
@@ -163,18 +175,15 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
     const recalibrated=previousConfigKey.current!==configKey;
     const prior=priorPhase.current;
     const reverse=prior>phase;
-    const from={} as Poses;
-    const rewind=stepEightPoses(Math.max(0,phase-1),config);
-    for(const id of STEP_EIGHT_PARTS) {
+    // Step 7 rebuilds the exact OLD phase before every move. R3F may have
+    // already applied the new JSX position by the time this effect runs;
+    // reading the rendered mesh instead would silently skip animations.
+    const oldPhase=replaying?Math.max(0,phase-1):prior;
+    const from=stepEightPoses(oldPhase,config);
+    for(const id of STEP_EIGHT_PARTS){
       const part=parts.current[id];
-      from[id]=replaying?rewind[id]:part?{
-        position:[part.position.x,part.position.y,part.position.z],
-        rotation:[part.rotation.x,part.rotation.y,part.rotation.z],
-      }:destination[id];
-      if(replaying&&part){
-        part.position.set(...from[id].position);
-        part.rotation.set(...from[id].rotation);
-      }
+      part?.position.set(...from[id].position);
+      part?.rotation.set(...from[id].rotation);
     }
     const active=replaying?phase:reverse?prior:phase;
     const activePart:StepEightPart|null =
@@ -182,11 +191,9 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
       active===5?"SEVEN_A":active===6?"SEVEN_B":
       active===7?"BLACK_1":active===8?"BLACK_2":active>=9&&active<=10?"FIFTEEN":null;
     const animated=!first.current&&!reducedMotion&&!recalibrated&&
-      (replaying||Math.abs(prior-phase)===1);
+      (replaying||Math.abs(prior-phase)===1)&&posesDiffer(from,destination);
     movement.current=animated?{
-      from,to:destination,elapsed:0,
-      duration:active===10?2.1:active===5||active===6?1.95:
-        active>=7&&active<=9?1.8:1.55,
+      from,to:destination,elapsed:0,duration:actionDuration(active),
       target:activePart,phase:active,reverse,
     }:null;
     if(!movement.current){
@@ -232,7 +239,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
     if(!paused){
       const travel=movement.current;
       if(travel){
-        travel.elapsed+=Math.min(delta,0.065);
+        travel.elapsed=Math.min(travel.duration,travel.elapsed+Math.min(delta,0.06));
         const t=Math.min(1,travel.elapsed/travel.duration);
         for(const id of STEP_EIGHT_PARTS){
           const part=parts.current[id];if(!part)continue;
@@ -248,7 +255,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
       }
       const flight=cameraFlight.current;
       if(flight){
-        flight.t=Math.min(1,flight.t+Math.min(delta,0.08)/(reducedMotion?0.01:0.85));
+        flight.t=Math.min(1,flight.t+Math.min(delta,0.06)/0.85);
         const t=smooth(flight.t);
         camera.position.lerpVectors(flight.a,flight.b,t);
         orbit.current?.target.lerpVectors(flight.ta,flight.tb,t);
