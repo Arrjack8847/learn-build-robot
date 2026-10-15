@@ -12,7 +12,7 @@ import {
   STEP_NINE_CAMERA_DURATION, STEP_NINE_FINAL_PHASE,
   STEP_NINE_PREP_DURATION, STEP_NINE_PREP_ENTRANCE_OFFSET,
   STEP_NINE_STEP_SEVEN_YAW, STEP_NINE_STEP_EIGHT_FLIP,
-  stepNineFramePose, stepNineMating,
+  stepNineStepSevenPose, stepNineFramePose, stepNineMating, stepNineTurnedPoint,
 } from "./stepNineGeometry";
 import { motionEase, motionLerp } from "./marksmanLessonMotion";
 
@@ -47,22 +47,22 @@ function stepEightMeshName(id:StepEightPart):"five"|"seven"|"fifteen"|"blue"|"bl
   return id.startsWith("FIVE")?"five":id.startsWith("SEVEN")?"seven":
     id==="FIFTEEN"?"fifteen":id.startsWith("BLUE")?"blue":"black";
 }
-/** Prior presentation pose: local Step 8 (x,y,z) -> shared (-y,-z,x).
- * Action 0 uses this original pose for the separate, completed assembly.
- * Action 1 flips Step 8 by 180° around the SHARED HORIZONTAL X AXIS
- * (the long white 15-hole beam direction), not the shared vertical Y.
- * After flipping: local (x,y,z) -> shared (-y,+z,-x), so its four
- * existing blue pin axes face UP toward Step 7's receiving holes.
+/** Shared Step 9 frame is rotated 180° around world Z. To make the
+ * photographed four blue Step 8 pins point UP in WORLD space, their local
+ * +Z must face shared -Y. Action 0 presents the assembly on the opposite
+ * face, then Action 1 flips the COMPLETE rigid unit 180° around its long
+ * horizontal white beam; the final seating pose points all four pins UP.
+ * The original Step 8 lesson models, pin positions and mounting remain untouched.
  */
-const UPRIGHT_ALIGNMENT=new Quaternion().setFromRotationMatrix(new Matrix4().set(
+const ALIGNMENT=new Quaternion().setFromRotationMatrix(new Matrix4().set(
   0,-1,0,0,
   0,0,-1,0,
   1,0,0,0,
   0,0,0,1,
 ));
-const ALIGNMENT=new Quaternion()
+const UPRIGHT_ALIGNMENT=new Quaternion()
   .setFromAxisAngle(new Vector3(1,0,0),STEP_NINE_STEP_EIGHT_FLIP)
-  .multiply(UPRIGHT_ALIGNMENT);
+  .multiply(ALIGNMENT);
 const LOOSE=new Quaternion().setFromAxisAngle(new Vector3(0,1,0),0.26)
   .multiply(UPRIGHT_ALIGNMENT);
 const ease=motionEase;
@@ -70,7 +70,7 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
   phase:number;config:StepSevenRailConfig;frameConfig:StepEightConfig;
   stepSixConfig:StepSixMountConfig;prepared:StepSixStepFiveTransforms;
   replayKey:number;paused:boolean;resetCameraKey:number;reducedMotion:boolean;
-  cameraView:"iso"|"top"|"side"|"front";
+  cameraView:"iso"|"top"|"side"|"front"|"bottom";
   onMotionComplete?:()=>void;
 }){
   const loaded=useLoader(STLLoader,SOURCES);
@@ -100,7 +100,12 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
   const firstCamera=useRef(true);
   const prior=useRef({phase,replayKey});
   const mounted=useRef(false);
-  const movement=useRef<{from:V3;to:V3;fromQuat:Quaternion;toQuat:Quaternion;time:number;duration:number}|null>(null);
+  const movement=useRef<{
+    fromEight:V3;toEight:V3;
+    fromSeven:V3;toSeven:V3;
+    fromQuat:Quaternion;toQuat:Quaternion;
+    action:number;reverse:boolean;time:number;duration:number;
+  }|null>(null);
   const flight=useRef<{start:Vector3;end:Vector3;lookStart:Vector3;lookEnd:Vector3;time:number}|null>(null);
   const {camera,size}=useThree();
   const narrow=size.width/Math.max(1,size.height)<0.95;
@@ -123,6 +128,8 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
         :localFocus.clone();
     const delta=cameraView==="top"
       ?new Vector3(0.01,(phase===0?33:27)*prepScale,0.01):
+      cameraView==="bottom"
+        ?new Vector3(0.01,-(phase===0?33:27)*prepScale,0.01):
       cameraView==="side"
         ?new Vector3(0,(phase===0?12:6)*prepScale,(phase===0?36:24)*prepScale):
       cameraView==="front"
@@ -139,43 +146,42 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
     const adjacent=Math.abs(previous.phase-phase)<=1;
     const old=replay?Math.max(0,phase-1):previous.phase;
     const from=pose(old),to=pose(phase);
+    const fromSeven=stepNineStepSevenPose(old);
+    const toSeven=stepNineStepSevenPose(phase);
     const fromQuat=from.orient?ALIGNMENT:LOOSE;
     const toQuat=to.orient?ALIGNMENT:LOOSE;
     const enterPreparation=phase===0&&(!mounted.current||replay)&&!reducedMotion;
     prepEntrance.current=null;
     if(enterPreparation){
-      // Same ease and 1.45s preparation cadence as Step 7. Both completed
-      // structures arrive independently, from opposite sides. Nothing inside
-      // either assembly moves; the saved final meshes stay rigid.
-      const fromSeven:V3=[STEP_NINE_PREP_ENTRANCE_OFFSET,0,0];
+      // Step 7 and Step 8 enter separately, as in the original reference photo.
+      const fromStart:V3=[STEP_NINE_PREP_ENTRANCE_OFFSET,0,0];
       const fromEight:V3=[
         to.position[0]-STEP_NINE_PREP_ENTRANCE_OFFSET,to.position[1],to.position[2],
       ];
-      stepSeven.current?.position.set(...fromSeven);
+      stepSeven.current?.position.set(...fromStart);
       frame.current?.position.set(...fromEight);
       frame.current?.quaternion.copy(toQuat);
       movement.current=null;
       prepEntrance.current={
-        stepSevenFrom:fromSeven,stepEightFrom:fromEight,
+        stepSevenFrom:fromStart,stepEightFrom:fromEight,
         stepEightTo:to.position,elapsed:0,duration:STEP_NINE_PREP_DURATION,
       };
     }else{
-      stepSeven.current?.position.set(0,0,0);
-      const hasMove=from.position.some((v,i)=>Math.abs(v-to.position[i]!)>0.00001)||
+      const movesEight=from.position.some((v,i)=>Math.abs(v-to.position[i]!)>0.00001)||
         !fromQuat.equals(toQuat);
-      if(!mounted.current||!changed||!adjacent||reducedMotion||!hasMove){
-        movement.current=null;
-        frame.current?.position.set(...to.position);
-        frame.current?.quaternion.copy(toQuat);
-        motionDone.current?.();
-      }else{
-        frame.current?.position.set(...from.position);
-        frame.current?.quaternion.copy(fromQuat);
-        movement.current={
-          from:from.position,to:to.position,fromQuat:fromQuat.clone(),toQuat:toQuat.clone(),
-          time:0,duration:phase===2||phase===3?1.8:1.45,
-        };
-      }
+      const movesSeven=fromSeven.some((v,i)=>Math.abs(v-toSeven[i]!)>0.00001);
+      const animate=mounted.current&&changed&&adjacent&&!reducedMotion&&
+        (movesEight||movesSeven);
+      stepSeven.current?.position.set(...(animate?fromSeven:toSeven));
+      frame.current?.position.set(...(animate?from.position:to.position));
+      frame.current?.quaternion.copy(animate?fromQuat:toQuat);
+      movement.current=animate?{
+        fromEight:from.position,toEight:to.position,
+        fromSeven,toSeven,fromQuat:fromQuat.clone(),toQuat:toQuat.clone(),
+        action:Math.max(old,phase),reverse:old>phase,
+        time:0,duration:Math.max(old,phase)===2||Math.max(old,phase)===3?1.8:1.45,
+      }:null;
+      if(!animate)motionDone.current?.();
     }
     prior.current={phase,replayKey};mounted.current=true;
   },[phase,replayKey,reducedMotion,target[0],target[1],target[2]]);
@@ -214,17 +220,43 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
       if(t===1){prepEntrance.current=null;motionDone.current?.();}
     }
     const m=movement.current;
-    if(m&&frame.current){
+    if(m&&frame.current&&stepSeven.current){
       m.time=Math.min(m.duration,m.time+delta);
       const t=m.time/m.duration;
-      // With Step 8 upside down, its +Z blue-pin axes become +shared Y.
-      // Approach from BELOW: first align under the four marked holes,
-      // then move straight UP along the pin axes. No individual pins shift.
-      const position=phase===3
-        ?(t<0.42?motionLerp(m.from,[m.to[0],m.to[1]-1.4,m.to[2]],t/0.42)
-          :motionLerp([m.to[0],m.to[1]-1.4,m.to[2]],m.to,(t-0.42)/0.58))
-        :motionLerp(m.from,m.to,t);
-      frame.current.position.set(...position);
+      let stepEightPosition=motionLerp(m.fromEight,m.toEight,t);
+      let stepSevenPosition=motionLerp(m.fromSeven,m.toSeven,t);
+      if(m.action===2){
+        // Approach without overlap: raise the complete Step 7 structure
+        // FIRST (42%), then position Step 8 UNDER it (58%).
+        // Reversing extracts the lower Step 8 before lowering Step 7.
+        if(!m.reverse){
+          const clearanceT=Math.min(1,t/0.42);
+          const parkingT=Math.max(0,Math.min(1,(t-0.42)/0.58));
+          stepSevenPosition=motionLerp(m.fromSeven,m.toSeven,clearanceT);
+          stepEightPosition=motionLerp(m.fromEight,m.toEight,parkingT);
+        }else{
+          const parkingT=Math.min(1,t/0.58);
+          const clearanceT=Math.max(0,Math.min(1,(t-0.58)/0.42));
+          stepEightPosition=motionLerp(m.fromEight,m.toEight,parkingT);
+          stepSevenPosition=motionLerp(m.fromSeven,m.toSeven,clearanceT);
+        }
+      }else if(m.action===3){
+        // Photo-based assembly: Step 8 is absolutely STATIONARY.
+        // Lower the rigid Step 7 assembly onto all four upward blue pins.
+        // Split the VERTICAL movement into approach (42%) and seat (58%).
+        // The exact seating depth is provisional, not mechanically certified.
+        const halfway:V3=[
+          m.toSeven[0],(m.fromSeven[1]+m.toSeven[1])/2,m.toSeven[2],
+        ];
+        const approach=t<0.42?t/0.42:(t-0.42)/0.58;
+        stepSevenPosition=t<0.42
+          ?motionLerp(m.fromSeven,halfway,approach)
+          :motionLerp(halfway,m.toSeven,approach);
+        stepEightPosition=m.toEight;
+      }
+      // One rigid assembly per group: no individual mesh, pin or beam shifts.
+      stepSeven.current.position.set(...stepSevenPosition);
+      frame.current.position.set(...stepEightPosition);
       frame.current.quaternion.copy(m.fromQuat).slerp(m.toQuat,ease(t));
       if(m.time===m.duration){movement.current=null;motionDone.current?.();}
     }
@@ -254,10 +286,11 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
     <directionalLight position={[8,13,15]} intensity={1.4}/>
     <gridHelper args={[36,36,"#e3eaf1","#f1f4f7"]} position={[0,-3.8,0]}/>
     <group name="STEP9_SHARED_REFERENCE" position={[0,beamY,0]} rotation={[0,0,Math.PI]}>
-      {/* Step 7 remains turned 180° horizontally. Step 8 alone rotates
-          upside down as a rigid group during Step 9 Action 1. No individual
-          pins, beam holes, or saved earlier lessons are altered. */}
-      <group ref={stepSeven} name="STEP9_STEP7_COMPLETE_ASSEMBLY" rotation={[0,STEP_NINE_STEP_SEVEN_YAW,0]}>
+      {/* Step 7 stays horizontally turned 180°, and ONLY its whole root
+          lowers onto the already parked Step 8 during Action 3. */}
+      <group ref={stepSeven} name="STEP9_STEP7_COMPLETE_ASSEMBLY"
+        position={stepNineStepSevenPose(phase)}
+        rotation={[0,STEP_NINE_STEP_SEVEN_YAW,0]}>
         <group name="STEP5_BEAM_11" position={prepared["STEP5_BEAM_11"]!.position}
           rotation={prepared["STEP5_BEAM_11"]!.rotation}>
           <mesh geometry={meshes.beam11}><meshStandardMaterial color="#97a4b4" roughness={0.63}/></mesh>
@@ -289,7 +322,17 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
           const pin=endPinPose(id,STEP_SEVEN_FINAL_PHASE,config,beamY,stepSixConfig);
           return <group key={id} name={id} position={pin.position} rotation={pin.rotation}>
             <mesh geometry={meshes.railBlue}><meshStandardMaterial color="#1676d5" roughness={0.5}/></mesh>
-          </group>;
+            {guideVisible&&mating.joints.map(j=>{
+          const local=stepNineTurnedPoint(j.stepSevenLocalTarget);
+          return <Line key={j.stepEightPin}
+            points={[
+              [local[0],local[1]+0.35,local[2]],
+              [local[0],local[1]+2.6,local[2]],
+            ]}
+            color={j.alreadyOccupiedByStepSeven?"#d97706":"#168eea"}
+            dashed dashSize={0.18} gapSize={0.12} lineWidth={2}/>;
+        })}
+      </group>;
         })}
       </group>
       <group name="STEP9_STEP8_COMPLETE_ASSEMBLY" ref={frame}
@@ -307,13 +350,6 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
           </group>;
         })}
       </group>
-      {guideVisible&&mating.joints.map(j=><Line key={j.stepEightPin}
-        points={[
-          [j.stepSevenLocalTarget[0],j.stepSevenLocalTarget[1]-2.4,j.stepSevenLocalTarget[2]],
-          [j.stepSevenLocalTarget[0],j.stepSevenLocalTarget[1]-0.5,j.stepSevenLocalTarget[2]],
-        ]}
-        color={j.alreadyOccupiedByStepSeven?"#d97706":"#168eea"}
-        dashed dashSize={0.18} gapSize={0.12} lineWidth={2}/>)}
     </group>
     <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.08}
       enablePan={false} minDistance={7} maxDistance={110}
@@ -336,7 +372,7 @@ export function StepNineScene(props:{
   phase:number;config:StepSevenRailConfig;frameConfig:StepEightConfig;
   stepSixConfig:StepSixMountConfig;prepared:StepSixStepFiveTransforms;
   replayKey:number;paused:boolean;resetCameraKey:number;reducedMotion:boolean;
-  cameraView:"iso"|"top"|"side"|"front";
+  cameraView:"iso"|"top"|"side"|"front"|"bottom";
   onMotionComplete?:()=>void;
 }){
   return <ViewerBoundary>
