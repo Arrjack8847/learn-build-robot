@@ -27,6 +27,7 @@ export function StepEightAssembly({
   const [physicalCheck,setPhysicalCheck]=useState(false);
   const [config,setConfig]=useState<StepEightConfig>({...STEP_EIGHT_DEMO_CONFIG});
   const [paused,setPaused]=useState(false);
+  const [animating,setAnimating]=useState(false);
   const [replayKey,setReplayKey]=useState(0);
   const [resetCameraKey,setResetCameraKey]=useState(0);
   const [reducedMotion,setReducedMotion]=useState(false);
@@ -35,8 +36,15 @@ export function StepEightAssembly({
   const [reference,setReference]=useState<string|null>(null);
   const finished=phase===STEP_EIGHT_SEQUENCE.length-1 &&
     stepEightConfigurationErrors(config).length===0;
-  const ready=finished&&physicalCheck;
+  const ready=finished&&!animating&&physicalCheck;
   const details=STEP_EIGHT_SEQUENCE[phase]!;
+  const activeBlueBeam=phase>=1&&phase<=2?"A":phase>=3&&phase<=4?"B":null;
+  const activeBlueHole=phase>=1&&phase<=4?(phase%2===1?2:4):null;
+  const activeBlackHole=phase===7?config.fifteenNearHole:
+    phase===8?config.fifteenNearHole+4:null;
+  const actionInstruction=activeBlackHole!==null
+    ?`Align the black connector with Hole ${activeBlackHole} of the separate 15-hole beam. Follow the highlighted guide and insert it straight into the hole.`
+    :details.instruction;
   useEffect(()=>{
     onReadyChange(ready);
   },[onReadyChange,ready]);
@@ -53,11 +61,14 @@ export function StepEightAssembly({
   },[reference]);
   function go(target:number){
     const next=Math.max(0,Math.min(STEP_EIGHT_SEQUENCE.length-1,target));
+    if(next===phase)return;
+    setAnimating(!reducedMotion);
     setPaused(false);setAutoInspect(true);setCameraView("iso");setPhase(next);
   }
   function edit(patch:Partial<StepEightConfig>){
     setConfig(previous=>({...previous,...patch}));
-    setPhase(0);setPhysicalCheck(false);setPaused(false);setResetCameraKey(value=>value+1);
+    setPhase(0);setPhysicalCheck(false);setPaused(false);
+    setAnimating(false);setResetCameraKey(value=>value+1);
   }
   function uploadPhoto(file:File|undefined){
     if(!file||!file.type.startsWith("image/"))return;
@@ -94,13 +105,31 @@ export function StepEightAssembly({
         </span>
       </div>
 
-      <div className="relative h-[clamp(450px,70svh,820px)] min-w-0 overflow-hidden
+      {phase===0&&<div aria-label="Preparation groups" className="mb-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+        <div className="rounded-2xl border border-sky-200 bg-sky-50 p-3">
+          <p className="text-[10px] font-extrabold uppercase tracking-widest text-sky-700">Group A · prepare first</p>
+          <p className="mt-1 text-sm font-bold text-[#132654]">1 × 5-hole beam</p>
+          <p className="mt-0.5 text-xs text-slate-600">2 blue connectors → Holes 2 and 4</p>
+        </div>
+        <div className="rounded-2xl border border-sky-200 bg-sky-50 p-3">
+          <p className="text-[10px] font-extrabold uppercase tracking-widest text-sky-700">Group B · prepare second</p>
+          <p className="mt-1 text-sm font-bold text-[#132654]">1 × 5-hole beam</p>
+          <p className="mt-0.5 text-xs text-slate-600">2 blue connectors → Holes 2 and 4</p>
+        </div>
+        <div className="col-span-2 rounded-2xl border border-slate-200 bg-white p-3 sm:col-span-1">
+          <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-500">Keep nearby · use later</p>
+          <p className="mt-1 text-sm font-bold text-[#132654]">2 × 7-hole beams</p>
+          <p className="mt-0.5 text-xs text-slate-600">1 × 15-hole beam + 2 black connectors</p>
+        </div>
+      </div>}
+      <div className="relative h-[clamp(350px,58svh,730px)] min-w-0 overflow-hidden
         rounded-[20px] border border-slate-200 bg-[#f5f8fc]
         shadow-[0_16px_45px_rgba(19,38,84,0.09)] sm:rounded-[28px]">
         <StepEightScene phase={phase} config={config} paused={paused}
           replayKey={replayKey} resetCameraKey={resetCameraKey}
           reducedMotion={reducedMotion} autoInspect={autoInspect}
-          cameraView={cameraView}/>
+          cameraView={cameraView} onMotionComplete={()=>setAnimating(false)}
+          onUserCameraInteraction={()=>{if(phase===11)setAutoInspect(false);}}/>
         <span className="pointer-events-none absolute left-3 top-3 rounded-full
           bg-white/90 px-3 py-1.5 text-[10px] font-bold text-slate-600 shadow-sm
           backdrop-blur sm:text-xs">
@@ -125,24 +154,40 @@ export function StepEightAssembly({
               {view==="iso"?"Isometric":view}
             </button>)}
         </div>}
-        <div className="absolute inset-x-2 bottom-2 z-10 mx-auto max-w-[780px]
-          rounded-2xl border border-white/80 bg-white/95 p-3 text-[#132654]
-          shadow-[0_12px_35px_rgba(16,38,69,0.16)] backdrop-blur-lg
-          sm:inset-x-4 sm:bottom-4 sm:p-4">
+      </div>
+      <div className="relative z-10 mx-auto mt-3 w-full max-w-[900px]
+          rounded-2xl border border-slate-200 bg-white p-3 text-[#132654]
+          shadow-[0_10px_30px_rgba(16,38,69,0.08)] sm:p-4">
           <div aria-live="polite" className="flex min-w-0 items-start gap-3">
             <span className="flex size-10 shrink-0 items-center justify-center rounded-xl
               bg-[#e7f3ff] text-[12px] font-black text-[#0f69bd]">
-              {details.number}
+              {phase+1}/{STEP_EIGHT_SEQUENCE.length}
             </span>
             <div className="min-w-0 flex-1">
-              <h3 className="text-[13px] font-extrabold leading-5 sm:text-base">
+              <p className="text-[10px] font-bold uppercase tracking-wide text-sky-700">Manual {details.number} · Action {phase+1} of {STEP_EIGHT_SEQUENCE.length}</p>
+              <h3 className="mt-0.5 text-[13px] font-extrabold leading-5 sm:text-base">
                 {details.title}
               </h3>
               <p className="mt-0.5 text-[11px] leading-[1.45] text-slate-600 sm:text-sm">
-                {details.instruction}
+                {actionInstruction}
               </p>
             </div>
           </div>
+          {activeBlueBeam&&<div aria-label="Active connector and receiving hole"
+            className="mt-3 flex flex-wrap items-center gap-2 rounded-xl border border-sky-200 bg-sky-50 px-3 py-2 text-xs">
+            <span className="font-extrabold text-[#132654]">5-hole Beam {activeBlueBeam}</span>
+            <span className="rounded-full bg-amber-100 px-2.5 py-1 font-extrabold text-amber-900">
+              Target · Hole {activeBlueHole}
+            </span>
+            <span className="font-semibold text-sky-700">Blue connector {phase} of 4</span>
+            <span className="text-slate-600">Blue dashed = approach · Gold dashed = insertion</span>
+          </div>}
+          {phase===4&&!animating&&<p className="mt-2 text-xs font-semibold text-emerald-800">
+            Both 5-hole beams are prepared with two blue connectors each. Next: connect the first 7-hole beam.
+          </p>}
+          {activeBlackHole!==null&&<p className="mt-2 text-xs font-bold text-amber-900">
+            15-hole beam · Black connector target: Hole {activeBlackHole}
+          </p>}
           <div aria-label="Step 8 micro-action progress" className="mt-3 flex gap-1">
             {STEP_EIGHT_SEQUENCE.map((item,index)=>(
               <span key={index} title={item.number+" "+item.title}
@@ -151,7 +196,7 @@ export function StepEightAssembly({
             ))}
           </div>
           <div className="mt-3 flex items-center gap-1.5 sm:gap-2">
-            <button type="button" disabled={phase===0}
+            <button type="button" disabled={phase===0||animating}
               aria-label="Previous assembly action" onClick={()=>go(phase-1)}
               className="inline-flex min-h-11 items-center gap-1 rounded-xl border
                 border-slate-200 px-2.5 text-xs font-bold disabled:opacity-40 sm:px-4 sm:text-sm">
@@ -162,26 +207,29 @@ export function StepEightAssembly({
               className="grid size-11 shrink-0 place-items-center rounded-xl border border-slate-200">
               {paused?<Play className="size-4"/>:<Pause className="size-4"/>}
             </button>
-            <button type="button" aria-label="Replay current assembly action"
-              onClick={()=>{setPaused(false);setReplayKey(value=>value+1);}}
+            <button type="button" disabled={phase===0||animating}
+              aria-label="Replay current assembly action"
+              onClick={()=>{setAnimating(!reducedMotion);setPaused(false);setReplayKey(value=>value+1);}}
               className="grid size-11 shrink-0 place-items-center rounded-xl border border-slate-200">
               <RotateCcw className="size-4"/>
             </button>
             <button type="button"
-              disabled={finished&&!physicalCheck}
+              disabled={animating||(finished&&!physicalCheck)}
               onClick={()=>finished?completeStepEight():go(phase+1)}
               className="ml-auto inline-flex min-h-11 items-center justify-center gap-1
                 rounded-xl bg-[#168eea] px-3 text-xs font-extrabold text-white
-                transition-colors hover:bg-[#0e7ac8] sm:px-5 sm:text-sm">
+                transition-colors hover:bg-[#0e7ac8] disabled:cursor-not-allowed disabled:opacity-50 sm:px-5 sm:text-sm">
               {finished?"Complete Step 8":"Next action"}<ArrowRight className="size-4"/>
             </button>
           </div>
-          {finished&&<p className="mt-2 text-center text-[11px] font-semibold text-emerald-800">
+          {animating&&<p role="status" className="mt-2 text-center text-[11px] font-semibold text-sky-700">
+            Smooth assembly motion in progress · Pause or resume at any time
+          </p>}
+          {finished&&!animating&&<p className="mt-2 text-center text-[11px] font-semibold text-emerald-800">
             <CheckCircle2 className="mr-1 inline size-3.5"/>
             Step 8 demonstration complete · confirm physical locking joints before continuing
           </p>}
         </div>
-      </div>
 
       {finished&&<label className="mt-3 flex items-start gap-3 rounded-xl border border-sky-200 bg-sky-50 p-3 text-sm text-[#132654]">
         <input type="checkbox" checked={physicalCheck} className="mt-1 size-4 shrink-0"
@@ -198,8 +246,10 @@ export function StepEightAssembly({
           The blue pins are assigned to positions 2 and 4 from the approved assembly sequence on each 5-hole beam.
           The receiving holes of the two 7-hole beams, the two black-pin mounting
           holes on the 15-hole beam, connector type, orientation and seating depth
-          are <strong>not yet photo-verified</strong>. Default pairs below are
-          geometrically coaxial demonstrations, not confirmed physical locations.
+          use the existing assembly geometry. Your reference confirms black connectors
+          in <strong>Holes 7 and 11</strong> of the 15-hole beam, which is now
+          the lesson's starting selection. The other hole choices remain optional
+          calibration settings, and connector seating depth still needs physical validation.
           The central pins are shown engaging Hole 3 of each 5-hole beam.
         </p>
         <div className="mt-3 grid gap-3 sm:grid-cols-2">
@@ -215,13 +265,13 @@ export function StepEightAssembly({
             </select>
           </label>
           <label className="flex flex-col gap-1.5 text-xs font-bold">
-            15-hole black-pin pair · provisional
+            15-hole black-pin pair · approved default 7 / 11
             <select aria-label="Select first black connector hole on fifteen-hole beam"
               className="min-h-11 rounded-xl border border-slate-300 bg-white px-3 text-sm"
               value={config.fifteenNearHole}
               onChange={e=>edit({fifteenNearHole:Number(e.target.value)})}>
               {Array.from({length:11},(_,i)=><option key={i} value={i+1}>
-                Holes {i+1} and {i+5}{i===5?" (demo)":""}
+                Holes {i+1} and {i+5}{i===6?" (approved)":""}
               </option>)}
             </select>
           </label>
