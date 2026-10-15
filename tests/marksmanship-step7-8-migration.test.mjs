@@ -262,7 +262,9 @@ test("Step 8 preparation keeps all eleven original STL parts visibly separated",
   const match=frameGeom.match(/export const STEP_EIGHT_PREPARATION_LAYOUT:[^\n]* = \{([\s\S]*?)\n\};/);
   assert.ok(match,"A single explicit preparation layout is the source of truth");
   const prep=new Function("STEP_EIGHT_LEVEL","STEP_EIGHT_SEVEN_RAIL_PREPARATION_Z",
-    `return ({${match[1]}});`)((7.8+1.5)/8,(7.8+1.5)/8+7.8/8+2.7);
+    "STEP_EIGHT_FIFTEEN_BEAM_ALIGNMENT_Z",
+    `return ({${match[1]}});`)((7.8+1.5)/8,(7.8+1.5)/8+7.8/8+2.7,
+      (7.8+1.5)/8+7.8/8+2.2);
   const ids=["FIVE_A","FIVE_B","SEVEN_A","SEVEN_B","FIFTEEN",
     "BLUE_1","BLUE_2","BLUE_3","BLUE_4","BLACK_1","BLACK_2"];
   assert.deepEqual(Object.keys(prep).sort(),ids.sort());
@@ -327,7 +329,9 @@ test("Step 8 blue pins descend from above, remain visible and never protrude bel
   const match=frameGeom.match(/export const STEP_EIGHT_PREPARATION_LAYOUT:[^\n]* = \{([\s\S]*?)\n\};/);
   assert.ok(match,"Expected explicit layout with all 11 original parts");
   const prep=new Function("STEP_EIGHT_LEVEL","STEP_EIGHT_SEVEN_RAIL_PREPARATION_Z",
-    `return ({${match[1]}});`)((7.8+1.5)/8,(7.8+1.5)/8+7.8/8+2.7);
+    "STEP_EIGHT_FIFTEEN_BEAM_ALIGNMENT_Z",
+    `return ({${match[1]}});`)((7.8+1.5)/8,(7.8+1.5)/8+7.8/8+2.7,
+      (7.8+1.5)/8+7.8/8+2.2);
   assert.ok(frameGeom.includes("STEP_EIGHT_BLUE_CONNECTOR_LENGTH_MM = 24"));
   assert.ok(frameGeom.includes("export const STEP_EIGHT_BLUE_PIN_SEATED_Z ="));
   assert.ok(frameGeom.includes("STEP_EIGHT_BLUE_CONNECTOR_LENGTH_MM/(2*STEP_EIGHT_PITCH_MM) + 0.02"));
