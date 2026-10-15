@@ -22,7 +22,7 @@ test("Photographed Step 9 begins at action zero and ends with inspection",()=>{
 });
 test("The four photographed holes are the two open targets on each Step 7 rail",()=>{
   assert.ok(geometry.includes("STEP_NINE_RECEIVERS = [7, 11]"));
-  const pairs=[["BLUE_1",0,11],["BLUE_2",1,11],["BLUE_3",0,7],["BLUE_4",1,7]];
+  const pairs=[["BLUE_1",1,7],["BLUE_2",0,7],["BLUE_3",1,11],["BLUE_4",0,11]];
   for(const [pin,rail,hole] of pairs){
     assert.ok(geometry.includes(`stepEightPin:"${pin}",rail:${rail},hole:${hole}`));
   }
@@ -56,4 +56,19 @@ test("Step 9 requires both saved independent assemblies, supports controls, and 
   assert.ok(lesson.includes("step9:joined:v1"));
   assert.ok(lesson.includes("physicallySelfConfirmed:true"));
   assert.ok(routeData.includes('title: "Connect Step 8 to Step 7 using four blue pins"'));
+});
+
+test("Step 7 turns 180 degrees horizontally ONLY within Step 9",()=>{
+  assert.match(geometry,/STEP_NINE_STEP_SEVEN_YAW = Math.PI/);
+  assert.match(geometry,/return \[-point\[0\],point\[1\],-point\[2\]\]/);
+  assert.ok(viewer.includes('name="STEP9_STEP7_COMPLETE_ASSEMBLY" rotation={[0,STEP_NINE_STEP_SEVEN_YAW,0]}'));
+  assert.ok(!viewer.includes('name="STEP9_STEP8_COMPLETE_ASSEMBLY" rotation={[0,STEP_NINE_STEP_SEVEN_YAW,0]}'));
+  assert.ok(viewer.includes('name="STEP9_STEP8_COMPLETE_ASSEMBLY" ref={frame}'));
+  assert.ok(geometry.includes('stepSevenLocalTarget:stepNineTurnedPoint(['));
+  assert.ok(geometry.includes('-(first.position[0]+second.position[0])/2 - 1'));
+  assert.ok(geometry.includes('-(first.position[2]+second.position[2])/2'));
+  assert.ok(geometry.includes('stepEightPinOffsets'));
+  const rotateHorizontal=([x,y,z])=>[-x,y,-z];
+  assert.deepEqual(rotateHorizontal([2,4,-1]),[-2,4,1]);
+  assert.deepEqual(rotateHorizontal([-4,7,3]),[4,7,-3]);
 });
