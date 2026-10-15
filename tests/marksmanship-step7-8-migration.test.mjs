@@ -306,50 +306,53 @@ test("Step 8 responsive camera, mobile controls and animated instructional guide
   assert.ok(frameGeom.includes("fifteenNearHole: 7"),"Never change approved black holes 7 and 11");
 });
 
-test("Step 8 blue connectors enter from underneath and remain real opaque meshes",()=>{
-  // All four loose pins start completely on the lower side of the 5-hole beams;
-  // never let the 42% approach path cross through the target beam.
+test("Step 8 blue pins descend from above, remain visible and never protrude below the 5-hole beams",()=>{
   const match=frameGeom.match(/export const STEP_EIGHT_PREPARATION_LAYOUT:[^\n]* = \{([\s\S]*?)\n\};/);
-  assert.ok(match);
+  assert.ok(match,"Expected explicit layout with all 11 original parts");
   const prep=new Function("STEP_EIGHT_LEVEL",`return ({${match[1]}});`)((7.8+1.5)/8);
+  assert.ok(frameGeom.includes("STEP_EIGHT_BLUE_CONNECTOR_LENGTH_MM = 24"));
+  assert.ok(frameGeom.includes("export const STEP_EIGHT_BLUE_PIN_SEATED_Z ="));
+  assert.ok(frameGeom.includes("STEP_EIGHT_BLUE_CONNECTOR_LENGTH_MM/(2*STEP_EIGHT_PITCH_MM) + 0.02"));
   for(let n=1;n<=4;n++){
-    assert.equal(prep["BLUE_"+n][2],-2.25,"Loose blue connector must begin below the beam");
     const beam=n<=2?"FIVE_A":"FIVE_B";
-    assert.ok(prep["BLUE_"+n][2]+1.5<prep[beam][2]-7.8/16,
-      "No part of the loose pin can penetrate the beam underside");
+    const beamTop=prep[beam][2]+(7.8/8)/2;
+    const beamBottom=prep[beam][2]-(7.8/8)/2;
+    const pinCenter=beamBottom+24/(2*8)+0.02;
+    const pinBottom=pinCenter-24/(2*8);
+    const pinTop=pinCenter+24/(2*8);
+    assert.ok(prep["BLUE_"+n][2]-24/(2*8)>beamTop,
+      "Connector "+n+" must start completely ABOVE the 5-hole beam");
+    assert.ok(pinBottom>=beamBottom,
+      "Connector "+n+" must not extend below its beam after seating");
+    assert.ok(pinTop>beamTop,
+      "Connector "+n+" must remain visibly exposed above its beam");
   }
-  assert.ok(frameScene.includes("((phase>=1&&phase<=6)||phase===10)?-1:1"),
-    "Actions 2–5 must move upward from a negative-Z clearance position");
-  assert.ok(frameScene.includes("[toBlue[0],toBlue[1],toBlue[2]-2.15]"),
-    "Both visual and movement guides must approach the same lower clearance");
-  assert.ok(frameScene.includes('phase>=1&&phase<=4?[0.75,-1.2,-1.15]'),
-    "Camera should display the underside and installed connector shafts");
-  assert.ok(frameScene.includes('const underside=id.startsWith("FIVE")&&phase>=1&&phase<=4'),
-    "Orange hole rings must appear on the insertion face");
-  assert.ok(frameScene.includes('rotation={underside?[Math.PI,0,0]:[0,0,0]}'));
-  assert.ok(frameGeom.includes('phase>=activation'),
-    "The mounted connector is retained in every later phase");
-  assert.ok(frameGeom.includes('const seated = phase>=activation;'));
-  assert.ok(frameGeom.includes('const p=seated ? [hole-3,beamY,STEP_EIGHT_LEVEL/2]'),
-    "The approved seated location must remain unchanged");
-  assert.ok(frameScene.includes('STEP_EIGHT_PARTS.map(id=>{'),
-    "Every original STL remains rendered in every action");
-  assert.ok(frameScene.includes('name={id} visible={true}'));
-  assert.ok(frameScene.includes('frustumCulled={false}'));
-  assert.ok(frameScene.includes('transparent={false} opacity={1}'),
-    "Actual 3D parts must never fade; only guides may fade");
+  assert.ok(frameScene.includes("const sign=phase===5||phase===6||phase===10?-1:1"),
+    "Four early blue connectors must approach from +Z and move downward");
+  assert.ok(frameScene.includes("[toBlue[0],toBlue[1],toBlue[2]+2.15]"),
+    "The gold insertion guide must match the top-down insertion path");
+  assert.ok(frameScene.includes("phase>=1&&phase<=4?[0.75,-1.2,1.15]"),
+    "Camera must show the exposed blue ends from above");
+  assert.ok(frameScene.includes("const faceZ=STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM)+0.04"),
+    "Hole rings must mark the TOP insertion face");
+  assert.ok(frameGeom.includes("const seated = phase>=activation;") &&
+    frameGeom.includes("const p=seated ? [hole-3,beamY,STEP_EIGHT_BLUE_PIN_SEATED_Z]"),
+    "Seated connectors must stay installed and move rigidly with their beams");
+  assert.ok(frameScene.includes('STEP_EIGHT_PARTS.map(id=>{')&&
+    frameScene.includes('name={id} visible={true}')&&
+    frameScene.includes('frustumCulled={false}')&&
+    frameScene.includes('transparent={false} opacity={1}'),
+    "All original STL meshes must remain visible, opaque, and unscaled");
   assert.equal((frameScene.match(/opacity=opacity/g)||[]).length,1,
-    "The only animated opacity must belong to the temporary guide group");
-  assert.ok(frameScene.includes('if(line.material)line.material.opacity=opacity'),
-    "Guide fade must never touch the opaque STL connector materials");
-  assert.ok(frameScene.includes('guideGroup.current?.traverse'),
-    "Temporary guide fading must remain isolated from actual part meshes");
-  assert.ok(frameGeom.includes('fifteenNearHole: 7') &&
-    frameGeom.includes('hole5:2') && frameGeom.includes('hole5:4'),
-    "All approved hole indices remain locked");
+    "Only temporary guides, never actual parts, may animate opacity");
+  assert.ok(frameScene.includes('if(line.material)line.material.opacity=opacity'));
+  assert.ok(frameScene.includes('guideGroup.current?.traverse'));
+  assert.ok(frameGeom.includes("fifteenNearHole: 7") &&
+    frameGeom.includes("hole5:2") && frameGeom.includes("hole5:4"),
+    "Keep all approved hole selections unchanged");
   for(let n=1;n<=4;n++)
     assert.ok(frameGeom.includes("blue connector "+n)||frameGeom.includes("connector "+n),
-      "Every action must name its blue connector");
-  assert.equal((frameGeom.match(/UNDERNEATH/g)||[]).length,4,
-    "Instructions for all four blue connectors must specify underside insertion");
+      "Name each blue connector in its action");
+  assert.equal((frameGeom.match(/DOWNWARD/g)||[]).length,4,
+    "All four blue connector instructions must state the downward direction");
 });
