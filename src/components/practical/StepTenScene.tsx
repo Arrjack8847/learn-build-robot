@@ -65,9 +65,9 @@ function targetFocus(phase: number): Vec3 {
   const active = STEP_TEN_ACTIVE_PART[phase];
   const unit = phase <= 7 ? "A" : "B";
   const y = unit === "A" ? -4 : 4;
-  const hole = active?.includes("_1") && !active?.includes("_12") ? 1 :
-    active?.endsWith("_6") ? 6 : active?.endsWith("_12") ? 12 :
-    active?.endsWith("_3") ? 3 : active?.endsWith("_15") ? 15 : 8;
+  const hole = active?.endsWith("_15") ? 15 : active?.endsWith("_12") ? 12 :
+    active?.endsWith("_6") ? 6 : active?.endsWith("_3") ? 3 :
+    active?.endsWith("_1") ? 1 : 8;
   return [whiteHoleX(hole) * 0.38, y * 0.55, 0.3];
 }
 function viewOffset(view: View, mobile: boolean): Vec3 {
