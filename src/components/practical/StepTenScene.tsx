@@ -133,6 +133,8 @@ function Stage({ phase, replayKey, paused, resetCameraKey, reducedMotion, view, 
   const orbit = useRef<OrbitControlsImpl>(null);
   const previous = useRef({ phase, replayKey });
   const mounted = useRef(false);
+  const firstCamera = useRef(true);
+  const previousReset = useRef(resetCameraKey);
   const callback = useRef(onMotionComplete);
   callback.current = onMotionComplete;
   const { camera, size } = useThree();
@@ -171,7 +173,9 @@ function Stage({ phase, replayKey, paused, resetCameraKey, reducedMotion, view, 
     const desired = focus.clone().add(offset);
     camera.up.set(0, 0, 1);
     if (!orbit.current) return;
-    if (!mounted.current || reducedMotion || resetCameraKey > 0) {
+    const explicitReset = previousReset.current !== resetCameraKey;
+    previousReset.current = resetCameraKey;
+    if (firstCamera.current || reducedMotion || explicitReset) {
       camera.position.copy(desired);
       orbit.current.target.copy(focus);
       cameraFlight.current = null;
@@ -182,6 +186,7 @@ function Stage({ phase, replayKey, paused, resetCameraKey, reducedMotion, view, 
         focusFrom: orbit.current.target.clone(), focusTo: focus, elapsed: 0,
       };
     }
+    firstCamera.current = false;
   }, [phase, view, mobile, resetCameraKey, camera, reducedMotion]);
 
   useFrame((state, rawDelta) => {
@@ -259,6 +264,7 @@ function Stage({ phase, replayKey, paused, resetCameraKey, reducedMotion, view, 
       <meshBasicMaterial color="#e9a31a" depthTest={false} />
     </mesh> : null}
     <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.10}
+      onStart={() => { cameraFlight.current = null; }}
       minDistance={8} maxDistance={58} enablePan={false} />
   </>;
 }
@@ -267,7 +273,7 @@ export function StepTenScene(props: {
   reducedMotion: boolean; view: View; onMotionComplete: () => void;
 }) {
   return <Canvas dpr={[1, 1.8]}
-    camera={{ position: [14, -19, 19], up: [0, 0, 1], fov: 42, near: 0.1, far: 140 }}
+    camera={{ position: [14, -19, 19], fov: 42, near: 0.1, far: 140 }}
     gl={{ antialias: true, powerPreference: "high-performance" }}>
     <Suspense fallback={<Html center><div className="rounded-xl bg-white p-3 text-xs font-semibold text-slate-600">Loading actual robot parts…</div></Html>}>
       <Stage {...props} />
