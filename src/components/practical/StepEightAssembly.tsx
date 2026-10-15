@@ -27,6 +27,7 @@ export function StepEightAssembly({
   const [physicalCheck,setPhysicalCheck]=useState(false);
   const [config,setConfig]=useState<StepEightConfig>({...STEP_EIGHT_DEMO_CONFIG});
   const [paused,setPaused]=useState(false);
+  const [animating,setAnimating]=useState(false);
   const [replayKey,setReplayKey]=useState(0);
   const [resetCameraKey,setResetCameraKey]=useState(0);
   const [reducedMotion,setReducedMotion]=useState(false);
@@ -35,7 +36,7 @@ export function StepEightAssembly({
   const [reference,setReference]=useState<string|null>(null);
   const finished=phase===STEP_EIGHT_SEQUENCE.length-1 &&
     stepEightConfigurationErrors(config).length===0;
-  const ready=finished&&physicalCheck;
+  const ready=finished&&!animating&&physicalCheck;
   const details=STEP_EIGHT_SEQUENCE[phase]!;
   useEffect(()=>{
     onReadyChange(ready);
@@ -53,11 +54,14 @@ export function StepEightAssembly({
   },[reference]);
   function go(target:number){
     const next=Math.max(0,Math.min(STEP_EIGHT_SEQUENCE.length-1,target));
+    if(next===phase)return;
+    setAnimating(!reducedMotion);
     setPaused(false);setAutoInspect(true);setCameraView("iso");setPhase(next);
   }
   function edit(patch:Partial<StepEightConfig>){
     setConfig(previous=>({...previous,...patch}));
-    setPhase(0);setPhysicalCheck(false);setPaused(false);setResetCameraKey(value=>value+1);
+    setPhase(0);setPhysicalCheck(false);setPaused(false);
+    setAnimating(false);setResetCameraKey(value=>value+1);
   }
   function uploadPhoto(file:File|undefined){
     if(!file||!file.type.startsWith("image/"))return;
@@ -100,7 +104,7 @@ export function StepEightAssembly({
         <StepEightScene phase={phase} config={config} paused={paused}
           replayKey={replayKey} resetCameraKey={resetCameraKey}
           reducedMotion={reducedMotion} autoInspect={autoInspect}
-          cameraView={cameraView}/>
+          cameraView={cameraView} onMotionComplete={()=>setAnimating(false)}/>
         <span className="pointer-events-none absolute left-3 top-3 rounded-full
           bg-white/90 px-3 py-1.5 text-[10px] font-bold text-slate-600 shadow-sm
           backdrop-blur sm:text-xs">
@@ -151,7 +155,7 @@ export function StepEightAssembly({
             ))}
           </div>
           <div className="mt-3 flex items-center gap-1.5 sm:gap-2">
-            <button type="button" disabled={phase===0}
+            <button type="button" disabled={phase===0||animating}
               aria-label="Previous assembly action" onClick={()=>go(phase-1)}
               className="inline-flex min-h-11 items-center gap-1 rounded-xl border
                 border-slate-200 px-2.5 text-xs font-bold disabled:opacity-40 sm:px-4 sm:text-sm">
@@ -162,21 +166,25 @@ export function StepEightAssembly({
               className="grid size-11 shrink-0 place-items-center rounded-xl border border-slate-200">
               {paused?<Play className="size-4"/>:<Pause className="size-4"/>}
             </button>
-            <button type="button" aria-label="Replay current assembly action"
-              onClick={()=>{setPaused(false);setReplayKey(value=>value+1);}}
+            <button type="button" disabled={phase===0||animating}
+              aria-label="Replay current assembly action"
+              onClick={()=>{setAnimating(!reducedMotion);setPaused(false);setReplayKey(value=>value+1);}}
               className="grid size-11 shrink-0 place-items-center rounded-xl border border-slate-200">
               <RotateCcw className="size-4"/>
             </button>
             <button type="button"
-              disabled={finished&&!physicalCheck}
+              disabled={animating||(finished&&!physicalCheck)}
               onClick={()=>finished?completeStepEight():go(phase+1)}
               className="ml-auto inline-flex min-h-11 items-center justify-center gap-1
                 rounded-xl bg-[#168eea] px-3 text-xs font-extrabold text-white
-                transition-colors hover:bg-[#0e7ac8] sm:px-5 sm:text-sm">
+                transition-colors hover:bg-[#0e7ac8] disabled:cursor-not-allowed disabled:opacity-50 sm:px-5 sm:text-sm">
               {finished?"Complete Step 8":"Next action"}<ArrowRight className="size-4"/>
             </button>
           </div>
-          {finished&&<p className="mt-2 text-center text-[11px] font-semibold text-emerald-800">
+          {animating&&<p role="status" className="mt-2 text-center text-[11px] font-semibold text-sky-700">
+            Smooth assembly motion in progress · Pause or resume at any time
+          </p>}
+          {finished&&!animating&&<p className="mt-2 text-center text-[11px] font-semibold text-emerald-800">
             <CheckCircle2 className="mr-1 inline size-3.5"/>
             Step 8 demonstration complete · confirm physical locking joints before continuing
           </p>}
