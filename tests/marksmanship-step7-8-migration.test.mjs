@@ -270,9 +270,38 @@ test("Step 8 preparation keeps all eleven original STL parts visibly separated",
     "Only loose beam A positions may change");
   assert.ok(frameGeom.includes("phase>=6?1:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_B[0]"),
     "Only loose beam B positions may change");
-  assert.ok(frameScene.includes("if(phase===0){")&&
-    frameScene.includes("0.87/aspect")&&frameScene.includes("new Vector3(0,-6.5*scale,39*scale)"),
-    "Use a responsive near-overhead view so parts do not overlap in projection");
-  assert.ok(frameScene.includes("maxDistance={110}"),
-    "Permit sufficient camera distance for portrait screens");
+  assert.ok(frameScene.includes("function fittedCamera(")&&
+    frameScene.includes("const aspect=Math.max(0.3,width/Math.max(height,1))")&&
+    frameScene.includes("phase===0?[0,-0.26,1]")&&
+    frameScene.includes("Math.max(halfHeight/Math.tan(halfVFov)"),
+    "Use a responsive near-overhead camera fitted to projected part extents");
+  assert.ok(frameScene.includes("maxDistance={210}"),
+    "Permit enough camera distance for portrait viewers without clipping");
+});
+
+test("Step 8 responsive camera, mobile controls and animated instructional guides",()=>{
+  assert.ok(frameScene.includes("if(phase<=2)return [\"FIVE_A\",\"BLUE_1\",\"BLUE_2\"]"));
+  assert.ok(frameScene.includes("if(phase<=4)return [\"FIVE_B\",\"BLUE_3\",\"BLUE_4\"]"));
+  assert.ok(frameScene.includes("poses.push(stepEightPoses(phase-1,config))"),
+    "Camera must fit both start and end positions during each animation");
+  assert.ok(frameScene.includes("halfWidth/(Math.tan(halfVFov)*aspect)"),
+    "Camera must fit horizontal FOV on narrow screens");
+  assert.ok(frameScene.includes("halfHeight/Math.tan(halfVFov)"),
+    "Camera must fit vertical FOV on landscape screens");
+  assert.ok(frameScene.includes("lastViewport.current={width:size.width,height:size.height}"),
+    "Reframe after browser resize and device orientation changes");
+  assert.ok(frameScene.includes("size.width<520?1.25:size.width<900?1.5:1.75"),
+    "Use adaptive pixel density for mobile, tablet, and desktop GPUs");
+  assert.ok(frameScene.includes('gl={{antialias:true,powerPreference:"high-performance"}}'));
+  assert.ok(frameScene.includes("const opacity=Math.min(1,Math.max(0,(1-pct)/0.18))*0.88"),
+    "Fade guidance as insertion seats, without extending the action duration");
+  assert.ok(frameScene.includes("guideGroup.current?.traverse"));
+  assert.ok(frameScene.includes("pin?.material as MeshStandardMaterial"));
+  assert.ok(frame.includes("min-[430px]:grid-cols-2 lg:grid-cols-3"),
+    "Preparation cards must stack on small phones");
+  assert.ok(frame.includes("h-[clamp(300px,50svh,560px)]"),
+    "Viewer must fit in portrait mobile viewport");
+  assert.ok(frame.includes("sm:h-[clamp(430px,68svh,780px)]"));
+  assert.ok(frame.includes("min-h-11 min-w-0"),"Next control must remain usable on small screens");
+  assert.ok(frameGeom.includes("fifteenNearHole: 7"),"Never change approved black holes 7 and 11");
 });
