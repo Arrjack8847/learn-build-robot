@@ -74,10 +74,9 @@ const marksmanshipSteps: PracticalProject["steps"] = [
   {
     id: "marksmanship-inspect-assemblies-v1",
     number: 9,
-    title: "Inspect Assembly A and Assembly B",
-    description: "Keep the completed side-rail assembly and the independently built rectangular frame separate, as in IMG_1697. Do not connect these structures until their mechanical alignment is confirmed.",
+    title: "Connect Step 8 to Step 7 using four blue pins",
+    description: "Prepare both completed structures separately, orient Step 8 with its longest white beam at the front, then align and insert its four original blue pins into holes 7 and 11 of each Step 7 rail (counting from the blue-pinned free end). Inspect the real fit.",
     originalManualStepNumbers: [],
-    referenceOnly: true,
   },
   {
     id: "marksmanship-photo-step10-v1",

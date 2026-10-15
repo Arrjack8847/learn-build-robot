@@ -7,10 +7,10 @@ This feature branch is **not a mechanical certification**. Source 3D meshes are 
 - 1–6: unchanged lesson sequence; Step 6 completes the 11-hole connector support.
 - 7: **Connect Two 15-Hole Side Beams**, combining original manual Steps 7 and 8 as Assembly A. It loads the Step 5 + 6 saved model states.
 - 8: **Assemble and Lock the Rectangular Frame**, the previously custom frame lesson. Eleven original STL component meshes are used to construct Assembly B; four blue connectors enter the two 5-hole beams at holes 2 and 4.
-- 9: Inspect the two independent finished assemblies (Assembly A and Assembly B). Neither is joined to the other without a verified next-step mounting layout.
+- 9: Join the already finished Step 7 (Assembly A) and Step 8 (Assembly B) structures. User-supplied photographs from October 15 identify two receiving holes on each 15-hole Step 7 rail (holes 7/11 counted from the existing blue-pinned free end), the four existing Step 8 blue pins, and the longest Step 8 beam as front-facing. This is a photo-guided fitting demonstration, not a measured press-fit certification.
 - 10–32: historic manual Steps 9–31; the illustrations keep their **original** source filenames and manual numbers. Interactive Steps 10–15 (manual 9–14) are flagged for mapping review because those operations may duplicate frame preparation or mount it differently than the custom photographs.
 
-The 32-entry count includes the real photographed two-assembly handoff at Step 9, **not** a fabricated joint operation. Interactive display numbers differ from immutable original-manual numbers.
+The 32-entry count includes the photographed two-assembly mounting operation at Step 9. The four receiving holes are now photo-marked, but exact seating depths remain unmeasured. Interactive display numbers differ from immutable original-manual numbers.
 
 ## Mechanical evidence and verification status
 
@@ -29,7 +29,7 @@ The 32-entry count includes the real photographed two-assembly handoff at Step 9
 - Assembly B: `robot:marksmanship:step8:assembly-b:v1` / `marksman-assembly-b-rectangular-frame-v1`.
 - A physical **self-confirmation** is required to save each assembly. Neither self-attestation nor a theoretical STL coincidence asserts certified mechanical verification.
 - Legacy progress IDs `marksmanship-s7` and `marksmanship-s8` are kept in `legacyStepCompletionIds` but **not** automatically credited to either new assembly. Historic Step 9+ IDs retain their meaning despite the new displayed numbering.
-- Step 9 requires both independent saved assembly results and never combines them.
+- Step 9 requires both independent saved Step 7 and Step 8 results and animates joining them without altering either saved source assembly. It records an additional physical self-check and warns about saved geometry collisions instead of concealing them.
 
 ## Before main-branch merge
 
@@ -89,3 +89,90 @@ The original 31-step manual and source STL meshes are not changed by this featur
 - The two additional long blue pins remain at **STL Hole 1**, at the exposed RIGHT ends of both white rails, entering from the **black-connector face**.
 - The pin-insertion camera uses a wider target between the rail midpoint and end-pin hole. It stays on one side for both insertions to avoid clipping the complete assembly during the camera change. No physical component position is changed by this camera improvement.
 - These are accepted lesson-viewer coordinates; measured connector seating depth and real device visual confirmation remain separate QA tasks.
+
+## October 15: Step 9 user-photographed four-pin join
+
+- Reference photos: IMG_1769 (Action 0 side-by-side preparation), IMG_1773 (black-arrow target hole positions), IMG_1774 and IMG_1775 (joined side and close-up angles).
+- Five zero-based actions: 0 prepare both; 1 rotate/lift Step 8 with the 15-hole white beam frontward; 2 align four original Step 8 blue pins; 3 insert all four together; 4 inspect final orientation.
+- The marked target pair on **each** Step 7 rail is hole 7 and hole 11 counted from the free blue-pin end. These are not the two end pins installed during Step 7; they are new receiving holes for Step 8 pins.
+- New Step 9 scene renders Step 7 and Step 8 together using the genuine existing STL geometry, with no manual reconstruction of a new proxy part. Step 8 is transformed as ONE rigid unit. The Step 8 local +Z blue pin axis is mapped to the new Step 7 mounting axis.
+- There is an outstanding issue: Step 7's locked saved calibration may occupy a photo-marked receiving hole (particularly the second rail's selected hole 7). This is surfaced as a warning, not solved by moving the older connectors. The user must visually/physically compare the new combined demo with the real structure. 3D seating depth is provisional, mechanical fit is not certified.
+- The previous Step 9 *separate-only* checkpoint was intentionally superseded by the user's October 15 assembly photos. Old Step 7/8 completion keys remain unchanged, while the newly joined result is independently stored at `robot:marksmanship:step9:joined:v1`.
+
+## Horizontal Step 7 turn in Step 9 (October 15 follow-up)
+
+- User correction: Step 7 must be turned **180 degrees horizontally**, not flipped upside down, before the four Step 8 blue pins attach. Step 8 remains in its approved front-facing orientation.
+- The turn is local to the completed Step 7 group inside Step 9: `rotation={[0,Math.PI,0]}` via shared `STEP_NINE_STEP_SEVEN_YAW`. No Step 7 source mesh, installed grey/black connector, or Step 7 lesson animation is changed.
+- A horizontal turn reverses the Step 7 side-rail Z positions and the longitudinal X hole order in the Step 9 shared frame. Recalculate all four world target points and the Step 8-to-Step 7 pin index mapping, without moving an individual blue pin: BLUE_1 -> second rail hole 7; BLUE_2 -> first rail hole 7; BLUE_3 -> second rail hole 11; BLUE_4 -> first rail hole 11. Counting remains from the existing blue-pinned free end.
+- Residual checks warn if stored Step 7 rail offsets cannot be matched by a rigid Step 8 transform, and existing overlapping Step 7 connector positions remain visible rather than secretly modified.
+
+## Updated Step 8 handoff and Step 9 preparation (October 15, latest)
+
+- Integrated the latest Step 8 lesson scene, assembly UI, and geometry from `feat/marksman-step8-smooth-motion-20261015` into the Step 9 feature branch without changing any Step 7 geometry. Its approved center 15-hole beam black-pin pair is 7/11, its 11 original parts are organized for Step 8 itself, and its connector motions use Step 7's timed guided approach/press style.
+- Step 9 Action 0 **does not dismantle Step 8 again**. It loads `stepEightPoses(11, frameConfig)`, the fully assembled Step 8 output, alongside the finished Step 7 assembly. Both groups arrive independently from opposite sides, ease into nonoverlapping positions over 1.45 seconds and then settle. Step 8 arrives with a subtle 10% stagger to distinguish the complete assemblies.
+- The camera opens in a wider preparation view that scales to the viewport aspect, then uses Step 7's 0.85-second camera easing for subsequent actions. Dragging cancels the scripted camera flight.
+- Step 9 Step 7 group stays horizontally turned 180°; Step 8's longest 15-hole beam remains front-facing. None of the four blue-pin connector coordinates or the Step 7 receiving holes are changed in this preparation-only update.
+- The Step 9 UI separately labels the completed Step 7 and updated Step 8 structures, disables Next/Previous/Replay while a movement is active and supports Pause/Resume, reverse, replay and reduced motion. This ensures movements cannot overlap from rapid tapping.
+- Older saved Step 8 browser snapshots (previous black-hole calibration) are **not silently approved**. Step 9 previews the updated 7/11 arrangement with a warning, and the learner must revisit and physically confirm Step 8 before completing Step 9. No stored Step 7/8 user data is rewritten.
+- Physical fit between Steps 7 and 8 remains unverified; step 9 continues warning when saved Step 7 mount data would occupy a proposed receiving hole.
+
+## Step 9 correction: invert the complete Step 8 assembly (October 15)
+
+- User confirmed: **flip Step 8 upside down**, not Step 7. Step 7 keeps the separately approved 180-degree horizontal yaw from the preceding correction.
+- Action 0 preserves the two completed separate assemblies; Action 1 animates an entire rigid Step 8 inversion over its **horizontal longest-beam axis**. The 15-hole front beam and all installed blue and black pins remain rigidly attached. Steps 7/8 themselves are unchanged.
+- Use a composed quaternion `Rx(π) · UPRIGHT_ALIGNMENT`, not a camera turn or independent pin rotation. Step 8's original local `(x,y,z)` now maps into shared Step 9 coordinates `(-y,+z,-x)`, so the four blue connector axes point **upwards**, toward the underside of Step 7.
+- The upside-down frame swaps which Step 7 rail accepts each original Step 8 blue pin while retaining the photograph-confirmed holes 7 and 11: BLUE_1 -> first rail 7; BLUE_2 -> second rail 7; BLUE_3 -> first rail 11; BLUE_4 -> second rail 11.
+- The final root position moves below the receiving surfaces rather than above; Action 2 aligns from below and Action 3 moves **upward** through a two-stage, coaxial approach with Step 7's 42% approach / 58% seating profile.
+- Only the Step 9 demonstration and its saved Step 9 completion metadata change. Existing Step 8 saved configurations and the Step 7 source parts/rotation are not rewritten.
+- The declared mating depth still uses a provisional clearance. Do not claim certified mechanical fit without a real physical check, especially for any already-occupied receiving hole.
+
+## Final photographed Step 9 attachment motion (new underside/top references)
+
+- Latest real-world photos (October 15) override the earlier movement order: leave the completed upside-down Step 8 assembly PARKED underneath with all four blue pins pointing **up** in world space. The user lowers the **whole Step 7 assembly** from above; the four pins enter holes 7 and 11 on each outer 15-hole rail.
+- The outer Step 9 R3F scene root is itself rotated 180° around world Z. Earlier Step 8 composition had mistaken shared +Y for world up, pointing the blue pins down. The corrected final orientation maps local Step 8 (x,y,z) -> shared (-y,-z,x), ensuring original local +Z blue pins face world +Y. Action 1 still performs the 180° rigid flip between the staging face and photo-facing orientation.
+- Action 0 still animates the two finished assemblies into the preparation workspace. Action 1 flips Step 8 while separate. Action 2 first raises Step 7 vertically to a clear height (42% of the phase), then parks Step 8 directly below (58%); Step 8 is thereafter motionless. Action 3 lowers ONLY Step 7 vertically to its seated location using a 42% approach / 58% final press with the Step 7 motion easing. Reversing Action 3 lifts Step 7 away while the Step 8 frame remains stationary.
+- Alignment guides follow Step 7's moving receiving holes (four guide lines parented to its root, not to an individual pin), matching the mounting motion. Action 4 adds a dedicated bottom camera view to inspect the two grey cross-supports and four blue pin heads visible in the latest downward-view photograph.
+- The four agreed receiving holes and saved Step 7 180-degree horizontal yaw are unchanged. Original Steps 7 and 8 are left untouched. Step 9 completion metadata documents the stationary lower Step 8, descending Step 7 and underside inspection.
+- The visuals are photo-guided. An existing Step 7 mounting shaft may overlap a proposed receiving hole under the saved Step 7 calibration. Do not silently relocate or remove it or declare precise press-fit depth verified without user checking the actual assembled part.
+
+## Latest Step 9 correction — Step 8 already oriented correctly
+
+- The user confirms the Step 8 completed assembly is ALREADY in the correct position/orientation. Do **not** flip it again during Step 9.
+- Action 0 presents the completed Step 8 in its final, upward-blue-pin orientation. Action 1 is now a guided orientation CHECK and small translational repositioning only; Step 8's rigid rotation matrix stays identical from preparation through final inspection. The redundant upside-down rotation, loose-pose quaternion, and flip-completion claim were removed.
+- Maintain the prior Step 7 horizontal turn, four original Step 8 pin-to-Step 7 hole 7/11 mappings, Step 8's longest front-facing white beam, Action 2 positioning, Action 3 lowering ONLY Step 7, and Action 4 top/side/bottom inspection.
+- No changes to the completed Step 7 or Step 8 lesson scenes or to their saved physical part positions. The Step 9 stored completion metadata now records `stepEightOrientationPreserved: true` and `stepEightRotatedInStep9: false`.
+- This latest correction supersedes the earlier notes in this document instructing the Step 8 flip during Action 1. The photo-guided mechanical seating depth and possible rail-hole overlap still need physical inspection.
+
+## Final requested fix — opposite horizontal attachment-facing side (October 15)
+
+- Supersedes the preceding "no turn" Action 1 note. The user confirmed Step 8's **attachment-facing side** is wrong even though the four pins point up. The correction is a **horizontal 180° yaw of the entire completed Step 8 assembly**, not an upside-down flip. This reverses the front/back and left/right facing while preserving the pin-up face in the scene.
+- Action 0: show both completed units separately. Action 1: smooth 1.45s quaternion-slerp turn between `INITIAL_ALIGNMENT` and `OPPOSITE_FACE_ALIGNMENT`, where `OPPOSITE_FACE_ALIGNMENT = Ry(π) × INITIAL_ALIGNMENT`, around the common scene's vertical local Y. No subpart rotates independently.
+- After the turn all four original local +Z blue pin axes remain shared -Y, which is world UP once the outer Step 9 scene's 180° Z orientation is applied.
+- Preserve the fixed receiving hole set **7 and 11 on EACH Step 7 white 15-hole rail** counted from the existing free blue-pin end; the horizontal turn changes only which Step 8 pin mates to each existing target: BLUE_1 -> first rail hole 11; BLUE_2 -> second rail hole 11; BLUE_3 -> first rail hole 7; BLUE_4 -> second rail hole 7. The Step 8 group centre does not change because both longitudinal and lateral pin offsets invert symmetrically.
+- Action 2 moves Step 8 UNDER Step 7; Action 3 keeps Step 8 motionless while Step 7 descends onto its four upward pins. Action 4 inspects bottom/side/top views. Steps 7 and 8 source lessons and saved original part positions are untouched.
+- Do not confuse switching horizontal facing with literally exposing the other top/bottom surface: no tilt or roll is applied. The user-requested correction was interpreted as the explicitly agreed front/back horizontal reversal with pins up.
+- Mechanical fit and the known potentially occupied receiving hole still require photo/physical verification; do not hide the mismatch warning, move earlier installed connectors, or claim final press-fit is certified.
+
+## Latest user correction — TOP/BOTTOM Step 8 face, concealed joining pins
+
+- This section supersedes the prior **horizontal yaw / opposite front-back** instructions. They were incorrect. The user explicitly requires Step 8's **top and bottom faces** be swapped. Action 1 now flips the entire completed Step 8 group 180° about its **horizontal long-beam X axis**, using a quaternion transition; there is **NO yaw around vertical Y**.
+- The original Step 8 local blue pin centres transform from `(-y,-z,x)` before the flip to `(-y,z,-x)` afterward in shared coordinates. This switches the physical side of each original double-ended connector presented to the Step 7 receiving face. Correct Step 9 mapping: BLUE_1 -> rail 0 hole 7; BLUE_2 -> rail 1 hole 7; BLUE_3 -> rail 0 hole 11; BLUE_4 -> rail 1 hole 11. Existing Step 7 hole numbers never change.
+- Step 8 stays underneath the upper Step 7 assembly after alignment, and Step 7 lowers vertically during Action 3 while Step 8 stays stationary.
+- The four joining blue pin meshes are kept unchanged in the assembled Step 8 hierarchy, but their **visual opacity** eases from 1 to 0 during the final 22% of seating, ensuring no blue connector remains visually exposed between the joined assemblies in the finished step. Reverse and Replay restore their visibility when the joined assemblies separate. This is expressly a **visual concealment only**, NOT mechanical proof that the pinned connection is dimensionally correct; do not claim otherwise.
+- The original Step 7/8 completion, geometry and installed connector poses remain unchanged. The known target-hole occupancy / rail spacing warnings remain visible until real-world verification.
+
+## Latest Step 9 correction — never fade or hide the blue mounting connectors
+
+- The user explicitly **rejected** the previously implemented Step 9 visual disappearance of four joining blue connectors. This section **supersedes** the preceding "visual opacity eases from 1 to 0" guidance.
+- Step 9 always renders all four original `BLUE_1`–`BLUE_4` meshes as normal **fully opaque parts** during preparation, top/bottom-face flip, alignment, seating, inspection, previous and replay. Remove connector-ref opacity manipulation, `pin.visible` changes, `transparent`, and conditional `opacity` / `depthWrite` attributes. Never fade, hide, delete, scale, or move any individual connector to fake insertion.
+- The physical seating motion is unchanged: Step 7 lowers onto the four stationary Step 8 connectors. If properly seated, the receiving solid beams should naturally occlude the inserted shafts through ordinary 3D depth testing; any blue parts that genuinely remain visible should remain visible for inspection.
+- Step 9 still treats receiving holes 7 and 11 on both rails as targets and keeps the unresolved Step 7 hole occupancy / spacing / seating-depth warnings. The 3D model is NOT certified physically correct by this rendering change; verify depth and alignment against the real reference assembly.
+
+## Step 9 real connector depth and rail-spacing fix
+
+- Diagnosed screenshot from Step 9 Action 4: the old Step 8 translation placed its 7-hole receiving rails almost **coplanar** with Step 7's 15-hole rails. It used an unverified centre clearance constant that left blue mounting pin tips exposed beyond the receiving faces.
+- Change ONLY Step 9 combined pose computation. Seat the completed Step 8 7-hole beams immediately **under** the completed Step 7 15-hole beams, with exact face-to-face centre spacing `STEP_EIGHT_THICKNESS_MM / STEP_EIGHT_PITCH_MM` (7.8/8 normalized units). Step 8's existing 5-hole supports sit farther below the 7-hole beams. The four original Step 8 pins remain centered at the original Step 8 half-level with genuine STL geometry.
+- Compute the complete Step 8 rigid X/Z translation from the average of all FOUR existing pin-to-hole correspondences, rather than manually adding a fixed arbitrary -1 lateral shift. Keep the Step 8 top/bottom flip and unchanged Step 7 root yaw; change **no individual pin positions**.
+- The original Step 7 rail z-spacing warning compared a signed distance to +2 even though the approved Step 7 order is reversed. Correct the check to `abs(abs(z0-z1)-2)`; mismatched spacing still triggers a warning.
+- Under an *estimated* 24 mm blue connector, the tip would land within the upper 7.8 mm rail rather than emerge through its outer face; the exact plastic/collar depth remains unmeasured, not certified. No shrinking, disappearing, fading, transparency, or connector replacement.
+- The saved Step 7 second rail's mounting shaft may still occupy receiving hole 7. This is a **real unresolved hole-occupancy warning** rather than a rendering problem; do not silently move earlier connectors or change the user-approved receiving holes.

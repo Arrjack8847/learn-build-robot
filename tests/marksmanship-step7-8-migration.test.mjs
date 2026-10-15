@@ -71,14 +71,35 @@ test("Step 8 frame retains all eleven STL parts and real 5-hole connector order"
   assert.ok(frame.includes("physicalCheck"));
   assert.ok(frame.includes("STEP_EIGHT_RESULT_KEY"));
 });
-test("Independent Assembly A and B are both required at Step 9",()=>{
+test("Step 9 keeps both prior completed assemblies and connects them in five actions",()=>{
   const stage=read("src/components/practical/StepNineAssemblyReview.tsx");
+  const scene=read("src/components/practical/StepNineScene.tsx");
+  const geometry=read("src/components/practical/stepNineGeometry.ts");
   assert.ok(stage.includes("STEP_SEVEN_RESULT_KEY"));
   assert.ok(stage.includes("STEP_EIGHT_RESULT_KEY"));
-  assert.ok(stage.includes("StepSevenRailsScene"));
-  assert.ok(stage.includes("StepEightScene"));
-  assert.ok(stage.includes("Do not connect Assembly A and B yet"));
   assert.ok(stage.includes("physicallySelfConfirmed!==true"));
+  assert.ok(stage.includes("StepNineScene"));
+  assert.ok(stage.includes("STEP_NINE_ACTIONS"));
+  assert.ok(stage.includes("AssemblyPlaybackControls"));
+  assert.ok(stage.includes("onCompleteStep()"));
+  assert.ok(stage.includes("physicallySelfConfirmed:true"));
+  assert.ok(scene.includes("STEP5_MODEL_PATHS"));
+  assert.ok(scene.includes("STEP_SEVEN_RAIL_IDS.map"));
+  assert.ok(scene.includes("STEP_EIGHT_PARTS.map"));
+  assert.ok(scene.includes("stepEightPoses(11,frameConfig)"));
+  assert.ok(scene.includes("stepNineFramePose"));
+  assert.ok(geometry.includes("STEP_NINE_RECEIVERS = [7, 11]"));
+  assert.ok(geometry.includes('stepEightPin:"BLUE_1",rail:0,hole:7'));
+  assert.ok(geometry.includes('stepEightPin:"BLUE_2",rail:1,hole:7'));
+  assert.ok(geometry.includes('stepEightPin:"BLUE_3",rail:0,hole:11'));
+  assert.ok(geometry.includes('stepEightPin:"BLUE_4",rail:1,hole:11'));
+  assert.ok(geometry.includes("alreadyOccupiedByStepSeven"));
+  assert.ok(geometry.includes("mechanicallyVerified:false"));
+  assert.ok(geometry.includes("STEP_NINE_STEP_SEVEN_YAW = Math.PI"));
+  assert.ok(geometry.includes("stepNineOrientedPinOffset(point:V3)"));
+  assert.ok(!geometry.includes("STEP_NINE_STEP_EIGHT_FLIP"));
+  assert.ok(geometry.includes("STEP_NINE_STEP_EIGHT_FACE_FLIP = Math.PI"));
+  assert.ok(!geometry.includes("STEP_NINE_OPPOSITE_FACE_YAW"));
 });
 
 test("Step 7 aligns one black and two grey connectors on each rail",()=>{
@@ -105,7 +126,7 @@ test("Both beams are attached before inserting either new blue free-end pin",()=
   assert.ok(scene.includes('pinInsertion'));
   assert.ok(railConfig.includes('STEP_SEVEN_END_PIN_HOLE = 1'));
   assert.ok(rails.includes('bothRailsMountedBeforeEndPins:true'));
-  assert.ok(read("src/components/practical/StepNineAssemblyReview.tsx").includes("phase={STEP_SEVEN_FINAL_PHASE}"));
+  assert.ok(read("src/components/practical/StepNineScene.tsx").includes("STEP_SEVEN_FINAL_PHASE"));
 });
 
 test("Both extra Step 7 pins enter exposed Hole 1 from the black-connector face",()=>{
@@ -144,8 +165,8 @@ test("Step 7 moves both added end pins to the opposite/right-hand free end witho
 test("Approved Step 7 rail calibration and visible end-pin camera framing",()=>{
   assert.match(railConfig,/railCenterDistance:0\.9,firstRailHole:12,secondRailHole:7/);
   assert.ok(rails.includes("STEP_SEVEN_PHOTO_CONFIG"));
-  assert.ok(railConfig.includes("first rail\'s grey holes 12/14"));
-  assert.ok(railConfig.includes("second rail\'s 7/9"));
+  assert.ok(railConfig.includes("firstRailHole:12"));
+  assert.ok(railConfig.includes("secondRailHole:7"));
   assert.ok(railConfig.includes("STEP_SEVEN_END_PIN_HOLE = 1"));
   assert.ok(scene.includes("(endWorldX+railCenterWorldX)/2"));
   assert.ok(scene.includes("overview||pinPhase?1:sign"));
