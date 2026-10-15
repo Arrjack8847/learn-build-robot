@@ -1,7 +1,7 @@
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { Line, OrbitControls } from "@react-three/drei";
 import { Component, Suspense, useLayoutEffect, useMemo, useRef } from "react";
-import { BufferGeometry, DoubleSide, Group, Matrix4, Mesh, MeshStandardMaterial, Quaternion, Vector3 } from "three";
+import { BufferGeometry, DoubleSide, Group, Matrix4, Quaternion, Vector3 } from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { STEP5_MODEL_PATHS } from "./StepFiveScene";
@@ -87,22 +87,6 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
   }),[loaded]);
   const frame=useRef<Group>(null);
   const stepSeven=useRef<Group>(null);
-  /** The four mounting connectors remain in the 3D model and are visible
-   * before insertion. As Step 7 is seated, only their DISPLAY opacity
-   * falls to zero so no shafts float visibly across the finished joint.
-   * This does not erase parts or alter their stored geometry/transforms.
-   */
-  const mountingPins=useRef<(Mesh|null)[]>([]);
-  const setMountingPinOpacity=(amount:number)=>{
-    const opacity=Math.max(0,Math.min(1,amount));
-    for(const pin of mountingPins.current){
-      if(!pin)continue;
-      pin.visible=opacity>0.001;
-      const mat=pin.material as MeshStandardMaterial;
-      mat.opacity=opacity;
-      mat.depthWrite=opacity>0.99;
-    }
-  };
   const orbit=useRef<OrbitControlsImpl>(null);
   const motionDone=useRef(onMotionComplete);
   motionDone.current=onMotionComplete;
@@ -194,9 +178,6 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
         action:Math.max(old,phase),reverse:old>phase,
         time:0,duration:Math.max(old,phase)===2||Math.max(old,phase)===3?1.8:1.45,
       }:null;
-      // On replay/reverse, restore the blue connectors BEFORE pulling
-      // Step 7 away. On final seating, keep their shafts concealed.
-      setMountingPinOpacity((animate?old:phase)>=3?0:1);
       if(!animate)motionDone.current?.();
     }
     prior.current={phase,replayKey};mounted.current=true;
@@ -269,13 +250,6 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
           ?motionLerp(m.fromSeven,halfway,approach)
           :motionLerp(halfway,m.toSeven,approach);
         stepEightPosition=m.toEight;
-      }
-      if(m.action===3){
-        // The blue shafts remain visible until Step 7 actually presses
-        // onto the joint. Hide the exposed mounting pins only over the
-        // FINAL 22% of the seating stroke. Reverse restores them smoothly.
-        const seatAmount=m.reverse?1-t:t;
-        setMountingPinOpacity(1-Math.max(0,Math.min(1,(seatAmount-0.78)/0.22)));
       }
       // Action 1 is a rigid TOP/BOTTOM face flip around horizontal X.
       // The stored geometries, rail holes and connector poses are unchanged.
@@ -371,14 +345,11 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
           const color=model==="blue"?"#1576ce":model==="black"?"#293544":
             model==="five"?"#e6ebf1":model==="seven"?"#bac9d9":"#f1f3f7";
           return <group key={id} name={"STEP8_"+id} position={p.position} rotation={p.rotation}>
-            <mesh geometry={meshes[model]} castShadow receiveShadow
-              ref={node=>{
-                if(id.startsWith("BLUE"))mountingPins.current[Number(id.slice(-1))-1]=node;
-              }}>
+            <mesh geometry={meshes[model]} castShadow receiveShadow>
+              {/* The original four blue connectors stay OPAQUE and visible
+                  at all phases; natural beam occlusion alone conceals any
+                  inserted shafts. Never fade or remove these meshes. */}
               <meshStandardMaterial color={color} roughness={0.54} side={DoubleSide}
-                transparent={id.startsWith("BLUE")}
-                opacity={id.startsWith("BLUE")&&phase>=3?0:1}
-                depthWrite={!(id.startsWith("BLUE")&&phase>=3)}
                 emissive={guideVisible&&id.startsWith("BLUE")?"#1568bc":"#000000"}
                 emissiveIntensity={guideVisible&&id.startsWith("BLUE")?0.2:0}/>
             </mesh>
