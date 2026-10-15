@@ -82,7 +82,7 @@ export const STEP_EIGHT_PREPARATION_LAYOUT: Readonly<Record<StepEightPart,V3>> =
   BLUE_3: [5.7,10.2,1.3],
   BLUE_4: [5.7,6.5,1.3],
   SEVEN_A: [-8.5,0,0],
-  SEVEN_B: [-5,0,0],
+  SEVEN_B: [4,0,0],
   FIFTEEN: [9,0,0],
   BLACK_1: [6.5,-10.6,1.3],
   BLACK_2: [10.7,-10.6,1.3],
