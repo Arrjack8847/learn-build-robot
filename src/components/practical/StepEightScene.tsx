@@ -83,20 +83,63 @@ function insertion(a:StepEightPose,b:StepEightPose,t:number,phase:number,reverse
     ?interpolate(a,aligned,t/0.42)
     :interpolate(aligned,b,(t-0.42)/0.58);
 }
-function interest(phase:number,config:StepEightConfig):V3 {
-  if(phase===0)return [0,0,STEP_EIGHT_LEVEL/2]; // All eleven parts in the preparation overview
-  if(phase<=2)return [0,-8.3,STEP_EIGHT_LEVEL/2];
-  if(phase<=4)return [0,8.3,STEP_EIGHT_LEVEL/2];
-  if(phase<=6)return [0,0,STEP_EIGHT_LEVEL/2];
-  if(phase<=8)return [6.4,0,0];
-  return [0,0,STEP_EIGHT_LEVEL/2];
+/** Camera-only focus groups. None of these change any physical target pose. */
+function focusParts(phase:number):readonly StepEightPart[] {
+  if(phase===0||phase===11)return STEP_EIGHT_PARTS;
+  if(phase<=2)return ["FIVE_A","BLUE_1","BLUE_2"];
+  if(phase<=4)return ["FIVE_B","BLUE_3","BLUE_4"];
+  if(phase===5)return ["FIVE_A","FIVE_B","SEVEN_A","BLUE_1","BLUE_2","BLUE_3","BLUE_4"];
+  if(phase===6)return ["FIVE_A","FIVE_B","SEVEN_A","SEVEN_B","BLUE_1","BLUE_2","BLUE_3","BLUE_4"];
+  if(phase<=8)return ["FIFTEEN","BLACK_1","BLACK_2"];
+  return STEP_EIGHT_PARTS;
 }
-function focusDistance(phase:number,narrow:boolean):V3 {
-  const scale=narrow?1.4:1;
-  if(phase===0)return [12*scale,-17*scale,19*scale];
-  if(phase<=4)return [5.5*scale,-8*scale,10*scale];
-  if(phase<=8)return [6.5*scale,-8.5*scale,12*scale];
-  return [8*scale,-10*scale,13*scale];
+function partHalfSize(id:StepEightPart):V3 {
+  if(id.startsWith("FIVE"))return [2.55,0.65,0.6];
+  if(id.startsWith("SEVEN"))return [0.65,3.65,0.6];
+  if(id==="FIFTEEN")return [0.65,7.65,0.6];
+  return id.startsWith("BLUE")?[0.82,0.82,1.65]:[0.75,0.75,1.05];
+}
+/**
+ * Fit both the old and new instructional poses inside the ACTUAL viewport.
+ * Perspective fit uses horizontal AND vertical FOV; narrow phones cannot
+ * silently crop a pin or receiving hole, even during a camera flight.
+ * Pure camera maths — does not affect hole coordinates or STEP8 geometry.
+ */
+function fittedCamera(phase:number,config:StepEightConfig,width:number,height:number,
+  cameraView:"iso"|"top"|"side"|"bottom") {
+  const aspect=Math.max(0.3,width/Math.max(height,1));
+  const direction=(
+    phase===0?[0,-0.26,1]:
+    cameraView==="top"?[0.05,-0.1,1]:
+    cameraView==="bottom"?[0.05,0.1,-1]:
+    cameraView==="side"?[0,-1,0.18]:
+    [0.9,-1.1,1.4]
+  ) as V3;
+  const out=new Vector3(...direction).normalize();
+  const right=new Vector3().crossVectors(new Vector3(0,0,1),out).normalize();
+  const up=new Vector3().crossVectors(out,right).normalize();
+  const poses=[stepEightPoses(phase,config)];
+  if(phase>0)poses.push(stepEightPoses(phase-1,config));
+  const points:Vector3[]=[];
+  for(const pose of poses)for(const id of focusParts(phase)){
+    const p=pose[id].position;const [hx,hy,hz]=partHalfSize(id);
+    for(const dx of [-hx,hx])for(const dy of [-hy,hy])for(const dz of [-hz,hz]){
+      points.push(new Vector3(p[0]+dx,p[1]+dy,p[2]+dz));
+    }
+  }
+  const boxCenter=points.reduce((sum,p)=>sum.add(p),new Vector3()).divideScalar(points.length);
+  let halfWidth=0,halfHeight=0,depth=0;
+  for(const p of points){
+    const v=p.clone().sub(boxCenter);
+    halfWidth=Math.max(halfWidth,Math.abs(v.dot(right)));
+    halfHeight=Math.max(halfHeight,Math.abs(v.dot(up)));
+    depth=Math.max(depth,Math.abs(v.dot(out)));
+  }
+  const halfVFov=43*Math.PI/360;
+  const distance=Math.max(halfHeight/Math.tan(halfVFov),
+    halfWidth/(Math.tan(halfVFov)*aspect))*1.28+depth+2.5;
+  return {point:boxCenter,position:boxCenter.clone().addScaledVector(out,
+    Math.max(10,Math.min(190,distance)))};
 }
 function NumberedHoles({id,phase,config}:{
   id:StepEightPart;phase:number;config:StepEightConfig;
@@ -158,26 +201,16 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
   const cameraFlight=useRef<{a:Vector3;b:Vector3;ta:Vector3;tb:Vector3;t:number}|null>(null);
   const completed=useRef(onMotionComplete);
   completed.current=onMotionComplete;
-  const {camera,size}=useThree();
-  const narrow=size.width/size.height<0.85;
-  const setupCamera=()=>{
-    // Action 1: nearly overhead, so neither perspective nor the camera angle
-    // hides one prepared part behind another. On narrow portrait viewers,
-    // scale distance by viewport aspect to preserve the complete 11-part layout.
-    if(phase===0){
-      const aspect=Math.max(0.3,size.width/Math.max(1,size.height));
-      const scale=Math.max(1,0.87/aspect);
-      const point=new Vector3(0,0,STEP_EIGHT_LEVEL/2);
-      return {point,position:point.clone().add(new Vector3(0,-6.5*scale,39*scale))};
-    }
-    const point=new Vector3(...interest(phase,config));
-    const offset=phase!==11?new Vector3(...focusDistance(phase,narrow)):
-      cameraView==="top"?new Vector3(0.01,0.01,21):
-      cameraView==="bottom"?new Vector3(0.01,0.01,-21):
-      cameraView==="side"?new Vector3(0,-21,3):
-      new Vector3(...focusDistance(phase,narrow));
-    return {point,position:point.clone().add(offset)};
-  };
+  const {camera,size,setDpr}=useThree();
+  const lastViewport=useRef({width:size.width,height:size.height});
+  const setupCamera=()=>fittedCamera(phase,config,size.width,size.height,cameraView);
+  // Adaptive fidelity: high quality on desktop; protect mobile GPUs from
+  // excess fill-rate while keeping antialiasing and the original STL detail.
+  useLayoutEffect(()=>{
+    const density=Math.min(typeof window==="undefined"?1:window.devicePixelRatio||1,
+      size.width<520?1.25:size.width<900?1.5:1.75);
+    setDpr(Math.max(1,density));
+  },[size.width,setDpr]);
   const configKey=config.sevenNearHole+":"+config.fifteenNearHole;
   useLayoutEffect(()=>{
     const destination=stepEightPoses(phase,config);
@@ -223,7 +256,10 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
   // must never reset, skip or replay an in-progress connector insertion.
   useLayoutEffect(()=>{
     const view=setupCamera();
-    if(firstCamera.current||reducedMotion){
+    const viewportChanged=lastViewport.current.width!==size.width||
+      lastViewport.current.height!==size.height;
+    lastViewport.current={width:size.width,height:size.height};
+    if(firstCamera.current||reducedMotion||viewportChanged){
       camera.up.set(0,0,1);
       camera.position.copy(view.position);
       orbit.current?.target.copy(view.point);
@@ -236,7 +272,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
       };
     }
     firstCamera.current=false;
-  },[phase,configKey,cameraView,camera,narrow,size.width,size.height,reducedMotion]);
+  },[phase,configKey,cameraView,camera,size.width,size.height,reducedMotion]);
   useLayoutEffect(()=>{
     if(resetCameraKey===0)return;
     const view=setupCamera();
@@ -344,7 +380,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
       [guide[0],guide[1],guide[2]+2.1]]}
       color="#e2a315" lineWidth={1.5} dashed dashSize={0.12} gapSize={0.12}/>}
     <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.08}
-      enablePan={false} minDistance={4.5} maxDistance={110}
+      enablePan={false} minDistance={4.5} maxDistance={210}
       onStart={()=>{cameraFlight.current=null;onUserCameraInteraction?.();}}
       autoRotateSpeed={0.5}/>
   </>;
@@ -366,8 +402,8 @@ export function StepEightScene({phase,config,paused,replayKey,resetCameraKey,red
   onUserCameraInteraction?:()=>void;
 }){
   return <ViewerBoundary>
-    <Canvas camera={{fov:43,near:0.1,far:120,position:[12,-16,19],up:[0,0,1]}}
-      dpr={[1,1.6]} gl={{antialias:true,powerPreference:"low-power"}}
+    <Canvas camera={{fov:43,near:0.1,far:400,position:[12,-16,19],up:[0,0,1]}}
+      dpr={[1,1.75]} gl={{antialias:true,powerPreference:"high-performance"}}
       style={{height:"100%",width:"100%",touchAction:"none"}}
       aria-label="Step 8 real STL 3D frame and 15-hole beam locking demonstration">
       <Suspense fallback={null}>
