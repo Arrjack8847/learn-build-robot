@@ -184,7 +184,7 @@ test("Opposite top/bottom face exposes the other pin half but never moves origin
     assert.equal(flipped[i][2],-p[2], "Opposite mounting face changes side");
   });
   assert.ok(geometry.includes("STEP_NINE_RECEIVERS = [7, 11]"));
-  assert.ok(geometry.includes("- level,"));
+  assert.ok(geometry.includes("STEP_NINE_RAIL_FACE_SEATING"));
   assert.ok(geometry.includes("stepNineOrientedPinOffset([-1,-2,level])"));
   assert.ok(geometry.includes("stepNineOrientedPinOffset([ 1,-2,level])"));
   assert.ok(geometry.includes("stepNineOrientedPinOffset([-1, 2,level])"));
