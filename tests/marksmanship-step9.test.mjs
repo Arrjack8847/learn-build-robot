@@ -19,7 +19,7 @@ test("Photographed Step 9 begins at action zero and ends with inspection",()=>{
   assert.ok(seq.indexOf("Flip Step 8 upside down")<seq.indexOf("Align four pins below Step 7"));
   assert.ok(seq.indexOf("Align four pins below Step 7")<seq.indexOf("Lower Step 7 onto all four pins"));
   assert.ok(seq.indexOf("Lower Step 7 onto all four pins")<seq.indexOf("Inspect the completed"));
-  assert.ok(lesson.includes("Action 0 starts"));
+  assert.ok(lesson.includes("Action 0 prepares the two finished structures"));
 });
 test("The four photographed holes are the two open targets on each Step 7 rail",()=>{
   assert.ok(geometry.includes("STEP_NINE_RECEIVERS = [7, 11]"));
