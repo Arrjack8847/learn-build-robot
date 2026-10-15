@@ -330,8 +330,8 @@ test("Step 8 blue pins descend from above, remain visible and never protrude bel
     assert.ok(pinTop>beamTop,
       "Connector "+n+" must remain visibly exposed above its beam");
   }
-  assert.ok(frameScene.includes("const sign=1"),
-    "Blue connectors and both white rails must approach from +Z and descend");
+  assert.ok(frameScene.includes("const sign=phase===7||phase===8?-1:1"),
+    "Blue and white parts move downward, but black pins rise into the 15-hole beam");
   assert.ok(frameScene.includes("[toBlue[0],toBlue[1],toBlue[2]+2.15]"),
     "The gold insertion guide must match the top-down insertion path");
   assert.ok(frameScene.includes("phase>=1&&phase<=4?[0.75,-1.2,1.15]"),
@@ -392,8 +392,8 @@ test("Step 8 both 7-hole white beams descend onto the four upper blue-pin ends",
   assert.ok(frameGeom.includes("phase>=5?STEP_EIGHT_SEVEN_RAIL_SEATED_Z:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_A[2]"));
   assert.ok(frameGeom.includes("phase>=6?STEP_EIGHT_SEVEN_RAIL_SEATED_Z:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_B[2]"));
   assert.ok(frameGeom.includes("if(phase===5||phase===6)return [phase===5?-1:1,0,STEP_EIGHT_SEVEN_RAIL_SEATED_Z]"));
-  assert.ok(frameScene.includes("const sign=1"),
-    "The beams descend with +Z clearance, then lower into place");
+  assert.ok(frameScene.includes("const sign=phase===7||phase===8?-1:1"),
+    "Both 7-hole beams retain their downward insertion directions");
   assert.ok(frameScene.includes("const descendingWhiteRail=phase===5||phase===6"));
   assert.ok(frameScene.includes("STEP_EIGHT_SEVEN_RAIL_SEATED_Z+2.15"),
     "The dual-connector guides stop at the top interface, not below the frame");
@@ -460,13 +460,64 @@ test("Step 8 all three white rails sit above grey beams; center rail descends on
   assert.ok(frameGeom.includes("const firstY = longAligned ? -2")&&
     frameGeom.includes("const secondY = firstY + 4"),
     "Both black pins must align with grey beams at y=-2 and +2");
-  assert.ok(frameScene.includes("const sign=1")&&
+  assert.ok(frameScene.includes("const sign=phase===7||phase===8?-1:1")&&
     frameScene.includes('travel.phase===10&&(id==="FIFTEEN"||id==="BLACK_1"||id==="BLACK_2")'),
-    "Action 11 lowers the white beam and both attached black pins as one unit");
+    "Action 11 still lowers the long white beam with both already-installed black pins");
   assert.ok(frameScene.includes("const descendingWhiteRail=phase===5||phase===6||phase===9||phase===10"),
     "Double-pin guides show a TOP-DOWN movement, never underside insertion");
   assert.ok(frameGeom.includes("All three white beams stay on top; nothing disappears or detaches."));
   assert.ok(frameGeom.includes("SAME TOP SIDE as the pair of 7-hole white beams."));
   assert.ok(frameGeom.includes("STEP_EIGHT_SEVEN_RAIL_SEATED_Z"),
     "Previously approved first and second white-rail seating must stay unchanged");
+});
+
+test("Step 8 both black connector pins enter from below and rise into holes 7 and 11",()=>{
+  const pitch=8,thickness=7.8;
+  const greyZ=(thickness+1.5)/pitch;
+  const railZ=greyZ+thickness/pitch;
+  const longWhiteZ=railZ+2.2;
+  const longWhiteBottom=longWhiteZ-thickness/(2*pitch);
+  const pinSeatedZ=longWhiteBottom;
+  const pinLooseZ=1.3;
+  const blackHalfLength=16/(2*pitch);
+  const pinClearanceZ=pinSeatedZ-2.15;
+  assert.ok(pinLooseZ+blackHalfLength<longWhiteBottom,
+    "Both loose black STL pins must sit fully BELOW the detached 15-hole white beam");
+  assert.ok(pinClearanceZ+blackHalfLength<longWhiteBottom,
+    "The coaxial upward approach must not intersect the white beam before seating");
+  assert.ok(pinSeatedZ>pinClearanceZ && pinClearanceZ>pinLooseZ,
+    "Pins first align below, then enter UPWARD without changing their final location");
+  assert.ok(frameGeom.includes('BLACK_1: [6.5,-10.6,1.3]')&&
+    frameGeom.includes('BLACK_2: [10.7,-10.6,1.3]'),
+    "Both black connectors remain physically separated in the loose parts layout");
+  assert.ok(frameScene.includes("const sign=phase===7||phase===8?-1:1"),
+    "Only black connectors use -Z clearance and UPWARD insertion");
+  assert.ok(frameScene.includes('phase===7||phase===8?[0.85,-1.1,-0.9]'),
+    "Inspect the receiving holes from the underside while installing black pins");
+  assert.ok(frameScene.includes('const underside=id==="FIFTEEN"&&(phase===7||phase===8)')&&
+    frameScene.includes('rotation={underside?[Math.PI,0,0]:[0,0,0]}'),
+    "The orange target rings must mark the underside of the long white beam");
+  assert.ok(frameScene.includes('const activeBlack=phase===7?"BLACK_1":phase===8?"BLACK_2":null'));
+  assert.ok(frameScene.includes('[toBlack[0],toBlack[1],toBlack[2]-2.15]'),
+    "Both instructional guides must show an approach from BELOW");
+  assert.ok(frameScene.includes('points={[fromBlack,blackClearance]}')&&
+    frameScene.includes('points={[blackClearance,toBlack]}'),
+    "Black connector guide paths must rise from the loose pose into each hole");
+  assert.ok(frameScene.includes('const activeConnector=activeBlue===id||activeBlack===id'),
+    "Pin highlighted during motion remains fully rendered");
+  assert.ok(frameGeom.includes('const id=phase===7?"BLACK_1":"BLACK_2"')&&
+    frameGeom.includes('const seated=stepEightPoses(phase,config)[id].position'),
+    "Guide target is an actual world-space mounting location, not a fabricated origin");
+  assert.ok(frameGeom.includes('fifteenNearHole: 7')&&
+    frameGeom.includes('beam15Hole:config.fifteenNearHole+4')&&
+    frameGeom.includes('receiverHole:3'),
+    "Final black-pin holes remain 7 and 11; corresponding grey receivers stay Hole 3");
+  assert.ok(frameGeom.includes('xyz(longX,firstY,longZ+STEP_EIGHT_BLACK_PIN_INTERFACE_OFFSET_Z)')&&
+    frameGeom.includes('xyz(longX,secondY,longZ+STEP_EIGHT_BLACK_PIN_INTERFACE_OFFSET_Z)'),
+    "The installed pins keep their approved mounted poses and move with the beam");
+  assert.ok(frameGeom.includes('push vertically UPWARD into the UNDERSIDE')&&
+    frameGeom.includes('push UPWARD into the UNDERSIDE'),
+    "Both instructions explicitly teach lower-to-upper insertion");
+  assert.ok(frame.includes('push vertically UPWARD into its UNDERSIDE'),
+    "The active action panel must agree with the 3D black pin animation");
 });
