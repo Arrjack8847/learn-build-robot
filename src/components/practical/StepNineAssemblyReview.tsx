@@ -82,8 +82,8 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
         usesUpdatedStepEightAssembly:true,stepEightBlackPinHoles:[7,11],
         stepEightTopBottomFaceTurnDegrees:180,
         stepEightAttachmentSide:"opposite-top-bottom-face",
-        joiningBlueConnectorDisplayConcealed:true,
-        joiningBlueConnectorConcealment:"visual-only-until-physical-fit-verified",
+        joiningBlueConnectorMeshesPreserved:true,
+        joiningBlueConnectorVisibility:"opaque-at-all-stages",
         stationaryDuringInsertion:"step8",loweredDuringInsertion:"step7",
         inspectionViews:["front","side","top","bottom"],
         longestStepEightBeamFacesFront:true,geometryUnchanged:true,
@@ -122,8 +122,8 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
             :phase===2
               ?"Align four Step 8 pins beneath Step 7 holes 7 + 11"
               :phase===3
-                ?"Keep Step 8 still · lower Step 7 until four joints are concealed"
-                :"Inspect the final joint · no exposed mounting blue connectors"}
+                ?"Keep Step 8 still · lower Step 7 onto four real connectors"
+                :"Inspect the real four-pin seating · no hidden pieces"}
       </span>}
       tools={<div className="flex flex-wrap items-center gap-1.5">
         <button type="button" title="Reset camera" aria-label="Reset Step 9 3D camera"
@@ -174,11 +174,12 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
           I checked the real assembly against the top, side and underside photos:
           Step 8 is turned onto its correct TOP/BOTTOM attachment face and stays
           below Step 7, which lowers into holes 7 and 11 on both outer white rails.
-          None of the four joining blue connector shafts remain visibly exposed
-          between the structures. The two grey cross-supports retain their positions.
-          I understand the 3D seating depth is estimated and the viewer fades the
-          four connecting blue pin meshes once seated; this is visual concealment,
-          not verified physical pin depth.
+          The four original blue connectors remain present and opaque throughout.
+          When correctly seated, their inserted shafts should be covered by the
+          receiving beams rather than made invisible by an animation trick.
+          The two grey cross-supports retain their positions. I understand the
+          actual 3D seating depth and any remaining exposed shaft require
+          verification against the real assembly.
         </label>}
         <AssemblyPlaybackControls
           onPrevious={()=>go(phase-1)}
@@ -193,10 +194,10 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
         <p className="text-[11px] text-slate-500">
           Action 0 prepares the two finished structures. Action 2 parks Step 8
           underneath and lifts Step 7 clear. Action 3 lowers Step 7 while Step 8
-          remains stationary and visually conceals the four joining shafts as
-          they seat. Bottom view checks the grey cross-supports. The blue
-          connectors still exist in their unchanged source geometry; the viewer
-          fades them only to avoid displaying exposed shafts at the finished joint.
+          remains stationary as the four unchanged blue connector meshes enter
+          the receiving beams. The viewer NEVER hides or fades these connectors.
+          Use the Bottom view to inspect the grey cross-supports and look for any
+          exposed shafts that indicate a remaining alignment or depth issue.
           Previous, Replay and Pause preserve the original saved parts.
           {animating?" Wait for the current animation to finish before advancing.":""}
         </p>
