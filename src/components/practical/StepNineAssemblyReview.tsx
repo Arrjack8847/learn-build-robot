@@ -41,6 +41,7 @@ function loadReady():ReadyState|null {
 export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void}){
   const [ready]=useState(loadReady);
   const [phase,setPhase]=useState(0);
+  const [animating,setAnimating]=useState(Boolean(ready));
   const [paused,setPaused]=useState(false);
   const [replayKey,setReplayKey]=useState(0);
   const [resetCameraKey,setResetCameraKey]=useState(0);
@@ -49,7 +50,13 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
   const [physicalCheck,setPhysicalCheck]=useState(false);
   const action=STEP_NINE_ACTIONS[phase]!;
   const final=phase===STEP_NINE_FINAL_PHASE;
-  const frameConfig=ready?.b.config??STEP_EIGHT_DEMO_CONFIG;
+  // Older browser snapshots may contain the pre-update Step 8 hole setting.
+  // Preview the APPROVED updated finished assembly, but do not claim the
+  // previous physical self-check also covered that updated configuration.
+  const savedFrameConfig=ready?.b.config??STEP_EIGHT_DEMO_CONFIG;
+  const needsStepEightRefresh=Boolean(ready &&
+    savedFrameConfig.fifteenNearHole!==STEP_EIGHT_DEMO_CONFIG.fifteenNearHole);
+  const frameConfig=needsStepEightRefresh?STEP_EIGHT_DEMO_CONFIG:savedFrameConfig;
   const beamY=ready?.transforms["STEP5_BEAM_11"]?.position[1]??4.1;
   const mating=ready?stepNineMating(ready.a.mountingChoices,ready.stepSixConfig,beamY):null;
   useEffect(()=>{
@@ -60,16 +67,19 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
     return ()=>preference.removeEventListener?.("change",change);
   },[]);
   function go(target:number){
+    if(animating)return; // Finish one guided movement before accepting another.
+    setAnimating(true);
     setPhase(Math.max(0,Math.min(STEP_NINE_FINAL_PHASE,target)));
     setPaused(false);setCameraView("iso");setPhysicalCheck(false);
   }
   function complete(){
-    if(!ready||!final||!physicalCheck)return;
+    if(!ready||!final||!physicalCheck||animating||needsStepEightRefresh)return;
     try {
       window.localStorage.setItem("robot:marksmanship:step9:joined:v1",JSON.stringify({
         version:1,assemblyId:STEP_NINE_ASSEMBLY_ID,
         fromStep7:ready.a.assemblyId,fromStep8:ready.b.assemblyId,
         stepSevenReceivingHoles:[7,11],fourOriginalBluePins:true,
+        usesUpdatedStepEightAssembly:true,stepEightBlackPinHoles:[7,11],
         longestStepEightBeamFacesFront:true,geometryUnchanged:true,
         photographedHolePositions:true,mechanicallyVerified:false,
         physicallySelfConfirmed:true,geometryWarnings:mating?.geometryWarnings??[],
@@ -95,11 +105,13 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
         frameConfig={frameConfig} stepSixConfig={ready.stepSixConfig}
         prepared={ready.transforms} replayKey={replayKey} paused={paused}
         resetCameraKey={resetCameraKey} reducedMotion={reducedMotion}
-        cameraView={cameraView}/>}
+        cameraView={cameraView} onMotionComplete={()=>setAnimating(false)}/>}
       status={<span className="inline-flex items-center gap-1.5 rounded-xl border
         border-sky-200 bg-sky-50/95 px-3 py-2 text-xs font-bold text-sky-900">
         <CheckCircle2 className="size-3.5"/>
-        Step 7 rails: holes 7 + 11 on EACH side · four original Step 8 blue pins
+        {phase===0
+          ?"Preparation · completed Step 7 on left / updated Step 8 on right"
+          :"Step 7 rails: holes 7 + 11 on EACH side · four original Step 8 blue pins"}
       </span>}
       tools={<div className="flex flex-wrap items-center gap-1.5">
         <button type="button" title="Reset camera" aria-label="Reset Step 9 3D camera"
@@ -121,6 +133,22 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
         <AssemblyActionCard actionIndex={phase} actionCount={STEP_NINE_ACTIONS.length}
           title={action.title} instruction={action.instruction}
           note={phase>=2?"The marked hole numbering starts at the exposed free end that already has a blue pin.":undefined}/>
+        {phase===0&&<div className="grid grid-cols-2 gap-2 text-[11px] sm:text-xs">
+          <div className="rounded-xl border border-slate-200 bg-slate-50 p-2.5">
+            <p className="font-extrabold">Assembly A · Step 7</p>
+            <p className="mt-0.5 text-slate-600">Completed rails, turned 180° horizontally. All original connectors retained.</p>
+          </div>
+          <div className="rounded-xl border border-slate-200 bg-slate-50 p-2.5">
+            <p className="font-extrabold">Assembly B · Updated Step 8</p>
+            <p className="mt-0.5 text-slate-600">Completed rigid frame, four blue pins and long white beam. Black locks in holes 7 and 11.</p>
+          </div>
+        </div>}
+        {needsStepEightRefresh&&<p role="alert" className="rounded-xl border border-amber-200
+          bg-amber-50 p-2.5 text-[11px] leading-5 text-amber-900">
+          Your browser saved an older Step 8 setting. The 3D preview shows the
+          updated 7-and-11 configuration. Return to Step 8 and complete its
+          physical check again before marking Step 9 finished.
+        </p>}
         {mating?.geometryWarnings.length?<div role="alert" className="rounded-xl
           border border-amber-200 bg-amber-50 p-2.5 text-[11px] leading-5 text-amber-950">
           <span className="font-extrabold">Check saved geometry against your real photo:</span>
@@ -137,17 +165,19 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
         </label>}
         <AssemblyPlaybackControls
           onPrevious={()=>go(phase-1)}
-          onReplay={()=>{setPaused(false);setReplayKey(v=>v+1);}}
+          onReplay={()=>{if(animating)return;setAnimating(true);setPaused(false);setReplayKey(v=>v+1);}}
           onTogglePause={()=>setPaused(v=>!v)}
           onNext={()=>go(phase+1)}
-          paused={paused} previousDisabled={!ready||phase===0}
-          replayDisabled={!ready} pauseDisabled={!ready}
-          nextDisabled={!ready} isFinalAction={final}
-          onComplete={complete} completeDisabled={!ready||!physicalCheck}/>
+          paused={paused} previousDisabled={!ready||animating||phase===0}
+          replayDisabled={!ready||animating} pauseDisabled={!ready}
+          nextDisabled={!ready||animating} isFinalAction={final}
+          onComplete={complete}
+          completeDisabled={!ready||animating||!physicalCheck||needsStepEightRefresh}/>
         <p className="text-[11px] text-slate-500">
           Action 0 starts with the two completed structures separate; Action 3
           seats them together. Previous, Replay, Pause and camera controls
           never modify your saved Step 7 or Step 8 assemblies.
+          {animating?" Wait for the current animation to finish before advancing.":""}
         </p>
       </div>}
     />
