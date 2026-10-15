@@ -95,35 +95,93 @@ test("each Hole 3 black connector sits on the opposite face from the gray beam",
   assert.ok(lesson.includes('blackHole3Face: "opposite-gray"'));
 });
 
-test("three blue pins on each white beam remain visible from both outer faces", () => {
-  const pitch = g.STEP_TEN_PITCH_MM;
-  const halfWhiteBeam = (7.8 / pitch) / 2;
-  const halfGrayBeam = (7.8 / pitch) / 2;
-  const halfBluePin = (24 / pitch) / 2;
-  for (const [unit, phase] of [["A", 7], ["B", 14]]) {
-    const positions = g.stepTenPoses(phase);
-    const white = positions["WHITE_" + unit];
-    const gray = positions["GRAY_" + unit];
-    const firstBlue = positions["BLUE_" + unit + "_1"];
-    assert.equal(firstBlue.position[2], white.position[2]);
-    assert.ok(firstBlue.position[2] - halfBluePin < white.position[2] - halfWhiteBeam);
-    assert.ok(firstBlue.position[2] + halfBluePin > white.position[2] + halfWhiteBeam);
-    for (const [whiteHole, grayHole] of [[6, 3], [12, 9]]) {
-      const blue = positions["BLUE_" + unit + "_" + whiteHole];
-      assert.equal(blue.position[0], g.whiteHoleX(whiteHole));
-      assert.equal(g.whiteHoleX(whiteHole), g.grayHoleX(grayHole));
-      const whiteOutside = white.position[2] - halfWhiteBeam;
-      const grayOutside = gray.position[2] + halfGrayBeam;
-      const protrudeWhite = whiteOutside - (blue.position[2] - halfBluePin);
-      const protrudeGray = (blue.position[2] + halfBluePin) - grayOutside;
-      assert.ok(protrudeWhite > 0, unit + " pin must protrude from white side");
-      assert.ok(protrudeGray > 0, unit + " pin must protrude from gray side");
-      assert.ok(Math.abs(protrudeWhite - protrudeGray) < 1e-10,
-        unit + " both ends should protrude equally");
-    }
-    assert.equal(positions["BLACK_" + unit + "_15"].position[2], -0.66);
+test("Hole 1 blue pins insert upward and remain visible on both white faces", () => {
+  const halfWhite = g.STEP_TEN_BEAM_HALF_DEPTH;
+  const halfBlue = g.STEP_TEN_BLUE_PIN_HALF_LENGTH;
+  for (const [unit, installedPhase] of [["A", 2], ["B", 9]]) {
+    const seated = g.stepTenPoses(installedPhase);
+    const before = g.stepTenPoses(installedPhase - 1);
+    const blue = seated["BLUE_" + unit + "_1"];
+    const white = seated["WHITE_" + unit];
+    assert.ok(before["BLUE_" + unit + "_1"].position[2] < white.position[2],
+      "the blue connector must BEGIN below the beam");
+    assert.equal(blue.position[2], white.position[2], "blue Hole 1 must be centered");
+    assert.ok(blue.position[2] - halfBlue < white.position[2] - halfWhite);
+    assert.ok(blue.position[2] + halfBlue > white.position[2] + halfWhite);
+    assert.equal(g.stepTenHighlight(installedPhase).face, -1);
   }
-  assert.ok(lesson.includes("bluePinsVisibleOnBothOuterFaces: true"));
+  assert.ok(scene.includes('part === "BLUE_A_1" || part === "BLUE_B_1"'));
+  assert.match(g.STEP_TEN_ACTIONS[2].instruction, /BELOW to ABOVE/);
+  assert.match(g.STEP_TEN_ACTIONS[9].instruction, /BELOW to ABOVE/);
+  assert.ok(lesson.includes('blueHole1VisibleOnBothWhiteFaces: true'));
+});
+
+test("blue Holes 6 and 12 insert downward, stop FLUSH under white and extend ABOVE gray", () => {
+  const halfWhite = g.STEP_TEN_BEAM_HALF_DEPTH;
+  const halfBlue = g.STEP_TEN_BLUE_PIN_HALF_LENGTH;
+  const expectedBottom = -halfWhite;
+  for (const [unit, phase] of [["A", 7], ["B", 14]]) {
+    const finished = g.stepTenPoses(phase);
+    const white = finished["WHITE_" + unit];
+    const gray = finished["GRAY_" + unit];
+    for (const [holeWhite, holeGray] of [[6, 3], [12, 9]]) {
+      const id = "BLUE_" + unit + "_" + holeWhite;
+      const blue = finished[id];
+      const before = g.stepTenPoses(unit === "A" ? holeWhite === 6 ? 2 : 3
+        : holeWhite === 6 ? 9 : 10)[id];
+      assert.ok(before.position[2] > white.position[2],
+        "the blue pin starts above white, never underneath");
+      assert.equal(blue.position[0], g.whiteHoleX(holeWhite));
+      assert.equal(blue.position[0], g.grayHoleX(holeGray));
+      assert.ok(Math.abs((blue.position[2] - halfBlue) -
+        (white.position[2] + expectedBottom)) < 1e-10,
+        "lower pin face must be flush with white underside (no protrusion)");
+      assert.ok(blue.position[2] + halfBlue > gray.position[2] + halfWhite,
+        "upper blue tip must protrude above the mounted gray beam");
+    }
+  }
+  for(const phase of [3, 4, 10, 11])
+    assert.match(g.STEP_TEN_ACTIONS[phase].instruction, /ABOVE to BELOW/);
+  assert.ok(lesson.includes('blueHoles6And12WhiteUnderside: "flush-no-protrusion"'));
+  assert.ok(lesson.includes("bluePinsVisibleOnBothOuterFaces: false"));
+});
+
+test("Hole 15 black pins and three-hole joining bridge remain on the gray-side TOP", () => {
+  const halfWhite = g.STEP_TEN_BEAM_HALF_DEPTH;
+  for (const [unit, installed, finished] of [["A", 6, 7], ["B", 13, 14]]) {
+    const before = g.stepTenPoses(installed - 1);
+    const seated = g.stepTenPoses(installed);
+    const joined = g.stepTenPoses(17);
+    const white = seated["WHITE_" + unit];
+    const gray = g.stepTenPoses(finished)["GRAY_" + unit];
+    const black3 = seated["BLACK_" + unit + "_3"];
+    const black15 = seated["BLACK_" + unit + "_15"];
+    assert.ok(before["BLACK_" + unit + "_15"].position[2] > white.position[2],
+      "the black pin begins ABOVE the white beam");
+    assert.ok(black15.position[2] > white.position[2]);
+    assert.ok(gray.position[2] > white.position[2]);
+    assert.ok(black3.position[2] < white.position[2],
+      "Hole 3 must remain on the OPPOSITE lower face");
+    assert.equal(black15.position[0], g.whiteHoleX(15));
+    assert.ok(joined.BRIDGE_3.position[2] > joined["WHITE_" + unit].position[2]);
+    assert.ok(joined.BRIDGE_3.position[2] > black15.position[2]);
+  }
+  const aligned = g.stepTenPoses(16);
+  const joined = g.stepTenPoses(17);
+  assert.ok(aligned.BRIDGE_3.position[2] > joined.BRIDGE_3.position[2],
+    "3-hole bridge approaches its two pins FROM ABOVE");
+  assert.ok(joined.BRIDGE_3.position[2] - halfWhite >= halfWhite,
+    "3-hole bridge cannot protrude underneath the white beam");
+  const spacer = g.stepTenPoses(19);
+  assert.ok(spacer.BROWN_SPACER.position[2] > joined.BRIDGE_3.position[2],
+    "brown center spacer must be ABOVE the short black joining beam");
+  assert.ok(spacer.CENTER_BLACK.position[2] > joined.BRIDGE_3.position[2],
+    "center connector must enter the joining beam from the TOP side");
+  for (const phase of [6, 13, 16, 17, 19])
+    assert.match(g.STEP_TEN_ACTIONS[phase].instruction, /ABOVE|above|SAME SIDE/);
+  assert.ok(lesson.includes('blackHole15Face: "same-as-gray"'));
+  assert.ok(lesson.includes('threeHoleBridgeFace: "same-as-gray"'));
+  assert.ok(scene.includes('const offset = fromBelow ? -2.25 : 2.25;'));
 });
 
 test("Step 10 renders original 3D STL beams and pins with guided motion controls", () => {
