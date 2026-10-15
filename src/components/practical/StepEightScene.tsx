@@ -71,9 +71,10 @@ function interpolate(a:StepEightPose,b:StepEightPose,t:number):StepEightPose {
  */
 function insertion(a:StepEightPose,b:StepEightPose,t:number,phase:number,reverse:boolean):StepEightPose {
   const seated=reverse?a:b;
-  // Every installed beam and connector now descends from ABOVE the grey
-  // beams; the long center rail joins the two 7-hole rails on their TOP side.
-  const sign=1;
+  // Only the two BLACK connectors (phases 7 and 8) insert from BELOW
+  // into the underside of the loose 15-hole beam. Blue pins and all white
+  // beams retain their confirmed downward insertion direction.
+  const sign=phase===7||phase===8?-1:1;
   const clearance=phase===10?2.2:2.15;
   const aligned:StepEightPose={
     position:[seated.position[0],seated.position[1],seated.position[2]+sign*clearance],
@@ -116,6 +117,8 @@ function fittedCamera(phase:number,config:StepEightConfig,width:number,height:nu
     // During blue insertion show the TOP face and the exposed connector tips.
     // Framing still fits both the loose and seated positions on phone/tablet.
     phase>=1&&phase<=4?[0.75,-1.2,1.15]:
+    // For the two black-pin actions inspect the WHITE beam's underside.
+    phase===7||phase===8?[0.85,-1.1,-0.9]:
     cameraView==="top"?[0.05,-0.1,1]:
     cameraView==="bottom"?[0.05,0.1,-1]:
     cameraView==="side"?[0,-1,0.18]:
@@ -159,8 +162,11 @@ function NumberedHoles({id,phase,config}:{
     id==="FIFTEEN"&&(phase===7||phase===8)?config.fifteenNearHole+(phase===8?4:0):
     0;
   const showAll=Boolean(mark);
-  // The target ring stays on the TOP receiving face: the blue pins descend.
-  const faceZ=STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM)+0.04;
+  // The blue pins descend through the top of the grey beams. The two
+  // black pins approach the white 15-hole beam from the UNDERSIDE.
+  const underside=id==="FIFTEEN"&&(phase===7||phase===8);
+  const faceZ=(STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM)+0.04)*
+    (underside?-1:1);
   return <group>
     {Array.from({length},(_,i)=>{
       const active=i+1===mark ||
@@ -168,7 +174,8 @@ function NumberedHoles({id,phase,config}:{
         (id==="SEVEN_B"&&phase===6&&i+1===config.sevenNearHole+4);
       if(!showAll&&!active)return null;
       const x=i-(length-1)/2;
-      return <group key={i} position={[x,0,faceZ]}>
+      return <group key={i} position={[x,0,faceZ]}
+        rotation={underside?[Math.PI,0,0]:[0,0,0]}>
         {/* The blue tips enter the 7-hole rails from the UNDERSIDE while
             the white rails themselves descend from above. Mark both faces. */}
         {active&&((id==="SEVEN_A"&&phase===5)||(id==="SEVEN_B"&&phase===6))&&
@@ -375,6 +382,11 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
   const toBlue=activeBlue?start[activeBlue].position:null;
   const blueClearance:V3|null=toBlue
     ?[toBlue[0],toBlue[1],toBlue[2]+2.15]:null;
+  const activeBlack=phase===7?"BLACK_1":phase===8?"BLACK_2":null;
+  const fromBlack=activeBlack?stepEightPoses(phase-1,config)[activeBlack].position:null;
+  const toBlack=activeBlack?start[activeBlack].position:null;
+  const blackClearance:V3|null=toBlack
+    ?[toBlack[0],toBlack[1],toBlack[2]-2.15]:null;
   const twoPointPins=phase===5?["BLUE_1","BLUE_3"] as const:
     phase===6?["BLUE_2","BLUE_4"] as const:
     phase===9||phase===10?["BLACK_1","BLACK_2"] as const:null;
@@ -392,7 +404,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
           model==="black"?"#293544":
           model==="five"?"#e6ebf1":
           model==="seven"?"#bac9d9":"#f1f3f7";
-        const activeConnector=activeBlue===id;
+        const activeConnector=activeBlue===id||activeBlack===id;
         const activeReceiver=phase>=1&&phase<=4&&id===(phase<=2?"FIVE_A":"FIVE_B");
         return <group key={id} name={id} visible={true}
           ref={node=>{if(node)parts.current[id]=node;else delete parts.current[id];}}
@@ -415,6 +427,12 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
       <Line points={[blueClearance,toBlue]}
         color="#e2a315" lineWidth={2} dashed dashSize={0.15} gapSize={0.10}/>
     </>}
+    {fromBlack&&blackClearance&&toBlack&&<>
+      <Line points={[fromBlack,blackClearance]}
+        color="#168eea" lineWidth={1.6} dashed dashSize={0.20} gapSize={0.12}/>
+      <Line points={[blackClearance,toBlack]}
+        color="#e2a315" lineWidth={2} dashed dashSize={0.15} gapSize={0.10}/>
+    </>}
     {twoPointPins&&twoPointPins.map(id=>{
       const target=stepEightPoses(phase===9?10:phase,config)[id].position;
       const descendingWhiteRail=phase===5||phase===6||phase===9||phase===10;
@@ -430,7 +448,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
             [target[0],target[1],target[2]+2.1]]}
         color="#e2a315" lineWidth={1.6} dashed dashSize={0.15} gapSize={0.12}/>;
     })}
-    {guide&&!activeBlue&&!twoPointPins&&<Line points={[[guide[0],guide[1],guide[2]-2.1],
+    {guide&&!activeBlue&&!activeBlack&&!twoPointPins&&<Line points={[[guide[0],guide[1],guide[2]-2.1],
       [guide[0],guide[1],guide[2]+2.1]]}
       color="#e2a315" lineWidth={1.5} dashed dashSize={0.12} gapSize={0.12}/>}
     </group>
