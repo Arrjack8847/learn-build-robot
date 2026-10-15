@@ -27,7 +27,7 @@ export type StepEightConfig = {
 };
 export const STEP_EIGHT_DEMO_CONFIG: StepEightConfig = {
   sevenNearHole: 2,
-  fifteenNearHole: 6,
+  fifteenNearHole: 7, // Approved photographed configuration: black pins in Holes 7 and 11
 };
 export const STEP_EIGHT_MECHANICALLY_VERIFIED = false;
 
@@ -131,11 +131,11 @@ export function stepEightGuide(phase:number,config:StepEightConfig):V3|null {
   return null;
 }
 export const STEP_EIGHT_SEQUENCE = [
-  {number:"8.1",title:"Prepare all 11 parts",instruction:"Lay out the two 5-hole beams, two 7-hole beams, four blue pins, one 15-hole beam and two black pins."},
-  {number:"8.2",title:"First blue connector",instruction:"Insert a blue connector into Hole 2 of the first 5-hole beam."},
-  {number:"8.2",title:"Second blue connector",instruction:"Insert another blue connector into Hole 4, facing the same direction."},
-  {number:"8.3",title:"Third blue connector",instruction:"Insert a blue connector into Hole 2 of the second 5-hole beam."},
-  {number:"8.3",title:"Fourth blue connector",instruction:"Insert the final blue connector into Hole 4 of the second beam."},
+  {number:"8.1",title:"Prepare two matching 5-hole beam groups",instruction:"Group A: one 5-hole beam and two blue connectors. Group B: the other 5-hole beam and two blue connectors. Keep the two 7-hole beams, long beam and black connectors nearby for later."},
+  {number:"8.2",title:"Beam A · insert blue connector 1",instruction:"Select the first blue connector. Find Hole 2 on the FIRST 5-hole beam; align with the orange ring and insert straight along the guide."},
+  {number:"8.2",title:"Beam A · insert blue connector 2",instruction:"Leave connector 1 in Hole 2. Align the second blue connector with Hole 4 on the SAME 5-hole beam and insert from the same direction."},
+  {number:"8.3",title:"Beam B · insert blue connector 3",instruction:"Beam A is prepared. Move to the SECOND 5-hole beam, find Hole 2, and insert the third blue connector along its highlighted axis."},
+  {number:"8.3",title:"Beam B · insert blue connector 4",instruction:"Leave connector 3 in Hole 2. Insert the final blue connector into Hole 4 of Beam B, matching the direction used on Beam A."},
   {number:"8.4",title:"Connect the first 7-hole beam",instruction:"Line up the two exposed blue pins with the first 7-hole beam's highlighted receiving holes and seat the beam underneath."},
   {number:"8.5",title:"Close the rectangular frame",instruction:"Attach the second 7-hole beam to the remaining two pins and inspect all four joints."},
   {number:"8.6",title:"Fit the first black connector",instruction:"Insert the first black connector into the selected hole of the separate 15-hole beam."},
