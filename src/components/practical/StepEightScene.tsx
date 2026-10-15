@@ -161,6 +161,15 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
   const {camera,size}=useThree();
   const narrow=size.width/size.height<0.85;
   const setupCamera=()=>{
+    // Action 1: nearly overhead, so neither perspective nor the camera angle
+    // hides one prepared part behind another. On narrow portrait viewers,
+    // scale distance by viewport aspect to preserve the complete 11-part layout.
+    if(phase===0){
+      const aspect=Math.max(0.3,size.width/Math.max(1,size.height));
+      const scale=Math.max(1,0.87/aspect);
+      const point=new Vector3(0,0,STEP_EIGHT_LEVEL/2);
+      return {point,position:point.clone().add(new Vector3(0,-6.5*scale,39*scale))};
+    }
     const point=new Vector3(...interest(phase,config));
     const offset=phase!==11?new Vector3(...focusDistance(phase,narrow)):
       cameraView==="top"?new Vector3(0.01,0.01,21):
@@ -227,7 +236,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
       };
     }
     firstCamera.current=false;
-  },[phase,configKey,cameraView,camera,narrow,reducedMotion]);
+  },[phase,configKey,cameraView,camera,narrow,size.width,size.height,reducedMotion]);
   useLayoutEffect(()=>{
     if(resetCameraKey===0)return;
     const view=setupCamera();
@@ -335,7 +344,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
       [guide[0],guide[1],guide[2]+2.1]]}
       color="#e2a315" lineWidth={1.5} dashed dashSize={0.12} gapSize={0.12}/>}
     <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.08}
-      enablePan={false} minDistance={4.5} maxDistance={48}
+      enablePan={false} minDistance={4.5} maxDistance={110}
       onStart={()=>{cameraFlight.current=null;onUserCameraInteraction?.();}}
       autoRotateSpeed={0.5}/>
   </>;
