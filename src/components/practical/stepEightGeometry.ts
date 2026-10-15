@@ -123,7 +123,9 @@ export const STEP_EIGHT_PREPARATION_LAYOUT: Readonly<Record<StepEightPart,V3>> =
   BLUE_4: [5.7,6.5,5.7],
   SEVEN_A: [-8.5,0,STEP_EIGHT_SEVEN_RAIL_PREPARATION_Z],
   SEVEN_B: [4,0,STEP_EIGHT_SEVEN_RAIL_PREPARATION_Z],
-  FIFTEEN: [9,0,0],
+  // Keep the long center rail above the grey frame throughout preparation
+  // and alignment; it must never travel up THROUGH the already-built frame.
+  FIFTEEN: [9,0,STEP_EIGHT_FIFTEEN_BEAM_ALIGNMENT_Z],
   BLACK_1: [6.5,-10.6,1.3],
   BLACK_2: [10.7,-10.6,1.3],
 };
@@ -145,7 +147,7 @@ export function stepEightPoses(phase:number,config:StepEightConfig):Record<StepE
   const longAligned = phase >= 9;
   const longX = longAligned ? 0 : STEP_EIGHT_PREPARATION_LAYOUT.FIFTEEN[0];
   const longZ = longAtFrame ? STEP_EIGHT_FIFTEEN_BEAM_SEATED_Z
-    : longAligned ? STEP_EIGHT_FIFTEEN_BEAM_ALIGNMENT_Z : 0;
+    : STEP_EIGHT_FIFTEEN_BEAM_ALIGNMENT_Z;
   const beam15Y = 6 - config.fifteenNearHole;
   const poses = {
     FIVE_A: xyz(0,frameA,STEP_EIGHT_LEVEL),
