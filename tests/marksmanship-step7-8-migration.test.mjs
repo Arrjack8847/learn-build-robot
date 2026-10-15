@@ -82,7 +82,7 @@ test("Independent Assembly A and B are both required at Step 9",()=>{
 });
 
 test("Step 7 aligns one black and two grey connectors on each rail",()=>{
-  assert.match(railConfig,/railCenterDistance:0\.9,firstRailHole:13,secondRailHole:8/);
+  assert.match(railConfig,/railCenterDistance:0\.9,firstRailHole:12,secondRailHole:7/);
   assert.ok(railConfig.includes('receivingBlackHole:receiving+black.beamHoles[0]!-bridge.beamHoles[0]!'));
   assert.ok(railConfig.includes('sourceBlackHole:black.beamHoles[0]!'));
   assert.ok(railConfig.includes('item.side===bridge.side')||railConfig.includes('v.side===bridge.side'));
@@ -142,7 +142,7 @@ test("Step 7 moves both added end pins to the opposite/right-hand free end witho
 });
 
 test("Approved Step 7 rail calibration and visible end-pin camera framing",()=>{
-  assert.match(railConfig,/railCenterDistance:0\.9,firstRailHole:13,secondRailHole:8/);
+  assert.match(railConfig,/railCenterDistance:0\.9,firstRailHole:12,secondRailHole:7/);
   assert.ok(rails.includes("STEP_SEVEN_PHOTO_CONFIG"));
   assert.ok(railConfig.includes("first rail\'s grey holes 12/14"));
   assert.ok(railConfig.includes("second rail\'s 7/9"));
