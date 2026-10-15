@@ -327,7 +327,7 @@ test("Step 8 blue connectors enter from underneath and remain real opaque meshes
   assert.ok(frameScene.includes('const underside=id.startsWith("FIVE")&&phase>=1&&phase<=4'),
     "Orange hole rings must appear on the insertion face");
   assert.ok(frameScene.includes('rotation={underside?[Math.PI,0,0]:[0,0,0]}'));
-  assert.ok(frameScene.includes('phase>=activation'),
+  assert.ok(frameGeom.includes('phase>=activation'),
     "The mounted connector is retained in every later phase");
   assert.ok(frameGeom.includes('const seated = phase>=activation;'));
   assert.ok(frameGeom.includes('const p=seated ? [hole-3,beamY,STEP_EIGHT_LEVEL/2]'),
