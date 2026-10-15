@@ -246,7 +246,8 @@ test("Early Step 8 actions teach a clear preparation, approach and connection se
 test("Step 8 preparation keeps all eleven original STL parts visibly separated",()=>{
   const match=frameGeom.match(/export const STEP_EIGHT_PREPARATION_LAYOUT:[^\n]* = \{([\s\S]*?)\n\};/);
   assert.ok(match,"A single explicit preparation layout is the source of truth");
-  const prep=new Function("STEP_EIGHT_LEVEL",`return ({${match[1]}});`)((7.8+1.5)/8);
+  const prep=new Function("STEP_EIGHT_LEVEL","STEP_EIGHT_SEVEN_RAIL_PREPARATION_Z",
+    `return ({${match[1]}});`)((7.8+1.5)/8,(7.8+1.5)/8+7.8/8+2.7);
   const ids=["FIVE_A","FIVE_B","SEVEN_A","SEVEN_B","FIFTEEN",
     "BLUE_1","BLUE_2","BLUE_3","BLUE_4","BLACK_1","BLACK_2"];
   assert.deepEqual(Object.keys(prep).sort(),ids.sort());
@@ -309,7 +310,8 @@ test("Step 8 responsive camera, mobile controls and animated instructional guide
 test("Step 8 blue pins descend from above, remain visible and never protrude below the 5-hole beams",()=>{
   const match=frameGeom.match(/export const STEP_EIGHT_PREPARATION_LAYOUT:[^\n]* = \{([\s\S]*?)\n\};/);
   assert.ok(match,"Expected explicit layout with all 11 original parts");
-  const prep=new Function("STEP_EIGHT_LEVEL",`return ({${match[1]}});`)((7.8+1.5)/8);
+  const prep=new Function("STEP_EIGHT_LEVEL","STEP_EIGHT_SEVEN_RAIL_PREPARATION_Z",
+    `return ({${match[1]}});`)((7.8+1.5)/8,(7.8+1.5)/8+7.8/8+2.7);
   assert.ok(frameGeom.includes("STEP_EIGHT_BLUE_CONNECTOR_LENGTH_MM = 24"));
   assert.ok(frameGeom.includes("export const STEP_EIGHT_BLUE_PIN_SEATED_Z ="));
   assert.ok(frameGeom.includes("STEP_EIGHT_BLUE_CONNECTOR_LENGTH_MM/(2*STEP_EIGHT_PITCH_MM) + 0.02"));
@@ -327,8 +329,8 @@ test("Step 8 blue pins descend from above, remain visible and never protrude bel
     assert.ok(pinTop>beamTop,
       "Connector "+n+" must remain visibly exposed above its beam");
   }
-  assert.ok(frameScene.includes("const sign=phase===5||phase===6||phase===10?-1:1"),
-    "Four early blue connectors must approach from +Z and move downward");
+  assert.ok(frameScene.includes("const sign=phase===10?-1:1"),
+    "Blue connectors and both white rails must approach from +Z and descend");
   assert.ok(frameScene.includes("[toBlue[0],toBlue[1],toBlue[2]+2.15]"),
     "The gold insertion guide must match the top-down insertion path");
   assert.ok(frameScene.includes("phase>=1&&phase<=4?[0.75,-1.2,1.15]"),
@@ -353,6 +355,61 @@ test("Step 8 blue pins descend from above, remain visible and never protrude bel
   for(let n=1;n<=4;n++)
     assert.ok(frameGeom.includes("blue connector "+n)||frameGeom.includes("connector "+n),
       "Name each blue connector in its action");
-  assert.equal((frameGeom.match(/DOWNWARD/g)||[]).length,4,
-    "All four blue connector instructions must state the downward direction");
+  assert.equal((frameGeom.match(/DOWNWARD/g)||[]).length,6,
+    "All four blue and both white-beam instructions must state downward insertion");
+});
+
+test("Step 8 both 7-hole white beams descend onto the four upper blue-pin ends",()=>{
+  const pitch=8,thickness=7.8;
+  const fiveCenter=(thickness+1.5)/pitch;
+  const halfThickness=thickness/(2*pitch);
+  const fiveBottom=fiveCenter-halfThickness;
+  const fiveTop=fiveCenter+halfThickness;
+  const sevenCenter=fiveCenter+thickness/pitch;
+  const sevenBottom=sevenCenter-halfThickness;
+  const sevenTop=sevenCenter+halfThickness;
+  const blueCenter=fiveBottom+24/(2*pitch)+0.02;
+  const blueBottom=blueCenter-24/(2*pitch);
+  const blueTop=blueCenter+24/(2*pitch);
+  const alignedRailCenter=sevenCenter+2.15;
+  const looseRailCenter=sevenCenter+2.7;
+  assert.ok(Math.abs(sevenBottom-fiveTop)<1e-9,
+    "Installed 7-hole beams should rest ON TOP of the 5-hole beams");
+  assert.ok(blueBottom>=fiveBottom,
+    "Blue pins may not protrude under any 5-hole beam");
+  assert.ok(blueTop>sevenTop,
+    "All four blue pin ends remain visible ABOVE the installed white rails");
+  assert.ok(alignedRailCenter-halfThickness>blueTop,
+    "Each rail must clear the standing pins before its downward seating stroke");
+  assert.ok(looseRailCenter>alignedRailCenter,
+    "Both loose rails start higher than the insertion alignment waypoint");
+  assert.ok(frameGeom.includes("export const STEP_EIGHT_SEVEN_RAIL_SEATED_Z =")&&
+    frameGeom.includes("STEP_EIGHT_LEVEL + STEP_EIGHT_THICKNESS_MM/STEP_EIGHT_PITCH_MM"));
+  assert.ok(frameGeom.includes("STEP_EIGHT_SEVEN_RAIL_PREPARATION_Z ="));
+  assert.ok(frameGeom.includes("SEVEN_A: [-8.5,0,STEP_EIGHT_SEVEN_RAIL_PREPARATION_Z]"));
+  assert.ok(frameGeom.includes("SEVEN_B: [4,0,STEP_EIGHT_SEVEN_RAIL_PREPARATION_Z]"));
+  assert.ok(frameGeom.includes("phase>=5?STEP_EIGHT_SEVEN_RAIL_SEATED_Z:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_A[2]"));
+  assert.ok(frameGeom.includes("phase>=6?STEP_EIGHT_SEVEN_RAIL_SEATED_Z:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_B[2]"));
+  assert.ok(frameGeom.includes("if(phase===5||phase===6)return [phase===5?-1:1,0,STEP_EIGHT_SEVEN_RAIL_SEATED_Z]"));
+  assert.ok(frameScene.includes("const sign=phase===10?-1:1"),
+    "The beams descend with +Z clearance, then lower into place");
+  assert.ok(frameScene.includes("const descendingWhiteRail=phase===5||phase===6"));
+  assert.ok(frameScene.includes("STEP_EIGHT_SEVEN_RAIL_SEATED_Z+2.15"),
+    "The dual-connector guides stop at the top interface, not below the frame");
+  assert.ok(frameScene.includes('phase===5?["BLUE_1","BLUE_3"]')&&
+    frameScene.includes('phase===6?["BLUE_2","BLUE_4"]'),
+    "Each white rail must align onto its pair of blue pins");
+  assert.ok(frameScene.includes("travel.phase===5&&(")&&
+    frameScene.includes('id.startsWith("BLUE_")'),
+    "Both 5-hole rails and all four pins remain rigid while the first 7-hole rail seats");
+  assert.ok(frameGeom.includes("fifteenNearHole: 7")&&
+    frameGeom.includes("hole5:2")&&frameGeom.includes("hole5:4"),
+    "Existing approved hole numbers must be unaffected");
+  assert.ok(frameGeom.includes("config.sevenNearHole+4"),
+    "The 7-hole receiving pair must stay four holes apart");
+  assert.ok(frameScene.includes("active&&((id===\"SEVEN_A\"&&phase===5)||(id===\"SEVEN_B\"&&phase===6))"),
+    "Mark the actual underside receiving holes on the descending white rails");
+  assert.ok(frameGeom.includes('Keep both blue tips visible from the top.') &&
+    frameGeom.includes('all four connectors remain visible'),
+    "Instructions must describe both descending rails and retained blue pins");
 });
