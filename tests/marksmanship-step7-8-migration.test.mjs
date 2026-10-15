@@ -172,3 +172,28 @@ test("Step 8 guided motion stays reversible, camera-safe and physically unchange
   assert.ok(frameGeom.includes("sevenNearHole: 2"));
   assert.ok(frameGeom.includes("fifteenNearHole: 6"));
 });
+
+
+test("Step 8 exactly matches Step 7 motion category timing and camera duration",()=>{
+  const oldMotion=read("src/components/practical/StepSevenRailsScene.tsx");
+  assert.ok(oldMotion.includes("duration:phase===2||phase===4?1.8:phase===5||phase===6?1.25:1.45"));
+  assert.ok(oldMotion.includes("delta/0.85"));
+  const match=frameScene.match(/function actionDuration\(phase:number\):number \{([\s\S]*?)\n\}/);
+  assert.ok(match,"Step 8 must define an action-duration mapping");
+  const duration=new Function("phase",match[1]);
+  for(const phase of [1,2,3,4,7,8])assert.equal(duration(phase),1.25,"connector "+phase);
+  for(const phase of [5,6,10])assert.equal(duration(phase),1.8,"beam press "+phase);
+  assert.equal(duration(9),1.45,"align center beam");
+  assert.ok(frameScene.includes("Math.min(delta,0.06)/0.85"),"camera exactly 0.85 seconds");
+  assert.ok(frameScene.includes("const oldPhase=replaying?Math.max(0,phase-1):prior;"),
+    "Recreate deterministic old phase like Step 7, never interpolate from R3F-mutated target props");
+  assert.ok(frameScene.includes("const from=stepEightPoses(oldPhase,config)"));
+  assert.ok(frameScene.includes("posesDiffer(from,destination)"),
+    "Do not invent a movement on the static final inspection action");
+  assert.ok(frameScene.includes("t<0.42")&&frameScene.includes("t/0.42")&&frameScene.includes("(t-0.42)/0.58"),
+    "Use Step 7's 42% approach and 58% straight insertion");
+  assert.ok(frameScene.includes("cameraFlight.current=null;"),"dragging cancels camera flight");
+  assert.ok(frameScene.includes("const seated=reverse?a:b;"),"reverse via shared insertion clearance");
+  assert.ok(frameScene.includes("travel.phase===10&&(id===\"FIFTEEN\"||id===\"BLACK_1\"||id===\"BLACK_2\")"),
+    "Two black connectors move rigidly with the final beam");
+});
