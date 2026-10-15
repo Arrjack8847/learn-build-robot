@@ -26,8 +26,8 @@ export type StepSixStepFiveTransforms = Record<string, {
   rotation: Vector3Tuple;
   model: string;
 }>;
-export const STEP_SIX_RESULT = "robot:marksmanship:step6:assembled:v1";
-export const STEP_SIX_DRAFT = "robot:marksmanship:step6:draft:v1";
+export const STEP_SIX_RESULT = "robot:marksmanship:step6:assembled:v2";
+export const STEP_SIX_DRAFT = "robot:marksmanship:step6:draft:v2";
 export const STEP_SIX_ASSEMBLY_ID = "marksman-step6-main-connector-beam";
 export const BEAM_HOLE_COUNT = 11;
 export const HOLE_PITCH_MM = 8;
@@ -50,19 +50,20 @@ export const EMPTY_MOUNT_CONFIG: StepSixMountConfig = {
 };
 
 /**
- * Suggested from the user's real Step 6 photograph (IMG_0530):
- * at the near/left photographed end, two upright black pins at holes 1 & 2;
- * centre/near-side bridge approximately holes 4 & 6; far-side end bridge
- * approximately holes 9 & 11. Student MUST confirm the numbers and sides.
- * This preset is not claimed as mechanically or photographically calibrated.
+ * User-confirmed bridge holes on the 11-hole beam: A = 3/5 (front),
+ * B = 7/9 (back). The black 15100 units stay in holes 1 and 2.
+ * Their opposite faces (hole 1 back, hole 2 front) are INFERRED so that
+ * the rigid Step 7 rail joints align exactly at:
+ * front: black 5 + grey 6/8; back: black 4 + grey 10/12.
+ * This face assignment still requires physical confirmation.
  */
 export const STEP_SIX_PHOTO_SUGGESTION: Readonly<StepSixMountConfig> = {
-  hollowASide:"front", hollowBSide:"back",
-  bridgeAStart:4, bridgeASide:"front",
-  bridgeBStart:9, bridgeBSide:"back",
+  hollowASide:"back", hollowBSide:"front",
+  bridgeAStart:3, bridgeASide:"front",
+  bridgeBStart:7, bridgeBSide:"back",
 };
 export const STEP_SIX_PHOTO_SUGGESTION_STATUS =
-  "estimated-from-one-user-photograph; requires physical confirmation";
+  "user-confirmed bridge hole pairs; inferred hollow faces require physical confirmation";
 
 export function validateMountConfig(config: StepSixMountConfig): string[] {
   const errors: string[] = [];
