@@ -133,10 +133,11 @@ function NumberedHoles({id,phase,config}:{
     })}
   </group>;
 }
-function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoInspect,cameraView,onMotionComplete}:{
+function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoInspect,cameraView,onMotionComplete,onUserCameraInteraction}:{
   phase:number;config:StepEightConfig;paused:boolean;replayKey:number;
   resetCameraKey:number;reducedMotion:boolean;autoInspect:boolean;
   cameraView:"iso"|"top"|"side"|"bottom";onMotionComplete:(()=>void)|undefined;
+  onUserCameraInteraction:(()=>void)|undefined;
 }) {
   const loaded=useLoader(STLLoader,SOURCES);
   const geometries=useMemo(()=>({
@@ -245,9 +246,19 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
           const part=parts.current[id];if(!part)continue;
           const guided=(id===travel.target&&travel.phase>=1&&travel.phase<=8)||
             (travel.phase===10&&(id==="FIFTEEN"||id==="BLACK_1"||id==="BLACK_2"));
-          const pose=guided
-            ?insertion(travel.from[id],travel.to[id],t,travel.phase,travel.reverse)
-            :interpolate(travel.from[id],travel.to[id],t);
+          // Action 6: reposition the two completed 5-hole beam+pin groups
+          // during the 42% approach. Keep them stationary during the 58%
+          // two-point insertion, so receiving holes never chase the beam.
+          const preparingFirstRail=travel.phase===5&&(
+            id==="FIVE_A"||id==="FIVE_B"||id.startsWith("BLUE_"));
+          const relocationT=travel.reverse
+            ?Math.max(0,(t-0.58)/0.42)
+            :Math.min(1,t/0.42);
+          const pose=preparingFirstRail
+            ?interpolate(travel.from[id],travel.to[id],relocationT)
+            :guided
+              ?insertion(travel.from[id],travel.to[id],t,travel.phase,travel.reverse)
+              :interpolate(travel.from[id],travel.to[id],t);
           part.position.set(...pose.position);
           part.rotation.set(...pose.rotation);
         }
@@ -270,6 +281,14 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
   });
   const guide=phase>0&&phase<11?stepEightGuide(phase,config):null;
   const start=stepEightPoses(phase,config);
+  const activeBlue=phase>=1&&phase<=4?("BLUE_"+phase) as StepEightPart:null;
+  const fromBlue=activeBlue?stepEightPoses(phase-1,config)[activeBlue].position:null;
+  const toBlue=activeBlue?start[activeBlue].position:null;
+  const blueClearance:V3|null=toBlue
+    ?[toBlue[0],toBlue[1],toBlue[2]+2.15]:null;
+  const twoPointPins=phase===5?["BLUE_1","BLUE_3"] as const:
+    phase===6?["BLUE_2","BLUE_4"] as const:
+    phase===9||phase===10?["BLACK_1","BLACK_2"] as const:null;
   return <>
     <color attach="background" args={["#f5f8fc"]}/>
     <ambientLight intensity={1.5}/>
@@ -284,25 +303,40 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
           model==="black"?"#293544":
           model==="five"?"#e6ebf1":
           model==="seven"?"#bac9d9":"#f1f3f7";
+        const activeConnector=activeBlue===id;
+        const activeReceiver=phase>=1&&phase<=4&&id===(phase<=2?"FIVE_A":"FIVE_B");
         return <group key={id} name={id}
           ref={node=>{if(node)parts.current[id]=node;else delete parts.current[id];}}
           position={start[id].position} rotation={start[id].rotation}>
           <mesh geometry={geometries[model]} castShadow receiveShadow>
             <meshStandardMaterial color={color} roughness={0.5}
               metalness={0.06} side={DoubleSide}
-              emissive={phase>=1&&phase<=4&&id==="BLUE_"+phase?"#664300":"#000000"}
-              emissiveIntensity={0.17}/>
+              emissive={activeConnector?"#155a96":activeReceiver?"#32577d":"#000000"}
+              emissiveIntensity={activeConnector?0.34:activeReceiver?0.11:0}/>
           </mesh>
           <NumberedHoles id={id} phase={phase} config={config}/>
         </group>;
       })}
     </group>
-    {guide&&<Line points={[[guide[0],guide[1],guide[2]-2.1],
+    {fromBlue&&blueClearance&&toBlue&&<>
+      <Line points={[fromBlue,blueClearance]}
+        color="#168eea" lineWidth={1.6} dashed dashSize={0.20} gapSize={0.12}/>
+      <Line points={[blueClearance,toBlue]}
+        color="#e2a315" lineWidth={2} dashed dashSize={0.15} gapSize={0.10}/>
+    </>}
+    {twoPointPins&&twoPointPins.map(id=>{
+      const target=stepEightPoses(phase===9?10:phase,config)[id].position;
+      return <Line key={id+"-two-joint-guide"}
+        points={[[target[0],target[1],target[2]-2.1],
+          [target[0],target[1],target[2]+2.1]]}
+        color="#e2a315" lineWidth={1.6} dashed dashSize={0.15} gapSize={0.12}/>;
+    })}
+    {guide&&!activeBlue&&!twoPointPins&&<Line points={[[guide[0],guide[1],guide[2]-2.1],
       [guide[0],guide[1],guide[2]+2.1]]}
       color="#e2a315" lineWidth={1.5} dashed dashSize={0.12} gapSize={0.12}/>}
     <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.08}
       enablePan={false} minDistance={4.5} maxDistance={48}
-      onStart={()=>{cameraFlight.current=null;}}
+      onStart={()=>{cameraFlight.current=null;onUserCameraInteraction?.();}}
       autoRotateSpeed={0.5}/>
   </>;
 }
@@ -316,10 +350,11 @@ class ViewerBoundary extends Component<{children:React.ReactNode},{message:strin
       </div>:this.props.children;
   }
 }
-export function StepEightScene({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoInspect,cameraView,onMotionComplete}:{
+export function StepEightScene({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoInspect,cameraView,onMotionComplete,onUserCameraInteraction}:{
   phase:number;config:StepEightConfig;paused:boolean;replayKey:number;
   resetCameraKey:number;reducedMotion:boolean;autoInspect:boolean;
   cameraView:"iso"|"top"|"side"|"bottom";onMotionComplete?:()=>void;
+  onUserCameraInteraction?:()=>void;
 }){
   return <ViewerBoundary>
     <Canvas camera={{fov:43,near:0.1,far:120,position:[12,-16,19],up:[0,0,1]}}
@@ -330,7 +365,8 @@ export function StepEightScene({phase,config,paused,replayKey,resetCameraKey,red
         <Stage phase={phase} config={config} paused={paused} replayKey={replayKey}
           resetCameraKey={resetCameraKey} reducedMotion={reducedMotion}
           autoInspect={autoInspect} cameraView={cameraView}
-          onMotionComplete={onMotionComplete}/>
+          onMotionComplete={onMotionComplete}
+          onUserCameraInteraction={onUserCameraInteraction}/>
       </Suspense>
     </Canvas>
   </ViewerBoundary>;
