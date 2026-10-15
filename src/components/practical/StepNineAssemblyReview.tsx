@@ -80,6 +80,7 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
         fromStep7:ready.a.assemblyId,fromStep8:ready.b.assemblyId,
         stepSevenReceivingHoles:[7,11],fourOriginalBluePins:true,
         usesUpdatedStepEightAssembly:true,stepEightBlackPinHoles:[7,11],
+        stepEightFlippedUpsideDown:true,flipAxis:"horizontal-long-beam",
         longestStepEightBeamFacesFront:true,geometryUnchanged:true,
         photographedHolePositions:true,mechanicallyVerified:false,
         physicallySelfConfirmed:true,geometryWarnings:mating?.geometryWarnings??[],
@@ -111,7 +112,9 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
         <CheckCircle2 className="size-3.5"/>
         {phase===0
           ?"Preparation · completed Step 7 on left / updated Step 8 on right"
-          :"Step 7 rails: holes 7 + 11 on EACH side · four original Step 8 blue pins"}
+          :phase===1
+            ?"Orient Step 8 · flip the complete frame upside down"
+            :"Step 7 rails: holes 7 + 11 on EACH side · four original Step 8 blue pins"}
       </span>}
       tools={<div className="flex flex-wrap items-center gap-1.5">
         <button type="button" title="Reset camera" aria-label="Reset Step 9 3D camera"
@@ -140,7 +143,7 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
           </div>
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-2.5">
             <p className="font-extrabold">Assembly B · Updated Step 8</p>
-            <p className="mt-0.5 text-slate-600">Completed rigid frame, four blue pins and long white beam. Black locks in holes 7 and 11.</p>
+            <p className="mt-0.5 text-slate-600">Completed frame with four blue pins and black locks in holes 7/11. Flip the whole frame upside down in Action 1.</p>
           </div>
         </div>}
         {needsStepEightRefresh&&<p role="alert" className="rounded-xl border border-amber-200
@@ -159,8 +162,9 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
           border-sky-200 bg-sky-50 p-2.5 text-xs leading-5">
           <input type="checkbox" className="mt-0.5 size-4 shrink-0"
             checked={physicalCheck} onChange={e=>setPhysicalCheck(e.target.checked)}/>
-          I checked the real assembly: all four Step 8 blue pins enter the intended
-          Step 7 holes, and the longest white Step 8 beam faces the front.
+          I checked the real assembly: Step 8 is flipped upside down, all four
+          blue pins enter the intended Step 7 holes from below, and its
+          longest white beam faces the front.
           I understand the 3D seating depth has not been physically measured.
         </label>}
         <AssemblyPlaybackControls
