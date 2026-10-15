@@ -124,7 +124,7 @@ function NumberedHoles({id,phase,config}:{
 function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoInspect,cameraView,onMotionComplete}:{
   phase:number;config:StepEightConfig;paused:boolean;replayKey:number;
   resetCameraKey:number;reducedMotion:boolean;autoInspect:boolean;
-  cameraView:"iso"|"top"|"side"|"bottom";onMotionComplete?:()=>void;
+  cameraView:"iso"|"top"|"side"|"bottom";onMotionComplete:(()=>void)|undefined;
 }) {
   const loaded=useLoader(STLLoader,SOURCES);
   const geometries=useMemo(()=>({
