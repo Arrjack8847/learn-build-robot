@@ -1,7 +1,7 @@
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { Line, OrbitControls } from "@react-three/drei";
 import { Component, Suspense, useLayoutEffect, useMemo, useRef } from "react";
-import { BufferGeometry, DoubleSide, Group, Matrix4, Quaternion, Vector3 } from "three";
+import { BufferGeometry, DoubleSide, Group, Matrix4, Mesh, MeshStandardMaterial, Quaternion, Vector3 } from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { STEP5_MODEL_PATHS } from "./StepFiveScene";
@@ -11,7 +11,7 @@ import { STEP_SEVEN_FINAL_PHASE, STEP_SEVEN_PIN_IDS, STEP_SEVEN_RAIL_IDS, endPin
 import {
   STEP_NINE_CAMERA_DURATION, STEP_NINE_FINAL_PHASE,
   STEP_NINE_PREP_DURATION, STEP_NINE_PREP_ENTRANCE_OFFSET,
-  STEP_NINE_STEP_SEVEN_YAW, STEP_NINE_OPPOSITE_FACE_YAW,
+  STEP_NINE_STEP_SEVEN_YAW, STEP_NINE_STEP_EIGHT_FACE_FLIP,
   stepNineStepSevenPose, stepNineFramePose, stepNineMating, stepNineTurnedPoint,
 } from "./stepNineGeometry";
 import { motionEase, motionLerp } from "./marksmanLessonMotion";
@@ -47,10 +47,11 @@ function stepEightMeshName(id:StepEightPart):"five"|"seven"|"fifteen"|"blue"|"bl
   return id.startsWith("FIVE")?"five":id.startsWith("SEVEN")?"seven":
     id==="FIFTEEN"?"fifteen":id.startsWith("BLUE")?"blue":"black";
 }
-/** Step 8 local +Z points shared -Y = WORLD UP through the shared
- * outer scene root. A horizontal yaw around shared Y reverses X and Z
- * while preserving -Y: the four mounting blue pins remain upright.
- * Rotate the ENTIRE Step 8 root during Action 1, never its individual parts.
+/** Step 8's correct attachment side is its OPPOSITE top/bottom face,
+ * not its opposite horizontal front/back facing. Flip the WHOLE rigid
+ * Step 8 assembly about the horizontal shared X axis (its long beam).
+ * The other half of each original double-ended blue pin then faces
+ * the Step 7 receiving holes. The pin meshes never move independently.
  */
 const INITIAL_ALIGNMENT=new Quaternion().setFromRotationMatrix(new Matrix4().set(
   0,-1,0,0,
@@ -59,7 +60,7 @@ const INITIAL_ALIGNMENT=new Quaternion().setFromRotationMatrix(new Matrix4().set
   0,0,0,1,
 ));
 const OPPOSITE_FACE_ALIGNMENT=new Quaternion()
-  .setFromAxisAngle(new Vector3(0,1,0),STEP_NINE_OPPOSITE_FACE_YAW)
+  .setFromAxisAngle(new Vector3(1,0,0),STEP_NINE_STEP_EIGHT_FACE_FLIP)
   .multiply(INITIAL_ALIGNMENT);
 const ease=motionEase;
 function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKey,paused,resetCameraKey,reducedMotion,cameraView,onMotionComplete}:{
@@ -86,6 +87,22 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
   }),[loaded]);
   const frame=useRef<Group>(null);
   const stepSeven=useRef<Group>(null);
+  /** The four mounting connectors remain in the 3D model and are visible
+   * before insertion. As Step 7 is seated, only their DISPLAY opacity
+   * falls to zero so no shafts float visibly across the finished joint.
+   * This does not erase parts or alter their stored geometry/transforms.
+   */
+  const mountingPins=useRef<(Mesh|null)[]>([]);
+  const setMountingPinOpacity=(amount:number)=>{
+    const opacity=Math.max(0,Math.min(1,amount));
+    for(const pin of mountingPins.current){
+      if(!pin)continue;
+      pin.visible=opacity>0.001;
+      const mat=pin.material as MeshStandardMaterial;
+      mat.opacity=opacity;
+      mat.depthWrite=opacity>0.99;
+    }
+  };
   const orbit=useRef<OrbitControlsImpl>(null);
   const motionDone=useRef(onMotionComplete);
   motionDone.current=onMotionComplete;
@@ -177,6 +194,9 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
         action:Math.max(old,phase),reverse:old>phase,
         time:0,duration:Math.max(old,phase)===2||Math.max(old,phase)===3?1.8:1.45,
       }:null;
+      // On replay/reverse, restore the blue connectors BEFORE pulling
+      // Step 7 away. On final seating, keep their shafts concealed.
+      setMountingPinOpacity((animate?old:phase)>=3?0:1);
       if(!animate)motionDone.current?.();
     }
     prior.current={phase,replayKey};mounted.current=true;
@@ -250,9 +270,15 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
           :motionLerp(halfway,m.toSeven,approach);
         stepEightPosition=m.toEight;
       }
-      // Action 1: horizontal rigid yaw to Step 8's opposite attachment side.
-      // Other actions keep this corrected orientation; pin axes stay WORLD UP.
-      // No individual beam, pin, or installed connector ever shifts.
+      if(m.action===3){
+        // The blue shafts remain visible until Step 7 actually presses
+        // onto the joint. Hide the exposed mounting pins only over the
+        // FINAL 22% of the seating stroke. Reverse restores them smoothly.
+        const seatAmount=m.reverse?1-t:t;
+        setMountingPinOpacity(1-Math.max(0,Math.min(1,(seatAmount-0.78)/0.22)));
+      }
+      // Action 1 is a rigid TOP/BOTTOM face flip around horizontal X.
+      // The stored geometries, rail holes and connector poses are unchanged.
       stepSeven.current.position.set(...stepSevenPosition);
       frame.current.position.set(...stepEightPosition);
       frame.current.quaternion.copy(m.fromQuat).slerp(m.toQuat,ease(t));
@@ -345,8 +371,14 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
           const color=model==="blue"?"#1576ce":model==="black"?"#293544":
             model==="five"?"#e6ebf1":model==="seven"?"#bac9d9":"#f1f3f7";
           return <group key={id} name={"STEP8_"+id} position={p.position} rotation={p.rotation}>
-            <mesh geometry={meshes[model]} castShadow receiveShadow>
+            <mesh geometry={meshes[model]} castShadow receiveShadow
+              ref={id.startsWith("BLUE")
+                ?node=>{mountingPins.current[Number(id.slice(-1))-1]=node;}
+                :undefined}>
               <meshStandardMaterial color={color} roughness={0.54} side={DoubleSide}
+                transparent={id.startsWith("BLUE")}
+                opacity={id.startsWith("BLUE")&&phase>=3?0:1}
+                depthWrite={!(id.startsWith("BLUE")&&phase>=3)}
                 emissive={guideVisible&&id.startsWith("BLUE")?"#1568bc":"#000000"}
                 emissiveIntensity={guideVisible&&id.startsWith("BLUE")?0.2:0}/>
             </mesh>
