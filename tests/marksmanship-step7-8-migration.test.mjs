@@ -355,8 +355,9 @@ test("Step 8 blue pins descend from above, remain visible and never protrude bel
     "The gold insertion guide must match the top-down insertion path");
   assert.ok(frameScene.includes("phase>=1&&phase<=4?[0.75,-1.2,1.15]"),
     "Camera must show the exposed blue ends from above");
-  assert.ok(frameScene.includes("const faceZ=STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM)+0.04"),
-    "Hole rings must mark the TOP insertion face");
+  assert.ok(frameScene.includes('const underside=id==="FIFTEEN"&&(phase===7||phase===8)') &&
+    frameScene.includes('const faceZ=(STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM)+0.04)*'),
+    "Blue-pin hole rings mark the TOP face while black-pin rings mark the underside");
   assert.ok(frameGeom.includes("const seated = phase>=activation;") &&
     frameGeom.includes("const p=seated ? [hole-3,beamY,STEP_EIGHT_BLUE_PIN_SEATED_Z]"),
     "Seated connectors must stay installed and move rigidly with their beams");
