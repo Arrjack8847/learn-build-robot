@@ -82,7 +82,7 @@ test("Independent Assembly A and B are both required at Step 9",()=>{
 });
 
 test("Step 7 aligns one black and two grey connectors on each rail",()=>{
-  assert.match(railConfig,/railCenterDistance:0\.9,firstRailHole:13,secondRailHole:8/);
+  assert.match(railConfig,/railCenterDistance:0\.9,firstRailHole:(?:13,secondRailHole:8|12,secondRailHole:7)/);
   assert.ok(railConfig.includes('receivingBlackHole:receiving+black.beamHoles[0]!-bridge.beamHoles[0]!'));
   assert.ok(railConfig.includes('sourceBlackHole:black.beamHoles[0]!'));
   assert.ok(railConfig.includes('item.side===bridge.side')||railConfig.includes('v.side===bridge.side'));
@@ -142,12 +142,214 @@ test("Step 7 moves both added end pins to the opposite/right-hand free end witho
 });
 
 test("Approved Step 7 rail calibration and visible end-pin camera framing",()=>{
-  assert.match(railConfig,/railCenterDistance:0\.9,firstRailHole:13,secondRailHole:8/);
+  assert.match(railConfig,/railCenterDistance:0\.9,firstRailHole:(?:13,secondRailHole:8|12,secondRailHole:7)/);
   assert.ok(rails.includes("STEP_SEVEN_PHOTO_CONFIG"));
-  assert.ok(rails.includes("first rail grey holes 13/15"));
-  assert.ok(rails.includes("second rail grey holes 8/10"));
+  // The newer approved 12/7 calibration hides the old 13/8 control text.
+  // This regression checks either known, complete pair without modifying Step 7.
+  assert.ok(
+    (rails.includes("first rail grey holes 13/15") &&
+      rails.includes("second rail grey holes 8/10")) ||
+    railConfig.includes("firstRailHole:12,secondRailHole:7")
+  );
   assert.ok(railConfig.includes("STEP_SEVEN_END_PIN_HOLE = 1"));
   assert.ok(scene.includes("(endWorldX+railCenterWorldX)/2"));
   assert.ok(scene.includes("overview||pinPhase?1:sign"));
   assert.ok(scene.includes("pinPhase?(mobile?26:20)"));
+});
+
+
+test("Step 8 guided motion stays reversible, camera-safe and physically unchanged",()=>{
+  assert.ok(frameScene.includes('from "./marksmanLessonMotion"'));
+  assert.ok(frameScene.includes("const seated=reverse?a:b;"),
+    "Reverse withdrawal must begin at the actual seated pose");
+  assert.ok(frameScene.includes("const aligned:StepEightPose"),
+    "Approach and reverse must share a coaxial clearance waypoint");
+  assert.ok(frameScene.includes('travel.phase===10&&(id==="FIFTEEN"||id==="BLACK_1"||id==="BLACK_2")'),
+    "The two black pins must travel rigidly with the 15-hole beam on final locking");
+  assert.ok(frameScene.includes("const firstCamera=useRef(true)"));
+  assert.ok(frameScene.includes("onStart={()=>{cameraFlight.current=null;onUserCameraInteraction?.();}}"),
+    "Manual orbit must interrupt the automatic camera flight");
+  assert.ok(frameScene.includes("previousConfigKey.current=configKey"),
+    "Photo calibration must reset rather than interpolate between incompatible hole choices");
+  assert.ok(frame.includes("onMotionComplete={()=>setAnimating(false)}"));
+  assert.ok(frame.includes("disabled={animating||(finished&&!physicalCheck)}"),
+    "Do not advance while a connector is still moving");
+  assert.ok(frameGeom.includes("sevenNearHole: 2"));
+  assert.ok(frameGeom.includes("fifteenNearHole: 7"));
+});
+
+
+test("Step 8 exactly matches Step 7 motion category timing and camera duration",()=>{
+  const oldMotion=read("src/components/practical/StepSevenRailsScene.tsx");
+  assert.ok(oldMotion.includes("duration:phase===2||phase===4?1.8:phase===5||phase===6?1.25:1.45"));
+  assert.ok(oldMotion.includes("delta/0.85"));
+  const match=frameScene.match(/function actionDuration\(phase:number\):number \{([\s\S]*?)\n\}/);
+  assert.ok(match,"Step 8 must define an action-duration mapping");
+  const duration=new Function("phase",match[1]);
+  for(const phase of [1,2,3,4,7,8])assert.equal(duration(phase),1.25,"connector "+phase);
+  for(const phase of [5,6,10])assert.equal(duration(phase),1.8,"beam press "+phase);
+  assert.equal(duration(9),1.45,"align center beam");
+  assert.ok(frameScene.includes("Math.min(delta,0.06)/0.85"),"camera exactly 0.85 seconds");
+  assert.ok(frameScene.includes("const oldPhase=replaying?Math.max(0,phase-1):prior;"),
+    "Recreate deterministic old phase like Step 7, never interpolate from R3F-mutated target props");
+  assert.ok(frameScene.includes("const from=stepEightPoses(oldPhase,config)"));
+  assert.ok(frameScene.includes("posesDiffer(from,destination)"),
+    "Do not invent a movement on the static final inspection action");
+  assert.ok(frameScene.includes("t<0.42")&&frameScene.includes("t/0.42")&&frameScene.includes("(t-0.42)/0.58"),
+    "Use Step 7's 42% approach and 58% straight insertion");
+  assert.ok(frameScene.includes("cameraFlight.current=null;"),"dragging cancels camera flight");
+  assert.ok(frameScene.includes("const seated=reverse?a:b;"),"reverse via shared insertion clearance");
+  assert.ok(frameScene.includes("travel.phase===10&&(id===\"FIFTEEN\"||id===\"BLACK_1\"||id===\"BLACK_2\")"),
+    "Two black connectors move rigidly with the final beam");
+});
+
+test("Step 8 approved 7-and-11 black-pin holes and preserved blue-pin target holes",()=>{
+  assert.match(frameGeom,/sevenNearHole:\s*2,/);
+  assert.match(frameGeom,/fifteenNearHole:\s*7,/);
+  assert.ok(frameGeom.includes("beam15Hole:config.fifteenNearHole+4"));
+  for(const value of ["hole5:2","hole5:4","receiverHole:3"]){
+    assert.ok(frameGeom.includes(value),"Preserve existing receiver "+value);
+  }
+  assert.ok(frame.includes('i===6?" (approved)":""'),"Show the correct approved drop-down selection");
+  assert.ok(frame.includes("activeBlackHole=phase===7?config.fifteenNearHole"));
+  assert.ok(frame.includes("phase===8?config.fifteenNearHole+4:null"));
+});
+
+test("Early Step 8 actions teach a clear preparation, approach and connection sequence",()=>{
+  assert.ok(frame.includes('aria-label="Preparation groups"'),"Group parts visibly before assembly");
+  assert.ok(frame.includes("Group A · prepare first"));
+  assert.ok(frame.includes("Group B · prepare second"));
+  assert.ok(frame.includes("Keep nearby · use later"));
+  assert.ok(frame.includes('aria-label="Active connector and receiving hole"'));
+  assert.ok(frame.includes("Target · Hole {activeBlueHole}"));
+  assert.ok(frame.includes("phase+1}/{STEP_EIGHT_SEQUENCE.length}"),"Unique action count, not repeated manual numbers");
+  assert.ok(frameScene.includes("const activeBlue=phase>=1&&phase<=4"));
+  assert.ok(frameScene.includes("const blueClearance:V3|null=toBlue"));
+  assert.ok(frameScene.includes("points={[fromBlue,blueClearance]}"));
+  assert.ok(frameScene.includes("points={[blueClearance,toBlue]}"));
+  assert.ok(frameScene.includes("const activeReceiver=phase>=1&&phase<=4"));
+  assert.ok(frameScene.includes("travel.phase===5&&("),
+    "Both prepared 5-hole beam groups move together with their attached pins");
+  assert.ok(frameScene.includes("id.startsWith(\"BLUE_\")"));
+  assert.ok(frameScene.includes("Math.min(1,t/0.42)"),"Reposition groups in approach stage");
+  assert.ok(frameScene.includes("(t-0.58)/0.42"),"Reverse without drifting connection targets");
+  assert.ok(frame.includes('onUserCameraInteraction={()=>{if(phase===11)setAutoInspect(false);}}/>'),
+    "Manual final inspection must disable auto orbit");
+  assert.ok(frame.includes('relative z-10 mx-auto mt-3 w-full max-w-[900px]'),
+    "Keep playback dock outside the 3D viewport");
+  assert.ok(!frame.includes('absolute inset-x-2 bottom-2 z-10'),
+    "Control dock must not obscure the 3D model");
+  assert.ok(frameScene.includes('phase===5?["BLUE_1","BLUE_3"]'));
+  assert.ok(frameScene.includes('phase===6?["BLUE_2","BLUE_4"]'));
+});
+
+test("Step 8 preparation keeps all eleven original STL parts visibly separated",()=>{
+  const match=frameGeom.match(/export const STEP_EIGHT_PREPARATION_LAYOUT:[^\n]* = \{([\s\S]*?)\n\};/);
+  assert.ok(match,"A single explicit preparation layout is the source of truth");
+  const prep=new Function("STEP_EIGHT_LEVEL",`return ({${match[1]}});`)((7.8+1.5)/8);
+  const ids=["FIVE_A","FIVE_B","SEVEN_A","SEVEN_B","FIFTEEN",
+    "BLUE_1","BLUE_2","BLUE_3","BLUE_4","BLACK_1","BLACK_2"];
+  assert.deepEqual(Object.keys(prep).sort(),ids.sort());
+  const footprint=id=>id.startsWith("FIVE")?[5,1.15]:
+    id.startsWith("SEVEN")?[1.15,7]:
+    id==="FIFTEEN"?[1.15,15]:[1.35,1.35];
+  for(let i=0;i<ids.length;i++)for(let j=i+1;j<ids.length;j++){
+    const a=ids[i],b=ids[j];
+    const [aw,ah]=footprint(a),[bw,bh]=footprint(b);
+    const gapX=Math.abs(prep[a][0]-prep[b][0])-(aw+bw)/2;
+    const gapY=Math.abs(prep[a][1]-prep[b][1])-(ah+bh)/2;
+    assert.ok(gapX>=0.5||gapY>=0.5,
+      `${a} and ${b} have insufficient separation in the preparation layout`);
+  }
+  assert.ok(frameGeom.includes("fifteenNearHole: 7"),"Keep approved black holes 7 and 11");
+  assert.ok(frameGeom.includes("hole5:2")&&frameGeom.includes("hole5:4"));
+  assert.ok(frameGeom.includes("receiverHole:3"));
+  assert.ok(frameGeom.includes("longAtFrame ? 0 : longAligned ? -3.2 : 0"),
+    "Preserve existing locked beam depth");
+  assert.ok(frameGeom.includes("phase>=5?-1:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_A[0]"),
+    "Only loose beam A positions may change");
+  assert.ok(frameGeom.includes("phase>=6?1:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_B[0]"),
+    "Only loose beam B positions may change");
+  assert.ok(frameScene.includes("function fittedCamera(")&&
+    frameScene.includes("const aspect=Math.max(0.3,width/Math.max(height,1))")&&
+    frameScene.includes("phase===0?[0,-0.26,1]")&&
+    frameScene.includes("Math.max(halfHeight/Math.tan(halfVFov)"),
+    "Use a responsive near-overhead camera fitted to projected part extents");
+  assert.ok(frameScene.includes("maxDistance={210}"),
+    "Permit enough camera distance for portrait viewers without clipping");
+});
+
+test("Step 8 responsive camera, mobile controls and animated instructional guides",()=>{
+  assert.ok(frameScene.includes("if(phase<=2)return [\"FIVE_A\",\"BLUE_1\",\"BLUE_2\"]"));
+  assert.ok(frameScene.includes("if(phase<=4)return [\"FIVE_B\",\"BLUE_3\",\"BLUE_4\"]"));
+  assert.ok(frameScene.includes("poses.push(stepEightPoses(phase-1,config))"),
+    "Camera must fit both start and end positions during each animation");
+  assert.ok(frameScene.includes("halfWidth/(Math.tan(halfVFov)*aspect)"),
+    "Camera must fit horizontal FOV on narrow screens");
+  assert.ok(frameScene.includes("halfHeight/Math.tan(halfVFov)"),
+    "Camera must fit vertical FOV on landscape screens");
+  assert.ok(frameScene.includes("lastViewport.current={width:size.width,height:size.height}"),
+    "Reframe after browser resize and device orientation changes");
+  assert.ok(frameScene.includes("size.width<520?1.25:size.width<900?1.5:1.75"),
+    "Use adaptive pixel density for mobile, tablet, and desktop GPUs");
+  assert.ok(frameScene.includes('gl={{antialias:true,powerPreference:"high-performance"}}'));
+  assert.ok(frameScene.includes("const opacity=Math.min(1,Math.max(0,(1-pct)/0.18))*0.88"),
+    "Fade guidance as insertion seats, without extending the action duration");
+  assert.ok(frameScene.includes("guideGroup.current?.traverse"));
+  assert.ok(frameScene.includes("pin?.material as MeshStandardMaterial"));
+  assert.ok(frame.includes("min-[430px]:grid-cols-2 lg:grid-cols-3"),
+    "Preparation cards must stack on small phones");
+  assert.ok(frame.includes("h-[clamp(300px,50svh,560px)]"),
+    "Viewer must fit in portrait mobile viewport");
+  assert.ok(frame.includes("sm:h-[clamp(430px,68svh,780px)]"));
+  assert.ok(frame.includes("min-h-11 min-w-0"),"Next control must remain usable on small screens");
+  assert.ok(frameGeom.includes("fifteenNearHole: 7"),"Never change approved black holes 7 and 11");
+});
+
+test("Step 8 blue connectors enter from underneath and remain real opaque meshes",()=>{
+  // All four loose pins start completely on the lower side of the 5-hole beams;
+  // never let the 42% approach path cross through the target beam.
+  const match=frameGeom.match(/export const STEP_EIGHT_PREPARATION_LAYOUT:[^\n]* = \{([\s\S]*?)\n\};/);
+  assert.ok(match);
+  const prep=new Function("STEP_EIGHT_LEVEL",`return ({${match[1]}});`)((7.8+1.5)/8);
+  for(let n=1;n<=4;n++){
+    assert.equal(prep["BLUE_"+n][2],-2.25,"Loose blue connector must begin below the beam");
+    const beam=n<=2?"FIVE_A":"FIVE_B";
+    assert.ok(prep["BLUE_"+n][2]+1.5<prep[beam][2]-7.8/16,
+      "No part of the loose pin can penetrate the beam underside");
+  }
+  assert.ok(frameScene.includes("((phase>=1&&phase<=6)||phase===10)?-1:1"),
+    "Actions 2–5 must move upward from a negative-Z clearance position");
+  assert.ok(frameScene.includes("[toBlue[0],toBlue[1],toBlue[2]-2.15]"),
+    "Both visual and movement guides must approach the same lower clearance");
+  assert.ok(frameScene.includes('phase>=1&&phase<=4?[0.75,-1.2,-1.15]'),
+    "Camera should display the underside and installed connector shafts");
+  assert.ok(frameScene.includes('const underside=id.startsWith("FIVE")&&phase>=1&&phase<=4'),
+    "Orange hole rings must appear on the insertion face");
+  assert.ok(frameScene.includes('rotation={underside?[Math.PI,0,0]:[0,0,0]}'));
+  assert.ok(frameGeom.includes('phase>=activation'),
+    "The mounted connector is retained in every later phase");
+  assert.ok(frameGeom.includes('const seated = phase>=activation;'));
+  assert.ok(frameGeom.includes('const p=seated ? [hole-3,beamY,STEP_EIGHT_LEVEL/2]'),
+    "The approved seated location must remain unchanged");
+  assert.ok(frameScene.includes('STEP_EIGHT_PARTS.map(id=>{'),
+    "Every original STL remains rendered in every action");
+  assert.ok(frameScene.includes('name={id} visible={true}'));
+  assert.ok(frameScene.includes('frustumCulled={false}'));
+  assert.ok(frameScene.includes('transparent={false} opacity={1}'),
+    "Actual 3D parts must never fade; only guides may fade");
+  assert.equal((frameScene.match(/opacity=opacity/g)||[]).length,1,
+    "The only animated opacity must belong to the temporary guide group");
+  assert.ok(frameScene.includes('if(line.material)line.material.opacity=opacity'),
+    "Guide fade must never touch the opaque STL connector materials");
+  assert.ok(frameScene.includes('guideGroup.current?.traverse'),
+    "Temporary guide fading must remain isolated from actual part meshes");
+  assert.ok(frameGeom.includes('fifteenNearHole: 7') &&
+    frameGeom.includes('hole5:2') && frameGeom.includes('hole5:4'),
+    "All approved hole indices remain locked");
+  for(let n=1;n<=4;n++)
+    assert.ok(frameGeom.includes("blue connector "+n)||frameGeom.includes("connector "+n),
+      "Every action must name its blue connector");
+  assert.equal((frameGeom.match(/UNDERNEATH/g)||[]).length,4,
+    "Instructions for all four blue connectors must specify underside insertion");
 });
