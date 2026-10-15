@@ -15,24 +15,24 @@ test("Photographed Step 9 begins at action zero and ends with inspection",()=>{
   const seq=geometry.slice(start,end);
   for(const label of ['number:"0"','number:"1"','number:"2"','number:"3"','number:"4"'])
     assert.ok(seq.includes(label),label);
-  assert.ok(seq.indexOf("Prepare the two completed")<seq.indexOf("Check Step 8 orientation"));
-  assert.ok(seq.indexOf("Check Step 8 orientation")<seq.indexOf("Align four pins below Step 7"));
+  assert.ok(seq.indexOf("Prepare the two completed")<seq.indexOf("Turn Step 8 to the opposite attachment side"));
+  assert.ok(seq.indexOf("Turn Step 8 to the opposite attachment side")<seq.indexOf("Align four pins below Step 7"));
   assert.ok(seq.indexOf("Align four pins below Step 7")<seq.indexOf("Lower Step 7 onto all four pins"));
   assert.ok(seq.indexOf("Lower Step 7 onto all four pins")<seq.indexOf("Inspect the completed"));
   assert.ok(lesson.includes("Action 0 prepares the two finished structures"));
 });
 test("The four photographed holes are the two open targets on each Step 7 rail",()=>{
   assert.ok(geometry.includes("STEP_NINE_RECEIVERS = [7, 11]"));
-  const pairs=[["BLUE_1",1,7],["BLUE_2",0,7],["BLUE_3",1,11],["BLUE_4",0,11]];
+  const pairs=[["BLUE_1",0,11],["BLUE_2",1,11],["BLUE_3",0,7],["BLUE_4",1,7]];
   for(const [pin,rail,hole] of pairs){
     assert.ok(geometry.includes(`stepEightPin:"${pin}",rail:${rail},hole:${hole}`));
   }
-  // The original Step 8 5-hole bars have centres at x +/-1, y +/-2.
-  // The outer shared root flips Y. Pins face UP when local +Z maps
-  // to shared -Y: original (x,y,z) becomes (-y,-z,x).
+  // Horizontal Step 8 yaw 180° maps (x,y,z) from (-y,-z,x) to (y,-z,-x).
+  // It reverses longitudinal + lateral pin offsets WITHOUT inverting
+  // the vertical component. Shared -Y is world +Y (up).
   const blue=[[-1,-2,.58],[1,-2,.58],[-1,2,.58],[1,2,.58]];
-  assert.deepEqual(blue.map(([x,y,z])=>[-y,-z,x]),
-    [[2,-.58,-1],[2,-.58,1],[-2,-.58,-1],[-2,-.58,1]]);
+  assert.deepEqual(blue.map(([x,y,z])=>[y,-z,-x]),
+    [[-2,-.58,1],[-2,-.58,-1],[2,-.58,1],[2,-.58,-1]]);
   assert.ok(geometry.includes("alreadyOccupiedByStepSeven"));
   assert.ok(geometry.includes("geometryWarnings"));
 });
@@ -125,34 +125,45 @@ test("Step 9 prevents overlapping navigation animations but keeps pause/replay a
   assert.ok(!viewer.includes("scale.set("));
 });
 
-test("Action 1 preserves the ALREADY correct Step 8 orientation without any flip",()=>{
-  assert.ok(geometry.includes('title:"Check Step 8 orientation"'));
+test("Action 1 rotates the COMPLETE Step 8 group 180 degrees horizontally only",()=>{
+  assert.ok(geometry.includes('title:"Turn Step 8 to the opposite attachment side"'));
+  assert.ok(geometry.includes("STEP_NINE_OPPOSITE_FACE_YAW = Math.PI"));
+  assert.ok(geometry.includes("stepNineInitialPinOffset(point:V3)"));
+  assert.ok(geometry.includes("return [-point[1],-point[2],point[0]]"));
   assert.ok(geometry.includes("stepNineOrientedPinOffset(point:V3)"));
-  assert.ok(!geometry.includes("STEP_NINE_STEP_EIGHT_FLIP"));
-  assert.ok(!geometry.includes("stepNineFlippedPinOffset"));
-  assert.ok(viewer.includes("const ALIGNMENT=new Quaternion().setFromRotationMatrix"));
-  assert.ok(!viewer.includes("UPRIGHT_ALIGNMENT"));
-  assert.ok(!viewer.includes("const LOOSE="));
-  assert.ok(viewer.includes("const fromQuat=ALIGNMENT;"));
-  assert.ok(viewer.includes("const toQuat=ALIGNMENT;"));
-  assert.ok(viewer.includes("position={first.position} quaternion={ALIGNMENT}"));
+  assert.ok(geometry.includes("return [point[1],-point[2],-point[0]]"));
+  assert.ok(viewer.includes("const INITIAL_ALIGNMENT=new Quaternion().setFromRotationMatrix"));
+  assert.ok(viewer.includes("const OPPOSITE_FACE_ALIGNMENT=new Quaternion()"));
+  assert.ok(viewer.includes("new Vector3(0,1,0),STEP_NINE_OPPOSITE_FACE_YAW"));
+  assert.ok(viewer.includes(".multiply(INITIAL_ALIGNMENT)"));
+  assert.ok(viewer.includes("const fromQuat=old>=1?OPPOSITE_FACE_ALIGNMENT:INITIAL_ALIGNMENT"));
+  assert.ok(viewer.includes("const toQuat=phase>=1?OPPOSITE_FACE_ALIGNMENT:INITIAL_ALIGNMENT"));
   assert.ok(viewer.includes("frame.current.quaternion.copy(m.fromQuat).slerp(m.toQuat,ease(t))"));
   assert.ok(viewer.includes('name="STEP9_STEP8_COMPLETE_ASSEMBLY" ref={frame}'));
-  assert.ok(viewer.includes('name="STEP9_STEP7_COMPLETE_ASSEMBLY"'));
-  assert.ok(lesson.includes("stepEightOrientationPreserved:true"));
-  assert.ok(lesson.includes("stepEightRotatedInStep9:false"));
-  assert.ok(!lesson.includes("stepEightFlippedUpsideDown:true"));
+  assert.ok(viewer.includes("quaternion={phase>=1?OPPOSITE_FACE_ALIGNMENT:INITIAL_ALIGNMENT}"));
+  assert.ok(!viewer.includes("new Vector3(1,0,0),STEP_NINE_OPPOSITE_FACE_YAW"));
+  assert.ok(!geometry.includes("STEP_NINE_STEP_EIGHT_FLIP"));
+  assert.ok(lesson.includes("stepEightHorizontalTurnDegrees:180"));
+  assert.ok(lesson.includes('stepEightAttachmentSide:"opposite-horizontal-facing"'));
+  assert.ok(lesson.includes("stepEightBluePinsRemainUpward:true"));
 });
-
-test("Four Step 8 blue pins face UP from Action 0 through completion",()=>{
+test("After opposite-side turn, all four blue pin axes STILL point WORLD UP",()=>{
+  const pins=[[-1,-2,.58],[1,-2,.58],[-1,2,.58],[1,2,.58]];
+  const original=pins.map(([x,y,z])=>[-y,-z,x]);
+  const turned=pins.map(([x,y,z])=>[y,-z,-x]);
+  original.forEach((p,i)=>{
+    assert.equal(p[1],turned[i][1], "Vertical pin component must not flip");
+    assert.equal(turned[i][0],-p[0], "Longitudinal side reverses");
+    assert.equal(turned[i][2],-p[2], "Left/right side reverses");
+  });
   assert.ok(geometry.includes("if(phase<=0)return {position:[x-17,y+3.5,z]}"));
   assert.ok(geometry.includes("if(phase===1)return {position:[x-10,y+1.8,z]}"));
   assert.ok(geometry.includes("return {position:[x,y,z]}"));
-  assert.ok(geometry.includes("+ STEP_NINE_ESTIMATED_PIN_CENTRE_CLEARANCE + level"));
   assert.ok(geometry.includes("stepNineOrientedPinOffset([-1,-2,level])"));
   assert.ok(geometry.includes("stepNineOrientedPinOffset([ 1,-2,level])"));
   assert.ok(geometry.includes("stepNineOrientedPinOffset([-1, 2,level])"));
   assert.ok(geometry.includes("stepNineOrientedPinOffset([ 1, 2,level])"));
+  assert.ok(geometry.includes("STEP_NINE_RECEIVERS = [7, 11]"));
 });
 test("Action 3 lowers ONLY Step 7 onto four Step 8 blue pins",()=>{
   assert.ok(geometry.includes("STEP_NINE_STEP_SEVEN_ALIGN_LIFT = 3.3"));
