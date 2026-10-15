@@ -38,7 +38,7 @@ function stepEightMesh(source:BufferGeometry){
   g.translate(-center.x,-center.y,-center.z);
   g.scale(1/8,1/8,1/8);g.computeVertexNormals();return g;
 }
-function stepEightMeshName(id:StepEightPart){
+function stepEightMeshName(id:StepEightPart):"five"|"seven"|"fifteen"|"blue"|"black"{
   return id.startsWith("FIVE")?"five":id.startsWith("SEVEN")?"seven":
     id==="FIFTEEN"?"fifteen":id.startsWith("BLUE")?"blue":"black";
 }
