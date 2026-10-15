@@ -36,6 +36,31 @@ test("The four photographed holes are the two open targets on each Step 7 rail",
   assert.ok(geometry.includes("alreadyOccupiedByStepSeven"));
   assert.ok(geometry.includes("geometryWarnings"));
 });
+test("Step 9 beams seat face-to-face, so blue pins enter without protruding past the upper rail",()=>{
+  // Geometry is in 8 mm hole-pitch units. White beams are 7.8 mm thick.
+  // The original target placed Step 8's seven-hole beams nearly coplanar
+  // with Step 7's 15-hole rails; its blue pins passed through the top face.
+  const beamThickness=7.8/8;
+  const fiveToSevenLevel=(7.8+1.5)/8;
+  const step8PinCentreAboveSeven=fiveToSevenLevel/2;
+  const estimatedHalfOf24mmPin=24/8/2;
+  const railCentre=0;
+  const sevenHoleCentre=railCentre+beamThickness;
+  const blueCentre=sevenHoleCentre+step8PinCentreAboveSeven;
+  const upwardPinTip=blueCentre-estimatedHalfOf24mmPin;
+  assert.ok(upwardPinTip>=railCentre-beamThickness/2,
+    "The blue pin must not pass through the receiving rail's far/top surface");
+  assert.ok(upwardPinTip<railCentre+beamThickness/2,
+    "The blue connector must engage the upper receiving rail");
+  assert.ok(Math.abs(sevenHoleCentre-railCentre-beamThickness)<1e-8);
+  assert.ok(geometry.includes("centreOf=(coordinate:0|2)"));
+  assert.ok(geometry.includes("stepSevenLocalTarget[coordinate]-stepEightPinOffsets[index]![coordinate]"));
+  assert.ok(geometry.includes("stepNineOrientedPinOffset([-1,-2,level])"));
+  assert.ok(geometry.includes("The saved Step 7 rail spacing does not match"));
+  assert.ok(geometry.includes("alreadyOccupiedByStepSeven"),
+    "Do not suppress the real Step 7 receiving-hole collision warning");
+});
+
 test("Preparation moves both complete rigid roots, while the original internal joint poses are preserved",()=>{
   assert.ok(viewer.includes("STEP5_MODEL_PATHS"));
   assert.ok(viewer.includes("stepEightPoses(11,frameConfig)"));
@@ -67,8 +92,11 @@ test("Step 7 turns 180 degrees horizontally ONLY within Step 9",()=>{
   assert.ok(!viewer.includes('name="STEP9_STEP8_COMPLETE_ASSEMBLY" rotation={[0,STEP_NINE_STEP_SEVEN_YAW,0]}'));
   assert.ok(viewer.includes('name="STEP9_STEP8_COMPLETE_ASSEMBLY" ref={frame}'));
   assert.ok(geometry.includes('stepSevenLocalTarget:stepNineTurnedPoint(['));
-  assert.ok(geometry.includes('-(first.position[0]+second.position[0])/2 - 1'));
-  assert.ok(geometry.includes('-(first.position[2]+second.position[2])/2'));
+  assert.ok(geometry.includes("centreOf(0)"));
+  assert.ok(geometry.includes("centreOf(2)"));
+  assert.ok(geometry.includes("STEP_NINE_RAIL_FACE_SEATING"));
+  assert.ok(geometry.includes("STEP_EIGHT_THICKNESS_MM / STEP_EIGHT_PITCH_MM"));
+  assert.ok(geometry.includes("Math.abs(Math.abs(first.position[2]-second.position[2])-2)>0.3"));
   assert.ok(geometry.includes('stepEightPinOffsets'));
   const rotateHorizontal=([x,y,z])=>[-x,y,-z];
   assert.deepEqual(rotateHorizontal([2,4,-1]),[-2,4,1]);
