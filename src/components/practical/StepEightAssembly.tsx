@@ -43,7 +43,7 @@ export function StepEightAssembly({
   const activeBlackHole=phase===7?config.fifteenNearHole:
     phase===8?config.fifteenNearHole+4:null;
   const actionInstruction=activeBlackHole!==null
-    ?`Align the black connector with Hole ${activeBlackHole} of the separate 15-hole beam. Follow the highlighted guide and insert it straight into the hole.`
+    ?`Start the black connector BELOW the separate 15-hole white beam. Align with Hole ${activeBlackHole}, then push vertically UPWARD into its UNDERSIDE. Keep the pin installed and visible.`
     :details.instruction;
   useEffect(()=>{
     onReadyChange(ready);
