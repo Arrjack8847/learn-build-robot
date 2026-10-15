@@ -265,8 +265,9 @@ test("Step 8 preparation keeps all eleven original STL parts visibly separated",
   assert.ok(frameGeom.includes("fifteenNearHole: 7"),"Keep approved black holes 7 and 11");
   assert.ok(frameGeom.includes("hole5:2")&&frameGeom.includes("hole5:4"));
   assert.ok(frameGeom.includes("receiverHole:3"));
-  assert.ok(frameGeom.includes("longAtFrame ? 0 : longAligned ? -3.2 : 0"),
-    "Preserve existing locked beam depth");
+  assert.ok(frameGeom.includes("longAtFrame ? STEP_EIGHT_FIFTEEN_BEAM_SEATED_Z") &&
+    frameGeom.includes("longAligned ? -3.2 : 0"),
+    "Final 15-hole beam must attach from BELOW and touch the opposite grey faces");
   assert.ok(frameGeom.includes("phase>=5?-1:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_A[0]"),
     "Only loose beam A positions may change");
   assert.ok(frameGeom.includes("phase>=6?1:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_B[0]"),
@@ -412,4 +413,46 @@ test("Step 8 both 7-hole white beams descend onto the four upper blue-pin ends",
   assert.ok(frameGeom.includes('Keep both blue tips visible from the top.') &&
     frameGeom.includes('all four connectors remain visible'),
     "Instructions must describe both descending rails and retained blue pins");
+});
+
+test("Step 8 15-hole white beam locks flush to opposite face of both grey beams",()=>{
+  const pitch=8,thickness=7.8;
+  const greyZ=(thickness+1.5)/pitch;
+  const halfThickness=thickness/(2*pitch);
+  const greyBottom=greyZ-halfThickness;
+  const white15Z=greyZ-thickness/pitch;
+  const white15Top=white15Z+halfThickness;
+  const white7Z=greyZ+thickness/pitch;
+  const white7Bottom=white7Z-halfThickness;
+  assert.ok(Math.abs(greyBottom-white15Top)<1e-9,
+    "15-hole white beam must CONTACT both grey beams from the underside");
+  assert.ok(Math.abs(white7Bottom-(greyZ+halfThickness))<1e-9,
+    "Both 7-hole white beams remain seated on the opposite TOP face");
+  assert.ok(white15Z<greyZ && white7Z>greyZ,
+    "White beams must be on OPPOSITE sides of the grey 5-hole beams");
+  const blackPinZ=white15Z+halfThickness;
+  assert.ok(Math.abs(blackPinZ-greyBottom)<1e-9,
+    "Both black connector centers must align to the interface between layers");
+  assert.ok(frameGeom.includes("export const STEP_EIGHT_FIFTEEN_BEAM_SEATED_Z =")&&
+    frameGeom.includes("STEP_EIGHT_LEVEL - STEP_EIGHT_THICKNESS_MM/STEP_EIGHT_PITCH_MM"));
+  assert.ok(frameGeom.includes("export const STEP_EIGHT_BLACK_PIN_INTERFACE_OFFSET_Z =")&&
+    frameGeom.includes("STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM)"));
+  assert.ok(frameGeom.includes("longAtFrame ? STEP_EIGHT_FIFTEEN_BEAM_SEATED_Z"));
+  assert.ok(frameGeom.includes("xyz(longX,firstY,longZ+STEP_EIGHT_BLACK_PIN_INTERFACE_OFFSET_Z)")&&
+    frameGeom.includes("xyz(longX,secondY,longZ+STEP_EIGHT_BLACK_PIN_INTERFACE_OFFSET_Z)"),
+    "Both mounted pins must translate rigidly with the 15-hole beam");
+  assert.ok(frameGeom.includes("fifteenNearHole: 7")&&
+    frameGeom.includes("beam15Hole:config.fifteenNearHole+4")&&
+    frameGeom.includes('receiverHole:3'),
+    "Black pins still connect 15-hole beam Holes 7/11 to grey Hole 3 each");
+  assert.ok(frameGeom.includes("const firstY = longAligned ? -2")&&
+    frameGeom.includes("const secondY = firstY + 4"),
+    "Both black connectors must align with the grey beams at y=-2 and +2");
+  assert.ok(frameScene.includes("const sign=phase===10?-1:1")&&
+    frameScene.includes('travel.phase===10&&(id==="FIFTEEN"||id==="BLACK_1"||id==="BLACK_2")'),
+    "Beam and both black pins must travel upward together to seat beneath the grey beams");
+  assert.ok(frameGeom.includes("Seat it against the UNDERSIDE of both grey 5-hole beams without leaving a gap"));
+  assert.ok(frameGeom.includes("OPPOSITE side from both 7-hole white beams"));
+  assert.ok(frameGeom.includes("STEP_EIGHT_SEVEN_RAIL_SEATED_Z"),
+    "Preserve previously approved downward white 7-hole beam seating");
 });
