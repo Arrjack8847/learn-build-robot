@@ -73,10 +73,13 @@ test("each Hole 3 black connector sits on the opposite face from the gray beam",
   for (const [unit, beforePhase, installedPhase] of [["A", 4, 5], ["B", 11, 12]]) {
     const before = g.stepTenPoses(beforePhase);
     const mounted = g.stepTenPoses(installedPhase);
-    const gray = mounted["GRAY_" + unit];
+    // The gray beam is still loose during black-pin insertion; compare
+    // against its seated position at the end of that unit's build.
+    const seated = g.stepTenPoses(unit === "A" ? 7 : 14);
+    const gray = seated["GRAY_" + unit];
     const white = mounted["WHITE_" + unit];
     const black = mounted["BLACK_" + unit + "_3"];
-    assert.ok(gray.position[2] > white.position[2], unit + " gray is on +Z");
+    assert.ok(gray.position[2] > white.position[2], unit + " gray is on +Z when seated");
     assert.ok(black.position[2] < white.position[2], unit + " Hole 3 black is on -Z");
     assert.equal(black.position[0], g.whiteHoleX(3));
     assert.equal(black.position[1], white.position[1]);
