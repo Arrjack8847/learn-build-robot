@@ -18,9 +18,20 @@ export const STEP_NINE_RECEIVERS = [7, 11] as const;
 export const STEP_NINE_STEP_SEVEN_YAW = Math.PI;
 /** Flip Step 8 around its horizontal long-beam axis in Step 9 only. */
 export const STEP_NINE_STEP_EIGHT_FLIP = Math.PI;
-/** After flipping, its original local (+Z) pin direction points to +shared Y. */
+/** The shared scene is turned 180° around Z, so local -Y is world UP.
+ * This is the FINAL oriented Step 8 pin transform: (x,y,z) -> (-y,-z,x).
+ * Its original +Z pins therefore point UP, as photographed.
+ * Action 1 still rotates the complete Step 8 assembly through 180°.
+ */
 export function stepNineFlippedPinOffset(point:V3):V3 {
-  return [-point[1],point[2],-point[0]];
+  return [-point[1],-point[2],point[0]];
+}
+/** Step 7 is raised vertically in shared space (-Y == upward on screen).
+ * No constituent rails or previously installed connectors are moved.
+ */
+export const STEP_NINE_STEP_SEVEN_ALIGN_LIFT = 3.3;
+export function stepNineStepSevenPose(phase:number):V3 {
+  return phase===2?[0,-STEP_NINE_STEP_SEVEN_ALIGN_LIFT,0]:[0,0,0];
 }
 export function stepNineTurnedPoint(point:V3):V3 {
   return [-point[0],point[1],-point[2]];
@@ -39,10 +50,10 @@ export const STEP_NINE_ACTIONS = [
     instruction:"Place Step 7 on the left turned 180° horizontally, facing its correct attachment side toward Step 8 on the right. Keep every existing connector installed." },
   { number:"1", title:"Flip Step 8 upside down",
     instruction:"Rotate the entire completed Step 8 frame 180° about the horizontal long-beam axis. Keep all eleven parts attached and the longest white beam at the front." },
-  { number:"2", title:"Align all four upward-facing blue pins",
-    instruction:"With Step 8 upside down, position all four blue pins below holes 7 and 11 on EACH Step 7 rail, counting from the existing blue-pinned free end." },
-  { number:"3", title:"Insert all four connectors upward",
-    instruction:"Raise the upside-down Step 8 assembly straight toward Step 7, keeping the four blue pins coaxial with their receiving holes until seated." },
+  { number:"2", title:"Align four pins below Step 7",
+    instruction:"Lift the whole Step 7 assembly above Step 8 and bring the four upward-facing Step 8 blue pins directly beneath holes 7 and 11 on each outer Step 7 rail. Hold the lower frame ready." },
+  { number:"3", title:"Lower Step 7 onto all four pins",
+    instruction:"Keep the completed Step 8 frame stationary below. Lower the entire Step 7 assembly straight down along the four upward-facing pins, seating all four connections at once." },
   { number:"4", title:"Inspect the completed join",
     instruction:"Confirm Step 8 remains upside down, the longest white beam faces front and all four pins are secured. Compare with the real side-view photo." },
 ] as const;
@@ -60,14 +71,14 @@ export function stepNineMating(
 ) {
   const rails = STEP_SEVEN_RAIL_IDS.map(id=>railPose(id,STEP_SEVEN_FINAL_PHASE,railConfig,beamY,six));
   const first=rails[0]!,second=rails[1]!;
-  // Step 7 retains its confirmed 180° horizontal yaw. Flipping Step 8
-  // about the longest beam's shared X axis swaps the side rail assignments
-  // while preserving all four original connector positions inside Step 8.
+  // Step 7 retains its previously confirmed 180° horizontal turn.
+  // The original four Step 8 pins stay attached to their own beams;
+  // their physical UP-facing orientation determines this side mapping.
   const labels = [
-    {stepEightPin:"BLUE_1",rail:0,hole:7},
-    {stepEightPin:"BLUE_2",rail:1,hole:7},
-    {stepEightPin:"BLUE_3",rail:0,hole:11},
-    {stepEightPin:"BLUE_4",rail:1,hole:11},
+    {stepEightPin:"BLUE_1",rail:1,hole:7},
+    {stepEightPin:"BLUE_2",rail:0,hole:7},
+    {stepEightPin:"BLUE_3",rail:1,hole:11},
+    {stepEightPin:"BLUE_4",rail:0,hole:11},
   ] as const;
   const joints:StepNinePinJoin[]=labels.map(item=>{
     const rail=rails[item.rail]!;
@@ -82,14 +93,13 @@ export function stepNineMating(
       alreadyOccupiedByStepSeven:[mount.receivingBlackHole,...mount.receivingGreyHoles].includes(item.hole),
     };
   });
-  // Flip the original Step 8 frame about the shared horizontal X axis.
-  // The resulting proper rigid rotation maps its local (x,y,z) to
-  // shared (-y,+z,-x). Blue pins therefore face UP towards Step 7.
-  // Their side offsets switch, without changing hole 7/11 spacing.
+  // With the outer Step 9 root rotated 180° around Z, Step 8 +Z must
+  // become shared -Y (world UP). Park Step 8 BELOW the receiving rails,
+  // then move only Step 7 down to finish.
   const level=STEP_EIGHT_LEVEL/2;
   const target:V3=[
     -(first.position[0]+second.position[0])/2 - 1,
-    (first.position[1]+second.position[1])/2 - STEP_NINE_ESTIMATED_PIN_CENTRE_CLEARANCE - level,
+    (first.position[1]+second.position[1])/2 + STEP_NINE_ESTIMATED_PIN_CENTRE_CLEARANCE + level,
     -(first.position[2]+second.position[2])/2,
   ];
   const geometryWarnings:string[]=[];
@@ -119,8 +129,9 @@ export type StepNineFramePose = { position:V3; orient:boolean };
 export function stepNineFramePose(phase:number,target:V3):StepNineFramePose {
   const [x,y,z]=target;
   if(phase<=0)return {position:[x-17,y+3.5,z],orient:false};
-  if(phase===1)return {position:[x-10,y-3.5,z],orient:true};
-  if(phase===2)return {position:[x,y-2.3,z],orient:true};
+  if(phase===1)return {position:[x-10,y+1.8,z],orient:true};
+  // Step 8 reaches its final stationary lower position in Action 2;
+  // Actions 3 and 4 must not move it a single millimetre.
   return {position:[x,y,z],orient:true};
 }
 /** The correct four pin centres in the original Step 8 local coordinate frame. */
