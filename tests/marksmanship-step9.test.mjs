@@ -15,8 +15,8 @@ test("Photographed Step 9 begins at action zero and ends with inspection",()=>{
   const seq=geometry.slice(start,end);
   for(const label of ['number:"0"','number:"1"','number:"2"','number:"3"','number:"4"'])
     assert.ok(seq.includes(label),label);
-  assert.ok(seq.indexOf("Prepare the two completed")<seq.indexOf("Flip Step 8 upside down"));
-  assert.ok(seq.indexOf("Flip Step 8 upside down")<seq.indexOf("Align four pins below Step 7"));
+  assert.ok(seq.indexOf("Prepare the two completed")<seq.indexOf("Check Step 8 orientation"));
+  assert.ok(seq.indexOf("Check Step 8 orientation")<seq.indexOf("Align four pins below Step 7"));
   assert.ok(seq.indexOf("Align four pins below Step 7")<seq.indexOf("Lower Step 7 onto all four pins"));
   assert.ok(seq.indexOf("Lower Step 7 onto all four pins")<seq.indexOf("Inspect the completed"));
   assert.ok(lesson.includes("Action 0 prepares the two finished structures"));
@@ -125,31 +125,35 @@ test("Step 9 prevents overlapping navigation animations but keeps pause/replay a
   assert.ok(!viewer.includes("scale.set("));
 });
 
-test("Action 1 flips the complete Step 8 assembly without moving individual pieces",()=>{
-  assert.ok(geometry.includes("STEP_NINE_STEP_EIGHT_FLIP = Math.PI"));
-  assert.ok(geometry.includes("return [-point[1],-point[2],point[0]]"));
+test("Action 1 preserves the ALREADY correct Step 8 orientation without any flip",()=>{
+  assert.ok(geometry.includes('title:"Check Step 8 orientation"'));
+  assert.ok(geometry.includes("stepNineOrientedPinOffset(point:V3)"));
+  assert.ok(!geometry.includes("STEP_NINE_STEP_EIGHT_FLIP"));
+  assert.ok(!geometry.includes("stepNineFlippedPinOffset"));
   assert.ok(viewer.includes("const ALIGNMENT=new Quaternion().setFromRotationMatrix"));
-  assert.ok(viewer.includes("const UPRIGHT_ALIGNMENT=new Quaternion()"));
-  assert.ok(viewer.includes("new Vector3(1,0,0),STEP_NINE_STEP_EIGHT_FLIP"));
-  assert.ok(viewer.includes(".multiply(ALIGNMENT)"));
-  assert.ok(viewer.includes("const fromQuat=from.orient?ALIGNMENT:LOOSE;"));
-  assert.ok(viewer.includes("const toQuat=to.orient?ALIGNMENT:LOOSE;"));
+  assert.ok(!viewer.includes("UPRIGHT_ALIGNMENT"));
+  assert.ok(!viewer.includes("const LOOSE="));
+  assert.ok(viewer.includes("const fromQuat=ALIGNMENT;"));
+  assert.ok(viewer.includes("const toQuat=ALIGNMENT;"));
+  assert.ok(viewer.includes("position={first.position} quaternion={ALIGNMENT}"));
   assert.ok(viewer.includes("frame.current.quaternion.copy(m.fromQuat).slerp(m.toQuat,ease(t))"));
   assert.ok(viewer.includes('name="STEP9_STEP8_COMPLETE_ASSEMBLY" ref={frame}'));
   assert.ok(viewer.includes('name="STEP9_STEP7_COMPLETE_ASSEMBLY"'));
-  assert.ok(lesson.includes("stepEightFlippedUpsideDown:true"));
+  assert.ok(lesson.includes("stepEightOrientationPreserved:true"));
+  assert.ok(lesson.includes("stepEightRotatedInStep9:false"));
+  assert.ok(!lesson.includes("stepEightFlippedUpsideDown:true"));
 });
 
-test("Four Step 8 blue pins face UP from the stationary lower frame",()=>{
-  assert.ok(geometry.includes("if(phase===1)return {position:[x-10,y+1.8,z],orient:true}"));
-  assert.ok(geometry.includes("return {position:[x,y,z],orient:true}"));
+test("Four Step 8 blue pins face UP from Action 0 through completion",()=>{
+  assert.ok(geometry.includes("if(phase<=0)return {position:[x-17,y+3.5,z]}"));
+  assert.ok(geometry.includes("if(phase===1)return {position:[x-10,y+1.8,z]}"));
+  assert.ok(geometry.includes("return {position:[x,y,z]}"));
   assert.ok(geometry.includes("+ STEP_NINE_ESTIMATED_PIN_CENTRE_CLEARANCE + level"));
-  assert.ok(geometry.includes("stepNineFlippedPinOffset([-1,-2,level])"));
-  assert.ok(geometry.includes("stepNineFlippedPinOffset([ 1,-2,level])"));
-  assert.ok(geometry.includes("stepNineFlippedPinOffset([-1, 2,level])"));
-  assert.ok(geometry.includes("stepNineFlippedPinOffset([ 1, 2,level])"));
+  assert.ok(geometry.includes("stepNineOrientedPinOffset([-1,-2,level])"));
+  assert.ok(geometry.includes("stepNineOrientedPinOffset([ 1,-2,level])"));
+  assert.ok(geometry.includes("stepNineOrientedPinOffset([-1, 2,level])"));
+  assert.ok(geometry.includes("stepNineOrientedPinOffset([ 1, 2,level])"));
 });
-
 test("Action 3 lowers ONLY Step 7 onto four Step 8 blue pins",()=>{
   assert.ok(geometry.includes("STEP_NINE_STEP_SEVEN_ALIGN_LIFT = 3.3"));
   assert.ok(geometry.includes("phase===2?[0,-STEP_NINE_STEP_SEVEN_ALIGN_LIFT,0]:[0,0,0]"));
