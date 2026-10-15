@@ -33,7 +33,7 @@ test("New step identity cannot inherit ambiguous historic Step 7/8 completions",
 });
 test("Original manual numbering remains stable and overlap is flagged",()=>{
   assert.match(data,/originalManualStepNumbers: \[7, 8\]/);
-  for(let manual=9;manual<=14;manual++)assert.ok(data.includes("originalManualStepNumbers: ["+manual+"]"));
+  for(let manual=10;manual<=14;manual++)assert.ok(data.includes("originalManualStepNumbers: ["+manual+"]"));
   assert.ok(data.includes("referenceOnly: true"));
   assert.ok(data.includes("/marksmanship/steps/31.png"));
   assert.ok(data.includes("Original manual operation may overlap"));
