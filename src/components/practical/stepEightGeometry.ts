@@ -77,10 +77,12 @@ const xyz = (x:number,y:number,z:number,rotation:V3=[0,0,0]):StepEightPose =>
 export const STEP_EIGHT_PREPARATION_LAYOUT: Readonly<Record<StepEightPart,V3>> = {
   FIVE_A: [0,-8.3,STEP_EIGHT_LEVEL],
   FIVE_B: [0,8.3,STEP_EIGHT_LEVEL],
-  BLUE_1: [-5.7,-10.2,1.3],
-  BLUE_2: [-5.7,-6.5,1.3],
-  BLUE_3: [5.7,10.2,1.3],
-  BLUE_4: [5.7,6.5,1.3],
+  // All four loose pins start BELOW the 5-hole beams. During insertion
+  // they approach along -Z and seat toward +Z without ever crossing a beam.
+  BLUE_1: [-5.7,-10.2,-2.25],
+  BLUE_2: [-5.7,-6.5,-2.25],
+  BLUE_3: [5.7,10.2,-2.25],
+  BLUE_4: [5.7,6.5,-2.25],
   SEVEN_A: [-8.5,0,0],
   SEVEN_B: [4,0,0],
   FIFTEEN: [9,0,0],
@@ -123,6 +125,9 @@ export function stepEightPoses(phase:number,config:StepEightConfig):Record<StepE
     BLACK_1: xyz(0,0,0),
     BLACK_2: xyz(0,0,0),
   } satisfies Record<StepEightPart,StepEightPose>;
+  // Preserve all four REAL blue connector STL poses in every action.
+  // Once seated, their centers continue travelling rigidly with their
+  // corresponding 5-hole beam, rather than hiding or changing scale.
   phasesBlue.forEach((activation,i) => {
     const beam=i<2?"A":"B";
     const hole=i%2===0?2:4;
