@@ -17,8 +17,8 @@ test("Photographed Step 9 begins at action zero and ends with inspection",()=>{
     assert.ok(seq.includes(label),label);
   assert.ok(seq.indexOf("Prepare the two completed")<seq.indexOf("Turn Step 8 over to its opposite face"));
   assert.ok(seq.indexOf("Turn Step 8 over to its opposite face")<seq.indexOf("Align four mounting connectors beneath Step 7"));
-  assert.ok(seq.indexOf("Align four mounting connectors beneath Step 7")<seq.indexOf("Lower Step 7 until connectors are concealed"));
-  assert.ok(seq.indexOf("Lower Step 7 until connectors are concealed")<seq.indexOf("Inspect the finished"));
+  assert.ok(seq.indexOf("Align four mounting connectors beneath Step 7")<seq.indexOf("Lower Step 7 onto four real connectors"));
+  assert.ok(seq.indexOf("Lower Step 7 onto four real connectors")<seq.indexOf("Inspect four real seated connectors"));
   assert.ok(lesson.includes("Action 0 prepares the two finished structures"));
 });
 test("The four photographed holes are the two open targets on each Step 7 rail",()=>{
@@ -164,22 +164,23 @@ test("Opposite top/bottom face exposes the other pin half but never moves origin
   assert.ok(viewer.includes("stepEightPoses(11,frameConfig)"));
 });
 
-test("Action 3 conceals four joining BLUE pins only after their seating motion",()=>{
-  assert.ok(viewer.includes("const mountingPins=useRef<(Mesh|null)[]>([])"));
-  assert.ok(viewer.includes("const setMountingPinOpacity=(amount:number)"));
-  assert.ok(viewer.includes("mat.opacity=opacity"));
-  assert.ok(viewer.includes("setMountingPinOpacity((animate?old:phase)>=3?0:1)"));
-  assert.ok(viewer.includes("if(m.action===3)"));
-  assert.ok(viewer.includes("1-Math.max(0,Math.min(1,(seatAmount-0.78)/0.22))"));
-  assert.ok(viewer.includes('if(id.startsWith("BLUE"))mountingPins.current[Number(id.slice(-1))-1]=node;'));
-  assert.ok(viewer.includes("transparent={id.startsWith(\"BLUE\")}"));
-  assert.ok(viewer.includes("opacity={id.startsWith(\"BLUE\")&&phase>=3?0:1}"));
-  assert.ok(lesson.includes("joiningBlueConnectorDisplayConcealed:true"));
-  assert.ok(lesson.includes('joiningBlueConnectorConcealment:"visual-only-until-physical-fit-verified"'));
-  assert.ok(lesson.includes("visual concealment"));
-  assert.ok(!viewer.includes("scale.set("), "No stretching or deleting physical mesh geometry");
+test("Four BLUE connector meshes always remain opaque: never faded, hidden, removed or scaled",()=>{
+  assert.ok(viewer.includes('STEP_EIGHT_PARTS.map(id=>'));
+  assert.ok(viewer.includes('<mesh geometry={meshes[model]} castShadow receiveShadow>'));
+  assert.ok(viewer.includes('color={color} roughness={0.54} side={DoubleSide}'));
+  assert.ok(!viewer.includes("mountingPins=useRef"));
+  assert.ok(!viewer.includes("setMountingPinOpacity"));
+  assert.ok(!viewer.includes("mat.opacity"));
+  assert.ok(!viewer.includes("pin.visible="));
+  assert.ok(!viewer.includes("transparent={id.startsWith"));
+  assert.ok(!viewer.includes("opacity={id.startsWith"));
+  assert.ok(!viewer.includes("depthWrite={!(id.startsWith"));
+  assert.ok(!viewer.includes("scale.set("));
+  assert.ok(lesson.includes("joiningBlueConnectorMeshesPreserved:true"));
+  assert.ok(lesson.includes('joiningBlueConnectorVisibility:"opaque-at-all-stages"'));
+  assert.ok(lesson.includes("The viewer NEVER hides or fades these connectors."));
+  assert.ok(geometry.includes("The connectors remain physically present, opaque, and unchanged"));
 });
-
 test("Action 3 lowers ONLY Step 7 onto four Step 8 blue pins",()=>{
   assert.ok(geometry.includes("STEP_NINE_STEP_SEVEN_ALIGN_LIFT = 3.3"));
   assert.ok(geometry.includes("phase===2?[0,-STEP_NINE_STEP_SEVEN_ALIGN_LIFT,0]:[0,0,0]"));
@@ -198,5 +199,5 @@ test("Action 3 lowers ONLY Step 7 onto four Step 8 blue pins",()=>{
   assert.ok(lesson.includes('"bottom"'));
   assert.ok(lesson.includes('stationaryDuringInsertion:"step8"'));
   assert.ok(lesson.includes('loweredDuringInsertion:"step7"'));
-  assert.ok(lesson.includes("None of the four joining blue connector shafts remain visibly exposed"));
+  assert.ok(lesson.includes("The four original blue connectors remain present and opaque throughout."));
 });
