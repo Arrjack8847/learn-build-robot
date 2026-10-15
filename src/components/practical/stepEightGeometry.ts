@@ -126,6 +126,8 @@ export const STEP_EIGHT_PREPARATION_LAYOUT: Readonly<Record<StepEightPart,V3>> =
   // Keep the long center rail above the grey frame throughout preparation
   // and alignment; it must never travel up THROUGH the already-built frame.
   FIFTEEN: [9,0,STEP_EIGHT_FIFTEEN_BEAM_ALIGNMENT_Z],
+  // Keep both loose black connectors BELOW the 15-hole beam. Their 16 mm
+  // shafts are completely clear of the beam's bottom face before insertion.
   BLACK_1: [6.5,-10.6,1.3],
   BLACK_2: [10.7,-10.6,1.3],
 };
@@ -200,8 +202,15 @@ export function stepEightGuide(phase:number,config:StepEightConfig):V3|null {
     return fiveHoleAnchor(item.beam,item.hole5);
   }
   if(phase===5||phase===6)return [phase===5?-1:1,0,STEP_EIGHT_SEVEN_RAIL_SEATED_Z];
-  if(phase===7||phase===8) return fifteenHoleAnchor(
-    config.fifteenNearHole+(phase===8?4:0),config);
+  if(phase===7||phase===8) {
+    // Use the actual world-space hole under the loose white beam.
+    // The 15-hole beam has not yet aligned to the frame (world x=9).
+    const id=phase===7?"BLACK_1":"BLACK_2";
+    const seated=stepEightPoses(phase,config)[id].position;
+    return [seated[0],seated[1],
+      STEP_EIGHT_FIFTEEN_BEAM_ALIGNMENT_Z-
+      STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM)];
+  }
   if(phase===9||phase===10)return [0,0,
     STEP_EIGHT_LEVEL+STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM)];
   return null;
@@ -214,8 +223,8 @@ export const STEP_EIGHT_SEQUENCE = [
   {number:"8.3",title:"Beam B · insert blue connector 4",instruction:"Align connector 4 ABOVE Hole 4 of Beam B and push DOWNWARD. Keep all four blue connectors visible from above, with nothing protruding underneath."},
   {number:"8.4",title:"Connect the first 7-hole beam",instruction:"Bring the first white 7-hole beam from ABOVE. Line up its Holes 2 and 6 with the two exposed blue pins, then lower the beam straight DOWNWARD until it seats on the 5-hole beams. Keep both blue tips visible from the top."},
   {number:"8.5",title:"Close the rectangular frame",instruction:"Bring the second white 7-hole beam from ABOVE, align Holes 2 and 6 with the remaining exposed blue pins and lower it straight DOWNWARD. Check that both long rails are parallel, all four connectors remain visible, and nothing sticks out below the 5-hole beams."},
-  {number:"8.6",title:"Fit the first black connector",instruction:"Insert the first black connector into the selected hole of the separate 15-hole beam."},
-  {number:"8.6",title:"Fit the second black connector",instruction:"Install the second black connector four holes away; confirm the exact pair with the real photograph."},
+  {number:"8.6",title:"Fit the first black connector",instruction:"Start the first black connector BELOW the separate 15-hole white beam. Align it beneath Hole 7 and push vertically UPWARD into the UNDERSIDE. Keep the pin visible and seated."},
+  {number:"8.6",title:"Fit the second black connector",instruction:"Keep the first black connector installed in Hole 7. From BELOW the separate white beam, align the second black pin with Hole 11 and push UPWARD into the UNDERSIDE. Both black pins remain attached for the final locking action."},
   {number:"8.7",title:"Align the center beam",instruction:"Position the long 15-hole white beam ABOVE the two grey 5-hole beams, on the SAME TOP SIDE as the pair of 7-hole white beams. Center it between the two outer white rails. Match its black connectors in Holes 7 and 11 to Hole 3 of each grey beam."},
   {number:"8.7",title:"Seat both black locks",instruction:"Lower the long 15-hole white beam DOWNWARD from ABOVE as one rigid group with both installed black connectors. Seat it flush against the TOP faces of both grey 5-hole beams. All three white beams stay on top; nothing disappears or detaches."},
   {number:"8.7",title:"Inspect the assembled frame",instruction:"Orbit around the connected 11-part demonstration. The exact connector fit still requires comparison with the original photos and physical parts."},
