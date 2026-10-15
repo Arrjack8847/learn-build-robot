@@ -173,15 +173,65 @@ test("Hole 15 black pins and three-hole joining bridge remain on the gray-side T
   assert.ok(joined.BRIDGE_3.position[2] - halfWhite >= halfWhite,
     "3-hole bridge cannot protrude underneath the white beam");
   const spacer = g.stepTenPoses(19);
-  assert.ok(spacer.BROWN_SPACER.position[2] > joined.BRIDGE_3.position[2],
-    "brown center spacer must be ABOVE the short black joining beam");
-  assert.ok(spacer.CENTER_BLACK.position[2] > joined.BRIDGE_3.position[2],
-    "center connector must enter the joining beam from the TOP side");
-  for (const phase of [6, 13, 16, 17, 19])
+  assert.ok(spacer.BROWN_SPACER.position[2] < joined.BRIDGE_3.position[2],
+    "brown stopper must be BELOW the short black joining beam");
+  assert.ok(spacer.CENTER_BLACK.position[2] < joined.BRIDGE_3.position[2],
+    "center connector must enter bridge Hole 2 from the UNDERSIDE");
+  for (const phase of [6, 13, 16, 17])
     assert.match(g.STEP_TEN_ACTIONS[phase].instruction, /ABOVE|above|SAME SIDE/);
+  assert.match(g.STEP_TEN_ACTIONS[19].instruction, /UPWARD FROM BELOW/);
   assert.ok(lesson.includes('blackHole15Face: "same-as-gray"'));
   assert.ok(lesson.includes('threeHoleBridgeFace: "same-as-gray"'));
-  assert.ok(scene.includes('const offset = fromBelow ? -2.25 : 2.25;'));
+  assert.ok(scene.includes('part === "BLACK_A_3" || part === "BLACK_B_3"'),
+    "underside black Hole 3 pins still use bottom-up guided insertion");
+  assert.ok(scene.includes('const offset = part === "CENTER_BLACK" && phase === 18 ? -0.80'),
+    "stopper guide uses its own bottom-up clearance path");
+});
+
+test("under-bridge stopper with center pin rises into Hole 2 and leaves side joints untouched", () => {
+  const pre = g.stepTenPoses(17);
+  const prepared = g.stepTenPoses(18);
+  const installed = g.stepTenPoses(19);
+  const inspected = g.stepTenPoses(20);
+  const halfBeam = g.STEP_TEN_BEAM_HALF_DEPTH;
+  const halfPin = 16 / (2 * g.STEP_TEN_PITCH_MM);
+  const bridgeZ = installed.BRIDGE_3.position[2];
+  const stopperZ = installed.BROWN_SPACER.position[2];
+  const blackZ = installed.CENTER_BLACK.position[2];
+
+  // The bridge remains on the upper side; ONLY the brown stopper
+  // and fifth black pin move to the underside of its center hole.
+  assert.ok(bridgeZ > installed.WHITE_A.position[2]);
+  assert.equal(installed.BROWN_SPACER.position[0], installed.BRIDGE_3.position[0]);
+  assert.equal(installed.BROWN_SPACER.position[1], installed.BRIDGE_3.position[1]);
+  assert.equal(installed.CENTER_BLACK.position[0], installed.BRIDGE_3.position[0]);
+  assert.equal(installed.CENTER_BLACK.position[1], installed.BRIDGE_3.position[1]);
+  assert.ok(Math.abs((stopperZ + 0.45) - (bridgeZ - halfBeam)) < 1e-10,
+    "top of stopper touches bottom of bridge with no collision");
+  assert.ok(blackZ < bridgeZ,
+    "most of center pin stays below bridge center");
+  assert.ok(blackZ + halfPin > bridgeZ - halfBeam,
+    "upper pin end engages underside of center bridge hole");
+  assert.ok(blackZ + halfPin <= bridgeZ + halfBeam,
+    "black pin does not protrude above the top of the 3-hole beam");
+  assert.ok(pre.BROWN_SPACER.position[2] < bridgeZ,
+    "loose stopper begins beneath the bridge");
+  assert.ok(pre.CENTER_BLACK.position[2] < bridgeZ);
+  assert.ok(prepared.CENTER_BLACK.position[2] > prepared.BROWN_SPACER.position[2],
+    "prepared black connector protrudes UPWARD from the brown stopper");
+  for (const id of g.STEP_TEN_PARTS) {
+    if (id === "CENTER_BLACK" || id === "BROWN_SPACER") continue;
+    assert.deepEqual(installed[id], pre[id],
+      "never change earlier built parts while seating the underside stopper: " + id);
+  }
+  assert.deepEqual(inspected, installed);
+  assert.match(g.STEP_TEN_ACTIONS[18].instruction, /UPWARD from beneath/);
+  assert.match(g.STEP_TEN_ACTIONS[19].instruction, /UPWARD FROM BELOW/);
+  assert.match(g.STEP_TEN_ACTIONS[20].instruction, /UNDER the bridge/);
+  assert.ok(scene.includes('part === "BROWN_SPACER" || part === "CENTER_BLACK"'));
+  assert.ok(scene.includes("phase === 18 || phase === 19 || phase === 20"));
+  assert.ok(lesson.includes('mountFace: "under-3-hole-bridge"'));
+  assert.ok(lesson.includes('insertionDirection: "bottom-to-top"'));
 });
 
 test("Step 10 renders original 3D STL beams and pins with guided motion controls", () => {

@@ -73,7 +73,7 @@ export function StepTenAssembly({ onCompleteStep }: { onCompleteStep: () => void
         grayBeamMating: stepTenHolePairs(),
         bridgeConnections: [{ whiteUnit: "A", whiteHole: 15, bridgeHole: 1 },
           { whiteUnit: "B", whiteHole: 15, bridgeHole: 3 }],
-        brownSpacer: { bridgeHole: 2, usesBlackConnector: true },
+        brownSpacer: { bridgeHole: 2, usesBlackConnector: true, mountFace: "under-3-hole-bridge", insertionDirection: "bottom-to-top" },
         quantities: STEP_TEN_COMPONENT_COUNTS,
         twoMirroredSideUnits: true,
         stepTenPhotoSequence: "IMG_1779 through IMG_1814",
@@ -156,7 +156,9 @@ export function StepTenAssembly({ onCompleteStep }: { onCompleteStep: () => void
       underside, without sticking out beneath the white beams. Both gray 9-hole beams
       attach at gray holes 3 and 9, with blue tips visible above gray. Black pins at
       White Hole 3 point AWAY from gray, but Hole 15 black pins and the black 3-hole joining beam
-      are on the SAME SIDE as gray. The upright center spacer attaches to bridge Hole 2. I understand the spacer 3D mesh and connector seating depths are approximations.
+      are on the SAME SIDE as gray. The center black connector enters from BELOW, and
+      the brown stopper is installed UNDER the black 3-hole joining beam at its middle Hole 2.
+      I understand the stopper 3D mesh and connector seating depths are approximations.
     </label>}
     <p className="px-1 text-[11px] leading-4 text-slate-500">
       The beam and pin meshes are loaded from the repository's original STLs.
