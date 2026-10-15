@@ -68,6 +68,61 @@ test("all poses are deterministic, finite and physically hole-aligned", () => {
   assert.deepEqual(g.stepTenPoses(20), g.stepTenPoses(19));
 });
 
+
+test("each Hole 3 black connector sits on the opposite face from the gray beam", () => {
+  for (const [unit, beforePhase, installedPhase] of [["A", 4, 5], ["B", 11, 12]]) {
+    const before = g.stepTenPoses(beforePhase);
+    const mounted = g.stepTenPoses(installedPhase);
+    const gray = mounted["GRAY_" + unit];
+    const white = mounted["WHITE_" + unit];
+    const black = mounted["BLACK_" + unit + "_3"];
+    assert.ok(gray.position[2] > white.position[2], unit + " gray is on +Z");
+    assert.ok(black.position[2] < white.position[2], unit + " Hole 3 black is on -Z");
+    assert.equal(black.position[0], g.whiteHoleX(3));
+    assert.equal(black.position[1], white.position[1]);
+    assert.ok(before["BLACK_" + unit + "_3"].position[2] < white.position[2],
+      unit + " loose pin starts on the correct face before insertion");
+    assert.deepEqual(g.stepTenHighlight(installedPhase).holes, [3]);
+    assert.equal(g.stepTenHighlight(installedPhase).face, -1);
+  }
+  assert.match(g.STEP_TEN_ACTIONS[5].instruction, /OPPOSITE face/);
+  assert.match(g.STEP_TEN_ACTIONS[12].instruction, /OPPOSITE face/);
+  assert.ok(scene.includes('part === "BLACK_A_3" || part === "BLACK_B_3"'));
+  assert.ok(scene.includes("phase === 5 || phase === 12"));
+  assert.ok(lesson.includes('blackHole3Face: "opposite-gray"'));
+});
+
+test("three blue pins on each white beam remain visible from both outer faces", () => {
+  const pitch = g.STEP_TEN_PITCH_MM;
+  const halfWhiteBeam = (7.8 / pitch) / 2;
+  const halfGrayBeam = (7.8 / pitch) / 2;
+  const halfBluePin = (24 / pitch) / 2;
+  for (const [unit, phase] of [["A", 7], ["B", 14]]) {
+    const positions = g.stepTenPoses(phase);
+    const white = positions["WHITE_" + unit];
+    const gray = positions["GRAY_" + unit];
+    const firstBlue = positions["BLUE_" + unit + "_1"];
+    assert.equal(firstBlue.position[2], white.position[2]);
+    assert.ok(firstBlue.position[2] - halfBluePin < white.position[2] - halfWhiteBeam);
+    assert.ok(firstBlue.position[2] + halfBluePin > white.position[2] + halfWhiteBeam);
+    for (const [whiteHole, grayHole] of [[6, 3], [12, 9]]) {
+      const blue = positions["BLUE_" + unit + "_" + whiteHole];
+      assert.equal(blue.position[0], g.whiteHoleX(whiteHole));
+      assert.equal(g.whiteHoleX(whiteHole), g.grayHoleX(grayHole));
+      const whiteOutside = white.position[2] - halfWhiteBeam;
+      const grayOutside = gray.position[2] + halfGrayBeam;
+      const protrudeWhite = whiteOutside - (blue.position[2] - halfBluePin);
+      const protrudeGray = (blue.position[2] + halfBluePin) - grayOutside;
+      assert.ok(protrudeWhite > 0, unit + " pin must protrude from white side");
+      assert.ok(protrudeGray > 0, unit + " pin must protrude from gray side");
+      assert.ok(Math.abs(protrudeWhite - protrudeGray) < 1e-10,
+        unit + " both ends should protrude equally");
+    }
+    assert.equal(positions["BLACK_" + unit + "_15"].position[2], -0.66);
+  }
+  assert.ok(lesson.includes("bluePinsVisibleOnBothOuterFaces: true"));
+});
+
 test("Step 10 renders original 3D STL beams and pins with guided motion controls", () => {
   for (const model of ["15 beams.stl?url", "9.stl?url", "3.stl?url", "long connector.stl?url", "pin_pin.stl?url"])
     assert.ok(scene.includes(model), model);
