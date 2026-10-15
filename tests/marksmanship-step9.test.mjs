@@ -15,8 +15,9 @@ test("Photographed Step 9 begins at action zero and ends with inspection",()=>{
   const seq=geometry.slice(start,end);
   for(const label of ['number:"0"','number:"1"','number:"2"','number:"3"','number:"4"'])
     assert.ok(seq.includes(label),label);
-  assert.ok(seq.indexOf("Prepare the two completed")<seq.indexOf("Align all four blue"));
-  assert.ok(seq.indexOf("Align all four blue")<seq.indexOf("Insert all four"));
+  assert.ok(seq.indexOf("Prepare the two completed")<seq.indexOf("Flip Step 8 upside down"));
+  assert.ok(seq.indexOf("Flip Step 8 upside down")<seq.indexOf("Align all four upward-facing blue pins"));
+  assert.ok(seq.indexOf("Align all four upward-facing blue pins")<seq.indexOf("Insert all four"));
   assert.ok(seq.indexOf("Insert all four")<seq.indexOf("Inspect the completed"));
   assert.ok(lesson.includes("Action 0 starts"));
 });
