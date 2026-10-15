@@ -71,10 +71,9 @@ function interpolate(a:StepEightPose,b:StepEightPose,t:number):StepEightPose {
  */
 function insertion(a:StepEightPose,b:StepEightPose,t:number,phase:number,reverse:boolean):StepEightPose {
   const seated=reverse?a:b;
-  // Blue connectors (phases 1–4) and both white 7-hole beams (5–6)
-  // descend from ABOVE. Only final central-beam locking (phase 10)
-  // retains its earlier upward approach.
-  const sign=phase===10?-1:1;
+  // Every installed beam and connector now descends from ABOVE the grey
+  // beams; the long center rail joins the two 7-hole rails on their TOP side.
+  const sign=1;
   const clearance=phase===10?2.2:2.15;
   const aligned:StepEightPose={
     position:[seated.position[0],seated.position[1],seated.position[2]+sign*clearance],
@@ -418,12 +417,12 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
     </>}
     {twoPointPins&&twoPointPins.map(id=>{
       const target=stepEightPoses(phase===9?10:phase,config)[id].position;
-      const descendingWhiteRail=phase===5||phase===6;
+      const descendingWhiteRail=phase===5||phase===6||phase===9||phase===10;
       return <Line key={id+"-two-joint-guide"}
         points={descendingWhiteRail
-          // Two blue pins are already locked in their 5-hole beams.
-          // Show the rails coming from above down to the TOP interface,
-          // never a misleading approach from below those 5-hole beams.
+          // The outer 7-hole rails descend onto the blue-pin pairs;
+          // the CENTER 15-hole rail also descends onto the two black pins.
+          // Keep every guide ABOVE the grey-beam mating surface.
           ?[[target[0],target[1],STEP_EIGHT_LEVEL+
               STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM)+0.05],
             [target[0],target[1],STEP_EIGHT_SEVEN_RAIL_SEATED_Z+2.15]]
