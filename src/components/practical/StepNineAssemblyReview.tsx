@@ -80,7 +80,7 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
         fromStep7:ready.a.assemblyId,fromStep8:ready.b.assemblyId,
         stepSevenReceivingHoles:[7,11],fourOriginalBluePins:true,
         usesUpdatedStepEightAssembly:true,stepEightBlackPinHoles:[7,11],
-        stepEightFlippedUpsideDown:true,flipAxis:"horizontal-long-beam",
+        stepEightOrientationPreserved:true,stepEightRotatedInStep9:false,
         stationaryDuringInsertion:"step8",loweredDuringInsertion:"step7",
         inspectionViews:["front","side","top","bottom"],
         longestStepEightBeamFacesFront:true,geometryUnchanged:true,
@@ -115,7 +115,7 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
         {phase===0
           ?"Preparation · completed Step 7 on left / updated Step 8 on right"
           :phase===1
-            ?"Orient Step 8 · flip the complete frame upside down"
+            ?"Step 8 already oriented correctly · no flip"
             :phase===2
               ?"Align four Step 8 pins beneath Step 7 holes 7 + 11"
               :phase===3
@@ -149,7 +149,7 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
           </div>
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-2.5">
             <p className="font-extrabold">Assembly B · Updated Step 8</p>
-            <p className="mt-0.5 text-slate-600">Completed frame with four blue pins and black locks in holes 7/11. Flip the whole frame upside down in Action 1.</p>
+            <p className="mt-0.5 text-slate-600">Completed frame with four upward-facing blue pins and black locks in holes 7/11. Its current orientation is already correct; no flip is needed.</p>
           </div>
         </div>}
         {needsStepEightRefresh&&<p role="alert" className="rounded-xl border border-amber-200
