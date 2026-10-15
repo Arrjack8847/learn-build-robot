@@ -52,7 +52,10 @@ const lerpPose = (a: StepTenPose, b: StepTenPose, t: number): StepTenPose => ({
 function guided(from: StepTenPose, to: StepTenPose, t: number, phase: number, part: StepTenPart): StepTenPose {
   // Backwards playback traverses the same center-aligned clearance waypoint.
   if (part === "BRIDGE_3" && phase === 17) return lerpPose(from, to, t);
-  const downward = part.endsWith("_15") || part === "BRIDGE_3";
+  // Hole 3 black pins enter from BELOW (-Z): the face away from Gray (+Z).
+  // The beam never flips; reverse playback exits along the same lower axis.
+  const downward = part.endsWith("_15") || part === "BRIDGE_3" ||
+    part === "BLACK_A_3" || part === "BLACK_B_3";
   const offset = downward ? -2.25 : 2.25;
   const aligned: StepTenPose = {
     position: [to.position[0], to.position[1], to.position[2] + offset],
@@ -70,8 +73,12 @@ function targetFocus(phase: number): Vec3 {
     active?.endsWith("_1") ? 1 : 8;
   return [whiteHoleX(hole) * 0.38, y * 0.55, 0.3];
 }
-function viewOffset(view: View, mobile: boolean): Vec3 {
+function viewOffset(view: View, mobile: boolean, phase: number): Vec3 {
   const k = mobile ? 1.45 : 1.12;
+  // For both Hole 3 installation actions show the opposite (-Z) face.
+  // Maintain the same hole indexes and all previously installed components.
+  if (view === "iso" && (phase === 5 || phase === 12))
+    return [11 * k, -14 * k, -14 * k];
   if (view === "top") return [0.01, -0.01, 21 * k];
   if (view === "front") return [0.01, -18 * k, 5 * k];
   if (view === "back") return [0.01, 18 * k, 5 * k];
@@ -169,7 +176,7 @@ function Stage({ phase, replayKey, paused, resetCameraKey, reducedMotion, view, 
 
   useLayoutEffect(() => {
     const focus = new Vector3(...targetFocus(phase));
-    const offset = new Vector3(...viewOffset(view, mobile));
+    const offset = new Vector3(...viewOffset(view, mobile, phase));
     const desired = focus.clone().add(offset);
     camera.up.set(0, 0, 1);
     if (!orbit.current) return;
@@ -240,7 +247,8 @@ function Stage({ phase, replayKey, paused, resetCameraKey, reducedMotion, view, 
     <hemisphereLight args={["#ffffff", "#bdcddd", 1.35]} />
     <directionalLight position={[7, -6, 14]} intensity={2} />
     <gridHelper args={[32, 32, "#dbe7ee", "#edf1f6"]}
-      rotation={[Math.PI / 2, 0, 0]} position={[0, 0, -2.6]} />
+      rotation={[Math.PI / 2, 0, 0]} position={[0, 0, -2.6]}
+      visible={phase !== 5 && phase !== 12} />
     {STEP_TEN_PARTS.map((id) => {
       const model = STEP_TEN_MODELS[id];
       return <group key={id} name={"STEP10_" + id}
