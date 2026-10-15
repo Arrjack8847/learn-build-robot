@@ -80,9 +80,10 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
         fromStep7:ready.a.assemblyId,fromStep8:ready.b.assemblyId,
         stepSevenReceivingHoles:[7,11],fourOriginalBluePins:true,
         usesUpdatedStepEightAssembly:true,stepEightBlackPinHoles:[7,11],
-        stepEightHorizontalTurnDegrees:180,
-        stepEightAttachmentSide:"opposite-horizontal-facing",
-        stepEightBluePinsRemainUpward:true,
+        stepEightTopBottomFaceTurnDegrees:180,
+        stepEightAttachmentSide:"opposite-top-bottom-face",
+        joiningBlueConnectorDisplayConcealed:true,
+        joiningBlueConnectorConcealment:"visual-only-until-physical-fit-verified",
         stationaryDuringInsertion:"step8",loweredDuringInsertion:"step7",
         inspectionViews:["front","side","top","bottom"],
         longestStepEightBeamFacesFront:true,geometryUnchanged:true,
@@ -117,12 +118,12 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
         {phase===0
           ?"Preparation · completed Step 7 on left / updated Step 8 on right"
           :phase===1
-            ?"Turn Step 8 horizontally 180° · keep blue pins upward"
+            ?"Turn Step 8 over · switch top and bottom faces"
             :phase===2
               ?"Align four Step 8 pins beneath Step 7 holes 7 + 11"
               :phase===3
-                ?"Keep Step 8 still · lower Step 7 onto all four blue pins"
-                :"Inspect all four pin heads and grey cross-supports"}
+                ?"Keep Step 8 still · lower Step 7 until four joints are concealed"
+                :"Inspect the final joint · no exposed mounting blue connectors"}
       </span>}
       tools={<div className="flex flex-wrap items-center gap-1.5">
         <button type="button" title="Reset camera" aria-label="Reset Step 9 3D camera"
@@ -151,7 +152,7 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
           </div>
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-2.5">
             <p className="font-extrabold">Assembly B · Updated Step 8</p>
-            <p className="mt-0.5 text-slate-600">Completed frame with four upward-facing blue pins and black locks in holes 7/11. Action 1 turns the entire assembly horizontally to its opposite attachment side; it never flips upside down.</p>
+            <p className="mt-0.5 text-slate-600">Completed frame with four installed blue connectors and black locks in holes 7/11. Action 1 turns the entire assembly over to switch its TOP and BOTTOM attachment faces, not front/back.</p>
           </div>
         </div>}
         {needsStepEightRefresh&&<p role="alert" className="rounded-xl border border-amber-200
@@ -171,12 +172,13 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
           <input type="checkbox" className="mt-0.5 size-4 shrink-0"
             checked={physicalCheck} onChange={e=>setPhysicalCheck(e.target.checked)}/>
           I checked the real assembly against the top, side and underside photos:
-          Step 8 faces its opposite attachment side after a horizontal 180° turn,
-          stays underneath and keeps its four blue pins pointing upward; the whole
-          Step 7 structure is lowered over the pins into holes 7 and 11 on both
-          outer white rails. The two grey cross-supports and four pin heads are
-          visible from the underside, and the longest white beam remains front-facing.
-          I understand the 3D seating depth has not been physically measured.
+          Step 8 is turned onto its correct TOP/BOTTOM attachment face and stays
+          below Step 7, which lowers into holes 7 and 11 on both outer white rails.
+          None of the four joining blue connector shafts remain visibly exposed
+          between the structures. The two grey cross-supports retain their positions.
+          I understand the 3D seating depth is estimated and the viewer fades the
+          four connecting blue pin meshes once seated; this is visual concealment,
+          not verified physical pin depth.
         </label>}
         <AssemblyPlaybackControls
           onPrevious={()=>go(phase-1)}
@@ -191,9 +193,11 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
         <p className="text-[11px] text-slate-500">
           Action 0 prepares the two finished structures. Action 2 parks Step 8
           underneath and lifts Step 7 clear. Action 3 lowers Step 7 while Step 8
-          remains stationary. Use the Bottom view to inspect the two grey
-          cross-supports and four pin heads. Previous, Replay and Pause preserve
-          the original Step 7 and Step 8 components.
+          remains stationary and visually conceals the four joining shafts as
+          they seat. Bottom view checks the grey cross-supports. The blue
+          connectors still exist in their unchanged source geometry; the viewer
+          fades them only to avoid displaying exposed shafts at the finished joint.
+          Previous, Replay and Pause preserve the original saved parts.
           {animating?" Wait for the current animation to finish before advancing.":""}
         </p>
       </div>}
