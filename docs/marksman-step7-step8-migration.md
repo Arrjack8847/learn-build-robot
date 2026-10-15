@@ -98,3 +98,10 @@ The original 31-step manual and source STL meshes are not changed by this featur
 - New Step 9 scene renders Step 7 and Step 8 together using the genuine existing STL geometry, with no manual reconstruction of a new proxy part. Step 8 is transformed as ONE rigid unit. The Step 8 local +Z blue pin axis is mapped to the new Step 7 mounting axis.
 - There is an outstanding issue: Step 7's locked saved calibration may occupy a photo-marked receiving hole (particularly the second rail's selected hole 7). This is surfaced as a warning, not solved by moving the older connectors. The user must visually/physically compare the new combined demo with the real structure. 3D seating depth is provisional, mechanical fit is not certified.
 - The previous Step 9 *separate-only* checkpoint was intentionally superseded by the user's October 15 assembly photos. Old Step 7/8 completion keys remain unchanged, while the newly joined result is independently stored at `robot:marksmanship:step9:joined:v1`.
+
+## Horizontal Step 7 turn in Step 9 (October 15 follow-up)
+
+- User correction: Step 7 must be turned **180 degrees horizontally**, not flipped upside down, before the four Step 8 blue pins attach. Step 8 remains in its approved front-facing orientation.
+- The turn is local to the completed Step 7 group inside Step 9: `rotation={[0,Math.PI,0]}` via shared `STEP_NINE_STEP_SEVEN_YAW`. No Step 7 source mesh, installed grey/black connector, or Step 7 lesson animation is changed.
+- A horizontal turn reverses the Step 7 side-rail Z positions and the longitudinal X hole order in the Step 9 shared frame. Recalculate all four world target points and the Step 8-to-Step 7 pin index mapping, without moving an individual blue pin: BLUE_1 -> second rail hole 7; BLUE_2 -> first rail hole 7; BLUE_3 -> second rail hole 11; BLUE_4 -> first rail hole 11. Counting remains from the existing blue-pinned free end.
+- Residual checks warn if stored Step 7 rail offsets cannot be matched by a rigid Step 8 transform, and existing overlapping Step 7 connector positions remain visible rather than secretly modified.
