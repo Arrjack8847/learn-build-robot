@@ -99,7 +99,7 @@ test("Step 9 Action 0 enters as two separate completed assemblies, using Step 7 
   assert.ok(geometry.includes("STEP_NINE_CAMERA_DURATION = 0.85"));
   assert.ok(geometry.includes("STEP_NINE_PREP_ENTRANCE_OFFSET = 8.5"));
   assert.ok(viewer.includes("enterPreparation=phase===0&&(!mounted.current||replay)&&!reducedMotion"));
-  assert.ok(viewer.includes("const fromSeven:V3=[STEP_NINE_PREP_ENTRANCE_OFFSET,0,0]"));
+  assert.ok(viewer.includes("const fromStart:V3=[STEP_NINE_PREP_ENTRANCE_OFFSET,0,0]"));
   assert.ok(viewer.includes("to.position[0]-STEP_NINE_PREP_ENTRANCE_OFFSET"));
   assert.ok(viewer.includes("ref={stepSeven}"));
   assert.ok(viewer.includes("ref={frame}"));
