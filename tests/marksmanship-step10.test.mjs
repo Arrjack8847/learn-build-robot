@@ -36,7 +36,7 @@ test("photo-based step 10 includes two full units and all remaining connector pa
   assert.equal(g.STEP_TEN_ACTIONS.length, 21);
   assert.equal(g.STEP_TEN_ACTIONS[0].number, "0");
   assert.match(g.STEP_TEN_ACTIONS[12].instruction, /Hole 3/);
-  assert.ok(!g.STEP_TEN_ACTIONS[12].instruction.includes("Hole 2"));
+  assert.match(g.STEP_TEN_ACTIONS[12].instruction, /never Hole 2/);
   assert.match(g.STEP_TEN_ACTIONS[19].instruction, /Bridge Hole 2/);
 });
 
