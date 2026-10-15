@@ -57,7 +57,8 @@ function guided(from: StepTenPose, to: StepTenPose, t: number, phase: number, pa
   // Hole 15 black pins approach from +Z and travel downward.
   // Reversed actions use the same straight, hole-coaxial clearance path.
   const fromBelow = part === "BLUE_A_1" || part === "BLUE_B_1" ||
-    part === "BLACK_A_3" || part === "BLACK_B_3";
+    part === "BLACK_A_3" || part === "BLACK_B_3" ||
+    part === "BROWN_SPACER" || part === "CENTER_BLACK";
   const offset = fromBelow ? -2.25 : 2.25;
   const aligned: StepTenPose = {
     position: [to.position[0], to.position[1], to.position[2] + offset],
@@ -79,7 +80,9 @@ function viewOffset(view: View, mobile: boolean, phase: number): Vec3 {
   const k = mobile ? 1.45 : 1.12;
   // Hole 1 blue and Hole 3 black insert FROM BELOW; the camera reveals -Z
   // without flipping the beams, hiding pins, or changing source meshes.
-  if (view === "iso" && (phase === 2 || phase === 9 || phase === 5 || phase === 12))
+  if (view === "iso" &&
+    (phase === 2 || phase === 9 || phase === 5 || phase === 12 ||
+      phase === 18 || phase === 19 || phase === 20))
     return [11 * k, -14 * k, -14 * k];
   if (view === "top") return [0.01, -0.01, 21 * k];
   if (view === "front") return [0.01, -18 * k, 5 * k];
@@ -214,7 +217,7 @@ function Stage({ phase, replayKey, paused, resetCameraKey, reducedMotion, view, 
             ? guided(moving.to[id], moving.from[id], 1 - t, moving.phase, id)
             : guided(moving.from[id], moving.to[id], t, moving.phase, id);
         }
-        // Both prepared spacer pieces travel together down the center hole.
+        // Both prepared stopper pieces rise together into the bridge from BELOW.
         if (moving.phase === 19 && id === "CENTER_BLACK") {
           result = moving.reverse
             ? guided(moving.to[id], moving.from[id], 1 - t, 19, id)
@@ -269,7 +272,7 @@ function Stage({ phase, replayKey, paused, resetCameraKey, reducedMotion, view, 
         <meshBasicMaterial color="#e9a31a" depthTest={false} />
       </mesh>)}
     </group> : null}
-    {phase === 19 ? <mesh position={[7, 0, 1.64]}>
+    {phase === 19 ? <mesh position={[7, 0, 0.54]}>
       <torusGeometry args={[0.31, 0.055, 8, 32]} />
       <meshBasicMaterial color="#e9a31a" depthTest={false} />
     </mesh> : null}
