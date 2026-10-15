@@ -1,7 +1,7 @@
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { Line, OrbitControls, Text } from "@react-three/drei";
 import { Component, Suspense, useLayoutEffect, useMemo, useRef } from "react";
-import { BufferGeometry, DoubleSide, Group, Vector3 } from "three";
+import { BufferGeometry, DoubleSide, Group, Mesh, MeshStandardMaterial, Vector3 } from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { motionEase } from "./marksmanLessonMotion";
@@ -191,6 +191,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
     black:normalize(loaded[4]!,null,16,"black connector candidate"),
   }),[loaded]);
   const parts=useRef<Partial<Record<StepEightPart,Group>>>({});
+  const guideGroup=useRef<Group>(null);
   const orbit=useRef<OrbitControlsImpl>(null);
   const movement=useRef<Travel|null>(null);
   const priorPhase=useRef(phase);
@@ -212,6 +213,18 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
     setDpr(Math.max(1,density));
   },[size.width,setDpr]);
   const configKey=config.sevenNearHole+":"+config.fifteenNearHole;
+  // Retain real 3D materials; update opacity in the render loop rather than
+  // triggering a React render for each animation frame on mobile.
+  useLayoutEffect(()=>{
+    guideGroup.current?.traverse(child=>{
+      const line=child as unknown as {material?:{transparent:boolean;depthWrite:boolean;opacity:number;needsUpdate:boolean}};
+      if(line.material){
+        line.material.transparent=true;
+        line.material.depthWrite=false;
+        line.material.needsUpdate=true;
+      }
+    });
+  },[phase,configKey]);
   useLayoutEffect(()=>{
     const destination=stepEightPoses(phase,config);
     const replaying=!first.current&&replayKey!==priorReplay.current;
@@ -318,6 +331,21 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
         if(flight.t===1)cameraFlight.current=null;
       }
     }
+    const current=movement.current;
+    const pct=current?Math.min(1,current.elapsed/current.duration):1;
+    // Guides are strongest while students identify and align a hole, then
+    // fade over the last 18% of insertion without extending Step 7 timing.
+    const opacity=Math.min(1,Math.max(0,(1-pct)/0.18))*0.88;
+    guideGroup.current?.traverse(child=>{
+      const line=child as unknown as {material?:{opacity:number}};
+      if(line.material)line.material.opacity=opacity;
+    });
+    // The active pin settles into its genuine STL color at the end;
+    // completed connectors are not left with a distracting permanent glow.
+    const active=phase>=1&&phase<=4?parts.current[("BLUE_"+phase) as StepEightPart]:null;
+    const pin=active?.children.find(child=>child instanceof Mesh) as Mesh|undefined;
+    const material=pin?.material as MeshStandardMaterial|undefined;
+    if(material)material.emissiveIntensity=0.12+0.22*Math.min(1,Math.max(0,(1-pct)/0.15));
     if(orbit.current){
       orbit.current.autoRotate=phase===11&&cameraView==="iso"&&autoInspect&&
         !paused&&!reducedMotion&&!cameraFlight.current;
@@ -363,6 +391,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
         </group>;
       })}
     </group>
+    <group ref={guideGroup}>
     {fromBlue&&blueClearance&&toBlue&&<>
       <Line points={[fromBlue,blueClearance]}
         color="#168eea" lineWidth={1.6} dashed dashSize={0.20} gapSize={0.12}/>
@@ -379,6 +408,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
     {guide&&!activeBlue&&!twoPointPins&&<Line points={[[guide[0],guide[1],guide[2]-2.1],
       [guide[0],guide[1],guide[2]+2.1]]}
       color="#e2a315" lineWidth={1.5} dashed dashSize={0.12} gapSize={0.12}/>}
+    </group>
     <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.08}
       enablePan={false} minDistance={4.5} maxDistance={210}
       onStart={()=>{cameraFlight.current=null;onUserCameraInteraction?.();}}
