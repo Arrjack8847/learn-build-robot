@@ -7,10 +7,10 @@ This feature branch is **not a mechanical certification**. Source 3D meshes are 
 - 1–6: unchanged lesson sequence; Step 6 completes the 11-hole connector support.
 - 7: **Connect Two 15-Hole Side Beams**, combining original manual Steps 7 and 8 as Assembly A. It loads the Step 5 + 6 saved model states.
 - 8: **Assemble and Lock the Rectangular Frame**, the previously custom frame lesson. Eleven original STL component meshes are used to construct Assembly B; four blue connectors enter the two 5-hole beams at holes 2 and 4.
-- 9: Inspect the two independent finished assemblies (Assembly A and Assembly B). Neither is joined to the other without a verified next-step mounting layout.
+- 9: Join the already finished Step 7 (Assembly A) and Step 8 (Assembly B) structures. User-supplied photographs from October 15 identify two receiving holes on each 15-hole Step 7 rail (holes 7/11 counted from the existing blue-pinned free end), the four existing Step 8 blue pins, and the longest Step 8 beam as front-facing. This is a photo-guided fitting demonstration, not a measured press-fit certification.
 - 10–32: historic manual Steps 9–31; the illustrations keep their **original** source filenames and manual numbers. Interactive Steps 10–15 (manual 9–14) are flagged for mapping review because those operations may duplicate frame preparation or mount it differently than the custom photographs.
 
-The 32-entry count includes the real photographed two-assembly handoff at Step 9, **not** a fabricated joint operation. Interactive display numbers differ from immutable original-manual numbers.
+The 32-entry count includes the photographed two-assembly mounting operation at Step 9. The four receiving holes are now photo-marked, but exact seating depths remain unmeasured. Interactive display numbers differ from immutable original-manual numbers.
 
 ## Mechanical evidence and verification status
 
@@ -29,7 +29,7 @@ The 32-entry count includes the real photographed two-assembly handoff at Step 9
 - Assembly B: `robot:marksmanship:step8:assembly-b:v1` / `marksman-assembly-b-rectangular-frame-v1`.
 - A physical **self-confirmation** is required to save each assembly. Neither self-attestation nor a theoretical STL coincidence asserts certified mechanical verification.
 - Legacy progress IDs `marksmanship-s7` and `marksmanship-s8` are kept in `legacyStepCompletionIds` but **not** automatically credited to either new assembly. Historic Step 9+ IDs retain their meaning despite the new displayed numbering.
-- Step 9 requires both independent saved assembly results and never combines them.
+- Step 9 requires both independent saved Step 7 and Step 8 results and animates joining them without altering either saved source assembly. It records an additional physical self-check and warns about saved geometry collisions instead of concealing them.
 
 ## Before main-branch merge
 
@@ -89,3 +89,12 @@ The original 31-step manual and source STL meshes are not changed by this featur
 - The two additional long blue pins remain at **STL Hole 1**, at the exposed RIGHT ends of both white rails, entering from the **black-connector face**.
 - The pin-insertion camera uses a wider target between the rail midpoint and end-pin hole. It stays on one side for both insertions to avoid clipping the complete assembly during the camera change. No physical component position is changed by this camera improvement.
 - These are accepted lesson-viewer coordinates; measured connector seating depth and real device visual confirmation remain separate QA tasks.
+
+## October 15: Step 9 user-photographed four-pin join
+
+- Reference photos: IMG_1769 (Action 0 side-by-side preparation), IMG_1773 (black-arrow target hole positions), IMG_1774 and IMG_1775 (joined side and close-up angles).
+- Five zero-based actions: 0 prepare both; 1 rotate/lift Step 8 with the 15-hole white beam frontward; 2 align four original Step 8 blue pins; 3 insert all four together; 4 inspect final orientation.
+- The marked target pair on **each** Step 7 rail is hole 7 and hole 11 counted from the free blue-pin end. These are not the two end pins installed during Step 7; they are new receiving holes for Step 8 pins.
+- New Step 9 scene renders Step 7 and Step 8 together using the genuine existing STL geometry, with no manual reconstruction of a new proxy part. Step 8 is transformed as ONE rigid unit. The Step 8 local +Z blue pin axis is mapped to the new Step 7 mounting axis.
+- There is an outstanding issue: Step 7's locked saved calibration may occupy a photo-marked receiving hole (particularly the second rail's selected hole 7). This is surfaced as a warning, not solved by moving the older connectors. The user must visually/physically compare the new combined demo with the real structure. 3D seating depth is provisional, mechanical fit is not certified.
+- The previous Step 9 *separate-only* checkpoint was intentionally superseded by the user's October 15 assembly photos. Old Step 7/8 completion keys remain unchanged, while the newly joined result is independently stored at `robot:marksmanship:step9:joined:v1`.
