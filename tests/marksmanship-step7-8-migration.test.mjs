@@ -144,8 +144,8 @@ test("Step 7 moves both added end pins to the opposite/right-hand free end witho
 test("Approved Step 7 rail calibration and visible end-pin camera framing",()=>{
   assert.match(railConfig,/railCenterDistance:0\.9,firstRailHole:13,secondRailHole:8/);
   assert.ok(rails.includes("STEP_SEVEN_PHOTO_CONFIG"));
-  assert.ok(rails.includes("first rail grey holes 13/15"));
-  assert.ok(rails.includes("second rail grey holes 8/10"));
+  assert.ok(railConfig.includes("first rail\'s grey holes 12/14"));
+  assert.ok(railConfig.includes("second rail\'s 7/9"));
   assert.ok(railConfig.includes("STEP_SEVEN_END_PIN_HOLE = 1"));
   assert.ok(scene.includes("(endWorldX+railCenterWorldX)/2"));
   assert.ok(scene.includes("overview||pinPhase?1:sign"));
