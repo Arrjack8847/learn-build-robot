@@ -11,7 +11,7 @@ import { STEP_SEVEN_FINAL_PHASE, STEP_SEVEN_PIN_IDS, STEP_SEVEN_RAIL_IDS, endPin
 import {
   STEP_NINE_CAMERA_DURATION, STEP_NINE_FINAL_PHASE,
   STEP_NINE_PREP_DURATION, STEP_NINE_PREP_ENTRANCE_OFFSET,
-  STEP_NINE_STEP_SEVEN_YAW,
+  STEP_NINE_STEP_SEVEN_YAW, STEP_NINE_OPPOSITE_FACE_YAW,
   stepNineStepSevenPose, stepNineFramePose, stepNineMating, stepNineTurnedPoint,
 } from "./stepNineGeometry";
 import { motionEase, motionLerp } from "./marksmanLessonMotion";
@@ -47,18 +47,20 @@ function stepEightMeshName(id:StepEightPart):"five"|"seven"|"fifteen"|"blue"|"bl
   return id.startsWith("FIVE")?"five":id.startsWith("SEVEN")?"seven":
     id==="FIFTEEN"?"fifteen":id.startsWith("BLUE")?"blue":"black";
 }
-/** Step 8 already enters Step 9 in the correct photographed orientation.
- * Keep this single rigid quaternion from Action 0 through Action 4.
- * Its local +Z pins become shared -Y and therefore WORLD UP, because
- * the common scene root rotates 180° around Z. There is NO flip in Action 1.
- * All original Step 8 beams and blue/black pins retain their local poses.
+/** Step 8 local +Z points shared -Y = WORLD UP through the shared
+ * outer scene root. A horizontal yaw around shared Y reverses X and Z
+ * while preserving -Y: the four mounting blue pins remain upright.
+ * Rotate the ENTIRE Step 8 root during Action 1, never its individual parts.
  */
-const ALIGNMENT=new Quaternion().setFromRotationMatrix(new Matrix4().set(
+const INITIAL_ALIGNMENT=new Quaternion().setFromRotationMatrix(new Matrix4().set(
   0,-1,0,0,
   0,0,-1,0,
   1,0,0,0,
   0,0,0,1,
 ));
+const OPPOSITE_FACE_ALIGNMENT=new Quaternion()
+  .setFromAxisAngle(new Vector3(0,1,0),STEP_NINE_OPPOSITE_FACE_YAW)
+  .multiply(INITIAL_ALIGNMENT);
 const ease=motionEase;
 function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKey,paused,resetCameraKey,reducedMotion,cameraView,onMotionComplete}:{
   phase:number;config:StepSevenRailConfig;frameConfig:StepEightConfig;
@@ -142,8 +144,8 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
     const from=pose(old),to=pose(phase);
     const fromSeven=stepNineStepSevenPose(old);
     const toSeven=stepNineStepSevenPose(phase);
-    const fromQuat=ALIGNMENT;
-    const toQuat=ALIGNMENT;
+    const fromQuat=old>=1?OPPOSITE_FACE_ALIGNMENT:INITIAL_ALIGNMENT;
+    const toQuat=phase>=1?OPPOSITE_FACE_ALIGNMENT:INITIAL_ALIGNMENT;
     const enterPreparation=phase===0&&(!mounted.current||replay)&&!reducedMotion;
     prepEntrance.current=null;
     if(enterPreparation){
@@ -248,8 +250,8 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
           :motionLerp(halfway,m.toSeven,approach);
         stepEightPosition=m.toEight;
       }
-      // Translation only for Step 8; do not reorient the correctly prepared
-      // assembly on any action or when reversing/replaying the movement.
+      // Action 1: horizontal rigid yaw to Step 8's opposite attachment side.
+      // Other actions keep this corrected orientation; pin axes stay WORLD UP.
       // No individual beam, pin, or installed connector ever shifts.
       stepSeven.current.position.set(...stepSevenPosition);
       frame.current.position.set(...stepEightPosition);
@@ -336,7 +338,8 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
         })}
       </group>
       <group name="STEP9_STEP8_COMPLETE_ASSEMBLY" ref={frame}
-        position={first.position} quaternion={ALIGNMENT}>
+        position={first.position}
+        quaternion={phase>=1?OPPOSITE_FACE_ALIGNMENT:INITIAL_ALIGNMENT}>
         {STEP_EIGHT_PARTS.map(id=>{
           const p=completed[id],model=stepEightMeshName(id);
           const color=model==="blue"?"#1576ce":model==="black"?"#293544":
