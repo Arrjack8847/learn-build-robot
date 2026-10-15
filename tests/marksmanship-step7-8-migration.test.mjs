@@ -266,8 +266,8 @@ test("Step 8 preparation keeps all eleven original STL parts visibly separated",
   assert.ok(frameGeom.includes("hole5:2")&&frameGeom.includes("hole5:4"));
   assert.ok(frameGeom.includes("receiverHole:3"));
   assert.ok(frameGeom.includes("longAtFrame ? STEP_EIGHT_FIFTEEN_BEAM_SEATED_Z") &&
-    frameGeom.includes("longAligned ? -3.2 : 0"),
-    "Final 15-hole beam must attach from BELOW and touch the opposite grey faces");
+    frameGeom.includes("STEP_EIGHT_FIFTEEN_BEAM_ALIGNMENT_Z"),
+    "The 15-hole beam must align from ABOVE and descend onto the grey-beam top faces");
   assert.ok(frameGeom.includes("phase>=5?-1:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_A[0]"),
     "Only loose beam A positions may change");
   assert.ok(frameGeom.includes("phase>=6?1:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_B[0]"),
@@ -330,7 +330,7 @@ test("Step 8 blue pins descend from above, remain visible and never protrude bel
     assert.ok(pinTop>beamTop,
       "Connector "+n+" must remain visibly exposed above its beam");
   }
-  assert.ok(frameScene.includes("const sign=phase===10?-1:1"),
+  assert.ok(frameScene.includes("const sign=1"),
     "Blue connectors and both white rails must approach from +Z and descend");
   assert.ok(frameScene.includes("[toBlue[0],toBlue[1],toBlue[2]+2.15]"),
     "The gold insertion guide must match the top-down insertion path");
@@ -356,8 +356,8 @@ test("Step 8 blue pins descend from above, remain visible and never protrude bel
   for(let n=1;n<=4;n++)
     assert.ok(frameGeom.includes("blue connector "+n)||frameGeom.includes("connector "+n),
       "Name each blue connector in its action");
-  assert.equal((frameGeom.match(/DOWNWARD/g)||[]).length,6,
-    "All four blue and both white-beam instructions must state downward insertion");
+  assert.equal((frameGeom.match(/DOWNWARD/g)||[]).length,7,
+    "All four blue pins and all three white-beam insertions must move downward");
 });
 
 test("Step 8 both 7-hole white beams descend onto the four upper blue-pin ends",()=>{
@@ -392,7 +392,7 @@ test("Step 8 both 7-hole white beams descend onto the four upper blue-pin ends",
   assert.ok(frameGeom.includes("phase>=5?STEP_EIGHT_SEVEN_RAIL_SEATED_Z:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_A[2]"));
   assert.ok(frameGeom.includes("phase>=6?STEP_EIGHT_SEVEN_RAIL_SEATED_Z:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_B[2]"));
   assert.ok(frameGeom.includes("if(phase===5||phase===6)return [phase===5?-1:1,0,STEP_EIGHT_SEVEN_RAIL_SEATED_Z]"));
-  assert.ok(frameScene.includes("const sign=phase===10?-1:1"),
+  assert.ok(frameScene.includes("const sign=1"),
     "The beams descend with +Z clearance, then lower into place");
   assert.ok(frameScene.includes("const descendingWhiteRail=phase===5||phase===6"));
   assert.ok(frameScene.includes("STEP_EIGHT_SEVEN_RAIL_SEATED_Z+2.15"),
@@ -415,44 +415,58 @@ test("Step 8 both 7-hole white beams descend onto the four upper blue-pin ends",
     "Instructions must describe both descending rails and retained blue pins");
 });
 
-test("Step 8 15-hole white beam locks flush to opposite face of both grey beams",()=>{
+
+test("Step 8 all three white rails sit above grey beams; center rail descends on two black locks",()=>{
   const pitch=8,thickness=7.8;
   const greyZ=(thickness+1.5)/pitch;
-  const halfThickness=thickness/(2*pitch);
-  const greyBottom=greyZ-halfThickness;
-  const white15Z=greyZ-thickness/pitch;
-  const white15Top=white15Z+halfThickness;
-  const white7Z=greyZ+thickness/pitch;
-  const white7Bottom=white7Z-halfThickness;
-  assert.ok(Math.abs(greyBottom-white15Top)<1e-9,
-    "15-hole white beam must CONTACT both grey beams from the underside");
-  assert.ok(Math.abs(white7Bottom-(greyZ+halfThickness))<1e-9,
-    "Both 7-hole white beams remain seated on the opposite TOP face");
-  assert.ok(white15Z<greyZ && white7Z>greyZ,
-    "White beams must be on OPPOSITE sides of the grey 5-hole beams");
-  const blackPinZ=white15Z+halfThickness;
-  assert.ok(Math.abs(blackPinZ-greyBottom)<1e-9,
-    "Both black connector centers must align to the interface between layers");
+  const halfThick=thickness/(2*pitch);
+  const greyTop=greyZ+halfThick;
+  const greyBottom=greyZ-halfThick;
+  const outerWhiteZ=greyZ+thickness/pitch;
+  const white15Z=outerWhiteZ;
+  const white15Bottom=white15Z-halfThick;
+  const alignedZ=white15Z+2.2;
+  const centerBlackZ=white15Z-halfThick;
+  assert.ok(Math.abs(white15Z-outerWhiteZ)<1e-9,
+    "Center and outer white rails must seat at exactly the SAME TOP HEIGHT");
+  assert.ok(Math.abs(white15Bottom-greyTop)<1e-9,
+    "The center white beam must touch BOTH grey beams from ABOVE");
+  assert.ok(white15Z>greyZ && white15Bottom>greyBottom,
+    "The 15-hole white beam must never sit under the grey 5-hole beams");
+  assert.ok(Math.abs(centerBlackZ-greyTop)<1e-9,
+    "The black pins must straddle the white-over-grey mating interface");
+  assert.ok(alignedZ-halfThick-16/(2*pitch)>greyTop,
+    "The black pins must clear the frame before the long beam descends");
   assert.ok(frameGeom.includes("export const STEP_EIGHT_FIFTEEN_BEAM_SEATED_Z =")&&
-    frameGeom.includes("STEP_EIGHT_LEVEL - STEP_EIGHT_THICKNESS_MM/STEP_EIGHT_PITCH_MM"));
+    frameGeom.includes("STEP_EIGHT_SEVEN_RAIL_SEATED_Z;"),
+    "Center rail is coplanar with outer white rails");
   assert.ok(frameGeom.includes("export const STEP_EIGHT_BLACK_PIN_INTERFACE_OFFSET_Z =")&&
-    frameGeom.includes("STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM)"));
-  assert.ok(frameGeom.includes("longAtFrame ? STEP_EIGHT_FIFTEEN_BEAM_SEATED_Z"));
+    frameGeom.includes("-STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM)"),
+    "Black pins engage DOWN into the grey beams from the central white beam");
+  assert.ok(frameGeom.includes("export const STEP_EIGHT_FIFTEEN_BEAM_ALIGNMENT_Z =")&&
+    frameGeom.includes("STEP_EIGHT_FIFTEEN_BEAM_SEATED_Z + 2.2"));
+  assert.ok(frameGeom.includes("FIFTEEN: [9,0,STEP_EIGHT_FIFTEEN_BEAM_ALIGNMENT_Z]"),
+    "The loose long white beam must stay above the frame, never pass through it");
+  assert.ok(frameGeom.includes("longAtFrame ? STEP_EIGHT_FIFTEEN_BEAM_SEATED_Z")&&
+    frameGeom.includes(": STEP_EIGHT_FIFTEEN_BEAM_ALIGNMENT_Z;"),
+    "The long beam must remain above grey beams during alignment");
   assert.ok(frameGeom.includes("xyz(longX,firstY,longZ+STEP_EIGHT_BLACK_PIN_INTERFACE_OFFSET_Z)")&&
     frameGeom.includes("xyz(longX,secondY,longZ+STEP_EIGHT_BLACK_PIN_INTERFACE_OFFSET_Z)"),
-    "Both mounted pins must translate rigidly with the 15-hole beam");
+    "Both real black connectors must move RIGIDLY with the center beam");
   assert.ok(frameGeom.includes("fifteenNearHole: 7")&&
     frameGeom.includes("beam15Hole:config.fifteenNearHole+4")&&
     frameGeom.includes('receiverHole:3'),
-    "Black pins still connect 15-hole beam Holes 7/11 to grey Hole 3 each");
+    "Black-pin target holes remain 7 and 11 on center beam, Hole 3 on grey beams");
   assert.ok(frameGeom.includes("const firstY = longAligned ? -2")&&
     frameGeom.includes("const secondY = firstY + 4"),
-    "Both black connectors must align with the grey beams at y=-2 and +2");
-  assert.ok(frameScene.includes("const sign=phase===10?-1:1")&&
+    "Both black pins must align with grey beams at y=-2 and +2");
+  assert.ok(frameScene.includes("const sign=1")&&
     frameScene.includes('travel.phase===10&&(id==="FIFTEEN"||id==="BLACK_1"||id==="BLACK_2")'),
-    "Beam and both black pins must travel upward together to seat beneath the grey beams");
-  assert.ok(frameGeom.includes("Seat it against the UNDERSIDE of both grey 5-hole beams without leaving a gap"));
-  assert.ok(frameGeom.includes("OPPOSITE side from both 7-hole white beams"));
+    "Action 11 lowers the white beam and both attached black pins as one unit");
+  assert.ok(frameScene.includes("const descendingWhiteRail=phase===5||phase===6||phase===9||phase===10"),
+    "Double-pin guides show a TOP-DOWN movement, never underside insertion");
+  assert.ok(frameGeom.includes("All three white beams stay on top; nothing disappears or detaches."));
+  assert.ok(frameGeom.includes("SAME TOP SIDE as the pair of 7-hole white beams."));
   assert.ok(frameGeom.includes("STEP_EIGHT_SEVEN_RAIL_SEATED_Z"),
-    "Preserve previously approved downward white 7-hole beam seating");
+    "Previously approved first and second white-rail seating must stay unchanged");
 });
