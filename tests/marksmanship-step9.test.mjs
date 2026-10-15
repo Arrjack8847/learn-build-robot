@@ -22,15 +22,16 @@ test("Photographed Step 9 begins at action zero and ends with inspection",()=>{
 });
 test("The four photographed holes are the two open targets on each Step 7 rail",()=>{
   assert.ok(geometry.includes("STEP_NINE_RECEIVERS = [7, 11]"));
-  const pairs=[["BLUE_1",1,7],["BLUE_2",0,7],["BLUE_3",1,11],["BLUE_4",0,11]];
+  const pairs=[["BLUE_1",0,7],["BLUE_2",1,7],["BLUE_3",0,11],["BLUE_4",1,11]];
   for(const [pin,rail,hole] of pairs){
     assert.ok(geometry.includes(`stepEightPin:"${pin}",rail:${rail},hole:${hole}`));
   }
   // The original Step 8 5-hole bars have centres at x +/-1, y +/-2.
-  // Under (x,y,z) -> (-y,-z,x), the pins face upward at
-  // receiving x = +2/-2 along the original Step 7 rail direction.
-  const blue=[[-1,-2],[1,-2],[-1,2],[1,2]];
-  assert.deepEqual(blue.map(([x,y])=>[-y,x]),[[2,-1],[2,1],[-2,-1],[-2,1]]);
+  // After flipping, local (x,y,z) -> shared (-y,z,-x), so all pins face
+  // toward Step 7 from below and their left/right pair order is reversed.
+  const blue=[[-1,-2,.58],[1,-2,.58],[-1,2,.58],[1,2,.58]];
+  assert.deepEqual(blue.map(([x,y,z])=>[-y,z,-x]),
+    [[2,.58,1],[2,.58,-1],[-2,.58,1],[-2,.58,-1]]);
   assert.ok(geometry.includes("alreadyOccupiedByStepSeven"));
   assert.ok(geometry.includes("geometryWarnings"));
 });
@@ -121,4 +122,34 @@ test("Step 9 prevents overlapping navigation animations but keeps pause/replay a
   assert.ok(viewer.includes("if(paused)return;"));
   assert.ok(viewer.includes("!reducedMotion;"));
   assert.ok(!viewer.includes("scale.set("));
+});
+
+test("Action 1 flips ONLY the complete Step 8 assembly upside down",()=>{
+  assert.ok(geometry.includes("STEP_NINE_STEP_EIGHT_FLIP = Math.PI"));
+  assert.ok(geometry.includes("return [-point[1],point[2],-point[0]]"));
+  assert.ok(viewer.includes("const UPRIGHT_ALIGNMENT=new Quaternion()"));
+  assert.ok(viewer.includes("new Vector3(1,0,0),STEP_NINE_STEP_EIGHT_FLIP"));
+  assert.ok(viewer.includes(".multiply(UPRIGHT_ALIGNMENT)"));
+  assert.ok(viewer.includes("const fromQuat=from.orient?ALIGNMENT:LOOSE;"));
+  assert.ok(viewer.includes("const toQuat=to.orient?ALIGNMENT:LOOSE;"));
+  assert.ok(viewer.includes("frame.current.quaternion.copy(m.fromQuat).slerp(m.toQuat,ease(t))"));
+  assert.ok(viewer.includes('name="STEP9_STEP8_COMPLETE_ASSEMBLY" ref={frame}'));
+  assert.ok(viewer.includes('name="STEP9_STEP7_COMPLETE_ASSEMBLY" rotation={[0,STEP_NINE_STEP_SEVEN_YAW,0]}'));
+  assert.ok(!viewer.includes('rotation={[0,STEP_NINE_STEP_EIGHT_FLIP,0]}'));
+  assert.ok(lesson.includes("stepEightFlippedUpsideDown:true"));
+});
+
+test("Upside-down Step 8 approaches the four Step 7 receiving holes from BELOW",()=>{
+  assert.ok(geometry.includes("if(phase===1)return {position:[x-10,y-3.5,z],orient:true}"));
+  assert.ok(geometry.includes("if(phase===2)return {position:[x,y-2.3,z],orient:true}"));
+  assert.ok(geometry.includes("- STEP_NINE_ESTIMATED_PIN_CENTRE_CLEARANCE - level"));
+  assert.ok(viewer.includes("m.to[1]-1.4"));
+  assert.ok(viewer.includes("(t-0.42)/0.58"));
+  assert.ok(viewer.includes("j.stepSevenLocalTarget[1]-2.4"));
+  assert.ok(viewer.includes("j.stepSevenLocalTarget[1]-0.5"));
+  assert.ok(geometry.includes("stepNineFlippedPinOffset([-1,-2,level])"));
+  assert.ok(geometry.includes("stepNineFlippedPinOffset([ 1,-2,level])"));
+  assert.ok(geometry.includes("stepNineFlippedPinOffset([-1, 2,level])"));
+  assert.ok(geometry.includes("stepNineFlippedPinOffset([ 1, 2,level])"));
+  assert.ok(lesson.includes("blue pins enter the intended Step 7 holes from below"));
 });
