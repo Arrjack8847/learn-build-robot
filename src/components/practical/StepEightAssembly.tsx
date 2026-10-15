@@ -105,7 +105,7 @@ export function StepEightAssembly({
         </span>
       </div>
 
-      {phase===0&&<div aria-label="Preparation groups" className="mb-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+      {phase===0&&<div aria-label="Preparation groups" className="mb-3 grid grid-cols-1 gap-2 min-[430px]:grid-cols-2 lg:grid-cols-3">
         <div className="rounded-2xl border border-sky-200 bg-sky-50 p-3">
           <p className="text-[10px] font-extrabold uppercase tracking-widest text-sky-700">Group A · prepare first</p>
           <p className="mt-1 text-sm font-bold text-[#132654]">1 × 5-hole beam</p>
@@ -116,14 +116,15 @@ export function StepEightAssembly({
           <p className="mt-1 text-sm font-bold text-[#132654]">1 × 5-hole beam</p>
           <p className="mt-0.5 text-xs text-slate-600">2 blue connectors → Holes 2 and 4</p>
         </div>
-        <div className="col-span-2 rounded-2xl border border-slate-200 bg-white p-3 sm:col-span-1">
+        <div className="rounded-2xl border border-slate-200 bg-white p-3 min-[430px]:col-span-2 lg:col-span-1">
           <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-500">Keep nearby · use later</p>
           <p className="mt-1 text-sm font-bold text-[#132654]">2 × 7-hole beams</p>
           <p className="mt-0.5 text-xs text-slate-600">1 × 15-hole beam + 2 black connectors</p>
         </div>
       </div>}
-      <div className="relative h-[clamp(350px,58svh,730px)] min-w-0 overflow-hidden
+      <div className="relative h-[clamp(300px,50svh,560px)] min-w-0 overflow-hidden
         rounded-[20px] border border-slate-200 bg-[#f5f8fc]
+        sm:h-[clamp(430px,68svh,780px)]
         shadow-[0_16px_45px_rgba(19,38,84,0.09)] sm:rounded-[28px]">
         <StepEightScene phase={phase} config={config} paused={paused}
           replayKey={replayKey} resetCameraKey={resetCameraKey}
@@ -133,7 +134,7 @@ export function StepEightAssembly({
         <span className="pointer-events-none absolute left-3 top-3 rounded-full
           bg-white/90 px-3 py-1.5 text-[10px] font-bold text-slate-600 shadow-sm
           backdrop-blur sm:text-xs">
-          Drag to orbit · Pinch to zoom
+          Drag to rotate · Pinch to zoom
         </span>
         <button type="button" aria-label="Reset 3D camera" title="Reset camera"
           className="absolute right-3 top-3 grid size-10 place-items-center rounded-full
@@ -156,7 +157,7 @@ export function StepEightAssembly({
         </div>}
       </div>
       <div className="relative z-10 mx-auto mt-3 w-full max-w-[900px]
-          rounded-2xl border border-slate-200 bg-white p-3 text-[#132654]
+          rounded-2xl border border-slate-200 bg-white p-3 text-[#132654]"
           shadow-[0_10px_30px_rgba(16,38,69,0.08)] sm:p-4">
           <div aria-live="polite" className="flex min-w-0 items-start gap-3">
             <span className="flex size-10 shrink-0 items-center justify-center rounded-xl
@@ -195,7 +196,7 @@ export function StepEightAssembly({
                   (index<=phase?"bg-[#168eea]":"bg-slate-200")}/>
             ))}
           </div>
-          <div className="mt-3 flex items-center gap-1.5 sm:gap-2">
+          <div className="mt-3 flex min-w-0 items-center gap-1.5 sm:gap-2">
             <button type="button" disabled={phase===0||animating}
               aria-label="Previous assembly action" onClick={()=>go(phase-1)}
               className="inline-flex min-h-11 items-center gap-1 rounded-xl border
@@ -216,8 +217,8 @@ export function StepEightAssembly({
             <button type="button"
               disabled={animating||(finished&&!physicalCheck)}
               onClick={()=>finished?completeStepEight():go(phase+1)}
-              className="ml-auto inline-flex min-h-11 items-center justify-center gap-1
-                rounded-xl bg-[#168eea] px-3 text-xs font-extrabold text-white
+              className="ml-auto inline-flex min-h-11 min-w-0 items-center justify-center gap-1
+                whitespace-nowrap rounded-xl bg-[#168eea] px-3 text-xs font-extrabold text-white
                 transition-colors hover:bg-[#0e7ac8] disabled:cursor-not-allowed disabled:opacity-50 sm:px-5 sm:text-sm">
               {finished?"Complete Step 8":"Next action"}<ArrowRight className="size-4"/>
             </button>
