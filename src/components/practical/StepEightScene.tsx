@@ -124,7 +124,7 @@ function NumberedHoles({id,phase,config}:{
 function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoInspect,cameraView,onMotionComplete}:{
   phase:number;config:StepEightConfig;paused:boolean;replayKey:number;
   resetCameraKey:number;reducedMotion:boolean;autoInspect:boolean;
-  cameraView:"iso"|"top"|"side"|"bottom";onMotionComplete:()=>void;
+  cameraView:"iso"|"top"|"side"|"bottom";onMotionComplete?:()=>void;
 }) {
   const loaded=useLoader(STLLoader,SOURCES);
   const geometries=useMemo(()=>({
@@ -194,7 +194,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
         parts.current[id]?.position.set(...destination[id].position);
         parts.current[id]?.rotation.set(...destination[id].rotation);
       }
-      completed.current();
+      completed.current?.();
     }
     previousConfigKey.current=configKey;
     priorPhase.current=phase;
@@ -244,7 +244,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
           part.position.set(...pose.position);
           part.rotation.set(...pose.rotation);
         }
-        if(t>=1){movement.current=null;completed.current();}
+        if(t>=1){movement.current=null;completed.current?.();}
       }
       const flight=cameraFlight.current;
       if(flight){
@@ -312,7 +312,7 @@ class ViewerBoundary extends Component<{children:React.ReactNode},{message:strin
 export function StepEightScene({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoInspect,cameraView,onMotionComplete}:{
   phase:number;config:StepEightConfig;paused:boolean;replayKey:number;
   resetCameraKey:number;reducedMotion:boolean;autoInspect:boolean;
-  cameraView:"iso"|"top"|"side"|"bottom";onMotionComplete:()=>void;
+  cameraView:"iso"|"top"|"side"|"bottom";onMotionComplete?:()=>void;
 }){
   return <ViewerBoundary>
     <Canvas camera={{fov:43,near:0.1,far:120,position:[12,-16,19],up:[0,0,1]}}
