@@ -59,7 +59,11 @@ function guided(from: StepTenPose, to: StepTenPose, t: number, phase: number, pa
   const fromBelow = part === "BLUE_A_1" || part === "BLUE_B_1" ||
     part === "BLACK_A_3" || part === "BLACK_B_3" ||
     part === "BROWN_SPACER" || part === "CENTER_BLACK";
-  const offset = fromBelow ? -2.25 : 2.25;
+  // Bottom-up center operations use a nearer underside waypoint.
+  // This keeps both pieces moving UP throughout the last seating action.
+  const offset = part === "CENTER_BLACK" && phase === 18 ? -0.80
+    : (part === "BROWN_SPACER" || part === "CENTER_BLACK") ? -1.65
+      : fromBelow ? -2.25 : 2.25;
   const aligned: StepTenPose = {
     position: [to.position[0], to.position[1], to.position[2] + offset],
     rotation: to.rotation,
