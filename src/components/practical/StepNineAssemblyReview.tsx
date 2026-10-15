@@ -80,7 +80,9 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
         fromStep7:ready.a.assemblyId,fromStep8:ready.b.assemblyId,
         stepSevenReceivingHoles:[7,11],fourOriginalBluePins:true,
         usesUpdatedStepEightAssembly:true,stepEightBlackPinHoles:[7,11],
-        stepEightOrientationPreserved:true,stepEightRotatedInStep9:false,
+        stepEightHorizontalTurnDegrees:180,
+        stepEightAttachmentSide:"opposite-horizontal-facing",
+        stepEightBluePinsRemainUpward:true,
         stationaryDuringInsertion:"step8",loweredDuringInsertion:"step7",
         inspectionViews:["front","side","top","bottom"],
         longestStepEightBeamFacesFront:true,geometryUnchanged:true,
@@ -115,7 +117,7 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
         {phase===0
           ?"Preparation · completed Step 7 on left / updated Step 8 on right"
           :phase===1
-            ?"Step 8 already oriented correctly · no flip"
+            ?"Turn Step 8 horizontally 180° · keep blue pins upward"
             :phase===2
               ?"Align four Step 8 pins beneath Step 7 holes 7 + 11"
               :phase===3
@@ -149,7 +151,7 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
           </div>
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-2.5">
             <p className="font-extrabold">Assembly B · Updated Step 8</p>
-            <p className="mt-0.5 text-slate-600">Completed frame with four upward-facing blue pins and black locks in holes 7/11. Its current orientation is already correct; no flip is needed.</p>
+            <p className="mt-0.5 text-slate-600">Completed frame with four upward-facing blue pins and black locks in holes 7/11. Action 1 turns the entire assembly horizontally to its opposite attachment side; it never flips upside down.</p>
           </div>
         </div>}
         {needsStepEightRefresh&&<p role="alert" className="rounded-xl border border-amber-200
@@ -169,7 +171,8 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
           <input type="checkbox" className="mt-0.5 size-4 shrink-0"
             checked={physicalCheck} onChange={e=>setPhysicalCheck(e.target.checked)}/>
           I checked the real assembly against the top, side and underside photos:
-          Step 8 stays underneath and its four blue pins point upward; the whole
+          Step 8 faces its opposite attachment side after a horizontal 180° turn,
+          stays underneath and keeps its four blue pins pointing upward; the whole
           Step 7 structure is lowered over the pins into holes 7 and 11 on both
           outer white rails. The two grey cross-supports and four pin heads are
           visible from the underside, and the longest white beam remains front-facing.
