@@ -69,8 +69,29 @@ export function stepEightMating(config: StepEightConfig) {
 }
 const xyz = (x:number,y:number,z:number,rotation:V3=[0,0,0]):StepEightPose =>
   ({position:[x,y,z],rotation});
-const blueLoose:V3[] = [
-  [-3.5,-8,1.3],[-2.3,-8,1.3],[2.3,8,1.3],[3.5,8,1.3],
+/**
+ * Preparation-only layout: each genuine STL has a separate footprint when
+ * presented from the near-overhead camera. All installed holes, final poses
+ * and connector directions remain exactly unchanged.
+ */
+export const STEP_EIGHT_PREPARATION_LAYOUT: Readonly<Record<StepEightPart,V3>> = {
+  FIVE_A: [0,-8.3,STEP_EIGHT_LEVEL],
+  FIVE_B: [0,8.3,STEP_EIGHT_LEVEL],
+  BLUE_1: [-5.7,-10.2,1.3],
+  BLUE_2: [-5.7,-6.5,1.3],
+  BLUE_3: [5.7,10.2,1.3],
+  BLUE_4: [5.7,6.5,1.3],
+  SEVEN_A: [-8.5,0,0],
+  SEVEN_B: [-5,0,0],
+  FIFTEEN: [9,0,0],
+  BLACK_1: [6.5,-10.6,1.3],
+  BLACK_2: [10.7,-10.6,1.3],
+};
+const blueLoose:readonly V3[] = [
+  STEP_EIGHT_PREPARATION_LAYOUT.BLUE_1,
+  STEP_EIGHT_PREPARATION_LAYOUT.BLUE_2,
+  STEP_EIGHT_PREPARATION_LAYOUT.BLUE_3,
+  STEP_EIGHT_PREPARATION_LAYOUT.BLUE_4,
 ];
 const phasesBlue = [1,2,3,4];
 /** Deterministic full poses: backward/replay never duplicate any components. */
@@ -78,18 +99,22 @@ export function stepEightPoses(phase:number,config:StepEightConfig):Record<StepE
   if (stepEightConfigurationErrors(config).length)
     throw Error(stepEightConfigurationErrors(config).join(" "));
   const movedFrame = phase >= 5;
-  const frameA = movedFrame ? -2 : -8.3;
-  const frameB = movedFrame ? 2 : 8.3;
+  const frameA = movedFrame ? -2 : STEP_EIGHT_PREPARATION_LAYOUT.FIVE_A[1];
+  const frameB = movedFrame ? 2 : STEP_EIGHT_PREPARATION_LAYOUT.FIVE_B[1];
   const longAtFrame = phase >= 10;
   const longAligned = phase >= 9;
-  const longX = longAligned ? 0 : 6.4;
+  const longX = longAligned ? 0 : STEP_EIGHT_PREPARATION_LAYOUT.FIFTEEN[0];
   const longZ = longAtFrame ? 0 : longAligned ? -3.2 : 0;
   const beam15Y = 6 - config.fifteenNearHole;
   const poses = {
     FIVE_A: xyz(0,frameA,STEP_EIGHT_LEVEL),
     FIVE_B: xyz(0,frameB,STEP_EIGHT_LEVEL),
-    SEVEN_A: xyz(phase>=5?-1:-4.5,phase>=5?2-config.sevenNearHole:0,0,[0,0,Math.PI/2]),
-    SEVEN_B: xyz(phase>=6?1:4.5,phase>=6?2-config.sevenNearHole:0,0,[0,0,Math.PI/2]),
+    SEVEN_A: xyz(phase>=5?-1:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_A[0],
+      phase>=5?2-config.sevenNearHole:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_A[1],
+      0,[0,0,Math.PI/2]),
+    SEVEN_B: xyz(phase>=6?1:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_B[0],
+      phase>=6?2-config.sevenNearHole:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_B[1],
+      0,[0,0,Math.PI/2]),
     FIFTEEN: xyz(longX,longAligned?beam15Y:0,longZ,[0,0,Math.PI/2]),
     BLUE_1: xyz(0,0,0),
     BLUE_2: xyz(0,0,0),
@@ -111,10 +136,10 @@ export function stepEightPoses(phase:number,config:StepEightConfig):Record<StepE
   const secondY = firstY + 4;
   poses.BLACK_1=phase>=7
     ? xyz(longX,firstY,longZ+STEP_EIGHT_LEVEL/2)
-    : xyz(5.6,-5.4,1.3);
+    : xyz(...STEP_EIGHT_PREPARATION_LAYOUT.BLACK_1);
   poses.BLACK_2=phase>=8
     ? xyz(longX,secondY,longZ+STEP_EIGHT_LEVEL/2)
-    : xyz(8.2,-5.4,1.3);
+    : xyz(...STEP_EIGHT_PREPARATION_LAYOUT.BLACK_2);
   return poses;
 }
 /** Shared centerline anchors, not a claim of verified plastic-to-plastic fit. */
