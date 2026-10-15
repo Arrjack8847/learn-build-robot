@@ -8,7 +8,11 @@ import { STEP5_MODEL_PATHS } from "./StepFiveScene";
 import { seatedPose, type StepSixMountConfig, type StepSixStepFiveTransforms } from "./StepSixGeometry";
 import { STEP_EIGHT_PARTS, stepEightPoses, type StepEightConfig, type StepEightPart, type V3 } from "./stepEightGeometry";
 import { STEP_SEVEN_FINAL_PHASE, STEP_SEVEN_PIN_IDS, STEP_SEVEN_RAIL_IDS, endPinPose, railPose, type StepSevenRailConfig } from "./stepSevenRailGeometry";
-import { STEP_NINE_FINAL_PHASE, STEP_NINE_STEP_SEVEN_YAW, stepNineFramePose, stepNineMating } from "./stepNineGeometry";
+import {
+  STEP_NINE_CAMERA_DURATION, STEP_NINE_FINAL_PHASE,
+  STEP_NINE_PREP_DURATION, STEP_NINE_PREP_ENTRANCE_OFFSET,
+  STEP_NINE_STEP_SEVEN_YAW, stepNineFramePose, stepNineMating,
+} from "./stepNineGeometry";
 import { motionEase, motionLerp } from "./marksmanLessonMotion";
 
 import beam15Url from "../../../3D for marksman/beams/15 beams.stl?url";
@@ -54,11 +58,12 @@ const ALIGNMENT=new Quaternion().setFromRotationMatrix(new Matrix4().set(
 ));
 const LOOSE=new Quaternion().setFromAxisAngle(new Vector3(0,1,0),0.26).multiply(ALIGNMENT);
 const ease=motionEase;
-function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKey,paused,resetCameraKey,reducedMotion,cameraView}:{
+function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKey,paused,resetCameraKey,reducedMotion,cameraView,onMotionComplete}:{
   phase:number;config:StepSevenRailConfig;frameConfig:StepEightConfig;
   stepSixConfig:StepSixMountConfig;prepared:StepSixStepFiveTransforms;
   replayKey:number;paused:boolean;resetCameraKey:number;reducedMotion:boolean;
   cameraView:"iso"|"top"|"side"|"front";
+  onMotionComplete?:()=>void;
 }){
   const loaded=useLoader(STLLoader,SOURCES);
   const meshes=useMemo(()=>({
@@ -76,7 +81,15 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
     black:stepEightMesh(loaded[9]!),
   }),[loaded]);
   const frame=useRef<Group>(null);
+  const stepSeven=useRef<Group>(null);
   const orbit=useRef<OrbitControlsImpl>(null);
+  const motionDone=useRef(onMotionComplete);
+  motionDone.current=onMotionComplete;
+  const prepEntrance=useRef<{
+    stepSevenFrom:V3;stepEightFrom:V3;stepEightTo:V3;
+    elapsed:number;duration:number;
+  }|null>(null);
+  const firstCamera=useRef(true);
   const prior=useRef({phase,replayKey});
   const mounted=useRef(false);
   const movement=useRef<{from:V3;to:V3;fromQuat:Quaternion;toQuat:Quaternion;time:number;duration:number}|null>(null);
@@ -91,13 +104,24 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
   const first=pose(phase);
   const localFocus=new Vector3(-(target[0]),beamY-target[1],target[2]);
   const view=()=>{
-    const look=phase<=1
-      ?localFocus.clone().add(new Vector3(narrow?5.5:6,0,0))
-      :localFocus.clone().add(new Vector3(0,0,0));
-    const delta=cameraView==="top"?new Vector3(0.01,narrow?34:27,0.01):
-      cameraView==="side"?new Vector3(0,narrow?8:6,narrow?32:24):
-      cameraView==="front"?new Vector3(0,narrow?9:7,narrow?32:23):
-      new Vector3(narrow?20:15,narrow?19:14,narrow?25:20);
+    // Action 0 deliberately includes the two WHOLE completed structures,
+    // not Step 8's earlier layout of eleven loose parts.
+    const aspect=size.width/Math.max(1,size.height);
+    const prepScale=phase===0?Math.max(1,0.9/Math.max(0.45,aspect)):1;
+    const look=phase===0
+      ?localFocus.clone().add(new Vector3(8.5,0,0))
+      :phase===1
+        ?localFocus.clone().add(new Vector3(narrow?5.5:6,0,0))
+        :localFocus.clone();
+    const delta=cameraView==="top"
+      ?new Vector3(0.01,(phase===0?33:27)*prepScale,0.01):
+      cameraView==="side"
+        ?new Vector3(0,(phase===0?12:6)*prepScale,(phase===0?36:24)*prepScale):
+      cameraView==="front"
+        ?new Vector3(0,(phase===0?10:7)*prepScale,(phase===0?36:23)*prepScale):
+      phase===0
+        ?new Vector3(16*prepScale,20*prepScale,32*prepScale):
+          new Vector3(narrow?20:15,narrow?19:14,narrow?25:20);
     return {look,position:look.clone().add(delta)};
   };
   useLayoutEffect(()=>{
@@ -109,24 +133,48 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
     const from=pose(old),to=pose(phase);
     const fromQuat=from.orient?ALIGNMENT:LOOSE;
     const toQuat=to.orient?ALIGNMENT:LOOSE;
-    if(!mounted.current||!changed||!adjacent||reducedMotion){
-      movement.current=null;
-      frame.current?.position.set(...to.position);
+    const enterPreparation=phase===0&&(!mounted.current||replay)&&!reducedMotion;
+    prepEntrance.current=null;
+    if(enterPreparation){
+      // Same ease and 1.45s preparation cadence as Step 7. Both completed
+      // structures arrive independently, from opposite sides. Nothing inside
+      // either assembly moves; the saved final meshes stay rigid.
+      const fromSeven:V3=[STEP_NINE_PREP_ENTRANCE_OFFSET,0,0];
+      const fromEight:V3=[
+        to.position[0]-STEP_NINE_PREP_ENTRANCE_OFFSET,to.position[1],to.position[2],
+      ];
+      stepSeven.current?.position.set(...fromSeven);
+      frame.current?.position.set(...fromEight);
       frame.current?.quaternion.copy(toQuat);
-    }else{
-      frame.current?.position.set(...from.position);
-      frame.current?.quaternion.copy(fromQuat);
-      movement.current={
-        from:from.position,to:to.position,fromQuat:fromQuat.clone(),toQuat:toQuat.clone(),
-        time:0,duration:phase===2||phase===3?1.8:phase===4?1:1.45,
+      movement.current=null;
+      prepEntrance.current={
+        stepSevenFrom:fromSeven,stepEightFrom:fromEight,
+        stepEightTo:to.position,elapsed:0,duration:STEP_NINE_PREP_DURATION,
       };
+    }else{
+      stepSeven.current?.position.set(0,0,0);
+      const hasMove=from.position.some((v,i)=>Math.abs(v-to.position[i]!)>0.00001)||
+        !fromQuat.equals(toQuat);
+      if(!mounted.current||!changed||!adjacent||reducedMotion||!hasMove){
+        movement.current=null;
+        frame.current?.position.set(...to.position);
+        frame.current?.quaternion.copy(toQuat);
+        motionDone.current?.();
+      }else{
+        frame.current?.position.set(...from.position);
+        frame.current?.quaternion.copy(fromQuat);
+        movement.current={
+          from:from.position,to:to.position,fromQuat:fromQuat.clone(),toQuat:toQuat.clone(),
+          time:0,duration:phase===2||phase===3?1.8:1.45,
+        };
+      }
     }
     prior.current={phase,replayKey};mounted.current=true;
   },[phase,replayKey,reducedMotion,target[0],target[1],target[2]]);
   useLayoutEffect(()=>{
     const ctrl=orbit.current;if(!ctrl)return;
     const destination=view();
-    if(!mounted.current||reducedMotion){
+    if(firstCamera.current||reducedMotion){
       ctrl.target.copy(destination.look);camera.position.copy(destination.position);ctrl.update();flight.current=null;
     }else{
       flight.current={
@@ -134,7 +182,8 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
         lookStart:ctrl.target.clone(),lookEnd:destination.look,time:0,
       };
     }
-  },[phase,cameraView,narrow,reducedMotion,target[0],target[1],target[2],camera]);
+    firstCamera.current=false;
+  },[phase,cameraView,narrow,size.width,size.height,reducedMotion,target[0],target[1],target[2],camera]);
   useLayoutEffect(()=>{
     if(!resetCameraKey)return;
     const destination=view();camera.position.copy(destination.position);
@@ -144,6 +193,18 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
   useFrame((state,dt)=>{
     if(paused)return;
     const delta=Math.min(dt,0.06);
+    const entrance=prepEntrance.current;
+    if(entrance){
+      entrance.elapsed=Math.min(entrance.duration,entrance.elapsed+delta);
+      const t=entrance.elapsed/entrance.duration;
+      stepSeven.current?.position.set(...motionLerp(entrance.stepSevenFrom,[0,0,0],t));
+      // Slightly stagger Step 8's arrival so the learner can distinguish
+      // the two completed structures without overlapping their movements.
+      const stepEightT=Math.max(0,Math.min(1,(t-0.10)/0.90));
+      frame.current?.position.set(...motionLerp(
+        entrance.stepEightFrom,entrance.stepEightTo,stepEightT));
+      if(t===1){prepEntrance.current=null;motionDone.current?.();}
+    }
     const m=movement.current;
     if(m&&frame.current){
       m.time=Math.min(m.duration,m.time+delta);
@@ -156,11 +217,11 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
         :motionLerp(m.from,m.to,t);
       frame.current.position.set(...position);
       frame.current.quaternion.copy(m.fromQuat).slerp(m.toQuat,ease(t));
-      if(m.time===m.duration)movement.current=null;
+      if(m.time===m.duration){movement.current=null;motionDone.current?.();}
     }
     const f=flight.current;
     if(f&&orbit.current){
-      f.time=Math.min(1,f.time+delta/0.85);
+      f.time=Math.min(1,f.time+delta/STEP_NINE_CAMERA_DURATION);
       const t=ease(f.time);
       state.camera.position.lerpVectors(f.start,f.end,t);
       orbit.current.target.lerpVectors(f.lookStart,f.lookEnd,t);
@@ -187,7 +248,7 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
       {/* Turn the COMPLETE Step 7 assembly in Step 9 only, keeping every
           child beam and connector fixed relative to its parent. This is a
           horizontal 180° yaw, not an upside-down flip. Step 8 stays still. */}
-      <group name="STEP9_STEP7_COMPLETE_ASSEMBLY" rotation={[0,STEP_NINE_STEP_SEVEN_YAW,0]}>
+      <group ref={stepSeven} name="STEP9_STEP7_COMPLETE_ASSEMBLY" rotation={[0,STEP_NINE_STEP_SEVEN_YAW,0]}>
         <group name="STEP5_BEAM_11" position={prepared["STEP5_BEAM_11"]!.position}
           rotation={prepared["STEP5_BEAM_11"]!.rotation}>
           <mesh geometry={meshes.beam11}><meshStandardMaterial color="#97a4b4" roughness={0.63}/></mesh>
@@ -246,7 +307,8 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
         dashed dashSize={0.18} gapSize={0.12} lineWidth={2}/>)}
     </group>
     <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.08}
-      enablePan={false} minDistance={7} maxDistance={74}
+      enablePan={false} minDistance={7} maxDistance={110}
+      onStart={()=>{flight.current=null;}}
       autoRotate={phase===STEP_NINE_FINAL_PHASE&&!paused&&!reducedMotion&&cameraView==="iso"}
       autoRotateSpeed={0.4}/>
   </>;
@@ -266,6 +328,7 @@ export function StepNineScene(props:{
   stepSixConfig:StepSixMountConfig;prepared:StepSixStepFiveTransforms;
   replayKey:number;paused:boolean;resetCameraKey:number;reducedMotion:boolean;
   cameraView:"iso"|"top"|"side"|"front";
+  onMotionComplete?:()=>void;
 }){
   return <ViewerBoundary>
     <Canvas camera={{position:[13,13,25],fov:44,near:0.1,far:180}}
