@@ -4,6 +4,7 @@ import { Component, Suspense, useLayoutEffect, useMemo, useRef } from "react";
 import { BufferGeometry, DoubleSide, Group, Vector3 } from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
+import { motionEase } from "./marksmanLessonMotion";
 import {
   STEP_EIGHT_PARTS, STEP_EIGHT_PITCH_MM, STEP_EIGHT_THICKNESS_MM,
   STEP_EIGHT_LEVEL, stepEightGuide, stepEightPoses,
@@ -42,7 +43,7 @@ function normalize(source:BufferGeometry,length:number|null,depth:number,name:st
   result.computeVertexNormals();
   return result;
 }
-const smooth=(v:number)=>{const t=Math.max(0,Math.min(1,v));return t*t*(3-2*t);};
+const smooth=motionEase;
 function interpolate(a:StepEightPose,b:StepEightPose,t:number):StepEightPose {
   const k=smooth(t);
   return {
@@ -50,20 +51,26 @@ function interpolate(a:StepEightPose,b:StepEightPose,t:number):StepEightPose {
     rotation:[0,1,2].map(i=>a.rotation[i]!+(b.rotation[i]!-a.rotation[i]!)*k) as V3,
   };
 }
+/**
+ * Keep the connector coaxial with its target during the final motion.
+ * Reversing retracts from the seated pose to the SAME clearance axis first,
+ * then returns to the loose pose; no endpoint snap or inverted path.
+ * Phase 10 moves the long beam and its two attached black pins together.
+ */
 function insertion(a:StepEightPose,b:StepEightPose,t:number,phase:number,reverse:boolean):StepEightPose {
-  if(reverse)return insertion(b,a,1-t,phase,false);
-  // Transition via a coaxial clearance position; never stretch any STL mesh.
-  // Rail 7 enters from below; pins on upper beams enter from above.
+  const seated=reverse?a:b;
   const sign=phase===5||phase===6||phase===10?-1:1;
-  const mid:StepEightPose={
-    position:[b.position[0],b.position[1],
-      phase===10?b.position[2]-2.2:b.position[2]+sign*2.15],
-    rotation:b.rotation,
+  const clearance=phase===10?2.2:2.15;
+  const aligned:StepEightPose={
+    position:[seated.position[0],seated.position[1],seated.position[2]+sign*clearance],
+    rotation:seated.rotation,
   };
-  const forward=(x:number)=>x<0.44
-    ?interpolate(a,mid,x/0.44)
-    :interpolate(mid,b,(x-0.44)/0.56);
-  return forward(t);
+  if(reverse)return t<0.58
+    ?interpolate(a,aligned,t/0.58)
+    :interpolate(aligned,b,(t-0.58)/0.42);
+  return t<0.42
+    ?interpolate(a,aligned,t/0.42)
+    :interpolate(aligned,b,(t-0.42)/0.58);
 }
 function interest(phase:number,config:StepEightConfig):V3 {
   if(phase<=2)return [-0.6,-8.3,0];
@@ -114,10 +121,10 @@ function NumberedHoles({id,phase,config}:{
     })}
   </group>;
 }
-function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoInspect,cameraView}:{
+function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoInspect,cameraView,onMotionComplete}:{
   phase:number;config:StepEightConfig;paused:boolean;replayKey:number;
   resetCameraKey:number;reducedMotion:boolean;autoInspect:boolean;
-  cameraView:"iso"|"top"|"side"|"bottom";
+  cameraView:"iso"|"top"|"side"|"bottom";onMotionComplete:()=>void;
 }) {
   const loaded=useLoader(STLLoader,SOURCES);
   const geometries=useMemo(()=>({
@@ -133,10 +140,13 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
   const priorPhase=useRef(phase);
   const priorReplay=useRef(replayKey);
   const first=useRef(true);
+  const firstCamera=useRef(true);
+  const previousConfigKey=useRef(config.sevenNearHole+":"+config.fifteenNearHole);
   const cameraFlight=useRef<{a:Vector3;b:Vector3;ta:Vector3;tb:Vector3;t:number}|null>(null);
+  const completed=useRef(onMotionComplete);
+  completed.current=onMotionComplete;
   const {camera,size}=useThree();
   const narrow=size.width/size.height<0.85;
-  const initial=useMemo(()=>stepEightPoses(phase,config),[]);
   const setupCamera=()=>{
     const point=new Vector3(...interest(phase,config));
     const offset=phase!==11?new Vector3(...focusDistance(phase,narrow)):
@@ -150,6 +160,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
   useLayoutEffect(()=>{
     const destination=stepEightPoses(phase,config);
     const replaying=!first.current&&replayKey!==priorReplay.current;
+    const recalibrated=previousConfigKey.current!==configKey;
     const prior=priorPhase.current;
     const reverse=prior>phase;
     const from={} as Poses;
@@ -170,28 +181,45 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
       active>=1&&active<=4?("BLUE_"+active) as StepEightPart:
       active===5?"SEVEN_A":active===6?"SEVEN_B":
       active===7?"BLACK_1":active===8?"BLACK_2":active>=9&&active<=10?"FIFTEEN":null;
-    movement.current=!first.current&&!reducedMotion?{
-      from,to:destination,elapsed:0,duration:active===9||active===10?1.8:1.25,
+    const animated=!first.current&&!reducedMotion&&!recalibrated&&
+      (replaying||Math.abs(prior-phase)===1);
+    movement.current=animated?{
+      from,to:destination,elapsed:0,
+      duration:active===10?2.1:active===5||active===6?1.95:
+        active>=7&&active<=9?1.8:1.55,
       target:activePart,phase:active,reverse,
     }:null;
-    if(!movement.current)for(const id of STEP_EIGHT_PARTS){
-      parts.current[id]?.position.set(...destination[id].position);
-      parts.current[id]?.rotation.set(...destination[id].rotation);
+    if(!movement.current){
+      for(const id of STEP_EIGHT_PARTS){
+        parts.current[id]?.position.set(...destination[id].position);
+        parts.current[id]?.rotation.set(...destination[id].rotation);
+      }
+      completed.current();
     }
+    previousConfigKey.current=configKey;
+    priorPhase.current=phase;
+    priorReplay.current=replayKey;
+    first.current=false;
+  },[phase,configKey,config,replayKey,reducedMotion]);
+
+  // Camera controls are independent from part movement: selecting Top/Side/Bottom
+  // must never reset, skip or replay an in-progress connector insertion.
+  useLayoutEffect(()=>{
     const view=setupCamera();
-    if(first.current){
-      camera.up.set(0,0,1);camera.position.copy(view.position);
-      orbit.current?.target.copy(view.point);orbit.current?.update();
+    if(firstCamera.current||reducedMotion){
+      camera.up.set(0,0,1);
+      camera.position.copy(view.position);
+      orbit.current?.target.copy(view.point);
+      orbit.current?.update();
+      cameraFlight.current=null;
     }else{
       cameraFlight.current={
         a:camera.position.clone(),b:view.position,
         ta:orbit.current?.target.clone()??view.point,tb:view.point,t:0,
       };
     }
-    priorPhase.current=phase;
-    priorReplay.current=replayKey;
-    first.current=false;
-  },[phase,configKey,config,replayKey,reducedMotion,camera,narrow,cameraView]);
+    firstCamera.current=false;
+  },[phase,configKey,cameraView,camera,narrow,reducedMotion]);
   useLayoutEffect(()=>{
     if(resetCameraKey===0)return;
     const view=setupCamera();
@@ -208,13 +236,15 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
         const t=Math.min(1,travel.elapsed/travel.duration);
         for(const id of STEP_EIGHT_PARTS){
           const part=parts.current[id];if(!part)continue;
-          const pose=(id===travel.target&&travel.phase>=1&&travel.phase<=8)
+          const guided=(id===travel.target&&travel.phase>=1&&travel.phase<=8)||
+            (travel.phase===10&&(id==="FIFTEEN"||id==="BLACK_1"||id==="BLACK_2"));
+          const pose=guided
             ?insertion(travel.from[id],travel.to[id],t,travel.phase,travel.reverse)
             :interpolate(travel.from[id],travel.to[id],t);
           part.position.set(...pose.position);
           part.rotation.set(...pose.rotation);
         }
-        if(t>=1)movement.current=null;
+        if(t>=1){movement.current=null;completed.current();}
       }
       const flight=cameraFlight.current;
       if(flight){
@@ -225,7 +255,11 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
         if(flight.t===1)cameraFlight.current=null;
       }
     }
-    orbit.current?.update();
+    if(orbit.current){
+      orbit.current.autoRotate=phase===11&&cameraView==="iso"&&autoInspect&&
+        !paused&&!reducedMotion&&!cameraFlight.current;
+      orbit.current.update();
+    }
   });
   const guide=phase>0&&phase<11?stepEightGuide(phase,config):null;
   const start=stepEightPoses(phase,config);
@@ -236,7 +270,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
     <directionalLight position={[8,-6,13]} intensity={2.0}/>
     <gridHelper args={[25,25,"#d9e4ed","#e9eff6"]}
       rotation={[Math.PI/2,0,0]} position={[0,0,-1.2]}/>
-    <group name="STEP7_RIGID_INSPECTION_GROUP">
+    <group name="STEP8_RIGID_INSPECTION_GROUP">
       {STEP_EIGHT_PARTS.map(id=>{
         const model=modelName(id);
         const color=model==="blue"?"#1576ce":
@@ -261,7 +295,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
       color="#e2a315" lineWidth={1.5} dashed dashSize={0.12} gapSize={0.12}/>}
     <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.08}
       enablePan={false} minDistance={4.5} maxDistance={48}
-      autoRotate={phase===11&&cameraView==="iso"&&autoInspect&&!paused&&!reducedMotion}
+      onStart={()=>{cameraFlight.current=null;}}
       autoRotateSpeed={0.5}/>
   </>;
 }
@@ -275,10 +309,10 @@ class ViewerBoundary extends Component<{children:React.ReactNode},{message:strin
       </div>:this.props.children;
   }
 }
-export function StepEightScene({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoInspect,cameraView}:{
+export function StepEightScene({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoInspect,cameraView,onMotionComplete}:{
   phase:number;config:StepEightConfig;paused:boolean;replayKey:number;
   resetCameraKey:number;reducedMotion:boolean;autoInspect:boolean;
-  cameraView:"iso"|"top"|"side"|"bottom";
+  cameraView:"iso"|"top"|"side"|"bottom";onMotionComplete:()=>void;
 }){
   return <ViewerBoundary>
     <Canvas camera={{fov:43,near:0.1,far:120,position:[12,-16,19],up:[0,0,1]}}
@@ -288,7 +322,8 @@ export function StepEightScene({phase,config,paused,replayKey,resetCameraKey,red
       <Suspense fallback={null}>
         <Stage phase={phase} config={config} paused={paused} replayKey={replayKey}
           resetCameraKey={resetCameraKey} reducedMotion={reducedMotion}
-          autoInspect={autoInspect} cameraView={cameraView}/>
+          autoInspect={autoInspect} cameraView={cameraView}
+          onMotionComplete={onMotionComplete}/>
       </Suspense>
     </Canvas>
   </ViewerBoundary>;
