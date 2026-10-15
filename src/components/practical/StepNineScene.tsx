@@ -11,7 +11,8 @@ import { STEP_SEVEN_FINAL_PHASE, STEP_SEVEN_PIN_IDS, STEP_SEVEN_RAIL_IDS, endPin
 import {
   STEP_NINE_CAMERA_DURATION, STEP_NINE_FINAL_PHASE,
   STEP_NINE_PREP_DURATION, STEP_NINE_PREP_ENTRANCE_OFFSET,
-  STEP_NINE_STEP_SEVEN_YAW, stepNineFramePose, stepNineMating,
+  STEP_NINE_STEP_SEVEN_YAW, STEP_NINE_STEP_EIGHT_FLIP,
+  stepNineFramePose, stepNineMating,
 } from "./stepNineGeometry";
 import { motionEase, motionLerp } from "./marksmanLessonMotion";
 
@@ -46,17 +47,24 @@ function stepEightMeshName(id:StepEightPart):"five"|"seven"|"fifteen"|"blue"|"bl
   return id.startsWith("FIVE")?"five":id.startsWith("SEVEN")?"seven":
     id==="FIFTEEN"?"fifteen":id.startsWith("BLUE")?"blue":"black";
 }
-/** Rigid axis mapping: Step 8 (x,y,z) -> Step 7 (-y,-z,x).
- * It puts the longest Step 8 beam lengthwise and in front/below the
- * Step 7 white rails, with all four blue pins pointing at their holes.
+/** Prior presentation pose: local Step 8 (x,y,z) -> shared (-y,-z,x).
+ * Action 0 uses this original pose for the separate, completed assembly.
+ * Action 1 flips Step 8 by 180° around the SHARED HORIZONTAL X AXIS
+ * (the long white 15-hole beam direction), not the shared vertical Y.
+ * After flipping: local (x,y,z) -> shared (-y,+z,-x), so its four
+ * existing blue pin axes face UP toward Step 7's receiving holes.
  */
-const ALIGNMENT=new Quaternion().setFromRotationMatrix(new Matrix4().set(
+const UPRIGHT_ALIGNMENT=new Quaternion().setFromRotationMatrix(new Matrix4().set(
   0,-1,0,0,
   0,0,-1,0,
   1,0,0,0,
   0,0,0,1,
 ));
-const LOOSE=new Quaternion().setFromAxisAngle(new Vector3(0,1,0),0.26).multiply(ALIGNMENT);
+const ALIGNMENT=new Quaternion()
+  .setFromAxisAngle(new Vector3(1,0,0),STEP_NINE_STEP_EIGHT_FLIP)
+  .multiply(UPRIGHT_ALIGNMENT);
+const LOOSE=new Quaternion().setFromAxisAngle(new Vector3(0,1,0),0.26)
+  .multiply(UPRIGHT_ALIGNMENT);
 const ease=motionEase;
 function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKey,paused,resetCameraKey,reducedMotion,cameraView,onMotionComplete}:{
   phase:number;config:StepSevenRailConfig;frameConfig:StepEightConfig;
@@ -209,11 +217,12 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
     if(m&&frame.current){
       m.time=Math.min(m.duration,m.time+delta);
       const t=m.time/m.duration;
-      // The insertion action approaches on the actual blue pin axis:
-      // Step 8 z becomes negative Step 7 Y, so its pins rise into Step 7.
+      // With Step 8 upside down, its +Z blue-pin axes become +shared Y.
+      // Approach from BELOW: first align under the four marked holes,
+      // then move straight UP along the pin axes. No individual pins shift.
       const position=phase===3
-        ?(t<0.38?motionLerp(m.from,[m.to[0],m.to[1]+1.4,m.to[2]],t/0.38)
-          :motionLerp([m.to[0],m.to[1]+1.4,m.to[2]],m.to,(t-0.38)/0.62))
+        ?(t<0.42?motionLerp(m.from,[m.to[0],m.to[1]-1.4,m.to[2]],t/0.42)
+          :motionLerp([m.to[0],m.to[1]-1.4,m.to[2]],m.to,(t-0.42)/0.58))
         :motionLerp(m.from,m.to,t);
       frame.current.position.set(...position);
       frame.current.quaternion.copy(m.fromQuat).slerp(m.toQuat,ease(t));
@@ -245,9 +254,9 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
     <directionalLight position={[8,13,15]} intensity={1.4}/>
     <gridHelper args={[36,36,"#e3eaf1","#f1f4f7"]} position={[0,-3.8,0]}/>
     <group name="STEP9_SHARED_REFERENCE" position={[0,beamY,0]} rotation={[0,0,Math.PI]}>
-      {/* Turn the COMPLETE Step 7 assembly in Step 9 only, keeping every
-          child beam and connector fixed relative to its parent. This is a
-          horizontal 180° yaw, not an upside-down flip. Step 8 stays still. */}
+      {/* Step 7 remains turned 180° horizontally. Step 8 alone rotates
+          upside down as a rigid group during Step 9 Action 1. No individual
+          pins, beam holes, or saved earlier lessons are altered. */}
       <group ref={stepSeven} name="STEP9_STEP7_COMPLETE_ASSEMBLY" rotation={[0,STEP_NINE_STEP_SEVEN_YAW,0]}>
         <group name="STEP5_BEAM_11" position={prepared["STEP5_BEAM_11"]!.position}
           rotation={prepared["STEP5_BEAM_11"]!.rotation}>
@@ -300,8 +309,8 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
       </group>
       {guideVisible&&mating.joints.map(j=><Line key={j.stepEightPin}
         points={[
-          [j.stepSevenLocalTarget[0],j.stepSevenLocalTarget[1]+0.5,j.stepSevenLocalTarget[2]],
-          [j.stepSevenLocalTarget[0],j.stepSevenLocalTarget[1]+2.4,j.stepSevenLocalTarget[2]],
+          [j.stepSevenLocalTarget[0],j.stepSevenLocalTarget[1]-2.4,j.stepSevenLocalTarget[2]],
+          [j.stepSevenLocalTarget[0],j.stepSevenLocalTarget[1]-0.5,j.stepSevenLocalTarget[2]],
         ]}
         color={j.alreadyOccupiedByStepSeven?"#d97706":"#168eea"}
         dashed dashSize={0.18} gapSize={0.12} lineWidth={2}/>)}
