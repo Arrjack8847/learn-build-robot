@@ -34,7 +34,7 @@ test("The four photographed holes are the two open targets on each Step 7 rail",
   assert.ok(geometry.includes("alreadyOccupiedByStepSeven"));
   assert.ok(geometry.includes("geometryWarnings"));
 });
-test("Only the rigid Step 8 root moves; original pins and existing Step 7 joint poses are preserved",()=>{
+test("Preparation moves both complete rigid roots, while the original internal joint poses are preserved",()=>{
   assert.ok(viewer.includes("STEP5_MODEL_PATHS"));
   assert.ok(viewer.includes("stepEightPoses(11,frameConfig)"));
   assert.ok(viewer.includes("endPinPose(id,STEP_SEVEN_FINAL_PHASE"));
@@ -71,4 +71,54 @@ test("Step 7 turns 180 degrees horizontally ONLY within Step 9",()=>{
   const rotateHorizontal=([x,y,z])=>[-x,y,-z];
   assert.deepEqual(rotateHorizontal([2,4,-1]),[-2,4,1]);
   assert.deepEqual(rotateHorizontal([-4,7,3]),[4,7,-3]);
+});
+
+test("Updated Step 8 setup is integrated without reconstructing or replacing its final assembly",()=>{
+  const step8Geom=read("src/components/practical/stepEightGeometry.ts");
+  const step8View=read("src/components/practical/StepEightScene.tsx");
+  const step8UI=read("src/components/practical/StepEightAssembly.tsx");
+  assert.ok(step8Geom.includes("STEP_EIGHT_PREPARATION_LAYOUT"));
+  assert.ok(step8Geom.includes("fifteenNearHole: 7"));
+  assert.ok(step8Geom.includes("const movedFrame = phase >= 5"));
+  assert.ok(step8View.includes("const smooth=motionEase"));
+  assert.ok(step8View.includes("function actionDuration(phase:number)"));
+  assert.ok(step8UI.includes('aria-label="Preparation groups"'));
+  assert.ok(viewer.includes("stepEightPoses(11,frameConfig)"),
+    "Step 9 must show the fully assembled Step 8, not its earlier loose preparation phase");
+  assert.ok(lesson.includes("needsStepEightRefresh"),
+    "Saved earlier Step 8 configurations cannot silently become physically approved");
+  assert.ok(lesson.includes("STEP_EIGHT_DEMO_CONFIG"));
+  assert.ok(lesson.includes("usesUpdatedStepEightAssembly:true"));
+  assert.ok(lesson.includes("stepEightBlackPinHoles:[7,11]"));
+});
+
+test("Step 9 Action 0 enters as two separate completed assemblies, using Step 7 timing",()=>{
+  assert.ok(geometry.includes("STEP_NINE_PREP_DURATION = 1.45"));
+  assert.ok(geometry.includes("STEP_NINE_CAMERA_DURATION = 0.85"));
+  assert.ok(geometry.includes("STEP_NINE_PREP_ENTRANCE_OFFSET = 8.5"));
+  assert.ok(viewer.includes("enterPreparation=phase===0&&(!mounted.current||replay)&&!reducedMotion"));
+  assert.ok(viewer.includes("const fromSeven:V3=[STEP_NINE_PREP_ENTRANCE_OFFSET,0,0]"));
+  assert.ok(viewer.includes("to.position[0]-STEP_NINE_PREP_ENTRANCE_OFFSET"));
+  assert.ok(viewer.includes("ref={stepSeven}"));
+  assert.ok(viewer.includes("ref={frame}"));
+  assert.ok(viewer.includes("stepSeven.current?.position.set(...motionLerp"));
+  assert.ok(viewer.includes("const stepEightT=Math.max(0,Math.min(1,(t-0.10)/0.90))"));
+  assert.ok(viewer.includes("if(t===1){prepEntrance.current=null;motionDone.current?.();}"));
+  assert.ok(viewer.includes("Math.max(1,0.9/Math.max(0.45,aspect))"));
+  assert.ok(viewer.includes("STEP_NINE_CAMERA_DURATION"));
+  assert.ok(lesson.includes("Assembly A · Step 7"));
+  assert.ok(lesson.includes("Assembly B · Updated Step 8"));
+});
+
+test("Step 9 prevents overlapping navigation animations but keeps pause/replay and reduced motion",()=>{
+  assert.ok(lesson.includes("const [animating,setAnimating]=useState(Boolean(ready))"));
+  assert.ok(lesson.includes("if(animating)return; // Finish one guided movement"));
+  assert.ok(lesson.includes("onMotionComplete={()=>setAnimating(false)}"));
+  assert.ok(lesson.includes("previousDisabled={!ready||animating||phase===0}"));
+  assert.ok(lesson.includes("nextDisabled={!ready||animating}"));
+  assert.ok(lesson.includes("replayDisabled={!ready||animating}"));
+  assert.ok(lesson.includes("onTogglePause={()=>setPaused(v=>!v)}"));
+  assert.ok(viewer.includes("if(paused)return;"));
+  assert.ok(viewer.includes("!reducedMotion;"));
+  assert.ok(!viewer.includes("scale.set("));
 });
