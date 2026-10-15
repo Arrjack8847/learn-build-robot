@@ -16,14 +16,13 @@ export const STEP_NINE_RECEIVERS = [7, 11] as const;
  * not local Y, so it never turns the assembly upside down.
  */
 export const STEP_NINE_STEP_SEVEN_YAW = Math.PI;
-/** Flip Step 8 around its horizontal long-beam axis in Step 9 only. */
-export const STEP_NINE_STEP_EIGHT_FLIP = Math.PI;
-/** The shared scene is turned 180° around Z, so local -Y is world UP.
- * This is the FINAL oriented Step 8 pin transform: (x,y,z) -> (-y,-z,x).
- * Its original +Z pins therefore point UP, as photographed.
- * Action 1 still rotates the complete Step 8 assembly through 180°.
+/** Step 8 is ALREADY correctly oriented when it enters Action 0.
+ * The entire group stays at this rigid pose for every Step 9 action:
+ * local (x,y,z) -> shared (-y,-z,x); world +Y is up after the
+ * shared frame's 180° turn, so local Step 8 blue pins face upward.
+ * Never perform a second flip or rotate any component separately.
  */
-export function stepNineFlippedPinOffset(point:V3):V3 {
+export function stepNineOrientedPinOffset(point:V3):V3 {
   return [-point[1],-point[2],point[0]];
 }
 /** Step 7 is raised vertically in shared space (-Y == upward on screen).
@@ -48,14 +47,14 @@ export const STEP_NINE_ESTIMATED_PIN_CENTRE_CLEARANCE = 0.55;
 export const STEP_NINE_ACTIONS = [
   { number:"0", title:"Prepare the two completed assemblies",
     instruction:"Place Step 7 on the left turned 180° horizontally, facing its correct attachment side toward Step 8 on the right. Keep every existing connector installed." },
-  { number:"1", title:"Flip Step 8 upside down",
-    instruction:"Rotate the entire completed Step 8 frame 180° about the horizontal long-beam axis. Keep all eleven parts attached and the longest white beam at the front." },
+  { number:"1", title:"Check Step 8 orientation",
+    instruction:"Step 8 is already correctly oriented. Keep its four blue pins pointing upward and its longest white beam at the front. Move the complete frame into the inspection position without rotating it." },
   { number:"2", title:"Align four pins below Step 7",
     instruction:"Lift the whole Step 7 assembly above Step 8 and bring the four upward-facing Step 8 blue pins directly beneath holes 7 and 11 on each outer Step 7 rail. Hold the lower frame ready." },
   { number:"3", title:"Lower Step 7 onto all four pins",
     instruction:"Keep the completed Step 8 frame stationary below. Lower the entire Step 7 assembly straight down along the four upward-facing pins, seating all four connections at once." },
   { number:"4", title:"Inspect the completed join",
-    instruction:"Confirm Step 8 remains upside down, the longest white beam faces front and all four pins are secured. Compare with the real side-view photo." },
+    instruction:"Confirm the correctly oriented Step 8 frame remains underneath, the longest white beam faces front, and all four pins are secured. Compare the top, side, and underside photos." },
 ] as const;
 export const STEP_NINE_FINAL_PHASE = STEP_NINE_ACTIONS.length - 1;
 
@@ -108,31 +107,32 @@ export function stepNineMating(
   if(Math.abs((first.position[2]-second.position[2])-2)>0.3)
     geometryWarnings.push("The saved Step 7 rail spacing/orientation does not match the Step 8 blue-pin spacing.");
   const stepEightPinOffsets = [
-    stepNineFlippedPinOffset([-1,-2,level]),
-    stepNineFlippedPinOffset([ 1,-2,level]),
-    stepNineFlippedPinOffset([-1, 2,level]),
-    stepNineFlippedPinOffset([ 1, 2,level]),
+    stepNineOrientedPinOffset([-1,-2,level]),
+    stepNineOrientedPinOffset([ 1,-2,level]),
+    stepNineOrientedPinOffset([-1, 2,level]),
+    stepNineOrientedPinOffset([ 1, 2,level]),
   ] as const;
   joints.forEach((joint,index)=>{
     const [pinX,,pinZ]=stepEightPinOffsets[index]!;
     if(Math.abs(target[0]+pinX-joint.stepSevenLocalTarget[0])>0.3 ||
        Math.abs(target[2]+pinZ-joint.stepSevenLocalTarget[2])>0.3)
-      geometryWarnings.push("After flipping Step 8 upside down, "+joint.stepEightPin+
+      geometryWarnings.push("In the preserved Step 8 orientation, "+joint.stepEightPin+
         " does not match its selected receiving hole with a rigid transform.");
   });
   if(joints.some(joint=>joint.alreadyOccupiedByStepSeven))
     geometryWarnings.push("A photo-marked hole overlaps a connector in the saved Step 7 configuration. Verify the real hole positions before completing.");
   return {joints,target,geometryWarnings,mechanicallyVerified:false as const};
 }
-export type StepNineFramePose = { position:V3; orient:boolean };
+export type StepNineFramePose = { position:V3 };
 /** Only rigid-group movements. No beam/pin meshes are stretched or reattached. */
 export function stepNineFramePose(phase:number,target:V3):StepNineFramePose {
   const [x,y,z]=target;
-  if(phase<=0)return {position:[x-17,y+3.5,z],orient:false};
-  if(phase===1)return {position:[x-10,y+1.8,z],orient:true};
-  // Step 8 reaches its final stationary lower position in Action 2;
+  if(phase<=0)return {position:[x-17,y+3.5,z]};
+  if(phase===1)return {position:[x-10,y+1.8,z]};
+  // Step 8 moves by translation ONLY in Actions 0-2. Its initial
+  // orientation is already correct and is kept fixed for all phases.
   // Actions 3 and 4 must not move it a single millimetre.
-  return {position:[x,y,z],orient:true};
+  return {position:[x,y,z]};
 }
 /** The correct four pin centres in the original Step 8 local coordinate frame. */
 export function stepNineOriginalPinPositions(config:StepEightConfig) {
