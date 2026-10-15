@@ -61,6 +61,8 @@ export function StepTenAssembly({ onCompleteStep }: { onCompleteStep: () => void
         version: 1,
         assemblyId: STEP_TEN_ASSEMBLY_ID,
         whiteBeamHoles: { endBlue: 1, blackFree: 3, blueMounts: [6, 12], blackBridge: 15 },
+        blackHole3Face: "opposite-gray",
+        bluePinsVisibleOnBothOuterFaces: true,
         grayBeamMating: stepTenHolePairs(),
         bridgeConnections: [{ whiteUnit: "A", whiteHole: 15, bridgeHole: 1 },
           { whiteUnit: "B", whiteHole: 15, bridgeHole: 3 }],
@@ -142,7 +144,9 @@ export function StepTenAssembly({ onCompleteStep }: { onCompleteStep: () => void
       <input className="mt-1 size-4 shrink-0" type="checkbox" checked={physicallyChecked}
         onChange={e => setPhysicallyChecked(e.target.checked)} />
       I checked my real Step 10 assembly: both white 15-hole beams have blue pins at holes 1, 6 and 12;
-      black pins at holes 3 and 15; both gray 9-hole beams connect at gray holes 3 and 9;
+      black pins at Hole 3 protrude on the OPPOSITE face from the gray beams; the Hole 15 black
+      pins remain for the joining beam. Blue connectors extend from both outer faces, and both
+      gray 9-hole beams connect at gray holes 3 and 9;
       the black 3-hole beam joins the two hole-15 ends; and the brown center spacer fits in the
       bridge's middle hole. I understand the spacer 3D mesh and connector seating depths are approximations.
     </label>}
