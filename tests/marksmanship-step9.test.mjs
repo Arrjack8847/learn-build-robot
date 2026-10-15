@@ -171,7 +171,7 @@ test("Action 3 conceals four joining BLUE pins only after their seating motion",
   assert.ok(viewer.includes("setMountingPinOpacity((animate?old:phase)>=3?0:1)"));
   assert.ok(viewer.includes("if(m.action===3)"));
   assert.ok(viewer.includes("1-Math.max(0,Math.min(1,(seatAmount-0.78)/0.22))"));
-  assert.ok(viewer.includes("ref={id.startsWith(\"BLUE\")"));
+  assert.ok(viewer.includes('if(id.startsWith("BLUE"))mountingPins.current[Number(id.slice(-1))-1]=node;'));
   assert.ok(viewer.includes("transparent={id.startsWith(\"BLUE\")}"));
   assert.ok(viewer.includes("opacity={id.startsWith(\"BLUE\")&&phase>=3?0:1}"));
   assert.ok(lesson.includes("joiningBlueConnectorDisplayConcealed:true"));
