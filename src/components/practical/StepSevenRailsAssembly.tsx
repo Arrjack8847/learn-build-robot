@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { TriangleAlert, Upload } from "lucide-react";
 import { AssemblyStage, AssemblyActionCard, AssemblyLessonHeader, AssemblyPlaybackControls, AssemblyUtilityControls } from "./AssemblyLessonUI";
 import { STEP5_SNAPSHOT_KEY } from "./StepFiveScene";
 import { STEP_SIX_RESULT, validateMountConfig, type StepSixMountConfig, type StepSixStepFiveTransforms } from "./StepSixGeometry";
@@ -8,7 +7,7 @@ import {
   STEP_SEVEN_ACTIONS, STEP_SEVEN_ASSEMBLY_ID, STEP_SEVEN_MECHANICALLY_VERIFIED,
   STEP_SEVEN_PHOTO_CONFIG, STEP_SEVEN_RESULT_KEY, STEP_SEVEN_END_PIN_FACE,
   STEP_SEVEN_END_PIN_INSERTION_AXIS, railConfigurationErrors,
-  railGuide, type StepSevenRailConfig,
+  type StepSevenRailConfig,
 } from "./stepSevenRailGeometry";
 
 type Handoff = { stepSixConfig:StepSixMountConfig;transforms:StepSixStepFiveTransforms;stepSixId:string };
@@ -33,7 +32,7 @@ function readHandoff():Handoff|null {
 }
 export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>void}){
   const [handoff]=useState(readHandoff);
-  const [config,setConfig]=useState<StepSevenRailConfig>({...STEP_SEVEN_PHOTO_CONFIG});
+  const [config]=useState<StepSevenRailConfig>({...STEP_SEVEN_PHOTO_CONFIG});
   const [phase,setPhase]=useState(0);
   const [busy,setBusy]=useState(false);
   const [paused,setPaused]=useState(false);
@@ -42,7 +41,6 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
   const [reducedMotion,setReducedMotion]=useState(false);
   const [manual,setManual]=useState(false);
   const [physicalCheck,setPhysicalCheck]=useState(false);
-  const [photo,setPhoto]=useState<string|null>(null);
   const valid=railConfigurationErrors(config,handoff?.stepSixConfig).length===0;
   const finished=phase===STEP_SEVEN_ACTIONS.length-1&&!busy;
   const ready=Boolean(handoff&&finished&&valid&&physicalCheck);
@@ -52,7 +50,6 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
     media.addEventListener?.("change",update);
     return ()=>media.removeEventListener?.("change",update);
   },[]);
-  useEffect(()=>()=>{if(photo)URL.revokeObjectURL(photo);},[photo]);
   function nextPhase(value:number){
     if(busy||!handoff||!valid)return;
     setBusy(true);setPaused(false);setPhysicalCheck(false);setPhase(Math.max(0,Math.min(STEP_SEVEN_ACTIONS.length-1,value)));
@@ -82,8 +79,6 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
     onCompleteStep();
   }
   const item=STEP_SEVEN_ACTIONS[phase]!;
-  const front=handoff?railGuide(handoff.stepSixConfig,"STEP7_RAIL_FRONT_15",config):null;
-  const back=handoff?railGuide(handoff.stepSixConfig,"STEP7_RAIL_BACK_15",config):null;
   return <div className="relative z-10 w-full space-y-3">
     <AssemblyLessonHeader step={7} title="Connect two 15-hole side beams"
       actionIndex={phase} actionCount={STEP_SEVEN_ACTIONS.length}
@@ -130,33 +125,5 @@ export function StepSevenRailsAssembly({onCompleteStep}: {onCompleteStep:()=>voi
         src={`/marksmanship/steps/${n}.png`} alt={`Original unchanged manual Step ${n}`}/>
         <figcaption className="text-xs text-slate-500">Original manual Step {n}</figcaption></figure>)}
     </div>}
-    <details className="rounded-xl border border-slate-200 bg-white p-3 text-xs text-slate-600">
-      <summary className="cursor-pointer font-bold text-[#132654]">Physical geometry and reference calibration</summary>
-      <p className="mt-2 leading-5">IMG_1729 and IMG_1731 show the grey assembly pressed down onto a supported white beam; IMG_1732–1733 show the two extra end pins fitted after both rails are mounted. Source STLs are unchanged. The previous pair guesses 6/8 and 1/3 cannot align the paired black shafts for this saved Step 6 arrangement. Your approved mounting settings are vertical offset 0.9, first rail grey holes 13/15 (black at hole 6), and second rail grey holes 8/10 (black at hole 5) for the pictured Step 6 configuration. Both blue end pins install at the exposed free-end holes. Exact shaft depth still requires a real-kit fit check.</p>
-      <div className="mt-2 grid gap-2 sm:grid-cols-2">
-        <label>Vertical mounting offset · provisional scene units
-          <input className="mt-1 block w-full rounded-lg border px-2 py-2" type="number" min="0.9" max="2.5" step="0.1"
-            value={config.railCenterDistance} onChange={e=>{setConfig(c=>({...c,railCenterDistance:Number(e.target.value)}));setPhase(0);}}/>
-        </label>
-        <div className="rounded-lg bg-sky-50 p-2 text-xs leading-5 text-sky-900"><strong>Three-point alignment</strong><p>One black connector plus two grey shafts on EACH side. These hole indices are geometric candidates, not certified measurements.</p></div>
-        <label>First rail · first grey receiving hole
-          <input className="mt-1 block w-full rounded-lg border px-2 py-2" type="number" min="1" max="13" step="1"
-            value={config.firstRailHole} onChange={e=>{setConfig(c=>({...c,firstRailHole:Number(e.target.value)}));setPhase(0);setPhysicalCheck(false);}}/>
-        </label>
-        <label>Second rail · first grey receiving hole
-          <input className="mt-1 block w-full rounded-lg border px-2 py-2" type="number" min="1" max="13" step="1"
-            value={config.secondRailHole} onChange={e=>{setConfig(c=>({...c,secondRailHole:Number(e.target.value)}));setPhase(0);setPhysicalCheck(false);}}/>
-        </label>
-      </div>
-      {front&&back&&<p className="mt-2">Step 6 source holes (BLACK + two grey): first [{front.sourceMountingHoles.join(", ")}], second [{back.sourceMountingHoles.join(", ")}]. White rail holes (BLACK + two grey): first [{front.candidateReceivingHoles.join(", ")}], second [{back.candidateReceivingHoles.join(", ")}]. Hole centrelines align, but physical seating is not certified.</p>}
-      <label className="mt-3 flex flex-wrap items-center gap-2"><Upload className="size-4"/>
-        Compare an original photo (local only)
-        <input aria-label="Choose real Step 7 physical assembly photograph" type="file" accept="image/*"
-          onChange={e=>{const file=e.target.files?.[0];if(file?.type.startsWith("image/"))setPhoto(URL.createObjectURL(file));}}/>
-      </label>
-      {photo&&<img alt="Locally provided Step 7 reference" src={photo} className="mt-2 max-h-72 w-full object-contain"/>}
-      <p className="mt-3 text-amber-900"><TriangleAlert className="mr-1 inline size-4"/>
-        Both blue long connectors enter the right-hand exposed Hole 1 of their respective white beams (STL hole index 1, not 15), FROM THE BLACK-CONNECTOR FACE. Their tips project back out of that face. Connector shoulder depth and exact STL engagement remain unmeasured; visually compare with your real assembled kit.</p>
-    </details>
   </div>;
 }
