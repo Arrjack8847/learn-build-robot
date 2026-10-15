@@ -21,6 +21,11 @@ export function stepNineTurnedPoint(point:V3):V3 {
 }
 export const STEP_NINE_ASSEMBLY_ID = "marksman-step9-four-blue-pin-join-v1";
 export const STEP_NINE_MECHANICALLY_VERIFIED = false;
+/** Step 7 timing profile: guided prepare 1.45 seconds, camera travel 0.85 seconds. */
+export const STEP_NINE_PREP_DURATION = 1.45;
+export const STEP_NINE_CAMERA_DURATION = 0.85;
+/** Both completed assemblies enter the preparation workspace from opposite sides. */
+export const STEP_NINE_PREP_ENTRANCE_OFFSET = 8.5;
 /** The photographed underside-to-upper-beam mounting depth is not measured. */
 export const STEP_NINE_ESTIMATED_PIN_CENTRE_CLEARANCE = 0.55;
 export const STEP_NINE_ACTIONS = [
