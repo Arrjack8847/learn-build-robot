@@ -183,5 +183,5 @@ test("Action 3 lowers ONLY Step 7 onto four Step 8 blue pins",()=>{
   assert.ok(lesson.includes('"bottom"'));
   assert.ok(lesson.includes('stationaryDuringInsertion:"step8"'));
   assert.ok(lesson.includes('loweredDuringInsertion:"step7"'));
-  assert.ok(lesson.includes("Step 8 stays underneath and its four blue pins point upward"));
+  assert.ok(lesson.includes("stays underneath and keeps its four blue pins pointing upward"));
 });
