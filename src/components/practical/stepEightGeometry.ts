@@ -39,18 +39,23 @@ export const STEP_EIGHT_SEVEN_RAIL_SEATED_Z =
 export const STEP_EIGHT_SEVEN_RAIL_PREPARATION_Z =
   STEP_EIGHT_SEVEN_RAIL_SEATED_Z + 2.7;
 /**
- * The 15-hole white beam locks against the OPPOSITE (bottom) face of both
- * 5-hole grey beams. Unlike the earlier demo clearance, the final faces
- * must touch: upper face of the 15-hole beam == lower face of each grey beam.
+ * The 15-hole white beam lies on the SAME upper face of the two grey
+ * 5-hole beams as the two outer 7-hole white rails. All three white beams
+ * seat downward and share the same upper-rail height.
  */
 export const STEP_EIGHT_FIFTEEN_BEAM_SEATED_Z =
-  STEP_EIGHT_LEVEL - STEP_EIGHT_THICKNESS_MM/STEP_EIGHT_PITCH_MM;
+  STEP_EIGHT_SEVEN_RAIL_SEATED_Z;
 /**
- * The 16 mm black-pin STL bridges two 7.8 mm beams. Center it on their
- * common interface, rather than shifting it toward just one beam.
+ * The 16 mm black-pin STL is centered on the mating interface between
+ * the central white beam ABOVE and the two grey beams BELOW.
+ * Its local offset is negative, so it engages from the underside of
+ * the upper white beam rather than penetrating below the grey beams.
  */
 export const STEP_EIGHT_BLACK_PIN_INTERFACE_OFFSET_Z =
-  STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM);
+  -STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM);
+/** Above-frame registration before the final top-down locking stroke. */
+export const STEP_EIGHT_FIFTEEN_BEAM_ALIGNMENT_Z =
+  STEP_EIGHT_FIFTEEN_BEAM_SEATED_Z + 2.2;
 export type StepEightConfig = {
   /** First receiving hole in each 7-hole beam; second is four holes later. */
   sevenNearHole: 1 | 2 | 3;
@@ -140,7 +145,7 @@ export function stepEightPoses(phase:number,config:StepEightConfig):Record<StepE
   const longAligned = phase >= 9;
   const longX = longAligned ? 0 : STEP_EIGHT_PREPARATION_LAYOUT.FIFTEEN[0];
   const longZ = longAtFrame ? STEP_EIGHT_FIFTEEN_BEAM_SEATED_Z
-    : longAligned ? -3.2 : 0;
+    : longAligned ? STEP_EIGHT_FIFTEEN_BEAM_ALIGNMENT_Z : 0;
   const beam15Y = 6 - config.fifteenNearHole;
   const poses = {
     FIVE_A: xyz(0,frameA,STEP_EIGHT_LEVEL),
@@ -196,7 +201,7 @@ export function stepEightGuide(phase:number,config:StepEightConfig):V3|null {
   if(phase===7||phase===8) return fifteenHoleAnchor(
     config.fifteenNearHole+(phase===8?4:0),config);
   if(phase===9||phase===10)return [0,0,
-    STEP_EIGHT_LEVEL-STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM)];
+    STEP_EIGHT_LEVEL+STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM)];
   return null;
 }
 export const STEP_EIGHT_SEQUENCE = [
@@ -209,7 +214,7 @@ export const STEP_EIGHT_SEQUENCE = [
   {number:"8.5",title:"Close the rectangular frame",instruction:"Bring the second white 7-hole beam from ABOVE, align Holes 2 and 6 with the remaining exposed blue pins and lower it straight DOWNWARD. Check that both long rails are parallel, all four connectors remain visible, and nothing sticks out below the 5-hole beams."},
   {number:"8.6",title:"Fit the first black connector",instruction:"Insert the first black connector into the selected hole of the separate 15-hole beam."},
   {number:"8.6",title:"Fit the second black connector",instruction:"Install the second black connector four holes away; confirm the exact pair with the real photograph."},
-  {number:"8.7",title:"Align the center beam",instruction:"Position the 15-hole white beam on the OPPOSITE side from both 7-hole white beams: UNDERNEATH the two grey 5-hole beams. Align its black pins in Holes 7 and 11 with Hole 3 on each grey beam."},
-  {number:"8.7",title:"Seat both black locks",instruction:"Push the long 15-hole white beam UPWARD from below as one rigid group with both black connectors. Seat it against the UNDERSIDE of both grey 5-hole beams without leaving a gap; keep all pins attached and visible."},
+  {number:"8.7",title:"Align the center beam",instruction:"Position the long 15-hole white beam ABOVE the two grey 5-hole beams, on the SAME TOP SIDE as the pair of 7-hole white beams. Center it between the two outer white rails. Match its black connectors in Holes 7 and 11 to Hole 3 of each grey beam."},
+  {number:"8.7",title:"Seat both black locks",instruction:"Lower the long 15-hole white beam DOWNWARD from ABOVE as one rigid group with both installed black connectors. Seat it flush against the TOP faces of both grey 5-hole beams. All three white beams stay on top; nothing disappears or detaches."},
   {number:"8.7",title:"Inspect the assembled frame",instruction:"Orbit around the connected 11-part demonstration. The exact connector fit still requires comparison with the original photos and physical parts."},
 ] as const;
