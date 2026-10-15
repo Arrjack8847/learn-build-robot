@@ -29,6 +29,7 @@ jobs:
       - name: Step mapping / animation regression tests
         run: |
           node --test tests/marksmanship-step7-8-migration.test.mjs
+          node --test tests/marksmanship-step9.test.mjs
           npm run test:ui
           npm run test:step3
           npm run test:step4
