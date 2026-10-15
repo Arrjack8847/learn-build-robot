@@ -89,12 +89,10 @@ const marksmanshipSteps: PracticalProject["steps"] = [
   {
     id: "marksmanship-s10",
     number: 11,
-    title: "Attach the 7-hole beams",
-    description: "Original manual Step 10: physical operation is pending reconciliation with interactive Step 8. Review the illustration only; do not repeat an already completed attachment.",
-    image: "/marksmanship/steps/10.png",
-    referenceOnly: true,
-    note: { type: "warning", text: "Original manual operation may overlap the separate rectangular-frame assembly. Do not repeat it until photo/kit mapping is verified." },
-    originalManualStepNumbers: [10],
+    title: "Join Step 9 and Step 10 Assemblies",
+    description: "Photo-guided Step 11: prepare the finished Step 9 and Step 10 setups separately, then join the two original blue Hole 1 pins and two black Hole 3 pins from Step 10 to the first and third holes of the bottom three-hole group on the two outer Step 9 white beams. The middle holes remain empty. Verify all four mechanical seats with the real kit.",
+    assemblyOutputId: "marksman-step11-step9-step10-four-pin-join-v1",
+    originalManualStepNumbers: [],
   },
   {
     id: "marksmanship-s11",
