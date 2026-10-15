@@ -16,14 +16,22 @@ export const STEP_NINE_RECEIVERS = [7, 11] as const;
  * not local Y, so it never turns the assembly upside down.
  */
 export const STEP_NINE_STEP_SEVEN_YAW = Math.PI;
-/** Step 8 is ALREADY correctly oriented when it enters Action 0.
- * The entire group stays at this rigid pose for every Step 9 action:
- * local (x,y,z) -> shared (-y,-z,x); world +Y is up after the
- * shared frame's 180° turn, so local Step 8 blue pins face upward.
- * Never perform a second flip or rotate any component separately.
+/** In Step 9 only, turn the WHOLE Step 8 assembly by 180° horizontally
+ * around its vertical axis. This swaps front/back (the mounting-facing side)
+ * but does not flip top/bottom; all four original blue pins remain WORLD UP.
+ * The shared scene has a 180° Z rotation, so its vertical is local Y.
+ */
+export const STEP_NINE_OPPOSITE_FACE_YAW = Math.PI;
+/** Before Action 1: original Step 8 local (x,y,z) -> shared (-y,-z,x). */
+export function stepNineInitialPinOffset(point:V3):V3 {
+  return [-point[1],-point[2],point[0]];
+}
+/** After horizontal 180° yaw: shared (x,y,z) -> (-x,y,-z).
+ * Combining gives Step 8 local (x,y,z) -> shared (y,-z,-x).
+ * Its +Z pin direction remains shared -Y / WORLD UP.
  */
 export function stepNineOrientedPinOffset(point:V3):V3 {
-  return [-point[1],-point[2],point[0]];
+  return [point[1],-point[2],-point[0]];
 }
 /** Step 7 is raised vertically in shared space (-Y == upward on screen).
  * No constituent rails or previously installed connectors are moved.
@@ -47,8 +55,8 @@ export const STEP_NINE_ESTIMATED_PIN_CENTRE_CLEARANCE = 0.55;
 export const STEP_NINE_ACTIONS = [
   { number:"0", title:"Prepare the two completed assemblies",
     instruction:"Place Step 7 on the left turned 180° horizontally, facing its correct attachment side toward Step 8 on the right. Keep every existing connector installed." },
-  { number:"1", title:"Check Step 8 orientation",
-    instruction:"Step 8 is already correctly oriented. Keep its four blue pins pointing upward and its longest white beam at the front. Move the complete frame into the inspection position without rotating it." },
+  { number:"1", title:"Turn Step 8 to the opposite attachment side",
+    instruction:"Rotate the complete Step 8 assembly 180° HORIZONTALLY to reverse its attachment-facing side. Do not flip it upside down; all four blue mounting pins must keep pointing upward. Preserve every original installed connector." },
   { number:"2", title:"Align four pins below Step 7",
     instruction:"Lift the whole Step 7 assembly above Step 8 and bring the four upward-facing Step 8 blue pins directly beneath holes 7 and 11 on each outer Step 7 rail. Hold the lower frame ready." },
   { number:"3", title:"Lower Step 7 onto all four pins",
@@ -70,14 +78,14 @@ export function stepNineMating(
 ) {
   const rails = STEP_SEVEN_RAIL_IDS.map(id=>railPose(id,STEP_SEVEN_FINAL_PHASE,railConfig,beamY,six));
   const first=rails[0]!,second=rails[1]!;
-  // Step 7 retains its previously confirmed 180° horizontal turn.
-  // The original four Step 8 pins stay attached to their own beams;
-  // their physical UP-facing orientation determines this side mapping.
+  // Turning Step 8 horizontally 180° exchanges BOTH its left/right sides
+  // and its front/back hole-pair order. The Step 7 receivers remain the
+  // exact same four holes (7 and 11 on both long white rails).
   const labels = [
-    {stepEightPin:"BLUE_1",rail:1,hole:7},
-    {stepEightPin:"BLUE_2",rail:0,hole:7},
-    {stepEightPin:"BLUE_3",rail:1,hole:11},
-    {stepEightPin:"BLUE_4",rail:0,hole:11},
+    {stepEightPin:"BLUE_1",rail:0,hole:11},
+    {stepEightPin:"BLUE_2",rail:1,hole:11},
+    {stepEightPin:"BLUE_3",rail:0,hole:7},
+    {stepEightPin:"BLUE_4",rail:1,hole:7},
   ] as const;
   const joints:StepNinePinJoin[]=labels.map(item=>{
     const rail=rails[item.rail]!;
@@ -92,9 +100,10 @@ export function stepNineMating(
       alreadyOccupiedByStepSeven:[mount.receivingBlackHole,...mount.receivingGreyHoles].includes(item.hole),
     };
   });
-  // With the outer Step 9 root rotated 180° around Z, Step 8 +Z must
-  // become shared -Y (world UP). Park Step 8 BELOW the receiving rails,
-  // then move only Step 7 down to finish.
+  // The new horizontal yaw reverses the pin X/Z offsets symmetrically,
+  // so the stationary Step 8 group centre remains the same. Its +Z pins
+  // still become shared -Y (WORLD UP) after the outer Step 9 Z rotation.
+  // Park Step 8 below the receivers, then lower only Step 7.
   const level=STEP_EIGHT_LEVEL/2;
   const target:V3=[
     -(first.position[0]+second.position[0])/2 - 1,
@@ -116,7 +125,7 @@ export function stepNineMating(
     const [pinX,,pinZ]=stepEightPinOffsets[index]!;
     if(Math.abs(target[0]+pinX-joint.stepSevenLocalTarget[0])>0.3 ||
        Math.abs(target[2]+pinZ-joint.stepSevenLocalTarget[2])>0.3)
-      geometryWarnings.push("In the preserved Step 8 orientation, "+joint.stepEightPin+
+      geometryWarnings.push("After Step 8's horizontal 180° turn, "+joint.stepEightPin+
         " does not match its selected receiving hole with a rigid transform.");
   });
   if(joints.some(joint=>joint.alreadyOccupiedByStepSeven))
@@ -129,8 +138,8 @@ export function stepNineFramePose(phase:number,target:V3):StepNineFramePose {
   const [x,y,z]=target;
   if(phase<=0)return {position:[x-17,y+3.5,z]};
   if(phase===1)return {position:[x-10,y+1.8,z]};
-  // Step 8 moves by translation ONLY in Actions 0-2. Its initial
-  // orientation is already correct and is kept fixed for all phases.
+  // Step 8 translates during Actions 0-2 and yaws as one rigid assembly
+  // in Action 1. Its orientation is then LOCKED for Actions 2, 3, and 4.
   // Actions 3 and 4 must not move it a single millimetre.
   return {position:[x,y,z]};
 }
