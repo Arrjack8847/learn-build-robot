@@ -89,15 +89,16 @@ test("Step 9 keeps both prior completed assemblies and connects them in five act
   assert.ok(scene.includes("stepEightPoses(11,frameConfig)"));
   assert.ok(scene.includes("stepNineFramePose"));
   assert.ok(geometry.includes("STEP_NINE_RECEIVERS = [7, 11]"));
-  assert.ok(geometry.includes('stepEightPin:"BLUE_1",rail:1,hole:7'));
-  assert.ok(geometry.includes('stepEightPin:"BLUE_2",rail:0,hole:7'));
-  assert.ok(geometry.includes('stepEightPin:"BLUE_3",rail:1,hole:11'));
-  assert.ok(geometry.includes('stepEightPin:"BLUE_4",rail:0,hole:11'));
+  assert.ok(geometry.includes('stepEightPin:"BLUE_1",rail:0,hole:11'));
+  assert.ok(geometry.includes('stepEightPin:"BLUE_2",rail:1,hole:11'));
+  assert.ok(geometry.includes('stepEightPin:"BLUE_3",rail:0,hole:7'));
+  assert.ok(geometry.includes('stepEightPin:"BLUE_4",rail:1,hole:7'));
   assert.ok(geometry.includes("alreadyOccupiedByStepSeven"));
   assert.ok(geometry.includes("mechanicallyVerified:false"));
   assert.ok(geometry.includes("STEP_NINE_STEP_SEVEN_YAW = Math.PI"));
   assert.ok(geometry.includes("stepNineOrientedPinOffset(point:V3)"));
   assert.ok(!geometry.includes("STEP_NINE_STEP_EIGHT_FLIP"));
+  assert.ok(geometry.includes("STEP_NINE_OPPOSITE_FACE_YAW = Math.PI"));
 });
 
 test("Step 7 aligns one black and two grey connectors on each rail",()=>{
