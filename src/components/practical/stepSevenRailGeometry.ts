@@ -14,14 +14,15 @@ export type StepSevenRailConfig = {
   firstRailHole:number;
   secondRailHole:number;
 };
-/** User-approved Step 7 mounting configuration (October 14 screenshot).
- * The displayed side-rail arrangement was aligned in the local viewer with
- * an offset of 0.9 and grey-shaft receiving holes 13 / 8. With the saved
- * Step 6 photo preset, this aligns black+grey positions 6/13/15 and 5/8/10.
- * These are user-selected scene positions, NOT measured press-fit depths.
+/** Approved Step 7 mounting configuration (October 15 screenshot).
+ * Lock the calibration values visible in the approved local viewer:
+ * vertical offset 0.9, first rail's grey holes 12/14 and second rail's 7/9.
+ * With the pictured Step 6 preset, black+grey holes become first 5/12/14,
+ * second 4/7/9. The user-approved scene arrangement is retained when the
+ * calibration controls are hidden; physical press-fit depth is not measured.
  */
 export const STEP_SEVEN_PHOTO_CONFIG:ReadOnlyRailConfig = {
-  railCenterDistance:0.9,firstRailHole:13,secondRailHole:8,
+  railCenterDistance:0.9,firstRailHole:12,secondRailHole:7,
 };
 type ReadOnlyRailConfig = Readonly<StepSevenRailConfig>;
 /** Compatibility alias for existing stored demo configurations. */
