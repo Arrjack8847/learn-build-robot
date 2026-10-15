@@ -157,7 +157,7 @@ export function StepEightAssembly({
         </div>}
       </div>
       <div className="relative z-10 mx-auto mt-3 w-full max-w-[900px]
-          rounded-2xl border border-slate-200 bg-white p-3 text-[#132654]"
+          rounded-2xl border border-slate-200 bg-white p-3 text-[#132654]
           shadow-[0_10px_30px_rgba(16,38,69,0.08)] sm:p-4">
           <div aria-live="polite" className="flex min-w-0 items-start gap-3">
             <span className="flex size-10 shrink-0 items-center justify-center rounded-xl
