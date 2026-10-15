@@ -9,13 +9,23 @@ import type { StepSixMountConfig } from "./StepSixGeometry";
  * This mapping is photographic evidence, not a measured press-fit depth.
  */
 export const STEP_NINE_RECEIVERS = [7, 11] as const;
+/**
+ * Step 7 is turned around horizontally ONLY in Step 9.
+ * The Step 7 group's Y axis is vertical (the enclosing assembly root
+ * flips the sign of world Y). A 180-degree yaw reverses local X and Z,
+ * not local Y, so it never turns the assembly upside down.
+ */
+export const STEP_NINE_STEP_SEVEN_YAW = Math.PI;
+export function stepNineTurnedPoint(point:V3):V3 {
+  return [-point[0],point[1],-point[2]];
+}
 export const STEP_NINE_ASSEMBLY_ID = "marksman-step9-four-blue-pin-join-v1";
 export const STEP_NINE_MECHANICALLY_VERIFIED = false;
 /** The photographed underside-to-upper-beam mounting depth is not measured. */
 export const STEP_NINE_ESTIMATED_PIN_CENTRE_CLEARANCE = 0.55;
 export const STEP_NINE_ACTIONS = [
   { number:"0", title:"Prepare the two completed assemblies",
-    instruction:"Place the complete Step 7 assembly on the left and the complete Step 8 assembly on the right. Keep every existing connector installed." },
+    instruction:"Place Step 7 on the left turned 180° horizontally, facing its correct attachment side toward Step 8 on the right. Keep every existing connector installed." },
   { number:"1", title:"Face the longest Step 8 beam forward",
     instruction:"Lift and orient the complete Step 8 structure. Its longest white beam must face the front, as in the side-view reference." },
   { number:"2", title:"Align all four blue pins",
@@ -39,11 +49,14 @@ export function stepNineMating(
 ) {
   const rails = STEP_SEVEN_RAIL_IDS.map(id=>railPose(id,STEP_SEVEN_FINAL_PHASE,railConfig,beamY,six));
   const first=rails[0]!,second=rails[1]!;
+  // The Step 7 180° horizontal turn exchanges its two rail-facing sides
+  // and reverses the longitudinal hole order in shared Step 9 space.
+  // Step 8 stays completely unchanged; remap the ORIGINAL four blue pins.
   const labels = [
-    {stepEightPin:"BLUE_1",rail:0,hole:11},
-    {stepEightPin:"BLUE_2",rail:1,hole:11},
-    {stepEightPin:"BLUE_3",rail:0,hole:7},
-    {stepEightPin:"BLUE_4",rail:1,hole:7},
+    {stepEightPin:"BLUE_1",rail:1,hole:7},
+    {stepEightPin:"BLUE_2",rail:0,hole:7},
+    {stepEightPin:"BLUE_3",rail:1,hole:11},
+    {stepEightPin:"BLUE_4",rail:0,hole:11},
   ] as const;
   const joints:StepNinePinJoin[]=labels.map(item=>{
     const rail=rails[item.rail]!;
@@ -52,7 +65,9 @@ export function stepNineMating(
       stepEightPin:item.stepEightPin,
       stepSevenRail:STEP_SEVEN_RAIL_IDS[item.rail]!,
       receivingHole:item.hole,
-      stepSevenLocalTarget:[rail.position[0]+item.hole-8,rail.position[1],rail.position[2]],
+      stepSevenLocalTarget:stepNineTurnedPoint([
+        rail.position[0]+item.hole-8,rail.position[1],rail.position[2],
+      ]),
       alreadyOccupiedByStepSeven:[mount.receivingBlackHole,...mount.receivingGreyHoles].includes(item.hole),
     };
   });
@@ -60,16 +75,27 @@ export function stepNineMating(
   // in its own (x,y) frame. A rigid quarter-turn axis permutation maps
   // Step8 (x,y,z) -> Step7 (-y,-z,x), so blue pins face toward the two rails.
   const level=STEP_EIGHT_LEVEL/2;
+  // Step 8 local blue-pin centres transform to x = +2,+2,-2,-2
+  // and z = -1,+1,-1,+1. The rotated Step 7 receiver holes are
+  // x = -(railX + hole - 8), and its side rail Z coordinates reverse.
   const target:V3=[
-    (first.position[0]+second.position[0])/2 + 1,
+    -(first.position[0]+second.position[0])/2 - 1,
     (first.position[1]+second.position[1])/2 + STEP_NINE_ESTIMATED_PIN_CENTRE_CLEARANCE + level,
-    (first.position[2]+second.position[2])/2,
+    -(first.position[2]+second.position[2])/2,
   ];
   const geometryWarnings:string[]=[];
   if(Math.abs(first.position[0]-second.position[0])>0.2)
     geometryWarnings.push("The saved Step 7 rails have different longitudinal origins; the four pins cannot all align rigidly.");
-  if(Math.abs((second.position[2]-first.position[2])-2)>0.3)
+  if(Math.abs((first.position[2]-second.position[2])-2)>0.3)
     geometryWarnings.push("The saved Step 7 rail spacing/orientation does not match the Step 8 blue-pin spacing.");
+  const stepEightPinOffsets = [[2,-1],[2,1],[-2,-1],[-2,1]] as const;
+  joints.forEach((joint,index)=>{
+    const [pinX,pinZ]=stepEightPinOffsets[index]!;
+    if(Math.abs(target[0]+pinX-joint.stepSevenLocalTarget[0])>0.3 ||
+       Math.abs(target[2]+pinZ-joint.stepSevenLocalTarget[2])>0.3)
+      geometryWarnings.push("After turning Step 7, "+joint.stepEightPin+
+        " does not match its selected receiving hole with a rigid Step 8 transform.");
+  });
   if(joints.some(joint=>joint.alreadyOccupiedByStepSeven))
     geometryWarnings.push("A photo-marked hole overlaps a connector in the saved Step 7 configuration. Verify the real hole positions before completing.");
   return {joints,target,geometryWarnings,mechanicallyVerified:false as const};
