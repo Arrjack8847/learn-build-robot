@@ -15,15 +15,15 @@ const ACTIONS = [
   ["6.1", "Identify all 11 mounting holes",
     "Keep the 11-hole beam from Step 5 separate from the four prepared connector units. Count its holes from the hollow-connector end, 1 through 11."],
   ["6.2", "Mount the first hollow connector",
-    "Align the built-in +X post of the first prepared 15100 unit with beam hole 1. Move the WHOLE prepared assembly along the beam's Z axis; its original black pin stays attached."],
+    "Align the first prepared 15100 unit with beam hole 1 on the back face (provisional face assignment). Move the WHOLE assembly along the beam's Z axis; its original black pin stays attached."],
   ["6.3", "Mount the second hollow connector",
-    "On the opposite face, align the second prepared 15100 unit with beam hole 2. Insert its original molded post without changing the position of its black pin."],
+    "Align the second prepared 15100 unit with beam hole 2 on the opposite (front) face. Insert its original molded post without moving its black pin. Verify the opposite-face assignment against the physical robot."],
   ["6.4", "Identify bridge A's mounting holes",
-    "Compare with your real Step 6 assembly. The two bridge mount axes are 16 mm apart. Therefore choose holes two indices apart, NOT adjacent holes."],
+    "Connector A attaches on the FRONT face through holes 3 and 5 of the 11-hole beam. Both mounting axes are 16 mm apart (one intervening hole)."],
   ["6.5", "Insert bridge A as one rigid unit",
     "Align BOTH original long pins of bridge A with the selected beam holes. Insert the whole bridge straight along their shared axis. Do not reinsert pins into its body."],
   ["6.6", "Identify bridge B's mounting holes",
-    "Choose the second mounting pair toward the far end of the 11-hole beam. Verify it from your physical assembly and select its mounting face."],
+    "Connector B attaches on the BACK face through holes 7 and 9 of the 11-hole beam. Keep the two holes 16 mm apart."],
   ["6.7", "Insert bridge B as one rigid unit",
     "Insert both long pins together through the chosen pair. Their original positions relative to the bridge body stay fixed."],
   ["6.8", "Inspect the finished connector beam",
@@ -51,7 +51,7 @@ function readPrepared():StepSixPreparedSnapshot|null{
   }catch{return null;}
 }
 function readDraft():{config:StepSixMountConfig;phase:number}{
-  // Photo-based positions are provisional 3D demonstration geometry, never physical certification.
+  // Revised hole positions are user-confirmed; black connector face arrangement is inferred, not physically certified.
   const empty={config:{...STEP_SIX_PHOTO_SUGGESTION},phase:0};
   if(typeof window==="undefined")return empty;
   try{
@@ -105,7 +105,7 @@ export function StepSixAssembly({onReadyChange,onBackToStep5,onContinueToStep7}:
       if(ready&&prepared)window.localStorage.setItem(STEP_SIX_RESULT,JSON.stringify({
         ...getStepSixSnapshot(config,prepared.assemblyId),
         mountingChoices:config,tutorialCompleted:true,physicallyVerified:false,
-        configurationBasis:"photo-estimate-unverified",completedAt:new Date().toISOString(),
+        configurationBasis:"user-confirmed-bridge-holes-inferred-black-faces",completedAt:new Date().toISOString(),
       }));
       else window.localStorage.removeItem(STEP_SIX_RESULT);
     }catch{/* Browser storage optional. Step 5 handoff still required. */}
@@ -140,7 +140,7 @@ export function StepSixAssembly({onReadyChange,onBackToStep5,onContinueToStep7}:
             Return to Step 5 to prepare the connector units before viewing this animation.
           </div>}
       status={<span className="inline-block rounded-xl border border-amber-200 bg-amber-50/95 px-2.5 py-2 text-[11px] font-bold text-amber-900">
-        Photo-estimated layout · not mechanically verified
+        Confirmed hole pairs · face orientation provisional
       </span>}
       tools={<AssemblyUtilityControls step={6} manualShown={showManual}
         onResetView={()=>setResetCameraKey(k=>k+1)}
@@ -166,9 +166,9 @@ export function StepSixAssembly({onReadyChange,onBackToStep5,onContinueToStep7}:
     </div>}
     <p className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs leading-5 text-amber-950">
       <TriangleAlert aria-hidden="true" className="mr-1 inline size-3.5"/>
-      The visible assembly uses provisional hole positions from a reference photograph. It is a teaching preview;
-      completing this lesson does not certify physical pin fit or exact mounting faces.
-      Compare the real kit and retained manual before physically building.
+      Connector bridge holes 3/5 and 7/9 are user-confirmed. The black connector face assignments
+      are inferred to align downstream 15-hole rails (black 5 + grey 6/8; black 4 + grey 10/12).
+      This animation does not certify physical pin fit or mounting faces; compare the real kit before building.
     </p>
   </div>;
 }
