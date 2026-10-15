@@ -46,7 +46,7 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
   const [replayKey,setReplayKey]=useState(0);
   const [resetCameraKey,setResetCameraKey]=useState(0);
   const [reducedMotion,setReducedMotion]=useState(false);
-  const [cameraView,setCameraView]=useState<"iso"|"top"|"side"|"front">("iso");
+  const [cameraView,setCameraView]=useState<"iso"|"top"|"side"|"front"|"bottom">("iso");
   const [physicalCheck,setPhysicalCheck]=useState(false);
   const action=STEP_NINE_ACTIONS[phase]!;
   const final=phase===STEP_NINE_FINAL_PHASE;
@@ -81,6 +81,8 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
         stepSevenReceivingHoles:[7,11],fourOriginalBluePins:true,
         usesUpdatedStepEightAssembly:true,stepEightBlackPinHoles:[7,11],
         stepEightFlippedUpsideDown:true,flipAxis:"horizontal-long-beam",
+        stationaryDuringInsertion:"step8",loweredDuringInsertion:"step7",
+        inspectionViews:["front","side","top","bottom"],
         longestStepEightBeamFacesFront:true,geometryUnchanged:true,
         photographedHolePositions:true,mechanicallyVerified:false,
         physicallySelfConfirmed:true,geometryWarnings:mating?.geometryWarnings??[],
@@ -114,7 +116,11 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
           ?"Preparation · completed Step 7 on left / updated Step 8 on right"
           :phase===1
             ?"Orient Step 8 · flip the complete frame upside down"
-            :"Step 7 rails: holes 7 + 11 on EACH side · four original Step 8 blue pins"}
+            :phase===2
+              ?"Align four Step 8 pins beneath Step 7 holes 7 + 11"
+              :phase===3
+                ?"Keep Step 8 still · lower Step 7 onto all four blue pins"
+                :"Inspect all four pin heads and grey cross-supports"}
       </span>}
       tools={<div className="flex flex-wrap items-center gap-1.5">
         <button type="button" title="Reset camera" aria-label="Reset Step 9 3D camera"
@@ -123,7 +129,7 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
             bg-white/95 text-slate-700 shadow-sm">
           <ScanSearch className="size-4"/>
         </button>
-        {(["iso","top","front","side"] as const).map(view=><button
+        {(["iso","top","front","side","bottom"] as const).map(view=><button
           type="button" key={view} disabled={!ready}
           aria-pressed={cameraView===view} onClick={()=>setCameraView(view)}
           className={"min-h-10 rounded-xl border px-2.5 text-xs font-bold capitalize shadow-sm "+
@@ -162,9 +168,11 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
           border-sky-200 bg-sky-50 p-2.5 text-xs leading-5">
           <input type="checkbox" className="mt-0.5 size-4 shrink-0"
             checked={physicalCheck} onChange={e=>setPhysicalCheck(e.target.checked)}/>
-          I checked the real assembly: Step 8 is flipped upside down, all four
-          blue pins enter the intended Step 7 holes from below, and its
-          longest white beam faces the front.
+          I checked the real assembly against the top, side and underside photos:
+          Step 8 stays underneath and its four blue pins point upward; the whole
+          Step 7 structure is lowered over the pins into holes 7 and 11 on both
+          outer white rails. The two grey cross-supports and four pin heads are
+          visible from the underside, and the longest white beam remains front-facing.
           I understand the 3D seating depth has not been physically measured.
         </label>}
         <AssemblyPlaybackControls
@@ -178,9 +186,11 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
           onComplete={complete}
           completeDisabled={!ready||animating||!physicalCheck||needsStepEightRefresh}/>
         <p className="text-[11px] text-slate-500">
-          Action 0 starts with the two completed structures separate; Action 3
-          seats them together. Previous, Replay, Pause and camera controls
-          never modify your saved Step 7 or Step 8 assemblies.
+          Action 0 prepares the two finished structures. Action 2 parks Step 8
+          underneath and lifts Step 7 clear. Action 3 lowers Step 7 while Step 8
+          remains stationary. Use the Bottom view to inspect the two grey
+          cross-supports and four pin heads. Previous, Replay and Pause preserve
+          the original Step 7 and Step 8 components.
           {animating?" Wait for the current animation to finish before advancing.":""}
         </p>
       </div>}
