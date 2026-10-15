@@ -96,7 +96,8 @@ test("Step 9 keeps both prior completed assemblies and connects them in five act
   assert.ok(geometry.includes("alreadyOccupiedByStepSeven"));
   assert.ok(geometry.includes("mechanicallyVerified:false"));
   assert.ok(geometry.includes("STEP_NINE_STEP_SEVEN_YAW = Math.PI"));
-  assert.ok(geometry.includes("STEP_NINE_STEP_EIGHT_FLIP = Math.PI"));
+  assert.ok(geometry.includes("stepNineOrientedPinOffset(point:V3)"));
+  assert.ok(!geometry.includes("STEP_NINE_STEP_EIGHT_FLIP"));
 });
 
 test("Step 7 aligns one black and two grey connectors on each rail",()=>{
