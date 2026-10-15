@@ -52,11 +52,13 @@ const lerpPose = (a: StepTenPose, b: StepTenPose, t: number): StepTenPose => ({
 function guided(from: StepTenPose, to: StepTenPose, t: number, phase: number, part: StepTenPart): StepTenPose {
   // Backwards playback traverses the same center-aligned clearance waypoint.
   if (part === "BRIDGE_3" && phase === 17) return lerpPose(from, to, t);
-  // Hole 3 black pins enter from BELOW (-Z): the face away from Gray (+Z).
-  // The beam never flips; reverse playback exits along the same lower axis.
-  const downward = part.endsWith("_15") || part === "BRIDGE_3" ||
+  // Hole 1 blue pins enter upward from -Z; Hole 3 black pins likewise
+  // enter from the opposite face to gray. Other blue pins (6/12) and
+  // Hole 15 black pins approach from +Z and travel downward.
+  // Reversed actions use the same straight, hole-coaxial clearance path.
+  const fromBelow = part === "BLUE_A_1" || part === "BLUE_B_1" ||
     part === "BLACK_A_3" || part === "BLACK_B_3";
-  const offset = downward ? -2.25 : 2.25;
+  const offset = fromBelow ? -2.25 : 2.25;
   const aligned: StepTenPose = {
     position: [to.position[0], to.position[1], to.position[2] + offset],
     rotation: to.rotation,
@@ -75,9 +77,9 @@ function targetFocus(phase: number): Vec3 {
 }
 function viewOffset(view: View, mobile: boolean, phase: number): Vec3 {
   const k = mobile ? 1.45 : 1.12;
-  // For both Hole 3 installation actions show the opposite (-Z) face.
-  // Maintain the same hole indexes and all previously installed components.
-  if (view === "iso" && (phase === 5 || phase === 12))
+  // Hole 1 blue and Hole 3 black insert FROM BELOW; the camera reveals -Z
+  // without flipping the beams, hiding pins, or changing source meshes.
+  if (view === "iso" && (phase === 2 || phase === 9 || phase === 5 || phase === 12))
     return [11 * k, -14 * k, -14 * k];
   if (view === "top") return [0.01, -0.01, 21 * k];
   if (view === "front") return [0.01, -18 * k, 5 * k];
@@ -248,7 +250,7 @@ function Stage({ phase, replayKey, paused, resetCameraKey, reducedMotion, view, 
     <directionalLight position={[7, -6, 14]} intensity={2} />
     <gridHelper args={[32, 32, "#dbe7ee", "#edf1f6"]}
       rotation={[Math.PI / 2, 0, 0]} position={[0, 0, -2.6]}
-      visible={phase !== 5 && phase !== 12} />
+      visible={phase !== 2 && phase !== 9 && phase !== 5 && phase !== 12} />
     {STEP_TEN_PARTS.map((id) => {
       const model = STEP_TEN_MODELS[id];
       return <group key={id} name={"STEP10_" + id}
@@ -261,13 +263,13 @@ function Stage({ phase, replayKey, paused, resetCameraKey, reducedMotion, view, 
       </group>;
     })}
     <HoleGuide phase={phase} />
-    {phase === 16 || phase === 17 ? <group position={[7, 0, -0.5]}>
+    {phase === 16 || phase === 17 ? <group position={[7, 0, 0.60]}>
       {([-1, 1] as const).map(y => <mesh key={y} position={[0, y, 0]}>
         <torusGeometry args={[0.31, 0.05, 8, 32]} />
         <meshBasicMaterial color="#e9a31a" depthTest={false} />
       </mesh>)}
     </group> : null}
-    {phase === 19 ? <mesh position={[7, 0, -0.54]}>
+    {phase === 19 ? <mesh position={[7, 0, 1.64]}>
       <torusGeometry args={[0.31, 0.055, 8, 32]} />
       <meshBasicMaterial color="#e9a31a" depthTest={false} />
     </mesh> : null}
