@@ -8,7 +8,7 @@ import { STEP5_MODEL_PATHS } from "./StepFiveScene";
 import { seatedPose, type StepSixMountConfig, type StepSixStepFiveTransforms } from "./StepSixGeometry";
 import { STEP_EIGHT_PARTS, stepEightPoses, type StepEightConfig, type StepEightPart, type V3 } from "./stepEightGeometry";
 import { STEP_SEVEN_FINAL_PHASE, STEP_SEVEN_PIN_IDS, STEP_SEVEN_RAIL_IDS, endPinPose, railPose, type StepSevenRailConfig } from "./stepSevenRailGeometry";
-import { STEP_NINE_FINAL_PHASE, stepNineFramePose, stepNineMating } from "./stepNineGeometry";
+import { STEP_NINE_FINAL_PHASE, STEP_NINE_STEP_SEVEN_YAW, stepNineFramePose, stepNineMating } from "./stepNineGeometry";
 import { motionEase, motionLerp } from "./marksmanLessonMotion";
 
 import beam15Url from "../../../3D for marksman/beams/15 beams.stl?url";
@@ -184,7 +184,10 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
     <directionalLight position={[8,13,15]} intensity={1.4}/>
     <gridHelper args={[36,36,"#e3eaf1","#f1f4f7"]} position={[0,-3.8,0]}/>
     <group name="STEP9_SHARED_REFERENCE" position={[0,beamY,0]} rotation={[0,0,Math.PI]}>
-      <group name="STEP9_STEP7_COMPLETE_ASSEMBLY">
+      {/* Turn the COMPLETE Step 7 assembly in Step 9 only, keeping every
+          child beam and connector fixed relative to its parent. This is a
+          horizontal 180° yaw, not an upside-down flip. Step 8 stays still. */}
+      <group name="STEP9_STEP7_COMPLETE_ASSEMBLY" rotation={[0,STEP_NINE_STEP_SEVEN_YAW,0]}>
         <group name="STEP5_BEAM_11" position={prepared["STEP5_BEAM_11"]!.position}
           rotation={prepared["STEP5_BEAM_11"]!.rotation}>
           <mesh geometry={meshes.beam11}><meshStandardMaterial color="#97a4b4" roughness={0.63}/></mesh>
