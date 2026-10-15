@@ -62,7 +62,14 @@ export function StepTenAssembly({ onCompleteStep }: { onCompleteStep: () => void
         assemblyId: STEP_TEN_ASSEMBLY_ID,
         whiteBeamHoles: { endBlue: 1, blackFree: 3, blueMounts: [6, 12], blackBridge: 15 },
         blackHole3Face: "opposite-gray",
-        bluePinsVisibleOnBothOuterFaces: true,
+        blackHole15Face: "same-as-gray",
+        threeHoleBridgeFace: "same-as-gray",
+        blueHole1InsertionDirection: "bottom-to-top-through-both-faces",
+        blueHoles6And12InsertionDirection: "top-to-bottom",
+        blueHoles6And12WhiteUnderside: "flush-no-protrusion",
+        bluePinsVisibleOnBothOuterFaces: false, // only Hole 1 is visible on BOTH white-beam faces
+        blueHole1VisibleOnBothWhiteFaces: true,
+        blueHoles6And12VisibleAboveGray: true,
         grayBeamMating: stepTenHolePairs(),
         bridgeConnections: [{ whiteUnit: "A", whiteHole: 15, bridgeHole: 1 },
           { whiteUnit: "B", whiteHole: 15, bridgeHole: 3 }],
@@ -89,7 +96,7 @@ export function StepTenAssembly({ onCompleteStep }: { onCompleteStep: () => void
         reducedMotion={reducedMotion} resetCameraKey={resetCameraKey}
         view={view} onMotionComplete={() => setBusy(false)} />}
       status={<span className="rounded-xl border border-white/80 bg-white/95 px-3 py-2 text-xs font-semibold text-[#132654] shadow-sm">
-        Two matching units · White 1, 3, 6, 12, 15 · Gray 3 &amp; 9
+        Two matching units · Blue 1 ↑, 6/12 ↓ flush · Black 3 opposite, 15 gray-side
       </span>}
       tools={<div className="flex flex-wrap items-center gap-2">
         <button type="button" aria-label="Reset Step 10 3D camera"
@@ -144,11 +151,12 @@ export function StepTenAssembly({ onCompleteStep }: { onCompleteStep: () => void
       <input className="mt-1 size-4 shrink-0" type="checkbox" checked={physicallyChecked}
         onChange={e => setPhysicallyChecked(e.target.checked)} />
       I checked my real Step 10 assembly: both white 15-hole beams have blue pins at holes 1, 6 and 12;
-      black pins at Hole 3 protrude on the OPPOSITE face from the gray beams; the Hole 15 black
-      pins remain for the joining beam. Blue connectors extend from both outer faces, and both
-      gray 9-hole beams connect at gray holes 3 and 9;
-      the black 3-hole beam joins the two hole-15 ends; and the brown center spacer fits in the
-      bridge's middle hole. I understand the spacer 3D mesh and connector seating depths are approximations.
+      Hole 1 blue pins enter UPWARD from below and remain visible from both white-beam faces;
+      blue pins at Holes 6 and 12 enter DOWNWARD from above and stop FLUSH with the white
+      underside, without sticking out beneath the white beams. Both gray 9-hole beams
+      attach at gray holes 3 and 9, with blue tips visible above gray. Black pins at
+      White Hole 3 point AWAY from gray, but Hole 15 black pins and the black 3-hole joining beam
+      are on the SAME SIDE as gray. The upright center spacer attaches to bridge Hole 2. I understand the spacer 3D mesh and connector seating depths are approximations.
     </label>}
     <p className="px-1 text-[11px] leading-4 text-slate-500">
       The beam and pin meshes are loaded from the repository's original STLs.
