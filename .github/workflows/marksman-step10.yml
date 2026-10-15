@@ -25,7 +25,7 @@ jobs:
         run: node --test tests/marksmanship-step10.test.mjs
       - name: Validate prior lesson mapping
         run: node --test tests/marksmanship-step7-8-migration.test.mjs
-      - name: Compile TypeScript
-        run: npx tsc --noEmit
-      - name: Verify production bundle
+      - name: Build and regenerate typed TanStack route tree
         run: npm run build
+      - name: Compile TypeScript after route generation
+        run: npx tsc --noEmit
