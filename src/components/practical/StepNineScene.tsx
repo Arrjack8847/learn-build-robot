@@ -321,8 +321,14 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
         {STEP_SEVEN_PIN_IDS.map(id=>{
           const pin=endPinPose(id,STEP_SEVEN_FINAL_PHASE,config,beamY,stepSixConfig);
           return <group key={id} name={id} position={pin.position} rotation={pin.rotation}>
-            <mesh geometry={meshes.railBlue}><meshStandardMaterial color="#1676d5" roughness={0.5}/></mesh>
-            {guideVisible&&mating.joints.map(j=>{
+            <mesh geometry={meshes.railBlue}>
+              <meshStandardMaterial color="#1676d5" roughness={0.5}/>
+            </mesh>
+          </group>;
+        })}
+        {/* One guide per target, parented to the moving Step 7 assembly,
+            so the lines follow the real receiving holes while it lowers. */}
+        {guideVisible&&mating.joints.map(j=>{
           const local=stepNineTurnedPoint(j.stepSevenLocalTarget);
           return <Line key={j.stepEightPin}
             points={[
@@ -331,8 +337,6 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
             ]}
             color={j.alreadyOccupiedByStepSeven?"#d97706":"#168eea"}
             dashed dashSize={0.18} gapSize={0.12} lineWidth={2}/>;
-        })}
-      </group>;
         })}
       </group>
       <group name="STEP9_STEP8_COMPLETE_ASSEMBLY" ref={frame}
