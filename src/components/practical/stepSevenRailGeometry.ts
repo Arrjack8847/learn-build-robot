@@ -2,7 +2,7 @@ import { beamHoleX, getStepSixAttachments, seatedPose, validateMountConfig, type
 
 /** Assembly A stays independent of Step 8's rectangular frame (Assembly B). */
 export const STEP_SEVEN_ASSEMBLY_ID = "marksman-assembly-a-side-rails-v1";
-export const STEP_SEVEN_RESULT_KEY = "robot:marksmanship:step7:assembly-a:v1";
+export const STEP_SEVEN_RESULT_KEY = "robot:marksmanship:step7:assembly-a:v2";
 export const STEP_EIGHT_RESULT_KEY = "robot:marksmanship:step8:assembly-b:v1";
 export const STEP_SEVEN_RAIL_IDS = ["STEP7_RAIL_FRONT_15","STEP7_RAIL_BACK_15"] as const;
 export const STEP_SEVEN_PIN_IDS = ["STEP7_END_BLUE_FIRST","STEP7_END_BLUE_SECOND"] as const;
