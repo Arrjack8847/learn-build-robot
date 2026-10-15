@@ -167,7 +167,7 @@ test("Step 8 guided motion stays reversible, camera-safe and physically unchange
   assert.ok(frameScene.includes('travel.phase===10&&(id==="FIFTEEN"||id==="BLACK_1"||id==="BLACK_2")'),
     "The two black pins must travel rigidly with the 15-hole beam on final locking");
   assert.ok(frameScene.includes("const firstCamera=useRef(true)"));
-  assert.ok(frameScene.includes("onStart={()=>{cameraFlight.current=null;}}"),
+  assert.ok(frameScene.includes("onStart={()=>{cameraFlight.current=null;onUserCameraInteraction?.();}}"),
     "Manual orbit must interrupt the automatic camera flight");
   assert.ok(frameScene.includes("previousConfigKey.current=configKey"),
     "Photo calibration must reset rather than interpolate between incompatible hole choices");
@@ -175,7 +175,7 @@ test("Step 8 guided motion stays reversible, camera-safe and physically unchange
   assert.ok(frame.includes("disabled={animating||(finished&&!physicalCheck)}"),
     "Do not advance while a connector is still moving");
   assert.ok(frameGeom.includes("sevenNearHole: 2"));
-  assert.ok(frameGeom.includes("fifteenNearHole: 6"));
+  assert.ok(frameGeom.includes("fifteenNearHole: 7"));
 });
 
 
@@ -201,4 +201,44 @@ test("Step 8 exactly matches Step 7 motion category timing and camera duration",
   assert.ok(frameScene.includes("const seated=reverse?a:b;"),"reverse via shared insertion clearance");
   assert.ok(frameScene.includes("travel.phase===10&&(id===\"FIFTEEN\"||id===\"BLACK_1\"||id===\"BLACK_2\")"),
     "Two black connectors move rigidly with the final beam");
+});
+
+test("Step 8 approved 7-and-11 black-pin holes and preserved blue-pin target holes",()=>{
+  assert.match(frameGeom,/sevenNearHole:\s*2,/);
+  assert.match(frameGeom,/fifteenNearHole:\s*7,/);
+  assert.ok(frameGeom.includes("beam15Hole:config.fifteenNearHole+4"));
+  for(const value of ["hole5:2","hole5:4","receiverHole:3"]){
+    assert.ok(frameGeom.includes(value),"Preserve existing receiver "+value);
+  }
+  assert.ok(frame.includes('i===6?" (approved)":""'),"Show the correct approved drop-down selection");
+  assert.ok(frame.includes("activeBlackHole=phase===7?config.fifteenNearHole"));
+  assert.ok(frame.includes("phase===8?config.fifteenNearHole+4:null"));
+});
+
+test("Early Step 8 actions teach a clear preparation, approach and connection sequence",()=>{
+  assert.ok(frame.includes('aria-label="Preparation groups"'),"Group parts visibly before assembly");
+  assert.ok(frame.includes("Group A · prepare first"));
+  assert.ok(frame.includes("Group B · prepare second"));
+  assert.ok(frame.includes("Keep nearby · use later"));
+  assert.ok(frame.includes('aria-label="Active connector and receiving hole"'));
+  assert.ok(frame.includes("Target · Hole {activeBlueHole}"));
+  assert.ok(frame.includes("phase+1}/{STEP_EIGHT_SEQUENCE.length}"),"Unique action count, not repeated manual numbers");
+  assert.ok(frameScene.includes("const activeBlue=phase>=1&&phase<=4"));
+  assert.ok(frameScene.includes("const blueClearance:V3|null=toBlue"));
+  assert.ok(frameScene.includes("points={[fromBlue,blueClearance]}"));
+  assert.ok(frameScene.includes("points={[blueClearance,toBlue]}"));
+  assert.ok(frameScene.includes("const activeReceiver=phase>=1&&phase<=4"));
+  assert.ok(frameScene.includes("travel.phase===5&&("),
+    "Both prepared 5-hole beam groups move together with their attached pins");
+  assert.ok(frameScene.includes("id.startsWith(\"BLUE_\")"));
+  assert.ok(frameScene.includes("Math.min(1,t/0.42)"),"Reposition groups in approach stage");
+  assert.ok(frameScene.includes("(t-0.58)/0.42"),"Reverse without drifting connection targets");
+  assert.ok(frame.includes('onUserCameraInteraction={()=>{if(phase===11)setAutoInspect(false);}}/>'),
+    "Manual final inspection must disable auto orbit");
+  assert.ok(frame.includes('relative z-10 mx-auto mt-3 w-full max-w-[900px]'),
+    "Keep playback dock outside the 3D viewport");
+  assert.ok(!frame.includes('absolute inset-x-2 bottom-2 z-10'),
+    "Control dock must not obscure the 3D model");
+  assert.ok(frameScene.includes('phase===5?["BLUE_1","BLUE_3"]'));
+  assert.ok(frameScene.includes('phase===6?["BLUE_2","BLUE_4"]'));
 });
