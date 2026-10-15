@@ -7,7 +7,8 @@ import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { motionEase } from "./marksmanLessonMotion";
 import {
   STEP_EIGHT_PARTS, STEP_EIGHT_PITCH_MM, STEP_EIGHT_THICKNESS_MM,
-  STEP_EIGHT_LEVEL, stepEightGuide, stepEightPoses,
+  STEP_EIGHT_LEVEL, STEP_EIGHT_SEVEN_RAIL_SEATED_Z,
+  stepEightGuide, stepEightPoses,
   type StepEightPart, type StepEightConfig, type StepEightPose, type V3,
 } from "./stepEightGeometry";
 
@@ -70,10 +71,10 @@ function interpolate(a:StepEightPose,b:StepEightPose,t:number):StepEightPose {
  */
 function insertion(a:StepEightPose,b:StepEightPose,t:number,phase:number,reverse:boolean):StepEightPose {
   const seated=reverse?a:b;
-  // Blue connectors (phases 1–4) descend from ABOVE the 5-hole beams.
-  // Seven-hole beams and final frame locking continue their original
-  // upward approach; black connectors keep their approved direction.
-  const sign=phase===5||phase===6||phase===10?-1:1;
+  // Blue connectors (phases 1–4) and both white 7-hole beams (5–6)
+  // descend from ABOVE. Only final central-beam locking (phase 10)
+  // retains its earlier upward approach.
+  const sign=phase===10?-1:1;
   const clearance=phase===10?2.2:2.15;
   const aligned:StepEightPose={
     position:[seated.position[0],seated.position[1],seated.position[2]+sign*clearance],
@@ -169,6 +170,14 @@ function NumberedHoles({id,phase,config}:{
       if(!showAll&&!active)return null;
       const x=i-(length-1)/2;
       return <group key={i} position={[x,0,faceZ]}>
+        {/* The blue tips enter the 7-hole rails from the UNDERSIDE while
+            the white rails themselves descend from above. Mark both faces. */}
+        {active&&((id==="SEVEN_A"&&phase===5)||(id==="SEVEN_B"&&phase===6))&&
+          <mesh position={[0,0,-2*faceZ]}>
+            <torusGeometry args={[0.305,0.055,7,26]}/>
+            <meshBasicMaterial color="#f6aa19" depthTest={false}
+              transparent opacity={0.85}/>
+          </mesh>}
         <mesh>
           <torusGeometry args={[0.305,active?0.06:0.025,7,26]} />
           <meshBasicMaterial color={active?"#f6aa19":"#6386a2"} depthTest={false} transparent opacity={active?1:0.42} />
@@ -409,9 +418,17 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
     </>}
     {twoPointPins&&twoPointPins.map(id=>{
       const target=stepEightPoses(phase===9?10:phase,config)[id].position;
+      const descendingWhiteRail=phase===5||phase===6;
       return <Line key={id+"-two-joint-guide"}
-        points={[[target[0],target[1],target[2]-2.1],
-          [target[0],target[1],target[2]+2.1]]}
+        points={descendingWhiteRail
+          // Two blue pins are already locked in their 5-hole beams.
+          // Show the rails coming from above down to the TOP interface,
+          // never a misleading approach from below those 5-hole beams.
+          ?[[target[0],target[1],STEP_EIGHT_LEVEL+
+              STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM)+0.05],
+            [target[0],target[1],STEP_EIGHT_SEVEN_RAIL_SEATED_Z+2.15]]
+          :[[target[0],target[1],target[2]-2.1],
+            [target[0],target[1],target[2]+2.1]]}
         color="#e2a315" lineWidth={1.6} dashed dashSize={0.15} gapSize={0.12}/>;
     })}
     {guide&&!activeBlue&&!twoPointPins&&<Line points={[[guide[0],guide[1],guide[2]-2.1],
