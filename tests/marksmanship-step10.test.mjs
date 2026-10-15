@@ -182,7 +182,10 @@ test("Hole 15 black pins and three-hole joining bridge remain on the gray-side T
   assert.match(g.STEP_TEN_ACTIONS[19].instruction, /UPWARD FROM BELOW/);
   assert.ok(lesson.includes('blackHole15Face: "same-as-gray"'));
   assert.ok(lesson.includes('threeHoleBridgeFace: "same-as-gray"'));
-  assert.ok(scene.includes('const offset = fromBelow ? -2.25 : 2.25;'));
+  assert.ok(scene.includes('part === "BLACK_A_3" || part === "BLACK_B_3"'),
+    "underside black Hole 3 pins still use bottom-up guided insertion");
+  assert.ok(scene.includes('const offset = part === "CENTER_BLACK" && phase === 18 ? -0.80'),
+    "stopper guide uses its own bottom-up clearance path");
 });
 
 test("under-bridge stopper with center pin rises into Hole 2 and leaves side joints untouched", () => {
