@@ -60,10 +60,10 @@ export const STEP_NINE_ACTIONS = [
     instruction:"Flip the entire completed Step 8 assembly 180° around its horizontal long-beam axis, switching its TOP and BOTTOM faces toward Step 7. Do not yaw it horizontally or detach its four installed blue connectors." },
   { number:"2", title:"Align four mounting connectors beneath Step 7",
     instruction:"Raise Step 7 for clearance and slide the flipped Step 8 frame underneath. Align the four opposite-side connector shafts with holes 7 and 11 on both outer Step 7 white rails." },
-  { number:"3", title:"Lower Step 7 until connectors are concealed",
-    instruction:"Keep Step 8 stationary. Lower the entire Step 7 assembly onto all four opposing connector shafts together. At full seating, do not leave exposed blue mounting connector shafts between the assemblies." },
-  { number:"4", title:"Inspect the finished concealed joint",
-    instruction:"Inspect the upper and lower faces, confirming Step 8 is attached from its opposite top/bottom face and no blue mounting connector shafts remain visibly protruding at the join. Compare with the real photos." },
+  { number:"3", title:"Lower Step 7 onto four real connectors",
+    instruction:"Keep Step 8 stationary. Lower the entire Step 7 assembly onto all four original blue connector shafts together. The connectors remain physically present, opaque, and unchanged throughout the seating motion." },
+  { number:"4", title:"Inspect four real seated connectors",
+    instruction:"Inspect the top, side and underside views. Check that the shafts enter Step 7 holes 7 and 11 and are naturally covered by the assembled beams, not artificially hidden. If blue shafts still protrude, flag the alignment or seating-depth issue." },
 ] as const;
 export const STEP_NINE_FINAL_PHASE = STEP_NINE_ACTIONS.length - 1;
 
