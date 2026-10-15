@@ -115,3 +115,13 @@ The original 31-step manual and source STL meshes are not changed by this featur
 - The Step 9 UI separately labels the completed Step 7 and updated Step 8 structures, disables Next/Previous/Replay while a movement is active and supports Pause/Resume, reverse, replay and reduced motion. This ensures movements cannot overlap from rapid tapping.
 - Older saved Step 8 browser snapshots (previous black-hole calibration) are **not silently approved**. Step 9 previews the updated 7/11 arrangement with a warning, and the learner must revisit and physically confirm Step 8 before completing Step 9. No stored Step 7/8 user data is rewritten.
 - Physical fit between Steps 7 and 8 remains unverified; step 9 continues warning when saved Step 7 mount data would occupy a proposed receiving hole.
+
+## Step 9 correction: invert the complete Step 8 assembly (October 15)
+
+- User confirmed: **flip Step 8 upside down**, not Step 7. Step 7 keeps the separately approved 180-degree horizontal yaw from the preceding correction.
+- Action 0 preserves the two completed separate assemblies; Action 1 animates an entire rigid Step 8 inversion over its **horizontal longest-beam axis**. The 15-hole front beam and all installed blue and black pins remain rigidly attached. Steps 7/8 themselves are unchanged.
+- Use a composed quaternion `Rx(π) · UPRIGHT_ALIGNMENT`, not a camera turn or independent pin rotation. Step 8's original local `(x,y,z)` now maps into shared Step 9 coordinates `(-y,+z,-x)`, so the four blue connector axes point **upwards**, toward the underside of Step 7.
+- The upside-down frame swaps which Step 7 rail accepts each original Step 8 blue pin while retaining the photograph-confirmed holes 7 and 11: BLUE_1 -> first rail 7; BLUE_2 -> second rail 7; BLUE_3 -> first rail 11; BLUE_4 -> second rail 11.
+- The final root position moves below the receiving surfaces rather than above; Action 2 aligns from below and Action 3 moves **upward** through a two-stage, coaxial approach with Step 7's 42% approach / 58% seating profile.
+- Only the Step 9 demonstration and its saved Step 9 completion metadata change. Existing Step 8 saved configurations and the Step 7 source parts/rotation are not rewritten.
+- The declared mating depth still uses a provisional clearance. Do not claim certified mechanical fit without a real physical check, especially for any already-occupied receiving hole.
