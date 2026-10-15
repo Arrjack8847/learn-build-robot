@@ -70,7 +70,10 @@ function interpolate(a:StepEightPose,b:StepEightPose,t:number):StepEightPose {
  */
 function insertion(a:StepEightPose,b:StepEightPose,t:number,phase:number,reverse:boolean):StepEightPose {
   const seated=reverse?a:b;
-  const sign=phase===5||phase===6||phase===10?-1:1;
+  // Blue pins in Actions 2–5 enter the UNDERSIDE of each 5-hole beam.
+  // Seven-hole beams and final frame locking also move upward; black pins
+  // keep their previously approved insertion direction.
+  const sign=((phase>=1&&phase<=6)||phase===10)?-1:1;
   const clearance=phase===10?2.2:2.15;
   const aligned:StepEightPose={
     position:[seated.position[0],seated.position[1],seated.position[2]+sign*clearance],
@@ -110,6 +113,9 @@ function fittedCamera(phase:number,config:StepEightConfig,width:number,height:nu
   const aspect=Math.max(0.3,width/Math.max(height,1));
   const direction=(
     phase===0?[0,-0.26,1]:
+    // During the four blue insertions show the underside and the exposed
+    // connector shafts rather than looking down through the receiving beam.
+    phase>=1&&phase<=4?[0.75,-1.2,-1.15]:
     cameraView==="top"?[0.05,-0.1,1]:
     cameraView==="bottom"?[0.05,0.1,-1]:
     cameraView==="side"?[0,-1,0.18]:
@@ -153,6 +159,10 @@ function NumberedHoles({id,phase,config}:{
     id==="FIFTEEN"&&(phase===7||phase===8)?config.fifteenNearHole+(phase===8?4:0):
     0;
   const showAll=Boolean(mark);
+  // The orange target ring must sit on the actual insertion FACE.
+  // Step 8's four blue pins enter from beneath the 5-hole beams.
+  const underside=id.startsWith("FIVE")&&phase>=1&&phase<=4;
+  const faceZ=(STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM)+0.04)*(underside?-1:1);
   return <group>
     {Array.from({length},(_,i)=>{
       const active=i+1===mark ||
@@ -160,7 +170,8 @@ function NumberedHoles({id,phase,config}:{
         (id==="SEVEN_B"&&phase===6&&i+1===config.sevenNearHole+4);
       if(!showAll&&!active)return null;
       const x=i-(length-1)/2;
-      return <group key={i} position={[x,0,STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM)+0.04]}>
+      return <group key={i} position={[x,0,faceZ]}
+        rotation={underside?[Math.PI,0,0]:[0,0,0]}>
         <mesh>
           <torusGeometry args={[0.305,active?0.06:0.025,7,26]} />
           <meshBasicMaterial color={active?"#f6aa19":"#6386a2"} depthTest={false} transparent opacity={active?1:0.42} />
@@ -358,7 +369,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
   const fromBlue=activeBlue?stepEightPoses(phase-1,config)[activeBlue].position:null;
   const toBlue=activeBlue?start[activeBlue].position:null;
   const blueClearance:V3|null=toBlue
-    ?[toBlue[0],toBlue[1],toBlue[2]+2.15]:null;
+    ?[toBlue[0],toBlue[1],toBlue[2]-2.15]:null;
   const twoPointPins=phase===5?["BLUE_1","BLUE_3"] as const:
     phase===6?["BLUE_2","BLUE_4"] as const:
     phase===9||phase===10?["BLACK_1","BLACK_2"] as const:null;
@@ -368,7 +379,7 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
     <hemisphereLight args={["#ffffff","#acc2d6",1.7]}/>
     <directionalLight position={[8,-6,13]} intensity={2.0}/>
     <gridHelper args={[25,25,"#d9e4ed","#e9eff6"]}
-      rotation={[Math.PI/2,0,0]} position={[0,0,-1.2]}/>
+      rotation={[Math.PI/2,0,0]} position={[0,0,-4.9]}/>
     <group name="STEP8_RIGID_INSPECTION_GROUP">
       {STEP_EIGHT_PARTS.map(id=>{
         const model=modelName(id);
@@ -378,12 +389,13 @@ function Stage({phase,config,paused,replayKey,resetCameraKey,reducedMotion,autoI
           model==="seven"?"#bac9d9":"#f1f3f7";
         const activeConnector=activeBlue===id;
         const activeReceiver=phase>=1&&phase<=4&&id===(phase<=2?"FIVE_A":"FIVE_B");
-        return <group key={id} name={id}
+        return <group key={id} name={id} visible={true}
           ref={node=>{if(node)parts.current[id]=node;else delete parts.current[id];}}
           position={start[id].position} rotation={start[id].rotation}>
-          <mesh geometry={geometries[model]} castShadow receiveShadow>
+          <mesh geometry={geometries[model]} castShadow receiveShadow
+            frustumCulled={false}>
             <meshStandardMaterial color={color} roughness={0.5}
-              metalness={0.06} side={DoubleSide}
+              metalness={0.06} side={DoubleSide} transparent={false} opacity={1}
               emissive={activeConnector?"#155a96":activeReceiver?"#32577d":"#000000"}
               emissiveIntensity={activeConnector?0.34:activeReceiver?0.11:0}/>
           </mesh>
