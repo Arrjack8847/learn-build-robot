@@ -29,6 +29,15 @@ export const STEP_EIGHT_BLUE_CONNECTOR_LENGTH_MM = 24;
 export const STEP_EIGHT_BLUE_PIN_SEATED_Z =
   STEP_EIGHT_LEVEL - STEP_EIGHT_THICKNESS_MM/(2*STEP_EIGHT_PITCH_MM) +
   STEP_EIGHT_BLUE_CONNECTOR_LENGTH_MM/(2*STEP_EIGHT_PITCH_MM) + 0.02;
+/**
+ * The 7-hole rails descend ONTO the four exposed blue pin ends.
+ * Their lower faces meet the upper faces of the 5-hole beams; the pins do
+ * not need to protrude from the underside of any 5-hole beam.
+ */
+export const STEP_EIGHT_SEVEN_RAIL_SEATED_Z =
+  STEP_EIGHT_LEVEL + STEP_EIGHT_THICKNESS_MM/STEP_EIGHT_PITCH_MM;
+export const STEP_EIGHT_SEVEN_RAIL_PREPARATION_Z =
+  STEP_EIGHT_SEVEN_RAIL_SEATED_Z + 2.7;
 export type StepEightConfig = {
   /** First receiving hole in each 7-hole beam; second is four holes later. */
   sevenNearHole: 1 | 2 | 3;
@@ -56,7 +65,8 @@ export function fiveHoleAnchor(beam: "A" | "B", hole: number): V3 {
 }
 export function sevenHoleAnchor(rail: "A" | "B", hole: number, config: StepEightConfig): V3 {
   if (hole < 1 || hole > 7 || !Number.isInteger(hole)) throw Error("Invalid 7-hole index");
-  return [rail === "A" ? -1 : 1, hole - 4 + 2 - config.sevenNearHole, 0];
+  return [rail === "A" ? -1 : 1, hole - 4 + 2 - config.sevenNearHole,
+    STEP_EIGHT_SEVEN_RAIL_SEATED_Z];
 }
 export function fifteenHoleAnchor(hole: number, config: StepEightConfig): V3 {
   if (hole < 1 || hole > 15 || !Number.isInteger(hole)) throw Error("Invalid 15-hole index");
@@ -81,8 +91,8 @@ const xyz = (x:number,y:number,z:number,rotation:V3=[0,0,0]):StepEightPose =>
   ({position:[x,y,z],rotation});
 /**
  * Preparation-only layout: each genuine STL has a separate footprint when
- * presented from the near-overhead camera. All installed holes, final poses
- * and connector directions remain exactly unchanged.
+ * presented from the near-overhead camera. All approved hole indices remain
+ * unchanged; the two 7-hole rails now start above and seat from above.
  */
 export const STEP_EIGHT_PREPARATION_LAYOUT: Readonly<Record<StepEightPart,V3>> = {
   FIVE_A: [0,-8.3,STEP_EIGHT_LEVEL],
@@ -93,8 +103,8 @@ export const STEP_EIGHT_PREPARATION_LAYOUT: Readonly<Record<StepEightPart,V3>> =
   BLUE_2: [-5.7,-6.5,5.7],
   BLUE_3: [5.7,10.2,5.7],
   BLUE_4: [5.7,6.5,5.7],
-  SEVEN_A: [-8.5,0,0],
-  SEVEN_B: [4,0,0],
+  SEVEN_A: [-8.5,0,STEP_EIGHT_SEVEN_RAIL_PREPARATION_Z],
+  SEVEN_B: [4,0,STEP_EIGHT_SEVEN_RAIL_PREPARATION_Z],
   FIFTEEN: [9,0,0],
   BLACK_1: [6.5,-10.6,1.3],
   BLACK_2: [10.7,-10.6,1.3],
@@ -123,10 +133,12 @@ export function stepEightPoses(phase:number,config:StepEightConfig):Record<StepE
     FIVE_B: xyz(0,frameB,STEP_EIGHT_LEVEL),
     SEVEN_A: xyz(phase>=5?-1:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_A[0],
       phase>=5?2-config.sevenNearHole:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_A[1],
-      0,[0,0,Math.PI/2]),
+      phase>=5?STEP_EIGHT_SEVEN_RAIL_SEATED_Z:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_A[2],
+      [0,0,Math.PI/2]),
     SEVEN_B: xyz(phase>=6?1:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_B[0],
       phase>=6?2-config.sevenNearHole:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_B[1],
-      0,[0,0,Math.PI/2]),
+      phase>=6?STEP_EIGHT_SEVEN_RAIL_SEATED_Z:STEP_EIGHT_PREPARATION_LAYOUT.SEVEN_B[2],
+      [0,0,Math.PI/2]),
     FIFTEEN: xyz(longX,longAligned?beam15Y:0,longZ,[0,0,Math.PI/2]),
     BLUE_1: xyz(0,0,0),
     BLUE_2: xyz(0,0,0),
@@ -166,7 +178,7 @@ export function stepEightGuide(phase:number,config:StepEightConfig):V3|null {
     const item=stepEightMating(config).blue[blueIndex]!;
     return fiveHoleAnchor(item.beam,item.hole5);
   }
-  if(phase===5||phase===6)return [phase===5?-1:1,0,STEP_EIGHT_LEVEL/2];
+  if(phase===5||phase===6)return [phase===5?-1:1,0,STEP_EIGHT_SEVEN_RAIL_SEATED_Z];
   if(phase===7||phase===8) return fifteenHoleAnchor(
     config.fifteenNearHole+(phase===8?4:0),config);
   if(phase===9||phase===10)return [0,0,STEP_EIGHT_LEVEL/2];
@@ -178,8 +190,8 @@ export const STEP_EIGHT_SEQUENCE = [
   {number:"8.2",title:"Beam A · insert blue connector 2",instruction:"Keep connector 1 in Hole 2. Place connector 2 ABOVE Beam A, align with Hole 4 and push DOWNWARD. Both exposed blue ends remain visible."},
   {number:"8.3",title:"Beam B · insert blue connector 3",instruction:"Move to Beam B. From ABOVE, align blue connector 3 with Hole 2 and push DOWNWARD. Do not disturb the two installed connectors in Beam A."},
   {number:"8.3",title:"Beam B · insert blue connector 4",instruction:"Align connector 4 ABOVE Hole 4 of Beam B and push DOWNWARD. Keep all four blue connectors visible from above, with nothing protruding underneath."},
-  {number:"8.4",title:"Connect the first 7-hole beam",instruction:"Line up the two exposed blue pins with the first 7-hole beam's highlighted receiving holes and seat the beam underneath."},
-  {number:"8.5",title:"Close the rectangular frame",instruction:"Attach the second 7-hole beam to the remaining two pins and inspect all four joints."},
+  {number:"8.4",title:"Connect the first 7-hole beam",instruction:"Bring the first white 7-hole beam from ABOVE. Line up its Holes 2 and 6 with the two exposed blue pins, then lower the beam straight DOWNWARD until it seats on the 5-hole beams. Keep both blue tips visible from the top."},
+  {number:"8.5",title:"Close the rectangular frame",instruction:"Bring the second white 7-hole beam from ABOVE, align Holes 2 and 6 with the remaining exposed blue pins and lower it straight DOWNWARD. Check that both long rails are parallel, all four connectors remain visible, and nothing sticks out below the 5-hole beams."},
   {number:"8.6",title:"Fit the first black connector",instruction:"Insert the first black connector into the selected hole of the separate 15-hole beam."},
   {number:"8.6",title:"Fit the second black connector",instruction:"Install the second black connector four holes away; confirm the exact pair with the real photograph."},
   {number:"8.7",title:"Align the center beam",instruction:"Move the prepared 15-hole beam lengthwise beneath the frame, aligning its two black pins with the center holes of both 5-hole beams."},
