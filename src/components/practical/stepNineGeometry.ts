@@ -16,22 +16,23 @@ export const STEP_NINE_RECEIVERS = [7, 11] as const;
  * not local Y, so it never turns the assembly upside down.
  */
 export const STEP_NINE_STEP_SEVEN_YAW = Math.PI;
-/** In Step 9 only, turn the WHOLE Step 8 assembly by 180° horizontally
- * around its vertical axis. This swaps front/back (the mounting-facing side)
- * but does not flip top/bottom; all four original blue pins remain WORLD UP.
- * The shared scene has a 180° Z rotation, so its vertical is local Y.
+/** Step 8's TOP/BOTTOM faces must be exchanged, not its front/back
+ * orientation. Turn its entire rigid group 180° around the SHARED
+ * HORIZONTAL X axis (the direction of its longest 15-hole beam).
+ * The blue double-ended connector's opposite shaft then faces Step 7.
+ * Do not rotate any constituent connector or beam independently.
  */
-export const STEP_NINE_OPPOSITE_FACE_YAW = Math.PI;
-/** Before Action 1: original Step 8 local (x,y,z) -> shared (-y,-z,x). */
+export const STEP_NINE_STEP_EIGHT_FACE_FLIP = Math.PI;
+/** Before Action 1: Step 8 local (x,y,z) -> shared (-y,-z,x). */
 export function stepNineInitialPinOffset(point:V3):V3 {
   return [-point[1],-point[2],point[0]];
 }
-/** After horizontal 180° yaw: shared (x,y,z) -> (-x,y,-z).
- * Combining gives Step 8 local (x,y,z) -> shared (y,-z,-x).
- * Its +Z pin direction remains shared -Y / WORLD UP.
+/** After horizontal-axis face flip: shared (x,y,z) -> (x,-y,-z).
+ * Local (x,y,z) -> shared (-y,z,-x). The opposite physical side
+ * of each existing blue connector is now toward the upper Step 7 beam.
  */
 export function stepNineOrientedPinOffset(point:V3):V3 {
-  return [point[1],-point[2],-point[0]];
+  return [-point[1],point[2],-point[0]];
 }
 /** Step 7 is raised vertically in shared space (-Y == upward on screen).
  * No constituent rails or previously installed connectors are moved.
@@ -55,14 +56,14 @@ export const STEP_NINE_ESTIMATED_PIN_CENTRE_CLEARANCE = 0.55;
 export const STEP_NINE_ACTIONS = [
   { number:"0", title:"Prepare the two completed assemblies",
     instruction:"Place Step 7 on the left turned 180° horizontally, facing its correct attachment side toward Step 8 on the right. Keep every existing connector installed." },
-  { number:"1", title:"Turn Step 8 to the opposite attachment side",
-    instruction:"Rotate the complete Step 8 assembly 180° HORIZONTALLY to reverse its attachment-facing side. Do not flip it upside down; all four blue mounting pins must keep pointing upward. Preserve every original installed connector." },
-  { number:"2", title:"Align four pins below Step 7",
-    instruction:"Lift the whole Step 7 assembly above Step 8 and bring the four upward-facing Step 8 blue pins directly beneath holes 7 and 11 on each outer Step 7 rail. Hold the lower frame ready." },
-  { number:"3", title:"Lower Step 7 onto all four pins",
-    instruction:"Keep the completed Step 8 frame stationary below. Lower the entire Step 7 assembly straight down along the four upward-facing pins, seating all four connections at once." },
-  { number:"4", title:"Inspect the completed join",
-    instruction:"Confirm the correctly oriented Step 8 frame remains underneath, the longest white beam faces front, and all four pins are secured. Compare the top, side, and underside photos." },
+  { number:"1", title:"Turn Step 8 over to its opposite face",
+    instruction:"Flip the entire completed Step 8 assembly 180° around its horizontal long-beam axis, switching its TOP and BOTTOM faces toward Step 7. Do not yaw it horizontally or detach its four installed blue connectors." },
+  { number:"2", title:"Align four mounting connectors beneath Step 7",
+    instruction:"Raise Step 7 for clearance and slide the flipped Step 8 frame underneath. Align the four opposite-side connector shafts with holes 7 and 11 on both outer Step 7 white rails." },
+  { number:"3", title:"Lower Step 7 until connectors are concealed",
+    instruction:"Keep Step 8 stationary. Lower the entire Step 7 assembly onto all four opposing connector shafts together. At full seating, do not leave exposed blue mounting connector shafts between the assemblies." },
+  { number:"4", title:"Inspect the finished concealed joint",
+    instruction:"Inspect the upper and lower faces, confirming Step 8 is attached from its opposite top/bottom face and no blue mounting connector shafts remain visibly protruding at the join. Compare with the real photos." },
 ] as const;
 export const STEP_NINE_FINAL_PHASE = STEP_NINE_ACTIONS.length - 1;
 
@@ -78,14 +79,14 @@ export function stepNineMating(
 ) {
   const rails = STEP_SEVEN_RAIL_IDS.map(id=>railPose(id,STEP_SEVEN_FINAL_PHASE,railConfig,beamY,six));
   const first=rails[0]!,second=rails[1]!;
-  // Turning Step 8 horizontally 180° exchanges BOTH its left/right sides
-  // and its front/back hole-pair order. The Step 7 receivers remain the
-  // exact same four holes (7 and 11 on both long white rails).
+  // Top/bottom flip around Step 8's long-beam horizontal X axis:
+  // longitudinal hole order is preserved, lateral (rail) side is swapped.
+  // Receiving holes themselves are unchanged: 7 and 11 on both 15-hole rails.
   const labels = [
-    {stepEightPin:"BLUE_1",rail:0,hole:11},
-    {stepEightPin:"BLUE_2",rail:1,hole:11},
-    {stepEightPin:"BLUE_3",rail:0,hole:7},
-    {stepEightPin:"BLUE_4",rail:1,hole:7},
+    {stepEightPin:"BLUE_1",rail:0,hole:7},
+    {stepEightPin:"BLUE_2",rail:1,hole:7},
+    {stepEightPin:"BLUE_3",rail:0,hole:11},
+    {stepEightPin:"BLUE_4",rail:1,hole:11},
   ] as const;
   const joints:StepNinePinJoin[]=labels.map(item=>{
     const rail=rails[item.rail]!;
@@ -100,14 +101,14 @@ export function stepNineMating(
       alreadyOccupiedByStepSeven:[mount.receivingBlackHole,...mount.receivingGreyHoles].includes(item.hole),
     };
   });
-  // The new horizontal yaw reverses the pin X/Z offsets symmetrically,
-  // so the stationary Step 8 group centre remains the same. Its +Z pins
-  // still become shared -Y (WORLD UP) after the outer Step 9 Z rotation.
-  // Park Step 8 below the receivers, then lower only Step 7.
+  // The top/bottom flip exchanges the mounting face, reversing shared Y
+  // and Z offsets of every pin while preserving Step 8's long axis.
+  // The opposite half of each double-ended blue pin is inserted from below;
+  // place the grey cross-supports below the white Step 7 receiving rails.
   const level=STEP_EIGHT_LEVEL/2;
   const target:V3=[
     -(first.position[0]+second.position[0])/2 - 1,
-    (first.position[1]+second.position[1])/2 + STEP_NINE_ESTIMATED_PIN_CENTRE_CLEARANCE + level,
+    (first.position[1]+second.position[1])/2 + STEP_NINE_ESTIMATED_PIN_CENTRE_CLEARANCE - level,
     -(first.position[2]+second.position[2])/2,
   ];
   const geometryWarnings:string[]=[];
@@ -125,7 +126,7 @@ export function stepNineMating(
     const [pinX,,pinZ]=stepEightPinOffsets[index]!;
     if(Math.abs(target[0]+pinX-joint.stepSevenLocalTarget[0])>0.3 ||
        Math.abs(target[2]+pinZ-joint.stepSevenLocalTarget[2])>0.3)
-      geometryWarnings.push("After Step 8's horizontal 180° turn, "+joint.stepEightPin+
+      geometryWarnings.push("After Step 8's top/bottom face flip, "+joint.stepEightPin+
         " does not match its selected receiving hole with a rigid transform.");
   });
   if(joints.some(joint=>joint.alreadyOccupiedByStepSeven))
@@ -138,8 +139,8 @@ export function stepNineFramePose(phase:number,target:V3):StepNineFramePose {
   const [x,y,z]=target;
   if(phase<=0)return {position:[x-17,y+3.5,z]};
   if(phase===1)return {position:[x-10,y+1.8,z]};
-  // Step 8 translates during Actions 0-2 and yaws as one rigid assembly
-  // in Action 1. Its orientation is then LOCKED for Actions 2, 3, and 4.
+  // Step 8 translates during Actions 0-2 and turns over around its HORIZONTAL
+  // long-beam axis in Action 1. Its opposite-facing pose locks at Action 2.
   // Actions 3 and 4 must not move it a single millimetre.
   return {position:[x,y,z]};
 }
