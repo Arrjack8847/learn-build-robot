@@ -14,15 +14,17 @@ export type StepSevenRailConfig = {
   firstRailHole:number;
   secondRailHole:number;
 };
-/** Approved Step 7 mounting configuration (October 15 screenshot).
- * Lock the calibration values visible in the approved local viewer:
- * vertical offset 0.9, first rail's grey holes 12/14 and second rail's 7/9.
- * With the pictured Step 6 preset, black+grey holes become first 5/12/14,
- * second 4/7/9. The user-approved scene arrangement is retained when the
- * calibration controls are hidden; physical press-fit depth is not measured.
+/** Rail receiving holes agreed with the user, carried from Step 6.
+ * Front (first) rail: black 5 + grey 6/8.
+ * Back (second) rail: black 4 + grey 10/12.
+ * Core Step 6 bridge A is front 3/5 with black source hole 2;
+ * bridge B is back 7/9 with black source hole 1. Every set of THREE
+ * shafts must align by a single rigid translation, not an artificial stretch.
+ * Existing rail-center offset and motion timings remain unchanged;
+ * physical insertion depth/face orientation remains unverified.
  */
 export const STEP_SEVEN_PHOTO_CONFIG:ReadOnlyRailConfig = {
-  railCenterDistance:0.9,firstRailHole:12,secondRailHole:7,
+  railCenterDistance:0.9,firstRailHole:6,secondRailHole:10,
 };
 type ReadOnlyRailConfig = Readonly<StepSevenRailConfig>;
 /** Compatibility alias for existing stored demo configurations. */
@@ -48,9 +50,9 @@ export const STEP_SEVEN_END_PIN_PROJECTION_OFFSET = 0.82;
 export const STEP_SEVEN_MECHANICALLY_VERIFIED = false;
 export const STEP_SEVEN_ACTIONS = [
   {title:"Prepare all parts",instruction:"Keep the completed Step 6 assembly and its two black pins, four grey mounting shafts and original blue pins intact. Prepare two white 15-hole beams and two extra blue end pins."},
-  {title:"Align first beam · black and two grey joints",instruction:"Position the first white beam UNDER the Step 6 assembly, matching ONE black connector and TWO grey shafts to three receiving holes. Leave all sideways blue pins exposed."},
+  {title:"Align first beam · black and two grey joints",instruction:"Position the first white 15-hole beam UNDER the front of the Step 6 assembly: black connector to Hole 5, both grey shafts to Holes 6 and 8. Leave all sideways blue pins exposed."},
   {title:"Lower all three joints into the first beam",instruction:"Press the grey assembly downward so its black connector and two grey connector shafts engage the first white beam together. Do not move the sideways blue pins."},
-  {title:"Align the second beam · three joints",instruction:"Keep the first beam attached. Position the second beam under the opposite black connector and two grey shafts."},
+  {title:"Align the second beam · three joints",instruction:"Keep the first beam attached. Position the back white 15-hole beam with its black connector at Hole 4 and two grey shafts at Holes 10 and 12."},
   {title:"Lower all three joints into the second beam",instruction:"Lower the connected assembly and first rail together onto the second beam, seating one black and two grey mounting shafts simultaneously."},
   {title:"Insert first blue free-end pin · black side",instruction:"At the first beam’s exposed free end, highlight Hole 1. Insert a blue long pin from the SAME SIDE as its black mounting connector, leaving the pin projecting from that face."},
   {title:"Insert second blue free-end pin · black side",instruction:"Repeat at Hole 1 of the second white beam’s exposed end, again entering from its BLACK-CONNECTOR SIDE. Do not reverse either pin or move the existing sideways blue pins."},
@@ -66,7 +68,7 @@ export function railMounts(id:StepSevenRailId,cfg:StepSixMountConfig,c:StepSeven
   if(validateMountConfig(cfg).length)throw Error("Step 6 mount configuration is incomplete");
   const first=id===STEP_SEVEN_RAIL_IDS[0];
   const items=getStepSixAttachments(cfg);
-  const bridge=items.find(v=>v.id===(first?"STEP5_BRIDGE_B":"STEP5_BRIDGE_A"))!;
+  const bridge=items.find(v=>v.id===(first?"STEP5_BRIDGE_A":"STEP5_BRIDGE_B"))!;
   const black=items.find(v=>v.id.includes("HOLLOW")&&v.side===bridge.side);
   if(!black)throw Error("A matching black pin is missing from this side of Step 6");
   const receiving=first?c.firstRailHole:c.secondRailHole;
