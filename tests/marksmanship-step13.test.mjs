@@ -47,7 +47,7 @@ test("TWO existing blue pin pairs belong to original gray connector bridges", ()
   assert.equal(new Set([...anchors.A.pinIds, ...anchors.B.pinIds]).size, 4);
   assert.match(geometry, /stepSixConfig|sixConfig/);
   assert.match(geometry, /seatedPose\(bridgeId/);
-  assert.doesNotMatch(geometry, /BLUE_A_6|BLUE_A_12/);
+  assert.doesNotMatch(geometry, /STEP_THIRTEEN_MOUNTS\s*=\s*\[/);
 });
 
 test("BOTH short-arm receiving holes in each L are exactly two pitches apart", () => {
