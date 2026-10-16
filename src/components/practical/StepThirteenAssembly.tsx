@@ -99,7 +99,7 @@ export function StepThirteenAssembly({ onCompleteStep }: { onCompleteStep: () =>
     if (!ready || busy || !final || !physicallyChecked) return;
     try {
       window.localStorage.setItem(STEP_THIRTEEN_RESULT_KEY, JSON.stringify({
-        version: 1, assemblyId: STEP_THIRTEEN_ASSEMBLY_ID,
+        version: 3, assemblyId: STEP_THIRTEEN_ASSEMBLY_ID,
         fromStep11: STEP_ELEVEN_ASSEMBLY_ID, fromStep12: STEP_TWELVE_ASSEMBLY_ID,
         mountingPinPairs: STEP_THIRTEEN_MOUNTS,
         receivingHolesOnEachL: [STEP_THIRTEEN_RECEIVER.first, STEP_THIRTEEN_RECEIVER.third],
@@ -107,6 +107,8 @@ export function StepThirteenAssembly({ onCompleteStep }: { onCompleteStep: () =>
         preparedBlackPinLongArmHole: STEP_THIRTEEN_RECEIVER.preparedBlackPin,
         unitsAttached: 2, totalOriginalBluePinsEngaged: 4,
         eachCompleteWithBlackPinAndBushing: true,
+        bothBrownStoppersFaceRobotCenter: true,
+        bothLongArmsPointDown: true,
         originalStep11MeshesPreserved: true, bluePinsNeverFadedOrRemoved: true,
         noIndependentLPartMovement: true, seatingDepthPhotoApproximation: true,
         geometryWarnings: warnings,
@@ -137,7 +139,7 @@ export function StepThirteenAssembly({ onCompleteStep }: { onCompleteStep: () =>
         {phase <= 1 ? "Two gray bridges · four blue pins · two prepared L-brackets"
           : phase <= 3 ? "First bridge: TWO pins → L holes 1 and 3"
             : phase <= 5 ? "Second bridge: TWO pins → mirrored L holes 1 and 3"
-              : "Both L-brackets attached · four original pins retained"}
+              : "Both L-brackets attached · stoppers face inward"}
       </span>}
       tools={<div className="flex flex-wrap items-center gap-1.5">
         <button type="button" title="Reset Step 13 camera" aria-label="Reset Step 13 camera"
@@ -168,7 +170,8 @@ export function StepThirteenAssembly({ onCompleteStep }: { onCompleteStep: () =>
           I verified that EACH of the two prepared Step 12 L-brackets receives
           BOTH blue pins from its own gray bridge through short-arm holes 1 and 3.
           Both short-arm hole 2 positions stay empty, and the long-arm hole 4
-          black pins and bushings remain installed, with no unwanted protrusion.
+          black pins and bushings remain installed, both long arms point down,
+          and both brown stoppers point INWARD toward each other, not outward.
         </label>}
         <AssemblyPlaybackControls paused={paused}
           onPrevious={() => navigate(phase - 1)}
@@ -185,7 +188,8 @@ export function StepThirteenAssembly({ onCompleteStep }: { onCompleteStep: () =>
       Steps 11 and 12 are retained without altered pin geometry. Step 13 uses
       the original L beam and pin STLs plus Step 12's hollow bushing approximation.
       Two pre-existing blue pins on each of the two original gray bridges
-      connect through L short-arm holes 1 and 3. Physical seating depth
+      connect through L short-arm holes 1 and 3. Both long-arm Hole 4
+      brown stoppers face inward toward the robot center. Physical seating depth
       remains provisional until checked against the kit.
       {warnings.length > 0 ? " " + warnings.join(" ") : ""}
     </p>
