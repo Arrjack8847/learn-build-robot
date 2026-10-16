@@ -19,7 +19,7 @@ The previous `MarksmanStep2Tutorial.tsx` remains in source as a historical proto
 3. **2.2:** Circular disc's central X-shaped opening aligns coaxially on the right side of the exposed shaft; the disc slides left (-X) along that same axle, leaving a visible gap from the motor.
 4. **2.3a:** Connector follows the rotated socket axis, inserting **leftward (-X)** into a disc **outer round hole**, not the central X-shaped axle socket.
 5. **2.3b:** The beam's first end hole is aligned with the protruding connector on the right and slides **leftward** onto its other side. The connector has a **middle stop collar**, which physically prevents pushing the same connector completely through two flush parts after the parts are mated. This two-stage docking is intentional and differs from some simplified illustrated wording.
-6. **2.4:** Rotate only the camera around the fixed connected subassembly. Keep the unit for Step 26.
+6. **2.4:** Rotate only the camera around the fixed connected subassembly. Keep the completed motor unit for **Step 14**, where it attaches to the 4 original blue connectors on the grey-beam rails.
 
 ## Measured from supplied STLs
 
@@ -37,7 +37,7 @@ All STL models use one uniform factor `0.05 units/mm`. The motor model uses `50 
 ## DO NOT CONSIDER PHYSICALLY VERIFIED
 
 - The exact motor socket plane and insertion depth remain **unverified**. The motor GLB's actual front axle hub 10095.dat lies at GLB scene `[-0.0076, 0.0158, 0.06494]` metres. The rear cable retainer 10091.dat is at `[-0.0076, 0.0158, 0.01134]` metres, 53.6 mm behind the front. The real FRONT datum is used for the axle insertion target. This is a candidate transform inferred from GLB hierarchy, not a measured socket-hole surface.
-- The motor-axle insertion depth **8 mm** and disc rear-face spacing **8 mm** are **provisional**. They are shown as beta teaching positions, not certified against the physical assembly.
+- **October 16 shallow-seat adjustment:** the 24 mm axle is now shown only **4 mm into the motor**, with **20 mm exposed**. The disc centre sits **17 mm** outward from the motor reference plane; the disc's outer face is 19 mm outward and the shaft tip is at 20 mm, leaving **1 mm of black axle visible beyond the disc**. The disc's rear face remains **15 mm away from the motor**. These are deliberate preview positions from user-confirmed visual intent; actual insertion depth/press fit is still **provisional**.
 - A lower-left disc outer hole `(-6.928,-4)` mm was chosen based on the visual reference and measured hole geometry; this specific mounting hole and beam orientation are not yet confirmed by a calibrated front-side reference.
 - `pin_pin.stl` is a **candidate**, not proven to be the gold-coloured connector shown in the illustrated reference; its underlying model is displayed neutral-grey. Do not colour a potentially incorrect part gold to hide the mismatch.
 - The manual inconsistently labels the axle a "3-hole long axle" in Step 1 and a short axle in Step 2. The Step 2 brief requests `axles/short.stl`; confirm the actual physical component.
@@ -70,3 +70,14 @@ The Blender screenshot establishes visual direction and target identity, not a m
 ## Critical front-vs-back correction
 
 Earlier code incorrectly identified the rear cable retainer 10091.dat as the output socket. Official LDraw names 10095.dat as the actual FRONT motor axle hub. The motor viewer now aligns the short cross-axle to the centre of 10095, not 10091. The two nodes' original GLB positions differ by 53.6 mm along the motor body. The real GLB runtime test asserts that the front hub is the insertion origin and the rear retainer stays behind it. Browser screenshots and real-kit insertion depth remain to be verified.
+
+## October 16 — motor seat-depth revision reused in Step 14
+
+The four-part axial position is sourced from `src/components/practical/marksmanAssemblyGeometry.ts` and reused directly in both `MarksmanMotorAssembly.tsx` (Step 2) and `StepFourteenScene.tsx` (Step 14). The user requested (a) **do not insert the short axle too deeply into the motor**, and (b) **put the circular disc at the very tip of the remaining exposed axle**, with just a tiny bit of axle projecting through it.
+
+- Visual candidate: **4 mm motor insertion**, **20 mm exposed shaft** on the 24 mm axle.
+- Visual candidate: disc centre **17 mm** beyond motor front plane, disc rear-face gap **15 mm**, and **1 mm** of axle visible beyond disc's outward face.
+- The disc connector and 5-hole beam stay attached and are recomputed from the updated disc anchor; neither should retain the old 8 mm/8 mm alignment.
+- Step 14 mounts the entire Step 2 rigid unit to the original Step 13 four pins, still facing the black 3-hole crossbeam. No duplicate axial positions are introduced into Step 14.
+- The above are **display-layout estimates**, not certified mechanical press-fit tolerances or physically validated shaft seating depth. The motor, axle, disc and pin source files are not edited.
+- Test: `node --test tests/marksmanship-step14.test.mjs` verifies the numeric shallow-seat/near-tip geometry and reuse in Step 14. Also run `npx tsc --noEmit`, `npm run build`, and real-device viewing before acceptance.
