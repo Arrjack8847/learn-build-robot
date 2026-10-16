@@ -74,6 +74,7 @@ export function StepTenAssembly({ onCompleteStep }: { onCompleteStep: () => void
         bridgeConnections: [{ whiteUnit: "A", whiteHole: 15, bridgeHole: 1 },
           { whiteUnit: "B", whiteHole: 15, bridgeHole: 3 }],
         brownSpacer: { bridgeHole: 2, usesBlackConnector: true,
+          mountFace: "under-3-hole-bridge", insertionDirection: "bottom-to-top",
           side: "inward-below-three-hole-bridge", insertion: "bottom-to-top",
           noConnectorProtrusionAboveBridge: true },
         quantities: STEP_TEN_COMPONENT_COUNTS,
