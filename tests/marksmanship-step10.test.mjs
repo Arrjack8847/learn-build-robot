@@ -227,6 +227,52 @@ test("black 3-hole crossbeam is on SAME grey side; brown stopper under it faces 
   assert.ok(scene.includes("STEP_TEN_BLACK_BRIDGE_CENTER_Z - STEP_TEN_BEAM_HALF_DEPTH - 0.06"));
 });
 
+test("under-bridge stopper with center pin rises into Hole 2 and leaves side joints untouched", () => {
+  const pre = g.stepTenPoses(17);
+  const prepared = g.stepTenPoses(18);
+  const installed = g.stepTenPoses(19);
+  const inspected = g.stepTenPoses(20);
+  const halfBeam = g.STEP_TEN_BEAM_HALF_DEPTH;
+  const halfPin = 16 / (2 * g.STEP_TEN_PITCH_MM);
+  const bridgeZ = installed.BRIDGE_3.position[2];
+  const stopperZ = installed.BROWN_SPACER.position[2];
+  const blackZ = installed.CENTER_BLACK.position[2];
+
+  // The bridge remains on the upper side; ONLY the brown stopper
+  // and fifth black pin move to the underside of its center hole.
+  assert.ok(bridgeZ > installed.WHITE_A.position[2]);
+  assert.equal(installed.BROWN_SPACER.position[0], installed.BRIDGE_3.position[0]);
+  assert.equal(installed.BROWN_SPACER.position[1], installed.BRIDGE_3.position[1]);
+  assert.equal(installed.CENTER_BLACK.position[0], installed.BRIDGE_3.position[0]);
+  assert.equal(installed.CENTER_BLACK.position[1], installed.BRIDGE_3.position[1]);
+  assert.ok(Math.abs((stopperZ + 0.45) - (bridgeZ - halfBeam)) < 1e-10,
+    "top of stopper touches bottom of bridge with no collision");
+  assert.ok(blackZ < bridgeZ,
+    "most of center pin stays below bridge center");
+  assert.ok(blackZ + halfPin > bridgeZ - halfBeam,
+    "upper pin end engages underside of center bridge hole");
+  assert.ok(blackZ + halfPin <= bridgeZ + halfBeam,
+    "black pin does not protrude above the top of the 3-hole beam");
+  assert.ok(pre.BROWN_SPACER.position[2] < bridgeZ,
+    "loose stopper begins beneath the bridge");
+  assert.ok(pre.CENTER_BLACK.position[2] < bridgeZ);
+  assert.ok(prepared.CENTER_BLACK.position[2] > prepared.BROWN_SPACER.position[2],
+    "prepared black connector protrudes UPWARD from the brown stopper");
+  for (const id of g.STEP_TEN_PARTS) {
+    if (id === "CENTER_BLACK" || id === "BROWN_SPACER") continue;
+    assert.deepEqual(installed[id], pre[id],
+      "never change earlier built parts while seating the underside stopper: " + id);
+  }
+  assert.deepEqual(inspected, installed);
+  assert.match(g.STEP_TEN_ACTIONS[18].instruction, /extend UPWARD/);
+  assert.match(g.STEP_TEN_ACTIONS[19].instruction, /slide UPWARD/);
+  assert.match(g.STEP_TEN_ACTIONS[20].instruction, /BELOW\/INWARD/);
+  assert.ok(scene.includes('part === "CENTER_BLACK" || part === "BROWN_SPACER"'));
+  assert.ok(scene.includes("phase === 18 || phase === 19 || phase === 20"));
+  assert.ok(lesson.includes('mountFace: "under-3-hole-bridge"'));
+  assert.ok(lesson.includes('insertionDirection: "bottom-to-top"'));
+});
+
 test("Step 10 renders original 3D STL beams and pins with guided motion controls", () => {
   for (const model of ["15 beams.stl?url", "9.stl?url", "3.stl?url", "long connector.stl?url", "pin_pin.stl?url"])
     assert.ok(scene.includes(model), model);
