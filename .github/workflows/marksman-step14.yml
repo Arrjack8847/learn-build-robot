@@ -1,0 +1,31 @@
+name: Marksman Step 14 motor four-pin mounting
+on:
+  push:
+    branches:
+      - feat/marksman-step14-motor-four-pin-mount-20261016
+  pull_request:
+    paths:
+      - 'src/components/practical/StepFourteen*'
+      - 'src/components/practical/stepFourteenGeometry.ts'
+      - 'src/components/practical/StepElevenScene.tsx'
+      - 'src/components/practical/StepThirteenScene.tsx'
+      - 'src/routes/practical/$projectId.tsx'
+      - 'src/data/practical.ts'
+      - 'tests/marksmanship-step14.test.mjs'
+      - '.github/workflows/marksman-step14.yml'
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund
+      - name: Verify original Step 13 and Step 14 four-pin motor docking
+        run: node --test tests/marksmanship-step13.test.mjs tests/marksmanship-step14.test.mjs
+      - name: Compile TypeScript
+        run: npx tsc --noEmit
+      - name: Build production app
+        run: npm run build
