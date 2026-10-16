@@ -73,7 +73,9 @@ export function StepTenAssembly({ onCompleteStep }: { onCompleteStep: () => void
         grayBeamMating: stepTenHolePairs(),
         bridgeConnections: [{ whiteUnit: "A", whiteHole: 15, bridgeHole: 1 },
           { whiteUnit: "B", whiteHole: 15, bridgeHole: 3 }],
-        brownSpacer: { bridgeHole: 2, usesBlackConnector: true },
+        brownSpacer: { bridgeHole: 2, usesBlackConnector: true,
+          side: "inward-under-three-hole-bridge", insertion: "bottom-to-top",
+          noConnectorProtrusionAboveBridge: true },
         quantities: STEP_TEN_COMPONENT_COUNTS,
         twoMirroredSideUnits: true,
         stepTenPhotoSequence: "IMG_1779 through IMG_1814",
@@ -96,7 +98,7 @@ export function StepTenAssembly({ onCompleteStep }: { onCompleteStep: () => void
         reducedMotion={reducedMotion} resetCameraKey={resetCameraKey}
         view={view} onMotionComplete={() => setBusy(false)} />}
       status={<span className="rounded-xl border border-white/80 bg-white/95 px-3 py-2 text-xs font-semibold text-[#132654] shadow-sm">
-        Two matching units · Blue 1 ↑, 6/12 ↓ flush · Black 3 opposite, 15 gray-side
+        Two grey-side rails · Black 3-hole bridge same face · Stopper INSIDE underneath
       </span>}
       tools={<div className="flex flex-wrap items-center gap-2">
         <button type="button" aria-label="Reset Step 10 3D camera"
@@ -156,11 +158,16 @@ export function StepTenAssembly({ onCompleteStep }: { onCompleteStep: () => void
       underside, without sticking out beneath the white beams. Both gray 9-hole beams
       attach at gray holes 3 and 9, with blue tips visible above gray. Black pins at
       White Hole 3 point AWAY from gray, but Hole 15 black pins and the black 3-hole joining beam
-      are on the SAME SIDE as gray. The upright center spacer attaches to bridge Hole 2. I understand the spacer 3D mesh and connector seating depths are approximations.
+      are on the SAME SIDE as gray. The brown stopper and its black connector enter
+       bridge Hole 2 FROM BELOW, staying UNDER the 3-hole beam, pointing
+       INWARD toward the robot frame — NOT projecting outward above it.
+       I understand the spacer 3D mesh and connector seating depths are approximations.
     </label>}
     <p className="px-1 text-[11px] leading-4 text-slate-500">
       The beam and pin meshes are loaded from the repository's original STLs.
-      The brown spacer uses an illustrative cylinder because an exact spacer STL has not been identified.
+      The brown stopper uses an illustrative cylinder because its exact STL has not
+      been identified. Its under-bridge, inward-facing placement is reused
+      automatically in Steps 11 through 14.
       The original manual numbering remains unchanged; this is a photograph-based interactive Step 10.
     </p>
   </div>;
