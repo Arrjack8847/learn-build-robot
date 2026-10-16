@@ -38,7 +38,7 @@ const BASE_ORIENTATION = new Quaternion()
 // One opposite-facing L uses the Step 12 physical half-turn; its bushing
 // and black pin remain on the opposite face after the rigid rotation.
 const OPPOSITE_ORIENTATION = BASE_ORIENTATION.clone()
-  .multiply(new Quaternion().setFromAxisAngle(new Vector3(1, 0, 0), Math.PI));
+  .multiply(new Quaternion().setFromAxisAngle(new Vector3(0, 1, 0), Math.PI));
 
 function originalLGeometry(source: BufferGeometry): BufferGeometry {
   // Exact same source normalization as StepTwelveScene. Its free corner hole
