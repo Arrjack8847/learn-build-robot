@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useRef, Suspense } from "react";
+import { useLayoutEffect, useMemo, useRef, Suspense, type ReactNode } from "react";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { BufferGeometry, DoubleSide, Group, Quaternion, Vector3 } from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
@@ -30,6 +30,9 @@ export type StepThirteenSceneProps = {
   reducedMotion: boolean;
   view: StepThirteenView;
   onMotionComplete: () => void;
+  /** Completed Step 2 motor assembly for Step 14; Step 13 is unchanged. */
+  stepTenExtraScene?: ReactNode;
+  focusOverride?: V3;
 };
 
 function originalLGeometry(source: BufferGeometry): BufferGeometry {
@@ -205,7 +208,8 @@ export function StepThirteenScene(props: StepThirteenSceneProps) {
     prepared={props.prepared} paused={props.paused} replayKey={0}
     resetCameraKey={props.resetCameraKey} reducedMotion={props.reducedMotion}
     view={props.view} onMotionComplete={() => {}}
-    skipEntryAnimation extraFocus={focus} extraCameraOffset={[20, -19, 27]}
+    skipEntryAnimation extraFocus={props.focusOverride ?? focus} extraCameraOffset={[20, -19, 27]}
+    stepTenExtraScene={props.stepTenExtraScene}
     extraScene={<Suspense fallback={null}>
       <StepThirteenAttachments phase={props.phase} anchors={anchors}
         paused={props.paused} replayKey={props.replayKey}
