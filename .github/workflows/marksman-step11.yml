@@ -1,0 +1,29 @@
+name: Marksman Step 11 four-pin connection
+on:
+  push:
+    branches:
+      - feat/marksman-step11-step9-step10-join-20261015
+  pull_request:
+    paths:
+      - 'src/components/practical/StepEleven*'
+      - 'src/components/practical/stepElevenGeometry.ts'
+      - 'src/routes/practical/$projectId.tsx'
+      - 'src/data/practical.ts'
+      - 'tests/marksmanship-step11.test.mjs'
+      - '.github/workflows/marksman-step11.yml'
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund
+      - name: Validate all previous assembly tests
+        run: node --test tests/marksmanship-step{9,10,11}.test.mjs
+      - name: Production bundle with updated route tree
+        run: npm run build
+      - name: Type-check integration
+        run: npx tsc --noEmit
