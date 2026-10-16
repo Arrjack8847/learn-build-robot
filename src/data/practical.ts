@@ -102,7 +102,7 @@ const marksmanshipSteps: PracticalProject["steps"] = [
     image: "/marksmanship/steps/11.png",
     referenceOnly: false,
     assemblyOutputId: "marksman-step12-opposite-face-l-beams-v1",
-    note: { type: "info", text: "Follow the user's real Step 12 photographs; original manual image 11 is retained for comparison, not mechanical placement." },
+    note: { type: "tip", text: "Follow the user's real Step 12 photographs; original manual image 11 is retained for comparison, not mechanical placement." },
     originalManualStepNumbers: [11],
   },
   {
