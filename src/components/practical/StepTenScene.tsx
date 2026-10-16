@@ -58,7 +58,8 @@ function guided(from: StepTenPose, to: StepTenPose, t: number, phase: number, pa
   // Reversed actions use the same straight, hole-coaxial clearance path.
   const fromBelow = part === "BLUE_A_1" || part === "BLUE_B_1" ||
     part === "BLACK_A_3" || part === "BLACK_B_3" ||
-    (phase === 19 && (part === "BROWN_SPACER" || part === "CENTER_BLACK"));
+    (phase === 19 && (part === "BROWN_SPACER" || part === "CENTER_BLACK")) ||
+    (phase === 18 && part === "CENTER_BLACK");
   const offset = fromBelow ? -2.25 : 2.25;
   const aligned: StepTenPose = {
     position: [to.position[0], to.position[1], to.position[2] + offset],
