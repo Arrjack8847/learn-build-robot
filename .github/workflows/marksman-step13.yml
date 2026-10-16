@@ -1,0 +1,30 @@
+name: Marksman Step 13 two L-bracket attachments
+on:
+  push:
+    branches:
+      - feat/marksman-step13-attach-two-l-brackets-20261016
+  pull_request:
+    paths:
+      - 'src/components/practical/StepThirteen*'
+      - 'src/components/practical/stepThirteenGeometry.ts'
+      - 'src/components/practical/StepElevenScene.tsx'
+      - 'src/routes/practical/$projectId.tsx'
+      - 'src/data/practical.ts'
+      - 'tests/marksmanship-step1*.test.mjs'
+      - '.github/workflows/marksman-step13.yml'
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund
+      - name: Verify Steps 10 to 13 including reversible Step 13
+        run: node --test tests/marksmanship-step10.test.mjs tests/marksmanship-step11.test.mjs tests/marksmanship-step12.test.mjs tests/marksmanship-step13.test.mjs
+      - name: Compile TypeScript
+        run: npx tsc --noEmit
+      - name: Build production app
+        run: npm run build
