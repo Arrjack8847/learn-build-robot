@@ -34,7 +34,7 @@ export const STEP_FOURTEEN_ACTIONS = [
   { title: "Prepare completed Steps 2 and 13",
     instruction: "Keep Step 13 fully assembled and stationary, including both inward-facing L stoppers. Bring over the WHOLE completed Step 2 motor, with its short axle, disc, connector and 5-hole beam already attached." },
   { title: "Identify four original grey-beam pins",
-    instruction: "Locate two BLUE pins at grey Holes 3 and 9 on each of the TWO 9-hole grey beams, immediately below the black 3-hole crossbeam. These four pins were installed in Step 10; do not move or replace them." },
+    instruction: "Locate two BLUE pins at grey Holes 3 and 9 on each of the TWO 9-hole grey beams, near the black 3-hole crossbeam (which sits on the OPPOSITE side of the white beams from these grey rails). These four pins were installed in Step 10; do not move or replace them." },
   { title: "Orient motor output toward black crossbeam",
     instruction: "Rotate the complete motor assembly until its axle, round disc and 5-hole beam face TOWARD the black 3-hole crossbeam. Keep the four motor mounting holes directed toward the four blue pins." },
   { title: "Align all four mounting holes",
