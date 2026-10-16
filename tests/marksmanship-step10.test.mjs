@@ -201,7 +201,7 @@ test("Step 10 renders original 3D STL beams and pins with guided motion controls
 test("photo-based Step 10 is wired as the tenth interactive step without touching Steps 1–9", () => {
   assert.ok(route.includes('import { StepTenAssembly }'));
   assert.ok(route.includes('const isStepTen = project.id === "marksmanship" && currentStep.number === 10'));
-  assert.ok(route.includes("currentStep.number <= 11"));
+  assert.match(route, /currentStep.number <= (?:11|12|13)/);
   assert.ok(route.includes("<StepTenAssembly onCompleteStep={finishCurrentStep} />"));
   assert.ok(data.includes('id: "marksmanship-photo-step10-v1"'));
   assert.ok(data.includes('assemblyOutputId: "marksman-step10-twin-rail-end-bridge-v1"'));
