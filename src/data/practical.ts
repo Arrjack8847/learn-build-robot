@@ -97,11 +97,12 @@ const marksmanshipSteps: PracticalProject["steps"] = [
   {
     id: "marksmanship-s11",
     number: 12,
-    title: "Prepare another 15-hole beam",
-    description: "Original manual Step 11: physical operation is pending reconciliation with interactive Step 8. Review the illustration only; do not repeat an already completed attachment.",
+    title: "Prepare two opposite-side L-shaped assemblies",
+    description: "Photo-guided Step 12: prepare two separate 5-by-3 L-beams. At long-arm Hole 4 insert one black connector top to bottom and add its bushing from above. Prepare a mirrored second L with Hole 4 black connector inserted from below upward and the bushing installed from below. Keep both assemblies separate.",
     image: "/marksmanship/steps/11.png",
-    referenceOnly: true,
-    note: { type: "warning", text: "Original manual operation may overlap the separate rectangular-frame assembly. Do not repeat it until photo/kit mapping is verified." },
+    referenceOnly: false,
+    assemblyOutputId: "marksman-step12-opposite-face-l-beams-v1",
+    note: { type: "tip", text: "Follow the user's real Step 12 photographs; original manual image 11 is retained for comparison, not mechanical placement." },
     originalManualStepNumbers: [11],
   },
   {

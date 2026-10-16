@@ -1,0 +1,29 @@
+name: Marksman Step 12 mirrored L assemblies
+on:
+  push:
+    branches:
+      - feat/marksman-step12-mirrored-l-beams-20261016
+  pull_request:
+    paths:
+      - 'src/components/practical/StepTwelve*'
+      - 'src/components/practical/stepTwelveGeometry.ts'
+      - 'src/routes/practical/$projectId.tsx'
+      - 'src/data/practical.ts'
+      - 'tests/marksmanship-step12.test.mjs'
+      - '.github/workflows/marksman-step12.yml'
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund
+      - name: Validate Step 10, Step 11 and Step 12 assemblies
+        run: node --test tests/marksmanship-step10.test.mjs tests/marksmanship-step11.test.mjs tests/marksmanship-step12.test.mjs
+      - name: Verify TypeScript
+        run: npx tsc --noEmit
+      - name: Verify production bundle
+        run: npm run build
