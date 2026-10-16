@@ -1,69 +1,121 @@
-import { stepTenPoses, STEP_TEN_FINAL_PHASE, STEP_TEN_BEAM_HALF_DEPTH,
-  STEP_TEN_GRAY_CENTER_Z, STEP_TEN_BLUE_PIN_HALF_LENGTH } from "./stepTenGeometry";
-import type { StepElevenPlacement, V3 } from "./stepElevenGeometry";
+import { seatedPose, type StepSixMountConfig, type StepSixStepFiveTransforms } from "./StepSixGeometry";
+import { STEP_NINE_STEP_SEVEN_YAW } from "./stepNineGeometry";
+import type { V3 } from "./stepElevenGeometry";
 
 /**
- * Photo-guided Step 13. Reuse the completed Step 11 model and both fully
- * prepared Step 12 L-units. NO Step 11 or Step 12 connector is regenerated,
- * moved independently, shortened, or hidden.
+ * Step 13 uses BOTH pre-existing long blue pins on EACH original Step 5/6
+ * gray bridge. The photograph's circled pair is one of these bridges, not
+ * Step 10's distant BLUE_A_6 / BLUE_A_12 rail-mounting connectors.
  *
- * The two outward-facing pins on the photographed gray side rail correspond
- * to Step 10's BLUE_A_6 and BLUE_A_12. Its second gray rail is untouched.
- * The exact L receiving hole was not specified in the photograph, so the
- * free L corner hole is a provisional seating point for visual review.
+ * Each pre-built Step 12 L unit receives a WHOLE pin pair through holes 1
+ * and 3 of its short three-hole arm; short-arm hole 2 remains empty.
+ * The prepared black pin and tan bushing in long-arm Hole 4 stay installed.
+ *
+ * The gray bridges, their child pins and Step 11 chassis never move.
  */
-export const STEP_THIRTEEN_ASSEMBLY_ID = "marksman-step13-two-l-brackets-on-gray-rail-v1";
-export const STEP_THIRTEEN_RESULT_KEY = "robot:marksmanship:step13:l-brackets:v1";
-export const STEP_THIRTEEN_MOUNTS = ["BLUE_A_6", "BLUE_A_12"] as const;
-export const STEP_THIRTEEN_RECEIVER = "free L corner hole (provisional)" as const;
+export const STEP_THIRTEEN_ASSEMBLY_ID = "marksman-step13-two-l-brackets-two-pin-pairs-v2";
+export const STEP_THIRTEEN_RESULT_KEY = "robot:marksmanship:step13:l-brackets:v2";
+export const STEP_THIRTEEN_MOUNTS = {
+  A: ["STEP5_LONG_PIN_01", "STEP5_LONG_PIN_02"],
+  B: ["STEP5_LONG_PIN_03", "STEP5_LONG_PIN_04"],
+} as const;
+export const STEP_THIRTEEN_RECEIVER = {
+  first: 1, empty: 2, third: 3, preparedBlackPin: 4,
+} as const;
 export const STEP_THIRTEEN_FINAL_PHASE = 6;
 export const STEP_THIRTEEN_ACTIONS = [
-  { title: "Prepare the complete Step 11 and two Step 12 units",
-    instruction: "Keep the entire finished Step 11 chassis fixed. Place both already completed Step 12 L-shaped assemblies beside it. Both black pins and tan bushings stay fitted to their respective L-pieces." },
-  { title: "Find the two outward-facing blue connectors",
-    instruction: "Locate the two blue pins projecting out of the same gray side rail. These are the existing blue connectors at White Holes 6 and 12 beneath that gray rail. Do not add or replace any blue pins." },
-  { title: "Line up the first L-shaped assembly",
-    instruction: "Move the first prepared L-piece near the first blue connector. Bring the free receiving hole directly onto the connector axis with a visible gap before insertion." },
-  { title: "Seat the first L-shaped assembly",
-    instruction: "Slide the first complete L-piece straight toward the gray rail along the blue connector axis. Keep its Hole 4 black pin and bushing installed and its connector visible wherever exposed." },
-  { title: "Line up the opposite-face L-shaped assembly",
-    instruction: "Bring the second, opposite-face L-piece to the other outward blue connector. Keep its mirrored orientation and bushing; align the free receiving hole coaxially before approaching." },
-  { title: "Seat the second L-shaped assembly",
-    instruction: "Slide the second complete L-piece straight along the blue connector axis until seated. Neither black connector nor brown bushing moves separately from its L-beam." },
-  { title: "Inspect both mounted L-shaped assemblies",
-    instruction: "Rotate the view to confirm that two prepared L-pieces are attached to two pre-existing blue pins on the same gray rail, nothing vanished, and no beam interpenetrates another. Confirm the receiving holes against the real kit." },
+  { title: "Prepare the chassis and two complete L assemblies",
+    instruction: "Keep the completed Step 11 frame stationary. Set out both completely prepared Step 12 L-pieces, with each Hole 4 black pin and tan bushing retained." },
+  { title: "Locate TWO PAIRS of original blue pins",
+    instruction: "Find both closely spaced blue connectors protruding from the first gray bridge (the circled pair), then the matching two from the other gray bridge. These are the original four Step 5 long blue pins, not Step 10's widely separated white-rail pins." },
+  { title: "Align FIRST L with BOTH blue pins",
+    instruction: "Place short-arm Hole 1 over the first pin and short-arm Hole 3 over the second. Check both align together, exactly two hole pitches apart. Short-arm Hole 2 stays empty." },
+  { title: "Insert both pins into the FIRST L",
+    instruction: "Slide the entire first pre-built L assembly straight along the two blue-pin axes together. Both connectors enter short-arm Holes 1 and 3 simultaneously. Do not remove, fade, or duplicate a connector." },
+  { title: "Align SECOND mirrored L with its two pins",
+    instruction: "On the opposite gray bridge, align the second prepared L-piece with both of that bridge's existing blue pins at short-arm Holes 1 and 3. Preserve the opposite-facing Step 12 orientation and leave Hole 2 empty." },
+  { title: "Insert both pins into the SECOND L",
+    instruction: "Slide the complete mirrored L assembly straight toward the second gray bridge so both blue pins seat together. Keep its original long-arm black pin and tan bushing rigidly attached." },
+  { title: "Inspect all four connections",
+    instruction: "Verify each of TWO L pieces receives TWO real blue pins in short-arm Holes 1 and 3. Both middle Hole 2 positions stay unused. Both Hole 4 black pins and bushings remain installed, with no hidden pins or unwanted protrusion." },
 ] as const;
 
 export type StepThirteenUnit = "A" | "B";
-export type StepThirteenMount = { pin: V3; seated: V3; clearance: V3; loose: V3 };
+export type StepThirteenPinId = (typeof STEP_THIRTEEN_MOUNTS)[StepThirteenUnit][number];
+export type StepThirteenMount = {
+  pinIds: readonly [StepThirteenPinId, StepThirteenPinId];
+  /** Corresponding axes of short-arm Hole 1 and Hole 3 (world shared Step 11 space). */
+  pins: readonly [V3, V3];
+  outward: 1 | -1;
+  /** Rigid L pivot/short-arm Hole 1 location at final seating. */
+  seated: V3;
+  clearance: V3;
+  loose: V3;
+  /** Y rotation required for the whole finished Step 12 unit, without mirroring scale. */
+  rotationY: 0 | number;
+};
 export type StepThirteenAnchors = Record<StepThirteenUnit, StepThirteenMount>;
-export const STEP_THIRTEEN_SEATING_GAP = 0.05;
 
-/** The Step 11 fixed join rotates original Step 10 local (x,y,z) to (-x,z,y). */
-export function stepThirteenAnchors(join: StepElevenPlacement): StepThirteenAnchors {
-  const stepTen = stepTenPoses(STEP_TEN_FINAL_PHASE);
-  const make = (id: (typeof STEP_THIRTEEN_MOUNTS)[number], unit: StepThirteenUnit): StepThirteenMount => {
-    const original = stepTen[id].position;
-    const pin: V3 = [
-      join.target[0] - original[0],
-      join.target[1] + original[2],
-      join.target[2] + original[1],
-    ];
-    // Center a full-thickness L over the portion of the 24-mm blue shaft
-    // exposed above the existing gray rail, with a 0.05 pitch clearance.
-    // Pin and gray meshes remain in exactly their previous positions.
-    const offset = STEP_TEN_GRAY_CENTER_Z + 2 * STEP_TEN_BEAM_HALF_DEPTH +
-      STEP_THIRTEEN_SEATING_GAP;
-    const seated: V3 = [pin[0], join.target[1] + offset, pin[2]];
-    const clearance: V3 = [seated[0], seated[1] + 3.1, seated[2]];
+/** Illustrative 8-mm pitch scene spacing; kit's physical pin depth remains unverified. */
+export const STEP_THIRTEEN_SEATING_GAP = 0.04;
+export const STEP_THIRTEEN_BRIDGE_HALF_DEPTH = 7.8 / 16;
+export const STEP_THIRTEEN_L_HALF_DEPTH = 8 / 16;
+
+function rotateY(v: V3, angle: number): V3 {
+  const c = Math.cos(angle), s = Math.sin(angle);
+  return [v[0] * c + v[2] * s, v[1], v[2] * c - v[0] * s];
+}
+function add(a: V3, b: V3): V3 {
+  return [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
+}
+
+/**
+ * Reconstruct the exact world positions of the four Step 5 child connector
+ * meshes from the saved Step 5 positions and the Step 6/11 parent rotations.
+ *
+ * Stage in StepElevenScene:
+ *   STEP11_SHARED_ASSEMBLY_SPACE
+ *     STEP11_EXACT_STEP9_COMPLETE [Y yaw STEP_NINE_STEP_SEVEN_YAW]
+ *       STEP5_BRIDGE_{A,B} [seatedPose Euler]
+ *         STEP5_LONG_PIN_01 ... 04 [saved local Step 5 transforms]
+ */
+export function stepThirteenAnchors(
+  sixConfig: StepSixMountConfig, prepared: StepSixStepFiveTransforms,
+  beamY: number,
+): StepThirteenAnchors {
+  const make = (unit: StepThirteenUnit): StepThirteenMount => {
+    const bridgeId = unit === "A" ? "STEP5_BRIDGE_A" : "STEP5_BRIDGE_B";
+    const parent = seatedPose(bridgeId, sixConfig, beamY);
+    const bridgeAt = rotateY(parent.position, STEP_NINE_STEP_SEVEN_YAW);
+    const yaw = STEP_NINE_STEP_SEVEN_YAW + parent.rotation[1];
+    const pinIds = STEP_THIRTEEN_MOUNTS[unit];
+    const positions = pinIds.map(id => {
+      const saved = prepared[id];
+      if (!saved || saved.parent !== bridgeId)
+        throw new Error("Missing original " + id + " mounted to " + bridgeId);
+      return add(bridgeAt, rotateY(saved.position, yaw));
+    }) as [V3, V3];
+
+    // Each pair's spacing MUST be two 8-mm pitches along the bridge X axis.
+    // Mirroring across Y flips X and Z together, preserving the pair's
+    // original physical orientation and Step 12's opposite-face installation.
+    const outward = (-Math.cos(yaw) >= 0 ? 1 : -1) as 1 | -1;
+    const ordered = [...positions].sort((a, b) =>
+      outward === 1 ? a[0] - b[0] : b[0] - a[0]) as [V3, V3];
+    const rotationY = outward === 1 ? 0 : Math.PI;
+    const normalGap = STEP_THIRTEEN_BRIDGE_HALF_DEPTH +
+      STEP_THIRTEEN_L_HALF_DEPTH + STEP_THIRTEEN_SEATING_GAP;
+    const first = ordered[0];
+    const seated: V3 = [first[0], first[1], first[2] + outward * normalGap];
+    const clearance: V3 = [seated[0], seated[1], seated[2] + outward * 3.1];
     const loose: V3 = [
-      seated[0] + (unit === "A" ? 3.0 : -3.0),
-      seated[1] + 7.2,
-      seated[2] + (unit === "A" ? -4.0 : 4.0),
+      clearance[0] + (unit === "A" ? 3.5 : -3.5),
+      clearance[1] + (unit === "A" ? -3 : 3),
+      clearance[2] + outward * 2.1,
     ];
-    return { pin, seated, clearance, loose };
+    return { pinIds, pins: ordered, outward, seated, clearance, loose, rotationY };
   };
-  return { A: make("BLUE_A_6", "A"), B: make("BLUE_A_12", "B") };
+  return { A: make("A"), B: make("B") };
 }
 
 export function stepThirteenUnitPosition(
@@ -76,7 +128,7 @@ export function stepThirteenUnitPosition(
   return phase >= 5 ? [...p.seated] : phase >= 4 ? [...p.clearance] : [...p.loose];
 }
 
-/** Coordinates for the existing viewer's outer 180-degree world Z rotation. */
+/** Coordinate transform of viewer outer 180-degree rotation about Z. */
 export function stepThirteenCameraFocus(anchors: StepThirteenAnchors, beamY: number): V3 {
   const avg = (axis: 0 | 1 | 2) =>
     (anchors.A.seated[axis] + anchors.B.seated[axis]) / 2;
@@ -85,15 +137,20 @@ export function stepThirteenCameraFocus(anchors: StepThirteenAnchors, beamY: num
 
 export function stepThirteenWarnings(anchors: StepThirteenAnchors): string[] {
   const notes: string[] = [];
-  if (Math.abs(anchors.A.pin[0] - anchors.B.pin[0]) !== 6)
-    notes.push("Blue mounting pins must retain their original six-hole spacing.");
-  if (Math.abs(anchors.A.pin[2] - anchors.B.pin[2]) > 0.01)
-    notes.push("The two blue pins must be on the SAME gray rail.");
-  const originalCenterZ = stepTenPoses(STEP_TEN_FINAL_PHASE).BLUE_A_6.position[2];
-  const pinTipZ = originalCenterZ + STEP_TEN_BLUE_PIN_HALF_LENGTH;
-  const receiverCenterZ = anchors.A.seated[1] - (anchors.A.pin[1] - originalCenterZ);
-  if (receiverCenterZ > pinTipZ + STEP_TEN_BEAM_HALF_DEPTH)
-    notes.push("Blue-pin shaft may not reach the new L receiver.");
-  notes.push("L receiving corner holes and pin seating depth are photo-guided approximations, not measured fit tolerances.");
+  for (const unit of ["A", "B"] as const) {
+    const { pins, outward, seated } = anchors[unit];
+    const gapX = pins[1][0] - pins[0][0];
+    if (Math.abs(Math.abs(gapX) - 2) > 0.001 ||
+        Math.abs(pins[1][1] - pins[0][1]) > 0.001 ||
+        Math.abs(pins[1][2] - pins[0][2]) > 0.001)
+      notes.push(unit + ": pin pair does not match short-arm Holes 1 and 3.");
+    if (Math.sign(gapX) !== outward)
+      notes.push(unit + ": mirrored L direction does not match the connector pair.");
+    if (Math.abs(seated[2] - pins[0][2]) < STEP_THIRTEEN_BRIDGE_HALF_DEPTH)
+      notes.push(unit + ": L beam intersects the gray bridge face.");
+  }
+  if (anchors.A.outward === anchors.B.outward)
+    notes.push("The gray bridges have the same outward pin direction; check saved Step 6 face configuration.");
+  notes.push("The exact receiving-hole geometry and connector seating depth need real-kit verification.");
   return notes;
 }
