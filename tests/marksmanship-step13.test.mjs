@@ -59,10 +59,17 @@ test("BOTH short-arm receiving holes in each L are exactly two pitches apart", (
     assert.ok(Math.abs(seated[0] - pins[0][0]) < 0.001);
     assert.ok(Math.abs(seated[1] - pins[0][1]) < 0.001);
     assert.ok((clearance[2] - seated[2]) * outward > 0);
-    assert.equal(rotationY, outward === 1 ? 0 : Math.PI);
+    assert.equal(rotationY, outward === -1 ? 0 : Math.PI);
+    // Final yaw * X(180°): hole1 -> hole3 goes toward -outward X;
+    // the L long arm points +shared-Y (down after the outer Z flip).
+    assert.ok(Math.abs(Math.cos(rotationY) + outward) < 0.001);
+    assert.ok(Math.abs(Math.sign(pins[1][0] - pins[0][0]) + outward) < 0.001);
   }
   assert.equal(anchors.A.outward, -anchors.B.outward);
   assert.deepEqual(g.stepThirteenWarnings(anchors).filter(x => !x.includes("real-kit")), []);
+  // Different bridges require the L normals to face opposite directions.
+  assert.equal(anchors.A.outward, -1);
+  assert.equal(anchors.B.outward, 1);
 });
 
 test("Two prebuilt L units approach, insert and reverse independently", () => {
@@ -75,6 +82,13 @@ test("Two prebuilt L units approach, insert and reverse independently", () => {
   assert.deepEqual(g.stepThirteenUnitPosition(5, "B", anchors), anchors.B.seated);
   assert.deepEqual(g.stepThirteenUnitPosition(6, "A", anchors), anchors.A.seated);
   assert.deepEqual(g.stepThirteenUnitPosition(6, "B", anchors), anchors.B.seated);
+  assert.equal(g.stepThirteenUnitTwist(0, "A"), -Math.PI / 2);
+  assert.equal(g.stepThirteenUnitTwist(1, "B"), Math.PI / 2);
+  assert.equal(g.stepThirteenUnitTwist(2, "A"), 0);
+  assert.equal(g.stepThirteenUnitTwist(3, "B"), Math.PI / 2);
+  assert.equal(g.stepThirteenUnitTwist(4, "B"), 0);
+  assert.equal(g.stepThirteenUnitTwist(5, "B"), 0);
+  assert.throws(() => g.stepThirteenUnitTwist(7, "A"));
   assert.throws(() => g.stepThirteenUnitPosition(7, "A", anchors));
   assert.throws(() => g.stepThirteenAnchors(config, {}, 4.1), /Missing original/);
 });
@@ -92,7 +106,11 @@ test("The unchanged Step 11 chassis contains all four connectors, Step 13 moves 
   assert.match(scene, /pin_pin\.stl\?url/);
   assert.match(scene, /HollowBushing/);
   assert.match(previousL, /STEP_TWELVE_HOLE = 4/);
-  assert.match(scene, /anchors\[id\]\.rotationY/);
+  assert.match(scene, /anchors\[unit\]\.rotationY/);
+  assert.match(scene, /setFromAxisAngle\(X_AXIS, Math.PI\)/);
+  assert.match(scene, /stepThirteenUnitTwist\(phase, unit\)/);
+  assert.match(scene, /target\.quaternion\.copy/);
+  assert.match(scene, /\.slerp\(/);
   assert.match(scene, /anchors\[id\]\.pins\.map/);
   assert.match(scene, /SHORT_ARM_HOLE_/);
   assert.doesNotMatch(scene, /opacity={0}|visible={false}|fadeOut|scale={\[-1/);
