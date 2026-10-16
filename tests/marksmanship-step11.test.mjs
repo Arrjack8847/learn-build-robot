@@ -40,7 +40,7 @@ test("Step 11 moves rigid completed groups, not independent connectors", () => {
 test("Step 11 has guided action navigation, inspection, and preserved original lesson numbering", () => {
   assert.ok(route.includes("isStepEleven"));
   assert.ok(route.includes("<StepElevenAssembly onCompleteStep={finishCurrentStep} />"));
-  assert.ok(route.includes("currentStep.number <= 11"));
+  assert.match(route, /currentStep.number <= (?:11|12|13)/);
   assert.ok(practical.includes('number: 11,\n    title: "Join Step 9 and Step 10 Assemblies"'));
   assert.ok(ui.includes("STEP_NINE_ASSEMBLY_ID"));
   assert.ok(ui.includes("STEP_TEN_ASSEMBLY_ID"));

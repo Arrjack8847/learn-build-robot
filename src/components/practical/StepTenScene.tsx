@@ -7,6 +7,7 @@ import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { motionEase, motionGuidedPose, motionLerp } from "./marksmanLessonMotion";
 import {
   STEP_TEN_ACTIVE_PART, STEP_TEN_FINAL_PHASE, STEP_TEN_MODELS, STEP_TEN_PARTS,
+  STEP_TEN_BLACK_BRIDGE_CENTER_Z, STEP_TEN_BEAM_HALF_DEPTH,
   stepTenHighlight, stepTenPoses, whiteHoleX,
   type StepTenModel, type StepTenPart, type StepTenPose, type Vec3,
 } from "./stepTenGeometry";
@@ -52,15 +53,17 @@ const lerpPose = (a: StepTenPose, b: StepTenPose, t: number): StepTenPose => ({
 function guided(from: StepTenPose, to: StepTenPose, t: number, phase: number, part: StepTenPart): StepTenPose {
   // Backwards playback traverses the same center-aligned clearance waypoint.
   if (part === "BRIDGE_3" && phase === 17) return lerpPose(from, to, t);
-  // Hole 1 blue pins enter upward from -Z; Hole 3 black pins likewise
-  // enter from the opposite face to gray. Other blue pins (6/12) and
-  // Hole 15 black pins approach from +Z and travel downward.
+  // Blue Hole 1 and BLACK Hole 3 insert from below the white rail.
+  // BLACK Hole 15 and BLUE Hole 6/12 insert from ABOVE, toward the
+  // +Z grey side. The complete brown stopper and its black connector
+  // enter center bridge Hole 2 FROM BELOW, toward the robot interior.
   // Reversed actions use the same straight, hole-coaxial clearance path.
   const fromBelow = part === "BLUE_A_1" || part === "BLUE_B_1" ||
     part === "BLACK_A_3" || part === "BLACK_B_3" ||
-    part === "BROWN_SPACER" || part === "CENTER_BLACK";
-  // Bottom-up center operations use a nearer underside waypoint.
-  // This keeps both pieces moving UP throughout the last seating action.
+    (phase === 18 && part === "CENTER_BLACK") ||
+    (phase === 19 && (part === "CENTER_BLACK" || part === "BROWN_SPACER"));
+  // Retain main\'s dedicated short clearance path for the inward stopper.
+  // It avoids a deep overshoot while the brown stopper and black pin rise together.
   const offset = part === "CENTER_BLACK" && phase === 18 ? -0.80
     : (part === "BROWN_SPACER" || part === "CENTER_BLACK") ? -1.65
       : fromBelow ? -2.25 : 2.25;
@@ -84,8 +87,7 @@ function viewOffset(view: View, mobile: boolean, phase: number): Vec3 {
   const k = mobile ? 1.45 : 1.12;
   // Hole 1 blue and Hole 3 black insert FROM BELOW; the camera reveals -Z
   // without flipping the beams, hiding pins, or changing source meshes.
-  if (view === "iso" &&
-    (phase === 2 || phase === 9 || phase === 5 || phase === 12 ||
+  if (view === "iso" && (phase === 2 || phase === 9 || phase === 5 || phase === 12 ||
       phase === 18 || phase === 19 || phase === 20))
     return [11 * k, -14 * k, -14 * k];
   if (view === "top") return [0.01, -0.01, 21 * k];
@@ -221,7 +223,7 @@ function Stage({ phase, replayKey, paused, resetCameraKey, reducedMotion, view, 
             ? guided(moving.to[id], moving.from[id], 1 - t, moving.phase, id)
             : guided(moving.from[id], moving.to[id], t, moving.phase, id);
         }
-        // Both prepared stopper pieces rise together into the bridge from BELOW.
+        // The prepared stopper and pin travel UP from inside (-Z).
         if (moving.phase === 19 && id === "CENTER_BLACK") {
           result = moving.reverse
             ? guided(moving.to[id], moving.from[id], 1 - t, 19, id)
@@ -257,13 +259,13 @@ function Stage({ phase, replayKey, paused, resetCameraKey, reducedMotion, view, 
     <directionalLight position={[7, -6, 14]} intensity={2} />
     <gridHelper args={[32, 32, "#dbe7ee", "#edf1f6"]}
       rotation={[Math.PI / 2, 0, 0]} position={[0, 0, -2.6]}
-      visible={phase !== 2 && phase !== 9 && phase !== 5 && phase !== 12} />
+      visible={![2, 5, 9, 12, 18, 19, 20].includes(phase)} />
     {STEP_TEN_PARTS.map((id) => {
       const model = STEP_TEN_MODELS[id];
       return <group key={id} name={"STEP10_" + id}
         ref={node => { if (node) nodes.current[id] = node; }}
         position={starting[id].position} rotation={starting[id].rotation}>
-        {model === "spacer" ? <Spacer /> :
+        {model === "spacer" ? <group rotation={[0, Math.PI, 0]}><Spacer /></group> :
           <mesh geometry={geometry[model]}>
             <meshStandardMaterial color={colours[model]} roughness={0.53} metalness={0.02} />
           </mesh>}
@@ -276,7 +278,7 @@ function Stage({ phase, replayKey, paused, resetCameraKey, reducedMotion, view, 
         <meshBasicMaterial color="#e9a31a" depthTest={false} />
       </mesh>)}
     </group> : null}
-    {phase === 19 ? <mesh position={[7, 0, 0.54]}>
+    {phase === 19 ? <mesh position={[7, 0, STEP_TEN_BLACK_BRIDGE_CENTER_Z - STEP_TEN_BEAM_HALF_DEPTH - 0.06]}>
       <torusGeometry args={[0.31, 0.055, 8, 32]} />
       <meshBasicMaterial color="#e9a31a" depthTest={false} />
     </mesh> : null}

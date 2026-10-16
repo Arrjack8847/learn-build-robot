@@ -84,7 +84,7 @@ test("Step 12 is reachable without changing Step 11's saved assembly", () => {
   assert.match(route, /isStepEleven \?/);
   assert.match(route, /isStepTwelve \?/);
   assert.match(route, /<StepTwelveAssembly onCompleteStep={finishCurrentStep}/);
-  assert.match(route, /currentStep.number <= 12/);
+  assert.match(route, /currentStep.number <= (?:12|13)/);
   assert.match(data, /id: "marksmanship-s11",\s+number: 12,\s+title: "Prepare two opposite-side L-shaped assemblies"/);
   assert.match(data, /assemblyOutputId: "marksman-step12-opposite-face-l-beams-v1"/);
   assert.match(lesson, /physicallySelfConfirmed: true/);

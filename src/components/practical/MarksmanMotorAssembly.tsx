@@ -45,6 +45,8 @@ const pinPos: Pt3 = [
 const beamPos: Pt3 = [BEAM_CENTRE_X, BEAM_CENTRE_Y, BEAM_CENTRE_Z];
 // The socket-local -Z positions below become world +X after assembly-root
 // rotation. Axle/disc/beam start to the RIGHT and move LEFT (world -X).
+// Begin in unobstructed clearance, then travel along the shared shaft axis.
+// Final targets come from FRAME: shallow axle / disc near the *outer tip*.
 const alignedAxle: Pt3 = [0, 0, -1.75];
 const alignedDisc: Pt3 = [0, 0, -1.65];
 const alignedPin: Pt3 = [pinPos[0], pinPos[1], -1.6];
@@ -57,14 +59,14 @@ const baselineRot = {
 const actions: Action[] = [
   {
     id: "2.1", title: "Insert the short axle",
-    instruction: "Find the orange centre output socket on the motor's front face, as in the Blender reference. Align the black X-shaped axle from the RIGHT, then push it straight LEFT into the socket. Leave the end exposed for the disc.",
+    instruction: "Align the short black axle with the orange X-shaped FRONT motor socket. Insert straight LEFT only a little way (4 mm in this provisional 3D preview): do NOT push it too deep. Most of the 24 mm axle stays visible on the RIGHT.",
     duration: 3.0, active: ["motor", "axle"], focus: [0, 0, 0.5],
     cameraOffset: [2, -4, 3.2], target: [0, 0, 0],
     guide: [[0, 0, -2.1], [0, 0, 0.4]],
   },
   {
     id: "2.2", title: "Slide the disc onto the axle",
-    instruction: "Align the disc's central X-shaped hole with the axle protruding to the RIGHT of the motor. Slide the disc LEFT along that same axis without tilting it.",
+    instruction: "Align the circular disc's central X-shaped hole with the long exposed portion of the black axle. Slide LEFT only until the disc sits at the very OUTER TIP of the axle; leave a tiny black tip visible beyond the disc (1 mm in this provisional preview) and a clear gap from the motor.",
     duration: 3.0, active: ["motor", "axle", "disc"], focus: [0, 0, 0.6],
     cameraOffset: [1.5, -3.3, 3.6], target: [0, 0, 0.5],
     guide: [[0, 0, -2.2], [0, 0, -0.3]],
@@ -85,7 +87,7 @@ const actions: Action[] = [
   },
   {
     id: "2.4", title: "Inspect the motor subassembly",
-    instruction: "Inspect the motor, axle, disc, connector and beam. Keep this motor assembly for Step 26. Confirm the physical connector and measured mounting depths before treating the result as exact.",
+    instruction: "Inspect the motor, partially inserted axle and disc close to the exposed tip (not pushed toward the motor). The connector and 5-hole beam remain attached. Keep this complete subassembly for Step 14. Shallow depths are visual estimates: check the physical kit.",
     duration: 3.0, active: ["motor", "axle", "disc", "beam", "pin"],
     focus: [0.36, 0, 0.2], cameraOffset: [3.3, -3.4, 3],
   },

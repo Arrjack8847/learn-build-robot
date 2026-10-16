@@ -40,9 +40,29 @@ export const STL_MEASUREMENTS_MM = {
 
 // These axial placements are explicitly provisional; do not label as verified.
 export const UNVERIFIED_AXIAL_MM = {
-  axleInsertedInsideMotor: 8,
-  discRearFaceGapFromMotor: 8,
+  // User-confirmed visual intent (2026-10-16): do NOT bury the axle in the
+  // motor; keep MOST of the 24 mm shaft exposed. These are illustrative
+  // depths until a physical kit fit confirms the precise engagement length.
+  axleInsertedInsideMotor: 4,
+  // Disc seats at the VERY OUTER END of the exposed axle, with only a tiny
+  // 1 mm black tip showing beyond the disc's outward face.
+  axleTipBeyondDisc: 1,
   stopCollarGap: 1.5, // measured flange approx. z=7.2533..8.7467 mm in pin_pin.stl
+} as const;
+
+/** All axial locations derive from the SAME shaft insertion and disc-tip
+ * clearance, preventing Step 2 and Step 14 from drifting apart.
+ * Socket-local outward direction is -Z, later rotated to world +X.
+ */
+export const AXIAL_LAYOUT_MM = {
+  axleExposed: STL_MEASUREMENTS_MM.axle.length - UNVERIFIED_AXIAL_MM.axleInsertedInsideMotor,
+  axleCenterOutsideSocket: STL_MEASUREMENTS_MM.axle.length / 2 - UNVERIFIED_AXIAL_MM.axleInsertedInsideMotor,
+  discCenterOutsideSocket:
+    STL_MEASUREMENTS_MM.axle.length - UNVERIFIED_AXIAL_MM.axleInsertedInsideMotor -
+    UNVERIFIED_AXIAL_MM.axleTipBeyondDisc - STL_MEASUREMENTS_MM.disc.thickness / 2,
+  discRearFaceGapFromMotor:
+    STL_MEASUREMENTS_MM.axle.length - UNVERIFIED_AXIAL_MM.axleInsertedInsideMotor -
+    UNVERIFIED_AXIAL_MM.axleTipBeyondDisc - STL_MEASUREMENTS_MM.disc.thickness,
 } as const;
 
 /**
@@ -64,14 +84,16 @@ export const FRAME = {
   motorSocket: [0, 0, 0] as Pt3,
   axle: {
     // Socket-local -Z becomes world +X (right) after assembly rotation.
-    // The axle is tentatively 8 mm inserted, 16 mm exposed outward (+X).
-    center: [0, 0, -unit(4)] as Pt3,
-    exposedLength: unit(16),
+    // Candidate: 4 mm embedded, 20 mm exposed (+X after root rotation).
+    // Keep the axle centered in the motor's FRONT orange X output hub.
+    center: [0, 0, -unit(AXIAL_LAYOUT_MM.axleCenterOutsideSocket)] as Pt3,
+    exposedLength: unit(AXIAL_LAYOUT_MM.axleExposed),
   },
   disc: {
-    // Socket-local -Z becomes world +X; disc sits 10 mm toward the right.
-    // Face spacing of 8 mm from the front socket remains provisional.
-    center: [0, 0, -unit(10)] as Pt3,
+    // Disc centre sits near the outer axle tip: after rotation it is 17 mm
+    // right (+X) of the motor, with a visible 15 mm rear-face gap and 1 mm
+    // of black axle showing beyond the disc. Depths remain provisional.
+    center: [0, 0, -unit(AXIAL_LAYOUT_MM.discCenterOutsideSocket)] as Pt3,
   },
   // The physical reference has the beam connected at the lower-left outer
   // hole; -6.928,-4 mm is the geometric candidate. This hole selection and
@@ -101,5 +123,6 @@ export const VALIDATION_NOTES = [
   "The axle targets LDraw front output hub 10095; rear cable retainer 10091 is explicitly excluded. The front datum is model-derived, and physical insertion depth still needs real-kit verification.",
   "Connector pin_pin has a central stop collar. It cannot be pushed fully through two flush parts after both have been joined.",
   "Photo's gold connector material and actual part number remain unverified.",
+  "User-confirmed visual adjustment: the short 24 mm axle is tentatively only 4 mm inside the motor (20 mm exposed), and the disc sits near its tip with 1 mm of axle extending beyond it. These values are NOT certified physical press-fit dimensions.",
   "Motor insertion depth, disc spacing and outer-hole choice are provisional and cannot be certified from photos alone.",
 ] as const;
