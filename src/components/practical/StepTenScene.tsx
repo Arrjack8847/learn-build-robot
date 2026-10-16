@@ -7,6 +7,7 @@ import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { motionEase, motionGuidedPose, motionLerp } from "./marksmanLessonMotion";
 import {
   STEP_TEN_ACTIVE_PART, STEP_TEN_FINAL_PHASE, STEP_TEN_MODELS, STEP_TEN_PARTS,
+  STEP_TEN_BLACK_BRIDGE_CENTER_Z, STEP_TEN_BEAM_HALF_DEPTH,
   stepTenHighlight, stepTenPoses, whiteHoleX,
   type StepTenModel, type StepTenPart, type StepTenPose, type Vec3,
 } from "./stepTenGeometry";
