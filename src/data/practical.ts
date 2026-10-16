@@ -108,11 +108,12 @@ const marksmanshipSteps: PracticalProject["steps"] = [
   {
     id: "marksmanship-s12",
     number: 13,
-    title: "Place the 15-hole beam",
-    description: "Original manual Step 12: physical operation is pending reconciliation with interactive Step 8. Review the illustration only; do not repeat an already completed attachment.",
+    title: "Attach the two completed L-shaped assemblies",
+    description: "Photo-guided Step 13: retain the completed Step 11 chassis and both finished opposite-face Step 12 L-pieces. Mount them one by one on the two outward-facing blue pins of the same gray rail; approach with clearance, align the corner receiving holes provisionally, and slide along the connector axes. Keep bushings, black connectors and original blue pins intact. Confirm physical fit.",
     image: "/marksmanship/steps/12.png",
-    referenceOnly: true,
-    note: { type: "warning", text: "Original manual operation may overlap the separate rectangular-frame assembly. Do not repeat it until photo/kit mapping is verified." },
+    referenceOnly: false,
+    assemblyOutputId: "marksman-step13-two-l-brackets-on-gray-rail-v1",
+    note: { type: "tip", text: "The original manual image is retained for comparison; Step 13's assembly geometry follows the recent real-world photos. The exact receiving hole and seating depth need physical verification." },
     originalManualStepNumbers: [12],
   },
   {
