@@ -93,9 +93,15 @@ export type StepElevenSceneProps = {
   reducedMotion: boolean;
   view: "iso" | "top" | "front" | "side" | "bottom";
   onMotionComplete: () => void;
+  /** Optional children in the finished Step 11 common coordinate space (used by Step 13). */
+  extraScene?: ReactNode;
+  extraFocus?: V3;
+  extraCameraOffset?: V3;
+  skipEntryAnimation?: boolean;
 };
 function Stage({ phase, railConfig, frameConfig, stepSixConfig, prepared, paused,
-  replayKey, resetCameraKey, reducedMotion, view, onMotionComplete }: StepElevenSceneProps) {
+  replayKey, resetCameraKey, reducedMotion, view, onMotionComplete,
+  extraScene, extraFocus, extraCameraOffset, skipEntryAnimation = false }: StepElevenSceneProps) {
   const loaded = useLoader(STLLoader, SOURCES);
   const mesh = useMemo(() => ({
     beam11: normalize(loaded[0]!, "beam11"),
@@ -148,7 +154,7 @@ function Stage({ phase, railConfig, frameConfig, stepSixConfig, prepared, paused
     movement.current = animate ? { from, to, elapsed: 0,
       duration: phase === 3 || fromPhase === 3 ? 2.0 : 1.65 } : null;
     // Preparation entrances move the two whole subassemblies, never their pins.
-    if (!initialized.current && !reducedMotion) {
+    if (!initialized.current && !reducedMotion && !skipEntryAnimation) {
       const enter: V3 = [to[0] - 5, to[1], to[2]];
       stepTen.current?.position.set(...enter);
       movement.current = { from: enter, to, elapsed: 0, duration: 1.4 };
@@ -160,20 +166,24 @@ function Stage({ phase, railConfig, frameConfig, stepSixConfig, prepared, paused
 
   useLayoutEffect(() => {
     // Look at the joined holes, widening the initial camera for two separate assemblies.
-    const focus = new Vector3(-(join.railX - 6) + (phase <= 1 ? 10 : 0),
-      beamY - target[1], target[2]);
+    const focus = extraFocus ? new Vector3(...extraFocus) :
+      new Vector3(-(join.railX - 6) + (phase <= 1 ? 10 : 0),
+        beamY - target[1], target[2]);
     const k = narrow ? 1.42 : 1;
     const expanded = phase <= 1 ? 1.20 : 1;
     const offset = view === "top" ? new Vector3(0.01, 39 * k, 0.01) :
       view === "bottom" ? new Vector3(0.01, -39 * k, 0.01) :
       view === "front" ? new Vector3(0.01, 12 * k, 42 * k) :
       view === "side" ? new Vector3(42 * k, 12 * k, 0.01) :
+      extraCameraOffset ? new Vector3(...extraCameraOffset).multiplyScalar(k) :
       new Vector3(22 * k, 29 * k, 36 * k);
     offset.multiplyScalar(expanded);
     orbit.current?.target.copy(focus);
     camera.position.copy(focus.clone().add(offset));
     orbit.current?.update();
-  }, [phase, view, reducedMotion, resetCameraKey, camera, narrow, beamY, join.railX, target[1], target[2]]);
+  }, [phase, view, reducedMotion, resetCameraKey, camera, narrow, beamY,
+    join.railX, target[1], target[2], extraFocus?.[0], extraFocus?.[1], extraFocus?.[2],
+    extraCameraOffset?.[0], extraCameraOffset?.[1], extraCameraOffset?.[2]]);
 
   useFrame((_, rawDelta) => {
     if (paused) return;
@@ -276,6 +286,7 @@ function Stage({ phase, railConfig, frameConfig, stepSixConfig, prepared, paused
           </group>;
         })}
       </group>
+      {extraScene}
     </group>
     <OrbitControls ref={orbit} makeDefault enableDamping dampingFactor={0.09}
       minDistance={10} maxDistance={120} enablePan={false} />
