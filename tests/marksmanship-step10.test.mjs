@@ -146,7 +146,7 @@ test("blue Holes 6 and 12 insert downward, stop FLUSH under white and extend ABO
   assert.ok(lesson.includes("bluePinsVisibleOnBothOuterFaces: false"));
 });
 
-test("Hole 15 black pins and three-hole joining bridge remain on the gray-side TOP", () => {
+test("Hole 15 black pins and the 3-hole bridge stay gray-side; the stopper seats underneath/inward", () => {
   const halfWhite = g.STEP_TEN_BEAM_HALF_DEPTH;
   for (const [unit, installed, finished] of [["A", 6, 7], ["B", 13, 14]]) {
     const before = g.stepTenPoses(installed - 1);
@@ -173,15 +173,36 @@ test("Hole 15 black pins and three-hole joining bridge remain on the gray-side T
   assert.ok(joined.BRIDGE_3.position[2] - halfWhite >= halfWhite,
     "3-hole bridge cannot protrude underneath the white beam");
   const spacer = g.stepTenPoses(19);
-  assert.ok(spacer.BROWN_SPACER.position[2] > joined.BRIDGE_3.position[2],
-    "brown center spacer must be ABOVE the short black joining beam");
-  assert.ok(spacer.CENTER_BLACK.position[2] > joined.BRIDGE_3.position[2],
-    "center connector must enter the joining beam from the TOP side");
-  for (const phase of [6, 13, 16, 17, 19])
+  assert.ok(spacer.BROWN_SPACER.position[2] < joined.BRIDGE_3.position[2],
+    "brown stopper must be UNDER the black 3-hole bridge, facing inward");
+  assert.ok(spacer.CENTER_BLACK.position[2] < joined.BRIDGE_3.position[2],
+    "center connector must approach from the frame-interior (BOTTOM) side");
+  assert.ok(spacer.CENTER_BLACK.position[2] > spacer.BROWN_SPACER.position[2],
+    "black pin must extend upward from the inward stopper into Bridge Hole 2");
+  assert.ok(Math.abs(spacer.BROWN_SPACER.position[2] + 0.45 -
+    (joined.BRIDGE_3.position[2] - halfWhite)) < 1e-10,
+    "inward stopper is seated against the UNDERSIDE of the bridge");
+  assert.ok(spacer.CENTER_BLACK.position[2] + 1 <
+    joined.BRIDGE_3.position[2] + halfWhite,
+    "black center connector must NOT protrude outward above the black bridge");
+  assert.ok(spacer.CENTER_BLACK.position[2] + 1 >
+    joined.BRIDGE_3.position[2],
+    "black center connector must engage the center bridge hole");
+  const before = g.stepTenPoses(18);
+  assert.ok(before.BROWN_SPACER.position[2] < joined.BRIDGE_3.position[2]);
+  assert.ok(before.CENTER_BLACK.position[2] < joined.BRIDGE_3.position[2]);
+  assert.ok(before.CENTER_BLACK.position[2] > before.BROWN_SPACER.position[2],
+    "the prepared pair stays rigid and points upward before mounting");
+  for (const phase of [6, 13, 16, 17])
     assert.match(g.STEP_TEN_ACTIONS[phase].instruction, /ABOVE|above|SAME SIDE/);
+  assert.match(g.STEP_TEN_ACTIONS[19].instruction, /FROM BELOW/);
+  assert.match(g.STEP_TEN_ACTIONS[20].instruction, /INWARD/);
   assert.ok(lesson.includes('blackHole15Face: "same-as-gray"'));
   assert.ok(lesson.includes('threeHoleBridgeFace: "same-as-gray"'));
   assert.ok(scene.includes('const offset = fromBelow ? -2.25 : 2.25;'));
+  assert.ok(scene.includes('(phase === 19 && (part === "BROWN_SPACER" || part === "CENTER_BLACK"))'));
+  assert.ok(lesson.includes('side: "inward-under-three-hole-bridge"'));
+  assert.ok(lesson.includes('insertion: "bottom-to-top"'));
 });
 
 test("Step 10 renders original 3D STL beams and pins with guided motion controls", () => {
@@ -201,7 +222,7 @@ test("Step 10 renders original 3D STL beams and pins with guided motion controls
 test("photo-based Step 10 is wired as the tenth interactive step without touching Steps 1–9", () => {
   assert.ok(route.includes('import { StepTenAssembly }'));
   assert.ok(route.includes('const isStepTen = project.id === "marksmanship" && currentStep.number === 10'));
-  assert.match(route, /currentStep.number <= (?:11|12|13)/);
+  assert.match(route, /currentStep.number <= (?:11|12|13|14)/);
   assert.ok(route.includes("<StepTenAssembly onCompleteStep={finishCurrentStep} />"));
   assert.ok(data.includes('id: "marksmanship-photo-step10-v1"'));
   assert.ok(data.includes('assemblyOutputId: "marksman-step10-twin-rail-end-bridge-v1"'));
