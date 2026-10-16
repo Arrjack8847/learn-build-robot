@@ -1,12 +1,12 @@
 import { useLayoutEffect, useMemo, useRef, Suspense } from "react";
 import { useFrame, useLoader } from "@react-three/fiber";
-import { BufferGeometry, DoubleSide, Group, Quaternion, Vector3 } from "three";
+import { BufferGeometry, DoubleSide, Group, Vector3 } from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import { StepElevenScene } from "./StepElevenScene";
 import type { StepSixMountConfig, StepSixStepFiveTransforms } from "./StepSixGeometry";
 import type { StepSevenRailConfig } from "./stepSevenRailGeometry";
 import type { StepEightConfig } from "./stepEightGeometry";
-import { stepElevenPlacement } from "./stepElevenGeometry";
+
 import { motionEase, motionLerp } from "./marksmanLessonMotion";
 import { STEP_TWELVE_FINAL_PHASE, stepTwelvePoses } from "./stepTwelveGeometry";
 import {
@@ -32,17 +32,9 @@ export type StepThirteenSceneProps = {
   onMotionComplete: () => void;
 };
 
-const BASE_ORIENTATION = new Quaternion()
-  .setFromAxisAngle(new Vector3(0, 1, 0), Math.PI / 2)
-  .multiply(new Quaternion().setFromAxisAngle(new Vector3(1, 0, 0), -Math.PI / 2));
-// One opposite-facing L uses the Step 12 physical half-turn; its bushing
-// and black pin remain on the opposite face after the rigid rotation.
-const OPPOSITE_ORIENTATION = BASE_ORIENTATION.clone()
-  .multiply(new Quaternion().setFromAxisAngle(new Vector3(0, 1, 0), Math.PI));
-
 function originalLGeometry(source: BufferGeometry): BufferGeometry {
-  // Exact same source normalization as StepTwelveScene. Its free corner hole
-  // is local (0,0), while the installed black pin remains at (0,-3).
+  // Exact same normalization as StepTwelveScene. Short-arm holes 1 and 3
+  // lie at local X=0 and X=2; long-arm Hole 4 retains its black pin.
   const geometry = source.clone();
   geometry.translate(0, 0, -4);
   geometry.scale(1 / 8, 1 / 8, 1 / 8);
@@ -144,7 +136,7 @@ function StepThirteenAttachments({ anchors, phase, paused, replayKey, reducedMot
       return <group name={"STEP13_ASSEMBLY_" + id} key={id}
         ref={node => { if (node) refs.current[id] = node; }}
         position={pose}
-        quaternion={id === "A" ? BASE_ORIENTATION : OPPOSITE_ORIENTATION}>
+        rotation={[0, anchors[id].rotationY, 0]}>
         <mesh name={"STEP12_L_" + id} geometry={geometry.l}>
           <meshStandardMaterial color="#abb0b8" roughness={0.57} side={DoubleSide} />
         </mesh>
@@ -162,19 +154,21 @@ function StepThirteenAttachments({ anchors, phase, paused, replayKey, reducedMot
     })}
     {(phase === 1 || phase === 2 || phase === 4) &&
       (phase === 1 ? (["A", "B"] as const) : phase === 2 ? (["A"] as const) : (["B"] as const))
-        .map(id => <mesh name={"STEP13_RECEIVING_HOLE_" + id} key={id}
-          position={anchors[id].seated} rotation={[-Math.PI / 2, 0, 0]}>
-          <torusGeometry args={[0.37, 0.06, 10, 32]} />
-          <meshBasicMaterial color="#168eea" depthTest={false} />
-        </mesh>)}
+        .flatMap(id => anchors[id].pins.map((pin, i) =>
+          <mesh name={"STEP13_" + id + "_SHORT_ARM_HOLE_" + (i === 0 ? 1 : 3)}
+            key={id + i}
+            position={[pin[0], pin[1], anchors[id].clearance[2]]}>
+            <torusGeometry args={[0.36, 0.06, 10, 32]} />
+            <meshBasicMaterial color="#168eea" depthTest={false} />
+          </mesh>))}
   </group>;
 }
 
 export function StepThirteenScene(props: StepThirteenSceneProps) {
   const beamY = props.prepared["STEP5_BEAM_11"]?.position[1] ?? 4.1;
-  const join = useMemo(() => stepElevenPlacement(props.railConfig, props.stepSixConfig, beamY),
-    [props.railConfig, props.stepSixConfig, beamY]);
-  const anchors = useMemo(() => stepThirteenAnchors(join), [join]);
+  const anchors = useMemo(() =>
+    stepThirteenAnchors(props.stepSixConfig, props.prepared, beamY),
+    [props.stepSixConfig, props.prepared, beamY]);
   const focus = useMemo(() => stepThirteenCameraFocus(anchors, beamY), [anchors, beamY]);
   // Step 11's original geometry, including every pin, remains intact and
   // stationary. Render both L units in the SAME original shared 3D space.
@@ -183,7 +177,7 @@ export function StepThirteenScene(props: StepThirteenSceneProps) {
     prepared={props.prepared} paused={props.paused} replayKey={0}
     resetCameraKey={props.resetCameraKey} reducedMotion={props.reducedMotion}
     view={props.view} onMotionComplete={() => {}}
-    skipEntryAnimation extraFocus={focus} extraCameraOffset={[23, -17, 30]}
+    skipEntryAnimation extraFocus={focus} extraCameraOffset={[20, -19, 27]}
     extraScene={<Suspense fallback={null}>
       <StepThirteenAttachments phase={props.phase} anchors={anchors}
         paused={props.paused} replayKey={props.replayKey}
