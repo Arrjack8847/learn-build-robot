@@ -52,7 +52,8 @@ function originalLGeometry(source: BufferGeometry): BufferGeometry {
 function originalPinGeometry(source: BufferGeometry): BufferGeometry {
   const geometry = source.clone();
   geometry.computeBoundingBox();
-  geometry.translate(...geometry.boundingBox!.getCenter(new Vector3()).multiplyScalar(-1).toArray());
+  const center = geometry.boundingBox!.getCenter(new Vector3());
+  geometry.translate(-center.x, -center.y, -center.z);
   geometry.scale(1 / 8, 1 / 8, 1 / 8);
   geometry.computeVertexNormals();
   return geometry;
