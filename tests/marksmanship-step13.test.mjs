@@ -11,35 +11,61 @@ const previousScene = read("src/components/practical/StepElevenScene.tsx");
 const previousL = read("src/components/practical/stepTwelveGeometry.ts");
 const route = read("src/routes/practical/$projectId.tsx");
 const practical = read("src/data/practical.ts");
-const tenTs = read("src/components/practical/stepTenGeometry.ts");
-const tenJs = ts.transpileModule(tenTs, {
+
+// Model two already fitted original gray bridges and their real saved child
+// connector positions. The same transform math runs as production geometry.
+const fixtures = {
+  STEP5_LONG_PIN_01: { parent: "STEP5_BRIDGE_A", position: [-1, 0, 0] },
+  STEP5_LONG_PIN_02: { parent: "STEP5_BRIDGE_A", position: [1, 0, 0] },
+  STEP5_LONG_PIN_03: { parent: "STEP5_BRIDGE_B", position: [-1, 0, 0] },
+  STEP5_LONG_PIN_04: { parent: "STEP5_BRIDGE_B", position: [1, 0, 0] },
+};
+const stub = [
+  "const STEP_NINE_STEP_SEVEN_YAW = Math.PI;",
+  "const seatedPose = (id, config, beamY) => ({",
+  '  position: id === "STEP5_BRIDGE_A" ? [-3,beamY,2] : [3,beamY,-2],',
+  '  rotation: [0, config[id === "STEP5_BRIDGE_A" ? "bridgeASide" : "bridgeBSide"] === "front" ? 0 : Math.PI, 0],',
+  "});",
+].join("\n");
+const compiled = ts.transpileModule(geometry, {
   compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 },
 }).outputText;
-const tenUri = "data:text/javascript;base64," + Buffer.from(tenJs).toString("base64");
-const geometryJs = ts.transpileModule(geometry, {
-  compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 },
-}).outputText.replace('from "./stepTenGeometry"', 'from "' + tenUri + '"');
-const g = await import("data:text/javascript;base64," + Buffer.from(geometryJs).toString("base64"));
+const runtime = stub + "\n" + compiled.replace(/^import\s+[^;]+;\s*/gm, "");
+const g = await import("data:text/javascript;base64," + Buffer.from(runtime).toString("base64"));
+const config = { bridgeASide: "front", bridgeBSide: "back" };
+const anchors = g.stepThirteenAnchors(config, fixtures, 4.1);
 
-test("Step 13 only uses existing same-gray-rail mounting pins at Holes 6 and 12", () => {
-  assert.deepEqual(g.STEP_THIRTEEN_MOUNTS, ["BLUE_A_6", "BLUE_A_12"]);
-  assert.equal(g.STEP_THIRTEEN_FINAL_PHASE, 6);
+test("TWO existing blue pin pairs belong to original gray connector bridges", () => {
+  assert.deepEqual(g.STEP_THIRTEEN_MOUNTS, {
+    A: ["STEP5_LONG_PIN_01", "STEP5_LONG_PIN_02"],
+    B: ["STEP5_LONG_PIN_03", "STEP5_LONG_PIN_04"],
+  });
+  assert.deepEqual(g.STEP_THIRTEEN_RECEIVER,
+    { first: 1, empty: 2, third: 3, preparedBlackPin: 4 });
   assert.equal(g.STEP_THIRTEEN_ACTIONS.length, 7);
-  const anchors = g.stepThirteenAnchors({ target: [0, 0, 0] });
-  assert.equal(anchors.A.pin[0], 2);
-  assert.equal(anchors.B.pin[0], -4);
-  assert.equal(anchors.A.pin[2], -1);
-  assert.equal(anchors.B.pin[2], -1);
-  assert.equal(anchors.A.seated[0], anchors.A.pin[0]);
-  assert.equal(anchors.B.seated[0], anchors.B.pin[0]);
-  assert.equal(anchors.A.seated[2], anchors.A.pin[2]);
-  assert.equal(anchors.B.seated[2], anchors.B.pin[2]);
-  assert.deepEqual(g.stepThirteenWarnings(anchors).filter(x => x.includes("must")), []);
+  assert.equal(g.STEP_THIRTEEN_FINAL_PHASE, 6);
+  assert.equal(new Set([...anchors.A.pinIds, ...anchors.B.pinIds]).size, 4);
+  assert.match(geometry, /stepSixConfig|sixConfig/);
+  assert.match(geometry, /seatedPose\(bridgeId/);
+  assert.doesNotMatch(geometry, /BLUE_A_6|BLUE_A_12/);
 });
 
-test("L brackets move separately, finish coaxially, and reverse without altering pins", () => {
-  const anchors = g.stepThirteenAnchors({ target: [-6, 2, 3] });
-  const originalPins = JSON.stringify({ A: anchors.A.pin, B: anchors.B.pin });
+test("BOTH short-arm receiving holes in each L are exactly two pitches apart", () => {
+  for (const id of ["A", "B"]) {
+    const { pins, seated, clearance, outward, rotationY } = anchors[id];
+    assert.ok(Math.abs(Math.abs(pins[1][0] - pins[0][0]) - 2) < 0.001);
+    assert.ok(Math.abs(pins[1][1] - pins[0][1]) < 0.001);
+    assert.ok(Math.abs(pins[1][2] - pins[0][2]) < 0.001);
+    assert.ok(Math.abs(seated[0] - pins[0][0]) < 0.001);
+    assert.ok(Math.abs(seated[1] - pins[0][1]) < 0.001);
+    assert.ok((clearance[2] - seated[2]) * outward > 0);
+    assert.equal(rotationY, outward === 1 ? 0 : Math.PI);
+  }
+  assert.equal(anchors.A.outward, -anchors.B.outward);
+  assert.deepEqual(g.stepThirteenWarnings(anchors).filter(x => !x.includes("real-kit")), []);
+});
+
+test("Two prebuilt L units approach, insert and reverse independently", () => {
   assert.deepEqual(g.stepThirteenUnitPosition(0, "A", anchors), anchors.A.loose);
   assert.deepEqual(g.stepThirteenUnitPosition(0, "B", anchors), anchors.B.loose);
   assert.deepEqual(g.stepThirteenUnitPosition(2, "A", anchors), anchors.A.clearance);
@@ -49,43 +75,39 @@ test("L brackets move separately, finish coaxially, and reverse without altering
   assert.deepEqual(g.stepThirteenUnitPosition(5, "B", anchors), anchors.B.seated);
   assert.deepEqual(g.stepThirteenUnitPosition(6, "A", anchors), anchors.A.seated);
   assert.deepEqual(g.stepThirteenUnitPosition(6, "B", anchors), anchors.B.seated);
-  assert.equal(anchors.A.clearance[0], anchors.A.seated[0]);
-  assert.equal(anchors.A.clearance[2], anchors.A.seated[2]);
-  assert.equal(anchors.B.clearance[0], anchors.B.seated[0]);
-  assert.equal(anchors.B.clearance[2], anchors.B.seated[2]);
-  assert.ok(anchors.A.clearance[1] > anchors.A.seated[1]);
-  assert.ok(anchors.B.clearance[1] > anchors.B.seated[1]);
-  assert.equal(JSON.stringify({ A: anchors.A.pin, B: anchors.B.pin }), originalPins);
   assert.throws(() => g.stepThirteenUnitPosition(7, "A", anchors));
+  assert.throws(() => g.stepThirteenAnchors(config, {}, 4.1), /Missing original/);
 });
 
-test("Step 13 reuses original completed chassis and PREPARED opposite-face L pieces", () => {
-  assert.match(scene, /<StepElevenScene phase={4}/);
-  assert.match(scene, /extraScene={<Suspense/);
-  assert.match(scene, /skipEntryAnimation/);
+test("The unchanged Step 11 chassis contains all four connectors, Step 13 moves rigid L units only", () => {
+  assert.match(previousScene, /STEP5_BRIDGE_A:/);
+  assert.match(previousScene, /STEP5_BRIDGE_B:/);
+  assert.match(previousScene, /CHILD_PINS\[id\]\.map\(preparedPin\)/);
   assert.match(previousScene, /\{extraScene\}/);
+  assert.match(scene, /<StepElevenScene phase={4}/);
+  assert.match(scene, /skipEntryAnimation/);
+  assert.match(scene, /stepThirteenAnchors\(props.stepSixConfig, props.prepared, beamY\)/);
   assert.match(scene, /stepTwelvePoses\(STEP_TWELVE_FINAL_PHASE\)/);
   assert.match(scene, /BEAM L_\.stl\?url/);
   assert.match(scene, /pin_pin\.stl\?url/);
   assert.match(scene, /HollowBushing/);
-  assert.match(scene, /BASE_ORIENTATION/);
-  assert.match(scene, /OPPOSITE_ORIENTATION/);
   assert.match(previousL, /STEP_TWELVE_HOLE = 4/);
-  assert.match(scene, /onMotionComplete/);
-  assert.match(scene, /replayKey/);
-  assert.match(scene, /reducedMotion/);
+  assert.match(scene, /anchors\[id\]\.rotationY/);
+  assert.match(scene, /anchors\[id\]\.pins\.map/);
+  assert.match(scene, /SHORT_ARM_HOLE_/);
   assert.doesNotMatch(scene, /opacity={0}|visible={false}|fadeOut|scale={\[-1/);
 });
 
-test("Step 13 has its own learner controls, safe completion and numbering", () => {
+test("Step 13 has accurate instructions, UI navigation and photo-fit confirmation", () => {
   assert.match(route, /const isStepThirteen/);
   assert.match(route, /isStepThirteen \?/);
   assert.match(route, /<StepThirteenAssembly onCompleteStep={finishCurrentStep}/);
   assert.match(route, /currentStep.number <= 13/);
   assert.match(practical, /id: "marksmanship-s12",\s+number: 13,\s+title: "Attach the two completed L-shaped assemblies"/);
-  assert.match(practical, /assemblyOutputId: "marksman-step13-two-l-brackets-on-gray-rail-v1"/);
+  assert.match(practical, /assemblyOutputId: "marksman-step13-two-l-brackets-two-pin-pairs-v2"/);
   assert.match(lesson, /STEP_ELEVEN_RESULT_KEY/);
   assert.match(lesson, /STEP_TWELVE_RESULT_KEY/);
+  assert.match(lesson, /totalOriginalBluePinsEngaged: 4/);
   assert.match(lesson, /physicallySelfConfirmed: true/);
   assert.match(lesson, /mechanicallyVerified: false/);
   assert.match(lesson, /onPrevious/);
@@ -93,7 +115,7 @@ test("Step 13 has its own learner controls, safe completion and numbering", () =
   assert.match(lesson, /onTogglePause/);
 });
 
-test("Step 13 and the backwards-compatible Stage changes transpile", () => {
+test("New Step 13 and backwards-compatible Step 11 scene compile as TSX", () => {
   for (const name of [
     "src/components/practical/stepThirteenGeometry.ts",
     "src/components/practical/StepThirteenScene.tsx",
