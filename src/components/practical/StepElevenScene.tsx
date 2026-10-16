@@ -64,10 +64,10 @@ const STEP_EIGHT_FINAL_ROTATION = new Quaternion()
   )));
 
 function Spacer() {
-  // Reuse the same estimated Step 10 brown stopper. After the crossbeam
-  // is moved to -Z, its stopper is INSIDE (+Z, toward frame center) and
-  // the visible endcap must therefore face +Z, not outward under the bridge.
-  return <group name="STEP10_BROWN_SPACER">
+  // The Step 10 brown stopper is mounted INWARD below its grey-side bridge.
+  // Flip only the decorative endcap to face the inside (-Z), retaining the
+  // original spacer geometry and reusing Step 10 final poses in Steps 11-14.
+  return <group name="STEP10_BROWN_SPACER" rotation={[0, Math.PI, 0]}>
     <mesh rotation={[Math.PI / 2, 0, 0]}>
       <cylinderGeometry args={[0.40, 0.40, 0.90, 32]} />
       <meshStandardMaterial color="#99816a" roughness={0.68} />
