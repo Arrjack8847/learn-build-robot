@@ -120,7 +120,7 @@ const marksmanshipSteps: PracticalProject["steps"] = [
     id: "marksmanship-s13",
     number: 14,
     title: "Mount the completed Step 2 motor on Step 13",
-    description: "Photo-guided Step 14: dock the entire prepared motor, axle, disc, connector and 5-hole beam onto four original blue pins protruding from both gray 9-hole beams. Each gray beam's holes 3 and 9 contain pins installed in Step 10 (BLUE_A_6, BLUE_A_12, BLUE_B_6, BLUE_B_12). The axle and disc face the black 3-hole crossbeam. Mounting hole centers and motor seating depth require physical verification.",
+    description: "Photo-guided Step 14: dock the entire prepared motor, axle, disc, connector and 5-hole beam onto four original blue pins protruding from both gray 9-hole beams. Each gray beam's holes 3 and 9 contain pins installed in Step 10 (BLUE_A_6, BLUE_A_12, BLUE_B_6, BLUE_B_12). The axle and disc face the black 3-hole crossbeam. Motor GLB holes match the grey beams' measured 48 x 16 mm pin rectangle; real-plastic press-fit and seating depth still require physical verification.",
     image: "/marksmanship/steps/13.png",
     referenceOnly: false,
     assemblyOutputId: "marksman-step14-step2-motor-step13-four-gray-pins-v1",
