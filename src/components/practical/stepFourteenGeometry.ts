@@ -9,9 +9,10 @@ import type { V3 } from "./stepElevenGeometry";
  * chassis. These four pin identifiers belong to Step 10's two 9-hole GREY
  * rails (their holes 3 and 9), not Step 13's L-bracket bridge pins.
  *
- * Motor GLB mounting-hole centers are not measured/confirmed. These pins
- * have a known 48 mm longitudinal and 16 mm transverse footprint, but
- * verifying that footprint against the physical motor is REQUIRED.
+ * Measured directly from the ORIGINAL motor GLB: circular mounting rims on
+ * the housing's ±12 mm side faces lie at 4 and 52 mm behind the FRONT
+ * output datum, each at transverse ±8 mm (48 x 16 mm rectangle). The
+ * real-kit press-fit and insertion depth still need physical confirmation.
  */
 export const STEP_FOURTEEN_ASSEMBLY_ID = "marksman-step14-step2-motor-step13-four-gray-pins-v1";
 export const STEP_FOURTEEN_RESULT_KEY = "robot:marksmanship:step14:mounted-motor:v1";
@@ -20,6 +21,13 @@ export const STEP_FOURTEEN_MOUNT_PIN_IDS = [
 ] as const satisfies readonly StepTenPart[];
 export const STEP_FOURTEEN_GREY_HOLES = {
   BLUE_A_6: 3, BLUE_A_12: 9, BLUE_B_6: 3, BLUE_B_12: 9,
+} as const;
+/** GLB vertex rings: local body front hole at Y=4, rear at Y=52,
+ * with lateral Z=±8mm; housing side faces X=±12mm. Exact motor part
+ * physical tolerance is NOT implied by these model measurements. */
+export const STEP_FOURTEEN_MOTOR_HOLES_MM = {
+  frontBehindAxleHub: 4, rearBehindAxleHub: 52,
+  transverseOffset: 8, housingFaceOffset: 12,
 } as const;
 export const STEP_FOURTEEN_FINAL_PHASE = 5;
 export const STEP_FOURTEEN_ACTIONS = [
@@ -59,13 +67,13 @@ export function stepFourteenPinWarnings(): string[] {
       !coordinates.every(p => Math.abs(p[2] - coordinates[0]![2]) < 1e-5)) {
     issues.push("The four original grey-rail connectors do not form the expected 48 x 16 mm footprint.");
   }
-  issues.push("Motor GLB hole centers, mounting face and actual connector insertion depth need physical confirmation.");
+  issues.push("GLB mounting holes and four frame pins share a 48 x 16 mm pattern; actual connector seating depth and kit tolerance need physical confirmation.");
   return issues;
 }
 
 /** The motor visual is calibrated at runtime using the visible real GLB body
- * underside. seatZ is chosen so that the housing sits at the grey beam top.
- * This is a visual fit, not a certified model of the four receiving holes.
+ * underside. seatZ seats the measured ±12 mm housing face on the grey beam top.
+ * Four receiving-hole centers are mesh-measured, but press-fit tolerance is not certified.
  */
 export function stepFourteenPose(phase: number, seatZ: number): StepFourteenPose {
   if (!Number.isInteger(phase) || phase < 0 || phase > STEP_FOURTEEN_FINAL_PHASE)
