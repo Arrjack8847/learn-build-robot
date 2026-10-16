@@ -120,7 +120,7 @@ export function StepFourteenAssembly({ onCompleteStep }: { onCompleteStep: () =>
         axleAndDiscFaceBlackThreeHoleCrossbeam: true,
         existingBluePinsUnchanged: true, earlierStepMeshesRetained: true,
         physicalFitConfirmedByLearner: true, mechanicallyVerified: false,
-        mountingHoleCentersModelDerived: false,
+        mountingHoleCentersModelDerived: true, physicalPressFitCertified: false,
         geometryWarnings: warnings,
         completedAt: new Date().toISOString(),
       }));
@@ -198,8 +198,9 @@ export function StepFourteenAssembly({ onCompleteStep }: { onCompleteStep: () =>
       Step 13, both L brackets and every Step 10 blue pin are retained.
       The motor and other Step 2 parts use their original GLB and STL geometry
       with the existing Step 2 assembled placements. This is a photo-guided
-      preview: the real motor mounting holes and insertion depth have not been
-      calibrated from the GLB, so physical verification is required.
+      preview: the four mounting-hole centers are measured from the motor GLB
+      and align with the existing 48 × 16 mm four-pin layout. Exact insertion
+      depth and real-plastic press-fit still require physical verification.
       {warnings.length > 0 ? " " + warnings.join(" ") : ""}
     </p>
   </div>;
