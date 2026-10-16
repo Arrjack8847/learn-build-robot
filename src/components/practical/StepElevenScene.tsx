@@ -64,8 +64,10 @@ const STEP_EIGHT_FINAL_ROTATION = new Quaternion()
   )));
 
 function Spacer() {
-  // Kept as the same clearly illustrative bushing from Step 10.
-  return <group name="STEP10_BROWN_SPACER">
+  // Reuse the same estimated Step 10 brown stopper. Its finished pose is
+  // INSIDE the frame (under Bridge Hole 2), never on its outward/top side.
+  // Flip the rendered endcap so it remains visible from the frame interior.
+  return <group name="STEP10_BROWN_SPACER" rotation={[0, Math.PI, 0]}>
     <mesh rotation={[Math.PI / 2, 0, 0]}>
       <cylinderGeometry args={[0.40, 0.40, 0.90, 32]} />
       <meshStandardMaterial color="#99816a" roughness={0.68} />
