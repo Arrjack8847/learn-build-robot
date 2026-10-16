@@ -146,63 +146,79 @@ test("blue Holes 6 and 12 insert downward, stop FLUSH under white and extend ABO
   assert.ok(lesson.includes("bluePinsVisibleOnBothOuterFaces: false"));
 });
 
-test("Hole 15 black pins and the 3-hole bridge stay gray-side; the stopper seats underneath/inward", () => {
-  const halfWhite = g.STEP_TEN_BEAM_HALF_DEPTH;
-  for (const [unit, installed, finished] of [["A", 6, 7], ["B", 13, 14]]) {
+test("black 3-hole crossbeam is opposite grey; center stopper faces inward", () => {
+  const half = g.STEP_TEN_BEAM_HALF_DEPTH;
+  const finished = g.stepTenPoses(20);
+  const bridge = finished.BRIDGE_3;
+  const outerBridgeFace = bridge.position[2] - half;
+  const innerBridgeFace = bridge.position[2] + half;
+  assert.ok(g.STEP_TEN_GRAY_CENTER_Z > half, "grey rails stay on white +Z face");
+  assert.ok(bridge.position[2] < -half, "black 3-hole bridge must be on opposite white -Z face");
+  assert.ok(innerBridgeFace <= -half, "bridge inner face stays outside white lower surface");
+
+  for (const [unit, installed, assembled] of [["A", 6, 7], ["B", 13, 14]]) {
     const before = g.stepTenPoses(installed - 1);
-    const seated = g.stepTenPoses(installed);
-    const joined = g.stepTenPoses(17);
-    const white = seated["WHITE_" + unit];
-    const gray = g.stepTenPoses(finished)["GRAY_" + unit];
-    const black3 = seated["BLACK_" + unit + "_3"];
-    const black15 = seated["BLACK_" + unit + "_15"];
-    assert.ok(before["BLACK_" + unit + "_15"].position[2] > white.position[2],
-      "the black pin begins ABOVE the white beam");
-    assert.ok(black15.position[2] > white.position[2]);
-    assert.ok(gray.position[2] > white.position[2]);
-    assert.ok(black3.position[2] < white.position[2],
-      "Hole 3 must remain on the OPPOSITE lower face");
-    assert.equal(black15.position[0], g.whiteHoleX(15));
-    assert.ok(joined.BRIDGE_3.position[2] > joined["WHITE_" + unit].position[2]);
-    assert.ok(joined.BRIDGE_3.position[2] > black15.position[2]);
+    const withPin = g.stepTenPoses(installed);
+    const white = withPin["WHITE_" + unit];
+    const grey = g.stepTenPoses(assembled)["GRAY_" + unit];
+    const pin3 = withPin["BLACK_" + unit + "_3"];
+    const pin15 = withPin["BLACK_" + unit + "_15"];
+    assert.ok(grey.position[2] > white.position[2]);
+    assert.ok(bridge.position[2] < white.position[2]);
+    assert.ok(before["BLACK_" + unit + "_15"].position[2] < white.position[2],
+      "Hole 15 pin begins BELOW white, opposite grey");
+    assert.ok(pin15.position[2] < white.position[2], "Hole 15 black pin seats on -Z");
+    assert.ok(pin3.position[2] < white.position[2], "Hole 3 black stays on -Z");
+    assert.equal(pin15.position[0], g.whiteHoleX(15));
+    assert.equal(pin15.position[1], bridge.position[1] + (unit === "A" ? -1 : 1));
+    assert.ok(pin15.position[2] - 1 >= outerBridgeFace - 1e-8,
+      "Hole 15 pin tip must not extend outward past the black crossbeam");
+    assert.ok(pin15.position[2] + 1 <= white.position[2] + half + 1e-8,
+      "Hole 15 connector must not poke out on the grey-beam side");
   }
-  const aligned = g.stepTenPoses(16);
-  const joined = g.stepTenPoses(17);
-  assert.ok(aligned.BRIDGE_3.position[2] > joined.BRIDGE_3.position[2],
-    "3-hole bridge approaches its two pins FROM ABOVE");
-  assert.ok(joined.BRIDGE_3.position[2] - halfWhite >= halfWhite,
-    "3-hole bridge cannot protrude underneath the white beam");
-  const spacer = g.stepTenPoses(19);
-  assert.ok(spacer.BROWN_SPACER.position[2] < joined.BRIDGE_3.position[2],
-    "brown stopper must be UNDER the black 3-hole bridge, facing inward");
-  assert.ok(spacer.CENTER_BLACK.position[2] < joined.BRIDGE_3.position[2],
-    "center connector must approach from the frame-interior (BOTTOM) side");
-  assert.ok(spacer.CENTER_BLACK.position[2] > spacer.BROWN_SPACER.position[2],
-    "black pin must extend upward from the inward stopper into Bridge Hole 2");
-  assert.ok(Math.abs(spacer.BROWN_SPACER.position[2] + 0.45 -
-    (joined.BRIDGE_3.position[2] - halfWhite)) < 1e-10,
-    "inward stopper is seated against the UNDERSIDE of the bridge");
-  assert.ok(spacer.CENTER_BLACK.position[2] + 1 <
-    joined.BRIDGE_3.position[2] + halfWhite,
-    "black center connector must NOT protrude outward above the black bridge");
-  assert.ok(spacer.CENTER_BLACK.position[2] + 1 >
-    joined.BRIDGE_3.position[2],
-    "black center connector must engage the center bridge hole");
-  const before = g.stepTenPoses(18);
-  assert.ok(before.BROWN_SPACER.position[2] < joined.BRIDGE_3.position[2]);
-  assert.ok(before.CENTER_BLACK.position[2] < joined.BRIDGE_3.position[2]);
-  assert.ok(before.CENTER_BLACK.position[2] > before.BROWN_SPACER.position[2],
-    "the prepared pair stays rigid and points upward before mounting");
-  for (const phase of [6, 13, 16, 17])
-    assert.match(g.STEP_TEN_ACTIONS[phase].instruction, /ABOVE|above|SAME SIDE/);
-  assert.match(g.STEP_TEN_ACTIONS[19].instruction, /FROM BELOW/);
+
+  const aligned = g.stepTenPoses(16).BRIDGE_3;
+  assert.ok(aligned.position[2] < bridge.position[2],
+    "bridge travels UPWARD from -Z to its underside position");
+  assert.deepEqual(bridge.rotation, [0, 0, Math.PI / 2]);
+  assert.equal(bridge.position[0], g.whiteHoleX(15));
+
+  const prepared = g.stepTenPoses(18);
+  const stopper = finished.BROWN_SPACER;
+  const pin = finished.CENTER_BLACK;
+  assert.ok(stopper.position[2] > bridge.position[2],
+    "brown stopper sits ABOVE/INWARD of black bridge, not outward underneath");
+  assert.ok(pin.position[2] < stopper.position[2],
+    "center pin extends downward from the inward stopper");
+  assert.ok(prepared.BROWN_SPACER.position[2] > stopper.position[2],
+    "stopper begins INSIDE, ABOVE the bridge");
+  assert.ok(prepared.CENTER_BLACK.position[2] < prepared.BROWN_SPACER.position[2],
+    "prepared black pin points downward");
+  assert.ok(Math.abs(stopper.position[2] - 0.45 - innerBridgeFace) < 1e-10,
+    "stopper base is directly seated against the inward bridge surface");
+  assert.ok(pin.position[2] - 1 >= outerBridgeFace,
+    "center black pin's OUTER tip is recessed, not pointing out of the chassis");
+  assert.ok(pin.position[2] - 1 < innerBridgeFace,
+    "center pin enters the center bridge Hole 2");
+  assert.equal(finished.CENTER_BLACK.position[0], bridge.position[0]);
+  assert.equal(finished.BROWN_SPACER.position[1], bridge.position[1]);
+
+  assert.match(g.STEP_TEN_ACTIONS[6].instruction, /BELOW/);
+  assert.match(g.STEP_TEN_ACTIONS[13].instruction, /BELOW/);
+  assert.match(g.STEP_TEN_ACTIONS[16].instruction, /OPPOSITE SIDE/);
+  assert.match(g.STEP_TEN_ACTIONS[17].instruction, /FROM BELOW/);
+  assert.match(g.STEP_TEN_ACTIONS[19].instruction, /from ABOVE/);
   assert.match(g.STEP_TEN_ACTIONS[20].instruction, /INWARD/);
-  assert.ok(lesson.includes('blackHole15Face: "same-as-gray"'));
-  assert.ok(lesson.includes('threeHoleBridgeFace: "same-as-gray"'));
-  assert.ok(scene.includes('const offset = fromBelow ? -2.25 : 2.25;'));
-  assert.ok(scene.includes('(phase === 19 && (part === "BROWN_SPACER" || part === "CENTER_BLACK"))'));
-  assert.ok(lesson.includes('side: "inward-under-three-hole-bridge"'));
-  assert.ok(lesson.includes('insertion: "bottom-to-top"'));
+  assert.equal(g.stepTenHighlight(6).face, -1);
+  assert.equal(g.stepTenHighlight(13).face, -1);
+  assert.ok(lesson.includes('blackHole15Face: "opposite-gray"'));
+  assert.ok(lesson.includes('threeHoleBridgeFace: "opposite-gray"'));
+  assert.ok(lesson.includes('side: "inward-above-three-hole-bridge"'));
+  assert.ok(lesson.includes('insertion: "top-to-bottom"'));
+  assert.ok(lesson.includes("noConnectorProtrusionBelowBridge: true"));
+  assert.ok(scene.includes('part === "BLACK_A_15" || part === "BLACK_B_15"'));
+  assert.ok(scene.includes('part === "BRIDGE_3" && phase === 17'));
+  assert.ok(scene.includes('STEP_TEN_BLACK_BRIDGE_CENTER_Z + STEP_TEN_BEAM_HALF_DEPTH + 0.06'));
 });
 
 test("Step 10 renders original 3D STL beams and pins with guided motion controls", () => {
