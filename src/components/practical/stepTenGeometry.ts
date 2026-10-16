@@ -181,5 +181,5 @@ export function stepTenHighlight(phase: number): { unit: "A" | "B"; holes: numbe
   if (!isA && !isB) return null;
   const hole = ({ 2: 1, 3: 6, 4: 12, 5: 3, 6: 15, 9: 1, 10: 6, 11: 12, 12: 3, 13: 15 } as Record<number, number>)[phase];
   return { unit: isA ? "A" : "B", holes: hole ? [hole] : [6, 12],
-    face: phase === 2 || phase === 9 || phase === 5 || phase === 12 ? -1 : 1 };
+    face: [2, 5, 6, 9, 12, 13].includes(phase) ? -1 : 1 };
 }
