@@ -77,7 +77,8 @@ const Z_AXIS = new Vector3(0, 0, 1);
 function rigidPose(phase: number, unit: StepThirteenUnit,
   anchors: StepThirteenAnchors): RigidPose {
   // The local X half turn makes long-arm Hole 4 point downward in the
-  // viewer and turns the L normal onto the original gray bridge face.
+  // viewer. Combined with corrected Y rotation, each Hole 4 stopper
+  // points inward (-outward normal), toward the opposite L bracket.
   // Add a reversible Z-axis preparation twist. At alignment it smoothly
   // rotates away; during insertion its orientation stays completely fixed.
   const orientation = new Quaternion()
