@@ -82,7 +82,7 @@ const marksmanshipSteps: PracticalProject["steps"] = [
     id: "marksmanship-photo-step10-v1",
     number: 10,
     title: "Build the Twin Side Beams and Center Bridge",
-    description: "Photo-guided Step 10: build two matching 15-hole white/9-hole gray rail units. For each white beam use blue pins at holes 1, 6 and 12, black pins at holes 3 and 15; mate gray holes 3 and 9 to white holes 6 and 12. Join the Hole 15 ends with a black 3-hole crossbeam on the OPPOSITE side from the grey beams; seat its inward-facing brown stopper at center Hole 2, without extending the connector beyond the outward face. This replaces the reference-only Step 10 teaching slot, without changing the original manual image numbering.",
+    description: "Photo-guided Step 10: build two matching 15-hole white/9-hole gray rail units. For each white beam use blue pins at holes 1, 6 and 12, black pins at holes 3 and 15; mate gray holes 3 and 9 to white holes 6 and 12. Join the Hole 15 ends with a black 3-hole crossbeam on the SAME side as both grey beams; seat the center Hole 2 brown stopper UNDER the bridge pointing INWARD, without extending its black pin out above the bridge. This replaces the reference-only Step 10 teaching slot, without changing the original manual image numbering.",
     assemblyOutputId: "marksman-step10-twin-rail-end-bridge-v1",
     originalManualStepNumbers: [],
   },
