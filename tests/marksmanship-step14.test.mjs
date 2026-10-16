@@ -11,6 +11,42 @@ const preceding = read("src/components/practical/StepThirteenScene.tsx");
 const route = read("src/routes/practical/$projectId.tsx");
 const lessons = read("src/data/practical.ts");
 
+
+test("The original GLB physically contains four circular motor mounting rims at 48 by 16 mm spacing", () => {
+  const buf = readFileSync("3D for marksman/mortor.glb");
+  assert.equal(buf.toString("utf8", 0, 4), "glTF");
+  const jsonLength = buf.readUInt32LE(12);
+  const gltf = JSON.parse(buf.toString("utf8", 20, 20 + jsonLength));
+  const binaryStart = 20 + jsonLength + 8;
+  function faceRingVertexCount(meshIndex, yCenterMm, zCenterMm, motorPartYOffsetMm) {
+    const accessor = gltf.accessors[gltf.meshes[meshIndex].primitives[0].attributes.POSITION];
+    const bufferView = gltf.bufferViews[accessor.bufferView];
+    const start = binaryStart + bufferView.byteOffset + (accessor.byteOffset ?? 0);
+    const stride = bufferView.byteStride ?? 12;
+    let count = 0;
+    for (let i = 0; i < accessor.count; i++) {
+      const offset = start + i * stride;
+      const x = buf.readFloatLE(offset) * 1000;
+      const y = buf.readFloatLE(offset + 4) * 1000 + motorPartYOffsetMm;
+      const z = buf.readFloatLE(offset + 8) * 1000;
+      if (Math.abs(Math.abs(x) - 12) > 0.05) continue;
+      const radius = Math.hypot(y - yCenterMm, z - zCenterMm);
+      if (radius >= 3.25 && radius <= 3.65) count++;
+    }
+    return count;
+  }
+  // Actual 10090.dat front body: two holes at Y=4 mm, Z=+/-8 mm.
+  // Actual 10089.dat rear body, translated +52 mm: two holes at
+  // Y=52 mm, Z=+/-8 mm; each rim has hundreds of sampled vertices.
+  for (const z of [-8, 8]) {
+    assert.ok(faceRingVertexCount(1, 4, z, 0) > 100, "front hole rim at z " + z);
+    assert.ok(faceRingVertexCount(0, 52, z, 52) > 100, "rear hole rim at z " + z);
+  }
+  assert.ok(geometry.includes("frontBehindAxleHub: 4, rearBehindAxleHub: 52"));
+  assert.ok(geometry.includes("transverseOffset: 8, housingFaceOffset: 12"));
+  assert.ok(scene.includes("STEP_FOURTEEN_MOTOR_HOLES_MM.frontBehindAxleHub / 8"));
+});
+
 test("Step 14 targets exactly the four ORIGINAL Step 10 grey-beam blue pins", () => {
   for (const id of ["BLUE_A_6", "BLUE_A_12", "BLUE_B_6", "BLUE_B_12"])
     assert.ok(geometry.includes('"' + id + '"'));
