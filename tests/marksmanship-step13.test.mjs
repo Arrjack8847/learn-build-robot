@@ -64,7 +64,8 @@ test("BOTH short-arm receiving holes in each L are exactly two pitches apart", (
     // point INWARD toward the robot's center, opposite the bridge normal;
     // local +X (Hole 1 -> 3) still spans the same two blue-pin positions.
     assert.ok(Math.abs(Math.cos(rotationY) - outward) < 0.001);
-    assert.ok(Math.abs(-Math.cos(rotationY) - (-outward)) < 0.001);
+    assert.ok((-Math.cos(rotationY)) * outward < -0.99,
+      "Stopper points opposite bridge outward normal, toward robot center");
     assert.ok(Math.abs(Math.sign(pins[1][0] - pins[0][0]) - outward) < 0.001);
   }
   assert.equal(anchors.A.outward, -anchors.B.outward);
