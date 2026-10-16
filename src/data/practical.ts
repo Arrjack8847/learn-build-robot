@@ -119,11 +119,12 @@ const marksmanshipSteps: PracticalProject["steps"] = [
   {
     id: "marksmanship-s13",
     number: 14,
-    title: "Prepare two 5-hole beams",
-    description: "Original manual Step 13: physical operation is pending reconciliation with interactive Step 8. Review the illustration only; do not repeat an already completed attachment.",
+    title: "Mount the completed Step 2 motor on Step 13",
+    description: "Photo-guided Step 14: dock the entire prepared motor, axle, disc, connector and 5-hole beam onto four original blue pins protruding from both gray 9-hole beams. Each gray beam's holes 3 and 9 contain pins installed in Step 10 (BLUE_A_6, BLUE_A_12, BLUE_B_6, BLUE_B_12). The axle and disc face the black 3-hole crossbeam. Mounting hole centers and motor seating depth require physical verification.",
     image: "/marksmanship/steps/13.png",
-    referenceOnly: true,
-    note: { type: "warning", text: "Original manual operation may overlap the separate rectangular-frame assembly. Do not repeat it until photo/kit mapping is verified." },
+    referenceOnly: false,
+    assemblyOutputId: "marksman-step14-step2-motor-step13-four-gray-pins-v1",
+    note: { type: "tip", text: "Original Step 2 and Step 13 parts remain intact. Confirm the motor's four mounting holes and pin depths against the real motor before completing this lesson." },
     originalManualStepNumbers: [13],
   },
   {
