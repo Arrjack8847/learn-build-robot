@@ -95,13 +95,15 @@ export type StepElevenSceneProps = {
   onMotionComplete: () => void;
   /** Optional children in the finished Step 11 common coordinate space (used by Step 13). */
   extraScene?: ReactNode;
+  /** Optional Step 14 motor placed within the original finished Step 10 coordinate frame. */
+  stepTenExtraScene?: ReactNode;
   extraFocus?: V3;
   extraCameraOffset?: V3;
   skipEntryAnimation?: boolean;
 };
 function Stage({ phase, railConfig, frameConfig, stepSixConfig, prepared, paused,
   replayKey, resetCameraKey, reducedMotion, view, onMotionComplete,
-  extraScene, extraFocus, extraCameraOffset, skipEntryAnimation = false }: StepElevenSceneProps) {
+  extraScene, stepTenExtraScene, extraFocus, extraCameraOffset, skipEntryAnimation = false }: StepElevenSceneProps) {
   const loaded = useLoader(STLLoader, SOURCES);
   const mesh = useMemo(() => ({
     beam11: normalize(loaded[0]!, "beam11"),
@@ -285,6 +287,7 @@ function Stage({ phase, railConfig, frameConfig, stepSixConfig, prepared, paused
               </mesh>}
           </group>;
         })}
+        {stepTenExtraScene}
       </group>
       {extraScene}
     </group>
