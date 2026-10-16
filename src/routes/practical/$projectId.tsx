@@ -27,6 +27,7 @@ import { StepTenAssembly } from "@/components/practical/StepTenAssembly";
 import { StepElevenAssembly } from "@/components/practical/StepElevenAssembly";
 import { StepTwelveAssembly } from "@/components/practical/StepTwelveAssembly";
 import { StepThirteenAssembly } from "@/components/practical/StepThirteenAssembly";
+import { StepFourteenAssembly } from "@/components/practical/StepFourteenAssembly";
 import { StepFiveAssembly } from "@/components/practical/StepFiveAssembly";
 import { StepSixAssembly } from "@/components/practical/StepSixAssembly";
 import { Button } from "@/components/ui/button";
@@ -120,7 +121,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const isStepEleven = project.id === "marksmanship" && currentStep.number === 11;
   const isStepTwelve = project.id === "marksmanship" && currentStep.number === 12;
   const isStepThirteen = project.id === "marksmanship" && currentStep.number === 13;
-  const isInteractiveMarksman = project.id === "marksmanship" && currentStep.number >= 1 && currentStep.number <= 13;
+  const isStepFourteen = project.id === "marksmanship" && currentStep.number === 14;
+  const isInteractiveMarksman = project.id === "marksmanship" && currentStep.number >= 1 && currentStep.number <= 14;
   const completedCount = project.steps.filter(step => isStepCompleted(step.id)).length;
   const displayedPercent = Math.round((completedCount / project.steps.length) * 100);
   const helpItem =
@@ -252,6 +254,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
                 <StepTwelveAssembly onCompleteStep={finishCurrentStep} />
               ) : isStepThirteen ? (
                 <StepThirteenAssembly onCompleteStep={finishCurrentStep} />
+              ) : isStepFourteen ? (
+                <StepFourteenAssembly onCompleteStep={finishCurrentStep} />
               ) : currentStep.image ? (
                 <img
                   alt={`${project.title} step ${currentStep.number}: ${currentStep.title}`}
