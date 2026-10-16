@@ -62,7 +62,11 @@ function guided(from: StepTenPose, to: StepTenPose, t: number, phase: number, pa
     part === "BLACK_A_3" || part === "BLACK_B_3" ||
     (phase === 18 && part === "CENTER_BLACK") ||
     (phase === 19 && (part === "CENTER_BLACK" || part === "BROWN_SPACER"));
-  const offset = fromBelow ? -2.25 : 2.25;
+  // Retain main\'s dedicated short clearance path for the inward stopper.
+  // It avoids a deep overshoot while the brown stopper and black pin rise together.
+  const offset = part === "CENTER_BLACK" && phase === 18 ? -0.80
+    : (part === "BROWN_SPACER" || part === "CENTER_BLACK") ? -1.65
+      : fromBelow ? -2.25 : 2.25;
   const aligned: StepTenPose = {
     position: [to.position[0], to.position[1], to.position[2] + offset],
     rotation: to.rotation,
