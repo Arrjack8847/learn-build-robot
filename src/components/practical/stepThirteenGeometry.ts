@@ -51,8 +51,8 @@ export type StepThirteenMount = {
   seated: V3;
   clearance: V3;
   loose: V3;
-  /** Y rotation required for the whole finished Step 12 unit, without mirroring scale. */
-  rotationY: 0 | number;
+  /** Final rigid orientation: first rotate Y, then flip 180 degrees about local X. */
+  rotationY: number;
 };
 export type StepThirteenAnchors = Record<StepThirteenUnit, StepThirteenMount>;
 
@@ -96,13 +96,19 @@ export function stepThirteenAnchors(
       return add(bridgeAt, rotateY(saved.position, yaw));
     }) as [V3, V3];
 
-    // Each pair's spacing MUST be two 8-mm pitches along the bridge X axis.
-    // Mirroring across Y flips X and Z together, preserving the pair's
-    // original physical orientation and Step 12's opposite-face installation.
-    const outward = (-Math.cos(yaw) >= 0 ? 1 : -1) as 1 | -1;
+    // In Step 6, gray bridge sign +Z faces the outside on the FRONT,
+    // sign -Z on the BACK. Step 9 yaw makes that normal cos(yaw).
+    // The old -cos(yaw) put BOTH brackets on the wrong side.
+    const outward = (Math.cos(yaw) >= 0 ? 1 : -1) as 1 | -1;
+    // The Step 12 L short arm runs local +X (Hole 1 at the corner,
+    // Hole 3 at +2). Final Y(yaw) * X(180°) turns the long arm toward
+    // +shared-Y (down on the screen after Step 11's outer Z rotation)
+    // and makes its LOCAL +Z face outward toward the blue pins.
+    // World hole 1 -> 3 is then -outward * 2 along shared X.
+    const xSign = -outward;
     const ordered = [...positions].sort((a, b) =>
-      outward === 1 ? a[0] - b[0] : b[0] - a[0]) as [V3, V3];
-    const rotationY = outward === 1 ? 0 : Math.PI;
+      xSign === 1 ? a[0] - b[0] : b[0] - a[0]) as [V3, V3];
+    const rotationY = outward === -1 ? 0 : Math.PI;
     const normalGap = STEP_THIRTEEN_BRIDGE_HALF_DEPTH +
       STEP_THIRTEEN_L_HALF_DEPTH + STEP_THIRTEEN_SEATING_GAP;
     const first = ordered[0];
@@ -116,6 +122,17 @@ export function stepThirteenAnchors(
     return { pinIds, pins: ordered, outward, seated, clearance, loose, rotationY };
   };
   return { A: make("A"), B: make("B") };
+}
+
+/** Turn each loose, complete L-piece in free space during its alignment.
+ * When the insertion phase starts, its angle is already locked and only
+ * axial translation remains. No independent black pin/bushing rotation.
+ */
+export function stepThirteenUnitTwist(phase: number, unit: StepThirteenUnit): number {
+  if (!Number.isInteger(phase) || phase < 0 || phase > STEP_THIRTEEN_FINAL_PHASE)
+    throw Error("Invalid Step 13 action");
+  if (unit === "A") return phase < 2 ? -Math.PI / 2 : 0;
+  return phase < 4 ? Math.PI / 2 : 0;
 }
 
 export function stepThirteenUnitPosition(
@@ -144,8 +161,8 @@ export function stepThirteenWarnings(anchors: StepThirteenAnchors): string[] {
         Math.abs(pins[1][1] - pins[0][1]) > 0.001 ||
         Math.abs(pins[1][2] - pins[0][2]) > 0.001)
       notes.push(unit + ": pin pair does not match short-arm Holes 1 and 3.");
-    if (Math.sign(gapX) !== outward)
-      notes.push(unit + ": mirrored L direction does not match the connector pair.");
+    if (Math.sign(gapX) !== -outward)
+      notes.push(unit + ": rotated L short-arm direction does not match the connector pair.");
     if (Math.abs(seated[2] - pins[0][2]) < STEP_THIRTEEN_BRIDGE_HALF_DEPTH)
       notes.push(unit + ": L beam intersects the gray bridge face.");
   }
