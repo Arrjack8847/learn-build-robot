@@ -42,7 +42,8 @@ function makeL(source: BufferGeometry) {
 function makePin(source: BufferGeometry) {
   const mesh = source.clone();
   mesh.computeBoundingBox();
-  mesh.translate(...mesh.boundingBox!.getCenter(new Vector3()).multiplyScalar(-1).toArray());
+  const center = mesh.boundingBox!.getCenter(new Vector3());
+  mesh.translate(-center.x, -center.y, -center.z);
   mesh.scale(1 / 8, 1 / 8, 1 / 8);
   mesh.computeVertexNormals();
   return mesh;
