@@ -38,7 +38,7 @@ export const STEP_FOURTEEN_ACTIONS = [
   { title: "Orient motor output toward black crossbeam",
     instruction: "Rotate the complete motor assembly until its axle, round disc and 5-hole beam face TOWARD the black 3-hole crossbeam. Keep the four motor mounting holes directed toward the four blue pins." },
   { title: "Align all four mounting holes",
-    instruction: "Center the motor over the rectangular four-pin pattern, aligning BOTH holes on each side. Approach with clearance. The GLB's mounting-hole positions are approximate until checked against the physical motor." },
+    instruction: "Center the motor over the rectangular four-pin pattern, aligning BOTH holes on each side. Approach with clearance. The four motor mounting-hole centers were measured from the GLB and share the pins' 48 x 16 mm pattern; verify the real physical press-fit and seating depth." },
   { title: "Lower motor straight onto all four pins",
     instruction: "With orientation fixed, lower the whole prepared Step 2 assembly toward the grey beams on a single straight mounting axis. All four existing blue pins should enter their corresponding motor mounting holes together. Do not fade or remove pins." },
   { title: "Inspect motor and four retained blue pins",
