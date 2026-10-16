@@ -59,17 +59,24 @@ test("BOTH short-arm receiving holes in each L are exactly two pitches apart", (
     assert.ok(Math.abs(seated[0] - pins[0][0]) < 0.001);
     assert.ok(Math.abs(seated[1] - pins[0][1]) < 0.001);
     assert.ok((clearance[2] - seated[2]) * outward > 0);
-    assert.equal(rotationY, outward === -1 ? 0 : Math.PI);
-    // Final yaw * X(180°): hole1 -> hole3 goes toward -outward X;
-    // the L long arm points +shared-Y (down after the outer Z flip).
-    assert.ok(Math.abs(Math.cos(rotationY) + outward) < 0.001);
-    assert.ok(Math.abs(Math.sign(pins[1][0] - pins[0][0]) + outward) < 0.001);
+    assert.equal(rotationY, outward === 1 ? 0 : Math.PI);
+    // After Y(rotationY)*X(180°), local +Z (the brown stopper) must
+    // point INWARD toward the robot's center, opposite the bridge normal;
+    // local +X (Hole 1 -> 3) still spans the same two blue-pin positions.
+    assert.ok(Math.abs(Math.cos(rotationY) - outward) < 0.001);
+    assert.ok(Math.abs(-Math.cos(rotationY) - (-outward)) < 0.001);
+    assert.ok(Math.abs(Math.sign(pins[1][0] - pins[0][0]) - outward) < 0.001);
   }
   assert.equal(anchors.A.outward, -anchors.B.outward);
   assert.deepEqual(g.stepThirteenWarnings(anchors).filter(x => !x.includes("real-kit")), []);
   // Different bridges require the L normals to face opposite directions.
   assert.equal(anchors.A.outward, -1);
   assert.equal(anchors.B.outward, 1);
+  assert.equal(anchors.A.rotationY, Math.PI);
+  assert.equal(anchors.B.rotationY, 0);
+  // Opposite-side brown stoppers point toward one another.
+  assert.ok(-Math.cos(anchors.A.rotationY) > 0, "A stopper points +Z inward");
+  assert.ok(-Math.cos(anchors.B.rotationY) < 0, "B stopper points -Z inward");
 });
 
 test("Two prebuilt L units approach, insert and reverse independently", () => {
@@ -122,7 +129,9 @@ test("Step 13 has accurate instructions, UI navigation and photo-fit confirmatio
   assert.match(route, /<StepThirteenAssembly onCompleteStep={finishCurrentStep}/);
   assert.match(route, /currentStep.number <= 13/);
   assert.match(practical, /id: "marksmanship-s12",\s+number: 13,\s+title: "Attach the two completed L-shaped assemblies"/);
-  assert.match(practical, /assemblyOutputId: "marksman-step13-two-l-brackets-two-pin-pairs-v2"/);
+  assert.match(practical, /assemblyOutputId: "marksman-step13-two-l-brackets-two-pin-pairs-inward-stoppers-v3"/);
+  assert.match(lesson, /bothBrownStoppersFaceRobotCenter: true/);
+  assert.match(lesson, /bothLongArmsPointDown: true/);
   assert.match(lesson, /STEP_ELEVEN_RESULT_KEY/);
   assert.match(lesson, /STEP_TWELVE_RESULT_KEY/);
   assert.match(lesson, /totalOriginalBluePinsEngaged: 4/);
