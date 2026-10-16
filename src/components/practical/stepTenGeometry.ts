@@ -19,21 +19,24 @@ export const STEP_TEN_GRAY_CENTER_Z = 1.12;
 export const STEP_TEN_BEAM_HALF_DEPTH = 7.8 / (2 * STEP_TEN_PITCH_MM);
 export const STEP_TEN_BLUE_PIN_HALF_LENGTH = 24 / (2 * STEP_TEN_PITCH_MM);
 export const STEP_TEN_BLUE_TWO_BEAM_CENTER_Z = STEP_TEN_BLUE_PIN_HALF_LENGTH - STEP_TEN_BEAM_HALF_DEPTH;
-/** FIXED: black 3-hole bridge is on the OPPOSITE (-Z) side of the white
- * 15-hole beams from the grey 9-hole beams (+Z), not above the greys.
- * Hole 15's 16 mm black connector seats from below; its exposed outer tip
- * stays just inside the outward (-Z) bridge surface.
+/** User-confirmed: the black 3-hole bridge and grey 9-hole beams must
+ * be on the SAME (+Z) side of their white 15-hole beams. The two Hole 15
+ * black pins enter from +Z to meet the outer holes of the bridge.
  */
-export const STEP_TEN_BLACK_BRIDGE_CENTER_Z = -1.08;
-export const STEP_TEN_BLACK_HOLE15_CENTER_Z = -0.55;
-/** The BROWN STOPPER stays INSIDE the robot (+Z of the now-bottom bridge),
- * with its black connector entering bridge Hole 2 from ABOVE (+Z -> -Z).
- * The black pin's -Z tip stops 0.04 units INSIDE the outside bridge face.
+export const STEP_TEN_BLACK_BRIDGE_CENTER_Z = 1.08;
+/** An 16 mm black pin at centre 0.55 has its outermost tip at 1.55,
+ * just INSIDE the 3-hole bridge's outward (+Z) surface at 1.5675.
  */
-export const STEP_TEN_SPACER_CENTER_Z = STEP_TEN_BLACK_BRIDGE_CENTER_Z +
-  STEP_TEN_BEAM_HALF_DEPTH + 0.45;
-export const STEP_TEN_CENTER_BLACK_PIN_Z = STEP_TEN_BLACK_BRIDGE_CENTER_Z -
-  STEP_TEN_BEAM_HALF_DEPTH + 1 + 0.04;
+export const STEP_TEN_BLACK_HOLE15_CENTER_Z = 0.55;
+/** Brown stopper is inward (-Z) relative to the now-upper bridge,
+ * between the side rails: place it BELOW the bridge and slide its black
+ * connector UPWARD into Bridge Hole 2 from the robot interior.
+ * Its outermost +Z pin tip is recessed beneath the bridge's top surface.
+ */
+export const STEP_TEN_SPACER_CENTER_Z = STEP_TEN_BLACK_BRIDGE_CENTER_Z -
+  STEP_TEN_BEAM_HALF_DEPTH - 0.45;
+export const STEP_TEN_CENTER_BLACK_PIN_Z = STEP_TEN_BLACK_BRIDGE_CENTER_Z +
+  STEP_TEN_BEAM_HALF_DEPTH - 1 - 0.04;
 export const STEP_TEN_BLACK_HOLE3_CENTER_Z = -0.68;
 export const STEP_TEN_WHITE_HOLES = { endBlue: 1, blackFree: 3, grayBlueFirst: 6, grayBlueSecond: 12, blackBridge: 15 } as const;
 export const STEP_TEN_GRAY_HOLES = { first: 3, second: 9 } as const;
@@ -66,21 +69,21 @@ export const STEP_TEN_ACTIONS = [
   { number: "3", title: "First gray mounting pin — Hole 6", instruction: "Insert the blue pin from ABOVE to BELOW into White A Hole 6. Stop with its bottom end FLUSH with the white underside, not sticking out. The upper end remains exposed for Gray Hole 3." },
   { number: "4", title: "Second gray mounting pin — Hole 12", instruction: "Insert the blue pin from ABOVE to BELOW into White A Hole 12. Keep its lower tip FLUSH with the white underside; its top end receives Gray Hole 9." },
   { number: "5", title: "First black pin — Hole 3", instruction: "From the OPPOSITE face of the white beam to its gray-beam mounting side, insert the black connector into White A Hole 3 (NOT Hole 2). Its free end must protrude below the white beam, away from the gray beam." },
-  { number: "6", title: "Bridge black pin — Hole 15", instruction: "Insert the black connector into White A Hole 15 from BELOW, on the OPPOSITE (-Z) SIDE from the grey beam. Leave its lower end available for the black 3-hole joining beam." },
+  { number: "6", title: "Bridge black pin — Hole 15", instruction: "Insert the black pin at White A Hole 15 FROM ABOVE on the SAME (+Z) SIDE as the grey 9-hole beam. Stop without letting its far end extend beyond the black bridge's outward face." },
   { number: "7", title: "Seat first gray 9-hole beam", instruction: "Line Gray A Hole 3 up with White A Hole 6, and Gray A Hole 9 with White A Hole 12. Slide the gray beam onto both blue pins simultaneously until parallel and seated." },
   { number: "8", title: "Position second white beam", instruction: "Place the second white 15-hole beam separately. Use the same hole numbering, counted from its through-blue-pin end." },
   { number: "9", title: "Second end blue pin — Hole 1", instruction: "Insert the blue connector from BELOW to ABOVE into White B Hole 1. Stop centered so BOTH sides of the white beam show the pin." },
   { number: "10", title: "Second unit — Blue Hole 6", instruction: "Insert the blue pin from ABOVE to BELOW at White B Hole 6. The bottom must be FLUSH with the white underside; the upper end later receives Gray B Hole 3." },
   { number: "11", title: "Second unit — Blue Hole 12", instruction: "Insert the second mounting pin from ABOVE to BELOW at White B Hole 12. Its lower tip stays FLUSH with the white underside; the exposed top receives Gray B Hole 9." },
   { number: "12", title: "Second unit — Black Hole 3", instruction: "Insert the black pin into White B Hole 3 (never Hole 2) from the OPPOSITE face to Gray B, leaving its end exposed away from the gray beam." },
-  { number: "13", title: "Second unit — Black Hole 15", instruction: "Insert the black pin from BELOW at White B Hole 15, on the OPPOSITE (-Z) SIDE from the grey beam. Keep its lower end available for the black 3-hole joining beam." },
+  { number: "13", title: "Second unit — Black Hole 15", instruction: "Insert the black pin at White B Hole 15 FROM ABOVE on the SAME (+Z) SIDE as its grey 9-hole beam. Leave its upper end available for the three-hole bridge." },
   { number: "14", title: "Seat second gray 9-hole beam", instruction: "Mount Gray B: its Hole 3 meets White B Hole 6, and its Hole 9 meets White B Hole 12. Both blue pin tops remain visible ABOVE gray; neither pin protrudes underneath white." },
   { number: "15", title: "Align both completed side assemblies", instruction: "Bring the two identical white-and-gray units beside each other with gray faces upward. Their White Hole 15 ends face the common black bridge; free Hole 1 ends stay apart." },
-  { number: "16", title: "Align the black 3-hole bridge", instruction: "Bring the black 3-hole beam BELOW both White Hole 15 pins, on the OPPOSITE SIDE from the grey beams. Bridge Holes 1 and 3 receive those two black pin ends from BELOW. Leave Bridge Hole 2 free for the inward stopper." },
-  { number: "17", title: "Seat the bridge into both ends", instruction: "Raise the black 3-hole joining beam FROM BELOW onto both White Hole 15 black connectors. Bridge Hole 1 receives White A Hole 15; Bridge Hole 3 receives White B Hole 15. The black 3-hole beam must stay BELOW both white beams, opposite grey." },
-  { number: "18", title: "Prepare the inward brown stopper", instruction: "Prepare the brown stopper with its remaining black connector. Because the black 3-hole bridge is BELOW the white beams, orient the exposed center connector DOWNWARD to enter Bridge Hole 2 from the ROBOT-INTERIOR (+Z) side, not from outside." },
-  { number: "19", title: "Fit the stopper inward through Bridge Hole 2", instruction: "Bring the prepared brown stopper + black connector pair from ABOVE the black 3-hole bridge (inside the robot), and slide it DOWNWARD into the middle Bridge Hole 2. The stopper remains ABOVE/INSIDE the crossbeam, never protruding OUTWARD below it." },
-  { number: "20", title: "Inspect the finished Step 10", instruction: "Verify the black 3-hole crossbeam is BELOW/OPPOSITE the grey 9-hole beams. Its two outer holes 1 and 3 stay joined to the white beams' Hole 15 black pins. The brown stopper sits ABOVE/INSIDE the black 3-hole beam at its center Hole 2, facing INWARD; the center black pin must NOT protrude outward below the bridge. Leave all four grey-rail blue motor-mounting pins unchanged." },
+  { number: "16", title: "Align the black 3-hole bridge", instruction: "Bring the black 3-hole crossbeam ABOVE the white beams onto the SAME SIDE as both grey 9-hole rails. Align outer bridge holes 1 and 3 with the two White Hole 15 black pins; keep middle Hole 2 open for the inward stopper." },
+  { number: "17", title: "Seat the bridge into both ends", instruction: "Lower the black 3-hole crossbeam FROM ABOVE onto both black connectors at White Hole 15. Bridge outer holes 1 and 3 attach the two white rails; the crossbeam stays on the SAME (+Z) face as the grey beams." },
+  { number: "18", title: "Prepare the inward brown stopper", instruction: "Prepare the brown stopper with the last black connector on its INSIDE face. The pin must extend UPWARD from the stopper so it can enter middle Bridge Hole 2 from BELOW; the stopper itself stays toward the robot interior." },
+  { number: "19", title: "Fit the stopper inward through Bridge Hole 2", instruction: "Bring the brown stopper and its pre-inserted black pin FROM BELOW (robot interior) and slide UPWARD into Bridge Hole 2. Stop with the brown stopper UNDER the black crossbeam, pointing INWARD, and the black pin not protruding above its outward face." },
+  { number: "20", title: "Inspect the finished Step 10", instruction: "Verify the black 3-hole crossbeam and grey 9-hole beams are on the SAME side of the white beams. The black bridge's outer holes 1 and 3 connect both White Hole 15 pins. The brown stopper is BELOW/INWARD at bridge center Hole 2, not sticking out above the crossbeam. All four original blue motor-mounting pins on the grey beams remain unchanged." },
 ] as const;
 export const STEP_TEN_FINAL_PHASE = STEP_TEN_ACTIONS.length - 1;
 
@@ -105,17 +108,17 @@ export function stepTenValidate(): string[] {
       issues.push("Gray/white mating holes are not coaxial.");
   }
   if (STEP_TEN_PARTS.length !== 17) issues.push("Step 10 must contain exactly 17 pieces.");
-  // This relationship is locked by the user: grey on +Z, black bridge on
-  // OPPOSITE -Z, and brown stopper inward on bridge's +Z side.
+  // Same (+Z) face for grey and black three-hole beams; brown stopper BELOW
+  // the bridge toward the robot (-Z). Do not move any grey-side blue pins.
   if (STEP_TEN_GRAY_CENTER_Z <= STEP_TEN_BEAM_HALF_DEPTH ||
-      STEP_TEN_BLACK_BRIDGE_CENTER_Z >= -STEP_TEN_BEAM_HALF_DEPTH)
-    issues.push("Black 3-hole crossbeam must be opposite the grey beams.");
-  if (STEP_TEN_SPACER_CENTER_Z <= STEP_TEN_BLACK_BRIDGE_CENTER_Z ||
-      STEP_TEN_CENTER_BLACK_PIN_Z >= STEP_TEN_SPACER_CENTER_Z)
-    issues.push("Brown stopper must face inward, above the bottom bridge.");
-  const outwardBridgeFace = STEP_TEN_BLACK_BRIDGE_CENTER_Z - STEP_TEN_BEAM_HALF_DEPTH;
-  if (STEP_TEN_CENTER_BLACK_PIN_Z - 1 < outwardBridgeFace ||
-      STEP_TEN_BLACK_HOLE15_CENTER_Z - 1 < outwardBridgeFace)
+      STEP_TEN_BLACK_BRIDGE_CENTER_Z <= STEP_TEN_BEAM_HALF_DEPTH)
+    issues.push("Black 3-hole crossbeam must be on the SAME side as the grey beams.");
+  if (STEP_TEN_SPACER_CENTER_Z >= STEP_TEN_BLACK_BRIDGE_CENTER_Z ||
+      STEP_TEN_CENTER_BLACK_PIN_Z <= STEP_TEN_SPACER_CENTER_Z)
+    issues.push("Brown stopper must face INWARD below the grey-side bridge.");
+  const outwardBridgeFace = STEP_TEN_BLACK_BRIDGE_CENTER_Z + STEP_TEN_BEAM_HALF_DEPTH;
+  if (STEP_TEN_CENTER_BLACK_PIN_Z + 1 > outwardBridgeFace ||
+      STEP_TEN_BLACK_HOLE15_CENTER_Z + 1 > outwardBridgeFace)
     issues.push("A black bridge connector protrudes outward beyond the crossbeam.");
   return issues;
 }
@@ -153,32 +156,31 @@ export function stepTenPoses(phase: number): Record<StepTenPart, StepTenPose> {
     for (const [hole, index] of ([3, 15] as const).map((h, i) => [h, i] as const)) {
       const id = ("BLACK_" + unit + "_" + hole) as keyof typeof blackPhases;
       result[id] = phase >= blackPhases[id]
-        // Both Hole 3 and Hole 15 black pins sit on the OPPOSITE -Z face
-        // from the grey 9-hole beams; Hole 15 accepts the bridge from below.
+        // Hole 3 pins remain on -Z (opposite grey). Hole 15 pins
+        // sit on +Z, matching the grey beams and the black end crossbeam.
         ? pose([whiteHoleX(hole), y,
           hole === 3 ? STEP_TEN_BLACK_HOLE3_CENTER_Z : STEP_TEN_BLACK_HOLE15_CENTER_Z])
         : pose([whiteHoleX(hole), unit === "A" ? -9 : 9,
-          hole === 3 ? -1.85 : -2.82]);
+          hole === 3 ? -1.85 : 2.82]);
     }
   }
-  // Crossbeam rises FROM BELOW to mate with both Hole 15 black pins,
-  // staying opposite the grey rails. Its center Hole 2 remains open until
-  // the prepared inward brown stopper is installed.
+  // Crossbeam approaches FROM ABOVE, next to and on the same +Z face as
+  // the grey beams, meeting White A/B Hole 15 via outer bridge holes 1/3.
   result.BRIDGE_3 = phase >= 17
     ? pose([7, 0, STEP_TEN_BLACK_BRIDGE_CENTER_Z], [0, 0, Math.PI / 2])
     : phase === 16
-      ? pose([7, 0, STEP_TEN_BLACK_BRIDGE_CENTER_Z - 2.32], [0, 0, Math.PI / 2])
-      : pose([9.5, -4.5, -3.1], [0, 0, Math.PI / 2]);
-  // Prepare INSIDE (+Z): the center black pin extends BELOW the stopper.
-  // Once pre-attached, both pieces translate together DOWNWARD into the
-  // center bridge hole. Their final -Z tips stay within the outer face.
+      ? pose([7, 0, STEP_TEN_BLACK_BRIDGE_CENTER_Z + 2.32], [0, 0, Math.PI / 2])
+      : pose([9.5, -4.5, 3.1], [0, 0, Math.PI / 2]);
+  // The inward brown stopper and black pin approach FROM BELOW the bridge.
+  // During preparation its black pin sits slightly ABOVE the stopper.
+  // On mounting, both move toward +Z into the middle bridge Hole 2.
   result.BROWN_SPACER = phase >= 19
     ? pose([7, 0, STEP_TEN_SPACER_CENTER_Z])
-    : pose([9.7, 5.4, 3.1]);
+    : pose([9.7, 5.4, -3.1]);
   result.CENTER_BLACK = phase >= 19
     ? pose([7, 0, STEP_TEN_CENTER_BLACK_PIN_Z])
-    : phase >= 18 ? pose([9.7, 5.4, 2.715])
-      : pose([10.8, 7.6, 3.8]);
+    : phase >= 18 ? pose([9.7, 5.4, -2.715])
+      : pose([10.8, 7.6, -3.8]);
   return result;
 }
 
@@ -193,5 +195,5 @@ export function stepTenHighlight(phase: number): { unit: "A" | "B"; holes: numbe
   if (!isA && !isB) return null;
   const hole = ({ 2: 1, 3: 6, 4: 12, 5: 3, 6: 15, 9: 1, 10: 6, 11: 12, 12: 3, 13: 15 } as Record<number, number>)[phase];
   return { unit: isA ? "A" : "B", holes: hole ? [hole] : [6, 12],
-    face: [2, 5, 6, 9, 12, 13].includes(phase) ? -1 : 1 };
+    face: [2, 5, 9, 12].includes(phase) ? -1 : 1 };
 }
