@@ -105,6 +105,18 @@ export function stepTenValidate(): string[] {
       issues.push("Gray/white mating holes are not coaxial.");
   }
   if (STEP_TEN_PARTS.length !== 17) issues.push("Step 10 must contain exactly 17 pieces.");
+  // This relationship is locked by the user: grey on +Z, black bridge on
+  // OPPOSITE -Z, and brown stopper inward on bridge's +Z side.
+  if (STEP_TEN_GRAY_CENTER_Z <= STEP_TEN_BEAM_HALF_DEPTH ||
+      STEP_TEN_BLACK_BRIDGE_CENTER_Z >= -STEP_TEN_BEAM_HALF_DEPTH)
+    issues.push("Black 3-hole crossbeam must be opposite the grey beams.");
+  if (STEP_TEN_SPACER_CENTER_Z <= STEP_TEN_BLACK_BRIDGE_CENTER_Z ||
+      STEP_TEN_CENTER_BLACK_PIN_Z >= STEP_TEN_SPACER_CENTER_Z)
+    issues.push("Brown stopper must face inward, above the bottom bridge.");
+  const outwardBridgeFace = STEP_TEN_BLACK_BRIDGE_CENTER_Z - STEP_TEN_BEAM_HALF_DEPTH;
+  if (STEP_TEN_CENTER_BLACK_PIN_Z - 1 < outwardBridgeFace ||
+      STEP_TEN_BLACK_HOLE15_CENTER_Z - 1 < outwardBridgeFace)
+    issues.push("A black bridge connector protrudes outward beyond the crossbeam.");
   return issues;
 }
 const startY = (unit: "A" | "B") => unit === "A" ? -4 : 4;
