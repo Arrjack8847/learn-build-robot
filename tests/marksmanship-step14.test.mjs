@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
+import ts from "typescript";
 
 const read = path => readFileSync(path, "utf8");
 const geometry = read("src/components/practical/stepFourteenGeometry.ts");
@@ -10,6 +11,45 @@ const base = read("src/components/practical/StepElevenScene.tsx");
 const preceding = read("src/components/practical/StepThirteenScene.tsx");
 const route = read("src/routes/practical/$projectId.tsx");
 const lessons = read("src/data/practical.ts");
+const step2Motor = read("src/components/practical/MarksmanMotorAssembly.tsx");
+const sharedMotorGeometry = read("src/components/practical/marksmanAssemblyGeometry.ts");
+const transpiledGeometry = ts.transpileModule(sharedMotorGeometry, {
+  compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 },
+}).outputText;
+const shared = await import("data:text/javascript;base64," +
+  Buffer.from(transpiledGeometry).toString("base64"));
+
+test("Step 2 axle enters only shallowly and disc stays at the OUTER tip", () => {
+  const { STL_MEASUREMENTS_MM, UNVERIFIED_AXIAL_MM, AXIAL_LAYOUT_MM, FRAME, MM_TO_SCENE } = shared;
+  assert.equal(STL_MEASUREMENTS_MM.axle.length, 24);
+  assert.equal(STL_MEASUREMENTS_MM.disc.thickness, 4);
+  assert.equal(UNVERIFIED_AXIAL_MM.axleInsertedInsideMotor, 4);
+  assert.equal(AXIAL_LAYOUT_MM.axleExposed, 20);
+  assert.equal(UNVERIFIED_AXIAL_MM.axleTipBeyondDisc, 1);
+  assert.equal(AXIAL_LAYOUT_MM.discCenterOutsideSocket, 17);
+  assert.equal(AXIAL_LAYOUT_MM.discRearFaceGapFromMotor, 15);
+  const offset = value => -value / MM_TO_SCENE;
+  // Socket is at 0. Outward is -Z; axle has 4 mm inside, 20 mm outside.
+  assert.equal(offset(FRAME.axle.center[2]), 8);
+  assert.equal(FRAME.axle.exposedLength / MM_TO_SCENE, 20);
+  assert.equal(offset(FRAME.disc.center[2]), 17);
+  const axleTip = 20;
+  const discOuterFace = offset(FRAME.disc.center[2]) + STL_MEASUREMENTS_MM.disc.thickness / 2;
+  assert.equal(axleTip - discOuterFace, 1, "A tiny 1 mm shaft tip must remain beyond the disc");
+  assert.equal(offset(FRAME.disc.center[2]) - STL_MEASUREMENTS_MM.disc.thickness / 2, 15,
+    "Disc must leave a clearly visible 15 mm gap before the motor");
+  assert.ok(step2Motor.includes("FRAME.axle.center"), "Step 2 uses shared shallower axle target");
+  assert.ok(step2Motor.includes("DISC_CENTER_Z"), "Step 2 uses shared disc-near-tip target");
+  assert.ok(step2Motor.includes("do NOT push it too deep"));
+  assert.ok(step2Motor.includes("very OUTER TIP"));
+});
+test("Step 14 inherits identical axle, disc, connector and beam poses", () => {
+  for (const modelPose of ["FRAME.axle.center", "DISC_CENTER_Z", "CONNECTOR_COLLAR_Z",
+    "BEAM_CENTRE_X", "BEAM_CENTRE_Y", "BEAM_CENTRE_Z"])
+    assert.ok(scene.includes(modelPose), "Step 14 must reuse " + modelPose);
+  assert.ok(scene.includes("STEP14_COMPLETE_STEP2_RIGID_UNIT"));
+  assert.ok(!scene.includes("axleInsertedInsideMotor: 8"), "Do not restore old deep position");
+});
 
 
 test("The original GLB physically contains four circular motor mounting rims at 48 by 16 mm spacing", () => {
