@@ -255,7 +255,7 @@ function Stage({ phase, replayKey, paused, resetCameraKey, reducedMotion, view, 
     <directionalLight position={[7, -6, 14]} intensity={2} />
     <gridHelper args={[32, 32, "#dbe7ee", "#edf1f6"]}
       rotation={[Math.PI / 2, 0, 0]} position={[0, 0, -2.6]}
-      visible={phase !== 2 && phase !== 9 && phase !== 5 && phase !== 12} />
+      visible={![2, 5, 6, 9, 12, 13, 16, 17].includes(phase)} />
     {STEP_TEN_PARTS.map((id) => {
       const model = STEP_TEN_MODELS[id];
       return <group key={id} name={"STEP10_" + id}
