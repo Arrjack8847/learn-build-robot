@@ -6,7 +6,7 @@ import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import { StepThirteenScene, type StepThirteenSceneProps } from "./StepThirteenScene";
 import { STEP_THIRTEEN_FINAL_PHASE } from "./stepThirteenGeometry";
 import {
-  STEP_FOURTEEN_FINAL_PHASE, stepFourteenFocusWorld, stepFourteenGreyTop,
+  STEP_FOURTEEN_MOTOR_HOLES_MM, stepFourteenFocusWorld, stepFourteenGreyTop,
   stepFourteenPins, stepFourteenPose, type StepFourteenPose,
 } from "./stepFourteenGeometry";
 import {
@@ -27,7 +27,11 @@ export type StepFourteenSceneProps = Omit<StepThirteenSceneProps,
 const MM_TO_TEN_UNITS = 1 / 8;
 const STEP_TWO_TO_TEN_UNITS = 2.5; // Step 2 is 0.05 units/mm; Step 10 is 0.125.
 const METERS_TO_TEN_UNITS = 125;
-const SOCKET_X = 4.25; // candidate near the black 3-hole crossbeam at local x=7
+// GLB front mounting row is 4 mm behind its output hub.
+// Step 10 front blue connector (grey Hole 9) sits at x=+4, so put the
+// original motor output hub at +4 + 4/8 = +4.5. Rear motor holes then
+// fall exactly at +4.5 - 52/8 = -2, matching grey Hole 3 on both rails.
+const SOCKET_X = 4 + STEP_FOURTEEN_MOTOR_HOLES_MM.frontBehindAxleHub / 8;
 const Z_AXIS = new Vector3(0, 0, -1);
 type DockMovement = { from: StepFourteenPose; to: StepFourteenPose; elapsed: number; duration: number };
 
