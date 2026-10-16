@@ -13,8 +13,8 @@ import type { V3 } from "./stepElevenGeometry";
  *
  * The gray bridges, their child pins and Step 11 chassis never move.
  */
-export const STEP_THIRTEEN_ASSEMBLY_ID = "marksman-step13-two-l-brackets-two-pin-pairs-v2";
-export const STEP_THIRTEEN_RESULT_KEY = "robot:marksmanship:step13:l-brackets:v2";
+export const STEP_THIRTEEN_ASSEMBLY_ID = "marksman-step13-two-l-brackets-two-pin-pairs-inward-stoppers-v3";
+export const STEP_THIRTEEN_RESULT_KEY = "robot:marksmanship:step13:l-brackets:v3";
 export const STEP_THIRTEEN_MOUNTS = {
   A: ["STEP5_LONG_PIN_01", "STEP5_LONG_PIN_02"],
   B: ["STEP5_LONG_PIN_03", "STEP5_LONG_PIN_04"],
@@ -29,15 +29,15 @@ export const STEP_THIRTEEN_ACTIONS = [
   { title: "Locate TWO PAIRS of original blue pins",
     instruction: "Find both closely spaced blue connectors protruding from the first gray bridge (the circled pair), then the matching two from the other gray bridge. These are the original four Step 5 long blue pins, not Step 10's widely separated white-rail pins." },
   { title: "Align FIRST L with BOTH blue pins",
-    instruction: "Rotate the entire first prepared L bracket toward the OUTSIDE of its gray bridge, so its long arm hangs downward in the final view. Then align short-arm Holes 1 and 3 with BOTH blue pins. Hole 2 stays empty." },
+    instruction: "Rotate the first complete L bracket onto its gray bridge's outer mounting face, with its long arm pointing downward and its brown stopper facing INWARD toward the robot center. Align short-arm Holes 1 and 3 with BOTH blue pins; Hole 2 stays empty." },
   { title: "Insert both pins into the FIRST L",
     instruction: "After the turn, keep the first L rotation LOCKED. Slide the whole pre-built unit straight inward along both blue-pin axes. Both original blue pins enter short-arm Holes 1 and 3 simultaneously." },
   { title: "Align SECOND mirrored L with its two pins",
-    instruction: "Rotate the complete second L bracket toward the OTHER outside gray-bridge face, so its long arm also hangs downward. Align short-arm Holes 1 and 3 with both original blue pins, retaining the opposite-face Step 12 bushing and black pin." },
+    instruction: "Rotate the second complete L bracket onto the opposite gray-bridge mounting face. Its long arm points downward and its brown stopper faces INWARD toward the first stopper. Align short-arm Holes 1 and 3 with both original pins; Hole 2 stays empty." },
   { title: "Insert both pins into the SECOND L",
     instruction: "After the second turn, keep the mirrored L rotation LOCKED. Slide it straight inward to seat both pins simultaneously, keeping its original black pin and brown bushing rigidly attached." },
   { title: "Inspect all four connections",
-    instruction: "Verify each of TWO L pieces receives TWO real blue pins in short-arm Holes 1 and 3. Both middle Hole 2 positions stay unused. Both Hole 4 black pins and bushings remain installed, with no hidden pins or unwanted protrusion." },
+    instruction: "Verify that each L receives TWO existing blue pins at short-arm Holes 1 and 3, both middle Holes 2 are empty, and both long-arm Hole 4 brown stoppers point INWARD toward one another. The black pins and bushings remain attached and nothing protrudes unexpectedly." },
 ] as const;
 
 export type StepThirteenUnit = "A" | "B";
@@ -101,14 +101,18 @@ export function stepThirteenAnchors(
     // The old -cos(yaw) put BOTH brackets on the wrong side.
     const outward = (Math.cos(yaw) >= 0 ? 1 : -1) as 1 | -1;
     // The Step 12 L short arm runs local +X (Hole 1 at the corner,
-    // Hole 3 at +2). Final Y(yaw) * X(180°) turns the long arm toward
-    // +shared-Y (down on the screen after Step 11's outer Z rotation)
-    // and makes its LOCAL +Z face outward toward the blue pins.
-    // World hole 1 -> 3 is then -outward * 2 along shared X.
-    const xSign = -outward;
+    // Hole 3 at +2). Its long arm runs local -Y, and its Hole 4 brown
+    // stopper projects along local +Z. The rigid Step 13 orientation
+    // Y(rotationY) * X(180°) makes:
+    //   long arm: +shared Y (downward after the viewer's outer Z flip)
+    //   stopper: -outward Z (INWARD toward the center, on BOTH sides)
+    //   short arm 1 -> 3: outward X (two pitches along pin pair)
+    // Reversing the short-arm pin order is NECESSARY to flip the L face
+    // without moving any already-installed blue connector.
+    const xSign = outward;
     const ordered = [...positions].sort((a, b) =>
       xSign === 1 ? a[0] - b[0] : b[0] - a[0]) as [V3, V3];
-    const rotationY = outward === -1 ? 0 : Math.PI;
+    const rotationY = outward === 1 ? 0 : Math.PI;
     const normalGap = STEP_THIRTEEN_BRIDGE_HALF_DEPTH +
       STEP_THIRTEEN_L_HALF_DEPTH + STEP_THIRTEEN_SEATING_GAP;
     const first = ordered[0];
@@ -161,8 +165,14 @@ export function stepThirteenWarnings(anchors: StepThirteenAnchors): string[] {
         Math.abs(pins[1][1] - pins[0][1]) > 0.001 ||
         Math.abs(pins[1][2] - pins[0][2]) > 0.001)
       notes.push(unit + ": pin pair does not match short-arm Holes 1 and 3.");
-    if (Math.sign(gapX) !== -outward)
-      notes.push(unit + ": rotated L short-arm direction does not match the connector pair.");
+    if (Math.sign(gapX) !== outward)
+      notes.push(unit + ": inward-facing L short-arm direction does not match the connector pair.");
+    // Normal of the complete L's Hole 4 stopper after Y(rotationY)*X(PI).
+    // It must point toward the center, opposite this gray bridge's
+    // outward face, without rotating the black pin/bushing independently.
+    const stopperZ = -Math.cos(anchors[unit].rotationY);
+    if (Math.abs(stopperZ + outward) > 0.001)
+      notes.push(unit + ": brown stopper must point inward toward the robot center.");
     if (Math.abs(seated[2] - pins[0][2]) < STEP_THIRTEEN_BRIDGE_HALF_DEPTH)
       notes.push(unit + ": L beam intersects the gray bridge face.");
   }
