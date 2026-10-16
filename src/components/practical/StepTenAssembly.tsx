@@ -62,8 +62,8 @@ export function StepTenAssembly({ onCompleteStep }: { onCompleteStep: () => void
         assemblyId: STEP_TEN_ASSEMBLY_ID,
         whiteBeamHoles: { endBlue: 1, blackFree: 3, blueMounts: [6, 12], blackBridge: 15 },
         blackHole3Face: "opposite-gray",
-        blackHole15Face: "opposite-gray",
-        threeHoleBridgeFace: "opposite-gray",
+        blackHole15Face: "same-as-gray",
+        threeHoleBridgeFace: "same-as-gray",
         blueHole1InsertionDirection: "bottom-to-top-through-both-faces",
         blueHoles6And12InsertionDirection: "top-to-bottom",
         blueHoles6And12WhiteUnderside: "flush-no-protrusion",
@@ -74,8 +74,8 @@ export function StepTenAssembly({ onCompleteStep }: { onCompleteStep: () => void
         bridgeConnections: [{ whiteUnit: "A", whiteHole: 15, bridgeHole: 1 },
           { whiteUnit: "B", whiteHole: 15, bridgeHole: 3 }],
         brownSpacer: { bridgeHole: 2, usesBlackConnector: true,
-          side: "inward-above-three-hole-bridge", insertion: "top-to-bottom",
-          noConnectorProtrusionBelowBridge: true },
+          side: "inward-below-three-hole-bridge", insertion: "bottom-to-top",
+          noConnectorProtrusionAboveBridge: true },
         quantities: STEP_TEN_COMPONENT_COUNTS,
         twoMirroredSideUnits: true,
         stepTenPhotoSequence: "IMG_1779 through IMG_1814",
@@ -98,7 +98,7 @@ export function StepTenAssembly({ onCompleteStep }: { onCompleteStep: () => void
         reducedMotion={reducedMotion} resetCameraKey={resetCameraKey}
         view={view} onMotionComplete={() => setBusy(false)} />}
       status={<span className="rounded-xl border border-white/80 bg-white/95 px-3 py-2 text-xs font-semibold text-[#132654] shadow-sm">
-        Grey rails +Z · Black 3-hole beam opposite −Z · Stopper INSIDE above it
+        Grey rails + black 3-hole beam on SAME SIDE · Stopper INWARD underneath
       </span>}
       tools={<div className="flex flex-wrap items-center gap-2">
         <button type="button" aria-label="Reset Step 10 3D camera"
@@ -157,16 +157,16 @@ export function StepTenAssembly({ onCompleteStep }: { onCompleteStep: () => void
       blue pins at Holes 6 and 12 enter DOWNWARD from above and stop FLUSH with the white
       underside, without sticking out beneath the white beams. Both gray 9-hole beams
       attach at gray holes 3 and 9, with blue tips visible above gray. Black pins at
-      White Hole 3 and Hole 15 black pins BOTH point AWAY from grey. The black 3-hole joining beam
-      is on the OPPOSITE side from the grey 9-hole beams. The brown stopper and its
-      black connector enter middle Bridge Hole 2 FROM ABOVE (inside the robot),
-      staying ABOVE/INWARD relative to the black crossbeam — NOT protruding outward below it.
+      White Hole 3 black pins point AWAY from grey, while White Hole 15 black pins and
+      the black 3-hole joining beam are on the SAME SIDE as both grey 9-hole beams.
+      The brown stopper and its black connector enter center Bridge Hole 2 FROM BELOW,
+      staying UNDER the crossbeam and pointing INWARD, NOT outward above it.
        I understand the spacer 3D mesh and connector seating depths are approximations.
     </label>}
     <p className="px-1 text-[11px] leading-4 text-slate-500">
       The beam and pin meshes are loaded from the repository's original STLs.
       The brown stopper uses an illustrative cylinder because its exact STL has not
-      been identified. Its inside-facing, inward placement above the opposite-side crossbeam is reused
+      been identified. Its inward placement under the same-side grey/black crossbeam is reused
       automatically in Steps 11 through 14.
       The original manual numbering remains unchanged; this is a photograph-based interactive Step 10.
     </p>
