@@ -176,11 +176,11 @@ export function stepTenPoses(phase: number): Record<StepTenPart, StepTenPose> {
   // On mounting, both move toward +Z into the middle bridge Hole 2.
   result.BROWN_SPACER = phase >= 19
     ? pose([7, 0, STEP_TEN_SPACER_CENTER_Z])
-    : pose([9.7, 5.4, -3.1]);
+    : pose([9.7, 5.4, -1.70]);
   result.CENTER_BLACK = phase >= 19
     ? pose([7, 0, STEP_TEN_CENTER_BLACK_PIN_Z])
-    : phase >= 18 ? pose([9.7, 5.4, -2.715])
-      : pose([10.8, 7.6, -3.8]);
+    : phase >= 18 ? pose([9.7, 5.4, -1.30])
+      : pose([10.8, 7.6, -2.20]);
   return result;
 }
 
