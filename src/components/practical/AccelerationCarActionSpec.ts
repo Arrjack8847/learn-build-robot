@@ -6,6 +6,8 @@
  * physical hole centers, axes, fits and insertion depths. No numeric CAD
  * position is fabricated here.
  */
+import { ACCELERATION_STEP6_TO_10_ACTIONS, ACCELERATION_STEP6_TO_10_TITLES, ACCELERATION_STEP6_TO_10_UNVERIFIED_JOINTS } from "./AccelerationCarSteps6to10";
+
 export type GuidedAction = {
   title: string;
   instruction: string;
@@ -32,6 +34,7 @@ export const ACCELERATION_TITLES = [
   "Install two red supports",
   "Install the grey L-shaped bracket",
   "Install the yellow gear and lower axle",
+  ...ACCELERATION_STEP6_TO_10_TITLES,
 ] as const;
 
 /** 6 + 3 + 5 + 4 + 4 = 22 explicit learner actions. */
@@ -112,6 +115,7 @@ export const ACCELERATION_ACTIONS: readonly (readonly GuidedAction[])[] = [
       "Move the yellow gear and silver axle together sideways toward the lower black gear.",
       "Horizontally inward", "The yellow gear is beside the black gear, and the vertical axle remains in BG1.", "Yellow gear + axle", "Actual lower mount (unconfirmed)"),
   ],
+  ...ACCELERATION_STEP6_TO_10_ACTIONS,
 ];
 
 export const ACCELERATION_ACTION_COUNT =
@@ -124,4 +128,5 @@ export const ACCELERATION_UNVERIFIED_JOINTS = [
   "Grey bracket G1 to Red A (proposed R1)",
   "Step 5 lower horizontal axle receiver; BG1 is already occupied",
   "Upper/lower gear compatibility, tooth profile, hub fit and all seating depths",
+  ...ACCELERATION_STEP6_TO_10_UNVERIFIED_JOINTS,
 ] as const;
