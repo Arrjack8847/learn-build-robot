@@ -261,3 +261,32 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* BE STEM READY universal building standard: compact by default, always keep
+   the live 3D action controls and preserve clear space above the floating dock. */
+.assembly-lesson-stage {
+  height: clamp(440px, calc(100svh - 120px), 900px);
+  border-color: #dbeeff;
+  background: #f3faff;
+  box-shadow: 0 8px 28px rgba(22,142,234,.08);
+}
+.assembly-lesson-stage[data-dock-expanded="false"] .assembly-action-card > p {
+  display: none;
+}
+.assembly-lesson-stage[data-dock-expanded="false"] .assembly-lesson-canvas {
+  bottom: clamp(138px, 24%, 180px);
+}
+.assembly-lesson-stage[data-dock-expanded="true"] .assembly-lesson-canvas {
+  bottom: clamp(210px, 35%, 268px);
+}
+.assembly-lesson-dock {
+  width: min(100%, 680px);
+  border-color: #dbeeff;
+  border-radius: 22px;
+  background: rgba(255,255,255,.98);
+}
+@media (max-width:640px) {
+  .assembly-lesson-stage { height: max(440px, calc(100svh - 115px)); }
+  .assembly-lesson-stage[data-dock-expanded="false"] .assembly-lesson-canvas { bottom: 160px; }
+  .assembly-lesson-stage[data-dock-expanded="true"] .assembly-lesson-canvas { bottom: 240px; }
+}
