@@ -50,16 +50,18 @@ test("isolated Acceleration viewer preserves Marksman session behavior", () => {
   assert.doesNotMatch(route, /AccelerationCarScene/);
 });
 
-test("viewer implements whole-manual navigation without invented hole labels", () => {
-  assert.match(viewer, /pageForStep\(n\)/);
+test("viewer implements official-PDF navigation with minimal shared controls", () => {
+  assert.match(viewer, /pageForStep\(firstNotFinished\)/);
   assert.match(viewer, /stepForPage\(page\)/);
-  assert.match(viewer, /Previous/);
-  assert.match(viewer, /Next/);
-  assert.match(viewer, /Restart/);
-  assert.match(viewer, /Fit width/);
-  assert.match(viewer, /Fit page/);
+  assert.match(viewer, /BuildingStudioHeader/);
+  assert.match(viewer, /BuildingStepDrawer/);
+  assert.match(viewer, /BuildingFloatingDock/);
   assert.match(viewer, /onPointerMove/);
-  assert.match(viewer, /pdfDocument\.numPages|loaded\.numPages/);
+  assert.match(viewer, /aria-label="Zoom in"/);
+  assert.match(viewer, /aria-label="Zoom out"/);
+  assert.match(viewer, /Fit whole manual page/);
+  assert.match(viewer, /loaded\.numPages/);
+  assert.match(viewer, /toggleStepCompleted/);
   assert.doesNotMatch(viewer + manual, /Hole [0-9]+|connector-first|3D assembly/i);
 });
 
