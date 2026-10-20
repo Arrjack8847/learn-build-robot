@@ -31,7 +31,10 @@ export function AccelerationCarPdfViewer() {
   const [finished, setFinished] = useState(false);
   const [pdfDocument, setPdfDocument] = useState<PDFDocumentProxy | null>(null);
   const [pdfError, setPdfError] = useState<string | null>(null);
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(() => {
+    const firstNotFinished = steps.find(n => !isStepCompleted(`acceleration-car-pdf-s${n}`));
+    return firstNotFinished ? pageForStep(firstNotFinished) : 2;
+  });
   const [fit, setFit] = useState<PdfFit>("page");
   const [zoom, setZoom] = useState(1);
   const [dimensions, setDimensions] = useState<PdfViewportSize>({ width: 760, height: 540 });
@@ -108,6 +111,7 @@ export function AccelerationCarPdfViewer() {
 
   function openPage(next: number) {
     setPage(Math.max(1, Math.min(ACCELERATION_EXPECTED_PAGES, next)));
+    setDockExpanded(false);
   }
 
   function fitTo(mode: PdfFit) {
@@ -225,7 +229,7 @@ export function AccelerationCarPdfViewer() {
           instruction={ACCELERATION_ILLUSTRATION_NOTE}
           expanded={dockExpanded} onExpandedChange={setDockExpanded}
           onPrevious={() => openPage(page - 1)} previousDisabled={page === 1}
-          onNext={finishCurrentStep}
+          onNext={finishCurrentStep} nextDisabled={!ready || Boolean(pdfError)}
           nextLabel={step === null ? "Start Building" : page === ACCELERATION_EXPECTED_PAGES ? "Finish Robot" : "Done & Next"}
           details={<p className="mt-1 text-xs text-slate-500">Original PDF page {page} of {ACCELERATION_EXPECTED_PAGES}. Zoom or drag the page to inspect details.</p>}
         />
