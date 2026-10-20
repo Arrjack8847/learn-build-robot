@@ -36,8 +36,8 @@ export function AccelerationCarAssembly({ step, onCompleteStep }: {
     return () => query.removeEventListener?.("change", update);
   }, []);
 
-  const actions = ACCELERATION_ACTIONS[step - 1] ?? ACCELERATION_ACTIONS[0];
-  const instruction = actions[phase] ?? actions[0];
+  const actions = ACCELERATION_ACTIONS[step - 1] ?? ACCELERATION_ACTIONS[0]!;
+  const instruction = actions[phase] ?? actions[0]!;
   const lastAction = phase === actions.length - 1;
 
   function nextAction() {
