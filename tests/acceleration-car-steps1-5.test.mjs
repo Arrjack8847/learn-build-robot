@@ -50,8 +50,8 @@ test("Step 1 pin and arm share a moving group after the pre-insertion", () => {
   assert.match(scene, /STEP1_PIN_APPROACH/);
   assert.match(scene, /STEP1_PIN_INSERTED/);
   assert.match(scene, /STEP1_ARM_ALIGNED/);
-  assert.match(scene, /progress < 0\\.58/);
-  assert.match(scene, /<group ref=\\{pin\\} position=/);
+  assert.match(scene, /progress < 0\.58/);
+  assert.match(scene, /<group ref=\{pin\} position=/);
   assert.match(scene, /<ModelMesh model="arm"/);
   assert.match(scene, /<ModelMesh model="bluePin"/);
   assert.doesNotMatch(scene, /id: "blue-pin", step: 1, action: 5/);
