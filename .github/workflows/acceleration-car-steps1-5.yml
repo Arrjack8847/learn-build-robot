@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - feat/acceleration-car-steps1-5-20261020
+      - feat/acceleration-car-guided-actions-20261020
   workflow_dispatch:
 jobs:
   verify:
@@ -13,7 +14,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npm install --no-audit --no-fund
+      - run: npm install --legacy-peer-deps --no-audit --no-fund
+      - name: Guided-action checks
+        run: node --test tests/acceleration-car-steps1-5.test.mjs
       - name: Check TypeScript
         run: npx tsc --noEmit
       - name: Production build
