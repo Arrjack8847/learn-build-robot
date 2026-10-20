@@ -31,7 +31,10 @@ test("assembled parts remain visible when moving past Step 5", () => {
   assert.match(scene, /step >= 6 &&\s*<group position=\{shaftDock\}>/);
   assert.match(scene, /model="yellowGear"/);
   assert.match(scene, /part\.step < step/);
-  assert.match(scene, /id: "second-grey-l-support", step: 6, action: 3/);
+  assert.match(scene, /function StepSixJoint/);
+  assert.match(scene, /phase === 3 && support\.current/);
+  assert.match(scene, /greySupportPrepare, greySupportDock/);
+  assert.match(scene, /greyPinPrepareLocal, greyPinDockLocal/);
   assert.match(scene, /id: "white-5-a", step: 7, action: 5/);
   assert.match(scene, /id: "white-7-a", step: 7, action: 6/);
   assert.match(scene, /id: "white-5-b", step: 8, action: 2/);
