@@ -150,12 +150,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
   }
 
   return (
-    <div className="relative flex h-[100svh] flex-col overflow-hidden bg-white text-[#132654]">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <Cog className="absolute -left-12 top-[34%] size-24 text-[#168eea]/6 sm:size-28" strokeWidth={1.25} />
-        <Puzzle className="absolute -right-9 top-[24%] size-20 rotate-12 text-[#39b54a]/6 sm:size-24" strokeWidth={1.25} />
-        <Rocket className="absolute -right-7 bottom-[19%] size-16 -rotate-12 text-[#ec168c]/6 sm:size-20" strokeWidth={1.25} />
-      </div>
+    <div className="relative flex h-[100svh] flex-col overflow-hidden bg-[#f3faff] text-slate-800">
+
 
       <BuildingStudioHeader title={project.title} step={currentIndex + 1} total={project.steps.length}
         onOpenSteps={() => setStepsOpen(true)} />
@@ -167,7 +163,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
 
       <main ref={lessonScrollArea} className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain">
 
-        <div className="mx-auto w-full max-w-[1540px] px-2 pb-48 pt-2 sm:px-4 sm:pb-48">
+        <div className={isInteractiveMarksman ? "mx-auto w-full max-w-[1540px] px-2 pb-4 pt-2 sm:px-4" : "mx-auto w-full max-w-[1540px] px-2 pb-48 pt-2 sm:px-4"}>
 
 
           <div className="mx-auto w-full max-w-[1540px]">
