@@ -18,7 +18,6 @@ import {
 
 import { RobotIllustration } from "@/components/journey/RobotIllustration";
 import { Marksman3DPreview } from "@/components/practical/Marksman3DPreview";
-import { AccelerationCarAssembly } from "@/components/practical/AccelerationCarAssembly";
 import { StepThreeAssembly } from "@/components/practical/StepThreeAssembly";
 import { StepFourAssembly } from "@/components/practical/StepFourAssembly";
 import { StepSevenRailsAssembly } from "@/components/practical/StepSevenRailsAssembly";
@@ -124,8 +123,6 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const isStepThirteen = project.id === "marksmanship" && currentStep.number === 13;
   const isStepFourteen = project.id === "marksmanship" && currentStep.number === 14;
   const isInteractiveMarksman = project.id === "marksmanship" && currentStep.number >= 1 && currentStep.number <= 14;
-  const isInteractiveAcceleration = project.id === "acceleration-car" && currentStep.number >= 1 && currentStep.number <= 5;
-  const isInteractiveLesson = isInteractiveMarksman || isInteractiveAcceleration;
   const completedCount = project.steps.filter(step => isStepCompleted(step.id)).length;
   const displayedPercent = Math.round((completedCount / project.steps.length) * 100);
   const helpItem =
@@ -174,7 +171,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
       </header>
 
       <main ref={lessonScrollArea} className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain">
-        {isInteractiveLesson && (
+        {isInteractiveMarksman && (
           <nav aria-label="Robot step navigation" className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-slate-100 bg-white/95 px-4 py-2 backdrop-blur sm:px-8">
             <Button
               type="button"
@@ -192,8 +189,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
             </span>
           </nav>
         )}
-        <div className={`mx-auto w-full px-4 pb-4 pt-2.5 sm:px-8 sm:pb-6 sm:pt-4 [@media(max-height:700px)]:pt-2 ${isInteractiveLesson ? "max-w-[1580px]" : "max-w-6xl"}`}>
-          <section className={isInteractiveLesson ? "text-left sm:text-center" : "text-center"}>
+        <div className={`mx-auto w-full px-4 pb-4 pt-2.5 sm:px-8 sm:pb-6 sm:pt-4 [@media(max-height:700px)]:pt-2 ${isInteractiveMarksman ? "max-w-[1580px]" : "max-w-6xl"}`}>
+          <section className={isInteractiveMarksman ? "text-left sm:text-center" : "text-center"}>
             <h1 className="mx-auto max-w-3xl text-[clamp(1.3rem,4vw,2.1rem)] font-black leading-tight tracking-[-0.035em] text-[#132654] [@media(max-height:700px)]:text-[clamp(1.25rem,5.5vw,1.8rem)]">
               {project.title}
             </h1>
@@ -211,13 +208,11 @@ function BuildSession({ project }: { project: PracticalProject }) {
             </div>
           </section>
 
-          <div className={isInteractiveLesson ? "mx-auto mt-2 w-full max-w-[1540px]" : "mx-auto mt-3 grid w-full max-w-5xl gap-3.5 md:mt-5 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-7 [@media(max-height:700px)]:mt-2.5"}>
+          <div className={isInteractiveMarksman ? "mx-auto mt-2 w-full max-w-[1540px]" : "mx-auto mt-3 grid w-full max-w-5xl gap-3.5 md:mt-5 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-7 [@media(max-height:700px)]:mt-2.5"}>
             <div className="min-w-0">
-              <div className={isInteractiveLesson ? "relative w-full min-w-0" : "relative flex w-full items-center justify-center overflow-hidden rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:min-h-[420px] md:rounded-[32px]"}>
-              {!isInteractiveLesson && <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-20" />}
-              {isInteractiveAcceleration ? (
-                <AccelerationCarAssembly key={currentStep.number} step={currentStep.number} onCompleteStep={finishCurrentStep} />
-              ) : project.id === "marksmanship" && currentStep.number <= 2 && preview3D && currentStep.image ? (
+              <div className={isInteractiveMarksman ? "relative w-full min-w-0" : "relative flex w-full items-center justify-center overflow-hidden rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:min-h-[420px] md:rounded-[32px]"}>
+              {!isInteractiveMarksman && <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-20" />}
+              {project.id === "marksmanship" && currentStep.number <= 2 && preview3D && currentStep.image ? (
                 <Marksman3DPreview
                   step={currentStep.number}
                   referenceImage={currentStep.image}
@@ -277,7 +272,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
             </div>
             </div>
 
-            {!isInteractiveLesson && <section className="min-w-0 md:rounded-[30px] md:border md:border-slate-200/90 md:bg-white md:p-7 md:shadow-[0_14px_36px_rgba(20,55,90,0.08)]">
+            {!isInteractiveMarksman && <section className="min-w-0 md:rounded-[30px] md:border md:border-slate-200/90 md:bg-white md:p-7 md:shadow-[0_14px_36px_rgba(20,55,90,0.08)]">
               <p className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] text-[#168eea] sm:text-xs">
                 <CheckCircle2 aria-hidden="true" className="size-4" />
                 Do this now
@@ -358,7 +353,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
         </div>
       </main>
 
-      {!isInteractiveLesson && <footer className="relative z-30 shrink-0 border-t border-slate-100 bg-white/97 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 shadow-[0_-8px_24px_rgba(20,55,90,0.05)] sm:px-8 sm:py-4">
+      {!isInteractiveMarksman && <footer className="relative z-30 shrink-0 border-t border-slate-100 bg-white/97 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 shadow-[0_-8px_24px_rgba(20,55,90,0.05)] sm:px-8 sm:py-4">
         {project.id === "marksmanship" && currentStep.number === 2 && preview3D && !previewStep2Ready && (
           <p className="mx-auto mb-2 max-w-5xl text-center text-xs font-semibold text-[#132654]">
             Complete all five guided 3D actions to continue, or switch to the original manual.
