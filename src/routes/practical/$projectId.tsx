@@ -154,7 +154,9 @@ function BuildSession({ project }: { project: PracticalProject }) {
 
 
       <BuildingStudioHeader title={project.title} step={currentIndex + 1} total={project.steps.length}
-        onOpenSteps={() => setStepsOpen(true)} />
+        onOpenSteps={() => setStepsOpen(true)}
+        onPreviousStep={() => setCurrentIndex(index => Math.max(0, index - 1))}
+        previousDisabled={currentIndex === 0} />
       <BuildingStepDrawer open={stepsOpen} onOpenChange={setStepsOpen}
         title={project.title} activeIndex={currentIndex}
         items={project.steps.map(item => ({id: item.id, label: `Step ${item.number} · ${item.title}`, completed: isStepCompleted(item.id)}))}
