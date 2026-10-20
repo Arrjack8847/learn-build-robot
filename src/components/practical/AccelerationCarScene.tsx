@@ -260,21 +260,21 @@ function Parts({ step, phase, paused, reducedMotion, replayKey, onDone }: {
         <InspectionAction key={`${step}-${phase}-${replayKey}`}
           paused={paused} reducedMotion={reducedMotion} replayKey={replayKey} onDone={onDone}/>}
       {step === 6 && phase < 3 &&
-        <ModelMesh model="largeL" color="#505d66" position={[4.2, -0.38, 5.3]}
+        <ModelMesh model="largeL" color="#505d66" position={[1.86, -0.38, 5.35]}
           rotation={[0, PI, 0]}/>}
-      {step === 7 && (phase === 3 || phase === 4) && <>
-        <ModelMesh model="beam5" color="#edf0f3" position={[-2.5, 1.9, 6.6]}/>
-        <ModelMesh model="beam7" color="#edf0f3" position={[2.5, 1.9, 6.6]}/>
+      {step === 7 && (phase === 3 || phase === 4 || phase === 5) && <>
+        {phase < 5 && <ModelMesh model="beam5" color="#edf0f3" position={[-0.45, 0.14, 6.95]} rotation={[0, 0, PI/2]}/>}
+        <ModelMesh model="beam7" color="#edf0f3" position={[2.50, -1.35, 7.15]}/>
       </>}
-      {step === 8 && (phase === 0 || phase === 1) && <>
-        <ModelMesh model="beam5" color="#edf0f3" position={[5.5, 1.9, 6.6]}/>
-        <ModelMesh model="beam7" color="#edf0f3" position={[2.5, -1.8, 6.6]}/>
+      {step === 8 && (phase === 0 || phase === 1 || phase === 2) && <>
+        {phase < 2 && <ModelMesh model="beam5" color="#edf0f3" position={[5.45, 0.14, 7.05]} rotation={[0, 0, PI/2]}/>}
+        <ModelMesh model="beam7" color="#edf0f3" position={[2.50, 1.63, 7.15]}/>
       </>}
       {step === 9 && phase === 0 &&
-        <ModelMesh model="smallL" color="#df3447" position={[3.6, 2, 5.1]}
+        <ModelMesh model="smallL" color="#df3447" position={[0.8, 0.4, 4.85]}
           rotation={[0, 0, PI/2]}/>}
       {step === 10 && phase === 0 &&
-        <ModelMesh model="smallL" color="#df3447" position={[3.6, 2, -5.1]}
+        <ModelMesh model="smallL" color="#df3447" position={[0.8, 0.4, -4.85]}
           rotation={[0, PI, PI/2]}/>}
     </group>
   );
