@@ -291,45 +291,6 @@ const marksmanshipSteps: PracticalProject["steps"] = [
   },
 ];
 
-const accelerationPreviewSteps: PracticalProject["steps"] = [
-  {
-    id: "acceleration-car-s1",
-    number: 1,
-    title: "Build the lower gear shaft",
-    description: "Connect the lower gear, silver bushings, vertical cross axle, two-hole coupling block, perpendicular arm, and blue pin.",
-    originalManualStepNumbers: [1],
-    note: { type: "tip", text: "Follow the insertion axes. Exact hole centers and seating depths are provisional until the real kit is checked." },
-  },
-  {
-    id: "acceleration-car-s2",
-    number: 2,
-    title: "Add the upper gear",
-    description: "Lower the gray gear along the existing vertical axle, keeping its center cross hole aligned.",
-    originalManualStepNumbers: [2],
-  },
-  {
-    id: "acceleration-car-s3",
-    number: 3,
-    title: "Join two red L-supports",
-    description: "Bring both L-shaped red beams around the silver arm, then insert the connecting axle horizontally.",
-    originalManualStepNumbers: [3],
-  },
-  {
-    id: "acceleration-car-s4",
-    number: 4,
-    title: "Mount the first gray support",
-    description: "Attach a large gray upright L-beam with a side-entering black pin; point the short foot inward.",
-    originalManualStepNumbers: [4],
-  },
-  {
-    id: "acceleration-car-s5",
-    number: 5,
-    title: "Insert the lower drive axle",
-    description: "Fit the yellow retaining collar on the loose silver cross axle, then slide the pair toward the lower gear.",
-    originalManualStepNumbers: [5],
-  },
-];
-
 export const practicalProjects: PracticalProject[] = [
   {
     id: "marksmanship",
@@ -354,24 +315,6 @@ export const practicalProjects: PracticalProject[] = [
     relatedModuleIds: [],
     steps: marksmanshipSteps,
     troubleshooting: [],
-  },
-  {
-    id: "acceleration-car",
-    number: 2,
-    title: "Acceleration Car (Steps 1–5 Preview)",
-    description: "Build the first five steps of the ZMROBO Acceleration Car with rotatable 3D models and guided connector motions.",
-    objective: "Review gear-shaft and early support geometry before implementing the full 18-step model.",
-    difficulty: "Beginner",
-    buildMinutes: 15,
-    safetyNote: "This is an interactive geometry preview, not a certified mechanical instruction set. Check all clearances against the physical kit.",
-    components: ["Black lower gear", "Gray upper gear", "Two axle bushings", "Silver cross axles",
-      "Two-hole coupling block", "Silver mounting arm", "Blue and black pins", "Red and gray L-shaped beams", "Yellow axle collar"],
-    relatedModuleIds: [],
-    steps: accelerationPreviewSteps,
-    troubleshooting: [
-      { question: "Why do the parts look slightly different from the manual?",
-        answer: "The scene uses the available LEGO-compatible and Marksman STL meshes. The original ZMROBO CAD files and hole map are not available; connector lengths and final seating need to be verified." },
-    ],
   },
 ];
 
