@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BookOpen, CheckCircle2, Info, RotateCcw, ScanSearch } from "lucide-react";
+import { BookOpen, CheckCircle2, Info, RotateCcw, ScanSearch, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   AssemblyActionCard, AssemblyPlaybackControls, AssemblyStage,
@@ -13,7 +13,7 @@ const MANUAL_DETAILS = [
   "Step 2: Upper gray gear travels down along the same vertical cross axle.",
   "Step 3: Opposing red L-beams surround the silver arm; the connecting axle travels horizontally.",
   "Step 4: First large gray L-beam stands upright, short foot inward; black pin enters the top joint from outside.",
-  "Step 5: The yellow collar goes onto the loose cross axle before the axle is moved toward the lower gear.",
+  "Step 5: The manual calls for a yellow gear on its own axle. The 8-tooth STL shown is a provisional stand-in; tooth size and axle receiver have not been validated.",
 ] as const;
 
 export function AccelerationCarAssembly({ step, onCompleteStep }: {
@@ -112,7 +112,19 @@ export function AccelerationCarAssembly({ step, onCompleteStep }: {
         dock={
           <div className="space-y-2.5">
             <AssemblyActionCard actionIndex={phase} actionCount={actions.length}
-              title={instruction[0]} instruction={instruction[1]} note={instruction[2]}/>
+              title={instruction.title} instruction={instruction.instruction} note={instruction.direction}/>
+            <section aria-label="Connection details" className="rounded-xl border border-slate-200 bg-white/95 px-3 py-2 text-xs leading-5 text-[#132654]">
+              <div className="flex flex-wrap gap-x-4 gap-y-1">
+                {instruction.sourceHole && <span><strong>Source:</strong> {instruction.sourceHole}</span>}
+                {instruction.targetHole && <span><strong>Target:</strong> {instruction.targetHole}</span>}
+                {instruction.connector && <span><strong>Part:</strong> {instruction.connector}</span>}
+              </div>
+              <p className="mt-1"><strong>Check:</strong> {instruction.check}</p>
+              <p className="mt-1 flex items-start gap-1 font-semibold text-amber-800">
+                <AlertTriangle aria-hidden="true" className="mt-0.5 size-3.5 shrink-0"/>
+                Teaching labels only — actual hole centers and seating depth remain unverified.
+              </p>
+            </section>
             {manualShown && (
               <p className="rounded-lg bg-sky-50 p-2 text-xs leading-5 text-slate-700">
                 {MANUAL_DETAILS[step - 1]}
