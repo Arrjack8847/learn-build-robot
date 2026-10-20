@@ -124,7 +124,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const isStepThirteen = project.id === "marksmanship" && currentStep.number === 13;
   const isStepFourteen = project.id === "marksmanship" && currentStep.number === 14;
   const isInteractiveMarksman = project.id === "marksmanship" && currentStep.number >= 1 && currentStep.number <= 14;
-  const isInteractiveAcceleration = project.id === "acceleration-car" && currentStep.number >= 1 && currentStep.number <= 5;
+  const isInteractiveAcceleration = project.id === "acceleration-car" && currentStep.number >= 1 && currentStep.number <= 10;
   const isInteractiveLesson = isInteractiveMarksman || isInteractiveAcceleration;
   const completedCount = project.steps.filter(step => isStepCompleted(step.id)).length;
   const displayedPercent = Math.round((completedCount / project.steps.length) * 100);
