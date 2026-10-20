@@ -1,0 +1,24 @@
+name: Acceleration Car Steps 6–10 Review
+on:
+  push:
+    branches:
+      - feat/acceleration-car-steps6-10-20261020
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --legacy-peer-deps --no-audit --no-fund
+      - name: Existing steps 1–5 checks
+        run: node --test tests/acceleration-car-steps1-5.test.mjs
+      - name: New steps 6–10 checks
+        run: node --test tests/acceleration-car-steps6-10.test.mjs
+      - name: TypeScript validation
+        run: npx tsc --noEmit
+      - name: Vite build
+        run: npm run build
