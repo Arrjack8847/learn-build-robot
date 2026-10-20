@@ -18,6 +18,7 @@ import {
 
 import { RobotIllustration } from "@/components/journey/RobotIllustration";
 import { Marksman3DPreview } from "@/components/practical/Marksman3DPreview";
+import { AccelerationCarPdfViewer } from "@/components/practical/AccelerationCarPdfViewer";
 import { StepThreeAssembly } from "@/components/practical/StepThreeAssembly";
 import { StepFourAssembly } from "@/components/practical/StepFourAssembly";
 import { StepSevenRailsAssembly } from "@/components/practical/StepSevenRailsAssembly";
@@ -62,6 +63,10 @@ function PracticalProjectPage() {
 
   if (!hydrated) {
     return <BuildLoading />;
+  }
+
+  if (project.id === "acceleration-car") {
+    return <AccelerationCarPdfViewer />;
   }
 
   return <BuildSession key={project.id} project={project} />;
