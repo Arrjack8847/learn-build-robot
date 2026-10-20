@@ -5,9 +5,9 @@ export type PdfFit = "width" | "page";
 export type PdfViewportSize = { width: number; height: number };
 
 export function PdfManualPage({
-  document, pageNumber, fit, zoom, viewport,
+  pdfDocument, pageNumber, fit, zoom, viewport,
 }: {
-  document: PDFDocumentProxy;
+  pdfDocument: PDFDocumentProxy;
   pageNumber: number;
   fit: PdfFit;
   zoom: number;
@@ -25,7 +25,7 @@ export function PdfManualPage({
       try {
         setLoading(true);
         setError(null);
-        const page = await document.getPage(pageNumber);
+        const page = await pdfDocument.getPage(pageNumber);
         if (disposed) return;
 
         const native = page.getViewport({ scale: 1 });
@@ -78,7 +78,7 @@ export function PdfManualPage({
       window.clearTimeout(timeout);
       task?.cancel();
     };
-  }, [document, pageNumber, fit, zoom, viewport.height, viewport.width]);
+  }, [pdfDocument, pageNumber, fit, zoom, viewport.height, viewport.width]);
 
   return (
     <div className="relative shrink-0 overflow-hidden rounded-lg bg-white shadow-[0_8px_30px_rgba(19,38,84,0.12)]"
