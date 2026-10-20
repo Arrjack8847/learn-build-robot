@@ -18,6 +18,7 @@ import {
 
 import { RobotIllustration } from "@/components/journey/RobotIllustration";
 import { Marksman3DPreview } from "@/components/practical/Marksman3DPreview";
+import { AccelerationCarAssembly } from "@/components/practical/AccelerationCarAssembly";
 import { StepThreeAssembly } from "@/components/practical/StepThreeAssembly";
 import { StepFourAssembly } from "@/components/practical/StepFourAssembly";
 import { StepSevenRailsAssembly } from "@/components/practical/StepSevenRailsAssembly";
@@ -123,6 +124,8 @@ function BuildSession({ project }: { project: PracticalProject }) {
   const isStepThirteen = project.id === "marksmanship" && currentStep.number === 13;
   const isStepFourteen = project.id === "marksmanship" && currentStep.number === 14;
   const isInteractiveMarksman = project.id === "marksmanship" && currentStep.number >= 1 && currentStep.number <= 14;
+  const isInteractiveAcceleration = project.id === "acceleration-car" && currentStep.number >= 1 && currentStep.number <= 5;
+  const isInteractiveLesson = isInteractiveMarksman || isInteractiveAcceleration;
   const completedCount = project.steps.filter(step => isStepCompleted(step.id)).length;
   const displayedPercent = Math.round((completedCount / project.steps.length) * 100);
   const helpItem =
@@ -171,7 +174,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
       </header>
 
       <main ref={lessonScrollArea} className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain">
-        {isInteractiveMarksman && (
+        {isInteractiveLesson && (
           <nav aria-label="Robot step navigation" className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-slate-100 bg-white/95 px-4 py-2 backdrop-blur sm:px-8">
             <Button
               type="button"
@@ -189,7 +192,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
             </span>
           </nav>
         )}
-        <div className={`mx-auto w-full px-4 pb-4 pt-2.5 sm:px-8 sm:pb-6 sm:pt-4 [@media(max-height:700px)]:pt-2 ${isInteractiveMarksman ? "max-w-[1580px]" : "max-w-6xl"}`}>
+        <div className={`mx-auto w-full px-4 pb-4 pt-2.5 sm:px-8 sm:pb-6 sm:pt-4 [@media(max-height:700px)]:pt-2 ${isInteractiveLesson ? "max-w-[1580px]" : "max-w-6xl"}`}>
           <section className={isInteractiveMarksman ? "text-left sm:text-center" : "text-center"}>
             <h1 className="mx-auto max-w-3xl text-[clamp(1.3rem,4vw,2.1rem)] font-black leading-tight tracking-[-0.035em] text-[#132654] [@media(max-height:700px)]:text-[clamp(1.25rem,5.5vw,1.8rem)]">
               {project.title}
@@ -212,7 +215,9 @@ function BuildSession({ project }: { project: PracticalProject }) {
             <div className="min-w-0">
               <div className={isInteractiveMarksman ? "relative w-full min-w-0" : "relative flex w-full items-center justify-center overflow-hidden rounded-[26px] border border-[#168eea]/20 bg-[#f7fbff] p-2 shadow-[0_12px_30px_rgba(21,75,125,0.09)] sm:p-3 md:min-h-[420px] md:rounded-[32px]"}>
               {!isInteractiveMarksman && <div aria-hidden="true" className="circuit-grid absolute inset-0 opacity-20" />}
-              {project.id === "marksmanship" && currentStep.number <= 2 && preview3D && currentStep.image ? (
+              {isInteractiveAcceleration ? (
+                <AccelerationCarAssembly key={currentStep.number} step={currentStep.number} onCompleteStep={finishCurrentStep} />
+              ) : project.id === "marksmanship" && currentStep.number <= 2 && preview3D && currentStep.image ? (
                 <Marksman3DPreview
                   step={currentStep.number}
                   referenceImage={currentStep.image}
