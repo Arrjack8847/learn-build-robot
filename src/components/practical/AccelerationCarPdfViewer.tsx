@@ -1,11 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
 import type { PDFDocumentProxy, PDFDocumentLoadingTask } from "pdfjs-dist";
-import { Link } from "@tanstack/react-router";
-import {
-  ArrowLeft, BookOpen, ChevronLeft, ChevronRight, FileText,
-  Maximize2, Minus, Plus, RotateCcw, AlertCircle,
-} from "lucide-react";
+import { useProgress } from "@/context/ProgressContext";
+import { BuildingStudioHeader, BuildingStepDrawer, BuildingFloatingDock, BuildingStudioCompletion } from "./BuildingStudio";
+import { Minus, Plus, Maximize2, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   ACCELERATION_EXPECTED_PAGES,
@@ -27,6 +25,10 @@ function labelForPage(page: number) {
 
 /** One document, one rendered page, and no reauthored assembly content. */
 export function AccelerationCarPdfViewer() {
+  const { isStepCompleted, toggleStepCompleted } = useProgress();
+  const [stepsOpen, setStepsOpen] = useState(false);
+  const [dockExpanded, setDockExpanded] = useState(false);
+  const [finished, setFinished] = useState(false);
   const [pdfDocument, setPdfDocument] = useState<PDFDocumentProxy | null>(null);
   const [pdfError, setPdfError] = useState<string | null>(null);
   const [page, setPage] = useState(2);
@@ -160,85 +162,46 @@ export function AccelerationCarPdfViewer() {
   const step = stepForPage(page);
   const percent = step === null ? 0 : Math.round(step / ACCELERATION_STEP_COUNT * 100);
 
+  function finishCurrentStep() {
+    if (step === null) { openPage(2); return; }
+    toggleStepCompleted(`acceleration-car-pdf-s${step}`, true);
+    if (page === ACCELERATION_EXPECTED_PAGES) setFinished(true);
+    else openPage(page + 1);
+  }
+
+  if (finished) {
+    return <BuildingStudioCompletion title="Acceleration Car" onReview={() => { setFinished(false); openPage(2); }} />;
+  }
+
   return (
-    <div className="flex h-[100dvh] min-h-[420px] flex-col overflow-hidden bg-[#f5f8fc] text-[#132654]">
-      <header className="flex shrink-0 items-center justify-between gap-2 border-b border-slate-200 bg-white px-3 py-2 sm:px-6">
-        <Link to="/practical" aria-label="Return to robot selection"
-          className="flex min-h-11 items-center gap-2 rounded-xl px-2 text-xs font-bold hover:bg-slate-100 sm:text-sm">
-          <ArrowLeft className="size-4" aria-hidden="true"/> <span className="hidden sm:inline">Choose robot</span>
-          <span className="sm:hidden">Back</span>
-        </Link>
-        <div className="min-w-0 text-center">
-          <p className="truncate text-sm font-extrabold sm:text-base">Acceleration Car</p>
-          <p className="text-[11px] font-semibold text-[#168eea]">Official PDF · {labelForPage(page)}</p>
-        </div>
-        <div className="rounded-full bg-[#eaf5ff] px-3 py-1.5 text-xs font-bold text-[#116eaf]">
-          {step === null ? "Cover" : `${step} / ${ACCELERATION_STEP_COUNT}`}
-        </div>
-      </header>
-      <div className="h-1 shrink-0 bg-slate-200" aria-label={`Manual navigation ${percent}%`} role="progressbar"
-        aria-valuenow={percent} aria-valuemin={0} aria-valuemax={100}>
-        <div className="h-full bg-[#168eea] transition-[width] duration-200" style={{width: `${percent}%`}}/>
-      </div>
-
-      <div className="flex min-h-0 flex-1 gap-3 p-2 sm:p-3 lg:p-4">
-        <aside className="hidden w-36 shrink-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white lg:flex xl:w-44"
-          aria-label="Manual step navigation">
-          <p className="border-b px-3 py-3 text-xs font-extrabold">Manual steps</p>
-          <nav className="min-h-0 flex-1 space-y-1 overflow-y-auto p-2" aria-label="Jump to a step">
-            <button type="button" onClick={() => openPage(1)} aria-current={page === 1 ? "page" : undefined}
-              className={`w-full rounded-lg px-3 py-2.5 text-left text-xs font-bold ${page === 1 ? "bg-[#eaf5ff] text-[#0877ca]" : "hover:bg-slate-100"}`}>Cover</button>
-            {steps.map((n) => (
-              <button type="button" key={n} onClick={() => openPage(pageForStep(n))}
-                aria-current={step === n ? "step" : undefined}
-                className={`min-h-10 w-full rounded-lg px-3 py-2.5 text-left text-xs font-bold ${step === n ? "bg-[#168eea] text-white" : "hover:bg-slate-100"}`}>
-                Step {n}
-              </button>
-            ))}
-          </nav>
-        </aside>
-
-        <section className="flex min-w-0 min-h-0 flex-1 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white"
-          aria-label="Original PDF instruction viewer">
-          <div className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-b border-slate-100 px-3 py-2">
-            <div className="flex items-center gap-2">
-              <FileText className="size-4 text-[#168eea]" aria-hidden="true"/>
-              <span className="text-xs font-bold">{labelForPage(page)} · PDF page {page}</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <select aria-label="Jump to manual step" value={page} onChange={(e) => openPage(Number(e.target.value))}
-                className="min-h-10 max-w-28 rounded-lg border border-slate-200 bg-white px-2 text-xs font-bold lg:hidden">
-                <option value={1}>Cover</option>
-                {steps.map((n) => <option key={n} value={pageForStep(n)}>Step {n}</option>)}
-              </select>
-              <Button type="button" size="sm" variant="outline" className="min-h-10 px-2 sm:px-3"
-                onClick={() => fitTo("width")} aria-label="Fit PDF to width">
-                <span className="text-xs">Fit width</span>
-              </Button>
-              <Button type="button" size="sm" variant="outline" className="min-h-10 px-2 sm:px-3"
-                onClick={() => fitTo("page")} aria-label="Fit whole PDF page">
-                <Maximize2 className="size-3.5"/><span className="hidden sm:inline text-xs">Fit page</span>
-              </Button>
-            </div>
+    <div className="flex h-[100dvh] min-h-[420px] flex-col overflow-hidden bg-[#f3faff] text-slate-800">
+      <BuildingStudioHeader title="Acceleration Car" step={step ?? 0} total={ACCELERATION_STEP_COUNT}
+        onOpenSteps={() => setStepsOpen(true)}/>
+      <BuildingStepDrawer open={stepsOpen} onOpenChange={setStepsOpen}
+        title="Acceleration Car" activeIndex={page - 1}
+        items={[{id:"cover",label:"Manual cover"}, ...steps.map(n => ({
+          id: `step-${n}`, label: `Step ${n}`,
+          completed: isStepCompleted(`acceleration-car-pdf-s${n}`),
+        }))]}
+        onSelect={index => openPage(index + 1)}/>
+      <main className="relative min-h-0 flex-1 overflow-hidden bg-[#f3faff] p-2 sm:p-4" aria-label="Acceleration Car building studio">
+        <section aria-label="Official PDF building illustration"
+          className="absolute inset-x-2 top-2 overflow-hidden rounded-[24px] border border-sky-100 bg-[#e8f3fc] shadow-sm sm:inset-x-4 sm:top-4"
+          style={{bottom: dockExpanded ? "222px" : "145px"}}>
+          <div className="absolute right-2 top-2 z-10 flex items-center gap-1 rounded-2xl border border-sky-100 bg-white/95 p-1 shadow-sm sm:right-3 sm:top-3">
+            <Button type="button" variant="ghost" onClick={() => zoomBy(1 / 1.25)}
+              disabled={zoom <= 0.5} aria-label="Zoom out" className="size-11 rounded-xl p-0"><Minus className="size-4"/></Button>
+            <span className="hidden min-w-10 text-center text-xs font-bold text-slate-600 sm:block">{Math.round(zoom * 100)}%</span>
+            <Button type="button" variant="ghost" onClick={() => zoomBy(1.25)}
+              disabled={zoom >= 4} aria-label="Zoom in" className="size-11 rounded-xl p-0"><Plus className="size-4"/></Button>
+            <Button type="button" variant="ghost" onClick={() => fitTo("page")}
+              aria-label="Fit whole manual page" title="Fit page" className="size-11 rounded-xl p-0"><Maximize2 className="size-4"/></Button>
           </div>
-
-          <div className="flex shrink-0 items-center justify-center gap-2 border-b border-slate-100 px-2 py-1.5">
-            <Button type="button" variant="outline" className="size-10 p-0" aria-label="Zoom out"
-              onClick={() => zoomBy(1/1.25)} disabled={zoom <= 0.5}><Minus className="size-4"/></Button>
-            <span className="min-w-16 text-center text-xs font-bold" aria-label="Zoom multiplier">
-              {Math.round(zoom * 100)}%
-            </span>
-            <Button type="button" variant="outline" className="size-10 p-0" aria-label="Zoom in"
-              onClick={() => zoomBy(1.25)} disabled={zoom >= 4}><Plus className="size-4"/></Button>
-            <Button type="button" variant="ghost" className="min-h-10 gap-1 px-2 text-xs font-bold"
-              onClick={() => fitTo("page")} aria-label="Reset zoom"><RotateCcw className="size-3.5"/> Reset</Button>
-          </div>
-
           <div ref={viewportRef}
-            className="relative min-h-0 flex-1 overflow-auto bg-[#e9eff6] p-3 [touch-action:none] cursor-grab active:cursor-grabbing"
+            className="absolute inset-0 overflow-auto p-3 pt-14 [touch-action:none] cursor-grab active:cursor-grabbing sm:p-5 sm:pt-16"
             onPointerDown={onPointerDown} onPointerMove={onPointerMove}
             onPointerUp={onPointerEnd} onPointerCancel={onPointerEnd}
-            aria-label="PDF page. Drag to pan and use two fingers to pinch to zoom.">
+            aria-label="Official PDF page. Drag to pan or pinch with two fingers to zoom.">
             <div className="flex min-h-full w-max min-w-full items-start justify-center">
               {pdfDocument && ready ? (
                 <PdfManualPage pdfDocument={pdfDocument} pageNumber={page} fit={fit}
@@ -251,49 +214,22 @@ export function AccelerationCarPdfViewer() {
                   <Button type="button" variant="outline" onClick={() => setReloadKey(n => n + 1)}>Retry PDF</Button>
                 </div>
               ) : (
-                <div className="m-auto text-center text-xs font-semibold text-slate-600" role="status">
+                <div className="m-auto text-center text-sm font-semibold text-slate-600" role="status">
                   Loading official Acceleration Car manual…
                 </div>
               )}
             </div>
           </div>
         </section>
-
-        <aside className="hidden w-48 shrink-0 flex-col gap-3 overflow-auto rounded-2xl border border-slate-200 bg-white p-4 xl:flex"
-          aria-label="Instruction details">
-          <div className="flex items-center gap-2 text-xs font-extrabold">
-            <BookOpen className="size-4 text-[#168eea]"/> Instructions
-          </div>
-          <p className="text-sm leading-6 text-slate-700">{ACCELERATION_ILLUSTRATION_NOTE}</p>
-          <div className="border-t border-slate-100 pt-3 text-xs leading-5 text-slate-500">
-            All diagrams are reproduced directly from the PDF. Use zoom to inspect the original illustration.
-          </div>
-        </aside>
-      </div>
-
-      <details className="mx-2 shrink-0 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs xl:hidden">
-        <summary className="cursor-pointer font-bold">Instruction details</summary>
-        <p className="pb-1 pt-2 text-slate-700">{ACCELERATION_ILLUSTRATION_NOTE}</p>
-      </details>
-
-      <footer className="flex shrink-0 items-center gap-2 border-t border-slate-200 bg-white px-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 sm:px-6">
-        <Button type="button" variant="outline" className="min-h-12 flex-1 gap-2 sm:flex-none"
-          disabled={page === 1} onClick={() => openPage(page - 1)}>
-          <ChevronLeft className="size-4"/> Previous
-        </Button>
-        <div className="hidden min-w-0 flex-1 flex-col items-center gap-1 sm:flex">
-          <p className="text-xs font-bold">{step === null ? "Manual cover" : `Step ${step} of ${ACCELERATION_STEP_COUNT}`}</p>
-          <p className="text-[11px] text-slate-500">Page {page} of {ACCELERATION_EXPECTED_PAGES}</p>
-        </div>
-        <Button type="button" variant="ghost" className="min-h-12 px-2 text-xs font-semibold"
-          onClick={() => {openPage(2);fitTo("page");}} title="Restart from Step 1">
-          <RotateCcw className="size-4"/><span className="hidden sm:inline">Restart</span>
-        </Button>
-        <Button type="button" className="min-h-12 flex-1 gap-2 bg-[#168eea] font-bold hover:bg-[#0e82dd] sm:flex-none"
-          disabled={page === ACCELERATION_EXPECTED_PAGES} onClick={() => openPage(page + 1)}>
-          Next <ChevronRight className="size-4"/>
-        </Button>
-      </footer>
+        <BuildingFloatingDock label={step === null ? "Manual cover" : `Step ${step}`}
+          instruction={ACCELERATION_ILLUSTRATION_NOTE}
+          expanded={dockExpanded} onExpandedChange={setDockExpanded}
+          onPrevious={() => openPage(page - 1)} previousDisabled={page === 1}
+          onNext={finishCurrentStep}
+          nextLabel={step === null ? "Start Building" : page === ACCELERATION_EXPECTED_PAGES ? "Finish Robot" : "Done & Next"}
+          details={<p className="mt-1 text-xs text-slate-500">Original PDF page {page} of {ACCELERATION_EXPECTED_PAGES}. Zoom or drag the page to inspect details.</p>}
+        />
+      </main>
     </div>
   );
 }
