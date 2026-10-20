@@ -239,7 +239,7 @@ export function AccelerationCarPdfViewer() {
             onPointerDown={onPointerDown} onPointerMove={onPointerMove}
             onPointerUp={onPointerEnd} onPointerCancel={onPointerEnd}
             aria-label="PDF page. Drag to pan and use two fingers to pinch to zoom.">
-            <div className="flex min-h-full min-w-full items-start justify-center">
+            <div className="flex min-h-full w-max min-w-full items-start justify-center">
               {pdfDocument && ready ? (
                 <PdfManualPage pdfDocument={pdfDocument} pageNumber={page} fit={fit}
                   zoom={zoom} viewport={dimensions}/>
