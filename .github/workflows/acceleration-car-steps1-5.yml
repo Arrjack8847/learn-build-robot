@@ -1,0 +1,20 @@
+name: Acceleration Car Steps 1-5 Preview
+on:
+  push:
+    branches:
+      - feat/acceleration-car-steps1-5-20261020
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund
+      - name: Check TypeScript
+        run: npx tsc --noEmit
+      - name: Production build
+        run: npm run build
