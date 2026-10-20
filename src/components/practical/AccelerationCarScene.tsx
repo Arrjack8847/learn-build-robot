@@ -52,10 +52,6 @@ export const ACCELERATION_PIECES: readonly Piece[] = [
     pose: pose([0.5, 1.18, 0], [-PI/2, 0, 0]), approach: [0, 2.6, 0] },
   { id: "top-bush", step: 1, action: 3, model: "bush", color: "#bec8d2",
     pose: pose([0, 2.25, 0], [-PI/2, 0, 0]), approach: [0, 2.2, 0] },
-  { id: "silver-mounting-arm", step: 1, action: 4, model: "arm", color: "#c4cbd3",
-    pose: pose([2, 2.10, 0], [-PI/2, 0, 0]), approach: [0, 2.0, 0] },
-  { id: "blue-pin", step: 1, action: 5, model: "bluePin", color: "#1865c6",
-    pose: pose([1, 1.65, 0], [-PI/2, 0, 0]), approach: [0, 2.6, 0] },
   { id: "upper-spur-gear", step: 2, action: 2, model: "upperGear", color: "#656d75",
     pose: pose([0, 3.48, 0], [-PI/2, 0, 0]), approach: [0, 3.2, 0] },
   { id: "red-left-support", step: 3, action: 1, model: "smallL", color: "#df3447",
@@ -120,6 +116,86 @@ function MovingPiece({ piece, active, paused, reducedMotion, replayKey, onDone }
   return (
     <group ref={holder} position={active ? from : piece.pose.position} rotation={piece.pose.rotation}>
       <ModelMesh model={piece.model} color={piece.color} />
+    </group>
+  );
+}
+
+/**
+ * Step 1 connector-first sequence:
+ *
+ * Action 5: align the blue pin with Hole 2 on the *loose* silver arm,
+ *           then slide it into the arm while keeping its free end exposed.
+ * Action 6: carry arm + pin together; align the pin with the two-hole
+ *           black block and the arm sleeve with the upper bushing; ONLY
+ *           THEN lower the complete group to its installed pose.
+ *
+ * This is a choreography for review-stage surrogate STLs. In particular,
+ * the PIN_INSERTED offset is inherited from the original approximation,
+ * not a physical-kit-calibrated measurement of hole centers.
+ */
+const STEP1_ARM_SEATED: V3 = [2, 2.10, 0];
+const STEP1_ARM_PREPARE: V3 = [4.8, 4.6, 0];
+const STEP1_ARM_ALIGNED: V3 = [2, 4.4, 0];
+const STEP1_PIN_APPROACH: V3 = [-1, 1.3, 0];
+const STEP1_PIN_HOVER: V3 = [-1, 0.32, 0];
+const STEP1_PIN_INSERTED: V3 = [-1, -0.45, 0];
+const clamp01 = (value: number) => Math.min(1, Math.max(0, value));
+
+function StepOnePreparedArm({ step, phase, paused, reducedMotion, replayKey, onDone }: {
+  step: number; phase: number; paused: boolean; reducedMotion: boolean;
+  replayKey: number; onDone: () => void;
+}) {
+  const holder = useRef<Group>(null);
+  const pin = useRef<Group>(null);
+  const elapsed = useRef(0);
+  const notified = useRef(false);
+  const preparing = step === 1 && phase === 4;
+  const joining = step === 1 && phase === 5;
+
+  useEffect(() => {
+    elapsed.current = 0;
+    notified.current = false;
+    holder.current?.position.set(...(preparing || joining ? STEP1_ARM_PREPARE : STEP1_ARM_SEATED));
+    pin.current?.position.set(...(preparing ? STEP1_PIN_APPROACH : STEP1_PIN_INSERTED));
+  }, [step, phase, replayKey, preparing, joining]);
+
+  useFrame((_, delta) => {
+    if ((!preparing && !joining) || paused || notified.current) return;
+    elapsed.current = reducedMotion ? 2.25 : Math.min(2.25, elapsed.current + Math.min(delta, 0.06));
+    const progress = clamp01(elapsed.current / 2.25);
+
+    if (preparing && pin.current) {
+      // Approach -> pause above Arm Hole 2 -> insert along the hole axis.
+      const advance = ease(clamp01(progress / 0.4));
+      const seat = ease(clamp01((progress - 0.55) / 0.45));
+      pin.current.position.set(...(progress < 0.55
+        ? blend(STEP1_PIN_APPROACH, STEP1_PIN_HOVER, advance)
+        : blend(STEP1_PIN_HOVER, STEP1_PIN_INSERTED, seat)));
+    }
+
+    if (joining && holder.current) {
+      // The pin never detaches or independently moves during mating.
+      // Approach from outside -> align above both holes -> vertical insertion.
+      const position = progress < 0.42
+        ? blend(STEP1_ARM_PREPARE, STEP1_ARM_ALIGNED, ease(clamp01(progress / 0.42)))
+        : progress < 0.58
+          ? STEP1_ARM_ALIGNED
+          : blend(STEP1_ARM_ALIGNED, STEP1_ARM_SEATED, ease(clamp01((progress - 0.58) / 0.42)));
+      holder.current.position.set(...position);
+    }
+
+    if (progress >= 1) {
+      notified.current = true;
+      onDone();
+    }
+  });
+
+  return (
+    <group ref={holder} position={preparing || joining ? STEP1_ARM_PREPARE : STEP1_ARM_SEATED}>
+      <ModelMesh model="arm" color="#c4cbd3" rotation={[-PI / 2, 0, 0]} />
+      <group ref={pin} position={preparing ? STEP1_PIN_APPROACH : STEP1_PIN_INSERTED}>
+        <ModelMesh model="bluePin" color="#1865c6" rotation={[-PI / 2, 0, 0]} />
+      </group>
     </group>
   );
 }
@@ -207,6 +283,18 @@ function Parts({ step, phase, paused, reducedMotion, replayKey, onDone }: {
         <InspectionAction key={`${step}-${phase}-${replayKey}`}
           paused={paused} reducedMotion={reducedMotion} replayKey={replayKey} onDone={onDone}/>}
 
+      {((step === 1 && phase >= 4) || step > 1) && (
+        <StepOnePreparedArm step={step} phase={phase} paused={paused}
+          reducedMotion={reducedMotion} replayKey={replayKey} onDone={onDone}/>
+      )}
+      {/* Temporary alignment ring for proposed Block Hole 2. Placement is
+          illustrative until kit-specific hole-center coordinates are measured. */}
+      {step === 1 && phase === 5 && (
+        <mesh position={[1, 1.82, 0]} rotation={[-PI / 2, 0, 0]}>
+          <torusGeometry args={[0.23, 0.035, 8, 28]}/>
+          <meshBasicMaterial color="#f59e0b" depthTest={false}/>
+        </mesh>
+      )}
       {ACCELERATION_PIECES.filter(part => part.step < step || (part.step === step && part.action <= phase))
         .map(part =>
           <MovingPiece key={part.id + (part.step === step && part.action === phase ? "-"+replayKey : "")}
