@@ -14,6 +14,11 @@ const MANUAL_DETAILS = [
   "Step 3: Opposing red L-beams surround the silver arm; the connecting axle travels horizontally.",
   "Step 4: First large gray L-beam stands upright, short foot inward; black pin enters the top joint from outside.",
   "Step 5: The manual calls for a yellow gear on its own axle. The 8-tooth STL shown is a provisional stand-in; tooth size and axle receiver have not been validated.",
+  "Step 6 (manual PDF p. 7): Add Grey Support B opposite the first support; connect upper black pin and lower silver axle at the same time.",
+  "Step 7 (manual PDF p. 8): Add two cross axles, a black connector, one blue pin, and the first white five-hole and seven-hole beams.",
+  "Step 8 (manual PDF p. 9): Add the remaining two white beams to finish the chassis frame; check all inner black connections.",
+  "Step 9 (manual PDF p. 10): Install Red Upright A using an upper axle and a lower blue-pin joint to the inner black support.",
+  "Step 10 (manual PDF p. 11): Install the opposite mirrored red upright and its lower blue-pin joint.",
 ] as const;
 
 export function AccelerationCarAssembly({ step, onCompleteStep }: {
@@ -70,7 +75,7 @@ export function AccelerationCarAssembly({ step, onCompleteStep }: {
       <div className="flex flex-wrap items-center justify-between gap-2 px-1">
         <div>
           <p className="text-[11px] font-black uppercase tracking-[.14em] text-[#168eea]">
-            Acceleration Car · Review build 1–5
+            Acceleration Car · Guided review 1–10
           </p>
           <h2 className="text-sm font-extrabold text-[#132654] sm:text-lg">
             Step {step}: {ACCELERATION_TITLES[step - 1]}
@@ -89,7 +94,7 @@ export function AccelerationCarAssembly({ step, onCompleteStep }: {
         status={
           <div className="rounded-xl border border-amber-200 bg-white/95 px-3 py-2 text-[11px] font-semibold leading-4 text-amber-800 shadow-sm">
             <Info aria-hidden="true" className="mr-1 inline size-3.5"/>
-            Prototype: hole positions and press-fit depths need checking against the kit.
+            Prototype: mesh positions, hole numbers and seating depths are not mechanically verified.
           </div>
         }
         tools={
@@ -122,7 +127,7 @@ export function AccelerationCarAssembly({ step, onCompleteStep }: {
               <p className="mt-1"><strong>Check:</strong> {instruction.check}</p>
               <p className="mt-1 flex items-start gap-1 font-semibold text-amber-800">
                 <AlertTriangle aria-hidden="true" className="mt-0.5 size-3.5 shrink-0"/>
-                Teaching labels only — actual hole centers and seating depth remain unverified.
+                Teaching labels only — verify hole centers, axes, and insertion depth on the physical kit.
               </p>
             </section>
             {manualShown && (
@@ -148,7 +153,7 @@ export function AccelerationCarAssembly({ step, onCompleteStep }: {
         }
       />
       <p className="px-1 text-center text-[11px] leading-4 text-slate-500">
-        Drag to rotate · Pinch or scroll to zoom · Use Previous Action to review. Previously connected parts remain in place.
+        Drag to rotate · Pinch or scroll to zoom · Use Previous Action to review. Previously connected parts remain visible as you move to Steps 6–10.
       </p>
     </div>
   );
