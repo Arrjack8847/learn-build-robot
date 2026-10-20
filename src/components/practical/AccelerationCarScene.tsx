@@ -193,6 +193,14 @@ function StepOnePreparedArm({ step, phase, paused, reducedMotion, replayKey, onD
   return (
     <group ref={holder} position={preparing || joining ? STEP1_ARM_PREPARE : STEP1_ARM_SEATED}>
       <ModelMesh model="arm" color="#c4cbd3" rotation={[-PI / 2, 0, 0]} />
+      {/* Provisional pre-insertion guide at the arm's proposed Hole 2 axis.
+          This is not a measured ZMROBO CAD anchor. */}
+      {preparing && (
+        <mesh position={[-1, -0.08, 0]} rotation={[-PI / 2, 0, 0]}>
+          <torusGeometry args={[0.23, 0.035, 8, 28]}/>
+          <meshBasicMaterial color="#06b6d4" depthTest={false}/>
+        </mesh>
+      )}
       <group ref={pin} position={preparing ? STEP1_PIN_APPROACH : STEP1_PIN_INSERTED}>
         <ModelMesh model="bluePin" color="#1865c6" rotation={[-PI / 2, 0, 0]} />
       </group>
