@@ -10,9 +10,9 @@ export type GuidedAction = {
   title: string;
   instruction: string;
   direction: string;
-  sourceHole?: string;
-  targetHole?: string;
-  connector?: string;
+  sourceHole: string | undefined;
+  targetHole: string | undefined;
+  connector: string | undefined;
   check: string;
   /** Physical geometry has not yet been validated against the ZMROBO kit. */
   geometryVerified: false;
