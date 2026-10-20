@@ -328,6 +328,36 @@ const accelerationPreviewSteps: PracticalProject["steps"] = [
     description: "Fit the yellow retaining collar on the loose silver cross axle, then slide the pair toward the lower gear.",
     originalManualStepNumbers: [5],
   },
+  {
+    id: "acceleration-car-s6", number: 6,
+    title: "Install the opposite grey L-shaped support",
+    description: "Attach the second grey support with a top black pin and lower silver axle.",
+    originalManualStepNumbers: [6],
+  },
+  {
+    id: "acceleration-car-s7", number: 7,
+    title: "Build the first white chassis connection",
+    description: "Fit the two cross axles, a black connector, blue pin, and first 5-hole and 7-hole white beams.",
+    originalManualStepNumbers: [7],
+  },
+  {
+    id: "acceleration-car-s8", number: 8,
+    title: "Complete the white chassis frame",
+    description: "Attach the remaining 5-hole and 7-hole white beams; inspect the complete frame.",
+    originalManualStepNumbers: [8],
+  },
+  {
+    id: "acceleration-car-s9", number: 9,
+    title: "Install the first red upright",
+    description: "Join the first red upright to the upper axle and inner black support with a blue pin.",
+    originalManualStepNumbers: [9],
+  },
+  {
+    id: "acceleration-car-s10", number: 10,
+    title: "Install the opposite red upright",
+    description: "Mirror the opposite upright and connect its own inward-facing blue pin.",
+    originalManualStepNumbers: [10],
+  },
 ];
 
 export const practicalProjects: PracticalProject[] = [
@@ -358,14 +388,14 @@ export const practicalProjects: PracticalProject[] = [
   {
     id: "acceleration-car",
     number: 2,
-    title: "Acceleration Car (Steps 1–5 Preview)",
-    description: "Build the first five steps of the ZMROBO Acceleration Car with rotatable 3D models and guided connector motions.",
-    objective: "Review gear-shaft and early support geometry before implementing the full 18-step model.",
+    title: "Acceleration Car (Steps 1–10 Preview)",
+    description: "Review the first ten steps of the ZMROBO Acceleration Car with rotatable 3D models and guided connector motions.",
+    objective: "Review gear and early chassis assembly geometry before completing and validating the full 18-step model.",
     difficulty: "Beginner",
-    buildMinutes: 15,
+    buildMinutes: 30,
     safetyNote: "This is an interactive geometry preview, not a certified mechanical instruction set. Check all clearances against the physical kit.",
     components: ["Black lower gear", "Gray upper gear", "Two axle bushings", "Silver cross axles",
-      "Two-hole coupling block", "Silver mounting arm", "Blue and black pins", "Red and gray L-shaped beams", "Yellow axle collar"],
+      "Two-hole coupling block", "Silver mounting arm", "Blue and black pins", "Red and gray L-shaped beams", "Yellow axle collar", "White 5-hole and 7-hole beams", "Red upright supports"],
     relatedModuleIds: [],
     steps: accelerationPreviewSteps,
     troubleshooting: [
