@@ -91,6 +91,19 @@ export function AccelerationCarPdfViewer() {
     }
   }, [page]);
 
+  useEffect(() => {
+    const element = viewportRef.current;
+    if (!element) return;
+    const handleWheel = (event: WheelEvent) => {
+      if (!event.ctrlKey && !event.metaKey) return;
+      event.preventDefault();
+      const multiplier = event.deltaY < 0 ? 1.1 : 1 / 1.1;
+      setZoom((current) => Math.max(0.5, Math.min(4, Math.round(current * multiplier * 100) / 100)));
+    };
+    element.addEventListener("wheel", handleWheel, { passive: false });
+    return () => element.removeEventListener("wheel", handleWheel);
+  }, []);
+
   function openPage(next: number) {
     setPage(Math.max(1, Math.min(ACCELERATION_EXPECTED_PAGES, next)));
   }
@@ -225,12 +238,6 @@ export function AccelerationCarPdfViewer() {
             className="relative min-h-0 flex-1 overflow-auto bg-[#e9eff6] p-3 [touch-action:none] cursor-grab active:cursor-grabbing"
             onPointerDown={onPointerDown} onPointerMove={onPointerMove}
             onPointerUp={onPointerEnd} onPointerCancel={onPointerEnd}
-            onWheel={(e) => {
-              if (e.ctrlKey || e.metaKey) {
-                e.preventDefault();
-                zoomBy(e.deltaY < 0 ? 1.1 : 1 / 1.1);
-              }
-            }}
             aria-label="PDF page. Drag to pan and use two fingers to pinch to zoom.">
             <div className="flex min-h-full min-w-full items-start justify-center">
               {pdfDocument && ready ? (
