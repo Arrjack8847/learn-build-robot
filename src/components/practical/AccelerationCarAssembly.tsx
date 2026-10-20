@@ -9,7 +9,7 @@ import {
 } from "./AccelerationCarScene";
 
 const MANUAL_DETAILS = [
-  "Step 1: Gear at the bottom; silver axle upright; blue pin enters the adjacent coupling-block opening from above.",
+  "Step 1: Connector-first rule. Insert the blue pin into Hole 2 of the loose silver arm FIRST, keeping its free end exposed. Then align that pin with Black Block Hole 2 and align Arm Hole 1 with the upper bushing. Lower the arm and attached pin together.",
   "Step 2: Upper gray gear travels down along the same vertical cross axle.",
   "Step 3: Opposing red L-beams surround the silver arm; the connecting axle travels horizontally.",
   "Step 4: First large gray L-beam stands upright, short foot inward; black pin enters the top joint from outside.",
