@@ -42,7 +42,7 @@ export function AssemblyLessonHeader({
         <p className="text-[11px] font-black uppercase tracking-[0.13em] text-[#116eaf]">
           Marksmanship Robot · Step {step} of 32
         </p>
-        <p className="mt-0.5 text-sm font-extrabold text-[#132654] sm:text-lg">{title}</p>
+        <p className="mt-0.5 text-sm font-extrabold text-[#334155] sm:text-lg">{title}</p>
       </div>
       <div className="flex items-center gap-2">
         {actionCount !== undefined && actionIndex !== undefined && (
@@ -74,7 +74,7 @@ export function AssemblyActionCard({
           ))}
         </div>
       </div>
-      <h2 className="text-sm font-extrabold leading-5 text-[#132654] sm:text-base">{title}</h2>
+      <h2 className="text-sm font-extrabold leading-5 text-[#334155] sm:text-base">{title}</h2>
       <p className="text-sm leading-5 text-slate-700">{instruction}</p>
       {note && <p className="text-[11px] leading-4 text-slate-500">{note}</p>}
     </div>
