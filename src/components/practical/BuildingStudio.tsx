@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, ChevronDown, ChevronLeft, ChevronUp, List, Sparkles, Trophy, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,9 +9,10 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
  * robot geometry or manual contents: every project supplies its own steps and viewer.
  */
 export function BuildingStudioHeader({
-  title, step, total, onOpenSteps,
+  title, step, total, onOpenSteps, onPreviousStep, previousDisabled = false,
 }: {
   title: string; step: number; total: number; onOpenSteps: () => void;
+  onPreviousStep?: () => void; previousDisabled?: boolean;
 }) {
   const progress = total ? Math.max(0, Math.min(100, step / total * 100)) : 0;
   return (
@@ -21,6 +22,10 @@ export function BuildingStudioHeader({
           className="flex min-h-11 shrink-0 items-center gap-1 rounded-2xl border border-sky-100 bg-white px-3 text-sm font-bold text-[#168eea] shadow-sm transition hover:bg-sky-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168eea]">
           <ArrowLeft className="size-4" aria-hidden="true" /><span className="hidden sm:inline">Robots</span>
         </Link>
+        {onPreviousStep && <Button type="button" variant="outline" disabled={previousDisabled} onClick={onPreviousStep}
+          aria-label="Previous building step" className="min-h-11 shrink-0 rounded-2xl border-sky-100 px-2 font-bold text-[#168eea] sm:px-3">
+          <ChevronLeft className="size-4"/><span className="hidden md:inline">Previous step</span>
+        </Button>}
         <div className="flex min-w-0 flex-1 flex-col items-center justify-center text-center">
           <p className="max-w-full truncate text-[15px] font-extrabold tracking-tight text-slate-800 sm:text-lg">{title}</p>
           <p className="text-[11px] font-bold text-[#168eea]">{step ? `Step ${step} of ${total}` : "Manual cover"}</p>
@@ -47,10 +52,6 @@ export function BuildingStepDrawer({
   open: boolean; onOpenChange: (open: boolean) => void; title: string;
   items: BuildingStepItem[]; activeIndex: number; onSelect: (index: number) => void;
 }) {
-  useEffect(() => {
-    if (!open) return;
-    // The Radix dialog handles escape, focus containment and returning focus on close.
-  }, [open]);
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="left-auto right-0 top-0 h-[100dvh] w-full max-w-sm translate-x-0 translate-y-0 overflow-hidden rounded-none border-l border-sky-100 bg-white p-0 shadow-2xl sm:rounded-l-3xl [&>button]:hidden">
@@ -133,7 +134,7 @@ export function BuildingStudioCompletion({
   title: string; onReview: () => void; children?: ReactNode;
 }) {
   return (
-    <div className="relative grid min-h-full place-items-center overflow-hidden bg-gradient-to-b from-[#eaf5ff] to-white px-4 py-10 text-center">
+    <div className="relative grid min-h-[100dvh] place-items-center overflow-hidden bg-gradient-to-b from-[#eaf5ff] to-white px-4 py-10 text-center">
       <div className="pointer-events-none absolute left-[8%] top-[12%] text-3xl" aria-hidden="true">⭐</div>
       <div className="pointer-events-none absolute right-[10%] bottom-[16%] text-3xl" aria-hidden="true">✨</div>
       <div className="relative w-full max-w-md rounded-[32px] border border-sky-100 bg-white px-6 py-8 shadow-[0_16px_48px_rgba(22,142,234,.12)]">
