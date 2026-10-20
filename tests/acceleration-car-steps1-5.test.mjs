@@ -34,3 +34,31 @@ test("a yellow gear placeholder is shown, not a yellow bushing", () => {
   assert.match(scene, /model="yellowGear" color="#e4be37"/);
   assert.doesNotMatch(scene, /model="bush" color="#e4be37"/);
 });
+
+test("Step 1 connects the pin to the separate silver arm before the block", () => {
+  const stepOne = spec.split("export const ACCELERATION_ACTIONS:")[1].split("\n  ],\n")[0];
+  const armPin = stepOne.indexOf('action("Pre-insert the blue pin into the silver arm"');
+  const blockJoin = stepOne.indexOf('action("Connect the prepared arm to the black block"');
+  assert.ok(armPin >= 0, "fifth action prepares the loose silver arm");
+  assert.ok(blockJoin > armPin, "sixth action joins the pre-pinned arm to the block");
+  assert.match(stepOne, /Leave the other end exposed/);
+  assert.match(stepOne, /Align the exposed pin with Black Block Hole 2/);
+});
+
+test("Step 1 pin and arm share a moving group after the pre-insertion", () => {
+  assert.match(scene, /function StepOnePreparedArm/);
+  assert.match(scene, /STEP1_PIN_APPROACH/);
+  assert.match(scene, /STEP1_PIN_INSERTED/);
+  assert.match(scene, /STEP1_ARM_ALIGNED/);
+  assert.match(scene, /progress < 0\\.58/);
+  assert.match(scene, /<group ref=\\{pin\\} position=/);
+  assert.match(scene, /<ModelMesh model="arm"/);
+  assert.match(scene, /<ModelMesh model="bluePin"/);
+  assert.doesNotMatch(scene, /id: "blue-pin", step: 1, action: 5/);
+  assert.doesNotMatch(scene, /id: "silver-mounting-arm", step: 1, action: 4/);
+});
+
+test("Step 1 review warns that its alignment ring is provisional", () => {
+  assert.match(scene, /until kit-specific hole-center coordinates are measured/);
+  assert.match(assembly, /Connector-first rule/);
+});
