@@ -9,6 +9,7 @@ import {
   Clock3,
   Cog,
   Hand,
+  FileText,
   ListChecks,
   Puzzle,
   Rocket,
@@ -133,10 +134,18 @@ function RobotPicker() {
                   key={project.id}
                 >
                   <article className="overflow-hidden rounded-[28px] border border-slate-200/90 bg-white shadow-[0_18px_45px_rgba(21,75,125,0.12)] md:grid md:grid-cols-[0.95fr_1.05fr] md:rounded-[34px]">
-                    <RobotIllustration
-                      className="min-h-[185px] rounded-none sm:min-h-[230px] md:min-h-[430px] [@media(max-height:720px)]:min-h-[145px]"
-                      variant={index}
-                    />
+                    {project.id === "acceleration-car" ? (
+                      <div className="flex min-h-[185px] flex-col items-center justify-center gap-3 bg-[#eaf5ff] p-6 text-center sm:min-h-[230px] md:min-h-[430px]">
+                        <FileText className="size-16 text-[#168eea]" aria-hidden="true" strokeWidth={1.4}/>
+                        <span className="text-sm font-extrabold text-[#132654]">Official PDF Building Manual</span>
+                        <span className="text-xs font-semibold text-[#40729d]">Original illustrations · 18 steps</span>
+                      </div>
+                    ) : (
+                      <RobotIllustration
+                        className="min-h-[185px] rounded-none sm:min-h-[230px] md:min-h-[430px] [@media(max-height:720px)]:min-h-[145px]"
+                        variant={index}
+                      />
+                    )}
 
                     <div className="flex min-h-0 flex-col justify-center p-4 sm:p-6 md:p-8 [@media(max-height:720px)]:p-3.5">
                       <div className="flex items-center justify-between gap-3">
