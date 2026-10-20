@@ -74,11 +74,6 @@ export const ACCELERATION_PIECES: readonly Piece[] = [
   // Steps 6–10: reversible, cumulative demonstration poses only.
   // These are NOT verified ZMROBO hole-to-hole or collision-free CAD transforms.
   // Replace each pose with transforms measured from the original kit meshes.
-  { id: "second-black-joining-pin", step: 6, action: 2, model: "blackPin", color: "#1c242e",
-    pose: pose([1.18, 1.55, 1.25]), approach: [0, 0, 3.1] },
-  { id: "second-grey-l-support", step: 6, action: 3, model: "largeL", color: "#505d66",
-    pose: pose([1.86, -0.38, 1.55], [0, PI, 0]), approach: [0, 0, 3.8] },
-
   { id: "chassis-long-cross-axle", step: 7, action: 0, model: "longAxle", color: "#aeb8c2",
     pose: pose([4.2, -0.40, 1.65]), approach: [0, 0, 4.2] },
   { id: "chassis-short-cross-axle", step: 7, action: 0, model: "shortAxle", color: "#aeb8c2",
@@ -200,6 +195,54 @@ function StepFiveAxle({ phase, paused, reducedMotion, replayKey, onDone }: {
 
 
 /**
+ * Step 6: pin enters the L support while it is loose, then the pin and support
+ * translate TOGETHER to the chassis. These staging coordinates are illustrative;
+ * real mesh hole anchors, axes, and final penetration depth are still unverified.
+ */
+const greySupportPrepare: V3 = [1.86, -0.38, 5.35];
+const greySupportDock: V3 = [1.86, -0.38, 1.55];
+const greyPinDockLocal: V3 = [-0.68, 1.93, -0.30];
+const greyPinPrepareLocal: V3 = [-0.68, 1.93, 1.85];
+
+function StepSixJoint({ phase, paused, reducedMotion, replayKey, onDone }: {
+  phase: number; paused: boolean; reducedMotion: boolean;
+  replayKey: number; onDone: () => void;
+}) {
+  const support = useRef<Group>(null);
+  const pin = useRef<Group>(null);
+  const age = useRef(0);
+  const notified = useRef(false);
+  useEffect(() => {
+    age.current = reducedMotion ? 1.5 : 0;
+    notified.current = false;
+    support.current?.position.set(...(phase >= 4 ? greySupportDock : greySupportPrepare));
+    pin.current?.position.set(...(phase === 2 ? greyPinPrepareLocal : greyPinDockLocal));
+  }, [phase, replayKey, reducedMotion]);
+  useFrame((_, delta) => {
+    if (paused || notified.current || (phase !== 2 && phase !== 3)) return;
+    age.current = Math.min(1.5, age.current + (reducedMotion ? 1.5 : Math.min(0.06, delta)));
+    const t = ease(age.current / 1.5);
+    if (phase === 2 && pin.current) {
+      pin.current.position.set(...blend(greyPinPrepareLocal, greyPinDockLocal, t));
+    }
+    if (phase === 3 && support.current) {
+      support.current.position.set(...blend(greySupportPrepare, greySupportDock, t));
+    }
+    if (age.current >= 1.5) { notified.current = true; onDone(); }
+  });
+  return (
+    <group ref={support} position={phase >= 4 ? greySupportDock : greySupportPrepare}>
+      <ModelMesh model="largeL" color="#505d66" rotation={[0, PI, 0]}/>
+      {phase >= 2 && (
+        <group ref={pin} position={phase === 2 ? greyPinPrepareLocal : greyPinDockLocal}>
+          <ModelMesh model="blackPin" color="#1c242e"/>
+        </group>
+      )}
+    </group>
+  );
+}
+
+/**
  * Orientation / inspection stages have no physical connector insertion.
  * Finish them after a deliberate viewing period so the user controls the
  * next action, rather than inventing a fake mechanical movement.
@@ -256,12 +299,13 @@ function Parts({ step, phase, paused, reducedMotion, replayKey, onDone }: {
           <ModelMesh model="yellowGear" color="#e4be37" position={[0, 0, -0.9]}
             rotation={[-PI/2, 0, 0]}/>
         </group>}
-      {step >= 6 && !ACCELERATION_PIECES.some(part => part.step === step && part.action === phase) &&
+      {step >= 6 && !(step === 6 && phase >= 2) &&
+        !ACCELERATION_PIECES.some(part => part.step === step && part.action === phase) &&
         <InspectionAction key={`${step}-${phase}-${replayKey}`}
           paused={paused} reducedMotion={reducedMotion} replayKey={replayKey} onDone={onDone}/>}
-      {step === 6 && phase < 3 &&
-        <ModelMesh model="largeL" color="#505d66" position={[1.86, -0.38, 5.35]}
-          rotation={[0, PI, 0]}/>}
+      {step >= 6 &&
+        <StepSixJoint phase={step === 6 ? phase : 4} paused={paused}
+          reducedMotion={reducedMotion} replayKey={replayKey} onDone={onDone}/>}
       {step === 7 && (phase === 3 || phase === 4 || phase === 5) && <>
         {phase < 5 && <ModelMesh model="beam5" color="#edf0f3" position={[-0.45, 0.14, 6.95]} rotation={[0, 0, PI/2]}/>}
         <ModelMesh model="beam7" color="#edf0f3" position={[2.50, -1.35, 7.15]}/>
