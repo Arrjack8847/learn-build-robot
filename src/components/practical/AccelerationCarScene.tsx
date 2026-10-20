@@ -16,10 +16,12 @@ import bluePinUrl from "../../../3d components/reform/lego-technic-axle-connecto
 import blackPinUrl from "../../../3D for marksman/connector/pin_pin.stl?url";
 import smallLUrl from "../../../3D for marksman/beams/L/beam L small.stl?url";
 import largeLUrl from "../../../3D for marksman/beams/L/BEAM L_.stl?url";
+import beam5Url from "../../../3d components/reform/lego-technic-beams/32316_beam_5.stl?url";
+import beam7Url from "../../../3d components/reform/lego-technic-beams/32524_beam_7.stl?url";
 
 type V3 = [number, number, number];
 type Model = "lowerGear" | "upperGear" | "yellowGear" | "bush" | "longAxle" | "shortAxle" |
-  "coupling" | "arm" | "bluePin" | "blackPin" | "smallL" | "largeL";
+  "coupling" | "arm" | "bluePin" | "blackPin" | "smallL" | "largeL" | "beam5" | "beam7";
 type Pose = { position: V3; rotation: V3 };
 type Piece = {
   id: string; step: number; action: number; model: Model;
@@ -30,7 +32,7 @@ const URLS: Record<Model, string> = {
   longAxle: longAxleUrl, shortAxle: shortAxleUrl,
   coupling: couplingUrl, arm: silverArmUrl,
   bluePin: bluePinUrl, blackPin: blackPinUrl,
-  smallL: smallLUrl, largeL: largeLUrl,
+  smallL: smallLUrl, largeL: largeLUrl, beam5: beam5Url, beam7: beam7Url,
 };
 const PI = Math.PI;
 const pose = (position: V3, rotation: V3 = [0, 0, 0]): Pose => ({ position, rotation });
@@ -68,6 +70,39 @@ export const ACCELERATION_PIECES: readonly Piece[] = [
     pose: pose([1.86, -0.38, -1.55]), approach: [0, 0, -3.8] },
   { id: "first-black-joining-pin", step: 4, action: 2, model: "blackPin", color: "#1c242e",
     pose: pose([1.18, 1.55, -1.25]), approach: [0, 0, -3.1] },
+
+  // Steps 6–10: reversible, cumulative demonstration poses only.
+  // These are NOT verified ZMROBO hole-to-hole or collision-free CAD transforms.
+  // Replace each pose with transforms measured from the original kit meshes.
+  { id: "second-black-joining-pin", step: 6, action: 2, model: "blackPin", color: "#1c242e",
+    pose: pose([1.18, 1.55, 1.25]), approach: [0, 0, 3.1] },
+  { id: "second-grey-l-support", step: 6, action: 3, model: "largeL", color: "#505d66",
+    pose: pose([1.86, -0.38, 1.55], [0, PI, 0]), approach: [0, 0, 3.8] },
+
+  { id: "chassis-long-cross-axle", step: 7, action: 0, model: "longAxle", color: "#aeb8c2",
+    pose: pose([4.2, -0.40, 1.65]), approach: [0, 0, 4.2] },
+  { id: "chassis-short-cross-axle", step: 7, action: 0, model: "shortAxle", color: "#aeb8c2",
+    pose: pose([0.2, -0.40, 1.65]), approach: [0, 0, 4.2] },
+  { id: "first-chassis-black-connector", step: 7, action: 1, model: "coupling", color: "#202833",
+    pose: pose([0.20, -0.40, 2.15], [0, PI/2, 0]), approach: [0, 0, 2.7] },
+  { id: "first-chassis-blue-pin", step: 7, action: 2, model: "bluePin", color: "#1865c6",
+    pose: pose([0.20, 0.42, 2.1], [PI/2, 0, 0]), approach: [0, 2.7, 0] },
+  { id: "white-5-a", step: 7, action: 5, model: "beam5", color: "#edf0f3",
+    pose: pose([-0.45, 0.14, 2.65], [0, 0, PI/2]), approach: [0, 0, 4.3] },
+  { id: "white-7-a", step: 7, action: 6, model: "beam7", color: "#edf0f3",
+    pose: pose([2.50, -1.35, 2.65]), approach: [0, 0, 4.5] },
+  { id: "white-5-b", step: 8, action: 2, model: "beam5", color: "#edf0f3",
+    pose: pose([5.45, 0.14, 2.65], [0, 0, PI/2]), approach: [0, 0, 4.4] },
+  { id: "white-7-b", step: 8, action: 3, model: "beam7", color: "#edf0f3",
+    pose: pose([2.50, 1.63, 2.65]), approach: [0, 0, 4.5] },
+  { id: "red-upright-a", step: 9, action: 1, model: "smallL", color: "#df3447",
+    pose: pose([0.8, 0.4, 1.55], [0, 0, PI/2]), approach: [0, 0, 3.3] },
+  { id: "red-upright-a-blue-pin", step: 9, action: 3, model: "bluePin", color: "#1865c6",
+    pose: pose([0.8, -0.45, 1.50]), approach: [0, 0, 3.4] },
+  { id: "red-upright-b", step: 10, action: 1, model: "smallL", color: "#df3447",
+    pose: pose([0.8, 0.4, -1.55], [0, PI, PI/2]), approach: [0, 0, -3.3] },
+  { id: "red-upright-b-blue-pin", step: 10, action: 3, model: "bluePin", color: "#1865c6",
+    pose: pose([0.8, -0.45, -1.50], [0, PI, 0]), approach: [0, 0, -3.4] },
 ];
 
 export { ACCELERATION_ACTIONS, ACCELERATION_TITLES } from "./AccelerationCarActionSpec";
@@ -215,6 +250,32 @@ function Parts({ step, phase, paused, reducedMotion, replayKey, onDone }: {
       {step === 5 &&
         <StepFiveAxle phase={phase} paused={paused} reducedMotion={reducedMotion}
           replayKey={replayKey} onDone={onDone}/>}
+      {step >= 6 &&
+        <group position={shaftDock}>
+          <ModelMesh model="longAxle" color="#afb9c4"/>
+          <ModelMesh model="yellowGear" color="#e4be37" position={[0, 0, -0.9]}
+            rotation={[-PI/2, 0, 0]}/>
+        </group>}
+      {step >= 6 && !ACCELERATION_PIECES.some(part => part.step === step && part.action === phase) &&
+        <InspectionAction key={`${step}-${phase}-${replayKey}`}
+          paused={paused} reducedMotion={reducedMotion} replayKey={replayKey} onDone={onDone}/>}
+      {step === 6 && phase < 3 &&
+        <ModelMesh model="largeL" color="#505d66" position={[4.2, -0.38, 5.3]}
+          rotation={[0, PI, 0]}/>}
+      {step === 7 && (phase === 3 || phase === 4) && <>
+        <ModelMesh model="beam5" color="#edf0f3" position={[-2.5, 1.9, 6.6]}/>
+        <ModelMesh model="beam7" color="#edf0f3" position={[2.5, 1.9, 6.6]}/>
+      </>}
+      {step === 8 && (phase === 0 || phase === 1) && <>
+        <ModelMesh model="beam5" color="#edf0f3" position={[5.5, 1.9, 6.6]}/>
+        <ModelMesh model="beam7" color="#edf0f3" position={[2.5, -1.8, 6.6]}/>
+      </>}
+      {step === 9 && phase === 0 &&
+        <ModelMesh model="smallL" color="#df3447" position={[3.6, 2, 5.1]}
+          rotation={[0, 0, PI/2]}/>}
+      {step === 10 && phase === 0 &&
+        <ModelMesh model="smallL" color="#df3447" position={[3.6, 2, -5.1]}
+          rotation={[0, PI, PI/2]}/>}
     </group>
   );
 }
@@ -223,9 +284,9 @@ export function AccelerationCarScene({ step, phase, paused, reducedMotion, repla
   replayKey: number; cameraKey: number; onDone: () => void;
 }) {
   return (
-    <div className="h-full w-full" aria-label="Rotatable three-dimensional Acceleration Car prototype">
+    <div className="h-full w-full" aria-label="Rotatable three-dimensional Acceleration Car review model">
       <Suspense fallback={<LoadingScene/>}>
-        <Canvas shadows dpr={[1, 1.7]} camera={{ position: [7, 5.2, 9], fov: 42, near: 0.1, far: 150 }}
+        <Canvas shadows dpr={[1, 1.7]} camera={{ position: step === 10 ? [-10, 7, 15] : step >= 7 ? [10, 7, 15] : [7, 5.2, 9], fov: 42, near: 0.1, far: 150 }}
           gl={{ antialias: true, alpha: true }}>
           <color attach="background" args={["#f4f8fc"]}/>
           <ambientLight intensity={1.45}/>
@@ -237,7 +298,7 @@ export function AccelerationCarScene({ step, phase, paused, reducedMotion, repla
               replayKey={replayKey} onDone={onDone}/>
           </group>
           <OrbitControls key={cameraKey} makeDefault target={[0.5, 0.5, 0]}
-            minDistance={5} maxDistance={29} enablePan enableDamping
+            minDistance={5} maxDistance={39} enablePan enableDamping
             minPolarAngle={0.15} maxPolarAngle={Math.PI-0.12}/>
         </Canvas>
       </Suspense>
