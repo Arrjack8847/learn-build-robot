@@ -109,6 +109,9 @@ import level2TeeterboardPdfUrl from "../../Teeterboard.pdf?url";
 import level2FourWheelDrivePdfUrl from "../../Four-wheel Drive.pdf?url";
 import level2PedalWaterwheelPdfUrl from "../../Pedal Waterwheel.pdf?url";
 import level2TankPdfUrl from "../../Tank.pdf?url";
+import level2SeeSawBalanceV1PdfUrl from "../../Balance.pdf?url";
+import level2SeeSawBalanceV2PdfUrl from "../../Balance_v2.pdf?url";
+import level2TongsPliersPdfUrl from "../../Pliers.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -557,6 +560,18 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "level-2-tank": {
     id: "level-2-tank", title: "Tank", url: level2TankPdfUrl,
     completionStepId: "level-2-tank-manual-complete",
+  },
+  "level-2-see-saw-v1": {
+    id: "level-2-see-saw-v1", title: "See Saw — Balance (Version 1)", url: level2SeeSawBalanceV1PdfUrl,
+    completionStepId: "level-2-see-saw-v1-manual-complete",
+  },
+  "level-2-see-saw-v2": {
+    id: "level-2-see-saw-v2", title: "See Saw — Balance (Version 2)", url: level2SeeSawBalanceV2PdfUrl,
+    completionStepId: "level-2-see-saw-v2-manual-complete",
+  },
+  "level-2-tongs": {
+    id: "level-2-tongs", title: "Tongs", url: level2TongsPliersPdfUrl,
+    completionStepId: "level-2-tongs-manual-complete",
   },
 };
 
