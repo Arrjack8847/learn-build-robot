@@ -303,11 +303,10 @@ const accelerationCarPdfSteps: PracticalProject["steps"] =
 /** One explicit completion action per PDF manual; viewing pages alone does not claim assembly. */
 function pdfManualProject(id: string, title: string, number: number): PracticalProject {
   return {
-    id, number, title,
+    id, number, level: 1, categoryId: "biomimicry", title,
     description: "Follow the original " + title + " PDF manual, one page at a time.",
     objective: "View and follow the original " + title + " PDF without substituted instructions.",
-    components: [],
-    relatedModuleIds: [],
+    components: [], relatedModuleIds: [],
     steps: [{
       id: id + "-manual-complete",
       number: 1,
@@ -346,6 +345,8 @@ export const practicalProjects: PracticalProject[] = [
   {
     id: "acceleration-car",
     number: 2,
+    level: 1,
+    categoryId: "autonomous-navigation-ranging",
     title: "Acceleration Car",
     description: "Follow the original Acceleration Car PDF manual, one illustrated step at a time.",
     objective: "View and navigate the original manual's 18 illustrated build steps.",
