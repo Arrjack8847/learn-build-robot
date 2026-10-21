@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/carousel";
 import { useProgress, useProjectProgress } from "@/context/ProgressContext";
 import { practicalProjects } from "@/data/practical";
+import { isPdfActivityProject } from "@/data/pdfActivityManuals";
 
 export const Route = createFileRoute("/practical/")({
   component: PracticalCataloguePage,
@@ -134,11 +135,11 @@ function RobotPicker() {
                   key={project.id}
                 >
                   <article className="overflow-hidden rounded-[28px] border border-slate-200/90 bg-white shadow-[0_18px_45px_rgba(21,75,125,0.12)] md:grid md:grid-cols-[0.95fr_1.05fr] md:rounded-[34px]">
-                    {project.id === "acceleration-car" ? (
+                    {(project.id === "acceleration-car" || isPdfActivityProject(project.id)) ? (
                       <div className="flex min-h-[185px] flex-col items-center justify-center gap-3 bg-[#eaf5ff] p-6 text-center sm:min-h-[230px] md:min-h-[430px]">
                         <FileText className="size-16 text-[#168eea]" aria-hidden="true" strokeWidth={1.4}/>
                         <span className="text-sm font-extrabold text-[#132654]">Official PDF Building Manual</span>
-                        <span className="text-xs font-semibold text-[#40729d]">Original illustrations · 18 steps</span>
+                        <span className="text-xs font-semibold text-[#40729d]">{project.id === "acceleration-car" ? "Original illustrations · 18 steps" : "Original illustrations · PDF pages"}</span>
                       </div>
                     ) : (
                       <RobotIllustration
