@@ -86,6 +86,7 @@ export type StepNinePinJoin = {
 };
 export function stepNineMating(
   railConfig:StepSevenRailConfig, six:StepSixMountConfig, beamY:number,
+  frameConfig:StepEightConfig,
 ) {
   const rails = STEP_SEVEN_RAIL_IDS.map(id=>railPose(id,STEP_SEVEN_FINAL_PHASE,railConfig,beamY,six));
   const first=rails[0]!,second=rails[1]!;
@@ -115,7 +116,7 @@ export function stepNineMating(
   // Derive the four ORIGINAL pin centres from the finished Step 8 pose,
   // not an approximated mid-plane. Apply a single rigid rotation to every
   // beam and pin; only the frame-root translation is solved here.
-  const completedStepEight=stepEightPoses(11,config);
+  const completedStepEight=stepEightPoses(11,frameConfig);
   const stepEightPinOffsets=(["BLUE_1","BLUE_2","BLUE_3","BLUE_4"] as const)
     .map(id=>stepNineOrientedPinOffset(completedStepEight[id].position));
   const centreOf=(coordinate:0|2):number=>joints.reduce((sum,joint,index)=>
