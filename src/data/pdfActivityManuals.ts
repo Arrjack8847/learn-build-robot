@@ -18,6 +18,12 @@ import drawingBoardPdfUrl from "../../Drawing board_Building.pdf?url";
 import helloWorldPdfUrl from "../../01.Hello World-Building Manual.pdf?url";
 import mechanicalMasksPdfUrl from "../../Mechanical masks.pdf?url";
 import primitiveRobotPdfUrl from "../../Primitive robot_Building.pdf?url";
+import athletePdfUrl from "../../Athlete.pdf?url";
+import basicProgrammingPdfUrl from "../../Basic programming.pdf?url";
+import drummerRobotPdfUrl from "../../Drummer robot.pdf?url";
+import propellerAircraftPdfUrl from "../../Propeller Aircraft.pdf?url";
+import sailboatPdfUrl from "../../Sailboat.pdf?url";
+import lawnMowerPdfUrl from "../../The lawn mower.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -102,6 +108,30 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "primitive-robot": {
     id: "primitive-robot", title: "Primitive Robot", url: primitiveRobotPdfUrl,
     completionStepId: "primitive-robot-manual-complete",
+  },
+  "athlete": {
+    id: "athlete", title: "Athlete", url: athletePdfUrl,
+    completionStepId: "athlete-manual-complete",
+  },
+  "basic-programming": {
+    id: "basic-programming", title: "Basic Programming", url: basicProgrammingPdfUrl,
+    completionStepId: "basic-programming-manual-complete",
+  },
+  "drummer-robot": {
+    id: "drummer-robot", title: "Drummer Robot", url: drummerRobotPdfUrl,
+    completionStepId: "drummer-robot-manual-complete",
+  },
+  "propeller-aircraft": {
+    id: "propeller-aircraft", title: "Propeller Aircraft", url: propellerAircraftPdfUrl,
+    completionStepId: "propeller-aircraft-manual-complete",
+  },
+  "sailboat": {
+    id: "sailboat", title: "Sailboat", url: sailboatPdfUrl,
+    completionStepId: "sailboat-manual-complete",
+  },
+  "the-lawn-mower": {
+    id: "the-lawn-mower", title: "The Lawn Mower", url: lawnMowerPdfUrl,
+    completionStepId: "the-lawn-mower-manual-complete",
   },
 };
 
