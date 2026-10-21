@@ -110,7 +110,7 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
   const {camera,size}=useThree();
   const narrow=size.width/Math.max(1,size.height)<0.95;
   const beamY=prepared["STEP5_BEAM_11"]?.position[1]??4.1;
-  const mating=useMemo(()=>stepNineMating(config,stepSixConfig,beamY),[config,stepSixConfig,beamY]);
+  const mating=useMemo(()=>stepNineMating(config,stepSixConfig,beamY,frameConfig),[config,stepSixConfig,beamY,frameConfig]);
   const completed=useMemo(()=>stepEightPoses(11,frameConfig),[frameConfig]);
   const target=mating.target;
   const pose=(p:number)=>stepNineFramePose(p,target);
