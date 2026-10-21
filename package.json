@@ -14,7 +14,7 @@
     "test:step4": "node --test tests/marksmanship-step4.test.mjs",
     "test:step5": "node --test tests/marksmanship-step5.test.mjs",
     "test:step6": "node --test tests/marksmanship-step6.test.mjs",
-    "test:ui": "node --test tests/marksmanship-ui.test.mjs tests/building-studio-ui.test.mjs",
+    "test:ui": "node --test tests/marksmanship-ui.test.mjs tests/building-studio-ui.test.mjs tests/level-one-categories.test.mjs",
     "test:motion": "node --test tests/marksmanship-guided-motion.test.mjs"
   },
   "overrides": {
