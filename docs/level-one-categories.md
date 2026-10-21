@@ -14,8 +14,9 @@ Category and project names were transcribed from the user's complete directory t
 ## Verified examples
 
 - `Level 1/Autonomous Navigation & Ranging/Acceleration car` maps to existing `acceleration-car` PDF Building Studio. This lesson is linked as ready.
-- `Level 1/Biomimicry/Funny cat.pptx` is a listed lesson; source content for a Funny Cat presentation/PDF was also shared in conversation, but no Funny Cat lesson has been committed to the repository. It is **not** marked ready.
-- Remaining 57 entries are cataloged but not linked as working building lessons.
+- The five Biomimicry entries (Caged Bird, Ferocious snake, Funny cat, Shy penguin and Sled dog) now link to their original GitHub-uploaded PDF building manuals. Source entry filenames in the syllabus are preserved even when the uploaded building file has a .pdf extension.
+- All nine Characters & Structures entries now link to their corresponding original GitHub-uploaded PDF building manuals.
+- The remaining 44 entries are cataloged but not linked as working building lessons.
 
 ## Navigation
 
@@ -31,7 +32,7 @@ Levels 2–6 are now audited and implemented in `src/data/advancedSyllabus.ts` w
 ## Adding a new working project
 
 1. Import the actual source files into the project under a stable repository path.
-2. Review the manual/slides and identify real building pages; avoid inventing instructions.
+2. Review the manual/slides and identify real building pages; avoid inventing instructions. The five Biomimicry viewers navigate original PDF pages without assuming that each page is an assembly step.
 3. Register the `PracticalProject` with a verified `level` and `categoryId`.
 4. Link the matching entry via `availableProjectId` in `src/data/levelOneProjects.ts`.
 5. Reuse `BuildingStudioHeader`, `BuildingStepDrawer` and the universal PDF/3D viewer.

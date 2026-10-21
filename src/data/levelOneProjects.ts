@@ -77,6 +77,33 @@ export function getLevelOneProjects(categoryId: LevelOneCategoryId): LevelOneSyl
     if (categoryId === "autonomous-navigation-ranging" && sourceEntry === "Acceleration car") {
       project.availableProjectId = "acceleration-car";
     }
+    if (categoryId === "biomimicry") {
+      // Keep original syllabus filenames, even when the uploaded building manual is a PDF.
+      const matchingPdfProjects: Record<string, string> = {
+        "Caged Bird.pdf": "caged-bird",
+        "Ferocious snake.pptx": "ferocious-snake",
+        "Funny cat.pptx": "funny-cat",
+        "Shy penguin.pptx": "shy-penguin",
+        "Sled dog.pptx": "sled-dog",
+      };
+      const matchingProjectId = matchingPdfProjects[sourceEntry];
+      if (matchingProjectId) project.availableProjectId = matchingProjectId;
+    }
+    if (categoryId === "characters-structures") {
+      const matchingPdfProjects: Record<string, string> = {
+        "Big head robot": "big-head-robot",
+        "Bird": "bird",
+        "First Robot Model": "first-robot-model",
+        "House": "house",
+        "REX robot": "rex-robot",
+        "Sled": "sled",
+        "Spider": "spider",
+        "SpongeBob": "spongebob",
+        "Wali robot": "wali-robot",
+      };
+      const matchingProjectId = matchingPdfProjects[sourceEntry];
+      if (matchingProjectId) project.availableProjectId = matchingProjectId;
+    }
     return project;
   });
 }

@@ -3,12 +3,16 @@ on:
   push:
     branches:
       - feat/acceleration-car-pdf-viewer-20261020
+      - feat/pdf-animals-20261021
   pull_request:
     paths:
       - 'src/components/practical/AccelerationCarPdfViewer.tsx'
       - 'src/components/practical/PdfManualPage.tsx'
       - 'src/data/accelerationCarManual.ts'
       - 'src/data/practical.ts'
+      - 'src/data/pdfActivityManuals.ts'
+      - 'src/components/practical/PdfActivityViewer.tsx'
+      - 'tests/pdf-activities.test.mjs'
       - 'src/routes/practical/**'
       - 'tests/acceleration-car-pdf-viewer.test.mjs'
       - 'package.json'
@@ -28,6 +32,8 @@ jobs:
         run: npm install --legacy-peer-deps --no-audit --no-fund
       - name: Verify PDF pages and mapping
         run: node --test tests/acceleration-car-pdf-viewer.test.mjs
+      - name: Verify original animal PDFs and activity registration
+        run: node --test tests/pdf-activities.test.mjs
       - name: Type check
         run: npx tsc --noEmit
       - name: Production build

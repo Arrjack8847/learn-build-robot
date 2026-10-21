@@ -3,6 +3,7 @@ import { ArrowRight, Bot, FileText, FolderOpen, Presentation, Puzzle } from "luc
 import { findLevelOneCategory, LEVEL_ONE_CATEGORIES } from "@/data/levelOneCategories";
 import { getLevelOneProjects } from "@/data/levelOneProjects";
 import { getProject } from "@/data/practical";
+import { isPdfActivityProject } from "@/data/pdfActivityManuals";
 import { LevelOneBackdrop, LevelOneHeader, categoryTones } from "@/components/practical/LevelOneHeader";
 
 export const Route = createFileRoute("/practical/level-1/$categoryId")({
@@ -60,7 +61,8 @@ function LevelOneCategoryPage() {
               const liveProject = entry.availableProjectId ? getProject(entry.availableProjectId) : undefined;
               const SourceIcon = entry.sourceKind === "pptx" ? Presentation :
                 entry.sourceKind === "pdf" ? FileText : FolderOpen;
-              const sourceLabel = entry.sourceKind === "pptx" ? "PowerPoint lesson" :
+              const sourceLabel = liveProject && isPdfActivityProject(liveProject.id) ? "Original PDF building manual" :
+                entry.sourceKind === "pptx" ? "PowerPoint lesson" :
                 entry.sourceKind === "pdf" ? "PDF lesson" : "Syllabus project folder";
               return (
                 <li key={entry.id}
