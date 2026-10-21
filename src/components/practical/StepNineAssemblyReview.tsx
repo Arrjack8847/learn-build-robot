@@ -81,7 +81,7 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
         stepSevenReceivingHoles:[7,11],fourOriginalBluePins:true,
         usesUpdatedStepEightAssembly:true,stepEightBlackPinHoles:[7,11],
         stepEightTopBottomFaceTurnDegrees:180,
-        stepEightAttachmentSide:"opposite-top-bottom-face",
+        stepEightAttachmentSide:"original-step8-upward-connector-face",
         joiningBlueConnectorMeshesPreserved:true,
         joiningBlueConnectorVisibility:"opaque-at-all-stages",
         stationaryDuringInsertion:"step8",loweredDuringInsertion:"step7",
@@ -118,7 +118,7 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
         {phase===0
           ?"Preparation · completed Step 7 on left / updated Step 8 on right"
           :phase===1
-            ?"Turn Step 8 over · switch top and bottom faces"
+            ?"Turn Step 8 over · restore the blue-pin face upward"
             :phase===2
               ?"Align four Step 8 pins beneath Step 7 holes 7 + 11"
               :phase===3
