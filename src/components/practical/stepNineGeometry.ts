@@ -1,6 +1,6 @@
 import {
-  STEP_EIGHT_LEVEL, STEP_EIGHT_THICKNESS_MM, STEP_EIGHT_PITCH_MM,
-  stepEightPoses, type StepEightConfig, type V3,
+  STEP_EIGHT_SEVEN_RAIL_SEATED_Z, STEP_EIGHT_THICKNESS_MM, STEP_EIGHT_PITCH_MM,
+  STEP_EIGHT_BLUE_CONNECTOR_LENGTH_MM, stepEightPoses, type StepEightConfig, type V3,
 } from "./stepEightGeometry";
 import { STEP_SEVEN_FINAL_PHASE, STEP_SEVEN_RAIL_IDS, railMounts, railPose, type StepSevenRailConfig } from "./stepSevenRailGeometry";
 import type { StepSixMountConfig } from "./StepSixGeometry";
@@ -19,23 +19,25 @@ export const STEP_NINE_RECEIVERS = [7, 11] as const;
  * not local Y, so it never turns the assembly upside down.
  */
 export const STEP_NINE_STEP_SEVEN_YAW = Math.PI;
-/** Step 8's TOP/BOTTOM faces must be exchanged, not its front/back
- * orientation. Turn its entire rigid group 180° around the SHARED
- * HORIZONTAL X axis (the direction of its longest 15-hole beam).
- * The blue double-ended connector's opposite shaft then faces Step 7.
- * Do not rotate any constituent connector or beam independently.
+/** Step 8 already installs all four joining blue pins toward +local Z.
+ * The enclosing Step 9 scene is rotated 180° around Z; the original
+ * unflipped Step 8 alignment sends +local Z -> -shared Y -> +world Y, UP
+ * toward Step 7. The OLD final face flip sent that same direction DOWN.
+ *
+ * Begin the preparation pose on the opposite (incorrect) face and rotate
+ * the WHOLE assembled frame 180° during Action 1 to restore the original,
+ * physically upward connector face. Never turn the pin meshes separately.
  */
 export const STEP_NINE_STEP_EIGHT_FACE_FLIP = Math.PI;
-/** Before Action 1: Step 8 local (x,y,z) -> shared (-y,-z,x). */
+/** Before Action 1: presentation (wrong) face; local (x,y,z)->(-y,z,-x). */
 export function stepNineInitialPinOffset(point:V3):V3 {
-  return [-point[1],-point[2],point[0]];
+  return [-point[1],point[2],-point[0]];
 }
-/** After horizontal-axis face flip: shared (x,y,z) -> (x,-y,-z).
- * Local (x,y,z) -> shared (-y,z,-x). The opposite physical side
- * of each existing blue connector is now toward the upper Step 7 beam.
+/** After Action 1: correct original Step 8 pin face; +local Z -> -shared Y.
+ * The Step 9 parent rotation maps -shared Y into +world Y (toward Step 7).
  */
 export function stepNineOrientedPinOffset(point:V3):V3 {
-  return [-point[1],point[2],-point[0]];
+  return [-point[1],-point[2],point[0]];
 }
 /** Step 7 is raised vertically in shared space (-Y == upward on screen).
  * No constituent rails or previously installed connectors are moved.
@@ -54,12 +56,11 @@ export const STEP_NINE_PREP_DURATION = 1.45;
 export const STEP_NINE_CAMERA_DURATION = 0.85;
 /** Both completed assemblies enter the preparation workspace from opposite sides. */
 export const STEP_NINE_PREP_ENTRANCE_OFFSET = 8.5;
-/** One real 7.8 mm Technic beam thickness in 8 mm hole-pitch units.
- * Step 8's two 7-hole rails must sit immediately BELOW Step 7's white
- * 15-hole rails; both beam faces meet instead of overlapping each other.
- * This centres the Step 8 blue shafts inside the upper receiving holes,
- * rather than letting them poke through the top face as previously shown.
- * The plastic connector's actual shoulder depth still needs verification.
+/** Face-to-face centre spacing: Step 8's white 7-hole rails stay just
+ * BELOW Step 7's white 15-hole rails (one 7.8 mm beam thickness).
+ * The original Step 8 grey crossbeams must remain UNDER its white rails.
+ * Blue connector tip depth and any occupied receiving holes remain
+ * provisional pending real-kit measurement.
  */
 export const STEP_NINE_RAIL_FACE_SEATING = STEP_EIGHT_THICKNESS_MM / STEP_EIGHT_PITCH_MM;
 export const STEP_NINE_ACTIONS = [
@@ -85,17 +86,19 @@ export type StepNinePinJoin = {
 };
 export function stepNineMating(
   railConfig:StepSevenRailConfig, six:StepSixMountConfig, beamY:number,
+  frameConfig:StepEightConfig,
 ) {
   const rails = STEP_SEVEN_RAIL_IDS.map(id=>railPose(id,STEP_SEVEN_FINAL_PHASE,railConfig,beamY,six));
   const first=rails[0]!,second=rails[1]!;
-  // Top/bottom flip around Step 8's long-beam horizontal X axis:
-  // longitudinal hole order is preserved, lateral (rail) side is swapped.
-  // Receiving holes themselves are unchanged: 7 and 11 on both 15-hole rails.
+  // Reusing Step 8's ORIGINAL top connector face reverses the old
+  // (incorrectly flipped) lateral mapping. Step 7 yaw stays UNCHANGED.
+  // Under the correctly oriented root, BLUE_1/3 align with the second rail
+  // and BLUE_2/4 with the first. Hole numbers 7 and 11 never change.
   const labels = [
-    {stepEightPin:"BLUE_1",rail:0,hole:7},
-    {stepEightPin:"BLUE_2",rail:1,hole:7},
-    {stepEightPin:"BLUE_3",rail:0,hole:11},
-    {stepEightPin:"BLUE_4",rail:1,hole:11},
+    {stepEightPin:"BLUE_1",rail:1,hole:7},
+    {stepEightPin:"BLUE_2",rail:0,hole:7},
+    {stepEightPin:"BLUE_3",rail:1,hole:11},
+    {stepEightPin:"BLUE_4",rail:0,hole:11},
   ] as const;
   const joints:StepNinePinJoin[]=labels.map(item=>{
     const rail=rails[item.rail]!;
@@ -110,28 +113,22 @@ export function stepNineMating(
       alreadyOccupiedByStepSeven:[mount.receivingBlackHole,...mount.receivingGreyHoles].includes(item.hole),
     };
   });
-  // Compute a single rigid Step 8 assembly translation from all FOUR
-  // real mating-hole pairs. Never translate/rotate pins independently.
-  // Flipping Step 8 maps each BLUE_n local centre into shared space.
-  const level=STEP_EIGHT_LEVEL/2;
-  const stepEightPinOffsets = [
-    stepNineOrientedPinOffset([-1,-2,level]),
-    stepNineOrientedPinOffset([ 1,-2,level]),
-    stepNineOrientedPinOffset([-1, 2,level]),
-    stepNineOrientedPinOffset([ 1, 2,level]),
-  ] as const;
+  // Derive the four ORIGINAL pin centres from the finished Step 8 pose,
+  // not an approximated mid-plane. Apply a single rigid rotation to every
+  // beam and pin; only the frame-root translation is solved here.
+  const completedStepEight=stepEightPoses(11,frameConfig);
+  const stepEightPinOffsets=(["BLUE_1","BLUE_2","BLUE_3","BLUE_4"] as const)
+    .map(id=>stepNineOrientedPinOffset(completedStepEight[id].position));
   const centreOf=(coordinate:0|2):number=>joints.reduce((sum,joint,index)=>
     sum+joint.stepSevenLocalTarget[coordinate]-stepEightPinOffsets[index]![coordinate],0)/joints.length;
-  // Shared scene -Y is up in world space; increasing shared Y puts Step 8
-  // DOWN below Step 7. The OLD target placed the Step 8 seven-hole beams
-  // almost in the same plane as Step 7's fifteen-hole rails, forcing blue
-  // connector shafts to poke past the upper surface.
-  // Align beam FACE to FACE: upper Step 7 15-hole beam + lower Step 8
-  // 7-hole beam, separated by one beam thickness. Keep the existing
-  // Step 8 five-hole crossbars underneath those seven-hole supports.
+  // Shared +Y points DOWN after the enclosing 180° Z root rotation.
+  // The correct unflipped Step 8 has its finished 7-hole rails at
+  // root Y = -STEP_EIGHT_SEVEN_RAIL_SEATED_Z. Add this height when placing
+  // the entire frame; the old target was calibrated for the upside-down face.
+  const railCenterY=(first.position[1]+second.position[1])/2;
   const target:V3=[
     centreOf(0),
-    (first.position[1]+second.position[1])/2 + STEP_NINE_RAIL_FACE_SEATING,
+    railCenterY + STEP_NINE_RAIL_FACE_SEATING + STEP_EIGHT_SEVEN_RAIL_SEATED_Z,
     centreOf(2),
   ];
   const geometryWarnings:string[]=[];
@@ -145,13 +142,20 @@ export function stepNineMating(
     const [pinX,,pinZ]=stepEightPinOffsets[index]!;
     if(Math.abs(target[0]+pinX-joint.stepSevenLocalTarget[0])>0.3 ||
        Math.abs(target[2]+pinZ-joint.stepSevenLocalTarget[2])>0.3)
-      geometryWarnings.push("After Step 8's top/bottom face flip, "+joint.stepEightPin+
+      geometryWarnings.push("After Step 8's corrected joining-face orientation, "+joint.stepEightPin+
         " does not match its selected receiving hole with a rigid transform.");
   });
-  // The 5-hole connectors in Step 8 sit at local z=STEP_EIGHT_LEVEL.
-  // With the corrected top/bottom flip they lie BELOW the seven-hole
-  // rails. Their 4 original blue shafts remain fixed at half that depth.
-  // Neither shafts nor STLs are shortened, scaled or hidden.
+  // Compute the exposed blue-pin tip against Step 7's far surface using
+  // the real 24 mm connector STL length. Do not hide a projected overhang:
+  // a slight one means the seating depth needs physical verification.
+  const firstPinCenterSharedY=target[1]-completedStepEight.BLUE_1.position[2];
+  const tipSharedY=firstPinCenterSharedY-
+    STEP_EIGHT_BLUE_CONNECTOR_LENGTH_MM/(2*STEP_EIGHT_PITCH_MM);
+  const upperReceivingFaceY=railCenterY-STEP_NINE_RAIL_FACE_SEATING/2;
+  if(tipSharedY < upperReceivingFaceY-0.02)
+    geometryWarnings.push("A blue connector may extend "+
+      ((upperReceivingFaceY-tipSharedY)*STEP_EIGHT_PITCH_MM).toFixed(2)+
+      " mm beyond the Step 7 upper face with the saved Step 8 pin seating. Verify physical depth; no shaft is hidden or shortened.");
   if(joints.some(joint=>joint.alreadyOccupiedByStepSeven))
     geometryWarnings.push("A photo-marked hole overlaps a connector in the saved Step 7 configuration. Verify the real hole positions before completing.");
   return {joints,target,geometryWarnings,mechanicallyVerified:false as const};
@@ -162,9 +166,8 @@ export function stepNineFramePose(phase:number,target:V3):StepNineFramePose {
   const [x,y,z]=target;
   if(phase<=0)return {position:[x-17,y+3.5,z]};
   if(phase===1)return {position:[x-10,y+1.8,z]};
-  // Step 8 translates during Actions 0-2 and turns over around its HORIZONTAL
-  // long-beam axis in Action 1. Its opposite-facing pose locks at Action 2.
-  // Actions 3 and 4 must not move it a single millimetre.
+  // Step 8 translates during Actions 0-2, returning to the ORIGINAL
+  // upward pin face during Action 1. It is stationary in Actions 3-4.
   return {position:[x,y,z]};
 }
 /** The correct four pin centres in the original Step 8 local coordinate frame. */
