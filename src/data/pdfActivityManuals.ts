@@ -30,6 +30,10 @@ import pendulumRidePdfUrl from "../../Pendulum ride.pdf?url";
 import rotatingFlyingChairPdfUrl from "../../Rotating flying chair.pdf?url";
 import skatingPdfUrl from "../../Skating.pdf?url";
 import windmillKingdomPdfUrl from "../../The windmill kingdom.pdf?url";
+import crawlSlowlyBasicPdfUrl from "../../9. Crawl Slowly - Basic Building Manual.pdf?url";
+import crawlSlowlyOptimizedPdfUrl from "../../9. Crawl Slowly - Optimized Building Manual.pdf?url";
+import mechanicalArmPdfUrl from "../../Mechanical arm.pdf?url";
+import shockAbsorberPdfUrl from "../../Shock absorber_Building.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -162,6 +166,22 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "the-windmill-kingdom": {
     id: "the-windmill-kingdom", title: "The Windmill Kingdom", url: windmillKingdomPdfUrl,
     completionStepId: "the-windmill-kingdom-manual-complete",
+  },
+  "crawl-slowly-basic": {
+    id: "crawl-slowly-basic", title: "Crawl Slowly — Basic", url: crawlSlowlyBasicPdfUrl,
+    completionStepId: "crawl-slowly-basic-manual-complete",
+  },
+  "crawl-slowly-optimized": {
+    id: "crawl-slowly-optimized", title: "Crawl Slowly — Optimized", url: crawlSlowlyOptimizedPdfUrl,
+    completionStepId: "crawl-slowly-optimized-manual-complete",
+  },
+  "mechanical-arm": {
+    id: "mechanical-arm", title: "Mechanical Arm", url: mechanicalArmPdfUrl,
+    completionStepId: "mechanical-arm-manual-complete",
+  },
+  "shock-absorber": {
+    id: "shock-absorber", title: "Shock Absorber", url: shockAbsorberPdfUrl,
+    completionStepId: "shock-absorber-manual-complete",
   },
 };
 

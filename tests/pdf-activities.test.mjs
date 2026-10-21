@@ -10,6 +10,7 @@ const catalog = read("src/routes/practical/index.tsx");
 const viewer = read("src/components/practical/PdfActivityViewer.tsx");
 const originalViewer = read("src/components/practical/AccelerationCarPdfViewer.tsx");
 const syllabus = read("src/data/levelOneProjects.ts");
+const categoryDetail = read("src/routes/practical/level-1.$categoryId.tsx");
 
 const manuals = [
   ["caged-bird", "Caged Bird.pdf"],
@@ -43,9 +44,13 @@ const manuals = [
   ["rotating-flying-chair", "Rotating flying chair.pdf"],
   ["skating", "Skating.pdf"],
   ["the-windmill-kingdom", "The windmill kingdom.pdf"],
+  ["crawl-slowly-basic", "9. Crawl Slowly - Basic Building Manual.pdf"],
+  ["crawl-slowly-optimized", "9. Crawl Slowly - Optimized Building Manual.pdf"],
+  ["mechanical-arm", "Mechanical arm.pdf"],
+  ["shock-absorber", "Shock absorber_Building.pdf"],
 ];
 
-test("the thirty-one original uploaded PDFs exist and can be loaded", async () => {
+test("the thirty-five original uploaded PDFs exist and can be loaded", async () => {
   const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
   for (const [id, filename] of manuals) {
     const bytes = readFileSync(new URL("../" + filename, import.meta.url));
@@ -71,12 +76,25 @@ test("every uploaded PDF is registered and receives isolated completion progress
   assert.match(syllabus, /"display-movement"/);
   assert.match(syllabus, /"foundational-robots"/);
   assert.match(syllabus, /"manipulators"/);
+  assert.match(syllabus, /"mechanisms-simulators"/);
   for (const [id] of manuals) {
     assert.ok(syllabus.includes('"' + id + '"'), "Missing Level 1 project link: " + id);
   }
   assert.match(route, /<AccelerationCarPdfViewer \/>/);
   assert.match(route, /<PdfActivityViewer key=\{project.id\} manual=\{pdfManual\} \/>/);
   assert.match(catalog, /isPdfActivityProject\(project.id\)/);
+});
+
+test("Crawl Slowly retains one syllabus card with two independently tracked versions", () => {
+  assert.match(syllabus, /"mechanisms-simulators": \\[\s*"Crawl Slowly", "Mechanical arm", "Shock absorber"\]/);
+  assert.match(syllabus, /availableProjectVariants/);
+  assert.match(syllabus, /label: "Basic", projectId: "crawl-slowly-basic"/);
+  assert.match(syllabus, /label: "Optimized", projectId: "crawl-slowly-optimized"/);
+  assert.match(categoryDetail, /variantChoices\.map\(variant =>/);
+  assert.match(categoryDetail, /Choose a building version/);
+  assert.match(categoryDetail, /params=\{\{ projectId: variant\.projectId \}\}/);
+  assert.match(sources, /completionStepId: "crawl-slowly-basic-manual-complete"/);
+  assert.match(sources, /completionStepId: "crawl-slowly-optimized-manual-complete"/);
 });
 
 test("original PDFs use dynamic page navigation rather than fabricated steps", () => {
