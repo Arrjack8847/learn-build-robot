@@ -61,7 +61,8 @@ function AdvancedLevelProjectsPage() {
               // PowerPoints are offered as exact originals, not passed to the PDF renderer.
               const pptxUrl = level === 2 ? levelTwoPowerPointSources[entry.sourceEntry] : undefined;
               const Icon = entry.sourceKind === "pptx" ? Presentation : entry.sourceKind === "pdf" ? FileText : FolderOpen;
-              const label = liveProject && isPdfActivityProject(liveProject.id) ? "Original PDF building manual" :
+              const label = liveProject && pptxUrl ? "Original PDF building manual · PowerPoint also available" :
+                liveProject && isPdfActivityProject(liveProject.id) ? "Original PDF building manual" :
                 pptxUrl ? "Original PowerPoint presentation" :
                 entry.sourceKind === "pptx" ? "PowerPoint lesson" : entry.sourceKind === "pdf" ? "PDF lesson" : "Syllabus project folder";
               return (
@@ -78,10 +79,19 @@ function AdvancedLevelProjectsPage() {
                   <p className="mt-2 text-xs font-medium text-slate-500">{label}</p>
                   <div className="mt-auto pt-5">
                     {liveProject ? (
-                      <Link to="/practical/$projectId" params={{projectId:liveProject.id}}
-                        className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 text-sm font-extrabold text-white hover:bg-[#0d7fda]">
-                        Open Building Studio <ArrowRight className="size-4" aria-hidden="true"/>
-                      </Link>
+                      <div className="flex flex-col gap-2">
+                        <Link to="/practical/$projectId" params={{projectId:liveProject.id}}
+                          className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 text-sm font-extrabold text-white hover:bg-[#0d7fda]">
+                          Open Building Studio <ArrowRight className="size-4" aria-hidden="true"/>
+                        </Link>
+                        {pptxUrl ? (
+                          <a href={pptxUrl} download={entry.sourceEntry}
+                            className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-2xl border border-sky-200 bg-sky-50 px-4 text-sm font-extrabold text-[#168eea] hover:bg-sky-100"
+                            aria-label={`Download original PowerPoint for ${entry.name}`}>
+                            Download original PowerPoint <Presentation className="size-4" aria-hidden="true"/>
+                          </a>
+                        ) : null}
+                      </div>
                     ) : pptxUrl ? (
                       <a href={pptxUrl} download={entry.sourceEntry}
                         className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl border border-sky-200 bg-sky-50 px-4 text-sm font-extrabold text-[#168eea] hover:bg-sky-100"
