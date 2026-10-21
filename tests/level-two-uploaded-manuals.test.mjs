@@ -61,6 +61,8 @@ const pdfManuals = [
   ["level-2-helicopter", "Helicopter_Building.pdf", "vehicles-complex-movers", "Helicopter"],
   ["level-2-lifting-door", "Lifting door_Building.pdf", "vehicles-complex-movers", "Lifting door"],
   ["level-2-teeterboard", "Teeterboard.pdf", "vehicles-complex-movers", "Teeterboard"],
+  ["level-2-four-wheel-drive", "Four-wheel Drive.pdf", "vehicles-motion", "Four-wheel Drive"],
+  ["level-2-pedal-waterwheel", "Pedal Waterwheel.pdf", "vehicles-motion", "Pedal Waterwheel"],
 ];
 const powerpointFiles = ["Car Steering.pptx","Cliff walk.pptx","Ferris wheel.pptx","Round-trip transportation.pptx","Shift gears.pptx"];
 
@@ -70,7 +72,7 @@ test("Level 2 retains all 18 categories and all 59 authentic syllabus entries", 
   assert.ok(levelRoute.includes("project.level === level && project.categoryId === category.id"));
 });
 
-test("48 Level 2 PDF building lessons map exactly to nonempty original uploads", async () => {
+test("50 Level 2 PDF building lessons map exactly to nonempty original uploads", async () => {
   const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
   const seen = new Set();
   const keys = new Set();
@@ -97,7 +99,7 @@ test("48 Level 2 PDF building lessons map exactly to nonempty original uploads",
     assert.ok(row?.slice(1).some(entry => normalize(entry.replace(/\.(pptx|pdf)$/i, "")) === normalize(title)),
       "Project not found in original syllabus category: " + title);
   }
-  assert.equal(seen.size, 48);
+  assert.equal(seen.size, 50);
 });
 
 test("5 Level 2 Manipulators PowerPoints retain original files and download links", () => {

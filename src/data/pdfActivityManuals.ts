@@ -106,6 +106,8 @@ import level2HarpPdfUrl from "../../Harp_Building.pdf?url";
 import level2HelicopterPdfUrl from "../../Helicopter_Building.pdf?url";
 import level2LiftingDoorPdfUrl from "../../Lifting door_Building.pdf?url";
 import level2TeeterboardPdfUrl from "../../Teeterboard.pdf?url";
+import level2FourWheelDrivePdfUrl from "../../Four-wheel Drive.pdf?url";
+import level2PedalWaterwheelPdfUrl from "../../Pedal Waterwheel.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -542,6 +544,14 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "level-2-teeterboard": {
     id: "level-2-teeterboard", title: "Teeterboard", url: level2TeeterboardPdfUrl,
     completionStepId: "level-2-teeterboard-manual-complete",
+  },
+  "level-2-four-wheel-drive": {
+    id: "level-2-four-wheel-drive", title: "Four-wheel Drive", url: level2FourWheelDrivePdfUrl,
+    completionStepId: "level-2-four-wheel-drive-manual-complete",
+  },
+  "level-2-pedal-waterwheel": {
+    id: "level-2-pedal-waterwheel", title: "Pedal Waterwheel", url: level2PedalWaterwheelPdfUrl,
+    completionStepId: "level-2-pedal-waterwheel-manual-complete",
   },
 };
 
