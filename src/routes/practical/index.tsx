@@ -77,9 +77,9 @@ function RobotPicker() {
 
       <header className="relative z-20 flex h-16 items-center justify-between border-b border-slate-100 bg-white/95 px-4 backdrop-blur sm:h-[76px] sm:px-8 [@media(max-height:720px)]:h-14">
         <Link
-          aria-label="Back to category choice"
+          aria-label="Back to levels"
           className="grid size-11 place-items-center rounded-full border border-slate-200 bg-white text-[#132654] shadow-[0_6px_18px_rgba(20,44,84,0.08)] transition active:scale-95 sm:size-12 [@media(max-height:720px)]:size-10"
-          to="/choose"
+          to="/practical/levels"
         >
           <ArrowLeft aria-hidden="true" className="size-5 sm:size-6" />
         </Link>
@@ -110,6 +110,10 @@ function RobotPicker() {
             <Hand aria-hidden="true" className="size-5 text-[#168eea] [@media(max-height:720px)]:size-4" />
             Swipe to see the next robot
           </div>
+          <Link to="/practical/levels"
+            className="mx-auto mt-3 inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl border border-sky-100 bg-[#eaf5ff] px-4 text-xs font-extrabold text-[#168eea] transition hover:bg-sky-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168eea] sm:text-sm">
+            Explore all six levels <ArrowRight className="size-4" aria-hidden="true"/>
+          </Link>
         </section>
 
         <Carousel

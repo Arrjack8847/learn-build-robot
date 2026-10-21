@@ -328,6 +328,8 @@ export const practicalProjects: PracticalProject[] = [
   {
     id: "acceleration-car",
     number: 2,
+    level: 1,
+    categoryId: "autonomous-navigation-ranging",
     title: "Acceleration Car",
     description: "Follow the original Acceleration Car PDF manual, one illustrated step at a time.",
     objective: "View and navigate the original manual's 18 illustrated build steps.",
