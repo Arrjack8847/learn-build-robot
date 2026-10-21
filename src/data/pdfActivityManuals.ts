@@ -112,6 +112,9 @@ import level2TankPdfUrl from "../../Tank.pdf?url";
 import level2SeeSawBalanceV1PdfUrl from "../../Balance.pdf?url";
 import level2SeeSawBalanceV2PdfUrl from "../../Balance_v2.pdf?url";
 import level2TongsPliersPdfUrl from "../../Pliers.pdf?url";
+import level2ReverseParkingPdfUrl from "../../Reverse Parking.pdf?url";
+import level2SmartWindowPdfUrl from "../../Smart Window.pdf?url";
+import level2SpirographPdfUrl from "../../Spirograph.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -572,6 +575,18 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "level-2-tongs": {
     id: "level-2-tongs", title: "Tongs", url: level2TongsPliersPdfUrl,
     completionStepId: "level-2-tongs-manual-complete",
+  },
+  "level-2-reverse-parking": {
+    id: "level-2-reverse-parking", title: "Reverse Parking", url: level2ReverseParkingPdfUrl,
+    completionStepId: "level-2-reverse-parking-manual-complete",
+  },
+  "level-2-smart-window": {
+    id: "level-2-smart-window", title: "Smart Window", url: level2SmartWindowPdfUrl,
+    completionStepId: "level-2-smart-window-manual-complete",
+  },
+  "level-2-spirograph": {
+    id: "level-2-spirograph", title: "Spirograph", url: level2SpirographPdfUrl,
+    completionStepId: "level-2-spirograph-manual-complete",
   },
 };
 

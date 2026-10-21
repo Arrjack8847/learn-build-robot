@@ -67,6 +67,9 @@ const pdfManuals = [
   ["level-2-see-saw-v1", "Balance.pdf", "interactive-systems", "See Saw"],
   ["level-2-see-saw-v2", "Balance_v2.pdf", "interactive-systems", "See Saw"],
   ["level-2-tongs", "Pliers.pdf", "interactive-systems", "Tongs"],
+  ["level-2-reverse-parking", "Reverse Parking.pdf", "sensors", "Reverse Parking"],
+  ["level-2-smart-window", "Smart Window.pdf", "sensors", "Smart Window"],
+  ["level-2-spirograph", "Spirograph.pdf", "sensors", "Spirograph"],
 ];
 const powerpointFiles = ["Car Steering.pptx","Cliff walk.pptx","Ferris wheel.pptx","Round-trip transportation.pptx","Shift gears.pptx"];
 
@@ -76,7 +79,7 @@ test("Level 2 retains all 18 categories and all 59 authentic syllabus entries", 
   assert.ok(levelRoute.includes("project.level === level && project.categoryId === category.id"));
 });
 
-test("54 Level 2 PDF building lessons map exactly to nonempty original uploads", async () => {
+test("57 Level 2 PDF building lessons map exactly to nonempty original uploads", async () => {
   const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
   const seen = new Set();
   const keys = new Set();
@@ -103,7 +106,7 @@ test("54 Level 2 PDF building lessons map exactly to nonempty original uploads",
     assert.ok(row?.slice(1).some(entry => normalize(entry.replace(/\.(pptx|pdf)$/i, "")) === normalize(title)),
       "Project not found in original syllabus category: " + title);
   }
-  assert.equal(seen.size, 54);
+  assert.equal(seen.size, 57);
 });
 
 test("5 Level 2 Manipulators PowerPoints retain original files and download links", () => {
@@ -138,6 +141,18 @@ test("See Saw offers two independent PDF versions and Tongs uses the Pliers sour
     assert.ok(practical.includes('pdfManualProject("' + id + '"'));
     assert.ok(pdfConfig.includes('completionStepId: "' + id + '-manual-complete"'));
   }
+});
+
+test("all five Level 2 Sensors source PDFs have their own Building Studio registrations", () => {
+  const row = syllabus.find(category => category[0] === "Sensors");
+  assert.ok(row, "Sensors category is required");
+  for (const name of ["LED Scrolling Screen", "LED Signboard", "Reverse Parking", "Smart Window", "Spirograph"]) {
+    const id = "level-2-" + name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    assert.ok(pdfManuals.some(([projectId, ,category, title]) => projectId === id &&
+      category === "sensors" && title === name), "Missing Sensors entry " + name);
+    assert.ok(practical.includes('pdfManualProject("' + id + '"'), "Missing registered lesson " + name);
+  }
+  assert.equal(row.length - 1, 5);
 });
 
 test("zero-byte placeholders must not be labeled ready to build", () => {
