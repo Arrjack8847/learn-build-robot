@@ -26,9 +26,7 @@ The existing robot picker remains at `/practical`.
 
 ## Future levels
 
-The same tree contains Level 2–6. It does not give every level the same category taxonomy.
-For example Level 2 has 18 immediate category folders; later levels also contain separate `unit ... programming` folders.
-**Do not assume all six levels have 14 categories.** Audit each level's official syllabus structure separately before populating its catalog.
+Levels 2–6 are now audited and implemented in `src/data/advancedSyllabus.ts` with their own categories: 18, 20, 20, 16 and 15 respectively. The six-level navigation is at `/practical/levels`. See `docs/syllabus-levels.md` for full counts and source-material safeguards.
 
 ## Adding a new working project
 
