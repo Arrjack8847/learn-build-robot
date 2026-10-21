@@ -6,6 +6,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { LEVEL_ONE_CATEGORIES, type LevelOneCategory } from "@/data/levelOneCategories";
+import { getLevelOneProjects, LEVEL_ONE_PROJECT_COUNT } from "@/data/levelOneProjects";
 import { LevelOneBackdrop, LevelOneHeader, categoryTones } from "@/components/practical/LevelOneHeader";
 
 export const Route = createFileRoute("/practical/level-1/")({
@@ -49,8 +50,7 @@ function LevelOneCategoriesPage() {
             Pick your <span className="text-[#168eea]">STEM world!</span>
           </h1>
           <p className="mx-auto mt-3 max-w-xl text-sm font-medium leading-6 text-slate-600 sm:text-base">
-            Explore the 14 categories from your Level 1 robotics syllabus.
-            Pick one to discover its building projects.
+            Explore {LEVEL_ONE_PROJECT_COUNT} real projects across the 14 categories of your Level 1 robotics syllabus.
           </p>
         </section>
 
@@ -90,6 +90,7 @@ function LevelOneCategoriesPage() {
                       <h3 className="mt-4 flex-1 text-base font-extrabold leading-snug text-slate-800 sm:text-[17px]">
                         {category.name}
                       </h3>
+                      <p className="mt-1 text-xs font-medium text-slate-500">{getLevelOneProjects(category.id).length} projects &amp; lessons</p>
                       <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-extrabold group-hover:gap-2"
                         style={{ color: tone.ink }}>
                         Explore category <ArrowRight className="size-4" aria-hidden="true"/>
