@@ -59,8 +59,8 @@ test("All 59 Level 1 syllabus entries have exact category placement", () => {
 });
 
 test("Existing robot lessons remain accessible; missing lessons are not clickable builds", () => {
-  assert.match(choice, /label="Build a Robot"[\s\S]*?to="\/practical\/level-1"/);
-  assert.match(picker, /to="\/practical\/level-1"/);
+  assert.match(choice, /label="Build a Robot"[\s\S]*?to="\/practical\/levels"/);
+  assert.match(picker, /to="\/practical\/levels"/);
   assert.match(index, /to="\/practical"/);
   assert.match(detail, /getLevelOneProjects\(category\.id\)/);
   assert.match(detail, /getProject\(entry\.availableProjectId\)/);
