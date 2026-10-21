@@ -64,6 +64,9 @@ const pdfManuals = [
   ["level-2-four-wheel-drive", "Four-wheel Drive.pdf", "vehicles-motion", "Four-wheel Drive"],
   ["level-2-pedal-waterwheel", "Pedal Waterwheel.pdf", "vehicles-motion", "Pedal Waterwheel"],
   ["level-2-tank", "Tank.pdf", "vehicles-motion", "Tank"],
+  ["level-2-see-saw-v1", "Balance.pdf", "interactive-systems", "See Saw"],
+  ["level-2-see-saw-v2", "Balance_v2.pdf", "interactive-systems", "See Saw"],
+  ["level-2-tongs", "Pliers.pdf", "interactive-systems", "Tongs"],
 ];
 const powerpointFiles = ["Car Steering.pptx","Cliff walk.pptx","Ferris wheel.pptx","Round-trip transportation.pptx","Shift gears.pptx"];
 
@@ -73,7 +76,7 @@ test("Level 2 retains all 18 categories and all 59 authentic syllabus entries", 
   assert.ok(levelRoute.includes("project.level === level && project.categoryId === category.id"));
 });
 
-test("51 Level 2 PDF building lessons map exactly to nonempty original uploads", async () => {
+test("54 Level 2 PDF building lessons map exactly to nonempty original uploads", async () => {
   const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
   const seen = new Set();
   const keys = new Set();
@@ -100,7 +103,7 @@ test("51 Level 2 PDF building lessons map exactly to nonempty original uploads",
     assert.ok(row?.slice(1).some(entry => normalize(entry.replace(/\.(pptx|pdf)$/i, "")) === normalize(title)),
       "Project not found in original syllabus category: " + title);
   }
-  assert.equal(seen.size, 51);
+  assert.equal(seen.size, 54);
 });
 
 test("5 Level 2 Manipulators PowerPoints retain original files and download links", () => {
@@ -124,10 +127,22 @@ test("5 Level 2 Manipulators PowerPoints retain original files and download link
   }
 });
 
-test("corrupted and unmatched uploads must not be labeled ready to build", () => {
-  for (const filename of ["Automatic window.pdf", "Robot war.pdf", "The treadmill.pdf",
-    "Balance.pdf", "Pliers.pdf"]) {
-    assert.ok(!pdfConfig.includes("../../" + filename + "?url"), "Invalid/ambiguous source registered " + filename);
+test("See Saw offers two independent PDF versions and Tongs uses the Pliers source", () => {
+  const interactive = syllabus.find(category => category[0] === "Interactive Systems");
+  assert.deepEqual(interactive?.slice(1), ["See Saw", "Tongs"]);
+  assert.ok(levelRoute.includes('projectId: "level-2-see-saw-v1"'));
+  assert.ok(levelRoute.includes('projectId: "level-2-see-saw-v2"'));
+  assert.ok(levelRoute.includes("versions.map(version =>"));
+  assert.ok(levelRoute.includes("versions.length ? ("));
+  for (const id of ["level-2-see-saw-v1", "level-2-see-saw-v2", "level-2-tongs"]) {
+    assert.ok(practical.includes('pdfManualProject("' + id + '"'));
+    assert.ok(pdfConfig.includes('completionStepId: "' + id + '-manual-complete"'));
+  }
+});
+
+test("zero-byte placeholders must not be labeled ready to build", () => {
+  for (const filename of ["Automatic window.pdf", "Robot war.pdf", "The treadmill.pdf"]) {
+    assert.ok(!pdfConfig.includes("../../" + filename + "?url"), "Invalid/empty source registered " + filename);
   }
   assert.ok(!practical.includes('pdfManualProject("level-2-robot-war"'));
   assert.ok(!practical.includes('pdfManualProject("level-2-automatic-window"'));

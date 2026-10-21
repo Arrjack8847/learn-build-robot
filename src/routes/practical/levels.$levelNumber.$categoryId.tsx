@@ -7,6 +7,12 @@ import { practicalProjects } from "@/data/practical";
 import { isPdfActivityProject } from "@/data/pdfActivityManuals";
 import { levelTwoPowerPointSources } from "@/data/levelTwoPowerPointSources";
 
+/** See Saw offers two user-confirmed source PDFs under one syllabus activity. */
+const seeSawVersionChoices = [
+  { label: "Version 1 · Balance", projectId: "level-2-see-saw-v1" },
+  { label: "Version 2 · Balance_v2", projectId: "level-2-see-saw-v2" },
+] as const;
+
 export const Route = createFileRoute("/practical/levels/$levelNumber/$categoryId")({
   component: AdvancedLevelProjectsPage,
 });
@@ -58,10 +64,18 @@ function AdvancedLevelProjectsPage() {
                 project.level === level && project.categoryId === category.id &&
                 syllabusSlug(project.title) === syllabusSlug(entry.name)
               );
+              // Both See Saw versions are distinct registered lessons, not duplicated syllabus cards.
+              const versions = level === 2 && category.id === "interactive-systems" && entry.name === "See Saw"
+                ? seeSawVersionChoices.filter(choice => practicalProjects.some(project =>
+                    project.id === choice.projectId && project.level === 2 &&
+                    project.categoryId === category.id))
+                : [];
+              const isReady = Boolean(liveProject || versions.length);
               // PowerPoints are offered as exact originals, not passed to the PDF renderer.
               const pptxUrl = level === 2 ? levelTwoPowerPointSources[entry.sourceEntry] : undefined;
               const Icon = entry.sourceKind === "pptx" ? Presentation : entry.sourceKind === "pdf" ? FileText : FolderOpen;
-              const label = liveProject && pptxUrl ? "Original PDF building manual · PowerPoint also available" :
+              const label = versions.length ? "Two original PDF versions · choose below" :
+                liveProject && pptxUrl ? "Original PDF building manual · PowerPoint also available" :
                 liveProject && isPdfActivityProject(liveProject.id) ? "Original PDF building manual" :
                 pptxUrl ? "Original PowerPoint presentation" :
                 entry.sourceKind === "pptx" ? "PowerPoint lesson" : entry.sourceKind === "pdf" ? "PDF lesson" : "Syllabus project folder";
@@ -69,16 +83,26 @@ function AdvancedLevelProjectsPage() {
                 <li key={entry.id} className="flex flex-col rounded-[26px] border border-sky-100 bg-white p-5 shadow-[0_7px_24px_rgba(22,142,234,.07)]">
                   <div className="flex items-start justify-between gap-2">
                     <span className="grid size-14 place-items-center rounded-2xl bg-[#eaf5ff] text-[#168eea]">
-                      {liveProject ? <Bot className="size-8" aria-hidden="true"/> : <Icon className="size-7" aria-hidden="true"/>}
+                      {isReady ? <Bot className="size-8" aria-hidden="true"/> : <Icon className="size-7" aria-hidden="true"/>}
                     </span>
-                    <span className={`rounded-full px-3 py-1.5 text-xs font-bold ${liveProject ? "bg-green-50 text-green-700" : "bg-slate-100 text-slate-600"}`}>
-                      {liveProject ? "Ready to build" : pptxUrl ? "PowerPoint available" : "Lesson not added yet"}
+                    <span className={`rounded-full px-3 py-1.5 text-xs font-bold ${isReady ? "bg-green-50 text-green-700" : "bg-slate-100 text-slate-600"}`}>
+                      {isReady ? "Ready to build" : pptxUrl ? "PowerPoint available" : "Lesson not added yet"}
                     </span>
                   </div>
                   <h3 className="mt-4 text-lg font-extrabold leading-snug">{entry.name}</h3>
                   <p className="mt-2 text-xs font-medium text-slate-500">{label}</p>
                   <div className="mt-auto pt-5">
-                    {liveProject ? (
+                    {versions.length ? (
+                      <div className="flex flex-col gap-2" role="group" aria-label="Choose See Saw manual version">
+                        {versions.map(version => (
+                          <Link key={version.projectId} to="/practical/$projectId"
+                            params={{projectId: version.projectId}}
+                            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 text-sm font-extrabold text-white hover:bg-[#0d7fda]">
+                            Open {version.label} <ArrowRight className="size-4" aria-hidden="true"/>
+                          </Link>
+                        ))}
+                      </div>
+                    ) : liveProject ? (
                       <div className="flex flex-col gap-2">
                         <Link to="/practical/$projectId" params={{projectId:liveProject.id}}
                           className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 text-sm font-extrabold text-white hover:bg-[#0d7fda]">
