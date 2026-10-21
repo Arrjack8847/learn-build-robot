@@ -39,7 +39,12 @@ test("Original manual numbering remains stable and overlap is flagged",()=>{
   assert.ok(data.includes("Original manual operation may overlap"));
 });
 test("Route keeps previous step distinct from action controls and guards Step 7–9 footer",()=>{
-  assert.ok(route.includes('aria-label="Previous Step"'));
+  // The universal Building Studio owns the actual Previous Step button.
+  // The project route supplies its callback instead of duplicating the UI.
+  const buildingStudio=read("src/components/practical/BuildingStudio.tsx");
+  assert.ok(route.includes("onPreviousStep={() => setCurrentIndex(index => Math.max(0, index - 1))}"));
+  assert.ok(route.includes("previousDisabled={currentIndex === 0}"));
+  assert.ok(buildingStudio.includes('aria-label="Previous building step"'));
   assert.ok(route.includes("const isStepSeven"));
   assert.ok(route.includes("const isStepEight"));
   assert.ok(route.includes("const isStepNine"));
