@@ -58,6 +58,30 @@ import balancedBirdPdfUrl from "../../Balanced Bird.pdf?url";
 import dancingMusicBoxPdfUrl from "../../Dancing Music Box.pdf?url";
 import handCrankingFanPdfUrl from "../../Hand-cranking Fan.pdf?url";
 import oldFashionedTelephonePdfUrl from "../../Old-fashioned Telephone.pdf?url";
+import level2AxeRobotPdfUrl from "../../Axe robot_Building.pdf?url";
+import level2BattingRobotPdfUrl from "../../Batting robot_Building.pdf?url";
+import level2FanRobotPdfUrl from "../../Fan robot_Building.pdf?url";
+import level2PirateShipPdfUrl from "../../Pirate ship_Building.pdf?url";
+import level2PushUpsPdfUrl from "../../Push ups_building.pdf?url";
+import level2RotatingFlyingChairPdfUrl from "../../Rotating flying chair_Building.pdf?url";
+import level2ThrowingRobotPdfUrl from "../../Throwing robot_Building.pdf?url";
+import level2BeePdfUrl from "../../BEE.pdf?url";
+import level2ChimpanzeesPdfUrl from "../../Chimpanzees.pdf?url";
+import level2MechanicalDogPdfUrl from "../../Mechanical dog.pdf?url";
+import level2ScalingLadderPdfUrl from "../../Scaling ladder.pdf?url";
+import level2TowerCranePdfUrl from "../../Tower crane_Building.pdf?url";
+import level2CranePdfUrl from "../../Crane.pdf?url";
+import level2FareGatePdfUrl from "../../Fare Gate.pdf?url";
+import level2ForkliftPdfUrl from "../../Forklift.pdf?url";
+import level2HammerRobotPdfUrl from "../../Hammer robot.pdf?url";
+import level2LuckyTurntablePdfUrl from "../../Lucky turntable.pdf?url";
+import level2TightropeWalkPdfUrl from "../../Tightrope walk.pdf?url";
+import level2ManualFlashlightPdfUrl from "../../Flashlight_Building.pdf?url";
+import level2JumpingMachinePdfUrl from "../../Jumping machine_Building.pdf?url";
+import level2DungBeetlePdfUrl from "../../Dung Beetle.pdf?url";
+import level2MobileShotPdfUrl from "../../Mobile Shot.pdf?url";
+import level2RollingShutterPdfUrl from "../../Rolling Shutter.pdf?url";
+import level2TrackRickshawPdfUrl from "../../Track Rickshaw.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -302,6 +326,102 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "old-fashioned-telephone": {
     id: "old-fashioned-telephone", title: "Old-Fashioned Telephone", url: oldFashionedTelephonePdfUrl,
     completionStepId: "old-fashioned-telephone-manual-complete",
+  },
+  "level-2-axe-robot": {
+    id: "level-2-axe-robot", title: "Axe robot", url: level2AxeRobotPdfUrl,
+    completionStepId: "level-2-axe-robot-manual-complete",
+  },
+  "level-2-batting-robot": {
+    id: "level-2-batting-robot", title: "Batting robot", url: level2BattingRobotPdfUrl,
+    completionStepId: "level-2-batting-robot-manual-complete",
+  },
+  "level-2-fan-robot": {
+    id: "level-2-fan-robot", title: "Fan robot", url: level2FanRobotPdfUrl,
+    completionStepId: "level-2-fan-robot-manual-complete",
+  },
+  "level-2-pirate-ship": {
+    id: "level-2-pirate-ship", title: "Pirate ship", url: level2PirateShipPdfUrl,
+    completionStepId: "level-2-pirate-ship-manual-complete",
+  },
+  "level-2-push-ups": {
+    id: "level-2-push-ups", title: "Push ups", url: level2PushUpsPdfUrl,
+    completionStepId: "level-2-push-ups-manual-complete",
+  },
+  "level-2-rotating-flying-chair": {
+    id: "level-2-rotating-flying-chair", title: "Rotating flying chair", url: level2RotatingFlyingChairPdfUrl,
+    completionStepId: "level-2-rotating-flying-chair-manual-complete",
+  },
+  "level-2-throwing-robot": {
+    id: "level-2-throwing-robot", title: "Throwing robot", url: level2ThrowingRobotPdfUrl,
+    completionStepId: "level-2-throwing-robot-manual-complete",
+  },
+  "level-2-bee": {
+    id: "level-2-bee", title: "Bee", url: level2BeePdfUrl,
+    completionStepId: "level-2-bee-manual-complete",
+  },
+  "level-2-chimpanzees": {
+    id: "level-2-chimpanzees", title: "Chimpanzees", url: level2ChimpanzeesPdfUrl,
+    completionStepId: "level-2-chimpanzees-manual-complete",
+  },
+  "level-2-mechanical-dog": {
+    id: "level-2-mechanical-dog", title: "Mechanical dog", url: level2MechanicalDogPdfUrl,
+    completionStepId: "level-2-mechanical-dog-manual-complete",
+  },
+  "level-2-scaling-ladder": {
+    id: "level-2-scaling-ladder", title: "Scaling ladder", url: level2ScalingLadderPdfUrl,
+    completionStepId: "level-2-scaling-ladder-manual-complete",
+  },
+  "level-2-tower-crane": {
+    id: "level-2-tower-crane", title: "Tower crane", url: level2TowerCranePdfUrl,
+    completionStepId: "level-2-tower-crane-manual-complete",
+  },
+  "level-2-crane": {
+    id: "level-2-crane", title: "Crane", url: level2CranePdfUrl,
+    completionStepId: "level-2-crane-manual-complete",
+  },
+  "level-2-fare-gate": {
+    id: "level-2-fare-gate", title: "Fare Gate", url: level2FareGatePdfUrl,
+    completionStepId: "level-2-fare-gate-manual-complete",
+  },
+  "level-2-forklift": {
+    id: "level-2-forklift", title: "Forklift", url: level2ForkliftPdfUrl,
+    completionStepId: "level-2-forklift-manual-complete",
+  },
+  "level-2-hammer-robot": {
+    id: "level-2-hammer-robot", title: "Hammer robot", url: level2HammerRobotPdfUrl,
+    completionStepId: "level-2-hammer-robot-manual-complete",
+  },
+  "level-2-lucky-turntable": {
+    id: "level-2-lucky-turntable", title: "Lucky turntable", url: level2LuckyTurntablePdfUrl,
+    completionStepId: "level-2-lucky-turntable-manual-complete",
+  },
+  "level-2-tightrope-walk": {
+    id: "level-2-tightrope-walk", title: "Tightrope walk", url: level2TightropeWalkPdfUrl,
+    completionStepId: "level-2-tightrope-walk-manual-complete",
+  },
+  "level-2-manual-flashlight": {
+    id: "level-2-manual-flashlight", title: "Manual Flashlight", url: level2ManualFlashlightPdfUrl,
+    completionStepId: "level-2-manual-flashlight-manual-complete",
+  },
+  "level-2-jumping-machine": {
+    id: "level-2-jumping-machine", title: "Jumping machine", url: level2JumpingMachinePdfUrl,
+    completionStepId: "level-2-jumping-machine-manual-complete",
+  },
+  "level-2-dung-beetle": {
+    id: "level-2-dung-beetle", title: "Dung Beetle", url: level2DungBeetlePdfUrl,
+    completionStepId: "level-2-dung-beetle-manual-complete",
+  },
+  "level-2-mobile-shot": {
+    id: "level-2-mobile-shot", title: "Mobile Shot", url: level2MobileShotPdfUrl,
+    completionStepId: "level-2-mobile-shot-manual-complete",
+  },
+  "level-2-rolling-shutter": {
+    id: "level-2-rolling-shutter", title: "Rolling Shutter", url: level2RollingShutterPdfUrl,
+    completionStepId: "level-2-rolling-shutter-manual-complete",
+  },
+  "level-2-track-rickshaw": {
+    id: "level-2-track-rickshaw", title: "Track Rickshaw", url: level2TrackRickshawPdfUrl,
+    completionStepId: "level-2-track-rickshaw-manual-complete",
   },
 };
 
