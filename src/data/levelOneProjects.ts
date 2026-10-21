@@ -153,6 +153,17 @@ export function getLevelOneProjects(categoryId: LevelOneCategoryId): LevelOneSyl
       const matchingProjectId = matchingPdfProjects[sourceEntry];
       if (matchingProjectId) project.availableProjectId = matchingProjectId;
     }
+    if (categoryId === "machines-mechanisms") {
+      // Every Machines & Mechanisms syllabus lesson now has its own uploaded PDF.
+      const matchingPdfProjects: Record<string, string> = {
+        "Balanced Bird.pdf": "balanced-bird",
+        "Dancing Music Box.pdf": "dancing-music-box",
+        "Hand-cranking Fan.pdf": "hand-cranking-fan",
+        "Old-fashioned Telephone.pdf": "old-fashioned-telephone",
+      };
+      const matchingProjectId = matchingPdfProjects[sourceEntry];
+      if (matchingProjectId) project.availableProjectId = matchingProjectId;
+    }
     if (categoryId === "mechanisms-simulators") {
       if (sourceEntry === "Crawl Slowly") {
         // The syllabus has one activity, but GitHub contains two distinct official versions.

@@ -21,7 +21,8 @@ Category and project names were transcribed from the user's complete directory t
 - All six Manipulators entries (Car, Dynamic screen, Pendulum ride, Rotating flying chair, Skating, The windmill kingdom) now link to their original GitHub-uploaded PDF manuals; original syllabus filename metadata is preserved.
 - Mechanisms & Simulators now contains three available activities: Crawl Slowly (two separately selectable PDF versions, Basic and Optimized), Mechanical Arm and Shock Absorber. The two Crawl Slowly manuals are independent original files and maintain separate completion records.
 - All seven Illumination & Signals activities, both Interactive Systems activities, Wiper (Mechanisms and Concepts), Gyro transmitter (Sensor-Focused Robots), Motorcycle and Pull back car (Vehicles & Complex Movers), and all seven Vehicles & Motion activities are now linked to their exact uploaded PDFs. This connects both the latest 11 uploaded manuals and 9 earlier uploaded-but-unlinked manuals.
-- The remaining four syllabus entries belong to Machines & Mechanisms; their source PDFs have not been uploaded, so those lessons remain unavailable.
+- All four Machines & Mechanisms activities (Balanced Bird, Dancing Music Box, Hand-cranking Fan and Old-fashioned Telephone) now link to their exact source PDFs.
+- **All 59 Level 1 syllabus activities are now linked to original source PDF Building Studio lessons**. The app also supports two separate Crawl Slowly PDF variants (Basic and Optimized), so it has 59 registered generic PDF manuals plus the separately implemented Acceleration Car PDF viewer.
 
 ## Navigation
 

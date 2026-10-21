@@ -54,6 +54,10 @@ import oscillatingFanPdfUrl from "../../Oscillating Fan.pdf?url";
 import pocketPistolPdfUrl from "../../Pocket Pistol.pdf?url";
 import pullbackBicyclePdfUrl from "../../Pullback Bicycle.pdf?url";
 import rotatingCoffeeCupPdfUrl from "../../Rotating Coffee Cup.pdf?url";
+import balancedBirdPdfUrl from "../../Balanced Bird.pdf?url";
+import dancingMusicBoxPdfUrl from "../../Dancing Music Box.pdf?url";
+import handCrankingFanPdfUrl from "../../Hand-cranking Fan.pdf?url";
+import oldFashionedTelephonePdfUrl from "../../Old-fashioned Telephone.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -282,6 +286,22 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "rotating-coffee-cup": {
     id: "rotating-coffee-cup", title: "Rotating Coffee Cup", url: rotatingCoffeeCupPdfUrl,
     completionStepId: "rotating-coffee-cup-manual-complete",
+  },
+  "balanced-bird": {
+    id: "balanced-bird", title: "Balanced Bird", url: balancedBirdPdfUrl,
+    completionStepId: "balanced-bird-manual-complete",
+  },
+  "dancing-music-box": {
+    id: "dancing-music-box", title: "Dancing Music Box", url: dancingMusicBoxPdfUrl,
+    completionStepId: "dancing-music-box-manual-complete",
+  },
+  "hand-cranking-fan": {
+    id: "hand-cranking-fan", title: "Hand-Cranking Fan", url: handCrankingFanPdfUrl,
+    completionStepId: "hand-cranking-fan-manual-complete",
+  },
+  "old-fashioned-telephone": {
+    id: "old-fashioned-telephone", title: "Old-Fashioned Telephone", url: oldFashionedTelephonePdfUrl,
+    completionStepId: "old-fashioned-telephone-manual-complete",
   },
 };
 

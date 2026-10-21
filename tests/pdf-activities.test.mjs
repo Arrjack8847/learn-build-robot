@@ -68,9 +68,13 @@ const manuals = [
   ["pocket-pistol", "Pocket Pistol.pdf"],
   ["pullback-bicycle", "Pullback Bicycle.pdf"],
   ["rotating-coffee-cup", "Rotating Coffee Cup.pdf"],
+  ["balanced-bird", "Balanced Bird.pdf"],
+  ["dancing-music-box", "Dancing Music Box.pdf"],
+  ["hand-cranking-fan", "Hand-cranking Fan.pdf"],
+  ["old-fashioned-telephone", "Old-fashioned Telephone.pdf"],
 ];
 
-test("the fifty-five original uploaded PDFs exist and can be loaded", async () => {
+test("the fifty-nine original uploaded PDFs exist and can be loaded", async () => {
   const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
   for (const [id, filename] of manuals) {
     const bytes = readFileSync(new URL("../" + filename, import.meta.url));
@@ -97,6 +101,7 @@ test("every uploaded PDF is registered and receives isolated completion progress
   assert.match(syllabus, /"foundational-robots"/);
   assert.match(syllabus, /"manipulators"/);
   assert.match(syllabus, /"mechanisms-simulators"/);
+  assert.match(syllabus, /"machines-mechanisms"/);
   assert.match(syllabus, /"illumination-signals"/);
   assert.match(syllabus, /"interactive-systems"/);
   assert.match(syllabus, /"mechanisms-and-concepts"/);
@@ -130,6 +135,16 @@ test("all twenty newly connected syllabus entries use exact original PDFs and un
     assert.ok(syllabus.includes('"' + entry + '": "' + id + '"'), "Missing syllabus link: " + entry);
     assert.ok(sources.includes("../../" + filename + "?url"), "Missing original PDF: " + filename);
     assert.ok(practical.includes('pdfManualProject("' + id + '"'), "Missing project: " + id);
+  }
+});
+
+test("all four Machines & Mechanisms activities use uploaded original PDFs", () => {
+  const remainingManuals = [["balanced-bird","Balanced Bird.pdf"],["dancing-music-box","Dancing Music Box.pdf"],["hand-cranking-fan","Hand-cranking Fan.pdf"],["old-fashioned-telephone","Old-fashioned Telephone.pdf"]];
+  for (const [id, filename] of remainingManuals) {
+    assert.ok(sources.includes("../../" + filename + "?url"), "Missing original PDF: " + filename);
+    assert.ok(sources.includes('completionStepId: "' + id + '-manual-complete"'), "Missing completion state: " + id);
+    assert.ok(syllabus.includes('"' + filename + '": "' + id + '"'), "Missing syllabus mapping: " + id);
+    assert.ok(practical.includes('pdfManualProject("' + id + '"'), "Missing registered lesson: " + id);
   }
 });
 
