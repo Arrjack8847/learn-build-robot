@@ -89,6 +89,21 @@ export function getLevelOneProjects(categoryId: LevelOneCategoryId): LevelOneSyl
       const matchingProjectId = matchingPdfProjects[sourceEntry];
       if (matchingProjectId) project.availableProjectId = matchingProjectId;
     }
+    if (categoryId === "characters-structures") {
+      const matchingPdfProjects: Record<string, string> = {
+        "Big head robot": "big-head-robot",
+        "Bird": "bird",
+        "First Robot Model": "first-robot-model",
+        "House": "house",
+        "REX robot": "rex-robot",
+        "Sled": "sled",
+        "Spider": "spider",
+        "SpongeBob": "spongebob",
+        "Wali robot": "wali-robot",
+      };
+      const matchingProjectId = matchingPdfProjects[sourceEntry];
+      if (matchingProjectId) project.availableProjectId = matchingProjectId;
+    }
     return project;
   });
 }
