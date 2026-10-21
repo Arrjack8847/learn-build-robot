@@ -37,6 +37,26 @@ const pdfManuals = [
   ["level-2-mobile-shot", "Mobile Shot.pdf", "machines-mechanisms", "Mobile Shot"],
   ["level-2-rolling-shutter", "Rolling Shutter.pdf", "machines-mechanisms", "Rolling Shutter"],
   ["level-2-track-rickshaw", "Track Rickshaw.pdf", "machines-mechanisms", "Track Rickshaw"],
+  ["level-2-car-steering", "Car Steering.pdf", "manipulators", "Car Steering"],
+  ["level-2-cliff-walk", "Cliff walk.pdf", "manipulators", "Cliff walk"],
+  ["level-2-ferris-wheel", "Ferris wheel.pdf", "manipulators", "Ferris wheel"],
+  ["level-2-round-trip-transportation", "Round-trip transportation.pdf", "manipulators", "Round-trip transportation"],
+  ["level-2-shift-gears", "Shift gears.pdf", "manipulators", "Shift gears"],
+  ["level-2-bridge", "Bridge_Building.pdf", "mechanisms-simulators", "Bridge"],
+  ["level-2-mechanisms-simulators-crane", "Crane_.pdf", "mechanisms-simulators", "Crane"],
+  ["level-2-door", "Door_Building.pdf", "mechanisms-simulators", "Door"],
+  ["level-2-double-beam-crane", "Double beam crane_Building.pdf", "mechanisms-simulators", "Double Beam Crane"],
+  ["level-2-gearbox", "Gearbox_Building.pdf", "mechanisms-simulators", "Gearbox"],
+  ["level-2-hand-crank", "Hand crank_Building.pdf", "mechanisms-simulators", "Hand crank"],
+  ["level-2-spinning-bike", "Spinning bike_Building.pdf", "mechanisms-simulators", "Spinning bike"],
+  ["level-2-swing", "Swing_Building.pdf", "mechanisms-simulators", "Swing"],
+  ["level-2-treadmill", "Treadmill_Building.pdf", "mechanisms-simulators", "Treadmill"],
+  ["level-2-animal-trap", "Animal trap.pdf", "mechanisms-and-concepts", "Animal trap"],
+  ["level-2-headlights", "Headlights.pdf", "mechanisms-and-concepts", "Headlights"],
+  ["level-2-battery-robot", "Battery robot_Building.pdf", "programming-precise-control", "Battery robot"],
+  ["level-2-walking-robot", "Walking Robot.pdf", "sensor-focused-robots", "Walking robot"],
+  ["level-2-led-scrolling-screen", "LED Scrolling Screen.pdf", "sensors", "LED Scrolling Screen"],
+  ["level-2-led-signboard", "LED Signboard.pdf", "sensors", "LED Signboard"],
 ];
 const powerpointFiles = ["Car Steering.pptx","Cliff walk.pptx","Ferris wheel.pptx","Round-trip transportation.pptx","Shift gears.pptx"];
 
@@ -46,7 +66,7 @@ test("Level 2 retains all 18 categories and all 59 authentic syllabus entries", 
   assert.ok(levelRoute.includes("project.level === level && project.categoryId === category.id"));
 });
 
-test("24 Level 2 PDF building lessons map exactly to nonempty original uploads", async () => {
+test("44 Level 2 PDF building lessons map exactly to nonempty original uploads", async () => {
   const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
   const seen = new Set();
   const keys = new Set();
@@ -68,8 +88,12 @@ test("24 Level 2 PDF building lessons map exactly to nonempty original uploads",
     assert.ok(pdfConfig.includes('completionStepId: "' + key + '"'));
     assert.ok(practical.includes('pdfManualProject("' + id + '", "' + title + '",'), "Missing practical registration " + id);
     assert.ok(practical.includes('"' + category + '", 2)'), "Missing Level 2 placement " + category);
+    const normalize = value => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    const row = syllabus.find(cat => normalize(cat[0]) === category);
+    assert.ok(row?.slice(1).some(entry => normalize(entry.replace(/\.(pptx|pdf)$/i, "")) === normalize(title)),
+      "Project not found in original syllabus category: " + title);
   }
-  assert.equal(seen.size, 24);
+  assert.equal(seen.size, 44);
 });
 
 test("5 Level 2 Manipulators PowerPoints retain original files and download links", () => {
@@ -85,6 +109,12 @@ test("5 Level 2 Manipulators PowerPoints retain original files and download link
   assert.match(levelRoute, /Download original PowerPoint/);
   assert.match(levelRoute, /PowerPoint available/);
   assert.match(levelRoute, /pptxUrl \?/);
+  assert.ok(levelRoute.includes("liveProject && pptxUrl"), "Manipulator card must offer both source types");
+  for (const filename of powerpointFiles) {
+    const id = "level-2-" + filename.replace(/\.pptx$/i, "").toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    assert.ok(pdfManuals.some(([projectId, pdf]) => projectId === id &&
+      pdf === filename.replace(/\.pptx$/i, ".pdf")), "Missing corresponding original PDF " + filename);
+  }
 });
 
 test("corrupted and unmatched uploads must not be labeled ready to build", () => {
