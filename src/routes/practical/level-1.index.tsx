@@ -40,7 +40,7 @@ function LevelOneCategoriesPage() {
   return (
     <div className="relative h-[100dvh] overflow-y-auto bg-white text-slate-800">
       <LevelOneBackdrop/>
-      <LevelOneHeader backTo="/choose" backLabel="Activities"/>
+      <LevelOneHeader backTo="/practical/levels" backLabel="All levels"/>
       <main className="relative mx-auto max-w-7xl px-4 pb-[max(3rem,env(safe-area-inset-bottom))] pt-7 sm:px-7 sm:pt-10">
         <section className="mx-auto max-w-3xl text-center">
           <p className="inline-flex items-center rounded-full bg-[#eaf5ff] px-4 py-1.5 text-xs font-extrabold tracking-wider text-[#168eea]">
