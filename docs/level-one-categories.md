@@ -16,7 +16,8 @@ Category and project names were transcribed from the user's complete directory t
 - `Level 1/Autonomous Navigation & Ranging/Acceleration car` maps to existing `acceleration-car` PDF Building Studio. This lesson is linked as ready.
 - The five Biomimicry entries (Caged Bird, Ferocious snake, Funny cat, Shy penguin and Sled dog) now link to their original GitHub-uploaded PDF building manuals. Source entry filenames in the syllabus are preserved even when the uploaded building file has a .pdf extension.
 - All nine Characters & Structures entries now link to their corresponding original GitHub-uploaded PDF building manuals.
-- The remaining 44 entries are cataloged but not linked as working building lessons.
+- All five Display & Movement entries (Clock, Drawing board, Hello World, Mechanical masks, Primitive robot) are linked to their original GitHub-uploaded PDF manuals.
+- The remaining 39 entries are cataloged but not linked as working building lessons.
 
 ## Navigation
 
