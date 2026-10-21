@@ -86,7 +86,7 @@ test("every uploaded PDF is registered and receives isolated completion progress
 });
 
 test("Crawl Slowly retains one syllabus card with two independently tracked versions", () => {
-  assert.ok(syllabus.includes('"mechanisms-simulators": ["Crawl Slowly", "Mechanical arm", "Shock absorber"]'));
+  assert.match(syllabus, /"mechanisms-simulators": \[\s*"Crawl Slowly", "Mechanical arm", "Shock absorber",\s*\]/);
   assert.match(syllabus, /availableProjectVariants/);
   assert.match(syllabus, /label: "Basic", projectId: "crawl-slowly-basic"/);
   assert.match(syllabus, /label: "Optimized", projectId: "crawl-slowly-optimized"/);
