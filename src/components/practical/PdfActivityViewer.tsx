@@ -1,3 +1,10 @@
+import { useEffect, useRef, useState } from "react";
+import type { PointerEvent as ReactPointerEvent } from "react";
+import type { PDFDocumentProxy, PDFDocumentLoadingTask } from "pdfjs-dist";
+import { useProgress } from "@/context/ProgressContext";
+import { BuildingStudioHeader, BuildingStepDrawer, BuildingFloatingDock, BuildingStudioCompletion } from "./BuildingStudio";
+import { Minus, Plus, Maximize2, AlertCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import type { PdfActivityManual } from "@/data/pdfActivityManuals";
 import { PdfManualPage, type PdfFit, type PdfViewportSize } from "./PdfManualPage";
 import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
