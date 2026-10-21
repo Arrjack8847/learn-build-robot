@@ -13,6 +13,11 @@ import sledUrl from "../../Sled_Building.pdf?url";
 import spiderUrl from "../../Spider.pdf?url";
 import spongeBobUrl from "../../SpongeBob_Building.pdf?url";
 import waliRobotUrl from "../../Wali robot.pdf?url";
+import clockPdfUrl from "../../Clock_Building.pdf?url";
+import drawingBoardPdfUrl from "../../Drawing board_Building.pdf?url";
+import helloWorldPdfUrl from "../../01.Hello World-Building Manual.pdf?url";
+import mechanicalMasksPdfUrl from "../../Mechanical masks.pdf?url";
+import primitiveRobotPdfUrl from "../../Primitive robot_Building.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -77,6 +82,26 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "wali-robot": {
     id: "wali-robot", title: "Wali Robot", url: waliRobotUrl,
     completionStepId: "wali-robot-manual-complete",
+  },
+  "clock": {
+    id: "clock", title: "Clock", url: clockPdfUrl,
+    completionStepId: "clock-manual-complete",
+  },
+  "drawing-board": {
+    id: "drawing-board", title: "Drawing Board", url: drawingBoardPdfUrl,
+    completionStepId: "drawing-board-manual-complete",
+  },
+  "hello-world": {
+    id: "hello-world", title: "Hello World", url: helloWorldPdfUrl,
+    completionStepId: "hello-world-manual-complete",
+  },
+  "mechanical-masks": {
+    id: "mechanical-masks", title: "Mechanical Masks", url: mechanicalMasksPdfUrl,
+    completionStepId: "mechanical-masks-manual-complete",
+  },
+  "primitive-robot": {
+    id: "primitive-robot", title: "Primitive Robot", url: primitiveRobotPdfUrl,
+    completionStepId: "primitive-robot-manual-complete",
   },
 };
 

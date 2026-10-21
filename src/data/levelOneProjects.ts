@@ -89,6 +89,17 @@ export function getLevelOneProjects(categoryId: LevelOneCategoryId): LevelOneSyl
       const matchingProjectId = matchingPdfProjects[sourceEntry];
       if (matchingProjectId) project.availableProjectId = matchingProjectId;
     }
+    if (categoryId === "display-movement") {
+      const matchingPdfProjects: Record<string, string> = {
+        "Clock": "clock",
+        "Drawing board": "drawing-board",
+        "Hello World": "hello-world",
+        "Mechanical masks": "mechanical-masks",
+        "Primitive robot": "primitive-robot",
+      };
+      const matchingProjectId = matchingPdfProjects[sourceEntry];
+      if (matchingProjectId) project.availableProjectId = matchingProjectId;
+    }
     if (categoryId === "characters-structures") {
       const matchingPdfProjects: Record<string, string> = {
         "Big head robot": "big-head-robot",
