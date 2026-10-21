@@ -25,7 +25,7 @@ function AdvancedLevelProjectsPage() {
 
   const index = categories.indexOf(category);
   const tones = ["blue","green","yellow","pink"] as const;
-  const tone = categoryTones[tones[index % tones.length]];
+  const tone = categoryTones[tones[index % tones.length] ?? "blue"];
 
   return (
     <div className="relative h-[100dvh] overflow-y-auto bg-white text-slate-800">
