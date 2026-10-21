@@ -301,9 +301,12 @@ const accelerationCarPdfSteps: PracticalProject["steps"] =
   }));
 
 /** One explicit completion action per PDF manual; viewing pages alone does not claim assembly. */
-function pdfManualProject(id: string, title: string, number: number, categoryId: string = "biomimicry"): PracticalProject {
+function pdfManualProject(
+  id: string, title: string, number: number,
+  categoryId: string = "biomimicry", level: 1 | 2 = 1,
+): PracticalProject {
   return {
-    id, number, level: 1, categoryId, title,
+    id, number, level, categoryId, title,
     description: "Follow the original " + title + " PDF manual, one page at a time.",
     objective: "View and follow the original " + title + " PDF without substituted instructions.",
     components: [], relatedModuleIds: [],
@@ -415,6 +418,30 @@ export const practicalProjects: PracticalProject[] = [
   pdfManualProject("dancing-music-box", "Dancing Music Box", 59, "machines-mechanisms"),
   pdfManualProject("hand-cranking-fan", "Hand-Cranking Fan", 60, "machines-mechanisms"),
   pdfManualProject("old-fashioned-telephone", "Old-Fashioned Telephone", 61, "machines-mechanisms"),
+  pdfManualProject("level-2-axe-robot", "Axe robot", 62, "action-oriented", 2),
+  pdfManualProject("level-2-batting-robot", "Batting robot", 63, "action-oriented", 2),
+  pdfManualProject("level-2-fan-robot", "Fan robot", 64, "action-oriented", 2),
+  pdfManualProject("level-2-pirate-ship", "Pirate ship", 65, "action-oriented", 2),
+  pdfManualProject("level-2-push-ups", "Push ups", 66, "action-oriented", 2),
+  pdfManualProject("level-2-rotating-flying-chair", "Rotating flying chair", 67, "action-oriented", 2),
+  pdfManualProject("level-2-throwing-robot", "Throwing robot", 68, "action-oriented", 2),
+  pdfManualProject("level-2-bee", "Bee", 69, "biomimicry", 2),
+  pdfManualProject("level-2-chimpanzees", "Chimpanzees", 70, "biomimicry", 2),
+  pdfManualProject("level-2-mechanical-dog", "Mechanical dog", 71, "characters-structures", 2),
+  pdfManualProject("level-2-scaling-ladder", "Scaling ladder", 72, "characters-structures", 2),
+  pdfManualProject("level-2-tower-crane", "Tower crane", 73, "characters-structures", 2),
+  pdfManualProject("level-2-crane", "Crane", 74, "construction-industry", 2),
+  pdfManualProject("level-2-fare-gate", "Fare Gate", 75, "construction-industry", 2),
+  pdfManualProject("level-2-forklift", "Forklift", 76, "construction-industry", 2),
+  pdfManualProject("level-2-hammer-robot", "Hammer robot", 77, "foundational-robots", 2),
+  pdfManualProject("level-2-lucky-turntable", "Lucky turntable", 78, "foundational-robots", 2),
+  pdfManualProject("level-2-tightrope-walk", "Tightrope walk", 79, "foundational-robots", 2),
+  pdfManualProject("level-2-manual-flashlight", "Manual Flashlight", 80, "illumination-signals", 2),
+  pdfManualProject("level-2-jumping-machine", "Jumping machine", 81, "interactive-mechanisms", 2),
+  pdfManualProject("level-2-dung-beetle", "Dung Beetle", 82, "machines-mechanisms", 2),
+  pdfManualProject("level-2-mobile-shot", "Mobile Shot", 83, "machines-mechanisms", 2),
+  pdfManualProject("level-2-rolling-shutter", "Rolling Shutter", 84, "machines-mechanisms", 2),
+  pdfManualProject("level-2-track-rickshaw", "Track Rickshaw", 85, "machines-mechanisms", 2),
 ];
 
 export function getProject(id: string) {
