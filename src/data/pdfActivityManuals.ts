@@ -102,6 +102,10 @@ import level2BatteryRobotPdfUrl from "../../Battery robot_Building.pdf?url";
 import level2WalkingRobotPdfUrl from "../../Walking Robot.pdf?url";
 import level2LedScrollingScreenPdfUrl from "../../LED Scrolling Screen.pdf?url";
 import level2LedSignboardPdfUrl from "../../LED Signboard.pdf?url";
+import level2HarpPdfUrl from "../../Harp_Building.pdf?url";
+import level2HelicopterPdfUrl from "../../Helicopter_Building.pdf?url";
+import level2LiftingDoorPdfUrl from "../../Lifting door_Building.pdf?url";
+import level2TeeterboardPdfUrl from "../../Teeterboard.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -522,6 +526,22 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "level-2-led-signboard": {
     id: "level-2-led-signboard", title: "LED Signboard", url: level2LedSignboardPdfUrl,
     completionStepId: "level-2-led-signboard-manual-complete",
+  },
+  "level-2-harp": {
+    id: "level-2-harp", title: "Harp", url: level2HarpPdfUrl,
+    completionStepId: "level-2-harp-manual-complete",
+  },
+  "level-2-helicopter": {
+    id: "level-2-helicopter", title: "Helicopter", url: level2HelicopterPdfUrl,
+    completionStepId: "level-2-helicopter-manual-complete",
+  },
+  "level-2-lifting-door": {
+    id: "level-2-lifting-door", title: "Lifting door", url: level2LiftingDoorPdfUrl,
+    completionStepId: "level-2-lifting-door-manual-complete",
+  },
+  "level-2-teeterboard": {
+    id: "level-2-teeterboard", title: "Teeterboard", url: level2TeeterboardPdfUrl,
+    completionStepId: "level-2-teeterboard-manual-complete",
   },
 };
 
