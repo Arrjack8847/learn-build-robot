@@ -126,7 +126,7 @@ function Stage({ phase, railConfig, frameConfig, stepSixConfig, prepared, paused
   }), [loaded]);
   const beamY = prepared["STEP5_BEAM_11"]?.position[1] ?? 4.1;
   const matingNine = useMemo(() =>
-    stepNineMating(railConfig, stepSixConfig, beamY), [railConfig, stepSixConfig, beamY]);
+    stepNineMating(railConfig, stepSixConfig, beamY, frameConfig), [railConfig, stepSixConfig, beamY, frameConfig]);
   const join = useMemo(() =>
     stepElevenPlacement(railConfig, stepSixConfig, beamY), [railConfig, stepSixConfig, beamY]);
   const finishedNineFrame = useMemo(() => stepEightPoses(11, frameConfig), [frameConfig]);

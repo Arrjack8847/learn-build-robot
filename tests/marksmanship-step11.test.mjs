@@ -33,6 +33,8 @@ test("Step 11 moves rigid completed groups, not independent connectors", () => {
   assert.ok(!scene.includes("opacity={0}"));
   assert.ok(!scene.includes("visible={false}"));
   assert.ok(scene.includes("STEP_TEN_JOIN_ROTATION"));
+  assert.ok(scene.includes("stepNineMating(railConfig, stepSixConfig, beamY, frameConfig)"),
+    "Step 11 must use Step 9's actual completed frame configuration");
   assert.ok(scene.includes("powerPreference: \"low-power\""));
   assert.ok(scene.includes("reducedMotion"));
 });
@@ -40,7 +42,7 @@ test("Step 11 moves rigid completed groups, not independent connectors", () => {
 test("Step 11 has guided action navigation, inspection, and preserved original lesson numbering", () => {
   assert.ok(route.includes("isStepEleven"));
   assert.ok(route.includes("<StepElevenAssembly onCompleteStep={finishCurrentStep} />"));
-  assert.match(route, /currentStep.number <= (?:11|12|13)/);
+  assert.match(route, /currentStep.number <= 14/);
   assert.ok(practical.includes('number: 11,\n    title: "Join Step 9 and Step 10 Assemblies"'));
   assert.ok(ui.includes("STEP_NINE_ASSEMBLY_ID"));
   assert.ok(ui.includes("STEP_TEN_ASSEMBLY_ID"));
