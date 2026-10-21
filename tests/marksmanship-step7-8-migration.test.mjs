@@ -50,7 +50,8 @@ test("Route keeps previous step distinct from action controls and guards Step 7â
   assert.ok(route.includes("const isStepNine"));
   assert.ok(route.includes("StepSevenRailsAssembly onCompleteStep={finishCurrentStep}"));
   assert.ok(route.includes("StepNineAssemblyReview onCompleteStep={finishCurrentStep}"));
-  assert.ok(route.includes("!isInteractiveMarksman && <footer"));
+  assert.ok(route.includes("{!isInteractiveMarksman && ("), "Interactive Steps 7â€“9 hide the standard floating dock");
+  assert.ok(route.includes("<BuildingFloatingDock"), "Noninteractive lessons retain their navigation dock");
   assert.ok(!route.includes("<MarksmanFramePreparation onCompleteStep={finishCurrentStep}"));
 });
 test("Genuine Step 6 model/connector identity carries into Step 7 without invented proxy bodies",()=>{

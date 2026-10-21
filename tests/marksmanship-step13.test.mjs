@@ -106,7 +106,7 @@ test("The unchanged Step 11 chassis contains all four connectors, Step 13 moves 
   assert.match(previousScene, /STEP5_BRIDGE_B:/);
   assert.match(previousScene, /CHILD_PINS\[id\]\.map\(preparedPin\)/);
   assert.match(previousScene, /\{extraScene\}/);
-  assert.match(scene, /<StepElevenScene phase={4}/);
+  assert.match(scene, /<StepElevenScene phase=\{4\}/);
   assert.match(scene, /skipEntryAnimation/);
   assert.match(scene, /stepThirteenAnchors\(props.stepSixConfig, props.prepared, beamY\)/);
   assert.match(scene, /stepTwelvePoses\(STEP_TWELVE_FINAL_PHASE\)/);
@@ -128,7 +128,7 @@ test("Step 13 has accurate instructions, UI navigation and photo-fit confirmatio
   assert.match(route, /const isStepThirteen/);
   assert.match(route, /isStepThirteen \?/);
   assert.match(route, /<StepThirteenAssembly onCompleteStep={finishCurrentStep}/);
-  assert.match(route, /currentStep.number <= 13/);
+  assert.match(route, /currentStep.number <= 14/);
   assert.match(practical, /id: "marksmanship-s12",\s+number: 13,\s+title: "Attach the two completed L-shaped assemblies"/);
   assert.match(practical, /assemblyOutputId: "marksman-step13-two-l-brackets-two-pin-pairs-inward-stoppers-v3"/);
   assert.match(lesson, /bothBrownStoppersFaceRobotCenter: true/);

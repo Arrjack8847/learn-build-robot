@@ -138,7 +138,7 @@ test("Step 14 shows its own step navigation, camera controls and real-kit approv
   assert.ok(lessons.includes('assemblyOutputId: "marksman-step14-step2-motor-step13-four-gray-pins-v1"'));
   for(const keyword of ["AssemblyStage", "AssemblyPlaybackControls", "AssemblyActionCard", "physicallyChecked", "STEP_THIRTEEN_RESULT_KEY", "STEP_FOURTEEN_RESULT_KEY"])
     assert.ok(ui.includes(keyword), keyword);
-  assert.ok(ui.includes("physicallySelfConfirmed") === false);
+  assert.ok(ui.includes("thirteen.physicallySelfConfirmed !== true"), "Step 14 checks prior Step 13 physical confirmation");
   assert.ok(ui.includes("mechanicallyVerified: false"));
   assert.ok(ui.includes("axleAndDiscFaceBlackThreeHoleCrossbeam: true"));
 });

@@ -130,9 +130,10 @@ test("Final assembly uses stable Step 5 IDs, declares uncertainty and Step 8 han
 test("Step 6 uses a single full-screen 3D stage with a compact floating dock",()=>{
   const shared=source("src/components/practical/AssemblyLessonUI.tsx");
   const css=source("src/styles.css");
-  assert.ok(route.includes('isInteractiveMarksman ? "mx-auto mt-2 w-full max-w-[1540px]"'));
-  assert.ok(route.includes('!isInteractiveMarksman && <section'));
-  assert.ok(route.includes('!isInteractiveMarksman && <footer'));
+  assert.ok(route.includes('isInteractiveMarksman ? "mx-auto w-full max-w-[1540px]'), "Current full-width interactive viewer layout");
+  assert.ok(route.includes('!isInteractiveMarksman && <div'), "Decorative background is reserved for standard pages");
+  assert.ok(route.includes('{!isInteractiveMarksman && ('), "Standard building dock is hidden for interactive lessons");
+  assert.ok(route.includes('<BuildingFloatingDock'), "Floating dock is present for standard lessons");
   assert.ok(ui.includes("AssemblyStage"),"Single wide stage must replace sidebar layout");
   assert.ok(ui.includes("AssemblyPlaybackControls"),"Floating dock is always available");
   assert.ok(css.includes(".assembly-lesson-dock"),"Responsive floating dock layout is defined");
