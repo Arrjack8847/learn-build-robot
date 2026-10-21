@@ -19,6 +19,8 @@ import {
 import { RobotIllustration } from "@/components/journey/RobotIllustration";
 import { Marksman3DPreview } from "@/components/practical/Marksman3DPreview";
 import { AccelerationCarPdfViewer } from "@/components/practical/AccelerationCarPdfViewer";
+import { PdfActivityViewer } from "@/components/practical/PdfActivityViewer";
+import { pdfActivityManuals } from "@/data/pdfActivityManuals";
 import { BuildingStudioHeader, BuildingStepDrawer, BuildingFloatingDock, BuildingStudioCompletion } from "@/components/practical/BuildingStudio";
 import { StepThreeAssembly } from "@/components/practical/StepThreeAssembly";
 import { StepFourAssembly } from "@/components/practical/StepFourAssembly";
@@ -68,6 +70,11 @@ function PracticalProjectPage() {
 
   if (project.id === "acceleration-car") {
     return <AccelerationCarPdfViewer />;
+  }
+
+  const pdfManual = pdfActivityManuals[project.id];
+  if (pdfManual) {
+    return <PdfActivityViewer key={project.id} manual={pdfManual} />;
   }
 
   return <BuildSession key={project.id} project={project} />;
