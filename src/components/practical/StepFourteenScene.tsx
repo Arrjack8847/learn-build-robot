@@ -114,7 +114,12 @@ function StepFourteenMotor({ phase, paused, replayKey, reducedMotion, onMotionCo
     const motorBottom = bounds.isEmpty() ? 0 : bounds.min.z;
     const lateralCenter = bounds.isEmpty() ? 0 : (bounds.min.y + bounds.max.y) / 2;
     const seatZ = stepFourteenGreyTop() - motorBottom;
-    const geometries = loaded.map(normalizeStl);
+    // useLoader supplies all four STL sources; keep a fixed tuple so each mesh
+    // receives a guaranteed BufferGeometry with exactOptionalPropertyTypes.
+    const geometries = [
+      normalizeStl(loaded[0]!), normalizeStl(loaded[1]!),
+      normalizeStl(loaded[2]!), normalizeStl(loaded[3]!),
+    ] as const;
     return { motor: scaled, geometries, seatZ, lateralCenter };
   }, [gltf, loaded]);
 

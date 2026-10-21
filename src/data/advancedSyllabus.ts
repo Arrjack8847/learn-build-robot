@@ -557,7 +557,9 @@ export const syllabusSlug = (name: string) => name.toLowerCase()
 
 export function getAdvancedLevel(level: number): SyllabusCategory[] {
   if (!Number.isInteger(level) || level < 2 || level > 6) return [];
-  const categories: readonly (readonly string[])[] = ADVANCED_SYLLABUS[level as AdvancedLevelNumber];
+  // Each syllabus category has a required title followed by zero or more entries.
+  // A nonempty tuple preserves that invariant under noUncheckedIndexedAccess.
+  const categories: ReadonlyArray<readonly [string, ...string[]]> = ADVANCED_SYLLABUS[level as AdvancedLevelNumber];
   return categories.map(([categoryName, ...sourceEntries]) => ({
     id: syllabusSlug(categoryName),
     name: categoryName,

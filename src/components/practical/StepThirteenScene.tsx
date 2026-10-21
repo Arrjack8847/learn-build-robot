@@ -6,12 +6,13 @@ import { StepElevenScene } from "./StepElevenScene";
 import type { StepSixMountConfig, StepSixStepFiveTransforms } from "./StepSixGeometry";
 import type { StepSevenRailConfig } from "./stepSevenRailGeometry";
 import type { StepEightConfig } from "./stepEightGeometry";
+import type { V3 } from "./stepElevenGeometry";
 
 import { motionEase, motionLerp } from "./marksmanLessonMotion";
 import { STEP_TWELVE_FINAL_PHASE, stepTwelvePoses } from "./stepTwelveGeometry";
 import {
   stepThirteenAnchors, stepThirteenCameraFocus, stepThirteenUnitPosition,
-  stepThirteenUnitTwist, type StepThirteenAnchors, type StepThirteenUnit, type V3,
+  stepThirteenUnitTwist, type StepThirteenAnchors, type StepThirteenUnit,
 } from "./stepThirteenGeometry";
 
 import lBeamUrl from "../../../3D for marksman/beams/L/BEAM L_.stl?url";

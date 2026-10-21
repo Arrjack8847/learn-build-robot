@@ -176,7 +176,11 @@ test("black 3-hole crossbeam is on SAME grey side; brown stopper under it faces 
     assert.ok(black3.position[2] < white.position[2],
       "Hole 3 black pin alone stays OPPOSITE grey face for Step 11");
     assert.equal(black15.position[0], g.whiteHoleX(15));
-    assert.equal(black15.position[1], unit === "A" ? -1 : 1);
+    // At pin installation the two side units are still spread out (Y ±4).
+    // They are brought to final Y ±1 together at Action 15; the pin stays
+    // seated in its own white beam throughout both phases.
+    assert.equal(black15.position[1], white.position[1]);
+    assert.equal(completed["BLACK_" + unit + "_15"].position[1], unit === "A" ? -1 : 1);
     assert.ok(black15.position[2] + 1 <= outerBridgeFace,
       "outer tip of Hole 15 black connector cannot protrude above black bridge");
     assert.ok(black15.position[2] + 1 > innerBridgeFace,
