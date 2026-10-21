@@ -89,6 +89,19 @@ export function getLevelOneProjects(categoryId: LevelOneCategoryId): LevelOneSyl
       const matchingProjectId = matchingPdfProjects[sourceEntry];
       if (matchingProjectId) project.availableProjectId = matchingProjectId;
     }
+    if (categoryId === "foundational-robots") {
+      // Map the existing syllabus filenames to their corresponding uploaded PDF manuals.
+      const matchingPdfProjects: Record<string, string> = {
+        "Athlete.pptx": "athlete",
+        "Basic programming.pptx": "basic-programming",
+        "Drummer robot.pptx": "drummer-robot",
+        "Propeller Aircraft.pdf": "propeller-aircraft",
+        "Sailboat.pptx": "sailboat",
+        "The lawn mower.pptx": "the-lawn-mower",
+      };
+      const matchingProjectId = matchingPdfProjects[sourceEntry];
+      if (matchingProjectId) project.availableProjectId = matchingProjectId;
+    }
     if (categoryId === "display-movement") {
       const matchingPdfProjects: Record<string, string> = {
         "Clock": "clock",

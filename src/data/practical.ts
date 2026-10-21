@@ -375,6 +375,12 @@ export const practicalProjects: PracticalProject[] = [
   pdfManualProject("hello-world", "Hello World", 19, "display-movement"),
   pdfManualProject("mechanical-masks", "Mechanical Masks", 20, "display-movement"),
   pdfManualProject("primitive-robot", "Primitive Robot", 21, "display-movement"),
+  pdfManualProject("athlete", "Athlete", 22, "foundational-robots"),
+  pdfManualProject("basic-programming", "Basic Programming", 23, "foundational-robots"),
+  pdfManualProject("drummer-robot", "Drummer Robot", 24, "foundational-robots"),
+  pdfManualProject("propeller-aircraft", "Propeller Aircraft", 25, "foundational-robots"),
+  pdfManualProject("sailboat", "Sailboat", 26, "foundational-robots"),
+  pdfManualProject("the-lawn-mower", "The Lawn Mower", 27, "foundational-robots"),
 ];
 
 export function getProject(id: string) {
