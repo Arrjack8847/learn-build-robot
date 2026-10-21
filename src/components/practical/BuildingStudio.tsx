@@ -9,10 +9,10 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
  * robot geometry or manual contents: every project supplies its own steps and viewer.
  */
 export function BuildingStudioHeader({
-  title, step, total, onOpenSteps, onPreviousStep, previousDisabled = false,
+  title, step, total, onOpenSteps, onPreviousStep, previousDisabled = false, positionLabel,
 }: {
   title: string; step: number; total: number; onOpenSteps: () => void;
-  onPreviousStep?: () => void; previousDisabled?: boolean;
+  onPreviousStep?: () => void; previousDisabled?: boolean; positionLabel?: string;
 }) {
   const progress = total ? Math.max(0, Math.min(100, step / total * 100)) : 0;
   return (
@@ -28,7 +28,7 @@ export function BuildingStudioHeader({
         </Button>}
         <div className="flex min-w-0 flex-1 flex-col items-center justify-center text-center">
           <p className="max-w-full truncate text-[15px] font-extrabold tracking-tight text-slate-800 sm:text-lg">{title}</p>
-          <p className="text-[11px] font-bold text-[#168eea]">{step ? `Step ${step} of ${total}` : "Manual cover"}</p>
+          <p className="text-[11px] font-bold text-[#168eea]">{positionLabel ?? (step ? `Step ${step} of ${total}` : "Manual cover")}</p>
         </div>
         <Button type="button" variant="outline" aria-label="Choose a building step" onClick={onOpenSteps}
           className="min-h-11 shrink-0 gap-1 rounded-2xl border-sky-100 px-3 font-bold text-[#168eea] shadow-sm hover:bg-sky-50">
