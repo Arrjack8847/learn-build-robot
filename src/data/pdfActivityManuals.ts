@@ -100,6 +100,8 @@ import level2AnimalTrapPdfUrl from "../../Animal trap.pdf?url";
 import level2HeadlightsPdfUrl from "../../Headlights.pdf?url";
 import level2BatteryRobotPdfUrl from "../../Battery robot_Building.pdf?url";
 import level2WalkingRobotPdfUrl from "../../Walking Robot.pdf?url";
+import level2LedScrollingScreenPdfUrl from "../../LED Scrolling Screen.pdf?url";
+import level2LedSignboardPdfUrl from "../../LED Signboard.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -512,6 +514,14 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "level-2-walking-robot": {
     id: "level-2-walking-robot", title: "Walking robot", url: level2WalkingRobotPdfUrl,
     completionStepId: "level-2-walking-robot-manual-complete",
+  },
+  "level-2-led-scrolling-screen": {
+    id: "level-2-led-scrolling-screen", title: "LED Scrolling Screen", url: level2LedScrollingScreenPdfUrl,
+    completionStepId: "level-2-led-scrolling-screen-manual-complete",
+  },
+  "level-2-led-signboard": {
+    id: "level-2-led-signboard", title: "LED Signboard", url: level2LedSignboardPdfUrl,
+    completionStepId: "level-2-led-signboard-manual-complete",
   },
 };
 
