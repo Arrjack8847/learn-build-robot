@@ -1,25 +1,40 @@
-# Level 1 robotics syllabus categories
+# Level 1 syllabus project catalog
 
-These 14 names and their order come from the screenshot of the `new_Sylabus_(Sorted)/Level 1` folder provided by the user.
+## Source and accuracy
 
-The categories are registered in `src/data/levelOneCategories.ts`. They are available at `/practical/level-1` and `/practical/level-1/{categoryId}`.
+Category and project names were transcribed from the user's complete directory tree:
+`E:/new_Sylabus_(Sorted)/Level 1`.
 
-The application is planned for six levels, but only Level 1's folder names have been supplied. Do **not** assume Level 2–6 use the same categories or mark levels as completed/unlocked without supporting syllabus data.
+- **14 Level 1 category folders** (see `src/data/levelOneCategories.ts`)
+- **59 immediate project/lesson entries** across those categories (see `src/data/levelOneProjects.ts`)
+- Entries may be an individual `.pptx`/`.pdf` lesson or a folder with multiple materials.
+- Directory paths are metadata, **not uploaded web assets**. Do not serve local-drive files by guessing URLs.
+- Do not infer construction steps or code from filenames; use the actual manuals before implementing activities.
+
+## Verified examples
+
+- `Level 1/Autonomous Navigation & Ranging/Acceleration car` maps to existing `acceleration-car` PDF Building Studio. This lesson is linked as ready.
+- `Level 1/Biomimicry/Funny cat.pptx` is a listed lesson; source content for a Funny Cat presentation/PDF was also shared in conversation, but no Funny Cat lesson has been committed to the repository. It is **not** marked ready.
+- Remaining 57 entries are cataloged but not linked as working building lessons.
 
 ## Navigation
 
-- `/choose` → Build a Robot → `/practical/level-1`
-- Tap a category card → `/practical/level-1/{categoryId}`
-- Categories with no verified associated lessons display an informative empty state with a link to available robot builds.
-- `/practical` remains the existing robot picker; Marksman and Acceleration Car remain usable.
+`/choose` → Build a Robot → `/practical/level-1` → select category → select implemented lesson if available.
 
-## Associating a future syllabus robot
+The category cards show the verified project count. Category detail lists every syllabus entry with a source-type label, and only shows the **Open Building Studio** link when an actual registered `getProject` target exists.
+The existing robot picker remains at `/practical`.
 
-When its source folder and PDF/manual are available, add the robot to `src/data/practical.ts` and set:
+## Future levels
 
-```ts
-level: 1,
-categoryId: "biomimicry", // example ONLY, not assigned to a current project
-```
+The same tree contains Level 2–6. It does not give every level the same category taxonomy.
+For example Level 2 has 18 immediate category folders; later levels also contain separate `unit ... programming` folders.
+**Do not assume all six levels have 14 categories.** Audit each level's official syllabus structure separately before populating its catalog.
 
-The Category Detail view will populate automatically. Do not guess an existing robot's category based only on its name. Projects continue using the Universal Building Studio lesson components.
+## Adding a new working project
+
+1. Import the actual source files into the project under a stable repository path.
+2. Review the manual/slides and identify real building pages; avoid inventing instructions.
+3. Register the `PracticalProject` with a verified `level` and `categoryId`.
+4. Link the matching entry via `availableProjectId` in `src/data/levelOneProjects.ts`.
+5. Reuse `BuildingStudioHeader`, `BuildingStepDrawer` and the universal PDF/3D viewer.
+6. Run TypeScript, project UI tests, production build and manual mobile/desktop checks.
