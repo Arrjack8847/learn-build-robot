@@ -57,6 +57,8 @@ export type LevelOneSyllabusProject = {
   sourceKind: "folder" | "pdf" | "pptx";
   /** Only link a project after its implementation exists in this repository. */
   availableProjectId?: string;
+  /** Multiple verified source manuals for one syllabus activity (e.g. Crawl Slowly). */
+  availableProjectVariants?: readonly { label: string; projectId: string }[];
 };
 
 function slugify(text: string): string {
@@ -88,6 +90,23 @@ export function getLevelOneProjects(categoryId: LevelOneCategoryId): LevelOneSyl
       };
       const matchingProjectId = matchingPdfProjects[sourceEntry];
       if (matchingProjectId) project.availableProjectId = matchingProjectId;
+    }
+    if (categoryId === "mechanisms-simulators") {
+      if (sourceEntry === "Crawl Slowly") {
+        // The syllabus has one activity, but GitHub contains two distinct official versions.
+        // Preserve both manuals and their separate completion records.
+        project.availableProjectVariants = [
+          { label: "Basic", projectId: "crawl-slowly-basic" },
+          { label: "Optimized", projectId: "crawl-slowly-optimized" },
+        ];
+      } else {
+        const matchingPdfProjects: Record<string, string> = {
+          "Mechanical arm": "mechanical-arm",
+          "Shock absorber": "shock-absorber",
+        };
+        const matchingProjectId = matchingPdfProjects[sourceEntry];
+        if (matchingProjectId) project.availableProjectId = matchingProjectId;
+      }
     }
     if (categoryId === "manipulators") {
       // Preserve original syllabus names while viewing uploaded PDF equivalents.

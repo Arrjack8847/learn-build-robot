@@ -387,6 +387,10 @@ export const practicalProjects: PracticalProject[] = [
   pdfManualProject("rotating-flying-chair", "Rotating Flying Chair", 31, "manipulators"),
   pdfManualProject("skating", "Skating", 32, "manipulators"),
   pdfManualProject("the-windmill-kingdom", "The Windmill Kingdom", 33, "manipulators"),
+  pdfManualProject("crawl-slowly-basic", "Crawl Slowly — Basic", 34, "mechanisms-simulators"),
+  pdfManualProject("crawl-slowly-optimized", "Crawl Slowly — Optimized", 35, "mechanisms-simulators"),
+  pdfManualProject("mechanical-arm", "Mechanical Arm", 36, "mechanisms-simulators"),
+  pdfManualProject("shock-absorber", "Shock Absorber", 37, "mechanisms-simulators"),
 ];
 
 export function getProject(id: string) {

@@ -19,13 +19,14 @@ Category and project names were transcribed from the user's complete directory t
 - All five Display & Movement entries (Clock, Drawing board, Hello World, Mechanical masks, Primitive robot) are linked to their original GitHub-uploaded PDF manuals.
 - The six Foundational Robots entries (Athlete, Basic programming, Drummer robot, Propeller Aircraft, Sailboat, The lawn mower) now link to their original GitHub-uploaded PDF manuals. Original syllabus filename metadata is preserved.
 - All six Manipulators entries (Car, Dynamic screen, Pendulum ride, Rotating flying chair, Skating, The windmill kingdom) now link to their original GitHub-uploaded PDF manuals; original syllabus filename metadata is preserved.
-- The remaining 27 entries are cataloged but not linked as working building lessons.
+- Mechanisms & Simulators now contains three available activities: Crawl Slowly (two separately selectable PDF versions, Basic and Optimized), Mechanical Arm and Shock Absorber. The two Crawl Slowly manuals are independent original files and maintain separate completion records.
+- The remaining 24 entries are cataloged but not linked as working building lessons.
 
 ## Navigation
 
 `/choose` → Build a Robot → `/practical/level-1` → select category → select implemented lesson if available.
 
-The category cards show the verified project count. Category detail lists every syllabus entry with a source-type label, and only shows the **Open Building Studio** link when an actual registered `getProject` target exists.
+The category cards show the verified project count. Category detail lists every syllabus entry with a source-type label, and only shows the **Open Building Studio** link when an actual registered `getProject` target exists. Crawl Slowly offers **Basic Version** and **Optimized Version** buttons within the same syllabus card.
 The existing robot picker remains at `/practical`.
 
 ## Future levels

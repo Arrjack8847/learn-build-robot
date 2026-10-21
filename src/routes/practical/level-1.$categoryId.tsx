@@ -59,9 +59,10 @@ function LevelOneCategoryPage() {
           <ul className="grid gap-4 sm:grid-cols-2">
             {entries.map(entry => {
               const liveProject = entry.availableProjectId ? getProject(entry.availableProjectId) : undefined;
+              const variantChoices = (entry.availableProjectVariants ?? []).filter(variant => Boolean(getProject(variant.projectId)));
               const SourceIcon = entry.sourceKind === "pptx" ? Presentation :
                 entry.sourceKind === "pdf" ? FileText : FolderOpen;
-              const sourceLabel = liveProject && isPdfActivityProject(liveProject.id) ? "Original PDF building manual" :
+              const sourceLabel = (liveProject && isPdfActivityProject(liveProject.id)) || variantChoices.length > 0 ? "Original PDF building manual" :
                 entry.sourceKind === "pptx" ? "PowerPoint lesson" :
                 entry.sourceKind === "pdf" ? "PDF lesson" : "Syllabus project folder";
               return (
@@ -69,10 +70,14 @@ function LevelOneCategoryPage() {
                   className="flex flex-col rounded-[26px] border border-sky-100 bg-white p-5 shadow-[0_7px_24px_rgba(22,142,234,.07)]">
                   <div className="flex items-start justify-between gap-2">
                     <span className="grid size-14 place-items-center rounded-2xl bg-[#eaf5ff] text-[#168eea]">
-                      {liveProject ? <Bot className="size-8" aria-hidden="true"/> :
+                      {liveProject || variantChoices.length > 0 ? <Bot className="size-8" aria-hidden="true"/> :
                         <SourceIcon className="size-7" aria-hidden="true"/>}
                     </span>
                     {liveProject ? (
+                      <span className="rounded-full bg-green-50 px-3 py-1.5 text-xs font-bold text-green-700">
+                        Ready to build
+                      </span>
+                    ) : variantChoices.length > 0 ? (
                       <span className="rounded-full bg-green-50 px-3 py-1.5 text-xs font-bold text-green-700">
                         Ready to build
                       </span>
@@ -90,6 +95,17 @@ function LevelOneCategoryPage() {
                         className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 text-sm font-extrabold text-white transition hover:bg-[#0d7fda] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168eea]">
                         Open Building Studio <ArrowRight className="size-4" aria-hidden="true"/>
                       </Link>
+                    ) : variantChoices.length > 0 ? (
+                      <div className="grid gap-2" role="group" aria-label={`${entry.name} building versions`}>
+                        <p className="text-xs font-semibold text-slate-600">Choose a building version</p>
+                        {variantChoices.map(variant => (
+                          <Link key={variant.projectId} to="/practical/$projectId"
+                            params={{ projectId: variant.projectId }}
+                            className="inline-flex min-h-12 w-full items-center justify-between gap-2 rounded-2xl border border-sky-200 bg-sky-50 px-4 text-sm font-extrabold text-[#168eea] transition hover:bg-sky-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168eea]">
+                            {variant.label} Version <ArrowRight className="size-4" aria-hidden="true"/>
+                          </Link>
+                        ))}
+                      </div>
                     ) : (
                       <p className="rounded-2xl bg-[#f3faff] p-3 text-xs leading-5 text-slate-600">
                         This project is in your syllabus tree. Upload its lesson materials to make it interactive.
