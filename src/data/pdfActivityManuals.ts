@@ -108,6 +108,7 @@ import level2LiftingDoorPdfUrl from "../../Lifting door_Building.pdf?url";
 import level2TeeterboardPdfUrl from "../../Teeterboard.pdf?url";
 import level2FourWheelDrivePdfUrl from "../../Four-wheel Drive.pdf?url";
 import level2PedalWaterwheelPdfUrl from "../../Pedal Waterwheel.pdf?url";
+import level2TankPdfUrl from "../../Tank.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -552,6 +553,10 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "level-2-pedal-waterwheel": {
     id: "level-2-pedal-waterwheel", title: "Pedal Waterwheel", url: level2PedalWaterwheelPdfUrl,
     completionStepId: "level-2-pedal-waterwheel-manual-complete",
+  },
+  "level-2-tank": {
+    id: "level-2-tank", title: "Tank", url: level2TankPdfUrl,
+    completionStepId: "level-2-tank-manual-complete",
   },
 };
 

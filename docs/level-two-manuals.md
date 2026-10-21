@@ -4,12 +4,12 @@
 
 - Original upload base: `45b5c4be47f5139799d125493d3ff22ebf0a91c6`; additional 14 manuals in GitHub upload commit `834afb342fee1d11fc12a29fc07141dbea57bb1f`.
 - Official Level 2 syllabus: **18 categories and 59 original activities**, unchanged
-- Uploads now total **60 source files** for Level 2 (55 named PDFs and 5 PowerPoints), including the latest 26 PDFs.
-- **50 original nonempty PDFs** mapped to matching Level 2 syllabus activities and connected to the existing responsive PDF Building Studio with isolated completion IDs (24 previously integrated + 5 Manipulators + 9 Mechanisms & Simulators + 2 Mechanisms and Concepts + Battery robot + Walking robot + 2 Sensors + Harp + 3 Vehicles & Complex Movers + 2 Vehicles & Motion)
+- Uploads now total **61 source files** for Level 2 (56 named PDFs and 5 PowerPoints), including the latest 27 PDFs.
+- **51 original nonempty PDFs** mapped to matching Level 2 syllabus activities and connected to the existing responsive PDF Building Studio with isolated completion IDs (24 previously integrated + 5 Manipulators + 9 Mechanisms & Simulators + 2 Mechanisms and Concepts + Battery robot + Walking robot + 2 Sensors + Harp + 3 Vehicles & Complex Movers + 3 Vehicles & Motion)
 - **5 original nonempty PowerPoints** under Manipulators are available for download alongside their now-registered PDF Building Studio lessons
 - **3 zero-byte placeholder PDFs** cannot be loaded: `Automatic window.pdf`, `Robot war.pdf`, `The treadmill.pdf`
 - **2 PDFs with ambiguous syllabus matches** are intentionally unassigned: `Balance.pdf` (no exact matching syllabus title) and `Pliers.pdf` (not confirmed equivalent to Interactive Systems / Tongs)
-- 9 of 59 Level 2 syllabus entries still need valid original materials or an approved mapping (including those three empty placeholders). The two unmatched PDF files are not counted toward the 59 activities.
+- 8 of 59 Level 2 syllabus entries still need valid original materials or an approved mapping (including those three empty placeholders). The two unmatched PDF files are not counted toward the 59 activities.
 
 ## Registered PDF categories
 - Action-Oriented: 7 PDF manual(s)
@@ -28,7 +28,7 @@
 - Sensors: 2 PDF manuals
 - Sound & Voice Interaction: 1 PDF manual
 - Vehicles & Complex Movers: 3 PDF manuals
-- Vehicles & Motion: 2 PDF manuals
+- Vehicles & Motion: 3 PDF manuals
 
 ## Original PowerPoint uploads
 - `Car Steering.pptx`
