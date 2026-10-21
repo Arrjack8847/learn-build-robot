@@ -5,13 +5,14 @@ export type PdfFit = "width" | "page";
 export type PdfViewportSize = { width: number; height: number };
 
 export function PdfManualPage({
-  pdfDocument, pageNumber, fit, zoom, viewport,
+  pdfDocument, pageNumber, fit, zoom, viewport, pageLabel,
 }: {
   pdfDocument: PDFDocumentProxy;
   pageNumber: number;
   fit: PdfFit;
   zoom: number;
   viewport: PdfViewportSize;
+  pageLabel?: string;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [displaySize, setDisplaySize] = useState<{ width: number; height: number } | null>(null);
@@ -87,7 +88,7 @@ export function PdfManualPage({
       }}>
       <canvas
         ref={canvasRef}
-        aria-label={pageNumber === 1 ? "Original manual cover" : `Original PDF illustration for assembly Step ${pageNumber - 1}`}
+        aria-label={pageLabel ?? (pageNumber === 1 ? "Original manual cover" : `Original PDF illustration for assembly Step ${pageNumber - 1}`)}
         role="img"
         className="block h-full w-full"
       />
