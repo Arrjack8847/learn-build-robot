@@ -119,7 +119,7 @@ function ChooseCategoryPage() {
             icon={Bot}
             label="Build a Robot"
             softBackground="#fff4d9"
-            to="/practical"
+            to="/practical/level-1"
           />
           <QuizChoice hydrated={hydrated} quizComplete={quizComplete} {...requirements} />
         </div>
@@ -207,7 +207,7 @@ function ActivityChoice({
   label: string;
   description: string;
   completed: boolean;
-  to: "/theory" | "/practical" | "/quiz";
+  to: "/theory" | "/practical/level-1" | "/quiz";
   accent: string;
   softBackground: string;
 }) {
