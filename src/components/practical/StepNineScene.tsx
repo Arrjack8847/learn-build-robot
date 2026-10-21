@@ -47,21 +47,24 @@ function stepEightMeshName(id:StepEightPart):"five"|"seven"|"fifteen"|"blue"|"bl
   return id.startsWith("FIVE")?"five":id.startsWith("SEVEN")?"seven":
     id==="FIFTEEN"?"fifteen":id.startsWith("BLUE")?"blue":"black";
 }
-/** Step 8's correct attachment side is its OPPOSITE top/bottom face,
- * not its opposite horizontal front/back facing. Flip the WHOLE rigid
- * Step 8 assembly about the horizontal shared X axis (its long beam).
- * The other half of each original double-ended blue pin then faces
- * the Step 7 receiving holes. The pin meshes never move independently.
+/** Original Step 8's +local-Z blue pins must point UP toward Step 7.
+ * STEP9_SHARED_REFERENCE flips shared Y in world space; the unflipped
+ * Step 8 rigid transform below maps local +Z -> shared -Y -> world +Y.
+ * The old final "OPPOSITE_FACE_ALIGNMENT" pointed those pins DOWN.
+ *
+ * To preserve a visible Action 1 face turn, start in that old wrong-face
+ * pose and rotate the ENTIRE completed frame to JOINING_FACE_ALIGNMENT.
+ * Nothing inside the frame is reoriented independently.
  */
-const INITIAL_ALIGNMENT=new Quaternion().setFromRotationMatrix(new Matrix4().set(
+const JOINING_FACE_ALIGNMENT=new Quaternion().setFromRotationMatrix(new Matrix4().set(
   0,-1,0,0,
   0,0,-1,0,
   1,0,0,0,
   0,0,0,1,
 ));
-const OPPOSITE_FACE_ALIGNMENT=new Quaternion()
+const PREPARATION_FACE_ALIGNMENT=new Quaternion()
   .setFromAxisAngle(new Vector3(1,0,0),STEP_NINE_STEP_EIGHT_FACE_FLIP)
-  .multiply(INITIAL_ALIGNMENT);
+  .multiply(JOINING_FACE_ALIGNMENT);
 const ease=motionEase;
 function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKey,paused,resetCameraKey,reducedMotion,cameraView,onMotionComplete}:{
   phase:number;config:StepSevenRailConfig;frameConfig:StepEightConfig;
@@ -107,7 +110,7 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
   const {camera,size}=useThree();
   const narrow=size.width/Math.max(1,size.height)<0.95;
   const beamY=prepared["STEP5_BEAM_11"]?.position[1]??4.1;
-  const mating=useMemo(()=>stepNineMating(config,stepSixConfig,beamY),[config,stepSixConfig,beamY]);
+  const mating=useMemo(()=>stepNineMating(config,stepSixConfig,beamY,frameConfig),[config,stepSixConfig,beamY,frameConfig]);
   const completed=useMemo(()=>stepEightPoses(11,frameConfig),[frameConfig]);
   const target=mating.target;
   const pose=(p:number)=>stepNineFramePose(p,target);
@@ -145,8 +148,8 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
     const from=pose(old),to=pose(phase);
     const fromSeven=stepNineStepSevenPose(old);
     const toSeven=stepNineStepSevenPose(phase);
-    const fromQuat=old>=1?OPPOSITE_FACE_ALIGNMENT:INITIAL_ALIGNMENT;
-    const toQuat=phase>=1?OPPOSITE_FACE_ALIGNMENT:INITIAL_ALIGNMENT;
+    const fromQuat=old>=1?JOINING_FACE_ALIGNMENT:PREPARATION_FACE_ALIGNMENT;
+    const toQuat=phase>=1?JOINING_FACE_ALIGNMENT:PREPARATION_FACE_ALIGNMENT;
     const enterPreparation=phase===0&&(!mounted.current||replay)&&!reducedMotion;
     prepEntrance.current=null;
     if(enterPreparation){
@@ -251,8 +254,8 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
           :motionLerp(halfway,m.toSeven,approach);
         stepEightPosition=m.toEight;
       }
-      // Action 1 is a rigid TOP/BOTTOM face flip around horizontal X.
-      // The stored geometries, rail holes and connector poses are unchanged.
+      // Action 1 returns the WHOLE Step 8 frame from preparation's wrong
+      // face to its original UPWARD blue-pin joining face; no pin rotates alone.
       stepSeven.current.position.set(...stepSevenPosition);
       frame.current.position.set(...stepEightPosition);
       frame.current.quaternion.copy(m.fromQuat).slerp(m.toQuat,ease(t));
@@ -339,7 +342,7 @@ function StepNineStage({phase,config,frameConfig,stepSixConfig,prepared,replayKe
       </group>
       <group name="STEP9_STEP8_COMPLETE_ASSEMBLY" ref={frame}
         position={first.position}
-        quaternion={phase>=1?OPPOSITE_FACE_ALIGNMENT:INITIAL_ALIGNMENT}>
+        quaternion={phase>=1?JOINING_FACE_ALIGNMENT:PREPARATION_FACE_ALIGNMENT}>
         {STEP_EIGHT_PARTS.map(id=>{
           const p=completed[id],model=stepEightMeshName(id);
           const color=model==="blue"?"#1576ce":model==="black"?"#293544":
