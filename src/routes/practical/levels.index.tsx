@@ -36,7 +36,7 @@ function SyllabusLevelsPage() {
 
         <ul aria-label="Syllabus levels" className="mt-8 grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 lg:grid-cols-3 sm:mt-10">
           {levels.map((level, index) => {
-            const tone = tones[index];
+            const tone = tones[index] ?? tones[0];
             const totals = level === 1 ? {categories:14, entries:59} : getLevelTotals(level);
             const body = (
               <div className="group flex h-full min-h-[200px] flex-col rounded-[30px] border border-sky-100 bg-white p-5 shadow-[0_8px_25px_rgba(22,142,234,.07)] transition duration-200 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(22,142,234,.13)] motion-reduce:transform-none motion-reduce:transition-none sm:p-6">
