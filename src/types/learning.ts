@@ -40,6 +40,9 @@ export interface PracticalStep {
 export interface PracticalProject {
   id: string;
   number: number;
+  /** Optional syllabus placement. Do not assign without verified source. */
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  categoryId?: string;
   title: string;
   description: string;
   objective: string;
