@@ -51,6 +51,10 @@ const pdfManuals = [
   ["level-2-spinning-bike", "Spinning bike_Building.pdf", "mechanisms-simulators", "Spinning bike"],
   ["level-2-swing", "Swing_Building.pdf", "mechanisms-simulators", "Swing"],
   ["level-2-treadmill", "Treadmill_Building.pdf", "mechanisms-simulators", "Treadmill"],
+  ["level-2-animal-trap", "Animal trap.pdf", "mechanisms-and-concepts", "Animal trap"],
+  ["level-2-headlights", "Headlights.pdf", "mechanisms-and-concepts", "Headlights"],
+  ["level-2-battery-robot", "Battery robot_Building.pdf", "programming-precise-control", "Battery robot"],
+  ["level-2-walking-robot", "Walking Robot.pdf", "sensor-focused-robots", "Walking robot"],
 ];
 const powerpointFiles = ["Car Steering.pptx","Cliff walk.pptx","Ferris wheel.pptx","Round-trip transportation.pptx","Shift gears.pptx"];
 
@@ -60,7 +64,7 @@ test("Level 2 retains all 18 categories and all 59 authentic syllabus entries", 
   assert.ok(levelRoute.includes("project.level === level && project.categoryId === category.id"));
 });
 
-test("38 Level 2 PDF building lessons map exactly to nonempty original uploads", async () => {
+test("42 Level 2 PDF building lessons map exactly to nonempty original uploads", async () => {
   const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
   const seen = new Set();
   const keys = new Set();
@@ -87,7 +91,7 @@ test("38 Level 2 PDF building lessons map exactly to nonempty original uploads",
     assert.ok(row?.slice(1).some(entry => normalize(entry.replace(/\.(pptx|pdf)$/i, "")) === normalize(title)),
       "Project not found in original syllabus category: " + title);
   }
-  assert.equal(seen.size, 38);
+  assert.equal(seen.size, 42);
 });
 
 test("5 Level 2 Manipulators PowerPoints retain original files and download links", () => {

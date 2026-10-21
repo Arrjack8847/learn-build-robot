@@ -96,6 +96,10 @@ import level2MechanismsSimulatorsHandCrankPdfUrl from "../../Hand crank_Building
 import level2MechanismsSimulatorsSpinningBikePdfUrl from "../../Spinning bike_Building.pdf?url";
 import level2MechanismsSimulatorsSwingPdfUrl from "../../Swing_Building.pdf?url";
 import level2MechanismsSimulatorsTreadmillPdfUrl from "../../Treadmill_Building.pdf?url";
+import level2AnimalTrapPdfUrl from "../../Animal trap.pdf?url";
+import level2HeadlightsPdfUrl from "../../Headlights.pdf?url";
+import level2BatteryRobotPdfUrl from "../../Battery robot_Building.pdf?url";
+import level2WalkingRobotPdfUrl from "../../Walking Robot.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -492,6 +496,22 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "level-2-treadmill": {
     id: "level-2-treadmill", title: "Treadmill", url: level2MechanismsSimulatorsTreadmillPdfUrl,
     completionStepId: "level-2-treadmill-manual-complete",
+  },
+  "level-2-animal-trap": {
+    id: "level-2-animal-trap", title: "Animal trap", url: level2AnimalTrapPdfUrl,
+    completionStepId: "level-2-animal-trap-manual-complete",
+  },
+  "level-2-headlights": {
+    id: "level-2-headlights", title: "Headlights", url: level2HeadlightsPdfUrl,
+    completionStepId: "level-2-headlights-manual-complete",
+  },
+  "level-2-battery-robot": {
+    id: "level-2-battery-robot", title: "Battery robot", url: level2BatteryRobotPdfUrl,
+    completionStepId: "level-2-battery-robot-manual-complete",
+  },
+  "level-2-walking-robot": {
+    id: "level-2-walking-robot", title: "Walking robot", url: level2WalkingRobotPdfUrl,
+    completionStepId: "level-2-walking-robot-manual-complete",
   },
 };
 
