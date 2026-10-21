@@ -475,6 +475,8 @@ export const practicalProjects: PracticalProject[] = [
   pdfManualProject("level-2-reverse-parking", "Reverse Parking", 116, "sensors", 2),
   pdfManualProject("level-2-smart-window", "Smart Window", 117, "sensors", 2),
   pdfManualProject("level-2-spirograph", "Spirograph", 118, "sensors", 2),
+  pdfManualProject("level-2-automatic-window", "Automatic window", 119, "machines-mechanisms", 2),
+  pdfManualProject("level-2-robot-war", "Robot war", 120, "machines-mechanisms", 2),
 ];
 
 export function getProject(id: string) {
