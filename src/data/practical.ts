@@ -291,6 +291,15 @@ const marksmanshipSteps: PracticalProject["steps"] = [
   },
 ];
 
+const accelerationCarPdfSteps: PracticalProject["steps"] =
+  Array.from({ length: 18 }, (_, index) => ({
+    id: `acceleration-car-pdf-s${index + 1}`,
+    number: index + 1,
+    title: `Step ${index + 1}`,
+    description: "Follow the assembly illustration shown in the manual.",
+    originalManualStepNumbers: [index + 1],
+  }));
+
 export const practicalProjects: PracticalProject[] = [
   {
     id: "marksmanship",
@@ -314,6 +323,18 @@ export const practicalProjects: PracticalProject[] = [
     ],
     relatedModuleIds: [],
     steps: marksmanshipSteps,
+    troubleshooting: [],
+  },
+  {
+    id: "acceleration-car",
+    number: 2,
+    title: "Acceleration Car",
+    description: "Follow the original Acceleration Car PDF manual, one illustrated step at a time.",
+    objective: "View and navigate the original manual's 18 illustrated build steps.",
+    difficulty: "Beginner",
+    components: [],
+    relatedModuleIds: [],
+    steps: accelerationCarPdfSteps,
     troubleshooting: [],
   },
 ];

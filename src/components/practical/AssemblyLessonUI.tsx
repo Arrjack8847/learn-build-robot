@@ -1,18 +1,30 @@
-import type { ReactNode } from "react";
-import { ArrowRight, BookOpen, Eye, Maximize2, Pause, Play, RotateCcw, ScanSearch, SkipBack } from "lucide-react";
+import { useState, type ReactNode } from "react";
+import { ArrowRight, BookOpen, Eye, Maximize2, Pause, Play, RotateCcw, ScanSearch, SkipBack, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 /** Shared, full-width learning stage; geometry and lesson state stay with each step. */
 export function AssemblyStage({ scene, dock, tools, status }: {
   scene: ReactNode; dock: ReactNode; tools?: ReactNode; status?: ReactNode;
 }) {
+  const [expanded, setExpanded] = useState(false);
   return (
-    <section className="assembly-lesson-stage" aria-label="Interactive robot assembly">
+    <section data-dock-expanded={expanded} className="assembly-lesson-stage" aria-label="Interactive robot assembly">
       <div className="assembly-lesson-canvas">{scene}</div>
       {status && <div className="assembly-lesson-status">{status}</div>}
       {tools && <div className="assembly-lesson-tools">{tools}</div>}
       <div className="assembly-lesson-dock-wrapper">
-        <div className="assembly-lesson-dock">{dock}</div>
+        <div className="assembly-lesson-dock">
+          <div className="mb-1 flex justify-end">
+            <Button type="button" variant="ghost" aria-expanded={expanded}
+              aria-label={expanded ? "Collapse instructions" : "Expand instructions"}
+              onClick={() => setExpanded(value => !value)}
+              className="min-h-8 gap-1 rounded-xl px-2 text-[11px] font-bold text-[#168eea]">
+              {expanded ? "Less" : "More"} instructions
+              {expanded ? <ChevronDown className="size-3.5"/> : <ChevronUp className="size-3.5"/>}
+            </Button>
+          </div>
+          {dock}
+        </div>
       </div>
     </section>
   );
@@ -30,7 +42,7 @@ export function AssemblyLessonHeader({
         <p className="text-[11px] font-black uppercase tracking-[0.13em] text-[#116eaf]">
           Marksmanship Robot · Step {step} of 32
         </p>
-        <p className="mt-0.5 text-sm font-extrabold text-[#132654] sm:text-lg">{title}</p>
+        <p className="mt-0.5 text-sm font-extrabold text-[#334155] sm:text-lg">{title}</p>
       </div>
       <div className="flex items-center gap-2">
         {actionCount !== undefined && actionIndex !== undefined && (
@@ -51,7 +63,7 @@ export function AssemblyActionCard({
   instruction: string; note?: string | undefined;
 }) {
   return (
-    <div aria-live="polite" aria-atomic="true" className="space-y-1 text-left">
+    <div aria-live="polite" aria-atomic="true" className="assembly-action-card space-y-1 text-left">
       <div className="flex items-center justify-between gap-3">
         <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#116eaf]">
           Action {actionIndex + 1} of {actionCount}
@@ -62,7 +74,7 @@ export function AssemblyActionCard({
           ))}
         </div>
       </div>
-      <h2 className="text-sm font-extrabold leading-5 text-[#132654] sm:text-base">{title}</h2>
+      <h2 className="text-sm font-extrabold leading-5 text-[#334155] sm:text-base">{title}</h2>
       <p className="text-sm leading-5 text-slate-700">{instruction}</p>
       {note && <p className="text-[11px] leading-4 text-slate-500">{note}</p>}
     </div>

@@ -39,7 +39,8 @@ test("Action numbering is one-based and matches every lesson's action count",()=
 });
 
 test("Single in-view floating dock controls Steps 1–9 completion",()=>{
-  assert.ok(route.includes("!isInteractiveMarksman && <footer"));
+  assert.ok(route.includes("<BuildingFloatingDock"), "Reference-only steps use the standard floating dock");
+  assert.ok(ui.includes("data-dock-expanded={expanded}"), "3D lessons have expandable floating docks");
   assert.ok(ui.includes("isFinalAction ? \"Complete Step\""));
   assert.ok(route.includes("isStepFive && !stepFiveReady"));
   assert.ok(route.includes("isStepSix && !stepSixReady"));
@@ -59,15 +60,17 @@ test("Step 7 is the saved Step 6 rail handoff, Step 8 is the separate frame",()=
   assert.ok(step8.includes("physicalCheck"));
 });
 
-test("Previous Step stays visible and navigates by lesson rather than animation action",()=>{
-  assert.ok(route.includes('aria-label="Robot step navigation"'),"Shared step navigation must be visible");
-  assert.ok(route.includes('className="sticky top-0 z-30'),"Previous Step remains visible during lesson scrolling");
-  assert.ok(route.includes('aria-label="Previous Step"'),"The control has an accessible, distinct name");
-  assert.ok(route.includes('disabled={currentIndex === 0}'),"The first step has no previous step");
-  assert.ok(route.includes('onClick={() => setCurrentIndex((index) => Math.max(0, index - 1))}'),
-    "Step 7 must navigate back to Step 6, and Step 6 must navigate back to Step 5");
-  assert.ok(ui.includes('aria-label="Previous action"'),"Previous Action remains a separate control");
-  assert.ok(route.includes('to="/practical"'),"Existing exit-project navigation remains intact");
+test("Shared building navigation preserves separate step and animation controls", () => {
+  const studio=source("src/components/practical/BuildingStudio.tsx");
+  assert.ok(route.includes("<BuildingStudioHeader"), "Unified step header required");
+  assert.ok(route.includes("<BuildingStepDrawer"), "Step list drawer required");
+  assert.ok(route.includes("previousDisabled={currentIndex === 0}"), "Previous step disabled on first step");
+  assert.ok(route.includes("onPrevious={() => setCurrentIndex(index => Math.max(0, index - 1))}"),
+    "Previous step returns to previous project step");
+  assert.ok(studio.includes('aria-label="Back to robot selection"'));
+  assert.ok(studio.includes('to="/practical"'), "Existing exit navigation remains intact");
+  assert.ok(studio.includes('aria-label="Choose a building step"'));
+  assert.ok(ui.includes('aria-label="Previous action"'), "Previous action remains a separate control");
 });
 
 test("Step 6 uses one full-screen 3D stage without a mounting panel",()=>{

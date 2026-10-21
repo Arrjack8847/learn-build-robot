@@ -14,7 +14,7 @@
     "test:step4": "node --test tests/marksmanship-step4.test.mjs",
     "test:step5": "node --test tests/marksmanship-step5.test.mjs",
     "test:step6": "node --test tests/marksmanship-step6.test.mjs",
-    "test:ui": "node --test tests/marksmanship-ui.test.mjs",
+    "test:ui": "node --test tests/marksmanship-ui.test.mjs tests/building-studio-ui.test.mjs",
     "test:motion": "node --test tests/marksmanship-guided-motion.test.mjs"
   },
   "overrides": {
@@ -76,7 +76,8 @@
     "three": "^0.180.0",
     "@react-three/fiber": "^9.4.0",
     "@react-three/drei": "^10.7.6",
-    "three-stdlib": "^2.36.1"
+    "three-stdlib": "^2.36.1",
+    "pdfjs-dist": "5.4.296"
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
