@@ -300,6 +300,24 @@ const accelerationCarPdfSteps: PracticalProject["steps"] =
     originalManualStepNumbers: [index + 1],
   }));
 
+/** One explicit completion action per PDF manual; viewing pages alone does not claim assembly. */
+function pdfManualProject(id: string, title: string, number: number): PracticalProject {
+  return {
+    id, number, title,
+    description: "Follow the original " + title + " PDF manual, one page at a time.",
+    objective: "View and follow the original " + title + " PDF without substituted instructions.",
+    components: [],
+    relatedModuleIds: [],
+    steps: [{
+      id: id + "-manual-complete",
+      number: 1,
+      title: "Complete original PDF manual",
+      description: "Follow the original PDF illustrations and instructions.",
+    }],
+    troubleshooting: [],
+  };
+}
+
 export const practicalProjects: PracticalProject[] = [
   {
     id: "marksmanship",
@@ -337,6 +355,11 @@ export const practicalProjects: PracticalProject[] = [
     steps: accelerationCarPdfSteps,
     troubleshooting: [],
   },
+  pdfManualProject("caged-bird", "Caged Bird", 3),
+  pdfManualProject("funny-cat", "Funny Cat", 4),
+  pdfManualProject("ferocious-snake", "Ferocious Snake", 5),
+  pdfManualProject("shy-penguin", "Shy Penguin", 6),
+  pdfManualProject("sled-dog", "Sled Dog", 7),
 ];
 
 export function getProject(id: string) {
