@@ -24,6 +24,12 @@ import drummerRobotPdfUrl from "../../Drummer robot.pdf?url";
 import propellerAircraftPdfUrl from "../../Propeller Aircraft.pdf?url";
 import sailboatPdfUrl from "../../Sailboat.pdf?url";
 import lawnMowerPdfUrl from "../../The lawn mower.pdf?url";
+import carPdfUrl from "../../Car.pdf?url";
+import dynamicScreenPdfUrl from "../../Dynamic screen.pdf?url";
+import pendulumRidePdfUrl from "../../Pendulum ride.pdf?url";
+import rotatingFlyingChairPdfUrl from "../../Rotating flying chair.pdf?url";
+import skatingPdfUrl from "../../Skating.pdf?url";
+import windmillKingdomPdfUrl from "../../The windmill kingdom.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -132,6 +138,30 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "the-lawn-mower": {
     id: "the-lawn-mower", title: "The Lawn Mower", url: lawnMowerPdfUrl,
     completionStepId: "the-lawn-mower-manual-complete",
+  },
+  "car": {
+    id: "car", title: "Car", url: carPdfUrl,
+    completionStepId: "car-manual-complete",
+  },
+  "dynamic-screen": {
+    id: "dynamic-screen", title: "Dynamic Screen", url: dynamicScreenPdfUrl,
+    completionStepId: "dynamic-screen-manual-complete",
+  },
+  "pendulum-ride": {
+    id: "pendulum-ride", title: "Pendulum Ride", url: pendulumRidePdfUrl,
+    completionStepId: "pendulum-ride-manual-complete",
+  },
+  "rotating-flying-chair": {
+    id: "rotating-flying-chair", title: "Rotating Flying Chair", url: rotatingFlyingChairPdfUrl,
+    completionStepId: "rotating-flying-chair-manual-complete",
+  },
+  "skating": {
+    id: "skating", title: "Skating", url: skatingPdfUrl,
+    completionStepId: "skating-manual-complete",
+  },
+  "the-windmill-kingdom": {
+    id: "the-windmill-kingdom", title: "The Windmill Kingdom", url: windmillKingdomPdfUrl,
+    completionStepId: "the-windmill-kingdom-manual-complete",
   },
 };
 

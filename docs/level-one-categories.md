@@ -18,7 +18,8 @@ Category and project names were transcribed from the user's complete directory t
 - All nine Characters & Structures entries now link to their corresponding original GitHub-uploaded PDF building manuals.
 - All five Display & Movement entries (Clock, Drawing board, Hello World, Mechanical masks, Primitive robot) are linked to their original GitHub-uploaded PDF manuals.
 - The six Foundational Robots entries (Athlete, Basic programming, Drummer robot, Propeller Aircraft, Sailboat, The lawn mower) now link to their original GitHub-uploaded PDF manuals. Original syllabus filename metadata is preserved.
-- The remaining 33 entries are cataloged but not linked as working building lessons.
+- All six Manipulators entries (Car, Dynamic screen, Pendulum ride, Rotating flying chair, Skating, The windmill kingdom) now link to their original GitHub-uploaded PDF manuals; original syllabus filename metadata is preserved.
+- The remaining 27 entries are cataloged but not linked as working building lessons.
 
 ## Navigation
 

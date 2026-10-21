@@ -89,6 +89,19 @@ export function getLevelOneProjects(categoryId: LevelOneCategoryId): LevelOneSyl
       const matchingProjectId = matchingPdfProjects[sourceEntry];
       if (matchingProjectId) project.availableProjectId = matchingProjectId;
     }
+    if (categoryId === "manipulators") {
+      // Preserve original syllabus names while viewing uploaded PDF equivalents.
+      const matchingPdfProjects: Record<string, string> = {
+        "Car.pptx": "car",
+        "Dynamic screen.pptx": "dynamic-screen",
+        "Pendulum ride.pptx": "pendulum-ride",
+        "Rotating flying chair.pptx": "rotating-flying-chair",
+        "Skating.pptx": "skating",
+        "The windmill kingdom.pptx": "the-windmill-kingdom",
+      };
+      const matchingProjectId = matchingPdfProjects[sourceEntry];
+      if (matchingProjectId) project.availableProjectId = matchingProjectId;
+    }
     if (categoryId === "foundational-robots") {
       // Map the existing syllabus filenames to their corresponding uploaded PDF manuals.
       const matchingPdfProjects: Record<string, string> = {

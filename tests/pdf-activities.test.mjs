@@ -37,9 +37,15 @@ const manuals = [
   ["propeller-aircraft", "Propeller Aircraft.pdf"],
   ["sailboat", "Sailboat.pdf"],
   ["the-lawn-mower", "The lawn mower.pdf"],
+  ["car", "Car.pdf"],
+  ["dynamic-screen", "Dynamic screen.pdf"],
+  ["pendulum-ride", "Pendulum ride.pdf"],
+  ["rotating-flying-chair", "Rotating flying chair.pdf"],
+  ["skating", "Skating.pdf"],
+  ["the-windmill-kingdom", "The windmill kingdom.pdf"],
 ];
 
-test("the twenty-five original uploaded PDFs exist and can be loaded", async () => {
+test("the thirty-one original uploaded PDFs exist and can be loaded", async () => {
   const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
   for (const [id, filename] of manuals) {
     const bytes = readFileSync(new URL("../" + filename, import.meta.url));
@@ -64,6 +70,7 @@ test("every uploaded PDF is registered and receives isolated completion progress
   assert.match(syllabus, /"characters-structures"/);
   assert.match(syllabus, /"display-movement"/);
   assert.match(syllabus, /"foundational-robots"/);
+  assert.match(syllabus, /"manipulators"/);
   for (const [id] of manuals) {
     assert.ok(syllabus.includes('"' + id + '"'), "Missing Level 1 project link: " + id);
   }
