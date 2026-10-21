@@ -9,6 +9,7 @@ const route = read("src/routes/practical/$projectId.tsx");
 const catalog = read("src/routes/practical/index.tsx");
 const viewer = read("src/components/practical/PdfActivityViewer.tsx");
 const originalViewer = read("src/components/practical/AccelerationCarPdfViewer.tsx");
+const syllabus = read("src/data/levelOneProjects.ts");
 
 const manuals = [
   ["caged-bird", "Caged Bird.pdf"],
@@ -16,9 +17,18 @@ const manuals = [
   ["ferocious-snake", "Ferocious snake.pdf"],
   ["shy-penguin", "Shy penguin.pdf"],
   ["sled-dog", "Sled dog.pdf"],
+  ["big-head-robot", "Big head robot_Building.pdf"],
+  ["bird", "Bird.pdf"],
+  ["first-robot-model", "First Robot Model.pdf"],
+  ["house", "House_Building.pdf"],
+  ["rex-robot", "REX robot_Building.pdf"],
+  ["sled", "Sled_Building.pdf"],
+  ["spider", "Spider.pdf"],
+  ["spongebob", "SpongeBob_Building.pdf"],
+  ["wali-robot", "Wali robot.pdf"],
 ];
 
-test("the five original uploaded PDFs exist and can be loaded", async () => {
+test("the fourteen original uploaded PDFs exist and can be loaded", async () => {
   const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
   for (const [id, filename] of manuals) {
     const bytes = readFileSync(new URL("../" + filename, import.meta.url));
@@ -34,10 +44,15 @@ test("the five original uploaded PDFs exist and can be loaded", async () => {
   }
 });
 
-test("every animal PDF is registered and receives isolated completion progress", () => {
+test("every uploaded PDF is registered and receives isolated completion progress", () => {
   for (const [id] of manuals) {
     assert.ok(practical.includes('pdfManualProject("' + id + '"'));
     assert.ok(sources.includes('completionStepId: "' + id + '-manual-complete"'));
+  }
+  assert.match(syllabus, /"biomimicry"/);
+  assert.match(syllabus, /"characters-structures"/);
+  for (const [id] of manuals) {
+    assert.ok(syllabus.includes('"' + id + '"'), "Missing Level 1 project link: " + id);
   }
   assert.match(route, /<AccelerationCarPdfViewer \/>/);
   assert.match(route, /<PdfActivityViewer key=\{project.id\} manual=\{pdfManual\} \/>/);
