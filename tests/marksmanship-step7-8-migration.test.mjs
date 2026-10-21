@@ -39,7 +39,12 @@ test("Original manual numbering remains stable and overlap is flagged",()=>{
   assert.ok(data.includes("Original manual operation may overlap"));
 });
 test("Route keeps previous step distinct from action controls and guards Step 7–9 footer",()=>{
-  assert.ok(route.includes('aria-label="Previous Step"'));
+  // The universal Building Studio owns the actual Previous Step button.
+  // The project route supplies its callback instead of duplicating the UI.
+  const buildingStudio=read("src/components/practical/BuildingStudio.tsx");
+  assert.ok(route.includes("onPreviousStep={() => setCurrentIndex(index => Math.max(0, index - 1))}"));
+  assert.ok(route.includes("previousDisabled={currentIndex === 0}"));
+  assert.ok(buildingStudio.includes('aria-label="Previous building step"'));
   assert.ok(route.includes("const isStepSeven"));
   assert.ok(route.includes("const isStepEight"));
   assert.ok(route.includes("const isStepNine"));
@@ -89,10 +94,10 @@ test("Step 9 keeps both prior completed assemblies and connects them in five act
   assert.ok(scene.includes("stepEightPoses(11,frameConfig)"));
   assert.ok(scene.includes("stepNineFramePose"));
   assert.ok(geometry.includes("STEP_NINE_RECEIVERS = [7, 11]"));
-  assert.ok(geometry.includes('stepEightPin:"BLUE_1",rail:0,hole:7'));
-  assert.ok(geometry.includes('stepEightPin:"BLUE_2",rail:1,hole:7'));
-  assert.ok(geometry.includes('stepEightPin:"BLUE_3",rail:0,hole:11'));
-  assert.ok(geometry.includes('stepEightPin:"BLUE_4",rail:1,hole:11'));
+  assert.ok(geometry.includes('stepEightPin:"BLUE_1",rail:1,hole:7'));
+  assert.ok(geometry.includes('stepEightPin:"BLUE_2",rail:0,hole:7'));
+  assert.ok(geometry.includes('stepEightPin:"BLUE_3",rail:1,hole:11'));
+  assert.ok(geometry.includes('stepEightPin:"BLUE_4",rail:0,hole:11'));
   assert.ok(geometry.includes("alreadyOccupiedByStepSeven"));
   assert.ok(geometry.includes("mechanicallyVerified:false"));
   assert.ok(geometry.includes("STEP_NINE_STEP_SEVEN_YAW = Math.PI"));
