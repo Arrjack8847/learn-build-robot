@@ -115,6 +115,9 @@ import level2TongsPliersPdfUrl from "../../Pliers.pdf?url";
 import level2ReverseParkingPdfUrl from "../../Reverse Parking.pdf?url";
 import level2SmartWindowPdfUrl from "../../Smart Window.pdf?url";
 import level2SpirographPdfUrl from "../../Spirograph.pdf?url";
+import level2AutomaticWindowPdfUrl from "../../Automatic window.pdf?url";
+import level2RobotWarPdfUrl from "../../Robot war.pdf?url";
+import level2TheTreadmillPdfUrl from "../../The treadmill.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -587,6 +590,18 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "level-2-spirograph": {
     id: "level-2-spirograph", title: "Spirograph", url: level2SpirographPdfUrl,
     completionStepId: "level-2-spirograph-manual-complete",
+  },
+  "level-2-automatic-window": {
+    id: "level-2-automatic-window", title: "Automatic window", url: level2AutomaticWindowPdfUrl,
+    completionStepId: "level-2-automatic-window-manual-complete",
+  },
+  "level-2-robot-war": {
+    id: "level-2-robot-war", title: "Robot war", url: level2RobotWarPdfUrl,
+    completionStepId: "level-2-robot-war-manual-complete",
+  },
+  "level-2-the-treadmill": {
+    id: "level-2-the-treadmill", title: "The treadmill", url: level2TheTreadmillPdfUrl,
+    completionStepId: "level-2-the-treadmill-manual-complete",
   },
 };
 

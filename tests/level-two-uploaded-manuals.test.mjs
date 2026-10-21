@@ -70,6 +70,9 @@ const pdfManuals = [
   ["level-2-reverse-parking", "Reverse Parking.pdf", "sensors", "Reverse Parking"],
   ["level-2-smart-window", "Smart Window.pdf", "sensors", "Smart Window"],
   ["level-2-spirograph", "Spirograph.pdf", "sensors", "Spirograph"],
+  ["level-2-automatic-window", "Automatic window.pdf", "machines-mechanisms", "Automatic window"],
+  ["level-2-robot-war", "Robot war.pdf", "machines-mechanisms", "Robot war"],
+  ["level-2-the-treadmill", "The treadmill.pdf", "foundational-robots", "The treadmill"],
 ];
 const powerpointFiles = ["Car Steering.pptx","Cliff walk.pptx","Ferris wheel.pptx","Round-trip transportation.pptx","Shift gears.pptx"];
 
@@ -79,7 +82,7 @@ test("Level 2 retains all 18 categories and all 59 authentic syllabus entries", 
   assert.ok(levelRoute.includes("project.level === level && project.categoryId === category.id"));
 });
 
-test("57 Level 2 PDF building lessons map exactly to nonempty original uploads", async () => {
+test("60 Level 2 PDF building lessons map exactly to nonempty original uploads", async () => {
   const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
   const seen = new Set();
   const keys = new Set();
@@ -106,7 +109,7 @@ test("57 Level 2 PDF building lessons map exactly to nonempty original uploads",
     assert.ok(row?.slice(1).some(entry => normalize(entry.replace(/\.(pptx|pdf)$/i, "")) === normalize(title)),
       "Project not found in original syllabus category: " + title);
   }
-  assert.equal(seen.size, 57);
+  assert.equal(seen.size, 60);
 });
 
 test("5 Level 2 Manipulators PowerPoints retain original files and download links", () => {
@@ -155,11 +158,32 @@ test("all five Level 2 Sensors source PDFs have their own Building Studio regist
   assert.equal(row.length - 1, 5);
 });
 
-test("zero-byte placeholders must not be labeled ready to build", () => {
-  for (const filename of ["Automatic window.pdf", "Robot war.pdf", "The treadmill.pdf"]) {
-    assert.ok(!pdfConfig.includes("../../" + filename + "?url"), "Invalid/empty source registered " + filename);
+test("the newly restored Machines & Mechanisms PDFs are registered correctly", () => {
+  const row = syllabus.find(category => category[0] === "Machines & Mechanisms");
+  assert.ok(row);
+  for (const [title, filename] of [
+    ["Automatic window", "Automatic window.pdf"],
+    ["Robot war", "Robot war.pdf"],
+  ]) {
+    assert.ok(row.includes(title + ".pptx"), "Original syllabus entry missing: " + title);
+    assert.ok(pdfManuals.some(([id, source, category, name]) =>
+      id === "level-2-" + title.toLowerCase().replace(/[^a-z0-9]+/g, "-") &&
+      source === filename && category === "machines-mechanisms" && name === title
+    ), "Manual mapped to wrong category or source: " + title);
   }
-  assert.ok(!practical.includes('pdfManualProject("level-2-robot-war"'));
-  assert.ok(!practical.includes('pdfManualProject("level-2-automatic-window"'));
-  assert.ok(!practical.includes('pdfManualProject("level-2-the-treadmill"'));
+});
+
+test("Foundational Robots / The treadmill is distinct from Mechanisms & Simulators / Treadmill", () => {
+  const found = syllabus.find(row => row[0] === "Foundational Robots");
+  const simulators = syllabus.find(row => row[0] === "Mechanisms & Simulators");
+  assert.ok(found?.includes("The treadmill.pptx"));
+  assert.ok(simulators?.includes("Treadmill"));
+  assert.ok(pdfManuals.some(([id, source, category, title]) =>
+    id === "level-2-the-treadmill" && source === "The treadmill.pdf" &&
+    category === "foundational-robots" && title === "The treadmill"));
+  assert.ok(pdfManuals.some(([id, source, category, title]) =>
+    id === "level-2-treadmill" && source === "Treadmill_Building.pdf" &&
+    category === "mechanisms-simulators" && title === "Treadmill"));
+  assert.ok(practical.includes('pdfManualProject("level-2-the-treadmill", "The treadmill",'));
+  assert.ok(practical.includes('pdfManualProject("level-2-treadmill", "Treadmill",'));
 });
