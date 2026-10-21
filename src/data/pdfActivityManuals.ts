@@ -34,6 +34,26 @@ import crawlSlowlyBasicPdfUrl from "../../9. Crawl Slowly - Basic Building Manua
 import crawlSlowlyOptimizedPdfUrl from "../../9. Crawl Slowly - Optimized Building Manual.pdf?url";
 import mechanicalArmPdfUrl from "../../Mechanical arm.pdf?url";
 import shockAbsorberPdfUrl from "../../Shock absorber_Building.pdf?url";
+import blinkingRobotPdfUrl from "../../Blinking robot_Building.pdf?url";
+import colorChangingLightPdfUrl from "../../02.Color- changing  Light -Building Manual.pdf?url";
+import corridorLampPdfUrl from "../../Corridor lamp_Building.pdf?url";
+import helpLightPdfUrl from "../../Help light_Building.pdf?url";
+import lighthousePdfUrl from "../../Lighthouse_Building.pdf?url";
+import littleStarsPdfUrl from "../../Little stars_Building.pdf?url";
+import trafficLightSignalPdfUrl from "../../Traffic light_Building.pdf?url";
+import dartPdfUrl from "../../Dart.pdf?url";
+import responderPdfUrl from "../../Responder_Building.pdf?url";
+import wiperPdfUrl from "../../Wiper.pdf?url";
+import gyroTransmitterPdfUrl from "../../Gyro transmitter_Building.pdf?url";
+import motorcyclePdfUrl from "../../Motorcycle_Building.pdf?url";
+import pullBackCarPdfUrl from "../../Pull back car_Building.pdf?url";
+import handCrankingGiantStridePdfUrl from "../../Hand-cranking Giant Stride.pdf?url";
+import hermitCrabPdfUrl from "../../Hermit Crab.pdf?url";
+import littleOwlPdfUrl from "../../Little Owl.pdf?url";
+import oscillatingFanPdfUrl from "../../Oscillating Fan.pdf?url";
+import pocketPistolPdfUrl from "../../Pocket Pistol.pdf?url";
+import pullbackBicyclePdfUrl from "../../Pullback Bicycle.pdf?url";
+import rotatingCoffeeCupPdfUrl from "../../Rotating Coffee Cup.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -182,6 +202,86 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "shock-absorber": {
     id: "shock-absorber", title: "Shock Absorber", url: shockAbsorberPdfUrl,
     completionStepId: "shock-absorber-manual-complete",
+  },
+  "blinking-robot": {
+    id: "blinking-robot", title: "Blinking Robot", url: blinkingRobotPdfUrl,
+    completionStepId: "blinking-robot-manual-complete",
+  },
+  "color-changing-light": {
+    id: "color-changing-light", title: "Color-Changing Light", url: colorChangingLightPdfUrl,
+    completionStepId: "color-changing-light-manual-complete",
+  },
+  "corridor-lamp": {
+    id: "corridor-lamp", title: "Corridor Lamp", url: corridorLampPdfUrl,
+    completionStepId: "corridor-lamp-manual-complete",
+  },
+  "help-light": {
+    id: "help-light", title: "Help Light", url: helpLightPdfUrl,
+    completionStepId: "help-light-manual-complete",
+  },
+  "lighthouse": {
+    id: "lighthouse", title: "Lighthouse", url: lighthousePdfUrl,
+    completionStepId: "lighthouse-manual-complete",
+  },
+  "little-stars": {
+    id: "little-stars", title: "Little Stars", url: littleStarsPdfUrl,
+    completionStepId: "little-stars-manual-complete",
+  },
+  "traffic-light-signal": {
+    id: "traffic-light-signal", title: "Traffic Light Signal", url: trafficLightSignalPdfUrl,
+    completionStepId: "traffic-light-signal-manual-complete",
+  },
+  "dart": {
+    id: "dart", title: "Dart", url: dartPdfUrl,
+    completionStepId: "dart-manual-complete",
+  },
+  "responder": {
+    id: "responder", title: "Responder", url: responderPdfUrl,
+    completionStepId: "responder-manual-complete",
+  },
+  "wiper": {
+    id: "wiper", title: "Wiper", url: wiperPdfUrl,
+    completionStepId: "wiper-manual-complete",
+  },
+  "gyro-transmitter": {
+    id: "gyro-transmitter", title: "Gyro Transmitter", url: gyroTransmitterPdfUrl,
+    completionStepId: "gyro-transmitter-manual-complete",
+  },
+  "motorcycle": {
+    id: "motorcycle", title: "Motorcycle", url: motorcyclePdfUrl,
+    completionStepId: "motorcycle-manual-complete",
+  },
+  "pull-back-car": {
+    id: "pull-back-car", title: "Pull Back Car", url: pullBackCarPdfUrl,
+    completionStepId: "pull-back-car-manual-complete",
+  },
+  "hand-cranking-giant-stride": {
+    id: "hand-cranking-giant-stride", title: "Hand-Cranking Giant Stride", url: handCrankingGiantStridePdfUrl,
+    completionStepId: "hand-cranking-giant-stride-manual-complete",
+  },
+  "hermit-crab": {
+    id: "hermit-crab", title: "Hermit Crab", url: hermitCrabPdfUrl,
+    completionStepId: "hermit-crab-manual-complete",
+  },
+  "little-owl": {
+    id: "little-owl", title: "Little Owl", url: littleOwlPdfUrl,
+    completionStepId: "little-owl-manual-complete",
+  },
+  "oscillating-fan": {
+    id: "oscillating-fan", title: "Oscillating Fan", url: oscillatingFanPdfUrl,
+    completionStepId: "oscillating-fan-manual-complete",
+  },
+  "pocket-pistol": {
+    id: "pocket-pistol", title: "Pocket Pistol", url: pocketPistolPdfUrl,
+    completionStepId: "pocket-pistol-manual-complete",
+  },
+  "pullback-bicycle": {
+    id: "pullback-bicycle", title: "Pullback Bicycle", url: pullbackBicyclePdfUrl,
+    completionStepId: "pullback-bicycle-manual-complete",
+  },
+  "rotating-coffee-cup": {
+    id: "rotating-coffee-cup", title: "Rotating Coffee Cup", url: rotatingCoffeeCupPdfUrl,
+    completionStepId: "rotating-coffee-cup-manual-complete",
   },
 };
 

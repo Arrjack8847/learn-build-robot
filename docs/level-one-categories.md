@@ -20,7 +20,8 @@ Category and project names were transcribed from the user's complete directory t
 - The six Foundational Robots entries (Athlete, Basic programming, Drummer robot, Propeller Aircraft, Sailboat, The lawn mower) now link to their original GitHub-uploaded PDF manuals. Original syllabus filename metadata is preserved.
 - All six Manipulators entries (Car, Dynamic screen, Pendulum ride, Rotating flying chair, Skating, The windmill kingdom) now link to their original GitHub-uploaded PDF manuals; original syllabus filename metadata is preserved.
 - Mechanisms & Simulators now contains three available activities: Crawl Slowly (two separately selectable PDF versions, Basic and Optimized), Mechanical Arm and Shock Absorber. The two Crawl Slowly manuals are independent original files and maintain separate completion records.
-- The remaining 24 entries are cataloged but not linked as working building lessons.
+- All seven Illumination & Signals activities, both Interactive Systems activities, Wiper (Mechanisms and Concepts), Gyro transmitter (Sensor-Focused Robots), Motorcycle and Pull back car (Vehicles & Complex Movers), and all seven Vehicles & Motion activities are now linked to their exact uploaded PDFs. This connects both the latest 11 uploaded manuals and 9 earlier uploaded-but-unlinked manuals.
+- The remaining four syllabus entries belong to Machines & Mechanisms; their source PDFs have not been uploaded, so those lessons remain unavailable.
 
 ## Navigation
 

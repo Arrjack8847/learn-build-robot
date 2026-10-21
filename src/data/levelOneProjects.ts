@@ -91,6 +91,68 @@ export function getLevelOneProjects(categoryId: LevelOneCategoryId): LevelOneSyl
       const matchingProjectId = matchingPdfProjects[sourceEntry];
       if (matchingProjectId) project.availableProjectId = matchingProjectId;
     }
+    if (categoryId === "illumination-signals") {
+      // Match the existing Level 1 syllabus entry to its verified uploaded PDF.
+      const matchingPdfProjects: Record<string, string> = {
+        "Blinking robot": "blinking-robot",
+        "Color-changing Light": "color-changing-light",
+        "Corridor lamp": "corridor-lamp",
+        "Help light": "help-light",
+        "Lighthouse": "lighthouse",
+        "Little stars": "little-stars",
+        "Traffic light Signal": "traffic-light-signal",
+      };
+      const matchingProjectId = matchingPdfProjects[sourceEntry];
+      if (matchingProjectId) project.availableProjectId = matchingProjectId;
+    }
+    if (categoryId === "interactive-systems") {
+      // Match the existing Level 1 syllabus entry to its verified uploaded PDF.
+      const matchingPdfProjects: Record<string, string> = {
+        "Dart": "dart",
+        "Responder": "responder",
+      };
+      const matchingProjectId = matchingPdfProjects[sourceEntry];
+      if (matchingProjectId) project.availableProjectId = matchingProjectId;
+    }
+    if (categoryId === "mechanisms-and-concepts") {
+      // Match the existing Level 1 syllabus entry to its verified uploaded PDF.
+      const matchingPdfProjects: Record<string, string> = {
+        "Wiper.pdf": "wiper",
+      };
+      const matchingProjectId = matchingPdfProjects[sourceEntry];
+      if (matchingProjectId) project.availableProjectId = matchingProjectId;
+    }
+    if (categoryId === "sensor-focused-robots") {
+      // Match the existing Level 1 syllabus entry to its verified uploaded PDF.
+      const matchingPdfProjects: Record<string, string> = {
+        "Gyro transmitter": "gyro-transmitter",
+      };
+      const matchingProjectId = matchingPdfProjects[sourceEntry];
+      if (matchingProjectId) project.availableProjectId = matchingProjectId;
+    }
+    if (categoryId === "vehicles-complex-movers") {
+      // Match the existing Level 1 syllabus entry to its verified uploaded PDF.
+      const matchingPdfProjects: Record<string, string> = {
+        "Motorcycle": "motorcycle",
+        "Pull back car": "pull-back-car",
+      };
+      const matchingProjectId = matchingPdfProjects[sourceEntry];
+      if (matchingProjectId) project.availableProjectId = matchingProjectId;
+    }
+    if (categoryId === "vehicles-motion") {
+      // Match the existing Level 1 syllabus entry to its verified uploaded PDF.
+      const matchingPdfProjects: Record<string, string> = {
+        "Hand-cranking Giant Stride.pdf": "hand-cranking-giant-stride",
+        "Hermit Crab.pdf": "hermit-crab",
+        "Little Owl.pdf": "little-owl",
+        "Oscillating Fan.pdf": "oscillating-fan",
+        "Pocket Pistol.pdf": "pocket-pistol",
+        "Pullback Bicycle.pdf": "pullback-bicycle",
+        "Rotating Coffee Cup.pdf": "rotating-coffee-cup",
+      };
+      const matchingProjectId = matchingPdfProjects[sourceEntry];
+      if (matchingProjectId) project.availableProjectId = matchingProjectId;
+    }
     if (categoryId === "mechanisms-simulators") {
       if (sourceEntry === "Crawl Slowly") {
         // The syllabus has one activity, but GitHub contains two distinct official versions.

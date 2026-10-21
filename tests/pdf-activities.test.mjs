@@ -48,9 +48,29 @@ const manuals = [
   ["crawl-slowly-optimized", "9. Crawl Slowly - Optimized Building Manual.pdf"],
   ["mechanical-arm", "Mechanical arm.pdf"],
   ["shock-absorber", "Shock absorber_Building.pdf"],
+  ["blinking-robot", "Blinking robot_Building.pdf"],
+  ["color-changing-light", "02.Color- changing  Light -Building Manual.pdf"],
+  ["corridor-lamp", "Corridor lamp_Building.pdf"],
+  ["help-light", "Help light_Building.pdf"],
+  ["lighthouse", "Lighthouse_Building.pdf"],
+  ["little-stars", "Little stars_Building.pdf"],
+  ["traffic-light-signal", "Traffic light_Building.pdf"],
+  ["dart", "Dart.pdf"],
+  ["responder", "Responder_Building.pdf"],
+  ["wiper", "Wiper.pdf"],
+  ["gyro-transmitter", "Gyro transmitter_Building.pdf"],
+  ["motorcycle", "Motorcycle_Building.pdf"],
+  ["pull-back-car", "Pull back car_Building.pdf"],
+  ["hand-cranking-giant-stride", "Hand-cranking Giant Stride.pdf"],
+  ["hermit-crab", "Hermit Crab.pdf"],
+  ["little-owl", "Little Owl.pdf"],
+  ["oscillating-fan", "Oscillating Fan.pdf"],
+  ["pocket-pistol", "Pocket Pistol.pdf"],
+  ["pullback-bicycle", "Pullback Bicycle.pdf"],
+  ["rotating-coffee-cup", "Rotating Coffee Cup.pdf"],
 ];
 
-test("the thirty-five original uploaded PDFs exist and can be loaded", async () => {
+test("the fifty-five original uploaded PDFs exist and can be loaded", async () => {
   const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
   for (const [id, filename] of manuals) {
     const bytes = readFileSync(new URL("../" + filename, import.meta.url));
@@ -77,6 +97,12 @@ test("every uploaded PDF is registered and receives isolated completion progress
   assert.match(syllabus, /"foundational-robots"/);
   assert.match(syllabus, /"manipulators"/);
   assert.match(syllabus, /"mechanisms-simulators"/);
+  assert.match(syllabus, /"illumination-signals"/);
+  assert.match(syllabus, /"interactive-systems"/);
+  assert.match(syllabus, /"mechanisms-and-concepts"/);
+  assert.match(syllabus, /"sensor-focused-robots"/);
+  assert.match(syllabus, /"vehicles-complex-movers"/);
+  assert.match(syllabus, /"vehicles-motion"/);
   for (const [id] of manuals) {
     assert.ok(syllabus.includes('"' + id + '"'), "Missing Level 1 project link: " + id);
   }
@@ -95,6 +121,16 @@ test("Crawl Slowly retains one syllabus card with two independently tracked vers
   assert.match(categoryDetail, /params=\{\{ projectId: variant\.projectId \}\}/);
   assert.match(sources, /completionStepId: "crawl-slowly-basic-manual-complete"/);
   assert.match(sources, /completionStepId: "crawl-slowly-optimized-manual-complete"/);
+});
+
+test("all twenty newly connected syllabus entries use exact original PDFs and unique projects", () => {
+  const newMappings = [["illumination-signals","Blinking robot","blinking-robot","Blinking robot_Building.pdf"],["illumination-signals","Color-changing Light","color-changing-light","02.Color- changing  Light -Building Manual.pdf"],["illumination-signals","Corridor lamp","corridor-lamp","Corridor lamp_Building.pdf"],["illumination-signals","Help light","help-light","Help light_Building.pdf"],["illumination-signals","Lighthouse","lighthouse","Lighthouse_Building.pdf"],["illumination-signals","Little stars","little-stars","Little stars_Building.pdf"],["illumination-signals","Traffic light Signal","traffic-light-signal","Traffic light_Building.pdf"],["interactive-systems","Dart","dart","Dart.pdf"],["interactive-systems","Responder","responder","Responder_Building.pdf"],["mechanisms-and-concepts","Wiper.pdf","wiper","Wiper.pdf"],["sensor-focused-robots","Gyro transmitter","gyro-transmitter","Gyro transmitter_Building.pdf"],["vehicles-complex-movers","Motorcycle","motorcycle","Motorcycle_Building.pdf"],["vehicles-complex-movers","Pull back car","pull-back-car","Pull back car_Building.pdf"],["vehicles-motion","Hand-cranking Giant Stride.pdf","hand-cranking-giant-stride","Hand-cranking Giant Stride.pdf"],["vehicles-motion","Hermit Crab.pdf","hermit-crab","Hermit Crab.pdf"],["vehicles-motion","Little Owl.pdf","little-owl","Little Owl.pdf"],["vehicles-motion","Oscillating Fan.pdf","oscillating-fan","Oscillating Fan.pdf"],["vehicles-motion","Pocket Pistol.pdf","pocket-pistol","Pocket Pistol.pdf"],["vehicles-motion","Pullback Bicycle.pdf","pullback-bicycle","Pullback Bicycle.pdf"],["vehicles-motion","Rotating Coffee Cup.pdf","rotating-coffee-cup","Rotating Coffee Cup.pdf"]];
+  for (const [category, entry, id, filename] of newMappings) {
+    assert.ok(syllabus.includes('"' + category + '":'), "Missing category: " + category);
+    assert.ok(syllabus.includes('"' + entry + '": "' + id + '"'), "Missing syllabus link: " + entry);
+    assert.ok(sources.includes("../../" + filename + "?url"), "Missing original PDF: " + filename);
+    assert.ok(practical.includes('pdfManualProject("' + id + '"'), "Missing project: " + id);
+  }
 });
 
 test("original PDFs use dynamic page navigation rather than fabricated steps", () => {
