@@ -4,7 +4,7 @@ import test from "node:test";
 
 const read = path => readFileSync(new URL("../" + path, import.meta.url), "utf8");
 const catalogSource = read("src/data/advancedSyllabus.ts");
-const raw = catalogSource.match(/export const ADVANCED_SYLLABUS = ([\\s\\S]*?) as const;/)?.[1];
+const raw = catalogSource.match(/export const ADVANCED_SYLLABUS = ([\s\S]*?) as const;/)?.[1];
 assert.ok(raw, "Original level syllabus catalog must remain available");
 const syllabus = JSON.parse(raw)["2"];
 const pdfConfig = read("src/data/pdfActivityManuals.ts");
