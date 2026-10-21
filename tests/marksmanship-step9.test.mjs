@@ -23,42 +23,48 @@ test("Photographed Step 9 begins at action zero and ends with inspection",()=>{
 });
 test("The four photographed holes are the two open targets on each Step 7 rail",()=>{
   assert.ok(geometry.includes("STEP_NINE_RECEIVERS = [7, 11]"));
-  const pairs=[["BLUE_1",0,7],["BLUE_2",1,7],["BLUE_3",0,11],["BLUE_4",1,11]];
+  const pairs=[["BLUE_1",1,7],["BLUE_2",0,7],["BLUE_3",1,11],["BLUE_4",0,11]];
   for(const [pin,rail,hole] of pairs){
     assert.ok(geometry.includes(`stepEightPin:"${pin}",rail:${rail},hole:${hole}`));
   }
-  // Face-over flip Rx(π), NOT horizontal yaw Ry(π):
-  // original (-y,-z,x) becomes (-y,z,-x).
-  // Opposite halves of the two-sided connectors now face the upper rails.
+  // The previously final 180-degree flip put Step 8's original +Z
+  // blue connector ends on the DOWNWARD side. The corrected join restores
+  // the original Step 8 face, reversing the lateral receiving-rail pairing.
   const blue=[[-1,-2,.58],[1,-2,.58],[-1,2,.58],[1,2,.58]];
-  assert.deepEqual(blue.map(([x,y,z])=>[-y,z,-x]),
-    [[2,.58,1],[2,.58,-1],[-2,.58,1],[-2,.58,-1]]);
+  assert.deepEqual(blue.map(([x,y,z])=>[-y,-z,x]),
+    [[2,-.58,-1],[2,-.58,1],[-2,-.58,-1],[-2,-.58,1]]);
   assert.ok(geometry.includes("alreadyOccupiedByStepSeven"));
   assert.ok(geometry.includes("geometryWarnings"));
 });
-test("Step 9 beams seat face-to-face, so blue pins enter without protruding past the upper rail",()=>{
-  // Geometry is in 8 mm hole-pitch units. White beams are 7.8 mm thick.
-  // The original target placed Step 8's seven-hole beams nearly coplanar
-  // with Step 7's 15-hole rails; its blue pins passed through the top face.
-  const beamThickness=7.8/8;
-  const fiveToSevenLevel=(7.8+1.5)/8;
-  const step8PinCentreAboveSeven=fiveToSevenLevel/2;
-  const estimatedHalfOf24mmPin=24/8/2;
-  const railCentre=0;
-  const sevenHoleCentre=railCentre+beamThickness;
-  const blueCentre=sevenHoleCentre+step8PinCentreAboveSeven;
-  const upwardPinTip=blueCentre-estimatedHalfOf24mmPin;
-  assert.ok(upwardPinTip>=railCentre-beamThickness/2,
-    "The blue pin must not pass through the receiving rail's far/top surface");
-  assert.ok(upwardPinTip<railCentre+beamThickness/2,
-    "The blue connector must engage the upper receiving rail");
-  assert.ok(Math.abs(sevenHoleCentre-railCentre-beamThickness)<1e-8);
-  assert.ok(geometry.includes("centreOf=(coordinate:0|2)"));
-  assert.ok(geometry.includes("stepSevenLocalTarget[coordinate]-stepEightPinOffsets[index]![coordinate]"));
-  assert.ok(geometry.includes("stepNineOrientedPinOffset([-1,-2,level])"));
-  assert.ok(geometry.includes("The saved Step 7 rail spacing does not match"));
-  assert.ok(geometry.includes("alreadyOccupiedByStepSeven"),
-    "Do not suppress the real Step 7 receiving-hole collision warning");
+test("Corrected Step 8 joins upward without changing its standalone poses",()=>{
+  const thickness=7.8/8;
+  const step8SevenRailHeight=(7.8+1.5)/8+thickness;
+  const step8BluePinCenter=(7.8+1.5)/8-thickness/2+24/16+0.02;
+  // Step 9's outer parent turns shared Y into world -Y.
+  const step8JoinAxisShared=[0,-1,0]; // +local Z through joining orientation
+  const step8JoinAxisWorld=[-step8JoinAxisShared[0],-step8JoinAxisShared[1],step8JoinAxisShared[2]];
+  assert.deepEqual(step8JoinAxisWorld,[0,1,0],"The four blue connector upper ends must point toward Step 7");
+  const step8PreparationAxisShared=[0,1,0]; // inverted presentation frame
+  assert.deepEqual([-step8PreparationAxisShared[0],-step8PreparationAxisShared[1],step8PreparationAxisShared[2]],[0,-1,0]);
+  const railCentreSharedY=0;
+  const frameRootSharedY=railCentreSharedY+thickness+step8SevenRailHeight;
+  const lowerSevenRailSharedY=frameRootSharedY-step8SevenRailHeight;
+  assert.ok(Math.abs(lowerSevenRailSharedY-railCentreSharedY-thickness)<1e-9,
+    "The Step 8 7-hole rail stays just BELOW Step 7's 15-hole rail, face-to-face");
+  const greyBeamSharedY=frameRootSharedY-(7.8+1.5)/8;
+  assert.ok(greyBeamSharedY>lowerSevenRailSharedY,"Step 8's grey crossbeams must stay below its white rails");
+  assert.ok(geometry.includes("railCenterY + STEP_NINE_RAIL_FACE_SEATING + STEP_EIGHT_SEVEN_RAIL_SEATED_Z"));
+  assert.ok(geometry.includes("stepEightPoses(11,config)"),"Real complete Step 8 pin centres feed the rigid solve");
+  assert.ok(geometry.includes("stepNineOrientedPinOffset(completedStepEight[id].position)"));
+  // Do not claim zero protrusion: with the unmeasured Step 8 seating the
+  // predicted 24 mm pin tip is ~0.76 mm beyond the Step 7 upper beam face.
+  const exposedEndY=frameRootSharedY-step8BluePinCenter-24/16;
+  const farSideY=railCentreSharedY-thickness/2;
+  const predictedOverhangMm=(farSideY-exposedEndY)*8;
+  assert.ok(predictedOverhangMm>0&&predictedOverhangMm<2);
+  assert.ok(geometry.includes("A blue connector may extend "),
+    "Flag unmeasured remaining tip overhang; never shorten or hide connector meshes");
+  assert.ok(geometry.includes("alreadyOccupiedByStepSeven"));
 });
 
 test("Preparation moves both complete rigid roots, while the original internal joint poses are preserved",()=>{
@@ -153,43 +159,53 @@ test("Step 9 prevents overlapping navigation animations but keeps pause/replay a
   assert.ok(!viewer.includes("scale.set("));
 });
 
-test("Action 1 flips ONLY Step 8's top/bottom faces around its long horizontal beam",()=>{
+test("Action 1 rotates the ENTIRE rigid Step 8 frame from wrong face to original upward blue-pin face",()=>{
   assert.ok(geometry.includes('title:"Turn Step 8 over to its opposite face"'));
   assert.ok(geometry.includes("STEP_NINE_STEP_EIGHT_FACE_FLIP = Math.PI"));
   assert.ok(!geometry.includes("STEP_NINE_OPPOSITE_FACE_YAW"));
   assert.ok(geometry.includes("stepNineInitialPinOffset(point:V3)"));
-  assert.ok(geometry.includes("return [-point[1],-point[2],point[0]]"));
-  assert.ok(geometry.includes("stepNineOrientedPinOffset(point:V3)"));
   assert.ok(geometry.includes("return [-point[1],point[2],-point[0]]"));
-  assert.ok(viewer.includes("const INITIAL_ALIGNMENT=new Quaternion().setFromRotationMatrix"));
-  assert.ok(viewer.includes("const OPPOSITE_FACE_ALIGNMENT=new Quaternion()"));
+  assert.ok(geometry.includes("stepNineOrientedPinOffset(point:V3)"));
+  assert.ok(geometry.includes("return [-point[1],-point[2],point[0]]"));
+  assert.ok(viewer.includes("const JOINING_FACE_ALIGNMENT=new Quaternion().setFromRotationMatrix"));
+  assert.ok(viewer.includes("const PREPARATION_FACE_ALIGNMENT=new Quaternion()"));
   assert.ok(viewer.includes("new Vector3(1,0,0),STEP_NINE_STEP_EIGHT_FACE_FLIP"));
-  assert.ok(!viewer.includes("new Vector3(0,1,0),STEP_NINE_STEP_EIGHT_FACE_FLIP"));
-  assert.ok(viewer.includes(".multiply(INITIAL_ALIGNMENT)"));
-  assert.ok(viewer.includes("const fromQuat=old>=1?OPPOSITE_FACE_ALIGNMENT:INITIAL_ALIGNMENT"));
-  assert.ok(viewer.includes("const toQuat=phase>=1?OPPOSITE_FACE_ALIGNMENT:INITIAL_ALIGNMENT"));
+  assert.ok(viewer.includes(".multiply(JOINING_FACE_ALIGNMENT)"));
+  assert.ok(viewer.includes("const fromQuat=old>=1?JOINING_FACE_ALIGNMENT:PREPARATION_FACE_ALIGNMENT"));
+  assert.ok(viewer.includes("const toQuat=phase>=1?JOINING_FACE_ALIGNMENT:PREPARATION_FACE_ALIGNMENT"));
   assert.ok(viewer.includes("frame.current.quaternion.copy(m.fromQuat).slerp(m.toQuat,ease(t))"));
   assert.ok(viewer.includes('name="STEP9_STEP8_COMPLETE_ASSEMBLY" ref={frame}'));
-  assert.ok(viewer.includes("quaternion={phase>=1?OPPOSITE_FACE_ALIGNMENT:INITIAL_ALIGNMENT}"));
+  assert.ok(viewer.includes("quaternion={phase>=1?JOINING_FACE_ALIGNMENT:PREPARATION_FACE_ALIGNMENT}"));
+  assert.ok(!viewer.includes("rotation={[0,STEP_NINE_STEP_SEVEN_YAW,0]}>"+"\n        {STEP_EIGHT_PARTS"));
   assert.ok(lesson.includes("stepEightTopBottomFaceTurnDegrees:180"));
-  assert.ok(lesson.includes('stepEightAttachmentSide:"opposite-top-bottom-face"'));
+  assert.ok(lesson.includes('stepEightAttachmentSide:"original-step8-upward-connector-face"'));
 });
-test("Opposite top/bottom face exposes the other pin half but never moves original pin meshes",()=>{
-  const pins=[[-1,-2,.58],[1,-2,.58],[-1,2,.58],[1,2,.58]];
-  const original=pins.map(([x,y,z])=>[-y,-z,x]);
-  const flipped=pins.map(([x,y,z])=>[-y,z,-x]);
-  original.forEach((p,i)=>{
-    assert.equal(flipped[i][0],p[0], "The long-beam x direction is unchanged");
-    assert.equal(flipped[i][1],-p[1], "Top/bottom side must reverse");
-    assert.equal(flipped[i][2],-p[2], "Opposite mounting face changes side");
+test("Correct pin axes and the four Step 7 rail positions remain rigidly aligned",()=>{
+  const join=([x,y,z])=>[-y,-z,x]; // Step 8 original connector face
+  const prepare=([x,y,z])=>[-y,z,-x]; // prior wrong-face orientation
+  const rootToWorld=([x,y,z])=>[-x,-y,z];
+  assert.deepEqual(rootToWorld(join([0,0,1])),[0,1,0]);
+  assert.deepEqual(rootToWorld(prepare([0,0,1])),[0,-1,0]);
+  const pins=[[-1,-2,2.195],[1,-2,2.195],[-1,2,2.195],[1,2,2.195]];
+  // Step 7 rail 0 uses Step 6 back bridge, rail 1 the front bridge.
+  // Their 180-degree yaw gives target shared Z values +.975, -.975.
+  const targets=[
+    {rail:1,hole:7,x:2,z:-.975},
+    {rail:0,hole:7,x:2,z:.975},
+    {rail:1,hole:11,x:-2,z:-.975},
+    {rail:0,hole:11,x:-2,z:.975},
+  ];
+  const offsets=pins.map(join);
+  offsets.forEach(([x,_,z],index)=>{
+    assert.ok(Math.abs(x-targets[index].x)<.3);
+    assert.ok(Math.abs(z-targets[index].z)<.3);
   });
-  assert.ok(geometry.includes("STEP_NINE_RECEIVERS = [7, 11]"));
-  assert.ok(geometry.includes("STEP_NINE_RAIL_FACE_SEATING"));
-  assert.ok(geometry.includes("stepNineOrientedPinOffset([-1,-2,level])"));
-  assert.ok(geometry.includes("stepNineOrientedPinOffset([ 1,-2,level])"));
-  assert.ok(geometry.includes("stepNineOrientedPinOffset([-1, 2,level])"));
-  assert.ok(geometry.includes("stepNineOrientedPinOffset([ 1, 2,level])"));
-  assert.ok(viewer.includes("stepEightPoses(11,frameConfig)"));
+  assert.ok(geometry.includes('stepEightPin:"BLUE_1",rail:1,hole:7'));
+  assert.ok(geometry.includes('stepEightPin:"BLUE_2",rail:0,hole:7'));
+  assert.ok(geometry.includes('stepEightPin:"BLUE_3",rail:1,hole:11'));
+  assert.ok(geometry.includes('stepEightPin:"BLUE_4",rail:0,hole:11'));
+  assert.ok(geometry.includes("A photo-marked hole overlaps a connector"),
+    "Existing rail connector occupancy must not be concealed by this face fix");
 });
 
 test("Four BLUE connector meshes always remain opaque: never faded, hidden, removed or scaled",()=>{
