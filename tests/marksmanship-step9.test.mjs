@@ -64,7 +64,10 @@ test("Corrected Step 8 joins upward without changing its standalone poses",()=>{
   const greyBeamSharedY=frameRootSharedY-(7.8+1.5)/8;
   assert.ok(greyBeamSharedY>lowerSevenRailSharedY,"Step 8's grey crossbeams must stay below its white rails");
   assert.ok(geometry.includes("railCenterY + STEP_NINE_RAIL_FACE_SEATING + STEP_EIGHT_SEVEN_RAIL_SEATED_Z"));
-  assert.ok(geometry.includes("stepEightPoses(11,config)"),"Real complete Step 8 pin centres feed the rigid solve");
+  assert.ok(geometry.includes("stepEightPoses(11,frameConfig)"),"Real complete Step 8 pin centres feed the rigid solve");
+  assert.ok(geometry.includes("frameConfig:StepEightConfig,"));
+  assert.ok(viewer.includes("stepNineMating(config,stepSixConfig,beamY,frameConfig)"));
+  assert.ok(lesson.includes("stepNineMating(ready.a.mountingChoices,ready.stepSixConfig,beamY,frameConfig)"));
   assert.ok(geometry.includes("stepNineOrientedPinOffset(completedStepEight[id].position)"));
   // Do not claim zero protrusion: with the unmeasured Step 8 seating the
   // predicted 24 mm pin tip is ~0.76 mm beyond the Step 7 upper beam face.
