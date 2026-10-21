@@ -9,6 +9,16 @@ const viewer=read("src/components/practical/StepNineScene.tsx");
 const lesson=read("src/components/practical/StepNineAssemblyReview.tsx");
 const routeData=read("src/data/practical.ts");
 
+// Coordinate equivalence must not depend on IEEE-754's signed zero:
+// a quaternion rotation can legitimately produce -0 instead of 0.
+const assertVectorClose=(actual,expected,tolerance=1e-12)=>{
+  assert.equal(actual.length,expected.length);
+  actual.forEach((value,i)=>assert.ok(
+    Math.abs(value-expected[i])<=tolerance,
+    `coordinate ${i}: expected ${expected[i]}, received ${value}`,
+  ));
+};
+
 test("Photographed Step 9 begins at action zero and ends with inspection",()=>{
   const start=geometry.indexOf("export const STEP_NINE_ACTIONS");
   const end=geometry.indexOf("] as const;",start);
@@ -43,9 +53,9 @@ test("Corrected Step 8 joins upward without changing its standalone poses",()=>{
   // Step 9's outer parent turns shared Y into world -Y.
   const step8JoinAxisShared=[0,-1,0]; // +local Z through joining orientation
   const step8JoinAxisWorld=[-step8JoinAxisShared[0],-step8JoinAxisShared[1],step8JoinAxisShared[2]];
-  assert.deepEqual(step8JoinAxisWorld,[0,1,0],"The four blue connector upper ends must point toward Step 7");
+  assertVectorClose(step8JoinAxisWorld,[0,1,0]); // pins point toward Step 7
   const step8PreparationAxisShared=[0,1,0]; // inverted presentation frame
-  assert.deepEqual([-step8PreparationAxisShared[0],-step8PreparationAxisShared[1],step8PreparationAxisShared[2]],[0,-1,0]);
+  assertVectorClose([-step8PreparationAxisShared[0],-step8PreparationAxisShared[1],step8PreparationAxisShared[2]],[0,-1,0]);
   const railCentreSharedY=0;
   const frameRootSharedY=railCentreSharedY+thickness+step8SevenRailHeight;
   const lowerSevenRailSharedY=frameRootSharedY-step8SevenRailHeight;
@@ -184,8 +194,8 @@ test("Correct pin axes and the four Step 7 rail positions remain rigidly aligned
   const join=([x,y,z])=>[-y,-z,x]; // Step 8 original connector face
   const prepare=([x,y,z])=>[-y,z,-x]; // prior wrong-face orientation
   const rootToWorld=([x,y,z])=>[-x,-y,z];
-  assert.deepEqual(rootToWorld(join([0,0,1])),[0,1,0]);
-  assert.deepEqual(rootToWorld(prepare([0,0,1])),[0,-1,0]);
+  assertVectorClose(rootToWorld(join([0,0,1])),[0,1,0]);
+  assertVectorClose(rootToWorld(prepare([0,0,1])),[0,-1,0]);
   const pins=[[-1,-2,2.195],[1,-2,2.195],[-1,2,2.195],[1,2,2.195]];
   // Step 7 rail 0 uses Step 6 back bridge, rail 1 the front bridge.
   // Their 180-degree yaw gives target shared Z values +.975, -.975.
