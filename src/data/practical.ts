@@ -442,6 +442,20 @@ export const practicalProjects: PracticalProject[] = [
   pdfManualProject("level-2-mobile-shot", "Mobile Shot", 83, "machines-mechanisms", 2),
   pdfManualProject("level-2-rolling-shutter", "Rolling Shutter", 84, "machines-mechanisms", 2),
   pdfManualProject("level-2-track-rickshaw", "Track Rickshaw", 85, "machines-mechanisms", 2),
+  pdfManualProject("level-2-car-steering", "Car Steering", 86, "manipulators", 2),
+  pdfManualProject("level-2-cliff-walk", "Cliff walk", 87, "manipulators", 2),
+  pdfManualProject("level-2-ferris-wheel", "Ferris wheel", 88, "manipulators", 2),
+  pdfManualProject("level-2-round-trip-transportation", "Round-trip transportation", 89, "manipulators", 2),
+  pdfManualProject("level-2-shift-gears", "Shift gears", 90, "manipulators", 2),
+  pdfManualProject("level-2-bridge", "Bridge", 91, "mechanisms-simulators", 2),
+  pdfManualProject("level-2-mechanisms-simulators-crane", "Crane", 92, "mechanisms-simulators", 2),
+  pdfManualProject("level-2-door", "Door", 93, "mechanisms-simulators", 2),
+  pdfManualProject("level-2-double-beam-crane", "Double Beam Crane", 94, "mechanisms-simulators", 2),
+  pdfManualProject("level-2-gearbox", "Gearbox", 95, "mechanisms-simulators", 2),
+  pdfManualProject("level-2-hand-crank", "Hand crank", 96, "mechanisms-simulators", 2),
+  pdfManualProject("level-2-spinning-bike", "Spinning bike", 97, "mechanisms-simulators", 2),
+  pdfManualProject("level-2-swing", "Swing", 98, "mechanisms-simulators", 2),
+  pdfManualProject("level-2-treadmill", "Treadmill", 99, "mechanisms-simulators", 2),
 ];
 
 export function getProject(id: string) {

@@ -82,6 +82,20 @@ import level2DungBeetlePdfUrl from "../../Dung Beetle.pdf?url";
 import level2MobileShotPdfUrl from "../../Mobile Shot.pdf?url";
 import level2RollingShutterPdfUrl from "../../Rolling Shutter.pdf?url";
 import level2TrackRickshawPdfUrl from "../../Track Rickshaw.pdf?url";
+import level2ManipulatorsCarSteeringPdfUrl from "../../Car Steering.pdf?url";
+import level2ManipulatorsCliffWalkPdfUrl from "../../Cliff walk.pdf?url";
+import level2ManipulatorsFerrisWheelPdfUrl from "../../Ferris wheel.pdf?url";
+import level2ManipulatorsRoundTripTransportationPdfUrl from "../../Round-trip transportation.pdf?url";
+import level2ManipulatorsShiftGearsPdfUrl from "../../Shift gears.pdf?url";
+import level2MechanismsSimulatorsBridgePdfUrl from "../../Bridge_Building.pdf?url";
+import level2MechanismsSimulatorsCranePdfUrl from "../../Crane_.pdf?url";
+import level2MechanismsSimulatorsDoorPdfUrl from "../../Door_Building.pdf?url";
+import level2MechanismsSimulatorsDoubleBeamCranePdfUrl from "../../Double beam crane_Building.pdf?url";
+import level2MechanismsSimulatorsGearboxPdfUrl from "../../Gearbox_Building.pdf?url";
+import level2MechanismsSimulatorsHandCrankPdfUrl from "../../Hand crank_Building.pdf?url";
+import level2MechanismsSimulatorsSpinningBikePdfUrl from "../../Spinning bike_Building.pdf?url";
+import level2MechanismsSimulatorsSwingPdfUrl from "../../Swing_Building.pdf?url";
+import level2MechanismsSimulatorsTreadmillPdfUrl from "../../Treadmill_Building.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -422,6 +436,62 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "level-2-track-rickshaw": {
     id: "level-2-track-rickshaw", title: "Track Rickshaw", url: level2TrackRickshawPdfUrl,
     completionStepId: "level-2-track-rickshaw-manual-complete",
+  },
+  "level-2-car-steering": {
+    id: "level-2-car-steering", title: "Car Steering", url: level2ManipulatorsCarSteeringPdfUrl,
+    completionStepId: "level-2-car-steering-manual-complete",
+  },
+  "level-2-cliff-walk": {
+    id: "level-2-cliff-walk", title: "Cliff walk", url: level2ManipulatorsCliffWalkPdfUrl,
+    completionStepId: "level-2-cliff-walk-manual-complete",
+  },
+  "level-2-ferris-wheel": {
+    id: "level-2-ferris-wheel", title: "Ferris wheel", url: level2ManipulatorsFerrisWheelPdfUrl,
+    completionStepId: "level-2-ferris-wheel-manual-complete",
+  },
+  "level-2-round-trip-transportation": {
+    id: "level-2-round-trip-transportation", title: "Round-trip transportation", url: level2ManipulatorsRoundTripTransportationPdfUrl,
+    completionStepId: "level-2-round-trip-transportation-manual-complete",
+  },
+  "level-2-shift-gears": {
+    id: "level-2-shift-gears", title: "Shift gears", url: level2ManipulatorsShiftGearsPdfUrl,
+    completionStepId: "level-2-shift-gears-manual-complete",
+  },
+  "level-2-bridge": {
+    id: "level-2-bridge", title: "Bridge", url: level2MechanismsSimulatorsBridgePdfUrl,
+    completionStepId: "level-2-bridge-manual-complete",
+  },
+  "level-2-mechanisms-simulators-crane": {
+    id: "level-2-mechanisms-simulators-crane", title: "Crane", url: level2MechanismsSimulatorsCranePdfUrl,
+    completionStepId: "level-2-mechanisms-simulators-crane-manual-complete",
+  },
+  "level-2-door": {
+    id: "level-2-door", title: "Door", url: level2MechanismsSimulatorsDoorPdfUrl,
+    completionStepId: "level-2-door-manual-complete",
+  },
+  "level-2-double-beam-crane": {
+    id: "level-2-double-beam-crane", title: "Double Beam Crane", url: level2MechanismsSimulatorsDoubleBeamCranePdfUrl,
+    completionStepId: "level-2-double-beam-crane-manual-complete",
+  },
+  "level-2-gearbox": {
+    id: "level-2-gearbox", title: "Gearbox", url: level2MechanismsSimulatorsGearboxPdfUrl,
+    completionStepId: "level-2-gearbox-manual-complete",
+  },
+  "level-2-hand-crank": {
+    id: "level-2-hand-crank", title: "Hand crank", url: level2MechanismsSimulatorsHandCrankPdfUrl,
+    completionStepId: "level-2-hand-crank-manual-complete",
+  },
+  "level-2-spinning-bike": {
+    id: "level-2-spinning-bike", title: "Spinning bike", url: level2MechanismsSimulatorsSpinningBikePdfUrl,
+    completionStepId: "level-2-spinning-bike-manual-complete",
+  },
+  "level-2-swing": {
+    id: "level-2-swing", title: "Swing", url: level2MechanismsSimulatorsSwingPdfUrl,
+    completionStepId: "level-2-swing-manual-complete",
+  },
+  "level-2-treadmill": {
+    id: "level-2-treadmill", title: "Treadmill", url: level2MechanismsSimulatorsTreadmillPdfUrl,
+    completionStepId: "level-2-treadmill-manual-complete",
   },
 };
 
