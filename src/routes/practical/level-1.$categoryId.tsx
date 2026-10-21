@@ -1,7 +1,8 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Bot, FolderOpen, Puzzle, Sparkles } from "lucide-react";
+import { ArrowRight, Bot, FileText, FolderOpen, Presentation, Puzzle } from "lucide-react";
 import { findLevelOneCategory, LEVEL_ONE_CATEGORIES } from "@/data/levelOneCategories";
-import { practicalProjects } from "@/data/practical";
+import { getLevelOneProjects } from "@/data/levelOneProjects";
+import { getProject } from "@/data/practical";
 import { LevelOneBackdrop, LevelOneHeader, categoryTones } from "@/components/practical/LevelOneHeader";
 
 export const Route = createFileRoute("/practical/level-1/$categoryId")({
@@ -26,9 +27,7 @@ function LevelOneCategoryPage() {
     );
   }
 
-  // No projects are assigned by name guessing. Each actual syllabus project
-  // can opt in with its verified level + categoryId once its source is loaded.
-  const projects = practicalProjects.filter(project => project.level === 1 && project.categoryId === category.id);
+  const entries = getLevelOneProjects(category.id);
   const categoryNumber = LEVEL_ONE_CATEGORIES.indexOf(category) + 1;
   const tone = categoryTones[category.tone];
 
@@ -44,58 +43,71 @@ function LevelOneCategoryPage() {
           </p>
           <h1 className="mt-2 text-[clamp(1.9rem,5vw,3rem)] font-black tracking-tight">{category.name}</h1>
           <p className="mt-3 max-w-2xl text-sm font-medium leading-6 text-slate-600 sm:text-base">
-            Explore robot projects from this category as their official lessons are added.
+            Choose a project from your Level 1 syllabus. Completed digital lessons can be opened now;
+            the others are listed so you can see what is coming.
           </p>
         </section>
 
-        <section className="mt-8" aria-label={`Robot builds in ${category.name}`}>
+        <section className="mt-8" aria-label={`Projects in ${category.name}`}>
           <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-            <h2 className="text-xl font-extrabold">Robot builds</h2>
+            <h2 className="text-xl font-extrabold">Projects & lessons</h2>
             <span className="rounded-full bg-[#eaf5ff] px-3 py-1 text-xs font-bold text-[#168eea]">
-              {projects.length} {projects.length === 1 ? "project" : "projects"}
+              {entries.length} {entries.length === 1 ? "entry" : "entries"}
             </span>
           </div>
-
-          {projects.length ? (
-            <ul className="grid gap-4 sm:grid-cols-2">
-              {projects.map(project => (
-                <li key={project.id} className="rounded-[26px] border border-sky-100 bg-white p-5 shadow-sm">
-                  <span className="mb-4 grid size-14 place-items-center rounded-2xl bg-[#eaf5ff] text-[#168eea]">
-                    <Bot className="size-8" aria-hidden="true"/>
-                  </span>
-                  <h3 className="text-lg font-extrabold">{project.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{project.description}</p>
-                  <p className="mt-3 text-xs font-bold text-slate-500">{project.steps.length} building steps</p>
-                  <Link to="/practical/$projectId" params={{ projectId: project.id }}
-                    className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 text-sm font-extrabold text-white transition hover:bg-[#0d7fda]">
-                    Start building <ArrowRight className="size-4" aria-hidden="true"/>
-                  </Link>
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {entries.map(entry => {
+              const liveProject = entry.availableProjectId ? getProject(entry.availableProjectId) : undefined;
+              const SourceIcon = entry.sourceKind === "pptx" ? Presentation :
+                entry.sourceKind === "pdf" ? FileText : FolderOpen;
+              const sourceLabel = entry.sourceKind === "pptx" ? "PowerPoint lesson" :
+                entry.sourceKind === "pdf" ? "PDF lesson" : "Syllabus project folder";
+              return (
+                <li key={entry.id}
+                  className="flex flex-col rounded-[26px] border border-sky-100 bg-white p-5 shadow-[0_7px_24px_rgba(22,142,234,.07)]">
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="grid size-14 place-items-center rounded-2xl bg-[#eaf5ff] text-[#168eea]">
+                      {liveProject ? <Bot className="size-8" aria-hidden="true"/> :
+                        <SourceIcon className="size-7" aria-hidden="true"/>}
+                    </span>
+                    {liveProject ? (
+                      <span className="rounded-full bg-green-50 px-3 py-1.5 text-xs font-bold text-green-700">
+                        Ready to build
+                      </span>
+                    ) : (
+                      <span className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-600">
+                        Lesson not added yet
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="mt-4 text-lg font-extrabold leading-snug">{entry.name}</h3>
+                  <p className="mt-2 text-xs font-medium text-slate-500">{sourceLabel} in the syllabus</p>
+                  <div className="mt-auto pt-5">
+                    {liveProject ? (
+                      <Link to="/practical/$projectId" params={{ projectId: liveProject.id }}
+                        className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 text-sm font-extrabold text-white transition hover:bg-[#0d7fda] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168eea]">
+                        Open Building Studio <ArrowRight className="size-4" aria-hidden="true"/>
+                      </Link>
+                    ) : (
+                      <p className="rounded-2xl bg-[#f3faff] p-3 text-xs leading-5 text-slate-600">
+                        This project is in your syllabus tree. Upload its lesson materials to make it interactive.
+                      </p>
+                    )}
+                  </div>
                 </li>
-              ))}
-            </ul>
-          ) : (
-            <div className="flex flex-col items-center rounded-[28px] border border-sky-100 bg-white px-6 py-10 text-center shadow-sm">
-              <div className="relative grid size-20 place-items-center rounded-3xl bg-[#eaf5ff]">
-                <FolderOpen className="size-10 text-[#168eea]" aria-hidden="true"/>
-                <Sparkles className="absolute -right-2 -top-2 size-6 text-[#f5a400]" aria-hidden="true"/>
-              </div>
-              <h3 className="mt-5 text-xl font-extrabold">This category is ready!</h3>
-              <p className="mt-2 max-w-lg text-sm leading-6 text-slate-600">
-                The category has been created, but no robot lessons have been assigned to it yet.
-                We’ll add projects using the original Level 1 syllabus files.
-              </p>
-              <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <Link to="/practical/level-1"
-                  className="inline-flex min-h-12 items-center rounded-2xl border border-sky-200 px-5 text-sm font-extrabold text-[#168eea] hover:bg-[#eaf5ff]">
-                  Other categories
-                </Link>
-                <Link to="/practical"
-                  className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-[#168eea] px-5 text-sm font-extrabold text-white hover:bg-[#0d7fda]">
-                  Available robots <ArrowRight className="size-4" aria-hidden="true"/>
-                </Link>
-              </div>
-            </div>
-          )}
+              );
+            })}
+          </ul>
+          <div className="mt-7 flex flex-wrap justify-center gap-3">
+            <Link to="/practical/level-1"
+              className="inline-flex min-h-12 items-center rounded-2xl border border-sky-200 px-5 text-sm font-extrabold text-[#168eea] hover:bg-[#eaf5ff]">
+              All categories
+            </Link>
+            <Link to="/practical"
+              className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-[#168eea] px-5 text-sm font-extrabold text-white hover:bg-[#0d7fda]">
+              Available robots <ArrowRight className="size-4" aria-hidden="true"/>
+            </Link>
+          </div>
         </section>
       </main>
     </div>
