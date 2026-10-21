@@ -58,7 +58,7 @@ export function StepNineAssemblyReview({onCompleteStep}:{onCompleteStep:()=>void
     savedFrameConfig.fifteenNearHole!==STEP_EIGHT_DEMO_CONFIG.fifteenNearHole);
   const frameConfig=needsStepEightRefresh?STEP_EIGHT_DEMO_CONFIG:savedFrameConfig;
   const beamY=ready?.transforms["STEP5_BEAM_11"]?.position[1]??4.1;
-  const mating=ready?stepNineMating(ready.a.mountingChoices,ready.stepSixConfig,beamY):null;
+  const mating=ready?stepNineMating(ready.a.mountingChoices,ready.stepSixConfig,beamY,frameConfig):null;
   useEffect(()=>{
     const preference=window.matchMedia?.("(prefers-reduced-motion: reduce)");
     if(!preference)return;
