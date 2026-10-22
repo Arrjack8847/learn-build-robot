@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, BookOpen, CheckCircle2, Construction, Wrench } from "lucide-react";
 
+import { AccelerationLearningStudio } from "@/components/learning/AccelerationLearningStudio";
 import { LevelOneBackdrop } from "@/components/practical/LevelOneHeader";
 import { getAdvancedLevel } from "@/data/advancedSyllabus";
 import { findLevelOneCategory } from "@/data/levelOneCategories";
@@ -17,6 +19,7 @@ export const Route = createFileRoute("/projects/$projectId")({
  */
 function ProjectOverviewPage() {
   const { projectId } = Route.useParams();
+  const [learningOpen, setLearningOpen] = useState(false);
   const project = getProject(projectId);
 
   if (!project) {
@@ -33,6 +36,10 @@ function ProjectOverviewPage() {
     );
   }
 
+  if (project.id === "acceleration-car" && learningOpen) {
+    return <AccelerationLearningStudio onExit={() => setLearningOpen(false)} />;
+  }
+
   const level = project.level;
   const category = project.categoryId && level
     ? level === 1
@@ -43,7 +50,8 @@ function ProjectOverviewPage() {
 
   // An uploaded presentation is a Learning activity. Other registered projects
   // have a Building activity. Do not point "Learning" to unrelated demo theory.
-  const hasLearning = isPresentation;
+  const isAccelerationCar = project.id === "acceleration-car";
+  const hasLearning = isPresentation || isAccelerationCar;
   const hasBuilding = !isPresentation;
 
   return (
@@ -111,9 +119,13 @@ function ProjectOverviewPage() {
             <BookOpen className="size-10 text-[#168eea]" aria-hidden="true" />
             <h2 className="mt-4 text-xl font-black">Learning</h2>
             <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
-              {hasLearning ? "View the original lesson slides in the existing presentation viewer." : "Project-specific learning materials have not been added yet."}
+              {isAccelerationCar ? "Study the original 17-slide Acceleration Car lecture PDF, then take a randomized five-question quiz with slide references." : hasLearning ? "View the original lesson slides in the existing presentation viewer." : "Project-specific learning materials have not been added yet."}
             </p>
-            {hasLearning ? (
+            {isAccelerationCar ? (
+              <button type="button" onClick={() => setLearningOpen(true)} className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 font-extrabold text-white hover:bg-[#0d7fda]">
+                Start Learning <ArrowRight className="size-4" aria-hidden="true" />
+              </button>
+            ) : hasLearning ? (
               <Link to="/practical/$projectId" params={{ projectId: project.id }} className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 font-extrabold text-white hover:bg-[#0d7fda]">
                 Start Learning <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
