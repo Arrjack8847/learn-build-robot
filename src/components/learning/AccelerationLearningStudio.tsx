@@ -31,6 +31,7 @@ export function AccelerationLearningStudio(){
   const [outline,setOutline]=useState(false);
   const [dockOpen,setDockOpen]=useState(false);
   const [mode,setMode]=useState<"slides"|"quiz"|"result">("slides");
+  const [reviewingAnswer,setReviewingAnswer]=useState(false);
   const [questions,setQuestions]=useState(()=>createAccelerationQuiz());
   const [index,setIndex]=useState(0);
   const [answers,setAnswers]=useState<Record<string,string>>({});
@@ -71,7 +72,25 @@ export function AccelerationLearningStudio(){
     document.addEventListener("fullscreenchange",listener);return()=>document.removeEventListener("fullscreenchange",listener);
   },[]);
   function go(n:number){const p=Math.min(pages,Math.max(1,n));setSaved(v=>({...v,page:p,viewed:v.viewed.includes(p)?v.viewed:[...v.viewed,p]}));setZoom(1);}
-  function beginQuiz(){setQuestions(createAccelerationQuiz(saved.previousIds));setIndex(0);setAnswers({});setMode("quiz");}
+  function beginQuiz(){
+    setReviewingAnswer(false);
+    setQuestions(createAccelerationQuiz(saved.previousIds));
+    setIndex(0);
+    setAnswers({});
+    setMode("quiz");
+  }
+  function reviewReferenceSlide(referencePage: number){
+    if (!Number.isInteger(referencePage) || referencePage < 1 || referencePage > pages) return;
+    go(referencePage);
+    setReviewingAnswer(true);
+    setDockOpen(false);
+    setOutline(false);
+    setMode("slides");
+  }
+  function returnToResults(){
+    setReviewingAnswer(false);
+    setMode("result");
+  }
   function submit(){
     if(questions.some(q=>!answers[q.id]))return;
     const score=questions.filter(q=>answers[q.id]===q.correct).length;
@@ -83,12 +102,19 @@ export function AccelerationLearningStudio(){
   return <div ref={fullscreen} className="flex h-[100dvh] min-h-[440px] flex-col overflow-hidden bg-[#f3faff] text-[#132654]">
     <header className="flex min-h-16 items-center justify-between gap-3 border-b border-sky-100 bg-white px-3 sm:px-6">
       <Link to="/practical/level-1/autonomous-navigation-ranging" className="grid size-11 place-items-center rounded-2xl border border-sky-100" aria-label="Back to Acceleration Car category"><ArrowLeft/></Link>
-      <div className="min-w-0 text-center"><h1 className="truncate text-sm font-black sm:text-lg">Acceleration Car · Learning Studio</h1><p className="text-xs text-slate-500">Level 1 · {mode==="slides"?"Lecture":mode==="quiz"?"Quick Quiz":"Quiz Results"}</p></div>
+      <div className="min-w-0 text-center"><h1 className="truncate text-sm font-black sm:text-lg">Acceleration Car · Learning Studio</h1><p className="text-xs text-slate-500">Level 1 · {mode==="slides"?(reviewingAnswer?"Review Source Slide":"Lecture"):mode==="quiz"?"Quick Quiz":"Quiz Results"}</p></div>
       <span className="rounded-xl bg-sky-50 px-3 py-2 text-xs font-extrabold text-[#168eea]">{saved.passed?"✓ Passed":`Best ${saved.best}/5`}</span>
     </header>
     {mode==="slides"?<>
       <main className="relative min-h-0 flex-1 p-2 pb-32 sm:p-4 sm:pb-36">
         <section className="relative h-full overflow-hidden rounded-[24px] border border-sky-100 bg-[#e7f3fe]" aria-label="Original Acceleration Car lecture slide">
+          {reviewingAnswer && (
+            <Button type="button" variant="outline" onClick={returnToResults}
+              className="absolute left-2 top-2 z-20 max-w-[55%] rounded-xl bg-white shadow sm:left-3 sm:top-3">
+              <ArrowLeft className="size-4 shrink-0"/>
+              <span className="truncate">Back to Quiz Results</span>
+            </Button>
+          )}
           <div className="absolute right-2 top-2 z-10 flex gap-1 rounded-2xl bg-white/95 p-1 shadow">
             <Button size="icon" variant="ghost" aria-label="Zoom out" onClick={()=>setZoom(z=>Math.max(.5,z/1.25))}><Minus className="size-4"/></Button>
             <Button size="icon" variant="ghost" aria-label="Zoom in" onClick={()=>setZoom(z=>Math.min(3,z*1.25))}><Plus className="size-4"/></Button>
@@ -126,7 +152,17 @@ export function AccelerationLearningStudio(){
       </div>
     </main>:<main className="mx-auto w-full max-w-2xl flex-1 overflow-y-auto p-4 sm:p-8">
       <div className="rounded-[28px] bg-white p-6 text-center shadow-lg"><Trophy className="mx-auto size-14 text-amber-500"/><h2 className="mt-3 text-2xl font-black">{lastScore>=4?"Learning Completed!":"Keep Practising!"}</h2><p className="mt-2 text-4xl font-black text-[#168eea]">{lastScore} / 5</p><p className="mt-2 text-sm text-slate-600">80% (4/5) required · Best {saved.best}/5 {saved.passed?"· Passed":""}</p><div className="mt-5 flex flex-wrap justify-center gap-2"><Button onClick={beginQuiz}><RotateCcw className="size-4"/> Try Another Quiz</Button><Button variant="outline" onClick={()=>setMode("slides")}>Review Lecture</Button><Button variant="outline" asChild><Link to="/practical/level-1/autonomous-navigation-ranging">Back to Category</Link></Button></div></div>
-      <h3 className="mt-5 font-black">Review Your Answers</h3><div className="mt-3 space-y-3">{questions.map((q,i)=>{const right=answers[q.id]===q.correct;return <article key={q.id} className="rounded-2xl border bg-white p-4"><div className="flex items-start gap-2">{right?<CheckCircle2 className="mt-1 size-5 shrink-0 text-green-600"/>:<RotateCcw className="mt-1 size-5 shrink-0 text-amber-600"/>}<div><p className="font-bold">{i+1}. {q.prompt}</p><p className="mt-2 text-sm">Your answer: {answers[q.id]}</p><p className="text-sm font-semibold text-green-700">Correct answer: {q.correct}</p><p className="mt-2 text-xs text-slate-600">{q.explanation}</p></div></div></article>})}</div>
+      <h3 className="mt-5 font-black">Review Your Answers</h3><div className="mt-3 space-y-3">{questions.map((q,i)=>{const right=answers[q.id]===q.correct;return <article key={q.id} className="rounded-2xl border bg-white p-4"><div className="flex items-start gap-2">{right?<CheckCircle2 className="mt-1 size-5 shrink-0 text-green-600"/>:<RotateCcw className="mt-1 size-5 shrink-0 text-amber-600"/>}<div><p className="font-bold">{i+1}. {q.prompt}</p><p className="mt-2 text-sm">Your answer: {answers[q.id]}</p><p className="text-sm font-semibold text-green-700">Correct answer: {q.correct}</p><p className="mt-2 text-xs text-slate-600">{q.explanation}</p>
+          <p className="mt-3 text-xs text-slate-600"><strong className="text-[#132654]">Lecture reference:</strong> {q.referenceNote}</p>
+          <div className="mt-3 flex flex-wrap gap-2" aria-label={`Lecture references for question ${i+1}`}>
+            {q.referenceSlides.map((slide)=>(
+              <Button key={slide} type="button" variant="outline" size="sm"
+                className="min-h-10 rounded-xl border-sky-200 text-[#168eea]"
+                onClick={()=>reviewReferenceSlide(slide)}>
+                <BookOpen className="size-4"/> Review Slide {slide}
+              </Button>
+            ))}
+          </div></div></div></article>})}</div>
     </main>}
   </div>;
 }
