@@ -57,7 +57,7 @@ function AdvancedLevelProjectsPage() {
           </p>
           <h1 className="mt-2 text-[clamp(1.9rem,5vw,3rem)] font-black tracking-tight">{category.name}</h1>
           <p className="mt-3 max-w-2xl text-sm font-medium leading-6 text-slate-600">
-            These are the real projects and lessons in your syllabus. When a digital building lesson is available, open it using our Building Studio.
+            These are the projects in your syllabus. Select one, then choose Learning or Building when that activity is available.
           </p>
         </section>
 
@@ -107,7 +107,7 @@ function AdvancedLevelProjectsPage() {
                     {versions.length ? (
                       <div className="flex flex-col gap-2" role="group" aria-label={`Choose ${entry.name} building manual version`}>
                         {versions.map(version => (
-                          <Link key={version.projectId} to="/practical/$projectId"
+                          <Link key={version.projectId} to="/projects/$projectId"
                             params={{projectId: version.projectId}}
                             className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 text-sm font-extrabold text-white hover:bg-[#0d7fda]">
                             Open {version.label} <ArrowRight className="size-4" aria-hidden="true"/>
@@ -116,9 +116,9 @@ function AdvancedLevelProjectsPage() {
                       </div>
                     ) : liveProject ? (
                       <div className="flex flex-col gap-2">
-                        <Link to="/practical/$projectId" params={{projectId:liveProject.id}}
+                        <Link to="/projects/$projectId" params={{projectId:liveProject.id}}
                           className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 text-sm font-extrabold text-white hover:bg-[#0d7fda]">
-                          {isPresentation ? "View slides" : "Open Building Studio"} <ArrowRight className="size-4" aria-hidden="true"/>
+                          Choose activity <ArrowRight className="size-4" aria-hidden="true"/>
                         </Link>
                         {pptxUrl ? (
                           <a href={pptxUrl} download={entry.sourceEntry}
