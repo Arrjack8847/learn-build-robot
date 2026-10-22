@@ -174,12 +174,12 @@ export function AccelerationCarPdfViewer() {
   }
 
   if (finished) {
-    return <BuildingStudioCompletion title="Acceleration Car" onReview={() => { setFinished(false); openPage(2); }} />;
+    return <BuildingStudioCompletion title="Acceleration Car" projectId="acceleration-car" onReview={() => { setFinished(false); openPage(2); }} />;
   }
 
   return (
     <div className="flex h-[100dvh] min-h-[420px] flex-col overflow-hidden bg-[#f3faff] text-slate-800">
-      <BuildingStudioHeader title="Acceleration Car" step={step ?? 0} total={ACCELERATION_STEP_COUNT}
+      <BuildingStudioHeader title="Acceleration Car" projectId="acceleration-car" step={step ?? 0} total={ACCELERATION_STEP_COUNT}
         onOpenSteps={() => setStepsOpen(true)}/>
       <BuildingStepDrawer open={stepsOpen} onOpenChange={setStepsOpen}
         title="Acceleration Car" activeIndex={page - 1}

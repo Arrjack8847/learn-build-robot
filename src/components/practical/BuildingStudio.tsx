@@ -9,18 +9,18 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
  * robot geometry or manual contents: every project supplies its own steps and viewer.
  */
 export function BuildingStudioHeader({
-  title, step, total, onOpenSteps, onPreviousStep, previousDisabled = false, positionLabel,
+  title, projectId, step, total, onOpenSteps, onPreviousStep, previousDisabled = false, positionLabel,
 }: {
-  title: string; step: number; total: number; onOpenSteps: () => void;
+  title: string; projectId: string; step: number; total: number; onOpenSteps: () => void;
   onPreviousStep?: () => void; previousDisabled?: boolean; positionLabel?: string;
 }) {
   const progress = total ? Math.max(0, Math.min(100, step / total * 100)) : 0;
   return (
     <div className="relative z-20 shrink-0 border-b border-sky-100 bg-white/95 text-slate-800">
       <header className="mx-auto flex h-14 w-full max-w-[1720px] items-center gap-2 px-3 sm:h-16 sm:px-5">
-        <Link to="/practical" aria-label="Back to robot selection"
+        <Link to="/projects/$projectId" params={{ projectId }} aria-label="Back to project options"
           className="flex min-h-11 shrink-0 items-center gap-1 rounded-2xl border border-sky-100 bg-white px-3 text-sm font-bold text-[#168eea] shadow-sm transition hover:bg-sky-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168eea]">
-          <ArrowLeft className="size-4" aria-hidden="true" /><span className="hidden sm:inline">Robots</span>
+          <ArrowLeft className="size-4" aria-hidden="true" /><span className="hidden sm:inline">Project</span>
         </Link>
         {onPreviousStep && <Button type="button" variant="outline" disabled={previousDisabled} onClick={onPreviousStep}
           aria-label="Previous building step" className="min-h-11 shrink-0 rounded-2xl border-sky-100 px-2 font-bold text-[#168eea] sm:px-3">
@@ -129,9 +129,9 @@ export function BuildingFloatingDock({
 }
 
 export function BuildingStudioCompletion({
-  title, onReview, children, mode = "building",
+  title, onReview, children, projectId, mode = "building",
 }: {
-  title: string; onReview: () => void; children?: ReactNode; mode?: "building" | "presentation";
+  title: string; onReview: () => void; children?: ReactNode; projectId?: string; mode?: "building" | "presentation";
 }) {
   return (
     <div className="relative grid min-h-[100dvh] place-items-center overflow-hidden bg-gradient-to-b from-[#eaf5ff] to-white px-4 py-10 text-center">
@@ -145,7 +145,15 @@ export function BuildingStudioCompletion({
         <h1 className="mt-2 text-2xl font-extrabold text-slate-800 sm:text-3xl">Amazing work!</h1>
         <p className="mt-2 text-sm leading-6 text-slate-600">{mode === "presentation" ? `You finished reviewing the ${title} slides. You can now choose a building lesson.` : `You finished building ${title}. Ready for your next adventure?`}</p>
         <div className="mt-6 flex flex-col gap-2">
-          {children ?? <Button asChild className="min-h-12 rounded-2xl bg-[#168eea] font-bold"><Link to="/practical">Choose another robot <ArrowRight className="size-4"/></Link></Button>}
+          {children ?? (projectId ? (
+            <Button asChild className="min-h-12 rounded-2xl bg-[#168eea] font-bold">
+              <Link to="/projects/$projectId" params={{ projectId }}>Back to project <ArrowRight className="size-4" /></Link>
+            </Button>
+          ) : (
+            <Button asChild className="min-h-12 rounded-2xl bg-[#168eea] font-bold">
+              <Link to="/practical/levels">Explore levels <ArrowRight className="size-4" /></Link>
+            </Button>
+          ))}
           <Button type="button" variant="outline" onClick={onReview} className="min-h-12 rounded-2xl border-sky-200 font-bold text-[#168eea]">{mode === "presentation" ? "Review slides" : "Review building steps"}</Button>
         </div>
       </div>

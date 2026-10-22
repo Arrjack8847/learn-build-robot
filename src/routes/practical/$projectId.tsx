@@ -160,7 +160,7 @@ function BuildSession({ project }: { project: PracticalProject }) {
     <div className="relative flex h-[100svh] flex-col overflow-hidden bg-[#f3faff] text-slate-800">
 
 
-      <BuildingStudioHeader title={project.title} step={currentIndex + 1} total={project.steps.length}
+      <BuildingStudioHeader title={project.title} projectId={project.id} step={currentIndex + 1} total={project.steps.length}
         onOpenSteps={() => setStepsOpen(true)}
         onPreviousStep={() => setCurrentIndex(index => Math.max(0, index - 1))}
         previousDisabled={currentIndex === 0} />

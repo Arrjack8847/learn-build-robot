@@ -161,12 +161,12 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
   }
 
   if (finished) {
-    return <BuildingStudioCompletion title={manual.title} mode={isPresentation ? "presentation" : "building"} onReview={() => { setFinished(false); openPage(1); }} />;
+    return <BuildingStudioCompletion title={manual.title} projectId={manual.id} mode={isPresentation ? "presentation" : "building"} onReview={() => { setFinished(false); openPage(1); }} />;
   }
 
   return (
     <div className="flex h-[100dvh] min-h-[420px] flex-col overflow-hidden bg-[#f3faff] text-slate-800">
-      <BuildingStudioHeader title={manual.title} step={page} total={totalPages}
+      <BuildingStudioHeader title={manual.title} projectId={manual.id} step={page} total={totalPages}
         positionLabel={totalPages ? (isPresentation ? "Slide " : "Page ") + page + " of " + totalPages : (isPresentation ? "Loading slides" : "Loading manual")}
         onOpenSteps={() => setStepsOpen(true)}/>
       <BuildingStepDrawer open={stepsOpen} onOpenChange={setStepsOpen}

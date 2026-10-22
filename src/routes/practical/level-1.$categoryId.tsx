@@ -91,15 +91,15 @@ function LevelOneCategoryPage() {
                   <p className="mt-2 text-xs font-medium text-slate-500">{sourceLabel} in the syllabus</p>
                   <div className="mt-auto pt-5">
                     {liveProject ? (
-                      <Link to="/practical/$projectId" params={{ projectId: liveProject.id }}
+                      <Link to="/projects/$projectId" params={{ projectId: liveProject.id }}
                         className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 text-sm font-extrabold text-white transition hover:bg-[#0d7fda] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168eea]">
-                        Open Building Studio <ArrowRight className="size-4" aria-hidden="true"/>
+                        Choose activity <ArrowRight className="size-4" aria-hidden="true"/>
                       </Link>
                     ) : variantChoices.length > 0 ? (
                       <div className="grid gap-2" role="group" aria-label={`${entry.name} building versions`}>
-                        <p className="text-xs font-semibold text-slate-600">Choose a building version</p>
+                        <p className="text-xs font-semibold text-slate-600">Choose a project version</p>
                         {variantChoices.map(variant => (
-                          <Link key={variant.projectId} to="/practical/$projectId"
+                          <Link key={variant.projectId} to="/projects/$projectId"
                             params={{ projectId: variant.projectId }}
                             className="inline-flex min-h-12 w-full items-center justify-between gap-2 rounded-2xl border border-sky-200 bg-sky-50 px-4 text-sm font-extrabold text-[#168eea] transition hover:bg-sky-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168eea]">
                             {variant.label} Version <ArrowRight className="size-4" aria-hidden="true"/>
