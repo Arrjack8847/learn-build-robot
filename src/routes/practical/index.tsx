@@ -206,7 +206,7 @@ function RobotPicker() {
                       <Link
                         className="mt-4 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#168eea] px-5 text-sm font-black text-white shadow-[0_10px_24px_rgba(22,142,234,0.24)] transition hover:bg-[#0e82dd] active:scale-[0.99] sm:min-h-[52px] sm:text-base [@media(max-height:720px)]:mt-3 [@media(max-height:720px)]:min-h-11 [@media(max-height:720px)]:text-[13px]"
                         params={{ projectId: project.id }}
-                        to="/practical/$projectId"
+                        to="/projects/$projectId"
                       >
                         {actionLabel}
                         <ArrowRight aria-hidden="true" className="size-5" />
