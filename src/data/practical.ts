@@ -304,17 +304,25 @@ const accelerationCarPdfSteps: PracticalProject["steps"] =
 function pdfManualProject(
   id: string, title: string, number: number,
   categoryId: string = "biomimicry", level: 1 | 2 | 3 = 1,
+  sourceKind: "pdf" | "powerpoint" = "pdf",
 ): PracticalProject {
+  const isPresentation = sourceKind === "powerpoint";
   return {
     id, number, level, categoryId, title,
-    description: "Follow the original " + title + " PDF manual, one page at a time.",
-    objective: "View and follow the original " + title + " PDF without substituted instructions.",
+    description: isPresentation
+      ? "Review the original " + title + " PowerPoint presentation, one slide at a time."
+      : "Follow the original " + title + " PDF manual, one page at a time.",
+    objective: isPresentation
+      ? "Understand the original lesson slides without substituting assembly instructions."
+      : "View and follow the original " + title + " PDF without substituted instructions.",
     components: [], relatedModuleIds: [],
     steps: [{
-      id: id + "-manual-complete",
+      id: id + (isPresentation ? "-slides-complete" : "-manual-complete"),
       number: 1,
-      title: "Complete original PDF manual",
-      description: "Follow the original PDF illustrations and instructions.",
+      title: isPresentation ? "Finish PowerPoint slides" : "Complete original PDF manual",
+      description: isPresentation
+        ? "Review all original slides."
+        : "Follow the original PDF illustrations and instructions.",
     }],
     troubleshooting: [],
   };
@@ -519,14 +527,14 @@ export const practicalProjects: PracticalProject[] = [
   pdfManualProject("level-3-f1-racing-car", "F1 racing car", 160, "vehicles-complex-movers", 3),
   pdfManualProject("level-3-long-lived-turtle", "Long-Lived Turtle", 161, "vehicles-complex-movers", 3),
   // Presentation-only lessons: not verified building manuals.
-  pdfManualProject("level-3-super-trajectory-robot-1", "Super Trajectory Robot 1", 162, "advanced-navigation-control", 3),
-  pdfManualProject("level-3-stag-beetle", "Stag beetle", 163, "biomimicry", 3),
-  pdfManualProject("level-3-line-patrol-car", "Line patrol car", 164, "foundational-robots", 3),
-  pdfManualProject("level-3-money-detector", "Money detector", 165, "machines-mechanisms", 3),
-  pdfManualProject("level-3-parking-gate", "Parking gate", 166, "machines-mechanisms", 3),
-  pdfManualProject("level-3-blood-bank-centrifuge", "Blood bank Centrifuge", 167, "manipulators", 3),
-  pdfManualProject("level-3-fire-ladder", "Fire ladder", 168, "mechanisms-and-concepts", 3),
-  pdfManualProject("level-3-sign", "Sign", 169, "mechanisms-and-concepts", 3),
+  pdfManualProject("level-3-super-trajectory-robot-1", "Super Trajectory Robot 1", 162, "advanced-navigation-control", 3, "powerpoint"),
+  pdfManualProject("level-3-stag-beetle", "Stag beetle", 163, "biomimicry", 3, "powerpoint"),
+  pdfManualProject("level-3-line-patrol-car", "Line patrol car", 164, "foundational-robots", 3, "powerpoint"),
+  pdfManualProject("level-3-money-detector", "Money detector", 165, "machines-mechanisms", 3, "powerpoint"),
+  pdfManualProject("level-3-parking-gate", "Parking gate", 166, "machines-mechanisms", 3, "powerpoint"),
+  pdfManualProject("level-3-blood-bank-centrifuge", "Blood bank Centrifuge", 167, "manipulators", 3, "powerpoint"),
+  pdfManualProject("level-3-fire-ladder", "Fire ladder", 168, "mechanisms-and-concepts", 3, "powerpoint"),
+  pdfManualProject("level-3-sign", "Sign", 169, "mechanisms-and-concepts", 3, "powerpoint"),
 ];
 
 export function getProject(id: string) {
