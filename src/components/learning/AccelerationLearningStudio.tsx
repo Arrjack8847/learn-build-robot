@@ -58,7 +58,17 @@ export function AccelerationLearningStudio({ onExit }: { onExit: () => void }){
   useEffect(()=>{
     if(mode!=="slides"||!pdf)return;
     const node=viewport.current;if(!node)return;
-    const update=()=>setSize({width:Math.max(240,node.clientWidth-24),height:Math.max(220,node.clientHeight-24)});
+    const update=()=>{
+      // The PDF must fit inside the viewer's actual padded content area.
+      // Otherwise its bottom gets clipped behind the floating dock.
+      const css=window.getComputedStyle(node);
+      const paddingX=parseFloat(css.paddingLeft)+parseFloat(css.paddingRight);
+      const paddingY=parseFloat(css.paddingTop)+parseFloat(css.paddingBottom);
+      setSize({
+        width:Math.max(1,node.clientWidth-paddingX),
+        height:Math.max(1,node.clientHeight-paddingY),
+      });
+    };
     update();const observer=new ResizeObserver(update);observer.observe(node);return()=>observer.disconnect();
   },[mode,pdf]);
   useEffect(()=>{if(pdf)setSaved(v=>({...v,page:Math.min(pdf.numPages,v.page),viewed:v.viewed.includes(page)?v.viewed:[...v.viewed,page]}));},[pdf,page]);
@@ -72,7 +82,12 @@ export function AccelerationLearningStudio({ onExit }: { onExit: () => void }){
     const listener=()=>setFullscreen(Boolean(document.fullscreenElement));
     document.addEventListener("fullscreenchange",listener);return()=>document.removeEventListener("fullscreenchange",listener);
   },[]);
-  function go(n:number){const p=Math.min(pages,Math.max(1,n));setSaved(v=>({...v,page:p,viewed:v.viewed.includes(p)?v.viewed:[...v.viewed,p]}));setZoom(1);}
+  function go(n:number){
+    const p=Math.min(pages,Math.max(1,n));
+    setSaved(v=>({...v,page:p,viewed:v.viewed.includes(p)?v.viewed:[...v.viewed,p]}));
+    setZoom(1);
+    viewport.current?.scrollTo({left:0,top:0});
+  }
   function beginQuiz(){
     setReviewingAnswer(false);
     setQuestions(createAccelerationQuiz(saved.previousIds));
@@ -100,7 +115,7 @@ export function AccelerationLearningStudio({ onExit }: { onExit: () => void }){
     setMode("result");
   }
   const question=questions[index];
-  return <div ref={fullscreen} className="flex h-[100dvh] min-h-[440px] flex-col overflow-hidden bg-[#f3faff] text-[#132654]">
+  return <div ref={fullscreen} className="relative isolate flex h-[100dvh] min-h-[440px] flex-col overflow-hidden bg-[#f3faff] text-[#132654]">
     <header className="flex min-h-16 items-center justify-between gap-3 border-b border-sky-100 bg-white px-3 sm:px-6">
       <button type="button" onClick={onExit}
         className="grid size-11 place-items-center rounded-2xl border border-sky-100"
