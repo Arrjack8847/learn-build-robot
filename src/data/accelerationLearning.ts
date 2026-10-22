@@ -2,8 +2,19 @@
  * Defined convention: i = driven teeth / driving teeth = input speed / output speed.
  * Do not reproduce the source's duplicated "driven gears" wording typo.
  */
-export type LearningQuestion = {id:string;group:string;prompt:string;options:string[];correct:string;explanation:string};
-export const accelerationQuestions: LearningQuestion[] = [
+export type LearningQuestion = {
+  id: string;
+  group: string;
+  prompt: string;
+  options: string[];
+  correct: string;
+  explanation: string;
+  /** One-based page numbers in the official Acceleration Car lecture PDF. */
+  referenceSlides: number[];
+  /** Clarifies the precise slide evidence vs. an applied practice example. */
+  referenceNote: string;
+};
+const questionBank: Omit<LearningQuestion, "referenceSlides" | "referenceNote">[] = [
   {
     "id": "fundamentals-1",
     "group": "fundamentals",
@@ -265,6 +276,41 @@ export const accelerationQuestions: LearningQuestion[] = [
     "explanation": "The teaching plan focuses on gear-ratio changes, stable assembly and observing motion."
   }
 ];
+/** Slide references checked against the uploaded original 17-slide lecture.
+ * The lecture's written gear-ratio sentence contains a repeated "driven gears"
+ * typo on slide 11, so explanations use its consistent formula and slide 10's definition.
+ */
+const questionSlideReferences: Record<string, { slides: number[]; note: string }> = {
+  "fundamentals-1": { slides: [9], note: "Slide 9 defines the driving gear as the gear on the input shaft." },
+  "fundamentals-2": { slides: [9], note: "Slide 9 explains that motion is transmitted to the driven gear on the output shaft." },
+  "fundamentals-3": { slides: [9], note: "Slide 9 describes the driving and driven gears as a transmission pair." },
+  "fundamentals-4": { slides: [10,11], note: "Slide 10 defines the ratio using gear-tooth counts; slide 11 shows its formula." },
+  "acceleration-1": { slides: [6,11], note: "Slide 6 explains that a large driving gear turning a small driven gear increases speed; slide 11 states the ratio rule." },
+  "acceleration-2": { slides: [11], note: "Slide 11 states that a speed-increasing transmission has a gear ratio below 1." },
+  "acceleration-3": { slides: [11], note: "Slide 11 provides the gear-ratio formula. The 40/20-tooth numbers are practice values, not printed on the slide." },
+  "acceleration-4": { slides: [6,11], note: "Slide 6 describes the large-driver-to-small-driven arrangement; slide 11 gives the corresponding ratio rule." },
+  "deceleration-1": { slides: [11], note: "Slide 11 states the speed-reduction rule. Apply the ratio to a small driving gear and larger driven gear." },
+  "deceleration-2": { slides: [11], note: "Slide 11 states that a speed-reducing transmission has a gear ratio greater than 1." },
+  "deceleration-3": { slides: [11], note: "Slide 11 supplies the ratio formula. The 10/30-tooth numbers are practice values, not printed on the slide." },
+  "deceleration-4": { slides: [11], note: "Slide 11 supplies the speed-reduction rule; identify the driver and driven gear sizes using that rule." },
+  "ratio-1": { slides: [10,11], note: "Slide 10 defines the ratio and slide 11 gives the formula. The 12/24-tooth values are a practice calculation." },
+  "ratio-2": { slides: [10,11], note: "Slide 10 defines the ratio and slide 11 gives the formula. The 30/15-tooth values are a practice calculation." },
+  "ratio-3": { slides: [11], note: "Slide 11 defines i as driving speed divided by driven speed. The 120/60 rpm values are practice numbers." },
+  "ratio-4": { slides: [10,11], note: "Slides 10–11 define and calculate the gear ratio. Equal tooth counts are an application of the formula." },
+  "application-1": { slides: [16], note: "Slide 16 assigns a gear-modification experiment; use the ratio rule from the lecture to assess speed changes." },
+  "application-2": { slides: [13], note: "Slide 13 lists a stable structure as an assembly requirement." },
+  "application-3": { slides: [11,16], note: "Slide 11 gives the speed-ratio formula; slide 16 asks students to modify the gear arrangement." },
+  "application-4": { slides: [16], note: "Slide 16 gives the gear-modification homework that explores how gear arrangements affect motion." }
+};
+export const accelerationQuestions: LearningQuestion[] = questionBank.map((question) => {
+  const reference = questionSlideReferences[question.id];
+  if (!reference) throw new Error(`Missing lecture reference for ${question.id}`);
+  return {
+    ...question,
+    referenceSlides: reference.slides,
+    referenceNote: reference.note,
+  };
+});
 export const accelerationGroups = ["fundamentals","acceleration","deceleration","ratio","application"] as const;
 export function createAccelerationQuiz(previousIds: string[] = []) {
   const shuffle = <T,>(values: T[]): T[] => {
