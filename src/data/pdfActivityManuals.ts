@@ -168,6 +168,8 @@ import level3UploadedFireLadderPdfUrl from "../../Fire ladder.pdf?url";
 import level3UploadedSignPdfUrl from "../../Sign.pdf?url";
 import level3UploadedDrawbridgePdfUrl from "../../Drawbridge.pdf?url";
 import level3UploadedLunarRoverPdfUrl from "../../Lunar Rover.pdf?url";
+/** User-confirmed Level 3 Flashlight Sensor source. */
+import level3FlashlightSensorPdfUrl from "../../04.Flashlight-Building Manual.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -885,6 +887,11 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
     id: "level-3-lunar-rover", title: "Lunar Rover",
     url: level3UploadedLunarRoverPdfUrl,
     completionStepId: "level-3-lunar-rover-manual-complete",
+  },
+  "level-3-flashlight-sensor": {
+    id: "level-3-flashlight-sensor", title: "Flashlight Sensor",
+    url: level3FlashlightSensorPdfUrl,
+    completionStepId: "level-3-flashlight-sensor-manual-complete",
   },
 };
 
