@@ -158,6 +158,13 @@ import level3Pdf35Url from "../../Sonometer_Building.pdf?url";
 import level3Pdf36Url from "../../16.Sound Level Meter -Building Manual.pdf?url";
 import level3Pdf37Url from "../../F1 racing car_Building.pdf?url";
 import level3Pdf38Url from "../../11. The Long-lived Turtle - Basic Building Manual.pdf?url";
+import level3UploadedSuperTrajectoryPdfUrl from "../../13.Super Trajectory Robot 1-update.pdf?url";
+import level3UploadedStagBeetlePdfUrl from "../../Stag beetle.pdf?url";
+import level3UploadedLinePatrolCarPdfUrl from "../../Line patrol car.pdf?url";
+import level3UploadedMoneyDetectorPdfUrl from "../../Money detector.pdf?url";
+import level3UploadedParkingGatePdfUrl from "../../Parking gate.pdf?url";
+import level3UploadedBloodBankCentrifugePdfUrl from "../../Blood bank Centrifuge.pdf?url";
+import level3UploadedFireLadderPdfUrl from "../../Fire ladder.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -809,60 +816,54 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   /** PowerPoints are rendered slide by slide only after conversion by GitHub Actions. */
   "level-3-super-trajectory-robot-1": {
     id: "level-3-super-trajectory-robot-1", title: "Super Trajectory Robot 1",
-    url: "/learning-slides/level-3/13.Super%20Trajectory%20Robot%201-update.pdf",
+    url: level3UploadedSuperTrajectoryPdfUrl,
     completionStepId: "level-3-super-trajectory-robot-1-slides-complete",
     sourceKind: "powerpoint",
     originalPowerPointFile: "13.Super Trajectory Robot 1-update.pptx",
   },
   "level-3-stag-beetle": {
     id: "level-3-stag-beetle", title: "Stag beetle",
-    url: "/learning-slides/level-3/Stag%20beetle.pdf",
+    url: level3UploadedStagBeetlePdfUrl,
     completionStepId: "level-3-stag-beetle-slides-complete",
     sourceKind: "powerpoint",
     originalPowerPointFile: "Stag beetle.pptx",
   },
   "level-3-line-patrol-car": {
     id: "level-3-line-patrol-car", title: "Line patrol car",
-    url: "/learning-slides/level-3/Line%20patrol%20car.pdf",
+    url: level3UploadedLinePatrolCarPdfUrl,
     completionStepId: "level-3-line-patrol-car-slides-complete",
     sourceKind: "powerpoint",
     originalPowerPointFile: "Line patrol car.pptx",
   },
   "level-3-money-detector": {
     id: "level-3-money-detector", title: "Money detector",
-    url: "/learning-slides/level-3/Money%20detector.pdf",
+    url: level3UploadedMoneyDetectorPdfUrl,
     completionStepId: "level-3-money-detector-slides-complete",
     sourceKind: "powerpoint",
     originalPowerPointFile: "Money detector.pptx",
   },
   "level-3-parking-gate": {
     id: "level-3-parking-gate", title: "Parking gate",
-    url: "/learning-slides/level-3/Parking%20gate.pdf",
+    url: level3UploadedParkingGatePdfUrl,
     completionStepId: "level-3-parking-gate-slides-complete",
     sourceKind: "powerpoint",
     originalPowerPointFile: "Parking gate.pptx",
   },
   "level-3-blood-bank-centrifuge": {
     id: "level-3-blood-bank-centrifuge", title: "Blood bank Centrifuge",
-    url: "/learning-slides/level-3/Blood%20bank%20Centrifuge.pdf",
+    url: level3UploadedBloodBankCentrifugePdfUrl,
     completionStepId: "level-3-blood-bank-centrifuge-slides-complete",
     sourceKind: "powerpoint",
     originalPowerPointFile: "Blood bank Centrifuge.pptx",
   },
   "level-3-fire-ladder": {
     id: "level-3-fire-ladder", title: "Fire ladder",
-    url: "/learning-slides/level-3/Fire%20ladder.pdf",
+    url: level3UploadedFireLadderPdfUrl,
     completionStepId: "level-3-fire-ladder-slides-complete",
     sourceKind: "powerpoint",
     originalPowerPointFile: "Fire ladder.pptx",
   },
-  "level-3-sign": {
-    id: "level-3-sign", title: "Sign",
-    url: "/learning-slides/level-3/Sign.pdf",
-    completionStepId: "level-3-sign-slides-complete",
-    sourceKind: "powerpoint",
-    originalPowerPointFile: "Sign.pptx",
-  },
+
 };
 
 export function isPdfActivityProject(id: string): boolean {

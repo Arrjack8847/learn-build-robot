@@ -1,13 +1,7 @@
-name: Convert Level 3 PowerPoints to website slides
+name: Convert Level 3 PowerPoints to website slides (optional)
 
+# Manual-only fallback. Primary source is now user-uploaded PDF files.
 on:
-  push:
-    branches: [main]
-    paths:
-      - "*.pptx"
-      - ".github/level-three-presentations.json"
-      - ".github/scripts/convert-level-three-presentations.mjs"
-      - ".github/workflows/convert-level-three-powerpoints.yml"
   workflow_dispatch:
 
 permissions:
@@ -26,8 +20,6 @@ jobs:
         with:
           ref: main
           persist-credentials: true
-          # The repository also contains ~1.1 GB of unrelated PDFs/models.
-          # Only fetch the original PPTX files and conversion-related paths.
           sparse-checkout: |
             /*.pptx
             /.github/level-three-presentations.json
