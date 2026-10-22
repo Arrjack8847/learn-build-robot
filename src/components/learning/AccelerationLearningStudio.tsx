@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { PDFDocumentProxy, PDFDocumentLoadingTask } from "pdfjs-dist";
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, BookOpen, CheckCircle2, ChevronLeft, ChevronRight, Expand, List, Minimize, Minus, Plus, RotateCcw, Trophy } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, CheckCircle2, ChevronLeft, ChevronRight, Expand, List, Minimize, Minus, Plus, RotateCcw, Trophy, Wrench, Presentation } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PdfManualPage, type PdfViewportSize } from "@/components/practical/PdfManualPage";
 import { accelerationGroups, createAccelerationQuiz } from "@/data/accelerationLearning";
@@ -21,9 +21,12 @@ function readSaved():Saved {
 export function AccelerationLearningStudio({
   initialView = "slides",
   onBackToProject,
+  projectPage = false,
 }: {
   initialView?: "slides" | "quiz";
   onBackToProject?: () => void;
+  /** When opened at /projects/acceleration-car, show all project functions directly. */
+  projectPage?: boolean;
 } = {}){
   const [saved,setSaved]=useState<Saved>(readSaved);
   const [pdf,setPdf]=useState<PDFDocumentProxy|null>(null);
@@ -114,15 +117,38 @@ export function AccelerationLearningStudio({
           <ArrowLeft/>
         </button>
       ) : (
-        <Link to="/projects/acceleration-car"
+        <Link to={projectPage ? "/practical/level-1/autonomous-navigation-ranging" : "/projects/acceleration-car"}
           className="grid size-11 place-items-center rounded-2xl border border-sky-100"
-          aria-label="Back to Acceleration Car project">
+          aria-label={projectPage ? "Back to Level 1 category" : "Back to Acceleration Car project"}>
           <ArrowLeft/>
         </Link>
       )}
       <div className="min-w-0 text-center"><h1 className="truncate text-sm font-black sm:text-lg">Acceleration Car · Learning Studio</h1><p className="text-xs text-slate-500">Level 1 · {mode==="slides"?(reviewingAnswer?"Review Source Slide":"Lecture"):mode==="quiz"?"Quick Quiz":"Quiz Results"}</p></div>
       <span className="rounded-xl bg-sky-50 px-3 py-2 text-xs font-extrabold text-[#168eea]">{saved.passed?"✓ Passed":`Best ${saved.best}/5`}</span>
     </header>
+    {projectPage && (
+      <nav aria-label="Acceleration Car project activities"
+        className="flex shrink-0 items-center justify-center gap-2 border-b border-sky-100 bg-white px-3 py-2 sm:gap-3">
+        <button type="button" aria-current={mode === "slides" ? "page" : undefined}
+          onClick={() => { setReviewingAnswer(false); setMode("slides"); }}
+          className={`inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-2xl px-3 text-xs font-extrabold transition sm:max-w-52 sm:text-sm ${mode === "slides" ? "bg-[#168eea] text-white" : "border border-sky-100 bg-sky-50 text-[#168eea] hover:bg-sky-100"}`}>
+          <Presentation className="size-4 shrink-0" aria-hidden="true" />
+          Lecture Slides
+        </button>
+        <button type="button" aria-current={mode === "quiz" || mode === "result" ? "page" : undefined}
+          onClick={() => { if(mode !== "quiz") beginQuiz(); }}
+          className={`inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-2xl px-3 text-xs font-extrabold transition sm:max-w-52 sm:text-sm ${mode === "quiz" || mode === "result" ? "bg-[#168eea] text-white" : "border border-sky-100 bg-sky-50 text-[#168eea] hover:bg-sky-100"}`}>
+          <BookOpen className="size-4 shrink-0" aria-hidden="true" />
+          {mode === "result" ? "Retry Quiz" : "Quick Quiz"}
+        </button>
+        <Link to="/practical/$projectId" params={{ projectId: "acceleration-car" }}
+          className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-2xl border border-sky-200 bg-white px-3 text-xs font-extrabold text-[#132654] transition hover:bg-sky-50 sm:max-w-52 sm:text-sm">
+          <Wrench className="size-4 shrink-0" aria-hidden="true" />
+          <span className="hidden min-[390px]:inline">Building Studio</span>
+          <span className="min-[390px]:hidden">Build</span>
+        </Link>
+      </nav>
+    )}
     {mode==="slides"?<>
       <main className="relative min-h-0 flex-1 p-2 pb-32 sm:p-4 sm:pb-36">
         <section className="relative h-full overflow-hidden rounded-[24px] border border-sky-100 bg-[#e7f3fe]" aria-label="Original Acceleration Car lecture slide">
@@ -173,7 +199,9 @@ export function AccelerationLearningStudio({
         <Button variant="outline" onClick={onBackToProject}>Back to Project</Button>
       ) : (
         <Button variant="outline" asChild>
-          <Link to="/projects/acceleration-car">Back to Project</Link>
+          <Link to={projectPage ? "/practical/level-1/autonomous-navigation-ranging" : "/projects/acceleration-car"}>
+            {projectPage ? "Back to Category" : "Back to Project"}
+          </Link>
         </Button>
       )}</div></div>
       <h3 className="mt-5 font-black">Review Your Answers</h3><div className="mt-3 space-y-3">{questions.map((q,i)=>{const right=answers[q.id]===q.correct;return <article key={q.id} className="rounded-2xl border bg-white p-4"><div className="flex items-start gap-2">{right?<CheckCircle2 className="mt-1 size-5 shrink-0 text-green-600"/>:<RotateCcw className="mt-1 size-5 shrink-0 text-amber-600"/>}<div><p className="font-bold">{i+1}. {q.prompt}</p><p className="mt-2 text-sm">Your answer: {answers[q.id]}</p><p className="text-sm font-semibold text-green-700">Correct answer: {q.correct}</p><p className="mt-2 text-xs text-slate-600">{q.explanation}</p>
