@@ -89,6 +89,13 @@ function LevelOneCategoryPage() {
                   </div>
                   <h3 className="mt-4 text-lg font-extrabold leading-snug">{entry.name}</h3>
                   <p className="mt-2 text-xs font-medium text-slate-500">{sourceLabel} in the syllabus</p>
+                  {entry.availableProjectId === "acceleration-car" && (
+                    <Link to="/acceleration-learning"
+                      className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl border border-sky-200 bg-sky-50 px-4 text-sm font-extrabold text-[#168eea] transition hover:bg-sky-100">
+                      <Presentation className="size-4" aria-hidden="true" />
+                      Open Learning Studio <ArrowRight className="size-4" aria-hidden="true" />
+                    </Link>
+                  )}
                   <div className="mt-auto pt-5">
                     {liveProject ? (
                       <Link to="/practical/$projectId" params={{ projectId: liveProject.id }}
