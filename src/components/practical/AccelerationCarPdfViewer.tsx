@@ -180,6 +180,7 @@ export function AccelerationCarPdfViewer() {
   return (
     <div className="flex h-[100dvh] min-h-[420px] flex-col overflow-hidden bg-[#f3faff] text-slate-800">
       <BuildingStudioHeader title="Acceleration Car" step={step ?? 0} total={ACCELERATION_STEP_COUNT}
+        backTo="/projects/acceleration-car" backLabel="Project"
         onOpenSteps={() => setStepsOpen(true)}/>
       <BuildingStepDrawer open={stepsOpen} onOpenChange={setStepsOpen}
         title="Acceleration Car" activeIndex={page - 1}
