@@ -161,7 +161,7 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
   }
 
   if (finished) {
-    return <BuildingStudioCompletion title={manual.title} mode={isPresentation ? "presentation" : "building"} onReview={() => { setFinished(false); openPage(1); }} />;
+    return <BuildingStudioCompletion title={manual.title} projectId={manual.id} mode={isPresentation ? "presentation" : "building"} onReview={() => { setFinished(false); openPage(1); }} />;
   }
 
   return (
