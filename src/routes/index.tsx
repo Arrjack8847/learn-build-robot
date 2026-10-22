@@ -3,12 +3,10 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import {
   ArrowRight,
   Bot,
-  CircuitBoard,
   Cog,
   Lightbulb,
   Puzzle,
   Rocket,
-  Sparkles,
   Target,
   Trophy,
   UserRound,
@@ -18,8 +16,6 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { APP_NAME, IS_DEMO_CONTENT } from "@/config/app";
-import { competitionInfo } from "@/data/competition";
 
 const MOBILE_INTRO_STORAGE_KEY = "be-stem-ready-mobile-intro-seen";
 const MOBILE_INTRO_FADE_MS = 350;
@@ -301,70 +297,159 @@ function MobileCompetitionHome() {
 }
 
 function DesktopCompetitionHome() {
-  return (
-    <div className="relative hidden h-full flex-col overflow-hidden bg-navy text-navy-foreground md:flex">
-      <div aria-hidden="true" className="circuit-grid-dark absolute inset-0 opacity-50" />
+  const [soundOn, setSoundOn] = useState(true);
 
-      <header className="relative flex min-h-16 items-center justify-between border-b border-white/10 px-4 sm:px-8">
-        <div className="flex items-center gap-3">
-          <span className="grid size-10 place-items-center rounded-2xl bg-primary text-primary-foreground shadow-sm">
-            <CircuitBoard aria-hidden="true" className="size-5" />
-          </span>
-          <div>
-            <p className="font-bold tracking-tight">{APP_NAME}</p>
-            <p className="hidden text-xs text-navy-muted sm:block">Learn · Build · Compete</p>
-          </div>
+  const stats = [
+    { label: "Challenges", icon: Target, color: "#ec168c" },
+    { label: "Competition", icon: UsersRound, color: "#1598ea" },
+    { label: "Skills", icon: Lightbulb, color: "#f5a400" },
+    { label: "Achievements", icon: Trophy, color: "#39b54a" },
+  ] as const;
+
+  const journey = [
+    { title: "LEARN", detail: "Understand the challenge", icon: Bot, color: "#1598ea" },
+    { title: "BUILD ROBOT", detail: "Build step by step", icon: Cog, color: "#f5a400" },
+    { title: "QUIZ & READY", detail: "Test skills & get ready", icon: Puzzle, color: "#39b54a" },
+  ] as const;
+
+  return (
+    <div className="relative hidden h-full overflow-x-hidden overflow-y-auto bg-white text-[#14254a] md:block">
+      {/* Playful desktop-only STEM scenery stays behind all interactive content. */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -left-32 top-44 size-[380px] rounded-full bg-[#e4f5ff]/70 blur-3xl" />
+        <div className="absolute -right-40 top-24 size-[470px] rounded-full bg-[#eaf7ff]/75 blur-3xl" />
+        <div className="absolute -bottom-40 left-1/3 size-[430px] rounded-full bg-[#eef9ff]/80 blur-3xl" />
+        <Cog className="absolute -left-12 top-24 size-44 text-[#a7dfff]/55 xl:size-52" strokeWidth={1.8} />
+        <Cog className="absolute -right-10 top-[30%] size-32 text-[#ffd0e3]/65 xl:size-44" strokeWidth={2} />
+        <Cog className="absolute -left-9 bottom-12 size-28 text-[#ffda63]/75" strokeWidth={2.3} />
+        <Cog className="absolute -right-14 bottom-0 size-48 text-[#ff9cc1]/65" strokeWidth={2} />
+        <Cog className="absolute right-[2%] top-[48%] size-16 text-[#b8e6ff]/65" strokeWidth={2} />
+        <div className="absolute left-[10%] top-[21%] size-5 rotate-12 rounded-sm bg-[#ffc63d] opacity-80" />
+        <div className="absolute right-[13%] top-[39%] size-4 rotate-12 rounded-sm bg-[#ffc63d] opacity-80" />
+        <div className="absolute -left-5 top-[37%] hidden size-48 rotate-[-18deg] items-center justify-center rounded-[46px] border-[12px] border-white bg-[#dff3ff]/80 text-[#168ee8] shadow-[0_12px_36px_rgba(21,152,234,0.08)] xl:flex">
+          <Bot className="size-32" strokeWidth={1.8} />
         </div>
-        {IS_DEMO_CONTENT ? (
-          <span className="rounded-full bg-navy-hover px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-navy-muted">
-            Demo content
-          </span>
-        ) : null}
+        <div className="absolute right-[3%] top-28 hidden size-36 rotate-[28deg] items-center justify-center rounded-full bg-[#eff9ff]/70 text-[#1598ea] xl:flex">
+          <Rocket className="size-28" strokeWidth={1.65} />
+        </div>
+      </div>
+
+      <header className="relative z-10 mx-auto flex h-[82px] w-full max-w-[1500px] items-center justify-between px-8 lg:px-12 xl:px-20">
+        <button
+          aria-label={soundOn ? "Mute sounds" : "Turn on sounds"}
+          aria-pressed={soundOn}
+          className="grid size-12 place-items-center rounded-full border border-[#d5e9f7] bg-[#f0f9ff] text-[#1598ea] shadow-[0_5px_15px_rgba(23,104,163,0.07)] transition hover:scale-105 hover:bg-[#e1f3ff] active:scale-95"
+          onClick={() => setSoundOn((value) => !value)}
+          type="button"
+        >
+          {soundOn ? <Volume2 className="size-6" /> : <VolumeX className="size-6" />}
+        </button>
+
+        <img
+          alt="BE STEM READY"
+          className="h-14 w-auto max-w-[38vw] object-contain lg:h-16"
+          src="/home/be-stem-ready-logo.svg"
+        />
+
+        <Link
+          aria-label="Open profile and progress"
+          className="grid size-12 place-items-center rounded-full border border-[#d5e9f7] bg-[#f0f9ff] text-[#1598ea] shadow-[0_5px_15px_rgba(23,104,163,0.07)] transition hover:scale-105 hover:bg-[#e1f3ff] active:scale-95"
+          to="/progress"
+        >
+          <UserRound className="size-6" strokeWidth={2.2} />
+        </Link>
       </header>
 
-      <main className="relative grid min-h-0 flex-1 place-items-center px-5 py-5 sm:px-8">
-        <div className="grid w-full max-w-6xl items-center gap-7 lg:grid-cols-[1fr_0.9fr] lg:gap-12">
-          <section className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 rounded-full bg-navy-hover px-3 py-1.5 text-xs font-semibold text-navy-muted">
-              <Sparkles aria-hidden="true" className="size-3.5 text-primary" />
-              {competitionInfo.eyebrow}
-            </div>
-            <h1 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              {competitionInfo.name}
-            </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-navy-muted sm:text-base lg:mx-0 lg:leading-7">
-              {competitionInfo.description}
-            </p>
+      <main className="relative z-10 mx-auto flex w-full max-w-[1500px] flex-col px-6 pb-10 pt-3 lg:px-12 xl:px-20">
+        <section className="mx-auto flex w-full max-w-[1100px] flex-col items-center text-center">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[#eaf7ff] px-5 py-2 text-[13px] font-extrabold text-[#087fe1] shadow-[0_3px_14px_rgba(21,152,234,0.06)] lg:text-[15px]">
+            <Trophy className="size-5 text-[#f5a400]" fill="#f5a400" strokeWidth={1.6} />
+            CIPTRIX Robotics Practice
+          </div>
 
-            <div className="mt-6 flex flex-wrap justify-center gap-2 lg:justify-start">
-              {competitionInfo.journey.map((item, index) => (
-                <span
-                  className="inline-flex items-center gap-2 rounded-full bg-navy-hover px-3 py-1.5 text-xs font-semibold"
-                  key={item}
-                >
-                  <span className="grid size-5 place-items-center rounded-full bg-primary text-[10px] text-primary-foreground">
-                    {index + 1}
+          <h1 className="mt-4 font-black leading-[0.98] tracking-[-0.055em] lg:mt-5">
+            <span className="block text-[clamp(3.25rem,5.3vw,5.8rem)] text-[#1598ea]">
+              Train Today.
+            </span>
+            <span className="mt-1 block text-[clamp(3.25rem,5.3vw,5.8rem)] text-[#ec168c]">
+              Compete Tomorrow.
+            </span>
+          </h1>
+
+          <p className="mt-4 max-w-[830px] text-[16px] font-medium leading-[1.45] text-[#23365d] lg:mt-5 lg:text-[19px] xl:text-[21px]">
+            Learn the challenge, build your robot step by step, and get ready
+            for real competition day.
+          </p>
+        </section>
+
+        <div className="mt-8 grid min-w-0 gap-5 lg:mt-9 lg:grid-cols-[1.12fr_0.88fr] lg:items-stretch xl:gap-6">
+          <section
+            aria-label="Robotics competition and highlights"
+            className="flex min-h-[350px] min-w-0 flex-col overflow-hidden rounded-[28px] border border-[#deedf8] bg-white p-3 shadow-[0_12px_36px_rgba(30,91,139,0.09)] lg:min-h-[390px] xl:min-h-[420px]"
+          >
+            <div className="relative min-h-[230px] flex-1 overflow-hidden rounded-[19px] bg-[#edf3f8]">
+              <img
+                alt="Students preparing a robot in a robotics competition arena"
+                className="absolute inset-0 h-full w-full object-cover"
+                decoding="async"
+                fetchPriority="high"
+                src={COMPETITION_PHOTO}
+                style={{ objectPosition: "center 56%" }}
+              />
+            </div>
+            <div className="mt-3 grid min-h-[82px] grid-cols-4 items-center divide-x divide-[#d7e8f5] rounded-[17px] bg-[#f0f9ff] py-2">
+              {stats.map(({ label, icon: Icon, color }) => (
+                <div className="flex min-w-0 flex-col items-center justify-center gap-1.5 px-1 text-center" key={label}>
+                  <Icon className="size-6 lg:size-7" style={{ color }} strokeWidth={2.5} />
+                  <span className="text-[10px] font-extrabold leading-tight text-[#14254a] xl:text-[12px]">
+                    {label}
                   </span>
-                  {item}
-                </span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section
+            aria-labelledby="desktop-journey-heading"
+            className="flex min-h-[350px] min-w-0 flex-col rounded-[28px] border border-[#deedf8] bg-white/95 px-5 pb-6 pt-7 shadow-[0_12px_36px_rgba(30,91,139,0.09)] lg:min-h-[390px] lg:px-6 xl:min-h-[420px] xl:px-8"
+          >
+            <h2 id="desktop-journey-heading" className="text-center text-[29px] font-black tracking-tight text-[#14254a] lg:text-[32px] xl:text-[36px]">
+              Your Journey
+            </h2>
+
+            <div className="relative mt-8 grid grid-cols-3 gap-2 lg:mt-9 xl:gap-3">
+              <div aria-hidden="true" className="pointer-events-none absolute left-[16%] right-[16%] top-[40px] border-t-[4px] border-dashed border-[#b9dfff] xl:top-[47px]" />
+              {journey.map(({ title, detail, icon: Icon, color }, index) => (
+                <div className="relative flex min-w-0 flex-col items-center text-center" key={title}>
+                  <div
+                    className="relative z-10 grid size-20 place-items-center rounded-full border-[5px] border-white text-white shadow-[0_5px_16px_rgba(28,60,100,0.1)] xl:size-[94px]"
+                    style={{ backgroundColor: color }}
+                  >
+                    <span className="absolute -right-1 -top-1 grid size-6 place-items-center rounded-full border-[3px] border-white bg-inherit text-[10px] font-black">
+                      {index + 1}
+                    </span>
+                    <Icon className="size-9 xl:size-11" strokeWidth={2.5} />
+                  </div>
+                  <h3 className="mt-3 text-[12px] font-black leading-tight lg:text-[13px] xl:text-[16px]" style={{ color }}>
+                    {title}
+                  </h3>
+                  <p className="mt-1 max-w-[145px] text-[11px] font-medium leading-[1.4] text-[#536789] lg:text-[12px] xl:text-[14px]">
+                    {detail}
+                  </p>
+                </div>
               ))}
             </div>
 
-            <Button asChild className="mt-7 min-h-12 rounded-2xl px-7 text-base">
+            <Button
+              asChild
+              className="mt-auto h-[62px] w-full rounded-full bg-[#1598ea] text-[20px] font-black text-white shadow-[0_9px_22px_rgba(21,152,234,0.18)] transition hover:-translate-y-0.5 hover:bg-[#0c86de] xl:h-[70px] xl:text-[22px]"
+            >
               <Link to="/practical/levels">
                 Explore Levels
-                <ArrowRight aria-hidden="true" />
+                <ArrowRight className="ml-2 size-7" />
               </Link>
             </Button>
           </section>
-
-          <div className="hidden min-h-80 place-items-center rounded-[2.5rem] bg-navy-hover/80 p-8 lg:grid">
-            <div className="relative grid size-60 place-items-center rounded-full bg-primary-soft text-primary">
-              <div aria-hidden="true" className="absolute inset-5 rounded-full border border-primary/25" />
-              <div aria-hidden="true" className="absolute inset-10 rounded-full border border-primary/20" />
-              <Bot aria-hidden="true" className="size-28" strokeWidth={1.3} />
-            </div>
-          </div>
         </div>
       </main>
     </div>
