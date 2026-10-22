@@ -166,6 +166,8 @@ import level3UploadedParkingGatePdfUrl from "../../Parking gate.pdf?url";
 import level3UploadedBloodBankCentrifugePdfUrl from "../../Blood bank Centrifuge.pdf?url";
 import level3UploadedFireLadderPdfUrl from "../../Fire ladder.pdf?url";
 import level3UploadedSignPdfUrl from "../../Sign.pdf?url";
+import level3UploadedDrawbridgePdfUrl from "../../Drawbridge.pdf?url";
+import level3UploadedLunarRoverPdfUrl from "../../Lunar Rover.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -870,6 +872,19 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
     completionStepId: "level-3-sign-slides-complete",
     sourceKind: "powerpoint",
     originalPowerPointFile: "Sign.pptx",
+  },
+  /** Drawbridge is a PDF upload matching a PowerPoint syllabus entry; view as slides, not a verified build manual. */
+  "level-3-drawbridge": {
+    id: "level-3-drawbridge", title: "Drawbridge",
+    url: level3UploadedDrawbridgePdfUrl,
+    completionStepId: "level-3-drawbridge-slides-complete",
+    sourceKind: "powerpoint",
+  },
+  /** Lunar Rover is the exact-name PDF upload from the official Level 3 syllabus. */
+  "level-3-lunar-rover": {
+    id: "level-3-lunar-rover", title: "Lunar Rover",
+    url: level3UploadedLunarRoverPdfUrl,
+    completionStepId: "level-3-lunar-rover-manual-complete",
   },
 };
 

@@ -1,37 +1,24 @@
-# Level 3 PDF presentation lessons — manually uploaded sources
+# Level 3 PowerPoint / PDF presentation lessons
 
-On 22 October 2026, eight converted PowerPoint PDFs were uploaded as nonempty files directly into the **repository root**, not `public/learning-slides/level-3/`. All eight are imported using Vite's `?url` mechanism, so PDF.js displays the original slides one at a time. No GitHub Actions conversion is required.
+The website now has **nine** slide-style lessons within Level 3: eight converted PowerPoints (all already uploaded as PDFs in the repository root) plus the now-nonempty `Drawbridge.pdf`.
 
-## Uploaded PDF → Level 3 category
+All nine lessons reuse the existing responsive PDF.js viewer with **Back**, **Next Slide**, zoom and separate `-slides-complete` progress. They are presentation resources and must not be misrepresented as verified building assembly manuals.
 
-- `13.Super Trajectory Robot 1-update.pdf` — Advanced Navigation & Control / Super Trajectory Robot 1
-- `Stag beetle.pdf` — Biomimicry / Stag beetle
-- `Line patrol car.pdf` — Foundational Robots / Line patrol car
-- `Money detector.pdf` — Machines & Mechanisms / Money detector
-- `Parking gate.pdf` — Machines & Mechanisms / Parking gate
-- `Blood bank Centrifuge.pdf` — Manipulators / Blood bank Centrifuge
-- `Fire ladder.pdf` — Mechanisms and Concepts / Fire ladder
-- `Sign.pdf` — Mechanisms and Concepts / Sign (initially 0-byte, reuploaded as a nonempty PDF in commit `7d963985ba92aac7d7ed08e332a9617d7a70a7c7`)
+The eight converted original PowerPoint PDFs are:
 
-## Still missing source data
+- `13.Super Trajectory Robot 1-update.pdf` — Advanced Navigation & Control
+- `Stag beetle.pdf` — Biomimicry
+- `Line patrol car.pdf` — Foundational Robots
+- `Money detector.pdf`, `Parking gate.pdf` — Machines & Mechanisms
+- `Blood bank Centrifuge.pdf` — Manipulators
+- `Fire ladder.pdf`, `Sign.pdf` — Mechanisms and Concepts
 
-- Flashlight Sensor — no verified matching building PDF.
-- Drawbridge — `Drawbridge.pdf` remains zero bytes, no matching PowerPoint available.
-- Lunar Rover — PDF not present.
+Additional slide-based entry:
 
-## Unchanged functionality
+- `Drawbridge.pdf` — Mechanisms and Concepts; matches the activity listed as `Drawbridge.pptx` in the official syllabus, but no actual matching PPTX exists in the repository. Its source is treated as a PDF presentation.
 
-- All 37 original Level 3 building PDF activities (40 versions) remain unchanged.
-- Eight additional slide-only projects support Back/Next Slide, zoom, and independent `-slides-complete` progress, with no claim that they are original assembly manuals.
-- Existing automatic PowerPoint conversion `push` trigger is disabled because GitHub Actions could not start due to a billing restriction; optional manual workflow dispatch remains configured but is not necessary.
-- To update a registered presentation, upload a valid replacement PDF in the repository root with **the same exact filename**. Then redeploy the website.
+In addition, **Lunar Rover.pdf** (Vehicles & Motion) was uploaded and connected as an original-name PDF lesson, bringing Level 3 coverage to 47/48. The only unlinked activity is **Flashlight Sensor** (Illumination & Signals), since its identity has not been confirmed against existing Flashlight manuals.
 
-## Local validation
+The `.github/level-three-presentations.json` manifest retains the eight known PPTX originals. GitHub Actions automatic conversion is disabled due to billing, so upload replacement converted PDFs with the exact same root filenames.
 
-```powershell
-node --test tests/level-three-powerpoint-slides.test.mjs tests/level-three-uploaded-manuals.test.mjs
-npx tsc --noEmit
-npm run build
-```
-
-Connector checks establish nonempty GitHub files and code references; browser rendering and builds still need local execution.
+Run `node --test tests/level-three-powerpoint-slides.test.mjs tests/level-three-uploaded-manuals.test.mjs`, `npx tsc --noEmit`, and `npm run build` locally to confirm PDF parseability and build.

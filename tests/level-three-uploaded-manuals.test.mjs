@@ -250,6 +250,12 @@ const catalog = [
     "11. The Long-lived Turtle - Basic Building Manual.pdf",
     "vehicles-complex-movers",
     "Long-Lived Turtle"
+  ],
+  [
+    "level-3-lunar-rover",
+    "Lunar Rover.pdf",
+    "vehicles-motion",
+    "Lunar Rover"
   ]
 ];
 const normalize = value => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -259,7 +265,7 @@ test("Level 3 preserves all 20 categories and 48 official syllabus entries", () 
   assert.equal(syllabus.reduce((count, row) => count + row.length - 1, 0), 48);
 });
 
-test("Level 3 registers 40 independent original-source PDF lessons across 37 syllabus activities", async () => {
+test("Level 3 registers 41 original-source PDF lessons across 38 syllabus activities", async () => {
   const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
   const ids = new Set(), keys = new Set(), activities = new Set(), checkedFiles = new Set();
   for (const [id, filename, category, title] of catalog) {
@@ -287,9 +293,9 @@ test("Level 3 registers 40 independent original-source PDF lessons across 37 syl
       finally { await task.destroy(); }
     }
   }
-  assert.equal(ids.size, 40);
-  assert.equal(activities.size, 37);
-  assert.equal(checkedFiles.size, 38);
+  assert.equal(ids.size, 41);
+  assert.equal(activities.size, 38);
+  assert.equal(checkedFiles.size, 39);
 });
 
 test("Cycle Sport has two choices and Race Walking has three; existing See Saw stays intact", () => {
@@ -313,17 +319,32 @@ test("Unavailable or ambiguous Level 3 manuals are not falsely marked ready to b
     ["machines-mechanisms","Money detector"],
     ["machines-mechanisms","Parking gate"],
     ["manipulators","Blood bank Centrifuge"],
-    ["mechanisms-and-concepts","Drawbridge"],
     ["mechanisms-and-concepts","Fire ladder"],
     ["mechanisms-and-concepts","Sign"],
-    ["vehicles-motion","Lunar Rover"],
   ];
   for (const [category,title] of absent) {
     assert.ok(!catalog.some(([, , cat, name]) => cat===category && normalize(name)===normalize(title)),
       "Unverified source accidentally assigned to " + title);
   }
-  assert.equal(absent.length, 11);
-  assert.ok(!manualRegistry.includes("../../Drawbridge.pdf?url"), "Zero-byte PDF must not be linked");
+  assert.equal(absent.length, 9);
+  assert.ok(manualRegistry.includes("../../Drawbridge.pdf?url"), "Reuploaded Drawbridge PDF missing");
+  assert.ok(manualRegistry.includes('"level-3-drawbridge": {'));
+  assert.ok(manualRegistry.includes('completionStepId: "level-3-drawbridge-slides-complete"'));
+  assert.ok(practical.includes('pdfManualProject("level-3-drawbridge", "Drawbridge", 170, "mechanisms-and-concepts", 3, "powerpoint")'));
   assert.ok(practical.includes('pdfManualProject("level-3-bumper-car-foundational-robots"'));
   assert.ok(practical.includes('pdfManualProject("level-3-bumper-car-interactive-mechanisms"'));
+});
+
+// Drawbridge was listed as a PowerPoint source in the syllabus but uploaded as an original PDF.
+test("Drawbridge PDF is readable and treated as presentation slides", async () => {
+  const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
+  const filename = "Drawbridge.pdf";
+  const data = readFileSync(new URL("../" + filename, import.meta.url));
+  assert.equal(data.subarray(0, 5).toString("ascii"), "%PDF-");
+  const task = getDocument({ data: new Uint8Array(data) });
+  const document = await task.promise;
+  try { assert.ok(document.numPages > 0); }
+  finally { await task.destroy(); }
+  assert.ok(manualRegistry.includes('import level3UploadedDrawbridgePdfUrl from "../../Drawbridge.pdf?url"'));
+  assert.ok(manualRegistry.includes('sourceKind: "powerpoint"'));
 });
