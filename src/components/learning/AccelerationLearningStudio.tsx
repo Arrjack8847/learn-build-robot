@@ -18,7 +18,13 @@ function readSaved():Saved {
     return {page:Number.isInteger(v.page)?Math.max(1,v.page):1,viewed:Array.isArray(v.viewed)?v.viewed.filter((n:unknown)=>Number.isInteger(n)):[],best:Math.min(5,Math.max(0,Number(v.best)||0)),passed:v.passed===true,previousIds:Array.isArray(v.previousIds)?v.previousIds.filter((n:unknown)=>typeof n==="string"):[]};
   } catch{return initial;}
 }
-export function AccelerationLearningStudio(){
+export function AccelerationLearningStudio({
+  initialView = "slides",
+  onBackToProject,
+}: {
+  initialView?: "slides" | "quiz";
+  onBackToProject?: () => void;
+} = {}){
   const [saved,setSaved]=useState<Saved>(readSaved);
   const [pdf,setPdf]=useState<PDFDocumentProxy|null>(null);
   const [error,setError]=useState("");
@@ -30,7 +36,7 @@ export function AccelerationLearningStudio(){
   const [zoom,setZoom]=useState(1);
   const [outline,setOutline]=useState(false);
   const [dockOpen,setDockOpen]=useState(false);
-  const [mode,setMode]=useState<"slides"|"quiz"|"result">("slides");
+  const [mode,setMode]=useState<"slides"|"quiz"|"result">(initialView);
   const [reviewingAnswer,setReviewingAnswer]=useState(false);
   const [questions,setQuestions]=useState(()=>createAccelerationQuiz());
   const [index,setIndex]=useState(0);
@@ -101,7 +107,19 @@ export function AccelerationLearningStudio(){
   const question=questions[index];
   return <div ref={fullscreen} className="flex h-[100dvh] min-h-[440px] flex-col overflow-hidden bg-[#f3faff] text-[#132654]">
     <header className="flex min-h-16 items-center justify-between gap-3 border-b border-sky-100 bg-white px-3 sm:px-6">
-      <Link to="/practical/level-1/autonomous-navigation-ranging" className="grid size-11 place-items-center rounded-2xl border border-sky-100" aria-label="Back to Acceleration Car category"><ArrowLeft/></Link>
+      {onBackToProject ? (
+        <button type="button" onClick={onBackToProject}
+          className="grid size-11 place-items-center rounded-2xl border border-sky-100"
+          aria-label="Back to Acceleration Car project">
+          <ArrowLeft/>
+        </button>
+      ) : (
+        <Link to="/projects/acceleration-car"
+          className="grid size-11 place-items-center rounded-2xl border border-sky-100"
+          aria-label="Back to Acceleration Car project">
+          <ArrowLeft/>
+        </Link>
+      )}
       <div className="min-w-0 text-center"><h1 className="truncate text-sm font-black sm:text-lg">Acceleration Car · Learning Studio</h1><p className="text-xs text-slate-500">Level 1 · {mode==="slides"?(reviewingAnswer?"Review Source Slide":"Lecture"):mode==="quiz"?"Quick Quiz":"Quiz Results"}</p></div>
       <span className="rounded-xl bg-sky-50 px-3 py-2 text-xs font-extrabold text-[#168eea]">{saved.passed?"✓ Passed":`Best ${saved.best}/5`}</span>
     </header>
@@ -151,7 +169,13 @@ export function AccelerationLearningStudio(){
         <button type="button" className="mt-4 text-xs font-semibold text-slate-500 underline" onClick={()=>setMode("slides")}>Return to lecture (unsent answers will be lost)</button>
       </div>
     </main>:<main className="mx-auto w-full max-w-2xl flex-1 overflow-y-auto p-4 sm:p-8">
-      <div className="rounded-[28px] bg-white p-6 text-center shadow-lg"><Trophy className="mx-auto size-14 text-amber-500"/><h2 className="mt-3 text-2xl font-black">{lastScore>=4?"Learning Completed!":"Keep Practising!"}</h2><p className="mt-2 text-4xl font-black text-[#168eea]">{lastScore} / 5</p><p className="mt-2 text-sm text-slate-600">80% (4/5) required · Best {saved.best}/5 {saved.passed?"· Passed":""}</p><div className="mt-5 flex flex-wrap justify-center gap-2"><Button onClick={beginQuiz}><RotateCcw className="size-4"/> Try Another Quiz</Button><Button variant="outline" onClick={()=>reviewReferenceSlide(page)}>Review Lecture</Button><Button variant="outline" asChild><Link to="/practical/level-1/autonomous-navigation-ranging">Back to Category</Link></Button></div></div>
+      <div className="rounded-[28px] bg-white p-6 text-center shadow-lg"><Trophy className="mx-auto size-14 text-amber-500"/><h2 className="mt-3 text-2xl font-black">{lastScore>=4?"Learning Completed!":"Keep Practising!"}</h2><p className="mt-2 text-4xl font-black text-[#168eea]">{lastScore} / 5</p><p className="mt-2 text-sm text-slate-600">80% (4/5) required · Best {saved.best}/5 {saved.passed?"· Passed":""}</p><div className="mt-5 flex flex-wrap justify-center gap-2"><Button onClick={beginQuiz}><RotateCcw className="size-4"/> Try Another Quiz</Button><Button variant="outline" onClick={()=>reviewReferenceSlide(page)}>Review Lecture</Button>{onBackToProject ? (
+        <Button variant="outline" onClick={onBackToProject}>Back to Project</Button>
+      ) : (
+        <Button variant="outline" asChild>
+          <Link to="/projects/acceleration-car">Back to Project</Link>
+        </Button>
+      )}</div></div>
       <h3 className="mt-5 font-black">Review Your Answers</h3><div className="mt-3 space-y-3">{questions.map((q,i)=>{const right=answers[q.id]===q.correct;return <article key={q.id} className="rounded-2xl border bg-white p-4"><div className="flex items-start gap-2">{right?<CheckCircle2 className="mt-1 size-5 shrink-0 text-green-600"/>:<RotateCcw className="mt-1 size-5 shrink-0 text-amber-600"/>}<div><p className="font-bold">{i+1}. {q.prompt}</p><p className="mt-2 text-sm">Your answer: {answers[q.id]}</p><p className="text-sm font-semibold text-green-700">Correct answer: {q.correct}</p><p className="mt-2 text-xs text-slate-600">{q.explanation}</p>
           <p className="mt-3 text-xs text-slate-600"><strong className="text-[#132654]">Lecture reference:</strong> {q.referenceNote}</p>
           <div className="mt-3 flex flex-wrap gap-2" aria-label={`Lecture references for question ${i+1}`}>
