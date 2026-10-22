@@ -174,7 +174,7 @@ export function AccelerationCarPdfViewer() {
   }
 
   if (finished) {
-    return <BuildingStudioCompletion title="Acceleration Car" onReview={() => { setFinished(false); openPage(2); }} />;
+    return <BuildingStudioCompletion title="Acceleration Car" projectId="acceleration-car" onReview={() => { setFinished(false); openPage(2); }} />;
   }
 
   return (
