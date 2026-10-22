@@ -1,28 +1,37 @@
-# Level 3 PowerPoint slide lessons
+# Level 3 PDF presentation lessons — manually uploaded sources
 
-The eight exact original `.pptx` files mapped in `.github/level-three-presentations.json` are preserved in the repository unchanged. These source files are **presentation lessons**: the app does not claim they are step-by-step building manuals.
+On 22 October 2026, eight converted PowerPoint PDFs were uploaded as nonempty files directly into the **repository root**, not `public/learning-slides/level-3/`. All eight are imported using Vite's `?url` mechanism, so PDF.js displays the original slides one at a time. No GitHub Actions conversion is required.
 
-## Automatic conversion
+## Uploaded PDF → Level 3 category
 
-`.github/workflows/convert-level-three-powerpoints.yml` runs on `main` when its configuration or a root `.pptx` changes, and also supports manual `workflow_dispatch`. It installs LibreOffice, converts the eight registered sources into `public/learning-slides/level-3/<same base name>.pdf`, verifies each output using `pdfinfo`, and commits updated browser-ready PDFs into `main`.
+- `13.Super Trajectory Robot 1-update.pdf` — Advanced Navigation & Control / Super Trajectory Robot 1
+- `Stag beetle.pdf` — Biomimicry / Stag beetle
+- `Line patrol car.pdf` — Foundational Robots / Line patrol car
+- `Money detector.pdf` — Machines & Mechanisms / Money detector
+- `Parking gate.pdf` — Machines & Mechanisms / Parking gate
+- `Blood bank Centrifuge.pdf` — Manipulators / Blood bank Centrifuge
+- `Fire ladder.pdf` — Mechanisms and Concepts / Fire ladder
+- `Sign.pdf` — Mechanisms and Concepts / Sign (initially 0-byte, reuploaded as a nonempty PDF in commit `7d963985ba92aac7d7ed08e332a9617d7a70a7c7`)
 
-Because the initial code changes may deploy before the workflow commits PDFs, the viewer shows a **slides not available yet** error with Retry when the generated PDF is not present. GitHub Actions must have `contents: write` permission, and the automated commit must be deployed for slides to load.
+## Still missing source data
 
-To add another presentation, upload `.pptx` to the GitHub root, add a record to `.github/level-three-presentations.json`, register its presentation in `src/data/pdfActivityManuals.ts` and `src/data/practical.ts`, then run conversion. Replacing a registered original PPTX on main automatically updates the PDF.
+- Flashlight Sensor — no verified matching building PDF.
+- Drawbridge — `Drawbridge.pdf` remains zero bytes, no matching PowerPoint available.
+- Lunar Rover — PDF not present.
 
-## User experience
+## Unchanged functionality
 
-Navigate to **Building Robot → Level 3 → category → robot → View slides**. A full-screen responsive PDF.js viewer presents one exported PowerPoint slide at a time, with Back, Next Slide, overview, zoom/pan, and a separate completed-presentation state. No animations are invented; native PowerPoint animations, transitions, audio, and video do not survive PDF conversion.
+- All 37 original Level 3 building PDF activities (40 versions) remain unchanged.
+- Eight additional slide-only projects support Back/Next Slide, zoom, and independent `-slides-complete` progress, with no claim that they are original assembly manuals.
+- Existing automatic PowerPoint conversion `push` trigger is disabled because GitHub Actions could not start due to a billing restriction; optional manual workflow dispatch remains configured but is not necessary.
+- To update a registered presentation, upload a valid replacement PDF in the repository root with **the same exact filename**. Then redeploy the website.
 
-## Coverage
+## Local validation
 
-- 37/48 Level 3 syllabus activities have building PDFs (40 version-specific PDF registrations).
-- 8 additional activities have actual PowerPoints ready **for conversion** (not building-manual guarantees): Super Trajectory Robot 1, Stag beetle, Line patrol car, Money detector, Parking gate, Blood bank Centrifuge, Fire ladder, Sign.
-- 3 still have no verified working source: **Flashlight Sensor**, **Drawbridge** (0-byte PDF, PPTX missing), and **Lunar Rover** (PDF missing).
-
-A local deployment sanity check should run:
-```
-node --test tests/level-three-uploaded-manuals.test.mjs tests/level-three-powerpoint-slides.test.mjs
+```powershell
+node --test tests/level-three-powerpoint-slides.test.mjs tests/level-three-uploaded-manuals.test.mjs
 npx tsc --noEmit
 npm run build
 ```
+
+Connector checks establish nonempty GitHub files and code references; browser rendering and builds still need local execution.

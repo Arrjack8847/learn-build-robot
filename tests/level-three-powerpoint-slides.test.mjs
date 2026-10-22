@@ -15,7 +15,7 @@ assert.ok(syllabusMatch, "Required official syllabus missing");
 const level3 = JSON.parse(syllabusMatch[1])["3"];
 const slug = name => name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-test("Exactly eight original Level 3 PowerPoints are mapped, without pretending to be building manuals", () => {
+test("Level 3 retains eight PowerPoint source entries and seven available slide lessons", () => {
   assert.equal(manifest.level, 3);
   assert.equal(manifest.presentations.length, 8);
   const ids = new Set(), pairs = new Set(), pdfs = new Set();
@@ -33,7 +33,8 @@ test("Exactly eight original Level 3 PowerPoints are mapped, without pretending 
       "Original PPTX file is missing or invalid: " + item.pptx);
     assert.ok(pdfRegistry.includes('"'+item.id+'": {'), "Missing slide registry: " + item.id);
     assert.ok(pdfRegistry.includes('originalPowerPointFile: "'+item.pptx+'"'));
-    assert.ok(pdfRegistry.includes('url: "/learning-slides/level-3/' + encodeURIComponent(item.pdf) + '"'));
+    assert.ok(pdfRegistry.includes('import '), "Imported root PDFs should be bundled by Vite");
+    assert.ok(pdfRegistry.includes('from "../../' + item.pdf + '?url"'), "Uploaded root PDF not used: " + item.pdf);
     assert.ok(pdfRegistry.includes('completionStepId: "' + item.id + '-slides-complete"'));
     assert.ok(practical.includes('pdfManualProject("' + item.id + '", "' + item.title + '",'),
       "Missing Level 3 presentation route: " + item.id);
@@ -60,6 +61,7 @@ test("Slide viewer navigates existing PDF renderer without treating presentation
 
 test("GitHub Actions converts the verified PowerPoints and commits their derived PDF slides", () => {
   assert.ok(workflow.includes('workflow_dispatch:'));
+  assert.ok(!workflow.includes("  push:"), "Manual PDF uploads must not trigger failed automatic conversion");
   assert.ok(workflow.includes('sudo apt-get install'));
   assert.ok(workflow.includes('libreoffice-impress'));
   assert.ok(workflow.includes('contents: write'));
@@ -74,4 +76,16 @@ test("Unverified sources stay unavailable", () => {
   for (const name of noMatch) {
     assert.ok(!manifest.presentations.some(item => slug(item.title) === slug(name)), name);
   }
+});
+
+test("All eight converted PDFs were uploaded into the repository root", () => {
+  const uploaded = manifest.presentations;
+  assert.equal(uploaded.length, 8);
+  for (const item of uploaded) {
+    const buffer = readFileSync(new URL("../" + item.pdf, import.meta.url));
+    assert.ok(buffer.length > 100, "Empty uploaded PDF: " + item.pdf);
+    assert.equal(buffer.subarray(0, 5).toString("ascii"), "%PDF-", "Invalid PDF header: " + item.pdf);
+    assert.ok(pdfRegistry.includes('from "../../' + item.pdf + '?url"'), "Root PDF import missing");
+  }
+  assert.ok(statSync(new URL("../Sign.pdf", import.meta.url)).size > 100);
 });
