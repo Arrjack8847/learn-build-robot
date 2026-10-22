@@ -10,17 +10,19 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
  */
 export function BuildingStudioHeader({
   title, step, total, onOpenSteps, onPreviousStep, previousDisabled = false, positionLabel,
+  backTo = "/practical", backLabel = "Robots",
 }: {
   title: string; step: number; total: number; onOpenSteps: () => void;
   onPreviousStep?: () => void; previousDisabled?: boolean; positionLabel?: string;
+  backTo?: "/practical" | "/projects/acceleration-car"; backLabel?: string;
 }) {
   const progress = total ? Math.max(0, Math.min(100, step / total * 100)) : 0;
   return (
     <div className="relative z-20 shrink-0 border-b border-sky-100 bg-white/95 text-slate-800">
       <header className="mx-auto flex h-14 w-full max-w-[1720px] items-center gap-2 px-3 sm:h-16 sm:px-5">
-        <Link to="/practical" aria-label="Back to robot selection"
+        <Link to={backTo} aria-label={`Back to ${backLabel.toLowerCase()}`}
           className="flex min-h-11 shrink-0 items-center gap-1 rounded-2xl border border-sky-100 bg-white px-3 text-sm font-bold text-[#168eea] shadow-sm transition hover:bg-sky-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168eea]">
-          <ArrowLeft className="size-4" aria-hidden="true" /><span className="hidden sm:inline">Robots</span>
+          <ArrowLeft className="size-4" aria-hidden="true" /><span className="hidden sm:inline">{backLabel}</span>
         </Link>
         {onPreviousStep && <Button type="button" variant="outline" disabled={previousDisabled} onClick={onPreviousStep}
           aria-label="Previous building step" className="min-h-11 shrink-0 rounded-2xl border-sky-100 px-2 font-bold text-[#168eea] sm:px-3">
