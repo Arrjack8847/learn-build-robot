@@ -264,8 +264,8 @@ function BuildCelebration({ project, onReview }: {
   return (
     <BuildingStudioCompletion title={project.title} onReview={onReview}>
       <Button asChild className="min-h-12 rounded-2xl bg-[#168eea] font-bold text-white hover:bg-[#0d7fda]">
-        <Link params={{ projectId: project.id }} to="/practical/$projectId/competition">
-          Learn How to Win <ArrowRight aria-hidden="true" className="size-4"/>
+        <Link params={{ projectId: project.id }} to="/projects/$projectId">
+          Back to Project <ArrowRight aria-hidden="true" className="size-4"/>
         </Link>
       </Button>
     </BuildingStudioCompletion>
@@ -277,7 +277,7 @@ function MissingProject() {
     <div className="grid h-full place-items-center bg-background px-5 text-center">
       <div>
         <h1 className="text-2xl font-bold">We couldn’t find that robot.</h1>
-        <Link className="mt-5 inline-flex items-center gap-2 font-semibold text-primary" to="/practical">
+        <Link className="mt-5 inline-flex items-center gap-2 font-semibold text-primary" to="/practical/levels">
           <ArrowLeft aria-hidden="true" className="size-4" />
           Choose a robot
         </Link>

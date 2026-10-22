@@ -94,7 +94,7 @@ function AdvancedLevelCategoriesPage() {
               })}
             </ul>
           ) : <div className="rounded-3xl border border-sky-100 bg-white p-10 text-center text-sm font-semibold text-slate-600">No matching categories. Try another search.</div>}
-          <Link to="/practical" className="mx-auto mt-8 inline-flex min-h-12 items-center gap-2 rounded-2xl bg-[#168eea] px-5 text-sm font-bold text-white hover:bg-[#0d7fda]">
+          <Link to="/practical/levels" className="mx-auto mt-8 inline-flex min-h-12 items-center gap-2 rounded-2xl bg-[#168eea] px-5 text-sm font-bold text-white hover:bg-[#0d7fda]">
             <Bot className="size-4" aria-hidden="true"/> Open available robot builds
           </Link>
         </section>

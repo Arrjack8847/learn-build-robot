@@ -112,7 +112,7 @@ function LevelOneCategoriesPage() {
           <p className="text-sm font-semibold text-slate-600">
             Want to continue a robot project that's already available?
           </p>
-          <Link to="/practical"
+          <Link to="/practical/levels"
             className="inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-5 text-sm font-extrabold text-white transition hover:bg-[#0d7fda] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168eea]">
             View available robots <ArrowRight className="size-4" aria-hidden="true"/>
           </Link>

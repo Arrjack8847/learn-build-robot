@@ -9,7 +9,7 @@ const practical = read("src/data/practical.ts");
 const index = read("src/routes/practical/level-1.index.tsx");
 const layout = read("src/routes/practical/level-1.tsx");
 const detail = read("src/routes/practical/level-1.$categoryId.tsx");
-const choice = read("src/routes/choose.tsx");
+const home = read("src/routes/index.tsx");
 const picker = read("src/routes/practical/index.tsx");
 
 const names = [
@@ -59,13 +59,13 @@ test("All 59 Level 1 syllabus entries have exact category placement", () => {
 });
 
 test("Existing robot lessons remain accessible; missing lessons are not clickable builds", () => {
-  assert.match(choice, /label="Build a Robot"[\s\S]*?to="\/practical\/levels"/);
-  assert.match(picker, /to="\/practical\/levels"/);
-  assert.match(index, /to="\/practical"/);
+  assert.match(home, /to="\/practical\/levels"/);
+  assert.match(picker, /redirect\(\{ to: "\/practical\/levels" \}\)/);
+  assert.match(index, /to="\/practical\/levels"/);
   assert.match(detail, /getLevelOneProjects\(category\.id\)/);
   assert.match(detail, /getProject\(entry\.availableProjectId\)/);
   assert.match(detail, /liveProject \?/);
   assert.match(detail, /Lesson not added yet/);
-  assert.match(detail, /to="\/practical\/\$projectId"/);
+  assert.match(detail, /to="\/projects\/\$projectId"/);
   assert.doesNotMatch(detail, /href=\{entry\.sourceEntry\}/);
 });

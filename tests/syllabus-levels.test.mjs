@@ -36,13 +36,13 @@ test("All level catalogs use grounded names from the sorted syllabus", () => {
 });
 
 test("All six levels have accessible navigation and category/detail routes", () => {
-  const choice = read("src/routes/choose.tsx");
+  const home = read("src/routes/index.tsx");
   const index = read("src/routes/practical/levels.index.tsx");
   const parent = read("src/routes/practical/levels.tsx");
   const levelParent = read("src/routes/practical/levels.$levelNumber.tsx");
   const categoryIndex = read("src/routes/practical/levels.$levelNumber.index.tsx");
   const detail = read("src/routes/practical/levels.$levelNumber.$categoryId.tsx");
-  assert.match(choice, /label="Build a Robot"[\s\S]*?to="\/practical\/levels"/);
+  assert.match(home, /to="\/practical\/levels"/);
   assert.match(index, /const levels = \[1, 2, 3, 4, 5, 6\]/);
   assert.match(index, /to="\/practical\/level-1"/);
   assert.match(index, /to="\/practical\/levels\/\$levelNumber"/);
@@ -54,7 +54,7 @@ test("All six levels have accessible navigation and category/detail routes", () 
   assert.match(detail, /Lesson not added yet/);
   assert.match(detail, /project\.level === level && project\.categoryId === category\.id/);
   assert.match(detail, /liveProject \?/);
-  assert.match(detail, /to="\/practical\/\$projectId"/);
+  assert.match(detail, /to="\/projects\/\$projectId"/);
 });
 
 test("Existing Level 1 and older robot build screens remain available", () => {
