@@ -7,11 +7,22 @@ import { practicalProjects } from "@/data/practical";
 import { isPdfActivityProject } from "@/data/pdfActivityManuals";
 import { levelTwoPowerPointSources } from "@/data/levelTwoPowerPointSources";
 
-/** See Saw offers two user-confirmed source PDFs under one syllabus activity. */
-const seeSawVersionChoices = [
-  { label: "Version 1 · Balance", projectId: "level-2-see-saw-v1" },
-  { label: "Version 2 · Balance_v2", projectId: "level-2-see-saw-v2" },
-] as const;
+/** Multiple original building manuals appear as version buttons on one syllabus activity card. */
+const manualVersionChoices: Record<string, readonly {label: string; projectId: string}[]> = {
+  "2:interactive-systems:see-saw": [
+    { label: "Version 1 · Balance", projectId: "level-2-see-saw-v1" },
+    { label: "Version 2 · Balance_v2", projectId: "level-2-see-saw-v2" },
+  ],
+  "3:action-oriented:cycle-sport": [
+    { label: "Basic", projectId: "level-3-cycle-sport-basic" },
+    { label: "Optimized", projectId: "level-3-cycle-sport-optimized" },
+  ],
+  "3:display-movement:race-walking": [
+    { label: "Basic", projectId: "level-3-race-walking-basic" },
+    { label: "Optimized", projectId: "level-3-race-walking-optimized" },
+    { label: "Optimized + Ratchet", projectId: "level-3-race-walking-optimized-ratchet" },
+  ],
+};
 
 export const Route = createFileRoute("/practical/levels/$levelNumber/$categoryId")({
   component: AdvancedLevelProjectsPage,
@@ -64,17 +75,16 @@ function AdvancedLevelProjectsPage() {
                 project.level === level && project.categoryId === category.id &&
                 syllabusSlug(project.title) === syllabusSlug(entry.name)
               );
-              // Both See Saw versions are distinct registered lessons, not duplicated syllabus cards.
-              const versions = level === 2 && category.id === "interactive-systems" && entry.name === "See Saw"
-                ? seeSawVersionChoices.filter(choice => practicalProjects.some(project =>
-                    project.id === choice.projectId && project.level === 2 &&
-                    project.categoryId === category.id))
-                : [];
+              // Keep multi-version manuals within their one official syllabus activity card.
+              const versions = (manualVersionChoices[`${level}:${category.id}:${syllabusSlug(entry.name)}`] ?? [])
+                .filter(choice => practicalProjects.some(project =>
+                  project.id === choice.projectId && project.level === level &&
+                  project.categoryId === category.id));
               const isReady = Boolean(liveProject || versions.length);
               // PowerPoints are offered as exact originals, not passed to the PDF renderer.
               const pptxUrl = level === 2 ? levelTwoPowerPointSources[entry.sourceEntry] : undefined;
               const Icon = entry.sourceKind === "pptx" ? Presentation : entry.sourceKind === "pdf" ? FileText : FolderOpen;
-              const label = versions.length ? "Two original PDF versions · choose below" :
+              const label = versions.length ? `${versions.length} original PDF building versions · choose below` :
                 liveProject && pptxUrl ? "Original PDF building manual · PowerPoint also available" :
                 liveProject && isPdfActivityProject(liveProject.id) ? "Original PDF building manual" :
                 pptxUrl ? "Original PowerPoint presentation" :
@@ -93,7 +103,7 @@ function AdvancedLevelProjectsPage() {
                   <p className="mt-2 text-xs font-medium text-slate-500">{label}</p>
                   <div className="mt-auto pt-5">
                     {versions.length ? (
-                      <div className="flex flex-col gap-2" role="group" aria-label="Choose See Saw manual version">
+                      <div className="flex flex-col gap-2" role="group" aria-label={`Choose ${entry.name} building manual version`}>
                         {versions.map(version => (
                           <Link key={version.projectId} to="/practical/$projectId"
                             params={{projectId: version.projectId}}

@@ -119,6 +119,46 @@ import level2AutomaticWindowPdfUrl from "../../Automatic window.pdf?url";
 import level2RobotWarPdfUrl from "../../Robot war.pdf?url";
 import level2TheTreadmillPdfUrl from "../../The treadmill.pdf?url";
 
+/** Original Level 3 building PDFs; exact committed filenames are retained. */
+import level3Pdf01Url from "../../Clip robot_Building.pdf?url";
+import level3Pdf02Url from "../../3. Cycle Sport-Basic Building Manual.pdf?url";
+import level3Pdf03Url from "../../3. Cycle Sport-Optimized Building Manual.pdf?url";
+import level3Pdf04Url from "../../24. Automatic Seesaw -Building Manual.pdf?url";
+import level3Pdf05Url from "../../Security door_Building.pdf?url";
+import level3Pdf06Url from "../../Smart door_Building.pdf?url";
+import level3Pdf07Url from "../../Following Robot_Building.pdf?url";
+import level3Pdf08Url from "../../Obstacle Avoidance Robot 1_Building.pdf?url";
+import level3Pdf09Url from "../../Sunflower.pdf?url";
+import level3Pdf10Url from "../../23.Electric Bulldozer -Building Manual.pdf?url";
+import level3Pdf11Url from "../../05.Electric Fan-Building Manual.pdf?url";
+import level3Pdf12Url from "../../15.Safe -Building Manual.pdf?url";
+import level3Pdf13Url from "../../20.Smart Trash Bin-Building Manual.pdf?url";
+import level3Pdf14Url from "../../Lifting Maintenance Vehicle.pdf?url";
+import level3Pdf15Url from "../../24.Automated Guided Vehicle-Building Manual.pdf?url";
+import level3Pdf16Url from "../../1. Race Walking - Basic Building Manual.pdf?url";
+import level3Pdf17Url from "../../1. Race Walking - Optimized Building Manual.pdf?url";
+import level3Pdf18Url from "../../1. Race Walking - Optimized Building Manual - Added Ratchet.pdf?url";
+import level3Pdf19Url from "../../Bumper car_Building.pdf?url";
+import level3Pdf20Url from "../../13.Disinfection Lamp-Building Manual.pdf?url";
+import level3Pdf21Url from "../../14.Light-sensitive Curtains -Building Manual.pdf?url";
+import level3Pdf22Url from "../../11.Anti-fall Robot-Building Manual.pdf?url";
+import level3Pdf23Url from "../../17.Automatic Door -Building Manual.pdf?url";
+import level3Pdf24Url from "../../06..Juicer Machine-Building Manual.pdf?url";
+import level3Pdf25Url from "../../08.Washing Machine-Building Manual.pdf?url";
+import level3Pdf26Url from "../../Electronic scale.pdf?url";
+import level3Pdf27Url from "../../Gyro transmitter_Building.pdf?url";
+import level3Pdf28Url from "../../Biting Monster.pdf?url";
+import level3Pdf29Url from "../../Electric Gyro Launcher.pdf?url";
+import level3Pdf30Url from "../../Responder.pdf?url";
+import level3Pdf31Url from "../../10.Electric guitar_Building.pdf?url";
+import level3Pdf32Url from "../../29.Music Box -Building Manual.pdf?url";
+import level3Pdf33Url from "../../07.Music Doorbell-Building Manual.pdf?url";
+import level3Pdf34Url from "../../Smart Audio_Building.pdf?url";
+import level3Pdf35Url from "../../Sonometer_Building.pdf?url";
+import level3Pdf36Url from "../../16.Sound Level Meter -Building Manual.pdf?url";
+import level3Pdf37Url from "../../F1 racing car_Building.pdf?url";
+import level3Pdf38Url from "../../11. The Long-lived Turtle - Basic Building Manual.pdf?url";
+
 export interface PdfActivityManual {
   id: string;
   title: string;
@@ -602,6 +642,166 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "level-2-the-treadmill": {
     id: "level-2-the-treadmill", title: "The treadmill", url: level2TheTreadmillPdfUrl,
     completionStepId: "level-2-the-treadmill-manual-complete",
+  },
+  "level-3-clip-robot": {
+    id: "level-3-clip-robot", title: "Clip robot", url: level3Pdf01Url,
+    completionStepId: "level-3-clip-robot-manual-complete",
+  },
+  "level-3-cycle-sport-basic": {
+    id: "level-3-cycle-sport-basic", title: "Cycle Sport — Basic", url: level3Pdf02Url,
+    completionStepId: "level-3-cycle-sport-basic-manual-complete",
+  },
+  "level-3-cycle-sport-optimized": {
+    id: "level-3-cycle-sport-optimized", title: "Cycle Sport — Optimized", url: level3Pdf03Url,
+    completionStepId: "level-3-cycle-sport-optimized-manual-complete",
+  },
+  "level-3-automatic-seesaw": {
+    id: "level-3-automatic-seesaw", title: "Automatic Seesaw", url: level3Pdf04Url,
+    completionStepId: "level-3-automatic-seesaw-manual-complete",
+  },
+  "level-3-security-door": {
+    id: "level-3-security-door", title: "Security door", url: level3Pdf05Url,
+    completionStepId: "level-3-security-door-manual-complete",
+  },
+  "level-3-smart-door": {
+    id: "level-3-smart-door", title: "Smart door", url: level3Pdf06Url,
+    completionStepId: "level-3-smart-door-manual-complete",
+  },
+  "level-3-following-robot": {
+    id: "level-3-following-robot", title: "Following Robot", url: level3Pdf07Url,
+    completionStepId: "level-3-following-robot-manual-complete",
+  },
+  "level-3-obstacle-avoidance-robot-1": {
+    id: "level-3-obstacle-avoidance-robot-1", title: "Obstacle Avoidance Robot 1", url: level3Pdf08Url,
+    completionStepId: "level-3-obstacle-avoidance-robot-1-manual-complete",
+  },
+  "level-3-sunflower": {
+    id: "level-3-sunflower", title: "Sunflower", url: level3Pdf09Url,
+    completionStepId: "level-3-sunflower-manual-complete",
+  },
+  "level-3-electric-bulldozer": {
+    id: "level-3-electric-bulldozer", title: "Electric Bulldozer", url: level3Pdf10Url,
+    completionStepId: "level-3-electric-bulldozer-manual-complete",
+  },
+  "level-3-electric-fan-characters-structures": {
+    id: "level-3-electric-fan-characters-structures", title: "Electric Fan", url: level3Pdf11Url,
+    completionStepId: "level-3-electric-fan-characters-structures-manual-complete",
+  },
+  "level-3-safe": {
+    id: "level-3-safe", title: "Safe", url: level3Pdf12Url,
+    completionStepId: "level-3-safe-manual-complete",
+  },
+  "level-3-smart-trash-bin": {
+    id: "level-3-smart-trash-bin", title: "Smart Trash Bin", url: level3Pdf13Url,
+    completionStepId: "level-3-smart-trash-bin-manual-complete",
+  },
+  "level-3-lifting-maintenance-vehicle": {
+    id: "level-3-lifting-maintenance-vehicle", title: "Lifting Maintenance Vehicle", url: level3Pdf14Url,
+    completionStepId: "level-3-lifting-maintenance-vehicle-manual-complete",
+  },
+  "level-3-automated-guided-vehicle": {
+    id: "level-3-automated-guided-vehicle", title: "Automated Guided Vehicle", url: level3Pdf15Url,
+    completionStepId: "level-3-automated-guided-vehicle-manual-complete",
+  },
+  "level-3-race-walking-basic": {
+    id: "level-3-race-walking-basic", title: "Race Walking — Basic", url: level3Pdf16Url,
+    completionStepId: "level-3-race-walking-basic-manual-complete",
+  },
+  "level-3-race-walking-optimized": {
+    id: "level-3-race-walking-optimized", title: "Race Walking — Optimized", url: level3Pdf17Url,
+    completionStepId: "level-3-race-walking-optimized-manual-complete",
+  },
+  "level-3-race-walking-optimized-ratchet": {
+    id: "level-3-race-walking-optimized-ratchet", title: "Race Walking — Optimized + Ratchet", url: level3Pdf18Url,
+    completionStepId: "level-3-race-walking-optimized-ratchet-manual-complete",
+  },
+  "level-3-bumper-car-foundational-robots": {
+    id: "level-3-bumper-car-foundational-robots", title: "Bumper car", url: level3Pdf19Url,
+    completionStepId: "level-3-bumper-car-foundational-robots-manual-complete",
+  },
+  "level-3-disinfection-lamp": {
+    id: "level-3-disinfection-lamp", title: "Disinfection Lamp", url: level3Pdf20Url,
+    completionStepId: "level-3-disinfection-lamp-manual-complete",
+  },
+  "level-3-light-sensitive-curtains": {
+    id: "level-3-light-sensitive-curtains", title: "Light-sensitive Curtains", url: level3Pdf21Url,
+    completionStepId: "level-3-light-sensitive-curtains-manual-complete",
+  },
+  "level-3-bumper-car-interactive-mechanisms": {
+    id: "level-3-bumper-car-interactive-mechanisms", title: "Bumper car", url: level3Pdf19Url,
+    completionStepId: "level-3-bumper-car-interactive-mechanisms-manual-complete",
+  },
+  "level-3-anti-fall-robot": {
+    id: "level-3-anti-fall-robot", title: "Anti-fall Robot", url: level3Pdf22Url,
+    completionStepId: "level-3-anti-fall-robot-manual-complete",
+  },
+  "level-3-automatic-door": {
+    id: "level-3-automatic-door", title: "Automatic Door", url: level3Pdf23Url,
+    completionStepId: "level-3-automatic-door-manual-complete",
+  },
+  "level-3-juicer-machine": {
+    id: "level-3-juicer-machine", title: "Juicer Machine", url: level3Pdf24Url,
+    completionStepId: "level-3-juicer-machine-manual-complete",
+  },
+  "level-3-washing-machine": {
+    id: "level-3-washing-machine", title: "Washing Machine", url: level3Pdf25Url,
+    completionStepId: "level-3-washing-machine-manual-complete",
+  },
+  "level-3-electronic-scale": {
+    id: "level-3-electronic-scale", title: "Electronic scale", url: level3Pdf26Url,
+    completionStepId: "level-3-electronic-scale-manual-complete",
+  },
+  "level-3-gyro-transmitter": {
+    id: "level-3-gyro-transmitter", title: "Gyro transmitter", url: level3Pdf27Url,
+    completionStepId: "level-3-gyro-transmitter-manual-complete",
+  },
+  "level-3-electric-fan-mechanisms-and-concepts": {
+    id: "level-3-electric-fan-mechanisms-and-concepts", title: "Electric fan", url: level3Pdf11Url,
+    completionStepId: "level-3-electric-fan-mechanisms-and-concepts-manual-complete",
+  },
+  "level-3-biting-monster": {
+    id: "level-3-biting-monster", title: "Biting Monster", url: level3Pdf28Url,
+    completionStepId: "level-3-biting-monster-manual-complete",
+  },
+  "level-3-electric-gyro-launcher": {
+    id: "level-3-electric-gyro-launcher", title: "Electric Gyro Launcher", url: level3Pdf29Url,
+    completionStepId: "level-3-electric-gyro-launcher-manual-complete",
+  },
+  "level-3-responder": {
+    id: "level-3-responder", title: "Responder", url: level3Pdf30Url,
+    completionStepId: "level-3-responder-manual-complete",
+  },
+  "level-3-electric-guitar": {
+    id: "level-3-electric-guitar", title: "Electric guitar", url: level3Pdf31Url,
+    completionStepId: "level-3-electric-guitar-manual-complete",
+  },
+  "level-3-music-box": {
+    id: "level-3-music-box", title: "Music Box", url: level3Pdf32Url,
+    completionStepId: "level-3-music-box-manual-complete",
+  },
+  "level-3-music-doorbell": {
+    id: "level-3-music-doorbell", title: "Music Doorbell", url: level3Pdf33Url,
+    completionStepId: "level-3-music-doorbell-manual-complete",
+  },
+  "level-3-smart-audio": {
+    id: "level-3-smart-audio", title: "Smart Audio", url: level3Pdf34Url,
+    completionStepId: "level-3-smart-audio-manual-complete",
+  },
+  "level-3-sonometer": {
+    id: "level-3-sonometer", title: "Sonometer", url: level3Pdf35Url,
+    completionStepId: "level-3-sonometer-manual-complete",
+  },
+  "level-3-sound-level-meter": {
+    id: "level-3-sound-level-meter", title: "Sound Level Meter", url: level3Pdf36Url,
+    completionStepId: "level-3-sound-level-meter-manual-complete",
+  },
+  "level-3-f1-racing-car": {
+    id: "level-3-f1-racing-car", title: "F1 racing car", url: level3Pdf37Url,
+    completionStepId: "level-3-f1-racing-car-manual-complete",
+  },
+  "level-3-long-lived-turtle": {
+    id: "level-3-long-lived-turtle", title: "Long-Lived Turtle", url: level3Pdf38Url,
+    completionStepId: "level-3-long-lived-turtle-manual-complete",
   },
 };
 
