@@ -12,7 +12,6 @@ import { useEffect, type ReactNode } from "react";
 import { AppShell } from "@/components/layout/AppShell";
 import { APP_NAME } from "@/config/app";
 import { ProgressProvider } from "@/context/ProgressContext";
-import { reportLovableError } from "@/lib/lovable-error-reporting";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -39,7 +38,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
 
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    console.error("BE STEM READY page error:", error);
   }, [error]);
 
   return (
@@ -83,20 +82,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: `${APP_NAME} | Learn Robotics by Building` },
       {
         name: "description",
-        content: "Learn robotics theory and follow guided practical projects in one student workspace.",
+        content: "Explore six levels of hands-on robotics projects with guided building instructions.",
       },
       { name: "author", content: APP_NAME },
       { property: "og:title", content: `${APP_NAME} | Learn Robotics by Building` },
       {
         property: "og:description",
-        content: "Learn robotics theory and follow guided practical projects in one student workspace.",
+        content: "Explore six levels of hands-on robotics projects with guided building instructions.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/home/be-stem-ready-logo.svg", type: "image/svg+xml" },
     ],
   }),
   shellComponent: RootShell,

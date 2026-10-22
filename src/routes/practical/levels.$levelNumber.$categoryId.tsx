@@ -149,7 +149,7 @@ function AdvancedLevelProjectsPage() {
               className="inline-flex min-h-12 items-center rounded-2xl border border-sky-200 px-5 text-sm font-extrabold text-[#168eea] hover:bg-[#eaf5ff]">
               Other categories
             </Link>
-            <Link to="/practical"
+            <Link to="/practical/levels"
               className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-[#168eea] px-5 text-sm font-extrabold text-white hover:bg-[#0d7fda]">
               Available robots <ArrowRight className="size-4" aria-hidden="true"/>
             </Link>

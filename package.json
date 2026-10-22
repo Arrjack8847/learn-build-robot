@@ -1,5 +1,5 @@
 {
-  "name": "tanstack_start_ts",
+  "name": "be-stem-ready",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -15,7 +15,8 @@
     "test:step5": "node --test tests/marksmanship-step5.test.mjs",
     "test:step6": "node --test tests/marksmanship-step6.test.mjs",
     "test:ui": "node --test tests/marksmanship-ui.test.mjs tests/building-studio-ui.test.mjs tests/level-one-categories.test.mjs tests/syllabus-levels.test.mjs",
-    "test:motion": "node --test tests/marksmanship-guided-motion.test.mjs"
+    "test:motion": "node --test tests/marksmanship-guided-motion.test.mjs",
+    "start": "node .output/server/index.mjs"
   },
   "overrides": {
     "rolldown": "1.2.1"
@@ -81,7 +82,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
-    "@lovable.dev/vite-tanstack-config": "^2.15.0",
     "@types/node": "^22.16.5",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
