@@ -17,7 +17,7 @@ Additional slide-based entry:
 
 - `Drawbridge.pdf` — Mechanisms and Concepts; matches the activity listed as `Drawbridge.pptx` in the official syllabus, but no actual matching PPTX exists in the repository. Its source is treated as a PDF presentation.
 
-In addition, **Lunar Rover.pdf** (Vehicles & Motion) was uploaded and connected as an original-name PDF lesson, bringing Level 3 coverage to 47/48. The only unlinked activity is **Flashlight Sensor** (Illumination & Signals), since its identity has not been confirmed against existing Flashlight manuals.
+In addition, **Lunar Rover.pdf** (Vehicles & Motion) was uploaded and connected as an original-name PDF lesson, completing the final PDF uploads. The last activity, **Flashlight Sensor** (Illumination & Signals), is now connected using the user-confirmed `04.Flashlight-Building Manual.pdf`; Level 3 covers **48/48** activities.
 
 The `.github/level-three-presentations.json` manifest retains the eight known PPTX originals. GitHub Actions automatic conversion is disabled due to billing, so upload replacement converted PDFs with the exact same root filenames.
 
