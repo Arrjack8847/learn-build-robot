@@ -291,8 +291,8 @@ function MobileCompetitionHome() {
         asChild
         className="relative z-10 mx-auto mt-4 h-12 w-[92%] shrink-0 rounded-full bg-[#1598ea] text-[16px] font-black shadow-[0_8px_20px_rgba(21,152,234,0.22)] hover:bg-[#0f8bdd] [@media(max-height:700px)]:mt-3 [@media(max-height:700px)]:h-11 [@media(max-height:700px)]:text-[15px] [@media(min-height:850px)]:mt-5 [@media(min-height:850px)]:h-[54px] [@media(min-height:850px)]:text-[17px]"
       >
-        <Link to="/join">
-          Start Journey
+        <Link to="/practical/levels">
+          Explore Levels
           <ArrowRight className="ml-2 size-5" />
         </Link>
       </Button>
@@ -351,8 +351,8 @@ function DesktopCompetitionHome() {
             </div>
 
             <Button asChild className="mt-7 min-h-12 rounded-2xl px-7 text-base">
-              <Link to="/join">
-                Start Journey
+              <Link to="/practical/levels">
+                Explore Levels
                 <ArrowRight aria-hidden="true" />
               </Link>
             </Button>
