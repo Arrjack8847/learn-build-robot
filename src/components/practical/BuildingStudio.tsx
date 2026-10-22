@@ -129,9 +129,9 @@ export function BuildingFloatingDock({
 }
 
 export function BuildingStudioCompletion({
-  title, onReview, children,
+  title, onReview, children, mode = "building",
 }: {
-  title: string; onReview: () => void; children?: ReactNode;
+  title: string; onReview: () => void; children?: ReactNode; mode?: "building" | "presentation";
 }) {
   return (
     <div className="relative grid min-h-[100dvh] place-items-center overflow-hidden bg-gradient-to-b from-[#eaf5ff] to-white px-4 py-10 text-center">
@@ -143,10 +143,10 @@ export function BuildingStudioCompletion({
         </div>
         <Sparkles className="mx-auto mt-4 size-6 text-[#f5a400]" aria-hidden="true"/>
         <h1 className="mt-2 text-2xl font-extrabold text-slate-800 sm:text-3xl">Amazing work!</h1>
-        <p className="mt-2 text-sm leading-6 text-slate-600">You finished building {title}. Ready for your next adventure?</p>
+        <p className="mt-2 text-sm leading-6 text-slate-600">{mode === "presentation" ? `You finished reviewing the ${title} slides. You can now choose a building lesson.` : `You finished building ${title}. Ready for your next adventure?`}</p>
         <div className="mt-6 flex flex-col gap-2">
           {children ?? <Button asChild className="min-h-12 rounded-2xl bg-[#168eea] font-bold"><Link to="/practical">Choose another robot <ArrowRight className="size-4"/></Link></Button>}
-          <Button type="button" variant="outline" onClick={onReview} className="min-h-12 rounded-2xl border-sky-200 font-bold text-[#168eea]">Review building steps</Button>
+          <Button type="button" variant="outline" onClick={onReview} className="min-h-12 rounded-2xl border-sky-200 font-bold text-[#168eea]">{mode === "presentation" ? "Review slides" : "Review building steps"}</Button>
         </div>
       </div>
     </div>

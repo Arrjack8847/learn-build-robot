@@ -12,6 +12,7 @@ import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 /** One document, one rendered page, and no reauthored assembly content. */
 export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
   const { toggleStepCompleted } = useProgress();
+  const isPresentation = manual.sourceKind === "powerpoint";
   const [stepsOpen, setStepsOpen] = useState(false);
   const [dockExpanded, setDockExpanded] = useState(false);
   const [finished, setFinished] = useState(false);
@@ -43,11 +44,11 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
         task = pdfjs.getDocument({ url: manual.url });
         loaded = await task.promise;
         if (disposed) return;
-        if (loaded.numPages < 1) throw new Error("The official PDF has no pages.");
+        if (loaded.numPages < 1) throw new Error("This document has no slides or pages.");
         setPdfDocument(loaded);
         setReady(true);
       } catch (cause) {
-        if (!disposed) setPdfError(cause instanceof Error ? cause.message : "The official manual could not be loaded.");
+        if (!disposed) setPdfError(cause instanceof Error ? cause.message : "The document could not be loaded.");
       }
     })();
 
@@ -146,7 +147,7 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
 
   const totalPages = pdfDocument?.numPages ?? 0;
   const pageItems = Array.from({ length: totalPages }, (_, index) => ({
-    id: "page-" + (index + 1), label: "Page " + (index + 1),
+    id: "page-" + (index + 1), label: (isPresentation ? "Slide " : "Page ") + (index + 1),
   }));
 
   function finishCurrentPage() {
@@ -160,19 +161,19 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
   }
 
   if (finished) {
-    return <BuildingStudioCompletion title={manual.title} onReview={() => { setFinished(false); openPage(1); }} />;
+    return <BuildingStudioCompletion title={manual.title} mode={isPresentation ? "presentation" : "building"} onReview={() => { setFinished(false); openPage(1); }} />;
   }
 
   return (
     <div className="flex h-[100dvh] min-h-[420px] flex-col overflow-hidden bg-[#f3faff] text-slate-800">
       <BuildingStudioHeader title={manual.title} step={page} total={totalPages}
-        positionLabel={totalPages ? "Page " + page + " of " + totalPages : "Loading manual"}
+        positionLabel={totalPages ? (isPresentation ? "Slide " : "Page ") + page + " of " + totalPages : (isPresentation ? "Loading slides" : "Loading manual")}
         onOpenSteps={() => setStepsOpen(true)}/>
       <BuildingStepDrawer open={stepsOpen} onOpenChange={setStepsOpen}
         title={manual.title} activeIndex={page - 1} items={pageItems}
         onSelect={index => openPage(index + 1)}/>
-      <main className="relative min-h-0 flex-1 overflow-hidden bg-[#f3faff] p-2 sm:p-4" aria-label={manual.title + " building studio"}>
-        <section aria-label="Official PDF building illustration"
+      <main className="relative min-h-0 flex-1 overflow-hidden bg-[#f3faff] p-2 sm:p-4" aria-label={manual.title + (isPresentation ? " presentation viewer" : " building studio")}>
+        <section aria-label={isPresentation ? "Original PowerPoint slide" : "Official PDF building illustration"}
           className="absolute inset-x-2 top-2 overflow-hidden rounded-[24px] border border-sky-100 bg-[#e8f3fc] shadow-sm sm:inset-x-4 sm:top-4"
           style={{bottom: dockExpanded ? "222px" : "145px"}}>
           <div className="absolute right-2 top-2 z-10 flex items-center gap-1 rounded-2xl border border-sky-100 bg-white/95 p-1 shadow-sm sm:right-3 sm:top-3">
@@ -182,39 +183,39 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
             <Button type="button" variant="ghost" onClick={() => zoomBy(1.25)}
               disabled={zoom >= 4} aria-label="Zoom in" className="size-11 rounded-xl p-0"><Plus className="size-4"/></Button>
             <Button type="button" variant="ghost" onClick={() => fitTo("page")}
-              aria-label="Fit whole manual page" title="Fit page" className="size-11 rounded-xl p-0"><Maximize2 className="size-4"/></Button>
+              aria-label={isPresentation ? "Fit whole slide" : "Fit whole manual page"} title="Fit page" className="size-11 rounded-xl p-0"><Maximize2 className="size-4"/></Button>
           </div>
           <div ref={viewportRef}
             className="absolute inset-0 overflow-auto p-3 pt-14 [touch-action:none] cursor-grab active:cursor-grabbing sm:p-5 sm:pt-16"
             onPointerDown={onPointerDown} onPointerMove={onPointerMove}
             onPointerUp={onPointerEnd} onPointerCancel={onPointerEnd}
-            aria-label="Official PDF page. Drag to pan or pinch with two fingers to zoom.">
+            aria-label={isPresentation ? "PowerPoint slide. Drag to pan or pinch to zoom." : "Official PDF page. Drag to pan or pinch to zoom."}>
             <div className="flex min-h-full w-max min-w-full items-start justify-center">
               {pdfDocument && ready ? (
                 <PdfManualPage pdfDocument={pdfDocument} pageNumber={page} fit={fit}
-                  zoom={zoom} viewport={dimensions} pageLabel={"Original PDF page " + page}/>
+                  zoom={zoom} viewport={dimensions} pageLabel={(isPresentation ? "Original PowerPoint slide " : "Original PDF page ") + page}/>
               ) : pdfError ? (
                 <div className="m-auto flex max-w-md flex-col items-center gap-3 p-6 text-center" role="alert">
                   <AlertCircle className="size-7 text-rose-600"/>
-                  <p className="text-sm font-bold">Could not load the official manual</p>
-                  <p className="text-xs text-rose-700">{pdfError}</p>
-                  <Button type="button" variant="outline" onClick={() => setReloadKey(n => n + 1)}>Retry PDF</Button>
+                  <p className="text-sm font-bold">{isPresentation ? "PowerPoint slides are not available yet" : "Could not load the official manual"}</p>
+                  <p className="text-xs text-rose-700">{isPresentation ? "The automatic conversion may still be running, or it may have failed. Check the GitHub Actions conversion job and retry." : pdfError}</p>
+                  <Button type="button" variant="outline" onClick={() => setReloadKey(n => n + 1)}>{isPresentation ? "Retry slides" : "Retry PDF"}</Button>
                 </div>
               ) : (
                 <div className="m-auto text-center text-sm font-semibold text-slate-600" role="status">
-                  Loading official {manual.title} manual…
+                  Loading {isPresentation ? "original PowerPoint slides for" : "official PDF manual for"} {manual.title}…
                 </div>
               )}
             </div>
           </div>
         </section>
-        <BuildingFloatingDock label={"Page " + page}
-          instruction="Follow the original PDF illustrations and instructions."
+        <BuildingFloatingDock label={(isPresentation ? "Slide " : "Page ") + page}
+          instruction={isPresentation ? "Review the original PowerPoint slides before using the building instructions." : "Follow the original PDF illustrations and instructions."}
           expanded={dockExpanded} onExpandedChange={setDockExpanded}
           onPrevious={() => openPage(page - 1)} previousDisabled={page === 1}
           onNext={finishCurrentPage} nextDisabled={!ready || Boolean(pdfError)}
-          nextLabel={totalPages && page === totalPages ? "Finish Building" : "Next Page"}
-          details={<p className="mt-1 text-xs text-slate-500">Original PDF page {page} of {totalPages || "…"}. Zoom or drag the page to inspect details.</p>}
+          nextLabel={totalPages && page === totalPages ? (isPresentation ? "Finish Slides" : "Finish Building") : (isPresentation ? "Next Slide" : "Next Page")}
+          details={<p className="mt-1 text-xs text-slate-500">Original {isPresentation ? "PowerPoint slide" : "PDF page"} {page} of {totalPages || "…"}. Zoom or drag to inspect details.</p>}
         />
       </main>
     </div>

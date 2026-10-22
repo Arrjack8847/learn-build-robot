@@ -164,6 +164,9 @@ export interface PdfActivityManual {
   title: string;
   url: string;
   completionStepId: string;
+  /** Converted static PDF from the uploaded PowerPoint, not an assembly manual. */
+  sourceKind?: "powerpoint";
+  originalPowerPointFile?: string;
 }
 
 export const pdfActivityManuals: Record<string, PdfActivityManual> = {
@@ -802,6 +805,63 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
   "level-3-long-lived-turtle": {
     id: "level-3-long-lived-turtle", title: "Long-Lived Turtle", url: level3Pdf38Url,
     completionStepId: "level-3-long-lived-turtle-manual-complete",
+  },
+  /** PowerPoints are rendered slide by slide only after conversion by GitHub Actions. */
+  "level-3-super-trajectory-robot-1": {
+    id: "level-3-super-trajectory-robot-1", title: "Super Trajectory Robot 1",
+    url: "/learning-slides/level-3/13.Super%20Trajectory%20Robot%201-update.pdf",
+    completionStepId: "level-3-super-trajectory-robot-1-slides-complete",
+    sourceKind: "powerpoint",
+    originalPowerPointFile: "13.Super Trajectory Robot 1-update.pptx",
+  },
+  "level-3-stag-beetle": {
+    id: "level-3-stag-beetle", title: "Stag beetle",
+    url: "/learning-slides/level-3/Stag%20beetle.pdf",
+    completionStepId: "level-3-stag-beetle-slides-complete",
+    sourceKind: "powerpoint",
+    originalPowerPointFile: "Stag beetle.pptx",
+  },
+  "level-3-line-patrol-car": {
+    id: "level-3-line-patrol-car", title: "Line patrol car",
+    url: "/learning-slides/level-3/Line%20patrol%20car.pdf",
+    completionStepId: "level-3-line-patrol-car-slides-complete",
+    sourceKind: "powerpoint",
+    originalPowerPointFile: "Line patrol car.pptx",
+  },
+  "level-3-money-detector": {
+    id: "level-3-money-detector", title: "Money detector",
+    url: "/learning-slides/level-3/Money%20detector.pdf",
+    completionStepId: "level-3-money-detector-slides-complete",
+    sourceKind: "powerpoint",
+    originalPowerPointFile: "Money detector.pptx",
+  },
+  "level-3-parking-gate": {
+    id: "level-3-parking-gate", title: "Parking gate",
+    url: "/learning-slides/level-3/Parking%20gate.pdf",
+    completionStepId: "level-3-parking-gate-slides-complete",
+    sourceKind: "powerpoint",
+    originalPowerPointFile: "Parking gate.pptx",
+  },
+  "level-3-blood-bank-centrifuge": {
+    id: "level-3-blood-bank-centrifuge", title: "Blood bank Centrifuge",
+    url: "/learning-slides/level-3/Blood%20bank%20Centrifuge.pdf",
+    completionStepId: "level-3-blood-bank-centrifuge-slides-complete",
+    sourceKind: "powerpoint",
+    originalPowerPointFile: "Blood bank Centrifuge.pptx",
+  },
+  "level-3-fire-ladder": {
+    id: "level-3-fire-ladder", title: "Fire ladder",
+    url: "/learning-slides/level-3/Fire%20ladder.pdf",
+    completionStepId: "level-3-fire-ladder-slides-complete",
+    sourceKind: "powerpoint",
+    originalPowerPointFile: "Fire ladder.pptx",
+  },
+  "level-3-sign": {
+    id: "level-3-sign", title: "Sign",
+    url: "/learning-slides/level-3/Sign.pdf",
+    completionStepId: "level-3-sign-slides-complete",
+    sourceKind: "powerpoint",
+    originalPowerPointFile: "Sign.pptx",
   },
 };
 

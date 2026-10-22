@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "level": 3,
+  "presentations": [
+    {
+      "id": "level-3-super-trajectory-robot-1",
+      "title": "Super Trajectory Robot 1",
+      "category": "advanced-navigation-control",
+      "pptx": "13.Super Trajectory Robot 1-update.pptx",
+      "pdf": "13.Super Trajectory Robot 1-update.pdf"
+    },
+    {
+      "id": "level-3-stag-beetle",
+      "title": "Stag beetle",
+      "category": "biomimicry",
+      "pptx": "Stag beetle.pptx",
+      "pdf": "Stag beetle.pdf"
+    },
+    {
+      "id": "level-3-line-patrol-car",
+      "title": "Line patrol car",
+      "category": "foundational-robots",
+      "pptx": "Line patrol car.pptx",
+      "pdf": "Line patrol car.pdf"
+    },
+    {
+      "id": "level-3-money-detector",
+      "title": "Money detector",
+      "category": "machines-mechanisms",
+      "pptx": "Money detector.pptx",
+      "pdf": "Money detector.pdf"
+    },
+    {
+      "id": "level-3-parking-gate",
+      "title": "Parking gate",
+      "category": "machines-mechanisms",
+      "pptx": "Parking gate.pptx",
+      "pdf": "Parking gate.pdf"
+    },
+    {
+      "id": "level-3-blood-bank-centrifuge",
+      "title": "Blood bank Centrifuge",
+      "category": "manipulators",
+      "pptx": "Blood bank Centrifuge.pptx",
+      "pdf": "Blood bank Centrifuge.pdf"
+    },
+    {
+      "id": "level-3-fire-ladder",
+      "title": "Fire ladder",
+      "category": "mechanisms-and-concepts",
+      "pptx": "Fire ladder.pptx",
+      "pdf": "Fire ladder.pdf"
+    },
+    {
+      "id": "level-3-sign",
+      "title": "Sign",
+      "category": "mechanisms-and-concepts",
+      "pptx": "Sign.pptx",
+      "pdf": "Sign.pdf"
+    }
+  ]
+}
