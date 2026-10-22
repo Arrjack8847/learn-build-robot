@@ -518,6 +518,15 @@ export const practicalProjects: PracticalProject[] = [
   pdfManualProject("level-3-sound-level-meter", "Sound Level Meter", 159, "sound-voice-interaction", 3),
   pdfManualProject("level-3-f1-racing-car", "F1 racing car", 160, "vehicles-complex-movers", 3),
   pdfManualProject("level-3-long-lived-turtle", "Long-Lived Turtle", 161, "vehicles-complex-movers", 3),
+  // Presentation-only lessons: not verified building manuals.
+  pdfManualProject("level-3-super-trajectory-robot-1", "Super Trajectory Robot 1", 162, "advanced-navigation-control", 3),
+  pdfManualProject("level-3-stag-beetle", "Stag beetle", 163, "biomimicry", 3),
+  pdfManualProject("level-3-line-patrol-car", "Line patrol car", 164, "foundational-robots", 3),
+  pdfManualProject("level-3-money-detector", "Money detector", 165, "machines-mechanisms", 3),
+  pdfManualProject("level-3-parking-gate", "Parking gate", 166, "machines-mechanisms", 3),
+  pdfManualProject("level-3-blood-bank-centrifuge", "Blood bank Centrifuge", 167, "manipulators", 3),
+  pdfManualProject("level-3-fire-ladder", "Fire ladder", 168, "mechanisms-and-concepts", 3),
+  pdfManualProject("level-3-sign", "Sign", 169, "mechanisms-and-concepts", 3),
 ];
 
 export function getProject(id: string) {

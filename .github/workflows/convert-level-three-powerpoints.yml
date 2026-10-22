@@ -1,0 +1,47 @@
+name: Convert Level 3 PowerPoints to website slides
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "*.pptx"
+      - ".github/level-three-presentations.json"
+      - ".github/scripts/convert-level-three-presentations.mjs"
+      - ".github/workflows/convert-level-three-powerpoints.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bsr-level-three-powerpoints
+  cancel-in-progress: false
+
+jobs:
+  convert-presentations:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - name: Install PowerPoint conversion and PDF validation
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libreoffice-impress poppler-utils fonts-liberation
+      - name: Convert all registered Level 3 presentations to PDF
+        run: node .github/scripts/convert-level-three-presentations.mjs
+      - name: Commit updated website-ready PDF slides
+        shell: bash
+        run: |
+          git add -- public/learning-slides/level-3/
+          if git diff --cached --quiet; then
+            echo "All slides are already current"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(slides): refresh Level 3 PowerPoint PDF slides"
+          git pull --rebase origin main
+          git push origin HEAD:main

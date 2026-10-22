@@ -4,7 +4,7 @@ import { LevelOneBackdrop, categoryTones } from "@/components/practical/LevelOne
 import { SyllabusHeader } from "@/components/practical/SyllabusHeader";
 import { getAdvancedLevel, syllabusSlug } from "@/data/advancedSyllabus";
 import { practicalProjects } from "@/data/practical";
-import { isPdfActivityProject } from "@/data/pdfActivityManuals";
+import { isPdfActivityProject, pdfActivityManuals } from "@/data/pdfActivityManuals";
 import { levelTwoPowerPointSources } from "@/data/levelTwoPowerPointSources";
 
 /** Multiple original building manuals appear as version buttons on one syllabus activity card. */
@@ -80,11 +80,13 @@ function AdvancedLevelProjectsPage() {
                 .filter(choice => practicalProjects.some(project =>
                   project.id === choice.projectId && project.level === level &&
                   project.categoryId === category.id));
+              const isPresentation = Boolean(liveProject && pdfActivityManuals[liveProject.id]?.sourceKind === "powerpoint");
               const isReady = Boolean(liveProject || versions.length);
               // PowerPoints are offered as exact originals, not passed to the PDF renderer.
               const pptxUrl = level === 2 ? levelTwoPowerPointSources[entry.sourceEntry] : undefined;
               const Icon = entry.sourceKind === "pptx" ? Presentation : entry.sourceKind === "pdf" ? FileText : FolderOpen;
               const label = versions.length ? `${versions.length} original PDF building versions · choose below` :
+                isPresentation ? "Original PowerPoint slides · view page by page" :
                 liveProject && pptxUrl ? "Original PDF building manual · PowerPoint also available" :
                 liveProject && isPdfActivityProject(liveProject.id) ? "Original PDF building manual" :
                 pptxUrl ? "Original PowerPoint presentation" :
@@ -96,7 +98,7 @@ function AdvancedLevelProjectsPage() {
                       {isReady ? <Bot className="size-8" aria-hidden="true"/> : <Icon className="size-7" aria-hidden="true"/>}
                     </span>
                     <span className={`rounded-full px-3 py-1.5 text-xs font-bold ${isReady ? "bg-green-50 text-green-700" : "bg-slate-100 text-slate-600"}`}>
-                      {isReady ? "Ready to build" : pptxUrl ? "PowerPoint available" : "Lesson not added yet"}
+                      {isPresentation ? "View PowerPoint slides" : isReady ? "Ready to build" : pptxUrl ? "PowerPoint available" : "Lesson not added yet"}
                     </span>
                   </div>
                   <h3 className="mt-4 text-lg font-extrabold leading-snug">{entry.name}</h3>
@@ -116,7 +118,7 @@ function AdvancedLevelProjectsPage() {
                       <div className="flex flex-col gap-2">
                         <Link to="/practical/$projectId" params={{projectId:liveProject.id}}
                           className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 text-sm font-extrabold text-white hover:bg-[#0d7fda]">
-                          Open Building Studio <ArrowRight className="size-4" aria-hidden="true"/>
+                          {isPresentation ? "View slides" : "Open Building Studio"} <ArrowRight className="size-4" aria-hidden="true"/>
                         </Link>
                         {pptxUrl ? (
                           <a href={pptxUrl} download={entry.sourceEntry}
