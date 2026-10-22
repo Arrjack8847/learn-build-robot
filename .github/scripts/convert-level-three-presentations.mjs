@@ -25,7 +25,7 @@ for (const item of manifest.presentations) {
     throw new Error(`Conversion is not a PDF: ${item.pdf}`);
   }
   const pdfInfo = execFileSync("pdfinfo", [expected], {encoding: "utf8"});
-  const numPages = Number(pdfInfo.match(/^Pages:\\s+(\\d+)/m)?.[1] ?? 0);
+  const numPages = Number(pdfInfo.match(/^Pages:\s+(\d+)/m)?.[1] ?? 0);
   if (numPages <= 0) throw new Error(`Conversion has no slides: ${item.pdf}`);
   console.log(`Converted ${item.pptx}: ${numPages} slides, ${statSync(expected).size} bytes`);
 }
