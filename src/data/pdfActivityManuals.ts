@@ -165,6 +165,7 @@ import level3UploadedMoneyDetectorPdfUrl from "../../Money detector.pdf?url";
 import level3UploadedParkingGatePdfUrl from "../../Parking gate.pdf?url";
 import level3UploadedBloodBankCentrifugePdfUrl from "../../Blood bank Centrifuge.pdf?url";
 import level3UploadedFireLadderPdfUrl from "../../Fire ladder.pdf?url";
+import level3UploadedSignPdfUrl from "../../Sign.pdf?url";
 
 export interface PdfActivityManual {
   id: string;
@@ -863,7 +864,13 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
     sourceKind: "powerpoint",
     originalPowerPointFile: "Fire ladder.pptx",
   },
-
+  "level-3-sign": {
+    id: "level-3-sign", title: "Sign",
+    url: level3UploadedSignPdfUrl,
+    completionStepId: "level-3-sign-slides-complete",
+    sourceKind: "powerpoint",
+    originalPowerPointFile: "Sign.pptx",
+  },
 };
 
 export function isPdfActivityProject(id: string): boolean {

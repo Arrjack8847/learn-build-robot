@@ -31,7 +31,6 @@ test("Level 3 retains eight PowerPoint source entries and seven available slide 
     const uploaded = readFileSync(new URL("../" + item.pptx, import.meta.url));
     assert.ok(uploaded.length > 10000 && uploaded[0] === 0x50 && uploaded[1] === 0x4b,
       "Original PPTX file is missing or invalid: " + item.pptx);
-    if (item.id === "level-3-sign") continue; // uploaded Sign.pdf is 0 bytes
     assert.ok(pdfRegistry.includes('"'+item.id+'": {'), "Missing slide registry: " + item.id);
     assert.ok(pdfRegistry.includes('originalPowerPointFile: "'+item.pptx+'"'));
     assert.ok(pdfRegistry.includes('import '), "Imported root PDFs should be bundled by Vite");
@@ -42,13 +41,13 @@ test("Level 3 retains eight PowerPoint source entries and seven available slide 
     assert.ok(practical.includes('"' + item.category + '", 3, "powerpoint")'),
       "Presentation must produce -slides-complete progress: " + item.id);
   }
-  assert.equal(pairs.size, 8); // includes pending Sign syllabus slot
+  assert.equal(pairs.size, 8);
 });
 
 test("PDF helper uses separate presentation progress keys and labels", () => {
   assert.ok(practical.includes('sourceKind: "pdf" | "powerpoint" = "pdf"'));
   assert.ok(practical.includes('id: id + (isPresentation ? "-slides-complete" : "-manual-complete")'));
-  assert.equal((practical.match(/, 3, "powerpoint"\),/g) ?? []).length, 7);
+  assert.equal((practical.match(/, 3, "powerpoint"\),/g) ?? []).length, 8);
 });
 
 test("Slide viewer navigates existing PDF renderer without treating presentations as builds", () => {
@@ -79,16 +78,14 @@ test("Unverified sources stay unavailable", () => {
   }
 });
 
-test("Seven converted PDFs were uploaded to the repository root and Sign remains unavailable", () => {
-  const uploaded = manifest.presentations.filter(item => item.id !== "level-3-sign");
-  assert.equal(uploaded.length, 7);
+test("All eight converted PDFs were uploaded into the repository root", () => {
+  const uploaded = manifest.presentations;
+  assert.equal(uploaded.length, 8);
   for (const item of uploaded) {
     const buffer = readFileSync(new URL("../" + item.pdf, import.meta.url));
     assert.ok(buffer.length > 100, "Empty uploaded PDF: " + item.pdf);
     assert.equal(buffer.subarray(0, 5).toString("ascii"), "%PDF-", "Invalid PDF header: " + item.pdf);
     assert.ok(pdfRegistry.includes('from "../../' + item.pdf + '?url"'), "Root PDF import missing");
   }
-  assert.equal(statSync(new URL("../Sign.pdf", import.meta.url)).size, 0);
-  assert.ok(!pdfRegistry.includes('"level-3-sign": {'));
-  assert.ok(!practical.includes('pdfManualProject("level-3-sign"'));
+  assert.ok(statSync(new URL("../Sign.pdf", import.meta.url)).size > 100);
 });
