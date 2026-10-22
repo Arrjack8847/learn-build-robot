@@ -4,7 +4,7 @@ import test from "node:test";
 
 const read = path => readFileSync(new URL("../" + path, import.meta.url), "utf8");
 const syllabusSource = read("src/data/advancedSyllabus.ts");
-const match = syllabusSource.match(/export const ADVANCED_SYLLABUS = ([\\s\\S]*?) as const;/);
+const match = syllabusSource.match(/export const ADVANCED_SYLLABUS = ([\s\S]*?) as const;/);
 assert.ok(match, "Official syllabus catalog is required");
 const syllabus = JSON.parse(match[1])["3"];
 const manualRegistry = read("src/data/pdfActivityManuals.ts");
@@ -274,7 +274,7 @@ test("Level 3 registers 40 independent original-source PDF lessons across 37 syl
     assert.ok(practical.includes('pdfManualProject("' + id + '", "' + title + '",'), "Missing practical project " + id);
     assert.ok(practical.includes('"' + category + '", 3)'), "Wrong Level 3 category " + id);
     const syllabusRow = syllabus.find(row => normalize(row[0]) === category);
-    assert.ok(syllabusRow?.slice(1).some(entry => normalize(entry.replace(/\\.(pdf|pptx)$/i,"")) === normalize(title)),
+    assert.ok(syllabusRow?.slice(1).some(entry => normalize(entry.replace(/\.(pdf|pptx)$/i,"")) === normalize(title)),
       "Original syllabus placement mismatch: " + id);
     activities.add(category + ":" + normalize(title));
     if (!checkedFiles.has(filename)) {
