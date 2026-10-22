@@ -256,6 +256,12 @@ const catalog = [
     "Lunar Rover.pdf",
     "vehicles-motion",
     "Lunar Rover"
+  ],
+  [
+    "level-3-flashlight-sensor",
+    "04.Flashlight-Building Manual.pdf",
+    "illumination-signals",
+    "Flashlight Sensor"
   ]
 ];
 const normalize = value => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -265,7 +271,7 @@ test("Level 3 preserves all 20 categories and 48 official syllabus entries", () 
   assert.equal(syllabus.reduce((count, row) => count + row.length - 1, 0), 48);
 });
 
-test("Level 3 registers 41 original-source PDF lessons across 38 syllabus activities", async () => {
+test("Level 3 registers 42 original-source PDF lessons across 39 syllabus activities", async () => {
   const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
   const ids = new Set(), keys = new Set(), activities = new Set(), checkedFiles = new Set();
   for (const [id, filename, category, title] of catalog) {
@@ -293,9 +299,9 @@ test("Level 3 registers 41 original-source PDF lessons across 38 syllabus activi
       finally { await task.destroy(); }
     }
   }
-  assert.equal(ids.size, 41);
-  assert.equal(activities.size, 38);
-  assert.equal(checkedFiles.size, 39);
+  assert.equal(ids.size, 42);
+  assert.equal(activities.size, 39);
+  assert.equal(checkedFiles.size, 40);
 });
 
 test("Cycle Sport has two choices and Race Walking has three; existing See Saw stays intact", () => {
@@ -315,7 +321,6 @@ test("Unavailable or ambiguous Level 3 manuals are not falsely marked ready to b
     ["advanced-navigation-control","Super Trajectory Robot 1"],
     ["biomimicry","Stag beetle"],
     ["foundational-robots","Line patrol car"],
-    ["illumination-signals","Flashlight Sensor"],
     ["machines-mechanisms","Money detector"],
     ["machines-mechanisms","Parking gate"],
     ["manipulators","Blood bank Centrifuge"],
@@ -326,7 +331,7 @@ test("Unavailable or ambiguous Level 3 manuals are not falsely marked ready to b
     assert.ok(!catalog.some(([, , cat, name]) => cat===category && normalize(name)===normalize(title)),
       "Unverified source accidentally assigned to " + title);
   }
-  assert.equal(absent.length, 9);
+  assert.equal(absent.length, 8);
   assert.ok(manualRegistry.includes("../../Drawbridge.pdf?url"), "Reuploaded Drawbridge PDF missing");
   assert.ok(manualRegistry.includes('"level-3-drawbridge": {'));
   assert.ok(manualRegistry.includes('completionStepId: "level-3-drawbridge-slides-complete"'));
@@ -347,4 +352,27 @@ test("Drawbridge PDF is readable and treated as presentation slides", async () =
   finally { await task.destroy(); }
   assert.ok(manualRegistry.includes('import level3UploadedDrawbridgePdfUrl from "../../Drawbridge.pdf?url"'));
   assert.ok(manualRegistry.includes('sourceKind: "powerpoint"'));
+});
+
+test("User-confirmed Flashlight Sensor maps to 04.Flashlight-Building Manual.pdf", () => {
+  assert.ok(manualRegistry.includes('import level3FlashlightSensorPdfUrl from "../../04.Flashlight-Building Manual.pdf?url"'));
+  assert.ok(manualRegistry.includes('"level-3-flashlight-sensor": {'));
+  assert.ok(manualRegistry.includes('completionStepId: "level-3-flashlight-sensor-manual-complete"'));
+  assert.ok(practical.includes('pdfManualProject("level-3-flashlight-sensor", "Flashlight Sensor", 172, "illumination-signals", 3)'));
+});
+
+test("All 48 Level 3 syllabus activities have registered source lessons", () => {
+  const registered = Array.from(practical.matchAll(
+    /pdfManualProject\("(level-3-[^"]+)", "([^"]+)", \d+, "([^"]+)", 3(?:, "powerpoint")?\)/g
+  ), match => ({ id: match[1], title: match[2], category: match[3] }));
+  assert.equal(registered.length, 51);
+  const mapped = new Set(registered.map(p => p.category + ":" + normalize(p.title)));
+  const expected = new Set(syllabus.flatMap(([category, ...entries]) =>
+    entries.map(entry => normalize(category) + ":" + normalize(entry.replace(/\.(pdf|pptx)$/i, "")))
+  ));
+  assert.equal(mapped.size, 48);
+  assert.deepEqual([...mapped].sort(), [...expected].sort());
+  for (const project of registered) {
+    assert.ok(manualRegistry.includes('"' + project.id + '": {'), "Missing registry: " + project.id);
+  }
 });
