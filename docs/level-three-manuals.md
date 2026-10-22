@@ -4,16 +4,16 @@ Official Level 3 syllabus: **20 categories, 48 activities**.
 
 ## Current connected coverage
 
-- **38 activities** use exact-name source PDF lessons via PDF Building Studio, with **41 independent PDF project registrations** due to multiple Cycle Sport and Race Walking versions.
+- **39 activities** use original source PDF lessons via PDF Building Studio, with **42 independent PDF project registrations** due to multiple Cycle Sport and Race Walking versions.
 - **9 activities** use PDF slides derived from uploaded PowerPoints or provided as a slideshow-compatible PDF: eight original PPTX conversions plus Drawbridge.
-- **47 out of 48 Level 3 activities are connected.**
+- **All 48 Level 3 activities are connected.**
 - The existing per-page PDF.js viewer, Back/Next controls, and separate completion keys are reused. Slides are **not** represented as verified mechanical assembly instructions.
 
 ## Latest source additions
 
 - `Drawbridge.pdf` (1,518,257 bytes): its old zero-byte file was replaced. The official syllabus lists `Drawbridge.pptx`, but only this PDF was found, so it is registered as a **slide-based learning resource**, not claimed to be an original physical assembly manual.
 - `Lunar Rover.pdf` (7,810,384 bytes): exact match for `Vehicles & Motion / Lunar Rover.pdf`, registered as a PDF lesson.
-- **Flashlight Sensor remains unlinked.** Older files `04.Flashlight-Building Manual.pdf` and `Flashlight_Building.pdf` refer to Flashlight, and the original source identity for *Flashlight Sensor* has not been verified.
+- **Flashlight Sensor is connected.** The user confirmed that `04.Flashlight-Building Manual.pdf` is the Level 3 Illumination & Signals / Flashlight Sensor source. The separate `Flashlight_Building.pdf` Level 2 Manual Flashlight lesson remains unchanged.
 
 ## Verification
 
