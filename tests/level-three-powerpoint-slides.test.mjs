@@ -89,3 +89,10 @@ test("All eight converted PDFs were uploaded into the repository root", () => {
   }
   assert.ok(statSync(new URL("../Sign.pdf", import.meta.url)).size > 100);
 });
+
+test("Newly uploaded Drawbridge PDF uses slideshow controls and separate presentation progress", () => {
+  assert.ok(pdfRegistry.includes('level3UploadedDrawbridgePdfUrl from "../../Drawbridge.pdf?url"'));
+  assert.ok(pdfRegistry.includes('completionStepId: "level-3-drawbridge-slides-complete"'));
+  assert.ok(practical.includes('pdfManualProject("level-3-drawbridge", "Drawbridge", 170, "mechanisms-and-concepts", 3, "powerpoint")'));
+  assert.ok(viewer.includes('"Next Slide"'));
+});

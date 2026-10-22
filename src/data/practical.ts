@@ -535,6 +535,8 @@ export const practicalProjects: PracticalProject[] = [
   pdfManualProject("level-3-blood-bank-centrifuge", "Blood bank Centrifuge", 167, "manipulators", 3, "powerpoint"),
   pdfManualProject("level-3-fire-ladder", "Fire ladder", 168, "mechanisms-and-concepts", 3, "powerpoint"),
   pdfManualProject("level-3-sign", "Sign", 169, "mechanisms-and-concepts", 3, "powerpoint"),
+  pdfManualProject("level-3-drawbridge", "Drawbridge", 170, "mechanisms-and-concepts", 3, "powerpoint"),
+  pdfManualProject("level-3-lunar-rover", "Lunar Rover", 171, "vehicles-motion", 3),
 ];
 
 export function getProject(id: string) {
