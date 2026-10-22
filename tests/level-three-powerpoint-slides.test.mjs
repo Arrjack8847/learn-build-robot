@@ -37,9 +37,16 @@ test("Exactly eight original Level 3 PowerPoints are mapped, without pretending 
     assert.ok(pdfRegistry.includes('completionStepId: "' + item.id + '-slides-complete"'));
     assert.ok(practical.includes('pdfManualProject("' + item.id + '", "' + item.title + '",'),
       "Missing Level 3 presentation route: " + item.id);
-    assert.ok(practical.includes('"' + item.category + '", 3)'));
+    assert.ok(practical.includes('"' + item.category + '", 3, "powerpoint")'),
+      "Presentation must produce -slides-complete progress: " + item.id);
   }
   assert.equal(pairs.size, 8);
+});
+
+test("PDF helper uses separate presentation progress keys and labels", () => {
+  assert.ok(practical.includes('sourceKind: "pdf" | "powerpoint" = "pdf"'));
+  assert.ok(practical.includes('id: id + (isPresentation ? "-slides-complete" : "-manual-complete")'));
+  assert.equal((practical.match(/, 3, "powerpoint"\),/g) ?? []).length, 8);
 });
 
 test("Slide viewer navigates existing PDF renderer without treating presentations as builds", () => {
