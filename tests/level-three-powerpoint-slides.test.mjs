@@ -15,7 +15,7 @@ assert.ok(syllabusMatch, "Required official syllabus missing");
 const level3 = JSON.parse(syllabusMatch[1])["3"];
 const slug = name => name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-test("Exactly eight original Level 3 PowerPoints are mapped, without pretending to be building manuals", () => {
+test("Level 3 retains eight PowerPoint source entries and seven available slide lessons", () => {
   assert.equal(manifest.level, 3);
   assert.equal(manifest.presentations.length, 8);
   const ids = new Set(), pairs = new Set(), pdfs = new Set();

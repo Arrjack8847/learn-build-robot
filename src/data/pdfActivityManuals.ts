@@ -813,7 +813,7 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
     id: "level-3-long-lived-turtle", title: "Long-Lived Turtle", url: level3Pdf38Url,
     completionStepId: "level-3-long-lived-turtle-manual-complete",
   },
-  /** PowerPoints are rendered slide by slide only after conversion by GitHub Actions. */
+  /** Converted PowerPoint PDFs uploaded directly to the repository root; no GitHub Actions dependency. */
   "level-3-super-trajectory-robot-1": {
     id: "level-3-super-trajectory-robot-1", title: "Super Trajectory Robot 1",
     url: level3UploadedSuperTrajectoryPdfUrl,
