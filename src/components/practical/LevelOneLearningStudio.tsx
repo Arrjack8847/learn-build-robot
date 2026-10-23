@@ -64,7 +64,7 @@ export function LevelOneLearningStudio({
   }, []);
 
   useEffect(() => {
-    const onFullScreenChange = () => setIsFullscreen(document.fullscreenElement === workspaceRef.current);
+    const onFullScreenChange = () => setIsFullscreen(window.document.fullscreenElement === workspaceRef.current);
     window.document.addEventListener("fullscreenchange", onFullScreenChange);
     return () => window.document.removeEventListener("fullscreenchange", onFullScreenChange);
   }, []);
@@ -99,7 +99,7 @@ export function LevelOneLearningStudio({
     const area = workspaceRef.current;
     if (!area) return;
     try {
-      if (document.fullscreenElement === area) await window.document.exitFullscreen();
+      if (window.document.fullscreenElement === area) await window.document.exitFullscreen();
       else await area.requestFullscreen();
     } catch {
       // The browser may block full screen in embedded contexts.
