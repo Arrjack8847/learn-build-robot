@@ -23,6 +23,7 @@ import { PdfActivityViewer } from "@/components/practical/PdfActivityViewer";
 import { pdfActivityManuals } from "@/data/pdfActivityManuals";
 import { getLevelOneLecture } from "@/data/levelOneLectures";
 import { getLevelTwoLecture } from "@/data/levelTwoLectures";
+import { getLevelThreeLecture } from "@/data/levelThreeLectures";
 import { LevelOneLearningStudio } from "@/components/practical/LevelOneLearningStudio";
 import { BuildingStudioHeader, BuildingStepDrawer, BuildingFloatingDock, BuildingStudioCompletion } from "@/components/practical/BuildingStudio";
 import { StepThreeAssembly } from "@/components/practical/StepThreeAssembly";
@@ -72,10 +73,11 @@ function PracticalProjectPage() {
   }
 
   const lecture = project.level === 1 ? getLevelOneLecture(project.id) :
-    project.level === 2 ? getLevelTwoLecture(project.id) : undefined;
+    project.level === 2 ? getLevelTwoLecture(project.id) :
+    project.level === 3 ? getLevelThreeLecture(project.id) : undefined;
   // Legacy direct links to slide-only projects should still open their lecture.
   if (lecture && (mode === "learning" || lecture.learningOnly)) {
-    return <LevelOneLearningStudio key={project.id} projectId={project.id} title={project.title} level={project.level === 2 ? 2 : 1} lecture={lecture} />;
+    return <LevelOneLearningStudio key={project.id} projectId={project.id} title={project.title} level={project.level === 3 ? 3 : project.level === 2 ? 2 : 1} lecture={lecture} />;
   }
 
   if (!hydrated) {

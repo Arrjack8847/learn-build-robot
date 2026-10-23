@@ -8,6 +8,7 @@ import { getProject } from "@/data/practical";
 import { pdfActivityManuals } from "@/data/pdfActivityManuals";
 import { getLevelOneLecture } from "@/data/levelOneLectures";
 import { getLevelTwoLecture } from "@/data/levelTwoLectures";
+import { getLevelThreeLecture } from "@/data/levelThreeLectures";
 
 export const Route = createFileRoute("/projects/$projectId")({
   component: ProjectOverviewPage,
@@ -43,7 +44,8 @@ function ProjectOverviewPage() {
     : undefined;
   const isPresentation = pdfActivityManuals[project.id]?.sourceKind === "powerpoint";
   const lecture = level === 1 ? getLevelOneLecture(project.id) :
-    level === 2 ? getLevelTwoLecture(project.id) : undefined;
+    level === 2 ? getLevelTwoLecture(project.id) :
+    level === 3 ? getLevelThreeLecture(project.id) : undefined;
   // Lecture slides and assembly manuals are different activities.
   const hasLearning = Boolean(lecture) || isPresentation;
   const hasBuilding = !isPresentation && !lecture?.learningOnly;

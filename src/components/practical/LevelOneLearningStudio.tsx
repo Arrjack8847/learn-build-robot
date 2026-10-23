@@ -13,7 +13,7 @@ export function LevelOneLearningStudio({
   projectId: string;
   title: string;
   lecture: LevelOneLecture;
-  level?: 1 | 2;
+  level?: 1 | 2 | 3;
 }) {
   const [document, setDocument] = useState<PDFDocumentProxy | null>(null);
   const [error, setError] = useState<string | null>(null);
