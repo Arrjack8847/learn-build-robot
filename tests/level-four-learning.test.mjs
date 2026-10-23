@@ -118,8 +118,9 @@ test("Level 4 presentations use the existing Project to Learning flow and slide 
     "utf8",
   );
   assert.ok(overview.includes('pdfActivityManuals[project.id]?.sourceKind === "powerpoint"'));
-  assert.ok(overview.includes("const hasLearning = isPresentation"));
-  assert.ok(overview.includes("const hasBuilding = !isPresentation"));
+  assert.ok(overview.includes("const hasLearning = Boolean(lecture) || isPresentation"));
+  assert.ok(overview.includes("const hasBuilding = !isPresentation && !lecture?.learningOnly"));
+  assert.ok(overview.includes("level === 1 ? getLevelOneLecture(project.id) : undefined"));
   assert.ok(overview.includes("Start Learning"));
   assert.ok(viewer.includes('"Next Slide"'));
   assert.ok(viewer.includes('"Finish Slides"'));
