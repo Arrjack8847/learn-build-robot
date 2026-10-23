@@ -10,33 +10,172 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PracticalIndexRouteImport } from './routes/practical/index'
+import { Route as PracticalProjectIdRouteImport } from './routes/practical/$projectId'
+import { Route as PracticalLevel1RouteImport } from './routes/practical/level-1'
+import { Route as PracticalLevelsRouteImport } from './routes/practical/levels'
+import { Route as ProjectsProjectIdRouteImport } from './routes/projects.$projectId'
+import { Route as PracticalLevel1IndexRouteImport } from './routes/practical/level-1.index'
+import { Route as PracticalLevel1CategoryIdRouteImport } from './routes/practical/level-1.$categoryId'
+import { Route as PracticalLevelsIndexRouteImport } from './routes/practical/levels.index'
+import { Route as PracticalLevelsLevelNumberRouteImport } from './routes/practical/levels.$levelNumber'
+import { Route as PracticalLevelsLevelNumberIndexRouteImport } from './routes/practical/levels.$levelNumber.index'
+import { Route as PracticalLevelsLevelNumberCategoryIdRouteImport } from './routes/practical/levels.$levelNumber.$categoryId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PracticalIndexRoute = PracticalIndexRouteImport.update({
+  id: '/practical/',
+  path: '/practical/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PracticalProjectIdRoute = PracticalProjectIdRouteImport.update({
+  id: '/practical/$projectId',
+  path: '/practical/$projectId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PracticalLevel1Route = PracticalLevel1RouteImport.update({
+  id: '/practical/level-1',
+  path: '/practical/level-1',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PracticalLevelsRoute = PracticalLevelsRouteImport.update({
+  id: '/practical/levels',
+  path: '/practical/levels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsProjectIdRoute = ProjectsProjectIdRouteImport.update({
+  id: '/projects/$projectId',
+  path: '/projects/$projectId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PracticalLevel1IndexRoute = PracticalLevel1IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PracticalLevel1Route,
+} as any)
+const PracticalLevel1CategoryIdRoute =
+  PracticalLevel1CategoryIdRouteImport.update({
+    id: '/$categoryId',
+    path: '/$categoryId',
+    getParentRoute: () => PracticalLevel1Route,
+  } as any)
+const PracticalLevelsIndexRoute = PracticalLevelsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PracticalLevelsRoute,
+} as any)
+const PracticalLevelsLevelNumberRoute =
+  PracticalLevelsLevelNumberRouteImport.update({
+    id: '/$levelNumber',
+    path: '/$levelNumber',
+    getParentRoute: () => PracticalLevelsRoute,
+  } as any)
+const PracticalLevelsLevelNumberIndexRoute =
+  PracticalLevelsLevelNumberIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => PracticalLevelsLevelNumberRoute,
+  } as any)
+const PracticalLevelsLevelNumberCategoryIdRoute =
+  PracticalLevelsLevelNumberCategoryIdRouteImport.update({
+    id: '/$categoryId',
+    path: '/$categoryId',
+    getParentRoute: () => PracticalLevelsLevelNumberRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/practical/$projectId': typeof PracticalProjectIdRoute
+  '/practical/level-1': typeof PracticalLevel1RouteWithChildren
+  '/practical/levels': typeof PracticalLevelsRouteWithChildren
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
+  '/practical/': typeof PracticalIndexRoute
+  '/practical/level-1/$categoryId': typeof PracticalLevel1CategoryIdRoute
+  '/practical/levels/$levelNumber': typeof PracticalLevelsLevelNumberRouteWithChildren
+  '/practical/level-1/': typeof PracticalLevel1IndexRoute
+  '/practical/levels/': typeof PracticalLevelsIndexRoute
+  '/practical/levels/$levelNumber/$categoryId': typeof PracticalLevelsLevelNumberCategoryIdRoute
+  '/practical/levels/$levelNumber/': typeof PracticalLevelsLevelNumberIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/practical/$projectId': typeof PracticalProjectIdRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
+  '/practical': typeof PracticalIndexRoute
+  '/practical/level-1/$categoryId': typeof PracticalLevel1CategoryIdRoute
+  '/practical/level-1': typeof PracticalLevel1IndexRoute
+  '/practical/levels': typeof PracticalLevelsIndexRoute
+  '/practical/levels/$levelNumber/$categoryId': typeof PracticalLevelsLevelNumberCategoryIdRoute
+  '/practical/levels/$levelNumber': typeof PracticalLevelsLevelNumberIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/practical/$projectId': typeof PracticalProjectIdRoute
+  '/practical/level-1': typeof PracticalLevel1RouteWithChildren
+  '/practical/levels': typeof PracticalLevelsRouteWithChildren
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
+  '/practical/': typeof PracticalIndexRoute
+  '/practical/level-1/$categoryId': typeof PracticalLevel1CategoryIdRoute
+  '/practical/levels/$levelNumber': typeof PracticalLevelsLevelNumberRouteWithChildren
+  '/practical/level-1/': typeof PracticalLevel1IndexRoute
+  '/practical/levels/': typeof PracticalLevelsIndexRoute
+  '/practical/levels/$levelNumber/$categoryId': typeof PracticalLevelsLevelNumberCategoryIdRoute
+  '/practical/levels/$levelNumber/': typeof PracticalLevelsLevelNumberIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/practical/$projectId'
+    | '/practical/level-1'
+    | '/practical/levels'
+    | '/projects/$projectId'
+    | '/practical/'
+    | '/practical/level-1/$categoryId'
+    | '/practical/levels/$levelNumber'
+    | '/practical/level-1/'
+    | '/practical/levels/'
+    | '/practical/levels/$levelNumber/$categoryId'
+    | '/practical/levels/$levelNumber/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/practical/$projectId'
+    | '/projects/$projectId'
+    | '/practical'
+    | '/practical/level-1/$categoryId'
+    | '/practical/level-1'
+    | '/practical/levels'
+    | '/practical/levels/$levelNumber/$categoryId'
+    | '/practical/levels/$levelNumber'
+  id:
+    | '__root__'
+    | '/'
+    | '/practical/$projectId'
+    | '/practical/level-1'
+    | '/practical/levels'
+    | '/projects/$projectId'
+    | '/practical/'
+    | '/practical/level-1/$categoryId'
+    | '/practical/levels/$levelNumber'
+    | '/practical/level-1/'
+    | '/practical/levels/'
+    | '/practical/levels/$levelNumber/$categoryId'
+    | '/practical/levels/$levelNumber/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PracticalProjectIdRoute: typeof PracticalProjectIdRoute
+  PracticalLevel1Route: typeof PracticalLevel1RouteWithChildren
+  PracticalLevelsRoute: typeof PracticalLevelsRouteWithChildren
+  ProjectsProjectIdRoute: typeof ProjectsProjectIdRoute
+  PracticalIndexRoute: typeof PracticalIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +187,138 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/practical/': {
+      id: '/practical/'
+      path: '/practical'
+      fullPath: '/practical/'
+      preLoaderRoute: typeof PracticalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/practical/$projectId': {
+      id: '/practical/$projectId'
+      path: '/practical/$projectId'
+      fullPath: '/practical/$projectId'
+      preLoaderRoute: typeof PracticalProjectIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/practical/level-1': {
+      id: '/practical/level-1'
+      path: '/practical/level-1'
+      fullPath: '/practical/level-1'
+      preLoaderRoute: typeof PracticalLevel1RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/practical/levels': {
+      id: '/practical/levels'
+      path: '/practical/levels'
+      fullPath: '/practical/levels'
+      preLoaderRoute: typeof PracticalLevelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/$projectId': {
+      id: '/projects/$projectId'
+      path: '/projects/$projectId'
+      fullPath: '/projects/$projectId'
+      preLoaderRoute: typeof ProjectsProjectIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/practical/level-1/': {
+      id: '/practical/level-1/'
+      path: '/'
+      fullPath: '/practical/level-1/'
+      preLoaderRoute: typeof PracticalLevel1IndexRouteImport
+      parentRoute: typeof PracticalLevel1Route
+    }
+    '/practical/level-1/$categoryId': {
+      id: '/practical/level-1/$categoryId'
+      path: '/$categoryId'
+      fullPath: '/practical/level-1/$categoryId'
+      preLoaderRoute: typeof PracticalLevel1CategoryIdRouteImport
+      parentRoute: typeof PracticalLevel1Route
+    }
+    '/practical/levels/': {
+      id: '/practical/levels/'
+      path: '/'
+      fullPath: '/practical/levels/'
+      preLoaderRoute: typeof PracticalLevelsIndexRouteImport
+      parentRoute: typeof PracticalLevelsRoute
+    }
+    '/practical/levels/$levelNumber': {
+      id: '/practical/levels/$levelNumber'
+      path: '/$levelNumber'
+      fullPath: '/practical/levels/$levelNumber'
+      preLoaderRoute: typeof PracticalLevelsLevelNumberRouteImport
+      parentRoute: typeof PracticalLevelsRoute
+    }
+    '/practical/levels/$levelNumber/': {
+      id: '/practical/levels/$levelNumber/'
+      path: '/'
+      fullPath: '/practical/levels/$levelNumber/'
+      preLoaderRoute: typeof PracticalLevelsLevelNumberIndexRouteImport
+      parentRoute: typeof PracticalLevelsLevelNumberRoute
+    }
+    '/practical/levels/$levelNumber/$categoryId': {
+      id: '/practical/levels/$levelNumber/$categoryId'
+      path: '/$categoryId'
+      fullPath: '/practical/levels/$levelNumber/$categoryId'
+      preLoaderRoute: typeof PracticalLevelsLevelNumberCategoryIdRouteImport
+      parentRoute: typeof PracticalLevelsLevelNumberRoute
+    }
   }
 }
 
+interface PracticalLevel1RouteChildren {
+  PracticalLevel1CategoryIdRoute: typeof PracticalLevel1CategoryIdRoute
+  PracticalLevel1IndexRoute: typeof PracticalLevel1IndexRoute
+}
+
+const PracticalLevel1RouteChildren: PracticalLevel1RouteChildren = {
+  PracticalLevel1CategoryIdRoute: PracticalLevel1CategoryIdRoute,
+  PracticalLevel1IndexRoute: PracticalLevel1IndexRoute,
+}
+
+const PracticalLevel1RouteWithChildren = PracticalLevel1Route._addFileChildren(
+  PracticalLevel1RouteChildren,
+)
+
+interface PracticalLevelsLevelNumberRouteChildren {
+  PracticalLevelsLevelNumberCategoryIdRoute: typeof PracticalLevelsLevelNumberCategoryIdRoute
+  PracticalLevelsLevelNumberIndexRoute: typeof PracticalLevelsLevelNumberIndexRoute
+}
+
+const PracticalLevelsLevelNumberRouteChildren: PracticalLevelsLevelNumberRouteChildren =
+  {
+    PracticalLevelsLevelNumberCategoryIdRoute:
+      PracticalLevelsLevelNumberCategoryIdRoute,
+    PracticalLevelsLevelNumberIndexRoute: PracticalLevelsLevelNumberIndexRoute,
+  }
+
+const PracticalLevelsLevelNumberRouteWithChildren =
+  PracticalLevelsLevelNumberRoute._addFileChildren(
+    PracticalLevelsLevelNumberRouteChildren,
+  )
+
+interface PracticalLevelsRouteChildren {
+  PracticalLevelsLevelNumberRoute: typeof PracticalLevelsLevelNumberRouteWithChildren
+  PracticalLevelsIndexRoute: typeof PracticalLevelsIndexRoute
+}
+
+const PracticalLevelsRouteChildren: PracticalLevelsRouteChildren = {
+  PracticalLevelsLevelNumberRoute: PracticalLevelsLevelNumberRouteWithChildren,
+  PracticalLevelsIndexRoute: PracticalLevelsIndexRoute,
+}
+
+const PracticalLevelsRouteWithChildren = PracticalLevelsRoute._addFileChildren(
+  PracticalLevelsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PracticalProjectIdRoute: PracticalProjectIdRoute,
+  PracticalLevel1Route: PracticalLevel1RouteWithChildren,
+  PracticalLevelsRoute: PracticalLevelsRouteWithChildren,
+  ProjectsProjectIdRoute: ProjectsProjectIdRoute,
+  PracticalIndexRoute: PracticalIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

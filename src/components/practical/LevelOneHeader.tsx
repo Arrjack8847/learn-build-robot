@@ -9,7 +9,7 @@ export const categoryTones = {
 } as const;
 
 export function LevelOneHeader({ backTo, backLabel = "Back" }: {
-  backTo: "/choose" | "/practical/levels" | "/practical/level-1";
+  backTo: "/practical/levels" | "/practical/level-1";
   backLabel?: string;
 }) {
   return (

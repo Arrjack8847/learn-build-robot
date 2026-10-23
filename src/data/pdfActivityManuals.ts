@@ -1,3 +1,4 @@
+import { levelFourLearningManuals } from "./levelFourLearning";
 /** Original GitHub-uploaded PDF manuals, with no invented assembly steps. */
 import cagedBirdUrl from "../../Caged Bird.pdf?url";
 import funnyCatUrl from "../../FUNNY CAT.pdf?url";
@@ -893,6 +894,7 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
     url: level3FlashlightSensorPdfUrl,
     completionStepId: "level-3-flashlight-sensor-manual-complete",
   },
+  ...levelFourLearningManuals,
 };
 
 export function isPdfActivityProject(id: string): boolean {

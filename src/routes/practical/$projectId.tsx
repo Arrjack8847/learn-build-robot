@@ -3,6 +3,7 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import {
   ArrowLeft,
   ArrowRight,
+  Bot,
   CheckCircle2,
   ChevronLeft,
   CircleHelp,
@@ -16,7 +17,6 @@ import {
   TriangleAlert,
 } from "lucide-react";
 
-import { RobotIllustration } from "@/components/journey/RobotIllustration";
 import { Marksman3DPreview } from "@/components/practical/Marksman3DPreview";
 import { AccelerationCarPdfViewer } from "@/components/practical/AccelerationCarPdfViewer";
 import { PdfActivityViewer } from "@/components/practical/PdfActivityViewer";
@@ -231,10 +231,13 @@ function BuildSession({ project }: { project: PracticalProject }) {
                   src={currentStep.image}
                 />
               ) : (
-                <RobotIllustration
-                  className="relative min-h-[220px] w-full rounded-[22px] sm:min-h-[300px] md:min-h-[420px] md:rounded-[28px]"
-                  variant={project.number - 1}
-                />
+                <div
+                  className="relative grid min-h-[220px] w-full place-items-center rounded-[22px] bg-sky-50 sm:min-h-[300px] md:min-h-[420px] md:rounded-[28px]"
+                  role="img"
+                  aria-label={project.title}
+                >
+                  <Bot className="size-28 text-sky-400" aria-hidden="true" />
+                </div>
               )}
             </div>
             </div>

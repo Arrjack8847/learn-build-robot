@@ -1,4 +1,5 @@
 import type { PracticalProject } from "@/types/learning";
+import { levelFourLearningLessons } from "./levelFourLearning";
 
 const marksmanshipSteps: PracticalProject["steps"] = [
   {
@@ -303,7 +304,7 @@ const accelerationCarPdfSteps: PracticalProject["steps"] =
 /** One explicit completion action per PDF manual; viewing pages alone does not claim assembly. */
 function pdfManualProject(
   id: string, title: string, number: number,
-  categoryId: string = "biomimicry", level: 1 | 2 | 3 = 1,
+  categoryId: string = "biomimicry", level: NonNullable<PracticalProject["level"]> = 1,
   sourceKind: "pdf" | "powerpoint" = "pdf",
 ): PracticalProject {
   const isPresentation = sourceKind === "powerpoint";
@@ -538,6 +539,10 @@ export const practicalProjects: PracticalProject[] = [
   pdfManualProject("level-3-drawbridge", "Drawbridge", 170, "mechanisms-and-concepts", 3, "powerpoint"),
   pdfManualProject("level-3-lunar-rover", "Lunar Rover", 171, "vehicles-motion", 3),
   pdfManualProject("level-3-flashlight-sensor", "Flashlight Sensor", 172, "illumination-signals", 3),
+  // Every Level 4 syllabus activity has an original presentation for Learning.
+  ...levelFourLearningLessons.map((lesson, index) => pdfManualProject(
+    lesson.id, lesson.title, 173 + index, lesson.categoryId, 4, "powerpoint",
+  )),
 ];
 
 export function getProject(id: string) {

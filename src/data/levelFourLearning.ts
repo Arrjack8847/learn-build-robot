@@ -1,0 +1,658 @@
+/** Level 4 Learning presentations, aligned to the official category and lesson names. */
+import type { PdfActivityManual } from "./pdfActivityManuals";
+import level4Pdf01Url from "../../Level 4/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Slides.pdf?url";
+import level4Pdf02Url from "../../Level 4/Advanced Navigation & Control/Drop-proof Robot/12.Drop-proof Robot-update.pdf?url";
+import level4Pdf03Url from "../../Level 4/Advanced Navigation & Control/Super Trajectory Robot 2/14. Super Trajectory Robot 2-update.pdf?url";
+import level4Pdf04Url from "../../Level 4/Automation & Security/Personal Bodyguard/09. Personal Bodyguard-Teaching Slides.pdf?url";
+import level4Pdf05Url from "../../Level 4/Automation & Security/Scan to Open the Gate/01. Scan to Open the Gate-Slides.pdf?url";
+import level4Pdf06Url from "../../Level 4/Automation & Security/Smart curtain/Smart curtain_Powerpoint.pdf?url";
+import level4Pdf07Url from "../../Level 4/Automation & Security/Tag Recognition/06. Tag Recognition.pdf?url";
+import level4Pdf08Url from "../../Level 4/Autonomous Navigation & Ranging/Guide Dogs/10. Guide Dogs - Slides.pdf?url";
+import level4Pdf09Url from "../../Level 4/Autonomous Navigation & Ranging/Keeping Distance/12. Keeping Distance-Teaching Slides.pdf?url";
+import level4Pdf10Url from "../../Level 4/Autonomous Navigation & Ranging/Laser Rangefinder/10. Laser Rangefinder - Teaching Slides.pdf?url";
+import level4Pdf11Url from "../../Level 4/Autonomous Navigation & Ranging/Magnetically Controlled Door/06. Magnetically controlled door-Teaching Slides.pdf?url";
+import level4Pdf12Url from "../../Level 4/Autonomous Navigation & Ranging/Obstacle Avoidance In Snow/4. Obstacle Avoidance In Snow - Slides.pdf?url";
+import level4Pdf13Url from "../../Level 4/Autonomous Navigation & Ranging/Obstacle Avoidance Robot 2/Obstacle Avoidance Robot 2_Powerpoint.pdf?url";
+import level4Pdf14Url from "../../Level 4/Autonomous Navigation & Ranging/Probe Vehicle/02.Probe Vehicle.pdf?url";
+import level4Pdf15Url from "../../Level 4/Autonomous Navigation & Ranging/Radar vehicle/Radar vehicle_Powerpoint.pdf?url";
+import level4Pdf16Url from "../../Level 4/Biomimicry & Stimulus Response/Nocturnal beetle/10.Nocturnal beetle-update.pdf?url";
+import level4Pdf17Url from "../../Level 4/Characters & Structures/A Timid Mouse/Lesson 25. A Timid Mouse-Teaching Slides.pdf?url";
+import level4Pdf18Url from "../../Level 4/Characters & Structures/Elf in the Tree/12. Elf in the Tree - Slides.pdf?url";
+import level4Pdf19Url from "../../Level 4/Characters & Structures/Parts Sorter/22.Parts Sorter- Slides.pdf?url";
+import level4Pdf20Url from "../../Level 4/Characters & Structures/Swimming Plesiosaur/19. Swimming Plesiosaur-Teaching Slides.pdf?url";
+import level4Pdf21Url from "../../Level 4/Characters & Structures/Tail-Wagging Stegosaurus/18. Tail-Wagging Stegosaurus-Slides.pdf?url";
+import level4Pdf22Url from "../../Level 4/Complex Mechanisms & Coordinated Motion/Architectural design/Architectural design.pdf?url";
+import level4Pdf23Url from "../../Level 4/Complex Mechanisms & Coordinated Motion/Card Machine/05.Card Machine-update.pdf?url";
+import level4Pdf24Url from "../../Level 4/Display & Movement/Dancing Robot/31.Dancing Robot-Slides.pdf?url";
+import level4Pdf25Url from "../../Level 4/Display & Movement/Skiing Robot/28.Skiing Robot -Slides.pdf?url";
+import level4Pdf26Url from "../../Level 4/Foundational Robots/Vending machine.pdf?url";
+import level4Pdf27Url from "../../Level 4/Illumination & Signals/Induction Desk Lamp/13. Induction Desk Lamp-Teaching Slides.pdf?url";
+import level4Pdf28Url from "../../Level 4/Interactive Mechanisms/Scorpion/Scorpion_Powerpoint-update.pdf?url";
+import level4Pdf29Url from "../../Level 4/Interactive Mechanisms/Smart Luggage/16. Smart Luggage-Teaching Slides.pdf?url";
+import level4Pdf30Url from "../../Level 4/Interactive Mechanisms/Telegraph machine/Telegraph machine_Powerpoint-update.pdf?url";
+import level4Pdf31Url from "../../Level 4/Interactive Mechanisms/Voice Control/01.Voice Control.pdf?url";
+import level4Pdf32Url from "../../Level 4/Interactive Systems/Basketball Shooting Machine/27.Basketball Shooting Machine -Slides.pdf?url";
+import level4Pdf33Url from "../../Level 4/Interactive Systems/Obstacle Avoidance Robot/18.Obstacle Avoidance Robot-Slides.pdf?url";
+import level4Pdf34Url from "../../Level 4/Interactive Systems/Reaction Tester/19.Reaction Tester-Slides.pdf?url";
+import level4Pdf35Url from "../../Level 4/Interactive Systems/Tumbler/01. Tumbler - Teaching Slides.pdf?url";
+import level4Pdf36Url from "../../Level 4/Machines & Mechanisms/Safe Box.pdf?url";
+import level4Pdf37Url from "../../Level 4/Mechanisms & Simulators/Biped Robot/20. Biped Robot-Teaching Slides.pdf?url";
+import level4Pdf38Url from "../../Level 4/Mechanisms & Simulators/Horizontal Bar/5. Horizontal Bar- Slides.pdf?url";
+import level4Pdf39Url from "../../Level 4/Mechanisms & Simulators/Oscillating Fan/19.Oscillating Fan -Slides.pdf?url";
+import level4Pdf40Url from "../../Level 4/Mechanisms & Simulators/Spinning Cups/14. Spinning Cups-Teaching Slides.pdf?url";
+import level4Pdf41Url from "../../Level 4/Mechanisms & Simulators/Telegraph/09.Telegraph -Slides.pdf?url";
+import level4Pdf42Url from "../../Level 4/Mechanisms & Simulators/Turbo Drop/28. Turbo Drop-Teaching Slides.pdf?url";
+import level4Pdf43Url from "../../Level 4/Programming & Precise Control/Obstacle-avoiding Scorpion/01.Obstacle-avoiding Scorpion_Slides.pdf?url";
+import level4Pdf44Url from "../../Level 4/Sensor Automation/Card reader/08.Card reader-update.pdf?url";
+import level4Pdf45Url from "../../Level 4/Sensor Automation/Password box/06.Password box-update.pdf?url";
+import level4Pdf46Url from "../../Level 4/Sensor-Focused Robots/Energy Detector/05. Energy Detector-Teaching Slides.pdf?url";
+import level4Pdf47Url from "../../Level 4/Sensor-Focused Robots/Ranging robot/Ranging robot_Powerpoint.pdf?url";
+import level4Pdf48Url from "../../Level 4/Sensors/Back-up buzzer.pdf?url";
+import level4Pdf49Url from "../../Level 4/Sensors/Counting system.pdf?url";
+import level4Pdf50Url from "../../Level 4/Sound & Voice Interaction/Acoustic control lamp/Acoustic control lamp_Powerpoint-update.pdf?url";
+import level4Pdf51Url from "../../Level 4/Sound & Voice Interaction/Electric Piano/32.Electric Piano-Slides.pdf?url";
+import level4Pdf52Url from "../../Level 4/Sound & Voice Interaction/Smart Speaker/30.Smart Speaker-Slides.pdf?url";
+import level4Pdf53Url from "../../Level 4/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin.pdf?url";
+import level4Pdf54Url from "../../Level 4/Vehicles & Complex Movers/Lucky Cat/13.Lucky Cat-Slides.pdf?url";
+import level4Pdf55Url from "../../Level 4/Vehicles & Complex Movers/Remote Control Car/04. Remote Control Car-Teaching Slides.pdf?url";
+import level4Pdf56Url from "../../Level 4/Vehicles & Complex Movers/Transformer Robot/06.Transformer Robot-Slides.pdf?url";
+
+export const levelFourLearningLessons = [
+  {
+    id: "level-4-warrior-with-claws",
+    title: "Warrior With Claws",
+    categoryId: "action-oriented",
+    categoryName: "Action-Oriented",
+    pdfFile: "Level 4/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Slides.pdf",
+    originalPowerPointFile: "13. Warrior With Claws - Slides.pptx",
+    pageCount: 27,
+    url: level4Pdf01Url,
+  },
+  {
+    id: "level-4-drop-proof-robot",
+    title: "Drop-proof Robot",
+    categoryId: "advanced-navigation-control",
+    categoryName: "Advanced Navigation & Control",
+    pdfFile:
+      "Level 4/Advanced Navigation & Control/Drop-proof Robot/12.Drop-proof Robot-update.pdf",
+    originalPowerPointFile: "12.Drop-proof Robot-update.pptx",
+    pageCount: 18,
+    url: level4Pdf02Url,
+  },
+  {
+    id: "level-4-super-trajectory-robot-2",
+    title: "Super Trajectory Robot 2",
+    categoryId: "advanced-navigation-control",
+    categoryName: "Advanced Navigation & Control",
+    pdfFile:
+      "Level 4/Advanced Navigation & Control/Super Trajectory Robot 2/14. Super Trajectory Robot 2-update.pdf",
+    originalPowerPointFile: "14. Super Trajectory Robot 2-update.pptx",
+    pageCount: 16,
+    url: level4Pdf03Url,
+  },
+  {
+    id: "level-4-personal-bodyguard",
+    title: "Personal Bodyguard",
+    categoryId: "automation-security",
+    categoryName: "Automation & Security",
+    pdfFile:
+      "Level 4/Automation & Security/Personal Bodyguard/09. Personal Bodyguard-Teaching Slides.pdf",
+    originalPowerPointFile: "09. Personal Bodyguard-Teaching Slides.pptx",
+    pageCount: 25,
+    url: level4Pdf04Url,
+  },
+  {
+    id: "level-4-scan-to-open-the-gate",
+    title: "Scan to Open the Gate",
+    categoryId: "automation-security",
+    categoryName: "Automation & Security",
+    pdfFile:
+      "Level 4/Automation & Security/Scan to Open the Gate/01. Scan to Open the Gate-Slides.pdf",
+    originalPowerPointFile: "01. Scan to Open the Gate-Slides.pptx",
+    pageCount: 28,
+    url: level4Pdf05Url,
+  },
+  {
+    id: "level-4-smart-curtain",
+    title: "Smart curtain",
+    categoryId: "automation-security",
+    categoryName: "Automation & Security",
+    pdfFile: "Level 4/Automation & Security/Smart curtain/Smart curtain_Powerpoint.pdf",
+    originalPowerPointFile: "Smart curtain_Powerpoint.pptx",
+    pageCount: 18,
+    url: level4Pdf06Url,
+  },
+  {
+    id: "level-4-tag-recognition",
+    title: "Tag Recognition",
+    categoryId: "automation-security",
+    categoryName: "Automation & Security",
+    pdfFile: "Level 4/Automation & Security/Tag Recognition/06. Tag Recognition.pdf",
+    originalPowerPointFile: "06. Tag Recognition.pptx",
+    pageCount: 17,
+    url: level4Pdf07Url,
+  },
+  {
+    id: "level-4-guide-dogs",
+    title: "Guide Dogs",
+    categoryId: "autonomous-navigation-ranging",
+    categoryName: "Autonomous Navigation & Ranging",
+    pdfFile: "Level 4/Autonomous Navigation & Ranging/Guide Dogs/10. Guide Dogs - Slides.pdf",
+    originalPowerPointFile: "10. Guide Dogs - Slides.pptx",
+    pageCount: 24,
+    url: level4Pdf08Url,
+  },
+  {
+    id: "level-4-keeping-distance",
+    title: "Keeping Distance",
+    categoryId: "autonomous-navigation-ranging",
+    categoryName: "Autonomous Navigation & Ranging",
+    pdfFile:
+      "Level 4/Autonomous Navigation & Ranging/Keeping Distance/12. Keeping Distance-Teaching Slides.pdf",
+    originalPowerPointFile: "12. Keeping Distance-Teaching Slides.pptx",
+    pageCount: 22,
+    url: level4Pdf09Url,
+  },
+  {
+    id: "level-4-laser-rangefinder",
+    title: "Laser Rangefinder",
+    categoryId: "autonomous-navigation-ranging",
+    categoryName: "Autonomous Navigation & Ranging",
+    pdfFile:
+      "Level 4/Autonomous Navigation & Ranging/Laser Rangefinder/10. Laser Rangefinder - Teaching Slides.pdf",
+    originalPowerPointFile: "10. Laser Rangefinder - Teaching Slides.pptx",
+    pageCount: 24,
+    url: level4Pdf10Url,
+  },
+  {
+    id: "level-4-magnetically-controlled-door",
+    title: "Magnetically Controlled Door",
+    categoryId: "autonomous-navigation-ranging",
+    categoryName: "Autonomous Navigation & Ranging",
+    pdfFile:
+      "Level 4/Autonomous Navigation & Ranging/Magnetically Controlled Door/06. Magnetically controlled door-Teaching Slides.pdf",
+    originalPowerPointFile: "06. Magnetically controlled door-Teaching Slides.pptx",
+    pageCount: 24,
+    url: level4Pdf11Url,
+  },
+  {
+    id: "level-4-obstacle-avoidance-in-snow",
+    title: "Obstacle Avoidance In Snow",
+    categoryId: "autonomous-navigation-ranging",
+    categoryName: "Autonomous Navigation & Ranging",
+    pdfFile:
+      "Level 4/Autonomous Navigation & Ranging/Obstacle Avoidance In Snow/4. Obstacle Avoidance In Snow - Slides.pdf",
+    originalPowerPointFile: "4. Obstacle Avoidance In Snow - Slides.pptx",
+    pageCount: 26,
+    url: level4Pdf12Url,
+  },
+  {
+    id: "level-4-obstacle-avoidance-robot-2",
+    title: "Obstacle Avoidance Robot 2",
+    categoryId: "autonomous-navigation-ranging",
+    categoryName: "Autonomous Navigation & Ranging",
+    pdfFile:
+      "Level 4/Autonomous Navigation & Ranging/Obstacle Avoidance Robot 2/Obstacle Avoidance Robot 2_Powerpoint.pdf",
+    originalPowerPointFile: "Obstacle Avoidance Robot 2_Powerpoint.pptx",
+    pageCount: 21,
+    url: level4Pdf13Url,
+  },
+  {
+    id: "level-4-probe-vehicle",
+    title: "Probe Vehicle",
+    categoryId: "autonomous-navigation-ranging",
+    categoryName: "Autonomous Navigation & Ranging",
+    pdfFile: "Level 4/Autonomous Navigation & Ranging/Probe Vehicle/02.Probe Vehicle.pdf",
+    originalPowerPointFile: "02.Probe Vehicle.pptx",
+    pageCount: 17,
+    url: level4Pdf14Url,
+  },
+  {
+    id: "level-4-radar-vehicle",
+    title: "Radar vehicle",
+    categoryId: "autonomous-navigation-ranging",
+    categoryName: "Autonomous Navigation & Ranging",
+    pdfFile: "Level 4/Autonomous Navigation & Ranging/Radar vehicle/Radar vehicle_Powerpoint.pdf",
+    originalPowerPointFile: "Radar vehicle_Powerpoint.pptx",
+    pageCount: 18,
+    url: level4Pdf15Url,
+  },
+  {
+    id: "level-4-nocturnal-beetle",
+    title: "Nocturnal beetle",
+    categoryId: "biomimicry-stimulus-response",
+    categoryName: "Biomimicry & Stimulus Response",
+    pdfFile:
+      "Level 4/Biomimicry & Stimulus Response/Nocturnal beetle/10.Nocturnal beetle-update.pdf",
+    originalPowerPointFile: "10.Nocturnal beetle-update.pptx",
+    pageCount: 21,
+    url: level4Pdf16Url,
+  },
+  {
+    id: "level-4-a-timid-mouse",
+    title: "A Timid Mouse",
+    categoryId: "characters-structures",
+    categoryName: "Characters & Structures",
+    pdfFile:
+      "Level 4/Characters & Structures/A Timid Mouse/Lesson 25. A Timid Mouse-Teaching Slides.pdf",
+    originalPowerPointFile: "Lesson 25. A Timid Mouse-Teaching Slides.pptx",
+    pageCount: 27,
+    url: level4Pdf17Url,
+  },
+  {
+    id: "level-4-elf-in-the-tree",
+    title: "Elf in the Tree",
+    categoryId: "characters-structures",
+    categoryName: "Characters & Structures",
+    pdfFile: "Level 4/Characters & Structures/Elf in the Tree/12. Elf in the Tree - Slides.pdf",
+    originalPowerPointFile: "12. Elf in the Tree - Slides.pptx",
+    pageCount: 24,
+    url: level4Pdf18Url,
+  },
+  {
+    id: "level-4-parts-sorter",
+    title: "Parts Sorter",
+    categoryId: "characters-structures",
+    categoryName: "Characters & Structures",
+    pdfFile: "Level 4/Characters & Structures/Parts Sorter/22.Parts Sorter- Slides.pdf",
+    originalPowerPointFile: "22.Parts Sorter- Slides.pptx",
+    pageCount: 33,
+    url: level4Pdf19Url,
+  },
+  {
+    id: "level-4-swimming-plesiosaur",
+    title: "Swimming Plesiosaur",
+    categoryId: "characters-structures",
+    categoryName: "Characters & Structures",
+    pdfFile:
+      "Level 4/Characters & Structures/Swimming Plesiosaur/19. Swimming Plesiosaur-Teaching Slides.pdf",
+    originalPowerPointFile: "19. Swimming Plesiosaur-Teaching Slides.pptx",
+    pageCount: 21,
+    url: level4Pdf20Url,
+  },
+  {
+    id: "level-4-tail-wagging-stegosaurus",
+    title: "Tail-Wagging Stegosaurus",
+    categoryId: "characters-structures",
+    categoryName: "Characters & Structures",
+    pdfFile:
+      "Level 4/Characters & Structures/Tail-Wagging Stegosaurus/18. Tail-Wagging Stegosaurus-Slides.pdf",
+    originalPowerPointFile: "18. Tail-Wagging Stegosaurus-Slides.pptx",
+    pageCount: 23,
+    url: level4Pdf21Url,
+  },
+  {
+    id: "level-4-architectural-design",
+    title: "Architectural design",
+    categoryId: "complex-mechanisms-coordinated-motion",
+    categoryName: "Complex Mechanisms & Coordinated Motion",
+    pdfFile:
+      "Level 4/Complex Mechanisms & Coordinated Motion/Architectural design/Architectural design.pdf",
+    originalPowerPointFile: "Architectural design.pptx",
+    pageCount: 18,
+    url: level4Pdf22Url,
+  },
+  {
+    id: "level-4-card-machine",
+    title: "Card Machine",
+    categoryId: "complex-mechanisms-coordinated-motion",
+    categoryName: "Complex Mechanisms & Coordinated Motion",
+    pdfFile:
+      "Level 4/Complex Mechanisms & Coordinated Motion/Card Machine/05.Card Machine-update.pdf",
+    originalPowerPointFile: "05.Card Machine-update.pptx",
+    pageCount: 19,
+    url: level4Pdf23Url,
+  },
+  {
+    id: "level-4-dancing-robot",
+    title: "Dancing Robot",
+    categoryId: "display-movement",
+    categoryName: "Display & Movement",
+    pdfFile: "Level 4/Display & Movement/Dancing Robot/31.Dancing Robot-Slides.pdf",
+    originalPowerPointFile: "31.Dancing Robot-Slides.pptx",
+    pageCount: 32,
+    url: level4Pdf24Url,
+  },
+  {
+    id: "level-4-skiing-robot",
+    title: "Skiing Robot",
+    categoryId: "display-movement",
+    categoryName: "Display & Movement",
+    pdfFile: "Level 4/Display & Movement/Skiing Robot/28.Skiing Robot -Slides.pdf",
+    originalPowerPointFile: "28.Skiing Robot -Slides.pptx",
+    pageCount: 40,
+    url: level4Pdf25Url,
+  },
+  {
+    id: "level-4-vending-machine",
+    title: "Vending machine",
+    categoryId: "foundational-robots",
+    categoryName: "Foundational Robots",
+    pdfFile: "Level 4/Foundational Robots/Vending machine.pdf",
+    originalPowerPointFile: "Vending machine.pptx",
+    pageCount: 27,
+    url: level4Pdf26Url,
+  },
+  {
+    id: "level-4-induction-desk-lamp",
+    title: "Induction Desk Lamp",
+    categoryId: "illumination-signals",
+    categoryName: "Illumination & Signals",
+    pdfFile:
+      "Level 4/Illumination & Signals/Induction Desk Lamp/13. Induction Desk Lamp-Teaching Slides.pdf",
+    originalPowerPointFile: "13. Induction Desk Lamp-Teaching Slides.pptx",
+    pageCount: 21,
+    url: level4Pdf27Url,
+  },
+  {
+    id: "level-4-scorpion",
+    title: "Scorpion",
+    categoryId: "interactive-mechanisms",
+    categoryName: "Interactive Mechanisms",
+    pdfFile: "Level 4/Interactive Mechanisms/Scorpion/Scorpion_Powerpoint-update.pdf",
+    originalPowerPointFile: "Scorpion_Powerpoint-update.pptx",
+    pageCount: 20,
+    url: level4Pdf28Url,
+  },
+  {
+    id: "level-4-smart-luggage",
+    title: "Smart Luggage",
+    categoryId: "interactive-mechanisms",
+    categoryName: "Interactive Mechanisms",
+    pdfFile: "Level 4/Interactive Mechanisms/Smart Luggage/16. Smart Luggage-Teaching Slides.pdf",
+    originalPowerPointFile: "16. Smart Luggage-Teaching Slides.pptx",
+    pageCount: 21,
+    url: level4Pdf29Url,
+  },
+  {
+    id: "level-4-telegraph-machine",
+    title: "Telegraph machine",
+    categoryId: "interactive-mechanisms",
+    categoryName: "Interactive Mechanisms",
+    pdfFile:
+      "Level 4/Interactive Mechanisms/Telegraph machine/Telegraph machine_Powerpoint-update.pdf",
+    originalPowerPointFile: "Telegraph machine_Powerpoint-update.pptx",
+    pageCount: 22,
+    url: level4Pdf30Url,
+  },
+  {
+    id: "level-4-voice-control",
+    title: "Voice Control",
+    categoryId: "interactive-mechanisms",
+    categoryName: "Interactive Mechanisms",
+    pdfFile: "Level 4/Interactive Mechanisms/Voice Control/01.Voice Control.pdf",
+    originalPowerPointFile: "01.Voice Control.pptx",
+    pageCount: 19,
+    url: level4Pdf31Url,
+  },
+  {
+    id: "level-4-basketball-shooting-machine",
+    title: "Basketball Shooting Machine",
+    categoryId: "interactive-systems",
+    categoryName: "Interactive Systems",
+    pdfFile:
+      "Level 4/Interactive Systems/Basketball Shooting Machine/27.Basketball Shooting Machine -Slides.pdf",
+    originalPowerPointFile: "27.Basketball Shooting Machine -Slides.pptx",
+    pageCount: 38,
+    url: level4Pdf32Url,
+  },
+  {
+    id: "level-4-obstacle-avoidance-robot",
+    title: "Obstacle Avoidance Robot",
+    categoryId: "interactive-systems",
+    categoryName: "Interactive Systems",
+    pdfFile:
+      "Level 4/Interactive Systems/Obstacle Avoidance Robot/18.Obstacle Avoidance Robot-Slides.pdf",
+    originalPowerPointFile: "18.Obstacle Avoidance Robot-Slides.pptx",
+    pageCount: 27,
+    url: level4Pdf33Url,
+  },
+  {
+    id: "level-4-reaction-tester",
+    title: "Reaction Tester",
+    categoryId: "interactive-systems",
+    categoryName: "Interactive Systems",
+    pdfFile: "Level 4/Interactive Systems/Reaction Tester/19.Reaction Tester-Slides.pdf",
+    originalPowerPointFile: "19.Reaction Tester-Slides.pptx",
+    pageCount: 27,
+    url: level4Pdf34Url,
+  },
+  {
+    id: "level-4-tumbler",
+    title: "Tumbler",
+    categoryId: "interactive-systems",
+    categoryName: "Interactive Systems",
+    pdfFile: "Level 4/Interactive Systems/Tumbler/01. Tumbler - Teaching Slides.pdf",
+    originalPowerPointFile: "01. Tumbler - Teaching Slides.pptx",
+    pageCount: 28,
+    url: level4Pdf35Url,
+  },
+  {
+    id: "level-4-safe-box",
+    title: "Safe Box",
+    categoryId: "machines-mechanisms",
+    categoryName: "Machines & Mechanisms",
+    pdfFile: "Level 4/Machines & Mechanisms/Safe Box.pdf",
+    originalPowerPointFile: "Safe Box.pptx",
+    pageCount: 17,
+    url: level4Pdf36Url,
+  },
+  {
+    id: "level-4-biped-robot",
+    title: "Biped Robot",
+    categoryId: "mechanisms-simulators",
+    categoryName: "Mechanisms & Simulators",
+    pdfFile: "Level 4/Mechanisms & Simulators/Biped Robot/20. Biped Robot-Teaching Slides.pdf",
+    originalPowerPointFile: "20. Biped Robot-Teaching Slides.pptx",
+    pageCount: 21,
+    url: level4Pdf37Url,
+  },
+  {
+    id: "level-4-horizontal-bar",
+    title: "Horizontal Bar",
+    categoryId: "mechanisms-simulators",
+    categoryName: "Mechanisms & Simulators",
+    pdfFile: "Level 4/Mechanisms & Simulators/Horizontal Bar/5. Horizontal Bar- Slides.pdf",
+    originalPowerPointFile: "5. Horizontal Bar- Slides.pptx",
+    pageCount: 28,
+    url: level4Pdf38Url,
+  },
+  {
+    id: "level-4-oscillating-fan",
+    title: "Oscillating Fan",
+    categoryId: "mechanisms-simulators",
+    categoryName: "Mechanisms & Simulators",
+    pdfFile: "Level 4/Mechanisms & Simulators/Oscillating Fan/19.Oscillating Fan -Slides.pdf",
+    originalPowerPointFile: "19.Oscillating Fan -Slides.pptx",
+    pageCount: 22,
+    url: level4Pdf39Url,
+  },
+  {
+    id: "level-4-spinning-cups",
+    title: "Spinning Cups",
+    categoryId: "mechanisms-simulators",
+    categoryName: "Mechanisms & Simulators",
+    pdfFile: "Level 4/Mechanisms & Simulators/Spinning Cups/14. Spinning Cups-Teaching Slides.pdf",
+    originalPowerPointFile: "14. Spinning Cups-Teaching Slides.pptx",
+    pageCount: 23,
+    url: level4Pdf40Url,
+  },
+  {
+    id: "level-4-telegraph",
+    title: "Telegraph",
+    categoryId: "mechanisms-simulators",
+    categoryName: "Mechanisms & Simulators",
+    pdfFile: "Level 4/Mechanisms & Simulators/Telegraph/09.Telegraph -Slides.pdf",
+    originalPowerPointFile: "09.Telegraph -Slides.pptx",
+    pageCount: 33,
+    url: level4Pdf41Url,
+  },
+  {
+    id: "level-4-turbo-drop",
+    title: "Turbo Drop",
+    categoryId: "mechanisms-simulators",
+    categoryName: "Mechanisms & Simulators",
+    pdfFile: "Level 4/Mechanisms & Simulators/Turbo Drop/28. Turbo Drop-Teaching Slides.pdf",
+    originalPowerPointFile: "28. Turbo Drop-Teaching Slides.pptx",
+    pageCount: 24,
+    url: level4Pdf42Url,
+  },
+  {
+    id: "level-4-obstacle-avoiding-scorpion",
+    title: "Obstacle-avoiding Scorpion",
+    categoryId: "programming-precise-control",
+    categoryName: "Programming & Precise Control",
+    pdfFile:
+      "Level 4/Programming & Precise Control/Obstacle-avoiding Scorpion/01.Obstacle-avoiding Scorpion_Slides.pdf",
+    originalPowerPointFile: "01.Obstacle-avoiding Scorpion_Slides.pptx",
+    pageCount: 30,
+    url: level4Pdf43Url,
+  },
+  {
+    id: "level-4-card-reader",
+    title: "Card reader",
+    categoryId: "sensor-automation",
+    categoryName: "Sensor Automation",
+    pdfFile: "Level 4/Sensor Automation/Card reader/08.Card reader-update.pdf",
+    originalPowerPointFile: "08.Card reader-update.pptx",
+    pageCount: 18,
+    url: level4Pdf44Url,
+  },
+  {
+    id: "level-4-password-box",
+    title: "Password box",
+    categoryId: "sensor-automation",
+    categoryName: "Sensor Automation",
+    pdfFile: "Level 4/Sensor Automation/Password box/06.Password box-update.pdf",
+    originalPowerPointFile: "06.Password box-update.pptx",
+    pageCount: 19,
+    url: level4Pdf45Url,
+  },
+  {
+    id: "level-4-energy-detector",
+    title: "Energy Detector",
+    categoryId: "sensor-focused-robots",
+    categoryName: "Sensor-Focused Robots",
+    pdfFile:
+      "Level 4/Sensor-Focused Robots/Energy Detector/05. Energy Detector-Teaching Slides.pdf",
+    originalPowerPointFile: "05. Energy Detector-Teaching Slides.pptx",
+    pageCount: 22,
+    url: level4Pdf46Url,
+  },
+  {
+    id: "level-4-ranging-robot",
+    title: "Ranging robot",
+    categoryId: "sensor-focused-robots",
+    categoryName: "Sensor-Focused Robots",
+    pdfFile: "Level 4/Sensor-Focused Robots/Ranging robot/Ranging robot_Powerpoint.pdf",
+    originalPowerPointFile: "Ranging robot_Powerpoint.pptx",
+    pageCount: 20,
+    url: level4Pdf47Url,
+  },
+  {
+    id: "level-4-back-up-buzzer",
+    title: "Back-up buzzer",
+    categoryId: "sensors",
+    categoryName: "Sensors",
+    pdfFile: "Level 4/Sensors/Back-up buzzer.pdf",
+    originalPowerPointFile: "Back-up buzzer.pptx",
+    pageCount: 20,
+    url: level4Pdf48Url,
+  },
+  {
+    id: "level-4-counting-system",
+    title: "Counting system",
+    categoryId: "sensors",
+    categoryName: "Sensors",
+    pdfFile: "Level 4/Sensors/Counting system.pdf",
+    originalPowerPointFile: "Counting system.pptx",
+    pageCount: 17,
+    url: level4Pdf49Url,
+  },
+  {
+    id: "level-4-acoustic-control-lamp",
+    title: "Acoustic control lamp",
+    categoryId: "sound-voice-interaction",
+    categoryName: "Sound & Voice Interaction",
+    pdfFile:
+      "Level 4/Sound & Voice Interaction/Acoustic control lamp/Acoustic control lamp_Powerpoint-update.pdf",
+    originalPowerPointFile: "Acoustic control lamp_Powerpoint-update.pptx",
+    pageCount: 20,
+    url: level4Pdf50Url,
+  },
+  {
+    id: "level-4-electric-piano",
+    title: "Electric Piano",
+    categoryId: "sound-voice-interaction",
+    categoryName: "Sound & Voice Interaction",
+    pdfFile: "Level 4/Sound & Voice Interaction/Electric Piano/32.Electric Piano-Slides.pdf",
+    originalPowerPointFile: "32.Electric Piano-Slides.pptx",
+    pageCount: 35,
+    url: level4Pdf51Url,
+  },
+  {
+    id: "level-4-smart-speaker",
+    title: "Smart Speaker",
+    categoryId: "sound-voice-interaction",
+    categoryName: "Sound & Voice Interaction",
+    pdfFile: "Level 4/Sound & Voice Interaction/Smart Speaker/30.Smart Speaker-Slides.pdf",
+    originalPowerPointFile: "30.Smart Speaker-Slides.pptx",
+    pageCount: 29,
+    url: level4Pdf52Url,
+  },
+  {
+    id: "level-4-dangerous-assassin",
+    title: "Dangerous Assassin",
+    categoryId: "vehicles-complex-movers",
+    categoryName: "Vehicles & Complex Movers",
+    pdfFile: "Level 4/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin.pdf",
+    originalPowerPointFile: "15. Dangerous Assassin.pptx",
+    pageCount: 23,
+    url: level4Pdf53Url,
+  },
+  {
+    id: "level-4-lucky-cat",
+    title: "Lucky Cat",
+    categoryId: "vehicles-complex-movers",
+    categoryName: "Vehicles & Complex Movers",
+    pdfFile: "Level 4/Vehicles & Complex Movers/Lucky Cat/13.Lucky Cat-Slides.pdf",
+    originalPowerPointFile: "13.Lucky Cat-Slides.pptx",
+    pageCount: 35,
+    url: level4Pdf54Url,
+  },
+  {
+    id: "level-4-remote-control-car",
+    title: "Remote Control Car",
+    categoryId: "vehicles-complex-movers",
+    categoryName: "Vehicles & Complex Movers",
+    pdfFile:
+      "Level 4/Vehicles & Complex Movers/Remote Control Car/04. Remote Control Car-Teaching Slides.pdf",
+    originalPowerPointFile: "04. Remote Control Car-Teaching Slides.pptx",
+    pageCount: 25,
+    url: level4Pdf55Url,
+  },
+  {
+    id: "level-4-transformer-robot",
+    title: "Transformer Robot",
+    categoryId: "vehicles-complex-movers",
+    categoryName: "Vehicles & Complex Movers",
+    pdfFile: "Level 4/Vehicles & Complex Movers/Transformer Robot/06.Transformer Robot-Slides.pdf",
+    originalPowerPointFile: "06.Transformer Robot-Slides.pptx",
+    pageCount: 32,
+    url: level4Pdf56Url,
+  },
+] as const;
+
+export const levelFourLearningManuals: Record<string, PdfActivityManual> = Object.fromEntries(
+  levelFourLearningLessons.map((lesson) => [
+    lesson.id,
+    {
+      id: lesson.id,
+      title: lesson.title,
+      url: lesson.url,
+      completionStepId: `${lesson.id}-slides-complete`,
+      sourceKind: "powerpoint",
+      originalPowerPointFile: lesson.originalPowerPointFile,
+    },
+  ]),
+);
