@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, AlertCircle, ChevronLeft, ChevronRight, Expand, Shrink } from "lucide-react";
+import { ArrowLeft, AlertCircle, ChevronLeft, ChevronRight, Download, Expand, Shrink } from "lucide-react";
 import type { PDFDocumentLoadingTask, PDFDocumentProxy } from "pdfjs-dist";
 import { PdfManualPage, type PdfViewportSize } from "./PdfManualPage";
 import type { LevelOneLecture } from "@/data/levelOneLectures";
+import { getLevelTwoProgrammingFiles } from "@/data/levelTwoProgrammingFiles";
 import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 
 /** One PDF page per slide, separate from the Building Studio instruction dock. */
@@ -24,6 +25,7 @@ export function LevelOneLearningStudio({
   const workspaceRef = useRef<HTMLDivElement>(null);
   const slideRef = useRef<HTMLDivElement>(null);
   const total = document?.numPages ?? 0;
+  const programmingFiles = level === 2 ? getLevelTwoProgrammingFiles(projectId) : [];
 
   useEffect(() => {
     let disposed = false;
@@ -169,6 +171,17 @@ export function LevelOneLearningStudio({
             </button>
           )}
         </nav>
+        {programmingFiles.length > 0 ? (
+          <div className="mx-auto mt-2 flex max-w-3xl flex-wrap items-center justify-center gap-2" aria-label="Programming downloads">
+            {programmingFiles.map(file => (
+              <a key={file.url} href={file.url} download={file.fileName}
+                className="inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-sky-200 bg-sky-50 px-4 text-sm font-extrabold text-[#168eea] hover:bg-sky-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168eea]">
+                <Download className="size-4" aria-hidden="true" />
+                Download Program
+              </a>
+            ))}
+          </div>
+        ) : null}
         <div className="mx-auto mt-2 h-1.5 max-w-3xl overflow-hidden rounded-full bg-sky-100" aria-hidden="true">
           <div className="h-full rounded-full bg-[#168eea]" style={{ width: total ? (page / total * 100) + "%" : "0%" }}/>
         </div>
