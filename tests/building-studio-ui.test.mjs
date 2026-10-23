@@ -29,7 +29,9 @@ test("both PDF and 3D lessons share navigation and compact expandable docks", ()
 });
 
 test("official PDF is the only Acceleration Car building-instruction source", () => {
-  assert.match(manual, /Acceleration car_Building\.pdf\?url/);
+  // The original PDF is served from public/ through the shared URL helper.
+  assert.match(manual, /staticPdfUrl\("Acceleration car_Building\.pdf"\)/);
+  assert.match(manual, /export const ACCELERATION_MANUAL_URL = officialPdfUrl/);
   assert.match(pdf, /<PdfManualPage/);
   assert.match(pdf, /ACCELERATION_ILLUSTRATION_NOTE/);
   assert.doesNotMatch(pdf, /battery holder|Insert the axles|Attach the long blue beam/i);

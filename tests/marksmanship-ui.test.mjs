@@ -67,8 +67,9 @@ test("Shared building navigation preserves separate step and animation controls"
   assert.ok(route.includes("previousDisabled={currentIndex === 0}"), "Previous step disabled on first step");
   assert.ok(route.includes("onPrevious={() => setCurrentIndex(index => Math.max(0, index - 1))}"),
     "Previous step returns to previous project step");
-  assert.ok(studio.includes('aria-label="Back to robot selection"'));
-  assert.ok(studio.includes('to="/practical"'), "Existing exit navigation remains intact");
+  // Navigation returns to the project's Learning/Building choice, not the retired robot selector.
+  assert.ok(studio.includes('aria-label="Back to project options"'));
+  assert.ok(studio.includes('to="/projects/$projectId"'), "Return to project choices remains intact");
   assert.ok(studio.includes('aria-label="Choose a building step"'));
   assert.ok(ui.includes('aria-label="Previous action"'), "Previous action remains a separate control");
 });
