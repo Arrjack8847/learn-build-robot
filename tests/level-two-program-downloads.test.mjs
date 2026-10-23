@@ -68,7 +68,7 @@ test("download URLs resolve to the original named .sb2 assets and their exact Gi
     const bytes = readFileSync(onDisk);
     assert.ok(bytes.length > 100, "Program must not be empty: " + id);
     assert.equal(bytes.subarray(0, 4).toString("hex"), "504b0304", "Scratch 2 program is a ZIP archive");
-    const sha = createHash("sha1").update("blob " + bytes.length + "\\0").update(bytes).digest("hex");
+    const sha = createHash("sha1").update("blob " + bytes.length + "\0").update(bytes).digest("hex");
     assert.equal(sha, originalBlobSha, "Original GitHub file content changed: " + id);
   }
 });
