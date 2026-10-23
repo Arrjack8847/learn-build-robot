@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
-import { dirname, extname, resolve } from "node:path";
+import { dirname, extname, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import vm from "node:vm";
 import test from "node:test";
@@ -104,7 +104,7 @@ test("Every uploaded Level 4 PDF parses in the website renderer with its source 
     }
   }
   const files = readdirSync(resolve(root, "public", "Level 4"), { recursive: true, withFileTypes: true })
-    .filter((entry) => entry.isFile() && extname(entry.name).toLowerCase() === ".pdf")
+    .filter((entry) => entry.isFile() && extname(entry.name).toLowerCase() === ".pdf" && !resolve(entry.parentPath, entry.name).split(sep).includes("Building"))
     .map((entry) => resolve(entry.parentPath, entry.name));
   assert.equal(files.length, 56);
   assert.deepEqual(new Set(files), expectedFiles);
@@ -119,8 +119,8 @@ test("Level 4 presentations use the existing Project to Learning flow and slide 
   );
   assert.ok(overview.includes('pdfActivityManuals[project.id]?.sourceKind === "powerpoint"'));
   assert.ok(overview.includes("const hasLearning = Boolean(lecture) || isPresentation"));
-  assert.ok(overview.includes("const hasBuilding = !isPresentation && !lecture?.learningOnly"));
-  assert.ok(overview.includes("level === 1 ? getLevelOneLecture(project.id) : undefined"));
+  assert.ok(overview.includes("const hasBuilding = level === 4 ? Boolean(getLevelFourBuildingManual(project.id)) : !isPresentation && !lecture?.learningOnly"));
+  assert.ok(overview.includes("level === 1 ? getLevelOneLecture(project.id) :"));
   assert.ok(overview.includes("Start Learning"));
   assert.ok(viewer.includes('"Next Slide"'));
   assert.ok(viewer.includes('"Finish Slides"'));
