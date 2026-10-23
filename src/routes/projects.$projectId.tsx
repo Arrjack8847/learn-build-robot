@@ -9,6 +9,7 @@ import { pdfActivityManuals } from "@/data/pdfActivityManuals";
 import { getLevelOneLecture } from "@/data/levelOneLectures";
 import { getLevelTwoLecture } from "@/data/levelTwoLectures";
 import { getLevelThreeLecture } from "@/data/levelThreeLectures";
+import { getLevelFourBuildingManual, hasLevelFourOptimizedManual, isLevelFourBuildingFallback } from "@/data/levelFourBuilding";
 
 export const Route = createFileRoute("/projects/$projectId")({
   component: ProjectOverviewPage,
@@ -48,7 +49,9 @@ function ProjectOverviewPage() {
     level === 3 ? getLevelThreeLecture(project.id) : undefined;
   // Lecture slides and assembly manuals are different activities.
   const hasLearning = Boolean(lecture) || isPresentation;
-  const hasBuilding = !isPresentation && !lecture?.learningOnly;
+  const hasBuilding = level === 4 ? Boolean(getLevelFourBuildingManual(project.id)) : !isPresentation && !lecture?.learningOnly;
+  const usingLearningForBuilding = level === 4 && isLevelFourBuildingFallback(project.id);
+  const hasOptimizedBuilding = level === 4 && hasLevelFourOptimizedManual(project.id);
 
   return (
     <div className="relative h-[100dvh] overflow-y-auto bg-white text-[#132654]">
@@ -132,12 +135,26 @@ function ProjectOverviewPage() {
             <Wrench className="size-10 text-[#259a41]" aria-hidden="true" />
             <h2 className="mt-4 text-xl font-black">Building</h2>
             <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
-              {hasBuilding ? "Follow the project's existing interactive 3D or official PDF building instructions." : "A building activity has not been added for this slide-only project."}
+              {usingLearningForBuilding
+                ? "No separate Building manual was supplied. Use the original Learning slides as a building reference."
+                : hasBuilding ? "Follow the project's existing interactive 3D or official PDF building instructions."
+                : "A building activity has not been added for this slide-only project."}
             </p>
             {hasBuilding ? (
-              <Link to="/practical/$projectId" params={{ projectId: project.id }} search={{ mode: "building" }} className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#259a41] px-4 font-extrabold text-white hover:bg-[#1c8235]">
-                Start Building <ArrowRight className="size-4" aria-hidden="true" />
-              </Link>
+              hasOptimizedBuilding ? (
+                <div className="mt-5 grid gap-2">
+                  <Link to="/practical/$projectId" params={{ projectId: project.id }} search={{ mode: "building" }} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#259a41] px-4 font-extrabold text-white hover:bg-[#1c8235]">
+                    Basic Building <ArrowRight className="size-4" aria-hidden="true" />
+                  </Link>
+                  <Link to="/practical/$projectId" params={{ projectId: project.id }} search={{ mode: "building", variant: "optimized" }} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-green-200 bg-green-50 px-4 font-extrabold text-[#1c8235] hover:bg-green-100">
+                    Optimized Building <ArrowRight className="size-4" aria-hidden="true" />
+                  </Link>
+                </div>
+              ) : (
+                <Link to="/practical/$projectId" params={{ projectId: project.id }} search={{ mode: "building" }} className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#259a41] px-4 font-extrabold text-white hover:bg-[#1c8235]">
+                  Start Building <ArrowRight className="size-4" aria-hidden="true" />
+                </Link>
+              )
             ) : (
               <span aria-disabled="true" className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-slate-100 px-4 font-bold text-slate-500">
                 <Construction className="size-4" aria-hidden="true" /> Coming soon

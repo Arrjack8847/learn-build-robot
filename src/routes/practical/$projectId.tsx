@@ -24,6 +24,7 @@ import { pdfActivityManuals } from "@/data/pdfActivityManuals";
 import { getLevelOneLecture } from "@/data/levelOneLectures";
 import { getLevelTwoLecture } from "@/data/levelTwoLectures";
 import { getLevelThreeLecture } from "@/data/levelThreeLectures";
+import { getLevelFourBuildingManual } from "@/data/levelFourBuilding";
 import { LevelOneLearningStudio } from "@/components/practical/LevelOneLearningStudio";
 import { BuildingStudioHeader, BuildingStepDrawer, BuildingFloatingDock, BuildingStudioCompletion } from "@/components/practical/BuildingStudio";
 import { StepThreeAssembly } from "@/components/practical/StepThreeAssembly";
@@ -56,6 +57,7 @@ import type { PracticalProject } from "@/types/learning";
 export const Route = createFileRoute("/practical/$projectId")({
   validateSearch: (search: Record<string, unknown>) => ({
     mode: search.mode === "learning" ? ("learning" as const) : ("building" as const),
+    variant: search.variant === "optimized" ? ("optimized" as const) : undefined,
   }),
   component: PracticalProjectPage,
 });
@@ -64,7 +66,7 @@ type SessionStage = "steps" | "complete";
 
 function PracticalProjectPage() {
   const { projectId = "" } = Route.useParams();
-  const { mode } = Route.useSearch();
+  const { mode, variant } = Route.useSearch();
   const project = getProject(projectId);
   const { hydrated } = useProgress();
 
@@ -82,6 +84,13 @@ function PracticalProjectPage() {
 
   if (!hydrated) {
     return <BuildLoading />;
+  }
+
+  if (project.level === 4 && mode === "building") {
+    const buildingManual = getLevelFourBuildingManual(project.id, variant);
+    if (buildingManual) {
+      return <PdfActivityViewer key={project.id + "-" + (variant ?? "basic")} manual={buildingManual} />;
+    }
   }
 
   if (project.id === "acceleration-car") {

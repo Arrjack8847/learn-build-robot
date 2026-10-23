@@ -181,6 +181,8 @@ export interface PdfActivityManual {
   /** Converted static PDF from the uploaded PowerPoint, not an assembly manual. */
   sourceKind?: "powerpoint";
   originalPowerPointFile?: string;
+  /** Marks an original Learning PDF reused as a Building reference. */
+  learningFallback?: boolean;
 }
 
 export const pdfActivityManuals: Record<string, PdfActivityManual> = {

@@ -13,6 +13,8 @@ import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
   const { toggleStepCompleted } = useProgress();
   const isPresentation = manual.sourceKind === "powerpoint";
+  const isLearningFallback = manual.learningFallback === true;
+  const showsSlides = isPresentation || isLearningFallback;
   const [stepsOpen, setStepsOpen] = useState(false);
   const [dockExpanded, setDockExpanded] = useState(false);
   const [finished, setFinished] = useState(false);
@@ -147,7 +149,7 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
 
   const totalPages = pdfDocument?.numPages ?? 0;
   const pageItems = Array.from({ length: totalPages }, (_, index) => ({
-    id: "page-" + (index + 1), label: (isPresentation ? "Slide " : "Page ") + (index + 1),
+    id: "page-" + (index + 1), label: (showsSlides ? "Slide " : "Page ") + (index + 1),
   }));
 
   function finishCurrentPage() {
@@ -167,13 +169,18 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
   return (
     <div className="flex h-[100dvh] min-h-[420px] flex-col overflow-hidden bg-[#f3faff] text-slate-800">
       <BuildingStudioHeader title={manual.title} projectId={manual.id} step={page} total={totalPages}
-        positionLabel={totalPages ? (isPresentation ? "Slide " : "Page ") + page + " of " + totalPages : (isPresentation ? "Loading slides" : "Loading manual")}
+        positionLabel={totalPages ? (showsSlides ? "Slide " : "Page ") + page + " of " + totalPages : (showsSlides ? "Loading slides" : "Loading manual")}
         onOpenSteps={() => setStepsOpen(true)}/>
+      {isLearningFallback ? (
+        <p role="note" className="border-b border-amber-200 bg-amber-50 px-4 py-2 text-center text-xs font-semibold text-amber-900">
+          Building reference: no separate Building manual is available. These are the original Learning slides.
+        </p>
+      ) : null}
       <BuildingStepDrawer open={stepsOpen} onOpenChange={setStepsOpen}
         title={manual.title} activeIndex={page - 1} items={pageItems}
         onSelect={index => openPage(index + 1)}/>
       <main className="relative min-h-0 flex-1 overflow-hidden bg-[#f3faff] p-2 sm:p-4" aria-label={manual.title + (isPresentation ? " presentation viewer" : " building studio")}>
-        <section aria-label={isPresentation ? "Original PowerPoint slide" : "Official PDF building illustration"}
+        <section aria-label={showsSlides ? "Original Learning slide" : "Official PDF building illustration"}
           className="absolute inset-x-2 top-2 overflow-hidden rounded-[24px] border border-sky-100 bg-[#e8f3fc] shadow-sm sm:inset-x-4 sm:top-4"
           style={{bottom: dockExpanded ? "222px" : "145px"}}>
           <div className="absolute right-2 top-2 z-10 flex items-center gap-1 rounded-2xl border border-sky-100 bg-white/95 p-1 shadow-sm sm:right-3 sm:top-3">
@@ -209,13 +216,13 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
             </div>
           </div>
         </section>
-        <BuildingFloatingDock label={(isPresentation ? "Slide " : "Page ") + page}
-          instruction={isPresentation ? "Review the original PowerPoint slides before using the building instructions." : "Follow the original PDF illustrations and instructions."}
+        <BuildingFloatingDock label={(showsSlides ? "Slide " : "Page ") + page}
+          instruction={isLearningFallback ? "Use these Learning slides as a reference; no Building manual was supplied." : isPresentation ? "Review the original PowerPoint slides before using the building instructions." : "Follow the original PDF illustrations and instructions."}
           expanded={dockExpanded} onExpandedChange={setDockExpanded}
           onPrevious={() => openPage(page - 1)} previousDisabled={page === 1}
           onNext={finishCurrentPage} nextDisabled={!ready || Boolean(pdfError)}
-          nextLabel={totalPages && page === totalPages ? (isPresentation ? "Finish Slides" : "Finish Building") : (isPresentation ? "Next Slide" : "Next Page")}
-          details={<p className="mt-1 text-xs text-slate-500">Original {isPresentation ? "PowerPoint slide" : "PDF page"} {page} of {totalPages || "…"}. Zoom or drag to inspect details.</p>}
+          nextLabel={totalPages && page === totalPages ? (isLearningFallback ? "Finish Review" : isPresentation ? "Finish Slides" : "Finish Building") : (showsSlides ? "Next Slide" : "Next Page")}
+          details={<p className="mt-1 text-xs text-slate-500">Original {showsSlides ? "Learning slide" : "PDF page"} {page} of {totalPages || "…"}. Zoom or drag to inspect details.</p>}
         />
       </main>
     </div>
