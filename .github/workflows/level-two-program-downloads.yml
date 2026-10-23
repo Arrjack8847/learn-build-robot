@@ -1,0 +1,33 @@
+name: Level 2 programming downloads validation
+on:
+  push:
+    branches:
+      - feat/level2-program-downloads-20261023
+    paths:
+      - 'src/components/practical/LevelOneLearningStudio.tsx'
+      - 'src/data/levelTwoProgrammingFiles.ts'
+      - 'tests/level-two-program-downloads.test.mjs'
+      - 'public/Level 2/Programming/**'
+      - '.github/workflows/level-two-program-downloads.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps --no-audit --no-fund
+      - name: Check original programming assets and mappings
+        run: node --test tests/level-two-program-downloads.test.mjs
+      - name: Check existing UI
+        run: npm run test:ui
+      - name: Build application
+        run: npm run build
