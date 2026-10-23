@@ -6,6 +6,7 @@ import { getAdvancedLevel } from "@/data/advancedSyllabus";
 import { findLevelOneCategory } from "@/data/levelOneCategories";
 import { getProject } from "@/data/practical";
 import { pdfActivityManuals } from "@/data/pdfActivityManuals";
+import { getLevelOneLecture } from "@/data/levelOneLectures";
 
 export const Route = createFileRoute("/projects/$projectId")({
   component: ProjectOverviewPage,
@@ -40,11 +41,10 @@ function ProjectOverviewPage() {
       : getAdvancedLevel(level).find((entry) => entry.id === project.categoryId)
     : undefined;
   const isPresentation = pdfActivityManuals[project.id]?.sourceKind === "powerpoint";
-
-  // An uploaded presentation is a Learning activity. Other registered projects
-  // have a Building activity. Do not point "Learning" to unrelated demo theory.
-  const hasLearning = isPresentation;
-  const hasBuilding = !isPresentation;
+  const lecture = level === 1 ? getLevelOneLecture(project.id) : undefined;
+  // Lecture slides and assembly manuals are different activities.
+  const hasLearning = Boolean(lecture) || isPresentation;
+  const hasBuilding = !isPresentation && !lecture?.learningOnly;
 
   return (
     <div className="relative h-[100dvh] overflow-y-auto bg-white text-[#132654]">
@@ -111,10 +111,10 @@ function ProjectOverviewPage() {
             <BookOpen className="size-10 text-[#168eea]" aria-hidden="true" />
             <h2 className="mt-4 text-xl font-black">Learning</h2>
             <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
-              {hasLearning ? "View the original lesson slides in the existing presentation viewer." : "Project-specific learning materials have not been added yet."}
+              {hasLearning ? "View the original lecture PDF one slide at a time." : "Project-specific learning materials have not been added yet."}
             </p>
             {hasLearning ? (
-              <Link to="/practical/$projectId" params={{ projectId: project.id }} className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 font-extrabold text-white hover:bg-[#0d7fda]">
+              <Link to="/practical/$projectId" params={{ projectId: project.id }} search={{ mode: "learning" }} className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 font-extrabold text-white hover:bg-[#0d7fda]">
                 Start Learning <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
             ) : (
@@ -131,7 +131,7 @@ function ProjectOverviewPage() {
               {hasBuilding ? "Follow the project's existing interactive 3D or official PDF building instructions." : "A building activity has not been added for this slide-only project."}
             </p>
             {hasBuilding ? (
-              <Link to="/practical/$projectId" params={{ projectId: project.id }} className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#259a41] px-4 font-extrabold text-white hover:bg-[#1c8235]">
+              <Link to="/practical/$projectId" params={{ projectId: project.id }} search={{ mode: "building" }} className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#259a41] px-4 font-extrabold text-white hover:bg-[#1c8235]">
                 Start Building <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
             ) : (

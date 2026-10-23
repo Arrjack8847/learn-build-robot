@@ -4,6 +4,7 @@ import { findLevelOneCategory, LEVEL_ONE_CATEGORIES } from "@/data/levelOneCateg
 import { getLevelOneProjects } from "@/data/levelOneProjects";
 import { getProject } from "@/data/practical";
 import { isPdfActivityProject } from "@/data/pdfActivityManuals";
+import { getLevelOneLecture } from "@/data/levelOneLectures";
 import { LevelOneBackdrop, LevelOneHeader, categoryTones } from "@/components/practical/LevelOneHeader";
 
 export const Route = createFileRoute("/practical/level-1/$categoryId")({
@@ -60,9 +61,12 @@ function LevelOneCategoryPage() {
             {entries.map(entry => {
               const liveProject = entry.availableProjectId ? getProject(entry.availableProjectId) : undefined;
               const variantChoices = (entry.availableProjectVariants ?? []).filter(variant => Boolean(getProject(variant.projectId)));
+              const lecture = liveProject ? getLevelOneLecture(liveProject.id) : undefined;
+              const hasLecture = Boolean(lecture || variantChoices.some(variant => getLevelOneLecture(variant.projectId)));
               const SourceIcon = entry.sourceKind === "pptx" ? Presentation :
                 entry.sourceKind === "pdf" ? FileText : FolderOpen;
-              const sourceLabel = (liveProject && isPdfActivityProject(liveProject.id)) || variantChoices.length > 0 ? "Original PDF building manual" :
+              const sourceLabel = hasLecture ? "Lecture slides available as PDF" :
+                (liveProject && isPdfActivityProject(liveProject.id)) || variantChoices.length > 0 ? "Original PDF building manual" :
                 entry.sourceKind === "pptx" ? "PowerPoint lesson" :
                 entry.sourceKind === "pdf" ? "PDF lesson" : "Syllabus project folder";
               return (
@@ -75,7 +79,7 @@ function LevelOneCategoryPage() {
                     </span>
                     {liveProject ? (
                       <span className="rounded-full bg-green-50 px-3 py-1.5 text-xs font-bold text-green-700">
-                        Ready to build
+                        {lecture?.learningOnly ? "Ready to learn" : hasLecture ? "Learn or build" : "Ready to build"}
                       </span>
                     ) : variantChoices.length > 0 ? (
                       <span className="rounded-full bg-green-50 px-3 py-1.5 text-xs font-bold text-green-700">
