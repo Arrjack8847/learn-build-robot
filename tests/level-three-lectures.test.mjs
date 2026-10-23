@@ -53,7 +53,7 @@ test("all 43 uploaded Level 3 lecture PDFs are mapped and unchanged", () => {
   assert.equal(uploadedEntries.length, 46); // Cycle Sport (2), Race Walking (3)
   const distinct = new Set();
   for (const lecture of uploadedEntries) {
-    const file = resolve(root, "public", decodeURIComponent(lecture.url).replace(/^\\//, ""));
+    const file = resolve(root, "public", decodeURIComponent(lecture.url).slice(1));
     assert.ok(pdfs.includes(file), "Uploaded PDF missing: " + file);
     assert.equal(readFileSync(file).subarray(0, 5).toString("ascii"), "%PDF-");
     distinct.add(file);
@@ -110,13 +110,13 @@ test("Learning uses the established slides viewer and retains existing Building 
   const overview = read("src/routes/projects.$projectId.tsx");
   const route = read("src/routes/practical/$projectId.tsx");
   const studio = read("src/components/practical/LevelOneLearningStudio.tsx");
-  assert.match(overview, /getLevelThreeLecture\\(project.id\\)/);
-  assert.match(route, /getLevelThreeLecture\\(project.id\\)/);
-  assert.match(route, /level=\\{project.level === 3 \\? 3 : project.level === 2 \\? 2 : 1\\}/);
-  assert.match(overview, /search=\\{\\{ mode: "learning" \\}\\}/);
-  assert.match(overview, /search=\\{\\{ mode: "building" \\}\\}/);
-  assert.match(route, /<PdfActivityViewer key=\\{project.id\\} manual=\\{pdfManual\\} \\/>/);
-  assert.match(studio, /<PdfManualPage/);
-  assert.match(studio, /level\\?: 1 \\| 2 \\| 3/);
-  assert.doesNotMatch(studio, /BuildingFloatingDock|toggleStepCompleted/);
+  assert.ok(overview.includes("getLevelThreeLecture(project.id)"));
+  assert.ok(route.includes("getLevelThreeLecture(project.id)"));
+  assert.ok(route.includes("level={project.level === 3 ? 3 : project.level === 2 ? 2 : 1}"));
+  assert.ok(overview.includes('search={{ mode: "learning" }}'));
+  assert.ok(overview.includes('search={{ mode: "building" }}'));
+  assert.ok(route.includes("<PdfActivityViewer key={project.id} manual={pdfManual} />"));
+  assert.ok(studio.includes("<PdfManualPage"));
+  assert.ok(studio.includes("level?: 1 | 2 | 3"));
+  assert.ok(!studio.includes("BuildingFloatingDock") && !studio.includes("toggleStepCompleted"));
 });
