@@ -7,6 +7,7 @@ import { findLevelOneCategory } from "@/data/levelOneCategories";
 import { getProject } from "@/data/practical";
 import { pdfActivityManuals } from "@/data/pdfActivityManuals";
 import { getLevelOneLecture } from "@/data/levelOneLectures";
+import { getLevelTwoLecture } from "@/data/levelTwoLectures";
 
 export const Route = createFileRoute("/projects/$projectId")({
   component: ProjectOverviewPage,
@@ -41,7 +42,8 @@ function ProjectOverviewPage() {
       : getAdvancedLevel(level).find((entry) => entry.id === project.categoryId)
     : undefined;
   const isPresentation = pdfActivityManuals[project.id]?.sourceKind === "powerpoint";
-  const lecture = level === 1 ? getLevelOneLecture(project.id) : undefined;
+  const lecture = level === 1 ? getLevelOneLecture(project.id) :
+    level === 2 ? getLevelTwoLecture(project.id) : undefined;
   // Lecture slides and assembly manuals are different activities.
   const hasLearning = Boolean(lecture) || isPresentation;
   const hasBuilding = !isPresentation && !lecture?.learningOnly;
@@ -111,7 +113,7 @@ function ProjectOverviewPage() {
             <BookOpen className="size-10 text-[#168eea]" aria-hidden="true" />
             <h2 className="mt-4 text-xl font-black">Learning</h2>
             <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
-              {hasLearning ? "View the original lecture PDF one slide at a time." : "Project-specific learning materials have not been added yet."}
+              {hasLearning ? "View the project PDF one page at a time in Learning Studio." : "Project-specific learning materials have not been added yet."}
             </p>
             {hasLearning ? (
               <Link to="/practical/$projectId" params={{ projectId: project.id }} search={{ mode: "learning" }} className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 font-extrabold text-white hover:bg-[#0d7fda]">

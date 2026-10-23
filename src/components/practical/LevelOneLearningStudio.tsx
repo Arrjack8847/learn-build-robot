@@ -8,11 +8,12 @@ import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 
 /** One PDF page per slide, separate from the Building Studio instruction dock. */
 export function LevelOneLearningStudio({
-  projectId, title, lecture,
+  projectId, title, lecture, level = 1,
 }: {
   projectId: string;
   title: string;
   lecture: LevelOneLecture;
+  level?: 1 | 2;
 }) {
   const [document, setDocument] = useState<PDFDocumentProxy | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -114,7 +115,7 @@ export function LevelOneLearningStudio({
           <ArrowLeft className="size-4" aria-hidden="true"/> <span className="hidden sm:inline">Project</span>
         </Link>
         <div className="min-w-0 flex-1 text-center">
-          <p className="text-[10px] font-extrabold uppercase tracking-[.1em] text-[#168eea]">Level 1 · Learning Studio</p>
+          <p className="text-[10px] font-extrabold uppercase tracking-[.1em] text-[#168eea]">Level {level} · Learning Studio</p>
           <h1 className="truncate text-sm font-black sm:text-lg">{title}</h1>
         </div>
         <button type="button" onClick={() => void changeFullscreen()}
