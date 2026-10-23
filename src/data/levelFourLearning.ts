@@ -1,61 +1,11 @@
 /** Level 4 Learning presentations, aligned to the official category and lesson names. */
 import type { PdfActivityManual } from "./pdfActivityManuals";
-import level4Pdf01Url from "../../Level 4/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Slides.pdf?url";
-import level4Pdf02Url from "../../Level 4/Advanced Navigation & Control/Drop-proof Robot/12.Drop-proof Robot-update.pdf?url";
-import level4Pdf03Url from "../../Level 4/Advanced Navigation & Control/Super Trajectory Robot 2/14. Super Trajectory Robot 2-update.pdf?url";
-import level4Pdf04Url from "../../Level 4/Automation & Security/Personal Bodyguard/09. Personal Bodyguard-Teaching Slides.pdf?url";
-import level4Pdf05Url from "../../Level 4/Automation & Security/Scan to Open the Gate/01. Scan to Open the Gate-Slides.pdf?url";
-import level4Pdf06Url from "../../Level 4/Automation & Security/Smart curtain/Smart curtain_Powerpoint.pdf?url";
-import level4Pdf07Url from "../../Level 4/Automation & Security/Tag Recognition/06. Tag Recognition.pdf?url";
-import level4Pdf08Url from "../../Level 4/Autonomous Navigation & Ranging/Guide Dogs/10. Guide Dogs - Slides.pdf?url";
-import level4Pdf09Url from "../../Level 4/Autonomous Navigation & Ranging/Keeping Distance/12. Keeping Distance-Teaching Slides.pdf?url";
-import level4Pdf10Url from "../../Level 4/Autonomous Navigation & Ranging/Laser Rangefinder/10. Laser Rangefinder - Teaching Slides.pdf?url";
-import level4Pdf11Url from "../../Level 4/Autonomous Navigation & Ranging/Magnetically Controlled Door/06. Magnetically controlled door-Teaching Slides.pdf?url";
-import level4Pdf12Url from "../../Level 4/Autonomous Navigation & Ranging/Obstacle Avoidance In Snow/4. Obstacle Avoidance In Snow - Slides.pdf?url";
-import level4Pdf13Url from "../../Level 4/Autonomous Navigation & Ranging/Obstacle Avoidance Robot 2/Obstacle Avoidance Robot 2_Powerpoint.pdf?url";
-import level4Pdf14Url from "../../Level 4/Autonomous Navigation & Ranging/Probe Vehicle/02.Probe Vehicle.pdf?url";
-import level4Pdf15Url from "../../Level 4/Autonomous Navigation & Ranging/Radar vehicle/Radar vehicle_Powerpoint.pdf?url";
-import level4Pdf16Url from "../../Level 4/Biomimicry & Stimulus Response/Nocturnal beetle/10.Nocturnal beetle-update.pdf?url";
-import level4Pdf17Url from "../../Level 4/Characters & Structures/A Timid Mouse/Lesson 25. A Timid Mouse-Teaching Slides.pdf?url";
-import level4Pdf18Url from "../../Level 4/Characters & Structures/Elf in the Tree/12. Elf in the Tree - Slides.pdf?url";
-import level4Pdf19Url from "../../Level 4/Characters & Structures/Parts Sorter/22.Parts Sorter- Slides.pdf?url";
-import level4Pdf20Url from "../../Level 4/Characters & Structures/Swimming Plesiosaur/19. Swimming Plesiosaur-Teaching Slides.pdf?url";
-import level4Pdf21Url from "../../Level 4/Characters & Structures/Tail-Wagging Stegosaurus/18. Tail-Wagging Stegosaurus-Slides.pdf?url";
-import level4Pdf22Url from "../../Level 4/Complex Mechanisms & Coordinated Motion/Architectural design/Architectural design.pdf?url";
-import level4Pdf23Url from "../../Level 4/Complex Mechanisms & Coordinated Motion/Card Machine/05.Card Machine-update.pdf?url";
-import level4Pdf24Url from "../../Level 4/Display & Movement/Dancing Robot/31.Dancing Robot-Slides.pdf?url";
-import level4Pdf25Url from "../../Level 4/Display & Movement/Skiing Robot/28.Skiing Robot -Slides.pdf?url";
-import level4Pdf26Url from "../../Level 4/Foundational Robots/Vending machine.pdf?url";
-import level4Pdf27Url from "../../Level 4/Illumination & Signals/Induction Desk Lamp/13. Induction Desk Lamp-Teaching Slides.pdf?url";
-import level4Pdf28Url from "../../Level 4/Interactive Mechanisms/Scorpion/Scorpion_Powerpoint-update.pdf?url";
-import level4Pdf29Url from "../../Level 4/Interactive Mechanisms/Smart Luggage/16. Smart Luggage-Teaching Slides.pdf?url";
-import level4Pdf30Url from "../../Level 4/Interactive Mechanisms/Telegraph machine/Telegraph machine_Powerpoint-update.pdf?url";
-import level4Pdf31Url from "../../Level 4/Interactive Mechanisms/Voice Control/01.Voice Control.pdf?url";
-import level4Pdf32Url from "../../Level 4/Interactive Systems/Basketball Shooting Machine/27.Basketball Shooting Machine -Slides.pdf?url";
-import level4Pdf33Url from "../../Level 4/Interactive Systems/Obstacle Avoidance Robot/18.Obstacle Avoidance Robot-Slides.pdf?url";
-import level4Pdf34Url from "../../Level 4/Interactive Systems/Reaction Tester/19.Reaction Tester-Slides.pdf?url";
-import level4Pdf35Url from "../../Level 4/Interactive Systems/Tumbler/01. Tumbler - Teaching Slides.pdf?url";
-import level4Pdf36Url from "../../Level 4/Machines & Mechanisms/Safe Box.pdf?url";
-import level4Pdf37Url from "../../Level 4/Mechanisms & Simulators/Biped Robot/20. Biped Robot-Teaching Slides.pdf?url";
-import level4Pdf38Url from "../../Level 4/Mechanisms & Simulators/Horizontal Bar/5. Horizontal Bar- Slides.pdf?url";
-import level4Pdf39Url from "../../Level 4/Mechanisms & Simulators/Oscillating Fan/19.Oscillating Fan -Slides.pdf?url";
-import level4Pdf40Url from "../../Level 4/Mechanisms & Simulators/Spinning Cups/14. Spinning Cups-Teaching Slides.pdf?url";
-import level4Pdf41Url from "../../Level 4/Mechanisms & Simulators/Telegraph/09.Telegraph -Slides.pdf?url";
-import level4Pdf42Url from "../../Level 4/Mechanisms & Simulators/Turbo Drop/28. Turbo Drop-Teaching Slides.pdf?url";
-import level4Pdf43Url from "../../Level 4/Programming & Precise Control/Obstacle-avoiding Scorpion/01.Obstacle-avoiding Scorpion_Slides.pdf?url";
-import level4Pdf44Url from "../../Level 4/Sensor Automation/Card reader/08.Card reader-update.pdf?url";
-import level4Pdf45Url from "../../Level 4/Sensor Automation/Password box/06.Password box-update.pdf?url";
-import level4Pdf46Url from "../../Level 4/Sensor-Focused Robots/Energy Detector/05. Energy Detector-Teaching Slides.pdf?url";
-import level4Pdf47Url from "../../Level 4/Sensor-Focused Robots/Ranging robot/Ranging robot_Powerpoint.pdf?url";
-import level4Pdf48Url from "../../Level 4/Sensors/Back-up buzzer.pdf?url";
-import level4Pdf49Url from "../../Level 4/Sensors/Counting system.pdf?url";
-import level4Pdf50Url from "../../Level 4/Sound & Voice Interaction/Acoustic control lamp/Acoustic control lamp_Powerpoint-update.pdf?url";
-import level4Pdf51Url from "../../Level 4/Sound & Voice Interaction/Electric Piano/32.Electric Piano-Slides.pdf?url";
-import level4Pdf52Url from "../../Level 4/Sound & Voice Interaction/Smart Speaker/30.Smart Speaker-Slides.pdf?url";
-import level4Pdf53Url from "../../Level 4/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin.pdf?url";
-import level4Pdf54Url from "../../Level 4/Vehicles & Complex Movers/Lucky Cat/13.Lucky Cat-Slides.pdf?url";
-import level4Pdf55Url from "../../Level 4/Vehicles & Complex Movers/Remote Control Car/04. Remote Control Car-Teaching Slides.pdf?url";
-import level4Pdf56Url from "../../Level 4/Vehicles & Complex Movers/Transformer Robot/06.Transformer Robot-Slides.pdf?url";
+
+/** Direct static asset URL for a Level 4 PDF in public/Level 4. */
+function publicPdfUrl(path: string): string {
+  return "/" + path.split("/").map(encodeURIComponent).join("/");
+}
+
 
 export const levelFourLearningLessons = [
   {
@@ -66,7 +16,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Slides.pdf",
     originalPowerPointFile: "13. Warrior With Claws - Slides.pptx",
     pageCount: 27,
-    url: level4Pdf01Url,
+    url: publicPdfUrl("Level 4/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Slides.pdf"),
   },
   {
     id: "level-4-drop-proof-robot",
@@ -77,7 +27,7 @@ export const levelFourLearningLessons = [
       "Level 4/Advanced Navigation & Control/Drop-proof Robot/12.Drop-proof Robot-update.pdf",
     originalPowerPointFile: "12.Drop-proof Robot-update.pptx",
     pageCount: 18,
-    url: level4Pdf02Url,
+    url: publicPdfUrl("Level 4/Advanced Navigation & Control/Drop-proof Robot/12.Drop-proof Robot-update.pdf"),
   },
   {
     id: "level-4-super-trajectory-robot-2",
@@ -88,7 +38,7 @@ export const levelFourLearningLessons = [
       "Level 4/Advanced Navigation & Control/Super Trajectory Robot 2/14. Super Trajectory Robot 2-update.pdf",
     originalPowerPointFile: "14. Super Trajectory Robot 2-update.pptx",
     pageCount: 16,
-    url: level4Pdf03Url,
+    url: publicPdfUrl("Level 4/Advanced Navigation & Control/Super Trajectory Robot 2/14. Super Trajectory Robot 2-update.pdf"),
   },
   {
     id: "level-4-personal-bodyguard",
@@ -99,7 +49,7 @@ export const levelFourLearningLessons = [
       "Level 4/Automation & Security/Personal Bodyguard/09. Personal Bodyguard-Teaching Slides.pdf",
     originalPowerPointFile: "09. Personal Bodyguard-Teaching Slides.pptx",
     pageCount: 25,
-    url: level4Pdf04Url,
+    url: publicPdfUrl("Level 4/Automation & Security/Personal Bodyguard/09. Personal Bodyguard-Teaching Slides.pdf"),
   },
   {
     id: "level-4-scan-to-open-the-gate",
@@ -110,7 +60,7 @@ export const levelFourLearningLessons = [
       "Level 4/Automation & Security/Scan to Open the Gate/01. Scan to Open the Gate-Slides.pdf",
     originalPowerPointFile: "01. Scan to Open the Gate-Slides.pptx",
     pageCount: 28,
-    url: level4Pdf05Url,
+    url: publicPdfUrl("Level 4/Automation & Security/Scan to Open the Gate/01. Scan to Open the Gate-Slides.pdf"),
   },
   {
     id: "level-4-smart-curtain",
@@ -120,7 +70,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Automation & Security/Smart curtain/Smart curtain_Powerpoint.pdf",
     originalPowerPointFile: "Smart curtain_Powerpoint.pptx",
     pageCount: 18,
-    url: level4Pdf06Url,
+    url: publicPdfUrl("Level 4/Automation & Security/Smart curtain/Smart curtain_Powerpoint.pdf"),
   },
   {
     id: "level-4-tag-recognition",
@@ -130,7 +80,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Automation & Security/Tag Recognition/06. Tag Recognition.pdf",
     originalPowerPointFile: "06. Tag Recognition.pptx",
     pageCount: 17,
-    url: level4Pdf07Url,
+    url: publicPdfUrl("Level 4/Automation & Security/Tag Recognition/06. Tag Recognition.pdf"),
   },
   {
     id: "level-4-guide-dogs",
@@ -140,7 +90,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Autonomous Navigation & Ranging/Guide Dogs/10. Guide Dogs - Slides.pdf",
     originalPowerPointFile: "10. Guide Dogs - Slides.pptx",
     pageCount: 24,
-    url: level4Pdf08Url,
+    url: publicPdfUrl("Level 4/Autonomous Navigation & Ranging/Guide Dogs/10. Guide Dogs - Slides.pdf"),
   },
   {
     id: "level-4-keeping-distance",
@@ -151,7 +101,7 @@ export const levelFourLearningLessons = [
       "Level 4/Autonomous Navigation & Ranging/Keeping Distance/12. Keeping Distance-Teaching Slides.pdf",
     originalPowerPointFile: "12. Keeping Distance-Teaching Slides.pptx",
     pageCount: 22,
-    url: level4Pdf09Url,
+    url: publicPdfUrl("Level 4/Autonomous Navigation & Ranging/Keeping Distance/12. Keeping Distance-Teaching Slides.pdf"),
   },
   {
     id: "level-4-laser-rangefinder",
@@ -162,7 +112,7 @@ export const levelFourLearningLessons = [
       "Level 4/Autonomous Navigation & Ranging/Laser Rangefinder/10. Laser Rangefinder - Teaching Slides.pdf",
     originalPowerPointFile: "10. Laser Rangefinder - Teaching Slides.pptx",
     pageCount: 24,
-    url: level4Pdf10Url,
+    url: publicPdfUrl("Level 4/Autonomous Navigation & Ranging/Laser Rangefinder/10. Laser Rangefinder - Teaching Slides.pdf"),
   },
   {
     id: "level-4-magnetically-controlled-door",
@@ -173,7 +123,7 @@ export const levelFourLearningLessons = [
       "Level 4/Autonomous Navigation & Ranging/Magnetically Controlled Door/06. Magnetically controlled door-Teaching Slides.pdf",
     originalPowerPointFile: "06. Magnetically controlled door-Teaching Slides.pptx",
     pageCount: 24,
-    url: level4Pdf11Url,
+    url: publicPdfUrl("Level 4/Autonomous Navigation & Ranging/Magnetically Controlled Door/06. Magnetically controlled door-Teaching Slides.pdf"),
   },
   {
     id: "level-4-obstacle-avoidance-in-snow",
@@ -184,7 +134,7 @@ export const levelFourLearningLessons = [
       "Level 4/Autonomous Navigation & Ranging/Obstacle Avoidance In Snow/4. Obstacle Avoidance In Snow - Slides.pdf",
     originalPowerPointFile: "4. Obstacle Avoidance In Snow - Slides.pptx",
     pageCount: 26,
-    url: level4Pdf12Url,
+    url: publicPdfUrl("Level 4/Autonomous Navigation & Ranging/Obstacle Avoidance In Snow/4. Obstacle Avoidance In Snow - Slides.pdf"),
   },
   {
     id: "level-4-obstacle-avoidance-robot-2",
@@ -195,7 +145,7 @@ export const levelFourLearningLessons = [
       "Level 4/Autonomous Navigation & Ranging/Obstacle Avoidance Robot 2/Obstacle Avoidance Robot 2_Powerpoint.pdf",
     originalPowerPointFile: "Obstacle Avoidance Robot 2_Powerpoint.pptx",
     pageCount: 21,
-    url: level4Pdf13Url,
+    url: publicPdfUrl("Level 4/Autonomous Navigation & Ranging/Obstacle Avoidance Robot 2/Obstacle Avoidance Robot 2_Powerpoint.pdf"),
   },
   {
     id: "level-4-probe-vehicle",
@@ -205,7 +155,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Autonomous Navigation & Ranging/Probe Vehicle/02.Probe Vehicle.pdf",
     originalPowerPointFile: "02.Probe Vehicle.pptx",
     pageCount: 17,
-    url: level4Pdf14Url,
+    url: publicPdfUrl("Level 4/Autonomous Navigation & Ranging/Probe Vehicle/02.Probe Vehicle.pdf"),
   },
   {
     id: "level-4-radar-vehicle",
@@ -215,7 +165,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Autonomous Navigation & Ranging/Radar vehicle/Radar vehicle_Powerpoint.pdf",
     originalPowerPointFile: "Radar vehicle_Powerpoint.pptx",
     pageCount: 18,
-    url: level4Pdf15Url,
+    url: publicPdfUrl("Level 4/Autonomous Navigation & Ranging/Radar vehicle/Radar vehicle_Powerpoint.pdf"),
   },
   {
     id: "level-4-nocturnal-beetle",
@@ -226,7 +176,7 @@ export const levelFourLearningLessons = [
       "Level 4/Biomimicry & Stimulus Response/Nocturnal beetle/10.Nocturnal beetle-update.pdf",
     originalPowerPointFile: "10.Nocturnal beetle-update.pptx",
     pageCount: 21,
-    url: level4Pdf16Url,
+    url: publicPdfUrl("Level 4/Biomimicry & Stimulus Response/Nocturnal beetle/10.Nocturnal beetle-update.pdf"),
   },
   {
     id: "level-4-a-timid-mouse",
@@ -237,7 +187,7 @@ export const levelFourLearningLessons = [
       "Level 4/Characters & Structures/A Timid Mouse/Lesson 25. A Timid Mouse-Teaching Slides.pdf",
     originalPowerPointFile: "Lesson 25. A Timid Mouse-Teaching Slides.pptx",
     pageCount: 27,
-    url: level4Pdf17Url,
+    url: publicPdfUrl("Level 4/Characters & Structures/A Timid Mouse/Lesson 25. A Timid Mouse-Teaching Slides.pdf"),
   },
   {
     id: "level-4-elf-in-the-tree",
@@ -247,7 +197,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Characters & Structures/Elf in the Tree/12. Elf in the Tree - Slides.pdf",
     originalPowerPointFile: "12. Elf in the Tree - Slides.pptx",
     pageCount: 24,
-    url: level4Pdf18Url,
+    url: publicPdfUrl("Level 4/Characters & Structures/Elf in the Tree/12. Elf in the Tree - Slides.pdf"),
   },
   {
     id: "level-4-parts-sorter",
@@ -257,7 +207,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Characters & Structures/Parts Sorter/22.Parts Sorter- Slides.pdf",
     originalPowerPointFile: "22.Parts Sorter- Slides.pptx",
     pageCount: 33,
-    url: level4Pdf19Url,
+    url: publicPdfUrl("Level 4/Characters & Structures/Parts Sorter/22.Parts Sorter- Slides.pdf"),
   },
   {
     id: "level-4-swimming-plesiosaur",
@@ -268,7 +218,7 @@ export const levelFourLearningLessons = [
       "Level 4/Characters & Structures/Swimming Plesiosaur/19. Swimming Plesiosaur-Teaching Slides.pdf",
     originalPowerPointFile: "19. Swimming Plesiosaur-Teaching Slides.pptx",
     pageCount: 21,
-    url: level4Pdf20Url,
+    url: publicPdfUrl("Level 4/Characters & Structures/Swimming Plesiosaur/19. Swimming Plesiosaur-Teaching Slides.pdf"),
   },
   {
     id: "level-4-tail-wagging-stegosaurus",
@@ -279,7 +229,7 @@ export const levelFourLearningLessons = [
       "Level 4/Characters & Structures/Tail-Wagging Stegosaurus/18. Tail-Wagging Stegosaurus-Slides.pdf",
     originalPowerPointFile: "18. Tail-Wagging Stegosaurus-Slides.pptx",
     pageCount: 23,
-    url: level4Pdf21Url,
+    url: publicPdfUrl("Level 4/Characters & Structures/Tail-Wagging Stegosaurus/18. Tail-Wagging Stegosaurus-Slides.pdf"),
   },
   {
     id: "level-4-architectural-design",
@@ -290,7 +240,7 @@ export const levelFourLearningLessons = [
       "Level 4/Complex Mechanisms & Coordinated Motion/Architectural design/Architectural design.pdf",
     originalPowerPointFile: "Architectural design.pptx",
     pageCount: 18,
-    url: level4Pdf22Url,
+    url: publicPdfUrl("Level 4/Complex Mechanisms & Coordinated Motion/Architectural design/Architectural design.pdf"),
   },
   {
     id: "level-4-card-machine",
@@ -301,7 +251,7 @@ export const levelFourLearningLessons = [
       "Level 4/Complex Mechanisms & Coordinated Motion/Card Machine/05.Card Machine-update.pdf",
     originalPowerPointFile: "05.Card Machine-update.pptx",
     pageCount: 19,
-    url: level4Pdf23Url,
+    url: publicPdfUrl("Level 4/Complex Mechanisms & Coordinated Motion/Card Machine/05.Card Machine-update.pdf"),
   },
   {
     id: "level-4-dancing-robot",
@@ -311,7 +261,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Display & Movement/Dancing Robot/31.Dancing Robot-Slides.pdf",
     originalPowerPointFile: "31.Dancing Robot-Slides.pptx",
     pageCount: 32,
-    url: level4Pdf24Url,
+    url: publicPdfUrl("Level 4/Display & Movement/Dancing Robot/31.Dancing Robot-Slides.pdf"),
   },
   {
     id: "level-4-skiing-robot",
@@ -321,7 +271,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Display & Movement/Skiing Robot/28.Skiing Robot -Slides.pdf",
     originalPowerPointFile: "28.Skiing Robot -Slides.pptx",
     pageCount: 40,
-    url: level4Pdf25Url,
+    url: publicPdfUrl("Level 4/Display & Movement/Skiing Robot/28.Skiing Robot -Slides.pdf"),
   },
   {
     id: "level-4-vending-machine",
@@ -331,7 +281,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Foundational Robots/Vending machine.pdf",
     originalPowerPointFile: "Vending machine.pptx",
     pageCount: 27,
-    url: level4Pdf26Url,
+    url: publicPdfUrl("Level 4/Foundational Robots/Vending machine.pdf"),
   },
   {
     id: "level-4-induction-desk-lamp",
@@ -342,7 +292,7 @@ export const levelFourLearningLessons = [
       "Level 4/Illumination & Signals/Induction Desk Lamp/13. Induction Desk Lamp-Teaching Slides.pdf",
     originalPowerPointFile: "13. Induction Desk Lamp-Teaching Slides.pptx",
     pageCount: 21,
-    url: level4Pdf27Url,
+    url: publicPdfUrl("Level 4/Illumination & Signals/Induction Desk Lamp/13. Induction Desk Lamp-Teaching Slides.pdf"),
   },
   {
     id: "level-4-scorpion",
@@ -352,7 +302,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Interactive Mechanisms/Scorpion/Scorpion_Powerpoint-update.pdf",
     originalPowerPointFile: "Scorpion_Powerpoint-update.pptx",
     pageCount: 20,
-    url: level4Pdf28Url,
+    url: publicPdfUrl("Level 4/Interactive Mechanisms/Scorpion/Scorpion_Powerpoint-update.pdf"),
   },
   {
     id: "level-4-smart-luggage",
@@ -362,7 +312,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Interactive Mechanisms/Smart Luggage/16. Smart Luggage-Teaching Slides.pdf",
     originalPowerPointFile: "16. Smart Luggage-Teaching Slides.pptx",
     pageCount: 21,
-    url: level4Pdf29Url,
+    url: publicPdfUrl("Level 4/Interactive Mechanisms/Smart Luggage/16. Smart Luggage-Teaching Slides.pdf"),
   },
   {
     id: "level-4-telegraph-machine",
@@ -373,7 +323,7 @@ export const levelFourLearningLessons = [
       "Level 4/Interactive Mechanisms/Telegraph machine/Telegraph machine_Powerpoint-update.pdf",
     originalPowerPointFile: "Telegraph machine_Powerpoint-update.pptx",
     pageCount: 22,
-    url: level4Pdf30Url,
+    url: publicPdfUrl("Level 4/Interactive Mechanisms/Telegraph machine/Telegraph machine_Powerpoint-update.pdf"),
   },
   {
     id: "level-4-voice-control",
@@ -383,7 +333,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Interactive Mechanisms/Voice Control/01.Voice Control.pdf",
     originalPowerPointFile: "01.Voice Control.pptx",
     pageCount: 19,
-    url: level4Pdf31Url,
+    url: publicPdfUrl("Level 4/Interactive Mechanisms/Voice Control/01.Voice Control.pdf"),
   },
   {
     id: "level-4-basketball-shooting-machine",
@@ -394,7 +344,7 @@ export const levelFourLearningLessons = [
       "Level 4/Interactive Systems/Basketball Shooting Machine/27.Basketball Shooting Machine -Slides.pdf",
     originalPowerPointFile: "27.Basketball Shooting Machine -Slides.pptx",
     pageCount: 38,
-    url: level4Pdf32Url,
+    url: publicPdfUrl("Level 4/Interactive Systems/Basketball Shooting Machine/27.Basketball Shooting Machine -Slides.pdf"),
   },
   {
     id: "level-4-obstacle-avoidance-robot",
@@ -405,7 +355,7 @@ export const levelFourLearningLessons = [
       "Level 4/Interactive Systems/Obstacle Avoidance Robot/18.Obstacle Avoidance Robot-Slides.pdf",
     originalPowerPointFile: "18.Obstacle Avoidance Robot-Slides.pptx",
     pageCount: 27,
-    url: level4Pdf33Url,
+    url: publicPdfUrl("Level 4/Interactive Systems/Obstacle Avoidance Robot/18.Obstacle Avoidance Robot-Slides.pdf"),
   },
   {
     id: "level-4-reaction-tester",
@@ -415,7 +365,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Interactive Systems/Reaction Tester/19.Reaction Tester-Slides.pdf",
     originalPowerPointFile: "19.Reaction Tester-Slides.pptx",
     pageCount: 27,
-    url: level4Pdf34Url,
+    url: publicPdfUrl("Level 4/Interactive Systems/Reaction Tester/19.Reaction Tester-Slides.pdf"),
   },
   {
     id: "level-4-tumbler",
@@ -425,7 +375,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Interactive Systems/Tumbler/01. Tumbler - Teaching Slides.pdf",
     originalPowerPointFile: "01. Tumbler - Teaching Slides.pptx",
     pageCount: 28,
-    url: level4Pdf35Url,
+    url: publicPdfUrl("Level 4/Interactive Systems/Tumbler/01. Tumbler - Teaching Slides.pdf"),
   },
   {
     id: "level-4-safe-box",
@@ -435,7 +385,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Machines & Mechanisms/Safe Box.pdf",
     originalPowerPointFile: "Safe Box.pptx",
     pageCount: 17,
-    url: level4Pdf36Url,
+    url: publicPdfUrl("Level 4/Machines & Mechanisms/Safe Box.pdf"),
   },
   {
     id: "level-4-biped-robot",
@@ -445,7 +395,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Mechanisms & Simulators/Biped Robot/20. Biped Robot-Teaching Slides.pdf",
     originalPowerPointFile: "20. Biped Robot-Teaching Slides.pptx",
     pageCount: 21,
-    url: level4Pdf37Url,
+    url: publicPdfUrl("Level 4/Mechanisms & Simulators/Biped Robot/20. Biped Robot-Teaching Slides.pdf"),
   },
   {
     id: "level-4-horizontal-bar",
@@ -455,7 +405,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Mechanisms & Simulators/Horizontal Bar/5. Horizontal Bar- Slides.pdf",
     originalPowerPointFile: "5. Horizontal Bar- Slides.pptx",
     pageCount: 28,
-    url: level4Pdf38Url,
+    url: publicPdfUrl("Level 4/Mechanisms & Simulators/Horizontal Bar/5. Horizontal Bar- Slides.pdf"),
   },
   {
     id: "level-4-oscillating-fan",
@@ -465,7 +415,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Mechanisms & Simulators/Oscillating Fan/19.Oscillating Fan -Slides.pdf",
     originalPowerPointFile: "19.Oscillating Fan -Slides.pptx",
     pageCount: 22,
-    url: level4Pdf39Url,
+    url: publicPdfUrl("Level 4/Mechanisms & Simulators/Oscillating Fan/19.Oscillating Fan -Slides.pdf"),
   },
   {
     id: "level-4-spinning-cups",
@@ -475,7 +425,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Mechanisms & Simulators/Spinning Cups/14. Spinning Cups-Teaching Slides.pdf",
     originalPowerPointFile: "14. Spinning Cups-Teaching Slides.pptx",
     pageCount: 23,
-    url: level4Pdf40Url,
+    url: publicPdfUrl("Level 4/Mechanisms & Simulators/Spinning Cups/14. Spinning Cups-Teaching Slides.pdf"),
   },
   {
     id: "level-4-telegraph",
@@ -485,7 +435,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Mechanisms & Simulators/Telegraph/09.Telegraph -Slides.pdf",
     originalPowerPointFile: "09.Telegraph -Slides.pptx",
     pageCount: 33,
-    url: level4Pdf41Url,
+    url: publicPdfUrl("Level 4/Mechanisms & Simulators/Telegraph/09.Telegraph -Slides.pdf"),
   },
   {
     id: "level-4-turbo-drop",
@@ -495,7 +445,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Mechanisms & Simulators/Turbo Drop/28. Turbo Drop-Teaching Slides.pdf",
     originalPowerPointFile: "28. Turbo Drop-Teaching Slides.pptx",
     pageCount: 24,
-    url: level4Pdf42Url,
+    url: publicPdfUrl("Level 4/Mechanisms & Simulators/Turbo Drop/28. Turbo Drop-Teaching Slides.pdf"),
   },
   {
     id: "level-4-obstacle-avoiding-scorpion",
@@ -506,7 +456,7 @@ export const levelFourLearningLessons = [
       "Level 4/Programming & Precise Control/Obstacle-avoiding Scorpion/01.Obstacle-avoiding Scorpion_Slides.pdf",
     originalPowerPointFile: "01.Obstacle-avoiding Scorpion_Slides.pptx",
     pageCount: 30,
-    url: level4Pdf43Url,
+    url: publicPdfUrl("Level 4/Programming & Precise Control/Obstacle-avoiding Scorpion/01.Obstacle-avoiding Scorpion_Slides.pdf"),
   },
   {
     id: "level-4-card-reader",
@@ -516,7 +466,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Sensor Automation/Card reader/08.Card reader-update.pdf",
     originalPowerPointFile: "08.Card reader-update.pptx",
     pageCount: 18,
-    url: level4Pdf44Url,
+    url: publicPdfUrl("Level 4/Sensor Automation/Card reader/08.Card reader-update.pdf"),
   },
   {
     id: "level-4-password-box",
@@ -526,7 +476,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Sensor Automation/Password box/06.Password box-update.pdf",
     originalPowerPointFile: "06.Password box-update.pptx",
     pageCount: 19,
-    url: level4Pdf45Url,
+    url: publicPdfUrl("Level 4/Sensor Automation/Password box/06.Password box-update.pdf"),
   },
   {
     id: "level-4-energy-detector",
@@ -537,7 +487,7 @@ export const levelFourLearningLessons = [
       "Level 4/Sensor-Focused Robots/Energy Detector/05. Energy Detector-Teaching Slides.pdf",
     originalPowerPointFile: "05. Energy Detector-Teaching Slides.pptx",
     pageCount: 22,
-    url: level4Pdf46Url,
+    url: publicPdfUrl("Level 4/Sensor-Focused Robots/Energy Detector/05. Energy Detector-Teaching Slides.pdf"),
   },
   {
     id: "level-4-ranging-robot",
@@ -547,7 +497,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Sensor-Focused Robots/Ranging robot/Ranging robot_Powerpoint.pdf",
     originalPowerPointFile: "Ranging robot_Powerpoint.pptx",
     pageCount: 20,
-    url: level4Pdf47Url,
+    url: publicPdfUrl("Level 4/Sensor-Focused Robots/Ranging robot/Ranging robot_Powerpoint.pdf"),
   },
   {
     id: "level-4-back-up-buzzer",
@@ -557,7 +507,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Sensors/Back-up buzzer.pdf",
     originalPowerPointFile: "Back-up buzzer.pptx",
     pageCount: 20,
-    url: level4Pdf48Url,
+    url: publicPdfUrl("Level 4/Sensors/Back-up buzzer.pdf"),
   },
   {
     id: "level-4-counting-system",
@@ -567,7 +517,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Sensors/Counting system.pdf",
     originalPowerPointFile: "Counting system.pptx",
     pageCount: 17,
-    url: level4Pdf49Url,
+    url: publicPdfUrl("Level 4/Sensors/Counting system.pdf"),
   },
   {
     id: "level-4-acoustic-control-lamp",
@@ -578,7 +528,7 @@ export const levelFourLearningLessons = [
       "Level 4/Sound & Voice Interaction/Acoustic control lamp/Acoustic control lamp_Powerpoint-update.pdf",
     originalPowerPointFile: "Acoustic control lamp_Powerpoint-update.pptx",
     pageCount: 20,
-    url: level4Pdf50Url,
+    url: publicPdfUrl("Level 4/Sound & Voice Interaction/Acoustic control lamp/Acoustic control lamp_Powerpoint-update.pdf"),
   },
   {
     id: "level-4-electric-piano",
@@ -588,7 +538,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Sound & Voice Interaction/Electric Piano/32.Electric Piano-Slides.pdf",
     originalPowerPointFile: "32.Electric Piano-Slides.pptx",
     pageCount: 35,
-    url: level4Pdf51Url,
+    url: publicPdfUrl("Level 4/Sound & Voice Interaction/Electric Piano/32.Electric Piano-Slides.pdf"),
   },
   {
     id: "level-4-smart-speaker",
@@ -598,7 +548,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Sound & Voice Interaction/Smart Speaker/30.Smart Speaker-Slides.pdf",
     originalPowerPointFile: "30.Smart Speaker-Slides.pptx",
     pageCount: 29,
-    url: level4Pdf52Url,
+    url: publicPdfUrl("Level 4/Sound & Voice Interaction/Smart Speaker/30.Smart Speaker-Slides.pdf"),
   },
   {
     id: "level-4-dangerous-assassin",
@@ -608,7 +558,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin.pdf",
     originalPowerPointFile: "15. Dangerous Assassin.pptx",
     pageCount: 23,
-    url: level4Pdf53Url,
+    url: publicPdfUrl("Level 4/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin.pdf"),
   },
   {
     id: "level-4-lucky-cat",
@@ -618,7 +568,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Vehicles & Complex Movers/Lucky Cat/13.Lucky Cat-Slides.pdf",
     originalPowerPointFile: "13.Lucky Cat-Slides.pptx",
     pageCount: 35,
-    url: level4Pdf54Url,
+    url: publicPdfUrl("Level 4/Vehicles & Complex Movers/Lucky Cat/13.Lucky Cat-Slides.pdf"),
   },
   {
     id: "level-4-remote-control-car",
@@ -629,7 +579,7 @@ export const levelFourLearningLessons = [
       "Level 4/Vehicles & Complex Movers/Remote Control Car/04. Remote Control Car-Teaching Slides.pdf",
     originalPowerPointFile: "04. Remote Control Car-Teaching Slides.pptx",
     pageCount: 25,
-    url: level4Pdf55Url,
+    url: publicPdfUrl("Level 4/Vehicles & Complex Movers/Remote Control Car/04. Remote Control Car-Teaching Slides.pdf"),
   },
   {
     id: "level-4-transformer-robot",
@@ -639,7 +589,7 @@ export const levelFourLearningLessons = [
     pdfFile: "Level 4/Vehicles & Complex Movers/Transformer Robot/06.Transformer Robot-Slides.pdf",
     originalPowerPointFile: "06.Transformer Robot-Slides.pptx",
     pageCount: 32,
-    url: level4Pdf56Url,
+    url: publicPdfUrl("Level 4/Vehicles & Complex Movers/Transformer Robot/06.Transformer Robot-Slides.pdf"),
   },
 ] as const;
 

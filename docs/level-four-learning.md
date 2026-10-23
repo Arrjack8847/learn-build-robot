@@ -4,7 +4,7 @@ All **56 activities across 20 categories** now have their original PowerPoint sl
 
 The route remains **Home → Level → Category → Project → Learning**. The existing PDF.js viewer supplies slide navigation, zoom, and separate `-slides-complete` progress. Building stays unavailable until an actual building lesson is added.
 
-PDFs retain their exact exported filenames and category/project hierarchy under `Level 4/`. Vite imports bundle them with the app, so students do not need GitHub authentication or access to the source drive. The official syllabus category names, titles, ordering, and counts are unchanged.
+PDFs retain their exact exported filenames and category/project hierarchy under `public/Level 4/`. Vite serves them as static files at `/Level%204/...` during development and in production, without a conversion job or GitHub authentication. The table paths below are relative to `public/`. The official syllabus category names, titles, ordering, and counts are unchanged. The official syllabus category names, titles, ordering, and counts are unchanged.
 
 Source: native Microsoft PowerPoint PDF exports of the original Level 4 PPTX files. The 56 documents contain **1,346 pages**. Original PPTX files are unchanged.
 

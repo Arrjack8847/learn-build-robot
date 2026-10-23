@@ -88,9 +88,9 @@ test("Every uploaded Level 4 PDF parses in the website renderer with its source 
   const expectedFiles = new Set();
   let totalPages = 0;
   for (const lesson of levelFourLearningLessons) {
-    const file = resolve(root, lesson.pdfFile);
+    const file = resolve(root, "public", lesson.pdfFile);
     expectedFiles.add(file);
-    assert.equal(lesson.url, file);
+    assert.equal(lesson.url, "/" + lesson.pdfFile.split("/").map(encodeURIComponent).join("/"));
     const bytes = readFileSync(file);
     assert.equal(bytes.subarray(0, 5).toString("ascii"), "%PDF-", lesson.pdfFile);
     const task = getDocument({ data: new Uint8Array(bytes) });
@@ -103,7 +103,7 @@ test("Every uploaded Level 4 PDF parses in the website renderer with its source 
       await task.destroy();
     }
   }
-  const files = readdirSync(resolve(root, "Level 4"), { recursive: true, withFileTypes: true })
+  const files = readdirSync(resolve(root, "public", "Level 4"), { recursive: true, withFileTypes: true })
     .filter((entry) => entry.isFile() && extname(entry.name).toLowerCase() === ".pdf")
     .map((entry) => resolve(entry.parentPath, entry.name));
   assert.equal(files.length, 56);

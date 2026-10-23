@@ -197,8 +197,8 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
               ) : pdfError ? (
                 <div className="m-auto flex max-w-md flex-col items-center gap-3 p-6 text-center" role="alert">
                   <AlertCircle className="size-7 text-rose-600"/>
-                  <p className="text-sm font-bold">{isPresentation ? "PowerPoint slides are not available yet" : "Could not load the official manual"}</p>
-                  <p className="text-xs text-rose-700">{isPresentation ? "The automatic conversion may still be running, or it may have failed. Check the GitHub Actions conversion job and retry." : pdfError}</p>
+                  <p className="text-sm font-bold">{isPresentation ? "Could not load presentation slides" : "Could not load the official manual"}</p>
+                  <p className="text-xs text-rose-700">{pdfError}</p>
                   <Button type="button" variant="outline" onClick={() => setReloadKey(n => n + 1)}>{isPresentation ? "Retry slides" : "Retry PDF"}</Button>
                 </div>
               ) : (
