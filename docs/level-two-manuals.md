@@ -4,7 +4,7 @@
 
 - Earlier Level 2 upload batch through `45b5c4be47f5139799d125493d3ff22ebf0a91c6`; additional PDF uploads followed from `295d91789dffa47e45c9fa8b76eaa781df684909` through `908def72a0f0a82a3b5fac0d0cd400945451544e`.
 - Official Level 2 syllabus: **18 categories and 59 original activities**, unchanged
-- Recent Level 2 source restorations include `Reverse Parking.pdf`, `Smart Window.pdf`, `Spirograph.pdf`, `Automatic window.pdf`, `Robot war.pdf`, and `The treadmill.pdf`. The final file was replaced in upload commit `05dd96ba6abda958348c98820183bf6f47c4af21`. All sources are nonempty in the GitHub repository tree.
+- Recent Level 2 source restorations include `Reverse Parking.pdf`, `Smart Window.pdf`, `Spirograph.pdf`, `Automatic window.pdf`, `Robot war.pdf`, and `The treadmill.pdf`. The final file was replaced in upload commit `05dd96ba6abda958348c98820183bf6f47c4af21`. All sources are nonempty in the GitHub repository tree (now served from `public/`).
 - **60 PDF Building Studio registrations** covering **all 59 of 59 Level 2 syllabus activities**. See Saw retains two independently tracked original-source PDF choices on one syllabus card. The final three previously empty originals (Automatic window, Robot war, The treadmill) have now been replaced and connected.
 - **5 original nonempty PowerPoints** under Manipulators are available for download alongside their now-registered PDF Building Studio lessons
 - `The treadmill.pdf` (946,879 bytes) is now registered for Foundational Robots / The treadmill. It is **distinct** from `Treadmill_Building.pdf` under Mechanisms & Simulators / Treadmill, and each has its own completion record.
@@ -40,7 +40,7 @@
 - `Shift gears.pptx`
 
 ## Rules
-- The `pdfActivityManuals` registry uses the exact source PDF file with `?url`, no inferred assembly steps.
+- The `pdfActivityManuals` registry uses the exact source PDF file using `staticPdfUrl`, no inferred assembly steps.
 - `pdfManualProject` supports Level 2 registrations without changing existing Level 1 defaults.
 - Level 2 category cards match by source syllabus title and category; a registered PDF opens `/practical/$projectId`, using the existing shared PDF viewer.
 - PowerPoints remain original `.pptx` files available via native browser download even when their cards also offer PDF Building Studio.

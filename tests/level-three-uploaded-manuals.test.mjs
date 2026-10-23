@@ -278,7 +278,7 @@ test("Level 3 registers 42 original-source PDF lessons across 39 syllabus activi
     assert.ok(!ids.has(id), "Duplicate project ID " + id);
     ids.add(id);
     assert.ok(manualRegistry.includes('"'+ id + '": {'), "Unregistered source " + id);
-    assert.ok(manualRegistry.includes('../../' + filename + '?url'), "Missing source import " + filename);
+    assert.ok(manualRegistry.includes('staticPdfUrl("' + filename + '")'), "Missing source import " + filename);
     const key = id + "-manual-complete";
     assert.ok(!keys.has(key), "Duplicate progress key " + key);
     keys.add(key);
@@ -291,7 +291,7 @@ test("Level 3 registers 42 original-source PDF lessons across 39 syllabus activi
     activities.add(category + ":" + normalize(title));
     if (!checkedFiles.has(filename)) {
       checkedFiles.add(filename);
-      const data = readFileSync(new URL("../" + filename, import.meta.url));
+      const data = readFileSync(new URL("../public/" + filename, import.meta.url));
       assert.equal(data.subarray(0, 5).toString("ascii"), "%PDF-", "Not a PDF: " + filename);
       const task = getDocument({data: new Uint8Array(data)});
       const document = await task.promise;
@@ -332,7 +332,7 @@ test("Unavailable or ambiguous Level 3 manuals are not falsely marked ready to b
       "Unverified source accidentally assigned to " + title);
   }
   assert.equal(absent.length, 8);
-  assert.ok(manualRegistry.includes("../../Drawbridge.pdf?url"), "Reuploaded Drawbridge PDF missing");
+  assert.ok(manualRegistry.includes('staticPdfUrl("Drawbridge.pdf")'), "Reuploaded Drawbridge PDF missing");
   assert.ok(manualRegistry.includes('"level-3-drawbridge": {'));
   assert.ok(manualRegistry.includes('completionStepId: "level-3-drawbridge-slides-complete"'));
   assert.ok(practical.includes('pdfManualProject("level-3-drawbridge", "Drawbridge", 170, "mechanisms-and-concepts", 3, "powerpoint")'));
@@ -344,18 +344,18 @@ test("Unavailable or ambiguous Level 3 manuals are not falsely marked ready to b
 test("Drawbridge PDF is readable and treated as presentation slides", async () => {
   const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
   const filename = "Drawbridge.pdf";
-  const data = readFileSync(new URL("../" + filename, import.meta.url));
+  const data = readFileSync(new URL("../public/" + filename, import.meta.url));
   assert.equal(data.subarray(0, 5).toString("ascii"), "%PDF-");
   const task = getDocument({ data: new Uint8Array(data) });
   const document = await task.promise;
   try { assert.ok(document.numPages > 0); }
   finally { await task.destroy(); }
-  assert.ok(manualRegistry.includes('import level3UploadedDrawbridgePdfUrl from "../../Drawbridge.pdf?url"'));
+  assert.ok(manualRegistry.includes('const level3UploadedDrawbridgePdfUrl = staticPdfUrl("Drawbridge.pdf")'));
   assert.ok(manualRegistry.includes('sourceKind: "powerpoint"'));
 });
 
 test("User-confirmed Flashlight Sensor maps to 04.Flashlight-Building Manual.pdf", () => {
-  assert.ok(manualRegistry.includes('import level3FlashlightSensorPdfUrl from "../../04.Flashlight-Building Manual.pdf?url"'));
+  assert.ok(manualRegistry.includes('const level3FlashlightSensorPdfUrl = staticPdfUrl("04.Flashlight-Building Manual.pdf")'));
   assert.ok(manualRegistry.includes('"level-3-flashlight-sensor": {'));
   assert.ok(manualRegistry.includes('completionStepId: "level-3-flashlight-sensor-manual-complete"'));
   assert.ok(practical.includes('pdfManualProject("level-3-flashlight-sensor", "Flashlight Sensor", 172, "illumination-signals", 3)'));

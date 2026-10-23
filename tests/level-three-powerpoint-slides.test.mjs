@@ -34,7 +34,7 @@ test("Level 3 retains eight PowerPoint source entries and seven available slide 
     assert.ok(pdfRegistry.includes('"'+item.id+'": {'), "Missing slide registry: " + item.id);
     assert.ok(pdfRegistry.includes('originalPowerPointFile: "'+item.pptx+'"'));
     assert.ok(pdfRegistry.includes('import '), "Imported root PDFs should be bundled by Vite");
-    assert.ok(pdfRegistry.includes('from "../../' + item.pdf + '?url"'), "Uploaded root PDF not used: " + item.pdf);
+    assert.ok(pdfRegistry.includes('staticPdfUrl("' + item.pdf + '")'), "Uploaded root PDF not used: " + item.pdf);
     assert.ok(pdfRegistry.includes('completionStepId: "' + item.id + '-slides-complete"'));
     assert.ok(practical.includes('pdfManualProject("' + item.id + '", "' + item.title + '",'),
       "Missing Level 3 presentation route: " + item.id);
@@ -68,7 +68,7 @@ test("GitHub Actions converts the verified PowerPoints and commits their derived
   assert.ok(workflow.includes('git push origin HEAD:main'));
   assert.ok(converter.includes('manifest.presentations'));
   assert.ok(converter.includes('pdfinfo'));
-  assert.ok(!pdfRegistry.includes("../../Drawbridge.pdf?url"));
+  assert.ok(pdfRegistry.includes('staticPdfUrl("Drawbridge.pdf")'));
 });
 
 test("Unverified sources stay unavailable", () => {
@@ -78,20 +78,20 @@ test("Unverified sources stay unavailable", () => {
   }
 });
 
-test("All eight converted PDFs were uploaded into the repository root", () => {
+test("All eight converted PDFs are served from public/", () => {
   const uploaded = manifest.presentations;
   assert.equal(uploaded.length, 8);
   for (const item of uploaded) {
-    const buffer = readFileSync(new URL("../" + item.pdf, import.meta.url));
+    const buffer = readFileSync(new URL("../public/" + item.pdf, import.meta.url));
     assert.ok(buffer.length > 100, "Empty uploaded PDF: " + item.pdf);
     assert.equal(buffer.subarray(0, 5).toString("ascii"), "%PDF-", "Invalid PDF header: " + item.pdf);
-    assert.ok(pdfRegistry.includes('from "../../' + item.pdf + '?url"'), "Root PDF import missing");
+    assert.ok(pdfRegistry.includes('staticPdfUrl("' + item.pdf + '")'), "Static PDF mapping missing");
   }
-  assert.ok(statSync(new URL("../Sign.pdf", import.meta.url)).size > 100);
+  assert.ok(statSync(new URL("../public/Sign.pdf", import.meta.url)).size > 100);
 });
 
 test("Newly uploaded Drawbridge PDF uses slideshow controls and separate presentation progress", () => {
-  assert.ok(pdfRegistry.includes('level3UploadedDrawbridgePdfUrl from "../../Drawbridge.pdf?url"'));
+  assert.ok(pdfRegistry.includes('level3UploadedDrawbridgePdfUrl = staticPdfUrl("Drawbridge.pdf")'));
   assert.ok(pdfRegistry.includes('completionStepId: "level-3-drawbridge-slides-complete"'));
   assert.ok(practical.includes('pdfManualProject("level-3-drawbridge", "Drawbridge", 170, "mechanisms-and-concepts", 3, "powerpoint")'));
   assert.ok(viewer.includes('"Next Slide"'));

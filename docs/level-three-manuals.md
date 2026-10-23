@@ -4,7 +4,7 @@ Official Level 3 syllabus: **20 categories, 48 activities**.
 
 ## Current connected coverage
 
-- **39 activities** use original source PDF lessons via PDF Building Studio, with **42 independent PDF project registrations** due to multiple Cycle Sport and Race Walking versions.
+- **39 activities** use original source PDF lessons via PDF Building Studio (with assets served from `public/`), with **42 independent PDF project registrations** due to multiple Cycle Sport and Race Walking versions.
 - **9 activities** use PDF slides derived from uploaded PowerPoints or provided as a slideshow-compatible PDF: eight original PPTX conversions plus Drawbridge.
 - **All 48 Level 3 activities are connected.**
 - The existing per-page PDF.js viewer, Back/Next controls, and separate completion keys are reused. Slides are **not** represented as verified mechanical assembly instructions.
@@ -17,7 +17,7 @@ Official Level 3 syllabus: **20 categories, 48 activities**.
 
 ## Verification
 
-The repository tree confirms the PDF sources exist and are nonempty. The added automated Node tests parse each new PDF to verify the PDF header and at least one accessible page, but they must be executed locally (GitHub Actions is currently blocked by a billing restriction).
+The repository tree confirms the PDF sources exist in `public/` and are nonempty. The added automated Node tests parse each new PDF to verify the PDF header and at least one accessible page, but they must be executed locally (GitHub Actions is currently blocked by a billing restriction).
 
 ```powershell
 node --test tests/level-three-uploaded-manuals.test.mjs tests/level-three-powerpoint-slides.test.mjs

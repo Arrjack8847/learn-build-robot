@@ -89,14 +89,14 @@ test("60 Level 2 PDF building lessons map exactly to nonempty original uploads",
   for (const [id, filename, category, title] of pdfManuals) {
     assert.ok(!seen.has(id), "Duplicate Level 2 id " + id);
     seen.add(id);
-    const source = readFileSync(new URL("../" + filename, import.meta.url));
+    const source = readFileSync(new URL("../public/" + filename, import.meta.url));
     assert.equal(source.subarray(0, 5).toString("ascii"), "%PDF-", filename);
     assert.ok(source.length > 5, "Missing PDF pages: " + filename);
     const task = getDocument({ data: new Uint8Array(source) });
     const document = await task.promise;
     try { assert.ok(document.numPages > 0, "Empty PDF: " + filename); }
     finally { await task.destroy(); }
-    assert.ok(pdfConfig.includes("../../" + filename + "?url"), "Missing imported original " + filename);
+    assert.ok(pdfConfig.includes('staticPdfUrl("' + filename + '")'), "Missing imported original " + filename);
     assert.ok(pdfConfig.includes('"' + id + '": {'), "Missing manual " + id);
     const key = id + "-manual-complete";
     assert.ok(!keys.has(key), "Duplicate completion " + id);

@@ -77,7 +77,7 @@ const manuals = [
 test("the fifty-nine original uploaded PDFs exist and can be loaded", async () => {
   const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
   for (const [id, filename] of manuals) {
-    const bytes = readFileSync(new URL("../" + filename, import.meta.url));
+    const bytes = readFileSync(new URL("../public/" + filename, import.meta.url));
     assert.equal(bytes.subarray(0, 5).toString("ascii"), "%PDF-", filename);
     assert.ok(sources.includes('"' + id + '":'), "Missing PDF source: " + id);
     const task = getDocument({ data: new Uint8Array(bytes) });
@@ -133,7 +133,7 @@ test("all twenty newly connected syllabus entries use exact original PDFs and un
   for (const [category, entry, id, filename] of newMappings) {
     assert.ok(syllabus.includes('"' + category + '":'), "Missing category: " + category);
     assert.ok(syllabus.includes('"' + entry + '": "' + id + '"'), "Missing syllabus link: " + entry);
-    assert.ok(sources.includes("../../" + filename + "?url"), "Missing original PDF: " + filename);
+    assert.ok(sources.includes('staticPdfUrl("' + filename + '")'), "Missing original PDF: " + filename);
     assert.ok(practical.includes('pdfManualProject("' + id + '"'), "Missing project: " + id);
   }
 });
@@ -141,7 +141,7 @@ test("all twenty newly connected syllabus entries use exact original PDFs and un
 test("all four Machines & Mechanisms activities use uploaded original PDFs", () => {
   const remainingManuals = [["balanced-bird","Balanced Bird.pdf"],["dancing-music-box","Dancing Music Box.pdf"],["hand-cranking-fan","Hand-cranking Fan.pdf"],["old-fashioned-telephone","Old-fashioned Telephone.pdf"]];
   for (const [id, filename] of remainingManuals) {
-    assert.ok(sources.includes("../../" + filename + "?url"), "Missing original PDF: " + filename);
+    assert.ok(sources.includes('staticPdfUrl("' + filename + '")'), "Missing original PDF: " + filename);
     assert.ok(sources.includes('completionStepId: "' + id + '-manual-complete"'), "Missing completion state: " + id);
     assert.ok(syllabus.includes('"' + filename + '": "' + id + '"'), "Missing syllabus mapping: " + id);
     assert.ok(practical.includes('pdfManualProject("' + id + '"'), "Missing registered lesson: " + id);

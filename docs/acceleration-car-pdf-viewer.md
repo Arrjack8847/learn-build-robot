@@ -2,7 +2,7 @@
 
 ## Source of truth
 
-The only instruction source is `Acceleration car_Building.pdf` at the repository root. Its Git object matches the PDF uploaded by the project owner as `Acceleration car_Building(3).pdf`.
+The only instruction source is `public/Acceleration car_Building.pdf` at the repository root. Its Git object matches the PDF uploaded by the project owner as `Acceleration car_Building(3).pdf`.
 
 The original PDF was independently inspected: **19 landscape pages, no extractable selectable text**.
 - Page 1 is the manual cover.

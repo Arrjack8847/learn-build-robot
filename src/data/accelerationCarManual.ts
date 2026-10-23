@@ -5,7 +5,9 @@
  * Never add extra operation names, hole numbers, part descriptions or
  * intermediate illustrations. Only original PDF pixels are shown.
  */
-import officialPdfUrl from "../../Acceleration car_Building.pdf?url";
+import { staticPdfUrl } from "./staticPdfUrl";
+
+const officialPdfUrl = staticPdfUrl("Acceleration car_Building.pdf");
 
 export const ACCELERATION_MANUAL_URL = officialPdfUrl;
 export const ACCELERATION_EXPECTED_PAGES = 19;

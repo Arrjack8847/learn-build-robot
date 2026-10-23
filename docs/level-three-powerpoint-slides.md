@@ -1,6 +1,6 @@
 # Level 3 PowerPoint / PDF presentation lessons
 
-The website now has **nine** slide-style lessons within Level 3: eight converted PowerPoints (all already uploaded as PDFs in the repository root) plus the now-nonempty `Drawbridge.pdf`.
+The website now has **nine** slide-style lessons within Level 3: eight converted PowerPoints (all served from the repository `public/` directory) plus the now-nonempty `Drawbridge.pdf`.
 
 All nine lessons reuse the existing responsive PDF.js viewer with **Back**, **Next Slide**, zoom and separate `-slides-complete` progress. They are presentation resources and must not be misrepresented as verified building assembly manuals.
 
@@ -19,6 +19,6 @@ Additional slide-based entry:
 
 In addition, **Lunar Rover.pdf** (Vehicles & Motion) was uploaded and connected as an original-name PDF lesson, completing the final PDF uploads. The last activity, **Flashlight Sensor** (Illumination & Signals), is now connected using the user-confirmed `04.Flashlight-Building Manual.pdf`; Level 3 covers **48/48** activities.
 
-The `.github/level-three-presentations.json` manifest retains the eight known PPTX originals. GitHub Actions automatic conversion is disabled due to billing, so upload replacement converted PDFs with the exact same root filenames.
+The `.github/level-three-presentations.json` manifest retains the eight known PPTX originals. GitHub Actions automatic conversion is disabled due to billing, so upload replacement converted PDFs with the exact same filenames inside `public/`.
 
 Run `node --test tests/level-three-powerpoint-slides.test.mjs tests/level-three-uploaded-manuals.test.mjs`, `npx tsc --noEmit`, and `npm run build` locally to confirm PDF parseability and build.

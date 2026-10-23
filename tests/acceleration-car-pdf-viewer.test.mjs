@@ -10,16 +10,16 @@ const viewer = read("src/components/practical/AccelerationCarPdfViewer.tsx");
 const renderer = read("src/components/practical/PdfManualPage.tsx");
 
 test("source document is exactly the GitHub PDF, not a substitute illustration", () => {
-  const buffer = readFileSync(new URL("../Acceleration car_Building.pdf", import.meta.url));
+  const buffer = readFileSync(new URL("../public/Acceleration car_Building.pdf", import.meta.url));
   assert.equal(buffer.subarray(0, 5).toString("ascii"), "%PDF-");
-  assert.match(manual, /Acceleration car_Building\.pdf\?url/);
+  assert.ok(manual.includes('staticPdfUrl("Acceleration car_Building.pdf")'));
   assert.match(manual, /ACCELERATION_EXPECTED_PAGES = 19/);
   assert.match(manual, /ACCELERATION_STEP_COUNT = 18/);
 });
 
 test("the official scanned PDF contains 19 pages and no selectable instruction text", async () => {
   const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
-  const file = new Uint8Array(readFileSync(new URL("../Acceleration car_Building.pdf", import.meta.url)));
+  const file = new Uint8Array(readFileSync(new URL("../public/Acceleration car_Building.pdf", import.meta.url)));
   const loading = getDocument({ data: file });
   const document = await loading.promise;
   try {
