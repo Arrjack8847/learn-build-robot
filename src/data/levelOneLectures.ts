@@ -1,3 +1,4 @@
+import { pdfActivityManuals } from "./pdfActivityManuals";
 /** Level 1 lecture PDFs under public/Level 1/Learning (45 original presentations). */
 export type LevelOneLecture = {
   projectId: string;
@@ -73,15 +74,47 @@ const learningOnlyIds = new Set<string>([
   "the-windmill-kingdom",
 ]);
 
+/** No separate lecture slides were supplied for these 14 Level 1 projects.
+ * Learning reuses the EXACT same official PDF URL as Building, while the two
+ * studio interfaces and building completion remain independent.
+ */
+export const LEVEL_ONE_BUILDING_PDF_LEARNING_FALLBACK_IDS = [
+  "caged-bird",
+  "propeller-aircraft",
+  "balanced-bird",
+  "dancing-music-box",
+  "hand-cranking-fan",
+  "old-fashioned-telephone",
+  "wiper",
+  "hand-cranking-giant-stride",
+  "hermit-crab",
+  "little-owl",
+  "oscillating-fan",
+  "pocket-pistol",
+  "pullback-bicycle",
+  "rotating-coffee-cup",
+] as const;
+
 export const LEVEL_ONE_LECTURE_COUNT = new Set(lectureFiles.map(([, path]) => path)).size;
-export const levelOneLectures: Record<string, LevelOneLecture> = Object.fromEntries(
-  lectureFiles.map(([projectId, relativePath]) => [
+export const levelOneLectures: Record<string, LevelOneLecture> = {
+  ...Object.fromEntries(lectureFiles.map(([projectId, relativePath]) => [
     projectId,
     {
       projectId,
       url: "/Level%201/Learning/" + relativePath.split("/").map(encodeURIComponent).join("/"),
       learningOnly: learningOnlyIds.has(projectId),
     },
-  ]),
-);
+  ])),
+  ...Object.fromEntries(LEVEL_ONE_BUILDING_PDF_LEARNING_FALLBACK_IDS.map(projectId => {
+    const buildingManual = pdfActivityManuals[projectId];
+    if (!buildingManual || buildingManual.sourceKind === "powerpoint") {
+      throw new Error("Missing verified Level 1 building PDF: " + projectId);
+    }
+    return [projectId, {
+      projectId,
+      url: buildingManual.url,
+      learningOnly: false,
+    }];
+  })),
+};
 export const getLevelOneLecture = (projectId: string): LevelOneLecture | undefined => levelOneLectures[projectId];
