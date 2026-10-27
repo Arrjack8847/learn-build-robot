@@ -1424,7 +1424,7 @@ export const levelFiveSixLessons: readonly AdvancedLessonAsset[] = [
  * Leave unset during local development; no hosting provider decision is required yet.
  */
 function assetBase(): string | null {
-  const value = import.meta.env.VITE_CURRICULUM_ASSET_BASE_URL?.trim();
+  const value = import.meta.env["VITE_CURRICULUM_ASSET_BASE_URL"]?.trim();
   return value ? value.replace(/\/+$/, "") : null;
 }
 function encodePath(path: string): string {
