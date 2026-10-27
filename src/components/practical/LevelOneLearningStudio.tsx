@@ -16,7 +16,7 @@ export function LevelOneLearningStudio({
   projectId: string;
   title: string;
   lecture: LevelOneLecture;
-  categoryId?: string;
+  categoryId?: string | undefined;
   level?: 1 | 2 | 3 | 4 | 5 | 6;
 }) {
   const [document, setDocument] = useState<PDFDocumentProxy | null>(null);
