@@ -11,7 +11,7 @@ export interface AdvancedLessonAsset {
   level: AdvancedLessonLevel;
   title: string;
   categoryId: string;
-  /** Path relative to public/ (or to public/ under VITE_CURRICULUM_ASSET_BASE_URL). */
+  /** Path relative to public/ (or to public/ on the configured asset host). */
   learningPdf: string;
   buildingBasic: string | null;
   buildingOptimized: string | null;
@@ -1421,10 +1421,13 @@ export const levelFiveSixLessons: readonly AdvancedLessonAsset[] = [
 ];
 
 /** Remote assets follow repo-relative paths: public/... and curriculum-source/...
- * Leave unset during local development; no hosting provider decision is required yet.
+ * A runtime configuration is intentionally optional until external hosting is selected.
+ * Set window.__BSR_ASSET_BASE_URL__ before app bootstrap once media is hosted.
+ * This module also runs under Node's existing Level 4 data-registry tests.
  */
 function assetBase(): string | null {
-  const value = import.meta.env["VITE_CURRICULUM_ASSET_BASE_URL"]?.trim();
+  const config = globalThis as typeof globalThis & { __BSR_ASSET_BASE_URL__?: string };
+  const value = config.__BSR_ASSET_BASE_URL__?.trim();
   return value ? value.replace(/\/+$/, "") : null;
 }
 function encodePath(path: string): string {
