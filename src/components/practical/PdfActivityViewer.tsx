@@ -3,10 +3,12 @@ import type { PointerEvent as ReactPointerEvent } from "react";
 import type { PDFDocumentProxy, PDFDocumentLoadingTask } from "pdfjs-dist";
 import { useProgress } from "@/context/ProgressContext";
 import { BuildingStudioHeader, BuildingStepDrawer, BuildingFloatingDock, BuildingStudioCompletion } from "./BuildingStudio";
-import { Minus, Plus, Maximize2, AlertCircle } from "lucide-react";
+import { Minus, Plus, Maximize2, AlertCircle, PlayCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { PdfActivityManual } from "@/data/pdfActivityManuals";
 import { PdfManualPage, type PdfFit, type PdfViewportSize } from "./PdfManualPage";
+import { getLevelFiveSixDemoVideos } from "@/data/levelFiveSixContent";
+import { DemoVideoOverlay } from "./DemoVideoOverlay";
 import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 
 /** One document, one rendered page, and no reauthored assembly content. */
@@ -15,6 +17,8 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
   const isPresentation = manual.sourceKind === "powerpoint";
   const isLearningFallback = manual.learningFallback === true;
   const showsSlides = isPresentation || isLearningFallback;
+  const demoVideos = getLevelFiveSixDemoVideos(manual.id);
+  const [demoOpen, setDemoOpen] = useState(false);
   const [stepsOpen, setStepsOpen] = useState(false);
   const [dockExpanded, setDockExpanded] = useState(false);
   const [finished, setFinished] = useState(false);
@@ -163,7 +167,7 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
   }
 
   if (finished) {
-    return <BuildingStudioCompletion title={manual.title} projectId={manual.id} mode={isPresentation ? "presentation" : "building"} onReview={() => { setFinished(false); openPage(1); }} />;
+    return <BuildingStudioCompletion title={manual.title} projectId={manual.id} mode={showsSlides ? "presentation" : "building"} onReview={() => { setFinished(false); openPage(1); }} />;
   }
 
   return (
@@ -171,6 +175,17 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
       <BuildingStudioHeader title={manual.title} projectId={manual.id} step={page} total={totalPages}
         positionLabel={totalPages ? (showsSlides ? "Slide " : "Page ") + page + " of " + totalPages : (showsSlides ? "Loading slides" : "Loading manual")}
         onOpenSteps={() => setStepsOpen(true)}/>
+      {demoVideos.length ? (
+        <div className="flex shrink-0 items-center justify-end border-b border-sky-100 bg-white px-3 py-1 sm:px-6">
+          <button type="button" onClick={() => setDemoOpen(true)}
+            aria-label={"Watch " + manual.title + " demonstration"}
+            className="inline-flex min-h-10 items-center gap-2 rounded-xl bg-[#168eea] px-4 text-xs font-extrabold text-white hover:bg-[#0d7fda] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168eea]">
+            <PlayCircle className="size-4" aria-hidden="true"/>
+            Watch Demo{demoVideos.length > 1 ? " (" + demoVideos.length + ")" : ""}
+          </button>
+        </div>
+      ) : null}
+      <DemoVideoOverlay title={manual.title} videos={demoVideos} open={demoOpen} onOpenChange={setDemoOpen}/>
       {isLearningFallback ? (
         <p role="note" className="border-b border-amber-200 bg-amber-50 px-4 py-2 text-center text-xs font-semibold text-amber-900">
           Building reference: no separate Building manual is available. These are the original Learning slides.
