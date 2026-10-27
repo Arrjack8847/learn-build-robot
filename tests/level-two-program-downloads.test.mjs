@@ -74,10 +74,10 @@ test("download URLs resolve to the original named .sb2 assets and their exact Gi
 });
 
 test("only the ten matching Level 2 lectures show the optional download section", () => {
-  assert.ok(learning.includes("level === 2 ? getLevelTwoProgrammingFiles(projectId) : []"));
+  assert.ok(learning.includes("level === 2 ? getLevelTwoProgrammingFiles(projectId) :"));
   assert.ok(learning.includes("programmingFiles.length > 0"));
   assert.ok(learning.includes('aria-label="Programming File"'));
-  assert.ok(learning.includes("Download Program (.sb2)"));
+  assert.ok(learning.includes('Download {file.fileName.split(".").at(-1)?.toUpperCase() ?? "Program"}'));
   assert.ok(learning.includes("download={file.fileName}"));
   assert.ok(learning.includes("href={file.url}"));
   assert.ok(!getLevelTwoProgrammingFiles("level-2-pirate-ship").length);
