@@ -1475,10 +1475,12 @@ export function getLevelFiveSixBuildingManual(
 ): PdfActivityManual | undefined {
   const lesson = byId.get(id);
   if (!lesson) return undefined;
-  const path = variant === "optimized"
-    ? lesson.buildingOptimized ?? lesson.buildingBasic
+  const effectiveVariant = variant === "optimized" && lesson.buildingOptimized
+    ? "optimized" : "basic";
+  const path = effectiveVariant === "optimized"
+    ? lesson.buildingOptimized
     : lesson.buildingBasic ?? lesson.buildingOptimized;
-  if (path) return buildManual(lesson, path, variant);
+  if (path) return buildManual(lesson, path, effectiveVariant);
   return {
     id: lesson.id,
     title: lesson.title,
