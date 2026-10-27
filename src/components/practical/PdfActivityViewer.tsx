@@ -24,6 +24,7 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
   const [finished, setFinished] = useState(false);
   const [pdfDocument, setPdfDocument] = useState<PDFDocumentProxy | null>(null);
   const [pdfError, setPdfError] = useState<string | null>(null);
+  const [downloadProgress, setDownloadProgress] = useState<{ loaded: number; total: number } | null>(null);
   const [page, setPage] = useState(1);
   const [fit, setFit] = useState<PdfFit>("page");
   const [zoom, setZoom] = useState(1);
@@ -41,18 +42,31 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
     setReady(false);
     setPdfDocument(null);
     setPdfError(null);
+    setDownloadProgress(null);
+    const startedAt = performance.now();
 
     void (async () => {
       try {
         const pdfjs = await import("pdfjs-dist");
         if (disposed) return;
         pdfjs.GlobalWorkerOptions.workerSrc = workerUrl;
-        task = pdfjs.getDocument({ url: manual.url });
+        // A larger range chunk can reduce round trips on the Wix CDN when byte ranges are supported.
+        // Keep PDF.js streaming/range defaults enabled; disabling them can slow loading.
+        task = pdfjs.getDocument({
+          url: manual.url,
+          ...(manual.url.includes(".usrfiles.com/") ? { rangeChunkSize: 256 * 1024 } : {}),
+        });
+        task.onProgress = ({ loaded: bytes, total }) => {
+          if (!disposed) setDownloadProgress({ loaded: bytes, total });
+        };
         loaded = await task.promise;
         if (disposed) return;
         if (loaded.numPages < 1) throw new Error("This document has no slides or pages.");
         setPdfDocument(loaded);
         setReady(true);
+        if (new URLSearchParams(window.location.search).has("pdfDebug")) {
+          console.info("[BSR PDF] Building metadata ready in", Math.round(performance.now() - startedAt), "ms", manual.id);
+        }
       } catch (cause) {
         if (!disposed) setPdfError(cause instanceof Error ? cause.message : "The document could not be loaded.");
       }
@@ -228,7 +242,21 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
                 </div>
               ) : (
                 <div className="m-auto text-center text-sm font-semibold text-slate-600" role="status">
-                  Loading {isPresentation ? "original PowerPoint slides for" : "official PDF manual for"} {manual.title}…
+                  <p>Loading {isPresentation ? "original PowerPoint slides for" : "official PDF manual for"} {manual.title}…</p>
+                  {downloadProgress && downloadProgress.loaded > 0 ? (
+                    <p className="mt-2 text-xs font-medium text-slate-500">
+                      Downloaded {(downloadProgress.loaded / (1024 * 1024)).toFixed(1)} MB
+                      {downloadProgress.total > 0
+                        ? ` of ${(downloadProgress.total / (1024 * 1024)).toFixed(1)} MB`
+                        : ""}
+                    </p>
+                  ) : null}
+                  {manual.url.includes(".usrfiles.com/") ? (
+                    <a href={manual.url} target="_blank" rel="noopener noreferrer"
+                      className="mt-3 inline-block text-xs font-bold text-[#168eea] underline underline-offset-2">
+                      Open original PDF in a new tab
+                    </a>
+                  ) : null}
                 </div>
               )}
             </div>

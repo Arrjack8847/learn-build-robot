@@ -95,6 +95,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      // Reuse the cross-origin connection before Level 6 fetches its first PDF byte.
+      { rel: "preconnect", href: "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com", crossOrigin: "anonymous" },
       { rel: "icon", href: "/home/be-stem-ready-logo.svg", type: "image/svg+xml" },
     ],
   }),

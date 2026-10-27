@@ -21,6 +21,7 @@ export function LevelOneLearningStudio({
 }) {
   const [document, setDocument] = useState<PDFDocumentProxy | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [downloadProgress, setDownloadProgress] = useState<{ loaded: number; total: number } | null>(null);
   const [page, setPage] = useState(1);
   const [retry, setRetry] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -37,17 +38,28 @@ export function LevelOneLearningStudio({
     let task: PDFDocumentLoadingTask | undefined;
     setDocument(null);
     setError(null);
+    setDownloadProgress(null);
     setPage(1);
+    const startedAt = performance.now();
     void (async () => {
       try {
         const pdfjs = await import("pdfjs-dist");
         if (disposed) return;
         pdfjs.GlobalWorkerOptions.workerSrc = workerUrl;
-        task = pdfjs.getDocument({ url: lecture.url });
+        task = pdfjs.getDocument({
+          url: lecture.url,
+          ...(lecture.url.includes(".usrfiles.com/") ? { rangeChunkSize: 256 * 1024 } : {}),
+        });
+        task.onProgress = ({ loaded: bytes, total }) => {
+          if (!disposed) setDownloadProgress({ loaded: bytes, total });
+        };
         const pdf = await task.promise;
         if (disposed) return;
         if (!pdf.numPages) throw new Error("No slides found in this PDF.");
         setDocument(pdf);
+        if (new URLSearchParams(window.location.search).has("pdfDebug")) {
+          console.info("[BSR PDF] Learning metadata ready in", Math.round(performance.now() - startedAt), "ms", projectId);
+        }
       } catch (cause) {
         if (!disposed) setError(cause instanceof Error ? cause.message : "Unable to load lecture PDF.");
       }
@@ -145,7 +157,25 @@ export function LevelOneLearningStudio({
               <button type="button" onClick={() => setRetry(count => count + 1)}
                 className="mt-4 min-h-11 rounded-xl bg-[#168eea] px-5 font-bold text-white">Retry</button>
             </div>
-          ) : <p role="status" className="text-sm font-semibold text-slate-600">Opening lecture slides…</p>}
+           ) : (
+            <div role="status" className="text-center text-sm font-semibold text-slate-600">
+              <p>Opening lecture slides…</p>
+              {downloadProgress && downloadProgress.loaded > 0 ? (
+                <p className="mt-2 text-xs font-medium text-slate-500">
+                  Downloaded {(downloadProgress.loaded / (1024 * 1024)).toFixed(1)} MB
+                  {downloadProgress.total > 0
+                    ? ` of ${(downloadProgress.total / (1024 * 1024)).toFixed(1)} MB`
+                    : ""}
+                </p>
+              ) : null}
+              {lecture.url.includes(".usrfiles.com/") ? (
+                <a href={lecture.url} target="_blank" rel="noopener noreferrer"
+                  className="mt-3 inline-block text-xs font-bold text-[#168eea] underline underline-offset-2">
+                  Open original PDF in a new tab
+                </a>
+              ) : null}
+            </div>
+          )}
         </div>
       </main>
       <footer className="shrink-0 border-t border-sky-100 bg-white px-3 pb-[max(.65rem,env(safe-area-inset-bottom))] pt-2 sm:px-6">
