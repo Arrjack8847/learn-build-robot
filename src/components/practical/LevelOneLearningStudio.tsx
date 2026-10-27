@@ -185,7 +185,7 @@ export function LevelOneLearningStudio({
                   aria-label={`Download ${file.fileName}`}
                   className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-sky-200 bg-white px-3 text-xs font-extrabold text-[#168eea] hover:bg-sky-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168eea] sm:w-auto">
                   <Download className="size-4 shrink-0" aria-hidden="true" />
-                  Download {file.fileName.split(".").at(-1)?.toUpperCase() ?? "Program"}
+                  Download <span className="max-w-[12rem] truncate text-left" title={file.fileName}>{file.fileName}</span>
                 </a>
               ))}
             </div>
