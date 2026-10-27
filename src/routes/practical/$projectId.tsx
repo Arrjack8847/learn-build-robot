@@ -25,6 +25,8 @@ import { getLevelOneLecture } from "@/data/levelOneLectures";
 import { getLevelTwoLecture } from "@/data/levelTwoLectures";
 import { getLevelThreeLecture } from "@/data/levelThreeLectures";
 import { getLevelFourBuildingManual } from "@/data/levelFourBuilding";
+import { levelFourLearningManuals } from "@/data/levelFourLearning";
+import { getLevelFiveSixBuildingManual, levelFiveSixLearningLectures } from "@/data/levelFiveSixContent";
 import { LevelOneLearningStudio } from "@/components/practical/LevelOneLearningStudio";
 import { BuildingStudioHeader, BuildingStepDrawer, BuildingFloatingDock, BuildingStudioCompletion } from "@/components/practical/BuildingStudio";
 import { StepThreeAssembly } from "@/components/practical/StepThreeAssembly";
@@ -76,10 +78,13 @@ function PracticalProjectPage() {
 
   const lecture = project.level === 1 ? getLevelOneLecture(project.id) :
     project.level === 2 ? getLevelTwoLecture(project.id) :
-    project.level === 3 ? getLevelThreeLecture(project.id) : undefined;
+    project.level === 3 ? getLevelThreeLecture(project.id) :
+    project.level === 4 && levelFourLearningManuals[project.id]
+      ? { projectId: project.id, url: levelFourLearningManuals[project.id].url, learningOnly: false } :
+    project.level === 5 || project.level === 6 ? levelFiveSixLearningLectures[project.id] : undefined;
   // Legacy direct links to slide-only projects should still open their lecture.
   if (lecture && (mode === "learning" || lecture.learningOnly)) {
-    return <LevelOneLearningStudio key={project.id} projectId={project.id} title={project.title} level={project.level === 3 ? 3 : project.level === 2 ? 2 : 1} lecture={lecture} />;
+    return <LevelOneLearningStudio key={project.id} projectId={project.id} title={project.title} level={project.level === 5 || project.level === 6 ? project.level : project.level === 4 ? 4 : project.level === 3 ? 3 : project.level === 2 ? 2 : 1} categoryId={project.categoryId} lecture={lecture} />;
   }
 
   if (!hydrated) {
@@ -88,6 +93,13 @@ function PracticalProjectPage() {
 
   if (project.level === 4 && mode === "building") {
     const buildingManual = getLevelFourBuildingManual(project.id, variant);
+    if (buildingManual) {
+      return <PdfActivityViewer key={project.id + "-" + (variant ?? "basic")} manual={buildingManual} />;
+    }
+  }
+
+  if ((project.level === 5 || project.level === 6) && mode === "building") {
+    const buildingManual = getLevelFiveSixBuildingManual(project.id, variant);
     if (buildingManual) {
       return <PdfActivityViewer key={project.id + "-" + (variant ?? "basic")} manual={buildingManual} />;
     }

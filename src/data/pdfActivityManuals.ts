@@ -1,4 +1,5 @@
 import { levelFourLearningManuals } from "./levelFourLearning";
+import { levelFiveSixLearningManuals } from "./levelFiveSixContent";
 import { staticPdfUrl } from "./staticPdfUrl";
 /** Verified original Level 1–3 PDFs served as static assets from public/. */
 const cagedBirdUrl = staticPdfUrl("Caged Bird.pdf");
@@ -898,6 +899,7 @@ export const pdfActivityManuals: Record<string, PdfActivityManual> = {
     completionStepId: "level-3-flashlight-sensor-manual-complete",
   },
   ...levelFourLearningManuals,
+  ...levelFiveSixLearningManuals,
 };
 
 export function isPdfActivityProject(id: string): boolean {

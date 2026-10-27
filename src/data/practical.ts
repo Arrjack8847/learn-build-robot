@@ -1,5 +1,6 @@
 import type { PracticalProject } from "@/types/learning";
 import { levelFourLearningLessons } from "./levelFourLearning";
+import { levelFiveSixLessons } from "./levelFiveSixContent";
 
 const marksmanshipSteps: PracticalProject["steps"] = [
   {
@@ -542,6 +543,11 @@ export const practicalProjects: PracticalProject[] = [
   // Every Level 4 syllabus activity has an original presentation for Learning.
   ...levelFourLearningLessons.map((lesson, index) => pdfManualProject(
     lesson.id, lesson.title, 173 + index, lesson.categoryId, 4, "powerpoint",
+  )),
+  // Level 5–6 project cards use the verified syllabus/asset mapping.
+  ...levelFiveSixLessons.map((lesson, index) => pdfManualProject(
+    lesson.id, lesson.title, 173 + levelFourLearningLessons.length + index,
+    lesson.categoryId, lesson.level, "powerpoint",
   )),
 ];
 
