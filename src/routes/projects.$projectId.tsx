@@ -10,6 +10,7 @@ import { getLevelOneLecture } from "@/data/levelOneLectures";
 import { getLevelTwoLecture } from "@/data/levelTwoLectures";
 import { getLevelThreeLecture } from "@/data/levelThreeLectures";
 import { getLevelFourBuildingManual, hasLevelFourOptimizedManual, isLevelFourBuildingFallback } from "@/data/levelFourBuilding";
+import { getLevelFiveSixBuildingManual, hasLevelFiveSixOptimizedManual, isLevelFiveSixBuildingReference, levelFiveSixLearningLectures } from "@/data/levelFiveSixContent";
 
 export const Route = createFileRoute("/projects/$projectId")({
   component: ProjectOverviewPage,
@@ -48,10 +49,15 @@ function ProjectOverviewPage() {
     level === 2 ? getLevelTwoLecture(project.id) :
     level === 3 ? getLevelThreeLecture(project.id) : undefined;
   // Lecture slides and assembly manuals are different activities.
-  const hasLearning = Boolean(lecture) || isPresentation;
-  const hasBuilding = level === 4 ? Boolean(getLevelFourBuildingManual(project.id)) : !isPresentation && !lecture?.learningOnly;
-  const usingLearningForBuilding = level === 4 && isLevelFourBuildingFallback(project.id);
-  const hasOptimizedBuilding = level === 4 && hasLevelFourOptimizedManual(project.id);
+  const isLevelFiveSix = level === 5 || level === 6;
+  const hasLearning = Boolean(lecture) || isPresentation || Boolean(levelFiveSixLearningLectures[project.id]);
+  const hasBuilding = level === 4
+    ? Boolean(getLevelFourBuildingManual(project.id))
+    : isLevelFiveSix ? Boolean(getLevelFiveSixBuildingManual(project.id)) : !isPresentation && !lecture?.learningOnly;
+  const usingLearningForBuilding = (level === 4 && isLevelFourBuildingFallback(project.id))
+    || (isLevelFiveSix && isLevelFiveSixBuildingReference(project.id));
+  const hasOptimizedBuilding = (level === 4 && hasLevelFourOptimizedManual(project.id))
+    || (isLevelFiveSix && hasLevelFiveSixOptimizedManual(project.id));
 
   return (
     <div className="relative h-[100dvh] overflow-y-auto bg-white text-[#132654]">
