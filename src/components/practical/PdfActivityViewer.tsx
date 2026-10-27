@@ -23,7 +23,7 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
   const [page, setPage] = useState(1);
   const [fit, setFit] = useState<PdfFit>("page");
   const [zoom, setZoom] = useState(1);
-  const [dimensions, setDimensions] = useState<PdfViewportSize>({ width: 760, height: 540 });
+  const [dimensions, setDimensions] = useState<PdfViewportSize>({ width: 0, height: 0 });
   const [ready, setReady] = useState(false);
   const viewportRef = useRef<HTMLDivElement>(null);
   const pointers = useRef(new Map<number, { x: number; y: number }>());
@@ -63,10 +63,13 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
   useEffect(() => {
     const target = viewportRef.current;
     if (!target) return;
-    const update = () => setDimensions({
-      width: Math.max(240, target.clientWidth),
-      height: Math.max(240, target.clientHeight),
-    });
+    const update = () => {
+      const width = Math.max(240, target.clientWidth);
+      const height = Math.max(240, target.clientHeight);
+      // Avoid restarting PDF rendering when ResizeObserver reports the same size.
+      setDimensions(current => current.width === width && current.height === height
+        ? current : { width, height });
+    };
     update();
     const resizeObserver = new ResizeObserver(update);
     resizeObserver.observe(target);
@@ -198,7 +201,7 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
             onPointerUp={onPointerEnd} onPointerCancel={onPointerEnd}
             aria-label={isPresentation ? "PowerPoint slide. Drag to pan or pinch to zoom." : "Official PDF page. Drag to pan or pinch to zoom."}>
             <div className="flex min-h-full w-max min-w-full items-start justify-center">
-              {pdfDocument && ready ? (
+              {pdfDocument && ready && dimensions.width > 0 && dimensions.height > 0 ? (
                 <PdfManualPage pdfDocument={pdfDocument} pageNumber={page} fit={fit}
                   zoom={zoom} viewport={dimensions} pageLabel={(isPresentation ? "Original PowerPoint slide " : "Original PDF page ") + page}/>
               ) : pdfError ? (
