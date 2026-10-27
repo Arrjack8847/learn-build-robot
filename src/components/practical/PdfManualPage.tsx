@@ -61,6 +61,10 @@ function renderKey(pageNumber: number, fit: PdfFit, zoom: number, viewport: PdfV
     window.devicePixelRatio || 1, window.matchMedia("(pointer: coarse)").matches ? "touch" : "desktop"].join(":");
 }
 
+
+/** Renders one page at a time. Background renders are intentionally disabled until
+ * the foreground render lifecycle is verified across large Building manuals.
+ */
 export function PdfManualPage({
   pdfDocument, pageNumber, fit, zoom, viewport, pageLabel,
 }: {
@@ -75,141 +79,112 @@ export function PdfManualPage({
   const [displaySize, setDisplaySize] = useState<{ width: number; height: number } | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [retry, setRetry] = useState(0);
 
   useEffect(() => {
     let disposed = false;
-    let activeTask: RenderTask | null = null;
-    let prefetchTask: RenderTask | null = null;
-    let idleId: number | null = null;
-    let timerId: number | null = null;
+    let timedOut = false;
+    let task: RenderTask | null = null;
 
-    const currentKey = renderKey(pageNumber, fit, zoom, viewport);
     setLoading(true);
     setError(null);
+    const key = renderKey(pageNumber, fit, zoom, viewport);
 
-    function paint(result: CachedPage) {
-      const canvas = canvasRef.current;
-      if (!canvas || disposed) return;
-      // Copying a ready canvas is substantially cheaper than re-parsing PDF drawing commands.
-      canvas.width = result.canvas.width;
-      canvas.height = result.canvas.height;
-      const context = canvas.getContext("2d", { alpha: false });
-      if (!context) throw new Error("Could not display the rendered PDF.");
-      context.drawImage(result.canvas, 0, 0);
-      setDisplaySize({ width: result.displayWidth, height: result.displayHeight });
+    const paint = (image: CachedPage) => {
+      const visible = canvasRef.current;
+      if (disposed || !visible) return;
+      visible.width = image.canvas.width;
+      visible.height = image.canvas.height;
+      const context = visible.getContext("2d", { alpha: false });
+      if (!context) throw new Error("Could not display the PDF canvas.");
+      context.drawImage(image.canvas, 0, 0);
+      setDisplaySize({ width: image.displayWidth, height: image.displayHeight });
       setLoading(false);
+    };
+
+    const cached = getCachedPage(pdfDocument, key);
+    if (cached) {
+      try {
+        paint(cached);
+      } catch (cause) {
+        setError(cause instanceof Error ? cause.message : "Could not display cached PDF page.");
+        setLoading(false);
+      }
+      return () => { disposed = true; };
     }
 
-    async function renderPage(number: number, background: boolean): Promise<CachedPage | null> {
-      const key = renderKey(number, fit, zoom, viewport);
-      const cached = getCachedPage(pdfDocument, key);
-      if (cached) return cached;
+    // An interrupted render must never leave the loading label spinning forever.
+    // This covers both getPage() and the subsequent PDF.js canvas render.
+    const timeout = window.setTimeout(() => {
+      if (disposed) return;
+      timedOut = true;
+      task?.cancel();
+      setError("This page took too long to render. Select Retry to try again.");
+      setLoading(false);
+    }, 30000);
 
-      const page = await pdfDocument.getPage(number);
-      if (disposed) return null;
-
-      const native = page.getViewport({ scale: 1 });
-      const fitWidth = Math.max(0.1, (viewport.width - 24) / native.width);
-      const fitPage = Math.max(0.1, Math.min(fitWidth, (viewport.height - 24) / native.height));
-      const scale = (fit === "page" ? fitPage : fitWidth) * zoom;
-      const actualViewport = page.getViewport({ scale });
-
-      // Keep text sharp, but avoid enormous mobile canvas allocations.
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const isTouch = window.matchMedia("(pointer: coarse)").matches;
-      const pixelBudget = zoom > 1.5 ? 8_000_000 : isTouch ? 3_500_000 : 5_000_000;
-      const budgetScale = Math.min(1, Math.sqrt(pixelBudget /
-        (actualViewport.width * actualViewport.height * dpr * dpr)));
-      const rasterScale = dpr * budgetScale;
-
-      const scratch = document.createElement("canvas");
-      scratch.width = Math.max(1, Math.floor(actualViewport.width * rasterScale));
-      scratch.height = Math.max(1, Math.floor(actualViewport.height * rasterScale));
-      const context = scratch.getContext("2d", { alpha: false });
-      if (!context) throw new Error("Your browser could not create the PDF canvas.");
-
-      const task = page.render({
-        canvas: scratch,
-        canvasContext: context,
-        viewport: actualViewport,
-        transform: [rasterScale, 0, 0, rasterScale, 0, 0],
-      });
-      if (background) prefetchTask = task;
-      else activeTask = task;
-      if (disposed) task.cancel();
-
+    const start = async () => {
       try {
+        const page = await pdfDocument.getPage(pageNumber);
+        if (disposed || timedOut) return;
+
+        const native = page.getViewport({ scale: 1 });
+        const fitWidth = Math.max(0.1, (viewport.width - 24) / native.width);
+        const fitPage = Math.max(0.1, Math.min(fitWidth, (viewport.height - 24) / native.height));
+        const scale = (fit === "page" ? fitPage : fitWidth) * zoom;
+        const actualViewport = page.getViewport({ scale });
+
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const isTouch = window.matchMedia("(pointer: coarse)").matches;
+        const pixelBudget = zoom > 1.5 ? 8_000_000 : isTouch ? 3_500_000 : 5_000_000;
+        const budgetScale = Math.min(1, Math.sqrt(pixelBudget /
+          (actualViewport.width * actualViewport.height * dpr * dpr)));
+        const rasterScale = dpr * budgetScale;
+
+        const scratch = document.createElement("canvas");
+        scratch.width = Math.max(1, Math.floor(actualViewport.width * rasterScale));
+        scratch.height = Math.max(1, Math.floor(actualViewport.height * rasterScale));
+        const context = scratch.getContext("2d", { alpha: false });
+        if (!context) throw new Error("Your browser could not create the PDF canvas.");
+
+        task = page.render({
+          canvas: scratch,
+          canvasContext: context,
+          viewport: actualViewport,
+          transform: [rasterScale, 0, 0, rasterScale, 0, 0],
+        });
+        if (disposed || timedOut) {
+          task.cancel();
+          return;
+        }
         await task.promise;
-        if (disposed) return null;
-        const result = {
+        if (disposed || timedOut) return;
+
+        const image: CachedPage = {
           canvas: scratch,
           displayWidth: actualViewport.width,
           displayHeight: actualViewport.height,
         };
-        rememberPage(pdfDocument, key, result);
-        return result;
-      } finally {
-        if (background && prefetchTask === task) prefetchTask = null;
-        if (!background && activeTask === task) activeTask = null;
-        page.cleanup();
-      }
-    }
-
-    function scheduleNextPage() {
-      const next = pageNumber + 1;
-      if (disposed || next > pdfDocument.numPages) return;
-      if (getCache(pdfDocument).has(renderKey(next, fit, zoom, viewport))) return;
-
-      const prepare = () => {
-        if (!disposed) {
-          // The foreground render always wins; a failed prefetch is non-fatal.
-          void renderPage(next, true).catch(() => {});
-        }
-      };
-      if (typeof window.requestIdleCallback === "function") {
-        idleId = window.requestIdleCallback(prepare, { timeout: 1200 });
-      } else {
-        timerId = window.setTimeout(prepare, 180);
-      }
-    }
-
-    const show = async () => {
-      try {
-        const cached = getCachedPage(pdfDocument, currentKey);
-        if (cached) {
-          paint(cached);
-          scheduleNextPage();
-          return;
-        }
-
-        // Don't leave the previous page visible behind the loading indicator.
-        setDisplaySize(null);
-        if (canvasRef.current) {
-          canvasRef.current.width = 1;
-          canvasRef.current.height = 1;
-        }
-        const result = await renderPage(pageNumber, false);
-        if (!result || disposed) return;
-        paint(result);
-        scheduleNextPage();
+        rememberPage(pdfDocument, key, image);
+        paint(image);
       } catch (cause) {
-        if (disposed || (cause instanceof Error && cause.name === "RenderingCancelledException")) return;
-        setError(cause instanceof Error ? cause.message : "Unable to render this manual page.");
+        // Cancellation during page change is expected; a real cancellation on
+        // the current page is surfaced rather than leaving an infinite spinner.
+        if (disposed || timedOut) return;
+        setError(cause instanceof Error ? cause.message : "Unable to render this PDF page.");
         setLoading(false);
+      } finally {
+        window.clearTimeout(timeout);
       }
     };
-    void show();
+    void start();
 
     return () => {
       disposed = true;
-      if (idleId !== null && typeof window.cancelIdleCallback === "function") {
-        window.cancelIdleCallback(idleId);
-      }
-      if (timerId !== null) window.clearTimeout(timerId);
-      activeTask?.cancel();
-      prefetchTask?.cancel();
+      window.clearTimeout(timeout);
+      task?.cancel();
     };
-  }, [pdfDocument, pageNumber, fit, zoom, viewport.height, viewport.width]);
+  }, [pdfDocument, pageNumber, fit, zoom, viewport.height, viewport.width, retry]);
 
   return (
     <div className="relative shrink-0 overflow-hidden rounded-lg bg-white shadow-[0_8px_30px_rgba(19,38,84,0.12)]"
@@ -223,12 +198,14 @@ export function PdfManualPage({
         className="block h-full w-full"
       />
       {loading && (
-        <div className="absolute right-3 top-3 rounded-full border border-sky-100 bg-white/95 px-3 py-1 text-xs font-semibold text-[#132654] shadow"
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-white/85 p-4 text-center text-sm font-semibold text-[#132654]"
           role="status" aria-live="polite">Rendering original PDF…</div>
       )}
       {error && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white/95 p-6 text-center text-sm font-semibold text-rose-700" role="alert">
-          {error}. Try selecting the page again or resetting zoom.
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 bg-white/95 p-6 text-center text-sm font-semibold text-rose-700" role="alert">
+          <span>{error}</span>
+          <button type="button" onClick={() => setRetry(value => value + 1)}
+            className="min-h-11 rounded-xl bg-[#168eea] px-5 font-bold text-white">Retry page</button>
         </div>
       )}
     </div>
