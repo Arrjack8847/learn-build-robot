@@ -6,16 +6,18 @@ import { PdfManualPage, type PdfViewportSize } from "./PdfManualPage";
 import type { LevelOneLecture } from "@/data/levelOneLectures";
 import { getLevelTwoProgrammingFiles } from "@/data/levelTwoProgrammingFiles";
 import { getLevelFiveSixProgrammingFiles } from "@/data/levelFiveSixContent";
+import { getLegacyProgrammingFiles } from "@/data/legacyProgrammingFiles";
 import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 
 /** One PDF page per slide, separate from the Building Studio instruction dock. */
 export function LevelOneLearningStudio({
-  projectId, title, lecture, level = 1,
+  projectId, title, lecture, categoryId, level = 1,
 }: {
   projectId: string;
   title: string;
   lecture: LevelOneLecture;
-  level?: 1 | 2 | 3 | 5 | 6;
+  categoryId?: string;
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
 }) {
   const [document, setDocument] = useState<PDFDocumentProxy | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -27,7 +29,8 @@ export function LevelOneLearningStudio({
   const slideRef = useRef<HTMLDivElement>(null);
   const total = document?.numPages ?? 0;
   const programmingFiles = level === 2 ? getLevelTwoProgrammingFiles(projectId) :
-    level === 5 || level === 6 ? getLevelFiveSixProgrammingFiles(projectId) : [];
+    level === 5 || level === 6 ? getLevelFiveSixProgrammingFiles(projectId) :
+    getLegacyProgrammingFiles({ level, categoryId, title });
 
   useEffect(() => {
     let disposed = false;
