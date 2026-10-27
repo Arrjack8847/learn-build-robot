@@ -1508,11 +1508,21 @@ export function getLevelFiveSixProgrammingFiles(id: string): readonly AdvancedDo
 }
 export function getLevelFiveSixDemoVideos(id: string): readonly AdvancedDemoVideo[] {
   const lesson = byId.get(id);
-  // Video files are tracked by Git LFS. A streamable media endpoint must be configured.
-  // Hide Watch Demo until this is done rather than render broken video controls.
-  if (!lesson || !assetBase()) return [];
+  if (!lesson) return [];
+
+  // Production video playback stays disabled until a proper media host exists.
+  // In local Vite development only, videos can be copied to
+  // public/local-demos/<Level N>/<category>/<project>/<file>.mp4
+  // and VITE_BSR_DEMO_VIDEO_BASE_URL=/local-demos set in .env.local.
+  // This does not turn the Git LFS raw URL into a streaming endpoint.
+  const localVideoBase = import.meta.env.DEV
+    ? import.meta.env.VITE_BSR_DEMO_VIDEO_BASE_URL?.trim().replace(/\/+$/, "")
+    : undefined;
+  if (!assetBase() && !localVideoBase) return [];
   return lesson.videos.map(path => ({
     fileName: path.split("/").at(-1) ?? path,
-    url: curriculumUrl(path),
+    url: localVideoBase
+      ? localVideoBase + "/" + encodePath(path)
+      : curriculumUrl(path),
   }));
 }
