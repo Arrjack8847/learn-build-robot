@@ -1,0 +1,60 @@
+#define _TASK_1_ 1
+
+#include "JMLib.c"
+#include <GetTouch.h>
+#include <SetMotor.h>
+#include <SetWaitForTime.h>
+
+volatile double P = 0;
+
+void task1(void)
+{
+	P = 0;
+	for (;;) {
+		if (GetTouch(1)) {
+			P = 1;
+			
+		}
+		
+		if (GetTouch(2)) {
+			P = 2;
+			
+		}
+		
+		if ((P)==(1)) {
+			SetMotor(1,-50);
+			
+			SetMotor(2,-50);
+			
+			SetWaitForTime(1);
+			
+			SetMotor(1,-50);
+			
+			SetMotor(2,50);
+			
+			SetWaitForTime(0.5);
+			
+		}
+		
+		if ((P)==(2)) {
+			SetMotor(1,-50);
+			
+			SetMotor(2,-50);
+			
+			SetWaitForTime(1);
+			
+			SetMotor(1,50);
+			
+			SetMotor(2,-50);
+			
+			SetWaitForTime(0.5);
+			
+		}
+		
+		SetMotor(1,50);
+		
+		SetMotor(2,50);
+		
+	}
+	
+}
