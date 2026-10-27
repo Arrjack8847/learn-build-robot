@@ -750,7 +750,7 @@ for (const source of legacyProgrammingSources) {
 }
 
 export function getLegacyProgrammingFiles(
-  project: Pick<PracticalProject, "level" | "title" | "categoryId">,
+  project: { level?: PracticalProject["level"]; title: string; categoryId?: string | undefined },
 ): readonly LegacyProgrammingFile[] {
   if (project.level !== 1 && project.level !== 3 && project.level !== 4) return [];
   if (!project.categoryId) return [];
