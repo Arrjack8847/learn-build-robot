@@ -5,8 +5,8 @@ import { readFileSync } from "node:fs";
 const load = path => readFileSync(new URL(path, import.meta.url), "utf8");
 const registrySource = load("../src/data/levelFiveSixContent.ts");
 const urlsSource = load("../src/data/levelSixWixPdfUrls.ts");
-const lessonsMatch = registrySource.match(/export const levelFiveSixLessons: readonly AdvancedLessonAsset\\[\\] = (\\[[\\s\\S]*?\\]);/);
-const urlsMatch = urlsSource.match(/export const levelSixWixPdfUrls: Readonly<Record<string, string>> = (\\{[\\s\\S]*?\\});/);
+const lessonsMatch = registrySource.match(/export const levelFiveSixLessons: readonly AdvancedLessonAsset\[\] = (\[[\s\S]*?\]);/);
+const urlsMatch = urlsSource.match(/export const levelSixWixPdfUrls: Readonly<Record<string, string>> = (\{[\s\S]*?\});/);
 assert.ok(lessonsMatch, "Level 5–6 lesson registry should remain parseable");
 assert.ok(urlsMatch, "Level 6 Wix URL map should remain parseable");
 const lessons = JSON.parse(lessonsMatch[1]);
@@ -20,14 +20,14 @@ test("Level 6 Wix PDF URLs match each registered Learning and Building variant e
   assert.deepEqual(Object.keys(wixUrls).sort(), expected.sort());
   assert.equal(new Set(Object.values(wixUrls)).size, 84);
   for (const [path, url] of Object.entries(wixUrls)) {
-    assert.match(path, /^Level 6\\/(Learning|Building)\\//);
-    assert.match(url, /^https:\\/\\/fe3fa828-9f74-45e8-97f7-8d00cbb7fba0\\.usrfiles\\.com\\/ugd\\/[a-z0-9_]+\\.pdf$/);
+    assert.match(path, /^Level 6\/(Learning|Building)\//);
+    assert.match(url, /^https:\/\/fe3fa828-9f74-45e8-97f7-8d00cbb7fba0\.usrfiles\.com\/ugd\/[a-z0-9_]+\.pdf$/);
   }
 });
 
 test("Level 6 Wix lookup is connected to the shared PDF resolver", () => {
-  assert.match(registrySource, /import \\{ levelSixWixPdfUrls \\} from "\\.\\/levelSixWixPdfUrls";/);
-  assert.match(registrySource, /const wixUrl = levelSixWixPdfUrls\\[path\\];/);
-  assert.match(registrySource, /if \\(wixUrl\\) return wixUrl;/);
-  assert.match(registrySource, /return base \\? base \\+ "\\/" \\+ encodePath\\("public\\/" \\+ path\\) : "\\/" \\+ encodePath\\(path\\);/);
+  assert.match(registrySource, /import \{ levelSixWixPdfUrls \} from "\.\/levelSixWixPdfUrls";/);
+  assert.match(registrySource, /const wixUrl = levelSixWixPdfUrls\[path\];/);
+  assert.match(registrySource, /if \(wixUrl\) return wixUrl;/);
+  assert.match(registrySource, /return base \? base \+ "\/" \+ encodePath\("public\/" \+ path\) : "\/" \+ encodePath\(path\);/);
 });
