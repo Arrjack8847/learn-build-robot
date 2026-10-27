@@ -7,6 +7,7 @@ import { practicalProjects } from "@/data/practical";
 import { isPdfActivityProject, pdfActivityManuals } from "@/data/pdfActivityManuals";
 import { levelTwoPowerPointSources } from "@/data/levelTwoPowerPointSources";
 import { getLevelFourBuildingManual, isLevelFourBuildingFallback } from "@/data/levelFourBuilding";
+import { getLevelFiveSixBuildingManual, isLevelFiveSixBuildingReference } from "@/data/levelFiveSixContent";
 
 /** Multiple original building manuals appear as version buttons on one syllabus activity card. */
 const manualVersionChoices: Record<string, readonly {label: string; projectId: string}[]> = {
@@ -82,13 +83,16 @@ function AdvancedLevelProjectsPage() {
                   project.id === choice.projectId && project.level === level &&
                   project.categoryId === category.id));
               const levelFourBuilding = level === 4 && liveProject ? getLevelFourBuildingManual(liveProject.id) : undefined;
-              const isPresentation = Boolean(liveProject && pdfActivityManuals[liveProject.id]?.sourceKind === "powerpoint" && !levelFourBuilding);
+              const levelFiveSixBuilding = (level === 5 || level === 6) && liveProject ? getLevelFiveSixBuildingManual(liveProject.id) : undefined;
+              const buildingManual = levelFourBuilding || levelFiveSixBuilding;
+              const isBuildingReference = Boolean(liveProject && ((level === 4 && isLevelFourBuildingFallback(liveProject.id)) || ((level === 5 || level === 6) && isLevelFiveSixBuildingReference(liveProject.id))));
+              const isPresentation = Boolean(liveProject && pdfActivityManuals[liveProject.id]?.sourceKind === "powerpoint" && !buildingManual);
               const isReady = Boolean(liveProject || versions.length);
               // PowerPoints are offered as exact originals, not passed to the PDF renderer.
               const pptxUrl = level === 2 ? levelTwoPowerPointSources[entry.sourceEntry] : undefined;
               const Icon = entry.sourceKind === "pptx" ? Presentation : entry.sourceKind === "pdf" ? FileText : FolderOpen;
-              const label = levelFourBuilding ? (
-                isLevelFourBuildingFallback(liveProject!.id)
+              const label = buildingManual ? (
+                isBuildingReference
                   ? "Building uses the existing Learning slides as a reference"
                   : "Original Building PDF manual · Learning slides also available"
               ) : versions.length ? `${versions.length} original PDF building versions · choose below` :
@@ -104,7 +108,7 @@ function AdvancedLevelProjectsPage() {
                       {isReady ? <Bot className="size-8" aria-hidden="true"/> : <Icon className="size-7" aria-hidden="true"/>}
                     </span>
                     <span className={`rounded-full px-3 py-1.5 text-xs font-bold ${isReady ? "bg-green-50 text-green-700" : "bg-slate-100 text-slate-600"}`}>
-                      {levelFourBuilding ? "Learning & Building" : isPresentation ? "View PowerPoint slides" : isReady ? "Ready to build" : pptxUrl ? "PowerPoint available" : "Lesson not added yet"}
+                      {buildingManual ? "Learning & Building" : isPresentation ? "View PowerPoint slides" : isReady ? "Ready to build" : pptxUrl ? "PowerPoint available" : "Lesson not added yet"}
                     </span>
                   </div>
                   <h3 className="mt-4 text-lg font-extrabold leading-snug">{entry.name}</h3>
