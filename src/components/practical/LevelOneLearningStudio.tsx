@@ -5,6 +5,7 @@ import type { PDFDocumentLoadingTask, PDFDocumentProxy } from "pdfjs-dist";
 import { PdfManualPage, type PdfViewportSize } from "./PdfManualPage";
 import type { LevelOneLecture } from "@/data/levelOneLectures";
 import { getLevelTwoProgrammingFiles } from "@/data/levelTwoProgrammingFiles";
+import { getLevelFiveSixProgrammingFiles } from "@/data/levelFiveSixContent";
 import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 
 /** One PDF page per slide, separate from the Building Studio instruction dock. */
@@ -14,7 +15,7 @@ export function LevelOneLearningStudio({
   projectId: string;
   title: string;
   lecture: LevelOneLecture;
-  level?: 1 | 2 | 3;
+  level?: 1 | 2 | 3 | 5 | 6;
 }) {
   const [document, setDocument] = useState<PDFDocumentProxy | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -25,7 +26,8 @@ export function LevelOneLearningStudio({
   const workspaceRef = useRef<HTMLDivElement>(null);
   const slideRef = useRef<HTMLDivElement>(null);
   const total = document?.numPages ?? 0;
-  const programmingFiles = level === 2 ? getLevelTwoProgrammingFiles(projectId) : [];
+  const programmingFiles = level === 2 ? getLevelTwoProgrammingFiles(projectId) :
+    level === 5 || level === 6 ? getLevelFiveSixProgrammingFiles(projectId) : [];
 
   useEffect(() => {
     let disposed = false;
@@ -175,7 +177,7 @@ export function LevelOneLearningStudio({
           <section className="mx-auto mt-2 flex max-w-3xl flex-col gap-2 rounded-2xl border border-sky-100 bg-sky-50/70 px-3 py-2 sm:flex-row sm:items-center sm:justify-between" aria-label="Programming File">
             <div className="min-w-0">
               <h2 className="text-xs font-black text-[#132654]">Programming File</h2>
-              <p className="text-xs text-slate-600">Download the original Scratch program for this robot.</p>
+              <p className="text-xs text-slate-600">Download the original Scratch program files for this project.</p>
             </div>
             <div className="flex shrink-0 flex-wrap gap-2">
               {programmingFiles.map(file => (
@@ -183,7 +185,7 @@ export function LevelOneLearningStudio({
                   aria-label={`Download ${file.fileName}`}
                   className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-sky-200 bg-white px-3 text-xs font-extrabold text-[#168eea] hover:bg-sky-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168eea] sm:w-auto">
                   <Download className="size-4 shrink-0" aria-hidden="true" />
-                  Download Program (.sb2)
+                  Download {file.fileName.split(".").at(-1)?.toUpperCase() ?? "Program"}
                 </a>
               ))}
             </div>
