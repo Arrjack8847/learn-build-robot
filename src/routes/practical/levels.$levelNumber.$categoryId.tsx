@@ -8,6 +8,7 @@ import { isPdfActivityProject, pdfActivityManuals } from "@/data/pdfActivityManu
 import { levelTwoPowerPointSources } from "@/data/levelTwoPowerPointSources";
 import { getLevelFourBuildingManual, isLevelFourBuildingFallback } from "@/data/levelFourBuilding";
 import { getLevelFiveSixBuildingManual, isLevelFiveSixBuildingReference } from "@/data/levelFiveSixContent";
+import { QuizPassedBadge } from "@/components/quiz/QuizAchievement";
 
 /** Multiple original building manuals appear as version buttons on one syllabus activity card. */
 const manualVersionChoices: Record<string, readonly {label: string; projectId: string}[]> = {
@@ -59,7 +60,7 @@ function AdvancedLevelProjectsPage() {
           </p>
           <h1 className="mt-2 text-[clamp(1.9rem,5vw,3rem)] font-black tracking-tight">{category.name}</h1>
           <p className="mt-3 max-w-2xl text-sm font-medium leading-6 text-slate-600">
-            These are the projects in your syllabus. Select one, then choose Learning or Building when that activity is available.
+            These are the projects in your syllabus. Select a project, then choose Learning, Building, or Quiz when that activity is available.
           </p>
         </section>
 
@@ -112,6 +113,7 @@ function AdvancedLevelProjectsPage() {
                     </span>
                   </div>
                   <h3 className="mt-4 text-lg font-extrabold leading-snug">{entry.name}</h3>
+                  {liveProject ? <QuizPassedBadge projectId={liveProject.id} /> : null}
                   <p className="mt-2 text-xs font-medium text-slate-500">{label}</p>
                   <div className="mt-auto pt-5">
                     {versions.length ? (
