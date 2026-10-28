@@ -62,6 +62,43 @@ test("all six levels have a Learning PDF source extraction queue", async () => {
   assert.equal(accelerationSource.sourcePath, bank.sourcePdfPath);
 });
 
+test("published quiz banks cover the syllabus PDFs in every level", async () => {
+  const expected = [
+    ["acceleration-car", 1, 17],
+    ["big-head-robot", 1, 16],
+    ["level-2-axe-robot", 2, 19],
+    ["level-3-clip-robot", 3, 17],
+    ["level-4-acoustic-control-lamp", 4, 20],
+    ["level-5-barometric-sensor", 5, 26],
+    ["level-6-altimeter", 6, 22],
+  ];
+  const manifest = JSON.parse(await readFile(new URL("../scripts/quiz-learning-source-manifest.json", import.meta.url), "utf8"));
+  const scores = new Set();
+  for (const [id, level, pages] of expected) {
+    const source = manifest.sources.find(item => item.projectId === id);
+    assert.ok(source, id + ": missing source registry entry");
+    assert.equal(source.level, level);
+    const published = getQuizBank(id);
+    assert.ok(published, id + ": not published");
+    assert.equal(published.projectId, id);
+    assert.equal(published.sourcePageCount, pages);
+    assert.equal(published.sourcePdfPath, source.sourcePath);
+    assert.equal(published.questions.length, 10);
+    assert.deepEqual(validateQuizBank(published), [], id);
+    const first = selectQuizQuestions(published, [], () => 0);
+    const retry = selectQuizQuestions(published, first.map(q => q.id), () => 0);
+    assert.equal(first.length, 5, id);
+    assert.equal(retry.length, 5, id);
+    assert.equal(new Set(first.map(q => q.topic)).size, 5, id);
+    assert.equal(first.filter(q => retry.some(p => p.id === q.id)).length, 0, id);
+    for (const q of published.questions) {
+      assert.ok(q.learningSlide >= 1 && q.learningSlide <= pages, id + " bad slide " + q.id);
+    }
+    scores.add(level);
+  }
+  assert.deepEqual([...scores].sort(), [1,2,3,4,5,6]);
+});
+
 test("a bank with broken references is rejected before publication", () => {
   assert.ok(bank);
   assert.ok(validateQuizBank({ ...bank, sourcePageCount: 3 }).some(message => message.includes("slide")));
