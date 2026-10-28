@@ -5,7 +5,7 @@
 **Quiz Studio can now be represented for registered projects in Levels 1–6.**
 The six-level curriculum registry is shared with the existing Learning / Building routes, and the same quiz engine, source-slide deep link behavior, hints, results, best scores, and resume logic will be reused for each published project.
 
-**Do not confuse infrastructure with completed learning content.** There are currently **thirteen published project banks (130 questions)**, each grounded in its Learning PDF's extracted slide text and carrying page references. Their full interactive browser tests and any diagram-based questions still need human visual QA. Other project cards show **Quiz coming soon** rather than fabricated quizzes.
+**Do not confuse infrastructure with completed learning content.** There are currently **37 published project banks (370 questions)**, each grounded in its Learning PDF's extracted slide text and carrying page references. Their full interactive browser tests and any diagram-based questions still need human visual QA. Other project cards show **Quiz coming soon** rather than fabricated quizzes.
 
 ### Published question banks
 
@@ -25,7 +25,7 @@ The six-level curriculum registry is shared with the existing Learning / Buildin
 | 5 | Autonomous Driving | 20 | 10 |
 | 6 | Ball Tracking | 20 | 10 |
 
-This batch expands only the playable quizzes, not the underlying source index. Of approximately 321 registered project IDs, 13 currently have 10-question banks and the remaining entries remain pending (some share source PDFs). **These are source-text-grounded educational drafts pending device/browser and visual slide review**, not a completed production rollout.
+This batch expands only the playable quizzes, not the underlying source index. Of 321 registered project IDs, 37 have ten-question banks. Level 1 has 27 of 60 entries with a bank; 33 remain pending. Some project variants share a source PDF. **These are source-text-grounded educational drafts pending device/browser and visual slide review**, not a completed production rollout.
 
 The underlying source PDFs are the only basis for the project-specific questions. Their slides can contain poor translations, so ambiguous claims should be resolved against the actual illustrations and teacher notes before a release. The published question banks use 5 objectives × 2 questions, and attempt selection presents 5 questions covering all five. Other project cards show **Quiz coming soon** until their own content is checked against the actual lesson.
 
@@ -68,3 +68,12 @@ For projects using a Building PDF as their Learning fallback, inspect `getQuizLe
 ## Development safety
 
 Use the separate feature branch `feat/quiz-studio-all-levels-20261028`. Do not merge into `main` or deploy to Vercel before local build and interactive tests. The original working lightweight folder must remain untouched.
+
+## Level 1 authoring status (2026-10-28)
+
+- 60 registered project entries; 27 published ten-question banks; 33 pending.
+- The 24 newly authored Level 1 banks cover Funny Cat, Bird, Traffic Light Signal, Lighthouse, The Lawn Mower, House, Blinking Robot, Responder, Car, Crawl Slowly (both variants), Dart, Gyro Transmitter, Help Light, Little Stars, Primitive Robot, Pull Back Car, Rotating Flying Chair, Shock Absorber, Skating, Sled, Sled Dog, SpongeBob, and Wali Robot.
+- `scripts/level1-quiz-status.json` records the exact list: 19 pending with registered Learning PDFs and 14 without an indexed Learning PDF.
+- A source reference in GitHub is not proof that the whole slide was reviewed; source-text-based questions must still receive visual and age-appropriateness QA. Projects without a bank remain Quiz coming soon.
+- Run `node --experimental-strip-types --test tests/quiz-level1.test.mjs` in a local checkout, then `npm run build` and browser-test the results' Review Learning Slide links.
+- No merge to main and no Vercel deployment.
