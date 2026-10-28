@@ -1,5 +1,6 @@
 import { pdfActivityManuals } from "./pdfActivityManuals";
 import type { LevelOneLecture } from "./levelOneLectures";
+import { levelOneToThreeLearningPdfUrl } from "./staticPdfUrl";
 
 /** Verified Level 2 lecture PDFs in public/Level 2/Learning.
  * Some projects only have a Building PDF; Learning reuses that exact
@@ -80,7 +81,7 @@ export const levelTwoLectures: Record<string, LevelOneLecture> = {
     projectId,
     {
       projectId,
-      url: "/Level%202/Learning/" + relativePath.split("/").map(encodeURIComponent).join("/"),
+      url: levelOneToThreeLearningPdfUrl(2, relativePath),
       learningOnly: false,
     },
   ])),

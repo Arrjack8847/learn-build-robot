@@ -1,4 +1,5 @@
 import { pdfActivityManuals } from "./pdfActivityManuals";
+import { levelOneToThreeLearningPdfUrl } from "./staticPdfUrl";
 /** Level 1 lecture PDFs under public/Level 1/Learning (45 original presentations). */
 export type LevelOneLecture = {
   projectId: string;
@@ -101,7 +102,7 @@ export const levelOneLectures: Record<string, LevelOneLecture> = {
     projectId,
     {
       projectId,
-      url: "/Level%201/Learning/" + relativePath.split("/").map(encodeURIComponent).join("/"),
+      url: levelOneToThreeLearningPdfUrl(1, relativePath),
       learningOnly: learningOnlyIds.has(projectId),
     },
   ])),

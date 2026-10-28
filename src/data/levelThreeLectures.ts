@@ -1,5 +1,6 @@
 import { pdfActivityManuals } from "./pdfActivityManuals";
 import type { LevelOneLecture } from "./levelOneLectures";
+import { levelOneToThreeLearningPdfUrl } from "./staticPdfUrl";
 
 /** Level 3 Learning source registry.
  * Use the original 43 uploaded lecture PDFs for those projects.
@@ -72,7 +73,7 @@ export const levelThreeLectures: Record<string, LevelOneLecture> = {
     projectId,
     {
       projectId,
-      url: "/Level%203/Learning/" + relativePath.split("/").map(encodeURIComponent).join("/"),
+      url: levelOneToThreeLearningPdfUrl(3, relativePath),
       // Preserve the current presentation-only projects' unavailable Building mode.
       learningOnly: pdfActivityManuals[projectId]?.sourceKind === "powerpoint",
     },
