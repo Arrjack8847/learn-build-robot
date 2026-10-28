@@ -1,9 +1,10 @@
 /** Verified Level 5 and Level 6 syllabus-to-asset inventory.
  * Generated from the uploaded repository paths. Source files are not modified.
- * Level 6 PDFs use individually verified Wix URLs; Level 5 keeps its existing resolution.
+ * Level 5–6 PDFs use individually verified Wix URLs; other levels retain their original resolution.
  */
 import type { PdfActivityManual } from "./pdfActivityManuals";
 import { levelSixWixPdfUrls } from "./levelSixWixPdfUrls";
+import { levelFiveWixPdfUrls } from "./levelFiveWixPdfUrls";
 import type { LevelOneLecture } from "./levelOneLectures";
 
 export type AdvancedLessonLevel = 5 | 6;
@@ -1437,7 +1438,7 @@ function encodePath(path: string): string {
 function publicUrl(path: string): string {
   // Use the individually uploaded Wix document for Level 6 PDF lessons.
   // Keep Level 5 and non-PDF asset hosting behavior unchanged.
-  const wixUrl = levelSixWixPdfUrls[path];
+  const wixUrl = levelFiveWixPdfUrls[path] ?? levelSixWixPdfUrls[path];
   if (wixUrl) return wixUrl;
   const base = assetBase();
   return base ? base + "/" + encodePath("public/" + path) : "/" + encodePath(path);
