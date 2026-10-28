@@ -6,7 +6,7 @@ export const primitiveRobotBank: QuizBank = {
   "sourcePageCount": 17,
   "questions": [
     {
-      "id": "undefined-01",
+      "id": "primitive-robot-01",
       "topic": "robot",
       "learningSlide": 6,
       "prompt": "Which ability is used in the lesson to describe a robot?",
@@ -21,7 +21,7 @@ export const primitiveRobotBank: QuizBank = {
       "hint": "Think about a machine that acts on instructions."
     },
     {
-      "id": "undefined-02",
+      "id": "primitive-robot-02",
       "topic": "robot",
       "learningSlide": 6,
       "prompt": "Which task is mentioned as a purpose for robots?",
@@ -36,7 +36,7 @@ export const primitiveRobotBank: QuizBank = {
       "hint": "Think of work that may be risky for a human."
     },
     {
-      "id": "undefined-03",
+      "id": "primitive-robot-03",
       "topic": "shape",
       "learningSlide": 7,
       "prompt": "Which main body parts are shown in the Primitive Robot design?",
@@ -51,7 +51,7 @@ export const primitiveRobotBank: QuizBank = {
       "hint": "Think about the basic parts of a person."
     },
     {
-      "id": "undefined-04",
+      "id": "primitive-robot-04",
       "topic": "shape",
       "learningSlide": 7,
       "prompt": "What is the main design task introduced for the Primitive Robot?",
@@ -66,7 +66,7 @@ export const primitiveRobotBank: QuizBank = {
       "hint": "Think about learning the names and roles of robot pieces."
     },
     {
-      "id": "undefined-05",
+      "id": "primitive-robot-05",
       "topic": "types",
       "learningSlide": 9,
       "prompt": "Which of these is listed as an electronic part type?",
@@ -81,7 +81,7 @@ export const primitiveRobotBank: QuizBank = {
       "hint": "Think about the part that can run instructions."
     },
     {
-      "id": "undefined-06",
+      "id": "primitive-robot-06",
       "topic": "types",
       "learningSlide": 9,
       "prompt": "Which of these is a structural connector type named in the lesson?",
@@ -96,7 +96,7 @@ export const primitiveRobotBank: QuizBank = {
       "hint": "Think about pieces that join two beams."
     },
     {
-      "id": "undefined-07",
+      "id": "primitive-robot-07",
       "topic": "functions",
       "learningSlide": 10,
       "prompt": "What is the primary job of a beam in the model?",
@@ -111,7 +111,7 @@ export const primitiveRobotBank: QuizBank = {
       "hint": "Think about long pieces holding a structure together."
     },
     {
-      "id": "undefined-08",
+      "id": "primitive-robot-08",
       "topic": "functions",
       "learningSlide": 11,
       "prompt": "What is a common function of a wheel?",
@@ -126,7 +126,7 @@ export const primitiveRobotBank: QuizBank = {
       "hint": "Think about what rolls when a robot travels."
     },
     {
-      "id": "undefined-09",
+      "id": "primitive-robot-09",
       "topic": "assembly",
       "learningSlide": 13,
       "prompt": "Which assembly requirement is named for the Primitive Robot?",
@@ -141,7 +141,7 @@ export const primitiveRobotBank: QuizBank = {
       "hint": "Think about keeping a robot upright."
     },
     {
-      "id": "undefined-10",
+      "id": "primitive-robot-10",
       "topic": "assembly",
       "learningSlide": 13,
       "prompt": "What should the assembled model match?",
@@ -155,5 +155,6 @@ export const primitiveRobotBank: QuizBank = {
       "explanation": "The slide lists shape matching among assembly requirements.",
       "hint": "Compare the model to its design."
     }
-  ]
+  ],
+  "projectId": "primitive-robot"
 };
