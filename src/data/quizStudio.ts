@@ -48,7 +48,7 @@ const accelerationCarQuestions: QuizQuestion[] = [
     hint: "A small gear has fewer teeth. Think about how many turns it makes while the big gear turns once.",
   },
   {
-    id: "ac-04", learningSlide: 6, topic: "gear-speed", prompt: "The small gear A turns the big gear B. What happens to the big gear?",
+    id: "ac-04", learningSlide: 11, topic: "gear-speed", prompt: "The small gear A turns the big gear B. What happens to the big gear?",
     choices: ["It turns faster", "It turns slower", "It turns at the same speed", "It stops moving"],
     correctIndex: 1, diagram: "small-to-large",
     explanation: "A bigger driven gear turns more slowly than the smaller driving gear.",
