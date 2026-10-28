@@ -3,6 +3,10 @@
  * Every published question must be checked against the actual Learning PDF
  * and carry the relevant 1-based Learning Studio slide number.
  */
+import { bigHeadRobotBank } from "./quizBanks/bigHeadRobot";
+import { axeRobotBank } from "./quizBanks/axeRobot";
+import { clipRobotBank } from "./quizBanks/clipRobot";
+
 export type GearDiagram = "large-to-small" | "small-to-large";
 /** Each project defines five distinct objective IDs; the engine is not gear-specific. */
 export type QuizTopic = string;
@@ -104,6 +108,9 @@ const accelerationCarQuestions: QuizQuestion[] = [
 ];
 
 export const quizBanks: Readonly<Record<string, QuizBank>> = {
+  [bigHeadRobotBank.projectId]: bigHeadRobotBank,
+  [axeRobotBank.projectId]: axeRobotBank,
+  [clipRobotBank.projectId]: clipRobotBank,
   "acceleration-car": {
     projectId: "acceleration-car",
     title: "Acceleration Car",
