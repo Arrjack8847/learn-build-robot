@@ -15,6 +15,10 @@ import { followingRobotBank } from "./quizBanks/followingRobot.ts";
 import { timidMouseBank } from "./quizBanks/timidMouse.ts";
 import { autonomousDrivingBank } from "./quizBanks/autonomousDriving.ts";
 import { ballTrackingBank } from "./quizBanks/ballTracking.ts";
+import { funnyCatBank } from "./quizBanks/funnyCat.ts";
+import { sledDogBank } from "./quizBanks/sledDog.ts";
+import { birdBank } from "./quizBanks/bird.ts";
+import { houseBank } from "./quizBanks/house.ts";
 
 export type GearDiagram = "large-to-small" | "small-to-large";
 /** Each project defines five distinct objective IDs; the engine is not gear-specific. */
@@ -129,6 +133,10 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [timidMouseBank.projectId]: timidMouseBank,
   [autonomousDrivingBank.projectId]: autonomousDrivingBank,
   [ballTrackingBank.projectId]: ballTrackingBank,
+  [funnyCatBank.projectId]: funnyCatBank,
+  [sledDogBank.projectId]: sledDogBank,
+  [birdBank.projectId]: birdBank,
+  [houseBank.projectId]: houseBank,
   "acceleration-car": {
     projectId: "acceleration-car",
     title: "Acceleration Car",
