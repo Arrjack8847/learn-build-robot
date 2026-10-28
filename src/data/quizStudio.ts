@@ -23,6 +23,10 @@ export interface QuizQuestion {
 export interface QuizBank {
   projectId: string;
   title: string;
+  /** Path relative to repository root, checked against the real curriculum PDF. */
+  sourcePdfPath: string;
+  /** Actual number of pages verified in the source PDF. */
+  sourcePageCount: number;
   questions: readonly QuizQuestion[];
 }
 
@@ -103,6 +107,8 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   "acceleration-car": {
     projectId: "acceleration-car",
     title: "Acceleration Car",
+    sourcePdfPath: "public/Level 1/Learning/Autonomous Navigation & Ranging/Acceleration car/Acceleration car_Powerpoint.pdf",
+    sourcePageCount: 17,
     questions: accelerationCarQuestions,
   },
 };
@@ -115,6 +121,10 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
 export function validateQuizBank(bank: QuizBank): string[] {
   const issues: string[] = [];
   if (bank.questions.length !== 10) issues.push("Expected exactly 10 source-verified questions");
+  if (!bank.sourcePdfPath.startsWith("public/") || !bank.sourcePdfPath.endsWith(".pdf"))
+    issues.push("Missing verified Learning PDF path");
+  if (!Number.isInteger(bank.sourcePageCount) || bank.sourcePageCount < 1)
+    issues.push("Missing verified source PDF page count");
   const ids = new Set<string>();
   const topics = new Map<string, number>();
   for (const question of bank.questions) {
@@ -128,8 +138,9 @@ export function validateQuizBank(bank: QuizBank): string[] {
       issues.push(question.id + ": expected four distinct nonempty choices");
     if (!Number.isInteger(question.correctIndex) || question.correctIndex < 0 || question.correctIndex >= 4)
       issues.push(question.id + ": invalid correct answer index");
-    if (!Number.isInteger(question.learningSlide) || question.learningSlide < 1)
-      issues.push(question.id + ": missing source slide number");
+    if (!Number.isInteger(question.learningSlide) || question.learningSlide < 1 ||
+        question.learningSlide > bank.sourcePageCount)
+      issues.push(question.id + ": invalid source slide number");
     if (!question.hint.trim() || !question.explanation.trim())
       issues.push(question.id + ": missing hint or explanation");
   }
@@ -143,7 +154,8 @@ export const QUIZ_QUESTION_COUNT = 5;
 export const QUIZ_PASS_COUNT = 4;
 
 export function getQuizBank(projectId: string): QuizBank | undefined {
-  return quizBanks[projectId];
+  const bank = quizBanks[projectId];
+  return bank && validateQuizBank(bank).length === 0 ? bank : undefined;
 }
 
 /** One question per learning objective. On immediate retry prefer its paired, unseen question. */
