@@ -24,6 +24,27 @@ test("pilot has ten age-appropriate four-choice questions across five objectives
   assert.equal(QUIZ_QUESTION_COUNT, 5);
 });
 
+test("every Acceleration Car question references a verified Learning PDF page", () => {
+  assert.ok(bank);
+  const sourcePage = {
+    "ac-01": 7,
+    "ac-02": 9,
+    "ac-03": 6,
+    "ac-04": 11,
+    "ac-05": 11,
+    "ac-06": 6,
+    "ac-07": 10,
+    "ac-08": 11,
+    "ac-09": 13,
+    "ac-10": 16,
+  };
+  for (const question of bank.questions) {
+    assert.equal(question.learningSlide, sourcePage[question.id], `Source slide missing for ${question.id}`);
+    assert.ok(Number.isInteger(question.learningSlide));
+    assert.ok(question.learningSlide >= 1 && question.learningSlide <= 17);
+  }
+});
+
 test("each attempt covers all five objectives and the immediate retry avoids repeats", () => {
   assert.ok(bank);
   const first = selectQuizQuestions(bank, [], () => 0);
