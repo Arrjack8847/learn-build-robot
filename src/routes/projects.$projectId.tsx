@@ -1,5 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, BookOpen, CheckCircle2, Construction, Wrench } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, CheckCircle2, ClipboardCheck, Construction, Wrench } from "lucide-react";
 
 import { LevelOneBackdrop } from "@/components/practical/LevelOneHeader";
 import { getAdvancedLevel } from "@/data/advancedSyllabus";
@@ -12,6 +12,8 @@ import { getLevelThreeLecture } from "@/data/levelThreeLectures";
 import { getLevelFourBuildingManual, hasLevelFourOptimizedManual, isLevelFourBuildingFallback } from "@/data/levelFourBuilding";
 import { getLevelFiveSixBuildingManual, hasLevelFiveSixOptimizedManual, isLevelFiveSixBuildingReference, levelFiveSixLearningLectures } from "@/data/levelFiveSixContent";
 import { getProjectSupplementaryPdfs } from "@/data/levelFiveSixExtraPdfs";
+import { getQuizBank } from "@/data/quizStudio";
+import { QuizProjectProgress } from "@/components/quiz/QuizAchievement";
 
 export const Route = createFileRoute("/projects/$projectId")({
   component: ProjectOverviewPage,
@@ -121,7 +123,7 @@ function ProjectOverviewPage() {
           <p className="mt-5 text-sm font-extrabold text-[#132654]">What would you like to do?</p>
         </section>
 
-        <section aria-label="Choose Learning or Building" className="mt-6 grid gap-4 sm:grid-cols-2">
+        <section aria-label="Choose Learning, Building, or Quiz" className={`mt-6 grid gap-4 ${getQuizBank(project.id) ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
           <article className="flex flex-col rounded-[28px] border border-blue-100 bg-white p-6 shadow-[0_8px_28px_rgba(22,142,234,.07)]">
             <BookOpen className="size-10 text-[#168eea]" aria-hidden="true" />
             <h2 className="mt-4 text-xl font-black">Learning</h2>
@@ -169,6 +171,20 @@ function ProjectOverviewPage() {
               </span>
             )}
           </article>
+          {getQuizBank(project.id) ? (
+            <article className="flex flex-col rounded-[28px] border border-amber-100 bg-white p-6 shadow-[0_8px_28px_rgba(202,146,26,.07)]">
+              <ClipboardCheck className="size-10 text-[#168eea]" aria-hidden="true" />
+              <h2 className="mt-4 text-xl font-black">Quiz</h2>
+              <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                Answer five kid-friendly questions with optional hints. Get four right to pass, or practice again.
+              </p>
+              <QuizProjectProgress projectId={project.id} />
+              <Link to="/quiz/$projectId" params={{ projectId: project.id }}
+                className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 font-extrabold text-white hover:bg-[#0d7fda]">
+                Open Quiz <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </article>
+          ) : null}
         </section>
 
         {supplementaryPdfs.length > 0 && (
