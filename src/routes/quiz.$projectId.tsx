@@ -48,7 +48,7 @@ function QuizStudioPage() {
       <main className="grid min-h-[100dvh] place-items-center bg-[#f3faff] px-5 text-center text-[#132654]">
         <div>
           <h1 className="text-2xl font-black">Quiz not available yet</h1>
-          <p className="mt-3 text-sm text-slate-600">The first quiz pilot is Acceleration Car.</p>
+          <p className="mt-3 text-sm text-slate-600">This project’s questions and Learning-slide references are being reviewed.</p>
           <Link className={primaryButton + " mt-5"} to="/practical/levels">Explore levels</Link>
         </div>
       </main>
@@ -152,7 +152,7 @@ function QuizStudioPage() {
                 <Trophy className="size-10" aria-hidden="true"/>
               </div>
               <h2 className="text-2xl font-black sm:text-3xl">Ready for a Quiz?</h2>
-              <p className="text-sm leading-6 text-slate-600">Let's see what you know about gears and movement!</p>
+              <p className="text-sm leading-6 text-slate-600">Show what you learned about {bank.title}!</p>
               <div className="grid grid-cols-3 gap-2 text-center">
                 <InfoTile value="5" label="Questions"/>
                 <InfoTile value="4/5" label="To pass"/>
