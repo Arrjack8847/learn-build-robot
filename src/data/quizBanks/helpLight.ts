@@ -6,7 +6,7 @@ export const helpLightBank: QuizBank = {
   "sourcePageCount": 15,
   "questions": [
     {
-      "id": "undefined-01",
+      "id": "help-light-01",
       "topic": "distress",
       "learningSlide": 7,
       "prompt": "Why would a fishing boat use a Help Light?",
@@ -21,7 +21,7 @@ export const helpLightBank: QuizBank = {
       "hint": "Think about how other boats can notice someone who needs help."
     },
     {
-      "id": "undefined-02",
+      "id": "help-light-02",
       "topic": "distress",
       "learningSlide": 7,
       "prompt": "What two visible features can make the emergency light noticeable?",
@@ -36,7 +36,7 @@ export const helpLightBank: QuizBank = {
       "hint": "Think about what a person can see from far away."
     },
     {
-      "id": "undefined-03",
+      "id": "help-light-03",
       "topic": "sos",
       "learningSlide": 9,
       "prompt": "Which sequence is used for SOS in the lesson?",
@@ -51,7 +51,7 @@ export const helpLightBank: QuizBank = {
       "hint": "Recall the pattern of short and long bursts."
     },
     {
-      "id": "undefined-04",
+      "id": "help-light-04",
       "topic": "sos",
       "learningSlide": 9,
       "prompt": "What is the name of the emergency signal described with short and long pulses?",
@@ -66,7 +66,7 @@ export const helpLightBank: QuizBank = {
       "hint": "Think about the three-letter call for help."
     },
     {
-      "id": "undefined-05",
+      "id": "help-light-05",
       "topic": "flashing",
       "learningSlide": 10,
       "prompt": "What does a flashing signal alternate between?",
@@ -81,7 +81,7 @@ export const helpLightBank: QuizBank = {
       "hint": "Picture a light turning on briefly, then off."
     },
     {
-      "id": "undefined-06",
+      "id": "help-light-06",
       "topic": "flashing",
       "learningSlide": 10,
       "prompt": "How does the lesson classify light flashing?",
@@ -96,7 +96,7 @@ export const helpLightBank: QuizBank = {
       "hint": "Consider whether one or several lamps blink."
     },
     {
-      "id": "undefined-07",
+      "id": "help-light-07",
       "topic": "program",
       "learningSlide": 3,
       "prompt": "Which two blocks are the main programming focus of Help Light?",
@@ -111,7 +111,7 @@ export const helpLightBank: QuizBank = {
       "hint": "Think about controlling light and its timing."
     },
     {
-      "id": "undefined-08",
+      "id": "help-light-08",
       "topic": "program",
       "learningSlide": 2,
       "prompt": "What program idea is introduced while creating a flashing light?",
@@ -126,7 +126,7 @@ export const helpLightBank: QuizBank = {
       "hint": "Think about arranging light commands in the intended order."
     },
     {
-      "id": "undefined-09",
+      "id": "help-light-09",
       "topic": "assembly",
       "learningSlide": 12,
       "prompt": "What should students verify about a finished Help Light structure?",
@@ -141,7 +141,7 @@ export const helpLightBank: QuizBank = {
       "hint": "Think about placing a signal light on a secure base."
     },
     {
-      "id": "undefined-10",
+      "id": "help-light-10",
       "topic": "assembly",
       "learningSlide": 12,
       "prompt": "What appearance check is on the assembly list?",
@@ -155,5 +155,6 @@ export const helpLightBank: QuizBank = {
       "explanation": "The checklist asks that the model's shape match its design.",
       "hint": "Compare the finished signal model with the plan."
     }
-  ]
+  ],
+  "projectId": "help-light"
 };
