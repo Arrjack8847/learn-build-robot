@@ -12,6 +12,8 @@ export interface QuizQuestion {
   prompt: string;
   choices: readonly [string, string, string, string];
   correctIndex: number;
+  /** Verified 1-based page of this project’s Learning PDF. */
+  learningSlide: number;
   explanation: string;
   hint: string;
   diagram?: GearDiagram;
@@ -25,70 +27,70 @@ export interface QuizBank {
 
 const accelerationCarQuestions: QuizQuestion[] = [
   {
-    id: "ac-01", topic: "gear-basics", prompt: "What do gears help a robot do?",
+    id: "ac-01", learningSlide: 7, topic: "gear-basics", prompt: "What do gears help a robot do?",
     choices: ["Store electricity", "Transfer movement", "Make electricity", "Measure movement"],
     correctIndex: 1,
     explanation: "Gears pass movement from one rotating part to another.",
     hint: "Imagine turning one gear with your hand. What happens to a gear touching it?",
   },
   {
-    id: "ac-02", topic: "gear-basics", prompt: "What do we call the gear that starts the movement?",
+    id: "ac-02", learningSlide: 9, topic: "gear-basics", prompt: "What do we call the gear that starts the movement?",
     choices: ["Driving gear", "Driven gear", "Idler gear", "Support wheel"],
     correctIndex: 0,
     explanation: "The driving gear starts the motion. The driven gear receives it.",
     hint: "Think about which gear is connected to the part making the first turn.",
   },
   {
-    id: "ac-03", topic: "gear-speed", prompt: "The big gear A turns the small gear B. Which one turns faster?",
+    id: "ac-03", learningSlide: 6, topic: "gear-speed", prompt: "The big gear A turns the small gear B. Which one turns faster?",
     choices: ["Big gear A", "Small gear B", "Both turn at the same speed", "Neither gear turns"],
     correctIndex: 1, diagram: "large-to-small",
     explanation: "When a bigger gear drives a smaller gear, the smaller gear spins faster.",
     hint: "A small gear has fewer teeth. Think about how many turns it makes while the big gear turns once.",
   },
   {
-    id: "ac-04", topic: "gear-speed", prompt: "The small gear A turns the big gear B. What happens to the big gear?",
+    id: "ac-04", learningSlide: 6, topic: "gear-speed", prompt: "The small gear A turns the big gear B. What happens to the big gear?",
     choices: ["It turns faster", "It turns slower", "It turns at the same speed", "It stops moving"],
     correctIndex: 1, diagram: "small-to-large",
     explanation: "A bigger driven gear turns more slowly than the smaller driving gear.",
     hint: "The big gear needs more teeth to pass the touching point during one full turn.",
   },
   {
-    id: "ac-05", topic: "gear-comparison", prompt: "Two same-sized gears turn each other. Which turns faster?",
+    id: "ac-05", learningSlide: 11, topic: "gear-comparison", prompt: "Two same-sized gears turn each other. Which turns faster?",
     choices: ["The first gear", "The second gear", "Both turn at the same speed", "Neither gear can turn"],
     correctIndex: 2,
     explanation: "Gears with the same number of teeth turn at the same speed, in opposite directions.",
     hint: "Picture two wheels of equal size connected by their teeth.",
   },
   {
-    id: "ac-06", topic: "gear-comparison", prompt: "Which pair makes the second gear turn faster?",
+    id: "ac-06", learningSlide: 6, topic: "gear-comparison", prompt: "Which pair makes the second gear turn faster?",
     choices: ["Small gear drives a big gear", "Big gear drives a small gear", "Same-sized gears mesh", "A big gear drives an equally big gear"],
     correctIndex: 1,
     explanation: "A large driving gear makes a smaller driven gear rotate faster.",
     hint: "Compare how far a big gear's teeth travel during one turn with a small gear's teeth.",
   },
   {
-    id: "ac-07", topic: "simple-maths", prompt: "Gear A has 10 teeth. Gear B has 20 teeth. How many times as many teeth does B have?",
+    id: "ac-07", learningSlide: 10, topic: "simple-maths", prompt: "Gear A has 10 teeth. Gear B has 20 teeth. How many times as many teeth does B have?",
     choices: ["The same number", "Twice as many", "Three times as many", "Four times as many"],
     correctIndex: 1,
     explanation: "Twenty is twice ten, so Gear B has two times as many teeth.",
     hint: "How many groups of ten can you count in twenty?",
   },
   {
-    id: "ac-08", topic: "simple-maths", prompt: "A driving gear has 10 teeth and a driven gear has 20. What is 20 divided by 10?",
+    id: "ac-08", learningSlide: 11, topic: "simple-maths", prompt: "A driving gear has 10 teeth and a driven gear has 20. What is 20 divided by 10?",
     choices: ["1", "2", "3", "4"],
     correctIndex: 1,
     explanation: "Twenty divided by ten equals two. This is the gear ratio using our lesson's formula.",
     hint: "How many tens fit inside twenty?",
   },
   {
-    id: "ac-09", topic: "experiment", prompt: "Why should two gears fit together properly?",
-    choices: ["To make them heavier", "To keep them apart", "To help them move smoothly", "To make them bigger"],
+    id: "ac-09", learningSlide: 13, topic: "experiment", prompt: "Which is listed as an assembly requirement for the Acceleration Car?",
+    choices: ["Use exactly four gears", "Use only large wheels", "Build a stable structure", "Keep the motor at one fixed speed"],
     correctIndex: 2,
-    explanation: "Gears need their teeth to fit together so movement can pass smoothly between them.",
-    hint: "Think about what happens when two gears slip or cannot touch properly.",
+    explanation: "The lesson asks students to make the model stable before they test it.",
+    hint: "Think about what would help the assembled model stay together as it moves.",
   },
   {
-    id: "ac-10", topic: "experiment", prompt: "How can you test what happens when gear sizes change?",
+    id: "ac-10", learningSlide: 16, topic: "experiment", prompt: "How can you test what happens when gear sizes change?",
     choices: ["Change a gear and watch what happens", "Remove all the gears and stop", "Keep the gears still", "Change two parts without watching"],
     correctIndex: 0,
     explanation: "Change one gear, run the model, and observe how the movement changes.",
