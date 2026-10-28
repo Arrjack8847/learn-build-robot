@@ -158,3 +158,14 @@ export const crawlSlowlyBasicBank: QuizBank = {
     }
   ]
 };
+
+/** Same official lesson PDF, separate project progress for the optimized variant. */
+export const crawlSlowlyOptimizedBank: QuizBank = {
+  ...crawlSlowlyBasicBank,
+  projectId: "crawl-slowly-optimized",
+  title: "Crawl Slowly — Optimized",
+  questions: crawlSlowlyBasicBank.questions.map(question => ({
+    ...question,
+    id: question.id.replace("crawl-slowly-basic-", "crawl-slowly-optimized-"),
+  })),
+};
