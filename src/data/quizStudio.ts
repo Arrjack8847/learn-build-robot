@@ -1,10 +1,11 @@
 /**
- * BE STEM READY Quiz Studio — Acceleration Car pilot.
- * Each bank item is grounded in the relevant teaching objective. Final page-level
- * slide references are deliberately omitted until the lecture PDF is verified.
+ * BE STEM READY Quiz Studio — reusable six-level question bank engine.
+ * Every published question must be checked against the actual Learning PDF
+ * and carry the relevant 1-based Learning Studio slide number.
  */
 export type GearDiagram = "large-to-small" | "small-to-large";
-export type QuizTopic = "gear-basics" | "gear-speed" | "gear-comparison" | "simple-maths" | "experiment";
+/** Each project defines five distinct objective IDs; the engine is not gear-specific. */
+export type QuizTopic = string;
 
 export interface QuizQuestion {
   id: string;
@@ -105,6 +106,38 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
     questions: accelerationCarQuestions,
   },
 };
+
+/**
+ * A bank is published only after its educational questions, explanations,
+ * hints, diagrams, and reference slides have been checked.
+ * This validates structural correctness, not the factual accuracy of the PDF.
+ */
+export function validateQuizBank(bank: QuizBank): string[] {
+  const issues: string[] = [];
+  if (bank.questions.length !== 10) issues.push("Expected exactly 10 source-verified questions");
+  const ids = new Set<string>();
+  const topics = new Map<string, number>();
+  for (const question of bank.questions) {
+    if (!question.id || ids.has(question.id)) issues.push("Missing or duplicate question ID: " + question.id);
+    ids.add(question.id);
+    if (!question.topic.trim()) issues.push(question.id + ": missing learning objective");
+    topics.set(question.topic, (topics.get(question.topic) ?? 0) + 1);
+    if (!question.prompt.trim()) issues.push(question.id + ": empty question");
+    if (question.choices.length !== 4 || question.choices.some(choice => !choice.trim()) ||
+        new Set(question.choices.map(choice => choice.trim().toLowerCase())).size !== 4)
+      issues.push(question.id + ": expected four distinct nonempty choices");
+    if (!Number.isInteger(question.correctIndex) || question.correctIndex < 0 || question.correctIndex >= 4)
+      issues.push(question.id + ": invalid correct answer index");
+    if (!Number.isInteger(question.learningSlide) || question.learningSlide < 1)
+      issues.push(question.id + ": missing source slide number");
+    if (!question.hint.trim() || !question.explanation.trim())
+      issues.push(question.id + ": missing hint or explanation");
+  }
+  if (topics.size !== 5 || [...topics.values()].some(count => count !== 2)) {
+    issues.push("Expected five learning objectives with two questions each");
+  }
+  return issues;
+}
 
 export const QUIZ_QUESTION_COUNT = 5;
 export const QUIZ_PASS_COUNT = 4;
