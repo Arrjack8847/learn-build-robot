@@ -13,12 +13,12 @@ export const barometricSensorBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "What does atmospheric pressure describe?",
       "choices": [
-        "Pressure exerted by air on an area",
         "The voltage applied to a robot motor",
         "The rate of a motor's rotation",
-        "The robot's battery temperature"
+        "The robot's battery temperature",
+        "Pressure exerted by air on an area"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "The lesson defines atmospheric pressure as pressure exerted by the atmosphere per unit area.",
       "hint": "Think about the weight of the air around objects."
     },
@@ -28,12 +28,12 @@ export const barometricSensorBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "As altitude increases, what generally happens to atmospheric pressure?",
       "choices": [
-        "It decreases",
         "It stays exactly constant",
+        "It decreases",
         "It always doubles",
         "It becomes independent of air density"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "The lesson explains that thinner air at higher elevations generally produces lower pressure.",
       "hint": "Think about how much atmosphere remains above a high mountain."
     },
@@ -58,12 +58,12 @@ export const barometricSensorBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "Which two kinds of sensing elements are described inside the sensor chip?",
       "choices": [
-        "Pressure-sensitive and temperature-sensitive",
         "Color-sensitive and sound-sensitive",
         "Ultrasonic and infrared",
+        "Pressure-sensitive and temperature-sensitive",
         "Magnetic and touch-sensitive"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "The internal chip includes elements sensitive to pressure and temperature.",
       "hint": "Think about conditions the lesson says may affect the pressure measurement."
     },
@@ -73,12 +73,12 @@ export const barometricSensorBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "What should the completed barometric pressure monitor display?",
       "choices": [
-        "Current atmospheric pressure",
         "Current robot wheel speed",
         "Distance to the nearest wall",
+        "Current atmospheric pressure",
         "Brightness measured by a lamp"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 15 asks students to build a monitor that displays the current barometric value.",
       "hint": "Remember what the main sensor actually measures."
     },
@@ -103,12 +103,12 @@ export const barometricSensorBank: QuizBank = {
       "learningSlide": 19,
       "prompt": "What does the program do with each newly read pressure value?",
       "choices": [
-        "Stores it in a variable",
         "Deletes all previous code",
+        "Stores it in a variable",
         "Sends it directly to a color sensor",
         "Converts it into a motor angle"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 19 instructs continuous reading of pressure data into a variable.",
       "hint": "Think about how a program can keep a measurement for later comparison."
     },
@@ -118,12 +118,12 @@ export const barometricSensorBank: QuizBank = {
       "learningSlide": 20,
       "prompt": "How does the program decide whether to show high or low pressure?",
       "choices": [
-        "Compares the measured pressure with a reference value",
         "Checks whether the LCD is bright",
         "Counts the number of wires",
-        "Uses the motor's rotation direction"
+        "Uses the motor's rotation direction",
+        "Compares the measured pressure with a reference value"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "The program displays a reading and compares it against a baseline to label pressure high or low.",
       "hint": "Think about what measurement needs a comparison before you label it high or low."
     },
@@ -133,12 +133,12 @@ export const barometricSensorBank: QuizBank = {
       "learningSlide": 24,
       "prompt": "Why does the optimization task use a local average atmospheric pressure?",
       "choices": [
-        "It makes the comparison more suitable for that location",
         "It always makes the sensor's reading larger",
         "It removes the need to read pressure",
-        "It guarantees identical weather worldwide"
+        "It guarantees identical weather worldwide",
+        "It makes the comparison more suitable for that location"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "The lesson says local averages help the monitor assess the current area more reasonably.",
       "hint": "Remember that readings can vary between different locations."
     },
@@ -148,12 +148,12 @@ export const barometricSensorBank: QuizBank = {
       "learningSlide": 25,
       "prompt": "Which source does the lesson suggest checking for a local average pressure?",
       "choices": [
-        "A national weather station",
         "The robot's motor speed log",
         "A color-code reference sheet",
+        "A national weather station",
         "The building manual's parts count"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "The further-reading slide suggests looking up the local average from the national weather station.",
       "hint": "Think about which source collects atmospheric measurements over time."
     }
