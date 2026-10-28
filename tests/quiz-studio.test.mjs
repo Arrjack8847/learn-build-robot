@@ -1,8 +1,9 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import {
   blankQuizState, getQuizBank, QUIZ_PASS_COUNT, QUIZ_QUESTION_COUNT,
-  readQuizSavedState, selectQuizQuestions, writeQuizSavedState,
+  readQuizSavedState, selectQuizQuestions, writeQuizSavedState, validateQuizBank,
 } from "../src/data/quizStudio.ts";
 
 const bank = getQuizBank("acceleration-car");
@@ -10,6 +11,8 @@ const bank = getQuizBank("acceleration-car");
 test("pilot has ten age-appropriate four-choice questions across five objectives", () => {
   assert.ok(bank);
   assert.equal(bank.questions.length, 10);
+  assert.deepEqual(validateQuizBank(bank), []);
+  assert.equal(bank.sourcePageCount, 17);
   assert.equal(new Set(bank.questions.map(q => q.id)).size, 10);
   const groups = new Map();
   for (const question of bank.questions) {
@@ -43,6 +46,26 @@ test("every Acceleration Car question references a verified Learning PDF page", 
     assert.ok(Number.isInteger(question.learningSlide));
     assert.ok(question.learningSlide >= 1 && question.learningSlide <= 17);
   }
+});
+
+test("all six levels have a Learning PDF source extraction queue", async () => {
+  const raw = await readFile(new URL("../scripts/quiz-learning-source-manifest.json", import.meta.url), "utf8");
+  const manifest = JSON.parse(raw);
+  assert.equal(manifest.schemaVersion, 1);
+  assert.equal(manifest.sources.length, 287);
+  assert.deepEqual([...new Set(manifest.sources.map(item => item.level))].sort(), [1, 2, 3, 4, 5, 6]);
+  assert.equal(new Set(manifest.sources.map(item => item.projectId)).size, manifest.sources.length);
+  assert.ok(manifest.sources.every(item => item.sourcePath.startsWith("public/") && item.url.startsWith("https://")));
+  assert.ok(manifest.sources.every(item => item.reviewed === false));
+  const accelerationSource = manifest.sources.find(item => item.projectId === "acceleration-car");
+  assert.ok(accelerationSource);
+  assert.equal(accelerationSource.sourcePath, bank.sourcePdfPath);
+});
+
+test("a bank with broken references is rejected before publication", () => {
+  assert.ok(bank);
+  assert.ok(validateQuizBank({ ...bank, sourcePageCount: 3 }).some(message => message.includes("slide")));
+  assert.ok(validateQuizBank({ ...bank, questions: bank.questions.slice(0, 5) }).length > 0);
 });
 
 test("each attempt covers all five objectives and the immediate retry avoids repeats", () => {
