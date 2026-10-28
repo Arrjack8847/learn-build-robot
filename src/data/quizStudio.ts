@@ -16,6 +16,15 @@ import { timidMouseBank } from "./quizBanks/timidMouse.ts";
 import { autonomousDrivingBank } from "./quizBanks/autonomousDriving.ts";
 import { ballTrackingBank } from "./quizBanks/ballTracking.ts";
 
+import { funnyCatBank } from "./quizBanks/funnyCat.ts";
+import { birdRobotBank } from "./quizBanks/birdRobot.ts";
+import { trafficLightSignalBank } from "./quizBanks/trafficLightSignal.ts";
+import { lighthouseBank } from "./quizBanks/lighthouse.ts";
+import { lawnMowerBank } from "./quizBanks/lawnMower.ts";
+import { houseBank } from "./quizBanks/house.ts";
+import { blinkingRobotBank } from "./quizBanks/blinkingRobot.ts";
+import { responderBank } from "./quizBanks/responder.ts";
+
 export type GearDiagram = "large-to-small" | "small-to-large";
 /** Each project defines five distinct objective IDs; the engine is not gear-specific. */
 export type QuizTopic = string;
@@ -117,6 +126,14 @@ const accelerationCarQuestions: QuizQuestion[] = [
 ];
 
 export const quizBanks: Readonly<Record<string, QuizBank>> = {
+  [funnyCatBank.projectId]: funnyCatBank,
+  [birdRobotBank.projectId]: birdRobotBank,
+  [trafficLightSignalBank.projectId]: trafficLightSignalBank,
+  [lighthouseBank.projectId]: lighthouseBank,
+  [lawnMowerBank.projectId]: lawnMowerBank,
+  [houseBank.projectId]: houseBank,
+  [blinkingRobotBank.projectId]: blinkingRobotBank,
+  [responderBank.projectId]: responderBank,
   [bigHeadRobotBank.projectId]: bigHeadRobotBank,
   [axeRobotBank.projectId]: axeRobotBank,
   [clipRobotBank.projectId]: clipRobotBank,
