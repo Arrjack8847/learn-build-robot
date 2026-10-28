@@ -13,12 +13,12 @@ export const acousticControlLampBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What does the sound-sensitive sensor detect in the lamp project?",
       "choices": [
-        "Sound compared with a set threshold",
         "Air pressure compared with sea level",
+        "Sound compared with a set threshold",
         "Distance measured with ultrasound",
         "Light measured by a photoelectric sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "The sensor checks for sound, and the lamp can respond when sound exceeds a chosen threshold.",
       "hint": "Think about which input you can provide by speaking or clapping."
     },
@@ -28,12 +28,12 @@ export const acousticControlLampBank: QuizBank = {
       "learningSlide": 2,
       "prompt": "Which device does the lesson teach students to use for sensing a sound signal?",
       "choices": [
-        "Sound-sensitive sensor",
         "Ultrasonic ranging sensor",
         "Gyroscope sensor",
-        "Barometric pressure sensor"
+        "Barometric pressure sensor",
+        "Sound-sensitive sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "The lesson's objective is to use the sound-sensitive module and acoustic sensor.",
       "hint": "Review which sensor converts a sound event into a program input."
     },
@@ -43,12 +43,12 @@ export const acousticControlLampBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Why does the lesson introduce a double conditional judgment?",
       "choices": [
-        "To handle combinations of two sensor states",
         "To replace the robot's physical sensors",
         "To measure the lamp's battery voltage",
+        "To handle combinations of two sensor states",
         "To force the same action for every situation"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 9 uses nested conditions to choose between different actions based on two sensor readings.",
       "hint": "Think about whether one sensor result can describe two independent inputs."
     },
@@ -88,12 +88,12 @@ export const acousticControlLampBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "The simple lamp program uses a sound threshold of 500. What happens when a reading is greater than 500?",
       "choices": [
-        "The lamp turns on",
         "The lamp turns off",
         "The touch sensor is disabled",
+        "The lamp turns on",
         "The threshold changes to 1,000"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 15 says the light turns on for sound readings above 500; otherwise it is off.",
       "hint": "Pay attention to which side of the threshold activates the light."
     },
@@ -103,12 +103,12 @@ export const acousticControlLampBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "In the two-shout example, what does the second sufficiently loud shout do?",
       "choices": [
-        "Turns the lamp back off",
         "Keeps increasing the brightness",
         "Changes the sound threshold",
-        "Disconnects the sensor"
+        "Disconnects the sensor",
+        "Turns the lamp back off"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "The slide describes one shout switching on the light and another switching it off.",
       "hint": "Think about how a toggle works when you activate it again."
     },
@@ -118,12 +118,12 @@ export const acousticControlLampBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "If the lamp starts off in the two-shout example, what does the first loud shout do?",
       "choices": [
-        "Turns the lamp on",
         "Switches the entire program off",
+        "Turns the lamp on",
         "Resets the sensor to zero",
         "Changes to daytime mode"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "The first sound above the threshold switches on the lamp in this example.",
       "hint": "Read the sequence from the initial off state to its first change."
     },
@@ -133,12 +133,12 @@ export const acousticControlLampBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "In the night-mode example, how long after switching on does the light turn off automatically?",
       "choices": [
-        "5 seconds",
         "1 second",
+        "5 seconds",
         "10 seconds",
         "30 seconds"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "The lesson's night-mode task keeps the lamp on for five seconds after the triggering sound.",
       "hint": "Look for the delay period specified in the night-mode program."
     },
