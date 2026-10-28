@@ -11,6 +11,7 @@ import { getLevelTwoLecture } from "@/data/levelTwoLectures";
 import { getLevelThreeLecture } from "@/data/levelThreeLectures";
 import { getLevelFourBuildingManual, hasLevelFourOptimizedManual, isLevelFourBuildingFallback } from "@/data/levelFourBuilding";
 import { getLevelFiveSixBuildingManual, hasLevelFiveSixOptimizedManual, isLevelFiveSixBuildingReference, levelFiveSixLearningLectures } from "@/data/levelFiveSixContent";
+import { getProjectSupplementaryPdfs } from "@/data/levelFiveSixExtraPdfs";
 
 export const Route = createFileRoute("/projects/$projectId")({
   component: ProjectOverviewPage,
@@ -58,6 +59,7 @@ function ProjectOverviewPage() {
     || (isLevelFiveSix && isLevelFiveSixBuildingReference(project.id));
   const hasOptimizedBuilding = (level === 4 && hasLevelFourOptimizedManual(project.id))
     || (isLevelFiveSix && hasLevelFiveSixOptimizedManual(project.id));
+  const supplementaryPdfs = isLevelFiveSix ? getProjectSupplementaryPdfs(project.id) : [];
 
   return (
     <div className="relative h-[100dvh] overflow-y-auto bg-white text-[#132654]">
@@ -168,6 +170,23 @@ function ProjectOverviewPage() {
             )}
           </article>
         </section>
+
+        {supplementaryPdfs.length > 0 && (
+          <section aria-label="Additional project source PDFs" className="mt-6 rounded-[28px] border border-sky-100 bg-white p-5 shadow-sm sm:p-6">
+            <h2 className="text-lg font-black text-[#132654]">Additional source document</h2>
+            <p className="mt-1 text-sm leading-6 text-slate-600">
+              This is a separate PDF supplied with the curriculum. Its role as a building manual has not been verified, so the existing Learning and Building choices stay unchanged.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {supplementaryPdfs.map(file => (
+                <a key={file.path} href={file.url} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex min-h-12 items-center gap-2 rounded-2xl border border-sky-200 bg-sky-50 px-4 text-sm font-extrabold text-[#168eea] hover:bg-sky-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168eea]">
+                  Open {file.title} source PDF <ArrowRight className="size-4" aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
 
         <p className="mt-5 flex items-center justify-center gap-2 text-center text-xs font-medium text-slate-500">
           <CheckCircle2 className="size-4 text-[#259a41]" aria-hidden="true" />

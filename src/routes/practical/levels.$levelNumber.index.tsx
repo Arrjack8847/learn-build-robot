@@ -7,6 +7,7 @@ import {
 import { LevelOneBackdrop, categoryTones } from "@/components/practical/LevelOneHeader";
 import { SyllabusHeader } from "@/components/practical/SyllabusHeader";
 import { getAdvancedLevel } from "@/data/advancedSyllabus";
+import { getLevelExtraPdf } from "@/data/levelFiveSixExtraPdfs";
 
 export const Route = createFileRoute("/practical/levels/$levelNumber/")({
   component: AdvancedLevelCategoriesPage,
@@ -39,6 +40,8 @@ function AdvancedLevelCategoriesPage() {
   const filtered = categories.filter(category => category.name.toLowerCase().includes(search.trim().toLowerCase()));
   const total = categories.reduce((count, category) => count + category.entries.length, 0);
   const tones = ["blue", "green", "yellow", "pink"] as const;
+  const examPdf = getLevelExtraPdf(level, "exam");
+  const copyrightPdf = getLevelExtraPdf(level, "copyright");
 
   return (
     <div className="relative h-[100dvh] overflow-y-auto bg-white text-slate-800">
@@ -55,6 +58,30 @@ function AdvancedLevelCategoriesPage() {
             Pick a category to explore what's inside.
           </p>
         </div>
+
+        {(examPdf || copyrightPdf) && (
+          <section aria-label={`Level ${level} assessment and reference PDFs`}
+            className="mt-7 rounded-[26px] border border-sky-100 bg-white px-5 py-5 sm:px-6">
+            <h2 className="text-lg font-black text-slate-800">Assessment &amp; references</h2>
+            <p className="mt-1 text-sm leading-6 text-slate-600">
+              View original PDF documents. The exam is a reference paper, not an online graded test.
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {examPdf && (
+                <a href={examPdf.url} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-sky-200 bg-[#eaf5ff] px-4 text-sm font-bold text-[#168eea] hover:bg-sky-100">
+                  View Level {level} exam PDF <ArrowRight className="size-4" aria-hidden="true"/>
+                </a>
+              )}
+              {copyrightPdf && (
+                <a href={copyrightPdf.url} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 px-4 text-sm font-bold text-slate-600 hover:bg-slate-50">
+                  Copyright notice <ArrowRight className="size-4" aria-hidden="true"/>
+                </a>
+              )}
+            </div>
+          </section>
+        )}
 
         <section className="mt-8 sm:mt-10" aria-label={`Level ${level} categories`}>
           <div className="mb-4 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
