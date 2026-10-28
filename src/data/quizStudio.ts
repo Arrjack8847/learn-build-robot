@@ -6,6 +6,9 @@
 import { bigHeadRobotBank } from "./quizBanks/bigHeadRobot";
 import { axeRobotBank } from "./quizBanks/axeRobot";
 import { clipRobotBank } from "./quizBanks/clipRobot";
+import { acousticControlLampBank } from "./quizBanks/acousticControlLamp";
+import { barometricSensorBank } from "./quizBanks/barometricSensor";
+import { altimeterBank } from "./quizBanks/altimeter";
 
 export type GearDiagram = "large-to-small" | "small-to-large";
 /** Each project defines five distinct objective IDs; the engine is not gear-specific. */
@@ -111,6 +114,9 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [bigHeadRobotBank.projectId]: bigHeadRobotBank,
   [axeRobotBank.projectId]: axeRobotBank,
   [clipRobotBank.projectId]: clipRobotBank,
+  [acousticControlLampBank.projectId]: acousticControlLampBank,
+  [barometricSensorBank.projectId]: barometricSensorBank,
+  [altimeterBank.projectId]: altimeterBank,
   "acceleration-car": {
     projectId: "acceleration-car",
     title: "Acceleration Car",
