@@ -6,7 +6,7 @@ export const littleStarsBank: QuizBank = {
   "sourcePageCount": 17,
   "questions": [
     {
-      "id": "undefined-01",
+      "id": "little-stars-01",
       "topic": "buzzer",
       "learningSlide": 7,
       "prompt": "What device produces sound in the Little Stars robot?",
@@ -21,7 +21,7 @@ export const littleStarsBank: QuizBank = {
       "hint": "Think about the small sound-producing component."
     },
     {
-      "id": "undefined-02",
+      "id": "little-stars-02",
       "topic": "buzzer",
       "learningSlide": 9,
       "prompt": "What kind of component is a buzzer?",
@@ -36,7 +36,7 @@ export const littleStarsBank: QuizBank = {
       "hint": "Think about the electronics that produce audible tones."
     },
     {
-      "id": "undefined-03",
+      "id": "little-stars-03",
       "topic": "hardware",
       "learningSlide": 10,
       "prompt": "Where does the Little Stars lesson say its buzzer is installed?",
@@ -51,7 +51,7 @@ export const littleStarsBank: QuizBank = {
       "hint": "Think about why there is no separate buzzer part in the kit."
     },
     {
-      "id": "undefined-04",
+      "id": "little-stars-04",
       "topic": "hardware",
       "learningSlide": 10,
       "prompt": "What should students avoid covering while using the buzzer?",
@@ -66,7 +66,7 @@ export const littleStarsBank: QuizBank = {
       "hint": "Think about how the sound reaches the air."
     },
     {
-      "id": "undefined-05",
+      "id": "little-stars-05",
       "topic": "timing",
       "learningSlide": 3,
       "prompt": "Which buzzer setting is a learning focus?",
@@ -81,7 +81,7 @@ export const littleStarsBank: QuizBank = {
       "hint": "Think about how long a note lasts."
     },
     {
-      "id": "undefined-06",
+      "id": "little-stars-06",
       "topic": "timing",
       "learningSlide": 2,
       "prompt": "Which two modules are combined in the Little Stars lesson?",
@@ -96,7 +96,7 @@ export const littleStarsBank: QuizBank = {
       "hint": "Think about making a sound for a chosen duration."
     },
     {
-      "id": "undefined-07",
+      "id": "little-stars-07",
       "topic": "programming",
       "learningSlide": 12,
       "prompt": "Where does the lesson say the buzzer module is found?",
@@ -111,7 +111,7 @@ export const littleStarsBank: QuizBank = {
       "hint": "Remember the section of the programming software used for electronic output."
     },
     {
-      "id": "undefined-08",
+      "id": "little-stars-08",
       "topic": "programming",
       "learningSlide": 12,
       "prompt": "What should students choose after setting the sound action?",
@@ -126,7 +126,7 @@ export const littleStarsBank: QuizBank = {
       "hint": "Think about how to control how long the sound plays."
     },
     {
-      "id": "undefined-09",
+      "id": "little-stars-09",
       "topic": "practice",
       "learningSlide": 16,
       "prompt": "What does the homework ask students to do with the Little Stars program?",
@@ -141,7 +141,7 @@ export const littleStarsBank: QuizBank = {
       "hint": "Think about sending a program to the robot controller."
     },
     {
-      "id": "undefined-10",
+      "id": "little-stars-10",
       "topic": "practice",
       "learningSlide": 16,
       "prompt": "Which editing action does the homework include?",
@@ -155,5 +155,6 @@ export const littleStarsBank: QuizBank = {
       "explanation": "The activity lists dragging, copying, cutting, pasting and deleting blocks.",
       "hint": "Think about manipulating blocks in a graphical editor."
     }
-  ]
+  ],
+  "projectId": "little-stars"
 };
