@@ -71,6 +71,12 @@ test("published quiz banks cover the syllabus PDFs in every level", async () => 
     ["level-4-acoustic-control-lamp", 4, 20],
     ["level-5-barometric-sensor", 5, 26],
     ["level-6-altimeter", 6, 22],
+    ["clock", 1, 16],
+    ["level-2-fan-robot", 2, 19],
+    ["level-3-following-robot", 3, 22],
+    ["level-4-a-timid-mouse", 4, 27],
+    ["level-5-autonomous-driving", 5, 20],
+    ["level-6-ball-tracking", 6, 20],
   ];
   const manifest = JSON.parse(await readFile(new URL("../scripts/quiz-learning-source-manifest.json", import.meta.url), "utf8"));
   const scores = new Set();
@@ -96,6 +102,9 @@ test("published quiz banks cover the syllabus PDFs in every level", async () => 
     }
     scores.add(level);
   }
+  assert.equal(expected.length, 13);
+  const perLevel = [1,2,3,4,5,6].map(level => expected.filter(row => row[1] === level).length);
+  assert.deepEqual(perLevel, [3,2,2,2,2,2]);
   assert.deepEqual([...scores].sort(), [1,2,3,4,5,6]);
 });
 
