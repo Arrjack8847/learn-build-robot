@@ -12,12 +12,12 @@ export const axeRobotBank: QuizBank = {
       "topic": "robot-design",
       "prompt": "Which two main features does the Axe Robot lesson emphasize?",
       "choices": [
-        "A large motor and an axe",
-        "A color sensor and a camera",
-        "A speaker and an antenna",
-        "Two walking legs and a tail"
+        "Two drive wheels and a gear set",
+        "A medium motor and gripper",
+        "A sound sensor and lamp",
+        "A large motor and an axe"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "learningSlide": 7,
       "explanation": "The lesson focuses on combining a large motor with an axe-shaped mechanism.",
       "hint": "Think about the moving part and the component that drives it."
@@ -27,12 +27,12 @@ export const axeRobotBank: QuizBank = {
       "topic": "robot-design",
       "prompt": "Which movement is associated with the axe in the lesson?",
       "choices": [
+        "Sliding back and forth",
         "Swinging or slashing",
-        "Flying straight up",
-        "Rolling on wheels",
-        "Climbing a ladder"
+        "Rolling forward",
+        "Moving straight up and down"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "learningSlide": 9,
       "explanation": "The lesson describes the axe's direction as a slash.",
       "hint": "Picture how the end of an axe can move through its workspace."
@@ -43,9 +43,9 @@ export const axeRobotBank: QuizBank = {
       "prompt": "Which electronic components does the lesson list?",
       "choices": [
         "RCU and a large motor",
-        "Camera and GPS",
-        "Two microphones",
-        "A fan and heater"
+        "RCU and a small wheel motor",
+        "Touch sensor and a medium motor",
+        "RCU and an ultrasonic sensor"
       ],
       "correctIndex": 0,
       "learningSlide": 10,
@@ -57,12 +57,12 @@ export const axeRobotBank: QuizBank = {
       "topic": "components",
       "prompt": "Why can the RCU be used as the Axe Robot's base?",
       "choices": [
+        "It controls the swing angle automatically",
+        "It makes the axe completely weightless",
         "It is relatively large",
-        "It is the sharpest part",
-        "It measures light intensity",
-        "It replaces the motor"
+        "It measures the swing's speed"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "learningSlide": 10,
       "explanation": "The slide notes that the RCU's larger size makes it useful as a base.",
       "hint": "Think about which part needs enough surface to support the axe."
@@ -72,12 +72,12 @@ export const axeRobotBank: QuizBank = {
       "topic": "assembly",
       "prompt": "What is especially important if the axe becomes heavier?",
       "choices": [
+        "Sound sensor calibration",
+        "The color of the axe part",
         "Base stability",
-        "Screen brightness",
-        "Sound volume",
-        "Cable color"
+        "The number of display messages"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "learningSlide": 10,
       "explanation": "Slide 10 specifically asks students to consider base stability when the axe is heavy.",
       "hint": "Imagine how the weight of a moving axe affects its support."
@@ -88,9 +88,9 @@ export const axeRobotBank: QuizBank = {
       "prompt": "Which item appears in the lesson's assembly checklist?",
       "choices": [
         "Match the intended shape",
-        "Remove every support beam",
-        "Make the structure unstable",
-        "Keep parts unconnected"
+        "Increase the servo's speed",
+        "Adjust the light sensor",
+        "Add a sound indicator"
       ],
       "correctIndex": 0,
       "learningSlide": 12,
@@ -102,12 +102,12 @@ export const axeRobotBank: QuizBank = {
       "topic": "working-range",
       "prompt": "What does a servo motor's working range describe in this lesson?",
       "choices": [
+        "The program's battery level",
         "The allowed movement angles",
-        "The battery's color",
-        "The length of a computer cable",
-        "The total weight of the classroom"
+        "The RCU's number of ports",
+        "The motor's maximum electrical current"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "learningSlide": 16,
       "explanation": "The working range limits how far the servo moves in that robot structure.",
       "hint": "Think about how far a moving arm can safely swing."
@@ -117,12 +117,12 @@ export const axeRobotBank: QuizBank = {
       "topic": "working-range",
       "prompt": "Why should the Axe Robot not exceed its servo's working angle?",
       "choices": [
-        "It may damage or overheat the servo gears",
-        "It will automatically improve accuracy",
-        "It will make the base heavier",
-        "It will permanently increase battery capacity"
+        "The servo loses its code settings",
+        "The RCU displays a wrong icon",
+        "The battery reads a different voltage",
+        "It may damage or overheat the servo gears"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "learningSlide": 16,
       "explanation": "The slides warn that exceeding the angle limit can wear or heat the servo's internal gears.",
       "hint": "Think about the moving beam meeting the robot's physical limits."
@@ -132,12 +132,12 @@ export const axeRobotBank: QuizBank = {
       "topic": "debugging",
       "prompt": "What should students observe when testing the axe's workspace?",
       "choices": [
-        "Swing space, swing speed and code-value range",
-        "Only the classroom lighting",
-        "Only the motor's color",
-        "Only the length of the PDF"
+        "Only the voltage and LED color",
+        "Only the battery and sensor ports",
+        "Only the frame length and motor weight",
+        "Swing space, swing speed and code-value range"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "learningSlide": 14,
       "explanation": "The workspace test records motor swing space, speed and the range of code values.",
       "hint": "Consider which measurements help avoid a collision as the axe swings."
@@ -147,12 +147,12 @@ export const axeRobotBank: QuizBank = {
       "topic": "debugging",
       "prompt": "After checking swing space, what does the next test select?",
       "choices": [
+        "The number of decorative parts",
+        "The sound sensor's threshold",
         "A suitable servo angle and running speed",
-        "A completely different project",
-        "The teacher's timetable",
-        "An unrelated sensor location"
+        "The LCD's display text"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "learningSlide": 15,
       "explanation": "The second test uses the first test's observations to find suitable movement settings.",
       "hint": "Use the first experiment's observations to choose safer settings."
