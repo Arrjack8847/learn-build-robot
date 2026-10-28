@@ -370,9 +370,9 @@ function ReviewAnswer({question,given,correct,projectId}: {question:QuizQuestion
       <p className="mt-2 rounded-xl bg-emerald-50 p-3 text-sm"><strong>Correct answer:</strong> {question.choices[question.correctIndex]}</p>
       <p className="mt-3 text-sm leading-6 text-slate-600"><strong>Why?</strong> {question.explanation}</p>
       {!correct ? (
-        <Link to="/practical/$projectId" params={{projectId}} search={{mode:"learning"}}
+        <Link to="/practical/$projectId" params={{projectId}} search={{mode:"learning", slide: question.learningSlide}}
           className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-extrabold text-[#168eea] underline underline-offset-2">
-          <BookOpen className="size-4"/> Open Learning Studio
+          <BookOpen className="size-4"/> Review Learning Slide {question.learningSlide}
         </Link>
       ) : null}
     </article>
