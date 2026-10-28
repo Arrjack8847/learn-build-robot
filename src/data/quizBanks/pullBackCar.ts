@@ -6,7 +6,7 @@ export const pullBackCarBank: QuizBank = {
   "sourcePageCount": 16,
   "questions": [
     {
-      "id": "undefined-01",
+      "id": "pull-back-car-01",
       "topic": "friction",
       "learningSlide": 6,
       "prompt": "What type of friction do rolling wheels help reduce compared with sliding?",
@@ -21,7 +21,7 @@ export const pullBackCarBank: QuizBank = {
       "hint": "Think about why wheels roll rather than slide."
     },
     {
-      "id": "undefined-02",
+      "id": "pull-back-car-02",
       "topic": "friction",
       "learningSlide": 6,
       "prompt": "Why do wheels often have tread patterns?",
@@ -36,7 +36,7 @@ export const pullBackCarBank: QuizBank = {
       "hint": "Think about keeping wheels from slipping."
     },
     {
-      "id": "undefined-03",
+      "id": "pull-back-car-03",
       "topic": "energy",
       "learningSlide": 7,
       "prompt": "What stores the energy used to power the Pull Back Car in the lesson?",
@@ -51,7 +51,7 @@ export const pullBackCarBank: QuizBank = {
       "hint": "Think about what stretches or twists as the car is pulled back."
     },
     {
-      "id": "undefined-04",
+      "id": "pull-back-car-04",
       "topic": "energy",
       "learningSlide": 7,
       "prompt": "What happens to the connected gear when the car is pulled backward?",
@@ -66,7 +66,7 @@ export const pullBackCarBank: QuizBank = {
       "hint": "Follow how motion travels from the wheel to the gear."
     },
     {
-      "id": "undefined-05",
+      "id": "pull-back-car-05",
       "topic": "wheels",
       "learningSlide": 9,
       "prompt": "What affects a wheel's friction with the ground?",
@@ -81,7 +81,7 @@ export const pullBackCarBank: QuizBank = {
       "hint": "Think about differences between smooth and textured tires."
     },
     {
-      "id": "undefined-06",
+      "id": "pull-back-car-06",
       "topic": "wheels",
       "learningSlide": 9,
       "prompt": "What is one factor that affects a wheeled vehicle's stability?",
@@ -96,7 +96,7 @@ export const pullBackCarBank: QuizBank = {
       "hint": "Compare a single-wheel support with a broader support."
     },
     {
-      "id": "undefined-07",
+      "id": "pull-back-car-07",
       "topic": "vehicle",
       "learningSlide": 10,
       "prompt": "What are the main physical parts of a wheeled vehicle structure?",
@@ -111,7 +111,7 @@ export const pullBackCarBank: QuizBank = {
       "hint": "Think about what holds the wheels and connects them to the frame."
     },
     {
-      "id": "undefined-08",
+      "id": "pull-back-car-08",
       "topic": "vehicle",
       "learningSlide": 11,
       "prompt": "Which wheel design details can a student adjust?",
@@ -126,7 +126,7 @@ export const pullBackCarBank: QuizBank = {
       "hint": "Consider different ways to arrange wheels on a frame."
     },
     {
-      "id": "undefined-09",
+      "id": "pull-back-car-09",
       "topic": "assembly",
       "learningSlide": 13,
       "prompt": "Which property appears in the Pull Back Car assembly requirements?",
@@ -141,7 +141,7 @@ export const pullBackCarBank: QuizBank = {
       "hint": "Think about how the vehicle stays upright."
     },
     {
-      "id": "undefined-10",
+      "id": "pull-back-car-10",
       "topic": "assembly",
       "learningSlide": 13,
       "prompt": "Which assembly check concerns the final car's appearance?",
@@ -155,5 +155,6 @@ export const pullBackCarBank: QuizBank = {
       "explanation": "The lesson includes a shape-matching check.",
       "hint": "Compare the finished car to your design."
     }
-  ]
+  ],
+  "projectId": "pull-back-car"
 };
