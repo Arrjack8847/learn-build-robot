@@ -5,7 +5,7 @@
 **Quiz Studio can now be represented for registered projects in Levels 1–6.**
 The six-level curriculum registry is shared with the existing Learning / Building routes, and the same quiz engine, source-slide deep link behavior, hints, results, best scores, and resume logic will be reused for each published project.
 
-**Do not confuse infrastructure with completed learning content.** There are currently **seven published project banks (70 questions)**, each grounded in its Learning PDF's extracted slide text and carrying page references. Their full interactive browser tests and any diagram-based questions still need human visual QA. Other project cards show **Quiz coming soon** rather than fabricated quizzes.
+**Do not confuse infrastructure with completed learning content.** There are currently **thirteen published project banks (130 questions)**, each grounded in its Learning PDF's extracted slide text and carrying page references. Their full interactive browser tests and any diagram-based questions still need human visual QA. Other project cards show **Quiz coming soon** rather than fabricated quizzes.
 
 ### Published question banks
 
@@ -18,6 +18,14 @@ The six-level curriculum registry is shared with the existing Learning / Buildin
 | 4 | Acoustic Control Lamp | 20 | 10 |
 | 5 | Barometric Sensor | 26 | 10 |
 | 6 | Altimeter | 22 | 10 |
+| 1 | Clock | 16 | 10 |
+| 2 | Fan Robot | 19 | 10 |
+| 3 | Following Robot | 22 | 10 |
+| 4 | A Timid Mouse | 27 | 10 |
+| 5 | Autonomous Driving | 20 | 10 |
+| 6 | Ball Tracking | 20 | 10 |
+
+This batch expands only the playable quizzes, not the underlying source index. Of approximately 321 registered project IDs, 13 currently have 10-question banks and the remaining entries remain pending (some share source PDFs). **These are source-text-grounded educational drafts pending device/browser and visual slide review**, not a completed production rollout.
 
 The underlying source PDFs are the only basis for the project-specific questions. Their slides can contain poor translations, so ambiguous claims should be resolved against the actual illustrations and teacher notes before a release. The published question banks use 5 objectives × 2 questions, and attempt selection presents 5 questions covering all five. Other project cards show **Quiz coming soon** until their own content is checked against the actual lesson.
 
