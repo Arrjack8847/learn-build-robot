@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 1,
+  "scope": "BE STEM READY Level 1 registered project entries, including separate basic/optimized variants",
+  "registered": 60,
+  "ready": 27,
+  "pending": 33,
+  "pendingWithIndexedLearningPdf": [
+    {
+      "projectId": "ferocious-snake",
+      "title": "Ferocious Snake",
+      "sourcePdfPath": "public/Level 1/Learning/Biomimicry/Ferocious snake.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_48fdae39b8d145dcb25ac44ae3ce1786.pdf"
+    },
+    {
+      "projectId": "shy-penguin",
+      "title": "Shy Penguin",
+      "sourcePdfPath": "public/Level 1/Learning/Biomimicry/Shy penguin.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_653e1ef501004956a6683fb1636d5029.pdf"
+    },
+    {
+      "projectId": "first-robot-model",
+      "title": "First Robot Model",
+      "sourcePdfPath": "public/Level 1/Learning/Characters & Structures/First Robot Model/First Robot Model.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1ff7ed20dae948ab8e462ec3e291fce6.pdf"
+    },
+    {
+      "projectId": "rex-robot",
+      "title": "REX Robot",
+      "sourcePdfPath": "public/Level 1/Learning/Characters & Structures/REX robot/REX robot_PowerPoint-R.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2cdc7f311ab1485aae9d42ae81401b06.pdf"
+    },
+    {
+      "projectId": "spider",
+      "title": "Spider",
+      "sourcePdfPath": "public/Level 1/Learning/Characters & Structures/Spider/Spider_PowerPoint- R.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6183b86c85224ebab3ac655949e5469a.pdf"
+    },
+    {
+      "projectId": "drawing-board",
+      "title": "Drawing Board",
+      "sourcePdfPath": "public/Level 1/Learning/Display & Movement/Drawing board/Drawing board_Powerpoint.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_53397c183cdd467da050badd2d78eed0.pdf"
+    },
+    {
+      "projectId": "hello-world",
+      "title": "Hello World",
+      "sourcePdfPath": "public/Level 1/Learning/Display & Movement/Hello World/01.Hello World-Slides.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2bdef8378cac423981c404dd96d75a6e.pdf"
+    },
+    {
+      "projectId": "mechanical-masks",
+      "title": "Mechanical Masks",
+      "sourcePdfPath": "public/Level 1/Learning/Display & Movement/Mechanical masks/Mechanical masks_PowerPoint-R.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_38957b1ef87347209411564c5e5d8a85.pdf"
+    },
+    {
+      "projectId": "athlete",
+      "title": "Athlete",
+      "sourcePdfPath": "public/Level 1/Learning/Foundational Robots/Athlete.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b594bd4936a84d8c8b70327d31365edc.pdf"
+    },
+    {
+      "projectId": "basic-programming",
+      "title": "Basic Programming",
+      "sourcePdfPath": "public/Level 1/Learning/Foundational Robots/Basic programming.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_07ce76e66b30459cbf087ac5789cb554.pdf"
+    },
+    {
+      "projectId": "drummer-robot",
+      "title": "Drummer Robot",
+      "sourcePdfPath": "public/Level 1/Learning/Foundational Robots/Drummer robot.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_58d0f63b8ea94767b8e52efefef4b3df.pdf"
+    },
+    {
+      "projectId": "sailboat",
+      "title": "Sailboat",
+      "sourcePdfPath": "public/Level 1/Learning/Foundational Robots/Sailboat.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7471c9bce32c44fe906be37e39625a40.pdf"
+    },
+    {
+      "projectId": "dynamic-screen",
+      "title": "Dynamic Screen",
+      "sourcePdfPath": "public/Level 1/Learning/Manipulators/Dynamic screen.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a6a18f9b74c3412f8e80ab15e4ba3a37.pdf"
+    },
+    {
+      "projectId": "pendulum-ride",
+      "title": "Pendulum Ride",
+      "sourcePdfPath": "public/Level 1/Learning/Manipulators/Pendulum ride.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_669b33f92ae0491885188e1433984025.pdf"
+    },
+    {
+      "projectId": "the-windmill-kingdom",
+      "title": "The Windmill Kingdom",
+      "sourcePdfPath": "public/Level 1/Learning/Manipulators/The windmill kingdom.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_56cb7fa26f484dfeaac3bd5526e722e6.pdf"
+    },
+    {
+      "projectId": "mechanical-arm",
+      "title": "Mechanical Arm",
+      "sourcePdfPath": "public/Level 1/Learning/Mechanisms & Simulators/Mechanical arm/Mechanical arm_PowerPoint-R.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7f4b8905834d41568d00a0f82e603856.pdf"
+    },
+    {
+      "projectId": "color-changing-light",
+      "title": "Color-Changing Light",
+      "sourcePdfPath": "public/Level 1/Learning/Illumination & Signals/Color-changing Light/02.Color- changing Light -Slides.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ec88b0a633b64cc1a9d73ac524e09575.pdf"
+    },
+    {
+      "projectId": "corridor-lamp",
+      "title": "Corridor Lamp",
+      "sourcePdfPath": "public/Level 1/Learning/Illumination & Signals/Corridor lamp/Corridor lamp_Powerpoint.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9ca593a218b04ba8a6a4e967d43236f5.pdf"
+    },
+    {
+      "projectId": "motorcycle",
+      "title": "Motorcycle",
+      "sourcePdfPath": "public/Level 1/Learning/Vehicles & Complex Movers/Motorcycle/Motorcycle_Powerpoint.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_76bda2cff165483fb83da0a5dad40308.pdf"
+    }
+  ],
+  "pendingWithoutIndexedLearningPdf": [
+    {
+      "projectId": "caged-bird",
+      "title": "Caged Bird",
+      "status": "Find a reliable Learning or relevant Building PDF before authoring"
+    },
+    {
+      "projectId": "propeller-aircraft",
+      "title": "Propeller Aircraft",
+      "status": "Find a reliable Learning or relevant Building PDF before authoring"
+    },
+    {
+      "projectId": "wiper",
+      "title": "Wiper",
+      "status": "Find a reliable Learning or relevant Building PDF before authoring"
+    },
+    {
+      "projectId": "hand-cranking-giant-stride",
+      "title": "Hand-Cranking Giant Stride",
+      "status": "Find a reliable Learning or relevant Building PDF before authoring"
+    },
+    {
+      "projectId": "hermit-crab",
+      "title": "Hermit Crab",
+      "status": "Find a reliable Learning or relevant Building PDF before authoring"
+    },
+    {
+      "projectId": "little-owl",
+      "title": "Little Owl",
+      "status": "Find a reliable Learning or relevant Building PDF before authoring"
+    },
+    {
+      "projectId": "oscillating-fan",
+      "title": "Oscillating Fan",
+      "status": "Find a reliable Learning or relevant Building PDF before authoring"
+    },
+    {
+      "projectId": "pocket-pistol",
+      "title": "Pocket Pistol",
+      "status": "Find a reliable Learning or relevant Building PDF before authoring"
+    },
+    {
+      "projectId": "pullback-bicycle",
+      "title": "Pullback Bicycle",
+      "status": "Find a reliable Learning or relevant Building PDF before authoring"
+    },
+    {
+      "projectId": "rotating-coffee-cup",
+      "title": "Rotating Coffee Cup",
+      "status": "Find a reliable Learning or relevant Building PDF before authoring"
+    },
+    {
+      "projectId": "balanced-bird",
+      "title": "Balanced Bird",
+      "status": "Find a reliable Learning or relevant Building PDF before authoring"
+    },
+    {
+      "projectId": "dancing-music-box",
+      "title": "Dancing Music Box",
+      "status": "Find a reliable Learning or relevant Building PDF before authoring"
+    },
+    {
+      "projectId": "hand-cranking-fan",
+      "title": "Hand-Cranking Fan",
+      "status": "Find a reliable Learning or relevant Building PDF before authoring"
+    },
+    {
+      "projectId": "old-fashioned-telephone",
+      "title": "Old-Fashioned Telephone",
+      "status": "Find a reliable Learning or relevant Building PDF before authoring"
+    }
+  ],
+  "completed": [
+    {
+      "projectId": "acceleration-car",
+      "title": "Acceleration Car",
+      "sourcePdfPath": "public/Level 1/Learning/Autonomous Navigation & Ranging/Acceleration car/Acceleration car_Powerpoint.pdf"
+    },
+    {
+      "projectId": "funny-cat",
+      "title": "Funny Cat",
+      "sourcePdfPath": "public/Level 1/Learning/Biomimicry/Funny cat.pdf"
+    },
+    {
+      "projectId": "sled-dog",
+      "title": "Sled Dog",
+      "sourcePdfPath": "public/Level 1/Learning/Biomimicry/Sled dog.pdf"
+    },
+    {
+      "projectId": "big-head-robot",
+      "title": "Big Head Robot",
+      "sourcePdfPath": "public/Level 1/Learning/Characters & Structures/Big head robot/Big head robot_Powerpoint.pdf"
+    },
+    {
+      "projectId": "bird",
+      "title": "Bird",
+      "sourcePdfPath": "public/Level 1/Learning/Characters & Structures/Bird/Bird_PowerPoint-R.pdf"
+    },
+    {
+      "projectId": "house",
+      "title": "House",
+      "sourcePdfPath": "public/Level 1/Learning/Characters & Structures/House/House_Powerpoint.pdf"
+    },
+    {
+      "projectId": "sled",
+      "title": "Sled",
+      "sourcePdfPath": "public/Level 1/Learning/Characters & Structures/Sled/Sled_Powerpoint.pdf"
+    },
+    {
+      "projectId": "spongebob",
+      "title": "SpongeBob",
+      "sourcePdfPath": "public/Level 1/Learning/Characters & Structures/SpongeBob/SpongeBob_Powerpoint.pdf"
+    },
+    {
+      "projectId": "wali-robot",
+      "title": "Wali Robot",
+      "sourcePdfPath": "public/Level 1/Learning/Characters & Structures/Wali robot/Wali robot_PowerPoint-R.pdf"
+    },
+    {
+      "projectId": "clock",
+      "title": "Clock",
+      "sourcePdfPath": "public/Level 1/Learning/Display & Movement/Clock/Clock_Powerpoint.pdf"
+    },
+    {
+      "projectId": "primitive-robot",
+      "title": "Primitive Robot",
+      "sourcePdfPath": "public/Level 1/Learning/Display & Movement/Primitive robot/Primitive robot_PowerPoint-.pdf"
+    },
+    {
+      "projectId": "the-lawn-mower",
+      "title": "The Lawn Mower",
+      "sourcePdfPath": "public/Level 1/Learning/Foundational Robots/The lawn mower.pdf"
+    },
+    {
+      "projectId": "car",
+      "title": "Car",
+      "sourcePdfPath": "public/Level 1/Learning/Manipulators/Car.pdf"
+    },
+    {
+      "projectId": "rotating-flying-chair",
+      "title": "Rotating Flying Chair",
+      "sourcePdfPath": "public/Level 1/Learning/Manipulators/Rotating flying chair.pdf"
+    },
+    {
+      "projectId": "skating",
+      "title": "Skating",
+      "sourcePdfPath": "public/Level 1/Learning/Manipulators/Skating.pdf"
+    },
+    {
+      "projectId": "crawl-slowly-basic",
+      "title": "Crawl Slowly — Basic",
+      "sourcePdfPath": "public/Level 1/Learning/Mechanisms & Simulators/Crawl Slowly/9. Crawl Slowly - Slides.pdf"
+    },
+    {
+      "projectId": "crawl-slowly-optimized",
+      "title": "Crawl Slowly — Optimized",
+      "sourcePdfPath": "public/Level 1/Learning/Mechanisms & Simulators/Crawl Slowly/9. Crawl Slowly - Slides.pdf"
+    },
+    {
+      "projectId": "shock-absorber",
+      "title": "Shock Absorber",
+      "sourcePdfPath": "public/Level 1/Learning/Mechanisms & Simulators/Shock absorber/Shock absorber_Powerpoint.pdf"
+    },
+    {
+      "projectId": "blinking-robot",
+      "title": "Blinking Robot",
+      "sourcePdfPath": "public/Level 1/Learning/Illumination & Signals/Blinking robot/Blinking robot_Powerpoint.pdf"
+    },
+    {
+      "projectId": "help-light",
+      "title": "Help Light",
+      "sourcePdfPath": "public/Level 1/Learning/Illumination & Signals/Help light/Help light_Powerpoint.pdf"
+    },
+    {
+      "projectId": "lighthouse",
+      "title": "Lighthouse",
+      "sourcePdfPath": "public/Level 1/Learning/Illumination & Signals/Lighthouse/Lighthouse_Powerpoint.pdf"
+    },
+    {
+      "projectId": "little-stars",
+      "title": "Little Stars",
+      "sourcePdfPath": "public/Level 1/Learning/Illumination & Signals/Little stars/Little stars_Powerpoint.pdf"
+    },
+    {
+      "projectId": "traffic-light-signal",
+      "title": "Traffic Light Signal",
+      "sourcePdfPath": "public/Level 1/Learning/Illumination & Signals/Traffic light Signal/Traffic light_Powerpoint.pdf"
+    },
+    {
+      "projectId": "dart",
+      "title": "Dart",
+      "sourcePdfPath": "public/Level 1/Learning/Interactive Systems/Dart/Dart_PowerPoint-R.pdf"
+    },
+    {
+      "projectId": "responder",
+      "title": "Responder",
+      "sourcePdfPath": "public/Level 1/Learning/Interactive Systems/Responder/Responder_Powerpoint.pdf"
+    },
+    {
+      "projectId": "gyro-transmitter",
+      "title": "Gyro Transmitter",
+      "sourcePdfPath": "public/Level 1/Learning/Sensor-Focused Robots/Gyro transmitter/Gyro transmitter_Powerpoint.pdf"
+    },
+    {
+      "projectId": "pull-back-car",
+      "title": "Pull Back Car",
+      "sourcePdfPath": "public/Level 1/Learning/Vehicles & Complex Movers/Pull back car/Pull back car_Powerpoint.pdf"
+    }
+  ]
+}
