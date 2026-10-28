@@ -1,5 +1,6 @@
 import { levelFourLearningManuals } from "./levelFourLearning";
 import type { PdfActivityManual } from "./pdfActivityManuals";
+import { levelFourWixPdfUrls } from "./levelFourWixPdfUrls";
 
 /** Verified static Building files under public/Level 4/Building. */
 const uploadedBuildingFiles = [
@@ -70,7 +71,8 @@ export const LEVEL_FOUR_LEARNING_AS_BUILDING_IDS = [
 ] as const;
 
 function buildingPdfUrl(relativePath: string): string {
-  return "/Level%204/Building/" + relativePath.split("/").map(encodeURIComponent).join("/");
+  const originalPath = "Level 4/Building/" + relativePath;
+  return levelFourWixPdfUrls[originalPath] ?? "/Level%204/Building/" + relativePath.split("/").map(encodeURIComponent).join("/");
 }
 
 function originalBuildingManual(id: string, path: string, variant: "basic" | "optimized"): PdfActivityManual {

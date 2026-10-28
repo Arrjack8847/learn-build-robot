@@ -1,9 +1,10 @@
 /** Level 4 Learning presentations, aligned to the official category and lesson names. */
 import type { PdfActivityManual } from "./pdfActivityManuals";
+import { levelFourWixPdfUrls } from "./levelFourWixPdfUrls";
 
 /** Direct static asset URL for a Level 4 PDF in public/Level 4. */
 function publicPdfUrl(path: string): string {
-  return "/" + path.split("/").map(encodeURIComponent).join("/");
+  return levelFourWixPdfUrls[path] ?? "/" + path.split("/").map(encodeURIComponent).join("/");
 }
 
 
