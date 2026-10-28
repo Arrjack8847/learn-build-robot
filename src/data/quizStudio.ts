@@ -3,12 +3,12 @@
  * Every published question must be checked against the actual Learning PDF
  * and carry the relevant 1-based Learning Studio slide number.
  */
-import { bigHeadRobotBank } from "./quizBanks/bigHeadRobot";
-import { axeRobotBank } from "./quizBanks/axeRobot";
-import { clipRobotBank } from "./quizBanks/clipRobot";
-import { acousticControlLampBank } from "./quizBanks/acousticControlLamp";
-import { barometricSensorBank } from "./quizBanks/barometricSensor";
-import { altimeterBank } from "./quizBanks/altimeter";
+import { bigHeadRobotBank } from "./quizBanks/bigHeadRobot.ts";
+import { axeRobotBank } from "./quizBanks/axeRobot.ts";
+import { clipRobotBank } from "./quizBanks/clipRobot.ts";
+import { acousticControlLampBank } from "./quizBanks/acousticControlLamp.ts";
+import { barometricSensorBank } from "./quizBanks/barometricSensor.ts";
+import { altimeterBank } from "./quizBanks/altimeter.ts";
 
 export type GearDiagram = "large-to-small" | "small-to-large";
 /** Each project defines five distinct objective IDs; the engine is not gear-specific. */
