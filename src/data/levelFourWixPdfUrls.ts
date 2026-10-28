@@ -1,6 +1,5 @@
 /** Level 4 PDF URLs confirmed on Wix Media Manager. Keys preserve exact original repository paths.
- * Guide Dogs Basic Building Manual is intentionally absent: Wix upload not confirmed.
- * The existing local public/ asset remains the fallback for that manual.
+ * All 106 Level 4 PDFs have verified Wix records, including Guide Dogs.
  */
 export const levelFourWixPdfUrls: Readonly<Record<string, string>> = {
   "Level 4/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Slides.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_af49e528968a4f5c8a8e27e2f9214956.pdf",
@@ -25,6 +24,7 @@ export const levelFourWixPdfUrls: Readonly<Record<string, string>> = {
   "Level 4/Building/Automation & Security/Personal Bodyguard/09. Personal Bodyguard-Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_55045d2da9ae488999a7c3f5256e7b97.pdf",
   "Level 4/Building/Automation & Security/Scan to Open the Gate/01. Scan to Open the Gate- Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_da9a09f1a366473cbdbb00561d83a451.pdf",
   "Level 4/Building/Automation & Security/Smart curtain/Smart curtain_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e057685f05584ca9badf5ca590b9910e.pdf",
+  "Level 4/Building/Autonomous Navigation & Ranging/Guide Dogs/10. Guide Dogs - Basic Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2b25803a2615468990aa682ff5e60e40.pdf",
   "Level 4/Building/Autonomous Navigation & Ranging/Keeping Distance/12. Keeping Distance-Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7cb85be969fd4c479ef008c2a10280ca.pdf",
   "Level 4/Building/Autonomous Navigation & Ranging/Laser Rangefinder/10. Laser Rangefinder - Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6a85b43940c84715accf6b57b79b1159.pdf",
   "Level 4/Building/Autonomous Navigation & Ranging/Magnetically Controlled Door/06. Magnetically controlled door-Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b42dacb9a2364c90b3d1e84e8eda948a.pdf",

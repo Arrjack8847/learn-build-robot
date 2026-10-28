@@ -12,15 +12,15 @@ assert.ok(json, "Level 4 Wix URL registry should be statically parseable");
 const urls = JSON.parse(json[1]);
 const missing = "Level 4/Building/Autonomous Navigation & Ranging/Guide Dogs/10. Guide Dogs - Basic Building Manual.pdf";
 
-test("105 verified Level 4 PDFs have exact Wix URLs; one unverified uses local fallback", () => {
+test("All 106 Level 4 PDFs have exact Wix URLs", () => {
   const paths = execFileSync("git", ["ls-tree", "-r", "--name-only", "HEAD", "public/Level 4"], { encoding: "utf8" })
     .trim().split(/\r?\n/).filter(path => path.toLowerCase().endsWith(".pdf"))
     .map(path => path.slice("public/".length));
   assert.equal(paths.length, 106);
-  assert.equal(Object.keys(urls).length, 105);
-  assert.deepEqual(Object.keys(urls).sort(), paths.filter(path => path !== missing).sort());
-  assert.equal(urls[missing], undefined);
-  assert.equal(new Set(Object.values(urls)).size, 105);
+  assert.equal(Object.keys(urls).length, 106);
+  assert.deepEqual(Object.keys(urls).sort(), paths.sort());
+  assert.equal(urls[missing], "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2b25803a2615468990aa682ff5e60e40.pdf");
+  assert.equal(new Set(Object.values(urls)).size, 106);
   for (const value of Object.values(urls)) {
     assert.match(value, /^https:\/\/fe3fa828-9f74-45e8-97f7-8d00cbb7fba0\.usrfiles\.com\/ugd\/[a-z0-9_]+\.pdf$/);
   }
