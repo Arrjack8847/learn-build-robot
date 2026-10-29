@@ -10,17 +10,17 @@
     "uniqueSourcePdfs": 59,
     "existingPublishedBanks": 2,
     "existingQuestions": 20,
-    "missingBanks": 51,
-    "questionTargetForMissingBanks": 510,
-    "newBanksWrittenByThisWorker": 7,
+    "missingBanks": 48,
+    "questionTargetForMissingBanks": 480,
+    "newBanksWrittenByThisWorker": 10,
     "authoredButNotIntegrated": 0,
-    "newQuestionsWrittenByThisWorker": 70,
-    "stillMissingBankFiles": 51,
+    "newQuestionsWrittenByThisWorker": 100,
+    "stillMissingBankFiles": 48,
     "registeredSourcePdfPagesVerified": 155,
     "initialMissingBanks": 58,
     "initialQuestionTarget": 580,
-    "playableBanks": 9,
-    "playableQuestions": 90,
+    "playableBanks": 12,
+    "playableQuestions": 120,
     "ciStatus": "blocked-before-runner-start: both jobs failed with zero executed steps at GitHub run 40827960743",
     "pdfSourceBatch1Verified": true,
     "fullLevel2SourceExtractionStatus": "In progress via isolated Vercel Sandbox using direct GitHub PDF base64 transfer (first new source: Bee 20 pages)."
@@ -498,10 +498,10 @@
       "sourcePdfPath": "public/Level 2/Learning/Mechanisms & Simulators/Spinning bike/Spinning bike_Powerpoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 17,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-and-reference-verified"
     },
     {
       "projectId": "level-2-swing",
@@ -511,10 +511,10 @@
       "sourcePdfPath": "public/Level 2/Learning/Mechanisms & Simulators/Swing/Swing_powerpoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 20,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-and-reference-verified"
     },
     {
       "projectId": "level-2-treadmill",
@@ -628,10 +628,10 @@
       "sourcePdfPath": "public/Level 2/Learning/Vehicles & Complex Movers/Helicopter/Helicopter_Powerpoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 17,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-and-reference-verified"
     },
     {
       "projectId": "level-2-lifting-door",
@@ -892,7 +892,7 @@
         "level-2-spinning-bike",
         "level-2-swing"
       ],
-      "status": "pending-source-review"
+      "status": "2-of-5-integrated"
     },
     {
       "batch": 8,
@@ -914,7 +914,7 @@
         "level-2-helicopter",
         "level-2-lifting-door"
       ],
-      "status": "pending-source-review"
+      "status": "1-of-5-integrated"
     },
     {
       "batch": 10,
