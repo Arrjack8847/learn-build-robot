@@ -15,6 +15,7 @@ import { Route as PracticalProjectIdRouteImport } from './routes/practical/$proj
 import { Route as PracticalLevel1RouteImport } from './routes/practical/level-1'
 import { Route as PracticalLevelsRouteImport } from './routes/practical/levels'
 import { Route as ProjectsProjectIdRouteImport } from './routes/projects.$projectId'
+import { Route as QuizProjectIdRouteImport } from './routes/quiz.$projectId'
 import { Route as PracticalLevel1IndexRouteImport } from './routes/practical/level-1.index'
 import { Route as PracticalLevel1CategoryIdRouteImport } from './routes/practical/level-1.$categoryId'
 import { Route as PracticalLevelsIndexRouteImport } from './routes/practical/levels.index'
@@ -50,6 +51,11 @@ const PracticalLevelsRoute = PracticalLevelsRouteImport.update({
 const ProjectsProjectIdRoute = ProjectsProjectIdRouteImport.update({
   id: '/projects/$projectId',
   path: '/projects/$projectId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizProjectIdRoute = QuizProjectIdRouteImport.update({
+  id: '/quiz/$projectId',
+  path: '/quiz/$projectId',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PracticalLevel1IndexRoute = PracticalLevel1IndexRouteImport.update({
@@ -93,6 +99,7 @@ export interface FileRoutesByFullPath {
   '/practical/level-1': typeof PracticalLevel1RouteWithChildren
   '/practical/levels': typeof PracticalLevelsRouteWithChildren
   '/projects/$projectId': typeof ProjectsProjectIdRoute
+  '/quiz/$projectId': typeof QuizProjectIdRoute
   '/practical/': typeof PracticalIndexRoute
   '/practical/level-1/$categoryId': typeof PracticalLevel1CategoryIdRoute
   '/practical/levels/$levelNumber': typeof PracticalLevelsLevelNumberRouteWithChildren
@@ -105,6 +112,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/practical/$projectId': typeof PracticalProjectIdRoute
   '/projects/$projectId': typeof ProjectsProjectIdRoute
+  '/quiz/$projectId': typeof QuizProjectIdRoute
   '/practical': typeof PracticalIndexRoute
   '/practical/level-1/$categoryId': typeof PracticalLevel1CategoryIdRoute
   '/practical/level-1': typeof PracticalLevel1IndexRoute
@@ -119,6 +127,7 @@ export interface FileRoutesById {
   '/practical/level-1': typeof PracticalLevel1RouteWithChildren
   '/practical/levels': typeof PracticalLevelsRouteWithChildren
   '/projects/$projectId': typeof ProjectsProjectIdRoute
+  '/quiz/$projectId': typeof QuizProjectIdRoute
   '/practical/': typeof PracticalIndexRoute
   '/practical/level-1/$categoryId': typeof PracticalLevel1CategoryIdRoute
   '/practical/levels/$levelNumber': typeof PracticalLevelsLevelNumberRouteWithChildren
@@ -135,6 +144,7 @@ export interface FileRouteTypes {
     | '/practical/level-1'
     | '/practical/levels'
     | '/projects/$projectId'
+    | '/quiz/$projectId'
     | '/practical/'
     | '/practical/level-1/$categoryId'
     | '/practical/levels/$levelNumber'
@@ -147,6 +157,7 @@ export interface FileRouteTypes {
     | '/'
     | '/practical/$projectId'
     | '/projects/$projectId'
+    | '/quiz/$projectId'
     | '/practical'
     | '/practical/level-1/$categoryId'
     | '/practical/level-1'
@@ -160,6 +171,7 @@ export interface FileRouteTypes {
     | '/practical/level-1'
     | '/practical/levels'
     | '/projects/$projectId'
+    | '/quiz/$projectId'
     | '/practical/'
     | '/practical/level-1/$categoryId'
     | '/practical/levels/$levelNumber'
@@ -175,6 +187,7 @@ export interface RootRouteChildren {
   PracticalLevel1Route: typeof PracticalLevel1RouteWithChildren
   PracticalLevelsRoute: typeof PracticalLevelsRouteWithChildren
   ProjectsProjectIdRoute: typeof ProjectsProjectIdRoute
+  QuizProjectIdRoute: typeof QuizProjectIdRoute
   PracticalIndexRoute: typeof PracticalIndexRoute
 }
 
@@ -220,6 +233,13 @@ declare module '@tanstack/react-router' {
       path: '/projects/$projectId'
       fullPath: '/projects/$projectId'
       preLoaderRoute: typeof ProjectsProjectIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quiz/$projectId': {
+      id: '/quiz/$projectId'
+      path: '/quiz/$projectId'
+      fullPath: '/quiz/$projectId'
+      preLoaderRoute: typeof QuizProjectIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/practical/level-1/': {
@@ -318,6 +338,7 @@ const rootRouteChildren: RootRouteChildren = {
   PracticalLevel1Route: PracticalLevel1RouteWithChildren,
   PracticalLevelsRoute: PracticalLevelsRouteWithChildren,
   ProjectsProjectIdRoute: ProjectsProjectIdRoute,
+  QuizProjectIdRoute: QuizProjectIdRoute,
   PracticalIndexRoute: PracticalIndexRoute,
 }
 export const routeTree = rootRouteImport
