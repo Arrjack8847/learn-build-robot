@@ -13,12 +13,12 @@ export const swimmingPlesiosaurBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "Which body part of a plesiosaur is especially long?",
       "choices": [
+        "Its beak",
         "Its neck",
         "Its tail only",
-        "Its legs",
-        "Its beak"
+        "Its legs"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 5 describes the plesiosaur's long neck.",
       "hint": "Remember the animal shape this robot copies."
     },
@@ -28,12 +28,12 @@ export const swimmingPlesiosaurBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "What helps a plesiosaur swim in the lesson's description?",
       "choices": [
-        "Four long flippers",
         "Four car wheels",
         "Two metal wings",
-        "One large propeller"
+        "One large propeller",
+        "Four long flippers"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 5 describes two pairs of large flippers.",
       "hint": "Think about the animal's swimming parts."
     },
@@ -58,12 +58,12 @@ export const swimmingPlesiosaurBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "Which part of the robot does the crank-rocker mechanism move back and forth?",
       "choices": [
-        "Its neck",
-        "Its camera lens",
         "Its controller screen",
-        "Its battery"
+        "Its battery",
+        "Its neck",
+        "Its camera lens"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 8 uses the mechanism to move the model's neck.",
       "hint": "Think about the movement that makes the robot resemble the animal."
     },
@@ -73,12 +73,12 @@ export const swimmingPlesiosaurBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which sensor does the lesson use to control forward speed?",
       "choices": [
+        "Microphone",
         "Touch sensor",
         "Laser ranging sensor",
-        "Magnetic switch",
-        "Microphone"
+        "Magnetic switch"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "Slide 9 names laser sensing for controlling the robot's forward speed.",
       "hint": "The robot must measure how close an object is."
     },
@@ -88,12 +88,12 @@ export const swimmingPlesiosaurBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which reading can mean the laser sensor exceeded its measurement distance?",
       "choices": [
+        "8888",
         "10",
         "50",
-        "300",
-        "8888"
+        "300"
       ],
-      "correctIndex": 3,
+      "correctIndex": 0,
       "explanation": "Slide 9 states that 8888 is an out-of-range reading.",
       "hint": "Look for the unusual special value."
     },
@@ -103,12 +103,12 @@ export const swimmingPlesiosaurBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "What should happen to the robot's speed when an obstacle is closer?",
       "choices": [
-        "It slows down",
         "It speeds up",
         "It changes its name",
-        "It ignores all readings"
+        "It ignores all readings",
+        "It slows down"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 12 describes slower motion as the distance decreases.",
       "hint": "The robot should be careful near an obstacle."
     },
@@ -118,12 +118,12 @@ export const swimmingPlesiosaurBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "What speed is used when the measured distance is less than 50?",
       "choices": [
-        "70",
-        "50",
         "20",
-        "0"
+        "0",
+        "70",
+        "50"
       ],
-      "correctIndex": 3,
+      "correctIndex": 1,
       "explanation": "Slide 15 sets speed zero for distances below 50.",
       "hint": "The robot stops when the obstacle is too close."
     },
@@ -148,12 +148,12 @@ export const swimmingPlesiosaurBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "What should the program do when the laser reading is invalid?",
       "choices": [
-        "Read the data again",
-        "Increase speed immediately",
         "Ignore every reading forever",
-        "Turn off the controller"
+        "Turn off the controller",
+        "Read the data again",
+        "Increase speed immediately"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 14 instructs students to re-read invalid sensor data.",
       "hint": "Think about how to get a reliable measurement."
     }
