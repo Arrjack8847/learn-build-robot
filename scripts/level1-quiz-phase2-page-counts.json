@@ -1,0 +1,100 @@
+{
+  "note": "Source page counts from the user-provided 2026-10-29 19-project PDF text extraction ZIP; page images and diagrams still require review.",
+  "sources": [
+    {
+      "projectId": "ferocious-snake",
+      "pageCount": 24,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "shy-penguin",
+      "pageCount": 24,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "first-robot-model",
+      "pageCount": 14,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "rex-robot",
+      "pageCount": 19,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "spider",
+      "pageCount": 15,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "drawing-board",
+      "pageCount": 20,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "hello-world",
+      "pageCount": 38,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "mechanical-masks",
+      "pageCount": 15,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "athlete",
+      "pageCount": 29,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "basic-programming",
+      "pageCount": 34,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "drummer-robot",
+      "pageCount": 23,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "sailboat",
+      "pageCount": 24,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "dynamic-screen",
+      "pageCount": 13,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "pendulum-ride",
+      "pageCount": 17,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "the-windmill-kingdom",
+      "pageCount": 29,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "mechanical-arm",
+      "pageCount": 14,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "color-changing-light",
+      "pageCount": 30,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "corridor-lamp",
+      "pageCount": 16,
+      "requiresVisualReview": true
+    },
+    {
+      "projectId": "motorcycle",
+      "pageCount": 16,
+      "requiresVisualReview": true
+    }
+  ]
+}
