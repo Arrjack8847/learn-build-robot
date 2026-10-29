@@ -11,13 +11,15 @@ import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 
 /** One PDF page per slide, separate from the Building Studio instruction dock. */
 export function LevelOneLearningStudio({
-  projectId, title, lecture, categoryId, level = 1,
+  projectId, title, lecture, categoryId, level = 1, initialSlide,
 }: {
   projectId: string;
   title: string;
   lecture: LevelOneLecture;
   categoryId?: string | undefined;
   level?: 1 | 2 | 3 | 4 | 5 | 6;
+  /** Optional 1-based slide to open after the PDF finishes loading. */
+  initialSlide?: number | undefined;
 }) {
   const [document, setDocument] = useState<PDFDocumentProxy | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -57,6 +59,7 @@ export function LevelOneLearningStudio({
         if (disposed) return;
         if (!pdf.numPages) throw new Error("No slides found in this PDF.");
         setDocument(pdf);
+        setPage(Math.min(pdf.numPages, Math.max(1, initialSlide ?? 1)));
         if (new URLSearchParams(window.location.search).has("pdfDebug")) {
           console.info("[BSR PDF] Learning metadata ready in", Math.round(performance.now() - startedAt), "ms", projectId);
         }
@@ -68,7 +71,7 @@ export function LevelOneLearningStudio({
       disposed = true;
       void task?.destroy();
     };
-  }, [lecture.url, retry]);
+  }, [lecture.url, retry, initialSlide]);
 
   useEffect(() => {
     const area = slideRef.current;

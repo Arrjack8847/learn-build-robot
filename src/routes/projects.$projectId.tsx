@@ -1,5 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, BookOpen, CheckCircle2, Construction, Wrench } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, CheckCircle2, ClipboardCheck, Construction, Wrench } from "lucide-react";
 
 import { LevelOneBackdrop } from "@/components/practical/LevelOneHeader";
 import { getAdvancedLevel } from "@/data/advancedSyllabus";
@@ -12,6 +12,9 @@ import { getLevelThreeLecture, getLevelThreeBuildingReferenceManual } from "@/da
 import { getLevelFourBuildingManual, hasLevelFourOptimizedManual, isLevelFourBuildingFallback } from "@/data/levelFourBuilding";
 import { getLevelFiveSixBuildingManual, hasLevelFiveSixOptimizedManual, isLevelFiveSixBuildingReference, levelFiveSixLearningLectures } from "@/data/levelFiveSixContent";
 import { getProjectSupplementaryPdfs } from "@/data/levelFiveSixExtraPdfs";
+import { getQuizSyllabusEntry } from "@/data/quizSyllabus";
+import { levelFourLearningManuals } from "@/data/levelFourLearning";
+import { QuizProjectProgress } from "@/components/quiz/QuizAchievement";
 
 export const Route = createFileRoute("/projects/$projectId")({
   component: ProjectOverviewPage,
@@ -52,7 +55,7 @@ function ProjectOverviewPage() {
     level === 3 ? getLevelThreeLecture(project.id) : undefined;
   // Lecture slides and assembly manuals are different activities.
   const isLevelFiveSix = level === 5 || level === 6;
-  const hasLearning = Boolean(lecture) || isPresentation || Boolean(levelFiveSixLearningLectures[project.id]);
+  const hasLearning = Boolean(lecture) || isPresentation || Boolean(levelFourLearningManuals[project.id]) || Boolean(levelFiveSixLearningLectures[project.id]);
   const hasBuilding = level === 4
     ? Boolean(getLevelFourBuildingManual(project.id))
     : isLevelFiveSix ? Boolean(getLevelFiveSixBuildingManual(project.id)) : Boolean(levelThreeBuildingReference) || (!isPresentation && !lecture?.learningOnly);
@@ -61,6 +64,8 @@ function ProjectOverviewPage() {
   const hasOptimizedBuilding = (level === 4 && hasLevelFourOptimizedManual(project.id))
     || (isLevelFiveSix && hasLevelFiveSixOptimizedManual(project.id));
   const supplementaryPdfs = isLevelFiveSix ? getProjectSupplementaryPdfs(project.id) : [];
+  const quizEntry = getQuizSyllabusEntry(project.id);
+  const quizReady = quizEntry?.status === "ready";
 
   return (
     <div className="relative h-[100dvh] overflow-y-auto bg-white text-[#132654]">
@@ -122,7 +127,7 @@ function ProjectOverviewPage() {
           <p className="mt-5 text-sm font-extrabold text-[#132654]">What would you like to do?</p>
         </section>
 
-        <section aria-label="Choose Learning or Building" className="mt-6 grid gap-4 sm:grid-cols-2">
+        <section aria-label="Choose Learning, Building, or Quiz" className={`mt-6 grid gap-4 ${quizEntry ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
           <article className="flex flex-col rounded-[28px] border border-blue-100 bg-white p-6 shadow-[0_8px_28px_rgba(22,142,234,.07)]">
             <BookOpen className="size-10 text-[#168eea]" aria-hidden="true" />
             <h2 className="mt-4 text-xl font-black">Learning</h2>
@@ -170,6 +175,31 @@ function ProjectOverviewPage() {
               </span>
             )}
           </article>
+          {quizEntry ? (
+            <article className="flex flex-col rounded-[28px] border border-amber-100 bg-white p-6 shadow-[0_8px_28px_rgba(202,146,26,.07)]">
+              <ClipboardCheck className="size-10 text-[#168eea]" aria-hidden="true" />
+              <h2 className="mt-4 text-xl font-black">Quiz</h2>
+              <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                {quizReady
+                  ? "Answer five project-specific questions with optional hints. Get four right to pass, or practice again."
+                  : quizEntry.status === "missing-learning-source"
+                    ? "Quiz questions need official Learning material before they can be published."
+                    : "This project's Learning source is registered. Its questions and slide references are being checked."}
+              </p>
+              {quizReady ? <QuizProjectProgress projectId={project.id} /> : null}
+              {quizReady ? (
+                <Link to="/quiz/$projectId" params={{ projectId: project.id }}
+                  className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 font-extrabold text-white hover:bg-[#0d7fda]">
+                  Open Quiz <ArrowRight className="size-4" aria-hidden="true" />
+                </Link>
+              ) : (
+                <span aria-disabled="true"
+                  className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-slate-100 px-4 text-sm font-extrabold text-slate-500">
+                  <Construction className="size-4" aria-hidden="true" /> Quiz coming soon
+                </span>
+              )}
+            </article>
+          ) : null}
         </section>
 
         {supplementaryPdfs.length > 0 && (
