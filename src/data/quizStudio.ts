@@ -15,6 +15,19 @@ import { followingRobotBank } from "./quizBanks/followingRobot.ts";
 import { timidMouseBank } from "./quizBanks/timidMouse.ts";
 import { autonomousDrivingBank } from "./quizBanks/autonomousDriving.ts";
 import { ballTrackingBank } from "./quizBanks/ballTracking.ts";
+import { automaticSeesawBank } from "./quizBanks/level3/automaticSeesaw.ts";
+import { bumperCarInteractiveMechanismsBank } from "./quizBanks/level3/bumperCarInteractiveMechanisms.ts";
+import { electricGuitarBank } from "./quizBanks/level3/electricGuitar.ts";
+import { f1RacingCarBank } from "./quizBanks/level3/f1RacingCar.ts";
+import { linePatrolCarBank } from "./quizBanks/level3/linePatrolCar.ts";
+import { obstacleAvoidanceRobot1Bank } from "./quizBanks/level3/obstacleAvoidanceRobot1.ts";
+import { parkingGateBank } from "./quizBanks/level3/parkingGate.ts";
+import { securityDoorBank } from "./quizBanks/level3/securityDoor.ts";
+import { smartAudioBank } from "./quizBanks/level3/smartAudio.ts";
+import { smartDoorBank } from "./quizBanks/level3/smartDoor.ts";
+import { sonometerBank } from "./quizBanks/level3/sonometer.ts";
+import { sunflowerBank } from "./quizBanks/level3/sunflower.ts";
+import { superTrajectoryRobot1Bank } from "./quizBanks/level3/superTrajectoryRobot1.ts";
 
 export type GearDiagram = "large-to-small" | "small-to-large";
 /** Each project defines five distinct objective IDs; the engine is not gear-specific. */
@@ -129,6 +142,19 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [timidMouseBank.projectId]: timidMouseBank,
   [autonomousDrivingBank.projectId]: autonomousDrivingBank,
   [ballTrackingBank.projectId]: ballTrackingBank,
+  [automaticSeesawBank.projectId]: automaticSeesawBank,
+  [bumperCarInteractiveMechanismsBank.projectId]: bumperCarInteractiveMechanismsBank,
+  [electricGuitarBank.projectId]: electricGuitarBank,
+  [f1RacingCarBank.projectId]: f1RacingCarBank,
+  [linePatrolCarBank.projectId]: linePatrolCarBank,
+  [obstacleAvoidanceRobot1Bank.projectId]: obstacleAvoidanceRobot1Bank,
+  [parkingGateBank.projectId]: parkingGateBank,
+  [securityDoorBank.projectId]: securityDoorBank,
+  [smartAudioBank.projectId]: smartAudioBank,
+  [smartDoorBank.projectId]: smartDoorBank,
+  [sonometerBank.projectId]: sonometerBank,
+  [sunflowerBank.projectId]: sunflowerBank,
+  [superTrajectoryRobot1Bank.projectId]: superTrajectoryRobot1Bank,
   "acceleration-car": {
     projectId: "acceleration-car",
     title: "Acceleration Car",
