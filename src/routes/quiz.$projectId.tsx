@@ -8,7 +8,7 @@ import { getProject } from "@/data/practical";
 import {
   blankQuizState, getQuizBank, QUIZ_PASS_COUNT, QUIZ_QUESTION_COUNT,
   readQuizSavedState, selectQuizQuestions, writeQuizSavedState,
-  type GearDiagram, type QuizDraft, type QuizQuestion, type QuizSavedState,
+  type GearDiagram, type QuizBank, type QuizDraft, type QuizQuestion, type QuizSavedState,
 } from "@/data/quizStudio";
 
 export const Route = createFileRoute("/quiz/$projectId")({
@@ -25,7 +25,11 @@ const secondaryButton = "inline-flex min-h-11 items-center justify-center gap-2 
 function QuizStudioPage() {
   const { projectId } = Route.useParams();
   const project = getProject(projectId);
-  const bank = getQuizBank(projectId);
+  const publishedBank = getQuizBank(projectId);
+  const [previewBank, setPreviewBank] = useState<QuizBank | null>(null);
+  const [previewLoading, setPreviewLoading] = useState(false);
+  const isPreview = Boolean(!publishedBank && import.meta.env.DEV && previewBank?.projectId === projectId);
+  const bank = publishedBank ?? (isPreview ? previewBank : undefined);
   const [stage, setStage] = useState<Stage>("loading");
   const [record, setRecord] = useState<QuizSavedState>(blankQuizState);
   const [draft, setDraft] = useState<QuizDraft | null>(null);
@@ -35,13 +39,47 @@ function QuizStudioPage() {
   const [saveFailed, setSaveFailed] = useState(false);
 
   useEffect(() => {
-    const stored = readQuizSavedState(projectId);
-    setRecord(stored);
-    setDraft(stored.draft);
-    setResult(null);
-    setHintQuestion(null);
-    setStage(stored.draft ? "resume" : "welcome");
+    let active = true;
+    const initialize = (sourceBank?: QuizBank) => {
+      if (!active) return;
+      const stored = readQuizSavedState(projectId, sourceBank);
+      setRecord(stored);
+      setDraft(stored.draft);
+      setResult(null);
+      setHintQuestion(null);
+      setSaveFailed(false);
+      setStage(stored.draft ? "resume" : "welcome");
+    };
+    const wantsPreview = import.meta.env.DEV && !getQuizBank(projectId) &&
+      new URLSearchParams(window.location.search).get("preview") === "1";
+    if (wantsPreview) {
+      setPreviewLoading(true);
+      setPreviewBank(null);
+      setStage("loading");
+      // Dynamic, development-only import keeps unpublished banks out of the release path.
+      void import("@/data/quizPreviewBanks").then(module => {
+        if (!active) return;
+        const sourceBank = module.getUnreviewedQuizBank(projectId);
+        setPreviewBank(sourceBank ?? null);
+        setPreviewLoading(false);
+        initialize(sourceBank);
+      }).catch(() => {
+        if (!active) return;
+        setPreviewBank(null);
+        setPreviewLoading(false);
+        initialize();
+      });
+    } else {
+      setPreviewBank(null);
+      setPreviewLoading(false);
+      initialize();
+    }
+    return () => { active = false; };
   }, [projectId]);
+
+  if (previewLoading && project) {
+    return <main className="grid min-h-[100dvh] place-items-center bg-[#f3faff] px-5 text-center font-bold text-[#132654]" role="status">Loading local question preview…</main>;
+  }
 
   if (!bank || !project) {
     return (
@@ -58,7 +96,7 @@ function QuizStudioPage() {
   function persist(next: QuizSavedState) {
     setRecord(next);
     setDraft(next.draft);
-    setSaveFailed(!writeQuizSavedState(projectId, next));
+    setSaveFailed(!writeQuizSavedState(projectId, next, isPreview ? bank : undefined));
   }
 
   function startNewAttempt() {
@@ -133,6 +171,12 @@ function QuizStudioPage() {
         </div>
         <span className="rounded-full bg-[#eaf5ff] px-3 py-1 text-xs font-extrabold text-[#168eea]">5 Questions</span>
       </header>
+
+      {isPreview ? (
+        <div role="status" className="shrink-0 border-b border-amber-200 bg-amber-50 px-4 py-2 text-center text-xs font-bold text-amber-900">
+          Teacher test preview · Questions have NOT been approved. Scores are saved separately from student results and are not course achievements.
+        </div>
+      ) : null}
 
       {saveFailed ? (
         <p role="alert" className="shrink-0 bg-amber-50 px-4 py-2 text-center text-xs font-bold text-amber-900">

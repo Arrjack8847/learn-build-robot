@@ -272,16 +272,17 @@ export function blankQuizState(): QuizSavedState {
   return { bestScore: null, lastQuestionIds: [], draft: null };
 }
 
-function storageKey(projectId: string) {
-  return "bsr.quiz-studio.v1:" + projectId;
+/** Preview attempts use a completely separate browser key from student quiz results. */
+function storageKey(projectId: string, preview: boolean = false) {
+  return (preview ? "bsr.quiz-preview.v1:" : "bsr.quiz-studio.v1:") + projectId;
 }
 
 /** Only read on the client. Invalid/old browser data is ignored safely. */
-export function readQuizSavedState(projectId: string): QuizSavedState {
-  const bank = getQuizBank(projectId);
+export function readQuizSavedState(projectId: string, previewBank?: QuizBank): QuizSavedState {
+  const bank = previewBank ?? getQuizBank(projectId);
   if (typeof window === "undefined" || !bank) return blankQuizState();
   try {
-    const raw = window.localStorage.getItem(storageKey(projectId));
+    const raw = window.localStorage.getItem(storageKey(projectId, !!previewBank));
     if (!raw) return blankQuizState();
     const value: unknown = JSON.parse(raw);
     if (!value || typeof value !== "object") return blankQuizState();
@@ -322,11 +323,11 @@ export function readQuizSavedState(projectId: string): QuizSavedState {
 }
 
 /** Returns false if storage is blocked or full. UI should warn rather than promise a save. */
-export function writeQuizSavedState(projectId: string, state: QuizSavedState): boolean {
-  if (typeof window === "undefined" || !getQuizBank(projectId)) return false;
+export function writeQuizSavedState(projectId: string, state: QuizSavedState, previewBank?: QuizBank): boolean {
+  if (typeof window === "undefined" || !(previewBank ?? getQuizBank(projectId))) return false;
   try {
-    window.localStorage.setItem(storageKey(projectId), JSON.stringify(state));
-    window.dispatchEvent(new CustomEvent("bsr-quiz-saved", { detail: projectId }));
+    window.localStorage.setItem(storageKey(projectId, !!previewBank), JSON.stringify(state));
+    if (!previewBank) window.dispatchEvent(new CustomEvent("bsr-quiz-saved", { detail: projectId }));
     return true;
   } catch {
     return false;
