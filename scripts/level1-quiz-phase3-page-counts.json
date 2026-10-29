@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "description": "Page counts and extraction statistics from user-uploaded level1-phase3-research.zip (2026-10-29). 159/208 pages have fewer than 70 extracted characters; assembly diagrams have not been visually reviewed.",
+  "source": "user-provided ZIP",
+  "sources": [
+    {
+      "projectId": "caged-bird",
+      "pageCount": 10,
+      "textCharacters": 2851,
+      "needsVisualReview": 6,
+      "visuallyReviewed": false
+    },
+    {
+      "projectId": "propeller-aircraft",
+      "pageCount": 14,
+      "textCharacters": 2883,
+      "needsVisualReview": 10,
+      "visuallyReviewed": false
+    },
+    {
+      "projectId": "wiper",
+      "pageCount": 14,
+      "textCharacters": 2595,
+      "needsVisualReview": 10,
+      "visuallyReviewed": false
+    },
+    {
+      "projectId": "hand-cranking-giant-stride",
+      "pageCount": 14,
+      "textCharacters": 2903,
+      "needsVisualReview": 11,
+      "visuallyReviewed": false
+    },
+    {
+      "projectId": "hermit-crab",
+      "pageCount": 18,
+      "textCharacters": 2804,
+      "needsVisualReview": 14,
+      "visuallyReviewed": false
+    },
+    {
+      "projectId": "little-owl",
+      "pageCount": 18,
+      "textCharacters": 2214,
+      "needsVisualReview": 15,
+      "visuallyReviewed": false
+    },
+    {
+      "projectId": "oscillating-fan",
+      "pageCount": 20,
+      "textCharacters": 2797,
+      "needsVisualReview": 16,
+      "visuallyReviewed": false
+    },
+    {
+      "projectId": "pocket-pistol",
+      "pageCount": 14,
+      "textCharacters": 2472,
+      "needsVisualReview": 11,
+      "visuallyReviewed": false
+    },
+    {
+      "projectId": "pullback-bicycle",
+      "pageCount": 14,
+      "textCharacters": 2159,
+      "needsVisualReview": 11,
+      "visuallyReviewed": false
+    },
+    {
+      "projectId": "rotating-coffee-cup",
+      "pageCount": 18,
+      "textCharacters": 3118,
+      "needsVisualReview": 14,
+      "visuallyReviewed": false
+    },
+    {
+      "projectId": "balanced-bird",
+      "pageCount": 12,
+      "textCharacters": 2007,
+      "needsVisualReview": 9,
+      "visuallyReviewed": false
+    },
+    {
+      "projectId": "dancing-music-box",
+      "pageCount": 16,
+      "textCharacters": 2585,
+      "needsVisualReview": 12,
+      "visuallyReviewed": false
+    },
+    {
+      "projectId": "hand-cranking-fan",
+      "pageCount": 12,
+      "textCharacters": 2468,
+      "needsVisualReview": 9,
+      "visuallyReviewed": false
+    },
+    {
+      "projectId": "old-fashioned-telephone",
+      "pageCount": 14,
+      "textCharacters": 2613,
+      "needsVisualReview": 11,
+      "visuallyReviewed": false
+    }
+  ]
+}

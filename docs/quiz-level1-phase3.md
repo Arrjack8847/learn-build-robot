@@ -1,27 +1,33 @@
-# Phase 3 — official Building PDF fallback inventory (Level 1)
+# Phase 3 — fourteen Level 1 source-anchored question banks (140 authored)
 
-Phase 3 targets **14** Level 1 projects without separate Learning slides. The app already displays their **official Building manuals** in its Learning Studio. The exact local PDF paths and matching Wix-hosted URLs were cross-checked against GitHub's `public/` directory and `src/data/levelOneToThreeWixPdfUrls.ts`.
+## Source
 
-## What is committed
+The 14 official Building PDFs are reused as Learning sources in the app. We used the user-uploaded `level1-phase3-research.zip` extracted on October 29, 2026 to prepare these banks. All 14 registered Building PDFs and their Wix URLs were previously cross-checked against GitHub.
 
-- `scripts/level1-quiz-phase3-building-sources.json`: 14 verified repository source paths and hosting URLs; *source exists* is NOT evidence that a quiz question is correct.
-- `src/data/quizBanks/`: 14 **unreviewed, unpublished** ten-question skeletons, intentionally invalid until their source content is read.
-- `scripts/extract-phase3-level1-building-slides.mjs`: page-by-page extraction from actual official PDFs, with image-heavy pages flagged.
-- `tests/quiz-level1-phase3.test.mjs`: source coverage and safeguards preventing unfinished banks from being treated as published.
+The ZIP contains **208 PDF pages**, of which **159 pages were flagged for visual review** because they contain fewer than 70 extractable text characters. Most useful teaching text comes from pages 3–6; the numbered assembly pages rely heavily on diagrams. Text alone does not prove diagram-dependent assembly details.
 
-## Extract locally
+## Implemented
 
-Run this on `feat/quiz-level1-phase1-standard-20261029` with npm dependencies installed:
+- 14 TypeScript banks in `src/data/quizBanks/`, with **10 source-text-grounded multiple choice questions each**, and 5 topics with 2 alternative questions per topic.
+- Each question has 4 answer choices, a single answer key, a hint, explanation, and one-based original PDF page reference.
+- `scripts/level1-quiz-phase3-building-sources.json` maps the actual official fallback manuals.
+- `scripts/level1-quiz-phase3-page-counts.json` records exact page counts and text/visual-review status from the uploaded extraction report.
+- `tests/quiz-level1-phase3.test.mjs` checks all 140 banks for structure, source paths, page ranges, topic coverage, answer distribution, absence of placeholders, five-question selection, retry variation, and unpublished state.
+
+## Release status
+
+**Authored does not mean approved.** All 14 banks are deliberately **unregistered** in `src/data/quizStudio.ts`, and the Level 1 status ledger is unchanged: 27 ready / 33 pending. Phase 2 separately has 19 authored but unapproved banks. The total 33 new banks therefore contain 330 draft questions, but are not yet available to students.
+
+The sources are largely teaching-plan outlines, not detailed lecture slides. Many questions test lesson context or named concepts rather than diagram-based engineering reasoning. This is intentionally conservative; a human educator should improve distractors, assess the five-objective breadth, review diagrams and wording, and resolve any ambiguous explanations before publishing. Hints for some of the Phase 3 banks are deliberately general and need pedagogical refinement.
+
+The Pocket Pistol bank focuses on elastic-force concepts and safety awareness. It does not contain instructions to construct, aim or optimize a weapon/projectile launcher.
+
+## Validation and next steps
 
 ```powershell
-npm run quiz:extract-level1-phase3
-Compress-Archive -Path ".\\quiz-research\\phase3\\*.json" -DestinationPath ".\\level1-phase3-research.zip" -Force
+git pull --ff-only origin feat/quiz-level1-phase1-standard-20261029
+npm run test:quiz
+npm run build
 ```
 
-The zip should be located in the repository's root folder and may be uploaded to ChatGPT to review each PDF's extracted text. For manuals with almost no text, **also provide relevant actual PDF pages or PDFs**: illustrations may be necessary to create valid questions.
-
-## Question approval gate
-
-Each project requires five genuine, source-supported learning objectives and two questions per objective, totaling ten questions, each with four choices, a unique answer, hint, explanation, and **verified 1-based PDF page**. Building instructions may lack enough conceptual teaching content for ten good questions; do not pad with guesswork. If the manual is too visual or too short, defer question authoring and request the original teaching notes or teacher material.
-
-**No quiz registration or UI changes:** the official ledger remains 27 ready / 33 pending (19 already authored but not approved + these 14 needing source review). Do not merge into `main` before source and content QA.
+After automated checks, review each source PDF and quiz bank together. Check students' source-page deep links and browser interactions. Update the status ledger and registry **only after manual educational approval**; `main` is untouched.
