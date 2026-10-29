@@ -234,6 +234,20 @@ function QuizStudioPage() {
               <div className="rounded-[28px] border border-sky-100 bg-white p-4 shadow-sm sm:p-7">
                 <h2 id="quiz-question-title" className="mx-auto max-w-2xl text-center text-lg font-black leading-snug sm:text-2xl">{currentQuestion.prompt}</h2>
                 {currentQuestion.diagram ? <GearIllustration variant={currentQuestion.diagram}/> : null}
+                {currentQuestion.image ? (
+                  <figure className="mx-auto mt-4 max-w-xl overflow-hidden rounded-2xl border border-sky-100 bg-[#f1f8ff] p-2 text-center">
+                    <img
+                      src={currentQuestion.image.src}
+                      alt={currentQuestion.image.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="mx-auto h-auto max-h-[27dvh] w-full object-contain sm:max-h-72"
+                    />
+                    <figcaption className="px-2 pb-1 pt-2 text-[11px] font-medium leading-4 text-slate-500">
+                      Concept sketch · Not to scale
+                    </figcaption>
+                  </figure>
+                ) : null}
                 <fieldset className="mx-auto mt-5 max-w-2xl">
                   <legend className="sr-only">Choose one answer</legend>
                   <div className="grid grid-cols-1 gap-3 min-[660px]:grid-cols-2">

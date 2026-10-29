@@ -57,6 +57,8 @@ export interface QuizQuestion {
   explanation: string;
   hint: string;
   diagram?: GearDiagram;
+  /** Optional, independently authored learning-concept diagram. */
+  image?: { src: string; alt: string };
 }
 
 export interface QuizBank {
@@ -218,6 +220,10 @@ export function validateQuizBank(bank: QuizBank): string[] {
       issues.push(question.id + ": invalid source slide number");
     if (!question.hint.trim() || !question.explanation.trim())
       issues.push(question.id + ": missing hint or explanation");
+    if (question.image && (!question.image.src.startsWith("/quiz-visuals/") ||
+        question.image.src.includes("..") || !question.image.src.endsWith(".svg") ||
+        question.image.alt.trim().length < 15))
+      issues.push(question.id + ": invalid local visual source or descriptive alt text");
   }
   if (topics.size !== 5 || [...topics.values()].some(count => count !== 2)) {
     issues.push("Expected five learning objectives with two questions each");
