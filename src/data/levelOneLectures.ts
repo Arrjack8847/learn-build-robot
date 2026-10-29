@@ -57,24 +57,6 @@ const lectureFiles = [
   ["pull-back-car", "Vehicles & Complex Movers/Pull back car/Pull back car_Powerpoint.pdf"],
 ] as const;
 
-const learningOnlyIds = new Set<string>([
-  "ferocious-snake",
-  "funny-cat",
-  "shy-penguin",
-  "sled-dog",
-  "athlete",
-  "basic-programming",
-  "drummer-robot",
-  "sailboat",
-  "the-lawn-mower",
-  "car",
-  "dynamic-screen",
-  "pendulum-ride",
-  "rotating-flying-chair",
-  "skating",
-  "the-windmill-kingdom",
-]);
-
 /** No separate lecture slides were supplied for these 14 Level 1 projects.
  * Learning reuses the EXACT same official PDF URL as Building, while the two
  * studio interfaces and building completion remain independent.
@@ -103,7 +85,7 @@ export const levelOneLectures: Record<string, LevelOneLecture> = {
     {
       projectId,
       url: levelOneToThreeLearningPdfUrl(1, relativePath),
-      learningOnly: learningOnlyIds.has(projectId),
+      learningOnly: false,
     },
   ])),
   ...Object.fromEntries(LEVEL_ONE_BUILDING_PDF_LEARNING_FALLBACK_IDS.map(projectId => {
