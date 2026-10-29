@@ -28,12 +28,12 @@ export const magneticallyControlledDoorBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "Outside a magnet, which way do magnetic field lines go?",
       "choices": [
+        "In no direction",
         "South to north",
         "North to south",
-        "Up only",
-        "In no direction"
+        "Up only"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "Slide 4 says field lines outside the magnet travel from north to south.",
       "hint": "Remember the two ends of a magnet."
     },
@@ -43,12 +43,12 @@ export const magneticallyControlledDoorBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "Which sensor can measure magnetic field strength?",
       "choices": [
+        "Touch sensor",
         "Sound sensor",
         "Temperature sensor",
-        "Magnetic sensor",
-        "Touch sensor"
+        "Magnetic sensor"
       ],
-      "correctIndex": 2,
+      "correctIndex": 3,
       "explanation": "Slide 5 introduces magnetic sensors for detecting magnetic fields.",
       "hint": "Think about what physical property this door detects."
     },
@@ -58,12 +58,12 @@ export const magneticallyControlledDoorBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "Why does the lesson measure the magnet before setting a threshold?",
       "choices": [
+        "The door measures sound",
         "Different magnets can give different strengths",
         "All magnets are identical",
-        "The motor has no battery",
-        "The door measures sound"
+        "The motor has no battery"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 15 says magnetic field strength differs between magnets and needs testing.",
       "hint": "Think about comparing real sensor readings."
     },
@@ -88,12 +88,12 @@ export const magneticallyControlledDoorBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "Which parts move the door in the model?",
       "choices": [
-        "Gears and a motor",
         "A paintbrush and ruler",
         "A speaker and screen",
-        "A battery alone"
+        "A battery alone",
+        "Gears and a motor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 12 labels gears and motor as the door-moving mechanism.",
       "hint": "Think about what produces and transfers movement."
     },
@@ -103,12 +103,12 @@ export const magneticallyControlledDoorBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "In the lesson's example, what sensor reading opens the magnetic door?",
       "choices": [
-        "Greater than 1600",
-        "Exactly zero",
         "Less than 100",
-        "Less than 1600"
+        "Less than 1600",
+        "Greater than 1600",
+        "Exactly zero"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 16 sets the opening condition to magnetic intensity greater than 1600.",
       "hint": "Compare the reading with the set value."
     },
@@ -133,12 +133,12 @@ export const magneticallyControlledDoorBank: QuizBank = {
       "learningSlide": 18,
       "prompt": "How long does the programmed door stay open after the magnetic threshold is met?",
       "choices": [
+        "10 seconds",
         "1 second",
         "2 seconds",
-        "3 seconds",
-        "10 seconds"
+        "3 seconds"
       ],
-      "correctIndex": 2,
+      "correctIndex": 3,
       "explanation": "Slide 18 opens the door for three seconds before closing it.",
       "hint": "Remember the waiting period before the motor closes the door."
     },
@@ -148,12 +148,12 @@ export const magneticallyControlledDoorBank: QuizBank = {
       "learningSlide": 18,
       "prompt": "Why does the program wait one second after closing?",
       "choices": [
+        "To make a louder sound",
         "To avoid repeatedly opening and closing immediately",
         "To charge the magnet",
-        "To change the door color",
-        "To make a louder sound"
+        "To change the door color"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 18 adds a wait to prevent repeated triggering from a nearby magnet.",
       "hint": "Think about what happens if the same magnet is still there."
     }
