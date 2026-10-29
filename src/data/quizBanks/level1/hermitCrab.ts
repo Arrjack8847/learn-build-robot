@@ -119,17 +119,17 @@ export const hermitCrabBank: QuizBank = {
     {
       "id": "hermit-crab-08",
       "topic": "friction-and-crawling",
-      "prompt": "Before a Hermit Crab model can move by itself, what needs to be set in the programming software?",
+      "prompt": "Why can friction help a crawling robot move across the ground?",
       "choices": [
-        "Its paper colour",
-        "Its motor module",
-        "Its storage label",
-        "Its building instructions"
+        "It changes the robot's colour",
+        "It stores the robot's program",
+        "It helps the moving feet grip instead of sliding",
+        "It produces a louder sound"
       ],
-      "correctIndex": 1,
-      "learningSlide": 5,
-      "explanation": "The lesson introduces programming and setting the motor module to produce movement.",
-      "hint": "Look for the software control that can make a motor move."
+      "correctIndex": 2,
+      "learningSlide": 3,
+      "explanation": "Friction between the robot's feet and the ground can give it grip. Friction is one of the lesson's stated learning objectives.",
+      "hint": "Think about what stops your shoe from slipping when you walk."
     },
     {
       "id": "hermit-crab-09",

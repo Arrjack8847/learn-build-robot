@@ -104,17 +104,17 @@ export const oscillatingFanBank: QuizBank = {
     {
       "id": "oscillating-fan-07",
       "topic": "motor-control",
-      "prompt": "What mechanism does the teacher explain during the build?",
+      "prompt": "Which part of the oscillating fan model can have its speed adjusted in the programming activity?",
       "choices": [
-        "Gearing",
-        "Photo composition",
-        "Telephone wiring",
-        "Paper folding"
+        "The classroom door",
+        "The motor",
+        "The paper worksheet",
+        "The PDF viewer"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "learningSlide": 5,
-      "explanation": "The hands-on instructions ask for explaining the model's gearing.",
-      "hint": "Think about which kind of transmission component the teacher explains during assembly."
+      "explanation": "The hands-on instructions teach motor control and adjusting motor speed values.",
+      "hint": "It is the part that drives movement."
     },
     {
       "id": "oscillating-fan-08",

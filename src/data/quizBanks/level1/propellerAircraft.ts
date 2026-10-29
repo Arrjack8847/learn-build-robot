@@ -29,17 +29,17 @@ export const propellerAircraftBank: QuizBank = {
     {
       "id": "propeller-aircraft-02",
       "topic": "aircraft-types",
-      "prompt": "Which structure is a main mechanical learning objective for this aircraft?",
+      "prompt": "Why does the lesson compare a propeller aircraft with seaplanes and helicopters?",
       "choices": [
-        "Magnetic levitation track",
-        "Waterwheel structure",
-        "Gear-driven structure",
-        "Hydraulic crane structure"
+        "To choose a music track",
+        "To count the robot's wires",
+        "To notice different types of aircraft",
+        "To measure a car's speed"
       ],
       "correctIndex": 2,
       "learningSlide": 3,
-      "explanation": "The objectives specifically identify the gear-driven structure.",
-      "hint": "Think about how rotation is transferred to the propeller."
+      "explanation": "The teaching objectives ask students to understand differences between a propeller aircraft and other kinds such as seaplanes and helicopters.",
+      "hint": "Think about what studying several kinds of flying machines helps you learn."
     },
     {
       "id": "propeller-aircraft-03",
