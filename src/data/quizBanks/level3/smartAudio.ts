@@ -28,12 +28,12 @@ export const smartAudioBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What does the introductory example do when a person leaves?",
       "choices": [
-        "Stops playing automatically",
         "Increases volume forever",
+        "Stops playing automatically",
         "Opens a parking gate",
         "Moves a robot arm"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Playback changes when the listener moves away.",
       "explanation": "Slide 7 says music automatically stops when a person leaves."
     },
@@ -43,12 +43,12 @@ export const smartAudioBank: QuizBank = {
       "learningSlide": 2,
       "prompt": "What do students measure with the ultrasonic sensor in this lesson?",
       "choices": [
-        "Distance",
         "Humidity",
         "Color temperature",
+        "Distance",
         "Battery weight"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The learning goal is about testing distances.",
       "explanation": "Slide 2 specifically teaches ultrasonic sensors for distance testing."
     },
@@ -58,12 +58,12 @@ export const smartAudioBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Which hardware skill is named as a learning focus?",
       "choices": [
-        "Basic use of an ultrasonic sensor",
         "Repairing a camera",
         "Measuring magnetic fields",
-        "Changing resolution"
+        "Changing resolution",
+        "Basic use of an ultrasonic sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Look for the sensor named in the learning objectives.",
       "explanation": "Slide 3 lists the basic use of ultrasonic sensors."
     },
@@ -88,12 +88,12 @@ export const smartAudioBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "Which folder name follows the lesson's MP3 file arrangement rule?",
       "choices": [
-        "01",
         "Music-Folder",
+        "01",
         "AudioOnly",
         "A"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The lesson requires number-based folder names.",
       "explanation": "Slide 12 says MP3 folder names start from 01 to 99."
     },
@@ -103,12 +103,12 @@ export const smartAudioBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "What does the first distance-based task do within 15 cm?",
       "choices": [
-        "Plays music",
         "Shuts down forever",
         "Opens the frame",
+        "Plays music",
         "Prints a document"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The close range activates playback.",
       "explanation": "Slide 17 specifies music playback within 15 cm."
     },
@@ -118,12 +118,12 @@ export const smartAudioBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "What happens beyond 15 cm in that task?",
       "choices": [
-        "Playback pauses",
         "Volume always increases",
         "A motor rotates once",
-        "The screen flashes yellow"
+        "The screen flashes yellow",
+        "Playback pauses"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The task contrasts near and far.",
       "explanation": "Slide 17 says to pause playback beyond 15 cm."
     },
@@ -148,12 +148,12 @@ export const smartAudioBank: QuizBank = {
       "learningSlide": 18,
       "prompt": "Which range is assigned normal music in the extended task?",
       "choices": [
-        "Greater than 15 cm and less than 25 cm",
         "Only beyond 25 cm",
+        "Greater than 15 cm and less than 25 cm",
         "Exactly 100 cm",
         "Only below 5 cm"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The music range is between the reminder and off zones.",
       "explanation": "Slide 18 assigns normal music between 15 and 25 cm."
     }

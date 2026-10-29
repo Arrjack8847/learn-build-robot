@@ -13,12 +13,12 @@ export const obstacleAvoidanceRobot1Bank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Why does an obstacle-avoidance robot change its movement when something blocks its path?",
       "choices": [
-        "To avoid the obstacle",
         "To play louder music",
+        "To avoid the obstacle",
         "To measure room temperature",
         "To change its body color"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about what could happen if the robot drove straight into a barrier.",
       "explanation": "The lesson defines obstacle avoidance as responding to something that hinders movement."
     },
@@ -29,11 +29,11 @@ export const obstacleAvoidanceRobot1Bank: QuizBank = {
       "prompt": "What is the main function of the robot introduced in this lesson?",
       "choices": [
         "Sort objects by color",
-        "Avoid obstacles using ultrasonic ranging",
         "Draw shapes on a screen",
+        "Avoid obstacles using ultrasonic ranging",
         "Play recorded messages"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "hint": "The lesson names the kind of ranging used to detect obstacles.",
       "explanation": "Slide 7 introduces an obstacle-avoidance robot that uses ultrasonic ranging."
     },
@@ -43,12 +43,12 @@ export const obstacleAvoidanceRobot1Bank: QuizBank = {
       "learningSlide": 7,
       "prompt": "How does the lesson describe the robot locating an obstacle with sound?",
       "choices": [
-        "It uses the time difference of received sound waves",
         "It counts the colors on an obstacle",
         "It measures an obstacle's weight",
-        "It reads battery voltage"
+        "It reads battery voltage",
+        "It uses the time difference of received sound waves"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about how long a returning sound signal takes.",
       "explanation": "Slide 7 says the robot determines obstacle position from the received sound-wave time difference."
     },
@@ -58,12 +58,12 @@ export const obstacleAvoidanceRobot1Bank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which kind of wave is discussed as a way to detect obstacles?",
       "choices": [
-        "Broadcast radio waves",
         "Ultrasonic sound waves",
+        "Broadcast radio waves",
         "Visible light only",
         "Water ripples only"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "hint": "The new-knowledge page discusses sound waves.",
       "explanation": "Slide 9 discusses ultrasonic waves traveling through different media to detect objects."
     },
@@ -88,12 +88,12 @@ export const obstacleAvoidanceRobot1Bank: QuizBank = {
       "learningSlide": 14,
       "prompt": "What does the obstacle-avoidance flowchart direct the robot to do when the distance is below the set value?",
       "choices": [
-        "Turn",
         "Continue straight",
         "Power off permanently",
+        "Turn",
         "Play music"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Which action helps avoid a nearby object?",
       "explanation": "The smaller-than-set-value branch leads to turning."
     },
@@ -104,11 +104,11 @@ export const obstacleAvoidanceRobot1Bank: QuizBank = {
       "prompt": "What does Task 1 practice when an obstacle is about 25 cm ahead?",
       "choices": [
         "Stop all sensing",
-        "Turn to avoid the obstacle",
         "Drive faster straight ahead",
-        "Move only the display"
+        "Move only the display",
+        "Turn to avoid the obstacle"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "hint": "The task combines a close obstacle with a change in direction.",
       "explanation": "Slide 15 describes turning to avoid an obstacle around 25 cm ahead."
     },
@@ -118,12 +118,12 @@ export const obstacleAvoidanceRobot1Bank: QuizBank = {
       "learningSlide": 16,
       "prompt": "What sequence is specified in Task 2 for an obstacle 25 cm ahead?",
       "choices": [
-        "Reverse five seconds then turn right",
         "Stop one second then turn 90 degrees left",
+        "Reverse five seconds then turn right",
         "Accelerate without turning",
         "Wait one minute then drive backward"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "hint": "Notice the waiting time and turn direction.",
       "explanation": "Slide 16 specifies a one-second stop followed by a 90-degree left turn."
     },
@@ -133,12 +133,12 @@ export const obstacleAvoidanceRobot1Bank: QuizBank = {
       "learningSlide": 12,
       "prompt": "Which feature is explicitly required of the assembled robot?",
       "choices": [
-        "A stable structure",
         "A loose frame",
+        "A stable structure",
         "Disconnected wheels",
         "An uneven base"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about what keeps a moving model together.",
       "explanation": "Slide 12 lists a stable structure among assembly requirements."
     },
@@ -148,12 +148,12 @@ export const obstacleAvoidanceRobot1Bank: QuizBank = {
       "learningSlide": 12,
       "prompt": "Which additional check is on the assembly-requirements slide?",
       "choices": [
-        "Match the intended shape",
         "Remove sensors",
         "Use only one connector",
+        "Match the intended shape",
         "Ignore the design"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The model should match the intended design.",
       "explanation": "Slide 12 lists 'shape match' as a requirement."
     }

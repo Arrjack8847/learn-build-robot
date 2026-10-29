@@ -28,12 +28,12 @@ export const linePatrolCarBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "What does the line patrol car do in the factory example?",
       "choices": [
-        "Travels along a drawn route",
         "Measures rainfall",
+        "Travels along a drawn route",
         "Produces music on demand",
         "Sorts objects by weight"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The lesson compares its route with train tracks.",
       "explanation": "Slide 3 describes a line patrol car traveling along a drawn route."
     },
@@ -43,12 +43,12 @@ export const linePatrolCarBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "Which component detects the target's gray value?",
       "choices": [
-        "Grayscale Integration Sensor",
         "Ultrasonic distance module",
         "Microphone",
+        "Grayscale Integration Sensor",
         "Touch switch"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Look for the part named in the lesson's parts list.",
       "explanation": "Slide 5 names the Grayscale Integration Sensor."
     },
@@ -58,12 +58,12 @@ export const linePatrolCarBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "According to the lesson's sensor description, what happens to the gray value when the surface is darker?",
       "choices": [
-        "It is higher",
         "It is always zero",
         "It does not change",
-        "It becomes a sound measurement"
+        "It becomes a sound measurement",
+        "It is higher"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The slide directly compares darker and lighter surfaces.",
       "explanation": "Slide 5 states that darker surfaces give a higher gray value."
     },
@@ -88,12 +88,12 @@ export const linePatrolCarBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "What does a reading below the boundary standard value indicate?",
       "choices": [
-        "Bias toward the surrounding field",
         "An unavoidable collision",
+        "Bias toward the surrounding field",
         "A low battery alarm",
         "The motor has been removed"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Compare black-line readings with the field readings.",
       "explanation": "Slide 11 assigns lower values to bias toward the field."
     },
@@ -103,12 +103,12 @@ export const linePatrolCarBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "What behavior is the coding task trying to make continuous?",
       "choices": [
-        "Following the black line",
         "Circling at random",
         "Playing music",
+        "Following the black line",
         "Detecting faces"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The goal is to remain on the marked route.",
       "explanation": "Slide 10 asks students to program the car to keep walking along the black line."
     },
@@ -118,12 +118,12 @@ export const linePatrolCarBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "What color are the competition lines described in the exploration?",
       "choices": [
-        "Black",
         "Red",
         "Yellow",
-        "Blue"
+        "Blue",
+        "Black"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The line contrast matters to the sensor.",
       "explanation": "Slide 4 describes the game lines as black."
     },
@@ -148,12 +148,12 @@ export const linePatrolCarBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "After building, what should students do to try a new route?",
       "choices": [
-        "Customize a map for the car to follow",
         "Remove all lines from the map",
+        "Customize a map for the car to follow",
         "Turn off all motors",
         "Change the controller to a microphone"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The show activity extends the line-following route.",
       "explanation": "Slide 12 instructs students to customize a map and let the car follow the line."
     }

@@ -13,12 +13,12 @@ export const f1RacingCarBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "Where is the model's motor mounted as its main power source?",
       "choices": [
-        "Behind the car body",
         "Above the steering wheel",
         "Under the controller screen",
-        "On the front bumper as a sensor"
+        "On the front bumper as a sensor",
+        "Behind the car body"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The lesson places the main power source near the rear.",
       "explanation": "Slide 7 says the motor is mounted behind the car body."
     },
@@ -43,12 +43,12 @@ export const f1RacingCarBank: QuizBank = {
       "learningSlide": 2,
       "prompt": "Which programming ability is a learning goal of this project?",
       "choices": [
-        "Controlling motors and simple routes",
         "Recognizing human faces",
+        "Controlling motors and simple routes",
         "Predicting rainfall",
         "Editing photographs"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The lesson wants learners to control movement.",
       "explanation": "Slide 2 says students learn motor control and simple route programming."
     },
@@ -58,12 +58,12 @@ export const f1RacingCarBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "What relationship does the lesson say learners should understand?",
       "choices": [
-        "Forward, backward, left, and right movement versus positive and negative motor control",
         "Temperature versus rainfall",
         "Sound versus screen brightness",
+        "Forward, backward, left, and right movement versus positive and negative motor control",
         "Calendar dates versus speed"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The motor's direction affects how the car moves.",
       "explanation": "Slide 3 identifies positive/negative motor control and forward, rear, left and right movement."
     },
@@ -73,12 +73,12 @@ export const f1RacingCarBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "What distance is held constant for the speed-100 timing experiment?",
       "choices": [
-        "1 meter",
         "10 meters",
         "100 meters",
-        "1 centimeter"
+        "1 centimeter",
+        "1 meter"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Both timing tasks use the same short route.",
       "explanation": "Slide 15 specifies a 1 m test distance."
     },
@@ -103,12 +103,12 @@ export const f1RacingCarBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "Which wheels does the lesson say control the model car's direction?",
       "choices": [
-        "Front wheels",
         "Rear wheels only",
+        "Front wheels",
         "All wheels removed",
         "No wheels are involved"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "One wheel group steers while the other moves the car forward.",
       "explanation": "Slide 17 says front wheel rotation controls direction."
     },
@@ -118,12 +118,12 @@ export const f1RacingCarBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "Which wheel group is responsible for advancing the car in the lesson's model?",
       "choices": [
-        "Rear wheels",
         "Front wheels only",
         "A floating propeller",
+        "Rear wheels",
         "A stationary sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The motor's placement helps determine where power drives the car.",
       "explanation": "Slide 17 says the rear wheel is responsible for advancement."
     },
@@ -133,12 +133,12 @@ export const f1RacingCarBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "Which action appears in the programming flow after the car's movement?",
       "choices": [
-        "Timing and stopping",
         "Taking a photograph",
         "Making a phone call",
-        "Saving a weather report"
+        "Saving a weather report",
+        "Timing and stopping"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The flow includes a test of how long the car moves.",
       "explanation": "Slide 14 includes car movement, time, stop, and adjustment in its programming flow."
     },

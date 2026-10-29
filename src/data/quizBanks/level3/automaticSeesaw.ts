@@ -13,12 +13,12 @@ export const automaticSeesawBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "How many people does the lesson describe cooperating on a traditional seesaw?",
       "choices": [
-        "One",
         "Two",
+        "One",
         "Four",
         "Ten"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "hint": "Think about riders on opposite sides.",
       "explanation": "Slide 4 describes a seesaw game that requires two people."
     },
@@ -28,12 +28,12 @@ export const automaticSeesawBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "What helps riders take turns moving up and down?",
       "choices": [
-        "Pushing against the ground with their feet",
         "Keeping their feet raised forever",
+        "Pushing against the ground with their feet",
         "Removing the central support",
         "Sitting together on one end"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The lower person pushes to rise.",
       "explanation": "Slide 6 explains that riders push against the ground in turn."
     },
@@ -43,12 +43,12 @@ export const automaticSeesawBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "Which mechanical principle makes a seesaw work?",
       "choices": [
-        "Leverage",
         "Magnetic induction",
         "Light reflection",
+        "Leverage",
         "Sound amplification"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "A seesaw is a simple lever.",
       "explanation": "Slide 8 states the seesaw works on the principle of leverage."
     },
@@ -58,12 +58,12 @@ export const automaticSeesawBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "What is one benefit of the lever principle?",
       "choices": [
-        "Helping move heavy objects",
         "Making objects permanently weightless",
         "Creating fuel",
-        "Removing all support points"
+        "Removing all support points",
+        "Helping move heavy objects"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about lifting a heavy load with a lever.",
       "explanation": "Slide 8 says leverage can help people transport heavy objects."
     },
@@ -88,12 +88,12 @@ export const automaticSeesawBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "How are the power arm and resistance arm described in this model?",
       "choices": [
-        "Equal in length",
         "Only one arm exists",
+        "Equal in length",
         "Resistance arm is always twice as long",
         "They are separate from the lever"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The lesson specifies an equal-armed lever.",
       "explanation": "Slide 10 says the model uses equal-length power and resistance arms."
     },
@@ -103,12 +103,12 @@ export const automaticSeesawBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "What triggers the motor rotation in the automatic seesaw?",
       "choices": [
-        "A touch sensor",
         "A microphone",
         "A color screen",
+        "A touch sensor",
         "A light bulb"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The model detects contact with the table.",
       "explanation": "Slide 13 says contact triggers the touch sensor and then the motor."
     },
@@ -118,12 +118,12 @@ export const automaticSeesawBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "What does the motor do after the touch sensor is triggered?",
       "choices": [
-        "Rotates a connecting rod downward for a kicking action",
         "Measures temperature",
         "Plays a music file",
-        "Keeps the mechanism still"
+        "Keeps the mechanism still",
+        "Rotates a connecting rod downward for a kicking action"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about the moving link attached to the motor.",
       "explanation": "Slide 13 describes the rod rotating downward to produce a kicking motion."
     },
@@ -148,12 +148,12 @@ export const automaticSeesawBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "What change turns kicking into retraction?",
       "choices": [
-        "Reversing motor rotation direction",
         "Removing the fulcrum",
+        "Reversing motor rotation direction",
         "Changing the table color",
         "Permanently disabling the touch sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The lesson reverses the moving mechanism.",
       "explanation": "Slide 15 instructs reversing motor direction to switch kicking and retracting."
     }

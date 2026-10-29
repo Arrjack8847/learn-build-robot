@@ -13,12 +13,12 @@ export const electricGuitarBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What measurement does the robot guitar lesson propose to identify fingering?",
       "choices": [
-        "Distance",
         "Temperature",
         "Water level",
+        "Distance",
         "Air pressure"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The introduction links fingering with an ultrasonic measurement.",
       "explanation": "Slide 7 proposes using distance to identify guitar fingering."
     },
@@ -28,12 +28,12 @@ export const electricGuitarBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What two playing factors does the introduction say affect guitar performance?",
       "choices": [
-        "Plucking rhythm and string fingering",
         "Room humidity and air pressure",
         "Wheel speed and steering",
-        "Screen color and font size"
+        "Screen color and font size",
+        "Plucking rhythm and string fingering"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about the musician's hands.",
       "explanation": "Slide 7 names plucking rhythm and string fingering."
     },
@@ -58,12 +58,12 @@ export const electricGuitarBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "What is the original number detected by the sensor and shown on the screen called?",
       "choices": [
-        "System value",
         "Volume level",
+        "System value",
         "Motor speed",
         "Battery serial"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "It is the raw sensor reading, before conversion to length.",
       "explanation": "Slide 10 labels the original sensor reading the 'system value'."
     },
@@ -73,12 +73,12 @@ export const electricGuitarBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "What does a Repeat Until block do?",
       "choices": [
-        "Repeats steps until its condition is met",
         "Runs only a single step always",
         "Measures humidity",
+        "Repeats steps until its condition is met",
         "Deletes the program"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "It is a loop with an exit condition.",
       "explanation": "Slide 11 describes Repeat Until as a loop that stops when its condition is met."
     },
@@ -88,12 +88,12 @@ export const electricGuitarBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "When does the Repeat Until loop stop repeating?",
       "choices": [
-        "When its set condition becomes true",
         "When a random minute passes",
         "Every time the screen changes color",
-        "Only after the controller is unplugged"
+        "Only after the controller is unplugged",
+        "When its set condition becomes true"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The word 'until' tells you the stopping point.",
       "explanation": "Slide 11 says the loop breaks when the condition is met."
     },
@@ -118,12 +118,12 @@ export const electricGuitarBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "What does pressing the collision switch again do?",
       "choices": [
-        "Turns the light off",
         "Increases the light forever",
+        "Turns the light off",
         "Rotates a wheel",
         "Opens a door"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The task toggles the light repeatedly.",
       "explanation": "Slide 17 says the next press switches the light off."
     },
@@ -133,12 +133,12 @@ export const electricGuitarBank: QuizBank = {
       "learningSlide": 18,
       "prompt": "What combination does the final guitar task ask students to produce?",
       "choices": [
-        "Different lights and sounds",
         "Only temperature readings",
         "Only a moving vehicle",
+        "Different lights and sounds",
         "A distance chart without music"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The task combines two outputs.",
       "explanation": "Slide 18 instructs using different lights and making sounds."
     },
@@ -148,12 +148,12 @@ export const electricGuitarBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "Which musical ranges are named in the program flowchart?",
       "choices": [
-        "High, midrange, and bass",
         "Rain, wind, and thunder",
         "Hot, warm, and cold",
-        "Near, far, and absent"
+        "Near, far, and absent",
+        "High, midrange, and bass"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The chart uses musical pitch ranges.",
       "explanation": "Slide 15 includes high-pitched, midrange, and bass files."
     }

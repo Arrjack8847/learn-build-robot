@@ -13,12 +13,12 @@ export const smartDoorBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which frequency is higher than the hearing range given for humans and is called ultrasonic in this lesson?",
       "choices": [
-        "Above 20,000 Hz",
         "Below 20 Hz",
+        "Above 20,000 Hz",
         "Exactly 100 Hz",
         "Exactly 1 Hz"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The slide defines ultrasonic sound with a frequency limit.",
       "explanation": "Slide 9 defines ultrasound as sound above 20,000 Hz."
     },
@@ -28,12 +28,12 @@ export const smartDoorBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "What unit is used to measure sound frequency?",
       "choices": [
-        "Hertz (Hz)",
         "Kilograms",
         "Liters",
+        "Hertz (Hz)",
         "Meters"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The unit counts vibrations per second.",
       "explanation": "Slide 9 names Hertz as the unit of sound frequency."
     },
@@ -43,12 +43,12 @@ export const smartDoorBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "What does an ultrasonic sensor usually convert ultrasonic signals into?",
       "choices": [
-        "Electrical signals",
         "Paint colors",
         "Water",
-        "Paper"
+        "Paper",
+        "Electrical signals"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Sensors produce usable electronic information.",
       "explanation": "Slide 11 says ultrasonic sensors generally convert ultrasound to electrical signals."
     },
@@ -73,12 +73,12 @@ export const smartDoorBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "Which option reads the ultrasonic value in the programming lesson?",
       "choices": [
-        "Electronics → Sensor → Get Ultrasonic",
         "Sound → MP3 → Play",
+        "Electronics → Sensor → Get Ultrasonic",
         "Motor → Set power",
         "Display → Change font"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Look for the sensor-reading block.",
       "explanation": "Slide 12 lists the 'Get Ultrasonic' path."
     },
@@ -88,12 +88,12 @@ export const smartDoorBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "Which type of module does the lesson list for showing a value on the screen?",
       "choices": [
-        "Electronics Display → Set Display Var of line X",
         "Music → Change pitch",
         "Movement → Turn wheels",
+        "Electronics Display → Set Display Var of line X",
         "Network → Connect Wi-Fi"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The slide names a display-variable command.",
       "explanation": "Slide 12 lists the Electronics Display module for setting a displayed value."
     },
@@ -103,12 +103,12 @@ export const smartDoorBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "At what distance does the first task place an obstacle to display the sensed value?",
       "choices": [
-        "20 cm",
         "2 m",
         "5 cm",
-        "100 cm"
+        "100 cm",
+        "20 cm"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The task asks for a nearby obstacle with a specified distance.",
       "explanation": "Slide 17 places an obstacle 20 cm in front of the robot to read and display the value."
     },
@@ -133,12 +133,12 @@ export const smartDoorBank: QuizBank = {
       "learningSlide": 19,
       "prompt": "What should the smart-door task do when something is less than 20 cm in front?",
       "choices": [
-        "Sound and open the door",
         "Ignore the person",
+        "Sound and open the door",
         "Change its display only",
         "Move the entire wall"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The door opens for a nearby approach.",
       "explanation": "Slide 19 says to sound and open the door when the object is closer than 20 cm."
     },
@@ -148,12 +148,12 @@ export const smartDoorBank: QuizBank = {
       "learningSlide": 19,
       "prompt": "What should the same task do when nothing is in front of the door?",
       "choices": [
-        "Close the door",
         "Keep it fully open indefinitely",
         "Ring the buzzer for one hour",
+        "Close the door",
         "Switch to playing music"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The task contrasts presence and absence.",
       "explanation": "Slide 19 says to close the door when no one is in front."
     }

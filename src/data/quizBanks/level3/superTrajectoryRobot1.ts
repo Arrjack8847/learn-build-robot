@@ -28,12 +28,12 @@ export const superTrajectoryRobot1Bank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What two areas does the Super Track robot need to distinguish?",
       "choices": [
-        "Black and white areas",
         "Hot and cold water",
+        "Black and white areas",
         "Loud and quiet music",
         "Near and far satellites"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The robot patrols a high-contrast surface.",
       "explanation": "Slide 7 describes building a robot that patrols black and white."
     },
@@ -43,12 +43,12 @@ export const superTrajectoryRobot1Bank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Which sensor type helps the robot distinguish the track from its surroundings?",
       "choices": [
-        "Photoelectric sensor",
         "Barometric sensor",
         "Microphone",
+        "Photoelectric sensor",
         "Temperature probe"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The lesson names a sensor that responds to light.",
       "explanation": "Slide 6 explicitly identifies photoelectric sensors for black-line tracking."
     },
@@ -58,12 +58,12 @@ export const superTrajectoryRobot1Bank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What does the lesson say a brightness sensor in a phone or tablet can adjust automatically?",
       "choices": [
-        "Screen brightness",
         "Battery weight",
         "Speaker size",
-        "Number of installed apps"
+        "Number of installed apps",
+        "Screen brightness"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The slide uses a familiar screen-light example.",
       "explanation": "Slide 7 describes brightness sensors helping mobile devices adjust screen brightness."
     },
@@ -88,12 +88,12 @@ export const superTrajectoryRobot1Bank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Besides an analog value, what other reading does the light-sensor module offer?",
       "choices": [
-        "A digital value",
         "A printed photograph",
+        "A digital value",
         "A voice recording",
         "A distance in miles only"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The slide names another value type.",
       "explanation": "Slide 10 lists 'Get the digital value' for the light sensor."
     },
@@ -103,12 +103,12 @@ export const superTrajectoryRobot1Bank: QuizBank = {
       "learningSlide": 15,
       "prompt": "Why should students measure and record values on both the black line and white area?",
       "choices": [
-        "To compare sensor readings on each surface",
         "To choose music for each surface",
         "To count the robot's wheels",
+        "To compare sensor readings on each surface",
         "To learn the floor's temperature"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The task explicitly records two light readings.",
       "explanation": "Slide 15 asks learners to record light sensor values on black and white surfaces."
     },
@@ -118,12 +118,12 @@ export const superTrajectoryRobot1Bank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Which comparison operators are shown among the software modules?",
       "choices": [
-        "Less than, greater than, and equals",
         "Play, pause, and stop",
         "Open, close, and save",
-        "Move, rotate, and flip"
+        "Move, rotate, and flip",
+        "Less than, greater than, and equals"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "These operators compare measured numbers.",
       "explanation": "Slide 10 lists <, >, and = in the Electronics Operators module."
     },
@@ -148,12 +148,12 @@ export const superTrajectoryRobot1Bank: QuizBank = {
       "learningSlide": 16,
       "prompt": "Where does Task 3 tell students to connect the single photoelectric sensor?",
       "choices": [
-        "On the left",
         "On the roof only",
+        "On the left",
         "Inside the battery",
         "Behind a microphone"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Task 3 specifies a side for the sensor.",
       "explanation": "Slide 16 says to connect the single photoelectric sensor on the left."
     }

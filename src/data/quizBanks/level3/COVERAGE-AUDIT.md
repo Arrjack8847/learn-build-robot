@@ -135,3 +135,9 @@ On this branch, the 13 new Level 3 banks are imported in `src/data/quizStudio.ts
 - **Browser end-to-end: NOT RUN** — this connected browser is read-only in Chat mode; local source code was not deployed.
 - **Remaining coverage blocker:** 31 registered Learning-PDF projects are pending source review. The GitHub Contents API returns empty file contents for larger PDFs (roughly >1 MiB) and the registered hosted URLs were not accessible through this execution environment. Five Building-manual fallbacks have no individually reviewed syllabus lecture. These projects remain non-playable rather than receiving guessed content.
 - **Draft integration PR:** [#58](https://github.com/Arrjack8847/learn-build-robot/pull/58), opened against `feat/quiz-studio-syllabus-question-banks-20261028`. It is intentionally not ready to merge. No main merge or intentional deployment was performed.
+
+## Answer-key bias correction — 29 October 2026
+
+- Existing 13 source-backed Level 3 banks originally had an extreme answer A bias (many with 10/10 correct answers in the first position).
+- Rotated the placement of each existing correct answer across A–D, preserving the exact correct answer text, question wording, topic pairing, PDF path, source page count and slide reference.
+- Automated pre-commit check confirmed all original correct answer strings remain correct after reordering. No new unverified lesson questions were published.

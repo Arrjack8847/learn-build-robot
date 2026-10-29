@@ -13,12 +13,12 @@ export const securityDoorBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What does the Security Door use to detect whether the door has opened?",
       "choices": [
-        "A touch sensor",
         "A wind sensor",
         "A compass",
-        "A water sensor"
+        "A water sensor",
+        "A touch sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The sensor detects pressing or release.",
       "explanation": "Slide 7 says the touch sensor gathers pressing information to detect whether a door is opened."
     },
@@ -58,12 +58,12 @@ export const securityDoorBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which familiar object is used to explain a touch sensor's operation?",
       "choices": [
-        "A doorbell button",
         "A flashlight lens",
         "A tire",
+        "A doorbell button",
         "A loudspeaker"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Think about a button pressed with a finger.",
       "explanation": "Slide 9 compares the touch sensor to a doorbell button."
     },
@@ -73,12 +73,12 @@ export const securityDoorBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "In a conditional program, what happens when a tested condition is satisfied?",
       "choices": [
-        "The yes branch executes",
         "Both branches always execute",
         "No action can run",
-        "The sensor is physically removed"
+        "The sensor is physically removed",
+        "The yes branch executes"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The lesson's selection structure has yes and otherwise paths.",
       "explanation": "Slide 10 says the yes action runs when the condition is satisfied."
     },
@@ -103,12 +103,12 @@ export const securityDoorBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "What should be added if a program must keep checking for touch at any time?",
       "choices": [
-        "A loop module",
         "An image filter",
+        "A loop module",
         "An extra wheel",
         "A sound file"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "One check is different from repeated checking.",
       "explanation": "Slide 11 says to add a loop for ongoing sensor monitoring."
     },
@@ -118,12 +118,12 @@ export const securityDoorBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "Why is a single conditional check insufficient for responding to later presses?",
       "choices": [
-        "It checks once rather than continuously",
         "It always measures humidity",
         "It has no input at all",
+        "It checks once rather than continuously",
         "It automatically resets the controller"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The lesson contrasts one-time execution and monitoring.",
       "explanation": "Slide 12 explains that continuous press monitoring requires a loop."
     },
@@ -133,12 +133,12 @@ export const securityDoorBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "What should the simple task do when the touch sensor is pressed?",
       "choices": [
-        "Turn on a red light",
         "Open a music file",
         "Read GPS coordinates",
-        "Increase motor speed"
+        "Increase motor speed",
+        "Turn on a red light"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The first programming task links a press to an indicator.",
       "explanation": "Slide 16 says a pressed sensor turns on the red light."
     },

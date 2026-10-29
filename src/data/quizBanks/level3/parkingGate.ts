@@ -13,12 +13,12 @@ export const parkingGateBank: QuizBank = {
       "learningSlide": 2,
       "prompt": "What is the stated purpose of a parking gate?",
       "choices": [
-        "Managing vehicle access",
         "Measuring weather",
         "Washing cars",
+        "Managing vehicle access",
         "Changing light colors"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Think about an entrance that lets vehicles in or out.",
       "explanation": "Slide 2 describes controlling vehicle access."
     },
@@ -28,12 +28,12 @@ export const parkingGateBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Why did intelligent gates become more useful as vehicle numbers increased?",
       "choices": [
-        "Manual gates became difficult to manage",
         "Cars no longer needed entrances",
         "Parking areas stopped using barriers",
-        "Every car required a new road"
+        "Every car required a new road",
+        "Manual gates became difficult to manage"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Compare operating gates by hand with automated operation.",
       "explanation": "Slide 3 says increasing vehicle numbers made manual gates difficult."
     },
@@ -58,12 +58,12 @@ export const parkingGateBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "What event should start the parking gate in the infrared-sensor task?",
       "choices": [
-        "A vehicle approaching",
         "Changing the controller's case color",
+        "A vehicle approaching",
         "Turning off room lights",
         "Having no sensor reading"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Look for the condition that starts gate operation.",
       "explanation": "Slide 14 says the gate begins working when a vehicle approaches."
     },
@@ -73,12 +73,12 @@ export const parkingGateBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "What other application of the infrared sensor appears in the evaluation?",
       "choices": [
-        "Recognizing colors",
         "Playing audio",
         "Measuring rain",
+        "Recognizing colors",
         "Turning a motor by itself"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The evaluation asks what color the sensor identifies.",
       "explanation": "Slide 15 describes infrared color recognition."
     },
@@ -88,12 +88,12 @@ export const parkingGateBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "What should students observe after entering two numbers in the infrared evaluation?",
       "choices": [
-        "The recognized color",
         "Wheel count",
         "Sound decibels",
-        "Battery serial number"
+        "Battery serial number",
+        "The recognized color"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Look at the color-recognition result.",
       "explanation": "Slide 15 asks students to enter two numbers and observe the identified color."
     },
@@ -118,12 +118,12 @@ export const parkingGateBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "What other output can the controller make besides motor movement?",
       "choices": [
-        "Sound",
         "Rain",
+        "Sound",
         "Printed paper",
         "Steam"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The summary mentions another controller output.",
       "explanation": "Slide 16 states that the controller can produce sound."
     },
@@ -133,12 +133,12 @@ export const parkingGateBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "Where is the finished program downloaded?",
       "choices": [
-        "To the controller",
         "Into a traffic pole",
         "Into a fuel tank",
+        "To the controller",
         "Onto a printed worksheet"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The controller runs the program.",
       "explanation": "Slide 16 says students download their program to the controller."
     },
@@ -148,12 +148,12 @@ export const parkingGateBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "What scene are students asked to simulate after building the gate?",
       "choices": [
-        "A car passing through a parking gate",
         "A robot crossing a river",
         "An elevator moving",
-        "A solar panel following the sun"
+        "A solar panel following the sun",
+        "A car passing through a parking gate"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The final task recreates a real parking entrance.",
       "explanation": "Slide 16 asks students to simulate a car passing through the gate."
     }

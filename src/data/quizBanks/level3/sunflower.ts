@@ -13,12 +13,12 @@ export const sunflowerBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "What makes objects visible to us according to the lesson?",
       "choices": [
-        "Light reflected from objects",
         "A sound produced by the object",
         "A magnetic pull",
-        "The object's weight"
+        "The object's weight",
+        "Light reflected from objects"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The introduction asks why we can see the colorful world.",
       "explanation": "Slide 6 explains that reflected light allows us to see objects."
     },
@@ -43,12 +43,12 @@ export const sunflowerBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "What does a photosensitive sensor turn an optical signal into?",
       "choices": [
-        "An electrical signal",
         "A mechanical gear",
+        "An electrical signal",
         "A sound file",
         "A paper image"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The sensor transforms incoming light into usable electronic information.",
       "explanation": "Slide 9 defines photosensitive sensors as converting light signals to electrical signals."
     },
@@ -58,12 +58,12 @@ export const sunflowerBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which other sensor can also be used as a light sensor, according to the lesson?",
       "choices": [
-        "A color sensor",
         "A pressure gauge",
         "A gyroscope",
+        "A color sensor",
         "A wheel encoder"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Look for the alternative sensor named on the slide.",
       "explanation": "Slide 9 says a color sensor can serve as a light sensor."
     },
@@ -73,12 +73,12 @@ export const sunflowerBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Which environment should be avoided when using the photosensitive sensor?",
       "choices": [
-        "A humid environment",
         "A normal dry classroom",
         "A bright room",
-        "An indoor desk"
+        "An indoor desk",
+        "A humid environment"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The sensor-care page mentions moisture.",
       "explanation": "Slide 10 advises avoiding humid environments."
     },
@@ -103,12 +103,12 @@ export const sunflowerBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "Which household feature is mentioned as an application of photosensitive sensing?",
       "choices": [
-        "Automatic television brightness adjustment",
         "Automatic water filtration",
+        "Automatic television brightness adjustment",
         "Mechanical clock winding",
         "Air pressure calibration"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about an appliance adapting to light.",
       "explanation": "Slide 11 names automatic TV brightness adjustment."
     },
@@ -118,12 +118,12 @@ export const sunflowerBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "How can a simple photosensitive resistor help an automatic lamp?",
       "choices": [
-        "Sense light changes to help control switching",
         "Measure distance by ultrasound",
         "Produce music without speakers",
+        "Sense light changes to help control switching",
         "Detect touch pressure"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The lesson describes automatic LED switching.",
       "explanation": "Slide 11 says light-dependent electrical signals can be amplified to control lamps automatically."
     },
@@ -133,12 +133,12 @@ export const sunflowerBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What is the intended movement of the robot sunflower?",
       "choices": [
-        "Turn toward the light",
         "Follow a black floor line",
         "Close when touched",
-        "Avoid sound sources"
+        "Avoid sound sources",
+        "Turn toward the light"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The model imitates how sunflowers face sunlight.",
       "explanation": "Slide 7 describes the robot turning toward light."
     },
