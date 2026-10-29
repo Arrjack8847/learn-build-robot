@@ -1,117 +1,164 @@
 /**
- * PHASE 2 — UNREVIEWED DRAFT. Never register, publish, or count as ready.
- * The exact Learning PDF mapping comes from quiz-learning-source-manifest.json.
- * Educational answers/page numbers intentionally remain invalid until the
- * actual PDF pages, illustrations, and teaching objectives are reviewed.
- * Standard: 5 objectives x 2 questions = 10 questions, 4 answers each.
+ * Phase 2 source-text-grounded question bank (PDF visual review pending).
+ * Do not register or publish until diagram/age QA is complete.
  */
 import type { QuizBank } from "../quizStudio";
 
 export const shyPenguinBank: QuizBank = {
-  projectId: "shy-penguin",
-  title: "Shy Penguin",
-  sourcePdfPath: "public/Level 1/Learning/Biomimicry/Shy penguin.pdf",
-  sourcePageCount: 0, // TODO: verify total pages from actual PDF
-  questions: [
+  "projectId": "shy-penguin",
+  "title": "Shy Penguin",
+  "sourcePdfPath": "public/Level 1/Learning/Biomimicry/Shy penguin.pdf",
+  "sourcePageCount": 24,
+  "questions": [
     {
-      id: "shy-penguin-01",
-      topic: "objective-1",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "shy-penguin-01",
+      "topic": "penguin-facts",
+      "learningSlide": 2,
+      "prompt": "How does the lesson describe a penguin's movement abilities?",
+      "choices": [
+        "It flies long distances",
+        "It cannot fly but swims well",
+        "It cannot swim",
+        "It only travels by jumping"
+      ],
+      "correctIndex": 1,
+      "hint": "Compare the two ways birds may move.",
+      "explanation": "The introduction says penguins cannot fly and are strong swimmers."
     },
     {
-      id: "shy-penguin-02",
-      topic: "objective-1",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "shy-penguin-02",
+      "topic": "penguin-facts",
+      "learningSlide": 3,
+      "prompt": "How does the lesson describe the penguin when people approach?",
+      "choices": [
+        "It may become nervous",
+        "It always attacks",
+        "It instantly begins to fly",
+        "It turns into a statue"
+      ],
+      "correctIndex": 0,
+      "hint": "Think about why this model is called 'shy'.",
+      "explanation": "The introduction says a penguin may become nervous when humans approach too closely."
     },
     {
-      id: "shy-penguin-03",
-      topic: "objective-2",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "shy-penguin-03",
+      "topic": "sensor-choice",
+      "learningSlide": 5,
+      "prompt": "Which sensor does the shy penguin model use to detect obstacles ahead?",
+      "choices": [
+        "Gray sensor",
+        "Touch sensor",
+        "Infrared sensor",
+        "Temperature sensor"
+      ],
+      "correctIndex": 2,
+      "hint": "Think about detecting a person before contact.",
+      "explanation": "The exploration specifies an infrared sensor to detect obstacles ahead."
     },
     {
-      id: "shy-penguin-04",
-      topic: "objective-2",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "shy-penguin-04",
+      "topic": "sensor-choice",
+      "learningSlide": 6,
+      "prompt": "Which mechanical transmission type is named in the penguin design?",
+      "choices": [
+        "Bevel gear drive",
+        "Hydraulic piston drive",
+        "Belt conveyor drive",
+        "Wind turbine drive"
+      ],
+      "correctIndex": 0,
+      "hint": "Look for the gear arrangement mentioned in the model requirements.",
+      "explanation": "The construction goals include gear drive and bevel gear drive."
     },
     {
-      id: "shy-penguin-05",
-      topic: "objective-3",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "shy-penguin-05",
+      "topic": "connections",
+      "learningSlide": 18,
+      "prompt": "Which controller port is used for the penguin motor?",
+      "choices": [
+        "Port 1",
+        "Port A",
+        "Port 4",
+        "Port B only"
+      ],
+      "correctIndex": 1,
+      "hint": "Remember the lettered connection used for motion.",
+      "explanation": "The construction slide says to connect the motor to port A."
     },
     {
-      id: "shy-penguin-06",
-      topic: "objective-3",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "shy-penguin-06",
+      "topic": "connections",
+      "learningSlide": 18,
+      "prompt": "Where does the infrared sensor connect in the penguin project?",
+      "choices": [
+        "Port 1",
+        "Port A",
+        "Port B",
+        "The speaker outlet"
+      ],
+      "correctIndex": 0,
+      "hint": "Check the numbered input port.",
+      "explanation": "The slide connects the infrared sensor to port 1."
     },
     {
-      id: "shy-penguin-07",
-      topic: "objective-4",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "shy-penguin-07",
+      "topic": "obstacle-response",
+      "learningSlide": 19,
+      "prompt": "How does the penguin move when no obstacle is in front?",
+      "choices": [
+        "Backwards quickly",
+        "It remains still forever",
+        "Forwards slowly",
+        "In a fast circle"
+      ],
+      "correctIndex": 2,
+      "hint": "Think about the model's normal movement when nothing is nearby.",
+      "explanation": "The coding slide says the penguin moves slowly forward when no obstacle is detected."
     },
     {
-      id: "shy-penguin-08",
-      topic: "objective-4",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "shy-penguin-08",
+      "topic": "obstacle-response",
+      "learningSlide": 19,
+      "prompt": "What happens when the penguin detects an obstacle?",
+      "choices": [
+        "It moves backward for two seconds and stops",
+        "It flies over the obstacle",
+        "It moves forward faster",
+        "It changes the battery"
+      ],
+      "correctIndex": 0,
+      "hint": "Recall the shy reaction programmed for a nearby object.",
+      "explanation": "The project describes backing away for two seconds and then stopping."
     },
     {
-      id: "shy-penguin-09",
-      topic: "objective-5",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "shy-penguin-09",
+      "topic": "repeated-behaviour",
+      "learningSlide": 21,
+      "prompt": "When the person is no longer detected, what should the penguin do?",
+      "choices": [
+        "Move forward again",
+        "Continue reversing forever",
+        "Disable all sensors",
+        "Stay in place regardless of the sensor"
+      ],
+      "correctIndex": 0,
+      "hint": "Think about how the robot resumes its normal behaviour.",
+      "explanation": "The follow-up coding task has the penguin move forward again once the person is no longer seen."
     },
     {
-      id: "shy-penguin-10",
-      topic: "objective-5",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
-    },
-  ],
+      "id": "shy-penguin-10",
+      "topic": "repeated-behaviour",
+      "learningSlide": 21,
+      "prompt": "What extra behaviour is requested after programming the penguin to back away?",
+      "choices": [
+        "Restart movement when the obstacle disappears",
+        "Remove the infrared sensor",
+        "Reverse at all times",
+        "Drive both motors without sensing"
+      ],
+      "correctIndex": 0,
+      "hint": "Compare the second programming task with the first.",
+      "explanation": "The second task adds resuming forward movement after the detected person goes away."
+    }
+  ]
 };
