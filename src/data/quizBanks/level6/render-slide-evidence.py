@@ -109,7 +109,7 @@ def main():
             result = {"projectId": entry["projectId"], "status": "blocked", "reason": str(error)}
         results.append(result)
         print(entry["projectId"] + ": " + result["status"])
-    (OUTPUT / "batch-summary.json").write_text(json.dumps({
+    (OUTPUT / f"batch-summary-{args.start:02d}.json").write_text(json.dumps({
         "start": args.start, "count": len(selected), "results": results,
         "quizBanksPublished": 0,
         "educationalReviewComplete": False,
