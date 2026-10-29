@@ -17,6 +17,12 @@ test("33 pending Level 1 banks remain unpublished and preview is dev-only", asyn
   assert.ok(route.includes('new URLSearchParams(window.location.search).get("preview") === "1"'));
   assert.ok(route.includes('void import("@/data/quizPreviewBanks")'));
   assert.ok(route.includes("Scores are saved separately from student results"));
+  const overview = await file("src/routes/projects.$projectId.tsx");
+  assert.ok(overview.includes('const canPreviewQuiz = import.meta.env.DEV && level === 1 &&'));
+  assert.ok(overview.includes('quizEntry?.status === "needs-question-review"'));
+  assert.ok(overview.includes('href={`/quiz/${encodeURIComponent(project.id)}?preview=1`}'));
+  assert.ok(overview.includes("Test Quiz (Draft)"));
+  assert.ok(overview.includes("Questions have not been approved for students."));
   assert.ok(!((await file("src/data/quizStudio.ts")).includes('import { ferociousSnakeBank }')));
 });
 

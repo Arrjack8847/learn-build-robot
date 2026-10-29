@@ -65,6 +65,10 @@ function ProjectOverviewPage() {
   const supplementaryPdfs = isLevelFiveSix ? getProjectSupplementaryPdfs(project.id) : [];
   const quizEntry = getQuizSyllabusEntry(project.id);
   const quizReady = quizEntry?.status === "ready";
+  // Only show a draft quiz shortcut on the developer's local Vite server.
+  // The public "Open Quiz" CTA still depends exclusively on published readiness.
+  const canPreviewQuiz = import.meta.env.DEV && level === 1 &&
+    quizEntry?.status === "needs-question-review";
 
   return (
     <div className="relative h-[100dvh] overflow-y-auto bg-white text-[#132654]">
@@ -191,6 +195,14 @@ function ProjectOverviewPage() {
                   className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 font-extrabold text-white hover:bg-[#0d7fda]">
                   Open Quiz <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
+              ) : canPreviewQuiz ? (
+                <div className="mt-5 space-y-2">
+                  <a href={`/quiz/${encodeURIComponent(project.id)}?preview=1`}
+                    className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl border border-amber-300 bg-amber-50 px-4 text-sm font-extrabold text-amber-900 hover:bg-amber-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500">
+                    <ClipboardCheck className="size-4" aria-hidden="true" /> Test Quiz (Draft)
+                  </a>
+                  <p className="text-xs font-semibold leading-5 text-amber-900">Local development preview only. Questions have not been approved for students.</p>
+                </div>
               ) : (
                 <span aria-disabled="true"
                   className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-slate-100 px-4 text-sm font-extrabold text-slate-500">
