@@ -1,0 +1,95 @@
+{
+  "projectId": "level-6-smart-fan",
+  "sourcePath": "public/Level 6/Learning/Interactive Systems/Smart Fan/31.Smart Fan-Teaching Slides.pdf",
+  "wixFileId": "7fc4ca_401042567af7472aa5e35a1a044c3dd4.pdf",
+  "sourceBytes": 1253499,
+  "pageCount": 21,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 31.  | Smart Fan | edu.zmrobo.com | LECTURER | ͵"
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties     | 1. | In | - | depth | understanding | of | the | temperature | and | humidity | sensor | . | 2. | Learn | about | the | working | principle | of | temperature | - | controlled | fans | . | 1. | The | temperature | value | will | jump | . | 2. | The | method | of | dealing | with | the | jumping | temperature | sensor | value | ."
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information"
+    },
+    {
+      "slide": 4,
+      "text": "Context Import | In | the | hot | summer, | fans | and | air | conditioners | are | essential | household | appliances | . | With | the | development | of | smart | homes, | fans | have | also | become | more | intelligent | . | Some | can | be | controlled | by | voice, | some | can | be | controlled | by | mobile | phone | and | some | can | use | the | temperature | to | control | the | switch | of | the | fan | ."
+    },
+    {
+      "slide": 5,
+      "text": "Context Import | The | operation | principle | of | these | fans | that | can | be | controlled | by | temperature | is | to | detect | the | temperature | of | the | surrounding | environment | of | the | fan, | and | realize | the | switch | and | gear | speed | of | the | fan | according | to | the | temperature | value | . | We | can | use | the | temperature | and | humidity | sensor | to | make | a | temperature | - | controlled | fan | ."
+    },
+    {
+      "slide": 6,
+      "text": "Knowledge  | Introduction"
+    },
+    {
+      "slide": 7,
+      "text": "New Knowledge | In | addition | to | temperature, | there | is | also | humidity | that | affects | the | temperature | of | the | human | body | . | The | high | water | vapor | content | in | the | air, | the | high | density | of | air | molecules, | and | the | strong | thermal | conductivity, | the | more | sensitive | people | are | to | changes | in | temperature | . | The | same | 30 | ° | C, | at | a | relative | humidity | of | 50 | % | When | the | humidity | is | 80 | % | , | the | body | temperature | will | rise | to | 37 | . | 8 | ° | C | ."
+    },
+    {
+      "slide": 8,
+      "text": "New Knowledge | When | is | the | best | time | to | turn | on | the | fan? | The | most | suitable | temperature | for | reference | to | the | human | body | is | 19 | ~ | 24 | ° | C | . | When | the | ambient | temperature | exceeds | this | range, | it | is | necessary | to | take | corresponding | measures | . | Timely | monitoring | of | the | ambient | temperature | can | help | us | stay | in | a | comfortable | environment | at | all | times | and | avoid | colds | caused | by | human | discomfort | ."
+    },
+    {
+      "slide": 9,
+      "text": "Practice"
+    },
+    {
+      "slide": 10,
+      "text": "New Knowledge | Fan | Temperature  | and humidity  | sensor | Indicator Light | Assemble | a | temperature | - | controlled | fan | according | to | the | construction | manual | . | When | the | temperature | exceeds | 25 | degrees, | it | will | turn | on | by | itself | . | Note | : | If | the | local | temperature | is | higher | than | 25 | degrees, | you | can | reverse | the | program | to | start | the | fan | when | it | is | lower | than | 25 | degrees | ."
+    },
+    {
+      "slide": 11,
+      "text": "Practice | Flow Chart | A | Simple | flow | chart | of | temperature | control | fan | After | the | temperature | and | humidity | sensor | detects | that | the | ambient | temperature | is | higher | than | the | set | value, | the | fan | is | started | . | When | the | temperature | is | between | the | two | temperatures, | the | value | of | the | sensor | will | jump | back | and | forth | between | these | two | values, | which | will | cause | the | fan | to | switch | continuously | . | Obviously | this | is | a | bug | that | does | not | meet | our | ideas | ."
+    },
+    {
+      "slide": 12,
+      "text": "Practice | Flow Chart | To | deal | with | this | problem, | we | need | to | obtain | stable | temperature | data, | i | . | e | . | , | wait | until | the | sensor | value | does | not | change | for | a | longer | period | of | time | before | using | this | value | as | a | basis | for | determining | the | temperature | . | The | value | is | used | only | if | the | temperature | does | not | change | within | 3 | seconds | and | is | equal | ."
+    },
+    {
+      "slide": 13,
+      "text": "Practice | Programming | 01 | logo | Read | the | data | Store | the | sensor | data | in | a | variable, | and | store | that | value | in | another | variable | ."
+    },
+    {
+      "slide": 14,
+      "text": "Practice | Programming | 02 | logo | Data | processing | Compare | the | two | variables, | if | the | temperature | data | does | not | change | within | three | seconds, | go | to | the | next | step | . | After | three | seconds, | the | data | may | enter | the | next | step | when | they | are | not | equal, | and | judgment | must | be | made | again | ."
+    },
+    {
+      "slide": 15,
+      "text": "Practice | Programming | 03 | The | judgment | of | temperature | First | judge | whether | the | temperature | values | are | consistent, | if | not, | return | to | the | initial | process, | if | consistent, | the | temperature | is | greater | than | 25 | , | the | fan | turns, | and | the | red | light | turns | on | ; | if | not, | the | fan | does | not | turn, | and | the | green | light | turns | on | ."
+    },
+    {
+      "slide": 16,
+      "text": "Practice | Programming | logo | 04 | Integrate the program | Integrate the program according to  | the program flowchart."
+    },
+    {
+      "slide": 17,
+      "text": "Practice | Programming | logo"
+    },
+    {
+      "slide": 18,
+      "text": "Results"
+    },
+    {
+      "slide": 19,
+      "text": "Program Optimization | This | class | realizes | the | function | of | temperature | control | fan, | starts | the | fan | when | the | temperature | is | high, | and | turns | off | the | fan | when | the | temperature | is | low | . | Next, | modify | the | program | so | that | the | fan | can | quickly | determine | whether | the | data | is | no | longer | fluctuating | . | Requirement | : | On | the | premise | of | achieving | the | same | effect, | try | to | simplify | the | program | ."
+    },
+    {
+      "slide": 20,
+      "text": "Further Reading | The | suitable | temperature | for | body | feeling | is | about | 22 | to | 26 | degrees, | and | the | relative | humidity | is | 40 | % | to | 70 | % | . | In | such | an | environment | of | temperature | and | humidity, | the | human | body | feels | relatively | comfortable | . | Moreover, | the | survival | time | of | bacteria | in | this | environment | is | the | shortest, | and | various | germs | are | not | easy | to | spread | . | In | summer, | when | the | temperature | exceeds | 30 | degrees | and | the | humidity | exceeds | 80 | % | , | it | is | easy | to | experience | a | sauna | feeling | and | heat | stroke, | which | can | be | improved | by | dehumidification | of | the | air | conditioner | . | However, | if | the | air | conditioner | is | used | for | too | long, | the | humidity | will | be | too | low, | causing | dry | mouth | and | nose | and | easy | to | catch | a | cold | ."
+    },
+    {
+      "slide": 21,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER: "
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}
