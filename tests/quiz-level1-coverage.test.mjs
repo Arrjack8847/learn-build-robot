@@ -117,3 +117,16 @@ test("existing Quiz route retains hint, navigation, saved progress and slide-rev
   assert.ok(studio.includes("Construction Manual"));
   assert.ok(studio.includes("Official teaching slides are not available"));
 });
+
+test("Building-only projects have a distinct blocked state and cannot be described as lectures", async () => {
+  const syllabus = await readFile(resolve(root, "src/data/quizSyllabus.ts"), "utf8");
+  const projectPage = await readFile(resolve(root, "src/routes/projects.$projectId.tsx"), "utf8");
+  assert.ok(syllabus.includes('"building-manual-only"'), "missing fallback status");
+  assert.ok(syllabus.includes("buildingManualOnlyLevelOneIds.has(projectId)"),
+    "fallback gate must check source kind per project");
+  assert.ok(projectPage.includes('quizEntry.status === "building-manual-only"'));
+  assert.ok(projectPage.includes("Only a Building manual was supplied"));
+  for (const id of buildingOnlyIds) {
+    assert.equal(getQuizBank(id), undefined, id + ": fallback is not a published quiz");
+  }
+});
