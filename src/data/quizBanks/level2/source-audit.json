@@ -10,20 +10,20 @@
     "uniqueSourcePdfs": 59,
     "existingPublishedBanks": 2,
     "existingQuestions": 20,
-    "missingBanks": 40,
-    "questionTargetForMissingBanks": 400,
-    "newBanksWrittenByThisWorker": 18,
+    "missingBanks": 0,
+    "questionTargetForMissingBanks": 0,
+    "newBanksWrittenByThisWorker": 58,
     "authoredButNotIntegrated": 0,
-    "newQuestionsWrittenByThisWorker": 180,
-    "stillMissingBankFiles": 40,
-    "registeredSourcePdfPagesVerified": 283,
+    "newQuestionsWrittenByThisWorker": 580,
+    "stillMissingBankFiles": 0,
+    "registeredSourcePdfPagesVerified": 1090,
     "initialMissingBanks": 58,
     "initialQuestionTarget": 580,
-    "playableBanks": 20,
-    "playableQuestions": 200,
-    "ciStatus": "blocked-before-runner-start: both jobs failed with zero executed steps at GitHub run 40827960743",
+    "playableBanks": 60,
+    "playableQuestions": 600,
+    "ciStatus": "not rerun on current all-60 branch",
     "pdfSourceBatch1Verified": true,
-    "fullLevel2SourceExtractionStatus": "In progress via isolated Vercel Sandbox using direct GitHub PDF base64 transfer (first new source: Bee 20 pages)."
+    "fullLevel2SourceExtractionStatus": "All 40 formerly unbanked PDFs downloaded and text-extracted from official registered hosted copies on 2026-10-29; sparse diagram-only pages require further visual QA."
   },
   "notes": [
     "This is an authoring audit, NOT a set of playable quiz banks.",
@@ -32,7 +32,10 @@
     "The 15 building-PDF fallbacks may not contain enough teaching objectives to support a ten-question Learning quiz; flag insufficient sources instead of inventing material.",
     "The first five PDF sources in the extractor's manifest order differ from the first five-project authoring queue generated in project-registry order. Batch labels distinguish source extraction from authoring groups.",
     "The four source-verified Batch 1 bank files are now imported by quizStudio.ts, making six total Level 2 quizzes available in the existing runtime. These four imports were added with no Quiz UI or Building changes.",
-    "GitHub Actions run 40827960743 failed before any steps ran; unit tests, tsc, build and full-source extraction remain unexecuted."
+    "GitHub Actions run 40827960743 failed before any steps ran; unit tests, tsc, build and full-source extraction remain unexecuted.",
+    "2026-10-29: 40 previously unbanked PDF assets were downloaded from their verified registered Wix source URLs and text-extracted with PyMuPDF; forty authored ten-question banks were integrated in quizStudio.ts, bringing Level 2 to 60 banks and 600 questions.",
+    "Dung Beetle and Reverse Parking legacy PDF filenames are cross-labeled relative to the teaching contents; pdfActivityManuals.ts routes each project to the PDF matching the lesson body. File cover/title mismatch remains to be repaired in the source PDFs.",
+    "The 2026-10-29 source text pass is not a full visual review of the 15 Building-manual image-only assembly sequences, nor is it a passing browser test."
   ],
   "projects": [
     {
@@ -160,10 +163,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Characters & Structures/Mechanical dog/Mechanical dog_PowerPoint-R.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 22,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 13,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-scaling-ladder",
@@ -186,10 +191,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Characters & Structures/Tower crane/Tower crane_Powerpoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 16,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 5,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-crane",
@@ -199,10 +206,12 @@
       "sourcePdfPath": "public/Crane.pdf",
       "sourceType": "building-pdf-learning-fallback",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 20,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "teacher-guide-text-reviewed; visual-heavy-assembly-pages-require-manual-QA",
+      "sparseTextPages": 16,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-fare-gate",
@@ -212,10 +221,12 @@
       "sourcePdfPath": "public/Fare Gate.pdf",
       "sourceType": "building-pdf-learning-fallback",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 14,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "teacher-guide-text-reviewed; visual-heavy-assembly-pages-require-manual-QA",
+      "sparseTextPages": 10,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-forklift",
@@ -225,10 +236,12 @@
       "sourcePdfPath": "public/Forklift.pdf",
       "sourceType": "building-pdf-learning-fallback",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 24,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "teacher-guide-text-reviewed; visual-heavy-assembly-pages-require-manual-QA",
+      "sparseTextPages": 20,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-hammer-robot",
@@ -238,10 +251,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Foundational Robots/Hammer robot.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 22,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 14,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-lucky-turntable",
@@ -251,10 +266,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Foundational Robots/Lucky turntable.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 22,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 11,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-tightrope-walk",
@@ -264,10 +281,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Foundational Robots/Tightrope walk.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 14,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 5,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-manual-flashlight",
@@ -277,10 +296,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Illumination & Signals/Manual Flashlight/Flashlight_Powerpoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 16,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 6,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-jumping-machine",
@@ -290,23 +311,28 @@
       "sourcePdfPath": "public/Level 2/Learning/Interactive Mechanisms/Jumping machine/Jumping machine_Powerpoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 16,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 5,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-dung-beetle",
       "title": "Dung Beetle",
       "projectNumber": 82,
       "categoryId": "machines-mechanisms",
-      "sourcePdfPath": "public/Dung Beetle.pdf",
+      "sourcePdfPath": "public/Reverse Parking.pdf",
       "sourceType": "building-pdf-learning-fallback",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 26,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "teacher-guide-text-reviewed; visual-heavy-assembly-pages-require-manual-QA",
+      "sparseTextPages": 22,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29",
+      "sourceContentMismatchNote": "Original PDF filename/cover names Reverse Parking, but all inner teaching content is Dung Beetle"
     },
     {
       "projectId": "level-2-mobile-shot",
@@ -316,10 +342,12 @@
       "sourcePdfPath": "public/Mobile Shot.pdf",
       "sourceType": "building-pdf-learning-fallback",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 20,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "teacher-guide-text-reviewed; visual-heavy-assembly-pages-require-manual-QA",
+      "sparseTextPages": 16,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-rolling-shutter",
@@ -329,10 +357,12 @@
       "sourcePdfPath": "public/Rolling Shutter.pdf",
       "sourceType": "building-pdf-learning-fallback",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 16,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "teacher-guide-text-reviewed; visual-heavy-assembly-pages-require-manual-QA",
+      "sparseTextPages": 12,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-track-rickshaw",
@@ -342,10 +372,12 @@
       "sourcePdfPath": "public/Track Rickshaw.pdf",
       "sourceType": "building-pdf-learning-fallback",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 18,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "teacher-guide-text-reviewed; visual-heavy-assembly-pages-require-manual-QA",
+      "sparseTextPages": 14,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-car-steering",
@@ -355,10 +387,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Manipulators/Car Steering.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 22,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 13,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-cliff-walk",
@@ -368,10 +402,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Manipulators/Cliff walk.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 12,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 4,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-ferris-wheel",
@@ -381,10 +417,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Manipulators/Ferris wheel.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 22,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 11,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-round-trip-transportation",
@@ -394,10 +432,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Manipulators/Round-trip transportation.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 15,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 8,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-shift-gears",
@@ -407,10 +447,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Manipulators/Shift gears.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 19,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 11,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-bridge",
@@ -420,10 +462,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Mechanisms & Simulators/Bridge/Bridge_Powerpoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 16,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 5,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-mechanisms-simulators-crane",
@@ -446,10 +490,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Mechanisms & Simulators/Door/Door_Powerpoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 19,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 5,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-double-beam-crane",
@@ -472,10 +518,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Mechanisms & Simulators/Gearbox/Gearbox_Powerpoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 16,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 5,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-hand-crank",
@@ -485,10 +533,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Mechanisms & Simulators/Hand crank/Hand crank_Powerpoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 15,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 5,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-spinning-bike",
@@ -524,10 +574,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Mechanisms & Simulators/Treadmill/Treadmill_Powerpoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 19,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 6,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-animal-trap",
@@ -550,10 +602,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Mechanisms and Concepts/Headlights.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 14,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 6,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-battery-robot",
@@ -576,10 +630,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Sensor-Focused Robots/Walking robot/Walking robot_PowerPoint -R.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 35,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 23,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-led-scrolling-screen",
@@ -589,10 +645,12 @@
       "sourcePdfPath": "public/LED Scrolling Screen.pdf",
       "sourceType": "building-pdf-learning-fallback",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 10,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 6,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-led-signboard",
@@ -602,10 +660,12 @@
       "sourcePdfPath": "public/LED Signboard.pdf",
       "sourceType": "building-pdf-learning-fallback",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 12,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 8,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-harp",
@@ -641,10 +701,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Vehicles & Complex Movers/Lifting door/Lifting door_Powerpoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 16,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 5,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-teeterboard",
@@ -654,10 +716,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Vehicles & Complex Movers/Teeterboard/13.Teeterboard_PowerPoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 21,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 11,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-four-wheel-drive",
@@ -667,10 +731,12 @@
       "sourcePdfPath": "public/Four-wheel Drive.pdf",
       "sourceType": "building-pdf-learning-fallback",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 16,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "teacher-guide-text-reviewed; visual-heavy-assembly-pages-require-manual-QA",
+      "sparseTextPages": 12,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-pedal-waterwheel",
@@ -680,10 +746,12 @@
       "sourcePdfPath": "public/Pedal Waterwheel.pdf",
       "sourceType": "building-pdf-learning-fallback",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 12,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "teacher-guide-text-reviewed; visual-heavy-assembly-pages-require-manual-QA",
+      "sparseTextPages": 9,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-tank",
@@ -693,10 +761,12 @@
       "sourcePdfPath": "public/Tank.pdf",
       "sourceType": "building-pdf-learning-fallback",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 32,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "teacher-guide-text-reviewed; visual-heavy-assembly-pages-require-manual-QA",
+      "sparseTextPages": 28,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-see-saw-v1",
@@ -706,10 +776,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Interactive Systems/See Saw/Balance_PowerPoint-R.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 17,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 6,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-see-saw-v2",
@@ -719,10 +791,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Interactive Systems/See Saw/Balance_PowerPoint-R.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 17,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 6,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-tongs",
@@ -732,23 +806,28 @@
       "sourcePdfPath": "public/Level 2/Learning/Interactive Systems/Tongs/Pliers_PowerPoint -R .pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 16,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 6,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-reverse-parking",
       "title": "Reverse Parking",
       "projectNumber": 116,
       "categoryId": "sensors",
-      "sourcePdfPath": "public/Reverse Parking.pdf",
+      "sourcePdfPath": "public/Dung Beetle.pdf",
       "sourceType": "building-pdf-learning-fallback",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 12,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 8,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29",
+      "sourceContentMismatchNote": "Original PDF filename/cover names Dung Beetle, but all inner teaching content is Reverse Parking"
     },
     {
       "projectId": "level-2-smart-window",
@@ -758,10 +837,12 @@
       "sourcePdfPath": "public/Smart Window.pdf",
       "sourceType": "building-pdf-learning-fallback",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 18,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "teacher-guide-text-reviewed; visual-heavy-assembly-pages-require-manual-QA",
+      "sparseTextPages": 14,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-spirograph",
@@ -771,10 +852,12 @@
       "sourcePdfPath": "public/Spirograph.pdf",
       "sourceType": "building-pdf-learning-fallback",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 20,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "teacher-guide-text-reviewed; visual-heavy-assembly-pages-require-manual-QA",
+      "sparseTextPages": 16,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-automatic-window",
@@ -797,10 +880,12 @@
       "sourcePdfPath": "public/Level 2/Learning/Machines & Mechanisms/Robot war.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 25,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual QA of diagrams still recommended",
+      "sparseTextPages": 15,
+      "sourcePdfDownloadStatus": "downloaded-and-extracted-2026-10-29"
     },
     {
       "projectId": "level-2-the-treadmill",
@@ -826,7 +911,7 @@
         "level-2-rotating-flying-chair",
         "level-2-throwing-robot"
       ],
-      "status": "5-of-5-integrated"
+      "status": "all-bank-files-integrated; visual-QA-and-runtime-test-pending"
     },
     {
       "batch": 2,
@@ -837,7 +922,7 @@
         "level-2-scaling-ladder",
         "level-2-tower-crane"
       ],
-      "status": "3-of-5-integrated"
+      "status": "all-bank-files-integrated; visual-QA-and-runtime-test-pending"
     },
     {
       "batch": 3,
@@ -848,7 +933,7 @@
         "level-2-hammer-robot",
         "level-2-lucky-turntable"
       ],
-      "status": "pending-source-review"
+      "status": "all-bank-files-integrated; visual-QA-and-runtime-test-pending"
     },
     {
       "batch": 4,
@@ -859,7 +944,7 @@
         "level-2-dung-beetle",
         "level-2-mobile-shot"
       ],
-      "status": "pending-source-review"
+      "status": "all-bank-files-integrated; visual-QA-and-runtime-test-pending"
     },
     {
       "batch": 5,
@@ -870,7 +955,7 @@
         "level-2-cliff-walk",
         "level-2-ferris-wheel"
       ],
-      "status": "pending-source-review"
+      "status": "all-bank-files-integrated; visual-QA-and-runtime-test-pending"
     },
     {
       "batch": 6,
@@ -881,7 +966,7 @@
         "level-2-mechanisms-simulators-crane",
         "level-2-door"
       ],
-      "status": "1-of-5-integrated"
+      "status": "all-bank-files-integrated; visual-QA-and-runtime-test-pending"
     },
     {
       "batch": 7,
@@ -892,7 +977,7 @@
         "level-2-spinning-bike",
         "level-2-swing"
       ],
-      "status": "3-of-5-integrated"
+      "status": "all-bank-files-integrated; visual-QA-and-runtime-test-pending"
     },
     {
       "batch": 8,
@@ -903,7 +988,7 @@
         "level-2-battery-robot",
         "level-2-walking-robot"
       ],
-      "status": "2-of-5-integrated"
+      "status": "all-bank-files-integrated; visual-QA-and-runtime-test-pending"
     },
     {
       "batch": 9,
@@ -914,7 +999,7 @@
         "level-2-helicopter",
         "level-2-lifting-door"
       ],
-      "status": "2-of-5-integrated"
+      "status": "all-bank-files-integrated; visual-QA-and-runtime-test-pending"
     },
     {
       "batch": 10,
@@ -925,7 +1010,7 @@
         "level-2-tank",
         "level-2-see-saw-v1"
       ],
-      "status": "pending-source-review"
+      "status": "all-bank-files-integrated; visual-QA-and-runtime-test-pending"
     },
     {
       "batch": 11,
@@ -936,7 +1021,7 @@
         "level-2-smart-window",
         "level-2-spirograph"
       ],
-      "status": "pending-source-review"
+      "status": "all-bank-files-integrated; visual-QA-and-runtime-test-pending"
     },
     {
       "batch": 12,
@@ -945,7 +1030,7 @@
         "level-2-robot-war",
         "level-2-the-treadmill"
       ],
-      "status": "2-of-3-integrated"
+      "status": "all-bank-files-integrated; visual-QA-and-runtime-test-pending"
     }
   ],
   "sourceReview": {
@@ -971,5 +1056,86 @@
       "src/data/quizBanks/level2/battingRobot.ts"
     ],
     "note": "All 97 pages in the five uploaded PDFs were inspected, including slides with little text. Four new 10-question banks verified against source and staged for later manual integration. Existing Axe Robot bank unchanged."
+  },
+  "sourceExtraction20261029": {
+    "downloadedPdfCount": 40,
+    "downloadFailures": 0,
+    "newlyAuthoredQuizBanks": 40,
+    "newlyAuthoredQuestions": 400,
+    "pageCountsVerifiedByPdfParser": true,
+    "sourceReviewMode": "Page-by-page text inspected for objective selection, with diagram-only pages flagged; visual review pending on sparse pages",
+    "sourceFilesWithManySparsePages": [
+      {
+        "id": "level-2-crane",
+        "sparsePages": 16,
+        "totalPages": 20
+      },
+      {
+        "id": "level-2-fare-gate",
+        "sparsePages": 10,
+        "totalPages": 14
+      },
+      {
+        "id": "level-2-forklift",
+        "sparsePages": 20,
+        "totalPages": 24
+      },
+      {
+        "id": "level-2-dung-beetle",
+        "sparsePages": 22,
+        "totalPages": 26
+      },
+      {
+        "id": "level-2-mobile-shot",
+        "sparsePages": 16,
+        "totalPages": 20
+      },
+      {
+        "id": "level-2-rolling-shutter",
+        "sparsePages": 12,
+        "totalPages": 16
+      },
+      {
+        "id": "level-2-track-rickshaw",
+        "sparsePages": 14,
+        "totalPages": 18
+      },
+      {
+        "id": "level-2-four-wheel-drive",
+        "sparsePages": 12,
+        "totalPages": 16
+      },
+      {
+        "id": "level-2-pedal-waterwheel",
+        "sparsePages": 9,
+        "totalPages": 12
+      },
+      {
+        "id": "level-2-tank",
+        "sparsePages": 28,
+        "totalPages": 32
+      },
+      {
+        "id": "level-2-smart-window",
+        "sparsePages": 14,
+        "totalPages": 18
+      },
+      {
+        "id": "level-2-spirograph",
+        "sparsePages": 16,
+        "totalPages": 20
+      }
+    ],
+    "correctedCrossLabeledFiles": [
+      {
+        "id": "level-2-dung-beetle",
+        "before": "public/Dung Beetle.pdf"
+      },
+      {
+        "id": "level-2-reverse-parking",
+        "before": "public/Reverse Parking.pdf"
+      }
+    ],
+    "notes": "This extraction audit certifies source availability and page counts. It does not certify full per-question diagram verification, passing UI/browser tests, or deployment."
   }
 }
