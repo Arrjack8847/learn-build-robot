@@ -29,6 +29,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: true
+      - name: Compile PDF slide renderer before expensive extraction
+        run: python3 -m py_compile src/data/quizBanks/level6/render-slide-evidence.py
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
