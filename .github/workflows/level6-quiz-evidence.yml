@@ -7,6 +7,7 @@ on:
     paths:
       - .github/workflows/level6-quiz-evidence.yml
       - src/data/quizBanks/level6/render-slide-evidence.py
+      - scripts/publish-verified-level6.mjs
       - tests/level6-quiz-experiences.test.mjs
       - package.json
   workflow_dispatch:
@@ -31,16 +32,21 @@ jobs:
         run: node scripts/extract-quiz-slides.mjs --level 6 --limit 43 --local-only
       - name: Install slide renderer
         run: python3 -m pip install --quiet 'pymupdf>=1.24,<2'
-      - name: Render every slide of first five unpublished Level 6 Learning PDFs
-        run: python3 src/data/quizBanks/level6/render-slide-evidence.py --start 0 --count 5 --dpi 100
+      - name: Render all 41 unpublished Level 6 Learning PDFs (complete visual evidence)
+        run: |
+          for start in 0 5 10 15 20 25 30 35 40; do
+            python3 src/data/quizBanks/level6/render-slide-evidence.py --start "$start" --count 5 --dpi 100
+          done
       - name: Upload original slide render previews for visual curriculum review
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: level6-first-five-slide-previews
+          name: level6-all-41-slide-previews
           path: quiz-research/visual-review/level6/
           if-no-files-found: warn
           retention-days: 14
+      - name: Automatically register source-approved Level 6 quizzes only
+        run: npm run quiz:publish-level6
       - name: Stage slide evidence under isolated Level 6 directory
         run: |
           mkdir -p src/data/quizBanks/level6/evidence
@@ -50,11 +56,13 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/quizBanks/level6/evidence/
+          git add src/data/quizBanks/level6/evidence/ src/data/quizStudio.ts
           if ! git diff --cached --quiet; then
             git commit -m "chore(quiz-level6): extract slide text from 43 official learning PDFs"
             git push origin HEAD:feat/quiz-level6-content
           fi
+      - name: Audit Level 6 verified quiz publishing readiness
+        run: npm run quiz:audit-level6
       - name: Validate Level 6 quiz structures, attempts, source pages, and resume
         run: npm run test:quiz-level6
       - name: TypeScript type check
