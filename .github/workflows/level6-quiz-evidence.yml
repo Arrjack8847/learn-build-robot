@@ -8,6 +8,12 @@ on:
       - .github/workflows/level6-quiz-evidence.yml
       - src/data/quizBanks/level6/render-slide-evidence.py
       - scripts/publish-verified-level6.mjs
+      - scripts/report-level6-coverage.mjs
+      - scripts/quiz-learning-source-manifest.json
+      - src/data/quizBanks/level6/**
+      - src/data/quizStudio.ts
+      - tests/quiz-level6-publishing.test.mjs
+      - public/Level 6/Learning/**
       - tests/level6-quiz-experiences.test.mjs
       - package.json
   workflow_dispatch:
@@ -32,16 +38,19 @@ jobs:
         run: node scripts/extract-quiz-slides.mjs --level 6 --limit 43 --local-only
       - name: Install slide renderer
         run: python3 -m pip install --quiet 'pymupdf>=1.24,<2'
-      - name: Render all 41 unpublished Level 6 Learning PDFs (complete visual evidence)
+      - name: Generate current Level 6 unpublished queue from registered quiz banks
+        run: node scripts/report-level6-coverage.mjs --write
+      - name: Render all currently unpublished Level 6 Learning PDFs (complete visual evidence)
         run: |
-          for start in 0 5 10 15 20 25 30 35 40; do
+          count=$(node -p 'JSON.parse(require("node:fs").readFileSync("quiz-research/level6-coverage.json","utf8")).remainingUnpublished')
+          for ((start=0; start<count; start+=5)); do
             python3 src/data/quizBanks/level6/render-slide-evidence.py --start "$start" --count 5 --dpi 100
           done
       - name: Upload original slide render previews for visual curriculum review
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: level6-all-41-slide-previews
+          name: level6-unpublished-slide-previews
           path: quiz-research/visual-review/level6/
           if-no-files-found: warn
           retention-days: 14
