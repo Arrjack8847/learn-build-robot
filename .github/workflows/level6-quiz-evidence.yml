@@ -6,6 +6,9 @@ on:
       - feat/quiz-level6-content
     paths:
       - .github/workflows/level6-quiz-evidence.yml
+      - src/data/quizBanks/level6/render-slide-evidence.py
+      - tests/level6-quiz-experiences.test.mjs
+      - package.json
   workflow_dispatch:
 
 permissions:
@@ -22,11 +25,22 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: npm
       - name: Install project dependencies (repository uses bun.lock, not package-lock.json)
         run: npm install --legacy-peer-deps --no-audit --no-fund
       - name: Extract every Level 6 registered official teaching PDF (local checkout only)
         run: node scripts/extract-quiz-slides.mjs --level 6 --limit 43 --local-only
+      - name: Install slide renderer
+        run: python3 -m pip install --quiet 'pymupdf>=1.24,<2'
+      - name: Render every slide of first five unpublished Level 6 Learning PDFs
+        run: python3 src/data/quizBanks/level6/render-slide-evidence.py --start 0 --count 5 --dpi 100
+      - name: Upload original slide render previews for visual curriculum review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: level6-first-five-slide-previews
+          path: quiz-research/visual-review/level6/
+          if-no-files-found: warn
+          retention-days: 14
       - name: Stage slide evidence under isolated Level 6 directory
         run: |
           mkdir -p src/data/quizBanks/level6/evidence
