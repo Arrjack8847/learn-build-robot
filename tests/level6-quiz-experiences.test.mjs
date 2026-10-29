@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { readFile, open, stat } from "node:fs/promises";
+import { readFile, open, stat, readdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve, join } from "node:path";
 import { getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
@@ -41,7 +41,8 @@ test("Level 6 has 43 unique registered real Learning-PDF paths", async () => {
 
 test("only complete, valid, source-linked Level 6 banks are playable", () => {
   const published = levelSix.filter(source => getQuizBank(source.projectId));
-  assert.ok(published.length >= 2, "Existing Altimeter and Ball Tracking banks must be preserved");
+  assert.equal(published.length, 43, "Every registered Level 6 project must have a bank");
+  const questionIds = new Set();
   for (const preserved of ["level-6-altimeter", "level-6-ball-tracking"]) {
     assert.ok(getQuizBank(preserved), "Previously published bank lost: " + preserved);
   }
@@ -52,6 +53,10 @@ test("only complete, valid, source-linked Level 6 banks are playable", () => {
     assert.equal(bank.projectId, source.projectId);
     assert.equal(bank.sourcePdfPath, source.sourcePath);
     assert.equal(bank.questions.length, 10);
+    for (const question of bank.questions) {
+      assert.ok(!questionIds.has(question.id), source.projectId + ": duplicate question id " + question.id);
+      questionIds.add(question.id);
+    }
     assert.ok(Number.isInteger(bank.sourcePageCount) && bank.sourcePageCount > 0);
     for (const question of bank.questions) {
       assert.ok(question.learningSlide >= 1 && question.learningSlide <= bank.sourcePageCount);
@@ -62,12 +67,13 @@ test("only complete, valid, source-linked Level 6 banks are playable", () => {
       assert.ok(Number.isInteger(question.correctIndex) && question.correctIndex >= 0 && question.correctIndex < 4);
     }
   }
+  assert.equal(questionIds.size, 430, "Expected 430 unique question IDs across 43 banks");
 });
 
 test("published Level 6 banks use the actual PDF's page count", async () => {
   for (const source of levelSix) {
     const bank = getQuizBank(source.projectId);
-    if (!bank) continue;
+    assert.ok(bank, source.projectId + ": quiz bank must exist");
     const data = await readFile(resolve(repositoryRoot, source.sourcePath));
     const pdf = await getDocument({
       data: new Uint8Array(data),
@@ -89,7 +95,7 @@ test("Level 6 attempts use one question per objective, new questions on immediat
   assert.equal(QUIZ_PASS_COUNT, 4);
   for (const source of levelSix) {
     const bank = getQuizBank(source.projectId);
-    if (!bank) continue;
+    assert.ok(bank, source.projectId + ": quiz bank must exist");
     const first = selectQuizQuestions(bank, [], () => 0);
     const retry = selectQuizQuestions(bank, first.map(q => q.id), () => 0);
     assert.equal(first.length, 5, source.projectId);
@@ -141,61 +147,53 @@ test("Level 6 saves drafts and best results, and rejects corrupt resume records"
 });
 
 
-test("all eleven source-grounded Level 6 projects remain registered and replayable", () => {
-  const expected = {
-    "level-6-altimeter": 22,
-    "level-6-ball-tracking": 20,
-    "level-6-remote-control-lift": 23,
-    "level-6-dancing-robot": 18,
-    "level-6-finger-guessing-robot": 22,
-    "level-6-gesture-commanding-car": 23,
-    "level-6-high-temperature-alarm": 23,
-    "level-6-matador": 20,
-    "level-6-smart-flashlight": 24,
-    "level-6-the-interesting-rotor": 23,
-    "level-6-regional-weather-station": 24,
-  };
-  for (const [id, pageCount] of Object.entries(expected)) {
-    const bank = getQuizBank(id);
-    assert.ok(bank, id + ": quiz must be published");
-    assert.equal(bank.sourcePageCount, pageCount);
-    assert.deepEqual(validateQuizBank(bank), [], id);
+test("all 43 Level 6 projects remain registered and replayable", () => {
+  assert.equal(levelSix.length, 43);
+  for (const source of levelSix) {
+    const bank = getQuizBank(source.projectId);
+    assert.ok(bank, source.projectId + ": quiz must be registered");
+    assert.deepEqual(validateQuizBank(bank), [], source.projectId);
     const first = selectQuizQuestions(bank, [], () => 0);
     const retry = selectQuizQuestions(bank, first.map(q => q.id), () => 0);
-    assert.equal(first.length, 5);
-    assert.equal(retry.length, 5);
-    assert.equal(first.filter(q => retry.some(x => x.id === q.id)).length, 0, id);
+    assert.equal(first.length, 5, source.projectId);
+    assert.equal(retry.length, 5, source.projectId);
+    assert.equal(first.filter(q => retry.some(x => x.id === q.id)).length, 0, source.projectId);
   }
 });
 
-// Eight published projects have recorded actual slide-text extracts alongside
-// their banks. Verify all referenced slides exist in that original evidence.
-// This does not claim review of illustrations or replace educational QA.
-test("Level 6 saved slide evidence agrees with registered bank references", async () => {
-  const names = [
-    "dancing-robot",
-    "finger-guessing-robot",
-    "gesture-commanding-car",
-    "high-temperature-alarm",
-    "matador",
-    "regional-weather-station",
-    "smart-flashlight",
-    "the-interesting-rotor",
-  ];
-  for (const name of names) {
-    const id = "level-6-" + name;
+// Text extracts prove page numbering, not that PDF diagrams received independent visual review.
+// Two original banks and Remote Control Lift do not have .extracted.json evidence committed.
+test("all 40 Level 6 slide-evidence files agree with the quiz registry", async () => {
+  const evidenceDirectory = join(repositoryRoot, "src/data/quizBanks/level6/evidence");
+  const evidenceFiles = (await readdir(evidenceDirectory))
+    .filter(name => /^level-6-.*\.extracted\.json$/.test(name)).sort();
+  assert.equal(evidenceFiles.length, 40, "Level 6 evidence inventory differs from the committed 40");
+  const evidenceIds = new Set();
+  for (const name of evidenceFiles) {
+    const evidence = JSON.parse(await readFile(join(evidenceDirectory, name), "utf8"));
+    const id = evidence.projectId;
+    assert.equal(name, id + ".extracted.json", id + ": evidence filename mismatch");
+    assert.ok(byProject.has(id), id + ": evidence does not match syllabus");
+    assert.ok(!evidenceIds.has(id), id + ": duplicate evidence");
+    evidenceIds.add(id);
     const bank = getQuizBank(id);
-    assert.ok(bank, id + ": published quiz missing");
-    const evidencePath = join(repositoryRoot, "src/data/quizBanks/level6/evidence", id + ".extracted.json");
-    const evidence = JSON.parse(await readFile(evidencePath, "utf8"));
-    assert.equal(evidence.projectId, id, id + ": extracted project mismatches");
-    assert.equal(evidence.sourcePath, bank.sourcePdfPath, id + ": source PDF path mismatch");
+    assert.ok(bank, id + ": quiz missing");
+    assert.equal(evidence.sourcePath, bank.sourcePdfPath, id + ": source PDF mismatch");
     assert.equal(evidence.pageCount, bank.sourcePageCount, id + ": page count mismatch");
+    assert.ok(Number.isInteger(evidence.sourceBytes) && evidence.sourceBytes > 100,
+      id + ": original PDF byte size not recorded");
     const slides = new Set((evidence.pages || []).map(page => page.slide));
-    assert.equal(slides.size, bank.sourcePageCount, id + ": missing or duplicate numbered slide");
+    assert.equal(slides.size, bank.sourcePageCount, id + ": missing or duplicate slide");
     for (let slide = 1; slide <= bank.sourcePageCount; slide++)
-      assert.ok(slides.has(slide), id + ": source extraction missing slide " + slide);
+      assert.ok(slides.has(slide), id + ": slide " + slide + " is missing");
     for (const question of bank.questions)
       assert.ok(slides.has(question.learningSlide), id + ": " + question.id + " cites an absent slide");
   }
+  const expectedWithoutExtract = [
+    "level-6-altimeter", "level-6-ball-tracking", "level-6-remote-control-lift"
+  ];
+  const withoutExtract = levelSix.map(source => source.projectId)
+    .filter(id => !evidenceIds.has(id)).sort();
+  assert.deepEqual(withoutExtract, expectedWithoutExtract,
+    "Evidence coverage changed; review missing or newly supplied extracts");
 });
