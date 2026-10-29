@@ -7,7 +7,7 @@ Level 1 currently has 60 authored question-bank entries:
 - 19 Phase 2 banks with 190 questions awaiting content and PDF diagram review.
 - 14 Phase 3 banks with 140 questions awaiting content and PDF diagram review.
 
-**No Phase 2 or Phase 3 questions are published or approved.** This review workflow deliberately does not modify the registry, the release status ledger, or the \`main\` branch.
+**No Phase 2 or Phase 3 questions are published or approved.** This review workflow deliberately does not modify the registry, the release status ledger, or the `main` branch.
 
 ## Quality pass
 
@@ -21,12 +21,12 @@ From the previously extracted official PDF sources, Phase 3 has **159 of 208 pag
 
 From the root of the local feature branch, with the same generated research JSON used in Phases 2 and 3:
 
-\`\`\`powershell
+```powershell
 git pull --ff-only origin feat/quiz-level1-phase1-standard-20261029
 npm run test:quiz
 npm run quiz:review-level1
 explorer ".\quiz-research\level1-phase4-review.html"
-\`\`\`
+```
 
 The report contains all 330 questions with source page links, correct answers, hints, explanations and the extracted PDF text. Review warnings highlight:
 - a missing/mismatched source report;
@@ -34,14 +34,14 @@ The report contains all 330 questions with source page links, correct answers, h
 - questions likely testing stories/classroom details instead of STEM understanding;
 - repeated hints or invalid references if any are reintroduced.
 
-The review page is **local only**. Mark a question as “Answer and page checked” or “Needs revision” and add comments. Click “Export teacher review JSON” to save \`level1-phase4-teacher-review.json\`. These are notes, **not release approvals**. PDF links open local curriculum files; the page must be viewed on the computer that has the PDFs.
+The review page is **local only**. Mark a question as “Answer and page checked” or “Needs revision” and add comments. Click “Export teacher review JSON” to save `level1-phase4-teacher-review.json`. These are notes, **not release approvals**. PDF links open local curriculum files; the page must be viewed on the computer that has the PDFs.
 
 If the research JSON files are missing from the local checkout, rerun:
-\`\`\`powershell
+```powershell
 npm run quiz:extract-level1
 npm run quiz:extract-level1-phase3
 npm run quiz:review-level1
-\`\`\`
+```
 
 ## Definition of “approved to publish”
 
@@ -53,11 +53,11 @@ Each of the 330 questions must receive:
 5. Correct 1-based source link and proof that the target PDF displays in the student's Learning Studio.
 6. A review note for any exceptions or revisions, and a separate explicit release decision.
 
-Only reviewed-and-approved banks should be registered into \`src/data/quizStudio.ts\`, followed by status ledger updates, full tests, a production build, and a browser smoke test. No automatic publication from the reviewer JSON is supported.
+Only reviewed-and-approved banks should be registered into `src/data/quizStudio.ts`, followed by status ledger updates, full tests, a production build, and a browser smoke test. No automatic publication from the reviewer JSON is supported.
 
 ## Next command
 
-\`\`\`powershell
+```powershell
 npm run test:quiz
 npm run build
-\`\`\`
+```
