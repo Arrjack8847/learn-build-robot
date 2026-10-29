@@ -83,7 +83,11 @@ export const theWindmillKingdomBank: QuizBank = {
       ],
       "correctIndex": 2,
       "hint": "Compare the sizes of the driving and driven gears.",
-      "explanation": "The gear-acceleration slide describes a large gear driving a smaller pinion."
+      "explanation": "The gear-acceleration slide describes a large gear driving a smaller pinion.",
+      "image": {
+        "src": "/quiz-visuals/level1/the-windmill-kingdom.svg",
+        "alt": "Large gear driving a small gear beside a four-bladed windmill."
+      }
     },
     {
       "id": "the-windmill-kingdom-06",
@@ -98,7 +102,11 @@ export const theWindmillKingdomBank: QuizBank = {
       ],
       "correctIndex": 3,
       "hint": "The lesson contrasts speed with another mechanical quantity.",
-      "explanation": "The source says increasing pinion speed this way reduces output torque."
+      "explanation": "The source says increasing pinion speed this way reduces output torque.",
+      "image": {
+        "src": "/quiz-visuals/level1/the-windmill-kingdom.svg",
+        "alt": "Large gear driving a small gear beside a four-bladed windmill."
+      }
     },
     {
       "id": "the-windmill-kingdom-07",

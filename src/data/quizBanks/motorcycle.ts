@@ -113,7 +113,11 @@ export const motorcycleBank: QuizBank = {
       ],
       "correctIndex": 0,
       "hint": "Recall the three listed characteristics of an applied force.",
-      "explanation": "The slide names magnitude, direction and point of action."
+      "explanation": "The slide names magnitude, direction and point of action.",
+      "image": {
+        "src": "/quiz-visuals/level1/motorcycle.svg",
+        "alt": "Wheeled model with arrows showing applied and downward forces."
+      }
     },
     {
       "id": "motorcycle-08",
@@ -128,7 +132,11 @@ export const motorcycleBank: QuizBank = {
       ],
       "correctIndex": 1,
       "hint": "Think about applying the same push at different locations.",
-      "explanation": "The point of action specifies the location where the force is applied."
+      "explanation": "The point of action specifies the location where the force is applied.",
+      "image": {
+        "src": "/quiz-visuals/level1/motorcycle.svg",
+        "alt": "Wheeled model with arrows showing applied and downward forces."
+      }
     },
     {
       "id": "motorcycle-09",

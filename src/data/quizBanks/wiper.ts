@@ -51,7 +51,11 @@ export const wiperBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 3,
       "explanation": "The manual names link mechanisms and eccentric links as core concepts.",
-      "hint": "Look for the special type of link in the learning objectives."
+      "hint": "Look for the special type of link in the learning objectives.",
+      "image": {
+        "src": "/quiz-visuals/level1/wiper.svg",
+        "alt": "Jointed eccentric linkage moving a windshield wiper arm."
+      }
     },
     {
       "id": "wiper-04",
@@ -66,7 +70,11 @@ export const wiperBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 6,
       "explanation": "The assessment asks whether the wiper moves through a linkage.",
-      "hint": "Consider the mechanism named in the outcome review."
+      "hint": "Consider the mechanism named in the outcome review.",
+      "image": {
+        "src": "/quiz-visuals/level1/wiper.svg",
+        "alt": "Jointed eccentric linkage moving a windshield wiper arm."
+      }
     },
     {
       "id": "wiper-05",

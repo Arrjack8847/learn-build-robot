@@ -83,7 +83,11 @@ export const mechanicalArmBank: QuizBank = {
       ],
       "correctIndex": 3,
       "hint": "Think about the gripper at the end of the arm.",
-      "explanation": "The introduction says the arm uses gears to increase the power of its clips."
+      "explanation": "The introduction says the arm uses gears to increase the power of its clips.",
+      "image": {
+        "src": "/quiz-visuals/level1/mechanical-arm.svg",
+        "alt": "Mechanical arm with gripper stretching toward an object."
+      }
     },
     {
       "id": "mechanical-arm-06",
@@ -98,7 +102,11 @@ export const mechanicalArmBank: QuizBank = {
       ],
       "correctIndex": 0,
       "hint": "Think about the object's distance from the robot.",
-      "explanation": "The lesson describes a telescopic arm reaching to clip more distant objects."
+      "explanation": "The lesson describes a telescopic arm reaching to clip more distant objects.",
+      "image": {
+        "src": "/quiz-visuals/level1/mechanical-arm.svg",
+        "alt": "Mechanical arm with gripper stretching toward an object."
+      }
     },
     {
       "id": "mechanical-arm-07",

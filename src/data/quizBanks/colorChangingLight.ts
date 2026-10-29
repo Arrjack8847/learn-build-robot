@@ -83,7 +83,11 @@ export const colorChangingLightBank: QuizBank = {
       ],
       "correctIndex": 0,
       "hint": "Recall the order of the three-step task.",
-      "explanation": "The required sequence starts with yellow."
+      "explanation": "The required sequence starts with yellow.",
+      "image": {
+        "src": "/quiz-visuals/level1/color-changing-light.svg",
+        "alt": "Three light modules displayed in yellow, red and blue sequence."
+      }
     },
     {
       "id": "color-changing-light-06",
@@ -98,7 +102,11 @@ export const colorChangingLightBank: QuizBank = {
       ],
       "correctIndex": 1,
       "hint": "The project gives the same duration to each colour.",
-      "explanation": "Yellow, red and blue are each displayed for two seconds."
+      "explanation": "Yellow, red and blue are each displayed for two seconds.",
+      "image": {
+        "src": "/quiz-visuals/level1/color-changing-light.svg",
+        "alt": "Three light modules displayed in yellow, red and blue sequence."
+      }
     },
     {
       "id": "color-changing-light-07",

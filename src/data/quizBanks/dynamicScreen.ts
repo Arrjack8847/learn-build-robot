@@ -53,7 +53,11 @@ export const dynamicScreenBank: QuizBank = {
       ],
       "correctIndex": 2,
       "hint": "Think about what you notice as each flipbook page changes.",
-      "explanation": "The lesson says quickly flipping action drawings makes a character appear to come alive."
+      "explanation": "The lesson says quickly flipping action drawings makes a character appear to come alive.",
+      "image": {
+        "src": "/quiz-visuals/level1/dynamic-screen.svg",
+        "alt": "Flipbook frames showing an object at three successive positions."
+      }
     },
     {
       "id": "dynamic-screen-04",
@@ -68,7 +72,11 @@ export const dynamicScreenBank: QuizBank = {
       ],
       "correctIndex": 3,
       "hint": "Think about the hands-on example in exploration.",
-      "explanation": "The lesson demonstrates animation by rapidly flipping drawings in a book."
+      "explanation": "The lesson demonstrates animation by rapidly flipping drawings in a book.",
+      "image": {
+        "src": "/quiz-visuals/level1/dynamic-screen.svg",
+        "alt": "Flipbook frames showing an object at three successive positions."
+      }
     },
     {
       "id": "dynamic-screen-05",

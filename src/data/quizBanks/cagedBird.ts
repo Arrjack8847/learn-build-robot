@@ -81,7 +81,11 @@ export const cagedBirdBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 3,
       "explanation": "The teaching objectives say to use a small motor and paper for the effect.",
-      "hint": "Think about what turns the paper to combine the two drawings."
+      "hint": "Think about what turns the paper to combine the two drawings.",
+      "image": {
+        "src": "/quiz-visuals/level1/caged-bird.svg",
+        "alt": "Caged bird visual experiment represented beside a motor."
+      }
     },
     {
       "id": "caged-bird-06",
@@ -96,7 +100,11 @@ export const cagedBirdBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 5,
       "explanation": "The hands-on instructions say to adjust speed values to improve the visual effect.",
-      "hint": "The lesson asks students to debug a value controlling rotation."
+      "hint": "The lesson asks students to debug a value controlling rotation.",
+      "image": {
+        "src": "/quiz-visuals/level1/caged-bird.svg",
+        "alt": "Caged bird visual experiment represented beside a motor."
+      }
     },
     {
       "id": "caged-bird-07",

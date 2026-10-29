@@ -143,7 +143,11 @@ export const corridorLampBank: QuizBank = {
       ],
       "correctIndex": 1,
       "hint": "Look for the first timed light activity.",
-      "explanation": "The homework first asks to turn the light on for five seconds and then off."
+      "explanation": "The homework first asks to turn the light on for five seconds and then off.",
+      "image": {
+        "src": "/quiz-visuals/level1/corridor-lamp.svg",
+        "alt": "Square-wave graph illustrating repeated lamp on-and-off timing."
+      }
     },
     {
       "id": "corridor-lamp-10",
@@ -158,7 +162,11 @@ export const corridorLampBank: QuizBank = {
       ],
       "correctIndex": 2,
       "hint": "Recall the shorter alternating timing challenge.",
-      "explanation": "The second homework uses one second on and one second off."
+      "explanation": "The second homework uses one second on and one second off.",
+      "image": {
+        "src": "/quiz-visuals/level1/corridor-lamp.svg",
+        "alt": "Square-wave graph illustrating repeated lamp on-and-off timing."
+      }
     }
   ]
 };

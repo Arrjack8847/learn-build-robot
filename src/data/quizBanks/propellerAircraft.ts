@@ -81,7 +81,11 @@ export const propellerAircraftBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 5,
       "explanation": "The hands-on section specifically explains the aircraft's gear-driven structure.",
-      "hint": "Recall what the teacher explains after assembling the model."
+      "hint": "Recall what the teacher explains after assembling the model.",
+      "image": {
+        "src": "/quiz-visuals/level1/propeller-aircraft.svg",
+        "alt": "A propeller attached to the front of a gear-driven model aircraft."
+      }
     },
     {
       "id": "propeller-aircraft-06",
@@ -96,7 +100,11 @@ export const propellerAircraftBank: QuizBank = {
       "correctIndex": 2,
       "learningSlide": 6,
       "explanation": "The review asks whether gears are used to move the propeller.",
-      "hint": "Look for the driving method questioned in the assessment."
+      "hint": "Look for the driving method questioned in the assessment.",
+      "image": {
+        "src": "/quiz-visuals/level1/propeller-aircraft.svg",
+        "alt": "A propeller attached to the front of a gear-driven model aircraft."
+      }
     },
     {
       "id": "propeller-aircraft-07",

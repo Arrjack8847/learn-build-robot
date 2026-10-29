@@ -113,7 +113,11 @@ export const sailboatBank: QuizBank = {
       ],
       "correctIndex": 1,
       "hint": "Think about the arrangement that slows the output.",
-      "explanation": "The lesson describes a small gear driving a large gear."
+      "explanation": "The lesson describes a small gear driving a large gear.",
+      "image": {
+        "src": "/quiz-visuals/level1/sailboat.svg",
+        "alt": "Small toothed gear driving a larger gear next to a sailboat."
+      }
     },
     {
       "id": "sailboat-08",
@@ -128,7 +132,11 @@ export const sailboatBank: QuizBank = {
       ],
       "correctIndex": 2,
       "hint": "Recall why the lesson calls it a reduction gear.",
-      "explanation": "The evaluation states that the large driven gear turns slowly."
+      "explanation": "The evaluation states that the large driven gear turns slowly.",
+      "image": {
+        "src": "/quiz-visuals/level1/sailboat.svg",
+        "alt": "Small toothed gear driving a larger gear next to a sailboat."
+      }
     },
     {
       "id": "sailboat-09",
