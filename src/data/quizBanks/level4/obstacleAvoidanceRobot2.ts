@@ -13,12 +13,12 @@ export const obstacleAvoidanceRobot2Bank: QuizBank = {
       "learningSlide": 8,
       "prompt": "What does an ultrasonic sensor send out to measure distance?",
       "choices": [
+        "Water drops",
         "Sound waves",
         "Colored light",
-        "A metal pin",
-        "Water drops"
+        "A metal pin"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 8 describes transmitting ultrasonic waves and receiving their reflections.",
       "hint": "Think about the signal that travels to an obstacle and back."
     },
@@ -28,12 +28,12 @@ export const obstacleAvoidanceRobot2Bank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Why does the robot measure how far an obstacle is?",
       "choices": [
-        "To choose different movement actions",
         "To change its paint color",
         "To count classroom chairs",
-        "To play longer songs"
+        "To play longer songs",
+        "To choose different movement actions"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 9 says the robot performs different actions depending on obstacle distance.",
       "hint": "Think about how knowing a distance can prevent collisions."
     },
@@ -58,12 +58,12 @@ export const obstacleAvoidanceRobot2Bank: QuizBank = {
       "learningSlide": 11,
       "prompt": "Which interval comes after 25–50 cm in the lesson?",
       "choices": [
+        "200–250 cm",
         "0–5 cm",
         "50–75 cm",
-        "100–125 cm",
-        "200–250 cm"
+        "100–125 cm"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "Slide 11 lists 50–75 centimeters after 25–50 centimeters.",
       "hint": "Follow the next range in the sequence."
     },
@@ -73,12 +73,12 @@ export const obstacleAvoidanceRobot2Bank: QuizBank = {
       "learningSlide": 14,
       "prompt": "Which is an assembly requirement for the obstacle-avoiding robot?",
       "choices": [
-        "A stable structure",
-        "A loose wheel",
         "An unsupported sensor",
-        "No controller"
+        "No controller",
+        "A stable structure",
+        "A loose wheel"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 14 lists a stable structure.",
       "hint": "Think about keeping the robot together as it moves."
     },
@@ -103,12 +103,12 @@ export const obstacleAvoidanceRobot2Bank: QuizBank = {
       "learningSlide": 17,
       "prompt": "In Task 1, what should the robot do when an obstacle is less than 50 cm away?",
       "choices": [
-        "Slow down",
         "Speed up",
         "Switch off forever",
-        "Ignore the obstacle"
+        "Ignore the obstacle",
+        "Slow down"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 17 specifies slowing down when the distance is below 50 cm.",
       "hint": "The robot reacts more carefully as it gets closer."
     },
@@ -118,12 +118,12 @@ export const obstacleAvoidanceRobot2Bank: QuizBank = {
       "learningSlide": 17,
       "prompt": "In Task 1, what should the robot do when an obstacle is less than 25 cm away?",
       "choices": [
+        "Change its color",
         "Avoid the obstacle",
         "Drive faster forward",
-        "Play a melody only",
-        "Change its color"
+        "Play a melody only"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 17 requires obstacle avoidance below 25 centimeters.",
       "hint": "Think about what to do when the obstacle is very near."
     },
@@ -148,12 +148,12 @@ export const obstacleAvoidanceRobot2Bank: QuizBank = {
       "learningSlide": 16,
       "prompt": "Which programming feature helps the robot select actions for different distances?",
       "choices": [
-        "If conditions",
-        "Music notes",
         "Image cropping",
-        "Text font size"
+        "Text font size",
+        "If conditions",
+        "Music notes"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 16 shows branching distance comparisons to choose movement actions.",
       "hint": "Think about a program making a choice based on a sensor reading."
     }
