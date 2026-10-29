@@ -8,10 +8,10 @@
 
 - **51 Level 3 registered projects**: 46 Learning-PDF entries in `scripts/quiz-learning-source-manifest.json`, plus 5 Building-PDF learning fallbacks from `src/data/levelThreeLectures.ts`.
 - **2 pre-existing Level 3 banks**, unchanged: Clip Robot and Following Robot (registered in `src/data/quizStudio.ts`).
-- **24 newly authored banks / 240 questions** in this directory, committed in two 5-project batches and one 3-project batch.
-- **20 mapped Learning-PDF projects remain without banks**.
+- **29 newly authored banks / 290 questions** in this directory, committed in two 5-project batches and one 3-project batch.
+- **15 mapped Learning-PDF projects remain without banks**.
 - **5 Building-PDF-only learning fallbacks are BLOCKED for syllabus-quiz authoring** until an educator inspects the Building manual or provides a dedicated Learning lesson.
-- **All 24 authored banks are now registered in the shared `quizStudio.ts` map**, alongside 2 pre-existing Level 3 banks, making 26 playable on the current feature branch. Unreviewed projects remain unavailable.
+- **All 29 authored banks are now registered in the shared `quizStudio.ts` map**, alongside 2 pre-existing Level 3 banks, making 31 playable on the current feature branch. Unreviewed projects remain unavailable.
 
 ## Source-slide verification for authored banks
 
@@ -46,6 +46,12 @@ PDF pages were counted from the actual GitHub PDF data and its text streams were
 | `level-3-bumper-car-foundational-robots` | `bumperCarFoundational.ts` | 12 | 2, 3, 4, 5, 10, 11, 12 | 10 | 5 |
 | `level-3-disinfection-lamp` | `disinfectionLamp.ts` | 30 | 3, 4, 6, 20, 21, 22, 23, 24 | 10 | 5 |
 
+| `level-3-drawbridge` | `drawbridge.ts` | 21 | 2, 3, 5, 6, 7, 18, 19, 21 | 10 | 5 |
+| `level-3-electric-bulldozer` | `electricBulldozer.ts` | 34 | 3, 4, 6, 22, 23, 26, 27 | 10 | 5 |
+| `level-3-electric-fan-characters-structures` | `electricFanCharacters.ts` | 31 | 6, 7, 8, 9, 10, 20, 21, 22 | 10 | 5 |
+| `level-3-electric-fan-mechanisms-and-concepts` | `electricFanMechanisms.ts` | 14 | 4, 5, 6, 11, 12, 13 | 10 | 5 |
+| `level-3-electronic-scale` | `electronicScale.ts` | 27 | 4, 5, 6, 23, 24, 26 | 10 | 5 |
+
 ## Full Level 3 project coverage
 
 Status descriptions: **pre-existing** = already present in the base quiz registry; **authored** = file committed here, awaiting shared integration; **pending** = mapped Learning PDF exists but questions remain unreviewed; **blocked-fallback** = no dedicated Learning lecture, only a Building manual.
@@ -63,12 +69,12 @@ Status descriptions: **pre-existing** = already present in the base quiz registr
 | `level-3-cycle-sport-basic` | authored | `public/Level 3/Learning/Action-Oriented/Cycle Sport/3. Cycle Sport - Slides.pdf` |
 | `level-3-cycle-sport-optimized` | authored | `public/Level 3/Learning/Action-Oriented/Cycle Sport/3. Cycle Sport - Slides.pdf` |
 | `level-3-disinfection-lamp` | authored | `public/Level 3/Learning/Illumination & Signals/Disinfection Lamp/13.Disinfection Lamp-Slides.pdf` |
-| `level-3-drawbridge` | pending | `public/Level 3/Learning/Mechanisms and Concepts/Drawbridge.pdf` |
-| `level-3-electric-bulldozer` | pending | `public/Level 3/Learning/Characters & Structures/Electric Bulldozer/23.Electric Bulldozer -Slides.pdf` |
-| `level-3-electric-fan-characters-structures` | pending | `public/Level 3/Learning/Characters & Structures/Electric Fan/05.Electric Fan-Slides.pdf` |
-| `level-3-electric-fan-mechanisms-and-concepts` | pending | `public/Level 3/Learning/Mechanisms and Concepts/Electric fan.pdf` |
+| `level-3-drawbridge` | authored | `public/Level 3/Learning/Mechanisms and Concepts/Drawbridge.pdf` |
+| `level-3-electric-bulldozer` | authored | `public/Level 3/Learning/Characters & Structures/Electric Bulldozer/23.Electric Bulldozer -Slides.pdf` |
+| `level-3-electric-fan-characters-structures` | authored | `public/Level 3/Learning/Characters & Structures/Electric Fan/05.Electric Fan-Slides.pdf` |
+| `level-3-electric-fan-mechanisms-and-concepts` | authored | `public/Level 3/Learning/Mechanisms and Concepts/Electric fan.pdf` |
 | `level-3-electric-guitar` | authored | `public/Level 3/Learning/Sound & Voice Interaction/Electric guitar/10.Electric guitar_Powerpoint.pdf` |
-| `level-3-electronic-scale` | pending | `public/Level 3/Learning/Manipulators/Electronic scale.pdf` |
+| `level-3-electronic-scale` | authored | `public/Level 3/Learning/Manipulators/Electronic scale.pdf` |
 | `level-3-f1-racing-car` | authored | `public/Level 3/Learning/Vehicles & Complex Movers/F1 racing car/F1 racing car_Powerpoint.pdf` |
 | `level-3-fire-ladder` | pending | `public/Level 3/Learning/Mechanisms and Concepts/Fire ladder.pdf` |
 | `level-3-flashlight-sensor` | pending | `public/Level 3/Learning/Illumination & Signals/Flashlight Sensor/04.Flashlight -Slides.pdf` |
@@ -186,3 +192,8 @@ On this branch, the 13 new Level 3 banks are imported in `src/data/quizStudio.ts
 - 60 source-backed questions over five learning objectives per project; official page counts: Anti-fall Robot 33, Automated Guided Vehicle 36, Automatic Door 34, Blood Bank Centrifuge 28, Bumper Car — Foundational Robots 12, Disinfection Lamp 30.
 - All source PDFs directly downloaded and text extracted page-by-page in a separate nondeploying development sandbox; only explicitly taught technical facts used.
 - **Level 3 now 26/51 quiz banks, 260 questions; 25 projects remain.**
+
+## Five verified mechanisms-and-controls banks
+
+- New quizzes: Drawbridge; Electric Bulldozer; Electric Fan — Characters & Structures; Electric Fan — Mechanisms & Concepts; Electronic Scale. Their original lesson PDFs (21, 34, 31, 14, 27 pages respectively) were directly extracted from the official registered URLs.
+- 50 questions published, with 5 objectives × 2 each per bank and slide refs to taught material. **Coverage now 31/51, 310 questions.**
