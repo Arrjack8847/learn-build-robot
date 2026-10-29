@@ -13,12 +13,12 @@ export const scorpionBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What does the Scorpion robot do when its touch sensor is pressed by an obstacle?",
       "choices": [
-        "Measure the weather",
-        "Perform a scorpion-like action",
         "Print a ticket",
-        "Follow a QR code"
+        "Follow a QR code",
+        "Measure the weather",
+        "Perform a scorpion-like action"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Slide 7 describes a touch sensor that triggers the scorpion's action.",
       "hint": "Think about the robot reacting to contact."
     },
@@ -28,12 +28,12 @@ export const scorpionBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "What can the Scorpion robot do after finding an obstacle?",
       "choices": [
+        "Open a curtain",
         "Back away and turn",
         "Keep driving into it",
-        "Stop sensing forever",
-        "Open a curtain"
+        "Stop sensing forever"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 9 describes finding an obstacle, backing up, turning, and continuing.",
       "hint": "Think about a movement that avoids a collision."
     },
@@ -43,12 +43,12 @@ export const scorpionBank: QuizBank = {
       "learningSlide": 2,
       "prompt": "Which sensor is the main focus of the Scorpion lesson?",
       "choices": [
-        "Touch sensor",
-        "Color sensor",
         "Ultrasonic sensor",
-        "Temperature sensor"
+        "Temperature sensor",
+        "Touch sensor",
+        "Color sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 2 explicitly names touch-sensor use as a learning goal.",
       "hint": "Think about a sensor that is activated by contact."
     },
@@ -73,12 +73,12 @@ export const scorpionBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "In the P1 obstacle example, which direction does the robot turn after backing up?",
       "choices": [
-        "Right",
-        "Straight",
         "Left",
-        "Upward"
+        "Upward",
+        "Right",
+        "Straight"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Slide 16 specifies back for one second, then turn left for a P1 signal.",
       "hint": "Recall the programmed response to P1."
     },
@@ -88,12 +88,12 @@ export const scorpionBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "In the P2 obstacle example, which way does the robot turn?",
       "choices": [
+        "No movement",
         "Left",
         "Right",
-        "Backward only",
-        "No movement"
+        "Backward only"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "Slide 17 specifies backing up and then turning right for a P2 signal.",
       "hint": "Compare the responses for the two touch sensors."
     },
@@ -103,12 +103,12 @@ export const scorpionBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Why does the Scorpion program check conditions from its sensors?",
       "choices": [
+        "To reduce wheel size",
         "To choose the right movement",
         "To change its paint color",
-        "To show a calendar",
-        "To reduce wheel size"
+        "To show a calendar"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 10 introduces multiple conditional judgments for different touch-sensor signals.",
       "hint": "The robot must decide what to do based on its inputs."
     },
@@ -118,12 +118,12 @@ export const scorpionBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Which programming idea is identified as a learning difficulty?",
       "choices": [
-        "Reading weather maps",
-        "Conditional judgments",
         "Writing music lyrics",
-        "Drawing photographs"
+        "Drawing photographs",
+        "Reading weather maps",
+        "Conditional judgments"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Slide 3 explicitly names conditional judgments.",
       "hint": "Think about an instruction that checks whether something happened."
     },
@@ -133,12 +133,12 @@ export const scorpionBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "Which requirement matters when building the Scorpion robot?",
       "choices": [
+        "A loose motor",
         "An unstable frame",
         "A stable structure",
-        "No support",
-        "A loose motor"
+        "No support"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "Slide 12 lists structural stability as an assembly requirement.",
       "hint": "A moving model should hold together."
     },
@@ -148,12 +148,12 @@ export const scorpionBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "In the first movement exercise, how long should the Scorpion robot move forward?",
       "choices": [
-        "1 second",
         "2 seconds",
         "5 seconds",
-        "10 seconds"
+        "10 seconds",
+        "1 second"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Slide 15 specifies two seconds of forward movement before backing up.",
       "hint": "Recall the first timed motion in the task."
     }
