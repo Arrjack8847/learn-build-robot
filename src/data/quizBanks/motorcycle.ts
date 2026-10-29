@@ -1,117 +1,164 @@
 /**
- * PHASE 2 — UNREVIEWED DRAFT. Never register, publish, or count as ready.
- * The exact Learning PDF mapping comes from quiz-learning-source-manifest.json.
- * Educational answers/page numbers intentionally remain invalid until the
- * actual PDF pages, illustrations, and teaching objectives are reviewed.
- * Standard: 5 objectives x 2 questions = 10 questions, 4 answers each.
+ * Phase 2 source-text-grounded question bank (PDF visual review pending).
+ * Do not register or publish until diagram/age QA is complete.
  */
 import type { QuizBank } from "../quizStudio";
 
 export const motorcycleBank: QuizBank = {
-  projectId: "motorcycle",
-  title: "Motorcycle",
-  sourcePdfPath: "public/Level 1/Learning/Vehicles & Complex Movers/Motorcycle/Motorcycle_Powerpoint.pdf",
-  sourcePageCount: 0, // TODO: verify total pages from actual PDF
-  questions: [
+  "projectId": "motorcycle",
+  "title": "Motorcycle",
+  "sourcePdfPath": "public/Level 1/Learning/Vehicles & Complex Movers/Motorcycle/Motorcycle_Powerpoint.pdf",
+  "sourcePageCount": 16,
+  "questions": [
     {
-      id: "motorcycle-01",
-      topic: "objective-1",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "motorcycle-01",
+      "topic": "motorcycle-context",
+      "learningSlide": 6,
+      "prompt": "What does the motorcycle lesson say wheels help people do?",
+      "choices": [
+        "Travel with less effort than walking",
+        "Eliminate every force",
+        "Stop all motion",
+        "Float without contact"
+      ],
+      "correctIndex": 0,
+      "hint": "Recall the reason given for using wheels.",
+      "explanation": "The introduction says using wheels can save effort compared with walking."
     },
     {
-      id: "motorcycle-02",
-      topic: "objective-1",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "motorcycle-02",
+      "topic": "motorcycle-context",
+      "learningSlide": 6,
+      "prompt": "Which motorcycle wheel configurations does the lesson mention?",
+      "choices": [
+        "Two-wheeled and three-wheeled",
+        "Only one-wheel",
+        "Only six-wheel",
+        "Only eight-wheel"
+      ],
+      "correctIndex": 0,
+      "hint": "Think about the number of wheels described.",
+      "explanation": "The source mentions both two- and three-wheeled motorcycles."
     },
     {
-      id: "motorcycle-03",
-      topic: "objective-2",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "motorcycle-03",
+      "topic": "force-definition",
+      "learningSlide": 8,
+      "prompt": "How is force defined in the lesson?",
+      "choices": [
+        "Interaction between objects",
+        "A type of colour sensor",
+        "A robot's stored program",
+        "Only the weight of a battery"
+      ],
+      "correctIndex": 0,
+      "hint": "Consider what happens when one object pushes another.",
+      "explanation": "The lesson defines force as interaction between objects."
     },
     {
-      id: "motorcycle-04",
-      topic: "objective-2",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "motorcycle-04",
+      "topic": "force-definition",
+      "learningSlide": 5,
+      "prompt": "Which unit is used to measure force magnitude?",
+      "choices": [
+        "Newton (N)",
+        "Second (s)",
+        "Metre (m)",
+        "Watt-hour (Wh)"
+      ],
+      "correctIndex": 0,
+      "hint": "Recall the scientific unit mentioned after pushing a box.",
+      "explanation": "The lesson uses newtons to quantify force."
     },
     {
-      id: "motorcycle-05",
-      topic: "objective-3",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "motorcycle-05",
+      "topic": "force-effects",
+      "learningSlide": 8,
+      "prompt": "What may force cause an object to do?",
+      "choices": [
+        "Accelerate or deform",
+        "Only change colour",
+        "Always disappear",
+        "Always keep its original motion"
+      ],
+      "correctIndex": 0,
+      "hint": "The lesson identifies two possible physical effects.",
+      "explanation": "It states force can cause acceleration or deformation."
     },
     {
-      id: "motorcycle-06",
-      topic: "objective-3",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "motorcycle-06",
+      "topic": "force-effects",
+      "learningSlide": 9,
+      "prompt": "What is given as a reason a sliding object slows down?",
+      "choices": [
+        "Friction",
+        "Light from the controller",
+        "A display image",
+        "A battery label"
+      ],
+      "correctIndex": 0,
+      "hint": "Think about contact resisting movement.",
+      "explanation": "The lesson says friction can slow a sliding object until it stops."
     },
     {
-      id: "motorcycle-07",
-      topic: "objective-4",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "motorcycle-07",
+      "topic": "force-elements",
+      "learningSlide": 10,
+      "prompt": "Which three elements determine the effect of a force?",
+      "choices": [
+        "Magnitude, direction, point of action",
+        "Colour, temperature, sound",
+        "Length, width, font",
+        "Speed, battery, program"
+      ],
+      "correctIndex": 0,
+      "hint": "Recall the three listed characteristics of an applied force.",
+      "explanation": "The slide names magnitude, direction and point of action."
     },
     {
-      id: "motorcycle-08",
-      topic: "objective-4",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "motorcycle-08",
+      "topic": "force-elements",
+      "learningSlide": 10,
+      "prompt": "What does the point of action of a force describe?",
+      "choices": [
+        "Where the force acts on the object",
+        "How bright the object looks",
+        "The robot's stored filename",
+        "The colour of a gear"
+      ],
+      "correctIndex": 0,
+      "hint": "Think about applying the same push at different locations.",
+      "explanation": "The point of action specifies the location where the force is applied."
     },
     {
-      id: "motorcycle-09",
-      topic: "objective-5",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "motorcycle-09",
+      "topic": "force-types-and-construction",
+      "learningSlide": 11,
+      "prompt": "Which force is listed in the motorcycle lesson?",
+      "choices": [
+        "Gravity",
+        "Computer memory",
+        "Sound output",
+        "Screen colour"
+      ],
+      "correctIndex": 0,
+      "hint": "The list groups forces by physical nature.",
+      "explanation": "The lesson lists gravity, elastic force and friction."
     },
     {
-      id: "motorcycle-10",
-      topic: "objective-5",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
-    },
-  ],
+      "id": "motorcycle-10",
+      "topic": "force-types-and-construction",
+      "learningSlide": 13,
+      "prompt": "Which task is part of assembling the motorcycle model?",
+      "choices": [
+        "Make the structure stable with appropriate balance",
+        "Disconnect every part",
+        "Ignore the shape completely",
+        "Make the beams deliberately loose"
+      ],
+      "correctIndex": 0,
+      "hint": "Recall the building-practice quality checklist.",
+      "explanation": "The construction checklist calls for a stable structure, proper gravity and matching shape."
+    }
+  ]
 };

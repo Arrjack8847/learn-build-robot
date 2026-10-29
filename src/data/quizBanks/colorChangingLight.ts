@@ -1,117 +1,164 @@
 /**
- * PHASE 2 — UNREVIEWED DRAFT. Never register, publish, or count as ready.
- * The exact Learning PDF mapping comes from quiz-learning-source-manifest.json.
- * Educational answers/page numbers intentionally remain invalid until the
- * actual PDF pages, illustrations, and teaching objectives are reviewed.
- * Standard: 5 objectives x 2 questions = 10 questions, 4 answers each.
+ * Phase 2 source-text-grounded question bank (PDF visual review pending).
+ * Do not register or publish until diagram/age QA is complete.
  */
 import type { QuizBank } from "../quizStudio";
 
 export const colorChangingLightBank: QuizBank = {
-  projectId: "color-changing-light",
-  title: "Color-Changing Light",
-  sourcePdfPath: "public/Level 1/Learning/Illumination & Signals/Color-changing Light/02.Color- changing Light -Slides.pdf",
-  sourcePageCount: 0, // TODO: verify total pages from actual PDF
-  questions: [
+  "projectId": "color-changing-light",
+  "title": "Color-Changing Light",
+  "sourcePdfPath": "public/Level 1/Learning/Illumination & Signals/Color-changing Light/02.Color- changing Light -Slides.pdf",
+  "sourcePageCount": 30,
+  "questions": [
     {
-      id: "color-changing-light-01",
-      topic: "objective-1",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "color-changing-light-01",
+      "topic": "lamp-uses",
+      "learningSlide": 3,
+      "prompt": "What was the original purpose of electric lamps described in the lesson?",
+      "choices": [
+        "To light spaces at night",
+        "To measure distance",
+        "To send motor commands",
+        "To turn gears"
+      ],
+      "correctIndex": 0,
+      "hint": "Think about why people use a light source after dark.",
+      "explanation": "The introduction says electric lamps originally illuminated spaces at night."
     },
     {
-      id: "color-changing-light-02",
-      topic: "objective-1",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "color-changing-light-02",
+      "topic": "lamp-uses",
+      "learningSlide": 4,
+      "prompt": "Where are colour-changing lights used according to the lesson?",
+      "choices": [
+        "Festivals and stage lighting",
+        "Only inside engines",
+        "Only under water",
+        "Only inside robot batteries"
+      ],
+      "correctIndex": 0,
+      "hint": "Recall the public and entertainment settings mentioned.",
+      "explanation": "The lesson gives celebrations and stage lighting as examples."
     },
     {
-      id: "color-changing-light-03",
-      topic: "objective-2",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "color-changing-light-03",
+      "topic": "module-and-ports",
+      "learningSlide": 7,
+      "prompt": "Which colour can the lesson's colour lamp module emit?",
+      "choices": [
+        "Cyan",
+        "Brown",
+        "Black light from no LEDs",
+        "Infrared only"
+      ],
+      "correctIndex": 0,
+      "hint": "Think about the module's named light colours.",
+      "explanation": "The source lists cyan among its seven programmable light colours."
     },
     {
-      id: "color-changing-light-04",
-      topic: "objective-2",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "color-changing-light-04",
+      "topic": "module-and-ports",
+      "learningSlide": 8,
+      "prompt": "Which group of controller ports can be used for the colour lamp module?",
+      "choices": [
+        "P1–P8",
+        "Only motor port A",
+        "Only charging USB-C",
+        "Only headphone ports"
+      ],
+      "correctIndex": 0,
+      "hint": "The lesson shows several numbered composite ports.",
+      "explanation": "The module connects to one of the controller's P1–P8 ports."
     },
     {
-      id: "color-changing-light-05",
-      topic: "objective-3",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "color-changing-light-05",
+      "topic": "sequential-goal",
+      "learningSlide": 6,
+      "prompt": "Which colour should the programmed lamp show first?",
+      "choices": [
+        "Yellow",
+        "Blue",
+        "Red",
+        "Purple"
+      ],
+      "correctIndex": 0,
+      "hint": "Recall the order of the three-step task.",
+      "explanation": "The required sequence starts with yellow."
     },
     {
-      id: "color-changing-light-06",
-      topic: "objective-3",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "color-changing-light-06",
+      "topic": "sequential-goal",
+      "learningSlide": 6,
+      "prompt": "How long should each of the three required colours remain on?",
+      "choices": [
+        "Two seconds",
+        "Half a minute",
+        "Ten minutes",
+        "One millisecond"
+      ],
+      "correctIndex": 0,
+      "hint": "The project gives the same duration to each colour.",
+      "explanation": "Yellow, red and blue are each displayed for two seconds."
     },
     {
-      id: "color-changing-light-07",
-      topic: "objective-4",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "color-changing-light-07",
+      "topic": "wait-and-sequence",
+      "learningSlide": 20,
+      "prompt": "What does the 'Wait ( ) seconds' coding block do?",
+      "choices": [
+        "Pauses for a specified duration before continuing",
+        "Stops the robot forever",
+        "Changes every sensor port",
+        "Erases all programs"
+      ],
+      "correctIndex": 0,
+      "hint": "Consider the program's timing between two commands.",
+      "explanation": "The wait block delays execution before the following block."
     },
     {
-      id: "color-changing-light-08",
-      topic: "objective-4",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "color-changing-light-08",
+      "topic": "wait-and-sequence",
+      "learningSlide": 21,
+      "prompt": "In what order are sequential program blocks executed?",
+      "choices": [
+        "Top to bottom, one by one",
+        "Randomly",
+        "Always in reverse",
+        "In all possible orders at once"
+      ],
+      "correctIndex": 0,
+      "hint": "Recall the flow-chart rule.",
+      "explanation": "The lesson describes sequential execution from top to bottom."
     },
     {
-      id: "color-changing-light-09",
-      topic: "objective-5",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "color-changing-light-09",
+      "topic": "expansion-and-review",
+      "learningSlide": 17,
+      "prompt": "What two settings are selected in a colour-lamp coding block?",
+      "choices": [
+        "Controller port and light colour",
+        "Gear size and axle length",
+        "Screen picture and speaker volume",
+        "Compass heading and travel speed"
+      ],
+      "correctIndex": 0,
+      "hint": "Think about identifying which lamp changes and how.",
+      "explanation": "The lamp block sets its composite port and chosen colour."
     },
     {
-      id: "color-changing-light-10",
-      topic: "objective-5",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
-    },
-  ],
+      "id": "color-changing-light-10",
+      "topic": "expansion-and-review",
+      "learningSlide": 25,
+      "prompt": "What extra display feature is suggested after programming the lamp?",
+      "choices": [
+        "Show the current light colour on the controller screen",
+        "Remove the colour-changing module",
+        "Hide the active colour",
+        "Disconnect the controller"
+      ],
+      "correctIndex": 0,
+      "hint": "Recall the lesson's expansion task.",
+      "explanation": "The expansion asks students to show the lamp's current colour on the screen."
+    }
+  ]
 };

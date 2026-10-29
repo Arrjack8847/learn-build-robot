@@ -1,117 +1,164 @@
 /**
- * PHASE 2 — UNREVIEWED DRAFT. Never register, publish, or count as ready.
- * The exact Learning PDF mapping comes from quiz-learning-source-manifest.json.
- * Educational answers/page numbers intentionally remain invalid until the
- * actual PDF pages, illustrations, and teaching objectives are reviewed.
- * Standard: 5 objectives x 2 questions = 10 questions, 4 answers each.
+ * Phase 2 source-text-grounded question bank (PDF visual review pending).
+ * Do not register or publish until diagram/age QA is complete.
  */
 import type { QuizBank } from "../quizStudio";
 
 export const mechanicalArmBank: QuizBank = {
-  projectId: "mechanical-arm",
-  title: "Mechanical Arm",
-  sourcePdfPath: "public/Level 1/Learning/Mechanisms & Simulators/Mechanical arm/Mechanical arm_PowerPoint-R.pdf",
-  sourcePageCount: 0, // TODO: verify total pages from actual PDF
-  questions: [
+  "projectId": "mechanical-arm",
+  "title": "Mechanical Arm",
+  "sourcePdfPath": "public/Level 1/Learning/Mechanisms & Simulators/Mechanical arm/Mechanical arm_PowerPoint-R.pdf",
+  "sourcePageCount": 14,
+  "questions": [
     {
-      id: "mechanical-arm-01",
-      topic: "objective-1",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "mechanical-arm-01",
+      "topic": "robot-generations",
+      "learningSlide": 5,
+      "prompt": "How does the lesson describe a first-generation robot?",
+      "choices": [
+        "A remote-controlled operator",
+        "An intelligent decision-making system",
+        "A self-repairing machine",
+        "A robot that uses many sensors for planning"
+      ],
+      "correctIndex": 0,
+      "hint": "Recall the simplest generation in the lesson's list.",
+      "explanation": "The first generation is described as a remote-control operator."
     },
     {
-      id: "mechanical-arm-02",
-      topic: "objective-1",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "mechanical-arm-02",
+      "topic": "robot-generations",
+      "learningSlide": 5,
+      "prompt": "What distinguishes the second generation of robots in the lesson?",
+      "choices": [
+        "Automatic repeated actions following a pre-programmed program",
+        "Only remote manual operation",
+        "Planning every action from live sensor analysis",
+        "No instructions or control at all"
+      ],
+      "correctIndex": 0,
+      "hint": "Think about stored instructions and repeated work.",
+      "explanation": "The second generation performs repeated operations under a pre-programmed program."
     },
     {
-      id: "mechanical-arm-03",
-      topic: "objective-2",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "mechanical-arm-03",
+      "topic": "autonomous-intelligence",
+      "learningSlide": 5,
+      "prompt": "Which generation is described as using sensors and intelligent technology to plan decisions?",
+      "choices": [
+        "Third generation",
+        "First generation",
+        "Only mechanical tools",
+        "Second generation exclusively"
+      ],
+      "correctIndex": 0,
+      "hint": "Compare the three generations by their control methods.",
+      "explanation": "The third generation uses environmental information and intelligent processing."
     },
     {
-      id: "mechanical-arm-04",
-      topic: "objective-2",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "mechanical-arm-04",
+      "topic": "autonomous-intelligence",
+      "learningSlide": 5,
+      "prompt": "Why do third-generation robots use sensors?",
+      "choices": [
+        "To acquire information about their environment",
+        "To paint beams a new colour",
+        "To fasten pegs without tools",
+        "To replace the power supply with paper"
+      ],
+      "correctIndex": 0,
+      "hint": "Consider the information needed to decide what to do.",
+      "explanation": "The source describes sensors and gauges gathering environmental information."
     },
     {
-      id: "mechanical-arm-05",
-      topic: "objective-3",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "mechanical-arm-05",
+      "topic": "arm-functions",
+      "learningSlide": 6,
+      "prompt": "What can the mechanical arm's gears help increase in the project?",
+      "choices": [
+        "Clipping or gripping power",
+        "Screen brightness",
+        "Battery charging speed",
+        "Sound volume"
+      ],
+      "correctIndex": 0,
+      "hint": "Think about the gripper at the end of the arm.",
+      "explanation": "The introduction says the arm uses gears to increase the power of its clips."
     },
     {
-      id: "mechanical-arm-06",
-      topic: "objective-3",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "mechanical-arm-06",
+      "topic": "arm-functions",
+      "learningSlide": 6,
+      "prompt": "Why does the project use a long telescopic arm?",
+      "choices": [
+        "To grip objects farther away",
+        "To display a larger picture",
+        "To make a louder speaker",
+        "To detect colours without a sensor"
+      ],
+      "correctIndex": 0,
+      "hint": "Think about the object's distance from the robot.",
+      "explanation": "The lesson describes a telescopic arm reaching to clip more distant objects."
     },
     {
-      id: "mechanical-arm-07",
-      topic: "objective-4",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "mechanical-arm-07",
+      "topic": "construction-methods",
+      "learningSlide": 8,
+      "prompt": "Which part is shown as being fixed with a bushing?",
+      "choices": [
+        "Axle",
+        "Touchscreen",
+        "Sound speaker",
+        "Battery case"
+      ],
+      "correctIndex": 0,
+      "hint": "Recall the 'bushing fixed' building method.",
+      "explanation": "The teaching slide includes a bushing used to fix an axle."
     },
     {
-      id: "mechanical-arm-08",
-      topic: "objective-4",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "mechanical-arm-08",
+      "topic": "construction-methods",
+      "learningSlide": 8,
+      "prompt": "Which mechanical part does the building-method lesson show being fixed?",
+      "choices": [
+        "Gear",
+        "Motor display",
+        "Sound sensor window",
+        "Power button"
+      ],
+      "correctIndex": 0,
+      "hint": "Look at the building method involving a rotating transmission part.",
+      "explanation": "The slide includes a gear-fixing example with an axle and bushing."
     },
     {
-      id: "mechanical-arm-09",
-      topic: "objective-5",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
+      "id": "mechanical-arm-09",
+      "topic": "building-and-application",
+      "learningSlide": 10,
+      "prompt": "Which condition is part of the mechanical arm's assembly requirements?",
+      "choices": [
+        "Stable structure",
+        "Loose structure",
+        "Poor gravity balance",
+        "Any shape without matching"
+      ],
+      "correctIndex": 0,
+      "hint": "Think about the practical-task checklist.",
+      "explanation": "The task requires stable structure, proper gravity and matching shape."
     },
     {
-      id: "mechanical-arm-10",
-      topic: "objective-5",
-      prompt: "TODO: write a question supported by the verified Learning PDF",
-      choices: ["TODO choice A", "TODO choice B", "TODO choice C", "TODO choice D"],
-      correctIndex: -1, // TODO: verify correct answer in actual slide (0–3)
-      learningSlide: 0, // TODO: verify 1-based Learning PDF page
-      explanation: "TODO: give source-grounded explanation",
-      hint: "TODO: give clue without revealing answer",
-    },
-  ],
+      "id": "mechanical-arm-10",
+      "topic": "building-and-application",
+      "learningSlide": 13,
+      "prompt": "What extension task does the lesson suggest for the mechanical arm?",
+      "choices": [
+        "Explain which robot generation it belongs to and how it could improve",
+        "Remove every connecting pin",
+        "Avoid discussing applications",
+        "Build only an unrelated drawing board"
+      ],
+      "correctIndex": 0,
+      "hint": "Recall the homework prompt about generations and use cases.",
+      "explanation": "The homework asks students to identify the generation and imagine second- or third-generation improvements."
+    }
+  ]
 };
