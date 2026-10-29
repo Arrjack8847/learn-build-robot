@@ -152,3 +152,8 @@ On this branch, the 13 new Level 3 banks are imported in `src/data/quizStudio.ts
 ## Automated fallback source integrity test
 
 - Extended `tests/level-three-quiz-coverage.test.mjs` to require the five original Building-manual Learning fallback PDFs to exist as checked-in `%PDF-` files, match exact registered project IDs and trusted HTTPS mappings. This is structural resource validation, not a claim of authored questions.
+
+## Repository-side automated PDF evidence extraction
+
+- Added `.github/workflows/level-three-pdf-evidence.yml`, which can automatically extract page text for all 51 official registered Level 3 documents from repository-local PDFs with `pdfjs-dist` and commit results into the same feature branch. It contains **no deployment steps, no main merges, and no automatically generated quizzes**. Only source-verified text can then be used to author the 36 missing banks.
+- GitHub Actions has been returning failures with zero exposed job steps, so availability of this new extraction job must be verified from the actual workflow run before any claim that pages were extracted.
