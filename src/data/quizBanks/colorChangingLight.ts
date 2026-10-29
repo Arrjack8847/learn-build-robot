@@ -31,12 +31,12 @@ export const colorChangingLightBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "Where are colour-changing lights used according to the lesson?",
       "choices": [
+        "Only inside robot batteries",
         "Festivals and stage lighting",
         "Only inside engines",
-        "Only under water",
-        "Only inside robot batteries"
+        "Only under water"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Recall the public and entertainment settings mentioned.",
       "explanation": "The lesson gives celebrations and stage lighting as examples."
     },
@@ -46,12 +46,12 @@ export const colorChangingLightBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "Which colour can the lesson's colour lamp module emit?",
       "choices": [
-        "Cyan",
-        "Brown",
         "Black light from no LEDs",
-        "Infrared only"
+        "Infrared only",
+        "Cyan",
+        "Brown"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Think about the module's named light colours.",
       "explanation": "The source lists cyan among its seven programmable light colours."
     },
@@ -61,12 +61,12 @@ export const colorChangingLightBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "Which group of controller ports can be used for the colour lamp module?",
       "choices": [
-        "P1–P8",
         "Only motor port A",
         "Only charging USB-C",
-        "Only headphone ports"
+        "Only headphone ports",
+        "P1–P8"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The lesson shows several numbered composite ports.",
       "explanation": "The module connects to one of the controller's P1–P8 ports."
     },
@@ -91,12 +91,12 @@ export const colorChangingLightBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "How long should each of the three required colours remain on?",
       "choices": [
+        "One millisecond",
         "Two seconds",
         "Half a minute",
-        "Ten minutes",
-        "One millisecond"
+        "Ten minutes"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The project gives the same duration to each colour.",
       "explanation": "Yellow, red and blue are each displayed for two seconds."
     },
@@ -106,12 +106,12 @@ export const colorChangingLightBank: QuizBank = {
       "learningSlide": 20,
       "prompt": "What does the 'Wait ( ) seconds' coding block do?",
       "choices": [
-        "Pauses for a specified duration before continuing",
-        "Stops the robot forever",
         "Changes every sensor port",
-        "Erases all programs"
+        "Erases all programs",
+        "Pauses for a specified duration before continuing",
+        "Stops the robot forever"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Consider the program's timing between two commands.",
       "explanation": "The wait block delays execution before the following block."
     },
@@ -121,12 +121,12 @@ export const colorChangingLightBank: QuizBank = {
       "learningSlide": 21,
       "prompt": "In what order are sequential program blocks executed?",
       "choices": [
-        "Top to bottom, one by one",
         "Randomly",
         "Always in reverse",
-        "In all possible orders at once"
+        "In all possible orders at once",
+        "Top to bottom, one by one"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Recall the flow-chart rule.",
       "explanation": "The lesson describes sequential execution from top to bottom."
     },
@@ -151,12 +151,12 @@ export const colorChangingLightBank: QuizBank = {
       "learningSlide": 25,
       "prompt": "What extra display feature is suggested after programming the lamp?",
       "choices": [
+        "Disconnect the controller",
         "Show the current light colour on the controller screen",
         "Remove the colour-changing module",
-        "Hide the active colour",
-        "Disconnect the controller"
+        "Hide the active colour"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Recall the lesson's expansion task.",
       "explanation": "The expansion asks students to show the lamp's current colour on the screen."
     }

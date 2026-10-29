@@ -16,12 +16,12 @@ export const motorcycleBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "What does the motorcycle lesson say wheels help people do?",
       "choices": [
-        "Travel with less effort than walking",
-        "Eliminate every force",
         "Stop all motion",
-        "Float without contact"
+        "Float without contact",
+        "Travel with less effort than walking",
+        "Eliminate every force"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Recall the reason given for using wheels.",
       "explanation": "The introduction says using wheels can save effort compared with walking."
     },
@@ -31,12 +31,12 @@ export const motorcycleBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Which motorcycle wheel configurations does the lesson mention?",
       "choices": [
-        "Two-wheeled and three-wheeled",
         "Only one-wheel",
         "Only six-wheel",
-        "Only eight-wheel"
+        "Only eight-wheel",
+        "Two-wheeled and three-wheeled"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about the number of wheels described.",
       "explanation": "The source mentions both two- and three-wheeled motorcycles."
     },
@@ -61,12 +61,12 @@ export const motorcycleBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "Which unit is used to measure force magnitude?",
       "choices": [
+        "Watt-hour (Wh)",
         "Newton (N)",
         "Second (s)",
-        "Metre (m)",
-        "Watt-hour (Wh)"
+        "Metre (m)"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Recall the scientific unit mentioned after pushing a box.",
       "explanation": "The lesson uses newtons to quantify force."
     },
@@ -76,12 +76,12 @@ export const motorcycleBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "What may force cause an object to do?",
       "choices": [
-        "Accelerate or deform",
-        "Only change colour",
         "Always disappear",
-        "Always keep its original motion"
+        "Always keep its original motion",
+        "Accelerate or deform",
+        "Only change colour"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The lesson identifies two possible physical effects.",
       "explanation": "It states force can cause acceleration or deformation."
     },
@@ -91,12 +91,12 @@ export const motorcycleBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "What is given as a reason a sliding object slows down?",
       "choices": [
-        "Friction",
         "Light from the controller",
         "A display image",
-        "A battery label"
+        "A battery label",
+        "Friction"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about contact resisting movement.",
       "explanation": "The lesson says friction can slow a sliding object until it stops."
     },
@@ -121,12 +121,12 @@ export const motorcycleBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "What does the point of action of a force describe?",
       "choices": [
+        "The colour of a gear",
         "Where the force acts on the object",
         "How bright the object looks",
-        "The robot's stored filename",
-        "The colour of a gear"
+        "The robot's stored filename"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about applying the same push at different locations.",
       "explanation": "The point of action specifies the location where the force is applied."
     },
@@ -136,12 +136,12 @@ export const motorcycleBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "Which force is listed in the motorcycle lesson?",
       "choices": [
-        "Gravity",
-        "Computer memory",
         "Sound output",
-        "Screen colour"
+        "Screen colour",
+        "Gravity",
+        "Computer memory"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The list groups forces by physical nature.",
       "explanation": "The lesson lists gravity, elastic force and friction."
     },
@@ -151,12 +151,12 @@ export const motorcycleBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "Which task is part of assembling the motorcycle model?",
       "choices": [
-        "Make the structure stable with appropriate balance",
         "Disconnect every part",
         "Ignore the shape completely",
-        "Make the beams deliberately loose"
+        "Make the beams deliberately loose",
+        "Make the structure stable with appropriate balance"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Recall the building-practice quality checklist.",
       "explanation": "The construction checklist calls for a stable structure, proper gravity and matching shape."
     }

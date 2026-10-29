@@ -16,12 +16,12 @@ export const mechanicalArmBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "How does the lesson describe a first-generation robot?",
       "choices": [
-        "A remote-controlled operator",
         "An intelligent decision-making system",
         "A self-repairing machine",
-        "A robot that uses many sensors for planning"
+        "A robot that uses many sensors for planning",
+        "A remote-controlled operator"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Recall the simplest generation in the lesson's list.",
       "explanation": "The first generation is described as a remote-control operator."
     },
@@ -46,12 +46,12 @@ export const mechanicalArmBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "Which generation is described as using sensors and intelligent technology to plan decisions?",
       "choices": [
+        "Second generation exclusively",
         "Third generation",
         "First generation",
-        "Only mechanical tools",
-        "Second generation exclusively"
+        "Only mechanical tools"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Compare the three generations by their control methods.",
       "explanation": "The third generation uses environmental information and intelligent processing."
     },
@@ -61,12 +61,12 @@ export const mechanicalArmBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "Why do third-generation robots use sensors?",
       "choices": [
-        "To acquire information about their environment",
-        "To paint beams a new colour",
         "To fasten pegs without tools",
-        "To replace the power supply with paper"
+        "To replace the power supply with paper",
+        "To acquire information about their environment",
+        "To paint beams a new colour"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Consider the information needed to decide what to do.",
       "explanation": "The source describes sensors and gauges gathering environmental information."
     },
@@ -76,12 +76,12 @@ export const mechanicalArmBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "What can the mechanical arm's gears help increase in the project?",
       "choices": [
-        "Clipping or gripping power",
         "Screen brightness",
         "Battery charging speed",
-        "Sound volume"
+        "Sound volume",
+        "Clipping or gripping power"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about the gripper at the end of the arm.",
       "explanation": "The introduction says the arm uses gears to increase the power of its clips."
     },
@@ -106,12 +106,12 @@ export const mechanicalArmBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "Which part is shown as being fixed with a bushing?",
       "choices": [
+        "Battery case",
         "Axle",
         "Touchscreen",
-        "Sound speaker",
-        "Battery case"
+        "Sound speaker"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Recall the 'bushing fixed' building method.",
       "explanation": "The teaching slide includes a bushing used to fix an axle."
     },
@@ -121,12 +121,12 @@ export const mechanicalArmBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "Which mechanical part does the building-method lesson show being fixed?",
       "choices": [
-        "Gear",
-        "Motor display",
         "Sound sensor window",
-        "Power button"
+        "Power button",
+        "Gear",
+        "Motor display"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Look at the building method involving a rotating transmission part.",
       "explanation": "The slide includes a gear-fixing example with an axle and bushing."
     },
@@ -136,12 +136,12 @@ export const mechanicalArmBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Which condition is part of the mechanical arm's assembly requirements?",
       "choices": [
-        "Stable structure",
         "Loose structure",
         "Poor gravity balance",
-        "Any shape without matching"
+        "Any shape without matching",
+        "Stable structure"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about the practical-task checklist.",
       "explanation": "The task requires stable structure, proper gravity and matching shape."
     },
