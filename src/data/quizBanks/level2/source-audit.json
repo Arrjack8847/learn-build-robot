@@ -10,17 +10,17 @@
     "uniqueSourcePdfs": 59,
     "existingPublishedBanks": 2,
     "existingQuestions": 20,
-    "missingBanks": 43,
-    "questionTargetForMissingBanks": 430,
-    "newBanksWrittenByThisWorker": 15,
+    "missingBanks": 40,
+    "questionTargetForMissingBanks": 400,
+    "newBanksWrittenByThisWorker": 18,
     "authoredButNotIntegrated": 0,
-    "newQuestionsWrittenByThisWorker": 150,
-    "stillMissingBankFiles": 43,
-    "registeredSourcePdfPagesVerified": 236,
+    "newQuestionsWrittenByThisWorker": 180,
+    "stillMissingBankFiles": 40,
+    "registeredSourcePdfPagesVerified": 283,
     "initialMissingBanks": 58,
     "initialQuestionTarget": 580,
-    "playableBanks": 17,
-    "playableQuestions": 170,
+    "playableBanks": 20,
+    "playableQuestions": 200,
     "ciStatus": "blocked-before-runner-start: both jobs failed with zero executed steps at GitHub run 40827960743",
     "pdfSourceBatch1Verified": true,
     "fullLevel2SourceExtractionStatus": "In progress via isolated Vercel Sandbox using direct GitHub PDF base64 transfer (first new source: Bee 20 pages)."
@@ -82,10 +82,10 @@
       "sourcePdfPath": "public/Level 2/Learning/Action-Oriented/Pirate ship/Pirate ship__Powerpoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 15,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-slide-text-and-page-verified"
     },
     {
       "projectId": "level-2-push-ups",
@@ -147,10 +147,10 @@
       "sourcePdfPath": "public/Level 2/Learning/Biomimicry/Chimpanzees.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 14,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-slide-text-and-page-verified"
     },
     {
       "projectId": "level-2-mechanical-dog",
@@ -810,10 +810,10 @@
       "sourcePdfPath": "public/Level 2/Learning/Foundational Robots/The treadmill.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 18,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-slide-text-and-page-verified"
     }
   ],
   "batches": [
@@ -826,7 +826,7 @@
         "level-2-rotating-flying-chair",
         "level-2-throwing-robot"
       ],
-      "status": "4-of-5-integrated"
+      "status": "5-of-5-integrated"
     },
     {
       "batch": 2,
@@ -837,7 +837,7 @@
         "level-2-scaling-ladder",
         "level-2-tower-crane"
       ],
-      "status": "1-of-5-integrated"
+      "status": "3-of-5-integrated"
     },
     {
       "batch": 3,
@@ -945,7 +945,7 @@
         "level-2-robot-war",
         "level-2-the-treadmill"
       ],
-      "status": "1-of-3-integrated"
+      "status": "2-of-3-integrated"
     }
   ],
   "sourceReview": {
