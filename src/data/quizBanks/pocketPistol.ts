@@ -19,7 +19,7 @@ export const pocketPistolBank: QuizBank = {
       "correctIndex": 3,
       "learningSlide": 3,
       "explanation": "The teaching objectives include knowing the dangers of weapons.",
-      "hint": "Think about the hazard awareness topic in this lesson and check which choice fits the question."
+      "hint": "Recall the risk-awareness topic listed with the lesson's science objectives."
     },
     {
       "id": "pocket-pistol-02",
@@ -34,7 +34,7 @@ export const pocketPistolBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 3,
       "explanation": "Recognizing weapons' danger includes awareness of possible injuries.",
-      "hint": "Think about the hazard awareness topic in this lesson and check which choice fits the question."
+      "hint": "Think about how classroom models involving stretched objects should be handled safely."
     },
     {
       "id": "pocket-pistol-03",
@@ -49,7 +49,7 @@ export const pocketPistolBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 4,
       "explanation": "The story begins with a dinosaur destroying plants in the forest.",
-      "hint": "Think about the story topic in this lesson and check which choice fits the question."
+      "hint": "Remember the large animal that appears in the opening forest story."
     },
     {
       "id": "pocket-pistol-04",
@@ -64,7 +64,7 @@ export const pocketPistolBank: QuizBank = {
       "correctIndex": 2,
       "learningSlide": 4,
       "explanation": "The story describes the dinosaur damaging flowers and trees and ignoring objections.",
-      "hint": "Think about the story topic in this lesson and check which choice fits the question."
+      "hint": "Consider what happened to the trees and plants before the animals complained."
     },
     {
       "id": "pocket-pistol-05",
@@ -79,7 +79,7 @@ export const pocketPistolBank: QuizBank = {
       "correctIndex": 3,
       "learningSlide": 3,
       "explanation": "The objectives name the physical ideas of tension and elasticity.",
-      "hint": "Think about the forces topic in this lesson and check which choice fits the question."
+      "hint": "Recall the two physical properties studied when an elastic material is stretched."
     },
     {
       "id": "pocket-pistol-06",
@@ -94,7 +94,7 @@ export const pocketPistolBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 4,
       "explanation": "The topic-analysis section specifically discusses rubber-band tension and elasticity.",
-      "hint": "Think about the forces topic in this lesson and check which choice fits the question."
+      "hint": "Think about the flexible material discussed during the explanation of stored force."
     },
     {
       "id": "pocket-pistol-07",
@@ -109,7 +109,7 @@ export const pocketPistolBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 5,
       "explanation": "The teacher is asked to explain an elastic structure during hands-on learning.",
-      "hint": "Think about the elastic materials topic in this lesson and check which choice fits the question."
+      "hint": "Review how a stretched material behaves when tension is changed or released."
     },
     {
       "id": "pocket-pistol-08",
@@ -124,7 +124,7 @@ export const pocketPistolBank: QuizBank = {
       "correctIndex": 2,
       "learningSlide": 5,
       "explanation": "The assessment refers to elasticity and tension of a rubber band.",
-      "hint": "Think about the elastic materials topic in this lesson and check which choice fits the question."
+      "hint": "Recall the property the teacher discusses in the final science review."
     },
     {
       "id": "pocket-pistol-09",
@@ -139,7 +139,7 @@ export const pocketPistolBank: QuizBank = {
       "correctIndex": 3,
       "learningSlide": 4,
       "explanation": "The topic analysis asks students to design the model shape and identify parts.",
-      "hint": "Think about the design reflection topic in this lesson and check which choice fits the question."
+      "hint": "Think about the planning stage of a classroom model before parts are assembled."
     },
     {
       "id": "pocket-pistol-10",
@@ -154,7 +154,7 @@ export const pocketPistolBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 3,
       "explanation": "The manual combines tension/elasticity concepts with awareness of weapon danger.",
-      "hint": "Think about the design reflection topic in this lesson and check which choice fits the question."
+      "hint": "Remember the two physics topics and the separate safety objective of this lesson."
     }
   ]
 };

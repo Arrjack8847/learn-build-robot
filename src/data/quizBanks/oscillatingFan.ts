@@ -19,7 +19,7 @@ export const oscillatingFanBank: QuizBank = {
       "correctIndex": 2,
       "learningSlide": 4,
       "explanation": "The story says the fan cannot face only one person because several people need cooling.",
-      "hint": "Think about the cooling context topic in this lesson and check which choice fits the question."
+      "hint": "Think about why directing cool air toward just one person does not help everyone."
     },
     {
       "id": "oscillating-fan-02",
@@ -34,7 +34,7 @@ export const oscillatingFanBank: QuizBank = {
       "correctIndex": 3,
       "learningSlide": 4,
       "explanation": "The introduction describes Nini's hot summer in a home without air conditioning.",
-      "hint": "Think about the cooling context topic in this lesson and check which choice fits the question."
+      "hint": "Recall the summer living conditions described before the fan project begins."
     },
     {
       "id": "oscillating-fan-03",
@@ -49,7 +49,7 @@ export const oscillatingFanBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 4,
       "explanation": "The project asks students what is needed to make the fan oscillate.",
-      "hint": "Think about the oscillation topic in this lesson and check which choice fits the question."
+      "hint": "Compare a fan that faces one direction with one that changes its direction."
     },
     {
       "id": "oscillating-fan-04",
@@ -64,7 +64,7 @@ export const oscillatingFanBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 4,
       "explanation": "The design prompts include what is needed to make the fan oscillate.",
-      "hint": "Think about the oscillation topic in this lesson and check which choice fits the question."
+      "hint": "Think about the extra motion the model needs beyond simply spinning."
     },
     {
       "id": "oscillating-fan-05",
@@ -79,7 +79,7 @@ export const oscillatingFanBank: QuizBank = {
       "correctIndex": 2,
       "learningSlide": 3,
       "explanation": "The key points emphasize correct construction of an eccentric link.",
-      "hint": "Think about the gears and linkages topic in this lesson and check which choice fits the question."
+      "hint": "Remember the offset connection discussed in the lesson's construction objectives."
     },
     {
       "id": "oscillating-fan-06",
@@ -94,7 +94,7 @@ export const oscillatingFanBank: QuizBank = {
       "correctIndex": 3,
       "learningSlide": 3,
       "explanation": "The objectives specifically list link structures, gears and turbines.",
-      "hint": "Think about the gears and linkages topic in this lesson and check which choice fits the question."
+      "hint": "Recall the two other mechanical components named with the link structure."
     },
     {
       "id": "oscillating-fan-07",
@@ -109,7 +109,7 @@ export const oscillatingFanBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 5,
       "explanation": "The hands-on instructions ask for explaining the model's gearing.",
-      "hint": "Think about the motor control topic in this lesson and check which choice fits the question."
+      "hint": "Think about which kind of transmission component the teacher explains during assembly."
     },
     {
       "id": "oscillating-fan-08",
@@ -124,7 +124,7 @@ export const oscillatingFanBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 5,
       "explanation": "The source directs students to learn to set the motor module.",
-      "hint": "Think about the motor control topic in this lesson and check which choice fits the question."
+      "hint": "Remember which programmable robot component supplies motion to the model."
     },
     {
       "id": "oscillating-fan-09",
@@ -139,7 +139,7 @@ export const oscillatingFanBank: QuizBank = {
       "correctIndex": 2,
       "learningSlide": 5,
       "explanation": "The programming instructions say to debug the speed value.",
-      "hint": "Think about the programming topic in this lesson and check which choice fits the question."
+      "hint": "Consider the adjustable number in the motor-control block that affects movement."
     },
     {
       "id": "oscillating-fan-10",
@@ -154,7 +154,7 @@ export const oscillatingFanBank: QuizBank = {
       "correctIndex": 3,
       "learningSlide": 5,
       "explanation": "The lesson names a USB cable to connect the controller to a computer.",
-      "hint": "Think about the programming topic in this lesson and check which choice fits the question."
+      "hint": "Think about the physical connection used for transferring instructions from a computer."
     }
   ]
 };

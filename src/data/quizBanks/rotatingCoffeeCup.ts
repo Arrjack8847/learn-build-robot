@@ -18,7 +18,7 @@ export const rotatingCoffeeCupBank: QuizBank = {
       ],
       "correctIndex": 1,
       "learningSlide": 4,
-      "hint": "Recall the amusement ride topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Think about the amusement-park attraction that the project tries to imitate.",
       "explanation": "The introduction describes a spinning ride that looks like a large cup."
     },
     {
@@ -33,7 +33,7 @@ export const rotatingCoffeeCupBank: QuizBank = {
       ],
       "correctIndex": 2,
       "learningSlide": 4,
-      "hint": "Recall the amusement ride topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Remember what everyday drinking object inspired the ride's appearance.",
       "explanation": "The story says the ride looks like a cup big enough to hold people."
     },
     {
@@ -48,7 +48,7 @@ export const rotatingCoffeeCupBank: QuizBank = {
       ],
       "correctIndex": 3,
       "learningSlide": 4,
-      "hint": "Recall the project design topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Recall what students draw before they choose model building parts.",
       "explanation": "The design analysis asks students to draw rotating coffee cups on the blackboard."
     },
     {
@@ -63,7 +63,7 @@ export const rotatingCoffeeCupBank: QuizBank = {
       ],
       "correctIndex": 0,
       "learningSlide": 4,
-      "hint": "Recall the project design topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Think about the movement the passenger seat needs to make during the ride.",
       "explanation": "The topic analysis asks what makes the rotating coffee cup turn."
     },
     {
@@ -78,7 +78,7 @@ export const rotatingCoffeeCupBank: QuizBank = {
       ],
       "correctIndex": 1,
       "learningSlide": 3,
-      "hint": "Recall the gears and linkages topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Remember which toothed mechanical components can transfer rotation.",
       "explanation": "The learning objectives include understanding gear-driven mechanisms."
     },
     {
@@ -93,7 +93,7 @@ export const rotatingCoffeeCupBank: QuizBank = {
       ],
       "correctIndex": 2,
       "learningSlide": 3,
-      "hint": "Recall the gears and linkages topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Recall the additional connected moving structure taught with gear transmission.",
       "explanation": "The teaching objectives mention applying and learning linkage."
     },
     {
@@ -108,7 +108,7 @@ export const rotatingCoffeeCupBank: QuizBank = {
       ],
       "correctIndex": 3,
       "learningSlide": 5,
-      "hint": "Recall the motor control topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Focus on what makes one rotating part turn another during the assembly.",
       "explanation": "The hands-on instructions specifically explain the gear-driven structure."
     },
     {
@@ -123,7 +123,7 @@ export const rotatingCoffeeCupBank: QuizBank = {
       ],
       "correctIndex": 0,
       "learningSlide": 3,
-      "hint": "Recall the motor control topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Consider how the transmission pieces must be joined for rotation to reach the cup.",
       "explanation": "The key difficulties include understanding the drive combination."
     },
     {
@@ -138,7 +138,7 @@ export const rotatingCoffeeCupBank: QuizBank = {
       ],
       "correctIndex": 1,
       "learningSlide": 5,
-      "hint": "Recall the programming topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Think about the number in the motor-control program that affects rotational motion.",
       "explanation": "The teacher is told to adjust the speed by debugging the motor speed value."
     },
     {
@@ -153,7 +153,7 @@ export const rotatingCoffeeCupBank: QuizBank = {
       ],
       "correctIndex": 2,
       "learningSlide": 5,
-      "hint": "Recall the programming topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Remember how instructions are transferred from a computer to the controller.",
       "explanation": "The lesson describes connecting the controller and computer using USB."
     }
   ]

@@ -18,7 +18,7 @@ export const dancingMusicBoxBank: QuizBank = {
       ],
       "correctIndex": 3,
       "learningSlide": 4,
-      "hint": "Think about the lesson story part of this lesson, then identify which option fits.",
+      "hint": "Recall the type of shop mentioned before the teacher discovers the object.",
       "explanation": "The lesson introduction says the teacher passes a stationery store and notices a music box."
     },
     {
@@ -33,7 +33,7 @@ export const dancingMusicBoxBank: QuizBank = {
       ],
       "correctIndex": 0,
       "learningSlide": 4,
-      "hint": "Think about the lesson story part of this lesson, then identify which option fits.",
+      "hint": "Think about the two activities that make this model more than a stationary box.",
       "explanation": "The object noticed in the story dances and makes music."
     },
     {
@@ -48,7 +48,7 @@ export const dancingMusicBoxBank: QuizBank = {
       ],
       "correctIndex": 1,
       "learningSlide": 4,
-      "hint": "Think about the project design part of this lesson, then identify which option fits.",
+      "hint": "Remember which classroom tool the teacher uses for an initial sketch.",
       "explanation": "Topic analysis guides students to sketch their music box on the blackboard."
     },
     {
@@ -63,7 +63,7 @@ export const dancingMusicBoxBank: QuizBank = {
       ],
       "correctIndex": 2,
       "learningSlide": 4,
-      "hint": "Think about the project design part of this lesson, then identify which option fits.",
+      "hint": "Consider the moving action students want to reproduce in the completed model.",
       "explanation": "The teacher asks what is needed to make the dancing music box rotate."
     },
     {
@@ -78,7 +78,7 @@ export const dancingMusicBoxBank: QuizBank = {
       ],
       "correctIndex": 3,
       "learningSlide": 3,
-      "hint": "Think about the linkage and gears part of this lesson, then identify which option fits.",
+      "hint": "Recall how linked pieces and toothed wheels can transmit movement.",
       "explanation": "The teaching objectives name a link mechanism and gear transmission."
     },
     {
@@ -93,7 +93,7 @@ export const dancingMusicBoxBank: QuizBank = {
       ],
       "correctIndex": 0,
       "learningSlide": 3,
-      "hint": "Think about the linkage and gears part of this lesson, then identify which option fits.",
+      "hint": "Think about why a linkage's measurements and assembly order matter.",
       "explanation": "The key points specify fixed distance and building sequence of the link."
     },
     {
@@ -108,7 +108,7 @@ export const dancingMusicBoxBank: QuizBank = {
       ],
       "correctIndex": 1,
       "learningSlide": 3,
-      "hint": "Think about the motor control part of this lesson, then identify which option fits.",
+      "hint": "Remember the motor-control technology explicitly listed in the lesson objectives.",
       "explanation": "The teaching objectives include applying and learning a closed-loop motor."
     },
     {
@@ -123,7 +123,7 @@ export const dancingMusicBoxBank: QuizBank = {
       ],
       "correctIndex": 2,
       "learningSlide": 5,
-      "hint": "Think about the motor control part of this lesson, then identify which option fits.",
+      "hint": "Consider which setting changes how quickly a powered moving model turns.",
       "explanation": "The hands-on section directs students to adjust the motor speed value."
     },
     {
@@ -138,7 +138,7 @@ export const dancingMusicBoxBank: QuizBank = {
       ],
       "correctIndex": 3,
       "learningSlide": 3,
-      "hint": "Think about the programming part of this lesson, then identify which option fits.",
+      "hint": "Think about the order in which a controller follows a sequence of instructions.",
       "explanation": "The key points include understanding sequential programming."
     },
     {
@@ -153,7 +153,7 @@ export const dancingMusicBoxBank: QuizBank = {
       ],
       "correctIndex": 0,
       "learningSlide": 5,
-      "hint": "Think about the programming part of this lesson, then identify which option fits.",
+      "hint": "Remember the cable connection used before sending a program to a controller.",
       "explanation": "The hands-on guidance describes connecting the controller to the computer via USB."
     }
   ]

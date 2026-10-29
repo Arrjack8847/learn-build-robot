@@ -18,7 +18,7 @@ export const oldFashionedTelephoneBank: QuizBank = {
       ],
       "correctIndex": 1,
       "learningSlide": 4,
-      "hint": "Think about the emergency story part of this lesson, then identify which option fits.",
+      "hint": "Recall what happened in the family's kitchen before a call became necessary.",
       "explanation": "The introduction describes a fire breaking out in the kitchen."
     },
     {
@@ -33,7 +33,7 @@ export const oldFashionedTelephoneBank: QuizBank = {
       ],
       "correctIndex": 2,
       "learningSlide": 4,
-      "hint": "Think about the emergency story part of this lesson, then identify which option fits.",
+      "hint": "Think about the family member harmed while trying to respond to the emergency.",
       "explanation": "The story says Xiaohua's grandfather is accidentally injured."
     },
     {
@@ -48,7 +48,7 @@ export const oldFashionedTelephoneBank: QuizBank = {
       ],
       "correctIndex": 3,
       "learningSlide": 4,
-      "hint": "Think about the help and communication part of this lesson, then identify which option fits.",
+      "hint": "Consider what type of trained help should be contacted after someone is injured.",
       "explanation": "The story asks the child who can help after a fire and injury."
     },
     {
@@ -63,7 +63,7 @@ export const oldFashionedTelephoneBank: QuizBank = {
       ],
       "correctIndex": 0,
       "learningSlide": 3,
-      "hint": "Think about the help and communication part of this lesson, then identify which option fits.",
+      "hint": "Recall the groups responsible for different kinds of urgent assistance.",
       "explanation": "The objectives mention police, ambulance and fire-service contact numbers."
     },
     {
@@ -78,7 +78,7 @@ export const oldFashionedTelephoneBank: QuizBank = {
       ],
       "correctIndex": 1,
       "learningSlide": 4,
-      "hint": "Think about the telephone model part of this lesson, then identify which option fits.",
+      "hint": "Remember which familiar communication object appears in the story.",
       "explanation": "Topic analysis introduces the telephone after the emergency story."
     },
     {
@@ -93,7 +93,7 @@ export const oldFashionedTelephoneBank: QuizBank = {
       ],
       "correctIndex": 2,
       "learningSlide": 5,
-      "hint": "Think about the telephone model part of this lesson, then identify which option fits.",
+      "hint": "Think about the old-style communication device the students are asked to build.",
       "explanation": "The hands-on section asks students to construct an old-fashioned telephone."
     },
     {
@@ -108,7 +108,7 @@ export const oldFashionedTelephoneBank: QuizBank = {
       ],
       "correctIndex": 3,
       "learningSlide": 3,
-      "hint": "Think about the structural parts part of this lesson, then identify which option fits.",
+      "hint": "Recall how the model's structural pieces are joined to make a complete object.",
       "explanation": "The objectives cover using and building with structural pieces and couplings."
     },
     {
@@ -123,7 +123,7 @@ export const oldFashionedTelephoneBank: QuizBank = {
       ],
       "correctIndex": 0,
       "learningSlide": 5,
-      "hint": "Think about the structural parts part of this lesson, then identify which option fits.",
+      "hint": "Think about how to describe the physical parts of an old-fashioned handset model.",
       "explanation": "The assessment asks students to name the parts of the telephone they built."
     },
     {
@@ -138,7 +138,7 @@ export const oldFashionedTelephoneBank: QuizBank = {
       ],
       "correctIndex": 1,
       "learningSlide": 3,
-      "hint": "Think about the telephone practice part of this lesson, then identify which option fits.",
+      "hint": "Remember the two directions of a telephone conversation: receiving and initiating.",
       "explanation": "The objectives list wording for answering and making telephone calls."
     },
     {
@@ -153,7 +153,7 @@ export const oldFashionedTelephoneBank: QuizBank = {
       ],
       "correctIndex": 2,
       "learningSlide": 3,
-      "hint": "Think about the telephone practice part of this lesson, then identify which option fits.",
+      "hint": "Think about contact information people should learn before an emergency happens.",
       "explanation": "The objectives say students should learn police, ambulance and fire contact numbers; no country-specific number is provided."
     }
   ]

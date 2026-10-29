@@ -19,7 +19,7 @@ export const hermitCrabBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 4,
       "explanation": "The introduction describes a hermit crab as carrying its home on its back.",
-      "hint": "Think about the animal clues topic in this lesson and check which choice fits the question."
+      "hint": "Remember the creature in the opening riddle and what it carries as protection."
     },
     {
       "id": "hermit-crab-02",
@@ -34,7 +34,7 @@ export const hermitCrabBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 4,
       "explanation": "The third identification clue describes the animal as aquatic.",
-      "hint": "Think about the animal clues topic in this lesson and check which choice fits the question."
+      "hint": "Recall the habitat clue given after the animal's unusual home was described."
     },
     {
       "id": "hermit-crab-03",
@@ -49,7 +49,7 @@ export const hermitCrabBank: QuizBank = {
       "correctIndex": 2,
       "learningSlide": 3,
       "explanation": "The teaching objectives ask students to distinguish hermit crabs from crabs.",
-      "hint": "Think about the animal comparison topic in this lesson and check which choice fits the question."
+      "hint": "Think about the two related animals the teacher asks the class to compare."
     },
     {
       "id": "hermit-crab-04",
@@ -64,7 +64,7 @@ export const hermitCrabBank: QuizBank = {
       "correctIndex": 3,
       "learningSlide": 6,
       "explanation": "The outcomes section asks students to explain the difference between a hermit crab and a crab.",
-      "hint": "Think about the animal comparison topic in this lesson and check which choice fits the question."
+      "hint": "Consider what distinguishes a hermit crab from a more familiar crab."
     },
     {
       "id": "hermit-crab-05",
@@ -79,7 +79,7 @@ export const hermitCrabBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 3,
       "explanation": "The key points specify building a crank-link structure using the motor and beam.",
-      "hint": "Think about the crank and link topic in this lesson and check which choice fits the question."
+      "hint": "Focus on the type of moving mechanical connection built between the motor and beam."
     },
     {
       "id": "hermit-crab-06",
@@ -94,7 +94,7 @@ export const hermitCrabBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 5,
       "explanation": "The hands-on instructions call for explaining the hermit crab model's linkage.",
-      "hint": "Think about the crank and link topic in this lesson and check which choice fits the question."
+      "hint": "Remember the part of the lesson that explains how connected pieces move together."
     },
     {
       "id": "hermit-crab-07",
@@ -109,7 +109,7 @@ export const hermitCrabBank: QuizBank = {
       "correctIndex": 2,
       "learningSlide": 3,
       "explanation": "The teaching objectives name friction.",
-      "hint": "Think about the friction and crawling topic in this lesson and check which choice fits the question."
+      "hint": "Recall the force that acts when two surfaces make contact and move against each other."
     },
     {
       "id": "hermit-crab-08",
@@ -124,7 +124,7 @@ export const hermitCrabBank: QuizBank = {
       "correctIndex": 3,
       "learningSlide": 4,
       "explanation": "The topic-analysis section asks how the hermit crab crawls.",
-      "hint": "Think about the friction and crawling topic in this lesson and check which choice fits the question."
+      "hint": "Think about the animal's everyday way of moving instead of how fish swim."
     },
     {
       "id": "hermit-crab-09",
@@ -139,7 +139,7 @@ export const hermitCrabBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 5,
       "explanation": "The manual says to adjust crawling speed by debugging speed values.",
-      "hint": "Think about the software and motor topic in this lesson and check which choice fits the question."
+      "hint": "Remember which robot setting changes the rate at which a moving part operates."
     },
     {
       "id": "hermit-crab-10",
@@ -154,7 +154,7 @@ export const hermitCrabBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 5,
       "explanation": "The hands-on section specifies a USB cable between controller and computer.",
-      "hint": "Think about the software and motor topic in this lesson and check which choice fits the question."
+      "hint": "Think about how the computer sends a program to the robot controller."
     }
   ]
 };

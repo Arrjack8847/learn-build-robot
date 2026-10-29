@@ -19,7 +19,7 @@ export const littleOwlBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 4,
       "explanation": "The story says the neighbour is a good hunter at night.",
-      "hint": "Think about the daily habits topic in this lesson and check which choice fits the question."
+      "hint": "Remember the contrast between the owl's hunting hours and its resting hours."
     },
     {
       "id": "little-owl-02",
@@ -34,7 +34,7 @@ export const littleOwlBank: QuizBank = {
       "correctIndex": 2,
       "learningSlide": 4,
       "explanation": "The story explicitly says the owl sleeps during the day.",
-      "hint": "Think about the daily habits topic in this lesson and check which choice fits the question."
+      "hint": "Consider when this bird rests after being active outside its nest."
     },
     {
       "id": "little-owl-03",
@@ -49,7 +49,7 @@ export const littleOwlBank: QuizBank = {
       "correctIndex": 3,
       "learningSlide": 4,
       "explanation": "The owl hunts food for the sick mother bird and the baby birds.",
-      "hint": "Think about the story topic in this lesson and check which choice fits the question."
+      "hint": "Recall the family in the story that needed another bird's help finding food."
     },
     {
       "id": "little-owl-04",
@@ -64,7 +64,7 @@ export const littleOwlBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 4,
       "explanation": "The topic analysis asks the class to design and build an owl.",
-      "hint": "Think about the story topic in this lesson and check which choice fits the question."
+      "hint": "Think about which creature the class studies to make the wing-moving model."
     },
     {
       "id": "little-owl-05",
@@ -79,7 +79,7 @@ export const littleOwlBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 4,
       "explanation": "The topic analysis directs students to draw the owl on the blackboard.",
-      "hint": "Think about the owl design topic in this lesson and check which choice fits the question."
+      "hint": "Remember the classroom surface suggested for sketching a design before building."
     },
     {
       "id": "little-owl-06",
@@ -94,7 +94,7 @@ export const littleOwlBank: QuizBank = {
       "correctIndex": 2,
       "learningSlide": 3,
       "explanation": "The key points specify correct construction of the owl's structure.",
-      "hint": "Think about the owl design topic in this lesson and check which choice fits the question."
+      "hint": "Consider what a successful assembly must achieve before its moving parts can work."
     },
     {
       "id": "little-owl-07",
@@ -109,7 +109,7 @@ export const littleOwlBank: QuizBank = {
       "correctIndex": 3,
       "learningSlide": 4,
       "explanation": "The planning questions ask what makes the owl's wings swing.",
-      "hint": "Think about the wing movement topic in this lesson and check which choice fits the question."
+      "hint": "Focus on the body part that moves in the animal model, not on a wheel."
     },
     {
       "id": "little-owl-08",
@@ -124,7 +124,7 @@ export const littleOwlBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 5,
       "explanation": "The presentation questions focus on what makes the model's wings swing.",
-      "hint": "Think about the wing movement topic in this lesson and check which choice fits the question."
+      "hint": "Think about the visible movement the teacher asks students to explain."
     },
     {
       "id": "little-owl-09",
@@ -139,7 +139,7 @@ export const littleOwlBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 3,
       "explanation": "The lesson lists linkage connection among its key points.",
-      "hint": "Think about the driven linkage topic in this lesson and check which choice fits the question."
+      "hint": "Recall how one moving piece can transfer movement to another connected piece."
     },
     {
       "id": "little-owl-10",
@@ -154,7 +154,7 @@ export const littleOwlBank: QuizBank = {
       "correctIndex": 2,
       "learningSlide": 5,
       "explanation": "The hands-on section explicitly directs teachers to explain gearing.",
-      "hint": "Think about the driven linkage topic in this lesson and check which choice fits the question."
+      "hint": "Review the mechanical method that transfers rotation between toothed parts."
     }
   ]
 };

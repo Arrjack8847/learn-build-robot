@@ -18,7 +18,7 @@ export const handCrankingFanBank: QuizBank = {
       ],
       "correctIndex": 0,
       "learningSlide": 4,
-      "hint": "Think about the cooling context part of this lesson, then identify which option fits.",
+      "hint": "Recall the condition in Nini's home that limits which cooling devices she can use.",
       "explanation": "The story says Nini lives in a remote area without electricity."
     },
     {
@@ -33,7 +33,7 @@ export const handCrankingFanBank: QuizBank = {
       ],
       "correctIndex": 1,
       "learningSlide": 4,
-      "hint": "Think about the cooling context part of this lesson, then identify which option fits.",
+      "hint": "Remember the hot time of year that motivates the story's cooling problem.",
       "explanation": "The introduction asks how Nini gets through the hot summer."
     },
     {
@@ -48,7 +48,7 @@ export const handCrankingFanBank: QuizBank = {
       ],
       "correctIndex": 2,
       "learningSlide": 4,
-      "hint": "Think about the manual fan part of this lesson, then identify which option fits.",
+      "hint": "Think about a cooling tool operated by a person rather than an electrical outlet.",
       "explanation": "The lesson asks students to find a fan that can be used without electricity."
     },
     {
@@ -63,7 +63,7 @@ export const handCrankingFanBank: QuizBank = {
       ],
       "correctIndex": 3,
       "learningSlide": 4,
-      "hint": "Think about the manual fan part of this lesson, then identify which option fits.",
+      "hint": "Recall the simple hand-operated device students mention in the opening discussion.",
       "explanation": "The story includes the suggestion of waving a manual fan."
     },
     {
@@ -78,7 +78,7 @@ export const handCrankingFanBank: QuizBank = {
       ],
       "correctIndex": 0,
       "learningSlide": 3,
-      "hint": "Think about the gear knowledge part of this lesson, then identify which option fits.",
+      "hint": "Focus on the toothed rotating pieces that are central to this lesson.",
       "explanation": "The objectives discuss types, roles and characteristics of gears."
     },
     {
@@ -93,7 +93,7 @@ export const handCrankingFanBank: QuizBank = {
       ],
       "correctIndex": 1,
       "learningSlide": 3,
-      "hint": "Think about the gear knowledge part of this lesson, then identify which option fits.",
+      "hint": "Think about the ways toothed wheels can differ from one another.",
       "explanation": "The teaching objectives explicitly mention types of gears."
     },
     {
@@ -108,7 +108,7 @@ export const handCrankingFanBank: QuizBank = {
       ],
       "correctIndex": 2,
       "learningSlide": 3,
-      "hint": "Think about the transmission part of this lesson, then identify which option fits.",
+      "hint": "Consider how movement passes between connected mechanical parts.",
       "explanation": "The learning objectives include applying gears in mechanical transmission."
     },
     {
@@ -123,7 +123,7 @@ export const handCrankingFanBank: QuizBank = {
       ],
       "correctIndex": 3,
       "learningSlide": 5,
-      "hint": "Think about the transmission part of this lesson, then identify which option fits.",
+      "hint": "Recall how a rotating input can be transferred or changed through gears.",
       "explanation": "The final presentation names transmission and gear shifting."
     },
     {
@@ -138,7 +138,7 @@ export const handCrankingFanBank: QuizBank = {
       ],
       "correctIndex": 0,
       "learningSlide": 3,
-      "hint": "Think about the assembly review part of this lesson, then identify which option fits.",
+      "hint": "Think about why following the diagrams in order helps build a working model.",
       "explanation": "The key points call for understanding the correct building sequence."
     },
     {
@@ -153,7 +153,7 @@ export const handCrankingFanBank: QuizBank = {
       ],
       "correctIndex": 1,
       "learningSlide": 4,
-      "hint": "Think about the assembly review part of this lesson, then identify which option fits.",
+      "hint": "Remember the model parts students must identify before they start construction.",
       "explanation": "The topic analysis asks about the parts and pieces needed to build the fan."
     }
   ]

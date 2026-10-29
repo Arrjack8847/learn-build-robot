@@ -18,7 +18,7 @@ export const pullbackBicycleBank: QuizBank = {
       ],
       "correctIndex": 0,
       "learningSlide": 4,
-      "hint": "Recall the project goal topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Remember what makes this bicycle different from one that must be pedaled.",
       "explanation": "The introduction asks how a bicycle can move without pedaling."
     },
     {
@@ -33,7 +33,7 @@ export const pullbackBicycleBank: QuizBank = {
       ],
       "correctIndex": 1,
       "learningSlide": 4,
-      "hint": "Recall the project goal topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Recall the other small wheeled toys students are asked to compare.",
       "explanation": "The introduction asks students to recall pullback toy vehicles."
     },
     {
@@ -48,7 +48,7 @@ export const pullbackBicycleBank: QuizBank = {
       ],
       "correctIndex": 2,
       "learningSlide": 3,
-      "hint": "Recall the elastic force topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Think about the part that can store energy by being stretched.",
       "explanation": "The objectives identify the elastic force of a rubber band."
     },
     {
@@ -63,7 +63,7 @@ export const pullbackBicycleBank: QuizBank = {
       ],
       "correctIndex": 3,
       "learningSlide": 5,
-      "hint": "Recall the elastic force topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Focus on the type of force that a flexible, stretched component provides.",
       "explanation": "The final review focuses on the rubber band's elastic force."
     },
     {
@@ -78,7 +78,7 @@ export const pullbackBicycleBank: QuizBank = {
       ],
       "correctIndex": 0,
       "learningSlide": 3,
-      "hint": "Recall the gear transmission topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Recall which mechanical pieces pass rotation from one part to another.",
       "explanation": "The teaching objectives explicitly list gear-driven mechanisms."
     },
     {
@@ -93,7 +93,7 @@ export const pullbackBicycleBank: QuizBank = {
       ],
       "correctIndex": 1,
       "learningSlide": 5,
-      "hint": "Recall the gear transmission topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Think about how a stored force and a moving transmission can work together.",
       "explanation": "The presentation combines rubber-band elastic force and gear drive."
     },
     {
@@ -108,7 +108,7 @@ export const pullbackBicycleBank: QuizBank = {
       ],
       "correctIndex": 2,
       "learningSlide": 3,
-      "hint": "Recall the assembly parts topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Remember which elastic part needs a secure connection in the assembly.",
       "explanation": "The key points include fixing the rubber band."
     },
     {
@@ -123,7 +123,7 @@ export const pullbackBicycleBank: QuizBank = {
       ],
       "correctIndex": 3,
       "learningSlide": 3,
-      "hint": "Recall the assembly parts topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Consider the small pieces used to join structural building components.",
       "explanation": "The lesson highlights connecting the pins correctly."
     },
     {
@@ -138,7 +138,7 @@ export const pullbackBicycleBank: QuizBank = {
       ],
       "correctIndex": 0,
       "learningSlide": 4,
-      "hint": "Recall the reflection topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Think about the first design step students perform before handling components.",
       "explanation": "The topic analysis asks students to design a bicycle on the blackboard."
     },
     {
@@ -153,7 +153,7 @@ export const pullbackBicycleBank: QuizBank = {
       ],
       "correctIndex": 1,
       "learningSlide": 5,
-      "hint": "Recall the reflection topic in the Learning manual, then compare the four choices carefully.",
+      "hint": "Recall both the source of stored energy and the mechanism that transfers motion.",
       "explanation": "The outcome questions ask how it runs using elastic force and gearing."
     }
   ]
