@@ -12,14 +12,18 @@
     "existingQuestions": 20,
     "missingBanks": 58,
     "questionTargetForMissingBanks": 580,
-    "newBanksWrittenByThisWorker": 0
+    "newBanksWrittenByThisWorker": 4,
+    "authoredButNotIntegrated": 4,
+    "newQuestionsWrittenByThisWorker": 40,
+    "stillMissingBankFiles": 54,
+    "registeredSourcePdfPagesVerified": 97
   },
   "notes": [
     "This is an authoring audit, NOT a set of playable quiz banks.",
     "All listed PDF paths are confirmed tracked at the selected base commit. Tracked file existence does NOT establish slide content or page count.",
     "Page counts remain null until each source PDF is opened and counted; only two prior published bank metadata values are included.",
     "The 15 building-PDF fallbacks may not contain enough teaching objectives to support a ten-question Learning quiz; flag insufficient sources instead of inventing material.",
-    "No source diagrams have been inspected in this audit. No new question is published or imported into shared Quiz Studio."
+    "Batch 1 now has four source-verified authored banks and the existing Axe Robot bank. No shared Quiz Studio import has been added; four new banks remain intentionally non-playable."
   ],
   "projects": [
     {
@@ -43,10 +47,10 @@
       "sourcePdfPath": "public/Level 2/Learning/Action-Oriented/Batting robot/Batting robot_Powerpoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 20,
+      "bankStatus": "authored-not-integrated",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-and-diagrams-reviewed"
     },
     {
       "projectId": "level-2-fan-robot",
@@ -524,10 +528,10 @@
       "sourcePdfPath": "public/Level 2/Learning/Mechanisms and Concepts/Animal trap.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 18,
+      "bankStatus": "authored-not-integrated",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-and-diagrams-reviewed"
     },
     {
       "projectId": "level-2-headlights",
@@ -550,10 +554,10 @@
       "sourcePdfPath": "public/Level 2/Learning/Programming & Precise Control/Battery robot/Battery robot_Powerpoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 21,
+      "bankStatus": "authored-not-integrated",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-and-diagrams-reviewed"
     },
     {
       "projectId": "level-2-walking-robot",
@@ -771,10 +775,10 @@
       "sourcePdfPath": "public/Level 2/Learning/Machines & Mechanisms/Automatic window.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 19,
+      "bankStatus": "authored-not-integrated",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-and-diagrams-reviewed"
     },
     {
       "projectId": "level-2-robot-war",
@@ -934,5 +938,29 @@
       ],
       "status": "pending-source-review"
     }
-  ]
+  ],
+  "sourceReview": {
+    "batch": 1,
+    "inspectedPdfPageCounts": {
+      "level-2-animal-trap": 18,
+      "level-2-automatic-window": 19,
+      "level-2-axe-robot": 19,
+      "level-2-battery-robot": 21,
+      "level-2-batting-robot": 20
+    },
+    "pagesRequiringSpecialVisualReview": {
+      "level-2-animal-trap": 8,
+      "level-2-automatic-window": 11,
+      "level-2-axe-robot": 6,
+      "level-2-battery-robot": 7,
+      "level-2-batting-robot": 6
+    },
+    "authoredBankFiles": [
+      "src/data/quizBanks/level2/animalTrap.ts",
+      "src/data/quizBanks/level2/automaticWindow.ts",
+      "src/data/quizBanks/level2/batteryRobot.ts",
+      "src/data/quizBanks/level2/battingRobot.ts"
+    ],
+    "note": "All 97 pages in the five uploaded PDFs were inspected, including slides with little text. Four new 10-question banks verified against source and staged for later manual integration. Existing Axe Robot bank unchanged."
+  }
 }

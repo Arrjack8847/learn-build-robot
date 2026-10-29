@@ -1,19 +1,19 @@
 # Level 2 Quiz Source Audit — Content Worker
 
-> Audit only; this file does **not** contain new verified question banks. **Do not publish or import pending items.**
+> Baseline source audit updated after Batch 1: four new source-verified bank files are authored but **not integrated**. Do not import pending items.
 
 - Base branch: `feat/quiz-studio-syllabus-question-banks-20261028`
 - Work branch: `feat/quiz-level2-content`
 - Syllabus projects: **60**
 - Already published: **2** (Axe Robot, Fan Robot; 10 questions each), maintained in the existing shared registry.
-- Pending: **58 banks / 580 proposed questions**.
+- Still missing bank files: **54 / 540 questions**. Four additional source-verified banks (40 questions) have been authored in this branch but are not yet integrated.
 - Official Learning mappings: **45 project IDs / 44 unique PDFs**. Two See Saw variants point to one shared source.
 - Building-only Learning fallbacks: **15**; inspect source carefully before deciding it supports a real lesson quiz.
-- PDF file paths: **all 60 mapped sources present in Git**, but contents and page counts for pending projects have not been reviewed.
+- PDF file paths: **all 60 mapped sources present in Git**. Batch 1 PDFs (Animal Trap, Automatic Window, Axe Robot, Battery Robot, Batting Robot) were opened and reviewed page-by-page. Other sources still need review.
 
 ## Blocker and quality gate
 
-The connected GitHub file reader supports source code and metadata but rejects binary PDF content. Attempts to retrieve a PDF blob returned a text-decoding error; the registered hosted PDF was not accessible to the available document reader. Therefore the pending pages, illustrations, answer keys, and slide numbers are **not verified**. Generating questions from filenames would violate source-based authoring requirements.
+The GitHub connection cannot decode binary PDF blobs. Batch 1's five original PDFs and their extracted JSON were subsequently supplied as an upload, enabling direct page and diagram inspection and four verified bank drafts. The other 54 missing banks remain blocked until their corresponding PDFs are inspected. Generating questions from filenames would violate source-based authoring requirements.
 
 For each pending project: open the exact PDF; read every page and diagram; record the real page count and five distinct objectives if supported; write two questions per objective with four unique choices, answer, hint, explanation and 1-based slide number; run `validateQuizBank`; manually check the correctness of every reference.
 
@@ -24,7 +24,7 @@ The shared Quiz Studio only imports existing banks. Adding content under this di
 | Project ID | Source kind | Source PDF (repository-relative) | Bank status | Verified pages |
 | --- | --- | --- | --- | ---: |
 | `level-2-axe-robot` | Learning | `public/Level 2/Learning/Action-Oriented/Axe robot/Axe robot_Powerpoint.pdf` | Existing (10) | 19 |
-| `level-2-batting-robot` | Learning | `public/Level 2/Learning/Action-Oriented/Batting robot/Batting robot_Powerpoint.pdf` | Pending review | — |
+| `level-2-batting-robot` | Learning | `public/Level 2/Learning/Action-Oriented/Batting robot/Batting robot_Powerpoint.pdf` | Authored (10; not integrated) | 20 |
 | `level-2-fan-robot` | Learning | `public/Level 2/Learning/Action-Oriented/Fan robot/Fan robot_Powerpoint.pdf` | Existing (10) | 19 |
 | `level-2-pirate-ship` | Learning | `public/Level 2/Learning/Action-Oriented/Pirate ship/Pirate ship__Powerpoint.pdf` | Pending review | — |
 | `level-2-push-ups` | Learning | `public/Level 2/Learning/Action-Oriented/Push ups/Push ups_Powerpoint.pdf` | Pending review | — |
@@ -61,9 +61,9 @@ The shared Quiz Studio only imports existing banks. Adding content under this di
 | `level-2-spinning-bike` | Learning | `public/Level 2/Learning/Mechanisms & Simulators/Spinning bike/Spinning bike_Powerpoint.pdf` | Pending review | — |
 | `level-2-swing` | Learning | `public/Level 2/Learning/Mechanisms & Simulators/Swing/Swing_powerpoint.pdf` | Pending review | — |
 | `level-2-treadmill` | Learning | `public/Level 2/Learning/Mechanisms & Simulators/Treadmill/Treadmill_Powerpoint.pdf` | Pending review | — |
-| `level-2-animal-trap` | Learning | `public/Level 2/Learning/Mechanisms and Concepts/Animal trap.pdf` | Pending review | — |
+| `level-2-animal-trap` | Learning | `public/Level 2/Learning/Mechanisms and Concepts/Animal trap.pdf` | Authored (10; not integrated) | 18 |
 | `level-2-headlights` | Learning | `public/Level 2/Learning/Mechanisms and Concepts/Headlights.pdf` | Pending review | — |
-| `level-2-battery-robot` | Learning | `public/Level 2/Learning/Programming & Precise Control/Battery robot/Battery robot_Powerpoint.pdf` | Pending review | — |
+| `level-2-battery-robot` | Learning | `public/Level 2/Learning/Programming & Precise Control/Battery robot/Battery robot_Powerpoint.pdf` | Authored (10; not integrated) | 21 |
 | `level-2-walking-robot` | Learning | `public/Level 2/Learning/Sensor-Focused Robots/Walking robot/Walking robot_PowerPoint -R.pdf` | Pending review | — |
 | `level-2-led-scrolling-screen` | Building fallback | `public/LED Scrolling Screen.pdf` | Pending review | — |
 | `level-2-led-signboard` | Building fallback | `public/LED Signboard.pdf` | Pending review | — |
@@ -80,7 +80,7 @@ The shared Quiz Studio only imports existing banks. Adding content under this di
 | `level-2-reverse-parking` | Building fallback | `public/Reverse Parking.pdf` | Pending review | — |
 | `level-2-smart-window` | Building fallback | `public/Smart Window.pdf` | Pending review | — |
 | `level-2-spirograph` | Building fallback | `public/Spirograph.pdf` | Pending review | — |
-| `level-2-automatic-window` | Learning | `public/Level 2/Learning/Machines & Mechanisms/Automatic window.pdf` | Pending review | — |
+| `level-2-automatic-window` | Learning | `public/Level 2/Learning/Machines & Mechanisms/Automatic window.pdf` | Authored (10; not integrated) | 19 |
 | `level-2-robot-war` | Learning | `public/Level 2/Learning/Machines & Mechanisms/Robot war.pdf` | Pending review | — |
 | `level-2-the-treadmill` | Learning | `public/Level 2/Learning/Foundational Robots/The treadmill.pdf` | Pending review | — |
 
@@ -104,5 +104,14 @@ The shared Quiz Studio only imports existing banks. Adding content under this di
 - Registry-to-manifest match: 45 / 45 mapped Level 2 Learning entries.
 - Building fallback coverage: 15 / 15 matched to actual Building PDF file paths.
 - Git tree source existence: 60 / 60 project references point to tracked PDFs (59 unique source paths).
-- Quiz content tests: **not run for new banks**, because no new source-verified banks were authored.
-- Type-check/build: not run in the connector environment; Markdown/JSON audit only, no runtime TypeScript edited.
+- Quiz content checks: four authored bank files pass the existing `validateQuizBank` structural rules (10 questions, five 2-question objectives, valid slide bounds, unique choices, hints and explanations), plus manual checks against original PDF pages. App/runtime test not run because banks are deliberately unimported.
+- Type-check/build: not run in the connector environment; four independent TypeScript bank files were authored but intentionally not imported into the app.
+
+## Batch 1 completion
+
+- `level-2-animal-trap`: 10 source-reviewed questions, 18 PDF pages, five objectives, slides 3, 4, 5, 6, 7, 15, 17.
+- `level-2-automatic-window`: 10 source-reviewed questions, 19 PDF pages, five objectives, slides 2, 4, 6, 7, 10, 17, 18.
+- `level-2-battery-robot`: 10 source-reviewed questions, 21 PDF pages, five objectives, slides 7, 9, 10, 11, 12, 16, 18.
+- `level-2-batting-robot`: 10 source-reviewed questions, 20 PDF pages, five objectives, slides 6, 7, 9, 10, 14, 17.
+
+The fifth inspected project, `level-2-axe-robot`, already had a bank and was deliberately not rewritten. See `BATCH_01_VERIFICATION.md`.
