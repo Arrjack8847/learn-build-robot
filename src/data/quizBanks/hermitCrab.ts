@@ -1,163 +1,160 @@
-/** UNREVIEWED PHASE 3 DRAFT — Building PDF fallback.
- * PDF page count, questions and answers MUST be verified.
- * Do not import, count as completed, or publish this file.
- */
+/** Phase 3 source-text question draft; PDF illustrations and teaching quality need review. */
 import type { QuizBank } from "../quizStudio";
 export const hermitCrabBank: QuizBank = {
   "projectId": "hermit-crab",
   "title": "Hermit Crab",
   "sourcePdfPath": "public/Hermit Crab.pdf",
-  "sourcePageCount": 0,
+  "sourcePageCount": 18,
   "questions": [
     {
       "id": "hermit-crab-01",
-      "topic": "objective-1",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "animal-clues",
+      "prompt": "Which animal carries its home on its back in the lesson's riddle?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "A hermit crab",
+        "An owl",
+        "A penguin",
+        "A butterfly"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 4,
+      "explanation": "The introduction describes a hermit crab as carrying its home on its back.",
+      "hint": "Think about the animal clues topic in this lesson and check which choice fits the question."
     },
     {
       "id": "hermit-crab-02",
-      "topic": "objective-1",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "animal-clues",
+      "prompt": "Which environment is associated with the animal in the riddle?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Only mountain caves",
+        "Aquatic environments",
+        "Only the upper atmosphere",
+        "Only hot desert dunes"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 4,
+      "explanation": "The third identification clue describes the animal as aquatic.",
+      "hint": "Think about the animal clues topic in this lesson and check which choice fits the question."
     },
     {
       "id": "hermit-crab-03",
-      "topic": "objective-2",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "animal-comparison",
+      "prompt": "Which animal comparison is one of the lesson's teaching goals?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Sailboats and ships",
+        "Snakes and lizards",
+        "Hermit crabs and crabs",
+        "Owls and eagles"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 3,
+      "explanation": "The teaching objectives ask students to distinguish hermit crabs from crabs.",
+      "hint": "Think about the animal comparison topic in this lesson and check which choice fits the question."
     },
     {
       "id": "hermit-crab-04",
-      "topic": "objective-2",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "animal-comparison",
+      "prompt": "Which comparison is revisited in the lesson's outcome discussion?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "How a car differs from a van",
+        "How an owl differs from a penguin",
+        "How a sailboat differs from a canoe",
+        "How a hermit crab differs from a crab"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 6,
+      "explanation": "The outcomes section asks students to explain the difference between a hermit crab and a crab.",
+      "hint": "Think about the animal comparison topic in this lesson and check which choice fits the question."
     },
     {
       "id": "hermit-crab-05",
-      "topic": "objective-3",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "crank-and-link",
+      "prompt": "What structure joins the motor and beams in the key building objectives?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Crank-link structure",
+        "Telescope lens system",
+        "Magnetic train suspension",
+        "Wind-powered turbine"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 3,
+      "explanation": "The key points specify building a crank-link structure using the motor and beam.",
+      "hint": "Think about the crank and link topic in this lesson and check which choice fits the question."
     },
     {
       "id": "hermit-crab-06",
-      "topic": "objective-3",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "crank-and-link",
+      "prompt": "What mechanical structure does the teacher explain during assembly?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Water pump",
+        "Linkage structure",
+        "Optical projector",
+        "Fuel injector"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 5,
+      "explanation": "The hands-on instructions call for explaining the hermit crab model's linkage.",
+      "hint": "Think about the crank and link topic in this lesson and check which choice fits the question."
     },
     {
       "id": "hermit-crab-07",
-      "topic": "objective-4",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "friction-and-crawling",
+      "prompt": "Which force-related topic is explicitly listed in the hermit crab objectives?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Magnetic induction",
+        "Photoelectricity",
+        "Friction",
+        "Radiation"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 3,
+      "explanation": "The teaching objectives name friction.",
+      "hint": "Think about the friction and crawling topic in this lesson and check which choice fits the question."
     },
     {
       "id": "hermit-crab-08",
-      "topic": "objective-4",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "friction-and-crawling",
+      "prompt": "Which animal motion are students asked to explore before building?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Long-distance flying",
+        "Underwater jet propulsion",
+        "High-speed rolling",
+        "Crawling"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 4,
+      "explanation": "The topic-analysis section asks how the hermit crab crawls.",
+      "hint": "Think about the friction and crawling topic in this lesson and check which choice fits the question."
     },
     {
       "id": "hermit-crab-09",
-      "topic": "objective-5",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "software-and-motor",
+      "prompt": "What setting is used to change the model's crawling speed?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Motor speed value",
+        "Page size",
+        "USB cable colour",
+        "Project title"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 5,
+      "explanation": "The manual says to adjust crawling speed by debugging speed values.",
+      "hint": "Think about the software and motor topic in this lesson and check which choice fits the question."
     },
     {
       "id": "hermit-crab-10",
-      "topic": "objective-5",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "software-and-motor",
+      "prompt": "How is the robot controller connected to a computer for programming?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Paper wire",
+        "USB cable",
+        "Rubber band",
+        "Mechanical gear alone"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 5,
+      "explanation": "The hands-on section specifies a USB cable between controller and computer.",
+      "hint": "Think about the software and motor topic in this lesson and check which choice fits the question."
     }
   ]
 };

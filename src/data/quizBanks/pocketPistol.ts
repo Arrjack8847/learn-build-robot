@@ -1,163 +1,160 @@
-/** UNREVIEWED PHASE 3 DRAFT — Building PDF fallback.
- * PDF page count, questions and answers MUST be verified.
- * Do not import, count as completed, or publish this file.
- */
+/** Phase 3 source-text question draft; PDF illustrations and teaching quality need review. */
 import type { QuizBank } from "../quizStudio";
 export const pocketPistolBank: QuizBank = {
   "projectId": "pocket-pistol",
   "title": "Pocket Pistol",
   "sourcePdfPath": "public/Pocket Pistol.pdf",
-  "sourcePageCount": 0,
+  "sourcePageCount": 14,
   "questions": [
     {
       "id": "pocket-pistol-01",
-      "topic": "objective-1",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "hazard-awareness",
+      "prompt": "Which safety topic is a teaching objective of this lesson?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Water safety for swimming",
+        "Electric bicycle charging",
+        "Sun exposure",
+        "Dangers of weapons"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 3,
+      "explanation": "The teaching objectives include knowing the dangers of weapons.",
+      "hint": "Think about the hazard awareness topic in this lesson and check which choice fits the question."
     },
     {
       "id": "pocket-pistol-02",
-      "topic": "objective-1",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "hazard-awareness",
+      "prompt": "Which attitude best reflects the lesson's danger-awareness objective?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Treat projectile devices as potentially hazardous",
+        "Assume all weapons are harmless",
+        "Ignore the risk of injuries",
+        "Encourage aiming at people"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 3,
+      "explanation": "Recognizing weapons' danger includes awareness of possible injuries.",
+      "hint": "Think about the hazard awareness topic in this lesson and check which choice fits the question."
     },
     {
       "id": "pocket-pistol-03",
-      "topic": "objective-2",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "story",
+      "prompt": "What large animal causes trouble in the fictional Wanchuang Forest story?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Crab",
+        "Dinosaur",
+        "Owl",
+        "Penguin"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 4,
+      "explanation": "The story begins with a dinosaur destroying plants in the forest.",
+      "hint": "Think about the story topic in this lesson and check which choice fits the question."
     },
     {
       "id": "pocket-pistol-04",
-      "topic": "objective-2",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "story",
+      "prompt": "Why are the smaller forest animals upset with the dinosaur?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "It brings them food",
+        "It offers them a ride",
+        "It destroys flowers and trees",
+        "It repairs their homes"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 4,
+      "explanation": "The story describes the dinosaur damaging flowers and trees and ignoring objections.",
+      "hint": "Think about the story topic in this lesson and check which choice fits the question."
     },
     {
       "id": "pocket-pistol-05",
-      "topic": "objective-3",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "forces",
+      "prompt": "Which pair of physics concepts is explicitly taught?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Magnetism and electricity",
+        "Reflection and refraction",
+        "Buoyancy and pressure",
+        "Tension and elasticity"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 3,
+      "explanation": "The objectives name the physical ideas of tension and elasticity.",
+      "hint": "Think about the forces topic in this lesson and check which choice fits the question."
     },
     {
       "id": "pocket-pistol-06",
-      "topic": "objective-3",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "forces",
+      "prompt": "What material is used to discuss tension and elasticity?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Rubber band",
+        "Wooden block",
+        "Glass panel",
+        "Copper plate"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 4,
+      "explanation": "The topic-analysis section specifically discusses rubber-band tension and elasticity.",
+      "hint": "Think about the forces topic in this lesson and check which choice fits the question."
     },
     {
       "id": "pocket-pistol-07",
-      "topic": "objective-4",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "elastic-materials",
+      "prompt": "What general type of physical structure is named in the hands-on lesson?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Wind-powered structure",
+        "Elastic structure",
+        "Hydraulic structure",
+        "Optical structure"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 5,
+      "explanation": "The teacher is asked to explain an elastic structure during hands-on learning.",
+      "hint": "Think about the elastic materials topic in this lesson and check which choice fits the question."
     },
     {
       "id": "pocket-pistol-08",
-      "topic": "objective-4",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "elastic-materials",
+      "prompt": "Which property of the rubber band is revisited in the outcome discussion?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Magnetism",
+        "Light emission",
+        "Elasticity",
+        "Electrical conductivity"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 5,
+      "explanation": "The assessment refers to elasticity and tension of a rubber band.",
+      "hint": "Think about the elastic materials topic in this lesson and check which choice fits the question."
     },
     {
       "id": "pocket-pistol-09",
-      "topic": "objective-5",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "design-reflection",
+      "prompt": "What is part of the lesson's design-planning activity?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Practicing with live firearms",
+        "Increasing projectile range",
+        "Choosing real-world targets",
+        "Deciding the model's overall shape and parts"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 4,
+      "explanation": "The topic analysis asks students to design the model shape and identify parts.",
+      "hint": "Think about the design reflection topic in this lesson and check which choice fits the question."
     },
     {
       "id": "pocket-pistol-10",
-      "topic": "objective-5",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "design-reflection",
+      "prompt": "Which set of topics best describes the stated learning objectives?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Elasticity, tension and weapon danger",
+        "Computer networks, motors and light sensors",
+        "Ocean currents, sails and water pumps",
+        "Bird migration, feathers and habitats"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 3,
+      "explanation": "The manual combines tension/elasticity concepts with awareness of weapon danger.",
+      "hint": "Think about the design reflection topic in this lesson and check which choice fits the question."
     }
   ]
 };

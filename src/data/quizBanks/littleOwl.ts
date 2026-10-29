@@ -1,163 +1,160 @@
-/** UNREVIEWED PHASE 3 DRAFT — Building PDF fallback.
- * PDF page count, questions and answers MUST be verified.
- * Do not import, count as completed, or publish this file.
- */
+/** Phase 3 source-text question draft; PDF illustrations and teaching quality need review. */
 import type { QuizBank } from "../quizStudio";
 export const littleOwlBank: QuizBank = {
   "projectId": "little-owl",
   "title": "Little Owl",
   "sourcePdfPath": "public/Little Owl.pdf",
-  "sourcePageCount": 0,
+  "sourcePageCount": 18,
   "questions": [
     {
       "id": "little-owl-01",
-      "topic": "objective-1",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "daily-habits",
+      "prompt": "When does the helpful owl in the story hunt for food?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Only in the afternoon",
+        "At night",
+        "Only at noon",
+        "Only at breakfast"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 4,
+      "explanation": "The story says the neighbour is a good hunter at night.",
+      "hint": "Think about the daily habits topic in this lesson and check which choice fits the question."
     },
     {
       "id": "little-owl-02",
-      "topic": "objective-1",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "daily-habits",
+      "prompt": "When does the owl in the lesson's story sleep?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Only in a storm",
+        "Only at sunset",
+        "During the day",
+        "At night"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 4,
+      "explanation": "The story explicitly says the owl sleeps during the day.",
+      "hint": "Think about the daily habits topic in this lesson and check which choice fits the question."
     },
     {
       "id": "little-owl-03",
-      "topic": "objective-2",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "story",
+      "prompt": "Whom does the owl help in the introduction?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "A fisherman and his boat",
+        "A dinosaur with a broken tooth",
+        "A driver in heavy rain",
+        "A sick mother bird and hungry baby birds"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 4,
+      "explanation": "The owl hunts food for the sick mother bird and the baby birds.",
+      "hint": "Think about the story topic in this lesson and check which choice fits the question."
     },
     {
       "id": "little-owl-04",
-      "topic": "objective-2",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "story",
+      "prompt": "What is the lesson's main animal model?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "An owl",
+        "A hermit crab",
+        "A duck",
+        "A penguin"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 4,
+      "explanation": "The topic analysis asks the class to design and build an owl.",
+      "hint": "Think about the story topic in this lesson and check which choice fits the question."
     },
     {
       "id": "little-owl-05",
-      "topic": "objective-3",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "owl-design",
+      "prompt": "Where are students asked to sketch their owl?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "On the motor casing",
+        "On the blackboard",
+        "On a rotating axle",
+        "On the USB connector"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 4,
+      "explanation": "The topic analysis directs students to draw the owl on the blackboard.",
+      "hint": "Think about the owl design topic in this lesson and check which choice fits the question."
     },
     {
       "id": "little-owl-06",
-      "topic": "objective-3",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "owl-design",
+      "prompt": "What is a key build requirement for the owl?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Making a sensor-controlled car",
+        "Installing a telephone screen",
+        "Correctly constructing its structure",
+        "Building a boat hull"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 3,
+      "explanation": "The key points specify correct construction of the owl's structure.",
+      "hint": "Think about the owl design topic in this lesson and check which choice fits the question."
     },
     {
       "id": "little-owl-07",
-      "topic": "objective-4",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "wing-movement",
+      "prompt": "Which moving body part is the lesson's central mechanical challenge?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Tail wheels",
+        "Rear bumper",
+        "A propeller blade",
+        "Wings"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 4,
+      "explanation": "The planning questions ask what makes the owl's wings swing.",
+      "hint": "Think about the wing movement topic in this lesson and check which choice fits the question."
     },
     {
       "id": "little-owl-08",
-      "topic": "objective-4",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "wing-movement",
+      "prompt": "What motion should students explain when presenting the owl model?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Swinging wings",
+        "Rotating a coffee cup",
+        "Lifting a crane hook",
+        "Moving a car wiper"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 5,
+      "explanation": "The presentation questions focus on what makes the model's wings swing.",
+      "hint": "Think about the wing movement topic in this lesson and check which choice fits the question."
     },
     {
       "id": "little-owl-09",
-      "topic": "objective-5",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "driven-linkage",
+      "prompt": "Which mechanical connection is listed as a key challenge?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Optical camera mount",
+        "Linkage connection",
+        "Soldered computer processor",
+        "Elastic tyre pressure"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 3,
+      "explanation": "The lesson lists linkage connection among its key points.",
+      "hint": "Think about the driven linkage topic in this lesson and check which choice fits the question."
     },
     {
       "id": "little-owl-10",
-      "topic": "objective-5",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "driven-linkage",
+      "prompt": "Which mechanism does the construction guidance ask teachers to explain?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Water buoyancy",
+        "Electrical insulation",
+        "Gearing",
+        "Visual persistence"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 5,
+      "explanation": "The hands-on section explicitly directs teachers to explain gearing.",
+      "hint": "Think about the driven linkage topic in this lesson and check which choice fits the question."
     }
   ]
 };
