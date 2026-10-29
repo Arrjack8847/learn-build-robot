@@ -1,11 +1,6 @@
 name: Extract Level 1 quiz source slides (research only)
 
 on:
-  push:
-    branches:
-      - feat/quiz-level1-phase1-standard-20261029
-    paths:
-      - .github/workflows/quiz-level1-source-extract.yml
   workflow_dispatch:
 
 permissions:
