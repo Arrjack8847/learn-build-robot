@@ -28,12 +28,12 @@ export const smartLuggageBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "How does smart luggage decide how fast to move?",
       "choices": [
-        "By checking distance to the object",
-        "By choosing a random color",
         "By counting songs",
-        "By reading the date"
+        "By reading the date",
+        "By checking distance to the object",
+        "By choosing a random color"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 8 says speed is controlled according to distance from the followed object.",
       "hint": "Think about how close the suitcase is to the person."
     },
@@ -43,12 +43,12 @@ export const smartLuggageBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which sensor is used for the lesson's following robot?",
       "choices": [
-        "Infrared ranging sensor",
         "Touch sensor only",
         "Barometric sensor",
-        "Magnetic compass"
+        "Magnetic compass",
+        "Infrared ranging sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 9 explicitly chooses infrared ranging for the project.",
       "hint": "Think about the kind of distance measurement taught in this lesson."
     },
@@ -58,12 +58,12 @@ export const smartLuggageBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "Where is the distance sensor placed in the build shown?",
       "choices": [
+        "Under a classroom desk",
         "On the following robot",
         "Inside a telephone",
-        "On an airplane wing",
-        "Under a classroom desk"
+        "On an airplane wing"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 11 labels an infrared ranging sensor as part of the follower robot.",
       "hint": "The robot needs to sense the object it follows."
     },
@@ -73,12 +73,12 @@ export const smartLuggageBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "What does the Smart Luggage do when the object ahead is too far away?",
       "choices": [
+        "Open its lid",
         "Move forward",
         "Move backward immediately",
-        "Turn off forever",
-        "Open its lid"
+        "Turn off forever"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 12 says the basic program moves forward when the object is too far.",
       "hint": "The luggage needs to catch up."
     },
@@ -88,12 +88,12 @@ export const smartLuggageBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "What does the basic Smart Luggage program do once it gets close enough?",
       "choices": [
-        "Keep speeding up",
-        "Stop moving",
         "Reverse continuously",
-        "Spin in place"
+        "Spin in place",
+        "Keep speeding up",
+        "Stop moving"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Slide 12 says it stops at the chosen following distance.",
       "hint": "Think about not bumping into the object."
     },
@@ -133,12 +133,12 @@ export const smartLuggageBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "What information does the program repeatedly save into a variable?",
       "choices": [
-        "The infrared sensor's reading",
         "The luggage's paint color",
         "The room's name",
-        "The battery brand"
+        "The battery brand",
+        "The infrared sensor's reading"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 13 instructs the robot to store infrared ranging data repeatedly.",
       "hint": "The program needs fresh distance information."
     },
@@ -148,12 +148,12 @@ export const smartLuggageBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "How are the program sections completed in the lesson?",
       "choices": [
+        "By connecting only a light",
         "By integrating them using a flowchart",
         "By removing all conditions",
-        "By leaving out the sensor",
-        "By connecting only a light"
+        "By leaving out the sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 16 says to integrate the program parts according to the flowchart.",
       "hint": "Think about combining separate steps into one working program."
     }
