@@ -52,7 +52,7 @@ export const dynamicScreenBank: QuizBank = {
         "They erase one another"
       ],
       "correctIndex": 2,
-      "hint": "Imagine a flipbook.",
+      "hint": "Think about what you notice as each flipbook page changes.",
       "explanation": "The lesson says quickly flipping action drawings makes a character appear to come alive."
     },
     {
