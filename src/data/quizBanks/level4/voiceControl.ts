@@ -13,12 +13,12 @@ export const voiceControlBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "What makes a home appliance respond to spoken words?",
       "choices": [
-        "Voice recognition technology",
         "A wheel encoder",
         "A color sensor",
-        "A mechanical pulley"
+        "A mechanical pulley",
+        "Voice recognition technology"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 3 explains that voice recognition makes appliances respond to spoken commands.",
       "hint": "Think about a device understanding what someone says."
     },
@@ -28,12 +28,12 @@ export const voiceControlBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What can voice recognition turn speech into?",
       "choices": [
+        "Colored stickers",
         "Text or commands",
         "Wheel size",
-        "Motor weight",
-        "Colored stickers"
+        "Motor weight"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 7 defines speech recognition as converting speech into text or commands.",
       "hint": "Think about how sound can become an instruction."
     },
@@ -43,12 +43,12 @@ export const voiceControlBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Which part of the AI audio-visual module captures speech?",
       "choices": [
+        "The motor shaft",
         "The wheel",
         "The voice collector",
-        "The gear",
-        "The motor shaft"
+        "The gear"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "Slide 6 labels the module's voice collector as the speech input component.",
       "hint": "The robot needs a way to listen."
     },
@@ -58,12 +58,12 @@ export const voiceControlBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Which controller port is used for the AI audio-visual module?",
       "choices": [
-        "M1",
-        "M2",
         "P8",
-        "P1"
+        "P1",
+        "M1",
+        "M2"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Slide 10 connects the AI audio-visual module to P8.",
       "hint": "Remember the port used by the sensing module rather than the motors."
     },
@@ -88,12 +88,12 @@ export const voiceControlBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "What happens when the robot hears 'stop running'?",
       "choices": [
-        "Both motors are set to zero speed",
-        "Both motors speed up",
         "The robot changes its color",
-        "The controller disconnects"
+        "The controller disconnects",
+        "Both motors are set to zero speed",
+        "Both motors speed up"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 16 sets M1 and M2 speeds to zero to stop.",
       "hint": "Think about a motor value that means no movement."
     },
@@ -103,12 +103,12 @@ export const voiceControlBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "For the 'turn left' command, which motor is set to speed 0?",
       "choices": [
+        "Neither motor",
         "M1",
         "M2",
-        "Both are set to 50",
-        "Neither motor"
+        "Both are set to 50"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 14 gives M1 speed 0 and M2 speed 50 for a left turn.",
       "hint": "The motors run at different speeds to turn."
     },
@@ -118,12 +118,12 @@ export const voiceControlBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "Which motor runs at speed 50 for the 'turn right' command?",
       "choices": [
-        "M2 only",
-        "M1",
         "Neither motor",
-        "Both reverse"
+        "Both reverse",
+        "M2 only",
+        "M1"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Slide 15 sets M1 to 50 and M2 to 0 for right turns.",
       "hint": "Compare the left and right turning settings."
     },
@@ -133,12 +133,12 @@ export const voiceControlBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "What should the program do when no voice command is recognized?",
       "choices": [
-        "Perform no action",
-        "Always move forward",
         "Always turn left",
-        "Always turn right"
+        "Always turn right",
+        "Perform no action",
+        "Always move forward"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 11 says the robot does not execute an action when no voice is recognized.",
       "hint": "The robot needs a recognized instruction before acting."
     },
