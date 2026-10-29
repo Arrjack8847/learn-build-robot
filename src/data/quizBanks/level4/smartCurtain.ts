@@ -13,12 +13,12 @@ export const smartCurtainBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Why do people close curtains in a room?",
       "choices": [
-        "To increase road traffic",
-        "To provide privacy",
         "To speed up a computer",
-        "To charge a battery"
+        "To charge a battery",
+        "To increase road traffic",
+        "To provide privacy"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Slide 6 describes privacy as an important purpose of curtains.",
       "hint": "Think about what people outside can see."
     },
@@ -28,12 +28,12 @@ export const smartCurtainBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "How can curtains change the light in a room?",
       "choices": [
-        "By making sunlight stronger",
         "By producing electricity",
         "By shading the room",
-        "By moving the walls"
+        "By moving the walls",
+        "By making sunlight stronger"
       ],
-      "correctIndex": 2,
+      "correctIndex": 1,
       "explanation": "Slide 6 explains that curtains reduce light and provide shade.",
       "hint": "Imagine using curtains on a bright afternoon."
     },
@@ -43,12 +43,12 @@ export const smartCurtainBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which structure does the Smart Curtain lesson use?",
       "choices": [
-        "Pulley structure",
-        "Walking legs",
         "Gearbox only",
-        "Spring launcher"
+        "Spring launcher",
+        "Pulley structure",
+        "Walking legs"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 9 identifies a pulley structure.",
       "hint": "Think about a mechanism that guides movement along a curtain track."
     },
@@ -58,12 +58,12 @@ export const smartCurtainBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Which part of the Smart Curtain design needs careful planning?",
       "choices": [
-        "Its wheel-racing track",
         "Its pulley structure",
         "Its speaker position",
-        "Its camera lens"
+        "Its camera lens",
+        "Its wheel-racing track"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Slide 10 specifically says to pay attention to the pulley structure.",
       "hint": "Remember which mechanism opens and closes the curtain."
     },
@@ -88,12 +88,12 @@ export const smartCurtainBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Why can the RCU be useful as the Smart Curtain's base?",
       "choices": [
+        "It creates sunlight",
         "It plays music",
         "It is larger in size",
-        "It detects colors",
-        "It creates sunlight"
+        "It detects colors"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "Slide 10 notes that the larger RCU can be used as a base.",
       "hint": "Think about how the size of a part affects where it can sit."
     },
@@ -103,12 +103,12 @@ export const smartCurtainBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "What should you check before running the Smart Curtain model?",
       "choices": [
+        "That the phone is charging",
         "That the structure is stable",
         "That the room is very dark",
-        "That the music is loud",
-        "That the phone is charging"
+        "That the music is loud"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 12 identifies a stable structure as an assembly requirement.",
       "hint": "A model needs to hold together before testing."
     },
@@ -118,12 +118,12 @@ export const smartCurtainBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "If your model looks unlike the planned curtain, which assembly requirement should you revisit?",
       "choices": [
-        "Changing all motor speeds",
-        "Matching the intended shape",
         "Increasing the sound level",
-        "Removing the base"
+        "Removing the base",
+        "Changing all motor speeds",
+        "Matching the intended shape"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Slide 12 requires that the finished model's shape match the design.",
       "hint": "Compare the built model with its intended appearance."
     },
