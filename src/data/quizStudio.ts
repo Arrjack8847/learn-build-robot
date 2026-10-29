@@ -16,6 +16,49 @@ import { timidMouseBank } from "./quizBanks/timidMouse.ts";
 import { autonomousDrivingBank } from "./quizBanks/autonomousDriving.ts";
 import { ballTrackingBank } from "./quizBanks/ballTracking.ts";
 
+import { funnyCatBank } from "./quizBanks/level1/funnyCat.ts";
+import { sledDogBank } from "./quizBanks/level1/sledDog.ts";
+import { birdRobotBank } from "./quizBanks/level1/birdRobot.ts";
+import { houseBank } from "./quizBanks/level1/house.ts";
+import { sledBank } from "./quizBanks/level1/sled.ts";
+import { spongebobBank } from "./quizBanks/level1/spongebob.ts";
+import { waliRobotBank } from "./quizBanks/level1/waliRobot.ts";
+import { primitiveRobotBank } from "./quizBanks/level1/primitiveRobot.ts";
+import { lawnMowerBank } from "./quizBanks/level1/lawnMower.ts";
+import { carBank } from "./quizBanks/level1/car.ts";
+import { rotatingFlyingChairBank } from "./quizBanks/level1/rotatingFlyingChair.ts";
+import { skatingBank } from "./quizBanks/level1/skating.ts";
+import { crawlSlowlyBasicBank, crawlSlowlyOptimizedBank } from "./quizBanks/level1/crawlSlowly.ts";
+import { shockAbsorberBank } from "./quizBanks/level1/shockAbsorber.ts";
+import { blinkingRobotBank } from "./quizBanks/level1/blinkingRobot.ts";
+import { helpLightBank } from "./quizBanks/level1/helpLight.ts";
+import { lighthouseBank } from "./quizBanks/level1/lighthouse.ts";
+import { littleStarsBank } from "./quizBanks/level1/littleStars.ts";
+import { trafficLightSignalBank } from "./quizBanks/level1/trafficLightSignal.ts";
+import { dartBank } from "./quizBanks/level1/dart.ts";
+import { responderBank } from "./quizBanks/level1/responder.ts";
+import { gyroTransmitterBank } from "./quizBanks/level1/gyroTransmitter.ts";
+import { pullBackCarBank } from "./quizBanks/level1/pullBackCar.ts";
+import { ferociousSnakeBank } from "./quizBanks/level1/ferociousSnake.ts";
+import { shyPenguinBank } from "./quizBanks/level1/shyPenguin.ts";
+import { firstRobotModelBank } from "./quizBanks/level1/firstRobotModel.ts";
+import { rexRobotBank } from "./quizBanks/level1/rexRobot.ts";
+import { spiderBank } from "./quizBanks/level1/spider.ts";
+import { drawingBoardBank } from "./quizBanks/level1/drawingBoard.ts";
+import { helloWorldBank } from "./quizBanks/level1/helloWorld.ts";
+import { mechanicalMasksBank } from "./quizBanks/level1/mechanicalMasks.ts";
+import { athleteBank } from "./quizBanks/level1/athlete.ts";
+import { basicProgrammingBank } from "./quizBanks/level1/basicProgramming.ts";
+import { drummerRobotBank } from "./quizBanks/level1/drummerRobot.ts";
+import { sailboatBank } from "./quizBanks/level1/sailboat.ts";
+import { dynamicScreenBank } from "./quizBanks/level1/dynamicScreen.ts";
+import { pendulumRideBank } from "./quizBanks/level1/pendulumRide.ts";
+import { theWindmillKingdomBank } from "./quizBanks/level1/theWindmillKingdom.ts";
+import { mechanicalArmBank } from "./quizBanks/level1/mechanicalArm.ts";
+import { colorChangingLightBank } from "./quizBanks/level1/colorChangingLight.ts";
+import { corridorLampBank } from "./quizBanks/level1/corridorLamp.ts";
+import { motorcycleBank } from "./quizBanks/level1/motorcycle.ts";
+
 export type GearDiagram = "large-to-small" | "small-to-large";
 /** Each project defines five distinct objective IDs; the engine is not gear-specific. */
 export type QuizTopic = string;
@@ -117,6 +160,51 @@ const accelerationCarQuestions: QuizQuestion[] = [
 ];
 
 export const quizBanks: Readonly<Record<string, QuizBank>> = {
+  // Official Level 1 Learning-PDF question banks, integrated through the Acceleration Car engine.
+  [funnyCatBank.projectId]: funnyCatBank,
+  [sledDogBank.projectId]: sledDogBank,
+  [birdRobotBank.projectId]: birdRobotBank,
+  [houseBank.projectId]: houseBank,
+  [sledBank.projectId]: sledBank,
+  [spongebobBank.projectId]: spongebobBank,
+  [waliRobotBank.projectId]: waliRobotBank,
+  [primitiveRobotBank.projectId]: primitiveRobotBank,
+  [lawnMowerBank.projectId]: lawnMowerBank,
+  [carBank.projectId]: carBank,
+  [rotatingFlyingChairBank.projectId]: rotatingFlyingChairBank,
+  [skatingBank.projectId]: skatingBank,
+  [crawlSlowlyBasicBank.projectId]: crawlSlowlyBasicBank,
+  [crawlSlowlyOptimizedBank.projectId]: crawlSlowlyOptimizedBank,
+  [shockAbsorberBank.projectId]: shockAbsorberBank,
+  [blinkingRobotBank.projectId]: blinkingRobotBank,
+  [helpLightBank.projectId]: helpLightBank,
+  [lighthouseBank.projectId]: lighthouseBank,
+  [littleStarsBank.projectId]: littleStarsBank,
+  [trafficLightSignalBank.projectId]: trafficLightSignalBank,
+  [dartBank.projectId]: dartBank,
+  [responderBank.projectId]: responderBank,
+  [gyroTransmitterBank.projectId]: gyroTransmitterBank,
+  [pullBackCarBank.projectId]: pullBackCarBank,
+  [ferociousSnakeBank.projectId]: ferociousSnakeBank,
+  [shyPenguinBank.projectId]: shyPenguinBank,
+  [firstRobotModelBank.projectId]: firstRobotModelBank,
+  [rexRobotBank.projectId]: rexRobotBank,
+  [spiderBank.projectId]: spiderBank,
+  [drawingBoardBank.projectId]: drawingBoardBank,
+  [helloWorldBank.projectId]: helloWorldBank,
+  [mechanicalMasksBank.projectId]: mechanicalMasksBank,
+  [athleteBank.projectId]: athleteBank,
+  [basicProgrammingBank.projectId]: basicProgrammingBank,
+  [drummerRobotBank.projectId]: drummerRobotBank,
+  [sailboatBank.projectId]: sailboatBank,
+  [dynamicScreenBank.projectId]: dynamicScreenBank,
+  [pendulumRideBank.projectId]: pendulumRideBank,
+  [theWindmillKingdomBank.projectId]: theWindmillKingdomBank,
+  [mechanicalArmBank.projectId]: mechanicalArmBank,
+  [colorChangingLightBank.projectId]: colorChangingLightBank,
+  [corridorLampBank.projectId]: corridorLampBank,
+  [motorcycleBank.projectId]: motorcycleBank,
+
   [bigHeadRobotBank.projectId]: bigHeadRobotBank,
   [axeRobotBank.projectId]: axeRobotBank,
   [clipRobotBank.projectId]: clipRobotBank,
