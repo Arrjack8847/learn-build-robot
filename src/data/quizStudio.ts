@@ -39,6 +39,31 @@ import { trafficSignsBank } from "./quizBanks/level5/trafficSigns.ts";
 import { voiceControlSnailBank } from "./quizBanks/level5/voiceControlSnail.ts";
 import { voiceControlVehicleBank } from "./quizBanks/level5/voiceControlVehicle.ts";
 import { welcomeSignBank } from "./quizBanks/level5/welcomeSign.ts";
+import { carLightsBank } from "./quizBanks/level5/carLights.ts";
+import { chairoplaneBank } from "./quizBanks/level5/chairoplane.ts";
+import { crackShotBank } from "./quizBanks/level5/crackShot.ts";
+import { curlingGameBank } from "./quizBanks/level5/curlingGame.ts";
+import { directionIndicatorBank } from "./quizBanks/level5/directionIndicator.ts";
+import { drawingMachineBank } from "./quizBanks/level5/drawingMachine.ts";
+import { fireflyBank } from "./quizBanks/level5/firefly.ts";
+import { kiddieRideBank } from "./quizBanks/level5/kiddieRide.ts";
+import { lightChasingCarBank } from "./quizBanks/level5/lightChasingCar.ts";
+import { machineGunBank } from "./quizBanks/level5/machineGun.ts";
+import { oilPumpingUnitBank } from "./quizBanks/level5/oilPumpingUnit.ts";
+import { pleaseScanToRideBank } from "./quizBanks/level5/pleaseScanToRide.ts";
+import { remoteControlCarBank } from "./quizBanks/level5/remoteControlCar.ts";
+import { remoteControlFanBank } from "./quizBanks/level5/remoteControlFan.ts";
+import { rescueRobotBank } from "./quizBanks/level5/rescueRobot.ts";
+import { runnerBank } from "./quizBanks/level5/runner.ts";
+import { shoppingGuideRobotBank } from "./quizBanks/level5/shoppingGuideRobot.ts";
+import { smartCashRegisterBank } from "./quizBanks/level5/smartCashRegister.ts";
+import { smartGuidingCarBank } from "./quizBanks/level5/smartGuidingCar.ts";
+import { spanishBullfightBank } from "./quizBanks/level5/spanishBullfight.ts";
+import { swingingSharkBank } from "./quizBanks/level5/swingingShark.ts";
+import { topScorerBank } from "./quizBanks/level5/topScorer.ts";
+import { trafficRobotBank } from "./quizBanks/level5/trafficRobot.ts";
+import { voiceControlledFrogBank } from "./quizBanks/level5/voiceControlledFrog.ts";
+import { windUpCarBank } from "./quizBanks/level5/windUpCar.ts";
 
 export type GearDiagram = "large-to-small" | "small-to-large";
 /** Each project defines five distinct objective IDs; the engine is not gear-specific. */
@@ -177,6 +202,31 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [voiceControlSnailBank.projectId]: voiceControlSnailBank,
   [voiceControlVehicleBank.projectId]: voiceControlVehicleBank,
   [welcomeSignBank.projectId]: welcomeSignBank,
+  [carLightsBank.projectId]: carLightsBank,
+  [chairoplaneBank.projectId]: chairoplaneBank,
+  [crackShotBank.projectId]: crackShotBank,
+  [curlingGameBank.projectId]: curlingGameBank,
+  [directionIndicatorBank.projectId]: directionIndicatorBank,
+  [drawingMachineBank.projectId]: drawingMachineBank,
+  [fireflyBank.projectId]: fireflyBank,
+  [kiddieRideBank.projectId]: kiddieRideBank,
+  [lightChasingCarBank.projectId]: lightChasingCarBank,
+  [machineGunBank.projectId]: machineGunBank,
+  [oilPumpingUnitBank.projectId]: oilPumpingUnitBank,
+  [pleaseScanToRideBank.projectId]: pleaseScanToRideBank,
+  [remoteControlCarBank.projectId]: remoteControlCarBank,
+  [remoteControlFanBank.projectId]: remoteControlFanBank,
+  [rescueRobotBank.projectId]: rescueRobotBank,
+  [runnerBank.projectId]: runnerBank,
+  [shoppingGuideRobotBank.projectId]: shoppingGuideRobotBank,
+  [smartCashRegisterBank.projectId]: smartCashRegisterBank,
+  [smartGuidingCarBank.projectId]: smartGuidingCarBank,
+  [spanishBullfightBank.projectId]: spanishBullfightBank,
+  [swingingSharkBank.projectId]: swingingSharkBank,
+  [topScorerBank.projectId]: topScorerBank,
+  [trafficRobotBank.projectId]: trafficRobotBank,
+  [voiceControlledFrogBank.projectId]: voiceControlledFrogBank,
+  [windUpCarBank.projectId]: windUpCarBank,
   "acceleration-car": {
     projectId: "acceleration-car",
     title: "Acceleration Car",

@@ -4,7 +4,7 @@ import { readFile, stat } from "node:fs/promises";
 import { getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
 import { getQuizBank, QUIZ_PASS_COUNT, QUIZ_QUESTION_COUNT, selectQuizQuestions, validateQuizBank } from "../src/data/quizStudio.ts";
 
-/** Existing two banks + 24 banks authored against official Level 5 teaching slides. */
+/** All 51 registered Level 5 banks from the actual source PDF slide reviews. */
 const published = new Map([
   [
     "level-5-autonomous-driving",
@@ -109,6 +109,106 @@ const published = new Map([
   [
     "level-5-welcome-sign",
     25
+  ],
+  [
+    "level-5-car-lights",
+    25
+  ],
+  [
+    "level-5-chairoplane",
+    25
+  ],
+  [
+    "level-5-crack-shot",
+    26
+  ],
+  [
+    "level-5-curling-game",
+    31
+  ],
+  [
+    "level-5-direction-indicator",
+    26
+  ],
+  [
+    "level-5-drawing-machine",
+    25
+  ],
+  [
+    "level-5-firefly",
+    38
+  ],
+  [
+    "level-5-kiddie-ride",
+    25
+  ],
+  [
+    "level-5-light-chasing-car",
+    31
+  ],
+  [
+    "level-5-machine-gun",
+    35
+  ],
+  [
+    "level-5-oil-pumping-unit",
+    32
+  ],
+  [
+    "level-5-please-scan-to-ride",
+    22
+  ],
+  [
+    "level-5-remote-control-car",
+    34
+  ],
+  [
+    "level-5-remote-control-fan",
+    25
+  ],
+  [
+    "level-5-rescue-robot",
+    28
+  ],
+  [
+    "level-5-runner",
+    38
+  ],
+  [
+    "level-5-shopping-guide-robot",
+    28
+  ],
+  [
+    "level-5-smart-cash-register",
+    25
+  ],
+  [
+    "level-5-smart-guiding-car",
+    23
+  ],
+  [
+    "level-5-spanish-bullfight",
+    34
+  ],
+  [
+    "level-5-swinging-shark",
+    24
+  ],
+  [
+    "level-5-top-scorer",
+    26
+  ],
+  [
+    "level-5-traffic-robot",
+    25
+  ],
+  [
+    "level-5-voice-controlled-frog",
+    30
+  ],
+  [
+    "level-5-wind-up-car",
+    33
   ]
 ]);
 const manuscript = JSON.parse(await readFile(new URL("../scripts/quiz-learning-source-manifest.json", import.meta.url), "utf8"));
@@ -123,8 +223,8 @@ test("Level 5 syllabus contains exactly 51 registered Learning sources", () => {
   }
 });
 
-test("all 26 source-reviewed Level 5 banks are integrated; unsupported banks remain unavailable", () => {
-  assert.equal(published.size, 26);
+test("all 51 registered Level 5 banks are integrated", () => {
+  assert.equal(published.size, 51);
   assert.equal(QUIZ_QUESTION_COUNT, 5);
   assert.equal(QUIZ_PASS_COUNT, 4);
   const manifestIds = new Set(levelFive.map(item => item.projectId));
@@ -175,7 +275,7 @@ test("published Level 5 banks satisfy question, source, uniqueness and retry rul
     assert.equal(retry.length, 5);
     assert.equal(retry.filter(q => first.some(previous => previous.id === q.id)).length, 0);
   }
-  assert.equal(usedIds.size, 260);
+  assert.equal(usedIds.size, 510);
 });
 
 test("verified source PDF files exist and declared page counts match the PDF", async () => {
