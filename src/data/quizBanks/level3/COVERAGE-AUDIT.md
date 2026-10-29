@@ -8,10 +8,10 @@
 
 - **51 Level 3 registered projects**: 46 Learning-PDF entries in `scripts/quiz-learning-source-manifest.json`, plus 5 Building-PDF learning fallbacks from `src/data/levelThreeLectures.ts`.
 - **2 pre-existing Level 3 banks**, unchanged: Clip Robot and Following Robot (registered in `src/data/quizStudio.ts`).
-- **29 newly authored banks / 290 questions** in this directory, committed in two 5-project batches and one 3-project batch.
-- **15 mapped Learning-PDF projects remain without banks**.
+- **34 newly authored banks / 340 questions** in this directory, committed in two 5-project batches and one 3-project batch.
+- **10 mapped Learning-PDF projects remain without banks**.
 - **5 Building-PDF-only learning fallbacks are BLOCKED for syllabus-quiz authoring** until an educator inspects the Building manual or provides a dedicated Learning lesson.
-- **All 29 authored banks are now registered in the shared `quizStudio.ts` map**, alongside 2 pre-existing Level 3 banks, making 31 playable on the current feature branch. Unreviewed projects remain unavailable.
+- **All 34 authored banks are now registered in the shared `quizStudio.ts` map**, alongside 2 pre-existing Level 3 banks, making 36 playable on the current feature branch. Unreviewed projects remain unavailable.
 
 ## Source-slide verification for authored banks
 
@@ -52,6 +52,12 @@ PDF pages were counted from the actual GitHub PDF data and its text streams were
 | `level-3-electric-fan-mechanisms-and-concepts` | `electricFanMechanisms.ts` | 14 | 4, 5, 6, 11, 12, 13 | 10 | 5 |
 | `level-3-electronic-scale` | `electronicScale.ts` | 27 | 4, 5, 6, 23, 24, 26 | 10 | 5 |
 
+| `level-3-fire-ladder` | `fireLadder.ts` | 25 | 6, 7, 22, 23, 24, 25 | 10 | 5 |
+| `level-3-flashlight-sensor` | `flashlightSensor.ts` | 29 | 3, 6, 16, 17, 18, 19, 21, 22 | 10 | 5 |
+| `level-3-gyro-transmitter` | `gyroTransmitter.ts` | 21 | 4, 5, 6, 18, 19, 20 | 10 | 5 |
+| `level-3-juicer-machine` | `juicerMachine.ts` | 29 | 3, 5, 7, 8, 9, 10, 20, 21, 22, 23 | 10 | 5 |
+| `level-3-light-sensitive-curtains` | `lightSensitiveCurtains.ts` | 38 | 6, 7, 9, 25, 28, 29 | 10 | 5 |
+
 ## Full Level 3 project coverage
 
 Status descriptions: **pre-existing** = already present in the base quiz registry; **authored** = file committed here, awaiting shared integration; **pending** = mapped Learning PDF exists but questions remain unreviewed; **blocked-fallback** = no dedicated Learning lecture, only a Building manual.
@@ -76,12 +82,12 @@ Status descriptions: **pre-existing** = already present in the base quiz registr
 | `level-3-electric-guitar` | authored | `public/Level 3/Learning/Sound & Voice Interaction/Electric guitar/10.Electric guitar_Powerpoint.pdf` |
 | `level-3-electronic-scale` | authored | `public/Level 3/Learning/Manipulators/Electronic scale.pdf` |
 | `level-3-f1-racing-car` | authored | `public/Level 3/Learning/Vehicles & Complex Movers/F1 racing car/F1 racing car_Powerpoint.pdf` |
-| `level-3-fire-ladder` | pending | `public/Level 3/Learning/Mechanisms and Concepts/Fire ladder.pdf` |
-| `level-3-flashlight-sensor` | pending | `public/Level 3/Learning/Illumination & Signals/Flashlight Sensor/04.Flashlight -Slides.pdf` |
+| `level-3-fire-ladder` | authored | `public/Level 3/Learning/Mechanisms and Concepts/Fire ladder.pdf` |
+| `level-3-flashlight-sensor` | authored | `public/Level 3/Learning/Illumination & Signals/Flashlight Sensor/04.Flashlight -Slides.pdf` |
 | `level-3-following-robot` | pre-existing | `public/Level 3/Learning/Autonomous Navigation & Ranging/Following Robot/Following Robot_Powerpoint.pdf` |
-| `level-3-gyro-transmitter` | pending | `public/Level 3/Learning/Manipulators/Gyro transmitter.pdf` |
-| `level-3-juicer-machine` | pending | `public/Level 3/Learning/Interactive Systems/Juicer Machine/06.Juicer Machine-Slides.pdf` |
-| `level-3-light-sensitive-curtains` | pending | `public/Level 3/Learning/Illumination & Signals/Light-sensitive Curtains/14.Light-sensitive Curtains -Slides.pdf` |
+| `level-3-gyro-transmitter` | authored | `public/Level 3/Learning/Manipulators/Gyro transmitter.pdf` |
+| `level-3-juicer-machine` | authored | `public/Level 3/Learning/Interactive Systems/Juicer Machine/06.Juicer Machine-Slides.pdf` |
+| `level-3-light-sensitive-curtains` | authored | `public/Level 3/Learning/Illumination & Signals/Light-sensitive Curtains/14.Light-sensitive Curtains -Slides.pdf` |
 | `level-3-line-patrol-car` | authored | `public/Level 3/Learning/Foundational Robots/Line patrol car.pdf` |
 | `level-3-long-lived-turtle` | pending | `public/Level 3/Learning/Vehicles & Complex Movers/Long-Lived Turtle/11. The Long-lived Turtle - Slides.pdf` |
 | `level-3-money-detector` | pending | `public/Level 3/Learning/Machines & Mechanisms/Money detector.pdf` |
@@ -197,3 +203,9 @@ On this branch, the 13 new Level 3 banks are imported in `src/data/quizStudio.ts
 
 - New quizzes: Drawbridge; Electric Bulldozer; Electric Fan — Characters & Structures; Electric Fan — Mechanisms & Concepts; Electronic Scale. Their original lesson PDFs (21, 34, 31, 14, 27 pages respectively) were directly extracted from the official registered URLs.
 - 50 questions published, with 5 objectives × 2 each per bank and slide refs to taught material. **Coverage now 31/51, 310 questions.**
+
+## Five verified sensor and machine lesson banks
+
+- Added 10 distinct source-backed questions each for Fire Ladder, Flashlight Sensor, Gyro Transmitter, Juicer Machine, and Light-sensitive Curtains. PDF page counts verified: 25, 29, 21, 29 and 38.
+- All five original PDFs read from registered URLs. The questions use text-backed lesson pages, five paired learning objectives and answer positions distributed across A–D.
+- **Coverage now 36/51 registered Level 3 projects: 360 questions.**

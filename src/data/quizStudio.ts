@@ -44,6 +44,11 @@ import { electricBulldozerBank } from "./quizBanks/level3/electricBulldozer.ts";
 import { electricFanCharactersBank } from "./quizBanks/level3/electricFanCharacters.ts";
 import { electricFanMechanismsBank } from "./quizBanks/level3/electricFanMechanisms.ts";
 import { electronicScaleBank } from "./quizBanks/level3/electronicScale.ts";
+import { fireLadderBank } from "./quizBanks/level3/fireLadder.ts";
+import { flashlightSensorBank } from "./quizBanks/level3/flashlightSensor.ts";
+import { gyroTransmitterBank } from "./quizBanks/level3/gyroTransmitter.ts";
+import { juicerMachineBank } from "./quizBanks/level3/juicerMachine.ts";
+import { lightSensitiveCurtainsBank } from "./quizBanks/level3/lightSensitiveCurtains.ts";
 
 export type GearDiagram = "large-to-small" | "small-to-large";
 /** Each project defines five distinct objective IDs; the engine is not gear-specific. */
@@ -187,6 +192,11 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [electricFanCharactersBank.projectId]: electricFanCharactersBank,
   [electricFanMechanismsBank.projectId]: electricFanMechanismsBank,
   [electronicScaleBank.projectId]: electronicScaleBank,
+  [fireLadderBank.projectId]: fireLadderBank,
+  [flashlightSensorBank.projectId]: flashlightSensorBank,
+  [gyroTransmitterBank.projectId]: gyroTransmitterBank,
+  [juicerMachineBank.projectId]: juicerMachineBank,
+  [lightSensitiveCurtainsBank.projectId]: lightSensitiveCurtainsBank,
   "acceleration-car": {
     projectId: "acceleration-car",
     title: "Acceleration Car",
