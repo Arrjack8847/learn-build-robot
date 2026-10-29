@@ -1,5 +1,18 @@
 # BE STEM READY — Level 6 Quiz Implementation Status
 
+## Latest completed quiz: Regional Weather Station — 2026-10-29
+
+**Current registered coverage: 11 of 43 projects (110 questions). Remaining: 32 banks (320 questions).**
+
+The original 24-page Regional Weather Station PDF was successfully retrieved from GitHub in full base64 form because its size (1,030,600 bytes) is below the GitHub Contents limit. Original PDF content streams were decoded in page order, and the 1-based teaching slides were recorded under `evidence/level-6-regional-weather-station.extracted.json`. The new `regionalWeatherStation.ts` bank contains ten source-text-grounded questions over five objectives, registered in `src/data/quizStudio.ts`. Questions cite slides 9, 10, 13–18 and 22. The bank's structure and page references passed an independent readback check of the committed files; full browser/build tests remain unexecuted.
+
+**Remaining 32 sources** are larger than the GitHub 1 MiB content limit. Direct attempts to obtain their full original PDFs through this connection and registered Wix file URLs have failed. No unverified quiz banks were published for them, and no merge or deployment was performed.
+
+Note: Historical 10/43 counts elsewhere below record the earlier state and are superseded by this section.
+
+---
+
+
 Updated 2026-10-29. Repository: `Arrjack8847/learn-build-robot`. Work branch: `feat/quiz-level6-content`.
 
 ## Current playable bank inventory
