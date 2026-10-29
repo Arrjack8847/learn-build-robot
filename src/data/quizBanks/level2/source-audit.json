@@ -13,20 +13,26 @@
     "missingBanks": 54,
     "questionTargetForMissingBanks": 540,
     "newBanksWrittenByThisWorker": 4,
-    "authoredButNotIntegrated": 4,
+    "authoredButNotIntegrated": 0,
     "newQuestionsWrittenByThisWorker": 40,
     "stillMissingBankFiles": 54,
     "registeredSourcePdfPagesVerified": 97,
     "initialMissingBanks": 58,
-    "initialQuestionTarget": 580
+    "initialQuestionTarget": 580,
+    "playableBanks": 6,
+    "playableQuestions": 60,
+    "ciStatus": "blocked-before-runner-start: both jobs failed with zero executed steps at GitHub run 40827960743",
+    "pdfSourceBatch1Verified": true,
+    "fullLevel2SourceExtractionStatus": "not-run: GitHub Actions jobs failed before starting; container network access to GitHub and registered PDF hosts unavailable"
   },
   "notes": [
     "This is an authoring audit, NOT a set of playable quiz banks.",
     "All listed PDF paths are confirmed tracked at the selected base commit. Tracked file existence does NOT establish slide content or page count.",
     "Page counts remain null until each source PDF is opened and counted; only two prior published bank metadata values are included.",
     "The 15 building-PDF fallbacks may not contain enough teaching objectives to support a ten-question Learning quiz; flag insufficient sources instead of inventing material.",
-    "Batch 1 now has four source-verified authored banks and the existing Axe Robot bank. No shared Quiz Studio import has been added; four new banks remain intentionally non-playable.",
-    "The first five PDF sources in the extractor's manifest order differ from the first five-project authoring queue generated in project-registry order. Batch labels distinguish source extraction from authoring groups."
+    "The first five PDF sources in the extractor's manifest order differ from the first five-project authoring queue generated in project-registry order. Batch labels distinguish source extraction from authoring groups.",
+    "The four source-verified Batch 1 bank files are now imported by quizStudio.ts, making six total Level 2 quizzes available in the existing runtime. These four imports were added with no Quiz UI or Building changes.",
+    "GitHub Actions run 40827960743 failed before any steps ran; unit tests, tsc, build and full-source extraction remain unexecuted."
   ],
   "projects": [
     {
@@ -51,7 +57,7 @@
       "sourceType": "learning-pdf",
       "sourceTracked": true,
       "sourcePageCount": 20,
-      "bankStatus": "authored-not-integrated",
+      "bankStatus": "integrated-in-quiz-studio",
       "questionCount": 10,
       "slideReviewStatus": "source-text-and-diagrams-reviewed"
     },
@@ -532,7 +538,7 @@
       "sourceType": "learning-pdf",
       "sourceTracked": true,
       "sourcePageCount": 18,
-      "bankStatus": "authored-not-integrated",
+      "bankStatus": "integrated-in-quiz-studio",
       "questionCount": 10,
       "slideReviewStatus": "source-text-and-diagrams-reviewed"
     },
@@ -558,7 +564,7 @@
       "sourceType": "learning-pdf",
       "sourceTracked": true,
       "sourcePageCount": 21,
-      "bankStatus": "authored-not-integrated",
+      "bankStatus": "integrated-in-quiz-studio",
       "questionCount": 10,
       "slideReviewStatus": "source-text-and-diagrams-reviewed"
     },
@@ -779,7 +785,7 @@
       "sourceType": "learning-pdf",
       "sourceTracked": true,
       "sourcePageCount": 19,
-      "bankStatus": "authored-not-integrated",
+      "bankStatus": "integrated-in-quiz-studio",
       "questionCount": 10,
       "slideReviewStatus": "source-text-and-diagrams-reviewed"
     },
@@ -820,7 +826,7 @@
         "level-2-rotating-flying-chair",
         "level-2-throwing-robot"
       ],
-      "status": "1-of-5-authored"
+      "status": "1-of-5-integrated"
     },
     {
       "batch": 2,
@@ -897,7 +903,7 @@
         "level-2-battery-robot",
         "level-2-walking-robot"
       ],
-      "status": "2-of-5-authored"
+      "status": "2-of-5-integrated"
     },
     {
       "batch": 9,
@@ -939,7 +945,7 @@
         "level-2-robot-war",
         "level-2-the-treadmill"
       ],
-      "status": "1-of-3-authored"
+      "status": "1-of-3-integrated"
     }
   ],
   "sourceReview": {
