@@ -16,7 +16,9 @@ test("Level 6 registry audit never activates unverified lessons", async () => {
   assert.equal(report.status, 0, "Source audit failed: " + report.stderr);
   const result = JSON.parse(report.stdout);
   assert.equal(result.registered, 43);
-  assert.equal(result.previouslyPlayable + result.newlyApproved + result.remainingUnpublished, 43);
+  assert.equal(result.previouslyPlayable, 43, "All Level 6 quizzes must already be integrated");
+  assert.equal(result.newlyApproved, 0, "No waiting candidates when all banks are registered");
+  assert.equal(result.remainingUnpublished, 0, "No Level 6 syllabus quiz may remain unpublished");
   assert.ok(Array.isArray(result.blocked));
   assert.ok(getQuizBank("level-6-altimeter"), "Existing Altimeter bank must remain playable");
   assert.ok(getQuizBank("level-6-ball-tracking"), "Existing Ball Tracking bank must remain playable");
@@ -39,6 +41,8 @@ test("Level 6 slide-render queue is derived from playable banks, not a hard-code
   assert.equal(report.status, 0, "Coverage report failed: " + report.stderr);
   const coverage = JSON.parse(report.stdout);
   assert.equal(coverage.registered, 43);
+  assert.equal(coverage.published, 43, "All Level 6 banks must be registered");
+  assert.equal(coverage.remainingUnpublished, 0, "Level 6 render queue must be empty");
   assert.equal(coverage.published + coverage.remainingUnpublished, 43);
   assert.equal(coverage.publishedProjects.length, coverage.published);
   assert.equal(coverage.pendingProjects.length, coverage.remainingUnpublished);
