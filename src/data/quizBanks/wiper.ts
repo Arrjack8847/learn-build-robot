@@ -1,163 +1,162 @@
-/** UNREVIEWED PHASE 3 DRAFT — Building PDF fallback.
- * PDF page count, questions and answers MUST be verified.
- * Do not import, count as completed, or publish this file.
+/** Phase 3: questions authored from the supplied official Building-manual text extract.
+ * PDF diagrams and pedagogical review pending; do not register this bank yet.
  */
 import type { QuizBank } from "../quizStudio";
 export const wiperBank: QuizBank = {
   "projectId": "wiper",
   "title": "Wiper",
   "sourcePdfPath": "public/Wiper.pdf",
-  "sourcePageCount": 0,
+  "sourcePageCount": 14,
   "questions": [
     {
       "id": "wiper-01",
-      "topic": "objective-1",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "rain-safety-context",
+      "prompt": "What problem makes a car wiper important in the lesson story?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "The car radio stops working",
+        "The headlights change colour",
+        "Heavy rain reduces the driver's visibility",
+        "The engine runs out of fuel"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 4,
+      "explanation": "The story describes a downpour that makes it hard for the driver to see ahead.",
+      "hint": "Think about what the driver cannot see in the story."
     },
     {
       "id": "wiper-02",
-      "topic": "objective-1",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "rain-safety-context",
+      "prompt": "Which car component is the model based on?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "The steering wheel",
+        "The door handle",
+        "The side mirror",
+        "The windshield wiper"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 4,
+      "explanation": "The project explicitly asks students to build a wiper.",
+      "hint": "The story involves removing rain from the view ahead."
     },
     {
       "id": "wiper-03",
-      "topic": "objective-2",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "linkage-mechanism",
+      "prompt": "Which mechanism does the wiper lesson identify as a key learning topic?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "An eccentric linkage",
+        "A buoyancy tank",
+        "A solar cell array",
+        "A fixed tripod"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 3,
+      "explanation": "The manual names link mechanisms and eccentric links as core concepts.",
+      "hint": "Look for the special type of link in the learning objectives."
     },
     {
       "id": "wiper-04",
-      "topic": "objective-2",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "linkage-mechanism",
+      "prompt": "Which mechanism does the lesson ask students to recognize as moving the wiper?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "A springless fixed rod",
+        "A linkage",
+        "A sail",
+        "A light beam"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 6,
+      "explanation": "The assessment asks whether the wiper moves through a linkage.",
+      "hint": "Consider the mechanism named in the outcome review."
     },
     {
       "id": "wiper-05",
-      "topic": "objective-3",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "assembly",
+      "prompt": "Which construction detail is emphasized for the eccentric link?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Using no connectors",
+        "Skipping all assembly steps",
+        "Keeping the intended fixed distance and build sequence",
+        "Changing all dimensions at random"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 3,
+      "explanation": "The lesson stresses the fixed distance and correct building sequence of an eccentric link.",
+      "hint": "Think about two assembly checks stated in the key points."
     },
     {
       "id": "wiper-06",
-      "topic": "objective-3",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "assembly",
+      "prompt": "During hands-on practice, what mechanism does the teacher also explain?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "A boat rudder",
+        "A telephone keypad",
+        "A photo display",
+        "Gearing in the wiper model"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 5,
+      "explanation": "The hands-on step explicitly asks the teacher to explain the wiper's gearing.",
+      "hint": "Recall the mechanical explanation included in the building activity."
     },
     {
       "id": "wiper-07",
-      "topic": "objective-4",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "motor-speed",
+      "prompt": "Which component is controlled through the programming module?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "The motor",
+        "A paper label",
+        "The seat cushion",
+        "The computer mouse"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 5,
+      "explanation": "The lesson teaches students to set the motor module.",
+      "hint": "Think about which part makes the wiper move."
     },
     {
       "id": "wiper-08",
-      "topic": "objective-4",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "motor-speed",
+      "prompt": "What value is adjusted to change how fast the wiper runs?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Seat height",
+        "Speed value",
+        "Print font size",
+        "Cage colour"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 5,
+      "explanation": "The hands-on instructions direct students to debug the speed value.",
+      "hint": "Think about the debugging instruction that changes motion."
     },
     {
       "id": "wiper-09",
-      "topic": "objective-5",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "programming",
+      "prompt": "Which programming structure is included in the wiper learning objectives?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "No instructions",
+        "Image-only sequencing",
+        "Sequential programming",
+        "Random sequencing"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 3,
+      "explanation": "The teaching objectives require understanding sequential programming.",
+      "hint": "Recall the stated skill about command order."
     },
     {
       "id": "wiper-10",
-      "topic": "objective-5",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "programming",
+      "prompt": "How does the lesson instruct students to connect the controller to a computer?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "With a rubber band",
+        "With a gear alone",
+        "With a paper hinge",
+        "With a USB cable"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 5,
+      "explanation": "The manual describes using a USB cable to connect the controller to the computer.",
+      "hint": "The connection method is named alongside programming instructions."
     }
   ]
 };
