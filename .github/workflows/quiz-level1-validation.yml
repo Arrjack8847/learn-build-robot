@@ -37,7 +37,7 @@ jobs:
       - name: Extract all 14 official Building-PDF Learning fallbacks
         run: node scripts/extract-phase3-level1-building-slides.mjs
       - name: Validate quiz engine and all Level 1 PDF mappings
-        run: node --test tests/quiz-studio.test.mjs tests/quiz-level1-coverage.test.mjs
+        run: node --experimental-strip-types --test tests/quiz-studio.test.mjs tests/quiz-level1-coverage.test.mjs
       - name: TypeScript type check
         run: npx tsc --noEmit
       - name: Existing UI tests
