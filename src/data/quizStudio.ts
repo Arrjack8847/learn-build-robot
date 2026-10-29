@@ -1,3 +1,7 @@
+import { minesweeperRobotBank } from "./quizBanks/level6/minesweeperRobot.ts";
+import { intelligentSortingMachineBank } from "./quizBanks/level6/intelligentSortingMachine.ts";
+import { intelligentPassingLightBank } from "./quizBanks/level6/intelligentPassingLight.ts";
+import { gorillaBank } from "./quizBanks/level6/gorilla.ts";
 import { gibbonBank } from "./quizBanks/level6/gibbon.ts";
 import { digitalCountdownBank } from "./quizBanks/level6/digitalCountdown.ts";
 import { combinationLockBank } from "./quizBanks/level6/combinationLock.ts";
@@ -142,6 +146,10 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [combinationLockBank.projectId]: combinationLockBank,
   [digitalCountdownBank.projectId]: digitalCountdownBank,
   [gibbonBank.projectId]: gibbonBank,
+  [gorillaBank.projectId]: gorillaBank,
+  [intelligentPassingLightBank.projectId]: intelligentPassingLightBank,
+  [intelligentSortingMachineBank.projectId]: intelligentSortingMachineBank,
+  [minesweeperRobotBank.projectId]: minesweeperRobotBank,
   [bigHeadRobotBank.projectId]: bigHeadRobotBank,
   [axeRobotBank.projectId]: axeRobotBank,
   [clipRobotBank.projectId]: clipRobotBank,
