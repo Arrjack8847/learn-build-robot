@@ -6,14 +6,17 @@
  * Source-only projects stay pending rather than receiving fabricated quizzes.
  */
 import { practicalProjects, getProject } from "./practical";
-import { getLevelOneLecture } from "./levelOneLectures";
+import { getLevelOneLecture, LEVEL_ONE_BUILDING_PDF_LEARNING_FALLBACK_IDS } from "./levelOneLectures";
 import { getLevelTwoLecture } from "./levelTwoLectures";
 import { getLevelThreeLecture } from "./levelThreeLectures";
 import { levelFourLearningLessons } from "./levelFourLearning";
 import { levelFiveSixLearningLectures } from "./levelFiveSixContent";
 import { getQuizBank } from "./quizStudio";
 
-export type QuizSyllabusStatus = "ready" | "needs-question-review" | "missing-learning-source";
+export type QuizSyllabusStatus = "ready" | "needs-question-review" | "missing-learning-source" | "building-manual-only";
+
+/** Construction instructions are not independently verified teaching slides. */
+const buildingManualOnlyLevelOneIds = new Set<string>(LEVEL_ONE_BUILDING_PDF_LEARNING_FALLBACK_IDS);
 
 export interface QuizSyllabusEntry {
   projectId: string;
@@ -22,6 +25,8 @@ export interface QuizSyllabusEntry {
   categoryId?: string;
   learningUrl: string | null;
   status: QuizSyllabusStatus;
+  /** True only when the Learning view reuses an official Building manual, not lecture slides. */
+  usesBuildingManual: boolean;
 }
 
 /** The same registered Learning PDF used by the existing Learning Studio. */
@@ -45,7 +50,10 @@ export function getQuizSyllabusEntry(projectId: string): QuizSyllabusEntry | nul
   const level = project.level as QuizSyllabusEntry["level"];
   const learningUrl = getQuizLearningUrl(projectId);
   const status: QuizSyllabusStatus = getQuizBank(projectId)
-    ? "ready" : learningUrl ? "needs-question-review" : "missing-learning-source";
+    ? "ready"
+    : level === 1 && buildingManualOnlyLevelOneIds.has(projectId)
+      ? "building-manual-only"
+      : learningUrl ? "needs-question-review" : "missing-learning-source";
   return {
     projectId,
     title: project.title,
@@ -53,6 +61,7 @@ export function getQuizSyllabusEntry(projectId: string): QuizSyllabusEntry | nul
     ...(project.categoryId ? { categoryId: project.categoryId } : {}),
     learningUrl,
     status,
+    usesBuildingManual: level === 1 && buildingManualOnlyLevelOneIds.has(projectId),
   };
 }
 

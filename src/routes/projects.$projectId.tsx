@@ -180,10 +180,14 @@ function ProjectOverviewPage() {
               <h2 className="mt-4 text-xl font-black">Quiz</h2>
               <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
                 {quizReady
-                  ? "Answer five project-specific questions with optional hints. Get four right to pass, or practice again."
+                  ? quizEntry.usesBuildingManual
+                    ? "Practice five concepts from this project's official Building manual, with hints and references to manual pages. No separate teaching-slide lecture was supplied."
+                    : "Answer five project-specific questions with optional hints. Get four right to pass, or practice again."
                   : quizEntry.status === "missing-learning-source"
                     ? "Quiz questions need official Learning material before they can be published."
-                    : "This project's Learning source is registered. Its questions and slide references are being checked."}
+                    : quizEntry.status === "building-manual-only"
+                      ? "Only a Building manual was supplied. Teaching concepts and slide references need educational review before a quiz can open."
+                      : "This project's Learning source is registered. Its questions and slide references are being checked."}
               </p>
               {quizReady ? <QuizProjectProgress projectId={project.id} /> : null}
               {quizReady ? (
