@@ -1,3 +1,7 @@
+import { gibbonBank } from "./quizBanks/level6/gibbon.ts";
+import { digitalCountdownBank } from "./quizBanks/level6/digitalCountdown.ts";
+import { combinationLockBank } from "./quizBanks/level6/combinationLock.ts";
+import { colorblindAssistantRobotBank } from "./quizBanks/level6/colorblindAssistantRobot.ts";
 import { codeScanningGateBank } from "./quizBanks/level6/codeScanningGate.ts";
 import { clownBank } from "./quizBanks/level6/clown.ts";
 import { autonomousDrivingBank } from "./quizBanks/level6/autonomousDriving.ts";
@@ -134,6 +138,10 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [autonomousDrivingBank.projectId]: autonomousDrivingBank,
   [clownBank.projectId]: clownBank,
   [codeScanningGateBank.projectId]: codeScanningGateBank,
+  [colorblindAssistantRobotBank.projectId]: colorblindAssistantRobotBank,
+  [combinationLockBank.projectId]: combinationLockBank,
+  [digitalCountdownBank.projectId]: digitalCountdownBank,
+  [gibbonBank.projectId]: gibbonBank,
   [bigHeadRobotBank.projectId]: bigHeadRobotBank,
   [axeRobotBank.projectId]: axeRobotBank,
   [clipRobotBank.projectId]: clipRobotBank,
