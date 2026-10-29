@@ -19,7 +19,8 @@
     "start": "node .output/server/index.mjs",
     "test:level56": "node --test tests/level-five-six-assets.test.mjs tests/level-six-wix-urls.test.mjs tests/level6-pdf-loading.test.mjs tests/level-five-wix-urls.test.mjs tests/level-four-wix-urls.test.mjs tests/level-five-six-extra-pdfs.test.mjs",
     "test:legacy-programs": "node --test tests/legacy-programming-assets.test.mjs",
-    "test:level123": "node --test tests/level-one-to-three-wix-urls.test.mjs"
+    "test:level123": "node --test tests/level-one-to-three-wix-urls.test.mjs",
+    "test:quiz:level2": "node --test tests/quiz-studio.test.mjs tests/quiz-level2.test.mjs"
   },
   "overrides": {
     "rolldown": "1.2.1"
