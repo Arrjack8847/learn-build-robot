@@ -1,3 +1,7 @@
+import { codeScanningGateBank } from "./quizBanks/level6/codeScanningGate.ts";
+import { clownBank } from "./quizBanks/level6/clown.ts";
+import { autonomousDrivingBank } from "./quizBanks/level6/autonomousDriving.ts";
+import { accurateShootingBank } from "./quizBanks/level6/accurateShooting.ts";
 import { regionalWeatherStationBank } from "./quizBanks/level6/regionalWeatherStation.ts";
 import { dancingRobotBank } from "./quizBanks/level6/dancingRobot.ts";
 import { fingerGuessingRobotBank } from "./quizBanks/level6/fingerGuessingRobot.ts";
@@ -126,6 +130,10 @@ const accelerationCarQuestions: QuizQuestion[] = [
 ];
 
 export const quizBanks: Readonly<Record<string, QuizBank>> = {
+  [accurateShootingBank.projectId]: accurateShootingBank,
+  [autonomousDrivingBank.projectId]: autonomousDrivingBank,
+  [clownBank.projectId]: clownBank,
+  [codeScanningGateBank.projectId]: codeScanningGateBank,
   [bigHeadRobotBank.projectId]: bigHeadRobotBank,
   [axeRobotBank.projectId]: axeRobotBank,
   [clipRobotBank.projectId]: clipRobotBank,
