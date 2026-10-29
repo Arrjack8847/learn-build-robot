@@ -10,13 +10,15 @@
     "uniqueSourcePdfs": 59,
     "existingPublishedBanks": 2,
     "existingQuestions": 20,
-    "missingBanks": 58,
-    "questionTargetForMissingBanks": 580,
+    "missingBanks": 54,
+    "questionTargetForMissingBanks": 540,
     "newBanksWrittenByThisWorker": 4,
     "authoredButNotIntegrated": 4,
     "newQuestionsWrittenByThisWorker": 40,
     "stillMissingBankFiles": 54,
-    "registeredSourcePdfPagesVerified": 97
+    "registeredSourcePdfPagesVerified": 97,
+    "initialMissingBanks": 58,
+    "initialQuestionTarget": 580
   },
   "notes": [
     "This is an authoring audit, NOT a set of playable quiz banks.",
@@ -817,7 +819,7 @@
         "level-2-rotating-flying-chair",
         "level-2-throwing-robot"
       ],
-      "status": "pending-source-review"
+      "status": "4-of-5-authored; level-2-bee-awaiting-source-review"
     },
     {
       "batch": 2,
