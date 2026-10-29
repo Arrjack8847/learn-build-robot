@@ -86,18 +86,18 @@ The shared Quiz Studio only imports existing banks. Adding content under this di
 
 ## Five-project authoring batches (missing banks only)
 
-**Batch 1:** `level-2-batting-robot`, `level-2-pirate-ship`, `level-2-push-ups`, `level-2-rotating-flying-chair`, `level-2-throwing-robot` — source verification pending.
-**Batch 2:** `level-2-bee`, `level-2-chimpanzees`, `level-2-mechanical-dog`, `level-2-scaling-ladder`, `level-2-tower-crane` — source verification pending.
-**Batch 3:** `level-2-crane`, `level-2-fare-gate`, `level-2-forklift`, `level-2-hammer-robot`, `level-2-lucky-turntable` — source verification pending.
-**Batch 4:** `level-2-tightrope-walk`, `level-2-manual-flashlight`, `level-2-jumping-machine`, `level-2-dung-beetle`, `level-2-mobile-shot` — source verification pending.
-**Batch 5:** `level-2-rolling-shutter`, `level-2-track-rickshaw`, `level-2-car-steering`, `level-2-cliff-walk`, `level-2-ferris-wheel` — source verification pending.
-**Batch 6:** `level-2-round-trip-transportation`, `level-2-shift-gears`, `level-2-bridge`, `level-2-mechanisms-simulators-crane`, `level-2-door` — source verification pending.
-**Batch 7:** `level-2-double-beam-crane`, `level-2-gearbox`, `level-2-hand-crank`, `level-2-spinning-bike`, `level-2-swing` — source verification pending.
-**Batch 8:** `level-2-treadmill`, `level-2-animal-trap`, `level-2-headlights`, `level-2-battery-robot`, `level-2-walking-robot` — source verification pending.
-**Batch 9:** `level-2-led-scrolling-screen`, `level-2-led-signboard`, `level-2-harp`, `level-2-helicopter`, `level-2-lifting-door` — source verification pending.
-**Batch 10:** `level-2-teeterboard`, `level-2-four-wheel-drive`, `level-2-pedal-waterwheel`, `level-2-tank`, `level-2-see-saw-v1` — source verification pending.
-**Batch 11:** `level-2-see-saw-v2`, `level-2-tongs`, `level-2-reverse-parking`, `level-2-smart-window`, `level-2-spirograph` — source verification pending.
-**Batch 12:** `level-2-automatic-window`, `level-2-robot-war`, `level-2-the-treadmill` — source verification pending.
+**Batch 1:** `level-2-batting-robot`, `level-2-pirate-ship`, `level-2-push-ups`, `level-2-rotating-flying-chair`, `level-2-throwing-robot` — 1 of 5 banks authored; remaining sources pending.
+**Batch 2:** `level-2-bee`, `level-2-chimpanzees`, `level-2-mechanical-dog`, `level-2-scaling-ladder`, `level-2-tower-crane` — source review pending.
+**Batch 3:** `level-2-crane`, `level-2-fare-gate`, `level-2-forklift`, `level-2-hammer-robot`, `level-2-lucky-turntable` — source review pending.
+**Batch 4:** `level-2-tightrope-walk`, `level-2-manual-flashlight`, `level-2-jumping-machine`, `level-2-dung-beetle`, `level-2-mobile-shot` — source review pending.
+**Batch 5:** `level-2-rolling-shutter`, `level-2-track-rickshaw`, `level-2-car-steering`, `level-2-cliff-walk`, `level-2-ferris-wheel` — source review pending.
+**Batch 6:** `level-2-round-trip-transportation`, `level-2-shift-gears`, `level-2-bridge`, `level-2-mechanisms-simulators-crane`, `level-2-door` — source review pending.
+**Batch 7:** `level-2-double-beam-crane`, `level-2-gearbox`, `level-2-hand-crank`, `level-2-spinning-bike`, `level-2-swing` — source review pending.
+**Batch 8:** `level-2-treadmill`, `level-2-animal-trap`, `level-2-headlights`, `level-2-battery-robot`, `level-2-walking-robot` — 2 of 5 banks authored; remaining sources pending.
+**Batch 9:** `level-2-led-scrolling-screen`, `level-2-led-signboard`, `level-2-harp`, `level-2-helicopter`, `level-2-lifting-door` — source review pending.
+**Batch 10:** `level-2-teeterboard`, `level-2-four-wheel-drive`, `level-2-pedal-waterwheel`, `level-2-tank`, `level-2-see-saw-v1` — source review pending.
+**Batch 11:** `level-2-see-saw-v2`, `level-2-tongs`, `level-2-reverse-parking`, `level-2-smart-window`, `level-2-spirograph` — source review pending.
+**Batch 12:** `level-2-automatic-window`, `level-2-robot-war`, `level-2-the-treadmill` — 1 of 3 banks authored; remaining sources pending.
 
 ## Validation result
 
@@ -115,3 +115,5 @@ The shared Quiz Studio only imports existing banks. Adding content under this di
 - `level-2-batting-robot`: 10 source-reviewed questions, 20 PDF pages, five objectives, slides 6, 7, 9, 10, 14, 17.
 
 The fifth inspected project, `level-2-axe-robot`, already had a bank and was deliberately not rewritten. See `BATCH_01_VERIFICATION.md`.
+
+**Queue-order note:** This 12-group authoring queue uses the practical project registry order. The first five extracted PDF files followed the source manifest order and included Axe Robot (already authored). Consequently, the first extracted PDF group and `Batch 1` in this authoring queue are not the same list.
