@@ -16,12 +16,12 @@ export const mechanicalMasksBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "What is a mask described as in the lesson?",
       "choices": [
-        "A covering for all or part of the face",
         "A machine for measuring speed",
         "A robot's charging connector",
-        "A kind of gear axle"
+        "A kind of gear axle",
+        "A covering for all or part of the face"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Recall what people wear or place over the face.",
       "explanation": "The lesson defines a mask as a covering for all or part of the face."
     },
@@ -46,12 +46,12 @@ export const mechanicalMasksBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Which part of a person's appearance should the model mask resemble?",
       "choices": [
+        "Elbow position",
         "Facial features",
         "Shoe size",
-        "Fingerprints only",
-        "Elbow position"
+        "Fingerprints only"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about how the model looks like a face.",
       "explanation": "The lesson asks students to represent facial features of the wearer."
     },
@@ -61,12 +61,12 @@ export const mechanicalMasksBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "Which is a category of mask type mentioned in the lesson?",
       "choices": [
-        "Placed type",
-        "Submarine type",
         "Engine type",
-        "Crane type"
+        "Crane type",
+        "Placed type",
+        "Submarine type"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Recall the lesson's two ways a mask can be used.",
       "explanation": "The slide lists placed and wearing types."
     },
@@ -76,12 +76,12 @@ export const mechanicalMasksBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "Which component helps hold a wearable mask in place?",
       "choices": [
-        "A wearing fixture",
         "A large drive motor",
         "A water propeller",
-        "An infrared distance sensor"
+        "An infrared distance sensor",
+        "A wearing fixture"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about how the mask stays attached to the wearer.",
       "explanation": "The teaching slide includes a wearing fixture as a mask structure."
     },
@@ -106,12 +106,12 @@ export const mechanicalMasksBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "What can connect the neck to the head while changing connection direction?",
       "choices": [
+        "A loudspeaker",
         "Blocks and peg parts",
         "Only the display screen",
-        "A paint brush",
-        "A loudspeaker"
+        "A paint brush"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Recall the connecting components named on the slide.",
       "explanation": "Blocks and pegs are suggested to change direction at the neck connection."
     },
@@ -121,12 +121,12 @@ export const mechanicalMasksBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which part might represent the eyes in a mechanical mask?",
       "choices": [
-        "Gear parts",
-        "Charging ports",
         "Battery labels",
-        "Flat power switches"
+        "Flat power switches",
+        "Gear parts",
+        "Charging ports"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The model uses similarly shaped construction pieces.",
       "explanation": "The lesson gives gears as parts that can represent eyes."
     },
@@ -136,12 +136,12 @@ export const mechanicalMasksBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "What is an assembly requirement for the mask model?",
       "choices": [
-        "Stable structure",
         "Unsecured supports",
         "Any shape regardless of the design",
-        "Deliberately poor balance"
+        "Deliberately poor balance",
+        "Stable structure"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about the standard building checklist.",
       "explanation": "The task asks for a stable model."
     },

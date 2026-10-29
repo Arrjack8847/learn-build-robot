@@ -31,12 +31,12 @@ export const athleteBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Which movement is central to the horizontal-bar routine?",
       "choices": [
+        "Sailing with wind",
         "Swinging",
         "Underwater paddling",
-        "Rolling wheels",
-        "Sailing with wind"
+        "Rolling wheels"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about how gymnasts move on the apparatus.",
       "explanation": "The introduction says the horizontal-bar routine consists of swinging movements."
     },
@@ -46,12 +46,12 @@ export const athleteBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "What two shapes are compared in the hinged-connection experiment?",
       "choices": [
-        "Triangle and quadrilateral",
-        "Circle and sphere",
         "Cone and cylinder",
-        "Cube and pyramid"
+        "Cube and pyramid",
+        "Triangle and quadrilateral",
+        "Circle and sphere"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Recall the two beam shapes constructed with pins.",
       "explanation": "Experiment 1 compares hinged triangular and quadrilateral frames."
     },
@@ -61,12 +61,12 @@ export const athleteBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Which hinged shape resists deformation better in the experiment?",
       "choices": [
-        "Triangle",
         "Quadrilateral",
         "Open chain",
-        "Single loose rod"
+        "Single loose rod",
+        "Triangle"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about which frame kept its shape.",
       "explanation": "The experiment concludes that a hinged triangle is stable."
     },
@@ -91,12 +91,12 @@ export const athleteBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "When can a quadrilateral also make a stable horizontal-bar support?",
       "choices": [
+        "When one side is removed",
         "When its connections are rigid",
         "When all joints are loose",
-        "When it has no beams",
-        "When one side is removed"
+        "When it has no beams"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The second experiment changes how corners are connected.",
       "explanation": "A quadrilateral is stable in the rigid-connection case described."
     },
@@ -106,12 +106,12 @@ export const athleteBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "How many motors make up the athlete model's body?",
       "choices": [
-        "Two",
-        "One",
         "Three",
-        "Four"
+        "Four",
+        "Two",
+        "One"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Look at the construction notes for the body.",
       "explanation": "The lesson's body design uses two motors with five-hole plates between them."
     },
@@ -121,12 +121,12 @@ export const athleteBank: QuizBank = {
       "learningSlide": 19,
       "prompt": "Which ports connect the athlete's two motors?",
       "choices": [
-        "A and B",
         "1 and 2 only",
         "USB-C and headphone",
-        "M5 and M6"
+        "M5 and M6",
+        "A and B"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Recall the lettered motor-port labels.",
       "explanation": "The construction instructions connect the motors to controller ports A and B."
     },
@@ -151,12 +151,12 @@ export const athleteBank: QuizBank = {
       "learningSlide": 25,
       "prompt": "How can the same program control the athlete's arm instead of its foot?",
       "choices": [
+        "Replace the controller with a gear",
         "Change the motor interface/port in the block",
         "Remove all motor commands",
-        "Switch to a light sensor",
-        "Replace the controller with a gear"
+        "Switch to a light sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Focus on selecting a different actuator.",
       "explanation": "The coding section directs students to change the motor interface to control the arm."
     }

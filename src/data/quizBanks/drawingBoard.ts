@@ -16,12 +16,12 @@ export const drawingBoardBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What does the Drawing Board robot use to display drawings?",
       "choices": [
+        "The charging cable",
         "The main controller's screen",
         "The motor axle",
-        "The ultrasonic sensor",
-        "The charging cable"
+        "The ultrasonic sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about where images appear in this lesson.",
       "explanation": "The lesson uses the main controller screen as the drawing board."
     },
@@ -31,12 +31,12 @@ export const drawingBoardBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What is one aim of the Drawing Board project?",
       "choices": [
-        "Learning how to operate the controller",
-        "Training a robot to swim",
         "Using a gearbox to lift a car",
-        "Building an outdoor windmill"
+        "Building an outdoor windmill",
+        "Learning how to operate the controller",
+        "Training a robot to swim"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Consider which device is introduced during the project.",
       "explanation": "The lesson teaches the main controller's interface and basic operation."
     },
@@ -46,12 +46,12 @@ export const drawingBoardBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which part is described as the robot's controller?",
       "choices": [
-        "E6 RCU",
         "Large motor",
         "Touch sensor",
-        "LED module"
+        "LED module",
+        "E6 RCU"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Look at the part in the equipment list that stores programs.",
       "explanation": "The slide names the E6 RCU as the controller."
     },
@@ -76,12 +76,12 @@ export const drawingBoardBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "Which RCU ports are used for connecting motors?",
       "choices": [
+        "The power button",
         "M1–M4",
         "P1–P8 only",
-        "The speaker holes",
-        "The power button"
+        "The speaker holes"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Compare the two port groups listed.",
       "explanation": "The lesson assigns motor connections to ports M1–M4."
     },
@@ -91,12 +91,12 @@ export const drawingBoardBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "What does the Type-C port do in this controller lesson?",
       "choices": [
-        "Connects to a computer and supports charging",
-        "Acts as a wheel axle",
         "Holds a gear onto a beam",
-        "Measures light colour directly"
+        "Measures light colour directly",
+        "Connects to a computer and supports charging",
+        "Acts as a wheel axle"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Recall which connector is for the computer.",
       "explanation": "The Type-C port connects the RCU to a computer and is used for charging."
     },
@@ -106,12 +106,12 @@ export const drawingBoardBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "What does the Run button do?",
       "choices": [
-        "Runs a selected program",
         "Removes all programs",
         "Unplugs the motors",
-        "Changes the robot's physical shape"
+        "Changes the robot's physical shape",
+        "Runs a selected program"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about an already-downloaded program.",
       "explanation": "The Run key runs the chosen program on the RCU."
     },
@@ -136,12 +136,12 @@ export const drawingBoardBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "Where is the RCU's power supply slot located?",
       "choices": [
+        "At the tip of the sensor cable",
         "At the back of the RCU",
         "Inside the motor shaft",
-        "On the robot's display glass",
-        "At the tip of the sensor cable"
+        "On the robot's display glass"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Recall the device's rear-side component.",
       "explanation": "The source states that the RCU power supply slot is on its back."
     },
@@ -151,12 +151,12 @@ export const drawingBoardBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "Which power source is used in this RCU?",
       "choices": [
-        "An integrated rechargeable lithium battery",
-        "A wind-up spring",
         "A solar-only cell with no battery",
-        "A hand-crank generator"
+        "A hand-crank generator",
+        "An integrated rechargeable lithium battery",
+        "A wind-up spring"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The charging instruction identifies the stored power source.",
       "explanation": "The lesson uses an integrated lithium battery and describes charging via Type-C."
     }

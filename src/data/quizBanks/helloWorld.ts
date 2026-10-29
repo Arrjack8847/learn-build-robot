@@ -16,12 +16,12 @@ export const helloWorldBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "What simple message is commonly displayed in a first programming exercise?",
       "choices": [
-        "Hello, World!",
-        "Goodbye forever",
         "Battery low",
-        "Motor stopped"
+        "Motor stopped",
+        "Hello, World!",
+        "Goodbye forever"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Recall the usual starting exercise in programming.",
       "explanation": "The lesson introduces displaying 'Hello, World!' as a simple first program."
     },
@@ -31,12 +31,12 @@ export const helloWorldBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Why do electronic devices need programs according to the lesson?",
       "choices": [
-        "To perform tasks according to instructions",
         "To replace their batteries",
         "To increase their physical weight",
-        "To remove their screens"
+        "To remove their screens",
+        "To perform tasks according to instructions"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about giving a device a task to carry out.",
       "explanation": "Programming allows devices such as computers and robots to perform intended tasks."
     },
@@ -61,12 +61,12 @@ export const helloWorldBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "Which content can the controller's 3.2-inch screen display?",
       "choices": [
+        "Only motor speed",
         "Numbers, characters, pictures and shapes",
         "Only numbers",
-        "Only sound waves",
-        "Only motor speed"
+        "Only sound waves"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about the different visual elements listed.",
       "explanation": "The controller screen can display numbers, characters, images and shapes."
     },
@@ -76,12 +76,12 @@ export const helloWorldBank: QuizBank = {
       "learningSlide": 19,
       "prompt": "Which two digits does the lesson say machines recognize?",
       "choices": [
-        "0 and 1",
-        "1 and 2",
         "2 and 3",
-        "5 and 9"
+        "5 and 9",
+        "0 and 1",
+        "1 and 2"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Recall the two symbols used in binary.",
       "explanation": "The machine-language slide introduces binary digits 0 and 1."
     },
@@ -91,12 +91,12 @@ export const helloWorldBank: QuizBank = {
       "learningSlide": 20,
       "prompt": "What software is named for translating a human-written program for the robot?",
       "choices": [
-        "ZMROBO3.0",
         "A video player",
         "A photo gallery",
-        "A music recorder"
+        "A music recorder",
+        "ZMROBO3.0"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Recall the programming application shown.",
       "explanation": "The translation diagram identifies ZMROBO3.0 software."
     },
@@ -121,12 +121,12 @@ export const helloWorldBank: QuizBank = {
       "learningSlide": 25,
       "prompt": "Where is the display-text coding block placed?",
       "choices": [
+        "Before connecting the controller to the computer",
         "Below RCU task 1",
         "Outside the programming workspace",
-        "Inside the motor housing",
-        "Before connecting the controller to the computer"
+        "Inside the motor housing"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about how the two coding blocks are spliced.",
       "explanation": "The text-display module is dragged below the RCU task block."
     },
@@ -136,12 +136,12 @@ export const helloWorldBank: QuizBank = {
       "learningSlide": 30,
       "prompt": "Which order is given for downloading the program?",
       "choices": [
-        "Connect controller, enter download mode, download",
-        "Download, disconnect, connect",
         "Press Run, remove controller, download",
-        "Switch off computer, download, build"
+        "Switch off computer, download, build",
+        "Connect controller, enter download mode, download",
+        "Download, disconnect, connect"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Recall the three numbered steps.",
       "explanation": "The source lists connecting the controller, entering download mode, then downloading."
     },
@@ -151,12 +151,12 @@ export const helloWorldBank: QuizBank = {
       "learningSlide": 31,
       "prompt": "What should you try if pressing Run does not produce the expected result?",
       "choices": [
-        "Check whether the program downloaded successfully",
         "Replace every beam immediately",
         "Remove the entire screen",
-        "Delete every coding block without checking"
+        "Delete every coding block without checking",
+        "Check whether the program downloaded successfully"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The lesson points to a common issue after running.",
       "explanation": "The slide warns that no response may mean the program was not downloaded successfully."
     }

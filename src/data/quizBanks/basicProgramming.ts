@@ -16,12 +16,12 @@ export const basicProgrammingBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Which three information-handling abilities are used to explain how robots work?",
       "choices": [
+        "Charge, fold, swim",
         "Sense, process, output",
         "Eat, sleep, run",
-        "Paint, cut, glue",
-        "Charge, fold, swim"
+        "Paint, cut, glue"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about receiving information, deciding and acting.",
       "explanation": "The lesson describes sensing, processing and outputting information."
     },
@@ -31,12 +31,12 @@ export const basicProgrammingBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "What characterizes the automatic machinery described in the introduction?",
       "choices": [
-        "It repeatedly operates according to instructions",
-        "It always needs manual motion at every instant",
         "It cannot follow instructions",
-        "It can only operate in water"
+        "It can only operate in water",
+        "It repeatedly operates according to instructions",
+        "It always needs manual motion at every instant"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Recall the definition comparing machines and robots.",
       "explanation": "Automatic machinery performs repeated operations according to instructions."
     },
@@ -46,12 +46,12 @@ export const basicProgrammingBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Which component senses information from the robot's surroundings?",
       "choices": [
-        "Sensor",
         "Motor axle",
         "Decoration panel",
-        "Support beam"
+        "Support beam",
+        "Sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Which part is analogous to human senses?",
       "explanation": "The exploration compares sensors with human senses that perceive the world."
     },
@@ -76,12 +76,12 @@ export const basicProgrammingBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "What does programming tell a robot controller?",
       "choices": [
+        "Only the width of its beams",
         "What to do and how to do it",
         "Only its model's colour",
-        "Only where to store the box",
-        "Only the width of its beams"
+        "Only where to store the box"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Recall why we write instructions in a language the controller understands.",
       "explanation": "The lesson defines programming as communicating actions and methods to the controller."
     },
@@ -91,12 +91,12 @@ export const basicProgrammingBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Why should students save their programs regularly?",
       "choices": [
-        "To avoid losing work and starting again",
-        "To stop the robot from sensing obstacles",
         "To make motor cables shorter",
-        "To replace the controller screen"
+        "To replace the controller screen",
+        "To avoid losing work and starting again",
+        "To stop the robot from sensing obstacles"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Think about recovering after data loss.",
       "explanation": "The lesson recommends saving programs often in different files to prevent loss."
     },
@@ -106,12 +106,12 @@ export const basicProgrammingBank: QuizBank = {
       "learningSlide": 25,
       "prompt": "Which motor connects to controller port A in this project?",
       "choices": [
-        "Head motor",
         "Arm motor",
         "Wheel motor",
-        "Drum motor"
+        "Drum motor",
+        "Head motor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Look at the two named actuators on the wiring slide.",
       "explanation": "The construction slide labels port A for the head motor."
     },
@@ -136,12 +136,12 @@ export const basicProgrammingBank: QuizBank = {
       "learningSlide": 27,
       "prompt": "In a sequential program, in which order do commands run?",
       "choices": [
+        "Only every other command",
         "From top to bottom",
         "Only from bottom to top",
-        "All steps randomly",
-        "Only every other command"
+        "All steps randomly"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Consider the order the blocks are placed.",
       "explanation": "The coding slide explains that sequential commands execute from top to bottom."
     },
@@ -151,12 +151,12 @@ export const basicProgrammingBank: QuizBank = {
       "learningSlide": 27,
       "prompt": "What is the requested action order for the simple robot?",
       "choices": [
-        "Turn head, laugh, wave arms",
-        "Laugh, sleep, swim",
         "Wave arms, turn head, power off",
-        "Flash lights, drive wheels, beep"
+        "Flash lights, drive wheels, beep",
+        "Turn head, laugh, wave arms",
+        "Laugh, sleep, swim"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Recall the three actions named in the exercise.",
       "explanation": "The lesson's sequence is turn the head for one second, then laugh, then wave the arms."
     }
