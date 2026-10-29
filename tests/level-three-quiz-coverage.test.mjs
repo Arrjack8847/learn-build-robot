@@ -81,6 +81,17 @@ test("all and only the 15 reviewed Level 3 banks are playable", () => {
   for (const id of fallbackIds) assert.equal(getQuizBank(id), undefined, "Building-only fallback published without review: " + id);
 });
 
+test("new Level 3 answer keys are spread across A, B, C and D", () => {
+  const authored = readyIds.filter(id => id !== "level-3-clip-robot" && id !== "level-3-following-robot");
+  assert.equal(authored.length, 13);
+  for (const id of authored) {
+    const bank = getQuizBank(id);
+    assert.ok(bank, id);
+    assert.equal(new Set(bank.questions.map(question => question.correctIndex)).size, 4,
+      id + ": correct options should not always use one position");
+  }
+});
+
 test("each published bank matches its official registered PDF and actual page count", async (t) => {
   for (const id of readyIds) {
     await t.test(id, async () => {
