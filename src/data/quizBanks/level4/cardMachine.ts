@@ -13,12 +13,12 @@ export const cardMachineBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "What problem does a queue number-taking machine help with?",
       "choices": [
-        "Long lines of people waiting",
-        "Too much sunlight",
         "Low music volume",
-        "Dirty windows"
+        "Dirty windows",
+        "Long lines of people waiting",
+        "Too much sunlight"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 6 introduces queue number machines as a way to improve crowded service lines.",
       "hint": "Think about what customers do before their turn."
     },
@@ -28,12 +28,12 @@ export const cardMachineBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "Which function will this lesson's Card Machine model make automatic?",
       "choices": [
-        "Opening curtains",
         "Taking a queue number",
         "Playing a tune",
-        "Reading the weather"
+        "Reading the weather",
+        "Opening curtains"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Slide 7 states that the model focuses on the automatic-number function.",
       "hint": "Remember the task this particular machine performs."
     },
@@ -58,12 +58,12 @@ export const cardMachineBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Where does the lesson say automation is used?",
       "choices": [
+        "Only in outer space",
         "Only in toy stores",
         "Only in school gyms",
-        "In medical and service work",
-        "Only in outer space"
+        "In medical and service work"
       ],
-      "correctIndex": 2,
+      "correctIndex": 3,
       "explanation": "Slide 10 lists medical and service fields among applications of automation.",
       "hint": "Consider places where machines help with everyday work."
     },
@@ -73,12 +73,12 @@ export const cardMachineBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "What kind of work can automation help reduce?",
       "choices": [
-        "Unnecessary heavy or repetitive work",
         "The need for safe machines",
         "The need for checking results",
-        "All teamwork"
+        "All teamwork",
+        "Unnecessary heavy or repetitive work"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 11 describes automation reducing demanding physical and some mental work.",
       "hint": "Think about a task that is tiring when repeated."
     },
@@ -103,12 +103,12 @@ export const cardMachineBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "Which rule is part of assembling the Card Machine?",
       "choices": [
-        "Build an unstable base",
         "Keep the structure stable",
         "Leave the controller loose",
-        "Ignore the machine's shape"
+        "Ignore the machine's shape",
+        "Build an unstable base"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Slide 13 explicitly requires a stable structure.",
       "hint": "Think about what keeps moving parts from falling apart."
     },
@@ -118,12 +118,12 @@ export const cardMachineBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "A newly built Card Machine wobbles. What should you improve?",
       "choices": [
-        "The model's stability",
-        "The ticket's color",
         "The room's temperature",
-        "The program's name"
+        "The program's name",
+        "The model's stability",
+        "The ticket's color"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 13 says the assembly should have a stable structure and appropriate shape.",
       "hint": "Fix the physical problem before trying the program."
     },
@@ -133,12 +133,12 @@ export const cardMachineBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "Which programming ideas appear in the Card Machine lesson?",
       "choices": [
+        "Camera filters",
         "Variables and logical relationships",
         "Only music notes",
-        "Weather forecasts and maps",
-        "Camera filters"
+        "Weather forecasts and maps"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 15 labels variables and logical relationships in the program diagram.",
       "hint": "Think about how a program remembers values and makes decisions."
     },
@@ -148,12 +148,12 @@ export const cardMachineBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "What should the Card Machine program take into account?",
       "choices": [
-        "Wheel color and room size",
-        "Transmission speed and quantity",
         "Curtain size and brightness",
-        "Sound volume and temperature"
+        "Sound volume and temperature",
+        "Wheel color and room size",
+        "Transmission speed and quantity"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Slide 16 tells students to program for transmission speed and transmission quantity.",
       "hint": "Think about how quickly items move and how many are moved."
     }
