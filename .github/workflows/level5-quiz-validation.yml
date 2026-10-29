@@ -26,8 +26,15 @@ jobs:
         run: bun install --frozen-lockfile
       - name: Type check
         run: bunx tsc --noEmit
-      - name: Verify Level 5 PDF source extraction
-        run: node scripts/extract-quiz-slides.mjs --level 5 --limit 5 --local-only
+      - name: Extract all 51 official Level 5 Learning PDFs
+        run: node scripts/extract-quiz-slides.mjs --level 5 --limit 51 --local-only
+      - name: Preserve extracted slide evidence for remaining quiz banks
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: level5-official-learning-slide-extracts
+          path: quiz-research/*.json
+          if-no-files-found: warn
       - name: Check Quiz Studio and all Level 5 banks
         run: node --experimental-strip-types --test tests/quiz-studio.test.mjs tests/quiz-level5.test.mjs
       - name: Run existing UI tests
