@@ -1,3 +1,7 @@
+import { redLightWarningDeviceBank } from "./quizBanks/level6/redLightWarningDevice.ts";
+import { rcAirplaneBank } from "./quizBanks/level6/rcAirplane.ts";
+import { punchHardBank } from "./quizBanks/level6/punchHard.ts";
+import { productSearchBank } from "./quizBanks/level6/productSearch.ts";
 import { pinballMachineBank } from "./quizBanks/level6/pinballMachine.ts";
 import { pictureProjectorBank } from "./quizBanks/level6/pictureProjector.ts";
 import { payByCardBank } from "./quizBanks/level6/payByCard.ts";
@@ -158,6 +162,10 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [payByCardBank.projectId]: payByCardBank,
   [pictureProjectorBank.projectId]: pictureProjectorBank,
   [pinballMachineBank.projectId]: pinballMachineBank,
+  [productSearchBank.projectId]: productSearchBank,
+  [punchHardBank.projectId]: punchHardBank,
+  [rcAirplaneBank.projectId]: rcAirplaneBank,
+  [redLightWarningDeviceBank.projectId]: redLightWarningDeviceBank,
   [bigHeadRobotBank.projectId]: bigHeadRobotBank,
   [axeRobotBank.projectId]: axeRobotBank,
   [clipRobotBank.projectId]: clipRobotBank,
