@@ -28,12 +28,12 @@ export const architecturalDesignBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What is the Architectural Design robot meant to imitate?",
       "choices": [
-        "A traditional building style",
         "A racing car",
         "An automatic doorway",
-        "A musical instrument"
+        "A musical instrument",
+        "A traditional building style"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 7 introduces a model inspired by traditional architecture.",
       "hint": "Remember what real-world object this lesson models."
     },
@@ -43,12 +43,12 @@ export const architecturalDesignBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which feature helps a building model stand firmly?",
       "choices": [
-        "A taller roof",
-        "Bright lights",
         "Good structural support",
-        "More decoration"
+        "More decoration",
+        "A taller roof",
+        "Bright lights"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Slide 9 calls for a stable structure with good support and a suitable center of gravity.",
       "hint": "Think about what holds a model up."
     },
@@ -58,12 +58,12 @@ export const architecturalDesignBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "Your building model keeps tipping over. What should you check first?",
       "choices": [
+        "Its program title",
         "Its music",
         "Its support and balance",
-        "Its color pattern",
-        "Its program title"
+        "Its color pattern"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "Slide 12 makes structural stability and correct balance assembly requirements.",
       "hint": "A building should stay upright before you add finishing touches."
     },
@@ -73,12 +73,12 @@ export const architecturalDesignBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Which controller is listed for the Architectural Design robot?",
       "choices": [
-        "RCU",
-        "Joystick",
         "Remote camera",
-        "Compass"
+        "Compass",
+        "RCU",
+        "Joystick"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 10 lists the RCU among the electronic components.",
       "hint": "Look for the component that controls the robot."
     },
@@ -88,12 +88,12 @@ export const architecturalDesignBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Which light-related part is included in the lesson's equipment list?",
       "choices": [
-        "Laser pointer",
         "Colored lights",
         "Flashlight bulb",
-        "Reflective mirror"
+        "Reflective mirror",
+        "Laser pointer"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Slide 10 lists colored lights as an electronic component.",
       "hint": "Think about the parts that can make the model light up."
     },
@@ -103,12 +103,12 @@ export const architecturalDesignBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Which sensor does the lesson say students should learn to use?",
       "choices": [
+        "Pressure sensor",
         "Temperature sensor",
         "Sound sensor",
-        "Color sensor",
-        "Pressure sensor"
+        "Color sensor"
       ],
-      "correctIndex": 2,
+      "correctIndex": 3,
       "explanation": "Slide 3 explicitly identifies basic color-sensor use as a learning focus.",
       "hint": "Remember the type of information the lesson wants the model to detect."
     },
