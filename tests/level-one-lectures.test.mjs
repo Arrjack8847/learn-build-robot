@@ -8,6 +8,9 @@ import ts from "typescript";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const read = file => readFileSync(resolve(root, file), "utf8");
+const mappingSource = read("src/data/levelOneToThreeWixPdfUrls.ts");
+const wixUrls = JSON.parse(mappingSource.match(/export const levelOneToThreeWixPdfUrls: Readonly<Record<string, string>> = (\{[\s\S]*?\});/)[1]);
+const sourcePathByUrl = new Map(Object.entries(wixUrls).map(([path, url]) => [url, path]));
 
 /** Execute the real data modules, including existing Building PDF registrations. */
 const modules = new Map();
@@ -46,11 +49,12 @@ test("the existing 45 lecture files and their project routes are unchanged", () 
   const files = allPdfs(resolve(root, "public/Level 1/Learning"));
   assert.equal(files.length, 45);
   assert.equal(LEVEL_ONE_LECTURE_COUNT, 45);
-  const originalLectures = Object.values(levelOneLectures).filter(item => item.url.startsWith("/Level%201/Learning/"));
+  const originalLectures = Object.values(levelOneLectures).filter(item => sourcePathByUrl.get(item.url)?.startsWith("Level 1/Learning/"));
   assert.equal(originalLectures.length, 46); // Crawl Slowly has two variants.
   const seen = new Set();
   for (const lecture of originalLectures) {
-    const relative = decodeURIComponent(lecture.url).replace(/^\//, "");
+    const relative = sourcePathByUrl.get(lecture.url);
+    assert.ok(relative, "Learning PDF must resolve to Wix");
     const absolute = resolve(root, "public", relative);
     assert.ok(files.includes(absolute), "Missing converted PDF: " + relative);
     assert.equal(readFileSync(absolute).subarray(0, 5).toString("ascii"), "%PDF-");
@@ -84,7 +88,7 @@ test("exactly 14 missing lecture projects reuse the already-registered Building 
     assert.ok(building, "Missing existing Building PDF for " + projectId);
     assert.ok(learning, "Missing Learning PDF for " + projectId);
     assert.equal(learning.url, building.url);
-    assert.equal(learning.url, "/" + encodeURIComponent(filenames.get(projectId)));
+    assert.equal(learning.url, wixUrls[filenames.get(projectId)]);
     assert.equal(learning.learningOnly, false);
     const file = resolve(root, "public", filenames.get(projectId));
     assert.equal(readFileSync(file).subarray(0, 5).toString("ascii"), "%PDF-");
