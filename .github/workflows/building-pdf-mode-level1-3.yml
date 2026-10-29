@@ -1,0 +1,34 @@
+name: Building PDF mode — Levels 1 and 3
+on:
+  push:
+    branches:
+      - fix/building-mode-24-pdf-routes-20261029
+  pull_request:
+    paths:
+      - 'src/data/levelOneLectures.ts'
+      - 'src/data/levelThreeLectures.ts'
+      - 'src/routes/practical/**'
+      - 'src/routes/projects.$projectId.tsx'
+      - 'tests/level-one-three-building-availability.test.mjs'
+      - 'tests/level-one-lectures.test.mjs'
+      - 'tests/level-three-lectures.test.mjs'
+      - '.github/workflows/building-pdf-mode-level1-3.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps --no-audit --no-fund
+      - name: Check 24 Building modes, Level 1/3 lectures, and Wix mappings
+        run: node --test tests/level-one-three-building-availability.test.mjs tests/level-one-lectures.test.mjs tests/level-three-lectures.test.mjs tests/level-one-to-three-wix-urls.test.mjs
+      - name: Type-check application
+        run: npx tsc --noEmit
+      - name: Production build
+        run: npm run build
