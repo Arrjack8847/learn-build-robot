@@ -13,6 +13,9 @@ on:
     paths:
       - "src/data/quizStudio.ts"
       - "src/data/quizBanks/level1/**"
+      - "src/components/practical/LevelOneLearningStudio.tsx"
+      - "scripts/level1-quiz-phase3-building-sources.json"
+      - "scripts/extract-phase3-level1-building-slides.mjs"
       - "tests/quiz-level1-coverage.test.mjs"
       - ".github/workflows/quiz-level1-validation.yml"
 permissions:
