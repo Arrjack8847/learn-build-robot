@@ -48,14 +48,25 @@ test("all 46 indexed Learning sources have valid 10-question banks matching thei
   }
 });
 
-test("Building-only sources remain gated as unverified teaching materials", () => {
+test("13 source-supported manual-based quizzes are playable; Pocket Pistol remains blocked", () => {
   for (const { projectId, sourcePath, sourceKind } of fallbacks.sources) {
     assert.equal(sourceKind, "official-building-manual-learning-fallback");
     assert.ok(sourcePath.startsWith("public/") && sourcePath.endsWith(".pdf"));
-    assert.equal(getQuizBank(projectId), undefined, projectId + " must remain unavailable");
+    const bank = getQuizBank(projectId);
+    if (projectId === "pocket-pistol") {
+      assert.equal(bank, undefined, "weapon-themed manual lacks a verified suitable quiz");
+      continue;
+    }
+    assert.ok(bank, projectId + ": source-grounded manual question bank must be loadable");
+    assert.deepEqual(validateQuizBank(bank), [], projectId);
+    assert.equal(bank.sourcePdfPath, sourcePath, projectId);
+    assert.equal(bank.questions.length, 10, projectId);
+    const first = selectQuizQuestions(bank, [], () => 0);
+    const retry = selectQuizQuestions(bank, first.map(q => q.id), () => 0);
+    assert.equal(first.length, 5, projectId);
+    assert.equal(new Set(first.map(q => q.topic)).size, 5, projectId);
+    assert.equal(first.filter(q => retry.some(p => p.id === q.id)).length, 0, projectId);
   }
-  const studio = fileURLToPath(new URL("../src/components/practical/LevelOneLearningStudio.tsx", import.meta.url));
-  assert.ok(studio);
 });
 
 test("all 46 playable banks reuse Acceleration Car's random selection and retry rule", () => {
@@ -126,7 +137,30 @@ test("Building-only projects have a distinct blocked state and cannot be describ
     "fallback gate must check source kind per project");
   assert.ok(projectPage.includes('quizEntry.status === "building-manual-only"'));
   assert.ok(projectPage.includes("Only a Building manual was supplied"));
-  for (const id of buildingOnlyIds) {
-    assert.equal(getQuizBank(id), undefined, id + ": fallback is not a published quiz");
+  assert.equal(getQuizBank("pocket-pistol"), undefined, "the blocked source must remain unavailable");
+  assert.ok(syllabus.includes("usesBuildingManual:"), "source kind must reach the project UI");
+  const quiz = await readFile(resolve(root, "src/routes/quiz.$projectId.tsx"), "utf8");
+  assert.ok(quiz.includes("Review Construction Manual Page"), "manual page links must be accurately labeled");
+});
+
+test("manual-based banks reference the exact number of pages in their official source PDFs", async () => {
+  for (const source of fallbacks.sources) {
+    if (source.projectId === "pocket-pistol") continue;
+    const bank = getQuizBank(source.projectId);
+    assert.ok(bank);
+    const bytes = await readFile(resolve(root, source.sourcePath));
+    assert.equal(bytes.subarray(0, 4).toString("ascii"), "%PDF", source.projectId);
+    const pdf = await getDocument({
+      data: new Uint8Array(bytes), useSystemFonts: false, disableFontFace: true,
+    }).promise;
+    try {
+      assert.equal(pdf.numPages, bank.sourcePageCount, source.projectId + ": manual page-count mismatch");
+      for (const question of bank.questions) {
+        assert.ok(question.learningSlide >= 1 && question.learningSlide <= pdf.numPages,
+          question.id + ": manual page out of range");
+      }
+    } finally {
+      await pdf.destroy();
+    }
   }
 });

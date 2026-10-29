@@ -58,6 +58,19 @@ import { mechanicalArmBank } from "./quizBanks/level1/mechanicalArm.ts";
 import { colorChangingLightBank } from "./quizBanks/level1/colorChangingLight.ts";
 import { corridorLampBank } from "./quizBanks/level1/corridorLamp.ts";
 import { motorcycleBank } from "./quizBanks/level1/motorcycle.ts";
+import { balancedBirdBank } from "./quizBanks/level1/balancedBird.ts";
+import { cagedBirdBank } from "./quizBanks/level1/cagedBird.ts";
+import { dancingMusicBoxBank } from "./quizBanks/level1/dancingMusicBox.ts";
+import { handCrankingFanBank } from "./quizBanks/level1/handCrankingFan.ts";
+import { handCrankingGiantStrideBank } from "./quizBanks/level1/handCrankingGiantStride.ts";
+import { hermitCrabBank } from "./quizBanks/level1/hermitCrab.ts";
+import { littleOwlBank } from "./quizBanks/level1/littleOwl.ts";
+import { oldFashionedTelephoneBank } from "./quizBanks/level1/oldFashionedTelephone.ts";
+import { oscillatingFanBank } from "./quizBanks/level1/oscillatingFan.ts";
+import { propellerAircraftBank } from "./quizBanks/level1/propellerAircraft.ts";
+import { pullbackBicycleBank } from "./quizBanks/level1/pullbackBicycle.ts";
+import { rotatingCoffeeCupBank } from "./quizBanks/level1/rotatingCoffeeCup.ts";
+import { wiperBank } from "./quizBanks/level1/wiper.ts";
 
 export type GearDiagram = "large-to-small" | "small-to-large";
 /** Each project defines five distinct objective IDs; the engine is not gear-specific. */
@@ -204,6 +217,23 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [colorChangingLightBank.projectId]: colorChangingLightBank,
   [corridorLampBank.projectId]: corridorLampBank,
   [motorcycleBank.projectId]: motorcycleBank,
+
+  // These 13 source-grounded quizzes use official Building manuals with
+  // explicit teaching objectives. Their Learning views are labeled as manuals,
+  // not as separately supplied lecture slides.
+  [balancedBirdBank.projectId]: balancedBirdBank,
+  [cagedBirdBank.projectId]: cagedBirdBank,
+  [dancingMusicBoxBank.projectId]: dancingMusicBoxBank,
+  [handCrankingFanBank.projectId]: handCrankingFanBank,
+  [handCrankingGiantStrideBank.projectId]: handCrankingGiantStrideBank,
+  [hermitCrabBank.projectId]: hermitCrabBank,
+  [littleOwlBank.projectId]: littleOwlBank,
+  [oldFashionedTelephoneBank.projectId]: oldFashionedTelephoneBank,
+  [oscillatingFanBank.projectId]: oscillatingFanBank,
+  [propellerAircraftBank.projectId]: propellerAircraftBank,
+  [pullbackBicycleBank.projectId]: pullbackBicycleBank,
+  [rotatingCoffeeCupBank.projectId]: rotatingCoffeeCupBank,
+  [wiperBank.projectId]: wiperBank,
 
   [bigHeadRobotBank.projectId]: bigHeadRobotBank,
   [axeRobotBank.projectId]: axeRobotBank,

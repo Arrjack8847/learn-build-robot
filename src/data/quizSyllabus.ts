@@ -25,6 +25,8 @@ export interface QuizSyllabusEntry {
   categoryId?: string;
   learningUrl: string | null;
   status: QuizSyllabusStatus;
+  /** True only when the Learning view reuses an official Building manual, not lecture slides. */
+  usesBuildingManual: boolean;
 }
 
 /** The same registered Learning PDF used by the existing Learning Studio. */
@@ -59,6 +61,7 @@ export function getQuizSyllabusEntry(projectId: string): QuizSyllabusEntry | nul
     ...(project.categoryId ? { categoryId: project.categoryId } : {}),
     learningUrl,
     status,
+    usesBuildingManual: level === 1 && buildingManualOnlyLevelOneIds.has(projectId),
   };
 }
 
