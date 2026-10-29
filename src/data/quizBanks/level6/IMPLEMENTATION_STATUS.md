@@ -39,3 +39,11 @@ The connector's GitHub Contents endpoint exposes base64 PDF bytes for files **sm
 **Do not substitute plausible robotics questions, guess advanced concepts, or invent slide references.** Resume source inspection via a working GitHub checkout/runner or another authenticated binary-fetch pathway, then produce and register the remaining banks in verified batches.
 
 No merge or deployment was performed.
+
+## Continuing audit: generated coverage and visual-render queue repair
+
+The original slide-renderer listed only Altimeter and Ball Tracking as existing banks. That outdated list caused all other 41 sources to enter the render queue, despite 8 additional banks having since been registered.
+
+The branch now includes `scripts/report-level6-coverage.mjs`, which reads the real `getQuizBank` registry and official 43-project syllabus manifest. A read-only run emits the published and pending project IDs; `--write` saves the generated queue at `quiz-research/level6-coverage.json`. The renderer consumes that queue and rejects missing or mismatched inventory. The GitHub workflow generates the queue and iterates only over the pending entries instead of rendering a fixed 41 projects. New Level 6 bank/source/test commits also trigger the workflow.
+
+**Current authored coverage remains 10/43 = 100 questions; 33 banks need source inspection and authoring.** No new question bank was created by this audit repair. The GitHub connector returned empty bytes for the larger PDF assets; the linked hosted PDF fetch also failed. Full Node tests, TypeScript, production build and browser playback still have not been executed here, and the GitHub Actions runner has previously failed before starting jobs. The PR remains draft; do not merge or deploy.
