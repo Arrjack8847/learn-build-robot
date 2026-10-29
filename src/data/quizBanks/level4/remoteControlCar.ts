@@ -13,12 +13,12 @@ export const remoteControlCarBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "What does a remote controller let you do?",
       "choices": [
-        "Control a device from a distance",
-        "Charge a battery without power",
         "Change the weather",
-        "Build a road"
+        "Build a road",
+        "Control a device from a distance",
+        "Charge a battery without power"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 4 introduces remote controls that operate devices from a distance.",
       "hint": "Think about using a controller without touching the device."
     },
@@ -43,12 +43,12 @@ export const remoteControlCarBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "What should the car do when the controller is tilted forward?",
       "choices": [
+        "Stop all motors forever",
         "Go straight forward",
         "Move backward",
-        "Play a warning sound only",
-        "Stop all motors forever"
+        "Play a warning sound only"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 10 describes forward leaning as a command to travel straight.",
       "hint": "Picture moving the handheld controller toward the front."
     },
@@ -58,12 +58,12 @@ export const remoteControlCarBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "What should the car do when the controller is leaned backward?",
       "choices": [
-        "Move backward",
         "Turn on a light only",
         "Increase the wheel size",
-        "Read a tag code"
+        "Read a tag code",
+        "Move backward"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 10 describes backward leaning as a reverse movement command.",
       "hint": "Think about making the motion follow the direction of the tilt."
     },
@@ -73,12 +73,12 @@ export const remoteControlCarBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "Which Bluetooth message number tells the robot to stop?",
       "choices": [
-        "1",
         "2",
         "4",
-        "5"
+        "5",
+        "1"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 15 maps message 1 to stop.",
       "hint": "The program uses short numbers for movement commands."
     },
@@ -88,12 +88,12 @@ export const remoteControlCarBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "Which messages are used for left and right turning?",
       "choices": [
-        "1 and 2",
-        "2 and 3",
         "3 and 4",
-        "4 and 5"
+        "4 and 5",
+        "1 and 2",
+        "2 and 3"
       ],
-      "correctIndex": 3,
+      "correctIndex": 1,
       "explanation": "Slide 15 assigns messages 4 and 5 to turns.",
       "hint": "Think about the pair of commands after forward and backward."
     },
@@ -118,12 +118,12 @@ export const remoteControlCarBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "Which two angle values are saved into variables?",
       "choices": [
-        "Pitch and yaw",
-        "Speed and sound",
         "Color and brightness",
-        "Temperature and humidity"
+        "Temperature and humidity",
+        "Pitch and yaw",
+        "Speed and sound"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 17 says to store pitch and yaw angles.",
       "hint": "Think about ways to describe the handle's orientation."
     },
@@ -133,12 +133,12 @@ export const remoteControlCarBank: QuizBank = {
       "learningSlide": 18,
       "prompt": "Which movement does the program check first?",
       "choices": [
+        "Whether to print a label",
         "Whether to turn",
         "Whether to play music",
-        "Whether to flash a light",
-        "Whether to print a label"
+        "Whether to flash a light"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 18 says turning has priority in the controller's decisions.",
       "hint": "Think about the control action checked before forward or backward motion."
     },
@@ -148,12 +148,12 @@ export const remoteControlCarBank: QuizBank = {
       "learningSlide": 19,
       "prompt": "What does the controller do when the forward/backward tilt stays inside the chosen stop range?",
       "choices": [
-        "Send a stop command",
         "Always move forward",
         "Always move backward",
-        "Disable Bluetooth permanently"
+        "Disable Bluetooth permanently",
+        "Send a stop command"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 19 explains that motion is stopped when the tilt is within the specified range.",
       "hint": "A small or neutral tilt should not keep the car moving."
     }
