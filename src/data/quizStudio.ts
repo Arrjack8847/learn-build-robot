@@ -1,3 +1,4 @@
+import { remoteControlLiftBank } from "./quizBanks/level6/remoteControlLift.ts";
 /**
  * BE STEM READY Quiz Studio — reusable six-level question bank engine.
  * Every published question must be checked against the actual Learning PDF
@@ -123,6 +124,7 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [acousticControlLampBank.projectId]: acousticControlLampBank,
   [barometricSensorBank.projectId]: barometricSensorBank,
   [altimeterBank.projectId]: altimeterBank,
+  [remoteControlLiftBank.projectId]: remoteControlLiftBank,
   [clockBank.projectId]: clockBank,
   [fanRobotBank.projectId]: fanRobotBank,
   [followingRobotBank.projectId]: followingRobotBank,
