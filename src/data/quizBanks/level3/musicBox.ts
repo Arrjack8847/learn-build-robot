@@ -49,7 +49,7 @@ export const musicBoxBank: QuizBank = {
         "Motor port M1"
       ],
       "correctIndex": 0,
-      "hint": "The right button ends the activity.",
+      "hint": "Recall how the lesson assigns start and stop functions to the controller's buttons.",
       "explanation": "Slide 5 assigns stopping to the right button."
     },
     {
