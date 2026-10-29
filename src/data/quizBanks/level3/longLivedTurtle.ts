@@ -19,7 +19,7 @@ export const longLivedTurtleBank: QuizBank = {
         "A rabbit"
       ],
       "correctIndex": 0,
-      "hint": "The robot imitates features of a turtle.",
+      "hint": "Compare the animal models by their body shapes and movement rather than by their names alone.",
       "explanation": "Slide 2 directs students to build a turtle robot."
     },
     {
