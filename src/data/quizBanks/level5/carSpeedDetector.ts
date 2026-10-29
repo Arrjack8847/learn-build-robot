@@ -58,12 +58,12 @@ export const carSpeedDetectorBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "A car moves 10 meters in 2 seconds. What is its average speed?",
       "choices": [
-        "2 meters per second",
-        "5 meters per second",
         "10 meters per second",
-        "20 meters per second"
+        "20 meters per second",
+        "2 meters per second",
+        "5 meters per second"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "hint": "Divide the distance by the elapsed time.",
       "explanation": "Using slide 10's speed formula, 10 meters ÷ 2 seconds = 5 meters per second."
     },
@@ -73,12 +73,12 @@ export const carSpeedDetectorBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "A laser takes 2.56 seconds to travel to a target and reflect back. What is the one-way travel time?",
       "choices": [
-        "0.64 seconds",
         "1.28 seconds",
         "2.56 seconds",
-        "5.12 seconds"
+        "5.12 seconds",
+        "0.64 seconds"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "hint": "The full journey includes going and returning.",
       "explanation": "Slide 7 halves the round-trip laser time: 2.56 ÷ 2 = 1.28 seconds."
     },
@@ -88,12 +88,12 @@ export const carSpeedDetectorBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "Using the lesson's example of 300,000 km/s, how far does light travel in 1.28 seconds?",
       "choices": [
-        "234,375 kilometers",
         "300,000 kilometers",
         "384,000 kilometers",
-        "768,000 kilometers"
+        "768,000 kilometers",
+        "234,375 kilometers"
       ],
-      "correctIndex": 2,
+      "correctIndex": 1,
       "hint": "Multiply the given speed by the one-way travel time.",
       "explanation": "Slide 7 calculates 300,000 × 1.28 = 384,000 kilometers for the example distance to the Moon."
     },
@@ -103,12 +103,12 @@ export const carSpeedDetectorBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "Which data are needed after the object enters the speed-measurement stage?",
       "choices": [
+        "The weather and current date",
         "Only the object's color",
         "Two distance measurements and the elapsed interval",
-        "Only the car's number plate",
-        "The weather and current date"
+        "Only the car's number plate"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "hint": "Recall what changes between two readings.",
       "explanation": "Slide 13 describes storing two distance readings and the time between them to calculate speed."
     },
@@ -118,12 +118,12 @@ export const carSpeedDetectorBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "Why does the lesson clear the display before showing new speed data?",
       "choices": [
-        "To increase the laser's physical range",
-        "To avoid leftover data causing display errors",
         "To switch off the motor permanently",
-        "To make the car move faster"
+        "To make the car move faster",
+        "To increase the laser's physical range",
+        "To avoid leftover data causing display errors"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "hint": "Think about old values left on the screen.",
       "explanation": "Slide 15 directs students to clear the display before presenting the two new measurements."
     },
@@ -133,12 +133,12 @@ export const carSpeedDetectorBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "How does the program convert speed from meters per second to kilometers per hour?",
       "choices": [
-        "Divide by 100",
-        "Multiply by 0.001",
         "Multiply by 3.6",
-        "Add 3.6"
+        "Add 3.6",
+        "Divide by 100",
+        "Multiply by 0.001"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "hint": "The conversion factor is shown on the programming slide.",
       "explanation": "Slide 16 instructs multiplying speed in meters per second by 3.6 to obtain kilometers per hour."
     },
@@ -148,12 +148,12 @@ export const carSpeedDetectorBank: QuizBank = {
       "learningSlide": 21,
       "prompt": "What does the lesson propose changing to improve the detector's measurement results?",
       "choices": [
+        "The order of answer labels",
         "The speed-measurement interval",
         "The robot's name on screen",
-        "The detector's paint color",
-        "The order of answer labels"
+        "The detector's paint color"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The time between two sensor readings matters.",
       "explanation": "Slide 21 proposes adjusting the interval between readings to obtain more accurate, reasonable results."
     }

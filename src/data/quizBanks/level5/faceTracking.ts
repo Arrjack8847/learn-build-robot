@@ -28,12 +28,12 @@ export const faceTrackingBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "Where is the origin (0, 0) of the lesson's camera coordinate system?",
       "choices": [
+        "At the robot's left wheel",
         "Upper-left corner of the image",
         "Bottom-right corner",
-        "Exact center of the image",
-        "At the robot's left wheel"
+        "Exact center of the image"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The slide draws axes from a corner.",
       "explanation": "Slide 7 identifies the upper-left corner of the camera screen as coordinate (0, 0)."
     },
@@ -43,12 +43,12 @@ export const faceTrackingBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "What appears around a face detected by the module in face detection mode?",
       "choices": [
-        "A green rectangle around the face",
-        "A red horizontal speedometer",
         "A magnetic field indicator",
-        "An ultrasonic distance graph"
+        "An ultrasonic distance graph",
+        "A green rectangle around the face",
+        "A red horizontal speedometer"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The display marks the tracked area.",
       "explanation": "Slide 8 describes a green box around the recognized face."
     },
@@ -58,12 +58,12 @@ export const faceTrackingBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "What point in the displayed face box is represented by the returned X and Y coordinates?",
       "choices": [
-        "The center point of the face box",
         "Only its bottom-right corner",
         "A fixed controller button",
-        "The robot's front motor"
+        "The robot's front motor",
+        "The center point of the face box"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The box contains a point used for position.",
       "explanation": "Slide 8 says the X–Y coordinates represent the center point inside the detected face box."
     },
@@ -88,12 +88,12 @@ export const faceTrackingBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "Where does the AI audiovisual module connect on the controller?",
       "choices": [
+        "USB-C only",
         "P8",
         "M1",
-        "M2",
-        "USB-C only"
+        "M2"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The camera uses a P-number port, not a motor port.",
       "explanation": "Slide 11 specifies the AI module connection to P8."
     },
@@ -103,12 +103,12 @@ export const faceTrackingBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "What should both motors do when X is 0 in the lesson's face-tracking program?",
       "choices": [
-        "Stop because no face is detected",
-        "Run at maximum speed",
         "Rotate only clockwise",
-        "Play a sound while ignoring the face"
+        "Play a sound while ignoring the face",
+        "Stop because no face is detected",
+        "Run at maximum speed"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "X = 0 is the no-face condition.",
       "explanation": "Slide 17 interprets X = 0 as no face and stops M1 and M2."
     },
@@ -118,12 +118,12 @@ export const faceTrackingBank: QuizBank = {
       "learningSlide": 18,
       "prompt": "The program sets turn = X - 150. What is turn when a face is detected at X = 120?",
       "choices": [
-        "-30",
         "0",
         "30",
-        "270"
+        "270",
+        "-30"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Subtract the center coordinate from X.",
       "explanation": "Slide 18 explicitly calculates turn = 120 - 150 = -30."
     },
@@ -148,12 +148,12 @@ export const faceTrackingBank: QuizBank = {
       "learningSlide": 19,
       "prompt": "Why multiply X - 150 by a coefficient K1 in the updated program?",
       "choices": [
+        "To make motor speeds independent of face position",
         "To reduce overly fast turning when the face is far left or right",
         "To turn X into a temperature value",
-        "To disable the module's X coordinate",
-        "To make motor speeds independent of face position"
+        "To disable the module's X coordinate"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "A smaller multiplier produces gentler turns.",
       "explanation": "Slide 19 introduces turn = (X - 150) × K1 to slow the tracking rotation and improve control."
     }

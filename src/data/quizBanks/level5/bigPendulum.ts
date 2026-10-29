@@ -13,12 +13,12 @@ export const bigPendulumBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "Which movement of the boom makes the big pendulum ride swing?",
       "choices": [
-        "The boom travels in a straight horizontal path",
         "The boom swings back and forth like a pendulum",
         "The boom stays fixed while the base moves",
-        "The boom moves only vertically"
+        "The boom moves only vertically",
+        "The boom travels in a straight horizontal path"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "hint": "Think about the long arm of the ride.",
       "explanation": "Slide 7 identifies the boom's swinging pendulum motion as the source of the ride's movement."
     },
@@ -28,12 +28,12 @@ export const bigPendulumBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "In the lesson's simple pendulum model, which two main elements are described?",
       "choices": [
+        "Two conveyor belts",
         "A pendulum ball and a suspending line",
         "A wheel and a steering rack",
-        "Two electric motors",
-        "Two conveyor belts"
+        "Two electric motors"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Look for what hangs and what holds it.",
       "explanation": "Slide 7 describes the idealized simple pendulum with a ball and suspending line (called a cycloid in the slides)."
     },
@@ -58,12 +58,12 @@ export const bigPendulumBank: QuizBank = {
       "learningSlide": 19,
       "prompt": "According to the lesson, what serves as the usual main restraint on a big-pendulum ride?",
       "choices": [
-        "The seat belt alone",
-        "A shoulder restraint, with a seat belt as secondary protection",
         "The rider's hands",
-        "The footrest alone"
+        "The footrest alone",
+        "The seat belt alone",
+        "A shoulder restraint, with a seat belt as secondary protection"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "hint": "The slide distinguishes the main restraint from secondary protection.",
       "explanation": "Slide 19 says the shoulder restraint is usually primary, with the seat belt as secondary protection."
     },
@@ -73,12 +73,12 @@ export const bigPendulumBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Which two motions does the classroom big-pendulum model demonstrate?",
       "choices": [
-        "A fixed boom and a sliding base",
         "A swinging boom and a rotating seat cabin",
         "A rising platform and a rolling wheel",
-        "A stationary seat and a moving floor"
+        "A stationary seat and a moving floor",
+        "A fixed boom and a sliding base"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "hint": "Find the two parts that move.",
       "explanation": "Slide 10 instructs students to build a model whose boom swings and whose seat cabin rotates."
     },
@@ -88,12 +88,12 @@ export const bigPendulumBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Why does the model use 2-by-4 building blocks connected to the large motor?",
       "choices": [
-        "To measure atmospheric pressure",
         "To make the cockpit lights blink",
         "To move the boom to its lowest starting position",
-        "To count passengers"
+        "To count passengers",
+        "To measure atmospheric pressure"
       ],
-      "correctIndex": 2,
+      "correctIndex": 1,
       "hint": "Think about what must happen before the swing starts.",
       "explanation": "Slide 10 describes these blocks as an initialization handle to lower and initialize the boom position."
     },
@@ -103,12 +103,12 @@ export const bigPendulumBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "Which part of the boom's planned swing does the flowchart discussion treat as initialization?",
       "choices": [
-        "From the lowest point toward the highest point",
-        "A complete stop after every swing",
         "From one highest side to the other highest side repeatedly",
-        "Only rotating the seat cabin"
+        "Only rotating the seat cabin",
+        "From the lowest point toward the highest point",
+        "A complete stop after every swing"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The lesson separates the first movement from the repeating loop.",
       "explanation": "Slide 11 treats the movement from the lowest to the highest position as initialization before the repeated side-to-side swing."
     },
@@ -118,12 +118,12 @@ export const bigPendulumBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "Which motor direction values are used in the initialization instructions?",
       "choices": [
-        "0 for clockwise and 2 for counterclockwise",
-        "1 for clockwise and -1 for counterclockwise",
         "100 for clockwise and 80 for counterclockwise",
-        "10 for clockwise and 20 for counterclockwise"
+        "10 for clockwise and 20 for counterclockwise",
+        "0 for clockwise and 2 for counterclockwise",
+        "1 for clockwise and -1 for counterclockwise"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "hint": "The two direction values have opposite signs.",
       "explanation": "Slide 12 assigns 1 to clockwise steering and -1 to counterclockwise steering."
     },
@@ -133,12 +133,12 @@ export const bigPendulumBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "The program decreases a speed value by 2 every 0.02 seconds. Starting at 100, what is the value after three decreases?",
       "choices": [
-        "98",
-        "96",
         "94",
-        "90"
+        "90",
+        "98",
+        "96"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "hint": "Subtract two three times.",
       "explanation": "Slide 14 specifies a decrease of 2 every 0.02 seconds: 100 - 2 - 2 - 2 = 94."
     },
@@ -148,12 +148,12 @@ export const bigPendulumBank: QuizBank = {
       "learningSlide": 18,
       "prompt": "Which idea does the lesson suggest for improving how the boom returns to its starting position?",
       "choices": [
-        "Remove the boom from the model",
-        "Ignore the starting position",
         "Keep motor power at its maximum continuously",
-        "Use motor position information or a sensor to find the lowest point"
+        "Use motor position information or a sensor to find the lowest point",
+        "Remove the boom from the model",
+        "Ignore the starting position"
       ],
-      "correctIndex": 3,
+      "correctIndex": 1,
       "hint": "How could the robot recognize where its boom is?",
       "explanation": "Slide 18 suggests recording motor position or using a sensor to detect the lowest boom position during initialization."
     }

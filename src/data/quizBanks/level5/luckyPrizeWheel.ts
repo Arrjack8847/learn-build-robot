@@ -28,12 +28,12 @@ export const luckyPrizeWheelBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "How does the described gesture sensor recognize a hand movement?",
       "choices": [
+        "By recording the user's voice",
         "By detecting the direction of light reflected from the hand",
         "By detecting the hand's magnetic north pole",
-        "By measuring the user's body temperature alone",
-        "By recording the user's voice"
+        "By measuring the user's body temperature alone"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "A light source and optical detector are built in.",
       "explanation": "Slide 8 describes recognizing gestures from the direction of reflected light."
     },
@@ -58,12 +58,12 @@ export const luckyPrizeWheelBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which sensor return value corresponds to a wave to the right?",
       "choices": [
-        "1",
-        "2",
         "4",
-        "8"
+        "8",
+        "1",
+        "2"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "hint": "Wave left is 1; right has the next code.",
       "explanation": "Slide 9 maps value 2 to a wave right."
     },
@@ -103,12 +103,12 @@ export const luckyPrizeWheelBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "What is the first information-handling action of the wheel's sample program?",
       "choices": [
-        "Store the gesture sensor's return value in a variable",
-        "Delete every recorded input",
         "Measure atmospheric pressure",
-        "Store the driver's license number"
+        "Store the driver's license number",
+        "Store the gesture sensor's return value in a variable",
+        "Delete every recorded input"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The logic must remember what gesture was sensed.",
       "explanation": "Slide 13 instructs the program to store information from the gesture sensor in a variable."
     },
@@ -118,12 +118,12 @@ export const luckyPrizeWheelBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "What should the program display if it detects no hand gesture?",
       "choices": [
-        "A prompt for the missing gesture input",
         "A guaranteed winning prize",
         "An unrelated pressure value",
-        "The current passenger count"
+        "The current passenger count",
+        "A prompt for the missing gesture input"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The program checks for input before deciding a direction.",
       "explanation": "Slide 14 says to prioritize checking whether a gesture exists and display prompt information when none is detected."
     },
@@ -148,12 +148,12 @@ export const luckyPrizeWheelBank: QuizBank = {
       "learningSlide": 19,
       "prompt": "What extension does the lesson suggest for the gesture-controlled prize wheel?",
       "choices": [
+        "Use only one fixed rotation length forever",
         "Add gestures that trigger longer or shorter rotations",
         "Remove gesture sensing entirely",
-        "Make every input stop all motion",
-        "Use only one fixed rotation length forever"
+        "Make every input stop all motion"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The proposed extension adds more ways to control turn length.",
       "explanation": "Slide 19 proposes using additional gestures to distinguish longer and shorter turns."
     }

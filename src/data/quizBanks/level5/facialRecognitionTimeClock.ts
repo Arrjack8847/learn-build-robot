@@ -28,12 +28,12 @@ export const facialRecognitionTimeClockBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "What information does a facial-attendance system use to help identify staff?",
       "choices": [
+        "Outdoor air pressure alone",
         "Facial images captured by a camera",
         "Only the color of a person's shirt",
-        "The sound of a robot motor",
-        "Outdoor air pressure alone"
+        "The sound of a robot motor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The model uses a camera to collect identification data.",
       "explanation": "Slide 5 explains capturing face images and analyzing facial feature values."
     },
@@ -43,12 +43,12 @@ export const facialRecognitionTimeClockBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "How does the AI module learn to distinguish different registered faces?",
       "choices": [
-        "By examining and storing facial features from sample images",
-        "By relying only on employee height",
         "By measuring laser distance to the door",
-        "By using random IDs without observing faces"
+        "By using random IDs without observing faces",
+        "By examining and storing facial features from sample images",
+        "By relying only on employee height"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The lesson shows a sample-collection and feature-extraction process.",
       "explanation": "Slide 9 describes learning and comparing distinctive facial features from collected face images."
     },
@@ -58,12 +58,12 @@ export const facialRecognitionTimeClockBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "What return value indicates no face image is recognized or available for recognition learning?",
       "choices": [
-        "0",
         "100",
         "-1000",
-        "360"
+        "360",
+        "0"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The lesson reserves zero for no recognition.",
       "explanation": "Slide 10 specifies a return value of zero for no recognized or learned image."
     },
@@ -88,12 +88,12 @@ export const facialRecognitionTimeClockBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "Which AI module mode is selected during the program's initialization?",
       "choices": [
+        "Magnetic strength mode",
         "Face recognition learning mode",
         "Traffic sign mode",
-        "Laser ranging mode",
-        "Magnetic strength mode"
+        "Laser ranging mode"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The program needs to learn faces before checking attendance.",
       "explanation": "Slide 15 instructs setting the AI module to face recognition learning mode."
     },
@@ -103,12 +103,12 @@ export const facialRecognitionTimeClockBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "What does the variable called 'ID number' store?",
       "choices": [
-        "The face recognition learning ID",
-        "Only the current humidity",
         "Only the motor's speed",
-        "A random display color"
+        "A random display color",
+        "The face recognition learning ID",
+        "Only the current humidity"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "It is assigned the result of the AI module.",
       "explanation": "Slide 16 says the ID number variable stores the AI face-recognition-learning ID."
     },
@@ -118,12 +118,12 @@ export const facialRecognitionTimeClockBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "When does the lesson's program give a short 0.1-second buzzer signal?",
       "choices": [
-        "When the recognized ID number is not zero",
         "Whenever the camera sees no face",
         "Only when humidity exceeds 100%",
-        "When the motor reaches maximum speed"
+        "When the motor reaches maximum speed",
+        "When the recognized ID number is not zero"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The beep indicates that a face ID has been found.",
       "explanation": "Slide 17 says the buzzer sounds for 0.1 seconds if ID number is not zero."
     },
@@ -148,12 +148,12 @@ export const facialRecognitionTimeClockBank: QuizBank = {
       "learningSlide": 18,
       "prompt": "How long does the attendance information remain before the program clears the screen?",
       "choices": [
+        "1 hour",
         "1 second",
         "10 minutes",
-        "0.001 seconds",
-        "1 hour"
+        "0.001 seconds"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The feedback is brief before resetting the display.",
       "explanation": "Slide 18 instructs waiting one second before clearing the screen."
     }

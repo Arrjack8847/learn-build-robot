@@ -28,12 +28,12 @@ export const goalkeeperBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What information does the camera determine after identifying the intended ball?",
       "choices": [
+        "The ball's country of manufacture",
         "The ball's X and Y coordinates",
         "The room's relative humidity",
-        "The motor's temperature",
-        "The ball's country of manufacture"
+        "The motor's temperature"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The camera finds where the ball appears in its image.",
       "explanation": "Slide 7 says the camera recognizes the red ball and captures its XY coordinates."
     },
@@ -43,12 +43,12 @@ export const goalkeeperBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "How can the recognized ball color be changed using the AI module described in the lesson?",
       "choices": [
-        "Turn its wheel upward to change color",
-        "Change the controller's battery",
         "Reverse the drive motor",
-        "Place the ball behind the camera"
+        "Place the ball behind the camera",
+        "Turn its wheel upward to change color",
+        "Change the controller's battery"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The slide gives a physical adjustment for choosing a different color.",
       "explanation": "Slide 8 instructs turning the wheel upward to change the selected ball color."
     },
@@ -58,12 +58,12 @@ export const goalkeeperBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "Which mode must the program select before the goalkeeper begins sensing the ball?",
       "choices": [
-        "Ball recognition mode",
         "Face attendance mode",
         "Traffic sign recognition mode",
-        "Barometric reading mode"
+        "Barometric reading mode",
+        "Ball recognition mode"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The robot must look specifically for a ball.",
       "explanation": "Slide 13 lists switching the AI module to ball recognition mode as part of initialization."
     },
@@ -88,12 +88,12 @@ export const goalkeeperBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "Which Y-coordinate reference does the lesson use for deciding the goalkeeper's left or right movement?",
       "choices": [
+        "0.02",
         "106",
         "1",
-        "2400",
-        "0.02"
+        "2400"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The reference comes from measuring the ball near the goal center.",
       "explanation": "Slide 11 selects approximately Y = 106 as the decision value for moving left or right."
     },
@@ -103,12 +103,12 @@ export const goalkeeperBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "What does the new variable Y store in the example program?",
       "choices": [
-        "The Y coordinate returned by ball recognition",
-        "The motor's electrical power",
         "The robot's battery life",
-        "The number of fans running"
+        "The number of fans running",
+        "The Y coordinate returned by ball recognition",
+        "The motor's electrical power"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The sensor's vertical-coordinate reading is saved.",
       "explanation": "Slide 14 instructs setting Y from AI ball recognition and displaying it."
     },
@@ -118,12 +118,12 @@ export const goalkeeperBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "With the touch sensor pressed and 0 < Y < 106, what does the lesson command?",
       "choices": [
-        "Move the goalkeeper right",
         "Move the goalkeeper left",
         "Disable ball detection",
-        "Ring an attendance alarm"
+        "Ring an attendance alarm",
+        "Move the goalkeeper right"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Check both the touch-sensor state and the Y threshold.",
       "explanation": "Slide 15 describes moving right when the touch sensor is pressed and Y is between 0 and 106."
     },
@@ -148,12 +148,12 @@ export const goalkeeperBank: QuizBank = {
       "learningSlide": 18,
       "prompt": "What extra hardware does the goalkeeper extension propose adding?",
       "choices": [
+        "A heat gun",
         "A second touch sensor",
         "A barometric pressure sensor",
-        "A new color-changing LCD panel",
-        "A heat gun"
+        "A new color-changing LCD panel"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The extension adds another contact detector.",
       "explanation": "Slide 18 proposes a second touch sensor to help control motion limits."
     }

@@ -13,12 +13,12 @@ export const hexapodRobotBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "Which natural animals inspired the design of hexapod robots in the lesson?",
       "choices": [
-        "Fish with fins",
         "Six-legged insects",
         "Birds with wings",
-        "Snakes with no legs"
+        "Snakes with no legs",
+        "Fish with fins"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "hint": "Hexa means six, and the lesson mentions ants.",
       "explanation": "Slide 4 describes insects, including ants and dragonflies, as models for six-legged robots."
     },
@@ -28,12 +28,12 @@ export const hexapodRobotBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "How many pairs of legs do insects have, as described in the lesson?",
       "choices": [
-        "One pair",
         "Two pairs",
         "Three pairs",
-        "Four pairs"
+        "Four pairs",
+        "One pair"
       ],
-      "correctIndex": 2,
+      "correctIndex": 1,
       "hint": "The six legs are organized in pairs.",
       "explanation": "Slide 5 identifies the three pairs as front, middle and hind legs."
     },
@@ -43,12 +43,12 @@ export const hexapodRobotBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "In the insect walking pattern discussed, how many legs form one supporting group?",
       "choices": [
+        "Six",
         "Two",
         "Three",
-        "Four",
-        "Six"
+        "Four"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "hint": "Half of the six legs support a walking phase.",
       "explanation": "Slide 5 describes one group of three legs supporting movement while the other group advances."
     },
@@ -58,12 +58,12 @@ export const hexapodRobotBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "Which set can form one of the insect's walking support groups?",
       "choices": [
-        "Both front legs and both hind legs",
-        "Front and hind leg on one side, plus middle leg on the other",
         "Only the middle legs",
-        "All three legs on one side, always"
+        "All three legs on one side, always",
+        "Both front legs and both hind legs",
+        "Front and hind leg on one side, plus middle leg on the other"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "hint": "The pattern crosses sides to distribute support.",
       "explanation": "Slide 5 describes a support tripod consisting of front and rear legs on one side and the opposite middle leg."
     },
@@ -103,12 +103,12 @@ export const hexapodRobotBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "What must the controller repeatedly read and display to steer the hexapod using its lesson program?",
       "choices": [
+        "An employee's attendance ID",
         "Battery's manufacture date",
         "The ultrasonic sensor value",
-        "Ambient room color",
-        "An employee's attendance ID"
+        "Ambient room color"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "hint": "The program reacts to a measured distance.",
       "explanation": "Slide 13 requires repeatedly reading and displaying data from the ultrasonic sensor."
     },
@@ -118,12 +118,12 @@ export const hexapodRobotBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "What does the sample hexapod program do when the measured object distance is too small?",
       "choices": [
-        "Stop moving",
         "Always accelerate forward",
         "Fly upward",
-        "Play a welcome message"
+        "Play a welcome message",
+        "Stop moving"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The robot should avoid moving too close.",
       "explanation": "Slide 15 assigns the stop action to the 'too close' distance case."
     },
@@ -133,12 +133,12 @@ export const hexapodRobotBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "Which motors does the movement function control in the lesson?",
       "choices": [
-        "M1 and M2",
         "M3 and M4",
         "P1 and P2",
-        "P7 and P8"
+        "P7 and P8",
+        "M1 and M2"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "hint": "The function names two specific M-labeled connections.",
       "explanation": "Slide 12 assigns its two movement parameters to motors M3 and M4."
     },
@@ -148,12 +148,12 @@ export const hexapodRobotBank: QuizBank = {
       "learningSlide": 19,
       "prompt": "What improvement does the extension task request for the hexapod's steering?",
       "choices": [
+        "Keep the robot motionless",
         "Turn by moving both sides' legs simultaneously",
         "Remove the legs and use only wheels",
-        "Replace the distance sensor with a clock",
-        "Keep the robot motionless"
+        "Replace the distance sensor with a clock"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The extension focuses on coordinating leg motion.",
       "explanation": "Slide 19 proposes simultaneously moving the legs on both sides to achieve steering."
     }
