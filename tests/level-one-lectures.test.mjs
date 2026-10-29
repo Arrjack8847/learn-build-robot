@@ -116,10 +116,12 @@ test("Crawl Slowly variants share slides but keep distinct Building manuals", ()
   assert.equal(optimized.learningOnly, false);
 });
 
-test("existing Learning-only projects do not gain an unrelated Building PDF", () => {
-  assert.equal(Object.values(levelOneLectures).filter(lecture => lecture.learningOnly).length, 15);
+test("all Level 1 projects can use their separately registered Building PDFs", () => {
+  assert.equal(Object.values(levelOneLectures).filter(lecture => lecture.learningOnly).length, 0);
   for (const id of ["ferocious-snake", "funny-cat", "athlete", "sailboat", "car"]) {
-    assert.equal(getLevelOneLecture(id).learningOnly, true);
+    assert.equal(getLevelOneLecture(id).learningOnly, false);
+    assert.ok(pdfActivityManuals[id]);
+    assert.notEqual(getLevelOneLecture(id).url, pdfActivityManuals[id].url);
   }
   assert.equal(getLevelOneLecture("acceleration-car").learningOnly, false);
   assert.equal(getLevelOneLecture("not-a-level-one-project"), undefined);
