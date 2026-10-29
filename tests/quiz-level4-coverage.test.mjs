@@ -48,18 +48,42 @@ const readyIds = [
   "level-4-turbo-drop",
   "level-4-voice-control",
 ];
+readyIds.push(
+  "level-4-back-up-buzzer",
+  "level-4-basketball-shooting-machine",
+  "level-4-dancing-robot",
+  "level-4-dangerous-assassin",
+  "level-4-electric-piano",
+  "level-4-elf-in-the-tree",
+  "level-4-horizontal-bar",
+  "level-4-lucky-cat",
+  "level-4-obstacle-avoidance-robot",
+  "level-4-obstacle-avoiding-scorpion",
+  "level-4-oscillating-fan",
+  "level-4-parts-sorter",
+  "level-4-reaction-tester",
+  "level-4-scan-to-open-the-gate",
+  "level-4-skiing-robot",
+  "level-4-smart-speaker",
+  "level-4-tail-wagging-stegosaurus",
+  "level-4-telegraph",
+  "level-4-transformer-robot",
+  "level-4-vending-machine",
+  "level-4-warrior-with-claws",
+);
+
 const expected = new Set(readyIds);
 
-test("Level 4 syllabus has 56 entries and exactly 35 registered, validated quiz banks", () => {
+test("Level 4 syllabus has 56 entries and exactly 56 registered, validated quiz banks", () => {
   assert.equal(level4.length, 56);
   assert.equal(new Set(level4.map(x => x.projectId)).size, 56);
-  assert.equal(readyIds.length, 35);
+  assert.equal(readyIds.length, 56);
   for (const entry of level4) {
     const bank = getQuizBank(entry.projectId);
     assert.equal(Boolean(bank), expected.has(entry.projectId), entry.projectId);
   }
-  assert.equal(level4.filter(entry => !getQuizBank(entry.projectId)).length, 21);
-  assert.equal(level4.filter(entry => getQuizBank(entry.projectId)).length, 35);
+  assert.equal(level4.filter(entry => !getQuizBank(entry.projectId)).length, 0);
+  assert.equal(level4.filter(entry => getQuizBank(entry.projectId)).length, 56);
   assert.equal(QUIZ_QUESTION_COUNT, 5);
   assert.equal(QUIZ_PASS_COUNT, 4);
 });
@@ -92,8 +116,8 @@ test("Each playable Level 4 bank has ten unique questions across five objectives
     assert.equal(new Set(first.map(q => q.topic)).size, 5);
     assert.equal(first.filter(q => retry.some(next => next.id === q.id)).length, 0, projectId);
   }
-  assert.equal(ids.size, 350);
-  assert.equal(readyIds.filter(id => Boolean(quizBanks[id])).length, 35);
+  assert.equal(ids.size, 560);
+  assert.equal(readyIds.filter(id => Boolean(quizBanks[id])).length, 56);
 });
 
 test("Every published Level 4 bank references a real PDF, using its actual page count", async () => {
