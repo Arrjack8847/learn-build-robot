@@ -1,0 +1,82 @@
+name: Level 6 Quiz PDF Evidence
+
+on:
+  push:
+    branches:
+      - feat/quiz-level6-content
+    paths:
+      - .github/workflows/level6-quiz-evidence.yml
+      - src/data/quizBanks/level6/render-slide-evidence.py
+      - scripts/publish-verified-level6.mjs
+      - scripts/report-level6-coverage.mjs
+      - scripts/quiz-learning-source-manifest.json
+      - src/data/quizBanks/level6/**
+      - src/data/quizStudio.ts
+      - tests/quiz-level6-publishing.test.mjs
+      - public/Level 6/Learning/**
+      - tests/level6-quiz-experiences.test.mjs
+      - package.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract-official-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Compile PDF slide renderer before expensive extraction
+        run: python3 -m py_compile src/data/quizBanks/level6/render-slide-evidence.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install project dependencies (repository uses bun.lock, not package-lock.json)
+        run: npm install --legacy-peer-deps --no-audit --no-fund
+      - name: Extract every Level 6 registered official teaching PDF (local checkout only)
+        run: node scripts/extract-quiz-slides.mjs --level 6 --limit 43 --local-only
+      - name: Install slide renderer
+        run: python3 -m pip install --quiet 'pymupdf>=1.24,<2'
+      - name: Generate current Level 6 unpublished queue from registered quiz banks
+        run: node scripts/report-level6-coverage.mjs --write
+      - name: Render all currently unpublished Level 6 Learning PDFs (complete visual evidence)
+        run: |
+          count=$(node -p 'JSON.parse(require("node:fs").readFileSync("quiz-research/level6-coverage.json","utf8")).remainingUnpublished')
+          for ((start=0; start<count; start+=5)); do
+            python3 src/data/quizBanks/level6/render-slide-evidence.py --start "$start" --count 5 --dpi 100
+          done
+      - name: Upload original slide render previews for visual curriculum review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: level6-unpublished-slide-previews
+          path: quiz-research/visual-review/level6/
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Automatically register source-approved Level 6 quizzes only
+        run: npm run quiz:publish-level6
+      - name: Stage slide evidence under isolated Level 6 directory
+        run: |
+          mkdir -p src/data/quizBanks/level6/evidence
+          cp quiz-research/level-6-*.json src/data/quizBanks/level6/evidence/
+          cp quiz-research/latest-extraction-summary.json src/data/quizBanks/level6/evidence/extraction-summary.json
+      - name: Commit reviewed-source research data to working branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/quizBanks/level6/evidence/ src/data/quizStudio.ts
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(quiz-level6): extract slide text from 43 official learning PDFs"
+            git push origin HEAD:feat/quiz-level6-content
+          fi
+      - name: Audit Level 6 verified quiz publishing readiness
+        run: npm run quiz:audit-level6
+      - name: Validate Level 6 quiz structures, attempts, source pages, and resume
+        run: npm run test:quiz-level6
+      - name: TypeScript type check
+        run: npx tsc --noEmit
+      - name: Production build validation (no deploy)
+        run: npm run build

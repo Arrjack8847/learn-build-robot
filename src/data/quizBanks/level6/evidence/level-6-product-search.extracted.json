@@ -1,0 +1,155 @@
+{
+  "projectId": "level-6-product-search",
+  "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/Product Search/15.Product Search -Slides.pdf",
+  "wixFileId": "7fc4ca_b92cf4d768aa429fb13d975755f4cb5e.pdf",
+  "sourceBytes": 2555447,
+  "pageCount": 36,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Product Search | Lesson 15"
+    },
+    {
+      "slide": 2,
+      "text": "Key points from this lesson: | 1. Understand the concept and function of lists | 2. Learn to create lists and add items | Possible difficulties from this lesson: | 1. |   | Understand the correspondence between item numbers and content in a list"
+    },
+    {
+      "slide": 3,
+      "text": "Scanning guns in the supermarket | The |   | scanning |   | gun |   | in |   | the |   | supermarket |   | is |   | also |   | called |   | a |   | barcode |   | scanning |   | gun | . |   | It |   | can |   | quickly |   | read |   | the |   | barcode |   | or |   | QR |   | code |   | information |   | on |   | the |   | product, |   | and |   | then |   | transfer |   | this |   | information |   | to |   | the |   | computer |   | and |   | display |   | it, |   | making |   | it |   | easier |   | for |   | us |   | to |   | understand |   | the |   | product |   | number, |   | name, |   | price, |   | and |   | other |   | information | ."
+    },
+    {
+      "slide": 4,
+      "text": "Information needs to be entered in advance | Before |   | using |   | a |   | scanner |   | to |   | scan |   | and |   | query |   | the |   | information |   | of |   | a |   | product, |   | you |   | need |   | to |   | enter |   | this |   | information |   | into |   | the |   | system |   | or |   | device |   | in |   | advance |   | so |   | that |   | it |   | can |   | be |   | accurately |   | identified |   | and |   | read |   | during |   | scanning | ."
+    },
+    {
+      "slide": 5,
+      "text": "Effect Demonstration"
+    },
+    {
+      "slide": 6,
+      "text": "Project Tasks | Design |   | a |   | scanner |   | model |   | and |   | control |   | it |   | using |   | a |   | touch |   | sensor | . | Requirements |   | for |   | robot |   | functions | : | 1 | . |   | Use |   | red |   | and |   | green |   | blocks |   | to |   | represent |   | the |   | products |   | \"chocolate\" |   | and |   | \"potato |   | chips\" |   | respectively | . | 2 | . |   | When |   | the |   | scanner |   | switch |   | is |   | pressed, |   | the |   | product |   | will |   | be |   | identified |   | and |   | the |   | product |   | information |   | will |   | be |   | queried, |   | and |   | the |   | buzzer |   | will |   | sound | . | 3 | . |   | If |   | the |   | product |   | is |   | identified, |   | its |   | number, |   | name, |   | and |   | price |   | will |   | be |   | displayed | ."
+    },
+    {
+      "slide": 7,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 8,
+      "text": "Build a robot | Install the touch sensor"
+    },
+    {
+      "slide": 9,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 10,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 11,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 12,
+      "text": "Build a robot | Install the color sensor"
+    },
+    {
+      "slide": 13,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 14,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 15,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 16,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 17,
+      "text": "Build a robot | Install the controller"
+    },
+    {
+      "slide": 18,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 19,
+      "text": "Hardware connection | P3 | P1"
+    },
+    {
+      "slide": 20,
+      "text": "How do we achieve the required functions?"
+    },
+    {
+      "slide": 21,
+      "text": "List  | List | item1 | item2 | item3 | item4 | item5 | ··· | Data | data1 | data2 | data3 | data4 | data | 5 | ··· | Previous |   | studies |   | show |   | that |   | variables |   | can |   | be |   | used |   | to |   | store |   | data | . |   | However, |   | a |   | variable |   | can |   | only |   | store |   | one |   | piece |   | of |   | data | . |   | You |   | need |   | to |   | create |   | many |   | variables |   | if |   | you |   | want |   | to |   | store |   | many |   | data | . | At |   | this |   | time, |   | you |   | can |   | use |   | \"list\" | . |   | \"List\" |   | can |   | be |   | understood |   | as |   | a |   | collection |   | of |   | multiple |   | variables | . |   | It |   | is |   | like |   | a |   | row |   | of |   | cabinets |   | with |   | multiple |   | grids |   | (variables), |   | and |   | different |   | data |   | can |   | be |   | stored |   | in |   | different |   | grids | ."
+    },
+    {
+      "slide": 22,
+      "text": "Create a list | ʓ | &OLFN\u0003´\u00030DNH\u0003D\u0003 | OLVW´ | ʒ |   | Click  | ³9DULDEOHV´ | ʔ | Change the name, such as  | \"Product Name\".  | Note that it  | cannot start with a number. | ʕ |   | &OLFN\u0003³2.´"
+    },
+    {
+      "slide": 23,
+      "text": "add | ͣͤ | to | ͣͤ | The specified data can be added to the specified list, that is, stored in the list. | You can enter numbers,  | and characters, or place  | numeric type modules in it. | You can select another list,  | rename the list, and delete the list."
+    },
+    {
+      "slide": 24,
+      "text": "Add multiple data to a list | List | 100 | 200 | 300 | 1st item | 2nd item | 3rd item | When |   | multiple |   | data |   | are |   | added |   | to |   | a |   | list |   | in |   | sequence, |   | the |   | list |   | will |   | be |   | arranged |   | from |   | top |   | to |   | bottom |   | in |   | the |   | order |   | in |   | which |   | they |   | are |   | added | . | The |   | data |   | will |   | be |   | stored |   | in |   | the |   | item |   | in |   | which |   | it |   | is |   | added | . |   | For |   | example, |   | if |   | data |   | is |   | added |   | 3 |   | times, |   | it |   | will |   | be |   | stored |   | in |   | the |   | 1 | st |   | item | ."
+    },
+    {
+      "slide": 25,
+      "text": "Item ( ) of ( ) | This coding block gets the data stored in the specified item in the specified list. | Here you can enter the  | serial number of the  | specified item. | You can perform the operations of  | \"select other variables, modify variable  | QDPHV\u000f\u0003DQG\u0003GHOHWH\u0003YDULDEOHV³\u0011"
+    },
+    {
+      "slide": 26,
+      "text": "Add data to the list and display it | Download the program  | and run it for test. | After |   | adding |   | the |   | data |   | to |   | the |   | list |   | \" | Product |   | Name | \", |   | the |   | data |   | of |   | items |   | 1 |   | and |   | 2 |   | are |   | displayed |   | on |   | the |   | screen | ."
+    },
+    {
+      "slide": 27,
+      "text": "Program Flow Chart | After |   | the |   | program |   | starts, |   | add |   | the |   | product |   | information |   | to |   | the |   | list | . | Wait |   | until |   | the |   | switch |   | is |   | pressed, |   | then |   | clear |   | the |   | screen |   | and |   | display |   | the |   | table |   | header |   | (number, |   | name, |   | price) | . | If |   | the |   | product |   | is |   | recognized, |   | display |   | the |   | product |   | number, |   | name, |   | and |   | price | . | Finally, |   | make |   | the |   | buzzer |   | sound | ."
+    },
+    {
+      "slide": 28,
+      "text": "1. Enter product information | Create |   | three |   | lists |   | in |   | advance | : |   | \"Product |   | Number\", |   | \"Product |   | Name\", |   | and |   | \"Product |   | Price\" | . | Start |   | the |   | program |   | and |   | set |   | the |   | font | . | Add |   | different |   | types |   | of |   | information |   | to |   | the |   | corresponding |   | lists | ."
+    },
+    {
+      "slide": 29,
+      "text": "2. Press the switch to query | In |   | the |   | loop, |   | wait |   | until |   | the |   | touch |   | is |   | pressed, |   | clear |   | the |   | screen |   | display, |   | and |   | then |   | display |   | the |   | table |   | header |   | at |   | the |   | specified |   | position | . | Ensure |   | the |   | symbol |   | is |   | entered |   | using |   | the |   | English |   | input |   | method |   | for |   | proper |   | display | ."
+    },
+    {
+      "slide": 30,
+      "text": "3. Display the information of the corresponding product | If |   | the |   | product |   | is |   | recognized, |   | the |   | relevant |   | information |   | is |   | obtained |   | from |   | the |   | list |   | and |   | displayed |   | on |   | the |   | screen, |   | and |   | then |   | the |   | buzzer |   | sounds | ."
+    },
+    {
+      "slide": 31,
+      "text": "Expansion Tasks | Increase the searchable product  | information"
+    },
+    {
+      "slide": 32,
+      "text": "Expansion Program | You |   | can |   | get |   | the |   | data |   | of |   | the |   | corresponding |   | item |   | based |   | on |   | the |   | value |   | of |   | the |   | color |   | sensor | . | Note |   | that |   | you |   | cannot |   | get |   | items |   | that |   | do |   | not |   | exist |   | in |   | the |   | list, |   | otherwise |   | an |   | error |   | will |   | be |   | reported | ."
+    },
+    {
+      "slide": 33,
+      "text": "Quiz | Single | - | choice |   | question | Which of the following descriptions about lists is  | incorrect? ( ) | A. | It can store a lot of data | B. | It is a collection of multiple variables | C. | Lists and variables have the same function | D. | The data added first will be stored in the item | Answer: C"
+    },
+    {
+      "slide": 34,
+      "text": "Further Reading | Barcode |   | scanners |   | have |   | a |   | wide |   | range |   | of |   | applications |   | and |   | can |   | be |   | used |   | in |   | various |   | industries |   | and |   | fields, |   | such |   | as |   | retail, |   | logistics, |   | warehousing, |   | medical |   | care, |   | and |   | identity |   | verification | . | In |   | the |   | retail |   | industry, |   | barcode |   | scanners |   | are |   | used |   | to |   | quickly |   | scan |   | product |   | barcodes |   | and |   | customer |   | payment |   | codes |   | to |   | achieve |   | fast |   | checkout |   | and |   | inventory |   | management | . | In |   | the |   | logistics |   | industry, |   | barcode |   | scanners |   | scan |   | the |   | waybill |   | barcodes |   | on |   | express |   | packages |   | to |   | track |   | cargo |   | and |   | manage |   | logistics |   | information | . | Scan the payment code  | with a barcode scanner"
+    },
+    {
+      "slide": 35,
+      "text": "Further Reading | In |   | warehousing |   | management, |   | barcode |   | scanners |   | are |   | used |   | to |   | scan |   | the |   | barcodes |   | or |   | QR |   | codes |   | of |   | inventory |   | goods |   | to |   | achieve |   | accurate |   | inventory |   | management |   | and |   | fast |   | delivery | . | In |   | the |   | medical |   | care |   | industry, |   | barcode |   | scanners |   | are |   | used |   | to |   | scan |   | barcodes |   | or |   | QR |   | codes |   | of |   | medical |   | equipment, |   | drugs, |   | etc | . |   | to |   | achieve |   | accurate |   | management |   | and |   | rapid |   | deployment |   | of |   | medical |   | resources | . | In |   | identity |   | verification, |   | barcode |   | scanners |   | are |   | used |   | to |   | scan |   | barcodes |   | or |   | QR |   | codes |   | on |   | documents |   | such |   | as |   | ID |   | cards |   | and |   | passports |   | to |   | achieve |   | accurate |   | identity |   | verification |   | and |   | fast |   | passage | . | Scan the payment code  | with a barcode scanner"
+    },
+    {
+      "slide": 36,
+      "text": "Thanks!"
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

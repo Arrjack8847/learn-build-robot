@@ -1,3 +1,44 @@
+import { vendingMachineBank } from "./quizBanks/level6/vendingMachine.ts";
+import { tricycleBank } from "./quizBanks/level6/tricycle.ts";
+import { trafficLightsDisplayBank } from "./quizBanks/level6/trafficLightsDisplay.ts";
+import { theFlappingPterosaurBank } from "./quizBanks/level6/theFlappingPterosaur.ts";
+import { superScorpionBank } from "./quizBanks/level6/superScorpion.ts";
+import { smartFanBank } from "./quizBanks/level6/smartFan.ts";
+import { smartElectricDrillBank } from "./quizBanks/level6/smartElectricDrill.ts";
+import { smartCameraBank } from "./quizBanks/level6/smartCamera.ts";
+import { salutingRobotBank } from "./quizBanks/level6/salutingRobot.ts";
+import { rockPaperScissorsRobotBank } from "./quizBanks/level6/rockPaperScissorsRobot.ts";
+import { roboticArmBank } from "./quizBanks/level6/roboticArm.ts";
+import { ringTossGameBank } from "./quizBanks/level6/ringTossGame.ts";
+import { redLightWarningDeviceBank } from "./quizBanks/level6/redLightWarningDevice.ts";
+import { rcAirplaneBank } from "./quizBanks/level6/rcAirplane.ts";
+import { punchHardBank } from "./quizBanks/level6/punchHard.ts";
+import { productSearchBank } from "./quizBanks/level6/productSearch.ts";
+import { pinballMachineBank } from "./quizBanks/level6/pinballMachine.ts";
+import { pictureProjectorBank } from "./quizBanks/level6/pictureProjector.ts";
+import { payByCardBank } from "./quizBanks/level6/payByCard.ts";
+import { parcelSortingMachineBank } from "./quizBanks/level6/parcelSortingMachine.ts";
+import { minesweeperRobotBank } from "./quizBanks/level6/minesweeperRobot.ts";
+import { intelligentSortingMachineBank } from "./quizBanks/level6/intelligentSortingMachine.ts";
+import { intelligentPassingLightBank } from "./quizBanks/level6/intelligentPassingLight.ts";
+import { gorillaBank } from "./quizBanks/level6/gorilla.ts";
+import { gibbonBank } from "./quizBanks/level6/gibbon.ts";
+import { digitalCountdownBank } from "./quizBanks/level6/digitalCountdown.ts";
+import { combinationLockBank } from "./quizBanks/level6/combinationLock.ts";
+import { colorblindAssistantRobotBank } from "./quizBanks/level6/colorblindAssistantRobot.ts";
+import { codeScanningGateBank } from "./quizBanks/level6/codeScanningGate.ts";
+import { clownBank } from "./quizBanks/level6/clown.ts";
+import { autonomousDrivingBank } from "./quizBanks/level6/autonomousDriving.ts";
+import { accurateShootingBank } from "./quizBanks/level6/accurateShooting.ts";
+import { regionalWeatherStationBank } from "./quizBanks/level6/regionalWeatherStation.ts";
+import { dancingRobotBank } from "./quizBanks/level6/dancingRobot.ts";
+import { fingerGuessingRobotBank } from "./quizBanks/level6/fingerGuessingRobot.ts";
+import { gestureCommandingCarBank } from "./quizBanks/level6/gestureCommandingCar.ts";
+import { highTemperatureAlarmBank } from "./quizBanks/level6/highTemperatureAlarm.ts";
+import { matadorBank } from "./quizBanks/level6/matador.ts";
+import { smartFlashlightBank } from "./quizBanks/level6/smartFlashlight.ts";
+import { interestingRotorBank } from "./quizBanks/level6/interestingRotor.ts";
+import { remoteControlLiftBank } from "./quizBanks/level6/remoteControlLift.ts";
 /**
  * BE STEM READY Quiz Studio — reusable six-level question bank engine.
  * Every published question must be checked against the actual Learning PDF
@@ -117,12 +158,53 @@ const accelerationCarQuestions: QuizQuestion[] = [
 ];
 
 export const quizBanks: Readonly<Record<string, QuizBank>> = {
+  [accurateShootingBank.projectId]: accurateShootingBank,
+  [autonomousDrivingBank.projectId]: autonomousDrivingBank,
+  [clownBank.projectId]: clownBank,
+  [codeScanningGateBank.projectId]: codeScanningGateBank,
+  [colorblindAssistantRobotBank.projectId]: colorblindAssistantRobotBank,
+  [combinationLockBank.projectId]: combinationLockBank,
+  [digitalCountdownBank.projectId]: digitalCountdownBank,
+  [gibbonBank.projectId]: gibbonBank,
+  [gorillaBank.projectId]: gorillaBank,
+  [intelligentPassingLightBank.projectId]: intelligentPassingLightBank,
+  [intelligentSortingMachineBank.projectId]: intelligentSortingMachineBank,
+  [minesweeperRobotBank.projectId]: minesweeperRobotBank,
+  [parcelSortingMachineBank.projectId]: parcelSortingMachineBank,
+  [payByCardBank.projectId]: payByCardBank,
+  [pictureProjectorBank.projectId]: pictureProjectorBank,
+  [pinballMachineBank.projectId]: pinballMachineBank,
+  [productSearchBank.projectId]: productSearchBank,
+  [punchHardBank.projectId]: punchHardBank,
+  [rcAirplaneBank.projectId]: rcAirplaneBank,
+  [redLightWarningDeviceBank.projectId]: redLightWarningDeviceBank,
+  [ringTossGameBank.projectId]: ringTossGameBank,
+  [roboticArmBank.projectId]: roboticArmBank,
+  [rockPaperScissorsRobotBank.projectId]: rockPaperScissorsRobotBank,
+  [salutingRobotBank.projectId]: salutingRobotBank,
+  [smartCameraBank.projectId]: smartCameraBank,
+  [smartElectricDrillBank.projectId]: smartElectricDrillBank,
+  [smartFanBank.projectId]: smartFanBank,
+  [superScorpionBank.projectId]: superScorpionBank,
+  [theFlappingPterosaurBank.projectId]: theFlappingPterosaurBank,
+  [trafficLightsDisplayBank.projectId]: trafficLightsDisplayBank,
+  [tricycleBank.projectId]: tricycleBank,
+  [vendingMachineBank.projectId]: vendingMachineBank,
   [bigHeadRobotBank.projectId]: bigHeadRobotBank,
   [axeRobotBank.projectId]: axeRobotBank,
   [clipRobotBank.projectId]: clipRobotBank,
   [acousticControlLampBank.projectId]: acousticControlLampBank,
   [barometricSensorBank.projectId]: barometricSensorBank,
   [altimeterBank.projectId]: altimeterBank,
+  [remoteControlLiftBank.projectId]: remoteControlLiftBank,
+  [regionalWeatherStationBank.projectId]: regionalWeatherStationBank,
+  [dancingRobotBank.projectId]: dancingRobotBank,
+  [fingerGuessingRobotBank.projectId]: fingerGuessingRobotBank,
+  [gestureCommandingCarBank.projectId]: gestureCommandingCarBank,
+  [highTemperatureAlarmBank.projectId]: highTemperatureAlarmBank,
+  [matadorBank.projectId]: matadorBank,
+  [smartFlashlightBank.projectId]: smartFlashlightBank,
+  [interestingRotorBank.projectId]: interestingRotorBank,
   [clockBank.projectId]: clockBank,
   [fanRobotBank.projectId]: fanRobotBank,
   [followingRobotBank.projectId]: followingRobotBank,

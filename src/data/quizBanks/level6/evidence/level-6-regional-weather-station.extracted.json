@@ -1,0 +1,107 @@
+{
+  "projectId": "level-6-regional-weather-station",
+  "sourcePath": "public/Level 6/Learning/Biomimicry & Stimulus Response/Regional Weather Station/32.Regional Weather Station-Teaching Slides.pdf",
+  "sourceBlobSha": "0377664785dddf053d80259c82a941a8a0de86ff",
+  "sourceBytes": 1030600,
+  "pageCount": 24,
+  "extractionMethod": "GitHub PDF base64; original PDF page content objects; zlib/FlateDecode; PDF text operators; images not interpreted",
+  "visualReviewComplete": false,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 32. | Regional Weather Station | edu.zmrobo.com | LECTURER: "
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | Learning Objectives | Possible Difficulties | 1. | Learn | | about | | weather | | stations | . | 2. | In | - | depth | | understanding | | of | | temperature | | and | | humidity | | sensors | . | 1. | The | | simulated | | windmill | | rotation | | at | | the | | weather | | station | | is | | affected | | by | | two | | factors | . | 2. | Different | | types | | of | | lighting | | effects | ."
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information"
+    },
+    {
+      "slide": 4,
+      "text": "Context Import | About | | 3 | , | 600 | | years | | ago, | | the | | ancestors | | had | | already | | started | | making | | weather | | forecasts | . | | There | | is | | an | | unearthed | | oracle | | bone | | inscription | | that | | predicts | | the | | weather | . | | It | | says | | that | | divination | | on | | Renyin | | day | | will | | rain | | on | | Gui | | day, | | followed | | by | | a | | storm | . | | It | | can | | be | | seen | | that | | the | | weather | | forecast | | at | | that | | time | | relied | | on | | divination, | | but | | its | | accuracy | | is | | questionable | ."
+    },
+    {
+      "slide": 5,
+      "text": "Context Import | During | | the | | Spring | | and | | Autumn | | and | | Warring | | States | | Periods | | in | | China, | | the | | 24 | | Chinese | | solar | | terms | | were | | basically | | formed, | | which | | can | | reflect | | seasonal | | changes | | and | | guide | | agricultural | | activities, | | such | | as | | \"before | | and | | after | | Qingming, | | plant | | melons | | and | | beans\", | | \"summer | | solstice | | is | | windy | | and | | hot, | | Chongyang | | has | | no | | rain | | and | | winter | | is | | sunny\", | | \"autumn | | equinox\" | | It | | is | | early, | | the | | frost | | is | | late, | | and | | the | | cold | | dew | | is | | the | | time | | for | | planting | | wheat\" | | and | | so | | on | . | | The | | twenty | - | four | | solar | | terms | | have | | become | | a | | universal | | \"four | | seasons | | weather | | forecast\" | ."
+    },
+    {
+      "slide": 6,
+      "text": "Context Import | In | | the | | Han | | Dynasty, | | the | | astronomer | | Zhang | | Heng | | invented | | the | | earliest | | wind | | direction | | instrument | | in | | the | | world | | - | | Xiangfeng | | Bronze | | Bird, | | that | | is, | | a | | five | - | foot | - | high | | pole | | was | | erected | | on | | the | | open | | ground, | | and | | a | | flexible | | copper | | bird | | was | | mounted | | on | | the | | pole | . | | Turning | | direction | | predicts | | wind | | direction | | and | | wind | | force | . | | Xiangfeng | | chickens | | on | | European | | roofs | | were | | not | | recorded | | until | | the | | twelfth | | century, | | a | | thousand | | years | | later | | than | | Zhang | | Heng's | | records | | of | | Xiangfeng | | copper | | birds | . | Xiangfeng Bronze Bird"
+    },
+    {
+      "slide": 7,
+      "text": "Knowledge | Introduction"
+    },
+    {
+      "slide": 8,
+      "text": "New Knowledge | In | | modern | | times, | | people | | can | | accurately | | forecast | | the | | weather | | through | | scientific | | analysis | | of | | weather | | data | | in | | various | | regions | . | | At | | present, | | the | | accuracy | | rate | | of | | weather | | forecast | | is | | as | | high | | as | | 80 | % | . | | The | | accuracy | | rate | | of | | weather | | forecast | | will | | decrease | | as | | the | | forecast | | time | | becomes | | longer | . | | The | | longer | | the | | forecast, | | the | | more | | difficult | | it | | is | | to | | predict | . | So | | where | | do | | these | | weather | | data | | come | | from?"
+    },
+    {
+      "slide": 9,
+      "text": "New Knowledge | The | | forecast | | data | | of | | the | | weather | | forecast | | comes | | from | | weather | | stations | | around | | the | | world | . | | Various | | information | | such | | as | | temperature, | | humidity, | | and | | wind | | direction | | in | | different | | regions | | are | | analyzed | | and | | judged | | by | | the | | weather | | department, | | and | | finally | | a | | reasonable | | and | | reliable | | weather | | forecast | | is | | obtained | . | | As | | small | | as | | whether | | it | | will | | rain | | tomorrow, | | as | | large | | as | | the | | temperature | | change | | in | | the | | future, | | all | | need | | data | | support | | from | | the | | weather | | station | ."
+    },
+    {
+      "slide": 10,
+      "text": "New Knowledge | A | | general | | weather | | station | | includes | | the | | following | | instruments | : | | barometer, | | thermometer, | | rain | | gauge, | | anemometer, | | hygrometer, | | and | | wind | | vane | . | Most | | of | | the | | current | | weather | | stations | | are | | automatic | | weather | | stations, | | which | | are | | controlled | | by | | electronic | | equipment | | or | | computers, | | and | | automatically | | carry | | out | | meteorological | | observation | | and | | data | | collection | | and | | transmission | ."
+    },
+    {
+      "slide": 11,
+      "text": "New Knowledge | China's | | weather | | stations | | have | | continued | | to | | upgrade | | and | | develop, | | from | | the | | initial | | \"wooden | | poles | | tied | | with | | cloth | | to | | see | | the | | wind | | direction\" | | to | | unattended, | | and | | then | | from | | simple | | weather | | forecasts | | to | | helping | | local | | farmers | | get | | rid | | of | | poverty | | and | | become | | rich | . | | Up | | to | | now, | | it | | can | | not | | only | | serve | | the | | people | | of | | the | | whole | | country, | | but | | also | | serve | | the | | whole | | world | ."
+    },
+    {
+      "slide": 12,
+      "text": "Practice"
+    },
+    {
+      "slide": 13,
+      "text": "New Knowledge | Assemble a weather station according to the | building manual to simulate an anemometer | rotation. | Analog | anemometer | Temperature and | humidity sensor"
+    },
+    {
+      "slide": 14,
+      "text": "Practice | | | Flow Chart | The | | motor | | adjusts | | its | | speed | | according | | to | | changes | | in | | temperature | | and | | humidity | . | | The | | higher | | the | | temperature | | and | | humidity | | value, | | the | | faster | | the | | speed | . | The | | sum | | of | | temperature | | and | | humidity | | can | | easily | | exceed | | 100 | | and | | reach | | the | | highest | | speed | . | | After | | converting | | the | | temperature | | and | | humidity | | according | | to | | the | | ratio | | of | | 3 | : | 7 | , | | the | | motor | | rotation | | can | | be | | controlled | | more | | reasonably | ."
+    },
+    {
+      "slide": 15,
+      "text": "Practice | | | Programming | 01 | logo | Read the data | Store the two data of the sensor in two different variables."
+    },
+    {
+      "slide": 16,
+      "text": "Practice | | | Programming | 02 | logo | Display | the d | ata | Display the values of these two variables to see if they match reality."
+    },
+    {
+      "slide": 17,
+      "text": "Practice | | | Programming | 03 | Set the speed | After the temperature and humidity are calculated according to the ratio of | 3:7, the speed variable is assigned. | Humidity here is the main data that affects the speed, of course, the ratio can | also be adjusted according to the specific situation."
+    },
+    {
+      "slide": 18,
+      "text": "Practice | | | Programming | logo | 04 | Motor | rotation | Display | the | calculated | value | and | let | the | motor | rotate | according | to | the | speed | value | ."
+    },
+    {
+      "slide": 19,
+      "text": "Practice | | | Programming | logo | 05 | Integrate the program | Integrate the program | according to the program | flowchart."
+    },
+    {
+      "slide": 20,
+      "text": "Practice | | | Programming | logo"
+    },
+    {
+      "slide": 21,
+      "text": "Results"
+    },
+    {
+      "slide": 22,
+      "text": "Program Optimization | This | | lesson | | realizes | | that | | the | | simulated | | windmill | | rotates | | at | | the | | corresponding | | speed | | under | | different | | temperature | | and | | humidity | . | Next | | modify | | the | | program | | so | | that | | temperature | | is | | the | | primary | | factor | | controlling | | the | | speed | | of | | the | | motor | . | Requirement | : | | Change | | the | | ratio | | of | | temperature | | and | | humidity | | so | | that | | the | | ratio | | of | | temperature | | is | | greater | | than | | that | | of | | humidity | ."
+    },
+    {
+      "slide": 23,
+      "text": "Further Reading | \"Twenty | - | Four | | Solar | | Terms\" | | is | | a | | product | | of | | ancient | | farming | | civilization | . | | It | | is | | a | | knowledge | | system | | formed | | by | | ancient | | ancestors | | in | | compliance | | with | | farming | | seasons, | | observing | | the | | movement | | of | | celestial | | bodies, | | and | | understanding | | the | | changing | | laws | | of | | seasons, | | climate, | | and | | phenology | | in | | a | | year | . | | The | | twenty | - | four | | solar | | terms | | were | | originally | | formulated | | according | | to | | the | | rotation | | of | | the | | dipper | | and | | the | | star | | shift | . | | The | | Big | | Dipper | | rotates | | in | | a | | cycle, | | and | | the | | handle | | of | | the | | dipper | | rotates | | clockwise | | for | | a | | cycle, | | which | | is | | called | | a | | \"year\" | . | | The | | current | | \"twenty | - | four | | solar | | terms\" | | is | | formulated | | based | | on | | the | | position | | of | | the | | sun | | on | | the | | zodiac, | | that | | is, | | the | | annual | | trajectory | | of | | the | | sun | | is | | divided | | into | | 24 | | equal | | parts, | | every | | 15 | ° | | is | | 1 | | equal | | part, | | and | | every | | 1 | | equal | | part | | is | | a | | solar | | term, | | starting | | from | | the | | beginning | | of | | spring | | , | | and | | finally | | the | | great | | cold | . | | In | | the | | international | | meteorological | | circles, | | the | | twenty | - | four | | solar | | terms | | are | | known | | as | | \"China's | | fifth | | great | | invention\" | ."
+    },
+    {
+      "slide": 24,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER: "
+    }
+  ]
+}

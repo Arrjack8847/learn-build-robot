@@ -1,0 +1,103 @@
+{
+  "projectId": "level-6-colorblind-assistant-robot",
+  "sourcePath": "public/Level 6/Learning/Sensor-Focused Robots/Colorblind Assistant Robot/25.Colorblind Assistant Robot-Slides.pdf",
+  "wixFileId": "7fc4ca_50ae26fd830f44a6a55bb2ca1ea4dd45.pdf",
+  "sourceBytes": 1193435,
+  "pageCount": 23,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Colorblind Assistant Robot | Lesson 25"
+    },
+    {
+      "slide": 2,
+      "text": "Key points from this lesson: | 1. Understand the principles of color learning | \u0015\u0011\u0003/HDUQ\u0003WR\u0003XVH\u0003WKH\u0003FRORU\u0003UHFRJQLWLRQ\u0003OHDUQLQJ\u0003IXQFWLRQ\u0003RI\u0003WKH\u0003$,\u0003௙௙YLVLRQ\u0003PRGXOH | Possible difficulties from this lesson: | 1. Build a robot model of color assistant"
+    },
+    {
+      "slide": 3,
+      "text": "CONTENTS | 1 | Introduction  | 2 | New Knowledge | 3 | Practice | 4 | Expansion "
+    },
+    {
+      "slide": 4,
+      "text": "Introduction | 01"
+    },
+    {
+      "slide": 5,
+      "text": "Color blindness | Color | blindness | is | a | special | condition | where | some | people | see | colors | differently | than | most | people | do | . | For | example, | they | may | not | be | able | to | tell | red | from | green | . | However, | there | are | ways | for | people | with | color | blindness | to | recognize | and | distinguish | colors, | such | as | using | special | glasses | or | software | programs | . | Specialized | nerve | cells | (rods | and | cones) | help | you | see | . | Cones | are | responsible | for | your | color | vision | . | If | you | have | color | blindness, | some | of | your | cones | are | missing | or | don't | work | properly | ."
+    },
+    {
+      "slide": 6,
+      "text": "New Knowledge | 02"
+    },
+    {
+      "slide": 7,
+      "text": "Red color blindness | Also | known | as | the | first | type | of | color | blindness, | these | people | cannot | distinguish | between | red, | purple, | blue, | purple | - | red, | and | dark | green | . | They | will | see | green | as | yellow, | purple | as | blue, | and | green | and | blue | as | white | . | Full | - | color vision | Red color blindness"
+    },
+    {
+      "slide": 8,
+      "text": "Green color blindness | This | is | the | second | type | of | color | blindness | . | People | with | this | condition | see | green | as | gray | and | cannot | distinguish | between | light | green | and | dark | red, | purple | and | gray, | and | purple | and | cyan | . | Full | - | color vision | Green color blindness"
+    },
+    {
+      "slide": 9,
+      "text": "Color blindness corrective glasses | Color | blindness | corrective | glasses | are | a | type | of | glasses | used | to | correct | color | blindness | . | They | are | an | effective | way | to | correct | color | blindness | and | are | suitable | for | people | who | suffer | from | both | color | blindness | and | myopia | . | In | addition, | color | blindness | corrective | glasses | are | divided | into | contact | lens | type | and | ordinary | wide | frame | type | ."
+    },
+    {
+      "slide": 10,
+      "text": "Coding block  | - | color recognition learning | This | coding | block | determines | whether | the | image | has | a | corresponding | ID | color | . | When | the | program | is | running, | you | need | to | operate | the | AI | ௙௙PRGXOH | dial | to | shoot | and | learn | the | color | . | Description | : | Return | value | : | 1 | or | 0 | , | Boolean | type | ."
+    },
+    {
+      "slide": 11,
+      "text": "Practice | 03"
+    },
+    {
+      "slide": 12,
+      "text": "Effect Demonstration"
+    },
+    {
+      "slide": 13,
+      "text": "Design and assembly | According | to | the | building | manual, | build | a | colorblind | assistant | robot | . | We | need | a | controller | to | control | the | motor | rotation | and | call | the | AI | ௙௙YLVLRQ | module | . | Connect | the | AI | ௙௙YLVLRQ | module | to | the | P | 8 | port | of | the | controller, | and | connect | the | motor | to | the | M | 1 | ports | ."
+    },
+    {
+      "slide": 14,
+      "text": "Project tasks"
+    },
+    {
+      "slide": 15,
+      "text": "Programming | logo | 1. Create a new sub | - | function. | Create a new reset function to reset  | the pointer."
+    },
+    {
+      "slide": 16,
+      "text": "Programming | logo | 2 | . | Initialization | settings | . | Call | the | reset | function, | then | set | the | color | recognition | learning | mode | . | After | learning | the | color, | press | the | left | button | ."
+    },
+    {
+      "slide": 17,
+      "text": "Programming | logo | 3 | . | Create | a | new | variable | and | detect | the | learning | ID | value | of | the | color | recognition | . | In | the | repeated | execution, | set | the | variables | \"X\" | and | \"Y\" | to | ID | 1 | and | ID | 2 | of | AI | color | recognition | learning | ."
+    },
+    {
+      "slide": 18,
+      "text": "Programming | logo | 4 | . | Recognizing | the | color | 1 | If | \"X\" | = | 1 | , | then | wait | for | motor | M | 1 | to | rotate | to | 60 | ° | , | and | the | pointer | points | to | the | red | block | . | Wait | for | ID | 1 | = | 0 | , | then | the | motor | rotates | 60 | ° | counterclockwise | ."
+    },
+    {
+      "slide": 19,
+      "text": "Programming | logo | 5 | . | Recognizing | the | color | 2 | If | \"Y\" | = | 1 | , | then | wait | for | motor | M | 1 | to | rotate | to | 240 | ° | , | at | which | point | the | pointer | points | to | the | green | block | . | Wait | for | ID | 2 | = | 0 | , | then | the | motor | rotates | 240 | ° | counterclockwise | ."
+    },
+    {
+      "slide": 20,
+      "text": "Expansion | 04"
+    },
+    {
+      "slide": 21,
+      "text": "Expansion task | Increase the number of recognized colors"
+    },
+    {
+      "slide": 22,
+      "text": "忀剩⮅䎗ḋḑ∐䔏份䟨䚿㴲憶巄䦢䙫⊆僤Ə㎌ᷲ㝌῕㔠䧲⹶Ə | 宐㴲巄㜡♏ạ⮅䎗⮁䂠㴲憶䙫⊆僤˛ | せồ㸸㏻ | 微㎎∝♏✗✧宥⮁巄䦢敦⺍Ə✏德堳凚㋮⮁巄䦢㗝Ə | ⻏ | 渊♏⒴嵞˛ | The | RGB | color | model | is | a | color | standard | in | the | industry | . | It | obtains | various | colors | by | changing | the | three | color | channels | of | red | (R), | green | (G), | and | blue | (B) | and | superimposing | them | on | each | other | . | RGB | represents | the | colors | of | the | three | channels | - | red, | green, | and | blue | . | This | standard | covers | almost | all | colors | that | human | vision | can | perceive | and | is | one | of | the | most | widely | used | color | systems | . | All | colors | on | the | computer | screen | are | mixed | with | the | three | colors | of | red, | green, | and | blue | in | different | proportions | . | A | group | of | red, | green, | and | blue | is | the | smallest | display | unit | . | Any | color | on | the | screen | can | be | recorded | and | expressed | by | a | group | of | RGB | values | . | Further Reading"
+    },
+    {
+      "slide": 23,
+      "text": "Thanks!"
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}
