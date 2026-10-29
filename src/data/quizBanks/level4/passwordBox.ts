@@ -13,12 +13,12 @@ export const passwordBoxBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Why do people use a safe deposit box?",
       "choices": [
-        "To keep valuable items secure",
-        "To make music louder",
         "To paint buildings",
-        "To measure road speed"
+        "To measure road speed",
+        "To keep valuable items secure",
+        "To make music louder"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 6 describes safe deposit boxes as places where customers can keep valuables.",
       "hint": "Think about objects people want to protect."
     },
@@ -28,12 +28,12 @@ export const passwordBoxBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Which item might someone store in a safe?",
       "choices": [
-        "A bicycle lane",
         "Important household belongings",
         "A school bell's sound",
-        "Sunlight"
+        "Sunlight",
+        "A bicycle lane"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Slide 10 names important household belongings and valuable goods as uses for a safe.",
       "hint": "Consider something that should be kept secure."
     },
@@ -43,12 +43,12 @@ export const passwordBoxBank: QuizBank = {
       "learningSlide": 2,
       "prompt": "Which sensor does the Password Box lesson focus on?",
       "choices": [
-        "Ultrasonic sensor",
         "Light sensor",
         "Color sensor",
-        "Sound sensor"
+        "Sound sensor",
+        "Ultrasonic sensor"
       ],
-      "correctIndex": 2,
+      "correctIndex": 1,
       "explanation": "Slide 2 says the lesson introduces color sensors and how to use them.",
       "hint": "Think about how a robot can recognize a chosen color."
     },
@@ -58,12 +58,12 @@ export const passwordBoxBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What does the lesson combine with the idea of a safe?",
       "choices": [
-        "A color sensor and a password door",
         "A fan and a temperature chart",
         "A compass and a map",
-        "A camera and a music player"
+        "A camera and a music player",
+        "A color sensor and a password door"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 7 describes using a color sensor to design a password function for a door.",
       "hint": "Think about the new sensor the class is learning."
     },
@@ -73,12 +73,12 @@ export const passwordBoxBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "In the example combination lock, what does one wheel represent?",
       "choices": [
-        "One minute",
-        "One password digit",
         "One motor",
-        "One sensor"
+        "One sensor",
+        "One minute",
+        "One password digit"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Slide 11 says one wheel represents one cipher digit.",
       "hint": "Think about how the lock remembers a multi-digit code."
     },
@@ -88,12 +88,12 @@ export const passwordBoxBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "What happens to the wheel notches when the correct password is dialed?",
       "choices": [
+        "They become larger",
         "They line up",
         "They disappear",
-        "They change color",
-        "They become larger"
+        "They change color"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 11 explains that the notches align when the correct combination is entered.",
       "hint": "Imagine a lock whose parts must reach matching positions."
     },
@@ -103,12 +103,12 @@ export const passwordBoxBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "Which is one assembly requirement for the Password Box?",
       "choices": [
-        "A loose frame",
         "A stable structure",
         "No moving parts",
-        "A completely round box"
+        "A completely round box",
+        "A loose frame"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Slide 13 lists a stable structure among the build requirements.",
       "hint": "The finished model needs to work without falling apart."
     },
@@ -118,12 +118,12 @@ export const passwordBoxBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "What should the finished box's shape match?",
       "choices": [
-        "The intended design",
-        "The size of the classroom",
         "The teacher's computer",
-        "The sound of the motor"
+        "The sound of the motor",
+        "The intended design",
+        "The size of the classroom"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 13 requires that the assembled shape match the plan.",
       "hint": "Compare the build with the model you designed."
     },
@@ -148,12 +148,12 @@ export const passwordBoxBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "What should the Password Box show on the screen when tested?",
       "choices": [
-        "The rotation and time needed to unlock",
         "The city's weather",
         "The robot's paint color",
-        "A list of nearby shops"
+        "A list of nearby shops",
+        "The rotation and time needed to unlock"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 16 asks the program to display rotation and unlocking time.",
       "hint": "Think about which measurements help check the lock."
     }
