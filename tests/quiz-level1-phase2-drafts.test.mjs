@@ -36,7 +36,8 @@ test("19 PDF-indexed Level 1 banks have ten sourced questions but are not yet pu
     const positions = [0,0,0,0];
     for (const q of bank.questions) {
       positions[q.correctIndex]++;
-      assert.ok(q.hint.length >= 20 && q.explanation.length >= 20);
+      assert.ok(q.hint.length >= 20, item.projectId + " " + q.id + ": hint shorter than 20 characters");
+      assert.ok(q.explanation.length >= 20, item.projectId + " " + q.id + ": explanation shorter than 20 characters");
     }
     assert.ok(positions.every(n => n >= 2 && n <= 3), item.projectId + ": answer positions not balanced");
     const attempt = selectQuizQuestions(bank, [], () => 0);
