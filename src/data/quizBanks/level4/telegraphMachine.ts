@@ -13,12 +13,12 @@ export const telegraphMachineBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What does the Telegraph Machine use to detect an input signal?",
       "choices": [
-        "A touch sensor",
-        "A color sensor",
         "A temperature probe",
-        "A pressure gauge"
+        "A pressure gauge",
+        "A touch sensor",
+        "A color sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 7 says the touch sensor detects the input signal.",
       "hint": "Think about how a user signals the model."
     },
@@ -43,12 +43,12 @@ export const telegraphMachineBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "What does a variable store inside a program?",
       "choices": [
+        "Sunlight",
         "Data or values",
         "Only water",
-        "A robot's body",
-        "Sunlight"
+        "A robot's body"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 10 describes variables as named storage spaces for data.",
       "hint": "Imagine a labeled box in a program."
     },
@@ -58,12 +58,12 @@ export const telegraphMachineBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "If a variable named a stores the number 1, what can the program use a for?",
       "choices": [
-        "Remembering that value",
         "Turning it into a motor",
         "Opening an internet site",
-        "Changing a sensor's shape"
+        "Changing a sensor's shape",
+        "Remembering that value"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 10 gives a=1 as a simple example of assigning and storing a value.",
       "hint": "Think about what a named box holds."
     },
@@ -73,12 +73,12 @@ export const telegraphMachineBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "What do programmers call giving a value to a variable?",
       "choices": [
-        "Painting",
-        "Assignment",
         "Rotation",
-        "Ranging"
+        "Ranging",
+        "Painting",
+        "Assignment"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Slide 12 defines giving a value to a variable as assignment.",
       "hint": "Think about setting what the variable contains."
     },
@@ -88,12 +88,12 @@ export const telegraphMachineBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "If a starts at 2, what is a after the instruction a = a + 1?",
       "choices": [
-        "1",
         "2",
         "3",
-        "4"
+        "4",
+        "1"
       ],
-      "correctIndex": 2,
+      "correctIndex": 1,
       "explanation": "Slide 12 describes a=a+1 as increasing the stored value by one, so 2 becomes 3.",
       "hint": "The stored number increases by one."
     },
@@ -118,12 +118,12 @@ export const telegraphMachineBank: QuizBank = {
       "learningSlide": 18,
       "prompt": "How does the screen behave as the touch sensor is pressed repeatedly in the next task?",
       "choices": [
+        "It displays a barcode",
         "It always stays blue",
         "It alternates between red and off",
-        "It shows the time only",
-        "It displays a barcode"
+        "It shows the time only"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "Slide 18 describes a red screen on one press and off on the next.",
       "hint": "Think about a switch that toggles a light."
     },
@@ -133,12 +133,12 @@ export const telegraphMachineBank: QuizBank = {
       "learningSlide": 19,
       "prompt": "What happens to the buzzer after the sensor has been pressed 10 times in the final task?",
       "choices": [
+        "It starts music",
         "It will not sound",
         "It becomes louder",
-        "It changes to a motor",
-        "It starts music"
+        "It changes to a motor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 19 specifies that after 10 presses the buzzer does not ring.",
       "hint": "Think about the program's stopping condition."
     },
@@ -148,12 +148,12 @@ export const telegraphMachineBank: QuizBank = {
       "learningSlide": 19,
       "prompt": "Which other output changes when the count reaches 10?",
       "choices": [
-        "The screen turns red",
         "The wheels become larger",
         "The microphone records speech",
-        "The sensor reads an ID"
+        "The sensor reads an ID",
+        "The screen turns red"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 19 states that the screen turns red when the count reaches 10.",
       "hint": "The program gives a visible signal at the final count."
     }
