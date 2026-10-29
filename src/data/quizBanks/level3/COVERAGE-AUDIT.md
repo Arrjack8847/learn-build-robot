@@ -141,3 +141,10 @@ On this branch, the 13 new Level 3 banks are imported in `src/data/quizStudio.ts
 - Existing 13 source-backed Level 3 banks originally had an extreme answer A bias (many with 10/10 correct answers in the first position).
 - Rotated the placement of each existing correct answer across A–D, preserving the exact correct answer text, question wording, topic pairing, PDF path, source page count and slide reference.
 - Automated pre-commit check confirmed all original correct answer strings remain correct after reordering. No new unverified lesson questions were published.
+
+## Independent source extraction — 29 October 2026
+
+- `scripts/quiz-level3-building-fallbacks.json` now maps the five Building-manual-backed Level 3 Learning lessons to their exact existing `public/` PDF paths and the registered trusted PDF URLs. The PDFs are usable as lesson evidence where their content supports questions; separate teacher approval is not required by the extraction workflow.
+- `scripts/extract-quiz-slides.mjs` now automatically includes these five sources when processing Level 3, taking coverage from 46 dedicated Learning-PDF mappings to all 51 registered Level 3 lesson sources. The script still extracts real slide content; it does not fabricate or auto-publish quizzes.
+- Added `npm run quiz:extract-level3` (all 51 source documents, resumable) and `npm run quiz:test-level3` script entries. No user action or input is needed for the source mapping.
+- **Important:** Adding source extraction coverage does not mean the 36 missing question banks are authored or playable. Binary PDFs above ~1 MiB cannot be transferred through the current GitHub connector to the authoring environment. The pending content remains blocked on retrievable source text, not on user approval or review.
