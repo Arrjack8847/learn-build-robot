@@ -16,12 +16,12 @@ export const sailboatBank: QuizBank = {
       "learningSlide": 2,
       "prompt": "According to the lesson, why have ships mattered throughout history?",
       "choices": [
-        "They serve transport, trade and military needs",
         "They are only used for sports",
         "They cannot carry goods",
-        "They are used only on rivers"
+        "They are used only on rivers",
+        "They serve transport, trade and military needs"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about the uses mentioned in the introduction.",
       "explanation": "The lesson describes military and commercial roles for boats and ships."
     },
@@ -46,12 +46,12 @@ export const sailboatBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "What is the main power source for a real sailboat in the lesson?",
       "choices": [
+        "Infrared transmitter",
         "Wind",
         "Electric screen",
-        "Touch sensor",
-        "Infrared transmitter"
+        "Touch sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Consider the natural force acting on sails.",
       "explanation": "The source says wind provides the main power for sailboats."
     },
@@ -61,12 +61,12 @@ export const sailboatBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "Which other effect is named in the sailboat exploration?",
       "choices": [
-        "Bernoulli effect",
-        "Doppler effect",
         "Photoelectric effect",
-        "Hall effect"
+        "Hall effect",
+        "Bernoulli effect",
+        "Doppler effect"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The lesson gives a named effect in addition to wind.",
       "explanation": "The exploration mentions the Bernoulli effect in connection with sailing."
     },
@@ -76,12 +76,12 @@ export const sailboatBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "How is movement on the ocean described in the lesson?",
       "choices": [
-        "Bumpy",
         "Always perfectly smooth",
         "Completely stationary",
-        "Only vertical with no rocking"
+        "Only vertical with no rocking",
+        "Bumpy"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Recall the movement students are asked to reproduce.",
       "explanation": "The exploration describes the ocean ride as very bumpy."
     },
@@ -106,12 +106,12 @@ export const sailboatBank: QuizBank = {
       "learningSlide": 23,
       "prompt": "Which gear drives which in the sailboat's speed-reduction example?",
       "choices": [
+        "A gear drives a screen",
         "Small gear drives large gear",
         "Large gear drives small gear",
-        "Two equal gears with no difference",
-        "A gear drives a screen"
+        "Two equal gears with no difference"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about the arrangement that slows the output.",
       "explanation": "The lesson describes a small gear driving a large gear."
     },
@@ -121,12 +121,12 @@ export const sailboatBank: QuizBank = {
       "learningSlide": 23,
       "prompt": "What happens to the large gear in that reduction arrangement?",
       "choices": [
-        "It turns more slowly",
-        "It turns infinitely fast",
         "It becomes a motor",
-        "It stops being a gear"
+        "It stops being a gear",
+        "It turns more slowly",
+        "It turns infinitely fast"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Recall why the lesson calls it a reduction gear.",
       "explanation": "The evaluation states that the large driven gear turns slowly."
     },
@@ -136,12 +136,12 @@ export const sailboatBank: QuizBank = {
       "learningSlide": 22,
       "prompt": "What display-related task is given for the programmed sailboat?",
       "choices": [
-        "Show different symbols and run the program three times",
         "Show only one static colour forever",
         "Erase the display permanently",
-        "Turn off the controller"
+        "Turn off the controller",
+        "Show different symbols and run the program three times"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about the follow-up coding task using symbols.",
       "explanation": "Task 2 asks the boat to display different symbols and repeat the program three times."
     },

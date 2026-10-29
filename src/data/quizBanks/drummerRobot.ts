@@ -16,12 +16,12 @@ export const drummerRobotBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "What robot is built in the drummer lesson?",
       "choices": [
-        "An automatic drum-beating machine",
-        "A picture-drawing robot",
         "A robotic sailboat",
-        "A windmill generator"
+        "A windmill generator",
+        "An automatic drum-beating machine",
+        "A picture-drawing robot"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Recall what the class concert needs.",
       "explanation": "The goal is to design a machine that beats a drum automatically."
     },
@@ -31,12 +31,12 @@ export const drummerRobotBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "Which two items must the drummer model include?",
       "choices": [
-        "A drum and drumstick",
         "A sail and rudder",
         "A propeller and paddle",
-        "A screen and camera only"
+        "A screen and camera only",
+        "A drum and drumstick"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about what is needed to make a drumbeat.",
       "explanation": "The introduction says the drummer needs a drum and a drumstick to hit it."
     },
@@ -61,12 +61,12 @@ export const drummerRobotBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Which principle is used to increase the drumstick's travel?",
       "choices": [
+        "Light reflection",
         "Leverage",
         "Buoyancy",
-        "Magnetism",
-        "Light reflection"
+        "Magnetism"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Recall the mechanical principle on the slide.",
       "explanation": "The exploration introduces the principle of leverage."
     },
@@ -76,12 +76,12 @@ export const drummerRobotBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "In the described lever, how does the load arm compare with the effort arm?",
       "choices": [
-        "The load arm is longer",
-        "Both arms must have zero length",
         "The load arm is shorter",
-        "There is no load arm"
+        "There is no load arm",
+        "The load arm is longer",
+        "Both arms must have zero length"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Consider which arm travels farther in this arrangement.",
       "explanation": "The lesson says the load/resistance arm is longer than the effort/power arm."
     },
@@ -91,12 +91,12 @@ export const drummerRobotBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What movement should the drumstick beam make?",
       "choices": [
-        "Move up and down",
         "Rotate only on a flat table without lifting",
         "Move only sideways without striking",
-        "Stay perfectly stationary"
+        "Stay perfectly stationary",
+        "Move up and down"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Imagine the end of a stick as the drum is played.",
       "explanation": "The construction discussion describes a beam moving up and down."
     },
@@ -121,12 +121,12 @@ export const drummerRobotBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "Which ports connect the emotion screen?",
       "choices": [
+        "The motor axle",
         "Ports 1 and 2",
         "Ports A and B",
-        "Only the charging port",
-        "The motor axle"
+        "Only the charging port"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Look for the two numbered ports on the slide.",
       "explanation": "The emotion screen is connected to controller ports 1 and 2."
     },
@@ -136,12 +136,12 @@ export const drummerRobotBank: QuizBank = {
       "learningSlide": 18,
       "prompt": "What is shown on the emotion screen during the first rhythm task?",
       "choices": [
-        "A smiling face",
-        "A number countdown",
         "A map of the world",
-        "A battery error"
+        "A battery error",
+        "A smiling face",
+        "A number countdown"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Recall the expression requested alongside four rhythms.",
       "explanation": "Task 1 asks the robot to display a smiling face."
     },
@@ -151,12 +151,12 @@ export const drummerRobotBank: QuizBank = {
       "learningSlide": 20,
       "prompt": "Which speed pattern is used for the drummer's next task?",
       "choices": [
-        "Slow, then medium, then fast",
         "Fast, then off, then reverse",
         "Only the same high speed",
-        "Fast, then medium, then slow"
+        "Fast, then medium, then slow",
+        "Slow, then medium, then fast"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about how the rhythm changes in the exercise.",
       "explanation": "The lesson directs slow, medium and fast drumming in sequence, two seconds each."
     }

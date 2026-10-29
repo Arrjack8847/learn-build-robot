@@ -16,12 +16,12 @@ export const pendulumRideBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Where is a large pendulum ride commonly found?",
       "choices": [
+        "Shipyard",
         "Amusement park",
         "School chemistry bench",
-        "Recording studio",
-        "Shipyard"
+        "Recording studio"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Recall the setting introduced in the lesson.",
       "explanation": "The introduction describes a pendulum/Frisbee ride in amusement parks."
     },
@@ -31,12 +31,12 @@ export const pendulumRideBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "What motion does the ride perform repeatedly?",
       "choices": [
-        "Swinging back and forth",
-        "Only moving vertically on a straight rail",
         "Rolling on a road",
-        "Sailing across water"
+        "Sailing across water",
+        "Swinging back and forth",
+        "Only moving vertically on a straight rail"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Think about the main motion of a pendulum.",
       "explanation": "The exploration states that the ride swings again and again."
     },
@@ -46,12 +46,12 @@ export const pendulumRideBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "What happens to the gondola seats while the ride swings?",
       "choices": [
-        "They rotate",
         "They become fixed to the ground",
         "They detach",
-        "They turn into gears"
+        "They turn into gears",
+        "They rotate"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The lesson describes a second simultaneous motion.",
       "explanation": "The seats rotate while the pendulum swings."
     },
@@ -76,12 +76,12 @@ export const pendulumRideBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Which common building item is suggested to represent seats?",
       "choices": [
+        "Controller buttons",
         "Tires",
         "Touch sensors",
-        "Charging cables",
-        "Controller buttons"
+        "Charging cables"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Recall the model component used as a seat.",
       "explanation": "The construction suggestion uses tires as seats."
     },
@@ -91,12 +91,12 @@ export const pendulumRideBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "Which type of gear is named for making the seats rotate while the ride swings?",
       "choices": [
-        "Bevel gears",
-        "Worm-and-rack only",
         "Only belt pulleys",
-        "No transmission component"
+        "No transmission component",
+        "Bevel gears",
+        "Worm-and-rack only"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Remember the gear family revisited during exploration.",
       "explanation": "The slide explicitly names bevel gears for the two motions."
     },
@@ -106,12 +106,12 @@ export const pendulumRideBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "What provides rotational power for the pendulum model?",
       "choices": [
-        "Motor",
         "Paper hinge only",
         "Display light",
-        "Battery label"
+        "Battery label",
+        "Motor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Find the powered component in the construction plan.",
       "explanation": "The lesson says a motor provides the pendulum's rotational power."
     },
@@ -136,12 +136,12 @@ export const pendulumRideBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "Which programming module makes the pendulum keep swinging?",
       "choices": [
+        "Display clear only",
         "Loop module",
         "Program end only",
-        "Audio download",
-        "Display clear only"
+        "Audio download"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about performing the same movement repeatedly.",
       "explanation": "Task 2 adds a loop so the pendulum swings endlessly."
     },
@@ -151,12 +151,12 @@ export const pendulumRideBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "Which change does the final challenge ask students to try?",
       "choices": [
-        "Make the pendulum swing through a smaller angle",
-        "Remove the rotating seats",
         "Stop using the controller",
-        "Turn the model into a sailboat"
+        "Turn the model into a sailboat",
+        "Make the pendulum swing through a smaller angle",
+        "Remove the rotating seats"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Consider how to modify the size of the swinging motion.",
       "explanation": "The challenge requests a smaller swing angle."
     }

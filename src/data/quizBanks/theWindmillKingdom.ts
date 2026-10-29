@@ -16,12 +16,12 @@ export const theWindmillKingdomBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Which country is the lesson's windmill setting?",
       "choices": [
-        "Netherlands",
-        "Brazil",
         "Japan",
-        "Canada"
+        "Canada",
+        "Netherlands",
+        "Brazil"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Recall the country associated with tulips and windmills.",
       "explanation": "The lesson introduces Dutch windmills in the Netherlands."
     },
@@ -31,12 +31,12 @@ export const theWindmillKingdomBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Which flower is mentioned along with windmills in the country introduction?",
       "choices": [
-        "Tulips",
         "Lotus flowers",
         "Sunflowers",
-        "Orchids"
+        "Orchids",
+        "Tulips"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think of the landscape described in the introduction.",
       "explanation": "The Netherlands is described as famous for windmills and tulips."
     },
@@ -61,12 +61,12 @@ export const theWindmillKingdomBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "What drives the classroom windmill when there is too little wind?",
       "choices": [
+        "A touch sensor",
         "Motor",
         "Magnetic compass",
-        "Sound speaker",
-        "A touch sensor"
+        "Sound speaker"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Recall the substitute for natural wind.",
       "explanation": "The class uses a motor because indoor wind is too weak."
     },
@@ -76,12 +76,12 @@ export const theWindmillKingdomBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "How does the lesson make the windmill output gear rotate faster?",
       "choices": [
-        "Use a large driving gear to drive a small pinion",
-        "Use a small gear to drive a larger output gear",
         "Remove the driving gear entirely",
-        "Keep every gear fixed in place"
+        "Keep every gear fixed in place",
+        "Use a large driving gear to drive a small pinion",
+        "Use a small gear to drive a larger output gear"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Compare the sizes of the driving and driven gears.",
       "explanation": "The gear-acceleration slide describes a large gear driving a smaller pinion."
     },
@@ -91,12 +91,12 @@ export const theWindmillKingdomBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "What trade-off accompanies the increased output speed?",
       "choices": [
-        "Output torque decreases",
         "Output torque becomes infinite",
         "The motor uses no energy",
-        "All gears stop turning"
+        "All gears stop turning",
+        "Output torque decreases"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The lesson contrasts speed with another mechanical quantity.",
       "explanation": "The source says increasing pinion speed this way reduces output torque."
     },
@@ -121,12 +121,12 @@ export const theWindmillKingdomBank: QuizBank = {
       "learningSlide": 20,
       "prompt": "Which controller port is used for the windmill's motor?",
       "choices": [
+        "Power button",
         "Port A",
         "Port 1 for the sensor only",
-        "Audio port",
-        "Power button"
+        "Audio port"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Recall the motor cable instruction.",
       "explanation": "The source connects the windmill motor to controller port A."
     },
@@ -136,12 +136,12 @@ export const theWindmillKingdomBank: QuizBank = {
       "learningSlide": 23,
       "prompt": "How can a motor run for two seconds without using a single timed-rotation block?",
       "choices": [
-        "Turn on, wait two seconds, then turn off",
-        "Leave it running without a stop command",
         "Set a random screen image",
-        "Reverse every motor immediately"
+        "Reverse every motor immediately",
+        "Turn on, wait two seconds, then turn off",
+        "Leave it running without a stop command"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Consider three commands that can give a timed run.",
       "explanation": "The lesson gives start–wait–stop as an alternative to a timed motor block."
     },
@@ -151,12 +151,12 @@ export const theWindmillKingdomBank: QuizBank = {
       "learningSlide": 25,
       "prompt": "How does the lesson indicate reverse rotation in the motor power parameter?",
       "choices": [
-        "Put a minus sign before the power value",
         "Use a question mark",
         "Write the motor name twice",
-        "Delete the power value"
+        "Delete the power value",
+        "Put a minus sign before the power value"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Recall the symbol attached to the numerical setting.",
       "explanation": "The lesson uses a negative sign before the power parameter to reverse rotation."
     }
