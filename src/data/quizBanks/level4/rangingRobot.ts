@@ -13,12 +13,12 @@ export const rangingRobotBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Which route is the shortest between two points on a flat sheet?",
       "choices": [
-        "A straight line",
         "A large circle",
         "A zigzag path",
-        "A winding curve"
+        "A winding curve",
+        "A straight line"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 6 introduces the straight segment as the shortest path between two points.",
       "hint": "Compare direct and curved paths."
     },
@@ -43,12 +43,12 @@ export const rangingRobotBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "What can an encoder turn into an electrical signal?",
       "choices": [
+        "Air humidity",
         "A paint color",
         "Displacement or rotation",
-        "A sound recording",
-        "Air humidity"
+        "A sound recording"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "Slide 9 explains that an encoder converts angular or linear displacement into an electrical signal.",
       "hint": "Think about the kind of movement the motor makes."
     },
@@ -73,12 +73,12 @@ export const rangingRobotBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Which two types of encoder are described in the lesson?",
       "choices": [
-        "Cold and hot",
-        "Blue and red",
         "Incremental and absolute",
-        "Fast and slow"
+        "Fast and slow",
+        "Cold and hot",
+        "Blue and red"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Slide 10 names incremental and absolute encoders.",
       "hint": "Think about two ways of reporting position changes."
     },
@@ -88,12 +88,12 @@ export const rangingRobotBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Which encoder type does the Ranging Robot use?",
       "choices": [
+        "Photoelectric switch",
         "Absolute encoder",
         "Incremental encoder",
-        "Magnetic compass",
-        "Photoelectric switch"
+        "Magnetic compass"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "Slide 10 explicitly says the encoder in use is incremental.",
       "hint": "Remember which encoder counts movement as pulses."
     },
@@ -103,12 +103,12 @@ export const rangingRobotBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "What should the program read before converting movement into laps?",
       "choices": [
+        "The classroom clock",
         "The motor's code value",
         "The wallpaper color",
-        "The sensor label",
-        "The classroom clock"
+        "The sensor label"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 15 shows Read motor code value followed by conversion into laps.",
       "hint": "Follow the order of the displayed programming steps."
     },
@@ -118,12 +118,12 @@ export const rangingRobotBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "What measurement should the Ranging Robot display on the first screen line?",
       "choices": [
-        "Wind speed",
-        "Number of wheel laps",
         "Paint thickness",
-        "Sound frequency"
+        "Sound frequency",
+        "Wind speed",
+        "Number of wheel laps"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Slide 16 asks for real-time motor laps on the first line of the display.",
       "hint": "Think about what the rotating wheel counts."
     },
@@ -148,12 +148,12 @@ export const rangingRobotBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "The tire travels about 20.5 cm in one turn. About how far does it travel in two turns?",
       "choices": [
-        "20.5 cm",
         "41 cm",
         "10.25 cm",
-        "61.5 cm"
+        "61.5 cm",
+        "20.5 cm"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Two turns cover about 2 × 20.5 = 41 centimeters, based on slide 17.",
       "hint": "Think about repeating the same travel distance twice."
     }
