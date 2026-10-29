@@ -139,3 +139,30 @@ test("Level 6 saves drafts and best results, and rejects corrupt resume records"
     else globalThis.CustomEvent = priorCustomEvent;
   }
 });
+
+
+test("all ten source-grounded Level 6 projects remain registered and replayable", () => {
+  const expected = {
+    "level-6-altimeter": 22,
+    "level-6-ball-tracking": 20,
+    "level-6-remote-control-lift": 23,
+    "level-6-dancing-robot": 18,
+    "level-6-finger-guessing-robot": 22,
+    "level-6-gesture-commanding-car": 23,
+    "level-6-high-temperature-alarm": 23,
+    "level-6-matador": 20,
+    "level-6-smart-flashlight": 24,
+    "level-6-the-interesting-rotor": 23,
+  };
+  for (const [id, pageCount] of Object.entries(expected)) {
+    const bank = getQuizBank(id);
+    assert.ok(bank, id + ": quiz must be published");
+    assert.equal(bank.sourcePageCount, pageCount);
+    assert.deepEqual(validateQuizBank(bank), [], id);
+    const first = selectQuizQuestions(bank, [], () => 0);
+    const retry = selectQuizQuestions(bank, first.map(q => q.id), () => 0);
+    assert.equal(first.length, 5);
+    assert.equal(retry.length, 5);
+    assert.equal(first.filter(q => retry.some(x => x.id === q.id)).length, 0, id);
+  }
+});
