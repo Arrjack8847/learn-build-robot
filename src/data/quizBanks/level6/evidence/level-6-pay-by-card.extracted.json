@@ -1,0 +1,119 @@
+{
+  "projectId": "level-6-pay-by-card",
+  "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/Pay by card/16.Pay by card -Slides.pdf",
+  "wixFileId": "7fc4ca_e621d088a45d4595a51e413c6ea9197b.pdf",
+  "sourceBytes": 2030918,
+  "pageCount": 27,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Pay by card | Lesson 16"
+    },
+    {
+      "slide": 2,
+      "text": "Key points from this lesson: | 1. Learn to modify the content of a specified item in a list | 2. Master the methods of creating and adding data to a list | Possible difficulties from this lesson: | 1. Master the method of replacing the specified item data in the list"
+    },
+    {
+      "slide": 3,
+      "text": "Pay by card | When |   | you |   | consume |   | in |   | supermarkets |   | or |   | restaurants, |   | in |   | addition |   | to |   | paying |   | with |   | cash |   | or |   | scanning |   | a |   | code, |   | you |   | can |   | also |   | pay |   | by |   | swiping |   | a |   | card, |   | which |   | is |   | a |   | fast |   | and |   | convenient |   | payment |   | method |   | that |   | uses |   | a |   | card |   | reader |   | to |   | read |   | the |   | information |   | on |   | the |   | bank |   | card | ."
+    },
+    {
+      "slide": 4,
+      "text": "Magnetic Stripe Card | A |   | magnetic |   | stripe |   | card |   | is |   | a |   | bank |   | card |   | with |   | a |   | magnetic |   | stripe | . |   | The |   | black |   | magnetic |   | stripe |   | on |   | the |   | card |   | records |   | the |   | cardholder's |   | relevant |   | information, |   | such |   | as |   | bank |   | card |   | number, |   | name, |   | account |   | balance | , |   | etc | . | During |   | the |   | card |   | payment |   | process, |   | the |   | card |   | reader |   | verifies |   | and |   | trades |   | by |   | reading |   | the |   | magnetic |   | stripe |   | information |   | on |   | the |   | magnetic |   | stripe |   | card | ."
+    },
+    {
+      "slide": 5,
+      "text": "Effect Demonstration"
+    },
+    {
+      "slide": 6,
+      "text": "Project Tasks | Design |   | a |   | POS |   | machine |   | model |   | and |   | use |   | a |   | color |   | sensor |   | to |   | control |   | it | . | Requirements |   | for |   | robot |   | functions | : | 1 | . |   | Use |   | red |   | and |   | green |   | blocks |   | to |   | represent |   | bank |   | cards |   | with |   | different |   | balances, |   | and |   | the |   | POS |   | machine |   | records |   | their |   | balances | . | 2 | . |   | The |   | screen |   | displays |   | the |   | price |   | of |   | the |   | product | . |   | The |   | left |   | button |   | can |   | increase |   | the |   | price |   | by |   | 1 | , |   | and |   | the |   | right |   | button |   | can |   | decrease |   | the |   | price |   | by |   | 1 | . | 3 | . |   | When |   | swiping |   | the |   | card, |   | if |   | the |   | price |   | is |   | greater |   | than |   | the |   | card |   | balance, |   | it |   | will |   | prompt |   | that |   | the |   | balance |   | is |   | insufficient, |   | otherwise |   | it |   | will |   | prompt |   | that |   | the |   | payment |   | is |   | successful | . | 4 | . |   | After |   | the |   | payment |   | is |   | successful, |   | the |   | balance |   | will |   | be |   | displayed |   | and |   | the |   | balance |   | of |   | the |   | swiped |   | card |   | will |   | be |   | updated | ."
+    },
+    {
+      "slide": 7,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 8,
+      "text": "Build a robot | Install the color sensor"
+    },
+    {
+      "slide": 9,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 10,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 11,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 12,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 13,
+      "text": "Build a robot | Build the bank card  | component"
+    },
+    {
+      "slide": 14,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 15,
+      "text": "Hardware connection | P7"
+    },
+    {
+      "slide": 16,
+      "text": "How do we achieve the required functions?"
+    },
+    {
+      "slide": 17,
+      "text": "Replace item (1) | of | (list) | with | (1) | The specified data can be added to the specified list, that is, stored in the list. | You can select other variables,  | modify variable names, and  | delete variables. | You can enter the serial  | number of the specified  | item. | You |   | can |   | enter |   | numbers, |   | and |   | characters, |   | or |   | place |   | numeric |   | type |   | coding |   | blocks | ."
+    },
+    {
+      "slide": 18,
+      "text": "P | rogram Flow Chart | After |   | the |   | program |   | starts, |   | add |   | the |   | bank |   | card |   | balance |   | information |   | to |   | the |   | list | . | Repeat |   | \"display |   | the |   | product |   | price, |   | and |   | use |   | the |   | left |   | and |   | right |   | keys |   | to |   | control |   | the |   | price |   | increase |   | and |   | decrease\" |   | until |   | the |   | card |   | is |   | recognized | . | If |   | the |   | price |   | is |   | greater |   | than |   | the |   | balance, |   | it |   | will |   | prompt |   | that |   | the |   | balance |   | is |   | insufficient, |   | otherwise |   | it |   | will |   | prompt |   | that |   | the |   | payment |   | is |   | successful, |   | and |   | calculate |   | and |   | display |   | the |   | balance, |   | and |   | update |   | the |   | corresponding |   | card |   | balance | . |   | After |   | waiting |   | for |   | a |   | while, |   | the |   | price |   | will |   | return |   | to |   | zero |   | and |   | the |   | screen |   | will |   | be |   | cleared | ."
+    },
+    {
+      "slide": 19,
+      "text": "1. Record balance information | The program starts and sets the font size. | Add the balance information of the two cards  | to the list."
+    },
+    {
+      "slide": 20,
+      "text": "2. Set the price of the product | In the loop, the \"Set and Display Price\" program is  | repeated until a valid \"Card\" color is detected. | Because the color sensor returns 1 when it  | detects red, 2 when it detects green, and 6 when it  | detects white, the loop is exited only when the  | color sensor value is set to less than 3."
+    },
+    {
+      "slide": 21,
+      "text": "3. Display the information of the corresponding product | If |   | the |   | price |   | exceeds |   | the |   | balance, |   | it |   | will |   | prompt |   | that |   | the |   | balance |   | is |   | insufficient | . |   | Otherwise, |   | it |   | will |   | prompt |   | that |   | the |   | payment |   | is |   | successful, |   | and |   | the |   | price |   | will |   | be |   | subtracted |   | from |   | the |   | balance |   | to |   | get |   | the |   | new |   | balance |   | and |   | display |   | it, |   | and |   | the |   | balance |   | of |   | the |   | corresponding |   | card |   | will |   | be |   | updated |   | at |   | the |   | same |   | time | . |   | After |   | waiting |   | for |   | 2 |   | seconds, |   | the |   | price |   | will |   | be |   | reset |   | to |   | zero |   | and |   | the |   | screen |   | will |   | be |   | cleared | ."
+    },
+    {
+      "slide": 22,
+      "text": "Expansion task | Add bank cards with different amounts"
+    },
+    {
+      "slide": 23,
+      "text": "Expansion program | Add |   | two |   | bank |   | cards |   | with |   | different |   | balances | . | Pay |   | attention |   | to |   | adjusting |   | the |   | value |   | range |   | of |   | the |   | valid |   | \"card\" |   | color | ."
+    },
+    {
+      "slide": 24,
+      "text": "Quiz | Single | - | choice question | Which of the following descriptions about lists is  | incorrect? ( ) | A. | It can modify a certain data | B. | It can delete the specified data | C. | It can query non | - | existent items | D. | The name of the created list can be modified | Answer: C"
+    },
+    {
+      "slide": 25,
+      "text": "Further Reading | The |   | information |   | of |   | magnetic |   | stripe |   | cards |   | is |   | stored |   | on |   | the |   | magnetic |   | stripe, |   | which |   | is |   | easy |   | to |   | be |   | cracked |   | and |   | copied, |   | and |   | there |   | are |   | security |   | risks | . |   | With |   | the |   | advancement |   | of |   | technology |   | and |   | the |   | increase |   | in |   | the |   | demand |   | for |   | payment |   | security, |   | chip |   | cards |   | have |   | gradually |   | replaced |   | magnetic |   | cards |   | and |   | become |   | the |   | mainstream |   | payment |   | method | . | Swipe with a chip card"
+    },
+    {
+      "slide": 26,
+      "text": "Further Reading | The |   | principle |   | of |   | chip |   | card |   | swiping |   | is |   | mainly |   | realized |   | through |   | near | - | field |   | communication |   | (NFC) |   | technology | . |   | When |   | the |   | chip |   | card |   | is |   | close |   | to |   | the |   | card |   | reader, |   | the |   | card |   | reader |   | reads |   | the |   | information |   | in |   | the |   | chip |   | card |   | through |   | NFC |   | technology, |   | including |   | bank |   | card |   | number, |   | card |   | validity |   | period, |   | etc | . | , |   | and |   | sends |   | this |   | information |   | to |   | the |   | bank |   | system |   | for |   | verification |   | and |   | authorization | . |   | The |   | bank |   | system |   | determines |   | whether |   | to |   | authorize |   | the |   | transaction |   | based |   | on |   | the |   | cardholder's |   | information |   | and |   | transaction |   | amount | . |   | If |   | authorized, |   | the |   | transaction |   | amount |   | will |   | be |   | deducted |   | from |   | the |   | cardholder's |   | account |   | and |   | transferred |   | to |   | the |   | merchant's |   | account | . | With |   | the |   | popularization |   | of |   | mobile |   | payment |   | and |   | the |   | widespread |   | use |   | of |   | smart |   | phones, |   | chip |   | card |   | swiping |   | has |   | gradually |   | changed |   | from |   | traditional |   | POS |   | card |   | swiping |   | to |   | new |   | payment |   | methods |   | such |   | as |   | mobile |   | payment |   | and |   | code |   | scanning |   | payment | . | Swipe with a chip card"
+    },
+    {
+      "slide": 27,
+      "text": "Thanks!"
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}
