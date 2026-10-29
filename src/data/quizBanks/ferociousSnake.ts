@@ -83,7 +83,11 @@ export const ferociousSnakeBank: QuizBank = {
       ],
       "correctIndex": 0,
       "hint": "Compare the two shapes explored in the lesson.",
-      "explanation": "The lesson contrasts stable triangles with quadrilaterals that deform easily."
+      "explanation": "The lesson contrasts stable triangles with quadrilaterals that deform easily.",
+      "image": {
+        "src": "/quiz-visuals/level1/ferocious-snake.svg",
+        "alt": "A hinged triangle beside a flexible four-sided frame."
+      }
     },
     {
       "id": "ferocious-snake-06",
@@ -98,7 +102,11 @@ export const ferociousSnakeBank: QuizBank = {
       ],
       "correctIndex": 1,
       "hint": "Recall which shape was chosen to make the body flexible.",
-      "explanation": "The evaluation explains that quadrilaterals can deform, allowing the model to expand and contract."
+      "explanation": "The evaluation explains that quadrilaterals can deform, allowing the model to expand and contract.",
+      "image": {
+        "src": "/quiz-visuals/level1/ferocious-snake.svg",
+        "alt": "A hinged triangle beside a flexible four-sided frame."
+      }
     },
     {
       "id": "ferocious-snake-07",

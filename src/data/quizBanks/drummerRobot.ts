@@ -53,7 +53,11 @@ export const drummerRobotBank: QuizBank = {
       ],
       "correctIndex": 0,
       "hint": "Think about the stick before it strikes.",
-      "explanation": "The lesson connects a higher drumstick lift with a louder beat."
+      "explanation": "The lesson connects a higher drumstick lift with a louder beat.",
+      "image": {
+        "src": "/quiz-visuals/level1/drummer-robot.svg",
+        "alt": "Lever arm held at a pivot, reaching toward a drum."
+      }
     },
     {
       "id": "drummer-robot-04",
@@ -68,7 +72,11 @@ export const drummerRobotBank: QuizBank = {
       ],
       "correctIndex": 1,
       "hint": "Recall the mechanical principle on the slide.",
-      "explanation": "The exploration introduces the principle of leverage."
+      "explanation": "The exploration introduces the principle of leverage.",
+      "image": {
+        "src": "/quiz-visuals/level1/drummer-robot.svg",
+        "alt": "Lever arm held at a pivot, reaching toward a drum."
+      }
     },
     {
       "id": "drummer-robot-05",

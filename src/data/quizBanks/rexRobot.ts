@@ -83,7 +83,11 @@ export const rexRobotBank: QuizBank = {
       ],
       "correctIndex": 3,
       "hint": "Look at the rule for 'n-beam'.",
-      "explanation": "Straight beams are described by hole count, such as Beam 7M."
+      "explanation": "Straight beams are described by hole count, such as Beam 7M.",
+      "image": {
+        "src": "/quiz-visuals/level1/rex-robot.svg",
+        "alt": "Straight robot construction beam showing seven holes."
+      }
     },
     {
       "id": "rex-robot-06",
@@ -98,7 +102,11 @@ export const rexRobotBank: QuizBank = {
       ],
       "correctIndex": 0,
       "hint": "Consider the naming scheme for straight beams.",
-      "explanation": "The beam lesson uses Beam 7M as a straight-beam example."
+      "explanation": "The beam lesson uses Beam 7M as a straight-beam example.",
+      "image": {
+        "src": "/quiz-visuals/level1/rex-robot.svg",
+        "alt": "Straight robot construction beam showing seven holes."
+      }
     },
     {
       "id": "rex-robot-07",

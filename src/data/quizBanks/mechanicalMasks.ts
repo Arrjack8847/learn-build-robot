@@ -113,7 +113,11 @@ export const mechanicalMasksBank: QuizBank = {
       ],
       "correctIndex": 1,
       "hint": "Recall the connecting components named on the slide.",
-      "explanation": "Blocks and pegs are suggested to change direction at the neck connection."
+      "explanation": "Blocks and pegs are suggested to change direction at the neck connection.",
+      "image": {
+        "src": "/quiz-visuals/level1/mechanical-masks.svg",
+        "alt": "Robot mask with two round gears used as eyes."
+      }
     },
     {
       "id": "mechanical-masks-08",
@@ -128,7 +132,11 @@ export const mechanicalMasksBank: QuizBank = {
       ],
       "correctIndex": 2,
       "hint": "The model uses similarly shaped construction pieces.",
-      "explanation": "The lesson gives gears as parts that can represent eyes."
+      "explanation": "The lesson gives gears as parts that can represent eyes.",
+      "image": {
+        "src": "/quiz-visuals/level1/mechanical-masks.svg",
+        "alt": "Robot mask with two round gears used as eyes."
+      }
     },
     {
       "id": "mechanical-masks-09",

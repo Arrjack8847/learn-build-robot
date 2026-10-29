@@ -53,7 +53,11 @@ export const basicProgrammingBank: QuizBank = {
       ],
       "correctIndex": 3,
       "hint": "Which part is analogous to human senses?",
-      "explanation": "The exploration compares sensors with human senses that perceive the world."
+      "explanation": "The exploration compares sensors with human senses that perceive the world.",
+      "image": {
+        "src": "/quiz-visuals/level1/basic-programming.svg",
+        "alt": "Diagram of a sensor sending information to a controller and output."
+      }
     },
     {
       "id": "basic-programming-04",
@@ -68,7 +72,11 @@ export const basicProgrammingBank: QuizBank = {
       ],
       "correctIndex": 0,
       "hint": "Think about the part compared to the brain.",
-      "explanation": "The controller is identified as the robot's decision-making brain."
+      "explanation": "The controller is identified as the robot's decision-making brain.",
+      "image": {
+        "src": "/quiz-visuals/level1/basic-programming.svg",
+        "alt": "Diagram of a sensor sending information to a controller and output."
+      }
     },
     {
       "id": "basic-programming-05",

@@ -83,7 +83,11 @@ export const firstRobotModelBank: QuizBank = {
       ],
       "correctIndex": 2,
       "hint": "Review the examples of connections taught in the lesson.",
-      "explanation": "The parts-building slide lists beam-and-peg connections."
+      "explanation": "The parts-building slide lists beam-and-peg connections.",
+      "image": {
+        "src": "/quiz-visuals/level1/first-robot-model.svg",
+        "alt": "Two construction beams joined with a blue peg."
+      }
     },
     {
       "id": "first-robot-model-06",
@@ -98,7 +102,11 @@ export const firstRobotModelBank: QuizBank = {
       ],
       "correctIndex": 3,
       "hint": "Look for the other mechanical joining example on the slide.",
-      "explanation": "The same slide lists gear-and-axle as a way of connecting parts."
+      "explanation": "The same slide lists gear-and-axle as a way of connecting parts.",
+      "image": {
+        "src": "/quiz-visuals/level1/first-robot-model.svg",
+        "alt": "Two construction beams joined with a blue peg."
+      }
     },
     {
       "id": "first-robot-model-07",

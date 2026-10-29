@@ -23,7 +23,11 @@ export const drawingBoardBank: QuizBank = {
       ],
       "correctIndex": 1,
       "hint": "Think about where images appear in this lesson.",
-      "explanation": "The lesson uses the main controller screen as the drawing board."
+      "explanation": "The lesson uses the main controller screen as the drawing board.",
+      "image": {
+        "src": "/quiz-visuals/level1/drawing-board.svg",
+        "alt": "Robot controller with a screen containing a drawing."
+      }
     },
     {
       "id": "drawing-board-02",
@@ -38,7 +42,11 @@ export const drawingBoardBank: QuizBank = {
       ],
       "correctIndex": 2,
       "hint": "Consider which device is introduced during the project.",
-      "explanation": "The lesson teaches the main controller's interface and basic operation."
+      "explanation": "The lesson teaches the main controller's interface and basic operation.",
+      "image": {
+        "src": "/quiz-visuals/level1/drawing-board.svg",
+        "alt": "Robot controller with a screen containing a drawing."
+      }
     },
     {
       "id": "drawing-board-03",

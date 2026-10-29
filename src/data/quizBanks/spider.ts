@@ -83,7 +83,11 @@ export const spiderBank: QuizBank = {
       ],
       "correctIndex": 0,
       "hint": "Think about the fold line in the definition.",
-      "explanation": "The teaching slide names that fold line the axis of symmetry."
+      "explanation": "The teaching slide names that fold line the axis of symmetry.",
+      "image": {
+        "src": "/quiz-visuals/level1/spider.svg",
+        "alt": "Robot spider with mirrored legs and a vertical dashed symmetry axis."
+      }
     },
     {
       "id": "spider-06",
@@ -98,7 +102,11 @@ export const spiderBank: QuizBank = {
       ],
       "correctIndex": 1,
       "hint": "Recall the test using a fold.",
-      "explanation": "The lesson defines symmetry by halves that match when folded on a line."
+      "explanation": "The lesson defines symmetry by halves that match when folded on a line.",
+      "image": {
+        "src": "/quiz-visuals/level1/spider.svg",
+        "alt": "Robot spider with mirrored legs and a vertical dashed symmetry axis."
+      }
     },
     {
       "id": "spider-07",

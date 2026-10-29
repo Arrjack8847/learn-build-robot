@@ -113,7 +113,11 @@ export const helloWorldBank: QuizBank = {
       ],
       "correctIndex": 0,
       "hint": "Look for the block placed above the following commands.",
-      "explanation": "The lesson starts execution under the 'RCU task 1' block."
+      "explanation": "The lesson starts execution under the 'RCU task 1' block.",
+      "image": {
+        "src": "/quiz-visuals/level1/hello-world.svg",
+        "alt": "Graphical task block connected to display text block."
+      }
     },
     {
       "id": "hello-world-08",
@@ -128,7 +132,11 @@ export const helloWorldBank: QuizBank = {
       ],
       "correctIndex": 1,
       "hint": "Think about how the two coding blocks are spliced.",
-      "explanation": "The text-display module is dragged below the RCU task block."
+      "explanation": "The text-display module is dragged below the RCU task block.",
+      "image": {
+        "src": "/quiz-visuals/level1/hello-world.svg",
+        "alt": "Graphical task block connected to display text block."
+      }
     },
     {
       "id": "hello-world-09",

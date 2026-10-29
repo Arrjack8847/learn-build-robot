@@ -113,7 +113,11 @@ export const shyPenguinBank: QuizBank = {
       ],
       "correctIndex": 3,
       "hint": "Think about the model's normal movement when nothing is nearby.",
-      "explanation": "The coding slide says the penguin moves slowly forward when no obstacle is detected."
+      "explanation": "The coding slide says the penguin moves slowly forward when no obstacle is detected.",
+      "image": {
+        "src": "/quiz-visuals/level1/shy-penguin.svg",
+        "alt": "Penguin robot with forward sensor facing an obstacle."
+      }
     },
     {
       "id": "shy-penguin-08",
@@ -128,7 +132,11 @@ export const shyPenguinBank: QuizBank = {
       ],
       "correctIndex": 0,
       "hint": "Recall the shy reaction programmed for a nearby object.",
-      "explanation": "The project describes backing away for two seconds and then stopping."
+      "explanation": "The project describes backing away for two seconds and then stopping.",
+      "image": {
+        "src": "/quiz-visuals/level1/shy-penguin.svg",
+        "alt": "Penguin robot with forward sensor facing an obstacle."
+      }
     },
     {
       "id": "shy-penguin-09",

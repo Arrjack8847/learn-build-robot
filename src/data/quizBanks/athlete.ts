@@ -53,7 +53,11 @@ export const athleteBank: QuizBank = {
       ],
       "correctIndex": 2,
       "hint": "Recall the two beam shapes constructed with pins.",
-      "explanation": "Experiment 1 compares hinged triangular and quadrilateral frames."
+      "explanation": "Experiment 1 compares hinged triangular and quadrilateral frames.",
+      "image": {
+        "src": "/quiz-visuals/level1/athlete.svg",
+        "alt": "Hinged triangular frame beside a four-sided frame."
+      }
     },
     {
       "id": "athlete-04",
@@ -68,7 +72,11 @@ export const athleteBank: QuizBank = {
       ],
       "correctIndex": 3,
       "hint": "Think about which frame kept its shape.",
-      "explanation": "The experiment concludes that a hinged triangle is stable."
+      "explanation": "The experiment concludes that a hinged triangle is stable.",
+      "image": {
+        "src": "/quiz-visuals/level1/athlete.svg",
+        "alt": "Hinged triangular frame beside a four-sided frame."
+      }
     },
     {
       "id": "athlete-05",
