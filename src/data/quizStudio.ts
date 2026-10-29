@@ -1,3 +1,10 @@
+import { dancingRobotBank } from "./quizBanks/level6/dancingRobot.ts";
+import { fingerGuessingRobotBank } from "./quizBanks/level6/fingerGuessingRobot.ts";
+import { gestureCommandingCarBank } from "./quizBanks/level6/gestureCommandingCar.ts";
+import { highTemperatureAlarmBank } from "./quizBanks/level6/highTemperatureAlarm.ts";
+import { matadorBank } from "./quizBanks/level6/matador.ts";
+import { smartFlashlightBank } from "./quizBanks/level6/smartFlashlight.ts";
+import { interestingRotorBank } from "./quizBanks/level6/interestingRotor.ts";
 import { remoteControlLiftBank } from "./quizBanks/level6/remoteControlLift.ts";
 /**
  * BE STEM READY Quiz Studio — reusable six-level question bank engine.
@@ -125,6 +132,13 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [barometricSensorBank.projectId]: barometricSensorBank,
   [altimeterBank.projectId]: altimeterBank,
   [remoteControlLiftBank.projectId]: remoteControlLiftBank,
+  [dancingRobotBank.projectId]: dancingRobotBank,
+  [fingerGuessingRobotBank.projectId]: fingerGuessingRobotBank,
+  [gestureCommandingCarBank.projectId]: gestureCommandingCarBank,
+  [highTemperatureAlarmBank.projectId]: highTemperatureAlarmBank,
+  [matadorBank.projectId]: matadorBank,
+  [smartFlashlightBank.projectId]: smartFlashlightBank,
+  [interestingRotorBank.projectId]: interestingRotorBank,
   [clockBank.projectId]: clockBank,
   [fanRobotBank.projectId]: fanRobotBank,
   [followingRobotBank.projectId]: followingRobotBank,
