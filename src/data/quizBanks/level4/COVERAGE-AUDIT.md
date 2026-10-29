@@ -27,7 +27,7 @@ These are separate project IDs where similarly named lessons occur, including `l
 
 ## Verification status and release QA
 
-**Completed:** PDF acquisition and machine text extraction for the 21 previously missing lessons, authored question content, GitHub commits, registry imports, bank-by-bank structural validation for newly authored questions, correct source-path references, registered PDF page count agreement, and code-level quiz availability.
+**Completed:** PDF acquisition and machine text extraction for the 21 previously missing lessons, authored question content, GitHub commits, registry imports, bank-by-bank structural validation for newly authored questions, correct source-path references, registered PDF page count agreement, and code-level quiz availability. In a Vercel isolated sandbox, all **21 newly authored bank modules passed TypeScript 5.8.3 strict, noEmit compilation** against the QuizBank type interface (exit code 0). This is a targeted module typecheck, not an application-wide build.
 
 **Not verified as passed:** GitHub Actions `npm ci`, TypeScript compiler, production build, automated PDF.js test suite, interactive browser and mobile click-through. Previous [GitHub Actions run 40833355464](https://github.com/Arrjack8847/learn-build-robot/actions/runs/40833355464) failed without running executable steps, including after a retry. This does not establish a code failure or test success. The configured CI remains in place for later execution.
 
