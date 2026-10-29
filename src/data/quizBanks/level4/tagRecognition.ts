@@ -28,12 +28,12 @@ export const tagRecognitionBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "What can a personal QR code be used as in the lesson?",
       "choices": [
+        "A motor gear",
         "A wheel axle",
         "An exclusive ID",
-        "A temperature probe",
-        "A motor gear"
+        "A temperature probe"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "Slide 4 says a generated code can serve as an exclusive ID or payment password.",
       "hint": "Think of a code that identifies one user."
     },
@@ -43,12 +43,12 @@ export const tagRecognitionBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Which module recognizes the tag code?",
       "choices": [
-        "Touch switch",
-        "AI audio-visual module",
         "DC motor",
-        "Color light"
+        "Color light",
+        "Touch switch",
+        "AI audio-visual module"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Slide 6 names the AI audio-visual module as the tag-code reader.",
       "hint": "Remember the component with the camera in this lesson."
     },
@@ -58,12 +58,12 @@ export const tagRecognitionBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "What does the recognition module send to the controller when it reads a tag?",
       "choices": [
+        "The gate's color",
         "The tag's corresponding value",
         "The room temperature",
-        "The motor's weight",
-        "The gate's color"
+        "The motor's weight"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 6 explains that the module returns the recognized tag value.",
       "hint": "Think about the information the controller needs to identify the code."
     },
@@ -73,12 +73,12 @@ export const tagRecognitionBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "Which mode should the AI audio-visual module use for this project?",
       "choices": [
-        "Face drawing mode",
         "Voice volume mode",
         "Tag code recognition mode",
-        "Wheel-speed mode"
+        "Wheel-speed mode",
+        "Face drawing mode"
       ],
-      "correctIndex": 2,
+      "correctIndex": 1,
       "explanation": "Slide 7 instructs students to select tag code recognition mode.",
       "hint": "Think about what the camera is supposed to recognize."
     },
@@ -133,12 +133,12 @@ export const tagRecognitionBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "What does the robot save from the first tag it recognizes?",
       "choices": [
-        "The camera brightness",
-        "The tag ID as its password",
         "The motor speed as its password",
-        "The gate height"
+        "The gate height",
+        "The camera brightness",
+        "The tag ID as its password"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Slide 12 stores the detected tag ID in a password variable.",
       "hint": "Think about what the robot will compare later."
     },
@@ -148,12 +148,12 @@ export const tagRecognitionBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "In this lesson's program, what happens when a scanned tag matches the saved password?",
       "choices": [
+        "The robot forgets the password",
         "The robot moves backward",
         "The robot makes a phone call",
-        "The robot turns on a light only",
-        "The robot forgets the password"
+        "The robot turns on a light only"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 14 directs the gatekeeper to move backward for one second when passwords match.",
       "hint": "Remember the movement assigned to an accepted tag."
     }
