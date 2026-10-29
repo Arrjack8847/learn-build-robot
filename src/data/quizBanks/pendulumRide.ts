@@ -23,11 +23,7 @@ export const pendulumRideBank: QuizBank = {
       ],
       "correctIndex": 1,
       "hint": "Recall the setting introduced in the lesson.",
-      "explanation": "The introduction describes a pendulum/Frisbee ride in amusement parks.",
-      "image": {
-        "src": "/quiz-visuals/level1/pendulum-ride.svg",
-        "alt": "Amusement ride seat swinging along a large curved arc."
-      }
+      "explanation": "The introduction describes a pendulum/Frisbee ride in amusement parks."
     },
     {
       "id": "pendulum-ride-02",
@@ -42,11 +38,7 @@ export const pendulumRideBank: QuizBank = {
       ],
       "correctIndex": 2,
       "hint": "Think about the main motion of a pendulum.",
-      "explanation": "The exploration states that the ride swings again and again.",
-      "image": {
-        "src": "/quiz-visuals/level1/pendulum-ride.svg",
-        "alt": "Amusement ride seat swinging along a large curved arc."
-      }
+      "explanation": "The exploration states that the ride swings again and again."
     },
     {
       "id": "pendulum-ride-03",
@@ -151,7 +143,11 @@ export const pendulumRideBank: QuizBank = {
       ],
       "correctIndex": 1,
       "hint": "Think about performing the same movement repeatedly.",
-      "explanation": "Task 2 adds a loop so the pendulum swings endlessly."
+      "explanation": "Task 2 adds a loop so the pendulum swings endlessly.",
+      "image": {
+        "src": "/quiz-visuals/level1/pendulum-ride.svg",
+        "alt": "Amusement ride seat swinging along a large curved arc."
+      }
     },
     {
       "id": "pendulum-ride-10",
@@ -166,7 +162,11 @@ export const pendulumRideBank: QuizBank = {
       ],
       "correctIndex": 2,
       "hint": "Consider how to modify the size of the swinging motion.",
-      "explanation": "The challenge requests a smaller swing angle."
+      "explanation": "The challenge requests a smaller swing angle.",
+      "image": {
+        "src": "/quiz-visuals/level1/pendulum-ride.svg",
+        "alt": "Amusement ride seat swinging along a large curved arc."
+      }
     }
   ]
 };
