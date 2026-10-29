@@ -31,12 +31,12 @@ export const handCrankingFanBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "Why does the lesson introduce a hand-operated fan?",
       "choices": [
-        "To provide cooling without an electric supply",
         "To measure sound",
         "To check battery charge",
-        "To show the weather on a screen"
+        "To show the weather on a screen",
+        "To provide cooling without an electric supply"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Remember the problem in the example about cooling down.",
       "explanation": "The introductory example describes a child in an area without electricity who still needs cooling."
     },
@@ -46,12 +46,12 @@ export const handCrankingFanBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Which kind of mechanical part is the main focus of this lesson?",
       "choices": [
-        "Gears",
         "Magnets",
         "Water sensors",
-        "Lenses"
+        "Lenses",
+        "Gears"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "They are toothed parts that can work together.",
       "explanation": "The learning objectives repeatedly focus on gear characteristics, types and roles."
     },
@@ -61,12 +61,12 @@ export const handCrankingFanBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "What should students learn about the gears used in machines?",
       "choices": [
-        "Their types and characteristics",
-        "The names of all animals",
         "How to paint a window",
-        "The weather forecast"
+        "The weather forecast",
+        "Their types and characteristics",
+        "The names of all animals"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Think about why two gears might not be exactly the same.",
       "explanation": "The lesson explicitly lists understanding the types and characteristics of gears."
     },
@@ -76,12 +76,12 @@ export const handCrankingFanBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "What is the purpose of studying gears in the hand-cranking fan?",
       "choices": [
-        "Understanding mechanical transmission",
-        "Finding GPS coordinates",
         "Playing recorded voices",
-        "Detecting light levels"
+        "Detecting light levels",
+        "Understanding mechanical transmission",
+        "Finding GPS coordinates"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Think about how turning one part makes another part move.",
       "explanation": "The lesson introduces the use of gears in mechanical transmission."
     },
@@ -91,12 +91,12 @@ export const handCrankingFanBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "Which principle should students discuss when presenting the fan?",
       "choices": [
+        "Battery charging",
         "Gear transmission",
         "Air-pressure sensing",
-        "Image recognition",
-        "Battery charging"
+        "Image recognition"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The presentation instructions name the motion-transfer principle.",
       "explanation": "The assessment and display section names transmission as the main principle."
     },
@@ -106,12 +106,12 @@ export const handCrankingFanBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "What structure does the teacher explain while students build the fan?",
       "choices": [
+        "A hydraulic water line",
         "The gearing structure",
         "An infrared sensor circuit",
-        "A camera lens",
-        "A hydraulic water line"
+        "A camera lens"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Look for the moving parts taught during the hands-on activity.",
       "explanation": "The lesson calls for an explanation of the fan's gearing structure."
     },
@@ -151,12 +151,12 @@ export const handCrankingFanBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Why should a builder follow the correct order of steps?",
       "choices": [
-        "To assemble the fan as intended",
         "To make the computer louder",
         "To change the PDF's title",
-        "To turn a wheel into a lamp"
+        "To turn a wheel into a lamp",
+        "To assemble the fan as intended"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The lesson names building sequence as an important difficulty.",
       "explanation": "Correct building sequence is explicitly stated as a key point of the hand-cranking fan lesson."
     }

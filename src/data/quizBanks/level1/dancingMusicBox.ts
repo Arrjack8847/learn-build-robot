@@ -31,12 +31,12 @@ export const dancingMusicBoxBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "What should a builder think about before making the music box?",
       "choices": [
-        "How its moving parts will rotate",
         "Which mountain it will climb",
         "How many sensors detect rain",
-        "How to make it swim"
+        "How to make it swim",
+        "How its moving parts will rotate"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about the movement you want the finished model to show.",
       "explanation": "The design discussion asks how the music box works and what makes it rotate."
     },
@@ -46,12 +46,12 @@ export const dancingMusicBoxBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Which mechanism is one of the main topics in the dancing music box lesson?",
       "choices": [
-        "Link mechanism",
         "Water pump",
         "Infrared scanner",
-        "Solar cell"
+        "Solar cell",
+        "Link mechanism"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The lesson discusses parts that connect to make movement.",
       "explanation": "The teaching objectives explicitly include learning about a linkage mechanism."
     },
@@ -61,12 +61,12 @@ export const dancingMusicBoxBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "What should you check when putting the links together?",
       "choices": [
-        "Their intended spacing and building order",
-        "The colour of the classroom walls",
         "The sound from the computer",
-        "The size of the paper cover"
+        "The size of the paper cover",
+        "Their intended spacing and building order",
+        "The colour of the classroom walls"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The building guidance mentions distance and sequence.",
       "explanation": "The lesson stresses the links' fixed distance and correct building sequence."
     },
@@ -76,12 +76,12 @@ export const dancingMusicBoxBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Which mechanism is taught alongside linkage?",
       "choices": [
-        "Gear transmission",
-        "Water filtering",
         "Digital photography",
-        "Magnet reading"
+        "Magnet reading",
+        "Gear transmission",
+        "Water filtering"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Think about toothed parts passing turning motion.",
       "explanation": "Gear transmission is named as a core teaching objective for this model."
     },
@@ -91,12 +91,12 @@ export const dancingMusicBoxBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "Which structure should you be able to explain after building the dancing music box?",
       "choices": [
+        "A wind direction flag",
         "Its gearing structure",
         "A bicycle brake cable",
-        "A thermometer scale",
-        "A wind direction flag"
+        "A thermometer scale"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Recall the mechanism the teacher explains during hands-on work.",
       "explanation": "The hands-on section explicitly asks the teacher to explain the music box's gearing structure."
     },
@@ -106,12 +106,12 @@ export const dancingMusicBoxBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "Which setting can you change to make the music box move faster or slower?",
       "choices": [
+        "Model name",
         "Motor speed value",
         "Screen brightness only",
-        "PDF page number",
-        "Model name"
+        "PDF page number"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Look for the value that controls how quickly a motor turns.",
       "explanation": "The lesson directs students to adjust the motor speed value."
     },
@@ -151,12 +151,12 @@ export const dancingMusicBoxBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "How does the lesson connect the controller to a computer for programming?",
       "choices": [
-        "With a USB cable",
         "With a fan blade",
         "With a paper hinge",
-        "With a rubber tire"
+        "With a rubber tire",
+        "With a USB cable"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about the cable used to send code.",
       "explanation": "The instructions specifically describe connecting controller and computer using USB."
     }

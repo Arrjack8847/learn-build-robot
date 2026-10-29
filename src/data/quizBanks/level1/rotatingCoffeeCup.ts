@@ -31,12 +31,12 @@ export const rotatingCoffeeCupBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "What everyday object gives the amusement-park ride its name?",
       "choices": [
-        "A cup",
         "A bicycle",
         "A drum",
-        "A bridge"
+        "A bridge",
+        "A cup"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Imagine the shape riders sit inside.",
       "explanation": "The introductory lesson points out the ride's large cup shape."
     },
@@ -46,12 +46,12 @@ export const rotatingCoffeeCupBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Which mechanical system is a main learning topic for the ride?",
       "choices": [
-        "Gear drive",
         "Sound sensor",
         "Solar charger",
-        "Paper hinge"
+        "Paper hinge",
+        "Gear drive"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about toothed parts transmitting rotation.",
       "explanation": "The teaching objectives explicitly name gear-driven motion."
     },
@@ -61,12 +61,12 @@ export const rotatingCoffeeCupBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "Which drive structure does the teacher explain after students build the model?",
       "choices": [
-        "Gear-driven structure",
-        "Camera focusing system",
         "Battery charging circuit",
-        "Cooling pipe"
+        "Cooling pipe",
+        "Gear-driven structure",
+        "Camera focusing system"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Recall the mechanism discussed during hands-on work.",
       "explanation": "The teacher guidance calls for explaining the gear-driven structure."
     },
@@ -76,12 +76,12 @@ export const rotatingCoffeeCupBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Which other mechanism is included alongside gears in the teaching objectives?",
       "choices": [
-        "Linkage",
-        "Water filter",
         "Computer keyboard",
-        "GPS aerial"
+        "GPS aerial",
+        "Linkage",
+        "Water filter"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "It involves connected mechanical parts.",
       "explanation": "The lesson explicitly includes the application and learning of linkage."
     },
@@ -91,12 +91,12 @@ export const rotatingCoffeeCupBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "What moving-part principle does the lesson ask students about when reviewing the model?",
       "choices": [
+        "A musical note",
         "A linkage",
         "A thermometer",
-        "A light sensor",
-        "A musical note"
+        "A light sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The end-of-lesson question asks how the cup is made to move.",
       "explanation": "The display section asks whether the cup's motion is produced through a linkage."
     },
@@ -106,12 +106,12 @@ export const rotatingCoffeeCupBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "Which program setting can change how quickly the cup turns?",
       "choices": [
+        "File name",
         "Motor speed value",
         "Project title",
-        "Screen background colour",
-        "File name"
+        "Screen background colour"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Look for the number that sets the motor's movement.",
       "explanation": "The lesson says to adjust the speed by debugging the motor speed value."
     },
@@ -151,12 +151,12 @@ export const rotatingCoffeeCupBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "How does the lesson connect the robot controller for computer programming?",
       "choices": [
-        "USB cable",
         "A gear tooth",
         "A fan blade",
-        "A rubber tyre"
+        "A rubber tyre",
+        "USB cable"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Look for the physical connection used before programming.",
       "explanation": "The hands-on instructions describe connecting controller and computer via USB."
     }

@@ -31,12 +31,12 @@ export const pullbackBicycleBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "Which familiar toy is used as a clue for this project?",
       "choices": [
-        "A pullback toy vehicle",
         "A toy telescope",
         "A toy piano",
-        "A puzzle cube"
+        "A puzzle cube",
+        "A pullback toy vehicle"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Recall the example of toys that move after you pull them back.",
       "explanation": "The topic introduction asks students about pullback toy vehicles."
     },
@@ -46,12 +46,12 @@ export const pullbackBicycleBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Which material provides the elastic force studied in this project?",
       "choices": [
-        "Rubber band",
         "Glass sheet",
         "Paper label",
-        "Metal speaker"
+        "Metal speaker",
+        "Rubber band"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think of a material that stretches and springs back.",
       "explanation": "The teaching objectives specifically name the elastic force of a rubber band."
     },
@@ -61,12 +61,12 @@ export const pullbackBicycleBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "Which physical idea helps explain why the model can move after being pulled back?",
       "choices": [
-        "Elastic force",
-        "Colour mixing",
         "Sound reflection",
-        "Magnetic north"
+        "Magnetic north",
+        "Elastic force",
+        "Colour mixing"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Think about what happens to a stretched band when it is released.",
       "explanation": "The lesson explains the bicycle's movement using a rubber band's elastic force."
     },
@@ -76,12 +76,12 @@ export const pullbackBicycleBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Which mechanism works with the rubber band in this model?",
       "choices": [
-        "Gear drive",
-        "Light sensor",
         "Fan belt from an air conditioner",
-        "Digital screen"
+        "Digital screen",
+        "Gear drive",
+        "Light sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Think about the toothed components that pass motion.",
       "explanation": "The lesson lists gear-driven motion as a teaching objective."
     },
@@ -91,12 +91,12 @@ export const pullbackBicycleBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "What two ideas are used together to make the pullback bicycle move?",
       "choices": [
+        "Water flow and an LED",
         "Rubber-band elasticity and gear drive",
         "Sunlight and a camera",
-        "Air pressure and a microphone",
-        "Water flow and an LED"
+        "Air pressure and a microphone"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "One provides elastic force; the other transfers motion.",
       "explanation": "The review explicitly names the rubber band's elastic force together with gear drive."
     },
@@ -106,12 +106,12 @@ export const pullbackBicycleBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "What small joining parts are called out in the assembly difficulties?",
       "choices": [
+        "Camera cards",
         "Pins",
         "Paper clips for books",
-        "Headphones",
-        "Camera cards"
+        "Headphones"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about the pieces that connect beams in a model.",
       "explanation": "The lesson stresses the connection of pins during the bicycle's assembly."
     },
@@ -151,12 +151,12 @@ export const pullbackBicycleBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "What is the best explanation of how the completed pullback bicycle works?",
       "choices": [
-        "The rubber band supplies elastic force and gears transmit motion",
         "The wheels move only because of a camera",
         "A bright light makes it travel",
-        "The computer screen pushes it forward"
+        "The computer screen pushes it forward",
+        "The rubber band supplies elastic force and gears transmit motion"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Combine the two mechanisms named in the lesson summary.",
       "explanation": "The outcome instructions ask students to explain the rubber band's elastic force and the gear drive together."
     }

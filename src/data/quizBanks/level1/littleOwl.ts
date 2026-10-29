@@ -31,12 +31,12 @@ export const littleOwlBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "What does the story say the owl usually does in the daytime?",
       "choices": [
-        "Sleeps",
         "Sails",
         "Drives a car",
-        "Draws a picture"
+        "Draws a picture",
+        "Sleeps"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about the opposite of its nighttime activity.",
       "explanation": "The story contrasts hunting at night with sleeping during the day."
     },
@@ -46,12 +46,12 @@ export const littleOwlBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "What moving part should students plan when designing their owl robot?",
       "choices": [
-        "Its wings",
         "A boat sail",
         "A clock hand",
-        "A car windshield"
+        "A car windshield",
+        "Its wings"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about what moves on a bird.",
       "explanation": "The design questions ask how to make the owl's wings swing."
     },
@@ -61,12 +61,12 @@ export const littleOwlBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "What should you decide before building the owl?",
       "choices": [
-        "Which pieces can make its shape",
-        "How to program a traffic light",
         "How to make a paper boat float",
-        "How many pages to print"
+        "How many pages to print",
+        "Which pieces can make its shape",
+        "How to program a traffic light"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Think about choosing building components to match a design.",
       "explanation": "The planning section asks which pieces can be used to build an owl."
     },
@@ -76,12 +76,12 @@ export const littleOwlBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Which mechanical connection is listed as a building challenge for the owl?",
       "choices": [
-        "Linkage connection",
-        "A USB charging adapter",
         "An LCD image file",
-        "A thermometer sensor"
+        "A thermometer sensor",
+        "Linkage connection",
+        "A USB charging adapter"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Look for a connection between moving mechanical parts.",
       "explanation": "The lesson's key points explicitly include connecting a linkage."
     },
@@ -91,12 +91,12 @@ export const littleOwlBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "What mechanism does the lesson ask about when explaining moving owl wings?",
       "choices": [
+        "Wireless charging",
         "Linkage",
         "Barcode scanning",
-        "Water filtration",
-        "Wireless charging"
+        "Water filtration"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "It uses connected moving parts rather than a stationary decoration.",
       "explanation": "The lesson review asks whether the moving owl wings use a linkage."
     },
@@ -106,12 +106,12 @@ export const littleOwlBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "Which structure is explained in the owl's hands-on lesson?",
       "choices": [
+        "A sound recording system",
         "Gearing structure",
         "A light-sensitive curtain",
-        "A camera circuit",
-        "A sound recording system"
+        "A camera circuit"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about how motion can be transmitted between turning parts.",
       "explanation": "The hands-on notes explicitly ask teachers to explain the gearing structure."
     },
@@ -151,12 +151,12 @@ export const littleOwlBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "After building the owl, what should you be able to explain?",
       "choices": [
-        "How its wings are made to swing",
         "How to take a photograph",
         "How to connect a weather station",
-        "How to type an email"
+        "How to type an email",
+        "How its wings are made to swing"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Recall the question in the presentation section.",
       "explanation": "Students are asked to explain how linkage and the drive make the owl wings swing."
     }
