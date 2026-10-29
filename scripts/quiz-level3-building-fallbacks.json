@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "projectId": "level-3-lifting-maintenance-vehicle",
+      "level": 3,
+      "sourcePath": "public/Lifting Maintenance Vehicle.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_62b3ca692f6f47b79433f9e2b43b1106.pdf",
+      "source": "registered Building-PDF Learning fallback",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-biting-monster",
+      "level": 3,
+      "sourcePath": "public/Biting Monster.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_65ab7f6608544c17a9dde9da09af12c8.pdf",
+      "source": "registered Building-PDF Learning fallback",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-electric-gyro-launcher",
+      "level": 3,
+      "sourcePath": "public/Electric Gyro Launcher.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9f299f0c26c74943a8d90f30edb11246.pdf",
+      "source": "registered Building-PDF Learning fallback",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-responder",
+      "level": 3,
+      "sourcePath": "public/Responder.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f39cdbb5cfb34248a850cdd356c1156f.pdf",
+      "source": "registered Building-PDF Learning fallback",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-lunar-rover",
+      "level": 3,
+      "sourcePath": "public/Lunar Rover.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_cae5df8160384c7098f08542d288b12d.pdf",
+      "source": "registered Building-PDF Learning fallback",
+      "reviewed": false
+    }
+  ]
+}

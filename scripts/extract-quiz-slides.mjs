@@ -9,14 +9,18 @@
  *   node scripts/extract-quiz-slides.mjs --level 3 --limit 5
  *   node scripts/extract-quiz-slides.mjs --all --limit 20
  *   node scripts/extract-quiz-slides.mjs --project acceleration-car --local-only
+ *   node scripts/extract-quiz-slides.mjs --level 3 --limit 51 --skip-existing
+ *   // Includes 46 dedicated Learning PDFs and five original Building-PDF fallbacks.
  */
-import { readFile, mkdir, writeFile } from "node:fs/promises";
-import { resolve, dirname, join } from "node:path";
+import { readFile, mkdir, writeFile, access } from "node:fs/promises";
+import { resolve, join } from "node:path";
 import { getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
 
 const root = resolve(import.meta.dirname, "..");
 const manifestFile = join(root, "scripts", "quiz-learning-source-manifest.json");
 const manifest = JSON.parse(await readFile(manifestFile, "utf8"));
+const fallbackFile = join(root, "scripts", "quiz-level3-building-fallbacks.json");
+const level3Fallbacks = JSON.parse(await readFile(fallbackFile, "utf8")).sources;
 const args = process.argv.slice(2);
 const valueAfter = flag => {
   const index = args.indexOf(flag);
@@ -27,6 +31,7 @@ const projectId = valueAfter("--project");
 const levelArg = valueAfter("--level");
 const limitArg = valueAfter("--limit");
 const all = args.includes("--all");
+const skipExisting = args.includes("--skip-existing");
 const localOnly = args.includes("--local-only");
 if (!projectId && !levelArg && !all) {
   console.error("Select --project <id>, --level <1-6>, or --all. Try --limit 5 for a sample.");
@@ -40,7 +45,9 @@ if (levelArg !== undefined && (!Number.isInteger(level) || level < 1 || level > 
 const limit = limitArg === undefined ? (all || level !== null ? 5 : Infinity) : Number(limitArg);
 if (Number.isNaN(limit) || limit < 1 || !Number.isInteger(limit)) throw new Error("--limit must be a positive integer");
 
-let entries = manifest.sources;
+// Level 3 Building-manual Learning fallbacks are legitimate source documents.
+// Include them in extraction instead of waiting for separate lecture uploads.
+let entries = [...manifest.sources, ...level3Fallbacks];
 if (projectId) entries = entries.filter(entry => entry.projectId === projectId);
 if (level !== null) entries = entries.filter(entry => entry.level === level);
 if (!entries.length) throw new Error("No source registered for the selected project or level");
@@ -51,7 +58,16 @@ await mkdir(target, { recursive: true });
 const results = [];
 
 for (const entry of entries) {
-  console.log("Reviewing source:", "Level " + entry.level, entry.projectId);
+  const dest = join(target, entry.projectId + ".json");
+  if (skipExisting) {
+    try {
+      await access(dest);
+      console.log("Keeping existing extraction:", entry.projectId);
+      results.push({ id: entry.projectId, status: "skipped-existing" });
+      continue;
+    } catch { /* Extract if missing. */ }
+  }
+  console.log("Extracting source:", "Level " + entry.level, entry.projectId);
   let pdf = null;
   try {
     let bytes;
@@ -94,9 +110,9 @@ for (const entry of entries) {
       pageCount: pdf.numPages,
       slides: pages,
       reviewed: false,
+      sourceRole: entry.source ?? "registered Learning PDF",
       note: "Extracted text is evidence for authoring, not proof that a quiz item is correct. Inspect images, diagrams and ambiguous translated text before publication.",
     };
-    const dest = join(target, entry.projectId + ".json");
     await writeFile(dest, JSON.stringify(report, null, 2) + "\n", "utf8");
     const warningCount = pages.filter(page => page.needsVisualReview).length;
     console.log("  Wrote:", dest, "(" + pages.length + " slides,", warningCount + " pages needing visual review)");

@@ -15,6 +15,55 @@ import { followingRobotBank } from "./quizBanks/followingRobot.ts";
 import { timidMouseBank } from "./quizBanks/timidMouse.ts";
 import { autonomousDrivingBank } from "./quizBanks/autonomousDriving.ts";
 import { ballTrackingBank } from "./quizBanks/ballTracking.ts";
+import { automaticSeesawBank } from "./quizBanks/level3/automaticSeesaw.ts";
+import { bumperCarInteractiveMechanismsBank } from "./quizBanks/level3/bumperCarInteractiveMechanisms.ts";
+import { electricGuitarBank } from "./quizBanks/level3/electricGuitar.ts";
+import { f1RacingCarBank } from "./quizBanks/level3/f1RacingCar.ts";
+import { linePatrolCarBank } from "./quizBanks/level3/linePatrolCar.ts";
+import { obstacleAvoidanceRobot1Bank } from "./quizBanks/level3/obstacleAvoidanceRobot1.ts";
+import { parkingGateBank } from "./quizBanks/level3/parkingGate.ts";
+import { securityDoorBank } from "./quizBanks/level3/securityDoor.ts";
+import { smartAudioBank } from "./quizBanks/level3/smartAudio.ts";
+import { smartDoorBank } from "./quizBanks/level3/smartDoor.ts";
+import { sonometerBank } from "./quizBanks/level3/sonometer.ts";
+import { sunflowerBank } from "./quizBanks/level3/sunflower.ts";
+import { superTrajectoryRobot1Bank } from "./quizBanks/level3/superTrajectoryRobot1.ts";
+import { cycleSportBasicBank } from "./quizBanks/level3/cycleSportBasic.ts";
+import { cycleSportOptimizedBank } from "./quizBanks/level3/cycleSportOptimized.ts";
+import { raceWalkingBasicBank } from "./quizBanks/level3/raceWalkingBasic.ts";
+import { raceWalkingOptimizedBank } from "./quizBanks/level3/raceWalkingOptimized.ts";
+import { raceWalkingOptimizedRatchetBank } from "./quizBanks/level3/raceWalkingOptimizedRatchet.ts";
+import { antiFallRobotBank } from "./quizBanks/level3/antiFallRobot.ts";
+import { automatedGuidedVehicleBank } from "./quizBanks/level3/automatedGuidedVehicle.ts";
+import { automaticDoorBank } from "./quizBanks/level3/automaticDoor.ts";
+import { bloodBankCentrifugeBank } from "./quizBanks/level3/bloodBankCentrifuge.ts";
+import { bumperCarFoundationalBank } from "./quizBanks/level3/bumperCarFoundational.ts";
+import { disinfectionLampBank } from "./quizBanks/level3/disinfectionLamp.ts";
+import { drawbridgeBank } from "./quizBanks/level3/drawbridge.ts";
+import { electricBulldozerBank } from "./quizBanks/level3/electricBulldozer.ts";
+import { electricFanCharactersBank } from "./quizBanks/level3/electricFanCharacters.ts";
+import { electricFanMechanismsBank } from "./quizBanks/level3/electricFanMechanisms.ts";
+import { electronicScaleBank } from "./quizBanks/level3/electronicScale.ts";
+import { fireLadderBank } from "./quizBanks/level3/fireLadder.ts";
+import { flashlightSensorBank } from "./quizBanks/level3/flashlightSensor.ts";
+import { gyroTransmitterBank } from "./quizBanks/level3/gyroTransmitter.ts";
+import { juicerMachineBank } from "./quizBanks/level3/juicerMachine.ts";
+import { lightSensitiveCurtainsBank } from "./quizBanks/level3/lightSensitiveCurtains.ts";
+import { longLivedTurtleBank } from "./quizBanks/level3/longLivedTurtle.ts";
+import { moneyDetectorBank } from "./quizBanks/level3/moneyDetector.ts";
+import { musicBoxBank } from "./quizBanks/level3/musicBox.ts";
+import { musicDoorbellBank } from "./quizBanks/level3/musicDoorbell.ts";
+import { safeBank } from "./quizBanks/level3/safe.ts";
+import { signBank } from "./quizBanks/level3/sign.ts";
+import { smartTrashBinBank } from "./quizBanks/level3/smartTrashBin.ts";
+import { soundLevelMeterBank } from "./quizBanks/level3/soundLevelMeter.ts";
+import { stagBeetleBank } from "./quizBanks/level3/stagBeetle.ts";
+import { washingMachineBank } from "./quizBanks/level3/washingMachine.ts";
+import { liftingMaintenanceVehicleBank } from "./quizBanks/level3/liftingMaintenanceVehicle.ts";
+import { bitingMonsterBank } from "./quizBanks/level3/bitingMonster.ts";
+import { electricGyroLauncherBank } from "./quizBanks/level3/electricGyroLauncher.ts";
+import { responderBank } from "./quizBanks/level3/responder.ts";
+import { lunarRoverBank } from "./quizBanks/level3/lunarRover.ts";
 
 export type GearDiagram = "large-to-small" | "small-to-large";
 /** Each project defines five distinct objective IDs; the engine is not gear-specific. */
@@ -129,6 +178,55 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [timidMouseBank.projectId]: timidMouseBank,
   [autonomousDrivingBank.projectId]: autonomousDrivingBank,
   [ballTrackingBank.projectId]: ballTrackingBank,
+  [automaticSeesawBank.projectId]: automaticSeesawBank,
+  [bumperCarInteractiveMechanismsBank.projectId]: bumperCarInteractiveMechanismsBank,
+  [electricGuitarBank.projectId]: electricGuitarBank,
+  [f1RacingCarBank.projectId]: f1RacingCarBank,
+  [linePatrolCarBank.projectId]: linePatrolCarBank,
+  [obstacleAvoidanceRobot1Bank.projectId]: obstacleAvoidanceRobot1Bank,
+  [parkingGateBank.projectId]: parkingGateBank,
+  [securityDoorBank.projectId]: securityDoorBank,
+  [smartAudioBank.projectId]: smartAudioBank,
+  [smartDoorBank.projectId]: smartDoorBank,
+  [sonometerBank.projectId]: sonometerBank,
+  [sunflowerBank.projectId]: sunflowerBank,
+  [superTrajectoryRobot1Bank.projectId]: superTrajectoryRobot1Bank,
+  [cycleSportBasicBank.projectId]: cycleSportBasicBank,
+  [cycleSportOptimizedBank.projectId]: cycleSportOptimizedBank,
+  [raceWalkingBasicBank.projectId]: raceWalkingBasicBank,
+  [raceWalkingOptimizedBank.projectId]: raceWalkingOptimizedBank,
+  [raceWalkingOptimizedRatchetBank.projectId]: raceWalkingOptimizedRatchetBank,
+  [antiFallRobotBank.projectId]: antiFallRobotBank,
+  [automatedGuidedVehicleBank.projectId]: automatedGuidedVehicleBank,
+  [automaticDoorBank.projectId]: automaticDoorBank,
+  [bloodBankCentrifugeBank.projectId]: bloodBankCentrifugeBank,
+  [bumperCarFoundationalBank.projectId]: bumperCarFoundationalBank,
+  [disinfectionLampBank.projectId]: disinfectionLampBank,
+  [drawbridgeBank.projectId]: drawbridgeBank,
+  [electricBulldozerBank.projectId]: electricBulldozerBank,
+  [electricFanCharactersBank.projectId]: electricFanCharactersBank,
+  [electricFanMechanismsBank.projectId]: electricFanMechanismsBank,
+  [electronicScaleBank.projectId]: electronicScaleBank,
+  [fireLadderBank.projectId]: fireLadderBank,
+  [flashlightSensorBank.projectId]: flashlightSensorBank,
+  [gyroTransmitterBank.projectId]: gyroTransmitterBank,
+  [juicerMachineBank.projectId]: juicerMachineBank,
+  [lightSensitiveCurtainsBank.projectId]: lightSensitiveCurtainsBank,
+  [longLivedTurtleBank.projectId]: longLivedTurtleBank,
+  [moneyDetectorBank.projectId]: moneyDetectorBank,
+  [musicBoxBank.projectId]: musicBoxBank,
+  [musicDoorbellBank.projectId]: musicDoorbellBank,
+  [safeBank.projectId]: safeBank,
+  [signBank.projectId]: signBank,
+  [smartTrashBinBank.projectId]: smartTrashBinBank,
+  [soundLevelMeterBank.projectId]: soundLevelMeterBank,
+  [stagBeetleBank.projectId]: stagBeetleBank,
+  [washingMachineBank.projectId]: washingMachineBank,
+  [liftingMaintenanceVehicleBank.projectId]: liftingMaintenanceVehicleBank,
+  [bitingMonsterBank.projectId]: bitingMonsterBank,
+  [electricGyroLauncherBank.projectId]: electricGyroLauncherBank,
+  [responderBank.projectId]: responderBank,
+  [lunarRoverBank.projectId]: lunarRoverBank,
   "acceleration-car": {
     projectId: "acceleration-car",
     title: "Acceleration Car",

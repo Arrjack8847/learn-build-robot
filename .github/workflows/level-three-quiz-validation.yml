@@ -1,0 +1,38 @@
+name: Level 3 Quiz Validation (no deployment)
+
+on:
+  push:
+    branches:
+      - feat/quiz-level3-content
+  pull_request:
+    paths:
+      - 'src/data/quizBanks/level3/**'
+      - 'src/data/quizStudio.ts'
+      - 'tests/level-three-quiz-coverage.test.mjs'
+      - '.github/workflows/level-three-quiz-validation.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Level 3 banks, TypeScript, lint and Vite
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Verify registered PDFs and all published Level 3 quiz banks
+        run: node --test tests/level-three-quiz-coverage.test.mjs tests/quiz-studio.test.mjs
+      - name: Existing UI and curriculum tests
+        run: npm run test:ui
+      - name: TypeScript
+        run: npx tsc --noEmit
+      - name: ESLint
+        run: npm run lint
+      - name: Vite production build (no deployment)
+        run: npm run build
