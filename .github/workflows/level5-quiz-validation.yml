@@ -4,7 +4,9 @@ on:
     paths:
       - 'src/data/quizStudio.ts'
       - 'src/data/quizBanks/level5/**'
+      - 'public/Level 5/Learning/**'
       - 'tests/quiz-level5.test.mjs'
+      - 'tests/quiz-studio.test.mjs'
       - 'scripts/extract-quiz-slides.mjs'
       - 'scripts/quiz-learning-source-manifest.json'
       - '.github/workflows/level5-quiz-validation.yml'
