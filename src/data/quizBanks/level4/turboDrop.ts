@@ -13,12 +13,12 @@ export const turboDropBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "What does the Turbo Drop ride do before falling?",
       "choices": [
-        "Lifts riders up and waits",
         "Moves along a road",
         "Spins like a wheel only",
-        "Goes under water"
+        "Goes under water",
+        "Lifts riders up and waits"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 5 describes lifting passengers and waiting before the vertical drop.",
       "hint": "Think about how the ride builds excitement."
     },
@@ -28,12 +28,12 @@ export const turboDropBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "What happens to the cabin before it reaches the ground?",
       "choices": [
+        "It turns into a boat",
         "It stops safely",
         "It keeps falling through the ground",
-        "It becomes a car",
-        "It turns into a boat"
+        "It becomes a car"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 5 says the seat cabin stops before landing.",
       "hint": "Think about what is needed to finish the ride."
     },
@@ -43,12 +43,12 @@ export const turboDropBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "What force makes an object fall in the lesson's free-fall model?",
       "choices": [
-        "Gravity",
-        "Magnetism only",
         "Sound",
-        "Friction only"
+        "Friction only",
+        "Gravity",
+        "Magnetism only"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 8 defines free fall as motion under gravity without resistance.",
       "hint": "Think about what pulls objects toward Earth."
     },
@@ -103,12 +103,12 @@ export const turboDropBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "What happens to lifting time when the motor's lifting speed becomes faster?",
       "choices": [
+        "The cabin cannot move",
         "It becomes shorter",
         "It always becomes longer",
-        "It is not affected at all",
-        "The cabin cannot move"
+        "It is not affected at all"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 16 relates higher lifting speed to shorter lifting time.",
       "hint": "Think about covering the same height more quickly."
     },
@@ -118,12 +118,12 @@ export const turboDropBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "Why should the Turbo Drop not lift at excessive speed?",
       "choices": [
-        "The rope could break",
         "The color sensor changes color",
         "The screen gets too bright",
-        "The motor reads a QR code"
+        "The motor reads a QR code",
+        "The rope could break"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 16 warns that excessive speed may break the rope.",
       "hint": "Think about a mechanical part carrying the cabin."
     },
@@ -133,12 +133,12 @@ export const turboDropBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "Why does the program choose a random waiting time before dropping?",
       "choices": [
-        "To make the ride less predictable",
-        "To stop sensing colors forever",
         "To measure the weather",
-        "To print a ticket"
+        "To print a ticket",
+        "To make the ride less predictable",
+        "To stop sensing colors forever"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 17 randomizes the timing for excitement.",
       "hint": "Think about why an unpredictable pause is thrilling."
     },
