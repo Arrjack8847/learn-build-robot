@@ -33,6 +33,12 @@ import { cycleSportOptimizedBank } from "./quizBanks/level3/cycleSportOptimized.
 import { raceWalkingBasicBank } from "./quizBanks/level3/raceWalkingBasic.ts";
 import { raceWalkingOptimizedBank } from "./quizBanks/level3/raceWalkingOptimized.ts";
 import { raceWalkingOptimizedRatchetBank } from "./quizBanks/level3/raceWalkingOptimizedRatchet.ts";
+import { antiFallRobotBank } from "./quizBanks/level3/antiFallRobot.ts";
+import { automatedGuidedVehicleBank } from "./quizBanks/level3/automatedGuidedVehicle.ts";
+import { automaticDoorBank } from "./quizBanks/level3/automaticDoor.ts";
+import { bloodBankCentrifugeBank } from "./quizBanks/level3/bloodBankCentrifuge.ts";
+import { bumperCarFoundationalBank } from "./quizBanks/level3/bumperCarFoundational.ts";
+import { disinfectionLampBank } from "./quizBanks/level3/disinfectionLamp.ts";
 
 export type GearDiagram = "large-to-small" | "small-to-large";
 /** Each project defines five distinct objective IDs; the engine is not gear-specific. */
@@ -165,6 +171,12 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [raceWalkingBasicBank.projectId]: raceWalkingBasicBank,
   [raceWalkingOptimizedBank.projectId]: raceWalkingOptimizedBank,
   [raceWalkingOptimizedRatchetBank.projectId]: raceWalkingOptimizedRatchetBank,
+  [antiFallRobotBank.projectId]: antiFallRobotBank,
+  [automatedGuidedVehicleBank.projectId]: automatedGuidedVehicleBank,
+  [automaticDoorBank.projectId]: automaticDoorBank,
+  [bloodBankCentrifugeBank.projectId]: bloodBankCentrifugeBank,
+  [bumperCarFoundationalBank.projectId]: bumperCarFoundationalBank,
+  [disinfectionLampBank.projectId]: disinfectionLampBank,
   "acceleration-car": {
     projectId: "acceleration-car",
     title: "Acceleration Car",

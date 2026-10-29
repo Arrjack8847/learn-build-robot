@@ -8,10 +8,10 @@
 
 - **51 Level 3 registered projects**: 46 Learning-PDF entries in `scripts/quiz-learning-source-manifest.json`, plus 5 Building-PDF learning fallbacks from `src/data/levelThreeLectures.ts`.
 - **2 pre-existing Level 3 banks**, unchanged: Clip Robot and Following Robot (registered in `src/data/quizStudio.ts`).
-- **18 newly authored banks / 180 questions** in this directory, committed in two 5-project batches and one 3-project batch.
-- **26 mapped Learning-PDF projects remain without banks**.
+- **24 newly authored banks / 240 questions** in this directory, committed in two 5-project batches and one 3-project batch.
+- **20 mapped Learning-PDF projects remain without banks**.
 - **5 Building-PDF-only learning fallbacks are BLOCKED for syllabus-quiz authoring** until an educator inspects the Building manual or provides a dedicated Learning lesson.
-- **All 18 authored banks are now registered in the shared `quizStudio.ts` map**, alongside 2 pre-existing Level 3 banks, making 20 playable on the current feature branch. Unreviewed projects remain unavailable.
+- **All 24 authored banks are now registered in the shared `quizStudio.ts` map**, alongside 2 pre-existing Level 3 banks, making 26 playable on the current feature branch. Unreviewed projects remain unavailable.
 
 ## Source-slide verification for authored banks
 
@@ -39,23 +39,30 @@ PDF pages were counted from the actual GitHub PDF data and its text streams were
 | `level-3-race-walking-optimized` | `raceWalkingOptimized.ts` | 29 | 2, 4, 6, 7, 9, 10, 14, 16, 17 | 10 | 5 |
 | `level-3-race-walking-optimized-ratchet` | `raceWalkingOptimizedRatchet.ts` | 29 | 2, 4, 6, 7, 9, 10, 14, 16, 17 | 10 | 5 |
 
+| `level-3-anti-fall-robot` | `antiFallRobot.ts` | 33 | 3, 4, 6, 7, 8, 9, 10, 21, 22 | 10 | 5 |
+| `level-3-automated-guided-vehicle` | `automatedGuidedVehicle.ts` | 36 | 3, 4, 6, 22, 23, 24, 25, 26, 28, 29 | 10 | 5 |
+| `level-3-automatic-door` | `automaticDoor.ts` | 34 | 3, 4, 6, 7, 8, 9, 10, 23, 26, 27 | 10 | 5 |
+| `level-3-blood-bank-centrifuge` | `bloodBankCentrifuge.ts` | 28 | 4, 5, 6, 7, 8, 25, 27 | 10 | 5 |
+| `level-3-bumper-car-foundational-robots` | `bumperCarFoundational.ts` | 12 | 2, 3, 4, 5, 10, 11, 12 | 10 | 5 |
+| `level-3-disinfection-lamp` | `disinfectionLamp.ts` | 30 | 3, 4, 6, 20, 21, 22, 23, 24 | 10 | 5 |
+
 ## Full Level 3 project coverage
 
 Status descriptions: **pre-existing** = already present in the base quiz registry; **authored** = file committed here, awaiting shared integration; **pending** = mapped Learning PDF exists but questions remain unreviewed; **blocked-fallback** = no dedicated Learning lecture, only a Building manual.
 
 | Project ID | Status | Registered Learning source |
 |---|---|---|
-| `level-3-anti-fall-robot` | pending | `public/Level 3/Learning/Interactive Systems/Anti-fall Robot/11.Anti-fall Robot-Slides.pdf` |
-| `level-3-automated-guided-vehicle` | pending | `public/Level 3/Learning/Display & Movement/Automated Guided Vehicle/24.Automated Guided Vehicle-Slides.pdf` |
-| `level-3-automatic-door` | pending | `public/Level 3/Learning/Interactive Systems/Automatic Door/17.Automatic Door -Slides.pdf` |
+| `level-3-anti-fall-robot` | authored | `public/Level 3/Learning/Interactive Systems/Anti-fall Robot/11.Anti-fall Robot-Slides.pdf` |
+| `level-3-automated-guided-vehicle` | authored | `public/Level 3/Learning/Display & Movement/Automated Guided Vehicle/24.Automated Guided Vehicle-Slides.pdf` |
+| `level-3-automatic-door` | authored | `public/Level 3/Learning/Interactive Systems/Automatic Door/17.Automatic Door -Slides.pdf` |
 | `level-3-automatic-seesaw` | authored | `public/Level 3/Learning/Automation & Security/Automatic Seesaw/24. Automatic Seesaw.pdf` |
-| `level-3-blood-bank-centrifuge` | pending | `public/Level 3/Learning/Manipulators/Blood bank Centrifuge.pdf` |
-| `level-3-bumper-car-foundational-robots` | pending | `public/Level 3/Learning/Foundational Robots/Bumper car.pdf` |
+| `level-3-blood-bank-centrifuge` | authored | `public/Level 3/Learning/Manipulators/Blood bank Centrifuge.pdf` |
+| `level-3-bumper-car-foundational-robots` | authored | `public/Level 3/Learning/Foundational Robots/Bumper car.pdf` |
 | `level-3-bumper-car-interactive-mechanisms` | authored | `public/Level 3/Learning/Interactive Mechanisms/Bumper car/Bumper car_Powerpoint-update.pdf` |
 | `level-3-clip-robot` | pre-existing | `public/Level 3/Learning/Action-Oriented/Clip robot/Clip robot_Powerpoint.pdf` |
 | `level-3-cycle-sport-basic` | authored | `public/Level 3/Learning/Action-Oriented/Cycle Sport/3. Cycle Sport - Slides.pdf` |
 | `level-3-cycle-sport-optimized` | authored | `public/Level 3/Learning/Action-Oriented/Cycle Sport/3. Cycle Sport - Slides.pdf` |
-| `level-3-disinfection-lamp` | pending | `public/Level 3/Learning/Illumination & Signals/Disinfection Lamp/13.Disinfection Lamp-Slides.pdf` |
+| `level-3-disinfection-lamp` | authored | `public/Level 3/Learning/Illumination & Signals/Disinfection Lamp/13.Disinfection Lamp-Slides.pdf` |
 | `level-3-drawbridge` | pending | `public/Level 3/Learning/Mechanisms and Concepts/Drawbridge.pdf` |
 | `level-3-electric-bulldozer` | pending | `public/Level 3/Learning/Characters & Structures/Electric Bulldozer/23.Electric Bulldozer -Slides.pdf` |
 | `level-3-electric-fan-characters-structures` | pending | `public/Level 3/Learning/Characters & Structures/Electric Fan/05.Electric Fan-Slides.pdf` |
@@ -172,3 +179,10 @@ On this branch, the 13 new Level 3 banks are imported in `src/data/quizStudio.ts
 - Official Race Walking Learning PDF: 29 pages. Three registered variants now have 10 source-backed questions each, with five objective pairs on human walking, four-bar linkage, motor synchronization, ultrasonic ranging and ratchets.
 - Both official PDFs downloaded and extracted directly from their manifest URLs in an isolated development sandbox. Questions only use the cited text-backed slides; no diagram-only claims.
 - **Level 3 current coverage: 20/51 banks (200 questions); remaining 31 projects.**
+
+## Six-project PDF-grounded batch — Fall detection, AGV, Door, Blood Centrifuge, Bumper Car and UV Lamp
+
+- New Level 3 banks: Anti-fall Robot; Automated Guided Vehicle; Automatic Door; Blood Bank Centrifuge; Bumper Car — Foundational Robots; Disinfection Lamp.
+- 60 source-backed questions over five learning objectives per project; official page counts: Anti-fall Robot 33, Automated Guided Vehicle 36, Automatic Door 34, Blood Bank Centrifuge 28, Bumper Car — Foundational Robots 12, Disinfection Lamp 30.
+- All source PDFs directly downloaded and text extracted page-by-page in a separate nondeploying development sandbox; only explicitly taught technical facts used.
+- **Level 3 now 26/51 quiz banks, 260 questions; 25 projects remain.**
