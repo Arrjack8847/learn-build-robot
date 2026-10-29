@@ -141,7 +141,7 @@ test("Level 6 saves drafts and best results, and rejects corrupt resume records"
 });
 
 
-test("all ten source-grounded Level 6 projects remain registered and replayable", () => {
+test("all eleven source-grounded Level 6 projects remain registered and replayable", () => {
   const expected = {
     "level-6-altimeter": 22,
     "level-6-ball-tracking": 20,
@@ -153,6 +153,7 @@ test("all ten source-grounded Level 6 projects remain registered and replayable"
     "level-6-matador": 20,
     "level-6-smart-flashlight": 24,
     "level-6-the-interesting-rotor": 23,
+    "level-6-regional-weather-station": 24,
   };
   for (const [id, pageCount] of Object.entries(expected)) {
     const bank = getQuizBank(id);
