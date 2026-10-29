@@ -8,10 +8,10 @@
 
 - **51 Level 3 registered projects**: 46 Learning-PDF entries in `scripts/quiz-learning-source-manifest.json`, plus 5 Building-PDF learning fallbacks from `src/data/levelThreeLectures.ts`.
 - **2 pre-existing Level 3 banks**, unchanged: Clip Robot and Following Robot (registered in `src/data/quizStudio.ts`).
-- **34 newly authored banks / 340 questions** in this directory, committed in two 5-project batches and one 3-project batch.
-- **10 mapped Learning-PDF projects remain without banks**.
+- **39 newly authored banks / 390 questions** in this directory, committed in two 5-project batches and one 3-project batch.
+- **5 mapped Learning-PDF projects remain without banks**.
 - **5 Building-PDF-only learning fallbacks are BLOCKED for syllabus-quiz authoring** until an educator inspects the Building manual or provides a dedicated Learning lesson.
-- **All 34 authored banks are now registered in the shared `quizStudio.ts` map**, alongside 2 pre-existing Level 3 banks, making 36 playable on the current feature branch. Unreviewed projects remain unavailable.
+- **All 39 authored banks are now registered in the shared `quizStudio.ts` map**, alongside 2 pre-existing Level 3 banks, making 41 playable on the current feature branch. Unreviewed projects remain unavailable.
 
 ## Source-slide verification for authored banks
 
@@ -58,6 +58,12 @@ PDF pages were counted from the actual GitHub PDF data and its text streams were
 | `level-3-juicer-machine` | `juicerMachine.ts` | 29 | 3, 5, 7, 8, 9, 10, 20, 21, 22, 23 | 10 | 5 |
 | `level-3-light-sensitive-curtains` | `lightSensitiveCurtains.ts` | 38 | 6, 7, 9, 25, 28, 29 | 10 | 5 |
 
+| `level-3-long-lived-turtle` | `longLivedTurtle.ts` | 24 | 2, 7, 8, 10, 11, 16 | 10 | 5 |
+| `level-3-money-detector` | `moneyDetector.ts` | 17 | 4, 5, 6, 14, 15, 16, 17 | 10 | 5 |
+| `level-3-music-box` | `musicBox.ts` | 34 | 5, 21, 22, 23, 24, 25, 26, 27 | 10 | 5 |
+| `level-3-music-doorbell` | `musicDoorbell.ts` | 26 | 3, 4, 6, 7, 16, 19, 20 | 10 | 5 |
+| `level-3-safe` | `safe.ts` | 33 | 3, 6, 7, 8, 9, 25, 26, 28, 29 | 10 | 5 |
+
 ## Full Level 3 project coverage
 
 Status descriptions: **pre-existing** = already present in the base quiz registry; **authored** = file committed here, awaiting shared integration; **pending** = mapped Learning PDF exists but questions remain unreviewed; **blocked-fallback** = no dedicated Learning lecture, only a Building manual.
@@ -89,16 +95,16 @@ Status descriptions: **pre-existing** = already present in the base quiz registr
 | `level-3-juicer-machine` | authored | `public/Level 3/Learning/Interactive Systems/Juicer Machine/06.Juicer Machine-Slides.pdf` |
 | `level-3-light-sensitive-curtains` | authored | `public/Level 3/Learning/Illumination & Signals/Light-sensitive Curtains/14.Light-sensitive Curtains -Slides.pdf` |
 | `level-3-line-patrol-car` | authored | `public/Level 3/Learning/Foundational Robots/Line patrol car.pdf` |
-| `level-3-long-lived-turtle` | pending | `public/Level 3/Learning/Vehicles & Complex Movers/Long-Lived Turtle/11. The Long-lived Turtle - Slides.pdf` |
-| `level-3-money-detector` | pending | `public/Level 3/Learning/Machines & Mechanisms/Money detector.pdf` |
-| `level-3-music-box` | pending | `public/Level 3/Learning/Sound & Voice Interaction/Music Box/29.Music Box -Slides.pdf` |
-| `level-3-music-doorbell` | pending | `public/Level 3/Learning/Sound & Voice Interaction/Music Doorbell/07.Music Doorbell- Slides.pdf` |
+| `level-3-long-lived-turtle` | authored | `public/Level 3/Learning/Vehicles & Complex Movers/Long-Lived Turtle/11. The Long-lived Turtle - Slides.pdf` |
+| `level-3-money-detector` | authored | `public/Level 3/Learning/Machines & Mechanisms/Money detector.pdf` |
+| `level-3-music-box` | authored | `public/Level 3/Learning/Sound & Voice Interaction/Music Box/29.Music Box -Slides.pdf` |
+| `level-3-music-doorbell` | authored | `public/Level 3/Learning/Sound & Voice Interaction/Music Doorbell/07.Music Doorbell- Slides.pdf` |
 | `level-3-obstacle-avoidance-robot-1` | authored | `public/Level 3/Learning/Autonomous Navigation & Ranging/Obstacle Avoidance Robot 1/Obstacle Avoidance Robot 1_Powerpoint.pdf` |
 | `level-3-parking-gate` | authored | `public/Level 3/Learning/Machines & Mechanisms/Parking gate.pdf` |
 | `level-3-race-walking-basic` | authored | `public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf` |
 | `level-3-race-walking-optimized` | authored | `public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf` |
 | `level-3-race-walking-optimized-ratchet` | authored | `public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf` |
-| `level-3-safe` | pending | `public/Level 3/Learning/Characters & Structures/Safe/15.Safe -Slides.pdf` |
+| `level-3-safe` | authored | `public/Level 3/Learning/Characters & Structures/Safe/15.Safe -Slides.pdf` |
 | `level-3-security-door` | authored | `public/Level 3/Learning/Automation & Security/Security door/Security door_Powerpoint-update.pdf` |
 | `level-3-sign` | pending | `public/Level 3/Learning/Mechanisms and Concepts/Sign.pdf` |
 | `level-3-smart-audio` | authored | `public/Level 3/Learning/Sound & Voice Interaction/Smart Audio/Smart Audio_Powerpoint.pdf` |
@@ -209,3 +215,9 @@ On this branch, the 13 new Level 3 banks are imported in `src/data/quizStudio.ts
 - Added 10 distinct source-backed questions each for Fire Ladder, Flashlight Sensor, Gyro Transmitter, Juicer Machine, and Light-sensitive Curtains. PDF page counts verified: 25, 29, 21, 29 and 38.
 - All five original PDFs read from registered URLs. The questions use text-backed lesson pages, five paired learning objectives and answer positions distributed across A–D.
 - **Coverage now 36/51 registered Level 3 projects: 360 questions.**
+
+## Five Level 3 new source-backed quizzes
+
+- Added The Long-lived Turtle, Money Detector, Music Box, Music Doorbell, and Safe: 50 questions total, five objective pairs and page-accurate references per quiz.
+- Official PDF page counts: 24, 17, 34, 26, 33. Lessons directly read from official URLs in the sandbox.
+- **Coverage 41/51 Level 3, 410 questions.**

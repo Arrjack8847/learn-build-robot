@@ -49,6 +49,11 @@ import { flashlightSensorBank } from "./quizBanks/level3/flashlightSensor.ts";
 import { gyroTransmitterBank } from "./quizBanks/level3/gyroTransmitter.ts";
 import { juicerMachineBank } from "./quizBanks/level3/juicerMachine.ts";
 import { lightSensitiveCurtainsBank } from "./quizBanks/level3/lightSensitiveCurtains.ts";
+import { longLivedTurtleBank } from "./quizBanks/level3/longLivedTurtle.ts";
+import { moneyDetectorBank } from "./quizBanks/level3/moneyDetector.ts";
+import { musicBoxBank } from "./quizBanks/level3/musicBox.ts";
+import { musicDoorbellBank } from "./quizBanks/level3/musicDoorbell.ts";
+import { safeBank } from "./quizBanks/level3/safe.ts";
 
 export type GearDiagram = "large-to-small" | "small-to-large";
 /** Each project defines five distinct objective IDs; the engine is not gear-specific. */
@@ -197,6 +202,11 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [gyroTransmitterBank.projectId]: gyroTransmitterBank,
   [juicerMachineBank.projectId]: juicerMachineBank,
   [lightSensitiveCurtainsBank.projectId]: lightSensitiveCurtainsBank,
+  [longLivedTurtleBank.projectId]: longLivedTurtleBank,
+  [moneyDetectorBank.projectId]: moneyDetectorBank,
+  [musicBoxBank.projectId]: musicBoxBank,
+  [musicDoorbellBank.projectId]: musicDoorbellBank,
+  [safeBank.projectId]: safeBank,
   "acceleration-car": {
     projectId: "acceleration-car",
     title: "Acceleration Car",
