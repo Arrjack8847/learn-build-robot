@@ -6,7 +6,7 @@
 - Work branch: `feat/quiz-level2-content`
 - Syllabus projects: **60**
 - Already published: **2** (Axe Robot, Fan Robot; 10 questions each), maintained in the existing shared registry.
-- Playable and bank-registered in this branch: **7 banks / 70 questions**. Remaining: **53 banks / 530 questions**. Four of the six were newly authored and integrated in this branch.
+- Playable and bank-registered in this branch: **9 banks / 90 questions**. Remaining: **51 banks / 510 questions**. Four of the six were newly authored and integrated in this branch.
 - Official Learning mappings: **45 project IDs / 44 unique PDFs**. Two See Saw variants point to one shared source.
 - Building-only Learning fallbacks: **15**; inspect source carefully before deciding it supports a real lesson quiz.
 - PDF file paths: **all 60 mapped sources present in Git**. Batch 1 PDFs (Animal Trap, Automatic Window, Axe Robot, Battery Robot, Batting Robot) were opened and reviewed page-by-page. Other sources still need review.
@@ -27,9 +27,9 @@ The shared Quiz Studio now imports four new Level 2 bank modules, while preservi
 | `level-2-batting-robot` | Learning | `public/Level 2/Learning/Action-Oriented/Batting robot/Batting robot_Powerpoint.pdf` | Integrated (10) | 20 |
 | `level-2-fan-robot` | Learning | `public/Level 2/Learning/Action-Oriented/Fan robot/Fan robot_Powerpoint.pdf` | Existing (10) | 19 |
 | `level-2-pirate-ship` | Learning | `public/Level 2/Learning/Action-Oriented/Pirate ship/Pirate ship__Powerpoint.pdf` | Pending review | — |
-| `level-2-push-ups` | Learning | `public/Level 2/Learning/Action-Oriented/Push ups/Push ups_Powerpoint.pdf` | Pending review | — |
+| `level-2-push-ups` | Learning | `public/Level 2/Learning/Action-Oriented/Push ups/Push ups_Powerpoint.pdf` | Integrated (10) | 20 |
 | `level-2-rotating-flying-chair` | Learning | `public/Level 2/Learning/Action-Oriented/Rotating flying chair/Rotating flying chair_Powerpoint.pdf` | Pending review | — |
-| `level-2-throwing-robot` | Learning | `public/Level 2/Learning/Action-Oriented/Throwing robot/Throwing robot_Powerpoint.pdf` | Pending review | — |
+| `level-2-throwing-robot` | Learning | `public/Level 2/Learning/Action-Oriented/Throwing robot/Throwing robot_Powerpoint.pdf` | Integrated (10) | 18 |
 | `level-2-bee` | Learning | `public/Level 2/Learning/Biomimicry/Bee.pdf` | Integrated (10) | 20 |
 | `level-2-chimpanzees` | Learning | `public/Level 2/Learning/Biomimicry/Chimpanzees.pdf` | Pending review | — |
 | `level-2-mechanical-dog` | Learning | `public/Level 2/Learning/Characters & Structures/Mechanical dog/Mechanical dog_PowerPoint-R.pdf` | Pending review | — |
@@ -125,3 +125,7 @@ GitHub Actions run [40827960743](https://github.com/Arrjack8847/learn-build-robo
 ## Bee PDF follow-up
 
 Retrieved `public/Level 2/Learning/Biomimicry/Bee.pdf` directly from the private GitHub API as base64, transferred it into an isolated short-lived sandbox, and read all 20 pages with PyMuPDF. Ten new questions cover biology (slides 2–3), gear reduction (slide 5), infrared detection (slides 6 and 14), controller wiring (slide 11), and programming (slides 16 and 19). Slides 7–10/13/15/17 contain diagrams or sparse text; items avoid unsupported facts from those pages. Question bank is integrated in the shared Quiz Studio registry; a full student browser test remains pending.
+
+## Throwing Robot and Push Ups source review
+
+Read all 18 Throwing Robot PDF pages and all 20 Push Ups PDF pages directly from the GitHub repository using an isolated source extraction workspace. The 20 new questions use explicit text from slides on trajectories, motor/RCU construction, angle terminology, estimation/folding/fine tuning, lever concepts, reciprocating mechanisms, assembly and loop programming. Avoided unverified details on diagram-only slides. Both banks are registered in the existing Quiz Studio; full browser and CI testing remain outstanding.

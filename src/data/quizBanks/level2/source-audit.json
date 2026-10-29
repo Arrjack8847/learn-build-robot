@@ -10,17 +10,17 @@
     "uniqueSourcePdfs": 59,
     "existingPublishedBanks": 2,
     "existingQuestions": 20,
-    "missingBanks": 53,
-    "questionTargetForMissingBanks": 530,
-    "newBanksWrittenByThisWorker": 5,
+    "missingBanks": 51,
+    "questionTargetForMissingBanks": 510,
+    "newBanksWrittenByThisWorker": 7,
     "authoredButNotIntegrated": 0,
-    "newQuestionsWrittenByThisWorker": 50,
-    "stillMissingBankFiles": 53,
-    "registeredSourcePdfPagesVerified": 117,
+    "newQuestionsWrittenByThisWorker": 70,
+    "stillMissingBankFiles": 51,
+    "registeredSourcePdfPagesVerified": 155,
     "initialMissingBanks": 58,
     "initialQuestionTarget": 580,
-    "playableBanks": 7,
-    "playableQuestions": 70,
+    "playableBanks": 9,
+    "playableQuestions": 90,
     "ciStatus": "blocked-before-runner-start: both jobs failed with zero executed steps at GitHub run 40827960743",
     "pdfSourceBatch1Verified": true,
     "fullLevel2SourceExtractionStatus": "In progress via isolated Vercel Sandbox using direct GitHub PDF base64 transfer (first new source: Bee 20 pages)."
@@ -95,10 +95,10 @@
       "sourcePdfPath": "public/Level 2/Learning/Action-Oriented/Push ups/Push ups_Powerpoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 20,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual-flagged-pages-require-QA"
     },
     {
       "projectId": "level-2-rotating-flying-chair",
@@ -121,10 +121,10 @@
       "sourcePdfPath": "public/Level 2/Learning/Action-Oriented/Throwing robot/Throwing robot_Powerpoint.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 18,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual-flagged-pages-require-QA"
     },
     {
       "projectId": "level-2-bee",
@@ -826,7 +826,7 @@
         "level-2-rotating-flying-chair",
         "level-2-throwing-robot"
       ],
-      "status": "1-of-5-integrated"
+      "status": "3-of-5-integrated"
     },
     {
       "batch": 2,

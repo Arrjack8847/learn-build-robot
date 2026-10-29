@@ -16,6 +16,8 @@ import { timidMouseBank } from "./quizBanks/timidMouse.ts";
 import { autonomousDrivingBank } from "./quizBanks/autonomousDriving.ts";
 import { ballTrackingBank } from "./quizBanks/ballTracking.ts";
 import { beeBank } from "./quizBanks/level2/bee.ts";
+import { throwingRobotBank } from "./quizBanks/level2/throwingRobot.ts";
+import { pushUpsBank } from "./quizBanks/level2/pushUps.ts";
 import { animalTrapBank } from "./quizBanks/level2/animalTrap.ts";
 import { automaticWindowBank } from "./quizBanks/level2/automaticWindow.ts";
 import { batteryRobotBank } from "./quizBanks/level2/batteryRobot.ts";
@@ -131,6 +133,8 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [clockBank.projectId]: clockBank,
   [fanRobotBank.projectId]: fanRobotBank,
   [beeBank.projectId]: beeBank,
+  [throwingRobotBank.projectId]: throwingRobotBank,
+  [pushUpsBank.projectId]: pushUpsBank,
   [animalTrapBank.projectId]: animalTrapBank,
   [automaticWindowBank.projectId]: automaticWindowBank,
   [batteryRobotBank.projectId]: batteryRobotBank,
