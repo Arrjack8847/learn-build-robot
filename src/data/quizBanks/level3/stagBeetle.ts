@@ -49,7 +49,7 @@ export const stagBeetleBank: QuizBank = {
         "Measure sound and spin a fan"
       ],
       "correctIndex": 1,
-      "hint": "The model must both walk and move its mandibles.",
+      "hint": "Think about the two distinct types of movement used in the lesson's animal model.",
       "explanation": "Slide 5 requires walking and movable mandibles."
     },
     {
