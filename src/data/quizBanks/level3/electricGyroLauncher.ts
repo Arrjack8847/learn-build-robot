@@ -79,7 +79,7 @@ export const electricGyroLauncherBank: QuizBank = {
         "Ultrasonic sensor only"
       ],
       "correctIndex": 2,
-      "hint": "The touch sensor is a programmable input.",
+      "hint": "Recall which types of sensor input a learner can trigger directly while testing a program.",
       "explanation": "Page 3 lists using a touch sensor with the program."
     },
     {
