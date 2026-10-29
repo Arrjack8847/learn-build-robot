@@ -122,7 +122,8 @@ def main():
         print(entry["projectId"] + ": " + result["status"])
     (OUTPUT / f"batch-summary-{args.start:02d}.json").write_text(json.dumps({
         "start": args.start, "count": len(selected), "results": results,
-        "quizBanksPublished": len(published_ids),\n        "newBanksPublishedByRenderer": 0,
+        "quizBanksPublished": len(published_ids),
+        "newBanksPublishedByRenderer": 0,
         "educationalReviewComplete": False,
     }, indent=2) + "\n", encoding="utf-8")
     if any(item["status"] == "blocked" for item in results):
