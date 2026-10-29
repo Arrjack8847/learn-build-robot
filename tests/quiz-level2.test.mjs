@@ -26,6 +26,10 @@ test("Level 2 source audit covers 60 unique registered projects", () => {
   assert.equal(levelTwoProjects.filter(project => project.sourceType === "building-pdf-learning-fallback").length, 15);
   assert.equal(new Set(levelTwoProjects.map(project => project.sourcePdfPath)).size, 59);
   assert.deepEqual([QUIZ_QUESTION_COUNT, QUIZ_PASS_COUNT], [5, 4]);
+  const beetle = levelTwoProjects.find(project => project.projectId === "level-2-dung-beetle");
+  const parking = levelTwoProjects.find(project => project.projectId === "level-2-reverse-parking");
+  assert.equal(beetle?.sourcePdfPath, "public/Reverse Parking.pdf", "Legacy PDF internals contain Dung Beetle teaching content");
+  assert.equal(parking?.sourcePdfPath, "public/Dung Beetle.pdf", "Legacy PDF internals contain Reverse Parking teaching content");
 });
 
 test("all 60 registered Level 2 projects have a local source file", async () => {
@@ -41,8 +45,8 @@ test("all 60 registered Level 2 projects have a local source file", async () => 
   }));
 });
 
-test("every audited verified Level 2 bank is integrated; pending projects remain unavailable", () => {
-  assert.ok(verifiedBankIds.size >= 6, "regression: previously verified banks were removed");
+test("all 60 Level 2 projects have integrated playable banks", () => {
+  assert.equal(verifiedBankIds.size, 60, "Every Level 2 source needs a registered question bank");
   for (const project of levelTwoProjects) {
     const bank = getQuizBank(project.projectId);
     if (!verifiedBankIds.has(project.projectId)) {
