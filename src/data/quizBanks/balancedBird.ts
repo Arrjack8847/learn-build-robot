@@ -49,7 +49,11 @@ export const balancedBirdBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 3,
       "hint": "Recall the point related to how an object's mass is distributed.",
-      "explanation": "The teaching objectives explicitly include the centre of gravity."
+      "explanation": "The teaching objectives explicitly include the centre of gravity.",
+      "image": {
+        "src": "/quiz-visuals/level1/balanced-bird.svg",
+        "alt": "Bird model balanced above a triangular support point."
+      }
     },
     {
       "id": "balanced-bird-04",
@@ -64,7 +68,11 @@ export const balancedBirdBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 5,
       "hint": "Remember the concept that the teacher discusses together with lever action.",
-      "explanation": "The final lesson review names leverage and centre of gravity."
+      "explanation": "The final lesson review names leverage and centre of gravity.",
+      "image": {
+        "src": "/quiz-visuals/level1/balanced-bird.svg",
+        "alt": "Bird model balanced above a triangular support point."
+      }
     },
     {
       "id": "balanced-bird-05",

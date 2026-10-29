@@ -109,7 +109,11 @@ export const littleOwlBank: QuizBank = {
       "correctIndex": 3,
       "learningSlide": 4,
       "explanation": "The planning questions ask what makes the owl's wings swing.",
-      "hint": "Focus on the body part that moves in the animal model, not on a wheel."
+      "hint": "Focus on the body part that moves in the animal model, not on a wheel.",
+      "image": {
+        "src": "/quiz-visuals/level1/little-owl.svg",
+        "alt": "An owl with raised mechanical wings and motion arrows."
+      }
     },
     {
       "id": "little-owl-08",
@@ -124,7 +128,11 @@ export const littleOwlBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 5,
       "explanation": "The presentation questions focus on what makes the model's wings swing.",
-      "hint": "Think about the visible movement the teacher asks students to explain."
+      "hint": "Think about the visible movement the teacher asks students to explain.",
+      "image": {
+        "src": "/quiz-visuals/level1/little-owl.svg",
+        "alt": "An owl with raised mechanical wings and motion arrows."
+      }
     },
     {
       "id": "little-owl-09",

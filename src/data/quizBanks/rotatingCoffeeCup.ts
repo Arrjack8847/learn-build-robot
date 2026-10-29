@@ -79,7 +79,11 @@ export const rotatingCoffeeCupBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 3,
       "hint": "Remember which toothed mechanical components can transfer rotation.",
-      "explanation": "The learning objectives include understanding gear-driven mechanisms."
+      "explanation": "The learning objectives include understanding gear-driven mechanisms.",
+      "image": {
+        "src": "/quiz-visuals/level1/rotating-coffee-cup.svg",
+        "alt": "Rotating cup ride mounted on a toothed gear drive."
+      }
     },
     {
       "id": "rotating-coffee-cup-06",
@@ -94,7 +98,11 @@ export const rotatingCoffeeCupBank: QuizBank = {
       "correctIndex": 2,
       "learningSlide": 3,
       "hint": "Recall the additional connected moving structure taught with gear transmission.",
-      "explanation": "The teaching objectives mention applying and learning linkage."
+      "explanation": "The teaching objectives mention applying and learning linkage.",
+      "image": {
+        "src": "/quiz-visuals/level1/rotating-coffee-cup.svg",
+        "alt": "Rotating cup ride mounted on a toothed gear drive."
+      }
     },
     {
       "id": "rotating-coffee-cup-07",

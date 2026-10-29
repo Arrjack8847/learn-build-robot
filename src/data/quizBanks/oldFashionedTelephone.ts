@@ -79,7 +79,11 @@ export const oldFashionedTelephoneBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 4,
       "hint": "Remember which familiar communication object appears in the story.",
-      "explanation": "Topic analysis introduces the telephone after the emergency story."
+      "explanation": "Topic analysis introduces the telephone after the emergency story.",
+      "image": {
+        "src": "/quiz-visuals/level1/old-fashioned-telephone.svg",
+        "alt": "Retro telephone with a curved handset and round dial."
+      }
     },
     {
       "id": "old-fashioned-telephone-06",
@@ -94,7 +98,11 @@ export const oldFashionedTelephoneBank: QuizBank = {
       "correctIndex": 2,
       "learningSlide": 5,
       "hint": "Think about the old-style communication device the students are asked to build.",
-      "explanation": "The hands-on section asks students to construct an old-fashioned telephone."
+      "explanation": "The hands-on section asks students to construct an old-fashioned telephone.",
+      "image": {
+        "src": "/quiz-visuals/level1/old-fashioned-telephone.svg",
+        "alt": "Retro telephone with a curved handset and round dial."
+      }
     },
     {
       "id": "old-fashioned-telephone-07",

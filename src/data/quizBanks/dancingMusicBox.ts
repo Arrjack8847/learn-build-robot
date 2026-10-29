@@ -79,7 +79,11 @@ export const dancingMusicBoxBank: QuizBank = {
       "correctIndex": 3,
       "learningSlide": 3,
       "hint": "Recall how linked pieces and toothed wheels can transmit movement.",
-      "explanation": "The teaching objectives name a link mechanism and gear transmission."
+      "explanation": "The teaching objectives name a link mechanism and gear transmission.",
+      "image": {
+        "src": "/quiz-visuals/level1/dancing-music-box.svg",
+        "alt": "Music box containing two meshed gears below a jointed dancer."
+      }
     },
     {
       "id": "dancing-music-box-06",
@@ -94,7 +98,11 @@ export const dancingMusicBoxBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 3,
       "hint": "Think about why a linkage's measurements and assembly order matter.",
-      "explanation": "The key points specify fixed distance and building sequence of the link."
+      "explanation": "The key points specify fixed distance and building sequence of the link.",
+      "image": {
+        "src": "/quiz-visuals/level1/dancing-music-box.svg",
+        "alt": "Music box containing two meshed gears below a jointed dancer."
+      }
     },
     {
       "id": "dancing-music-box-07",

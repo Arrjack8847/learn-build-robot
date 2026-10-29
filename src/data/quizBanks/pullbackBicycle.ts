@@ -49,7 +49,11 @@ export const pullbackBicycleBank: QuizBank = {
       "correctIndex": 2,
       "learningSlide": 3,
       "hint": "Think about the part that can store energy by being stretched.",
-      "explanation": "The objectives identify the elastic force of a rubber band."
+      "explanation": "The objectives identify the elastic force of a rubber band.",
+      "image": {
+        "src": "/quiz-visuals/level1/pullback-bicycle.svg",
+        "alt": "Bicycle wheels and gears with an elastic-band energy schematic."
+      }
     },
     {
       "id": "pullback-bicycle-04",
@@ -64,7 +68,11 @@ export const pullbackBicycleBank: QuizBank = {
       "correctIndex": 3,
       "learningSlide": 5,
       "hint": "Focus on the type of force that a flexible, stretched component provides.",
-      "explanation": "The final review focuses on the rubber band's elastic force."
+      "explanation": "The final review focuses on the rubber band's elastic force.",
+      "image": {
+        "src": "/quiz-visuals/level1/pullback-bicycle.svg",
+        "alt": "Bicycle wheels and gears with an elastic-band energy schematic."
+      }
     },
     {
       "id": "pullback-bicycle-05",

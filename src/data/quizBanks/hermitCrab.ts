@@ -79,7 +79,11 @@ export const hermitCrabBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 3,
       "explanation": "The key points specify building a crank-link structure using the motor and beam.",
-      "hint": "Focus on the type of moving mechanical connection built between the motor and beam."
+      "hint": "Focus on the type of moving mechanical connection built between the motor and beam.",
+      "image": {
+        "src": "/quiz-visuals/level1/hermit-crab.svg",
+        "alt": "Crank gear connected by a mechanical link to a robot crab leg."
+      }
     },
     {
       "id": "hermit-crab-06",
@@ -94,7 +98,11 @@ export const hermitCrabBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 5,
       "explanation": "The hands-on instructions call for explaining the hermit crab model's linkage.",
-      "hint": "Remember the part of the lesson that explains how connected pieces move together."
+      "hint": "Remember the part of the lesson that explains how connected pieces move together.",
+      "image": {
+        "src": "/quiz-visuals/level1/hermit-crab.svg",
+        "alt": "Crank gear connected by a mechanical link to a robot crab leg."
+      }
     },
     {
       "id": "hermit-crab-07",

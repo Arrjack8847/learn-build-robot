@@ -79,7 +79,11 @@ export const pocketPistolBank: QuizBank = {
       "correctIndex": 3,
       "learningSlide": 3,
       "explanation": "The objectives name the physical ideas of tension and elasticity.",
-      "hint": "Recall the two physical properties studied when an elastic material is stretched."
+      "hint": "Recall the two physical properties studied when an elastic material is stretched.",
+      "image": {
+        "src": "/quiz-visuals/level1/pocket-pistol.svg",
+        "alt": "Stretched elastic band held between two fixed supports, without any weapon."
+      }
     },
     {
       "id": "pocket-pistol-06",
@@ -94,7 +98,11 @@ export const pocketPistolBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 4,
       "explanation": "The topic-analysis section specifically discusses rubber-band tension and elasticity.",
-      "hint": "Think about the flexible material discussed during the explanation of stored force."
+      "hint": "Think about the flexible material discussed during the explanation of stored force.",
+      "image": {
+        "src": "/quiz-visuals/level1/pocket-pistol.svg",
+        "alt": "Stretched elastic band held between two fixed supports, without any weapon."
+      }
     },
     {
       "id": "pocket-pistol-07",

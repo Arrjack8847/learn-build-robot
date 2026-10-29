@@ -81,7 +81,11 @@ export const handCrankingGiantStrideBank: QuizBank = {
       "correctIndex": 3,
       "learningSlide": 5,
       "explanation": "The hands-on section says gearing can change the direction of motion of the force.",
-      "hint": "Think about the gear function described during construction."
+      "hint": "Think about the gear function described during construction.",
+      "image": {
+        "src": "/quiz-visuals/level1/hand-cranking-giant-stride.svg",
+        "alt": "A large toothed gear transferring rotation to a smaller intersecting gear."
+      }
     },
     {
       "id": "hand-cranking-giant-stride-06",
@@ -96,7 +100,11 @@ export const handCrankingGiantStrideBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 4,
       "explanation": "The manual describes rotating the giant stride through gears operated using a beam.",
-      "hint": "The topic analysis names both a beam and rotating gears."
+      "hint": "The topic analysis names both a beam and rotating gears.",
+      "image": {
+        "src": "/quiz-visuals/level1/hand-cranking-giant-stride.svg",
+        "alt": "A large toothed gear transferring rotation to a smaller intersecting gear."
+      }
     },
     {
       "id": "hand-cranking-giant-stride-07",

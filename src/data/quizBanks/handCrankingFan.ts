@@ -79,7 +79,11 @@ export const handCrankingFanBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 3,
       "hint": "Focus on the toothed rotating pieces that are central to this lesson.",
-      "explanation": "The objectives discuss types, roles and characteristics of gears."
+      "explanation": "The objectives discuss types, roles and characteristics of gears.",
+      "image": {
+        "src": "/quiz-visuals/level1/hand-cranking-fan.svg",
+        "alt": "Hand crank driving two gears linked to a fan."
+      }
     },
     {
       "id": "hand-cranking-fan-06",
@@ -94,7 +98,11 @@ export const handCrankingFanBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 3,
       "hint": "Think about the ways toothed wheels can differ from one another.",
-      "explanation": "The teaching objectives explicitly mention types of gears."
+      "explanation": "The teaching objectives explicitly mention types of gears.",
+      "image": {
+        "src": "/quiz-visuals/level1/hand-cranking-fan.svg",
+        "alt": "Hand crank driving two gears linked to a fan."
+      }
     },
     {
       "id": "hand-cranking-fan-07",

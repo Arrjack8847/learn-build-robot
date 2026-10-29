@@ -49,7 +49,11 @@ export const oscillatingFanBank: QuizBank = {
       "correctIndex": 0,
       "learningSlide": 4,
       "explanation": "The project asks students what is needed to make the fan oscillate.",
-      "hint": "Compare a fan that faces one direction with one that changes its direction."
+      "hint": "Compare a fan that faces one direction with one that changes its direction.",
+      "image": {
+        "src": "/quiz-visuals/level1/oscillating-fan.svg",
+        "alt": "Electric fan head with curved arrow indicating side-to-side movement."
+      }
     },
     {
       "id": "oscillating-fan-04",
@@ -64,7 +68,11 @@ export const oscillatingFanBank: QuizBank = {
       "correctIndex": 1,
       "learningSlide": 4,
       "explanation": "The design prompts include what is needed to make the fan oscillate.",
-      "hint": "Think about the extra motion the model needs beyond simply spinning."
+      "hint": "Think about the extra motion the model needs beyond simply spinning.",
+      "image": {
+        "src": "/quiz-visuals/level1/oscillating-fan.svg",
+        "alt": "Electric fan head with curved arrow indicating side-to-side movement."
+      }
     },
     {
       "id": "oscillating-fan-05",
