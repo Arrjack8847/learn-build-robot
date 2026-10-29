@@ -1,5 +1,32 @@
 # BE STEM READY — Level 6 Quiz Implementation Status
 
+## Current branch audit — October 29, 2026
+
+**Question bank content: 43/43 registered. Missing banks: 0.** This is **feature-branch content coverage**, not a claim that the whole application has passed CI or been deployed.
+
+- **43 syllabus project IDs** are listed in `scripts/quiz-learning-source-manifest.json` for Level 6.
+- **43 banks in `src/data/quizStudio.ts`:** 41 imported from `src/data/quizBanks/level6/*.ts` plus the preserved Altimeter and Ball Tracking banks.
+- **430 authored questions expected:** ten per project, organized into five two-question objectives; each question has answer options, hints, explanations and a 1-based slide reference.
+- **41/41 newly added Level 6 bank modules** were individually inspected through the GitHub connector for the ten-question schema, five topics, hints, explanations and slide-reference bounds; **no structural problems found**.
+- **40 extracted slide-text evidence files** are currently committed under `src/data/quizBanks/level6/evidence/`. The legacy Altimeter and Ball Tracking banks and Remote Control Lift have no matching `.extracted.json` there. Some extracted sources contain diagrams; text evidence does not prove full visual curriculum review.
+- `tests/level6-quiz-experiences.test.mjs` now requires **all 43 registered banks, 430 unique question IDs, randomized five-question attempts, correct 4/5 pass behavior, PDF page counts and 40 complete evidence-file inventories**. A structurally complete test **has not been shown passing**.
+- The feature branch is still an **open draft PR #59**, **not merged to main**, and has not received a verified successful full TypeScript check, production build or browser/mobile run.
+
+### Remaining release requirements
+
+1. Run `npm run test:quiz-level6`, `npx tsc --noEmit`, and `npm run build` in a working checkout/runner. Resolve any failures; code review alone is not a substitute.
+2. Inspect representative graphical/source-only Learning PDF pages and verify student-facing answers and Learning-page navigation, especially for materials not visually reviewed.
+3. Test several end-to-end Level 6 Learning → Quiz journeys on desktop and mobile, including save/resume, retry and slide deep-link behavior.
+4. Merge the Level 6 PR into the shared quiz feature base only after checks pass and coordinate integration with the other five level branches. Do not claim the quizzes are in `main` while the PR is open.
+
+### Historical work log (superseded where counts differ)
+
+The entries below were authored before the 43-bank branch inventory was completed. Their 2/43, 10/43 and 11/43 counts are **historical**, not current coverage.
+
+---
+
+# BE STEM READY — Level 6 Quiz Implementation Status
+
 ## Latest completed quiz: Regional Weather Station — 2026-10-29
 
 **Current registered coverage: 11 of 43 projects (110 questions). Remaining: 32 banks (320 questions).**
