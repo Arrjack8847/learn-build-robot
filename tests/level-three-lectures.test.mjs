@@ -8,6 +8,9 @@ import ts from "typescript";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const read = path => readFileSync(resolve(root, path), "utf8");
+const mappingSource = read("src/data/levelOneToThreeWixPdfUrls.ts");
+const wixUrls = JSON.parse(mappingSource.match(/export const levelOneToThreeWixPdfUrls: Readonly<Record<string, string>> = (\{[\s\S]*?\});/)[1]);
+const sourcePathByUrl = new Map(Object.entries(wixUrls).map(([path, url]) => [url, path]));
 const modules = new Map();
 
 function loadDataModule(path) {
@@ -50,11 +53,11 @@ test("all 43 uploaded Level 3 lecture PDFs are mapped and unchanged", () => {
   const pdfs = allPdfs(resolve(root, "public/Level 3/Learning"));
   assert.equal(pdfs.length, 43);
   assert.equal(LEVEL_THREE_UPLOADED_LECTURE_COUNT, 43);
-  const uploadedEntries = Object.values(levelThreeLectures).filter(x => x.url.startsWith("/Level%203/Learning/"));
+  const uploadedEntries = Object.values(levelThreeLectures).filter(x => sourcePathByUrl.get(x.url)?.startsWith("Level 3/Learning/"));
   assert.equal(uploadedEntries.length, 46); // Cycle Sport (2), Race Walking (3)
   const distinct = new Set();
   for (const lecture of uploadedEntries) {
-    const file = resolve(root, "public", decodeURIComponent(lecture.url).slice(1));
+    const file = resolve(root, "public", sourcePathByUrl.get(lecture.url));
     assert.ok(pdfs.includes(file), "Uploaded PDF missing: " + file);
     assert.equal(readFileSync(file).subarray(0, 5).toString("ascii"), "%PDF-");
     distinct.add(file);
@@ -77,7 +80,7 @@ test("the five missing lectures reuse their exact existing Building PDF URLs", (
     const building = pdfActivityManuals[id];
     assert.ok(learning && building, "Learning or Building PDF missing for " + id);
     assert.equal(learning.url, building.url);
-    assert.equal(learning.url, "/" + encodeURIComponent(files.get(id)));
+    assert.equal(learning.url, wixUrls[files.get(id)]);
     assert.equal(learning.learningOnly, false);
     const path = resolve(root, "public", files.get(id));
     assert.equal(readFileSync(path).subarray(0, 5).toString("ascii"), "%PDF-");
