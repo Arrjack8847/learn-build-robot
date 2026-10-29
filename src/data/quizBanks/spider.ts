@@ -16,12 +16,12 @@ export const spiderBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "How many legs does the spider model have on each side?",
       "choices": [
-        "Two",
         "Three",
         "Four",
-        "Five"
+        "Five",
+        "Two"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "hint": "Count the legs described on one side, not the total.",
       "explanation": "The introduction says the model has three legs on the left and three on the right."
     },
@@ -31,12 +31,12 @@ export const spiderBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Which design principle is central to the spider robot lesson?",
       "choices": [
+        "Water displacement",
         "Left-right symmetry",
         "Random asymmetry",
-        "Only circular motion",
-        "Water displacement"
+        "Only circular motion"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about the robot's two sides.",
       "explanation": "The model is introduced as a bilaterally symmetrical spider robot."
     },
@@ -46,12 +46,12 @@ export const spiderBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "What does 'bilaterally symmetrical' mean for the spider design?",
       "choices": [
-        "The left and right sides correspond",
-        "Every beam must be a different colour",
         "The model must have one leg",
-        "Only the front can be seen"
+        "Only the front can be seen",
+        "The left and right sides correspond",
+        "Every beam must be a different colour"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Focus on the relationship between the two halves.",
       "explanation": "The lesson uses matching left and right sides as the spider's design principle."
     },
@@ -61,12 +61,12 @@ export const spiderBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "Which graphics principle are students asked to explain for the spider?",
       "choices": [
-        "Symmetry",
         "Perspective drawing",
         "Colour blending",
-        "Random spacing"
+        "Random spacing",
+        "Symmetry"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Recall the evaluation question about the robot's design.",
       "explanation": "The evaluation asks which graphical principle was used; the lesson teaches symmetry."
     },
@@ -91,12 +91,12 @@ export const spiderBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "When is a plane figure symmetrical about a fold line?",
       "choices": [
+        "When it contains exactly three circles",
         "When its two folded halves coincide",
         "When the halves are different sizes",
-        "When it is drawn with many colours",
-        "When it contains exactly three circles"
+        "When it is drawn with many colours"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Recall the test using a fold.",
       "explanation": "The lesson defines symmetry by halves that match when folded on a line."
     },
@@ -106,12 +106,12 @@ export const spiderBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "Which shape is named as an axisymmetric figure?",
       "choices": [
-        "Square",
-        "Unequal scalene triangle",
         "Irregular scribble",
-        "Open spiral"
+        "Open spiral",
+        "Square",
+        "Unequal scalene triangle"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The slide lists several familiar regular shapes.",
       "explanation": "A square is one of the examples of axisymmetric graphics."
     },
@@ -121,12 +121,12 @@ export const spiderBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which craft is listed as using symmetrical graphics?",
       "choices": [
-        "Paper cutting",
         "Motor wiring",
         "Battery charging",
-        "Audio recording"
+        "Audio recording",
+        "Paper cutting"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Recall an everyday creative activity from the slide.",
       "explanation": "Paper cutting is one of the examples of symmetry in life."
     },
@@ -151,12 +151,12 @@ export const spiderBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "What else must the spider model's assembly consider?",
       "choices": [
+        "Leaving all pegs loose",
         "Proper gravity and shape match",
         "Ignoring balance and shape",
-        "Changing the project into a boat",
-        "Leaving all pegs loose"
+        "Changing the project into a boat"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The checklist has three build-quality requirements.",
       "explanation": "It lists proper gravity and matching shape alongside stability."
     }

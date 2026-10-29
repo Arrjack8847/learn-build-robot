@@ -31,12 +31,12 @@ export const shyPenguinBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "How does the lesson describe the penguin when people approach?",
       "choices": [
-        "It may become nervous",
-        "It always attacks",
         "It instantly begins to fly",
-        "It turns into a statue"
+        "It turns into a statue",
+        "It may become nervous",
+        "It always attacks"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Think about why this model is called 'shy'.",
       "explanation": "The introduction says a penguin may become nervous when humans approach too closely."
     },
@@ -46,12 +46,12 @@ export const shyPenguinBank: QuizBank = {
       "learningSlide": 5,
       "prompt": "Which sensor does the shy penguin model use to detect obstacles ahead?",
       "choices": [
+        "Temperature sensor",
         "Gray sensor",
         "Touch sensor",
-        "Infrared sensor",
-        "Temperature sensor"
+        "Infrared sensor"
       ],
-      "correctIndex": 2,
+      "correctIndex": 3,
       "hint": "Think about detecting a person before contact.",
       "explanation": "The exploration specifies an infrared sensor to detect obstacles ahead."
     },
@@ -91,12 +91,12 @@ export const shyPenguinBank: QuizBank = {
       "learningSlide": 18,
       "prompt": "Where does the infrared sensor connect in the penguin project?",
       "choices": [
-        "Port 1",
-        "Port A",
         "Port B",
-        "The speaker outlet"
+        "The speaker outlet",
+        "Port 1",
+        "Port A"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Check the numbered input port.",
       "explanation": "The slide connects the infrared sensor to port 1."
     },
@@ -106,12 +106,12 @@ export const shyPenguinBank: QuizBank = {
       "learningSlide": 19,
       "prompt": "How does the penguin move when no obstacle is in front?",
       "choices": [
+        "In a fast circle",
         "Backwards quickly",
         "It remains still forever",
-        "Forwards slowly",
-        "In a fast circle"
+        "Forwards slowly"
       ],
-      "correctIndex": 2,
+      "correctIndex": 3,
       "hint": "Think about the model's normal movement when nothing is nearby.",
       "explanation": "The coding slide says the penguin moves slowly forward when no obstacle is detected."
     },
@@ -136,12 +136,12 @@ export const shyPenguinBank: QuizBank = {
       "learningSlide": 21,
       "prompt": "When the person is no longer detected, what should the penguin do?",
       "choices": [
+        "Stay in place regardless of the sensor",
         "Move forward again",
         "Continue reversing forever",
-        "Disable all sensors",
-        "Stay in place regardless of the sensor"
+        "Disable all sensors"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about how the robot resumes its normal behaviour.",
       "explanation": "The follow-up coding task has the penguin move forward again once the person is no longer seen."
     },
@@ -151,12 +151,12 @@ export const shyPenguinBank: QuizBank = {
       "learningSlide": 21,
       "prompt": "What extra behaviour is requested after programming the penguin to back away?",
       "choices": [
-        "Restart movement when the obstacle disappears",
-        "Remove the infrared sensor",
         "Reverse at all times",
-        "Drive both motors without sensing"
+        "Drive both motors without sensing",
+        "Restart movement when the obstacle disappears",
+        "Remove the infrared sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Compare the second programming task with the first.",
       "explanation": "The second task adds resuming forward movement after the detected person goes away."
     }

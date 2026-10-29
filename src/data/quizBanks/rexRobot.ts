@@ -16,12 +16,12 @@ export const rexRobotBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "What role does the lesson give the REX robot?",
       "choices": [
-        "Police officer",
         "Sailboat captain",
         "Gardener",
-        "Astronaut"
+        "Astronaut",
+        "Police officer"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Recall the character's profession in the introduction.",
       "explanation": "REX is introduced as a strong police robot."
     },
@@ -46,12 +46,12 @@ export const rexRobotBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "Which item is listed as an electronic component?",
       "choices": [
+        "Mechanical axle",
         "Touch sensor",
         "Plain beam",
-        "Unpowered peg",
-        "Mechanical axle"
+        "Unpowered peg"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about a part that can sense an input.",
       "explanation": "The electronic components slide includes a touch sensor."
     },
@@ -61,12 +61,12 @@ export const rexRobotBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "Which motor sizes appear in the REX component list?",
       "choices": [
-        "Large and medium motors",
-        "Only miniature motors",
         "Only hydraulic motors",
-        "Only wind-driven motors"
+        "Only wind-driven motors",
+        "Large and medium motors",
+        "Only miniature motors"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Recall the two motor categories on the slide.",
       "explanation": "The electronic components include large and medium motors."
     },
@@ -76,12 +76,12 @@ export const rexRobotBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "How are straight beams named in this lesson?",
       "choices": [
-        "By their number of holes",
         "By their paint colour only",
         "By their mass in kilograms",
-        "By their shape's temperature"
+        "By their shape's temperature",
+        "By their number of holes"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Look at the rule for 'n-beam'.",
       "explanation": "Straight beams are described by hole count, such as Beam 7M."
     },
@@ -106,12 +106,12 @@ export const rexRobotBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "What is the main purpose of peg parts?",
       "choices": [
+        "Storing programs",
         "Connecting different parts",
         "Making electronic sounds",
-        "Sensing colour",
-        "Storing programs"
+        "Sensing colour"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Recall how pieces are joined in a structure.",
       "explanation": "The peg slide defines pegs as connectors between parts."
     },
@@ -121,12 +121,12 @@ export const rexRobotBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "Which part is described as having a stop?",
       "choices": [
-        "Axle with stop",
-        "Colour sensor",
         "Screen block",
-        "Speaker"
+        "Speaker",
+        "Axle with stop",
+        "Colour sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The lesson distinguishes two related shaft types.",
       "explanation": "It lists both a cross axle and an axle with stop."
     },
@@ -136,12 +136,12 @@ export const rexRobotBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "Which part is included in the REX gear list?",
       "choices": [
-        "Worm gear",
         "Touch sensor",
         "Battery slot",
-        "Display screen"
+        "Display screen",
+        "Worm gear"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Look for a transmission component.",
       "explanation": "The gear slide lists worm gears among gear types."
     },

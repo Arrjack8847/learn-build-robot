@@ -16,12 +16,12 @@ export const firstRobotModelBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Which type of robot receives special attention in the lesson introduction?",
       "choices": [
-        "Humanoid robots",
-        "Underwater submarines",
         "Space telescopes",
-        "Wind turbines"
+        "Wind turbines",
+        "Humanoid robots",
+        "Underwater submarines"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Recall which human-like design is discussed.",
       "explanation": "The lesson highlights humanoid robots in educational settings."
     },
@@ -31,12 +31,12 @@ export const firstRobotModelBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "What does the lesson say helps students become familiar with robot parts?",
       "choices": [
-        "Consistent practice",
         "Avoiding all assembly",
         "Changing the robot name",
-        "Using only pictures"
+        "Using only pictures",
+        "Consistent practice"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Think about how skills improve between lessons.",
       "explanation": "The lesson emphasizes repeated practice and memorization of components."
     },
@@ -61,12 +61,12 @@ export const firstRobotModelBank: QuizBank = {
       "learningSlide": 1,
       "prompt": "How can students control a built robot according to the introduction?",
       "choices": [
+        "By leaving out the controller",
         "With graphical programming software",
         "Only by moving every part by hand",
-        "Only with a paper instruction card",
-        "By leaving out the controller"
+        "Only with a paper instruction card"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Think about the tool used after assembly.",
       "explanation": "The introduction explains that graphical programming software can program the robot."
     },
@@ -76,12 +76,12 @@ export const firstRobotModelBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "Which pair of parts is explicitly shown as a building connection?",
       "choices": [
-        "Beam and peg",
-        "Paper and glue",
         "Cloth and ribbon",
-        "Magnet and tape"
+        "Magnet and tape",
+        "Beam and peg",
+        "Paper and glue"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Review the examples of connections taught in the lesson.",
       "explanation": "The parts-building slide lists beam-and-peg connections."
     },
@@ -91,12 +91,12 @@ export const firstRobotModelBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "Which pair is another connection method shown in the lesson?",
       "choices": [
-        "Gear and axle",
         "Battery and wooden stick",
         "Screen and marker pen",
-        "Wheel and paper fan"
+        "Wheel and paper fan",
+        "Gear and axle"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Look for the other mechanical joining example on the slide.",
       "explanation": "The same slide lists gear-and-axle as a way of connecting parts."
     },
@@ -121,12 +121,12 @@ export const firstRobotModelBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which additional part is named in the building-method lesson?",
       "choices": [
+        "Paint brush only",
         "Block",
         "Fan belt only",
-        "Plastic straw only",
-        "Paint brush only"
+        "Plastic straw only"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Recall another piece besides gears and pegs.",
       "explanation": "The slide includes a block among the parts used for building."
     },
@@ -136,12 +136,12 @@ export const firstRobotModelBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "Which condition is listed for the first robot model's assembly?",
       "choices": [
-        "Stable structure",
-        "Loose structure",
         "Unbalanced weight",
-        "Random shape"
+        "Random shape",
+        "Stable structure",
+        "Loose structure"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Choose a quality goal from the assembly checklist.",
       "explanation": "The task lists a stable structure as a requirement."
     },
@@ -151,12 +151,12 @@ export const firstRobotModelBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "What should the builder consider along with stability and matching shape?",
       "choices": [
-        "Proper gravity/balance",
         "Adding the most decorations possible",
         "Removing connecting pieces",
-        "Using mismatched pieces"
+        "Using mismatched pieces",
+        "Proper gravity/balance"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Recall the middle item in the three-part assembly checklist.",
       "explanation": "The lesson's assembly requirements include proper gravity or balance."
     }
