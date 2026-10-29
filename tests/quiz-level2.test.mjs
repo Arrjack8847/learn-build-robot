@@ -12,11 +12,11 @@ const repoRoot = resolve(import.meta.dirname, "..");
 const audit = JSON.parse(await readFile(new URL("../src/data/quizBanks/level2/source-audit.json", import.meta.url), "utf8"));
 const manifest = JSON.parse(await readFile(new URL("../scripts/quiz-learning-source-manifest.json", import.meta.url), "utf8"));
 const levelTwoProjects = audit.projects;
-const established = new Set([
-  "level-2-axe-robot", "level-2-fan-robot",
-  "level-2-animal-trap", "level-2-automatic-window",
-  "level-2-battery-robot", "level-2-batting-robot",
-]);
+// A new bank becomes expected-playable when its reviewed source audit is updated.
+const verifiedBankIds = new Set(levelTwoProjects
+  .filter(project => project.bankStatus === "already-published-in-shared-registry"
+    || project.bankStatus === "integrated-in-quiz-studio")
+  .map(project => project.projectId));
 
 test("Level 2 source audit covers 60 unique registered projects", () => {
   assert.equal(levelTwoProjects.length, 60);
@@ -41,10 +41,11 @@ test("all 60 registered Level 2 projects have a local source file", async () => 
   }));
 });
 
-test("six existing or newly verified banks integrate and validate without inventing the other 54", () => {
+test("every audited verified Level 2 bank is integrated; pending projects remain unavailable", () => {
+  assert.ok(verifiedBankIds.size >= 6, "regression: previously verified banks were removed");
   for (const project of levelTwoProjects) {
     const bank = getQuizBank(project.projectId);
-    if (!established.has(project.projectId)) {
+    if (!verifiedBankIds.has(project.projectId)) {
       assert.equal(bank, undefined, project.projectId + ": must remain unverified");
       continue;
     }
@@ -75,8 +76,8 @@ test("six existing or newly verified banks integrate and validate without invent
   }
 });
 
-test("the six integrated banks reference the actual PDF page count", async () => {
-  for (const project of levelTwoProjects.filter(item => established.has(item.projectId))) {
+test("all integrated Level 2 banks reference actual PDF page counts", async () => {
+  for (const project of levelTwoProjects.filter(item => verifiedBankIds.has(item.projectId))) {
     const bank = getQuizBank(project.projectId);
     assert.ok(bank);
     const pdfBytes = await readFile(resolve(repoRoot, bank.sourcePdfPath));
