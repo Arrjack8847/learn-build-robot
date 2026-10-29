@@ -1,3 +1,18 @@
+# Current Level 6 audit snapshot — 2026-10-29
+
+**Active branch:** `feat/quiz-level6-content` · **Draft PR:** #59 · **Current coverage:** 11 of 43 registered Level 6 projects (110 questions); 32 projects remain unregistered.
+
+- All 43 official Learning PDF paths are present in the GitHub branch. That verifies source *existence*, not page contents or educational claims.
+- The 11 published banks are Altimeter, Ball Tracking, Remote Control Lift, Dancing Robot, Finger-guessing Robot, Gesture-commanding Car, High Temperature Alarm, Matador, Smart Flashlight, The Interesting Rotor, and Regional Weather Station.
+- The other 32 Learning PDFs exceed the connected GitHub Contents API's size threshold: their bytes were unavailable to the authoring session. No generic questions or fabricated slide references were registered.
+- The Level 6 slide renderer's invalid literal `\\n` separator was fixed in commit `5d8ee4d`. The workflow now compiles the Python renderer before extraction (`f2f8c65`).
+- GitHub Actions runs previously failed *before any runner steps executed*, so full PDF extraction, runtime tests, TypeScript checks, build, and browser QA are **not verified**. The modified workflow has not been proven executable.
+- Preserve source-grounded question banks and keep PR #59 **draft**; do not merge or deploy until the missing banks have verified slide evidence and QA passes.
+
+> The historical audit below describes the initial **2/43 baseline** and subsequent attempts; it is not the current completion count.
+
+---
+
 # Level 6 quiz-bank source audit — 2026-10-29
 
 Scope: `Arrjack8847/learn-build-robot`, base `feat/quiz-studio-syllabus-question-banks-20261028` at `e78b9e0f0d9b3b2feb6bf381726017adc7f1139d`, worker branch `feat/quiz-level6-content`. This report deliberately lives under `src/data/quizBanks/level6/` and does **not** integrate banks into shared Quiz Studio files.
