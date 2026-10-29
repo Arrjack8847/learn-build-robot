@@ -150,6 +150,11 @@ test("published Level 5 banks satisfy question, source, uniqueness and retry rul
     assert.equal(bank.sourcePageCount, pageCount, id);
     assert.deepEqual(validateQuizBank(bank), [], id);
     assert.equal(bank.questions.length, 10, id);
+    if (id !== "level-5-autonomous-driving" && id !== "level-5-barometric-sensor") {
+      const answerPositions = Array.from({ length: 4 }, (_, correctIndex) =>
+        bank.questions.filter(question => question.correctIndex === correctIndex).length);
+      assert.deepEqual(answerPositions, [3, 3, 2, 2], id + " should balance answer positions");
+    }
     const prompts = new Set();
     for (const question of bank.questions) {
       assert.ok(!usedIds.has(question.id), "duplicated question ID: " + question.id);
