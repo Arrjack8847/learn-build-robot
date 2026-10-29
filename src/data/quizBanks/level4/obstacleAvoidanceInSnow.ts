@@ -13,12 +13,12 @@ export const obstacleAvoidanceInSnowBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "What equipment is attached to an athlete's boots for skiing?",
       "choices": [
-        "Skis",
-        "Wheels",
         "Boat paddles",
-        "Springs"
+        "Springs",
+        "Skis",
+        "Wheels"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 4 introduces skis attached to boots.",
       "hint": "Think about equipment that slides over snow."
     },
@@ -43,12 +43,12 @@ export const obstacleAvoidanceInSnowBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "What kind of motion can a slider-crank mechanism convert from rotation?",
       "choices": [
+        "Paint color",
         "Reciprocating movement",
         "Only light pulses",
-        "Sound volume",
-        "Paint color"
+        "Sound volume"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 6 explains that a slider-crank can convert rotation to back-and-forth movement.",
       "hint": "Think about turning a handle to push and pull a part."
     },
@@ -58,12 +58,12 @@ export const obstacleAvoidanceInSnowBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What related mechanism does the lesson introduce after the slider-crank?",
       "choices": [
-        "Crank-rocker mechanism",
         "Pulley lift only",
         "Magnetic lock",
-        "Digital clock"
+        "Digital clock",
+        "Crank-rocker mechanism"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 7 introduces the crank-rocker mechanism.",
       "hint": "Remember the changed linkage discussed next."
     },
@@ -73,12 +73,12 @@ export const obstacleAvoidanceInSnowBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "Which sensor can help the ski robot avoid an obstacle?",
       "choices": [
-        "Ultrasonic sensor",
         "Color light",
         "Touchscreen only",
-        "Music speaker"
+        "Music speaker",
+        "Ultrasonic sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 14 uses ultrasound echoes to measure obstacle distance.",
       "hint": "Think about detecting something in front of the robot."
     },
@@ -88,12 +88,12 @@ export const obstacleAvoidanceInSnowBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "What unit does the ultrasonic sensor use for its distance reading?",
       "choices": [
-        "Meters per second",
         "Degrees",
         "Centimeters",
-        "Kilograms"
+        "Kilograms",
+        "Meters per second"
       ],
-      "correctIndex": 2,
+      "correctIndex": 1,
       "explanation": "Slide 15 says the reading is in centimeters.",
       "hint": "Think about a short distance in front of a small robot."
     },
@@ -118,12 +118,12 @@ export const obstacleAvoidanceInSnowBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "Where should students display the ultrasonic sensor reading while testing?",
       "choices": [
-        "On the controller screen",
-        "On a wall clock",
         "In a paper book only",
-        "On the motor tire"
+        "On the motor tire",
+        "On the controller screen",
+        "On a wall clock"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 16 asks students to display the measured value on the controller screen.",
       "hint": "A reading should be visible during a test."
     },
@@ -148,12 +148,12 @@ export const obstacleAvoidanceInSnowBank: QuizBank = {
       "learningSlide": 19,
       "prompt": "What should the ski robot use to decide when to turn away from an obstacle?",
       "choices": [
-        "Distance from the ultrasonic sensor",
         "The color of its skis",
         "The classroom temperature",
-        "The time of day"
+        "The time of day",
+        "Distance from the ultrasonic sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 19 asks students to use ultrasonic sensing to locate obstacles and improve turning.",
       "hint": "A useful turn decision depends on how near an obstacle is."
     }
