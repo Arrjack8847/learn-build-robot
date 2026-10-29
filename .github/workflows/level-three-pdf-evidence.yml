@@ -35,8 +35,10 @@ jobs:
       - name: Install PDF extraction dependency
         run: npm ci
       - name: Extract PDF page text from all 51 official sources
-        run: node scripts/extract-quiz-slides.mjs --level 3 --limit 51
-      - name: Save extracted page evidence on this branch
+        continue-on-error: true
+        run: node scripts/extract-quiz-slides.mjs --level 3 --limit 51 --skip-existing
+      - name: Save any successfully extracted page evidence on this branch
+        if: always()
         shell: bash
         run: |
           git add -- quiz-research
