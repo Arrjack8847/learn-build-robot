@@ -146,7 +146,7 @@ function ProjectOverviewPage() {
             <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
               {usingLearningForBuilding
                 ? "No separate Building manual was supplied. Use the original Learning slides as a building reference."
-                : hasBuilding ? "Follow the project's existing interactive 3D or official PDF building instructions."
+                : hasBuilding ? "Open the project's available PDF reference or interactive 3D building activity."
                 : "A building activity has not been added for this slide-only project."}
             </p>
             {hasBuilding ? (
