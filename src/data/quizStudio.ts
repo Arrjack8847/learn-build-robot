@@ -50,6 +50,28 @@ import { tumblerBank } from "./quizBanks/level4/tumbler.ts";
 import { turboDropBank } from "./quizBanks/level4/turboDrop.ts";
 import { voiceControlBank } from "./quizBanks/level4/voiceControl.ts";
 
+import { backUpBuzzerBank } from "./quizBanks/level4/backUpBuzzer.ts";
+import { basketballShootingMachineBank } from "./quizBanks/level4/basketballShootingMachine.ts";
+import { dancingRobotBank } from "./quizBanks/level4/dancingRobot.ts";
+import { dangerousAssassinBank } from "./quizBanks/level4/dangerousAssassin.ts";
+import { electricPianoBank } from "./quizBanks/level4/electricPiano.ts";
+import { elfInTheTreeBank } from "./quizBanks/level4/elfInTheTree.ts";
+import { horizontalBarBank } from "./quizBanks/level4/horizontalBar.ts";
+import { luckyCatBank } from "./quizBanks/level4/luckyCat.ts";
+import { obstacleAvoidanceRobotBank } from "./quizBanks/level4/obstacleAvoidanceRobot.ts";
+import { obstacleAvoidingScorpionBank } from "./quizBanks/level4/obstacleAvoidingScorpion.ts";
+import { oscillatingFanBank } from "./quizBanks/level4/oscillatingFan.ts";
+import { partsSorterBank } from "./quizBanks/level4/partsSorter.ts";
+import { reactionTesterBank } from "./quizBanks/level4/reactionTester.ts";
+import { scanToOpenTheGateBank } from "./quizBanks/level4/scanToOpenTheGate.ts";
+import { skiingRobotBank } from "./quizBanks/level4/skiingRobot.ts";
+import { smartSpeakerBank } from "./quizBanks/level4/smartSpeaker.ts";
+import { tailWaggingStegosaurusBank } from "./quizBanks/level4/tailWaggingStegosaurus.ts";
+import { telegraphBank } from "./quizBanks/level4/telegraph.ts";
+import { transformerRobotBank } from "./quizBanks/level4/transformerRobot.ts";
+import { vendingMachineBank } from "./quizBanks/level4/vendingMachine.ts";
+import { warriorWithClawsBank } from "./quizBanks/level4/warriorWithClaws.ts";
+
 export type GearDiagram = "large-to-small" | "small-to-large";
 /** Each project defines five distinct objective IDs; the engine is not gear-specific. */
 export type QuizTopic = string;
@@ -196,6 +218,27 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [tumblerBank.projectId]: tumblerBank,
   [turboDropBank.projectId]: turboDropBank,
   [voiceControlBank.projectId]: voiceControlBank,
+  [backUpBuzzerBank.projectId]: backUpBuzzerBank,
+  [basketballShootingMachineBank.projectId]: basketballShootingMachineBank,
+  [dancingRobotBank.projectId]: dancingRobotBank,
+  [dangerousAssassinBank.projectId]: dangerousAssassinBank,
+  [electricPianoBank.projectId]: electricPianoBank,
+  [elfInTheTreeBank.projectId]: elfInTheTreeBank,
+  [horizontalBarBank.projectId]: horizontalBarBank,
+  [luckyCatBank.projectId]: luckyCatBank,
+  [obstacleAvoidanceRobotBank.projectId]: obstacleAvoidanceRobotBank,
+  [obstacleAvoidingScorpionBank.projectId]: obstacleAvoidingScorpionBank,
+  [oscillatingFanBank.projectId]: oscillatingFanBank,
+  [partsSorterBank.projectId]: partsSorterBank,
+  [reactionTesterBank.projectId]: reactionTesterBank,
+  [scanToOpenTheGateBank.projectId]: scanToOpenTheGateBank,
+  [skiingRobotBank.projectId]: skiingRobotBank,
+  [smartSpeakerBank.projectId]: smartSpeakerBank,
+  [tailWaggingStegosaurusBank.projectId]: tailWaggingStegosaurusBank,
+  [telegraphBank.projectId]: telegraphBank,
+  [transformerRobotBank.projectId]: transformerRobotBank,
+  [vendingMachineBank.projectId]: vendingMachineBank,
+  [warriorWithClawsBank.projectId]: warriorWithClawsBank,
   "acceleration-car": {
     projectId: "acceleration-car",
     title: "Acceleration Car",
