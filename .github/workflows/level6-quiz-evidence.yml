@@ -1,0 +1,43 @@
+name: Level 6 Quiz PDF Evidence
+
+on:
+  push:
+    branches:
+      - feat/quiz-level6-content
+    paths:
+      - .github/workflows/level6-quiz-evidence.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract-official-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install project dependencies
+        run: npm ci
+      - name: Extract every Level 6 registered official teaching PDF (local checkout only)
+        run: node scripts/extract-quiz-slides.mjs --level 6 --limit 43 --local-only
+      - name: Stage slide evidence under isolated Level 6 directory
+        run: |
+          mkdir -p src/data/quizBanks/level6/evidence
+          cp quiz-research/level-6-*.json src/data/quizBanks/level6/evidence/
+          cp quiz-research/latest-extraction-summary.json src/data/quizBanks/level6/evidence/extraction-summary.json
+      - name: Commit reviewed-source research data to working branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/quizBanks/level6/evidence/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(quiz-level6): extract slide text from 43 official learning PDFs"
+            git push origin HEAD:feat/quiz-level6-content
+          fi
