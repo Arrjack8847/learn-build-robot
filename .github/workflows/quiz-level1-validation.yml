@@ -1,0 +1,38 @@
+name: Quiz Level 1 validation
+on:
+  pull_request:
+    paths:
+      - "src/data/quizStudio.ts"
+      - "src/data/quizBanks/level1/**"
+      - "tests/quiz-level1-coverage.test.mjs"
+      - ".github/workflows/quiz-level1-validation.yml"
+  push:
+    branches:
+      - feat/quiz-level1-content
+    paths:
+      - "src/data/quizStudio.ts"
+      - "src/data/quizBanks/level1/**"
+      - "tests/quiz-level1-coverage.test.mjs"
+      - ".github/workflows/quiz-level1-validation.yml"
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Validate quiz engine and all Level 1 PDF mappings
+        run: node --test tests/quiz-studio.test.mjs tests/quiz-level1-coverage.test.mjs
+      - name: TypeScript type check
+        run: npx tsc --noEmit
+      - name: Existing UI tests
+        run: npm run test:ui
+      - name: Production bundle compile (no deployment)
+        run: npm run build
