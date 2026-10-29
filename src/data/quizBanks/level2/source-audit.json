@@ -10,20 +10,20 @@
     "uniqueSourcePdfs": 59,
     "existingPublishedBanks": 2,
     "existingQuestions": 20,
-    "missingBanks": 54,
-    "questionTargetForMissingBanks": 540,
-    "newBanksWrittenByThisWorker": 4,
+    "missingBanks": 53,
+    "questionTargetForMissingBanks": 530,
+    "newBanksWrittenByThisWorker": 5,
     "authoredButNotIntegrated": 0,
-    "newQuestionsWrittenByThisWorker": 40,
-    "stillMissingBankFiles": 54,
-    "registeredSourcePdfPagesVerified": 97,
+    "newQuestionsWrittenByThisWorker": 50,
+    "stillMissingBankFiles": 53,
+    "registeredSourcePdfPagesVerified": 117,
     "initialMissingBanks": 58,
     "initialQuestionTarget": 580,
-    "playableBanks": 6,
-    "playableQuestions": 60,
+    "playableBanks": 7,
+    "playableQuestions": 70,
     "ciStatus": "blocked-before-runner-start: both jobs failed with zero executed steps at GitHub run 40827960743",
     "pdfSourceBatch1Verified": true,
-    "fullLevel2SourceExtractionStatus": "not-run: GitHub Actions jobs failed before starting; container network access to GitHub and registered PDF hosts unavailable"
+    "fullLevel2SourceExtractionStatus": "In progress via isolated Vercel Sandbox using direct GitHub PDF base64 transfer (first new source: Bee 20 pages)."
   },
   "notes": [
     "This is an authoring audit, NOT a set of playable quiz banks.",
@@ -134,10 +134,10 @@
       "sourcePdfPath": "public/Level 2/Learning/Biomimicry/Bee.pdf",
       "sourceType": "learning-pdf",
       "sourceTracked": true,
-      "sourcePageCount": null,
-      "bankStatus": "pending-slide-review",
-      "questionCount": 0,
-      "slideReviewStatus": "not-reviewed"
+      "sourcePageCount": 20,
+      "bankStatus": "integrated-in-quiz-studio",
+      "questionCount": 10,
+      "slideReviewStatus": "source-text-reviewed; visual-flagged-pages-require-QA"
     },
     {
       "projectId": "level-2-chimpanzees",
@@ -837,7 +837,7 @@
         "level-2-scaling-ladder",
         "level-2-tower-crane"
       ],
-      "status": "pending-source-review"
+      "status": "1-of-5-integrated"
     },
     {
       "batch": 3,
