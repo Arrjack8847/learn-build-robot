@@ -13,12 +13,12 @@ export const nocturnalBeetleBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "What kind of stimulus do beetles often respond to in the lesson?",
       "choices": [
+        "Magnetic fields",
         "Light",
         "Sound only",
-        "Pressure only",
-        "Magnetic fields"
+        "Pressure only"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 6 describes beetles as sensitive to light.",
       "hint": "Think about a behavior caused by brightness."
     },
@@ -28,12 +28,12 @@ export const nocturnalBeetleBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "Which robot behavior does the Nocturnal Beetle model imitate?",
       "choices": [
-        "Moving toward light",
         "Following a barcode",
         "Counting people",
-        "Opening a gate"
+        "Opening a gate",
+        "Moving toward light"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 7 makes the model light-loving using its sensor.",
       "hint": "Think about how an insect might react to a lamp."
     },
@@ -43,12 +43,12 @@ export const nocturnalBeetleBank: QuizBank = {
       "learningSlide": 2,
       "prompt": "Which measurement does the lesson ask students to compare with a threshold?",
       "choices": [
-        "Wheel weight",
         "Light value",
         "Motor color",
-        "Water level"
+        "Water level",
+        "Wheel weight"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Slide 2 focuses on measuring light and understanding thresholds.",
       "hint": "Think about a number returned by a sensor."
     },
@@ -73,12 +73,12 @@ export const nocturnalBeetleBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "What is a subroutine?",
       "choices": [
-        "A saved reusable part of a program",
-        "A broken motor",
         "A robot wheel",
-        "A color of light"
+        "A color of light",
+        "A saved reusable part of a program",
+        "A broken motor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 10 describes combining program modules into a reusable subroutine.",
       "hint": "Think about using the same instructions again."
     },
@@ -103,12 +103,12 @@ export const nocturnalBeetleBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "Which rule should be followed when building the beetle?",
       "choices": [
-        "Keep its structure stable",
         "Leave the frame loose",
         "Remove all support",
-        "Ignore the model's shape"
+        "Ignore the model's shape",
+        "Keep its structure stable"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 15 lists a stable structure.",
       "hint": "The finished robot needs to move without falling apart."
     },
@@ -118,12 +118,12 @@ export const nocturnalBeetleBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "What should the model's final shape match?",
       "choices": [
+        "The light bulb color",
         "The intended design",
         "The classroom wall",
-        "The teacher's computer",
-        "The light bulb color"
+        "The teacher's computer"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 15 includes matching the model's intended shape.",
       "hint": "Compare the model with the planned build."
     },
@@ -148,12 +148,12 @@ export const nocturnalBeetleBank: QuizBank = {
       "learningSlide": 18,
       "prompt": "What should program debugging help the Beetle robot achieve?",
       "choices": [
-        "Its response to light",
-        "A stronger magnet",
         "A louder speaker",
-        "Automatic ticket printing"
+        "Automatic ticket printing",
+        "Its response to light",
+        "A stronger magnet"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 18 asks students to debug until the beetle's phototaxis behavior works.",
       "hint": "Think about the main behavior this robot models."
     }
