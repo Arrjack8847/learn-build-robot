@@ -49,7 +49,7 @@ export const smartAudioBank: QuizBank = {
         "Battery weight"
       ],
       "correctIndex": 2,
-      "hint": "The learning goal is about testing distances.",
+      "hint": "Ultrasonic sensors use reflected sound. Think about what information a returning echo can provide.",
       "explanation": "Slide 2 specifically teaches ultrasonic sensors for distance testing."
     },
     {
