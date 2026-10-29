@@ -8,10 +8,10 @@
 
 - **51 Level 3 registered projects**: 46 Learning-PDF entries in `scripts/quiz-learning-source-manifest.json`, plus 5 Building-PDF learning fallbacks from `src/data/levelThreeLectures.ts`.
 - **2 pre-existing Level 3 banks**, unchanged: Clip Robot and Following Robot (registered in `src/data/quizStudio.ts`).
-- **10 newly authored banks / 100 questions** in this directory, committed in two 5-project batches.
-- **34 mapped Learning-PDF projects remain without banks**.
+- **13 newly authored banks / 130 questions** in this directory, committed in two 5-project batches.
+- **31 mapped Learning-PDF projects remain without banks**.
 - **5 Building-PDF-only learning fallbacks are BLOCKED for syllabus-quiz authoring** until an educator inspects the Building manual or provides a dedicated Learning lesson.
-- The 10 new banks are **not yet available in Quiz Studio** because the shared registry was intentionally not modified under this worker's isolation instructions.
+- The 13 new banks are **not yet available in Quiz Studio** because the shared registry was intentionally not modified under this worker's isolation instructions.
 
 ## Source-slide verification for authored banks
 
@@ -30,6 +30,12 @@ PDF pages were counted from the actual GitHub PDF data and its text streams were
 | `level-3-sonometer` | `sonometer.ts` | 23 | 7, 9, 11, 12, 13, 18, 20 | 10 | 5 |
 | `level-3-sunflower` | `sunflower.ts` | 19 | 6, 7, 9, 10, 11, 16 | 10 | 5 |
 
+| `level-3-bumper-car-interactive-mechanisms` | `bumperCarInteractiveMechanisms.ts` | 18 | 2, 3, 7, 9, 10, 12, 14, 15 | 10 | 5 |
+
+| `level-3-super-trajectory-robot-1` | `superTrajectoryRobot1.ts` | 19 | 6, 7, 10, 14, 15, 16 | 10 | 5 |
+
+| `level-3-f1-racing-car` | `f1RacingCar.ts` | 20 | 2, 3, 7, 14, 15, 16, 17 | 10 | 5 |
+
 ## Full Level 3 project coverage
 
 Status descriptions: **pre-existing** = already present in the base quiz registry; **authored** = file committed here, awaiting shared integration; **pending** = mapped Learning PDF exists but questions remain unreviewed; **blocked-fallback** = no dedicated Learning lecture, only a Building manual.
@@ -42,7 +48,7 @@ Status descriptions: **pre-existing** = already present in the base quiz registr
 | `level-3-automatic-seesaw` | authored | `public/Level 3/Learning/Automation & Security/Automatic Seesaw/24. Automatic Seesaw.pdf` |
 | `level-3-blood-bank-centrifuge` | pending | `public/Level 3/Learning/Manipulators/Blood bank Centrifuge.pdf` |
 | `level-3-bumper-car-foundational-robots` | pending | `public/Level 3/Learning/Foundational Robots/Bumper car.pdf` |
-| `level-3-bumper-car-interactive-mechanisms` | pending | `public/Level 3/Learning/Interactive Mechanisms/Bumper car/Bumper car_Powerpoint-update.pdf` |
+| `level-3-bumper-car-interactive-mechanisms` | authored | `public/Level 3/Learning/Interactive Mechanisms/Bumper car/Bumper car_Powerpoint-update.pdf` |
 | `level-3-clip-robot` | pre-existing | `public/Level 3/Learning/Action-Oriented/Clip robot/Clip robot_Powerpoint.pdf` |
 | `level-3-cycle-sport-basic` | pending | `public/Level 3/Learning/Action-Oriented/Cycle Sport/3. Cycle Sport - Slides.pdf` |
 | `level-3-cycle-sport-optimized` | pending | `public/Level 3/Learning/Action-Oriented/Cycle Sport/3. Cycle Sport - Slides.pdf` |
@@ -53,7 +59,7 @@ Status descriptions: **pre-existing** = already present in the base quiz registr
 | `level-3-electric-fan-mechanisms-and-concepts` | pending | `public/Level 3/Learning/Mechanisms and Concepts/Electric fan.pdf` |
 | `level-3-electric-guitar` | authored | `public/Level 3/Learning/Sound & Voice Interaction/Electric guitar/10.Electric guitar_Powerpoint.pdf` |
 | `level-3-electronic-scale` | pending | `public/Level 3/Learning/Manipulators/Electronic scale.pdf` |
-| `level-3-f1-racing-car` | pending | `public/Level 3/Learning/Vehicles & Complex Movers/F1 racing car/F1 racing car_Powerpoint.pdf` |
+| `level-3-f1-racing-car` | authored | `public/Level 3/Learning/Vehicles & Complex Movers/F1 racing car/F1 racing car_Powerpoint.pdf` |
 | `level-3-fire-ladder` | pending | `public/Level 3/Learning/Mechanisms and Concepts/Fire ladder.pdf` |
 | `level-3-flashlight-sensor` | pending | `public/Level 3/Learning/Illumination & Signals/Flashlight Sensor/04.Flashlight -Slides.pdf` |
 | `level-3-following-robot` | pre-existing | `public/Level 3/Learning/Autonomous Navigation & Ranging/Following Robot/Following Robot_Powerpoint.pdf` |
@@ -80,7 +86,7 @@ Status descriptions: **pre-existing** = already present in the base quiz registr
 | `level-3-sound-level-meter` | pending | `public/Level 3/Learning/Sound & Voice Interaction/Sound Level Meter/16.Sound Level Meter -Slides.pdf` |
 | `level-3-stag-beetle` | pending | `public/Level 3/Learning/Biomimicry/Stag beetle.pdf` |
 | `level-3-sunflower` | authored | `public/Level 3/Learning/Biomimicry & Stimulus Response/Sunflower/09.Sunflower.pdf` |
-| `level-3-super-trajectory-robot-1` | pending | `public/Level 3/Learning/Advanced Navigation & Control/Super Trajectory Robot 1/13.Super Trajectory Robot 1-update.pdf` |
+| `level-3-super-trajectory-robot-1` | authored | `public/Level 3/Learning/Advanced Navigation & Control/Super Trajectory Robot 1/13.Super Trajectory Robot 1-update.pdf` |
 | `level-3-washing-machine` | pending | `public/Level 3/Learning/Interactive Systems/Washing Machine/08.Washing Machine-Slides.pdf` |
 | `level-3-lifting-maintenance-vehicle` | blocked-fallback | Building manual via `pdfActivityManuals` (no dedicated lecture) |
 | `level-3-biting-monster` | blocked-fallback | Building manual via `pdfActivityManuals` (no dedicated lecture) |
@@ -111,3 +117,9 @@ The shared integration worker must import the new exports into `src/data/quizStu
 
 - Batch 1: `4339e56460a1ab1ef2b706779c456567658c130e` — five banks
 - Batch 2: `41603721a140c8011095204f717e6ba874939d06` — five banks
+
+## Continuation — 29 October 2026
+
+- **Batch 3 partial:** three additional banks / 30 questions authored from verifiable PDFs: Bumper Car (Interactive Mechanisms), Super Trajectory Robot 1, and F1 Racing Car.
+- **Source-access blocker:** GitHub Contents API returns empty content for Learning PDFs over approximately 1 MiB (tested on Cycle Sport, Race Walking, and Electric Fan). These remain pending, rather than receiving inferred questions. This means the five-project batch size could not be completed safely in this environment.
+- The new three banks were structurally checked against the existing QuizBank requirements and manually mapped to extracted page text. No new diagrams were relied upon. Local TypeScript/build tests remain unrun.
