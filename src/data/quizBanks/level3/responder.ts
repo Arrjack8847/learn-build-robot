@@ -109,7 +109,7 @@ export const responderBank: QuizBank = {
         "Sound-powered fan"
       ],
       "correctIndex": 1,
-      "hint": "The lesson includes control of a closed-loop motor.",
+      "hint": "Review how motors can be controlled and what feedback changes about their behavior.",
       "explanation": "Page 3 identifies application of a closed-loop motor."
     },
     {
