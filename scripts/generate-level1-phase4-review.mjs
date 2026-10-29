@@ -43,6 +43,7 @@ for (const x of items) {
     else if (!page || page.needsVisualReview || (page.text || "").trim().length < 70)
       flags.push("Inspect PDF image; limited extractable text");
     if (storyPattern.test(q.prompt)) flags.push("Review STEM relevance: narrative/classroom recall");
+    if (q.image) flags.push("Original concept illustration: verify against actual lesson diagram");
     if (hintCounts.get(q.hint) > 1) flags.push("Reused hint");
     if (!Number.isInteger(q.correctIndex) || q.correctIndex < 0 || q.correctIndex > 3)
       flags.push("Invalid answer index");
@@ -69,7 +70,10 @@ const render = (bank, q) => [
   '<div class="meta">' + safe(bank.id) + ' · question ' + safe(q.id) +
     ' · PDF page ' + q.learningSlide + ' · <a target="_blank" href="' + safe(q.pdfUrl) +
     '">Open original PDF page</a></div>',
-  '<h3>' + safe(q.prompt) + '</h3><ol type="A">',
+  '<h3>' + safe(q.prompt) + '</h3>',
+  q.image ? '<figure class="quiz-image"><img loading="lazy" src="' + safe("../public" + q.image.src) +
+    '" alt="' + safe(q.image.alt) + '"/><figcaption>Original concept sketch; verify with official PDF.</figcaption></figure>' : '',
+  '<ol type="A">',
   ...q.choices.map((opt,i) => '<li' + (i===q.correctIndex?' class="correct"':'') +
     '>' + safe(opt) + '</li>'),
   '</ol><p><b>Answer:</b> ' + safe(q.choices[q.correctIndex]) + '</p>',
@@ -98,7 +102,10 @@ const html = [
 'li{line-height:1.8}.correct{font-weight:bold;color:#127346}.source{padding:12px;background:#eff5fc;white-space:pre-wrap}',
 '.flags{background:#fff2d9;color:#7a4c13;border-radius:8px;padding:10px;font-size:13px}',
 '.review{display:flex;flex-wrap:wrap;gap:14px}.review label{flex:1;display:grid;gap:6px;min-width:180px}',
-'.review input,.review select{width:100%;box-sizing:border-box}</style></head><body>',
+'.review input,.review select{width:100%;box-sizing:border-box}',
+'.quiz-image{max-width:620px;padding:9px;margin:14px auto;background:#f2f8ff;border:1px solid #b9d7ee;border-radius:12px}',
+'.quiz-image img{width:100%;height:auto;display:block}.quiz-image figcaption{text-align:center;font-size:12px;color:#557;margin-top:5px}',
+'</style></head><body>',
 '<header><h1>BE STEM READY · Level 1 content review</h1>',
 '<p>33 UNPUBLISHED banks · 330 questions · '+marked.length+' items automatically flagged for review</p>',
 '<p>Review decisions are LOCAL ONLY and never publish or approve a quiz in the application.</p>',
