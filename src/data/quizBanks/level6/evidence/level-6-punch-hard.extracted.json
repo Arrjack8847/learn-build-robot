@@ -1,0 +1,115 @@
+{
+  "projectId": "level-6-punch-hard",
+  "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/Punch Hard/7. Punch Hard - Slides.pdf",
+  "wixFileId": "7fc4ca_d19ce2e35c174852b58529aeafc709b4.pdf",
+  "sourceBytes": 1204526,
+  "pageCount": 26,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 7.  | Punch Hard | edu.zmrobo.com | Lecturer: "
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties | 1. | Learn |   | about |   | boxing |   | and |   | build |   | a |   | boxing |   | robot | . | 2. | Use |   | RoboCode |   | to |   | complete |   | multiple |   | program |   | combinations |   | to |   | control |   | the |   | movements |   | of |   | the |   | boxing |   | robot | . | 3. | Create |   | custom |   | blocks |   | to |   | program |   | different |   | actions | . | 1. | Understand the movements during boxing. | 2. | Building of parallel link structure. | 3. | Application of  | custom blocks."
+    },
+    {
+      "slide": 3,
+      "text": "Background"
+    },
+    {
+      "slide": 4,
+      "text": "Background Knowledge |  | Boxing | Boxing |   | is |   | a |   | sport |   | involving |   | fighting |   | with |   | boxing |   | gloves | . |   | It |   | has |   | both |   | amateur |   | and |   | professional |   | competitions | . |   | The |   | goal |   | of |   | the |   | game |   | is |   | to |   | score |   | more |   | points |   | than |   | the |   | opponent |   | to |   | defeat |   | the |   | opponent |   | or |   | to |   | knock |   | the |   | opponent |   | down |   | and |   | end |   | the |   | game | . |   | At |   | the |   | same |   | time, |   | the |   | contestants |   | must |   | try |   | to |   | avoid |   | the |   | opponent's |   | blows | ."
+    },
+    {
+      "slide": 5,
+      "text": "Introduction"
+    },
+    {
+      "slide": 6,
+      "text": "Introduction | Parallel Four | - | bar Mechanism | A |   | four | - | bar |   | mechanism |   | in |   | which |   | all |   | kinematic |   | pairs |   | are |   | rotating |   | pairs |   | is |   | called |   | a |   | hinged |   | four | - | bar |   | mechanism, |   | which |   | is |   | the |   | basic |   | form |   | of |   | a |   | planar |   | four | - | bar |   | mechanism | . | When |   | four |   | rods |   | form |   | a |   | parallelogram, |   | it |   | is |   | a |   | parallel |   | four | - | rod |   | structure | . |   | The |   | parallel |   | four | - | rod |   | structure |   | can |   | transmit |   | rotation |   | or |   | swing |   | to |   | other |   | connecting |   | rods |   | in |   | parallel | ."
+    },
+    {
+      "slide": 7,
+      "text": "Introduction | | Application of Parallel Four | - | bar Mechanism | Landing gear | Oil pumping unit | Self | - | unloading truck"
+    },
+    {
+      "slide": 8,
+      "text": "Practice"
+    },
+    {
+      "slide": 9,
+      "text": "Practice  | |  | Robot Building | Build |   | the |   | boxing |   | robot |   | according |   | to |   | the |   | building |   | manual |   | and |   | choose |   | the |   | port |   | to |   | connect |   | to | . | Parallel Four | - | bar  | Mechanism | Large motors as power  | for movement"
+    },
+    {
+      "slide": 10,
+      "text": "Practice  | |  | Flowchart | The program flow of the boxing robot: | ʒ | Move forward | ʓ | Punch attack | ʔ | Return to position"
+    },
+    {
+      "slide": 11,
+      "text": "Practice | Programming | According |   | to |   | the |   | flow |   | chart, |   | complete |   | the |   | basic |   | program |   | of |   | the |   | boxing |   | robot | ."
+    },
+    {
+      "slide": 12,
+      "text": "Exploration"
+    },
+    {
+      "slide": 13,
+      "text": "Exploration  | | |   | Discussion | Please tell me what problems you found while building the robot and programming. | Lack of punching power? | Will the arm get stuck? | Is the punching program too  | complicated? | Is the structure not stable  | enough?"
+    },
+    {
+      "slide": 14,
+      "text": "Exploration  | | |   | Discussion | So, how to solve these problems and  | make improvements?"
+    },
+    {
+      "slide": 15,
+      "text": "Exploration  | | |   | Custom Block Module | If |   | there |   | are |   | many |   | repetitive |   | parts |   | in |   | the |   | program, |   | we |   | can |   | create |   | custom |   | blocks |   | to |   | fix |   | some |   | programs |   | into |   | a |   | function |   | and |   | then |   | call |   | it | . | In |   | this |   | way, |   | the |   | main |   | program |   | can |   | be |   | more |   | concise |   | and |   | easy |   | to |   | modify | ."
+    },
+    {
+      "slide": 16,
+      "text": "Exploration  | | |   | Custom Block Module | Function | : |   | used |   | for |   | custom |   | functions |   | (subprograms) | . |   | Programs |   | that |   | need |   | to |   | appear |   | multiple |   | times |   | can |   | be |   | fixed |   | into |   | functions |   | (subprograms) |   | for |   | easy |   | calling | . | Parameter |   | values | : |   | name |   | and |   | numeric |   | type | . | Function: Call custom function ( | subprogram | ). | Return value: The value obtained by the defined variable  | through function operation."
+    },
+    {
+      "slide": 17,
+      "text": "Exploration  | | |   | Custom Block Module | Use a custom block to write a forward program that can call and modify parameters.  | Try to set the parameters in the program and call it."
+    },
+    {
+      "slide": 18,
+      "text": "Optimization"
+    },
+    {
+      "slide": 19,
+      "text": "Optimization  | |  | Analysis | logo | Test, observe and think | 1 | . |   | Which |   | places |   | need |   | reinforcement? | 2 | . |   | How |   | to |   | add |   | parts |   | so |   | that |   | the |   | arm |   | does |   | not |   | get |   | stuck? | 3 | . |   | How |   | to |   | detect |   | the |   | opponent's |   | position? | 4 | . |   | Change |   | the |   | acceleration |   | gear |   | to |   | a |   | reduction |   | gear | . | Please |   | modify |   | your |   | robot |   | to |   | make |   | the |   | model |   | more |   | interesting |   | and |   | play |   | freely |   | based |   | on |   | this | ."
+    },
+    {
+      "slide": 20,
+      "text": "Optimization  | |  | Analysis | logo | Test, |   | observe |   | and |   | think | 1 | . |   | How |   | to |   | use |   | custom |   | blocks |   | to |   | set |   | up |   | the |   | movement |   | and |   | punching |   | programs? | 2 | . |   | How |   | to |   | combine |   | movement |   | and |   | punching |   | programs |   | into |   | different |   | moves? | Please |   | design |   | different |   | actions |   | for |   | the |   | robot |   | and |   | complete |   | the |   | programming, |   | and |   | then |   | try |   | it |   | freely |   | based |   | on |   | this | ."
+    },
+    {
+      "slide": 21,
+      "text": "Optimization  | |  | Analysis | logo | Test, |   | observe |   | and |   | think | 1 | . |   | How |   | to |   | use |   | custom |   | blocks |   | to |   | set |   | up |   | the |   | movement |   | and |   | punching |   | programs? | 2 | . |   | How |   | to |   | combine |   | movement |   | and |   | punching |   | programs |   | into |   | different |   | moves? | Please |   | design |   | different |   | actions |   | for |   | the |   | robot |   | and |   | complete |   | the |   | programming, |   | and |   | then |   | try |   | it |   | freely |   | based |   | on |   | this | ."
+    },
+    {
+      "slide": 22,
+      "text": "Result"
+    },
+    {
+      "slide": 23,
+      "text": "Result  | |  | Robot Games | /HW¶V\u0003KDYH\u0003D\u0003URERW\u0003ER[LQJ\u0003FRPSHWLWLRQ\u0004"
+    },
+    {
+      "slide": 24,
+      "text": "Result  | | |   | Display Your Robots | Please introduce your robots. |  | Start with an interesting, powerful, and informative introduction  | to yourself |  | Describe the building steps and program implementation  | process (problems encountered and solutions) |  | Run the program to display your robot |  | Explain the highlights of the work (add explanations for creative  | effects)"
+    },
+    {
+      "slide": 25,
+      "text": "Result | |  | Further Reading | The |   | Olympic |   | Games |   | are |   | in |   | principle |   | an |   | amateur |   | sports |   | event | . |   | For |   | example, |   | there |   | are |   | age |   | restrictions |   | for |   | football |   | teams |   | participating |   | in |   | the |   | Olympics, |   | and |   | they |   | cannot |   | be |   | original |   | members |   | of |   | the |   | national |   | team | . |   | American |   | NBA |   | professional |   | basketball |   | players |   | have |   | been |   | outside |   | the |   | Olympics |   | for |   | a |   | long |   | time |   | and |   | were |   | only |   | allowed |   | to |   | enter |   | in |   | 1992 | , |   | all |   | because |   | of |   | their |   | \"amateur\" |   | nature | . |   | . | Specific |   | to |   | boxing |   | matches, |   | professional |   | boxing |   | is |   | a |   | sport |   | whose |   | main |   | goal |   | is |   | gambling | . |   | As |   | it |   | develops |   | today, |   | it |   | has |   | many |   | differences |   | in |   | rules |   | from |   | amateur |   | boxing, |   | which |   | is |   | aimed |   | at |   | fitness |   | competition | . |   | In |   | addition |   | to |   | differences |   | in |   | glove |   | thickness |   | and |   | other |   | differences, |   | amateur |   | boxing |   | puts |   | the |   | protection |   | of |   | the |   | athlete's |   | body |   | first, |   | and |   | enforces |   | the |   | rules |   | very |   | strictly, |   | including |   | not |   | allowing |   | too |   | many |   | hugs, |   | not |   | allowed |   | to |   | hit |   | prohibited |   | parts, |   | etc | . |   | The |   | same |   | movements |   | are |   | used |   | in |   | professional |   | boxing |   | matches |   | for |   | the |   | purpose |   | of |   | There |   | is |   | no |   | penalty |   | for |   | the |   | consistency |   | and |   | enjoyment |   | of |   | the |   | game, |   | but |   | in |   | amateur |   | boxing |   | matches, |   | the |   | penalty |   | may |   | be |   | heavy, |   | or |   | even |   | directly |   | awarded |   | a |   | loss | . |   | Therefore, |   | professional |   | boxers |   | may |   | not |   | have |   | a |   | greater |   | advantage |   | in |   | the |   | Olympic |   | arena | . |   | On |   | the |   | contrary, |   | some |   | people |   | who |   | rely |   | on |   | foul |   | play, |   | brute |   | force |   | and |   | other |   | fighting |   | styles |   | to |   | gain |   | a |   | place |   | in |   | the |   | professional |   | boxing |   | arena |   | may |   | find |   | that |   | they |   | are |   | limited |   | in |   | the |   | amateur |   | arena |   | and |   | cannot |   | perform |   | at |   | all | ."
+    },
+    {
+      "slide": 26,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER: "
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}
