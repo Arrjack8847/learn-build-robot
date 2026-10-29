@@ -13,6 +13,7 @@
 import { readFile, mkdir, writeFile } from "node:fs/promises";
 import { resolve, dirname, join } from "node:path";
 import { getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
+import { resolveQuizExtractionLimit } from "./quiz-extraction-limit.mjs";
 
 const root = resolve(import.meta.dirname, "..");
 const manifestFile = join(root, "scripts", "quiz-learning-source-manifest.json");
@@ -37,8 +38,7 @@ const level = levelArg === undefined ? null : Number(levelArg);
 if (levelArg !== undefined && (!Number.isInteger(level) || level < 1 || level > 6)) {
   throw new Error("--level must be between 1 and 6");
 }
-const limit = limitArg === undefined ? (all || level !== null ? 5 : Infinity) : Number(limitArg);
-if (Number.isNaN(limit) || limit < 1 || !Number.isInteger(limit)) throw new Error("--limit must be a positive integer");
+const limit = resolveQuizExtractionLimit({ limitArg, projectId, all, level });
 
 let entries = manifest.sources;
 if (projectId) entries = entries.filter(entry => entry.projectId === projectId);
