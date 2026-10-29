@@ -43,7 +43,7 @@ test("every registered quiz bank follows the shared ten-question teaching format
     assert.equal(bank.projectId, projectId, "Bank key and project ID do not match");
     assert.deepEqual(validateQuizBank(bank), [], projectId + " failed structural validation");
     assert.ok(bank.title.trim(), projectId + " missing title");
-    assert.ok(!/\\bTODO\\b|\\bTBD\\b|\\[VERIFY\\]/i.test(JSON.stringify(bank)), projectId + " has draft placeholders");
+    assert.ok(!/\bTODO\b|\bTBD\b|\[VERIFY\]/i.test(JSON.stringify(bank)), projectId + " has draft placeholders");
 
     const objectives = new Map();
     for (const question of bank.questions) {
