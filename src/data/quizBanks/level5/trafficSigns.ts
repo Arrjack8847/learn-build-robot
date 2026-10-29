@@ -28,12 +28,12 @@ export const trafficSignsBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "Why does the lesson use traffic sign recognition in a robot activity?",
       "choices": [
+        "To measure laser reflection time",
         "To model understanding signs that help drivers travel safely",
         "To teach a robot to dry clothes",
-        "To show how to count passing customers",
-        "To measure laser reflection time"
+        "To show how to count passing customers"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The signs guide road movement decisions.",
       "explanation": "Slide 4 links the robot's traffic sign recognition to safe driving."
     },
@@ -43,12 +43,12 @@ export const trafficSignsBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "How many built-in traffic sign categories can the AI module recognize in the lesson?",
       "choices": [
-        "5",
-        "2",
         "10",
-        "50"
+        "50",
+        "5",
+        "2"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The slide lists ID values from 1 through 5.",
       "explanation": "Slide 6 says five built-in signs map to IDs 1, 2, 3, 4 and 5."
     },
@@ -58,12 +58,12 @@ export const trafficSignsBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What traffic sign is associated with recognized ID value 3?",
       "choices": [
-        "Turn Left",
         "Forward",
         "Stop",
-        "Backward"
+        "Backward",
+        "Turn Left"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The slide orders signs forward, backward, left, right, stop.",
       "explanation": "Slide 7 assigns ID 3 to 'Turn Left'."
     },
@@ -88,12 +88,12 @@ export const trafficSignsBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Where should the AI audiovisual module be installed on the robot?",
       "choices": [
+        "Under the rear tire",
         "On top of the model",
         "Under the classroom floor",
-        "Inside a sealed clothes drum",
-        "Under the rear tire"
+        "Inside a sealed clothes drum"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The camera must have a view of the signs.",
       "explanation": "Slide 10 explicitly requires mounting the AI module on top of the traffic sign robot."
     },
@@ -103,12 +103,12 @@ export const trafficSignsBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "If the forward sign (ID 1) is recognized, what do the motors do?",
       "choices": [
-        "Both drive at speed 50 for 0.5 seconds, then stop",
-        "Both drive at speed -50 for an hour",
         "The motor reverses every 2 seconds indefinitely",
-        "Only the buzzer activates"
+        "Only the buzzer activates",
+        "Both drive at speed 50 for 0.5 seconds, then stop",
+        "Both drive at speed -50 for an hour"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Both wheels move in the same forward direction.",
       "explanation": "Slide 14 sets both motor speeds to 50 and stops after 0.5 seconds for the forward sign."
     },
@@ -118,12 +118,12 @@ export const trafficSignsBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "What motor speed does the example use to move backward for sign ID 2?",
       "choices": [
-        "-50 on both motors",
         "50 on only the left motor",
         "0 on both motors for a full minute",
-        "2000 on both motors"
+        "2000 on both motors",
+        "-50 on both motors"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Negative speed indicates reversing.",
       "explanation": "Slide 15 sets both motors to -50 for the backward sign."
     },
@@ -148,12 +148,12 @@ export const trafficSignsBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "What happens when the AI module recognizes the Stop sign?",
       "choices": [
+        "It displays a magnetic field reading",
         "The robot stops and the buzzer sounds for one second",
         "It accelerates for 10 seconds",
-        "It erases its sign definitions",
-        "It displays a magnetic field reading"
+        "It erases its sign definitions"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The lesson combines a stop with an audible alert.",
       "explanation": "Slide 17 specifies stopping the robot and sounding the buzzer for one second."
     }

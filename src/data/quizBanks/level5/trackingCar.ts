@@ -28,12 +28,12 @@ export const trackingCarBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "How can a person guide the tracking car without touching it?",
       "choices": [
+        "Pour water in front of its wheels",
         "Move a light source for the car to follow",
         "Move a magnetic cabinet past it",
-        "Speak a QR-code number",
-        "Pour water in front of its wheels"
+        "Speak a QR-code number"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The lesson treats the light as a communication method.",
       "explanation": "Slide 7 says the light source can be moved to guide the car, allowing a human and robot to interact using light."
     },
@@ -43,12 +43,12 @@ export const trackingCarBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "What is human–machine interaction mainly concerned with?",
       "choices": [
-        "How users communicate with and operate systems",
-        "How to change Earth's magnetic field",
         "Only how robot parts are painted",
-        "How to measure Moon distance by laser"
+        "How to measure Moon distance by laser",
+        "How users communicate with and operate systems",
+        "How to change Earth's magnetic field"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Think about the person using the machine.",
       "explanation": "Slide 10 defines HCI/HMI as the relationship between users and machines or computerized systems."
     },
@@ -58,12 +58,12 @@ export const trackingCarBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Which of these is an HMI interface example named in the lesson?",
       "choices": [
-        "A radio playback button",
         "An unplugged steel rod",
         "A blank wooden cube",
-        "A wheel without controls"
+        "A wheel without controls",
+        "A radio playback button"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "A user operates the device through a visible control.",
       "explanation": "Slide 10 gives a radio playback button as a small example of an HMI control."
     },
@@ -88,12 +88,12 @@ export const trackingCarBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Why do programmable devices show welcome messages and specific instructions?",
       "choices": [
+        "They have no connection to human–machine interaction",
         "Programmers define guidance behavior using electronic parts and software",
         "The devices automatically understand every person without any program",
-        "Messages are caused only by motor heat",
-        "They have no connection to human–machine interaction"
+        "Messages are caused only by motor heat"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The greetings and guidance are designed.",
       "explanation": "Slide 9 explains that programmers create the etiquette and guidance behavior through programmed electronic components."
     },
@@ -103,12 +103,12 @@ export const trackingCarBank: QuizBank = {
       "learningSlide": 2,
       "prompt": "What is one stated goal of the tracking-car lesson?",
       "choices": [
-        "Understand the human–machine interaction process",
-        "Memorize the names of all planets",
         "Measure atmospheric pressure changes",
-        "Learn to weave magnetic wire"
+        "Learn to weave magnetic wire",
+        "Understand the human–machine interaction process",
+        "Memorize the names of all planets"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The stated goal involves communication between user and robot.",
       "explanation": "Slide 2 lists understanding and organizing the human–computer interaction process as a learning target."
     },
@@ -118,12 +118,12 @@ export const trackingCarBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Which programming task does the lesson highlight as a difficulty?",
       "choices": [
-        "Creating interactive logic for light tracking",
         "Building a hydraulic lock",
         "Programming an ultrasonic speedometer",
-        "Measuring temperature with two cameras"
+        "Measuring temperature with two cameras",
+        "Creating interactive logic for light tracking"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The required interaction uses changing light.",
       "explanation": "Slide 3 calls interactive programming for light-tracking characteristics a learning difficulty."
     },
@@ -148,12 +148,12 @@ export const trackingCarBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "What does the programming-and-debugging activity ask students to use as a guide?",
       "choices": [
+        "Only a printed music playlist",
         "The tracking car's actual structure",
         "A random motor wiring guess",
-        "An unrelated passenger-counting circuit",
-        "Only a printed music playlist"
+        "An unrelated passenger-counting circuit"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Debugging must match the assembled car.",
       "explanation": "Slide 16 tells students to debug the program according to the tracking car's structure."
     }

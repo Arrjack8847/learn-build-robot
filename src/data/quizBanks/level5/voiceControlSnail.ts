@@ -28,12 +28,12 @@ export const voiceControlSnailBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "What does the flowchart direct the snail to do if the sound is not greater than the set value?",
       "choices": [
+        "Display a tag-code password",
         "Make no reaction",
         "Always sprint forward",
-        "Rotate a prize wheel",
-        "Display a tag-code password"
+        "Rotate a prize wheel"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Follow the other branch of the sound condition.",
       "explanation": "Slide 14 labels the non-triggering branch as 'No reaction'."
     },
@@ -43,12 +43,12 @@ export const voiceControlSnailBank: QuizBank = {
       "learningSlide": 2,
       "prompt": "Which programming idea is listed as a learning objective for the voice-control snail?",
       "choices": [
-        "Dual conditional judgments and variable control",
-        "Calculating escape velocity",
         "Laser range calculations",
-        "QR-code encryption"
+        "QR-code encryption",
+        "Dual conditional judgments and variable control",
+        "Calculating escape velocity"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The lesson focuses on decision-making in the program.",
       "explanation": "Slide 2 lists dual conditional judgment and variable control as learning objectives."
     },
@@ -58,12 +58,12 @@ export const voiceControlSnailBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "Which logic skills does the lesson list as a learning difficulty?",
       "choices": [
-        "Using variables and conditional judgments flexibly",
         "Sorting data by magnetic pole only",
         "Converting barometric readings into sound",
-        "Computing the Moon's orbital period"
+        "Computing the Moon's orbital period",
+        "Using variables and conditional judgments flexibly"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Look at the lesson's programming goals.",
       "explanation": "Slide 3 identifies applying variables and conditional judgments as a key difficulty."
     },
@@ -88,12 +88,12 @@ export const voiceControlSnailBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "Which part can also serve as a shell because of its size?",
       "choices": [
+        "A paper worksheet",
         "The RCU controller",
         "A tiny screw",
-        "The motor's shaft only",
-        "A paper worksheet"
+        "The motor's shaft only"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The lesson suggests reusing a large electronic housing.",
       "explanation": "Slide 10 says the RCU can be used as the snail's shell due to its relatively large size."
     },
@@ -103,12 +103,12 @@ export const voiceControlSnailBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "Which part of the robot's design does the lesson emphasize?",
       "choices": [
-        "Its crawling mechanism",
-        "Its ability to fly",
         "Its laser measuring arm",
-        "Its revolving entrance gate"
+        "Its revolving entrance gate",
+        "Its crawling mechanism",
+        "Its ability to fly"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The robot imitates how a snail moves.",
       "explanation": "Slide 7 focuses the snail design on its crawling part."
     },
@@ -118,12 +118,12 @@ export const voiceControlSnailBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "What animal does the lesson's model imitate?",
       "choices": [
-        "Snail",
         "Bird",
         "Shark",
-        "Spider"
+        "Spider",
+        "Snail"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The lesson identifies both the robot's shape and type.",
       "explanation": "Slide 9 describes the model as an imitation snail with a sliding or crawling structure."
     },
@@ -148,12 +148,12 @@ export const voiceControlSnailBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "What does the assembly checklist ask students to consider besides stability?",
       "choices": [
+        "The Earth's orbital speed",
         "The center of gravity and matching shape",
         "The phone's contact list",
-        "The car's license plate",
-        "The Earth's orbital speed"
+        "The car's license plate"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The model should be balanced and resemble the intended subject.",
       "explanation": "Slide 12 includes appropriate focus or center of gravity and shape matching."
     }

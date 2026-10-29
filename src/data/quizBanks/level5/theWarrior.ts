@@ -28,12 +28,12 @@ export const theWarriorBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "What mechanism rotates the robot's shoulder in the classroom model?",
       "choices": [
+        "A laser beam from a phone",
         "A turntable driving a gear",
         "A barometric sensor connected to a speaker",
-        "A sliding screen with no motor",
-        "A laser beam from a phone"
+        "A sliding screen with no motor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The motion uses rotating mechanical parts.",
       "explanation": "Slide 9 explains that the turntable drives a gear to rotate the shoulder and move the arm."
     },
@@ -43,12 +43,12 @@ export const theWarriorBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "Which two behaviors should the completed warrior robot demonstrate?",
       "choices": [
-        "Patrolling in circles and moving its arm when a target is detected",
-        "Flying and measuring cloud height",
         "Measuring humidity and playing music",
-        "Recognizing QR codes and opening a turnstile"
+        "Recognizing QR codes and opening a turnstile",
+        "Patrolling in circles and moving its arm when a target is detected",
+        "Flying and measuring cloud height"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The model first patrols and then reacts to an obstacle.",
       "explanation": "Slide 11 sets the goal of moving in circles and wielding the modeled sword when a target is detected."
     },
@@ -58,12 +58,12 @@ export const theWarriorBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "What sensor value tells the robot when an obstacle is close during patrol?",
       "choices": [
-        "Ultrasonic distance reading",
         "Barometric pressure reading",
         "A QR tag-code value",
-        "A temperature color code"
+        "A temperature color code",
+        "Ultrasonic distance reading"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The program needs to know how far away an object is.",
       "explanation": "Slide 12 says the robot judges an ultrasonic reading to decide when to activate the arm."
     },
@@ -88,12 +88,12 @@ export const theWarriorBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "What pause is specified between the arm movement stages?",
       "choices": [
+        "2 hours",
         "0.5 seconds",
         "5 minutes",
-        "30 seconds",
-        "2 hours"
+        "30 seconds"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The slide gives a short half-second interval.",
       "explanation": "Slide 13 specifies a 0.5-second interval in the two-part arm movement."
     },
@@ -103,12 +103,12 @@ export const theWarriorBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "Which two motor labels are used to control movement?",
       "choices": [
-        "M1 and M2",
-        "P8 and P9",
         "X and Y sensor coordinates",
-        "A and B temperature sensors"
+        "A and B temperature sensors",
+        "M1 and M2",
+        "P8 and P9"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "They are the two motor-control parameters.",
       "explanation": "Slide 14 names M1 and M2 as the two motor rotation parameters."
     },
@@ -118,12 +118,12 @@ export const theWarriorBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "How does the example make the warrior robot move slowly in a circle?",
       "choices": [
-        "Set the two drive motors to different speeds",
         "Stop both motors permanently",
         "Make both wheels vanish",
-        "Use only a camera and no drive motors"
+        "Use only a camera and no drive motors",
+        "Set the two drive motors to different speeds"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Different wheel speeds cause a gradual turn.",
       "explanation": "Slide 15 says to use different motor speeds for slow circular patrol."
     },
@@ -148,12 +148,12 @@ export const theWarriorBank: QuizBank = {
       "learningSlide": 19,
       "prompt": "How does the extension suggest improving the model's stability during repeated arm motion?",
       "choices": [
+        "Disable every mechanical joint",
         "Adjust the center of gravity or support-wheel position",
         "Raise the center of gravity without testing",
-        "Remove all supports from the robot",
-        "Disable every mechanical joint"
+        "Remove all supports from the robot"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "A moving arm changes the model's balance.",
       "explanation": "Slide 19 suggests changing the center of gravity or training-wheel positions to keep the robot balanced."
     }

@@ -28,12 +28,12 @@ export const voiceControlVehicleBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "How does the car decide which movement action to take?",
       "choices": [
+        "Check an unrelated QR-code password",
         "Compare the sensed sound level with set thresholds",
         "Recognize each spoken word as text",
-        "Measure the temperature of a motor only",
-        "Check an unrelated QR-code password"
+        "Measure the temperature of a motor only"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The lesson uses threshold comparisons.",
       "explanation": "Slide 7 says different sound levels relative to thresholds trigger car actions."
     },
@@ -43,12 +43,12 @@ export const voiceControlVehicleBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which collection of systems makes up the robot system described in the lesson?",
       "choices": [
-        "Mechanical, drive, control and sensing systems",
-        "Only wheel, paint and battery cover",
         "Only software, with no hardware",
-        "Only a display and a speaker"
+        "Only a display and a speaker",
+        "Mechanical, drive, control and sensing systems",
+        "Only wheel, paint and battery cover"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The lesson describes the robot as a collection of cooperating subsystems.",
       "explanation": "Slide 9 includes mechanical, drive, control and sensing systems in the robot system."
     },
@@ -58,12 +58,12 @@ export const voiceControlVehicleBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "What is the drive system's main function?",
       "choices": [
-        "Provide the force or motion needed to operate the mechanical system",
         "Recognize facial identities by itself",
         "Store the title of the project",
-        "Count visitors through an infrared beam"
+        "Count visitors through an infrared beam",
+        "Provide the force or motion needed to operate the mechanical system"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The drive carries out movement.",
       "explanation": "Slide 10 describes the drive system as the mechanism that operates the robot's mechanical components."
     },
@@ -88,12 +88,12 @@ export const voiceControlVehicleBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "Why does the sensing system provide the actual position of the robot back to the control system?",
       "choices": [
+        "To prevent all new commands",
         "So the controller can compare the actual and desired position",
         "So sensors can replace all motors",
-        "To change the physical size of the robot",
-        "To prevent all new commands"
+        "To change the physical size of the robot"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Feedback helps detect differences from the target.",
       "explanation": "Slide 11 describes a feedback loop comparing actual end-effector position with desired pose."
     },
@@ -103,12 +103,12 @@ export const voiceControlVehicleBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "What happens when a sound does not exceed the set trigger value in the sample flowchart?",
       "choices": [
-        "No reaction",
-        "The car always turns sharply left",
         "A QR-code attendance record is created",
-        "The robot always doubles speed"
+        "The robot always doubles speed",
+        "No reaction",
+        "The car always turns sharply left"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The flowchart has a no-action branch.",
       "explanation": "Slide 15 sends the non-triggering condition to 'No reaction'."
     },
@@ -118,12 +118,12 @@ export const voiceControlVehicleBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "What basic movement behavior is demonstrated in the first car program?",
       "choices": [
-        "Move forward after hearing a sound, then stop",
         "Drive backward forever",
         "Recognize a face and take attendance",
-        "Circle around a magnetic cabinet"
+        "Circle around a magnetic cabinet",
+        "Move forward after hearing a sound, then stop"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "This example uses sound to start a short movement.",
       "explanation": "Slide 16 states that the car goes forward and stops after hearing sound."
     },
@@ -148,12 +148,12 @@ export const voiceControlVehicleBank: QuizBank = {
       "learningSlide": 18,
       "prompt": "What turning actions are assigned to louder readings in the third example?",
       "choices": [
+        "Rotate a prize wheel by QR code",
         "Turn left above 1300 and right above 1500",
         "Turn only clockwise at every level",
-        "Open a gate above 100",
-        "Rotate a prize wheel by QR code"
+        "Open a gate above 100"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The program uses different sound thresholds for different turns.",
       "explanation": "Slide 18 lists left turning above 1300 and right turning above 1500 in its sound-based action sequence."
     }

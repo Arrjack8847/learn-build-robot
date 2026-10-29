@@ -28,12 +28,12 @@ export const superTrajectoryRobot4Bank: QuizBank = {
       "learningSlide": 7,
       "prompt": "Which two surface regions is the lesson's patrol robot designed to distinguish?",
       "choices": [
+        "Purple and red",
         "Black and white",
         "Green and blue",
-        "Yellow and orange",
-        "Purple and red"
+        "Yellow and orange"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The car traces a dark line on a light background.",
       "explanation": "Slide 7 describes the robot following black-and-white track regions."
     },
@@ -43,12 +43,12 @@ export const superTrajectoryRobot4Bank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Which pair of drive motors is named in the initial control setup?",
       "choices": [
-        "A and B",
-        "M7 and M8",
         "P5 and P6",
-        "Motor X only"
+        "Motor X only",
+        "A and B",
+        "M7 and M8"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The lesson calls them by letters.",
       "explanation": "Slide 6 lists A and B motors among the required program components."
     },
@@ -58,12 +58,12 @@ export const superTrajectoryRobot4Bank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Which additional inputs does the program require besides its two motors?",
       "choices": [
-        "A touch sensor and a photoelectric sensor",
         "A humidity sensor and magnetic lock",
         "Only a loudspeaker",
-        "A facial-recognition database and QR code"
+        "A facial-recognition database and QR code",
+        "A touch sensor and a photoelectric sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "One input controls the calibration sequence and the other measures light.",
       "explanation": "Slide 6 says the program uses A and B motors, a touch sensor and a photoelectric sensor."
     },
@@ -73,12 +73,12 @@ export const superTrajectoryRobot4Bank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Which surface's light-sensitivity value is collected first during program initialization?",
       "choices": [
-        "Black line",
         "White area",
         "Blue button",
-        "Red LED"
+        "Red LED",
+        "Black line"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "hint": "The program starts by measuring the lighter background.",
       "explanation": "Slide 6 says the program initially collects the white-light light-sensitivity value."
     },
@@ -103,12 +103,12 @@ export const superTrajectoryRobot4Bank: QuizBank = {
       "learningSlide": 6,
       "prompt": "How is the photoelectric decision boundary determined from the two calibration readings?",
       "choices": [
-        "Use their average",
-        "Always use exactly zero",
         "Multiply the brighter value by 100",
-        "Ignore one of the readings and pick a random value"
+        "Ignore one of the readings and pick a random value",
+        "Use their average",
+        "Always use exactly zero"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The boundary sits between the light and dark readings.",
       "explanation": "Slide 6 instructs calculating the average of the white and black readings for the photoelectric branching threshold."
     },
@@ -118,12 +118,12 @@ export const superTrajectoryRobot4Bank: QuizBank = {
       "learningSlide": 6,
       "prompt": "If the white reading is 80 and the black reading is 20, what average decision threshold follows the lesson's rule?",
       "choices": [
+        "100",
         "20",
         "40",
-        "50",
-        "100"
+        "50"
       ],
-      "correctIndex": 2,
+      "correctIndex": 3,
       "hint": "Add the two readings, then divide by two.",
       "explanation": "The slide 6 threshold rule averages the two readings: (80 + 20) ÷ 2 = 50."
     },
@@ -148,12 +148,12 @@ export const superTrajectoryRobot4Bank: QuizBank = {
       "learningSlide": 6,
       "prompt": "Why does the sample program return to the photoelectric decision branch in a loop?",
       "choices": [
+        "To run the route exactly once and ignore the line",
         "To keep rechecking the track while the car moves",
         "To stop taking any new sensor measurements",
-        "To clear the original motor program",
-        "To run the route exactly once and ignore the line"
+        "To clear the original motor program"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Following the line requires continuous feedback.",
       "explanation": "Slide 6 explicitly describes looping back to the photoelectric branch to repeat sensing and movement decisions."
     }

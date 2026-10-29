@@ -28,12 +28,12 @@ export const welcomeSignBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "What can an eye-catching sign help a store do?",
       "choices": [
+        "Replace every product in the store",
         "Become memorable and attract new customers",
         "Calculate Earth's rotation",
-        "Prevent people from reading the shop name",
-        "Replace every product in the store"
+        "Prevent people from reading the shop name"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "Good signs help with recognition and promotion.",
       "explanation": "Slide 6 discusses sign design as part of the store image, helping customers remember and attracting visitors."
     },
@@ -43,12 +43,12 @@ export const welcomeSignBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "Which directions are supported by the dot-matrix moving-string feature?",
       "choices": [
-        "Left, right, up and down",
-        "Only clockwise and counterclockwise",
         "North and south magnetic poles only",
-        "Forward and backward wheel motion only"
+        "Forward and backward wheel motion only",
+        "Left, right, up and down",
+        "Only clockwise and counterclockwise"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Text can move horizontally or vertically.",
       "explanation": "Slide 11 lists four string movement directions: left, right, up and down."
     },
@@ -58,12 +58,12 @@ export const welcomeSignBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "What is the specified dot-matrix brightness setting range?",
       "choices": [
-        "0 to 15",
         "0 to 2",
         "100 to 200",
-        "-50 to -1"
+        "-50 to -1",
+        "0 to 15"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The slide calls these 16 controllable levels.",
       "explanation": "Slide 11 gives 16 brightness levels, encoded from 0 to 15."
     },
@@ -88,12 +88,12 @@ export const welcomeSignBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "What happens after the moving detection head senses someone passing?",
       "choices": [
+        "The sign erases every display function",
         "The dot-matrix screen shows a welcome message",
         "The sensor starts measuring Moon distance",
-        "The car changes its gear ratio",
-        "The sign erases every display function"
+        "The car changes its gear ratio"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The program should greet the visitor.",
       "explanation": "Slide 14 explains that detecting an object triggers a welcome slogan on the screen."
     },
@@ -103,12 +103,12 @@ export const welcomeSignBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "Which values are acceptable initial motor-direction states in the lesson?",
       "choices": [
-        "1 or -1, but not 0",
-        "Only 0",
         "Any number greater than 100",
-        "Only 3.6"
+        "Only 3.6",
+        "1 or -1, but not 0",
+        "Only 0"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The direction variable uses positive and negative signs.",
       "explanation": "Slide 15 permits an initial direction of -1 or 1, but not zero."
     },
@@ -118,12 +118,12 @@ export const welcomeSignBank: QuizBank = {
       "learningSlide": 18,
       "prompt": "How does the program reverse the detection head's motor direction periodically?",
       "choices": [
-        "Multiply the direction variable by -1",
         "Multiply the direction by 0 every time",
         "Always set the direction to 1",
-        "Increase humidity readings by 2"
+        "Increase humidity readings by 2",
+        "Multiply the direction variable by -1"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Changing the sign reverses the value.",
       "explanation": "Slide 18 alternates direction values 1, -1, 1, -1 by multiplying by -1."
     },
@@ -148,12 +148,12 @@ export const welcomeSignBank: QuizBank = {
       "learningSlide": 23,
       "prompt": "Which feature does the optimization task suggest adding to the welcome sign?",
       "choices": [
+        "An automatic gate that blocks visitors",
         "A prompt sound while text is displayed",
         "A second laser speed sensor for highways",
-        "A magnetic theft alarm for jewelry",
-        "An automatic gate that blocks visitors"
+        "A magnetic theft alarm for jewelry"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The extension adds an audio greeting.",
       "explanation": "Slide 23 asks for a sound prompt when the dot-matrix screen displays text."
     }

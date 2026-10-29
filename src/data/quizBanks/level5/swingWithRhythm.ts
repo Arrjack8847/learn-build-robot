@@ -28,12 +28,12 @@ export const swingWithRhythmBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "What does the lesson suggest can influence swing height without a helper pushing?",
       "choices": [
+        "Reading a QR code",
         "Changing one's posture during the swing",
         "Changing the swing's paint color",
-        "Measuring the Earth's magnetic poles",
-        "Reading a QR code"
+        "Measuring the Earth's magnetic poles"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The body can move with the rhythm of the swing.",
       "explanation": "Slide 11 describes using standing and squatting movements at different points to increase the swing."
     },
@@ -43,12 +43,12 @@ export const swingWithRhythmBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "Which sensor lets the classroom swing respond to hand motions?",
       "choices": [
-        "Gesture sensor",
-        "Air pressure sensor",
         "Laser speed detector",
-        "Infrared passenger counter"
+        "Infrared passenger counter",
+        "Gesture sensor",
+        "Air pressure sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The model reacts to different hand gestures.",
       "explanation": "Slide 13 identifies a gesture sensor controlling the model swing."
     },
@@ -58,12 +58,12 @@ export const swingWithRhythmBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "What transmits motion in the classroom swing mechanism?",
       "choices": [
-        "A rubber band drive",
         "A magnetic locking bolt",
         "A QR-code reader",
-        "A hot-air blower"
+        "A hot-air blower",
+        "A rubber band drive"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The illustrated assembly labels this transmission element.",
       "explanation": "Slide 13 labels the rubber band as the drive transmission."
     },
@@ -88,12 +88,12 @@ export const swingWithRhythmBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "Where is the recognized gesture value stored during operation?",
       "choices": [
+        "In a passenger traffic total",
         "In the current-gesture variable",
         "In a calculated Moon-distance variable",
-        "Only in the motor's physical shaft",
-        "In a passenger traffic total"
+        "Only in the motor's physical shaft"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The program needs to compare the new reading with a saved one.",
       "explanation": "Slide 16 says to read the gesture sensor into the current-gesture variable."
     },
@@ -103,12 +103,12 @@ export const swingWithRhythmBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "Why must the program treat gesture value 0 specially?",
       "choices": [
-        "Zero represents the absence of a gesture and needs a separate check",
-        "Zero means a clockwise gesture",
         "Zero means the motor must double its speed",
-        "Zero represents a magnetic south pole"
+        "Zero represents a magnetic south pole",
+        "Zero represents the absence of a gesture and needs a separate check",
+        "Zero means a clockwise gesture"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "There may be no gesture to compare.",
       "explanation": "Slide 14 highlights gesture 0 as a special case in comparing successive gestures."
     },
@@ -118,12 +118,12 @@ export const swingWithRhythmBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "What causes the swing motor to reverse direction in the lesson?",
       "choices": [
-        "A nonzero current gesture different from the last gesture",
         "A gesture identical to the previous one",
         "A constant sensor reading of zero",
-        "The controller having no variables"
+        "The controller having no variables",
+        "A nonzero current gesture different from the last gesture"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "A change in detected gesture controls direction.",
       "explanation": "Slide 17 reverses the motor when the current gesture is nonzero and differs from the preceding gesture."
     },
@@ -148,12 +148,12 @@ export const swingWithRhythmBank: QuizBank = {
       "learningSlide": 21,
       "prompt": "What change does the lesson ask students to make in the optimization task?",
       "choices": [
+        "Never change motor speed or direction",
         "Adjust speed as well as rotation direction",
         "Remove the gesture variable",
-        "Turn the sensor into a QR scanner",
-        "Never change motor speed or direction"
+        "Turn the sensor into a QR scanner"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The goal is to make the swing become faster.",
       "explanation": "Slide 21 proposes adjusting speed alongside direction so the swing becomes faster."
     }
