@@ -2,7 +2,7 @@
 """Render official Level 6 Learning PDFs as human-inspectable per-slide JPEGs.
 
 This is a read-only evidence producer, NOT a quiz/question generator.
-Use with scripts/extract-quiz-slides.mjs. Image results must be checked
+First run: node scripts/report-level6-coverage.mjs --write\nUse with scripts/extract-quiz-slides.mjs. Image results must be checked
 by a reviewer before approving source-dependent questions.
 
 Examples:
@@ -25,7 +25,7 @@ except ImportError as error:
 ROOT = Path(__file__).resolve().parents[4]
 MANIFEST = ROOT / "scripts" / "quiz-learning-source-manifest.json"
 OUTPUT = ROOT / "quiz-research" / "visual-review" / "level6"
-EXISTING = {"level-6-altimeter", "level-6-ball-tracking"}
+COVERAGE = ROOT / "quiz-research" / "level6-coverage.json"
 
 
 def safe_source(relative_path):
@@ -95,8 +95,19 @@ def main():
     if args.start < 0 or not 1 <= args.count <= 5 or not 72 <= args.dpi <= 150 or not 30 <= args.quality <= 85:
         parser.error("Require start >=0; count 1..5; dpi 72..150; quality 30..85")
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    pending = [entry for entry in manifest["sources"]
-               if entry["level"] == 6 and entry["projectId"] not in EXISTING]
+    if not COVERAGE.is_file():
+        raise SystemExit("Missing current registry coverage. Run: node scripts/report-level6-coverage.mjs --write")
+    coverage = json.loads(COVERAGE.read_text(encoding="utf-8"))
+    registered = [entry for entry in manifest["sources"] if entry["level"] == 6]
+    by_id = {entry["projectId"]: entry for entry in registered}
+    published_ids = coverage.get("publishedProjects", [])
+    pending_ids = coverage.get("pendingProjects", [])
+    if (coverage.get("registered") != len(registered)
+            or len(by_id) != len(registered)
+            or len(set(published_ids + pending_ids)) != len(registered)
+            or set(published_ids + pending_ids) != set(by_id)):
+        raise SystemExit("Level 6 coverage is stale; regenerate it with report-level6-coverage.mjs --write")
+    pending = [by_id[project_id] for project_id in pending_ids]
     selected = pending[args.start:args.start + args.count]
     if not selected:
         parser.error("No matching pending projects in requested batch")
@@ -111,7 +122,7 @@ def main():
         print(entry["projectId"] + ": " + result["status"])
     (OUTPUT / f"batch-summary-{args.start:02d}.json").write_text(json.dumps({
         "start": args.start, "count": len(selected), "results": results,
-        "quizBanksPublished": 0,
+        "quizBanksPublished": len(published_ids),\n        "newBanksPublishedByRenderer": 0,
         "educationalReviewComplete": False,
     }, indent=2) + "\n", encoding="utf-8")
     if any(item["status"] == "blocked" for item in results):
