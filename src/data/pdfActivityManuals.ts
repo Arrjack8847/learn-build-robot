@@ -81,7 +81,9 @@ const level2LuckyTurntablePdfUrl = staticPdfUrl("Lucky turntable.pdf");
 const level2TightropeWalkPdfUrl = staticPdfUrl("Tightrope walk.pdf");
 const level2ManualFlashlightPdfUrl = staticPdfUrl("Flashlight_Building.pdf");
 const level2JumpingMachinePdfUrl = staticPdfUrl("Jumping machine_Building.pdf");
-const level2DungBeetlePdfUrl = staticPdfUrl("Dung Beetle.pdf");
+// The original PDF names/covers are cross-labeled: Dung Beetle.pdf teaches reverse parking; Reverse Parking.pdf teaches dung beetles.
+// Route to the PDF with the correct internal lesson and diagram content; retain the originals unchanged.
+const level2DungBeetlePdfUrl = staticPdfUrl("Reverse Parking.pdf");
 const level2MobileShotPdfUrl = staticPdfUrl("Mobile Shot.pdf");
 const level2RollingShutterPdfUrl = staticPdfUrl("Rolling Shutter.pdf");
 const level2TrackRickshawPdfUrl = staticPdfUrl("Track Rickshaw.pdf");
@@ -115,7 +117,7 @@ const level2TankPdfUrl = staticPdfUrl("Tank.pdf");
 const level2SeeSawBalanceV1PdfUrl = staticPdfUrl("Balance.pdf");
 const level2SeeSawBalanceV2PdfUrl = staticPdfUrl("Balance_v2.pdf");
 const level2TongsPliersPdfUrl = staticPdfUrl("Pliers.pdf");
-const level2ReverseParkingPdfUrl = staticPdfUrl("Reverse Parking.pdf");
+const level2ReverseParkingPdfUrl = staticPdfUrl("Dung Beetle.pdf");
 const level2SmartWindowPdfUrl = staticPdfUrl("Smart Window.pdf");
 const level2SpirographPdfUrl = staticPdfUrl("Spirograph.pdf");
 const level2AutomaticWindowPdfUrl = staticPdfUrl("Automatic window.pdf");
