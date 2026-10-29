@@ -39,6 +39,7 @@ const {
   LEVEL_THREE_BUILDING_PDF_LEARNING_FALLBACK_IDS,
   levelThreeLectures,
   getLevelThreeLecture,
+  getLevelThreeBuildingReferenceManual,
 } = loadDataModule("src/data/levelThreeLectures.ts");
 const { pdfActivityManuals } = loadDataModule("src/data/pdfActivityManuals.ts");
 const { getAdvancedLevel } = loadDataModule("src/data/advancedSyllabus.ts");
@@ -83,7 +84,7 @@ test("the five missing lectures reuse their exact existing Building PDF URLs", (
   }
 });
 
-test("all 48 Level 3 projects have Learning while Building modes remain unchanged", () => {
+test("all 48 Level 3 projects have Learning and presentation-only projects gain Building references", () => {
   const syllabus = getAdvancedLevel(3);
   assert.equal(syllabus.length, 20);
   assert.equal(syllabus.reduce((n, cat) => n + cat.entries.length, 0), 48);
@@ -94,7 +95,16 @@ test("all 48 Level 3 projects have Learning while Building modes remain unchange
     const manual = pdfActivityManuals[project.id];
     assert.ok(learning, "No Learning for " + project.id);
     assert.ok(manual, "Existing Building manual mapping missing for " + project.id);
-    assert.equal(learning.learningOnly, manual.sourceKind === "powerpoint");
+    assert.equal(learning.learningOnly, false);
+    const reference = getLevelThreeBuildingReferenceManual(project.id);
+    if (manual.sourceKind === "powerpoint") {
+      assert.ok(reference, "Missing Building reference for " + project.id);
+      assert.equal(reference.url, learning.url);
+      assert.equal(reference.learningFallback, true);
+      assert.notEqual(reference.completionStepId, manual.completionStepId);
+    } else {
+      assert.equal(reference, undefined);
+    }
   }
   for (const id of ["level-3-cycle-sport-basic", "level-3-cycle-sport-optimized"]) {
     assert.equal(getLevelThreeLecture(id).url, getLevelThreeLecture("level-3-cycle-sport-basic").url);
@@ -112,7 +122,7 @@ test("Learning uses the established slides viewer and retains existing Building 
   const studio = read("src/components/practical/LevelOneLearningStudio.tsx");
   assert.ok(overview.includes("getLevelThreeLecture(project.id)"));
   assert.ok(route.includes("getLevelThreeLecture(project.id)"));
-  assert.ok(route.includes("level={project.level === 3 ? 3 : project.level === 2 ? 2 : 1}"));
+  assert.ok(route.includes("level={project.level === 5 || project.level === 6 ? project.level :"));
   assert.ok(overview.includes('search={{ mode: "learning" }}'));
   assert.ok(overview.includes('search={{ mode: "building" }}'));
   assert.ok(route.includes("<PdfActivityViewer key={project.id} manual={pdfManual} />"));
