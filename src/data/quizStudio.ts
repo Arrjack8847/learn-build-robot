@@ -1,3 +1,4 @@
+import { regionalWeatherStationBank } from "./quizBanks/level6/regionalWeatherStation.ts";
 import { dancingRobotBank } from "./quizBanks/level6/dancingRobot.ts";
 import { fingerGuessingRobotBank } from "./quizBanks/level6/fingerGuessingRobot.ts";
 import { gestureCommandingCarBank } from "./quizBanks/level6/gestureCommandingCar.ts";
@@ -132,6 +133,7 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [barometricSensorBank.projectId]: barometricSensorBank,
   [altimeterBank.projectId]: altimeterBank,
   [remoteControlLiftBank.projectId]: remoteControlLiftBank,
+  [regionalWeatherStationBank.projectId]: regionalWeatherStationBank,
   [dancingRobotBank.projectId]: dancingRobotBank,
   [fingerGuessingRobotBank.projectId]: fingerGuessingRobotBank,
   [gestureCommandingCarBank.projectId]: gestureCommandingCarBank,
