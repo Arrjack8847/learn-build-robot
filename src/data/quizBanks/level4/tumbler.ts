@@ -13,12 +13,12 @@ export const tumblerBank: QuizBank = {
       "learningSlide": 4,
       "prompt": "Why does a tumbler toy tend to return upright?",
       "choices": [
-        "Its center of gravity is low",
-        "It has a loud speaker",
         "It uses a QR code",
-        "Its color changes"
+        "Its color changes",
+        "Its center of gravity is low",
+        "It has a loud speaker"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 4 explains that the toy's low center of gravity creates a stable upright balance.",
       "hint": "Think about where the toy's weight is concentrated."
     },
@@ -43,12 +43,12 @@ export const tumblerBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "Which three angles does the lesson use to describe orientation?",
       "choices": [
+        "North, east, west",
         "Roll, pitch, yaw",
         "Speed, time, weight",
-        "Red, blue, green",
-        "North, east, west"
+        "Red, blue, green"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 7 names roll, pitch, and yaw.",
       "hint": "Think about three different ways an object can turn."
     },
@@ -58,12 +58,12 @@ export const tumblerBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which angle describes the model tilting forward or backward?",
       "choices": [
-        "Roll",
-        "Pitch",
         "Yaw",
-        "Distance"
+        "Distance",
+        "Roll",
+        "Pitch"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Slide 9 describes pitch as tilting forward and backward.",
       "hint": "Picture the nose of a plane moving up or down."
     },
@@ -73,12 +73,12 @@ export const tumblerBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "Which sensor measures the robot's tilt and orientation?",
       "choices": [
-        "Attitude sensor",
         "Ultrasonic sensor",
         "Color sensor",
-        "Temperature sensor"
+        "Temperature sensor",
+        "Attitude sensor"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 11 defines the attitude sensor.",
       "hint": "Think about measuring how the robot is positioned."
     },
@@ -88,12 +88,12 @@ export const tumblerBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "Which two devices inside the attitude sensor help measure motion?",
       "choices": [
+        "Camera and printer",
         "Accelerometer and gyroscope",
         "Speaker and microphone",
-        "Color lamp and buzzer",
-        "Camera and printer"
+        "Color lamp and buzzer"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 12 says the sensor uses a three-axis accelerometer and gyroscope.",
       "hint": "Think about sensing movement and turning."
     },
@@ -118,12 +118,12 @@ export const tumblerBank: QuizBank = {
       "learningSlide": 18,
       "prompt": "Where should students show roll, pitch, and yaw readings when testing?",
       "choices": [
-        "On the controller screen",
-        "On the robot's wheels",
         "On the motor shaft",
-        "On paper only"
+        "On paper only",
+        "On the controller screen",
+        "On the robot's wheels"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 18 asks students to display all three angles.",
       "hint": "Think about how to see the sensor values."
     },
@@ -133,12 +133,12 @@ export const tumblerBank: QuizBank = {
       "learningSlide": 22,
       "prompt": "What should the robot do when it detects a fallen posture?",
       "choices": [
+        "Only change its color",
         "Rotate its motor to return upright",
         "Print a barcode",
-        "Stop sensing forever",
-        "Only change its color"
+        "Stop sensing forever"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 22 programs motor rotation to restore the robot's normal posture.",
       "hint": "The goal is to correct the position."
     },
@@ -148,12 +148,12 @@ export const tumblerBank: QuizBank = {
       "learningSlide": 22,
       "prompt": "What should happen when the robot is not in a fallen posture?",
       "choices": [
-        "The correcting motor does not rotate",
         "It falls on purpose",
         "It turns off the sensor",
-        "It opens a gate"
+        "It opens a gate",
+        "The correcting motor does not rotate"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 22 says the correction motor stays still when the falling condition is not met.",
       "hint": "No correction is needed when the posture is normal."
     }
