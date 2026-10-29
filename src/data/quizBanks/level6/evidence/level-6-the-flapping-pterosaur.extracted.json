@@ -1,0 +1,115 @@
+{
+  "projectId": "level-6-the-flapping-pterosaur",
+  "sourcePath": "public/Level 6/Learning/Action-Oriented/The Flapping Pterosaur/17. The Flapping Pterosaur-Teaching Slides.pdf",
+  "wixFileId": "7fc4ca_b2e916f53f7245968b4f700db21af650.pdf",
+  "sourceBytes": 1323747,
+  "pageCount": 26,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 17.  | The Flapping Pterosaur | LECTURER: "
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties | 1. | Learn | about | Pterosaurs | 2. | Learn | about | the | various | ways | of | motor | initialization | 1. | Initialization of motor position | 2. | Setting and use of built | - | in data"
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information"
+    },
+    {
+      "slide": 4,
+      "text": "Background Information | Although | pterosaurs | lived | from | the | Late | Triassic | to | the | end | of | the | Cretaceous | period | like | dinosaurs, | that | is, | about | 210 | million | to | 65 | million | years | ago, | pterosaurs | are | not | dinosaurs | . | The | most | notable | difference | is | that | pterosaurs | could | not | walk | upright, | while | dinosaurs | were | able | to | walk | upright | on | their | hind | legs | ."
+    },
+    {
+      "slide": 5,
+      "text": "Background Information | Usually, | the | pterosaurs | that | people | often | refer | to | actually | refer | to | Pterosauria, | which | is | an | extinct | reptile | . | Pterosauria, | which | means | \" | winged | lizard | \" | in | Greek, | is | a | clade | of | flying | reptiles | ."
+    },
+    {
+      "slide": 6,
+      "text": "Background Information | Pterosaurs | were | the | first | vertebrates | known | to | be | able | to | fly | . | The | wings | of | pterosaurs | were | derived | from | the | skin | membrane | between | the | side | of | the | body | and | the | four | wing | phalanges | . | Early | pterosaurs | had | longer | tail | packs, | elongated | jaws, | and | teeth | ; | later | pterosaurs | lacked | teeth | and | had | shorter | tails | ."
+    },
+    {
+      "slide": 7,
+      "text": "Background Information | There | are | very | large | differences | in | the | size | of | pterosaurs | . | Some | are | as | small | as | birds | with | a | wingspan | of | about | 25 | centimeters | , | and | some | have | a | wingspan | of | more | than | 12 | meters | and | a | length | longer | than | an | ordinary | truck | ."
+    },
+    {
+      "slide": 8,
+      "text": "Background Information | Today, | we | will | make | a | pterosaur | robot | . | The | speed | and | direction | of | the | flapping | wings | of | the | pterosaur | are | controlled | by | the | rotational | position | of | the | motor | ."
+    },
+    {
+      "slide": 9,
+      "text": "Knowledge  | Introduction"
+    },
+    {
+      "slide": 10,
+      "text": "Programming Knowledge | There | are | many | ways | to | control | the | robot | through | the | rotation | of | the | motor | . | The | most | common | way | is | to | achieve | forward | and | reverse | rotation | by | obtaining | the | encoder | value | . | The | problem | here | is | that | the | encoder | values | are | re | - | recorded | every | time | the | program | is | started | ."
+    },
+    {
+      "slide": 11,
+      "text": "Programming Knowledge | The | position | of | zero | value | when | first | started | Position of zero value  | when starting without  | homing | Different | initial | positions | will | seriously | affect | the | normal | operation | of | the | robot | . | For | example, | we | almost | never | return | the | motor | to | its | pre | - | start | position | after | each | spin | . | This | results | in | a | different | position | for | the | zero | value | each | time | the | motor | is | started | . | At | this | time, | it | is | too | difficult | to | control | the | robot | to | operate | correctly | ."
+    },
+    {
+      "slide": 12,
+      "text": "Programming knowledge | Time | Angle | Sensor | So | every | time | we | start | the | program, | we | try | to | initialize | the | position | and | code | of | the | motors | as | much | as | possible, | so | that | they | can | be | the | same | as | the | first | time | at | every | start | . | The | three | common | initialization | methods | are | : | 1 | . | Let | the | motor | rotate | in | one | direction | for | a | few | seconds | to | ensure | that | the | motor | returns | to | the | initial | position | . | 2 | . | Rotate | the | motor | by | the | corresponding | degree | to | ensure | that | the | motor | returns | to | the | initial | position | . | 3 | . | The | sensor | controls | the | motor | to | rotate, | and | when | the | sensor | is | activated | , | it | means | that | the | motor | returns | to | the | initial | position | ."
+    },
+    {
+      "slide": 13,
+      "text": "Practice"
+    },
+    {
+      "slide": 14,
+      "text": "New knowledge | According | to | the | building | manual, | build | a | pterosaur | robot | . | The | pterosaur | robot | can | perform | forward | or | reverse | flapping | movements | according | to | the | code | value | of | the | motor | . | Pterosaur wings | Control  | handle | Linkage | Bracket"
+    },
+    {
+      "slide": 15,
+      "text": "Practice | Flow Chart | The | flow | chart | of | the | main | program | is | shown | on | the | left | . | The | task | in | this | section | focuses | on | the | initialization | of | the | motor, | and | the | flapping | action | only | needs | to | be | driven | by | the | gear | ."
+    },
+    {
+      "slide": 16,
+      "text": "Practice | Flow Chart | The | flow | chart | of | initialization | is | shown | in | the | left | figure | . | In | initialization, | a | value | of | 0 | means | that | the | program | was | never | started, | for | debugging | or | correction | . | By | comparing | the | encoder | value | with | the | built | - | in | value | previously | stored | in | the | control, | it | is | determined | that | the | motor | has | returned | to | the | initial | position | . | After | returning | to | the | initial | position, | the | motor | returns | to | the | normal | position | ."
+    },
+    {
+      "slide": 17,
+      "text": "Practice | Programming | 01 | logo | Function | - | Initialization | Define | this | function | . | The | basic | framework | of | the | initialization | function, | the | initialization | is | only | performed | when | the | coded | value | is | not | 0 | ."
+    },
+    {
+      "slide": 18,
+      "text": "Practice | Programming | logo | 02 | Make | the | motor | turn | Reset | the | encoder | and | lift | the | motor | when | the | motor | turns | to | the | set | angle | . | The | reason | for | subtracting | 2 | from | the | coded | value | is | to | prevent | the | error | from | causing | the | program | to | enter | an | infinite | loop | ."
+    },
+    {
+      "slide": 19,
+      "text": "Practice | Programming | logo | 03 | Main | program | The | main | program | sets | the | code | and | the | value | of | the | speed | variable | and | saves | them | in | the | controller | . | Since | the | controller | cannot | store | negative | numbers, | it | is | necessary | to | process | the | encoded | value | . | After | using | the | absolute | value, | it | is | necessary | to | use | rounding | to | ensure | that | the | value | is | an | integer | . | After | adding | 50 | to | the | speed | value, | the | counterclockwise | direction | is | deceleration | and | can | reverse | . | Multiplying | by | 2 | is | for | the | motor | to | have | enough | speed | to | move | ."
+    },
+    {
+      "slide": 20,
+      "text": "Practice | Programming | logo | 04 | Speed | limit | Limit | the | speed | value | and | let | the | motor | rotate | . | Due | to | a | certain | error | in | the | encoder, | the | speed | value | may | exceed | 100 | or | - | 100 | , | which | needs | to | be | limited | ."
+    },
+    {
+      "slide": 21,
+      "text": "Practice | Programming | logo | 05 | Integrate | programs | Integrate | programs | according | to | the | flow | chart | ."
+    },
+    {
+      "slide": 22,
+      "text": "Practice | Programming"
+    },
+    {
+      "slide": 23,
+      "text": "Results"
+    },
+    {
+      "slide": 24,
+      "text": "Program Optimization | In | this | lesson, | we | implemented | the | function | of | the | motor | handle | to | control | the | flapping | wings | of | the | pterosaur, | and | completed | the | initialization | of | the | motor | position | without | using | time | and | additional | hardware | . | Modify | the | program | so | that | the | pterosaur | flapping | its | wings | can | be | more | regular | . | Requirements | : | Adjust | the | speed | to | the | maximum | value | so | that | the | robot's | movements | can | be | smooth | and | reasonable | ."
+    },
+    {
+      "slide": 25,
+      "text": "Further Reading | The | biggest | difference | between | pterosaurs | and | dinosaurs | is | that | pterosaurs | are | reptiles | that | can | fly, | while | dinosaurs | have | become | the | overlords | on | land | . | Secondly, | the | shape | and | bone | structure | of | pterosaurs | and | dinosaurs | themselves | are | completely | different, | because | the | wings | of | pterosaurs | are | composed | of | skin | and | bones, | rather | than | feathers | like | birds | . | Just | as | bats | are | not | birds, | their | wings | are | actually | pterosaur | - | like | membranes | ."
+    },
+    {
+      "slide": 26,
+      "text": "Thanks! | LECTURER: "
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}
