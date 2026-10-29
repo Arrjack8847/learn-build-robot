@@ -8,10 +8,10 @@
 
 - **51 Level 3 registered projects**: 46 Learning-PDF entries in `scripts/quiz-learning-source-manifest.json`, plus 5 Building-PDF learning fallbacks from `src/data/levelThreeLectures.ts`.
 - **2 pre-existing Level 3 banks**, unchanged: Clip Robot and Following Robot (registered in `src/data/quizStudio.ts`).
-- **44 newly authored banks / 440 questions** in this directory, committed in two 5-project batches and one 3-project batch.
+- **49 newly authored banks / 490 questions** in this directory, committed in two 5-project batches and one 3-project batch.
 - **0 mapped Learning-PDF projects remain without banks**.
-- **5 Building-PDF-only learning fallbacks are BLOCKED for syllabus-quiz authoring** until an educator inspects the Building manual or provides a dedicated Learning lesson.
-- **All 44 authored banks are now registered in the shared `quizStudio.ts` map**, alongside 2 pre-existing Level 3 banks, making 46 playable on the current feature branch. Unreviewed projects remain unavailable.
+- **5 Building-PDF Learning fallbacks now have source-backed banks**, based on the official PDF teaching objectives and explanation pages.
+- **All 49 authored banks are now registered in the shared `quizStudio.ts` map**, alongside 2 pre-existing Level 3 banks, making 51 playable on the current feature branch. Unreviewed projects remain unavailable.
 
 ## Source-slide verification for authored banks
 
@@ -70,6 +70,12 @@ PDF pages were counted from the actual GitHub PDF data and its text streams were
 | `level-3-stag-beetle` | `stagBeetle.ts` | 24 | 3, 4, 5, 21, 22 | 10 | 5 |
 | `level-3-washing-machine` | `washingMachine.ts` | 30 | 3, 4, 6, 7, 8, 10, 11, 24 | 10 | 5 |
 
+| `level-3-lifting-maintenance-vehicle` | `liftingMaintenanceVehicle.ts` | 22 | 3, 4, 5 | 10 | 5 |
+| `level-3-biting-monster` | `bitingMonster.ts` | 24 | 3, 4, 5 | 10 | 5 |
+| `level-3-electric-gyro-launcher` | `electricGyroLauncher.ts` | 12 | 3, 4, 5 | 10 | 5 |
+| `level-3-responder` | `responder.ts` | 12 | 3, 4, 5 | 10 | 5 |
+| `level-3-lunar-rover` | `lunarRover.ts` | 24 | 3, 4, 5, 6 | 10 | 5 |
+
 ## Full Level 3 project coverage
 
 Status descriptions: **pre-existing** = already present in the base quiz registry; **authored** = file committed here, awaiting shared integration; **pending** = mapped Learning PDF exists but questions remain unreviewed; **blocked-fallback** = no dedicated Learning lecture, only a Building manual.
@@ -122,11 +128,11 @@ Status descriptions: **pre-existing** = already present in the base quiz registr
 | `level-3-sunflower` | authored | `public/Level 3/Learning/Biomimicry & Stimulus Response/Sunflower/09.Sunflower.pdf` |
 | `level-3-super-trajectory-robot-1` | authored | `public/Level 3/Learning/Advanced Navigation & Control/Super Trajectory Robot 1/13.Super Trajectory Robot 1-update.pdf` |
 | `level-3-washing-machine` | authored | `public/Level 3/Learning/Interactive Systems/Washing Machine/08.Washing Machine-Slides.pdf` |
-| `level-3-lifting-maintenance-vehicle` | blocked-fallback | Building manual via `pdfActivityManuals` (no dedicated lecture) |
-| `level-3-biting-monster` | blocked-fallback | Building manual via `pdfActivityManuals` (no dedicated lecture) |
-| `level-3-electric-gyro-launcher` | blocked-fallback | Building manual via `pdfActivityManuals` (no dedicated lecture) |
-| `level-3-responder` | blocked-fallback | Building manual via `pdfActivityManuals` (no dedicated lecture) |
-| `level-3-lunar-rover` | blocked-fallback | Building manual via `pdfActivityManuals` (no dedicated lecture) |
+| `level-3-lifting-maintenance-vehicle` | authored-fallback | Building manual via `pdfActivityManuals` (no dedicated lecture) |
+| `level-3-biting-monster` | authored-fallback | Building manual via `pdfActivityManuals` (no dedicated lecture) |
+| `level-3-electric-gyro-launcher` | authored-fallback | Building manual via `pdfActivityManuals` (no dedicated lecture) |
+| `level-3-responder` | authored-fallback | Building manual via `pdfActivityManuals` (no dedicated lecture) |
+| `level-3-lunar-rover` | authored-fallback | Building manual via `pdfActivityManuals` (no dedicated lecture) |
 
 ## Review and test results
 
@@ -232,3 +238,9 @@ On this branch, the 13 new Level 3 banks are imported in `src/data/quizStudio.ts
 
 - Added Sign, Smart Trash Bin, Sound Level Meter, Stag Beetle and Washing Machine with five objective pairs each, 50 grounded questions in total. Verified source PDF page counts: 20, 31, 34, 24, 30.
 - **Coverage now 46/51 Level 3 projects, 460 questions. Only the five original Building-PDF Learning fallbacks remain.**
+
+## Final five teaching-manual Learning fallback quizzes
+
+- Created source-backed quizzes for Lifting Maintenance Vehicle (22 PDF pages), Biting Monster (24), Electric Gyro Launcher (12), Responder (12), and Lunar Rover (24).
+- Each original manual was downloaded from its registered trusted URL and examined for actual teaching objectives on pages 3–6. The quizzes assess documented educational concepts (motors, sensors, structures, programming) rather than inventing claims about diagram-only assembly pages.
+- **51/51 registered Level 3 projects now have 10-question banks connected to Quiz Studio (510 questions total).** Build and browser verification still required before declaring production-ready.
