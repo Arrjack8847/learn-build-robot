@@ -26,7 +26,9 @@ function loadDataModule(relativePath) {
     assert.ok(specifier.startsWith("."), "Unexpected external import: " + specifier);
     return loadDataModule(resolve(dirname(absolute), specifier + ".ts"));
   };
-  runInNewContext(compiled, { module, exports: module.exports, require }, { filename: absolute });
+  // Vite supplies import.meta.env in the browser; VM/CommonJS needs a test-only substitute.
+  const testOutput = compiled.replaceAll("import.meta.env", "({ DEV: false })");
+  runInNewContext(testOutput, { module, exports: module.exports, require }, { filename: absolute });
   return module.exports;
 }
 
