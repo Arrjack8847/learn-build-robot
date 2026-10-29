@@ -8,10 +8,10 @@
 
 - **51 Level 3 registered projects**: 46 Learning-PDF entries in `scripts/quiz-learning-source-manifest.json`, plus 5 Building-PDF learning fallbacks from `src/data/levelThreeLectures.ts`.
 - **2 pre-existing Level 3 banks**, unchanged: Clip Robot and Following Robot (registered in `src/data/quizStudio.ts`).
-- **39 newly authored banks / 390 questions** in this directory, committed in two 5-project batches and one 3-project batch.
-- **5 mapped Learning-PDF projects remain without banks**.
+- **44 newly authored banks / 440 questions** in this directory, committed in two 5-project batches and one 3-project batch.
+- **0 mapped Learning-PDF projects remain without banks**.
 - **5 Building-PDF-only learning fallbacks are BLOCKED for syllabus-quiz authoring** until an educator inspects the Building manual or provides a dedicated Learning lesson.
-- **All 39 authored banks are now registered in the shared `quizStudio.ts` map**, alongside 2 pre-existing Level 3 banks, making 41 playable on the current feature branch. Unreviewed projects remain unavailable.
+- **All 44 authored banks are now registered in the shared `quizStudio.ts` map**, alongside 2 pre-existing Level 3 banks, making 46 playable on the current feature branch. Unreviewed projects remain unavailable.
 
 ## Source-slide verification for authored banks
 
@@ -64,6 +64,12 @@ PDF pages were counted from the actual GitHub PDF data and its text streams were
 | `level-3-music-doorbell` | `musicDoorbell.ts` | 26 | 3, 4, 6, 7, 16, 19, 20 | 10 | 5 |
 | `level-3-safe` | `safe.ts` | 33 | 3, 6, 7, 8, 9, 25, 26, 28, 29 | 10 | 5 |
 
+| `level-3-sign` | `sign.ts` | 20 | 2, 4, 5, 6, 17, 18, 19, 20 | 10 | 5 |
+| `level-3-smart-trash-bin` | `smartTrashBin.ts` | 31 | 3, 4, 6, 20, 21, 22, 24, 25 | 10 | 5 |
+| `level-3-sound-level-meter` | `soundLevelMeter.ts` | 34 | 3, 6, 8, 20, 21, 23, 25 | 10 | 5 |
+| `level-3-stag-beetle` | `stagBeetle.ts` | 24 | 3, 4, 5, 21, 22 | 10 | 5 |
+| `level-3-washing-machine` | `washingMachine.ts` | 30 | 3, 4, 6, 7, 8, 10, 11, 24 | 10 | 5 |
+
 ## Full Level 3 project coverage
 
 Status descriptions: **pre-existing** = already present in the base quiz registry; **authored** = file committed here, awaiting shared integration; **pending** = mapped Learning PDF exists but questions remain unreviewed; **blocked-fallback** = no dedicated Learning lecture, only a Building manual.
@@ -106,16 +112,16 @@ Status descriptions: **pre-existing** = already present in the base quiz registr
 | `level-3-race-walking-optimized-ratchet` | authored | `public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf` |
 | `level-3-safe` | authored | `public/Level 3/Learning/Characters & Structures/Safe/15.Safe -Slides.pdf` |
 | `level-3-security-door` | authored | `public/Level 3/Learning/Automation & Security/Security door/Security door_Powerpoint-update.pdf` |
-| `level-3-sign` | pending | `public/Level 3/Learning/Mechanisms and Concepts/Sign.pdf` |
+| `level-3-sign` | authored | `public/Level 3/Learning/Mechanisms and Concepts/Sign.pdf` |
 | `level-3-smart-audio` | authored | `public/Level 3/Learning/Sound & Voice Interaction/Smart Audio/Smart Audio_Powerpoint.pdf` |
 | `level-3-smart-door` | authored | `public/Level 3/Learning/Automation & Security/Smart door/Smart door_Powerpoint.pdf` |
-| `level-3-smart-trash-bin` | pending | `public/Level 3/Learning/Characters & Structures/Smart Trash Bin/20.Smart Trash Bin-Slides.pdf` |
+| `level-3-smart-trash-bin` | authored | `public/Level 3/Learning/Characters & Structures/Smart Trash Bin/20.Smart Trash Bin-Slides.pdf` |
 | `level-3-sonometer` | authored | `public/Level 3/Learning/Sound & Voice Interaction/Sonometer/Sonometer_Powerpoint-update.pdf` |
-| `level-3-sound-level-meter` | pending | `public/Level 3/Learning/Sound & Voice Interaction/Sound Level Meter/16.Sound Level Meter -Slides.pdf` |
-| `level-3-stag-beetle` | pending | `public/Level 3/Learning/Biomimicry/Stag beetle.pdf` |
+| `level-3-sound-level-meter` | authored | `public/Level 3/Learning/Sound & Voice Interaction/Sound Level Meter/16.Sound Level Meter -Slides.pdf` |
+| `level-3-stag-beetle` | authored | `public/Level 3/Learning/Biomimicry/Stag beetle.pdf` |
 | `level-3-sunflower` | authored | `public/Level 3/Learning/Biomimicry & Stimulus Response/Sunflower/09.Sunflower.pdf` |
 | `level-3-super-trajectory-robot-1` | authored | `public/Level 3/Learning/Advanced Navigation & Control/Super Trajectory Robot 1/13.Super Trajectory Robot 1-update.pdf` |
-| `level-3-washing-machine` | pending | `public/Level 3/Learning/Interactive Systems/Washing Machine/08.Washing Machine-Slides.pdf` |
+| `level-3-washing-machine` | authored | `public/Level 3/Learning/Interactive Systems/Washing Machine/08.Washing Machine-Slides.pdf` |
 | `level-3-lifting-maintenance-vehicle` | blocked-fallback | Building manual via `pdfActivityManuals` (no dedicated lecture) |
 | `level-3-biting-monster` | blocked-fallback | Building manual via `pdfActivityManuals` (no dedicated lecture) |
 | `level-3-electric-gyro-launcher` | blocked-fallback | Building manual via `pdfActivityManuals` (no dedicated lecture) |
@@ -221,3 +227,8 @@ On this branch, the 13 new Level 3 banks are imported in `src/data/quizStudio.ts
 - Added The Long-lived Turtle, Money Detector, Music Box, Music Doorbell, and Safe: 50 questions total, five objective pairs and page-accurate references per quiz.
 - Official PDF page counts: 24, 17, 34, 26, 33. Lessons directly read from official URLs in the sandbox.
 - **Coverage 41/51 Level 3, 410 questions.**
+
+## Final five dedicated Learning-PDF quizzes
+
+- Added Sign, Smart Trash Bin, Sound Level Meter, Stag Beetle and Washing Machine with five objective pairs each, 50 grounded questions in total. Verified source PDF page counts: 20, 31, 34, 24, 30.
+- **Coverage now 46/51 Level 3 projects, 460 questions. Only the five original Building-PDF Learning fallbacks remain.**
