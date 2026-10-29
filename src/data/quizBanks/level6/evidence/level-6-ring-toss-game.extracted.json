@@ -1,0 +1,111 @@
+{
+  "projectId": "level-6-ring-toss-game",
+  "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/Ring Toss Game/15. Ring Toss Game-Teaching Slides.pdf",
+  "wixFileId": "7fc4ca_a8da14e5e3484867b80cddd6bb5b1921.pdf",
+  "sourceBytes": 1353418,
+  "pageCount": 25,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 15.  | Ring Toss Game | edu.zmrobo.com | LECTURER:"
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties | 1 | . |   | Learn |   | about |   | the |   | ring |   | toss |   | game | . | 2 | . |   | Learn |   | how |   | to |   | make |   | the |   | joystick |   | swing |   | back |   | and |   | forth | . | 1. | The program to make the joystick swing back and forth. | 2. | Determine the success of the ring |   | toss |   | game."
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information"
+    },
+    {
+      "slide": 4,
+      "text": "Background Information | The |   | ring |   | toss |   | game |   | is |   | a |   | kind |   | of |   | folk |   | game | . |   | Players |   | stand |   | at |   | the |   | designated |   | position, |   | hold |   | a |   | circle | - | shaped |   | prop |   | slightly |   | larger |   | than |   | the |   | prize, |   | throw |   | the |   | circle |   | to |   | the |   | prize |   | area, |   | and |   | get |   | it |   | for |   | free |   | if |   | they |   | catch |   | a |   | specific |   | item |   | in |   | the |   | field | . |   | The |   | ring |   | game |   | will |   | display |   | various |   | prizes | . |   | Prizes |   | are |   | placed |   | from |   | low |   | to |   | high |   | value, |   | with |   | the |   | farther |   | away |   | from |   | the |   | player |   | the |   | more |   | valuable | ."
+    },
+    {
+      "slide": 5,
+      "text": "Background Information | In |   | addition |   | to |   | bringing |   | happiness |   | to |   | people, |   | ring |   | games |   | can |   | also |   | exercise |   | our |   | hand | - | eye |   | coordination | . |   | After |   | the |   | eyes |   | observe |   | and |   | aim, |   | the |   | hands |   | exert |   | force |   | to |   | trap |   | the |   | prize |   | on |   | the |   | prize | ."
+    },
+    {
+      "slide": 6,
+      "text": "Background Information | The |   | technique |   | of |   | tossing |   | the |   | ring |   | is |   | also |   | very |   | important | . |   | Throwing |   | it |   | directly |   | on |   | the |   | prize |   | is |   | often |   | not |   | effective | . |   | Using |   | the |   | force |   | of |   | the |   | wrist |   | to |   | make |   | the |   | hoop |   | with |   | a |   | little |   | rotation |   | in |   | the |   | air |   | can |   | reduce |   | air |   | resistance |   | and |   | improve |   | the |   | hit |   | rate | ."
+    },
+    {
+      "slide": 7,
+      "text": "Knowledge  | Introduction"
+    },
+    {
+      "slide": 8,
+      "text": "Knowledge Introduction | It's |   | easier |   | to |   | win |   | prizes |   | when |   | they're |   | in |   | fixed |   | positions | . |   | To |   | make |   | things |   | more |   | challenging, |   | we're |   | introducing |   | a |   | joystick |   | that |   | can |   | shake |   | back |   | and |   | forth | . |   | If |   | you |   | manage |   | to |   | catch |   | the |   | ring |   | on |   | the |   | joystick, |   | you'll |   | be |   | declared |   | the |   | winner | ."
+    },
+    {
+      "slide": 9,
+      "text": "Knowledge Introduction | The |   | detection |   | part |   | of |   | the |   | joystick |   | uses |   | a |   | photoelectric |   | sensor, |   | and |   | when |   | the |   | photoelectric |   | value |   | changes |   | significantly, |   | it |   | is |   | judged |   | whether |   | it |   | is |   | caught |   | or |   | not | . | Note |   | that |   | when |   | selecting |   | a |   | decision |   | block, |   | use |   | numeric |   | values |   | instead |   | of |   | numeric |   | values | ."
+    },
+    {
+      "slide": 10,
+      "text": "Practice"
+    },
+    {
+      "slide": 11,
+      "text": "New Knowledge | According |   | to |   | the |   | building |   | manual, |   | build |   | a |   | ring | - | tossing |   | robot |   | that |   | stops |   | swinging |   | back |   | and |   | forth |   | when |   | the |   | sensor |   | is |   | successfully |   | caught |   | by |   | the |   | ring | . | Photoelectric Sensor | joystick | supporting  | structure"
+    },
+    {
+      "slide": 12,
+      "text": "Practice  | |  | Flow Chart | The |   | swing |   | area |   | swings |   | back |   | and |   | forth |   | and |   | stops |   | swinging |   | when |   | it |   | detects |   | that |   | the |   | quilt |   | is |   | caught | . | To |   | avoid |   | misjudgment |   | of |   | the |   | ring, |   | give |   | the |   | program |   | an |   | extra |   | second |   | to |   | determine |   | the |   | result |   | of |   | the |   | ring |   | game | . |   | When |   | the |   | photoelectric |   | detection |   | is |   | blocked |   | by |   | an |   | object, |   | it |   | will |   | continue |   | to |   | swing | . |   | After |   | one |   | second, |   | if |   | the |   | photoelectric |   | still |   | detects |   | the |   | object, |   | it |   | is |   | considered |   | that |   | the |   | ring |   | game |   | is |   | successful | ."
+    },
+    {
+      "slide": 13,
+      "text": "Practice  | |  | Flow Chart | There |   | are |   | actually |   | three |   | directions, |   | positive |   | (clockwise), |   | negative |   | (counterclockwise), |   | and |   | zero |   | (stop) | . | To |   | set |   | the |   | speed, |   | you |   | need |   | to |   | use |   | a |   | more |   | complicated |   | formula, |   | first |   | clockwise, |   | the |   | speed |   | is |   | from |   | large |   | to |   | small, |   | and |   | then |   | counterclockwise, |   | the |   | speed |   | is |   | small |   | to |   | large | ."
+    },
+    {
+      "slide": 14,
+      "text": "Practice  | |  | Programming | 01 | logo | Initialization of the swing  | function | To |   | reduce |   | the |   | amount |   | of |   | code, |   | put |   | the |   | photoelectric |   | value |   | reading |   | originally |   | in |   | the |   | main |   | program |   | into |   | the |   | swing |   | function | ."
+    },
+    {
+      "slide": 15,
+      "text": "Practice  | |  | Programming | logo | 02 | The |   | basic |   | structure |   | of |   | the |   | swing |   | function | Determine |   | the |   | basic |   | structure, |   | first |   | judge |   | the |   | swing |   | direction, |   | and |   | finally |   | rotate |   | according |   | to |   | the |   | speed |   | value | ."
+    },
+    {
+      "slide": 16,
+      "text": "Practice  | |  | Programming | logo | Swing |   | speed |   | and |   | direction | Sets |   | the |   | velocity |   | values |   | for |   | both |   | swing |   | directions |   | and |   | defines |   | when |   | to |   | switch |   | swing |   | directions | . | Clockwise |   | speed | : |   | from |   | large |   | to |   | small, |   | slowly |   | decreasing | . | Counterclockwise |   | speed | : |   | from |   | small |   | to |   | large, |   | slowly |   | increasing | . | 03"
+    },
+    {
+      "slide": 17,
+      "text": "Practice  | |  | Programming | logo | 04 | Swing function | Integrate the program according  | to the flowchart."
+    },
+    {
+      "slide": 18,
+      "text": "Practice  | |  | Programming | logo | 05 | The main program | The main program initializes  | and runs the swing function."
+    },
+    {
+      "slide": 19,
+      "text": "Practice  | |  | Programming | logo | 06 | Judgment |   | of |   | tossing |   | rings | Use |   | time |   | control |   | to |   | avoid |   | misjudgments | . |   | If |   | the |   | photoelectric |   | value |   | is |   | still |   | greater |   | than |   | 300 |   | within |   | 1 |   | second, |   | the |   | ring | - | tossing |   | is |   | considered |   | successful | ."
+    },
+    {
+      "slide": 20,
+      "text": "Practice  | |  | Programming | logo | 07 | Integrate |   | programs | Integrate |   | programs |   | according |   | to |   | the |   | flow |   | chart | ."
+    },
+    {
+      "slide": 21,
+      "text": "Practice  | |  | Programming"
+    },
+    {
+      "slide": 22,
+      "text": "Results"
+    },
+    {
+      "slide": 23,
+      "text": "Program Optimization | In |   | this |   | lesson, |   | we |   | realized |   | the |   | ring |   | game | . |   | The |   | joystick |   | that |   | swings |   | back |   | and |   | forth |   | increases |   | the |   | difficulty |   | of |   | the |   | game, |   | and |   | the |   | joystick |   | will |   | stop |   | swinging |   | after |   | the |   | ring |   | is |   | caught | . | Modify |   | the |   | program |   | to |   | make |   | a |   | prompt |   | sound |   | after |   | being |   | caught | . | Requirements | : |   | Before |   | the |   | swing |   | stops, |   | a |   | prompt |   | sound |   | is |   | issued |   | to |   | indicate |   | that |   | the |   | sleeve |   | has |   | been |   | set | ."
+    },
+    {
+      "slide": 24,
+      "text": "Further Reading | ³5LQJ |   | Toss\", |   | a |   | street |   | game |   | often |   | played |   | by |   | modern |   | people, |   | has |   | a |   | long |   | history |   | of |   | development |   | and |   | is |   | not |   | the |   | first |   | of |   | modern |   | people | . |   | According |   | to |   | records, |   | the |   | earliest |   | \"ring\" |   | game |   | can |   | be |   | traced |   | back |   | to |   | the |   | Qianlong |   | period |   | of |   | the |   | Qing |   | dynasty | . | The |   | Ring |   | Toss |   | game |   | has |   | developed |   | to |   | this |   | day | . |   | In |   | addition |   | to |   | the |   | fixed |   | objects, |   | there |   | are |   | animals | . |   | As |   | the |   | value |   | of |   | the |   | prize |   | increases, |   | the |   | difficulty |   | also |   | increases |   | accordingly | ."
+    },
+    {
+      "slide": 25,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER: "
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}
