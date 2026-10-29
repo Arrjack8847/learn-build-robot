@@ -54,3 +54,7 @@ The source manifest registers all 56 Learning PDFs. The 33 existing bank files h
 Before release: verify source facts and diagrams against original pages, run Node/TypeScript/tests/build and check browser/mobile flow. GitHub Actions running or passing has **not** been confirmed as of this report. A green structural test alone is not a source-accuracy certification.
 
 **No merge or production deployment is authorized by this branch.**
+
+## Latest CI result (October 29, 2026)
+
+GitHub Actions run [40833355464](https://github.com/Arrjack8847/learn-build-robot/actions/runs/40833355464) for this branch shows **failure**, but the connected job report has **no runner or step logs** (steps are null). This is not evidence of a failing quiz assertion or TypeScript compiler; it is also not evidence of a passing test. Local typecheck, build and interactive device QA remain unverified. The unrelated Vercel commit status also reports failure; this PR has not requested a deployment.
