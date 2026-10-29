@@ -71,6 +71,7 @@ import { propellerAircraftBank } from "./quizBanks/level1/propellerAircraft.ts";
 import { pullbackBicycleBank } from "./quizBanks/level1/pullbackBicycle.ts";
 import { rotatingCoffeeCupBank } from "./quizBanks/level1/rotatingCoffeeCup.ts";
 import { wiperBank } from "./quizBanks/level1/wiper.ts";
+import { pocketPistolBank } from "./quizBanks/level1/pocketPistol.ts";
 
 export type GearDiagram = "large-to-small" | "small-to-large";
 /** Each project defines five distinct objective IDs; the engine is not gear-specific. */
@@ -218,7 +219,7 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [corridorLampBank.projectId]: corridorLampBank,
   [motorcycleBank.projectId]: motorcycleBank,
 
-  // These 13 source-grounded quizzes use official Building manuals with
+  // These 14 source-grounded quizzes use official Building manuals with
   // explicit teaching objectives. Their Learning views are labeled as manuals,
   // not as separately supplied lecture slides.
   [balancedBirdBank.projectId]: balancedBirdBank,
@@ -234,6 +235,7 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [pullbackBicycleBank.projectId]: pullbackBicycleBank,
   [rotatingCoffeeCupBank.projectId]: rotatingCoffeeCupBank,
   [wiperBank.projectId]: wiperBank,
+  [pocketPistolBank.projectId]: pocketPistolBank,
 
   [bigHeadRobotBank.projectId]: bigHeadRobotBank,
   [axeRobotBank.projectId]: axeRobotBank,

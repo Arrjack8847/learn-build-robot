@@ -48,15 +48,11 @@ test("all 46 indexed Learning sources have valid 10-question banks matching thei
   }
 });
 
-test("13 source-supported manual-based quizzes are playable; Pocket Pistol remains blocked", () => {
+test("all 14 source-supported manual-based quizzes are playable", () => {
   for (const { projectId, sourcePath, sourceKind } of fallbacks.sources) {
     assert.equal(sourceKind, "official-building-manual-learning-fallback");
     assert.ok(sourcePath.startsWith("public/") && sourcePath.endsWith(".pdf"));
     const bank = getQuizBank(projectId);
-    if (projectId === "pocket-pistol") {
-      assert.equal(bank, undefined, "weapon-themed manual lacks a verified suitable quiz");
-      continue;
-    }
     assert.ok(bank, projectId + ": source-grounded manual question bank must be loadable");
     assert.deepEqual(validateQuizBank(bank), [], projectId);
     assert.equal(bank.sourcePdfPath, sourcePath, projectId);
@@ -137,7 +133,7 @@ test("Building-only projects have a distinct blocked state and cannot be describ
     "fallback gate must check source kind per project");
   assert.ok(projectPage.includes('quizEntry.status === "building-manual-only"'));
   assert.ok(projectPage.includes("Only a Building manual was supplied"));
-  assert.equal(getQuizBank("pocket-pistol"), undefined, "the blocked source must remain unavailable");
+  assert.ok(getQuizBank("pocket-pistol"), "safety-and-elasticity quiz must be available");
   assert.ok(syllabus.includes("usesBuildingManual:"), "source kind must reach the project UI");
   const quiz = await readFile(resolve(root, "src/routes/quiz.$projectId.tsx"), "utf8");
   assert.ok(quiz.includes("Review Construction Manual Page"), "manual page links must be accurately labeled");
@@ -145,7 +141,7 @@ test("Building-only projects have a distinct blocked state and cannot be describ
 
 test("manual-based banks reference the exact number of pages in their official source PDFs", async () => {
   for (const source of fallbacks.sources) {
-    if (source.projectId === "pocket-pistol") continue;
+
     const bank = getQuizBank(source.projectId);
     assert.ok(bank);
     const bytes = await readFile(resolve(root, source.sourcePath));
@@ -163,4 +159,25 @@ test("manual-based banks reference the exact number of pages in their official s
       await pdf.destroy();
     }
   }
+});
+
+test("Pocket Pistol quiz assesses safety and elasticity, not weapon operation", () => {
+  const bank = getQuizBank("pocket-pistol");
+  assert.ok(bank, "safe question bank must be registered");
+  assert.equal(bank.sourcePdfPath, "public/Pocket Pistol.pdf");
+  assert.equal(bank.sourcePageCount, 14);
+  assert.deepEqual(validateQuizBank(bank), []);
+  assert.deepEqual(new Set(bank.questions.map(q => q.topic)), new Set([
+    "weapon-hazards", "peaceful-problem-solving", "elasticity", "tension", "safe-inquiry",
+  ]));
+  const content = bank.questions.flatMap(q => [q.prompt, ...q.choices, q.hint, q.explanation]).join(" ");
+  assert.doesNotMatch(content, /\b(?:how to|steps? to|instructions? for)\s+(?:build|assemble|fire|launch|shoot|aim)\b/i);
+  for (const q of bank.questions) {
+    assert.ok([3, 4, 5].includes(q.learningSlide), q.id + ": unreviewed diagram page");
+  }
+  const first = selectQuizQuestions(bank, [], () => 0);
+  const next = selectQuizQuestions(bank, first.map(q => q.id), () => 0);
+  assert.equal(first.length, 5);
+  assert.equal(next.length, 5);
+  assert.equal(first.filter(q => next.some(item => item.id === q.id)).length, 0);
 });
