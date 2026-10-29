@@ -1,163 +1,160 @@
-/** UNREVIEWED PHASE 3 DRAFT — Building PDF fallback.
- * PDF page count, questions and answers MUST be verified.
- * Do not import, count as completed, or publish this file.
- */
+/** Phase 3 source-text questions. Manual diagram and educational QA still required. */
 import type { QuizBank } from "../quizStudio";
 export const rotatingCoffeeCupBank: QuizBank = {
   "projectId": "rotating-coffee-cup",
   "title": "Rotating Coffee Cup",
   "sourcePdfPath": "public/Rotating Coffee Cup.pdf",
-  "sourcePageCount": 0,
+  "sourcePageCount": 18,
   "questions": [
     {
       "id": "rotating-coffee-cup-01",
-      "topic": "objective-1",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "amusement-ride",
+      "prompt": "What amusement-park ride does the project model?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "A sailboat trip",
+        "A rotating coffee cup",
+        "A train crossing",
+        "A parachute jump"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 4,
+      "hint": "Recall the amusement ride topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The introduction describes a spinning ride that looks like a large cup."
     },
     {
       "id": "rotating-coffee-cup-02",
-      "topic": "objective-1",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "amusement-ride",
+      "prompt": "What distinctive shape helps identify this ride in the introduction?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "A small airplane",
+        "A four-wheeled car",
+        "A giant cup",
+        "A tall ladder"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 4,
+      "hint": "Recall the amusement ride topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The story says the ride looks like a cup big enough to hold people."
     },
     {
       "id": "rotating-coffee-cup-03",
-      "topic": "objective-2",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "project-design",
+      "prompt": "Where are students asked to sketch their own version of the ride?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "On the USB cable",
+        "Inside a sensor",
+        "On the battery label",
+        "On the blackboard"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 4,
+      "hint": "Recall the project design topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The design analysis asks students to draw rotating coffee cups on the blackboard."
     },
     {
       "id": "rotating-coffee-cup-04",
-      "topic": "objective-2",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "project-design",
+      "prompt": "Which question should be considered while planning the model?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "What makes the cup rotate?",
+        "How a bird builds its nest",
+        "How a boat stays afloat",
+        "Which colour the sky is"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 4,
+      "hint": "Recall the project design topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The topic analysis asks what makes the rotating coffee cup turn."
     },
     {
       "id": "rotating-coffee-cup-05",
-      "topic": "objective-3",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "gears-and-linkages",
+      "prompt": "Which mechanical transmission is a main topic?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Wind-powered sail",
+        "Gear drive",
+        "Photoelectric sensor",
+        "Hydraulic elevator"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 3,
+      "hint": "Recall the gears and linkages topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The learning objectives include understanding gear-driven mechanisms."
     },
     {
       "id": "rotating-coffee-cup-06",
-      "topic": "objective-3",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "gears-and-linkages",
+      "prompt": "Which additional mechanism is also listed in the lesson objectives?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Radio broadcasting",
+        "Optical lens",
+        "Linkage",
+        "Ultrasound scanning"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 3,
+      "hint": "Recall the gears and linkages topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The teaching objectives mention applying and learning linkage."
     },
     {
       "id": "rotating-coffee-cup-07",
-      "topic": "objective-4",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "motor-control",
+      "prompt": "What structure does the teacher explain after building the model?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Rubber-band elasticity only",
+        "Water turbine",
+        "Fixed cage",
+        "Gear-driven structure"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 5,
+      "hint": "Recall the motor control topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The hands-on instructions specifically explain the gear-driven structure."
     },
     {
       "id": "rotating-coffee-cup-08",
-      "topic": "objective-4",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "motor-control",
+      "prompt": "Which construction challenge is highlighted?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Combining the drive parts correctly",
+        "Connecting a telephone to an emergency line",
+        "Shaping a bird's feathers",
+        "Cutting paper to fit a cage"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 3,
+      "hint": "Recall the motor control topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The key difficulties include understanding the drive combination."
     },
     {
       "id": "rotating-coffee-cup-09",
-      "topic": "objective-5",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "programming",
+      "prompt": "Which coding parameter changes how quickly the rotating cup turns?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Blackboard position",
+        "Motor speed value",
+        "Page number",
+        "Motor casing colour"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 5,
+      "hint": "Recall the programming topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The teacher is told to adjust the speed by debugging the motor speed value."
     },
     {
       "id": "rotating-coffee-cup-10",
-      "topic": "objective-5",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "programming",
+      "prompt": "Which computer connection is included in the programming activity?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Paper and glue",
+        "A sail rope to an axle",
+        "USB cable to the controller",
+        "Rubber band to a pen"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 5,
+      "hint": "Recall the programming topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The lesson describes connecting the controller and computer using USB."
     }
   ]
 };

@@ -1,163 +1,160 @@
-/** UNREVIEWED PHASE 3 DRAFT — Building PDF fallback.
- * PDF page count, questions and answers MUST be verified.
- * Do not import, count as completed, or publish this file.
- */
+/** Phase 3 source-text questions. Manual diagram and educational QA still required. */
 import type { QuizBank } from "../quizStudio";
 export const balancedBirdBank: QuizBank = {
   "projectId": "balanced-bird",
   "title": "Balanced Bird",
   "sourcePdfPath": "public/Balanced Bird.pdf",
-  "sourcePageCount": 0,
+  "sourcePageCount": 12,
   "questions": [
     {
       "id": "balanced-bird-01",
-      "topic": "objective-1",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "bird-story",
+      "prompt": "What weather event causes the bird to fall in the lesson story?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "A drought",
+        "A thunderless sunny day",
+        "Strong wind and rain",
+        "A snow avalanche"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 4,
+      "hint": "Recall the bird story topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The story describes strong wind and rain that injure the bird's wings."
     },
     {
       "id": "balanced-bird-02",
-      "topic": "objective-1",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "bird-story",
+      "prompt": "Which body part is hurt in the story?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Claws",
+        "Tail feathers only",
+        "Beak",
+        "Wings"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 4,
+      "hint": "Recall the bird story topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The introduction says the bird's wings are hurt by strong wind."
     },
     {
       "id": "balanced-bird-03",
-      "topic": "objective-2",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "centre-of-gravity",
+      "prompt": "Which physics concept helps explain why an object balances?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Centre of gravity",
+        "Brightness",
+        "Sound frequency",
+        "Magnetic memory"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 3,
+      "hint": "Recall the centre of gravity topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The teaching objectives explicitly include the centre of gravity."
     },
     {
       "id": "balanced-bird-04",
-      "topic": "objective-2",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "centre-of-gravity",
+      "prompt": "What concept is named alongside leverage when explaining the model's balance?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Water pressure",
+        "Centre of gravity",
+        "Radio frequency",
+        "Computer memory"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 5,
+      "hint": "Recall the centre of gravity topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The final lesson review names leverage and centre of gravity."
     },
     {
       "id": "balanced-bird-05",
-      "topic": "objective-3",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "fulcrum-and-balance",
+      "prompt": "Which support-related term is a core learning objective?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Propeller",
+        "Light sensor",
+        "Fulcrum",
+        "Antenna"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 3,
+      "hint": "Recall the fulcrum and balance topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The objectives list centre of gravity, balance and fulcrum."
     },
     {
       "id": "balanced-bird-06",
-      "topic": "objective-3",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "fulcrum-and-balance",
+      "prompt": "Which physical outcome is the model designed to demonstrate?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Underwater propulsion",
+        "Light emission",
+        "Speech recognition",
+        "Balance"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 3,
+      "hint": "Recall the fulcrum and balance topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The key points focus on understanding the balanced bird's structure."
     },
     {
       "id": "balanced-bird-07",
-      "topic": "objective-4",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "leverage",
+      "prompt": "Which mechanical principle is emphasized by the lesson?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Leverage",
+        "Optical reflection",
+        "Digital encryption",
+        "Magnetic repulsion"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 3,
+      "hint": "Recall the leverage topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The key points expressly highlight the application of leverage."
     },
     {
       "id": "balanced-bird-08",
-      "topic": "objective-4",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "leverage",
+      "prompt": "Which principle should students mention when presenting why the bird balances?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Electric charging",
+        "Leverage",
+        "Sequential programming",
+        "Ultrasonic sensing"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 5,
+      "hint": "Recall the leverage topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The final presentation says the balanced bird uses leverage and its centre of gravity."
     },
     {
       "id": "balanced-bird-09",
-      "topic": "objective-5",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "building-and-reflection",
+      "prompt": "Which construction skill is listed as a learning objective?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Writing a network protocol",
+        "Editing audio recordings",
+        "Using structural pieces and teaching aids",
+        "Soldering a microprocessor"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 3,
+      "hint": "Recall the building and reflection topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The objectives include building with structural pieces and teaching aids."
     },
     {
       "id": "balanced-bird-10",
-      "topic": "objective-5",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "building-and-reflection",
+      "prompt": "What planning activity happens before the balanced bird is built?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Installing a camera app",
+        "Writing a telephone directory",
+        "Connecting an airplane propeller",
+        "Designing its shape and selecting construction pieces"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 4,
+      "hint": "Recall the building and reflection topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The topic analysis asks students to design the bird shape and choose pieces."
     }
   ]
 };

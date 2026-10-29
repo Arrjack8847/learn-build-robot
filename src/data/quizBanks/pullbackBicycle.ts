@@ -1,163 +1,160 @@
-/** UNREVIEWED PHASE 3 DRAFT — Building PDF fallback.
- * PDF page count, questions and answers MUST be verified.
- * Do not import, count as completed, or publish this file.
- */
+/** Phase 3 source-text questions. Manual diagram and educational QA still required. */
 import type { QuizBank } from "../quizStudio";
 export const pullbackBicycleBank: QuizBank = {
   "projectId": "pullback-bicycle",
   "title": "Pullback Bicycle",
   "sourcePdfPath": "public/Pullback Bicycle.pdf",
-  "sourcePageCount": 0,
+  "sourcePageCount": 14,
   "questions": [
     {
       "id": "pullback-bicycle-01",
-      "topic": "objective-1",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "project-goal",
+      "prompt": "What is the special challenge explored with the pullback bicycle?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Making a toy bicycle move without pedaling",
+        "Making a boat float",
+        "Making a bird fly",
+        "Making a lamp change colour"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 4,
+      "hint": "Recall the project goal topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The introduction asks how a bicycle can move without pedaling."
     },
     {
       "id": "pullback-bicycle-02",
-      "topic": "objective-1",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "project-goal",
+      "prompt": "Which other toys are discussed as examples of movement without continuous pedaling?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Paper fans",
+        "Pullback toy vehicles",
+        "Toy telescopes",
+        "Picture frames"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 4,
+      "hint": "Recall the project goal topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The introduction asks students to recall pullback toy vehicles."
     },
     {
       "id": "pullback-bicycle-03",
-      "topic": "objective-2",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "elastic-force",
+      "prompt": "What material supplies the elastic force studied in this model?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Glass lens",
+        "Paper flower",
+        "Rubber band",
+        "Metal screen"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 3,
+      "hint": "Recall the elastic force topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The objectives identify the elastic force of a rubber band."
     },
     {
       "id": "pullback-bicycle-04",
-      "topic": "objective-2",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "elastic-force",
+      "prompt": "Which stored-force concept should students identify in the working model?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Light refraction",
+        "Sound vibration",
+        "Magnetic induction",
+        "Elastic force"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 5,
+      "hint": "Recall the elastic force topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The final review focuses on the rubber band's elastic force."
     },
     {
       "id": "pullback-bicycle-05",
-      "topic": "objective-3",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "gear-transmission",
+      "prompt": "What mechanism is another major learning objective?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Gear drive",
+        "Optical persistence",
+        "Solar heating",
+        "Hydraulic braking"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 3,
+      "hint": "Recall the gear transmission topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The teaching objectives explicitly list gear-driven mechanisms."
     },
     {
       "id": "pullback-bicycle-06",
-      "topic": "objective-3",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "gear-transmission",
+      "prompt": "Which pair of principles is named as making the bicycle move?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Sound and a speaker",
+        "Rubber-band elasticity and gear drive",
+        "Water buoyancy and a sail",
+        "Light and a camera"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 5,
+      "hint": "Recall the gear transmission topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The presentation combines rubber-band elastic force and gear drive."
     },
     {
       "id": "pullback-bicycle-07",
-      "topic": "objective-4",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "assembly-parts",
+      "prompt": "Which attachment detail receives special emphasis during construction?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Writing software for a touchscreen",
+        "Placing a camera on a tripod",
+        "Fixing the rubber band",
+        "Charging a motor battery"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 3,
+      "hint": "Recall the assembly parts topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The key points include fixing the rubber band."
     },
     {
       "id": "pullback-bicycle-08",
-      "topic": "objective-4",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "assembly-parts",
+      "prompt": "Which small connection pieces are explicitly named in the building difficulties?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "LEDs",
+        "Microphones",
+        "Speakers",
+        "Pins"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 3,
+      "hint": "Recall the assembly parts topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The lesson highlights connecting the pins correctly."
     },
     {
       "id": "pullback-bicycle-09",
-      "topic": "objective-5",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "reflection",
+      "prompt": "Where should students initially draw their pullback bicycle design?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "On the blackboard",
+        "On the USB port",
+        "On a motor axle",
+        "On the printer cable"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 4,
+      "hint": "Recall the reflection topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The topic analysis asks students to design a bicycle on the blackboard."
     },
     {
       "id": "pullback-bicycle-10",
-      "topic": "objective-5",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "reflection",
+      "prompt": "What should students explain when presenting the finished bicycle?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "How an owl moves its wings",
+        "How rubber-band force and gears make it move",
+        "How a colour screen creates light",
+        "How a fan produces airflow"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 5,
+      "hint": "Recall the reflection topic in the Learning manual, then compare the four choices carefully.",
+      "explanation": "The outcome questions ask how it runs using elastic force and gearing."
     }
   ]
 };
