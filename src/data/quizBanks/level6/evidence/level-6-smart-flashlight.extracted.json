@@ -1,0 +1,156 @@
+{
+  "projectId": "level-6-smart-flashlight",
+  "sourcePath": "public/Level 6/Learning/Illumination & Signals/Smart Flashlight/27.Lesson 27 Smart Flashlight-Teaching Slides.pdf",
+  "sourceBlobSha": "862108ab03a55e06fc296227635a17693c9386e8",
+  "sourceBytes": 879817,
+  "pageCount": 24,
+  "extractionMethod": "Decode GitHub contents/base64; decompress PDF Flate streams; collect PDF text operators by numbered page; no image interpretation",
+  "visualReviewComplete": false,
+  "questionsValidated": false,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 27. | Smart Flashlight | edu.zmrobo.com | LECTURER",
+      "textCharacters": 51,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | Learning Objectives | Possible Difficulties | 1. | In | - | depth | understanding | of | the | Intelligent | Eye | sensor | . | 2. | Control | the | lighting | effect | of | the | Intelligent | Eye | through | variables | . | 1. | Set | the | variable | addition | and | subtraction | . | 2. | Different | types | of | lighting | effects | .",
+      "textCharacters": 280,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information",
+      "textCharacters": 22,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 4,
+      "text": "Context Import | The | development | of | mobile | lighting | tools | can | be | traced | back | to | the | early | stage | of | the | development | of | human | society | - | primitive | society | . | Since | humans | learned | to | drill | wood | to | make | fire, | mobile | lighting | has | experienced | the | development | process | from | fire, | oil, | candles | to | flashlights | . | Mobile | lighting | tools | have | experienced | countless | changes, | from | torches, | oil | lamps, | candles, | kerosene | lamps | to | incandescent | bulb | flashlights, | xenon | bulb | flashlights, | and | to | a | wide | range | of | LED | flashlights | .",
+      "textCharacters": 503,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 5,
+      "text": "Context Import | Oil | lamps | were | the | easiest | lighting | tools | to | use | at | that | time | . | At | this | stage, | in | addition | to | using | oil | lamps, | human | beings | also | tried | their | best | to | find | other | lighting | tools | . | Around | the | 3 | rd | century | BC, | someone | made | candles | out | of | beeswax | . | In | the | 18 | th | century, | candles | made | of | paraffin | wax | appeared, | and | mass | production | began | with | machines | .",
+      "textCharacters": 360,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 6,
+      "text": "Context Import | The | British | invented | the | gas | lamp | more | than | a | hundred | years | ago, | which | made | the | human | lighting | method | take | a | big | step | forward | . | Movable | lighting | tools | such | as | torches, | candles, | oil | lamps, | and | gas | lamps | are | not | separated | from | the | fire, | and | are | all | illuminated | by | the | light | emitted | by | the | burning | of | substances | . | At | the | end | of | the | 19 | th | century, | Edison | invented | the | electric | light, | which | has | rewritten | the | history | of | human | lighting | since | then, | and | mankind | has | entered | the | era | of | electric | lighting | .",
+      "textCharacters": 511,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 7,
+      "text": "Knowledge | Introduction",
+      "textCharacters": 22,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 8,
+      "text": "New Knowledge | Modern | civilization | should | indeed | thank | the | American | inventor | Thomas | Edison | for | making | the | first | white | lamp | with | commercial | value | and | bringing | light | to | mankind | . | Likewise, | Conrad | Hubert | deserves | the | same | respect | for | inventing | the | flashlight | more | than | a | hundred | years | ago | so | that | we | can | shine | wherever | we | are | .",
+      "textCharacters": 323,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 9,
+      "text": "New Knowledge | When | Hubert | came | home | from | get | off | work, | a | friend | proudly | showed | him | a | glittery | planter | . | It | turned | out | that | he | installed | a | battery | and | a | small | light | bulb | in | the | flowerpot | . | As | soon | as | the | switch | is | turned | on, | the | bulb | illuminates | the | flowers | and | looks | dazzling | . | Hubert | was | fascinated, | and | the | incident | was | a | revelation | to | him | . | He | sometimes | walks | in | the | dark | at | night, | and | it | is | very | inconvenient | for | him | to | step | up | and | down | . | Not | long | ago, | he | had | to | carry | a | heavy | oil | lamp | to | the | dark | basement | to | find | things | . | He | thought, | wouldn't | it | be | practical | and | convenient | if | he | could | use | an | electric | light | to | illuminate | his | body? | So, | Hubert | put | the | battery | and | light | bulb | in | a | tube, | and | the | result | was | the | first | mobile | flashlight | .",
+      "textCharacters": 739,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 10,
+      "text": "New Knowledge | The | flashlight | is | a | hand | - | held | electronic | lighting | tool | . | A | typical | flashlight | has | a | battery | - | operated | bulb | and | focusing | reflector, | and | has | a | handle | - | style | housing | for | hand | - | held | use | . | Although | a | fairly | simple | design, | it | was | not | invented | until | the | late | 19 | th | century | because | it | had | to | combine | the | invention | of | the | battery | with | the | light | bulb | .",
+      "textCharacters": 361,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 11,
+      "text": "New Knowledge | Today, | flashlights | have | many | functions | besides | simple | lighting | . | Some | can | adjust | the | brightness | of | the | light, | some | can | flash | reminders, | and | some | can | change | color | or | adjust | the | lighting | area | . | But | even | if | the | flashlight | has | so | many | functions, | it | may | not | meet | your | requirements, | so | today | we | use | the | Intelligent | Eye | to | make | a | multi | - | functional | flashlight | .",
+      "textCharacters": 368,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 12,
+      "text": "Practice",
+      "textCharacters": 8,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 13,
+      "text": "New Knowledge | Touch Sensor | Intelligent Eye | Assemble | a | smart | flashlight | according | to | the | building | manual | to | realize | the | effect | of | switching | the | light | of | the | flashlight | by | pressing | the | button | .",
+      "textCharacters": 191,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 14,
+      "text": "Practice | Programming | Switch | the | lighting | effect | of | the | smart | lamp | through | two | touch | sensors, | and | there | are | different | lights | corresponding | to | different | modes | . | Press | the | button | to | increase/decrease | the | variable, | which | will | cause | the | variable | value | to | be | very | uncontrollable, | and | the | judgment | of | releasing | the | button | must | be | added | .",
+      "textCharacters": 332,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 15,
+      "text": "Practice | Programming | 01 | logo | Judgement of pressing buttons | When | the | forward | touch | sensor | is | pressed, | the | variable | is | incremented | by | 1 | , | and | when | the | backward | touch | sensor | is | pressed, | the | variable | is | decremented | by | 1 | .",
+      "textCharacters": 219,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 16,
+      "text": "Practice | Programming | 02 | logo | Judgement of pressing buttons | Add the statement of waiting for | the release of the touch sensor.",
+      "textCharacters": 126,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 17,
+      "text": "Practice | Programming | 03 | Limit | variables | and | display | Limit | the | variable | to | a | minimum | value | of | 0 | and | display | the | value | of | the | variable | .",
+      "textCharacters": 136,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 18,
+      "text": "Practice | Programming | 04 | The function of the flashlight | Different models light up | different patterns of lights.",
+      "textCharacters": 112,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 19,
+      "text": "Practice | Programming | logo | Integrate programs | Integrate the program | according to the program | flowchart. | 05",
+      "textCharacters": 107,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 20,
+      "text": "Practice | Programming | logo",
+      "textCharacters": 27,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 21,
+      "text": "Results",
+      "textCharacters": 7,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 22,
+      "text": "Program Optimization | This lesson realizes the function of switching the light mode of the | flashlight by pressing the button. Under different variable values, there | are corresponding light modes. | Next, modify the program to limit the value of the variable to not | exceed the type of pattern. | Requirement: The maximum value of the variable value is the same as | the number of patterns you set.",
+      "textCharacters": 389,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 23,
+      "text": "Further Reading | At | present, | our | common | new | flashlight | is | the | fourth | generation | flashlight, | which | has | a | built | - | in | open | programmable | intelligent | control | chip, | and | can | customize | the | lighting | mode | through | special | software | . | Combining | traditional | flashlight | dimming | technology | with | IT | technology, | built | - | in | open | programmable | intelligent | control | chip, | users | can | customize | personalized | lighting | modes | through | special | software | .",
+      "textCharacters": 422,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 24,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER:",
+      "textCharacters": 32,
+      "visualReviewRequired": true
+    }
+  ]
+}
