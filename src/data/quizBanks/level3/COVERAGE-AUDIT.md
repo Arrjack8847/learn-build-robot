@@ -8,10 +8,10 @@
 
 - **51 Level 3 registered projects**: 46 Learning-PDF entries in `scripts/quiz-learning-source-manifest.json`, plus 5 Building-PDF learning fallbacks from `src/data/levelThreeLectures.ts`.
 - **2 pre-existing Level 3 banks**, unchanged: Clip Robot and Following Robot (registered in `src/data/quizStudio.ts`).
-- **13 newly authored banks / 130 questions** in this directory, committed in two 5-project batches and one 3-project batch.
-- **31 mapped Learning-PDF projects remain without banks**.
+- **18 newly authored banks / 180 questions** in this directory, committed in two 5-project batches and one 3-project batch.
+- **26 mapped Learning-PDF projects remain without banks**.
 - **5 Building-PDF-only learning fallbacks are BLOCKED for syllabus-quiz authoring** until an educator inspects the Building manual or provides a dedicated Learning lesson.
-- **All 13 authored banks are now registered in the shared `quizStudio.ts` map**, alongside 2 pre-existing Level 3 banks, making 15 playable on the current feature branch. Unreviewed projects remain unavailable.
+- **All 18 authored banks are now registered in the shared `quizStudio.ts` map**, alongside 2 pre-existing Level 3 banks, making 20 playable on the current feature branch. Unreviewed projects remain unavailable.
 
 ## Source-slide verification for authored banks
 
@@ -33,6 +33,12 @@ PDF pages were counted from the actual GitHub PDF data and its text streams were
 | `level-3-super-trajectory-robot-1` | `superTrajectoryRobot1.ts` | 19 | 6, 7, 10, 14, 15, 16 | 10 | 5 |
 | `level-3-f1-racing-car` | `f1RacingCar.ts` | 20 | 2, 3, 7, 14, 15, 16, 17 | 10 | 5 |
 
+| `level-3-cycle-sport-basic` | `cycleSportBasic.ts` | 28 | 2, 10, 11, 12, 14, 15, 19, 20, 22 | 10 | 5 |
+| `level-3-cycle-sport-optimized` | `cycleSportOptimized.ts` | 28 | 2, 10, 11, 12, 14, 15, 19, 20, 22 | 10 | 5 |
+| `level-3-race-walking-basic` | `raceWalkingBasic.ts` | 29 | 2, 4, 6, 7, 9, 10, 14, 16, 17 | 10 | 5 |
+| `level-3-race-walking-optimized` | `raceWalkingOptimized.ts` | 29 | 2, 4, 6, 7, 9, 10, 14, 16, 17 | 10 | 5 |
+| `level-3-race-walking-optimized-ratchet` | `raceWalkingOptimizedRatchet.ts` | 29 | 2, 4, 6, 7, 9, 10, 14, 16, 17 | 10 | 5 |
+
 ## Full Level 3 project coverage
 
 Status descriptions: **pre-existing** = already present in the base quiz registry; **authored** = file committed here, awaiting shared integration; **pending** = mapped Learning PDF exists but questions remain unreviewed; **blocked-fallback** = no dedicated Learning lecture, only a Building manual.
@@ -47,8 +53,8 @@ Status descriptions: **pre-existing** = already present in the base quiz registr
 | `level-3-bumper-car-foundational-robots` | pending | `public/Level 3/Learning/Foundational Robots/Bumper car.pdf` |
 | `level-3-bumper-car-interactive-mechanisms` | authored | `public/Level 3/Learning/Interactive Mechanisms/Bumper car/Bumper car_Powerpoint-update.pdf` |
 | `level-3-clip-robot` | pre-existing | `public/Level 3/Learning/Action-Oriented/Clip robot/Clip robot_Powerpoint.pdf` |
-| `level-3-cycle-sport-basic` | pending | `public/Level 3/Learning/Action-Oriented/Cycle Sport/3. Cycle Sport - Slides.pdf` |
-| `level-3-cycle-sport-optimized` | pending | `public/Level 3/Learning/Action-Oriented/Cycle Sport/3. Cycle Sport - Slides.pdf` |
+| `level-3-cycle-sport-basic` | authored | `public/Level 3/Learning/Action-Oriented/Cycle Sport/3. Cycle Sport - Slides.pdf` |
+| `level-3-cycle-sport-optimized` | authored | `public/Level 3/Learning/Action-Oriented/Cycle Sport/3. Cycle Sport - Slides.pdf` |
 | `level-3-disinfection-lamp` | pending | `public/Level 3/Learning/Illumination & Signals/Disinfection Lamp/13.Disinfection Lamp-Slides.pdf` |
 | `level-3-drawbridge` | pending | `public/Level 3/Learning/Mechanisms and Concepts/Drawbridge.pdf` |
 | `level-3-electric-bulldozer` | pending | `public/Level 3/Learning/Characters & Structures/Electric Bulldozer/23.Electric Bulldozer -Slides.pdf` |
@@ -70,9 +76,9 @@ Status descriptions: **pre-existing** = already present in the base quiz registr
 | `level-3-music-doorbell` | pending | `public/Level 3/Learning/Sound & Voice Interaction/Music Doorbell/07.Music Doorbell- Slides.pdf` |
 | `level-3-obstacle-avoidance-robot-1` | authored | `public/Level 3/Learning/Autonomous Navigation & Ranging/Obstacle Avoidance Robot 1/Obstacle Avoidance Robot 1_Powerpoint.pdf` |
 | `level-3-parking-gate` | authored | `public/Level 3/Learning/Machines & Mechanisms/Parking gate.pdf` |
-| `level-3-race-walking-basic` | pending | `public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf` |
-| `level-3-race-walking-optimized` | pending | `public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf` |
-| `level-3-race-walking-optimized-ratchet` | pending | `public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf` |
+| `level-3-race-walking-basic` | authored | `public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf` |
+| `level-3-race-walking-optimized` | authored | `public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf` |
+| `level-3-race-walking-optimized-ratchet` | authored | `public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf` |
 | `level-3-safe` | pending | `public/Level 3/Learning/Characters & Structures/Safe/15.Safe -Slides.pdf` |
 | `level-3-security-door` | authored | `public/Level 3/Learning/Automation & Security/Security door/Security door_Powerpoint-update.pdf` |
 | `level-3-sign` | pending | `public/Level 3/Learning/Mechanisms and Concepts/Sign.pdf` |
@@ -159,3 +165,10 @@ On this branch, the 13 new Level 3 banks are imported in `src/data/quizStudio.ts
 - GitHub Actions has been returning failures with zero exposed job steps, so availability of this new extraction job must be verified from the actual workflow run before any claim that pages were extracted.
 
 - Made the evidence workflow **failure-tolerant per source**: `--skip-existing` preserves completed extractions, and the upload/commit step runs even when some of the 51 PDFs fail. This prevents one inaccessible source from discarding successfully extracted slide data.
+
+## 5-bank source verified batch — Cycle Sport and Race Walking
+
+- Official Cycle Sport Learning PDF: 28 pages. Two registered variants now have 10 source-backed questions each, with five objective pairs on crank-rocker / double-crank, belt transmission, steering/drive, dead center and tuning.
+- Official Race Walking Learning PDF: 29 pages. Three registered variants now have 10 source-backed questions each, with five objective pairs on human walking, four-bar linkage, motor synchronization, ultrasonic ranging and ratchets.
+- Both official PDFs downloaded and extracted directly from their manifest URLs in an isolated development sandbox. Questions only use the cited text-backed slides; no diagram-only claims.
+- **Level 3 current coverage: 20/51 banks (200 questions); remaining 31 projects.**

@@ -28,6 +28,11 @@ import { smartDoorBank } from "./quizBanks/level3/smartDoor.ts";
 import { sonometerBank } from "./quizBanks/level3/sonometer.ts";
 import { sunflowerBank } from "./quizBanks/level3/sunflower.ts";
 import { superTrajectoryRobot1Bank } from "./quizBanks/level3/superTrajectoryRobot1.ts";
+import { cycleSportBasicBank } from "./quizBanks/level3/cycleSportBasic.ts";
+import { cycleSportOptimizedBank } from "./quizBanks/level3/cycleSportOptimized.ts";
+import { raceWalkingBasicBank } from "./quizBanks/level3/raceWalkingBasic.ts";
+import { raceWalkingOptimizedBank } from "./quizBanks/level3/raceWalkingOptimized.ts";
+import { raceWalkingOptimizedRatchetBank } from "./quizBanks/level3/raceWalkingOptimizedRatchet.ts";
 
 export type GearDiagram = "large-to-small" | "small-to-large";
 /** Each project defines five distinct objective IDs; the engine is not gear-specific. */
@@ -155,6 +160,11 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [sonometerBank.projectId]: sonometerBank,
   [sunflowerBank.projectId]: sunflowerBank,
   [superTrajectoryRobot1Bank.projectId]: superTrajectoryRobot1Bank,
+  [cycleSportBasicBank.projectId]: cycleSportBasicBank,
+  [cycleSportOptimizedBank.projectId]: cycleSportOptimizedBank,
+  [raceWalkingBasicBank.projectId]: raceWalkingBasicBank,
+  [raceWalkingOptimizedBank.projectId]: raceWalkingOptimizedBank,
+  [raceWalkingOptimizedRatchetBank.projectId]: raceWalkingOptimizedRatchetBank,
   "acceleration-car": {
     projectId: "acceleration-car",
     title: "Acceleration Car",
