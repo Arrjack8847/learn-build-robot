@@ -13,12 +13,12 @@ export const superPatrolCarBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "How many grayscale sensors are built into the integrated grayscale sensor in the lesson?",
       "choices": [
-        "One",
-        "Three",
         "Five",
-        "Eight"
+        "Eight",
+        "One",
+        "Three"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "hint": "The module contains several detection channels.",
       "explanation": "Slide 3 explicitly identifies five grayscale sensors."
     },
@@ -28,12 +28,12 @@ export const superPatrolCarBank: QuizBank = {
       "learningSlide": 3,
       "prompt": "How many grayscale sensors did the previous basic line-patrol car use?",
       "choices": [
+        "Ten",
         "One",
         "Two",
-        "Five",
-        "Ten"
+        "Five"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The lesson contrasts the old car with the new five-sensor module.",
       "explanation": "Slide 3 says the earlier patrol car used just one grayscale sensor."
     },
@@ -43,12 +43,12 @@ export const superPatrolCarBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "Which items must be set during initial programming for the super patrol car?",
       "choices": [
-        "Motor ports, motor power and positions of the grayscale channels",
-        "Only the robot's display wallpaper",
         "Only the vehicle's paint color",
-        "The number of passengers entering a shop"
+        "The number of passengers entering a shop",
+        "Motor ports, motor power and positions of the grayscale channels",
+        "Only the robot's display wallpaper"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The setup includes drive settings and sensor locations.",
       "explanation": "Slide 8 requires initialization of motor ports and power plus positions of the five grayscale channels."
     },
@@ -58,12 +58,12 @@ export const superPatrolCarBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "How are the five grayscale sensor channels numbered from left to right?",
       "choices": [
-        "5, 4, 3, 2, 1",
-        "1, 2, 3, 4, 5",
         "0, 2, 4, 6, 8",
-        "2, 3, 4, 5, 6"
+        "2, 3, 4, 5, 6",
+        "5, 4, 3, 2, 1",
+        "1, 2, 3, 4, 5"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "hint": "The numbering increases from the left edge.",
       "explanation": "Slide 8 identifies the five channels as 1, 2, 3, 4, 5 from left to right."
     },
@@ -88,12 +88,12 @@ export const superPatrolCarBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "Which grayscale sensor is used to detect a right turn?",
       "choices": [
-        "Sensor 1",
-        "Sensor 2",
         "Sensor 3",
-        "Sensor 5"
+        "Sensor 5",
+        "Sensor 1",
+        "Sensor 2"
       ],
-      "correctIndex": 3,
+      "correctIndex": 1,
       "hint": "The rightmost sensor watches for a right bend.",
       "explanation": "Slide 11 assigns right-turn detection to grayscale sensor 5."
     },
@@ -103,12 +103,12 @@ export const superPatrolCarBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "Which grayscale sensors are used to keep the car going straight?",
       "choices": [
+        "No grayscale sensors",
         "Sensors 1 and 5 only",
         "Sensors 2, 3 and 4",
-        "Only sensor 5",
-        "No grayscale sensors"
+        "Only sensor 5"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "hint": "The center sensors help follow a straight path.",
       "explanation": "Slide 12 identifies sensors 2–4 for straight-line following."
     },
@@ -118,12 +118,12 @@ export const superPatrolCarBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "What does it indicate when both grayscale sensors 1 and 5 detect the black line?",
       "choices": [
+        "A QR-code password",
         "A completed battery charge",
         "A temperature alarm",
-        "An intersection",
-        "A QR-code password"
+        "An intersection"
       ],
-      "correctIndex": 2,
+      "correctIndex": 3,
       "hint": "Both outer edges see dark line at once.",
       "explanation": "Slide 12 states that simultaneous black-line detection by sensors 1 and 5 marks an intersection."
     },
@@ -148,12 +148,12 @@ export const superPatrolCarBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "What can students create themselves for the car to follow after building and programming it?",
       "choices": [
+        "An employee face database",
         "A route or map",
         "A wireless telephone network",
-        "A barometric pressure chamber",
-        "An employee face database"
+        "A barometric pressure chamber"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The final slide asks students to design the path.",
       "explanation": "Slide 13 invites students to design their own map for the line-patrol car."
     }

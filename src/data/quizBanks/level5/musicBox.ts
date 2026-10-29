@@ -28,12 +28,12 @@ export const musicBoxBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "How does the lesson describe the color sensor's recognition process?",
       "choices": [
+        "It listens for the object's name",
         "It checks the object's color against reference colors",
         "It measures the object's mass with a spring",
-        "It calculates the Earth's rotation",
-        "It listens for the object's name"
+        "It calculates the Earth's rotation"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "It compares what it sees with known colors.",
       "explanation": "Slide 9 says the sensor compares an object's color with reference colors within an allowed error range."
     },
@@ -43,12 +43,12 @@ export const musicBoxBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which value represents the color red in the lesson's sensor output?",
       "choices": [
-        "1",
-        "2",
         "4",
-        "6"
+        "6",
+        "1",
+        "2"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "Red has the first color code.",
       "explanation": "Slide 9 lists red as sensor value 1."
     },
@@ -58,12 +58,12 @@ export const musicBoxBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which color corresponds to a sensor value of 3?",
       "choices": [
-        "White",
-        "Blue",
         "Yellow",
-        "Green"
+        "Green",
+        "White",
+        "Blue"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "hint": "The reference list goes red, green, blue.",
       "explanation": "Slide 9 lists blue as value 3."
     },
@@ -88,12 +88,12 @@ export const musicBoxBank: QuizBank = {
       "learningSlide": 10,
       "prompt": "What information is configured in the lesson's display-string block?",
       "choices": [
+        "Only the distance to a laser target",
         "Display position, line and text string",
         "Only the motor's power cable",
-        "Only the robot's battery size",
-        "Only the distance to a laser target"
+        "Only the robot's battery size"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The block determines where and what text is drawn.",
       "explanation": "Slide 10 describes the display location/line and the text string as display parameters."
     },
@@ -103,12 +103,12 @@ export const musicBoxBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "What does the introductory color program show when the sensor detects red?",
       "choices": [
-        "The corresponding detected color value on screen",
-        "The current air pressure",
         "An unrelated speed graph",
-        "A map of passenger flow"
+        "A map of passenger flow",
+        "The corresponding detected color value on screen",
+        "The current air pressure"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The first programming example shows the reading itself.",
       "explanation": "Slide 15 specifies displaying the corresponding value when red is detected."
     },
@@ -118,12 +118,12 @@ export const musicBoxBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "What extra behavior is demonstrated after red is detected in the later programming example?",
       "choices": [
-        "Play music and rotate the doll",
         "Read a QR code to unlock a gate",
         "Calculate the speed of light",
-        "Stop all display output"
+        "Stop all display output",
+        "Play music and rotate the doll"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The later activity combines sound and mechanical motion.",
       "explanation": "Slide 17 instructs showing red-related output while playing music and rotating the doll."
     },
@@ -148,12 +148,12 @@ export const musicBoxBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "What does the lesson's assembly checklist say about the model's center of gravity?",
       "choices": [
+        "It must be placed at the highest possible point",
         "It should be appropriately positioned",
         "It must always be outside the base",
-        "It can never matter",
-        "It must be placed at the highest possible point"
+        "It can never matter"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The checklist mentions the model's focus or balance.",
       "explanation": "Slide 12 includes appropriately positioning the model's focus/center of gravity as an assembly requirement."
     }

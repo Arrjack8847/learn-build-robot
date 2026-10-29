@@ -28,12 +28,12 @@ export const superTrajectoryRobot3Bank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What two surface colors is the lesson's track-following robot built to distinguish?",
       "choices": [
-        "Red and green",
         "Blue and yellow",
         "Black and white",
-        "Orange and purple"
+        "Orange and purple",
+        "Red and green"
       ],
-      "correctIndex": 2,
+      "correctIndex": 1,
       "hint": "The course image shows a dark route on a lighter background.",
       "explanation": "Slide 7 states that the robot will patrol black and white."
     },
@@ -43,12 +43,12 @@ export const superTrajectoryRobot3Bank: QuizBank = {
       "learningSlide": 9,
       "prompt": "How does the lesson tell students to measure a robot motor's encoded position value?",
       "choices": [
-        "Open E6 → Test → Encode Value, push the car and read the value",
-        "Ask a passenger to measure the tire by sight",
         "Measure the surrounding air pressure",
-        "Use the camera's face-ID mode"
+        "Use the camera's face-ID mode",
+        "Open E6 → Test → Encode Value, push the car and read the value",
+        "Ask a passenger to measure the tire by sight"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The slide provides a testing menu path.",
       "explanation": "Slide 9 gives E6 → Test → Encode Value, then pushing the car to read its encoder value."
     },
@@ -58,12 +58,12 @@ export const superTrajectoryRobot3Bank: QuizBank = {
       "learningSlide": 9,
       "prompt": "What relationship between motor rotation and code value is stated in the lesson?",
       "choices": [
-        "One motor degree equals one code value",
         "Two motor degrees always equal 100 code values",
         "Code values measure only temperature",
-        "Code values are unrelated to motor rotation"
+        "Code values are unrelated to motor rotation",
+        "One motor degree equals one code value"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The slide describes a simple one-to-one mapping.",
       "explanation": "Slide 9 explicitly states that 1 degree of motor rotation corresponds to 1 code value for the lesson's setup."
     },
@@ -88,12 +88,12 @@ export const superTrajectoryRobot3Bank: QuizBank = {
       "learningSlide": 9,
       "prompt": "When should the tracking car stop automatically in the fixed-stop example?",
       "choices": [
+        "Every time a display character changes",
         "After reaching the specified code value",
         "Only if the motor overheats",
-        "After detecting a magnetic south pole",
-        "Every time a display character changes"
+        "After detecting a magnetic south pole"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "It stops based on its recorded movement position.",
       "explanation": "Slide 9 explains that the car automatically stops patrol when it reaches a certain coded value."
     },
@@ -103,12 +103,12 @@ export const superTrajectoryRobot3Bank: QuizBank = {
       "learningSlide": 13,
       "prompt": "What should happen when the car reaches mission area 1?",
       "choices": [
-        "The buzzer sounds for three seconds",
-        "An ultrasonic reading is deleted",
         "The car opens a cabinet",
-        "The motor moves backward for one hour"
+        "The motor moves backward for one hour",
+        "The buzzer sounds for three seconds",
+        "An ultrasonic reading is deleted"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The first station has an audible task.",
       "explanation": "Slide 13 sets a three-second buzzer task at mission area 1."
     },
@@ -118,12 +118,12 @@ export const superTrajectoryRobot3Bank: QuizBank = {
       "learningSlide": 14,
       "prompt": "What happens at mission area 2 in the lesson?",
       "choices": [
-        "The camera records a face",
-        "An LED flashes three times",
         "The motor temperature is displayed",
-        "A prize wheel rotates forever"
+        "A prize wheel rotates forever",
+        "The camera records a face",
+        "An LED flashes three times"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "hint": "The second station uses a flashing light.",
       "explanation": "Slide 14 instructs the LED to flash three times at mission area 2."
     },

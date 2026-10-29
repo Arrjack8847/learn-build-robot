@@ -43,12 +43,12 @@ export const passengerCounterBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "Which counting technique is the focus of this lesson?",
       "choices": [
-        "Infrared induction",
-        "Atmospheric pressure sensing",
         "GPS satellite ranging",
-        "Magnetic north detection"
+        "Magnetic north detection",
+        "Infrared induction",
+        "Atmospheric pressure sensing"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The lesson compares several methods and concentrates on one.",
       "explanation": "Slide 7 focuses on infrared-induction passenger counting."
     },
@@ -58,12 +58,12 @@ export const passengerCounterBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "What direction-related limitation does the basic infrared counter have?",
       "choices": [
-        "It can always tell exactly who entered",
-        "It counts people passing but cannot tell entry from exit",
         "It works only with magnetic objects",
-        "It records each person's name"
+        "It records each person's name",
+        "It can always tell exactly who entered",
+        "It counts people passing but cannot tell entry from exit"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "hint": "One crossing sensor sees a passage, not its direction.",
       "explanation": "Slide 8 says the method cannot distinguish people entering from people going out."
     },
@@ -88,12 +88,12 @@ export const passengerCounterBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "Why does the counter wait for the detected object to leave before completing a count?",
       "choices": [
+        "To deliberately add another count every second",
         "To allow a full presence-and-departure event",
         "To measure the object's temperature",
-        "To change the wall's color",
-        "To deliberately add another count every second"
+        "To change the wall's color"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "A complete event has both a detected arrival and a departure.",
       "explanation": "Slide 14 treats detection followed by departure as one complete guest-presence event."
     },
@@ -103,12 +103,12 @@ export const passengerCounterBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "Why does the program read stored passenger data before entering its repeating loop?",
       "choices": [
+        "To stop all future counting",
         "To increase the infrared beam's power",
         "To avoid losing previously recorded counts",
-        "To switch the controller language",
-        "To stop all future counting"
+        "To switch the controller language"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "hint": "There may already be a count from a previous run.",
       "explanation": "Slide 15 says controller data must be read before the startup program enters the cycle, preserving earlier records."
     },
@@ -118,12 +118,12 @@ export const passengerCounterBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "What does the display-programming step instruct students to show?",
       "choices": [
+        "An unrelated speed-of-light equation",
         "Only the robot's name",
         "Random pictures",
-        "Corresponding text labels and measured values",
-        "An unrelated speed-of-light equation"
+        "Corresponding text labels and measured values"
       ],
-      "correctIndex": 2,
+      "correctIndex": 3,
       "hint": "The counter should present the data it collects.",
       "explanation": "Slide 13 asks the program to display corresponding characters and values."
     },
@@ -133,12 +133,12 @@ export const passengerCounterBank: QuizBank = {
       "learningSlide": 8,
       "prompt": "What can go wrong when many people pass the basic infrared counter together?",
       "choices": [
-        "It always detects exactly twice as many people",
         "Some people may not be counted",
         "It measures every person's height perfectly",
-        "Its data automatically become more accurate"
+        "Its data automatically become more accurate",
+        "It always detects exactly twice as many people"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "hint": "A single sensing event may hide more than one person.",
       "explanation": "Slide 8 warns that the method can miss people when many pass together."
     },
@@ -148,12 +148,12 @@ export const passengerCounterBank: QuizBank = {
       "learningSlide": 18,
       "prompt": "How does the lesson suggest improving the counter for multiple passing objects?",
       "choices": [
-        "Remove the counting loop",
         "Turn off the infrared sensor permanently",
         "Adjust detection thresholds or add supporting sensors",
-        "Replace the count with a random number"
+        "Replace the count with a random number",
+        "Remove the counting loop"
       ],
-      "correctIndex": 2,
+      "correctIndex": 1,
       "hint": "The extension focuses on sensing multiple objects better.",
       "explanation": "Slide 18 suggests changing judgment parameters or adding other sensors to detect several objects."
     }

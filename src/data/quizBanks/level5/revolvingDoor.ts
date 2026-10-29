@@ -43,12 +43,12 @@ export const revolvingDoorBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "How is the manually controlled subway passage opened in the lesson's example?",
       "choices": [
+        "Passengers always turn it themselves",
         "It stays open regardless of crowding",
         "Staff check conditions and open when capacity permits",
-        "It opens only when the temperature is low",
-        "Passengers always turn it themselves"
+        "It opens only when the temperature is low"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "hint": "Staff decide based on the platform's situation.",
       "explanation": "Slide 9 says staff communicate about platform conditions and release passengers only when there is enough space."
     },
@@ -58,12 +58,12 @@ export const revolvingDoorBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "Which sensor is part of the classroom flow-limiting revolving-door model?",
       "choices": [
+        "Ambient temperature sensor",
         "Barometric sensor",
         "Magnetic pole sensor",
-        "Infrared ranging sensor",
-        "Ambient temperature sensor"
+        "Infrared ranging sensor"
       ],
-      "correctIndex": 2,
+      "correctIndex": 3,
       "hint": "It detects when objects pass through the entrance.",
       "explanation": "Slide 11 identifies an infrared ranging sensor on the model."
     },
@@ -73,12 +73,12 @@ export const revolvingDoorBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "When the program detects that an object has passed, which values are increased?",
       "choices": [
-        "Only elapsed time",
         "Current passenger flow and total passenger flow",
         "Only motor voltage",
-        "Current humidity and temperature"
+        "Current humidity and temperature",
+        "Only elapsed time"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "hint": "The program tracks both a short-term count and a cumulative count.",
       "explanation": "Slide 14 says to add one to both current and total passenger flow after a passage."
     },
@@ -88,12 +88,12 @@ export const revolvingDoorBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "Which passenger count does the lesson explicitly instruct the display to show?",
       "choices": [
+        "The seat cabin speed",
         "Total passenger traffic",
         "Total distance in kilometers",
-        "Temperature below freezing",
-        "The seat cabin speed"
+        "Temperature below freezing"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "One value accumulates across passages.",
       "explanation": "Slide 15 instructs students to display the total passenger traffic data."
     },
@@ -103,12 +103,12 @@ export const revolvingDoorBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "What is the automated door's response to passenger flow becoming too high?",
       "choices": [
+        "Change the display to a different language",
         "Increase rotation without limit",
         "Stop the door and resume after waiting",
-        "Ignore the sensor entirely",
-        "Change the display to a different language"
+        "Ignore the sensor entirely"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "hint": "The robot temporarily limits access.",
       "explanation": "Slide 12 states that the revolving door stops when too many passengers are counted and opens again after a waiting period."
     },
@@ -118,12 +118,12 @@ export const revolvingDoorBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "What should happen to the current passenger-flow count before the gate begins its next operating cycle?",
       "choices": [
-        "It should be doubled",
-        "It should be reset to zero",
         "It should be stored only as a motor speed",
-        "It should always remain above the threshold"
+        "It should always remain above the threshold",
+        "It should be doubled",
+        "It should be reset to zero"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "hint": "The cycle needs a fresh short-term count.",
       "explanation": "Slide 16 says to reset current passenger flow to zero before turning again."
     },
@@ -148,12 +148,12 @@ export const revolvingDoorBank: QuizBank = {
       "learningSlide": 21,
       "prompt": "What other system does the lesson compare to a passenger-flow-limited gate?",
       "choices": [
+        "A battery that stores sound",
         "A website that queues requests during very heavy traffic",
         "A light that senses color",
-        "A pendulum with no control",
-        "A battery that stores sound"
+        "A pendulum with no control"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The analogy controls a large number of arrivals.",
       "explanation": "Slide 21 compares crowd limiting with websites restricting and queuing excessive traffic to avoid overload."
     }

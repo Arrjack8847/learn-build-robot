@@ -28,12 +28,12 @@ export const magneticAntiTheftCabinetBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which development helped safes use electronic combination locks?",
       "choices": [
+        "Discovering new planetary orbits",
         "Advances in semiconductor technology",
         "Replacing every lock with wooden hinges",
-        "Removing all electronic components",
-        "Discovering new planetary orbits"
+        "Removing all electronic components"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The lesson connects electronic locks to electronics progress.",
       "explanation": "Slide 9 links the development of electronic combination locks in the 1960s–1970s to semiconductor technology."
     },
@@ -43,12 +43,12 @@ export const magneticAntiTheftCabinetBank: QuizBank = {
       "learningSlide": 11,
       "prompt": "What event should the magnetic anti-theft cabinet model detect?",
       "choices": [
-        "A magnetic object being removed or moved",
-        "A rise in outdoor wind speed",
         "A red traffic light",
-        "An increase in passenger arrivals"
+        "An increase in passenger arrivals",
+        "A magnetic object being removed or moved",
+        "A rise in outdoor wind speed"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The alarm protects an item inside the cabinet.",
       "explanation": "Slide 11 says the alarm should sound when the magnetic object is taken away."
     },
@@ -58,12 +58,12 @@ export const magneticAntiTheftCabinetBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "Why does the program first record the strength of a magnetic object placed inside?",
       "choices": [
-        "To obtain a baseline to compare against later measurements",
         "To force the motor to spin continuously",
         "To determine the cabinet's paint color",
-        "To calculate the distance to the Moon"
+        "To calculate the distance to the Moon",
+        "To obtain a baseline to compare against later measurements"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "Later readings are checked for changes.",
       "explanation": "Slide 12 instructs recording the initial magnetic intensity before monitoring for changes."
     },
@@ -88,12 +88,12 @@ export const magneticAntiTheftCabinetBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "What does the monitor step do with later sensor readings?",
       "choices": [
+        "Stop checking after a single measurement",
         "Repeatedly compare them with previously recorded data",
         "Erase the initial value before every comparison",
-        "Compare them only to ambient temperature",
-        "Stop checking after a single measurement"
+        "Compare them only to ambient temperature"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The model looks for a difference over time.",
       "explanation": "Slide 14 describes cyclically reading the magnetic sensor for comparison with saved measurements."
     },
@@ -103,12 +103,12 @@ export const magneticAntiTheftCabinetBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "How is the sample alarm sound produced?",
       "choices": [
-        "By switching a buzzer on and off several times quickly",
-        "By running the cabinet motor at full speed",
         "By measuring barometric pressure",
-        "By displaying only a number without sound"
+        "By displaying only a number without sound",
+        "By switching a buzzer on and off several times quickly",
+        "By running the cabinet motor at full speed"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "hint": "The warning repeats brief sound pulses.",
       "explanation": "Slide 15 describes an alarm subroutine that toggles the buzzer on and off repeatedly."
     },
@@ -118,12 +118,12 @@ export const magneticAntiTheftCabinetBank: QuizBank = {
       "learningSlide": 16,
       "prompt": "What difference in measured magnetic-field intensity triggers the sample theft alarm?",
       "choices": [
-        "A difference greater than 100",
         "Any change of exactly 1",
         "Only a difference of 0",
-        "A difference smaller than -500"
+        "A difference smaller than -500",
+        "A difference greater than 100"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "hint": "The example uses a threshold just above one hundred.",
       "explanation": "Slide 16 says the item is treated as stolen when the intensity difference is greater than 100."
     },
@@ -148,12 +148,12 @@ export const magneticAntiTheftCabinetBank: QuizBank = {
       "learningSlide": 20,
       "prompt": "What optimization does the lesson propose for the magnetic cabinet?",
       "choices": [
+        "Replace the magnetic object with a temperature reading",
         "Tune the magnetic-change judgment range and customize the alarm sound",
         "Remove all comparisons and sensors",
-        "Always sound the alarm even without change",
-        "Replace the magnetic object with a temperature reading"
+        "Always sound the alarm even without change"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "hint": "The model should avoid poor thresholds and have a distinct alarm.",
       "explanation": "Slide 20 asks students to optimize the judgment range and develop a specific alarm sound."
     }
