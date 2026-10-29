@@ -1,3 +1,7 @@
+import { vendingMachineBank } from "./quizBanks/level6/vendingMachine.ts";
+import { tricycleBank } from "./quizBanks/level6/tricycle.ts";
+import { trafficLightsDisplayBank } from "./quizBanks/level6/trafficLightsDisplay.ts";
+import { theFlappingPterosaurBank } from "./quizBanks/level6/theFlappingPterosaur.ts";
 import { superScorpionBank } from "./quizBanks/level6/superScorpion.ts";
 import { smartFanBank } from "./quizBanks/level6/smartFan.ts";
 import { smartElectricDrillBank } from "./quizBanks/level6/smartElectricDrill.ts";
@@ -182,6 +186,10 @@ export const quizBanks: Readonly<Record<string, QuizBank>> = {
   [smartElectricDrillBank.projectId]: smartElectricDrillBank,
   [smartFanBank.projectId]: smartFanBank,
   [superScorpionBank.projectId]: superScorpionBank,
+  [theFlappingPterosaurBank.projectId]: theFlappingPterosaurBank,
+  [trafficLightsDisplayBank.projectId]: trafficLightsDisplayBank,
+  [tricycleBank.projectId]: tricycleBank,
+  [vendingMachineBank.projectId]: vendingMachineBank,
   [bigHeadRobotBank.projectId]: bigHeadRobotBank,
   [axeRobotBank.projectId]: axeRobotBank,
   [clipRobotBank.projectId]: clipRobotBank,
