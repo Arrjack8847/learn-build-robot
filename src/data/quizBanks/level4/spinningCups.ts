@@ -28,12 +28,12 @@ export const spinningCupsBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "What is it called when a cup spins around its own axis?",
       "choices": [
+        "Falling",
         "Revolution only",
         "Translation",
-        "Rotation",
-        "Falling"
+        "Rotation"
       ],
-      "correctIndex": 2,
+      "correctIndex": 3,
       "explanation": "Slide 6 defines rotation as spinning around an axis through the object.",
       "hint": "Think about a cup turning in place."
     },
@@ -43,12 +43,12 @@ export const spinningCupsBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "Which gear has an axis that stays fixed in place?",
       "choices": [
-        "A movable gear",
         "A fixed gear",
         "A free wheel",
-        "A disconnected gear"
+        "A disconnected gear",
+        "A movable gear"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Slide 9 distinguishes fixed from movable gears by the motion of their axes.",
       "hint": "Think about whether the gear's center moves around."
     },
@@ -58,12 +58,12 @@ export const spinningCupsBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "What is the key difference between fixed and movable gears in this lesson?",
       "choices": [
+        "Their sound",
         "Their paint color",
         "The motion of their axes",
-        "Their material only",
-        "Their sound"
+        "Their material only"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "Slide 9 says the difference is whether the axis moves.",
       "hint": "Compare what happens to each gear's center."
     },
@@ -73,12 +73,12 @@ export const spinningCupsBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "How do the ride's cups move?",
       "choices": [
+        "They never rotate",
         "Only in a straight line",
         "They spin and move around the center",
-        "Only up and down",
-        "They never rotate"
+        "Only up and down"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "Slide 7 says the cups rotate on their own positions while revolving around the center.",
       "hint": "Think about two kinds of motion happening together."
     },
@@ -103,12 +103,12 @@ export const spinningCupsBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "Which sensor helps the spinning cups react to different colors?",
       "choices": [
-        "Touch sensor",
-        "Color sensor",
         "Sound sensor",
-        "Humidity sensor"
+        "Humidity sensor",
+        "Touch sensor",
+        "Color sensor"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Slide 12 lists a color sensor for controlling cup speeds.",
       "hint": "Think about a sensor that identifies colored blocks."
     },
@@ -118,12 +118,12 @@ export const spinningCupsBank: QuizBank = {
       "learningSlide": 13,
       "prompt": "Which program setting depends on the detected color?",
       "choices": [
+        "The robot's name",
         "The speed value",
         "The classroom address",
-        "The tire's material",
-        "The robot's name"
+        "The tire's material"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 13 says speed values correspond to color readings.",
       "hint": "Think about what is chosen before the motor starts."
     },
@@ -133,12 +133,12 @@ export const spinningCupsBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "Which touch port controls clockwise rotation?",
       "choices": [
-        "P2",
-        "P4",
         "P6",
-        "P8"
+        "P8",
+        "P2",
+        "P4"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Slide 17 assigns clockwise rotation to touch port P6.",
       "hint": "The lesson assigns separate buttons to each direction."
     },
@@ -148,12 +148,12 @@ export const spinningCupsBank: QuizBank = {
       "learningSlide": 17,
       "prompt": "Which touch port controls counterclockwise rotation?",
       "choices": [
-        "P1",
         "P3",
         "P6",
-        "P8"
+        "P8",
+        "P1"
       ],
-      "correctIndex": 3,
+      "correctIndex": 2,
       "explanation": "Slide 17 assigns counterclockwise rotation to touch port P8.",
       "hint": "Compare the two direction buttons."
     }
