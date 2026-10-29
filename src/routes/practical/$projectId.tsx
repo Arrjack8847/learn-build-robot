@@ -58,8 +58,8 @@ import type { PracticalProject } from "@/types/learning";
 
 export const Route = createFileRoute("/practical/$projectId")({
   validateSearch: (search: Record<string, unknown>) => ({
-    mode: search.mode === "learning" ? ("learning" as const) : ("building" as const),
-    variant: search.variant === "optimized" ? ("optimized" as const) : undefined,
+    mode: search["mode"] === "learning" ? ("learning" as const) : ("building" as const),
+    ...(search["variant"] === "optimized" ? { variant: "optimized" as const } : {}),
   }),
   component: PracticalProjectPage,
 });
@@ -76,11 +76,12 @@ function PracticalProjectPage() {
     return <MissingProject />;
   }
 
+  const levelFourLecture = project.level === 4 ? levelFourLearningManuals[project.id] : undefined;
   const lecture = project.level === 1 ? getLevelOneLecture(project.id) :
     project.level === 2 ? getLevelTwoLecture(project.id) :
     project.level === 3 ? getLevelThreeLecture(project.id) :
-    project.level === 4 && levelFourLearningManuals[project.id]
-      ? { projectId: project.id, url: levelFourLearningManuals[project.id].url, learningOnly: false } :
+    project.level === 4 && levelFourLecture
+      ? { projectId: project.id, url: levelFourLecture.url, learningOnly: false } :
     project.level === 5 || project.level === 6 ? levelFiveSixLearningLectures[project.id] : undefined;
   // Respect the selected mode even when a project has only Learning slides.
   if (lecture && mode === "learning") {
