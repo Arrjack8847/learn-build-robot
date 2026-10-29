@@ -48,6 +48,22 @@ test("Level 3 registered inventory has 46 Learning-PDF entries and 5 fallback le
   }
 });
 
+test("Level 3 Building-manual Learning fallbacks are all independently registered and on disk", async () => {
+  const raw = await readFile(new URL("../scripts/quiz-level3-building-fallbacks.json", import.meta.url), "utf8");
+  const fallback = JSON.parse(raw);
+  assert.equal(fallback.schemaVersion, 1);
+  assert.equal(fallback.sources.length, 5);
+  const ids = fallback.sources.map(source => source.projectId);
+  assert.deepEqual(new Set(ids), new Set(fallbackIds));
+  for (const source of fallback.sources) {
+    assert.equal(source.level, 3);
+    assert.ok(source.sourcePath.startsWith("public/") && source.sourcePath.endsWith(".pdf"));
+    assert.ok(source.url.startsWith("https://"), source.projectId);
+    const pdfBytes = await readFile(new URL("../" + source.sourcePath, import.meta.url));
+    assert.equal(String.fromCharCode(...pdfBytes.subarray(0, 5)), "%PDF-", source.projectId);
+  }
+});
+
 test("all and only the 15 reviewed Level 3 banks are playable", () => {
   assert.equal(readyIds.length, 15);
   assert.equal(QUIZ_QUESTION_COUNT, 5);

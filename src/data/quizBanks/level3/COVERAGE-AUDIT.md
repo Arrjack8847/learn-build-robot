@@ -148,3 +148,7 @@ On this branch, the 13 new Level 3 banks are imported in `src/data/quizStudio.ts
 - `scripts/extract-quiz-slides.mjs` now automatically includes these five sources when processing Level 3, taking coverage from 46 dedicated Learning-PDF mappings to all 51 registered Level 3 lesson sources. The script still extracts real slide content; it does not fabricate or auto-publish quizzes.
 - Added `npm run quiz:extract-level3` (all 51 source documents, resumable) and `npm run quiz:test-level3` script entries. No user action or input is needed for the source mapping.
 - **Important:** Adding source extraction coverage does not mean the 36 missing question banks are authored or playable. Binary PDFs above ~1 MiB cannot be transferred through the current GitHub connector to the authoring environment. The pending content remains blocked on retrievable source text, not on user approval or review.
+
+## Automated fallback source integrity test
+
+- Extended `tests/level-three-quiz-coverage.test.mjs` to require the five original Building-manual Learning fallback PDFs to exist as checked-in `%PDF-` files, match exact registered project IDs and trusted HTTPS mappings. This is structural resource validation, not a claim of authored questions.
