@@ -1,0 +1,65 @@
+name: Extract Level 1 quiz source slides (research only)
+
+on:
+  push:
+    branches:
+      - feat/quiz-level1-phase1-standard-20261029
+    paths:
+      - .github/workflows/quiz-level1-source-extract.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract-indexed-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout only quiz metadata, script and Level 1 learning PDFs
+        uses: actions/checkout@v4
+        with:
+          ref: feat/quiz-level1-phase1-standard-20261029
+          persist-credentials: true
+          sparse-checkout: |
+            /scripts/level1-quiz-status.json
+            /scripts/quiz-learning-source-manifest.json
+            /scripts/extract-quiz-slides.mjs
+            /public/Level 1/Learning/
+          sparse-checkout-cone-mode: false
+      - name: Use Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install PDF text extraction dependency without full app install
+        run: npm install --prefix scripts --no-save --no-package-lock --ignore-scripts pdfjs-dist@5.4.296
+      - name: Extract only 19 source-indexed pending Level 1 PDFs
+        shell: bash
+        run: |
+          set -euo pipefail
+          for project in \
+            ferocious-snake shy-penguin first-robot-model rex-robot spider \
+            drawing-board hello-world mechanical-masks athlete basic-programming \
+            drummer-robot sailboat dynamic-screen pendulum-ride the-windmill-kingdom \
+            mechanical-arm color-changing-light corridor-lamp motorcycle
+          do
+            node scripts/extract-quiz-slides.mjs --project "$project" --local-only
+          done
+      - name: Archive extracted page text for education review
+        uses: actions/upload-artifact@v4
+        with:
+          name: level1-quiz-pdf-extracts
+          path: quiz-research/*.json
+          retention-days: 7
+      - name: Save private source-text research to this feature branch
+        shell: bash
+        run: |
+          git add -f quiz-research/*.json
+          if git diff --cached --quiet; then
+            echo "No new source text to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(quiz): extract indexed Level 1 learning slide text for review"
+          git push origin HEAD:feat/quiz-level1-phase1-standard-20261029
