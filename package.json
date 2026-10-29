@@ -20,7 +20,9 @@
     "test:level56": "node --test tests/level-five-six-assets.test.mjs tests/level-six-wix-urls.test.mjs tests/level6-pdf-loading.test.mjs tests/level-five-wix-urls.test.mjs tests/level-four-wix-urls.test.mjs tests/level-five-six-extra-pdfs.test.mjs",
     "test:quiz-level6": "node --test tests/quiz-studio.test.mjs tests/level6-quiz-experiences.test.mjs",
     "test:legacy-programs": "node --test tests/legacy-programming-assets.test.mjs",
-    "test:level123": "node --test tests/level-one-to-three-wix-urls.test.mjs"
+    "test:level123": "node --test tests/level-one-to-three-wix-urls.test.mjs",
+    "quiz:audit-level6": "node scripts/publish-verified-level6.mjs",
+    "quiz:publish-level6": "node scripts/publish-verified-level6.mjs --write"
   },
   "overrides": {
     "rolldown": "1.2.1"
