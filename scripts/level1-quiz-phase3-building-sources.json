@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "description": "Official Level 1 Building PDFs reused as Learning sources. Listed only; contents are not yet reviewed for quiz suitability.",
+  "sources": [
+    {
+      "projectId": "caged-bird",
+      "title": "Caged Bird",
+      "level": 1,
+      "sourcePath": "public/Caged Bird.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ab885520342448c091f0c4a8ab5787b3.pdf",
+      "sourceKind": "official-building-manual-learning-fallback",
+      "githubBlobSha": "7f245b1e3a0b9eb740c56c3bc0fc9bf778165077",
+      "sizeBytes": 5018776,
+      "reviewed": false
+    },
+    {
+      "projectId": "propeller-aircraft",
+      "title": "Propeller Aircraft",
+      "level": 1,
+      "sourcePath": "public/Propeller Aircraft.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_fb102f9c0ce3456f84f999dec29e1762.pdf",
+      "sourceKind": "official-building-manual-learning-fallback",
+      "githubBlobSha": "bd5a99b4c205dacc2162fa34d9ae5b6309813512",
+      "sizeBytes": 8527183,
+      "reviewed": false
+    },
+    {
+      "projectId": "wiper",
+      "title": "Wiper",
+      "level": 1,
+      "sourcePath": "public/Wiper.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_62558d3b08a14845b70edc161151609a.pdf",
+      "sourceKind": "official-building-manual-learning-fallback",
+      "githubBlobSha": "12bc1c003253ac964d8aaa391c92faa37055a051",
+      "sizeBytes": 10691520,
+      "reviewed": false
+    },
+    {
+      "projectId": "hand-cranking-giant-stride",
+      "title": "Hand-Cranking Giant Stride",
+      "level": 1,
+      "sourcePath": "public/Hand-cranking Giant Stride.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ab7c0eade0d54e10989bc8e083125845.pdf",
+      "sourceKind": "official-building-manual-learning-fallback",
+      "githubBlobSha": "2781f8affd685f236a6939f1ea6d8d0f6741698c",
+      "sizeBytes": 21673503,
+      "reviewed": false
+    },
+    {
+      "projectId": "hermit-crab",
+      "title": "Hermit Crab",
+      "level": 1,
+      "sourcePath": "public/Hermit Crab.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dd39843e52a442eb8b52c6f41524965f.pdf",
+      "sourceKind": "official-building-manual-learning-fallback",
+      "githubBlobSha": "076c7fb6ddf66e08df811c55c4835dff3b16dda3",
+      "sizeBytes": 11383655,
+      "reviewed": false
+    },
+    {
+      "projectId": "little-owl",
+      "title": "Little Owl",
+      "level": 1,
+      "sourcePath": "public/Little Owl.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_84f8cee9ece8423182ed7c192c8a9928.pdf",
+      "sourceKind": "official-building-manual-learning-fallback",
+      "githubBlobSha": "73329b0e9e67e1ea5147d17c68228da68dc893e4",
+      "sizeBytes": 12411013,
+      "reviewed": false
+    },
+    {
+      "projectId": "oscillating-fan",
+      "title": "Oscillating Fan",
+      "level": 1,
+      "sourcePath": "public/Oscillating Fan.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3cbea296cea34702a25e77f876e9341e.pdf",
+      "sourceKind": "official-building-manual-learning-fallback",
+      "githubBlobSha": "fd4be72ff27de80a2e96cc7066eb1cad54c14e8e",
+      "sizeBytes": 10790384,
+      "reviewed": false
+    },
+    {
+      "projectId": "pocket-pistol",
+      "title": "Pocket Pistol",
+      "level": 1,
+      "sourcePath": "public/Pocket Pistol.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f11f27194c0944cab2c3819971c88c96.pdf",
+      "sourceKind": "official-building-manual-learning-fallback",
+      "githubBlobSha": "f34c3fd01cc7406163299e8abea21883de04418f",
+      "sizeBytes": 9572266,
+      "reviewed": false
+    },
+    {
+      "projectId": "pullback-bicycle",
+      "title": "Pullback Bicycle",
+      "level": 1,
+      "sourcePath": "public/Pullback Bicycle.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_da1d7fe2963b44ce9c122a1be9d42972.pdf",
+      "sourceKind": "official-building-manual-learning-fallback",
+      "githubBlobSha": "b0270f0070ecf9ed0545442e8626f2ab8631bdb2",
+      "sizeBytes": 9327706,
+      "reviewed": false
+    },
+    {
+      "projectId": "rotating-coffee-cup",
+      "title": "Rotating Coffee Cup",
+      "level": 1,
+      "sourcePath": "public/Rotating Coffee Cup.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_98409811f3ef47ada90acf608856e47b.pdf",
+      "sourceKind": "official-building-manual-learning-fallback",
+      "githubBlobSha": "c8cb0cf219a39ce8cd4cb71ab19d7a954d5d6093",
+      "sizeBytes": 17211309,
+      "reviewed": false
+    },
+    {
+      "projectId": "balanced-bird",
+      "title": "Balanced Bird",
+      "level": 1,
+      "sourcePath": "public/Balanced Bird.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9032f3dcb33d40e19262920596e37616.pdf",
+      "sourceKind": "official-building-manual-learning-fallback",
+      "githubBlobSha": "3836dc042262d5d40660dd8f395736b3e3cc6559",
+      "sizeBytes": 5100255,
+      "reviewed": false
+    },
+    {
+      "projectId": "dancing-music-box",
+      "title": "Dancing Music Box",
+      "level": 1,
+      "sourcePath": "public/Dancing Music Box.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8887adaa8b014f24bd51c38f6a811832.pdf",
+      "sourceKind": "official-building-manual-learning-fallback",
+      "githubBlobSha": "e41af6525cce937461cf43a5d9a82a5da2583b93",
+      "sizeBytes": 12216203,
+      "reviewed": false
+    },
+    {
+      "projectId": "hand-cranking-fan",
+      "title": "Hand-Cranking Fan",
+      "level": 1,
+      "sourcePath": "public/Hand-cranking Fan.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_62f62ce2f4744a70a12d4ff62b7cf538.pdf",
+      "sourceKind": "official-building-manual-learning-fallback",
+      "githubBlobSha": "760146f07926a0a5f045077bdb5c18f41f54b5ea",
+      "sizeBytes": 5857548,
+      "reviewed": false
+    },
+    {
+      "projectId": "old-fashioned-telephone",
+      "title": "Old-Fashioned Telephone",
+      "level": 1,
+      "sourcePath": "public/Old-fashioned Telephone.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_06c718846c4f417eb6785fe4faff1172.pdf",
+      "sourceKind": "official-building-manual-learning-fallback",
+      "githubBlobSha": "81812f1e845fef00a02fb7819a6dfb6cf2f1e757",
+      "sizeBytes": 12139152,
+      "reviewed": false
+    }
+  ]
+}
