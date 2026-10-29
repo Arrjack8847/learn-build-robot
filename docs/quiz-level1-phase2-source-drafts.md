@@ -38,3 +38,17 @@ Current official accounting remains **27 authored / 33 pending quiz IDs** out of
 6. Only then import into `quizStudio.ts`, move its record from pending to completed in the status ledger and run browser QA.
 
 No source PDF was changed, and no quiz UI or `main` branch changes were made.
+
+## Extract actual slide text from your local clone
+
+The repository contains all 19 indexed PDF files under `public/Level 1/Learning/`. In a local checkout of this feature branch, with project dependencies installed, run:
+
+```powershell
+npm run quiz:extract-level1
+```
+
+That command reads all 19 local PDFs one at a time, writes separate `quiz-research/<projectId>.json` page-text reports and marks short-text pages for visual review. It **does not** fill in question answers or register a quiz. If the PDF assets are missing locally, `node scripts/extract-pending-level1-quiz-slides.mjs --allow-hosted` tries the official registered HTTPS URLs instead.
+
+A GitHub Actions extraction run on 2026-10-29 failed before any job steps executed; no content was extracted by that run. The optional workflow is now manual-only. Local extraction is the supported fallback.
+
+Review diagrams and teaching text after extraction; only then replace placeholders and promote each draft to an authored bank.
