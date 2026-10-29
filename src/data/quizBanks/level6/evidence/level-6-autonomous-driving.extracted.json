@@ -1,0 +1,103 @@
+{
+  "projectId": "level-6-autonomous-driving",
+  "sourcePath": "public/Level 6/Learning/Programming & Precise Control/Autonomous Driving/18.Autonomous Driving -Slides.pdf",
+  "wixFileId": "7fc4ca_8353c83f51c543ea8c2e0425db11e7f3.pdf",
+  "sourceBytes": 1175800,
+  "pageCount": 23,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Autonomous Driving | Lesson 18"
+    },
+    {
+      "slide": 2,
+      "text": "Key points from this lesson: | 1. Understand the principles of road recognition | \u0015\u0011\u0003/HDUQ\u0003WR\u0003XVH\u0003WKH\u0003URDG\u0003UHFRJQLWLRQ\u0003PRGH\u0003RI\u0003WKH\u0003$,\u0003௙௙YLVLRQ\u0003PRGXOH | Possible difficulties from this lesson: | 1. Build a model of the autonomous driving robot"
+    },
+    {
+      "slide": 3,
+      "text": "CONTENTS | 1 | Introduction  | 2 | New Knowledge | 3 | Practice | 4 | Expansion "
+    },
+    {
+      "slide": 4,
+      "text": "Introduction | 01"
+    },
+    {
+      "slide": 5,
+      "text": "Introduction | Self | - | driving | cars | use | onboard | sensors | to | sense | the | vehicle's | surroundings | and | obtain | information | to | control | the | vehicle's | steering | and | speed | . | They | also | use | cameras | to | identify | information | on | the | road | . | They | also | need | the | assistance | of | a | global | positioning | system | to | allow | the | car | to | select | a | route | and | arrive | at | its | destination | safely | . | The | AI | ௙௙YLVLRQ | module | also | has | the | function | of | recognizing | images | with | a | camera | ."
+    },
+    {
+      "slide": 6,
+      "text": "New Knowledge | 02"
+    },
+    {
+      "slide": 7,
+      "text": "Autonomous Driving Systems | The | autonomous | driving | system | is | a | comprehensive | system | that | brings | together | many | high | - | tech | technologies | . | Environmental | information | acquisition | and | intelligent | decision | - | making | control, | as | key | links, | rely | on | a | series | of | high | - | tech | technologies | such | as | sensor | technology, | image | recognition | technology, | electronic | and | computer | technology, | and | control | technology, | which | have | also | achieved | innovation | and | breakthroughs | . | With | the | advancement | of | machine | vision | (such | as | 3 | D | camera | technology), | pattern | recognition | software | (such | as | optical | character | recognition | programs) | and | lidar | systems | (which | have | combined | global | positioning | technology | and | spatial | data), | on | - | board | computers | can | control | the | driving | of | cars | by | combining | machine | vision, | sensor | data, | and | spatial | data | ."
+    },
+    {
+      "slide": 8,
+      "text": "Learn about the AI vision module | It | will | return | a | value | between | 0 | and | 240 | . | The | smaller | the | value, | the | further | to | the | left | the | road | is | . | The | larger | the | value, | the | further | to | the | right | the | road | is | . | The | corresponding | return | value | for | the | middle | of | the | road | is | 120 | . | The | AI | ௙௙YLVLRQ | module | determines | the | position | and | direction | of | travel | by | capturing | the | markings | on | the | ground | (i | . | e | . | the | road) | and | identifying | the | offset | value | . | When | the | AI | ௙௙YLVLRQ | module | enters | the | road | recognition | mode | , | a | white | baseline | for | detecting | the | offset | value | and | a | white | aiming | frame | for | capturing | the | road | range | will | appear | on | the | screen, | and | the | offset | value | will | be | displayed | in | the | lower | left | corner | ."
+    },
+    {
+      "slide": 9,
+      "text": "How to use the road recognition  | function?"
+    },
+    {
+      "slide": 10,
+      "text": "Introduction to coding blocks | Read the difference between the black road and the middle of the screen. | Description: | Return value:  | - | 120 | - | 120. The value increases from right to left; the road is  | - | 120 at the  | far left of the screen."
+    },
+    {
+      "slide": 11,
+      "text": "Practice | 03"
+    },
+    {
+      "slide": 12,
+      "text": "Effect Demonstration"
+    },
+    {
+      "slide": 13,
+      "text": "Structure design | To | build | a | voice | - | controlled | car | according | to | the | building | manual, | you | need | a | controller | to | control | the | motor | rotation | and | call | the | AI | ௙௙YLVLRQ | module | . | The | AI | ௙௙YLVLRQ | module | should | be | connected | to | the | P | 8 | port | of | the | controller, | and | the | motors | should | be | connected | to | the | M | 1 | and | M | 2 | ports | ."
+    },
+    {
+      "slide": 14,
+      "text": "Project tasks"
+    },
+    {
+      "slide": 15,
+      "text": "Programming | 1. Set the detection mode. | 6ZLWFK\u0003WKH\u0003$,\u0003௙௙YLVLRQ\u0003PRGXOH\u0003WR\u0003\u00055RDG\u0003 | Recognition\" mode."
+    },
+    {
+      "slide": 16,
+      "text": "Programming | 2 | . | Detect | road | identification | results | . | Create | a | new | variable | named | \"result\" | to | record | the | returned | recognition | results | ."
+    },
+    {
+      "slide": 17,
+      "text": "Programming | 3 | . | The | robot | turns | left | . | If | the | recognition | result | is | less | than | 110 | , | the | road | is | on | the | left | side | of | the | autonomous | driving | robot, | and | the | autonomous | driving | robot | turns | left | ."
+    },
+    {
+      "slide": 18,
+      "text": "Programming | 4 | . | The | robot | turns | right | . | If | the | recognition | result | is | greater | than | 130 | , | it | means | that | the | road | is | on | the | autonomous | driving | robot's | right | side, | and | the | robot | turns | right | ."
+    },
+    {
+      "slide": 19,
+      "text": "Programming | 5 | . | The | robot | moves | forward | . | If | the | recognition | result | is | between | 110 | and | 130 | , | it | means | that | the | autonomous | driving | robot | is | in | the | middle | of | the | road | and | moving | forward | ."
+    },
+    {
+      "slide": 20,
+      "text": "Expansion | 04"
+    },
+    {
+      "slide": 21,
+      "text": "Expansion task | When the car performs different  | actions, the screen displays arrows in  | different directions."
+    },
+    {
+      "slide": 22,
+      "text": "Further Reading | AGV | is | a | transport | vehicle | that | can | travel | along | a | prescribed | path | and | has | safety | protection | and | loading | functions | . | We | can | also | call | it | an | unmanned | transport | vehicle, | an | automatic | navigation | vehicle, | or | an | optical | navigation | vehicle | . | It | can | be | used | in | warehousing, | hazardous | places, | and | industrial | production | . | AGV | consists | of | a | variety | of | systems, | including | three | key | systems | : | control | system, | guidance | system, | and | operation | system | . | It | is | these | three | systems | that | allow | AGV | to | meet | a | variety | of | application | scenarios | ."
+    },
+    {
+      "slide": 23,
+      "text": "Thanks!"
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, PDF Page tree, zlib FlateDecode, PDF BT/ET text operators",
+  "visualReviewComplete": false
+}
