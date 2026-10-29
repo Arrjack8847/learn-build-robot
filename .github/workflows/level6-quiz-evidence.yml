@@ -23,8 +23,8 @@ jobs:
         with:
           node-version: '22'
           cache: npm
-      - name: Install project dependencies
-        run: npm ci
+      - name: Install project dependencies (repository uses bun.lock, not package-lock.json)
+        run: npm install --legacy-peer-deps --no-audit --no-fund
       - name: Extract every Level 6 registered official teaching PDF (local checkout only)
         run: node scripts/extract-quiz-slides.mjs --level 6 --limit 43 --local-only
       - name: Stage slide evidence under isolated Level 6 directory
@@ -41,3 +41,9 @@ jobs:
             git commit -m "chore(quiz-level6): extract slide text from 43 official learning PDFs"
             git push origin HEAD:feat/quiz-level6-content
           fi
+      - name: Validate Level 6 quiz structures, attempts, source pages, and resume
+        run: npm run test:quiz-level6
+      - name: TypeScript type check
+        run: npx tsc --noEmit
+      - name: Production build validation (no deploy)
+        run: npm run build
