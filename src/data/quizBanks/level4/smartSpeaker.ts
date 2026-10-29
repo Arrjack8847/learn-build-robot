@@ -17,7 +17,7 @@ export const smartSpeakerBank: QuizBank = {
         "A distance reading"
       ],
       "correctIndex": 0,
-      "explanation": "Slide 3 explains that sound is the relevant concept or action.",
+      "explanation": "Speakers reproduce audio by converting electrical audio signals into sound.",
       "hint": "Think about the output of a speaker."
     },
     {
@@ -32,7 +32,7 @@ export const smartSpeakerBank: QuizBank = {
         "Paper input"
       ],
       "correctIndex": 1,
-      "explanation": "Slide 4 explains that voice commands is the relevant concept or action.",
+      "explanation": "The lesson describes smart speakers as devices that can respond to voice commands.",
       "hint": "Think about the output of a speaker."
     },
     {
@@ -47,7 +47,7 @@ export const smartSpeakerBank: QuizBank = {
         "Touch sensor only"
       ],
       "correctIndex": 2,
-      "explanation": "Slide 5 explains that ultrasonic sensor is the relevant concept or action.",
+      "explanation": "The project uses ultrasound distance readings to control sound volume.",
       "hint": "Recall the sensor that notices a listener's position."
     },
     {
@@ -62,7 +62,7 @@ export const smartSpeakerBank: QuizBank = {
         "The sensed distance"
       ],
       "correctIndex": 3,
-      "explanation": "Slide 5 explains that the sensed distance is the relevant concept or action.",
+      "explanation": "Changing the measured distance changes the volume chosen by the program.",
       "hint": "Recall the sensor that notices a listener's position."
     },
     {
@@ -77,7 +77,7 @@ export const smartSpeakerBank: QuizBank = {
         "Scan code"
       ],
       "correctIndex": 0,
-      "explanation": "Slide 19 explains that set MP3 sound volume is the relevant concept or action.",
+      "explanation": "Slide 19 introduces the MP3 volume-setting block used for playback.",
       "hint": "Consider how a program sets a numeric sound level."
     },
     {
@@ -92,7 +92,7 @@ export const smartSpeakerBank: QuizBank = {
         "1 to 2"
       ],
       "correctIndex": 1,
-      "explanation": "Slide 19 explains that 0 to 28 is the relevant concept or action.",
+      "explanation": "The MP3 sound volume parameter accepts values from 0 to 28.",
       "hint": "Consider how a program sets a numeric sound level."
     },
     {
@@ -107,7 +107,7 @@ export const smartSpeakerBank: QuizBank = {
         "Right button"
       ],
       "correctIndex": 2,
-      "explanation": "Slide 20 explains that left button is the relevant concept or action.",
+      "explanation": "The model waits for the left button before starting its MP3 file.",
       "hint": "Follow the left-to-right button sequence."
     },
     {
@@ -122,7 +122,7 @@ export const smartSpeakerBank: QuizBank = {
         "Right button"
       ],
       "correctIndex": 3,
-      "explanation": "Slide 21 explains that right button is the relevant concept or action.",
+      "explanation": "The volume-control routine runs until the right button is pressed.",
       "hint": "Follow the left-to-right button sequence."
     },
     {
@@ -137,7 +137,7 @@ export const smartSpeakerBank: QuizBank = {
         "To read a QR code"
       ],
       "correctIndex": 0,
-      "explanation": "Slide 22 explains that to prevent noise from rapid changes is the relevant concept or action.",
+      "explanation": "Rapid, repeated volume changes can create noise, so the lesson adds a wait block.",
       "hint": "Think about changes that make output smoother and clearer."
     },
     {
@@ -152,7 +152,7 @@ export const smartSpeakerBank: QuizBank = {
         "A keyboard"
       ],
       "correctIndex": 1,
-      "explanation": "Slide 23 explains that color-lamp effects is the relevant concept or action.",
+      "explanation": "Different colored lights can give a visual indication of the sensed distance.",
       "hint": "Think about changes that make output smoother and clearer."
     }
   ]
