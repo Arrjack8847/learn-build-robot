@@ -34,3 +34,12 @@ These are separate project IDs where similarly named lessons occur, including `l
 **Visual source QA:** Many PDF pages contain illustrations or sparse/translated text. The 21 new quizzes were authored from the readable official lesson text rather than interpreting unreviewed diagrams. A visual slide-by-slide check and educator acceptance test remain appropriate before release.
 
 **Do not merge or deploy automatically.** The PR stays draft while build/device QA is outstanding, even though question-bank content coverage is now 56/56.
+
+## Independent isolated-sandbox verification (29 October 2026)
+
+A temporary test workspace used **the actual 54 Level 4 bank modules, both original Level 4 banks, and the actual central `src/data/quizStudio.ts`** from the feature branch. Non-Level-4 bank imports were isolated with typed placeholders solely to keep the scope Level 4.
+
+- **TypeScript 5.8.3 strict `tsc --noEmit` passed** for the shared Quiz Studio plus every actual Level 4 bank file.
+- A runtime smoke test loading `getQuizBank`, `validateQuizBank` and `selectQuizQuestions` from the shared engine found **56 / 56 Level 4 projects ready**, **560 globally unique question IDs**, and **zero validation or immediate-retry errors**. The 56 registered official Learning PDF paths matched the quiz banks.
+- A separate networked PDF inspection opened **all 56 official Level 4 Learning PDFs** from registered hosted source URLs. **56 / 56 page counts matched** the level's Learning registry and question-bank page counts (21 original missing sources extracted earlier, plus 35 additional PDFs checked later). This verifies PDF accessibility and page-count alignment, not the visual interpretation of every graphic.
+- A full checkout production build, browser click-through and GitHub Actions CI did **not** execute; the earlier GitHub Actions runner failed before running steps. Do not describe those release checks as passing.
