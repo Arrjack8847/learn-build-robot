@@ -1,163 +1,160 @@
-/** UNREVIEWED PHASE 3 DRAFT — Building PDF fallback.
- * PDF page count, questions and answers MUST be verified.
- * Do not import, count as completed, or publish this file.
- */
+/** Phase 3 source-text quiz bank. Official PDF diagram and educational review pending. */
 import type { QuizBank } from "../quizStudio";
 export const handCrankingFanBank: QuizBank = {
   "projectId": "hand-cranking-fan",
   "title": "Hand-Cranking Fan",
   "sourcePdfPath": "public/Hand-cranking Fan.pdf",
-  "sourcePageCount": 0,
+  "sourcePageCount": 12,
   "questions": [
     {
       "id": "hand-cranking-fan-01",
-      "topic": "objective-1",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "cooling-context",
+      "prompt": "Why does the child Nini need a different way to stay cool?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Her remote home has no electricity",
+        "The room is too cold",
+        "Her boat is leaking",
+        "Her bicycle has no wheels"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 4,
+      "hint": "Think about the cooling context part of this lesson, then identify which option fits.",
+      "explanation": "The story says Nini lives in a remote area without electricity."
     },
     {
       "id": "hand-cranking-fan-02",
-      "topic": "objective-1",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "cooling-context",
+      "prompt": "Which season's heat motivates the hand-cranking fan activity?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Autumn frost",
+        "Summer",
+        "Winter",
+        "Spring rain"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 4,
+      "hint": "Think about the cooling context part of this lesson, then identify which option fits.",
+      "explanation": "The introduction asks how Nini gets through the hot summer."
     },
     {
       "id": "hand-cranking-fan-03",
-      "topic": "objective-2",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "manual-fan",
+      "prompt": "Which kind of cooling device can work without an electric power supply?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "An air conditioner plugged into a wall",
+        "A mains-powered refrigerator",
+        "A manually operated fan",
+        "An electric fan requiring a socket"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 4,
+      "hint": "Think about the manual fan part of this lesson, then identify which option fits.",
+      "explanation": "The lesson asks students to find a fan that can be used without electricity."
     },
     {
       "id": "hand-cranking-fan-04",
-      "topic": "objective-2",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "manual-fan",
+      "prompt": "What everyday alternative do students suggest when asked how to cool Nini?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Turning on an electric heater",
+        "Using a car headlight",
+        "Opening a computer program",
+        "Waving a manual fan"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 4,
+      "hint": "Think about the manual fan part of this lesson, then identify which option fits.",
+      "explanation": "The story includes the suggestion of waving a manual fan."
     },
     {
       "id": "hand-cranking-fan-05",
-      "topic": "objective-3",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "gear-knowledge",
+      "prompt": "Which mechanical parts are the main focus of the teaching objectives?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Gears",
+        "Cameras",
+        "Microphones",
+        "Telescopes"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 3,
+      "hint": "Think about the gear knowledge part of this lesson, then identify which option fits.",
+      "explanation": "The objectives discuss types, roles and characteristics of gears."
     },
     {
       "id": "hand-cranking-fan-06",
-      "topic": "objective-3",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "gear-knowledge",
+      "prompt": "Which gear topic does the lesson ask students to understand?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Editing screen photos",
+        "Different gear types",
+        "Only paint colours",
+        "Measuring brightness"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 3,
+      "hint": "Think about the gear knowledge part of this lesson, then identify which option fits.",
+      "explanation": "The teaching objectives explicitly mention types of gears."
     },
     {
       "id": "hand-cranking-fan-07",
-      "topic": "objective-4",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "transmission",
+      "prompt": "In which mechanical process are gears studied?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Sound recording",
+        "Water filtration",
+        "Transmission",
+        "Light projection"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 2,
+      "learningSlide": 3,
+      "hint": "Think about the transmission part of this lesson, then identify which option fits.",
+      "explanation": "The learning objectives include applying gears in mechanical transmission."
     },
     {
       "id": "hand-cranking-fan-08",
-      "topic": "objective-4",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "transmission",
+      "prompt": "Which principle should students describe when presenting the finished hand-cranking fan?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "How a camera captures images",
+        "How a telephone dials a number",
+        "How a boat sails in wind",
+        "Gear transmission and shifting"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 3,
+      "learningSlide": 5,
+      "hint": "Think about the transmission part of this lesson, then identify which option fits.",
+      "explanation": "The final presentation names transmission and gear shifting."
     },
     {
       "id": "hand-cranking-fan-09",
-      "topic": "objective-5",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "assembly-review",
+      "prompt": "Which task is listed as a key building difficulty?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "Following the correct building sequence",
+        "Choosing a music track",
+        "Writing an email",
+        "Programming an infrared sensor"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 0,
+      "learningSlide": 3,
+      "hint": "Think about the assembly review part of this lesson, then identify which option fits.",
+      "explanation": "The key points call for understanding the correct building sequence."
     },
     {
       "id": "hand-cranking-fan-10",
-      "topic": "objective-5",
-      "prompt": "TODO: Read exact source PDF and write an evidence-based question",
+      "topic": "assembly-review",
+      "prompt": "What design question appears before starting the fan assembly?",
       "choices": [
-        "TODO option A",
-        "TODO option B",
-        "TODO option C",
-        "TODO option D"
+        "How fast a ship can sail",
+        "Which parts are needed for the fan?",
+        "How many colours the rainbow has",
+        "Which phone number to dial"
       ],
-      "correctIndex": -1,
-      "learningSlide": 0,
-      "explanation": "TODO: Explain answer using verified source material",
-      "hint": "TODO: Short non-revealing learning hint"
+      "correctIndex": 1,
+      "learningSlide": 4,
+      "hint": "Think about the assembly review part of this lesson, then identify which option fits.",
+      "explanation": "The topic analysis asks about the parts and pieces needed to build the fan."
     }
   ]
 };
