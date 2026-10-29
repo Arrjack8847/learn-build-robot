@@ -167,3 +167,35 @@ test("all eleven source-grounded Level 6 projects remain registered and replayab
     assert.equal(first.filter(q => retry.some(x => x.id === q.id)).length, 0, id);
   }
 });
+
+// Eight published projects have recorded actual slide-text extracts alongside
+// their banks. Verify all referenced slides exist in that original evidence.
+// This does not claim review of illustrations or replace educational QA.
+test("Level 6 saved slide evidence agrees with registered bank references", async () => {
+  const names = [
+    "dancing-robot",
+    "finger-guessing-robot",
+    "gesture-commanding-car",
+    "high-temperature-alarm",
+    "matador",
+    "regional-weather-station",
+    "smart-flashlight",
+    "the-interesting-rotor",
+  ];
+  for (const name of names) {
+    const id = "level-6-" + name;
+    const bank = getQuizBank(id);
+    assert.ok(bank, id + ": published quiz missing");
+    const evidencePath = join(repositoryRoot, "src/data/quizBanks/level6/evidence", id + ".extracted.json");
+    const evidence = JSON.parse(await readFile(evidencePath, "utf8"));
+    assert.equal(evidence.projectId, id, id + ": extracted project mismatches");
+    assert.equal(evidence.sourcePath, bank.sourcePdfPath, id + ": source PDF path mismatch");
+    assert.equal(evidence.pageCount, bank.sourcePageCount, id + ": page count mismatch");
+    const slides = new Set((evidence.pages || []).map(page => page.slide));
+    assert.equal(slides.size, bank.sourcePageCount, id + ": missing or duplicate numbered slide");
+    for (let slide = 1; slide <= bank.sourcePageCount; slide++)
+      assert.ok(slides.has(slide), id + ": source extraction missing slide " + slide);
+    for (const question of bank.questions)
+      assert.ok(slides.has(question.learningSlide), id + ": " + question.id + " cites an absent slide");
+  }
+});
