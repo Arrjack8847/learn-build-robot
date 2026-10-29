@@ -25,7 +25,8 @@
     "All listed PDF paths are confirmed tracked at the selected base commit. Tracked file existence does NOT establish slide content or page count.",
     "Page counts remain null until each source PDF is opened and counted; only two prior published bank metadata values are included.",
     "The 15 building-PDF fallbacks may not contain enough teaching objectives to support a ten-question Learning quiz; flag insufficient sources instead of inventing material.",
-    "Batch 1 now has four source-verified authored banks and the existing Axe Robot bank. No shared Quiz Studio import has been added; four new banks remain intentionally non-playable."
+    "Batch 1 now has four source-verified authored banks and the existing Axe Robot bank. No shared Quiz Studio import has been added; four new banks remain intentionally non-playable.",
+    "The first five PDF sources in the extractor's manifest order differ from the first five-project authoring queue generated in project-registry order. Batch labels distinguish source extraction from authoring groups."
   ],
   "projects": [
     {
@@ -819,7 +820,7 @@
         "level-2-rotating-flying-chair",
         "level-2-throwing-robot"
       ],
-      "status": "4-of-5-authored; level-2-bee-awaiting-source-review"
+      "status": "1-of-5-authored"
     },
     {
       "batch": 2,
@@ -896,7 +897,7 @@
         "level-2-battery-robot",
         "level-2-walking-robot"
       ],
-      "status": "pending-source-review"
+      "status": "2-of-5-authored"
     },
     {
       "batch": 9,
@@ -938,7 +939,7 @@
         "level-2-robot-war",
         "level-2-the-treadmill"
       ],
-      "status": "pending-source-review"
+      "status": "1-of-3-authored"
     }
   ],
   "sourceReview": {
