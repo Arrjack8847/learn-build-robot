@@ -3,11 +3,13 @@ import { Link } from "@tanstack/react-router";
 import { ArrowLeft, AlertCircle, ChevronLeft, ChevronRight, Download, Expand, Shrink } from "lucide-react";
 import type { PDFDocumentLoadingTask, PDFDocumentProxy } from "pdfjs-dist";
 import { PdfManualPage, type PdfViewportSize } from "./PdfManualPage";
-import type { LevelOneLecture } from "@/data/levelOneLectures";
+import { LEVEL_ONE_BUILDING_PDF_LEARNING_FALLBACK_IDS, type LevelOneLecture } from "@/data/levelOneLectures";
 import { getLevelTwoProgrammingFiles } from "@/data/levelTwoProgrammingFiles";
 import { getLevelFiveSixProgrammingFiles } from "@/data/levelFiveSixContent";
 import { getLegacyProgrammingFiles } from "@/data/legacyProgrammingFiles";
 import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
+
+const levelOneConstructionOnlySources = new Set<string>(LEVEL_ONE_BUILDING_PDF_LEARNING_FALLBACK_IDS);
 
 /** One PDF page per slide, separate from the Building Studio instruction dock. */
 export function LevelOneLearningStudio({
@@ -31,6 +33,7 @@ export function LevelOneLearningStudio({
   const workspaceRef = useRef<HTMLDivElement>(null);
   const slideRef = useRef<HTMLDivElement>(null);
   const total = document?.numPages ?? 0;
+  const constructionOnly = level === 1 && levelOneConstructionOnlySources.has(projectId);
   const programmingFiles = level === 2 ? getLevelTwoProgrammingFiles(projectId) :
     level === 5 || level === 6 ? getLevelFiveSixProgrammingFiles(projectId) :
     getLegacyProgrammingFiles({ level, categoryId, title });
@@ -137,7 +140,7 @@ export function LevelOneLearningStudio({
           <ArrowLeft className="size-4" aria-hidden="true"/> <span className="hidden sm:inline">Project</span>
         </Link>
         <div className="min-w-0 flex-1 text-center">
-          <p className="text-[10px] font-extrabold uppercase tracking-[.1em] text-[#168eea]">Level {level} · Learning Studio</p>
+          <p className="text-[10px] font-extrabold uppercase tracking-[.1em] text-[#168eea]">Level {level} · {constructionOnly ? "Construction Manual" : "Learning Studio"}</p>
           <h1 className="truncate text-sm font-black sm:text-lg">{title}</h1>
         </div>
         <button type="button" onClick={() => void changeFullscreen()}
@@ -146,23 +149,28 @@ export function LevelOneLearningStudio({
           {isFullscreen ? <Shrink className="size-5"/> : <Expand className="size-5"/>}
         </button>
       </header>
-      <main className="flex min-h-0 flex-1 p-2 sm:p-4" aria-label={title + " lecture slides"}>
+      {constructionOnly ? (
+        <div role="note" className="shrink-0 border-b border-amber-200 bg-amber-50 px-4 py-2 text-center text-xs font-semibold text-amber-950">
+          Official teaching slides are not available for this lesson. This is the construction manual for reference; its quiz remains unavailable pending source review.
+        </div>
+      ) : null}
+      <main className="flex min-h-0 flex-1 p-2 sm:p-4" aria-label={title + (constructionOnly ? " construction manual" : " lecture slides")}>
         <div ref={slideRef}
           className="flex min-h-0 w-full items-center justify-center overflow-auto rounded-[22px] border border-sky-100 bg-[#e8f3fc] p-2 sm:p-4">
           {document ? (
             <PdfManualPage pdfDocument={document} pageNumber={page} fit="page" zoom={1}
-              viewport={viewport} pageLabel={title + " slide " + page}/>
+              viewport={viewport} pageLabel={title + (constructionOnly ? " manual page " : " slide ") + page}/>
           ) : error ? (
             <div role="alert" className="max-w-md rounded-2xl bg-white p-6 text-center">
               <AlertCircle className="mx-auto size-8 text-rose-600"/>
-              <p className="mt-2 font-extrabold">Could not load lecture slides</p>
+              <p className="mt-2 font-extrabold">Could not load {constructionOnly ? "construction manual" : "lecture slides"}</p>
               <p className="mt-2 break-words text-sm text-slate-600">{error}</p>
               <button type="button" onClick={() => setRetry(count => count + 1)}
                 className="mt-4 min-h-11 rounded-xl bg-[#168eea] px-5 font-bold text-white">Retry</button>
             </div>
            ) : (
             <div role="status" className="text-center text-sm font-semibold text-slate-600">
-              <p>Opening lecture slides…</p>
+              <p>Opening {constructionOnly ? "construction manual…" : "lecture slides…"}</p>
               {downloadProgress && downloadProgress.loaded > 0 ? (
                 <p className="mt-2 text-xs font-medium text-slate-500">
                   Downloaded {(downloadProgress.loaded / (1024 * 1024)).toFixed(1)} MB
@@ -189,11 +197,11 @@ export function LevelOneLearningStudio({
             <ChevronLeft className="size-4"/> Previous
           </button>
           <label className="min-w-0 text-center">
-            <span className="sr-only">Choose lecture slide</span>
+            <span className="sr-only">Choose {constructionOnly ? "manual page" : "lecture slide"}</span>
             <select value={page} disabled={!document} onChange={event => setPage(Number(event.target.value))}
               className="max-w-full rounded-xl border border-sky-100 bg-sky-50 p-2 text-sm font-extrabold text-[#132654]">
               {total ? Array.from({ length: total }, (_, index) =>
-                <option key={index + 1} value={index + 1}>Slide {index + 1} / {total}</option>)
+                <option key={index + 1} value={index + 1}>{constructionOnly ? "Page" : "Slide"} {index + 1} / {total}</option>)
                 : <option value={1}>Loading…</option>}
             </select>
           </label>
