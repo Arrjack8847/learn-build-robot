@@ -28,12 +28,12 @@ export const radarVehicleBank: QuizBank = {
       "learningSlide": 6,
       "prompt": "What does conventional radio radar send out to find targets?",
       "choices": [
-        "Electromagnetic waves",
-        "Water drops",
         "Plastic pins",
-        "Paint"
+        "Paint",
+        "Electromagnetic waves",
+        "Water drops"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 6 describes radar emitting electromagnetic waves and receiving echoes.",
       "hint": "Think about signals that travel away and return."
     },
@@ -43,12 +43,12 @@ export const radarVehicleBank: QuizBank = {
       "learningSlide": 2,
       "prompt": "Which type of sensing does this robot lesson focus on?",
       "choices": [
-        "Ultrasonic sensing",
         "Pressure sensing",
         "Color sensing",
-        "Temperature sensing"
+        "Temperature sensing",
+        "Ultrasonic sensing"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 2 identifies ultrasound and motor use as its learning objective.",
       "hint": "The model uses an approach different from conventional radio radar."
     },
@@ -58,12 +58,12 @@ export const radarVehicleBank: QuizBank = {
       "learningSlide": 7,
       "prompt": "What is the purpose of the radar robot built in this lesson?",
       "choices": [
+        "Play piano notes",
         "Measure distance",
         "Count tickets",
-        "Open blinds",
-        "Play piano notes"
+        "Open blinds"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 7 says the class builds a distance-measuring radar robot.",
       "hint": "Think about detecting obstacles."
     },
@@ -73,12 +73,12 @@ export const radarVehicleBank: QuizBank = {
       "learningSlide": 9,
       "prompt": "What should happen before making a complicated model?",
       "choices": [
+        "Ignoring the instructions",
         "Careful design and planning",
         "Randomly removing parts",
-        "Avoiding all tests",
-        "Ignoring the instructions"
+        "Avoiding all tests"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 9 describes design as careful pre-planning.",
       "hint": "Think about choosing a plan before building."
     },
@@ -88,12 +88,12 @@ export const radarVehicleBank: QuizBank = {
       "learningSlide": 12,
       "prompt": "Which rule appears in the Radar Vehicle assembly checklist?",
       "choices": [
-        "A stable structure",
         "No support under the motor",
         "A loose controller",
-        "No planned shape"
+        "No planned shape",
+        "A stable structure"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 12 lists a stable structure.",
       "hint": "A moving robot needs a secure build."
     },
@@ -103,12 +103,12 @@ export const radarVehicleBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "What output is triggered when the program detects an obstacle closer than 15 in the given threshold check?",
       "choices": [
-        "Buzzer sound",
-        "Curtain opening",
         "Screen printing a QR code",
-        "Music streaming"
+        "Music streaming",
+        "Buzzer sound",
+        "Curtain opening"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Slide 14 shows a buzzer when the obstacle reading is below 15.",
       "hint": "Think about how a robot alerts someone."
     },
@@ -133,12 +133,12 @@ export const radarVehicleBank: QuizBank = {
       "learningSlide": 15,
       "prompt": "How does the radar car move while scanning in the lesson's task?",
       "choices": [
-        "Rotates in place",
         "Only moves straight forward",
         "Climbs stairs",
-        "Jumps over obstacles"
+        "Jumps over obstacles",
+        "Rotates in place"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Slide 15 says the radar car rotates in place.",
       "hint": "Turning can help check multiple directions."
     },
@@ -148,12 +148,12 @@ export const radarVehicleBank: QuizBank = {
       "learningSlide": 14,
       "prompt": "Which kind of decision is shown in the radar program?",
       "choices": [
+        "Count the days of the week",
         "Compare distance with a set limit",
         "Compare the robot's paint color",
-        "Choose a random name",
-        "Count the days of the week"
+        "Choose a random name"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Slide 14 branches on the measured obstacle distance being less than a set value.",
       "hint": "Think about using a measured number to decide."
     }
