@@ -1,0 +1,135 @@
+{
+  "projectId": "level-6-gorilla",
+  "sourcePath": "public/Level 6/Learning/Action-Oriented/Gorilla/04.Gorilla - Slides.pdf",
+  "wixFileId": "7fc4ca_0464d9e94998495daf87835ca1284e14.pdf",
+  "sourceBytes": 2707906,
+  "pageCount": 31,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Gorilla | Lesson 4"
+    },
+    {
+      "slide": 2,
+      "text": "Key points from this lesson: | 1. Learn to write programs that allow multiple sensors to control  | electronic  | components | 2. Be proficient in programming to control the motor to rotate to a specified angle | Possible difficulties from this lesson: | 1. Learn to select the appropriate sensor according to functional requirements | 2. Master the use of blocking function or blocking | - | type motor modules according  | to actual tests"
+    },
+    {
+      "slide": 3,
+      "text": "Gorilla | There |   | is |   | an |   | animal |   | that |   | looks |   | like |   | a |   | human |   | being, |   | they |   | are |   | called |   | \"gorillas\" | . |   | Gorillas |   | have |   | black |   | hair |   | and |   | flexible |   | bodies, |   | their |   | faces |   | are |   | a |   | bit |   | like |   | human |   | faces, |   | and |   | some |   | have |   | long |   | tails | ."
+    },
+    {
+      "slide": 4,
+      "text": "Gorillas' habits | Gorillas |   | have |   | strong |   | limbs |   | and |   | flexible |   | fingers, |   | which |   | allow |   | them |   | to |   | climb |   | trees |   | easily | . |   | Their |   | IQ |   | is |   | equivalent |   | to |   | that |   | of |   | a |   | person |   | between |   | three |   | and |   | five |   | years |   | old | . | They |   | like |   | to |   | eat |   | fruits, |   | such |   | as |   | bananas |   | and |   | mangoes | , |   | as |   | well |   | as |   | some |   | plant |   | foods |   | such |   | as |   | leaves, |   | flowers, |   | and |   | bark | ."
+    },
+    {
+      "slide": 5,
+      "text": "Effect Demonstration"
+    },
+    {
+      "slide": 6,
+      "text": "Project Tasks | Design a gorilla model and control it by using multiple sensors. | Requirements for robot functions: | 1. The gorilla robot will have two action modes. When the ultrasonic sensor detects  | someone passing by, it will randomly execute one of them. | 2. Action mode 1: The robot raises its left hand and waits for a handshake before  | putting it down (using the touch sensor). | 3. Action mode 2: The robot raises its right hand to ask for a banana, and puts it  | down after getting it (the color sensor detects yellow)."
+    },
+    {
+      "slide": 7,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 8,
+      "text": "Build a robot | Build the gorilla's foot"
+    },
+    {
+      "slide": 9,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 10,
+      "text": "Build a robot | Build the gorilla's feet"
+    },
+    {
+      "slide": 11,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 12,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 13,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 14,
+      "text": "Build a robot | Install the color sensor"
+    },
+    {
+      "slide": 15,
+      "text": "Build a robot | Install the touch sensor"
+    },
+    {
+      "slide": 16,
+      "text": "Build a robot | Build the head (ultrasonic  | sensor)"
+    },
+    {
+      "slide": 17,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 18,
+      "text": "Build a robot | Build the head"
+    },
+    {
+      "slide": 19,
+      "text": "Hardware Connection | P1 | P3 | M1 | M3 | M2"
+    },
+    {
+      "slide": 20,
+      "text": "How do we achieve the required functions?"
+    },
+    {
+      "slide": 21,
+      "text": "Distinguish between blocking and non | - | blocking motor coding blocks | It is necessary to choose blocking and non | - | blocking motor coding blocks according  | to the actual situation. | This |   | coding |   | block |   | controls |   | the |   | motor |   | to |   | rotate |   | to |   | a |   | specified |   | angle, |   | and |   | then |   | immediately |   | executes |   | the |   | subsequent |   | instructions | . | It |   | is |   | generally |   | used |   | when |   | there |   | is |   | no |   | need |   | to |   | wait |   | for |   | the |   | motor |   | to |   | rotate |   | to |   | a |   | specified |   | angle |   | before |   | executing |   | other |   | actions | . | It |   | can |   | be |   | used |   | with |   | the |   | waiting |   | time |   | coding |   | block | . | This coding block can wait for the motor to rotate  | a specified angle before executing subsequent  | instructions. | It is generally used in situations where you need  | to wait for the motor to rotate at a specified angle  | before executing other actions. | It will block when it encounters an obstacle."
+    },
+    {
+      "slide": 22,
+      "text": "Program Flow Chart | After |   | the |   | program |   | starts, |   | if |   | someone |   | passes |   | by, |   | an |   | action |   | mode |   | is |   | randomly |   | selected | . | Depending |   | on |   | the |   | action |   | mode, |   | the |   | robot |   | performs |   | the |   | corresponding |   | action | ."
+    },
+    {
+      "slide": 23,
+      "text": "1. Select the action mode when someone passes by | The |   | program |   | starts |   | and |   | continuously |   | checks |   | in |   | a |   | loop |   | whether |   | someone |   | passes |   | by | . | If |   | someone |   | passes |   | by, |   | a |   | random |   | number |   | between |   | 1 |   | and |   | 2 |   | is |   | picked |   | and |   | stored |   | in |   | the |   | variable |   | \" | action |   | mode | \" | . | The |   | screen |   | displays |   | the |   | value |   | of |   | the |   | variable |   | \" | action |   | mode | \" |   | for |   | easy |   | observation |   | and |   | debugging | ."
+    },
+    {
+      "slide": 24,
+      "text": "2. |   | Waiting for the handshake mode | If |   | the |   | variable |   | \" | action |   | mode | \" |   | is |   | equal |   | to |   | 1 | , |   | raise |   | the |   | left |   | hand |   | and |   | wait |   | for |   | the |   | touch |   | sensor |   | to |   | be |   | pressed |   | before |   | lowering |   | the |   | left |   | hand | . | Use |   | a |   | non | - | blocking |   | motor |   | control |   | module |   | to |   | let |   | the |   | robot |   | lower |   | its |   | left |   | hand |   | to |   | avoid |   | being |   | blocked |   | by |   | the |   | foot | . | After |   | executing |   | the |   | action, |   | the |   | value |   | of |   | the |   | variable |   | \" | action |   | mode | \" |   | must |   | be |   | reset |   | to |   | zero | ."
+    },
+    {
+      "slide": 25,
+      "text": "3. Asking for banana mode | If |   | the |   | variable |   | \" | action |   | mode | \" |   | is |   | equal |   | to |   | 2 | , |   | raise |   | your |   | right |   | hand |   | and |   | wait |   | for |   | the |   | color |   | sensor |   | to |   | detect |   | yellow |   | before |   | lowering |   | your |   | right |   | hand | . | After |   | executing |   | the |   | action, |   | the |   | value |   | of |   | the |   | variable |   | \" | action |   | mode | \" |   | must |   | be |   | reset |   | to |   | zero | ."
+    },
+    {
+      "slide": 26,
+      "text": "Expansion Tasks | Added hand | - | waving dance action  | mode"
+    },
+    {
+      "slide": 27,
+      "text": "Expansion Program | The |   | random |   | number |   | range |   | is |   | 1 |   | to |   | 3 | . | If |   | the |   | variable |   | \" | action |   | mode | \" |   | is |   | equal |   | to |   | 3 | , |   | repeat |   | the |   | action |   | of |   | swinging |   | the |   | left |   | and |   | right |   | hands |   | up |   | and |   | down |   | twice | ."
+    },
+    {
+      "slide": 28,
+      "text": "Quiz | Single | - | choice |   | question | The following description is incorrect ( ) | A. | The program will be blocked when running to the  | blocking motor module | B. | The ultrasonic sensor can sense obstacles at a  | distance | C. | To detect whether there is red, you can use the  | color sensor | D. | The touch sensor has three states | Answer:  | D"
+    },
+    {
+      "slide": 29,
+      "text": "Further Reading | Gorillas |   | are |   | social |   | animals |   | that |   | usually |   | live |   | in |   | groups |   | led |   | by |   | adult |   | males, |   | with |   | the |   | number |   | of |   | members |   | in |   | a |   | group |   | usually |   | ranging |   | from |   | a |   | few |   | to |   | a |   | dozen | . |   | The |   | relationships |   | between |   | gorillas |   | are |   | complex, |   | with |   | subgroups, |   | family |   | affiliations, |   | and |   | loyalty |   | to |   | other |   | gorillas | . | Gorillas |   | are |   | omnivores, |   | and |   | their |   | food |   | mainly |   | consists |   | of |   | fruits, |   | leaves, |   | flowers |   | and |   | bark, |   | and |   | sometimes |   | insects |   | and |   | small |   | mammals | . |   | Gorillas' |   | diet |   | needs |   | to |   | ensure |   | a |   | balance |   | of |   | energy |   | and |   | nutrition, |   | and |   | their |   | food |   | types |   | and |   | living |   | habits |   | vary |   | depending |   | on |   | the |   | season |   | and |   | region | ."
+    },
+    {
+      "slide": 30,
+      "text": "Further Reading | Gorillas |   | also |   | clean |   | themselves |   | to |   | stay |   | healthy | . |   | They |   | use |   | branches |   | and |   | other |   | tools |   | to |   | remove |   | dirt |   | from |   | their |   | bodies, |   | and |   | shake |   | their |   | hair |   | to |   | remove |   | parasites |   | and |   | brown |   | pigments | . |   | Gorillas |   | also |   | select |   | stronger |   | branches |   | and |   | leaves |   | to |   | build |   | a |   | bed | - | like |   | structure |   | to |   | protect |   | themselves |   | and |   | their |   | cubs | . | Gorillas |   | have |   | high |   | intelligence |   | and |   | learning |   | ability, |   | and |   | can |   | use |   | tools, |   | learn |   | language, |   | understand |   | abstract |   | concepts, |   | etc | . |   | They |   | can |   | also |   | pass |   | on |   | knowledge |   | and |   | skills |   | by |   | learning |   | and |   | teaching |   | each |   | other | ."
+    },
+    {
+      "slide": 31,
+      "text": "Thanks!"
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

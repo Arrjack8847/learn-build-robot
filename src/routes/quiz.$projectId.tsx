@@ -5,6 +5,7 @@ import {
   DoorOpen, Lightbulb, Play, RefreshCw, Trophy, XCircle,
 } from "lucide-react";
 import { getProject } from "@/data/practical";
+import { LEVEL_ONE_BUILDING_PDF_LEARNING_FALLBACK_IDS } from "@/data/levelOneLectures";
 import {
   blankQuizState, getQuizBank, QUIZ_PASS_COUNT, QUIZ_QUESTION_COUNT,
   readQuizSavedState, selectQuizQuestions, writeQuizSavedState,
@@ -372,7 +373,9 @@ function ReviewAnswer({question,given,correct,projectId}: {question:QuizQuestion
       {!correct ? (
         <Link to="/practical/$projectId" params={{projectId}} search={{mode:"learning", slide: question.learningSlide}}
           className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-extrabold text-[#168eea] underline underline-offset-2">
-          <BookOpen className="size-4"/> Review Learning Slide {question.learningSlide}
+          <BookOpen className="size-4"/> {LEVEL_ONE_BUILDING_PDF_LEARNING_FALLBACK_IDS.some(id => id === projectId)
+            ? "Review Construction Manual Page"
+            : "Review Learning Slide"} {question.learningSlide}
         </Link>
       ) : null}
     </article>

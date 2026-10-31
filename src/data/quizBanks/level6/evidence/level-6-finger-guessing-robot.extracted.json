@@ -1,0 +1,144 @@
+{
+  "projectId": "level-6-finger-guessing-robot",
+  "sourcePath": "public/Level 6/Learning/Interactive Mechanisms/Finger-guessing Robot/04.Finger-guessing Robot.pdf",
+  "sourceBlobSha": "1100150b8497af1be01dea0a51b685ae52099b9a",
+  "sourceBytes": 749644,
+  "pageCount": 22,
+  "extractionMethod": "Decode GitHub contents/base64; decompress PDF Flate streams; collect PDF text operators by numbered page; no image interpretation",
+  "visualReviewComplete": false,
+  "questionsValidated": false,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "4. Finger | - | guessing Robot",
+      "textCharacters": 26,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 2,
+      "text": "Content | Theme Introduction | Theme Introduction | 1 | Learning Objectives | Learning Objectives | 2 | New knowledge | New knowledge | 3 | Design and Assemble | 4 | 5 | Programming | 6 | Course Extension",
+      "textCharacters": 174,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 3,
+      "text": "Hand | gestures | are | one | of | the | earliest | and | still | widely | used | communication | methods, | such | as | the | \"OK\" | gesture | for | \"proper, | good\" | and | the | hands | clasped | gesture | for | \"grateful, | thank | you\", | etc | . | , | which | are | common | communication | gestures | . | Nowadays, | hand | gestures | are | not | only | used | in | human | - | to | - | human | communication, | but | also | in | human | - | to | - | machine | communication | . | Theme Introduction",
+      "textCharacters": 380,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 4,
+      "text": "Theme Introduction | There | are | generally | two | kinds | of | gestures, | one | is | a | dynamic | gesture | with | changes, | such | as | waving | ; | the | other | is | a | static | gesture | , | such | as | the | \"scissor | hand\" | that | people | like | to | use | when | taking | pictures | .",
+      "textCharacters": 223,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 5,
+      "text": "Theme Introduction | Some | smartphones | can | use | the | camera | to | recognize | dynamic | gestures | and | perform | overhead | operations | ; | or | use | the | camera | to | recognize | whether | the | current | picture | contains | a | fixed | gesture | (static | gesture), | and | then | automatically | take | pictures | after | recognition | . | We | can | use | the | gesture | recognition | function | of | AI | audio | - | visual | module | to | make | a | finger | - | guessing | robot | and | experience | the | charm | of | gesture | recognition | .",
+      "textCharacters": 433,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 6,
+      "text": "Learning Objectives | 1. Understand the principle of voice control of AI audio-visual module. | 1. Understand the principle of voice | control of AI audio | - | visual module. | 2. Understand the application of voice   control in life. | 2. Understand the application of voice | control in life.",
+      "textCharacters": 279,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 7,
+      "text": "The core technologies of gesture recognition | technology are gesture segmentation, gesture analysis | and gesture recognition. The AI audio | - | visual module | has built | - | in three gesture models of | rock, paper, and | scissors | , corresponding to ID1, ID2, and ID3 | respectively. When the AI audiovisual module | recognizes the above three gestures, it will return the | ID value to the controller. | New knowledge | HD | Camera | Voice | Collector | Gesture identification",
+      "textCharacters": 446,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 8,
+      "text": "Module | Description | Application examples | Set the gesture detection mode | of the AI audio | - | visual module. | Click \" | \" to select the mode | . | Capable of recognizing | gestures and returning ID | values. | New knowledge | Software Modules",
+      "textCharacters": 222,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 9,
+      "text": "Assemble | a | guessing | robot | according | to | the | construction | manual | and | achieve | the | function | of | distinguishing | the | winner | and | loser | by | finger | - | guessing | . | Design and Assemble | Build a model | Control | System | AI audio | - | visual | module | Power | System",
+      "textCharacters": 236,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 10,
+      "text": "In | this | lesson, | we | need | to | use | two | motors | for | the | power | system, | a | controller | for | the | control | system, | and | an | AI | audio | - | visual | module | . | The | motors | are | connected | to | M | 1 | and | M | 2 | ports | of | the | controller, | and | the | AI | audio | - | visual | module | is | connected | to | P | 8 | port | of | the | controller | . | Requirements: | Install the AI audio | - | visual | module above the side of finger | - | guessing robot. | Design and Assemble | Build a model | Control | System | AI audio | - | visual | module | Power | System",
+      "textCharacters": 458,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 11,
+      "text": "Programming | When the program starts, switch the gesture recognition mode. | Specific idea: In the process of playing guessing, two comparison amounts are needed, | that is, | at least two people have to participate | in guessing in order to distinguish the | winner and the loser. | So a | random number of 1~3 | needs to be set in the controller to compare with the | gesture | ID | . And the | gesture ID and the random number subtracted | will yield different values, so | add a formula: gesture ID | - | random number = X. Used to calculate the results and come | up with the winner and loser. | Programming idea",
+      "textCharacters": 580,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 12,
+      "text": "Gesture | (ID Value) | Random | numbers | (1 | to | 3) | Results | (values) | Gesture | (ID Value) | Random | number | (1 | to | 3) | Results | (values) | Paper=1 | Paper=1 | Draw ( 0 ) | Scissors=3 | Paper=1 | Win | 2 | Paper=1 | Rock=2 | Win | ( | - | 1) | Scissors=3 | Rock=2 | Lose (1) | Paper=1 | Scissors=3 | Lose ( | - | 2) | Scissors=3 | Scissors=3 | Draw (0) | Rock=2 | Paper=1 | Lose (1) | Rock=2 | Rock=2 | Draw ( 0 ) | Rock=2 | Scissors=3 | Win ( | - | 1) | Programming | Programming idea | = Paper | = Rock | = Scissors",
+      "textCharacters": 418,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 13,
+      "text": "Programming | Programming idea | According to the rules of the guessing game, all winning and | losing results of the guessing game are listed. | It can be found that the game is | lost | when | the result = 1 or | - | 2 | . | When | the result = | - | 1 or 2 | , the game is | won | . If the result = 0, | then the game is tied.",
+      "textCharacters": 293,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 14,
+      "text": "Let's start programming the guessing robot. | Set the AI audio | - | visual module to \"Gesture | Recognition\" mode. Also set the controller | screen to display the font size. | Programming",
+      "textCharacters": 176,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 15,
+      "text": "Create a new variable named \"ID\" to | record the result of returning the gesture ID. | Programming",
+      "textCharacters": 94,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 16,
+      "text": "When ID=0 does not hold, i.e., when the | gesture is recognized, a new variable named | \"X\" is created to store a random number | from 1 | - | 3, and a variable named \"Result\" is | created to calculate the result of ( ID | X ). | Programming",
+      "textCharacters": 225,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 17,
+      "text": "When the result = 0, the controller | screen displays \" Drawn\". The LCD | clears the screen until the left button is | pressed. | Programming",
+      "textCharacters": 133,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 18,
+      "text": "When the result = | - | 1 or 2, the controller | screen displays \"You won\". The LCD | clears the screen until the left button is | pressed. | Programming",
+      "textCharacters": 141,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 19,
+      "text": "When the result = | - | 2 or 1, the | controller screen displays \"You lost\". | The LCD clears the screen until the | left button is pressed. | Programming",
+      "textCharacters": 142,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 20,
+      "text": "Integrate | the | programs | together | and | add | a | \"repeat | execution\" | programming | module | to | keep | the | programs | executing, | completing | the | complete | programming | of | the | guessing | robot | . | Programming",
+      "textCharacters": 183,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 21,
+      "text": "Programming | Sample Demonstration",
+      "textCharacters": 32,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 22,
+      "text": "For | example, | in | terms | of | TV | gesture | recognition, | the | majority | of | TV | manufacturers | have | launched | TV | products | with | gesture | recognition, | directly | using | palm | waving, | fist | grasping, | left | and | right | waving, | double | fist | cooperation | and | other | gestures | to | complete | mobile | control, | select | confirmation, | switch | pages, | zoom | and | rotate | and | other | functions | . | Gesture | recognition | can | come | from | movements | of | various | parts | of | the | human | body, | but | generally | refers | to | movements | of | the | face | and | hands | . | Users | can | use | simple | gestures | to | control | or | interact | with | devices, | allowing | computers | to | understand | human | behavior | . | It | is | used | in | home | entertainment, | smart | driving, | smart | wear, | and | other | applications | . | Automotive Gesture | Recognition | TV Gesture Recognition | Course Extension",
+      "textCharacters": 755,
+      "visualReviewRequired": true
+    }
+  ]
+}

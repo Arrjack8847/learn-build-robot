@@ -1,0 +1,53 @@
+name: Level 3 PDF evidence extraction (no deployment)
+
+on:
+  push:
+    branches:
+      - feat/quiz-level3-content
+    paths:
+      - .github/workflows/level-three-pdf-evidence.yml
+      - scripts/extract-quiz-slides.mjs
+      - scripts/quiz-level3-building-fallbacks.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bsr-level3-pdf-evidence
+  cancel-in-progress: false
+
+jobs:
+  extract:
+    name: Extract 51 official Learning PDFs
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Check out the Level 3 working branch
+        uses: actions/checkout@v4
+        with:
+          ref: feat/quiz-level3-content
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install PDF extraction dependency
+        run: npm ci
+      - name: Extract PDF page text from all 51 official sources
+        continue-on-error: true
+        run: node scripts/extract-quiz-slides.mjs --level 3 --limit 51 --skip-existing
+      - name: Save any successfully extracted page evidence on this branch
+        if: always()
+        shell: bash
+        run: |
+          git add -- quiz-research
+          if git diff --cached --quiet; then
+            echo "No PDF evidence updates"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "docs(quiz): extract official Level 3 PDF page evidence [skip ci]"
+          git pull --rebase origin feat/quiz-level3-content
+          git push origin HEAD:feat/quiz-level3-content

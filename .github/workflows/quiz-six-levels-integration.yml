@@ -1,0 +1,41 @@
+name: BE STEM READY six-level quiz integration
+
+on:
+  push:
+    branches:
+      - feat/quiz-all-levels-integrated-20261101
+  pull_request:
+    paths:
+      - src/data/quizBanks/**
+      - src/data/quizStudio.ts
+      - src/data/quizSyllabus.ts
+      - src/routes/**
+      - src/components/practical/**
+      - tests/**quiz**
+      - scripts/quiz-learning-source-manifest.json
+      - package.json
+      - .github/workflows/quiz-six-levels-integration.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-all-quiz-levels:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps --no-audit --no-fund
+      - name: Check syllabus to quiz registration
+        run: npm run test:quiz-integrity
+      - name: Check all six quiz levels
+        run: npm run test:quiz-all
+      - name: Check TypeScript
+        run: npx tsc --noEmit
+      - name: Production build
+        run: npm run build

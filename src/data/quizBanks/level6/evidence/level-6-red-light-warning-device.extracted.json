@@ -1,0 +1,143 @@
+{
+  "projectId": "level-6-red-light-warning-device",
+  "sourcePath": "public/Level 6/Learning/Illumination & Signals/Red Light Warning Device/12. Red Light Warning Device-Teaching Slides.pdf",
+  "wixFileId": "7fc4ca_c4757efc438f47a49ae20ef6ee65b42c.pdf",
+  "sourceBytes": 1442001,
+  "pageCount": 33,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 12.  | Red Light Warning Device | edu.zmrobo.com | LECTURER:"
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties | 1 | . | Application | of | remainder | operation | . | 2 | . | Experience | the | comparison | of | non | - | blocking | and | blocking | programs | . | 1. Classify by performing a remainder operation on the control time. | 2. Reduce the impact of waiting time on the program."
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information"
+    },
+    {
+      "slide": 4,
+      "text": "Background Information | Among | the | traffic | accidents, | the | most | dangerous | or | the | most | inconspicuous | is | the | traffic | accident | caused | by | running | a | red | light | . | This | is | because | on | the | other | side | of | the | red | light, | they | see | a | green | light, | which | is | subconsciously | perceived | as | safe | ."
+    },
+    {
+      "slide": 5,
+      "text": "Background Information | Running | a | red | light | refers | to | the | behavior | of | motor | vehicles, | non | - | motor | vehicles, | and | pedestrians | crossing | the | stop | line | and | continuing | to | drive | in | violation | of | the | traffic | signal | light | instructions | when | the | red | light | is | on | and | prohibiting | passage | . | Regardless | of | the | reason, | violations | of | red | light | violations | will | be | punished | according | to | law | . | However, | the | video | equipment | at | the | intersection | is | also | very | cautious | every | time | it | collects | illegal | information | about | running | a | red | light | . | If | a | car | runs | a | red | light, | there | will | be | three | images | to | support | it | ."
+    },
+    {
+      "slide": 6,
+      "text": "Background Information | In | addition | to | penalties | for | cars | running | red | lights, | there | are | also | penalties | for | pedestrians | running | red | lights | . | my | country's | road | traffic | safety | law | stipulates | that | pedestrians, | passengers, | and | non | - | motor | vehicle | drivers | who | violate | road | traffic | safety | laws | and | regulations | on | road | traffic | regulations | shall | be | given | a | warning | or | a | fine | of | not | less | than | five | yuan | but | not | more | than | fifty | yuan | ."
+    },
+    {
+      "slide": 7,
+      "text": "Knowledge  | Introduction"
+    },
+    {
+      "slide": 8,
+      "text": "Knowledge Introduction | Compared | with | life, | a | mere | 50 | yuan | fine | is | too | little, | so | among | the | current | punishments, | education | is | more | important, | such | as | voluntarily | assisting | the | traffic | police | to | stand | guard, | helping | to | persuade | others | not | to | run | red | lights, | and | so | on | ."
+    },
+    {
+      "slide": 9,
+      "text": "Knowledge Introduction | In | order | to | make | pedestrians | more | consciously | abide | by | laws | and | regulations, | some | cities | have | begun | to | use | a | system | to | capture | pedestrians | running | red | lights | . | During | red | lights, | roadside | cameras | will | capture | the | faces | of | pedestrians | running | red | lights | and | simultaneously | expose | them | on | the | screen | . | At | the | same | time, | the | tweeter | at | the | intersection | reminds | \"walk | the | zebra | crossing | and | don't | run | the | red | light\" | at | intervals | ."
+    },
+    {
+      "slide": 10,
+      "text": "Knowledge Introduction | When | a | pedestrian | runs | a | red | light | and | crosses | the | road, | the | camera | device | of | the | system | will | automatically | capture | the | face | of | the | person | . | No | matter | what | style | of | clothes | pedestrians | are | wearing, | whether | they | are | riding | bicycles | or | walking, | they | can | be | automatically | identified | . | The | system | uses | intelligent | monitoring, | analysis, | and | screening | to | capture | pedestrians | and | non | - | motor | vehicles | running | red | lights | under | red | light | conditions, | and | through | sound | prompts, | images | are | formed | to | be | simultaneously | exposed | on | the | TV | display | screen | and | scrolled | ."
+    },
+    {
+      "slide": 11,
+      "text": "Knowledge Introduction | Running | a | red | light | is | not | only | an | uncivilized | traffic | behavior | but | also | endangers | the | safety | of | life | and | property | of | all | parties | on | the | road | . | We | must | develop | good | traffic | awareness | and | cross | roads | safely | and | respectfully | . | To | prevent | red | light | violations, | we | will | make | a | red | light | warning | device | , | which | will | alert | drivers | when | they | are | approaching | a | red | light | ."
+    },
+    {
+      "slide": 12,
+      "text": "Practice"
+    },
+    {
+      "slide": 13,
+      "text": "New Knowledge | According | to | the | building | manual, | build | a | warning | device | for | running | a | red | light, | and | monitor | whether | there | are | pedestrians | running | a | red | light | on | the | road | at | all | times | during | the | red | light | period | . | Dot matrix screen  | for prompts | Color lamp | Laser ranging"
+    },
+    {
+      "slide": 14,
+      "text": "Practice | Flow Chart | The | flow | of | the | main | program | is | shown | on | the | left | . | The | sensor | will | continuously | read | the | ranging | data, | and | the | data | will | be | used | to | remind | the | function | to | judge | . | The | lighting | signal | of | the | traffic | light | cannot | affect | the | reading | of | sensor | data, | otherwise | it | will | not | be | possible | to | monitor | the | road | surface | in | real | time | during | the | light | change | ."
+    },
+    {
+      "slide": 15,
+      "text": "Practice | Flow Chart | The | traffic | light | function | is | shown | on | the | left | . | The | key | to | this | program | is | to | use | the | controller | time | to | determine | the | variable | value, | not | the | wait | time | to | toggle | the | lights | . | Using | the | controller | time | can | realize | a | non | - | blocking | program, | while | using | the | waiting | time | will | block, | resulting | in | the | inability | to | monitor | the | laser | ranging | data | in | real | time | ."
+    },
+    {
+      "slide": 16,
+      "text": "Practice | Flow Chart | The | flow | chart | of | the | Prompt | function | is | shown | on | the | left | . | First, | judge | the | distance, | and | then | judge | the | state | of | the | light | . | If | the | state | is | 1 | , | it | means | that | the | road | should | not | be | crossed | (red | or | yellow | light), | and | if | the | state | is | 0 | , | it | means | that | the | road | can | be | crossed | ."
+    },
+    {
+      "slide": 17,
+      "text": "Practice | Programming | 01 | logo | Function | - | Traffic | Light | Define | the | function | of | the | traffic | light, | and | increase | the | light | color | variable | by | 1 | every | 0 | . | 1 | seconds | . | The | actual | effect | of | the | program | : | the | number | from | 1 | to | 100 | is | obtained | in | a | loop, | and | the | interval | between | each | number | change | is | 0 | . | 1 | seconds | ."
+    },
+    {
+      "slide": 18,
+      "text": "Practice | Programming | 01 | Function | - | Traffic | Light | The | operation | sequence | is | : | divide | the | controller | time | by | 100 | , | round | down, | and | add | 1 | to | the | remainder | after | dividing | by | 100 | . | 1 | 2 | 3 | 4"
+    },
+    {
+      "slide": 19,
+      "text": "Practice | Programming | 01 | Interpretation | of | the | traffic | light | function | - | step | 1 | Use | variables | to | control | the | lighting | effects | of | red, | yellow, | green, | and | black | lights | . | Among | them, | the | yellow | and | black | lights | are | used | for | the | flashing | reminder | of | changing | the | lights, | and | they | are | switched | every | 0 | . | 1 | seconds, | and | the | controller | time | of | the | first | step | is | divided | by | 100 | . | Lighting sequence (from left to right) | stay on for a  | while | alternating over time | stay on for a  | while"
+    },
+    {
+      "slide": 20,
+      "text": "Practice | Programming | 01 | Interpretation | of | the | traffic | light | function | - | step | 2 | Only | integers | need | to | be | rounded, | and | the | ³IORRU | of | « | \" | programming | module | can | be | directly | used | . | 1.11 | 1 | 1.12 | 1 | 2.13 | 2 | 3.14 | 3 | .  | . | . | . | .  | . | Raw data | Rounded data"
+    },
+    {
+      "slide": 21,
+      "text": "Practice | Programming | 01 | Interpretation | of | the | traffic | light | function | - | step | 3 | Then | perform | the | remainder | operation | on | all | the | numbers | after | rounding, | dividing | the | time | into | one | hundred | parts, | and | performing | a | cycle | . | Every | 0 | . | 1 | seconds, | the | color | variable | of | the | light | will | be | increased | by | 1 | until | 99 | , | then | it | will | become | 0 | again, | a | total | of | 100 | numbers | . | 0 | 99 | 1 | 2 | 0.1s | 0.1s | . . . . ."
+    },
+    {
+      "slide": 22,
+      "text": "Practice | Programming | 01 | Interpretation | of | the | traffic | light | function | - | step | 4 | Since | the | first | number | after | the | remainder | is | 0 | , | add | 1 | to | it | for | easy | understanding | . | 1 | 100 | 2 | 3 | 0.1s | 0.1s | . . . . ."
+    },
+    {
+      "slide": 23,
+      "text": "Practice | Programming | logo | 02 | Judgment of red light | If the variable value is within 1 to 30  | (1 | - | 30), the red light is on."
+    },
+    {
+      "slide": 24,
+      "text": "Practice | Programming | logo | Judgment of green light  | If the variable value is within 51 to 80 (51 | - | 80), the green light is on. | 03"
+    },
+    {
+      "slide": 25,
+      "text": "Practice | Programming | logo | 04 | Judgment | of | changing | lights | If | the | value | of | the | variable | is | other, | then | it | is | time | to | change | the | lamp, | and | the | remaining | number | is | calculated | to | divide | it | into | a | yellow | light | or | a | black | light | ."
+    },
+    {
+      "slide": 26,
+      "text": "Practice | Programming | logo | 05 | Integrate | the | program | Complete | traffic | light | functionality | . | When | the | variable | value | is | 1 | - | 30 | , | the | red | light | is | on, | At | 51 | - | 80 | , | the | green | light | is | on, | At | 31 | - | 50 | and | 81 | - | 100 | , | the | yellow | and | black | lights | alternate | ."
+    },
+    {
+      "slide": 27,
+      "text": "Practice | Programming | logo | 06 | Function | - | Prompt | If | the | distance | is | less | than | 100 | and | the | light | status | is | 1 | , | a | depressed | expression | will | be | displayed, | otherwise, | it | will | not | be | displayed | ."
+    },
+    {
+      "slide": 28,
+      "text": "Practice | Programming | logo | 07 | Integrate programs | Integrate programs according  | to the flow chart."
+    },
+    {
+      "slide": 29,
+      "text": "Practice | Programming"
+    },
+    {
+      "slide": 30,
+      "text": "Results"
+    },
+    {
+      "slide": 31,
+      "text": "Program Optimization | In | this | lesson, | we | implemented | the | warning | function | when | running | a | red | light, | and | the | traffic | lights | can | be | turned | on | and | changed | without | being | affected | . | Next, | modify | the | program | so | that | the | controller | makes | a | sound | when | it | detects | a | red | light | . | Requirement | : | When | the | pattern | is | displayed, | the | controller | emits | a | sound | at | the | same | time | without | affecting | the | operation | of | the | traffic | light | function | ."
+    },
+    {
+      "slide": 32,
+      "text": "Further Reading | In | addition | to | \"running | a | red | light\", | in | fact, | you | can't | run | a | green | light | . | \"Running | a | green | light\" | refers | to | the | act | of | entering | an | intersection | when | traffic | is | heavy | even | though | the | signal | light | is | green, | which | may | cause | further | traffic | jams | . | Article | 53 | of | the | \"Regulations | for | the | Implementation | of | the | Road | Traffic | Safety | Law | of | the | People's | Republic | of | China\" | stipulates | : | \"When | a | motor | vehicle | encounters | a | traffic | jam | at | an | intersection | ahead, | it | shall | stop | outside | the | intersection | and | wait | in | turn, | and | shall | not | enter | the | intersection | . | \" | If | a | similar | situation | occurs, | a | fine | of | 100 | yuan | and | 2 | points | may | be | imposed | . | \"Running | the | green | light\" | can | also | be | called | \"rushing | the | green | light\" | . | The | so | - | called | \"rushing | the | green | light\" | means | that | if | there | is | a | traffic | jam | at | the | intersection | ahead | when | the | signal | light | turns | green, | you | should | wait | outside | the | intersection, | otherwise | it | will | be | regarded | as | a | green | light | . | the green  | light at this  | time"
+    },
+    {
+      "slide": 33,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER: "
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

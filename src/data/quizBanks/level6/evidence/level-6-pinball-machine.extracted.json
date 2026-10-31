@@ -1,0 +1,111 @@
+{
+  "projectId": "level-6-pinball-machine",
+  "sourcePath": "public/Level 6/Learning/Interactive Mechanisms/Pinball Machine/30. Pinball Machine-Teaching Slides.pdf",
+  "wixFileId": "7fc4ca_b63cb23789f147b7ab6324bf9d32ce5b.pdf",
+  "sourceBytes": 1278747,
+  "pageCount": 25,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 30.  | Pinball Machine | edu.zmrobo.com | LECTURER:"
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties | 1. | Learn |   | about |   | the |   | pinball |   | game | . |   | 2. | Learn |   | about |   | the |   | types |   | and |   | gameplay |   | of |   | \"pinball\" |   | games |   | in |   | different |   | eras | . | 1. | Build a pinball table. | 2. | A multitasking program that controls two motors at the same time."
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information"
+    },
+    {
+      "slide": 4,
+      "text": "Background Information | The |   | marbles |   | used |   | in |   | pinball |   | games |   | have |   | different |   | names |   | in |   | different |   | places | . |   | In |   | Northwest |   | China, |   | it |   | is |   | called |   | \" | Yangyanren | \", |   | and |   | in |   | Cantonese, |   | it |   | is |   | called |   | Bozhu | . |   | In |   | ancient |   | times, |   | it |   | was |   | made |   | of |   | small |   | colored |   | stones |   | such |   | as |   | stone |   | or |   | agate | . |   | In |   | modern |   | times, |   | it |   | generally |   | refers |   | to |   | small |   | spheres |   | made |   | of |   | glass, |   | with |   | a |   | size |   | between |   | 1 | . | 5 |   | cm |   | and |   | 5 |   | cm | . |   | The |   | most |   | common |   | game |   | in |   | the |   | 20 | th |   | century |   | was |   | playing |   | marbles, |   | that |   | is, |   | placing |   | marbles |   | on |   | a |   | flat |   | surface |   | for |   | hitting | ."
+    },
+    {
+      "slide": 5,
+      "text": "Background Information | There |   | are |   | similar |   | pinball |   | games |   | in |   | different |   | eras |   | all |   | over |   | the |   | world, |   | but |   | their |   | carriers |   | and |   | forms |   | are |   | different | . |   | The |   | pinball |   | machines |   | we |   | are |   | going |   | to |   | understand |   | today |   | can |   | be |   | traced |   | back |   | to |   | ball |   | games |   | such |   | as |   | bocce |   | ball |   | and |   | bocce |   | ball, |   | and |   | are |   | also |   | indoor |   | sports |   | of |   | variants |   | such |   | as |   | bowling |   | and |   | billiards | ."
+    },
+    {
+      "slide": 6,
+      "text": "Background Information | In |   | 1931 | , |   | the |   | world's |   | first |   | mass | - | produced |   | pinball |   | machine |   | \"Baffle |   | Ball\" |   | with |   | a |   | coin | - | operated |   | mechanism |   | was |   | born | . |   | The |   | pachinko |   | machine |   | provided |   | the |   | unemployed |   | with |   | an |   | inexpensive |   | way |   | to |   | entertain |   | themselves |   | during |   | the |   | economically |   | difficult |   | Great |   | Depression, |   | and |   | the |   | machine |   | was |   | an |   | unprecedented |   | commercial |   | success | ."
+    },
+    {
+      "slide": 7,
+      "text": "Background Information | The |   | gameplay |   | of |   | this |   | pinball |   | game |   | is |   | relatively |   | complicated | . |   | It |   | is |   | necessary |   | to |   | keep |   | the |   | ball |   | moving |   | within |   | the |   | scoring |   | area |   | as |   | much |   | as |   | possible, |   | and |   | the |   | corresponding |   | points |   | can |   | be |   | obtained |   | by |   | moving |   | to |   | different |   | positions | . |   | Entering |   | the |   | electronic |   | age, |   | even |   | if |   | the |   | game |   | develops |   | into |   | electronic |   | games, |   | people |   | still |   | cannot |   | do |   | without |   | marbles | . |   | 3 | D |   | Pinball |   | is |   | such |   | a |   | classic |   | electronic |   | pinball |   | game | ."
+    },
+    {
+      "slide": 8,
+      "text": "Background Information | To |   | compete |   | with |   | video |   | games, |   | pinball |   | games |   | have |   | also |   | evolved | . |   | At |   | present, |   | there |   | are |   | two |   | worldwide |   | organizations |   | for |   | pinball |   | games | : |   | the |   | International |   | Flipped |   | Pinball |   | Association |   | (IFPA) |   | and |   | the |   | Professional |   | and |   | Amateur |   | Pinball |   | Association |   | (PAPA) | . |   | They |   | hold |   | hundreds |   | of |   | events |   | around |   | the |   | world |   | every |   | year, |   | effectively |   | maintaining |   | the |   | operation |   | of |   | the |   | industry | . |   | and |   | influence | . |   | Today, |   | we |   | will |   | make |   | a |   | pinball |   | machine |   | to |   | experience |   | the |   | charm |   | of |   | pinball |   | games | ."
+    },
+    {
+      "slide": 9,
+      "text": "Knowledge  | Introduction"
+    },
+    {
+      "slide": 10,
+      "text": "New Knowledge | Hardware | To |   | make |   | a |   | pinball |   | machine, |   | you |   | must |   | first |   | understand |   | its |   | game |   | mechanics | . |   | 1. | Don't |   | let |   | your |   | pinball |   | fall |   | to |   | the |   | bottom | ; |   | 2. | Let |   | your |   | pinball |   | move |   | as |   | high |   | as |   | possible |   | and |   | trigger |   | the |   | mechanism |   | to |   | get |   | points | . | The |   | mechanism |   | mentioned |   | in |   | the |   | rules |   | is |   | called |   | the |   | buffer |   | mechanism |   | in |   | the |   | pinball |   | machine, |   | which |   | can |   | bounce |   | the |   | pinball |   | to |   | make |   | the |   | trajectory |   | of |   | the |   | pinball |   | more |   | difficult |   | to |   | touch | ."
+    },
+    {
+      "slide": 11,
+      "text": "New Knowledge | Hardware | In |   | order |   | to |   | prevent |   | the |   | pinball |   | from |   | falling |   | to |   | the |   | bottom, |   | the |   | only |   | thing |   | the |   | player |   | can |   | do |   | is |   | to |   | control |   | the |   | left |   | and |   | right |   | baffles |   | to |   | lift |   | and |   | fall | . |   | The |   | difficulty |   | of |   | the |   | program |   | is |   | also |   | here | . |   | How |   | do |   | we |   | control |   | the |   | two |   | baffles |   | to |   | pop |   | up |   | at |   | the |   | same |   | time?"
+    },
+    {
+      "slide": 12,
+      "text": "Practice"
+    },
+    {
+      "slide": 13,
+      "text": "New Knowledge | Follow |   | the |   | building |   | manual |   | to |   | build |   | a |   | pinball |   | machine | . |   | The |   | rotation |   | of |   | the |   | large |   | motor |   | is |   | controlled |   | by |   | the |   | touch |   | sensor, |   | and |   | the |   | small |   | motor |   | rotates |   | the |   | building |   | block |   | to |   | simulate |   | the |   | buffer |   | mechanism | . | Buffer | End area | Left and right  | baffles | Operation keys"
+    },
+    {
+      "slide": 14,
+      "text": "Practice  | |  | Flow Chart"
+    },
+    {
+      "slide": 15,
+      "text": "Practice  | |  | Flow Chart | Even |   | if |   | the |   | program |   | is |   | divided |   | into |   | functions, |   | there |   | are |   | running |   | sequences, |   | if |   | we |   | need |   | to |   | precisely |   | control |   | the |   | baffle | . |   | It |   | is |   | also |   | necessary |   | to |   | judge |   | its |   | rotation |   | angle |   | (encoded |   | value), |   | so |   | we |   | need |   | to |   | open |   | one |   | more |   | task | . |   | In |   | the |   | E | 6 |   | controller, |   | multitasking |   | is |   | not |   | really |   | (simultaneously) |   | parallel |   | execution |   | of |   | tasks, |   | but |   | rapid |   | switching |   | between |   | various |   | programs | . |   | The |   | speed |   | of |   | switching |   | programs |   | exceeds |   | the |   | speed |   | of |   | human |   | perception, |   | so |   | it |   | gives |   | people |   | the |   | illusion |   | that |   | the |   | programs |   | are |   | running |   | at |   | the |   | same |   | time | . | The |   | logic |   | of |   | the |   | left |   | and |   | right |   | baffles |   | is |   | consistent, |   | just |   | adjust |   | the |   | parameters |   | and |   | ports | ."
+    },
+    {
+      "slide": 16,
+      "text": "Practice  | |  | Programming | 01 | logo | Initial |   | settings | Put |   | the |   | initial |   | program |   | in |   | any |   | task, |   | and |   | it |   | is |   | generally |   | customary |   | to |   | put |   | it |   | in |   | task |   | 1 | ."
+    },
+    {
+      "slide": 17,
+      "text": "Practice  | |  | Programming | 02 | logo | Right |   | baffle |   | function | This |   | function |   | first |   | judges |   | the |   | state |   | of |   | the |   | button |   | and |   | then |   | judges |   | whether |   | it |   | is |   | allowed |   | to |   | execute | . |   | The |   | value |   | of |   | the |   | variable |   | is |   | used |   | to |   | determine |   | the |   | state |   | of |   | the |   | bezel | . |   | If |   | the |   | bezel |   | is |   | already |   | in |   | the |   | process |   | of |   | lifting |   | and |   | falling, |   | it |   | will |   | not |   | be |   | triggered |   | again | . |   | The |   | first |   | judgment |   | code |   | value |   | of |   | the |   | motor |   | is |   | used |   | to |   | determine |   | the |   | lifting |   | angle, |   | and |   | the |   | second |   | judgment |   | is |   | used |   | to |   | determine |   | the |   | falling |   | angle | . |   | After |   | the |   | action |   | is |   | completed, |   | the |   | speed |   | returns |   | to |   | zero |   | and |   | is |   | allowed |   | to |   | be |   | triggered |   | again | ."
+    },
+    {
+      "slide": 18,
+      "text": "Practice  | |  | Programming | logo | Left |   | baffle |   | function | The |   | functions |   | of |   | the |   | left |   | baffle |   | can |   | be |   | programmed |   | with |   | reference |   | to |   | the |   | right |   | baffle, |   | and |   | the |   | variables |   | and |   | ports |   | need |   | to |   | be |   | modified | . | 03"
+    },
+    {
+      "slide": 19,
+      "text": "Practice  | |  | Programming | logo | 04 | Multi | - | tasking |   | program | Task |   | 1 |   | executes |   | the |   | program |   | for |   | the |   | right |   | baffle, |   | while |   | Task |   | 2 |   | does |   | the |   | same |   | for |   | the |   | left |   | baffle | ."
+    },
+    {
+      "slide": 20,
+      "text": "Practice  | |  | Programming | logo | Integrate |   | the |    | program | Integrate |   | the |   | program |   | according |   | to |   | the |   | flow |   | chart | . | 05"
+    },
+    {
+      "slide": 21,
+      "text": "Practice  | |  | Programming"
+    },
+    {
+      "slide": 22,
+      "text": "Results"
+    },
+    {
+      "slide": 23,
+      "text": "Program Optimization | In |   | this |   | lesson, |   | we |   | learned |   | how |   | to |   | build |   | a |   | pinball |   | table |   | and |   | realize |   | the |   | function |   | of |   | controlling |   | the |   | left |   | and |   | right |   | baffles |   | at |   | the |   | same |   | time | . | Modify |   | the |   | program |   | so |   | that |   | the |   | baffle |   | can |   | adjust |   | the |   | lifting |   | range |   | of |   | the |   | baffle |   | according |   | to |   | the |   | pressing |   | time | . | Requirement | : |   | Make |   | the |   | baffle |   | liftable |   | to |   | different |   | angles | ."
+    },
+    {
+      "slide": 24,
+      "text": "Further Reading | \" | 3 | D |   | Pinball\" |   | was |   | originally |   | a |   | game |   | program |   | that |   | comes |   | with |   | the |   | Windows |   | system, |   | but |   | because |   | the |   | author |   | did |   | not |   | comment |   | on |   | the |   | code |   | when |   | creating |   | it, |   | it |   | could |   | not |   | collide |   | normally |   | in |   | the |   | subsequent |   | Windows |   | system, |   | so |   | after |   | Vista, |   | Windows |   | is |   | no |   | longer |   | fixed |   | with |   | \" | 3 | D |   | Pinball\" | . |   | This |   | tells |   | us |   | the |   | importance |   | of |   | writing |   | comments | . |   | Comments |   | refer |   | to |   | the |   | explanation |   | of |   | the |   | code, |   | which |   | is |   | generally |   | written |   | by |   | the |   | author |   | of |   | the |   | program |   | to |   | facilitate |   | others |   | to |   | read |   | the |   | code | ."
+    },
+    {
+      "slide": 25,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER: "
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

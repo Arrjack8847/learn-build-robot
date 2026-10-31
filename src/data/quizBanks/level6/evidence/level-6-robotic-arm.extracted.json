@@ -1,0 +1,103 @@
+{
+  "projectId": "level-6-robotic-arm",
+  "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/Robotic Arm/32. The Robotic Arm-Teaching Slides.pdf",
+  "wixFileId": "7fc4ca_f50ea41fd511490e9cbd488b08f49c39.pdf",
+  "sourceBytes": 1098316,
+  "pageCount": 23,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 32.  | The Robotic Arm | edu.zmrobo.com | LECTURER:"
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties | 1. | Learn |   | about |   | the |   | robotic |   | arm | . | 2. | Learn |   | about |   | the |   | concept |   | of |   | degrees |   | of |   | freedom | . | 1. | Build a robotic arm with two degrees of freedom. | 2. | Write the program of the robotic arm."
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information"
+    },
+    {
+      "slide": 4,
+      "text": "Background Information | Since |   | the |   | first |   | robotic |   | arm |   | appeared |   | in |   | 1958 | , |   | it |   | has |   | gradually |   | replaced |   | part |   | of |   | human |   | work |   | in |   | less |   | than |   | a |   | hundred |   | years | . |   | And |   | all |   | of |   | this |   | starts |   | with |   | the |   | first |   | robotic |   | arm | . |   | Its |   | structure |   | is |   | very |   | simple | . |   | There |   | is |   | a |   | long |   | arm |   | that |   | can |   | rotate |   | on |   | the |   | body, |   | and |   | a |   | pick | - | and | - | place |   | mechanism |   | on |   | the |   | top | . |   | It |   | can |   | simply |   | lift |   | and |   | move |   | objects | . |   | to |   | the |   | other |   | side | . |   | How |   | does |   | a |   | robotic |   | arm |   | help |   | humans |   | with |   | their |   | work?"
+    },
+    {
+      "slide": 5,
+      "text": "Background Information | The |   | robotic |   | arm |   | can |   | perform |   | actions |   | similar |   | to |   | the |   | human |   | arm |   | through |   | different |   | structures |   | and |   | drive |   | forms, |   | including |   | grasping, |   | pushing |   | and |   | pulling, |   | stretching, |   | rotating, |   | etc | ."
+    },
+    {
+      "slide": 6,
+      "text": "Background Information | In |   | modern |   | times, |   | robotic |   | arms |   | have |   | advanced |   | significantly |   | in |   | complexity | . |   | The |   | robotic |   | arm |   | has |   | the |   | advantages |   | of |   | flexible |   | operation |   | and |   | a |   | high |   | degree |   | of |   | freedom |   | and |   | has |   | gradually |   | been |   | used |   | in |   | the |   | fields |   | of |   | factory |   | production, |   | medical |   | surgery, |   | aviation, |   | and |   | other |   | fields | ."
+    },
+    {
+      "slide": 7,
+      "text": "Knowledge  | Introduction"
+    },
+    {
+      "slide": 8,
+      "text": "New Knowledge | Hardware | In |   | a |   | mechanical |   | system, |   | the |   | more |   | flexible |   | an |   | object |   | can |   | move, |   | the |   | higher |   | its |   | degree |   | of |   | freedom | . |   | For |   | example, |   | the |   | human |   | arm |   | has |   | seven |   | degrees |   | of |   | freedom, |   | and |   | the |   | space |   | station |   | robotic |   | arm |   | used |   | in |   | the |   | aerospace |   | field |   | also |   | has |   | seven |   | degrees |   | of |   | freedom | ."
+    },
+    {
+      "slide": 9,
+      "text": "New Knowledge | Hardware | The |   | seven |   | degrees |   | of |   | freedom |   | are |   | three |   | shoulder |   | joints, |   | one |   | elbow |   | joint, |   | and |   | three |   | wrist |   | joints | . |   | In |   | summary, |   | the |   | degree |   | of |   | freedom |   | of |   | the |   | robotic |   | arm |   | is |   | the |   | number |   | of |   | directions |   | in |   | which |   | the |   | robotic |   | arm |   | can |   | move |   | independently | . | More |   | complex |   | actions |   | require |   | higher |   | degrees |   | of |   | freedom |   | to |   | achieve | . |   | Today |   | we |   | will |   | build |   | a |   | robotic |   | arm |   | with |   | three |   | degrees |   | of |   | freedom |   | to |   | realize |   | the |   | function |   | of |   | moving |   | objects | ."
+    },
+    {
+      "slide": 10,
+      "text": "Practice"
+    },
+    {
+      "slide": 11,
+      "text": "New Knowledge | According |   | to |   | the |   | construction |   | manual, |   | build |   | a |   | robotic |   | arm, |   | and |   | realize |   | the |   | functions |   | of |   | grabbing |   | and |   | transporting |   | objects |   | through |   | the |   | robotic |   | arm | . | Lifting arm | Touch  | button | Rotating  | platform | Clip"
+    },
+    {
+      "slide": 12,
+      "text": "Practice  | |  | Flow Chart | The |   | robotic |   | arm |   | has |   | three |   | degrees |   | of |   | freedom, |   | so |   | it |   | is |   | necessary |   | to |   | design |   | three |   | groups |   | of |   | functions | : |   | up |   | and |   | down, |   | left |   | and |   | right, |   | and |   | grasping |   | and |   | releasing | . |   | The |   | up |   | and |   | down, |   | left |   | and |   | right |   | movements |   | are |   | realized |   | by |   | controlling |   | the |   | rotation |   | of |   | the |   | large |   | motor, |   | and |   | the |   | grasping |   | and |   | releasing |   | functions |   | are |   | realized |   | through |   | the |   | middle |   | motor |   | driving |   | the |   | robotic |   | claws | . | The |   | three |   | functions |   | are |   | executed |   | cyclically, |   | and |   | their |   | logic |   | is |   | the |   | same, |   | the |   | difference |   | is |   | only |   | in |   | the |   | way |   | of |   | triggering | . |   | The |   | flowchart |   | example |   | is |   | the |   | pick |   | and |   | place |   | function, |   | which |   | is |   | realized |   | by |   | the |   | touch |   | sensor | ."
+    },
+    {
+      "slide": 13,
+      "text": "Practice  | |  | Flow Chart | The |   | up |   | and |   | down |   | functions |   | are |   | realized |   | through |   | the |   | controller |   | buttons | . |   | When |   | the |   | right |   | button |   | is |   | pressed, |   | the |   | mechanical |   | arm |   | moves |   | up, |   | and |   | when |   | the |   | right |   | button |   | is |   | pressed, |   | the |   | mechanical |   | arm |   | moves |   | downward | . | The |   | left |   | and |   | right |   | functions |   | are |   | realized |   | by |   | touching |   | the |   | screen | . |   | When |   | touching |   | the |   | left |   | side |   | of |   | the |   | screen, |   | the |   | robotic |   | arm |   | will |   | rotate |   | to |   | the |   | left, |   | and |   | when |   | touching |   | the |   | right |   | side |   | of |   | the |   | screen, |   | the |   | robotic |   | arm |   | will |   | rotate |   | to |   | the |   | right | ."
+    },
+    {
+      "slide": 14,
+      "text": "Practice  | |  | Programming | 01 | logo | Main |   | program |   | and |   | subroutine | Repeatedly |   | execute |   | the |   | sub | - | functions |   | of |   | up |   | and |   | down, |   | left |   | and |   | right, |   | and |   | pick |   | and |   | place | . |   | When |   | the |   | function |   | starts, |   | the |   | corresponding |   | function |   | can |   | be |   | realized | ."
+    },
+    {
+      "slide": 15,
+      "text": "Practice  | |  | Programming | 02 | logo | Grasp and release function | First, judge whether the function  | is triggered, that is, whether any  | touch sensor is pressed, and then  | judge which sensor is pressed."
+    },
+    {
+      "slide": 16,
+      "text": "Practice  | |  | Programming | logo | 03 | Up |   | and |   | down |   | function | In |   | the |   | same |   | way, |   | first, |   | judge |   | whether |   | it |   | is |   | triggered, |   | and |   | then |   | judge |   | which |   | button |   | is |   | pressed | ."
+    },
+    {
+      "slide": 17,
+      "text": "Practice  | |  | Programming | logo | 04 | Left |   | and |   | right |   | function | In |   | the |   | same |   | way, |   | first |   | determine |   | whether |   | it |   | is |   | triggered, |   | and |   | then |   | determine |   | whether |   | the |   | coordinates |   | of |   | the |   | touch |   | are |   | left |   | or |   | right | . |   | The |   | Y |   | coordinate |   | range |   | of |   | the |   | screen |   | is |   | 1 | ~ | 320 | , |   | and |   | the |   | median |   | value |   | is |   | 160 | ."
+    },
+    {
+      "slide": 18,
+      "text": "Practice  | |  | Programming | logo | Complete program | 05"
+    },
+    {
+      "slide": 19,
+      "text": "Practice  | |  | Programming"
+    },
+    {
+      "slide": 20,
+      "text": "Results"
+    },
+    {
+      "slide": 21,
+      "text": "Program Optimization | In |   | this |   | lesson, |   | we |   | implemented |   | the |   | grabbing |   | and |   | moving |   | functions |   | of |   | a |   | robotic |   | arm |   | with |   | three |   | degrees |   | of |   | freedom | . | Modify |   | the |   | program |   | or |   | adjust |   | the |   | structure |   | to |   | make |   | the |   | up |   | and |   | down |   | movement |   | of |   | the |   | robot |   | arm |   | more |   | stable | . | Requirement | : |   | Make |   | the |   | robotic |   | arm |   | more |   | stable |   | and |   | smooth |   | when |   | it |   | is |   | lifted |   | up | ."
+    },
+    {
+      "slide": 22,
+      "text": "Further Reading | There |   | is |   | another |   | interesting |   | piece |   | of |   | news |   | about |   | the |   | Tiangong |   | robotic |   | arm | . |   | Some |   | people |   | believe |   | that |   | the |   | Tiangong | - | 1 |   | robotic |   | arm |   | can |   | cut |   | off |   | the |   | solar |   | panels |   | of |   | the |   | satellite | . |   | In |   | fact, |   | this |   | is |   | difficult |   | to |   | achieve |   | under |   | the |   | current |   | technology | . |   | The |   | total |   | weight |   | of |   | the |   | robotic |   | arm |   | is |   | 738 |   | kilograms, |   | the |   | maximum |   | carrying |   | capacity |   | reaches |   | 25 |   | tons, |   | and |   | the |   | extended |   | length |   | is |   | 10 | . | 2 |   | meters | . |   | The |   | space |   | station |   | must |   | first |   | remain |   | relatively |   | stationary |   | with |   | the |   | satellite, |   | and |   | it |   | is |   | very |   | dangerous |   | to |   | extend |   | the |   | robotic |   | arm |   | at |   | a |   | very |   | close |   | distance, |   | and |   | the |   | robotic |   | arm |   | will |   | be |   | damaged |   | if |   | you |   | are |   | not |   | careful | ."
+    },
+    {
+      "slide": 23,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER: "
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

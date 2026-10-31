@@ -1,0 +1,103 @@
+{
+  "projectId": "level-6-saluting-robot",
+  "sourcePath": "public/Level 6/Learning/Programming & Precise Control/Saluting Robot/26.Saluting Robot -Slides.pdf",
+  "wixFileId": "7fc4ca_2a089b75dfa74543a1d609e3b7c0ec58.pdf",
+  "sourceBytes": 1183644,
+  "pageCount": 23,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Saluting Robot | Lesson 26"
+    },
+    {
+      "slide": 2,
+      "text": "Key points from this lesson: | 1. Understand the \"Size\" mode of face detection | 2. Learn to use the face detection function in a complex way | Possible difficulties from this lesson: | 1. Build a model of the saluting robot"
+    },
+    {
+      "slide": 3,
+      "text": "CONTENTS | 1 | Introduction  | 2 | New Knowledge | 3 | Practice | 4 | Expansion "
+    },
+    {
+      "slide": 4,
+      "text": "Introduction | 01"
+    },
+    {
+      "slide": 5,
+      "text": "Saluting  | Salute | is | a | kind | of | etiquette, | which | can | be | divided | into | hand | salute, | attention | salute, | gun | salute, | etc | . | To | express | respect, | saluting | is | used | at | the | end | of | a | letter | to | show | respect, | to | be | respectful | to | others, | and | to | treat | each | other | with | courtesy | . | On | some | important | occasions, | saluting | is | not | only | about | raising | your | hands | but | also | about | eye | salute, | looking | closely | at | the | person | you | are | saluting | to | show | your | deep | respect | . | Can | we | make | a | robot | that | can | salute | and | attention | salute?"
+    },
+    {
+      "slide": 6,
+      "text": "New Knowledge | 02"
+    },
+    {
+      "slide": 7,
+      "text": "Attention salute | It | refers | to | the | etiquette | of | meeting | someone | by | looking | at | them | . | It | is | also | one | of | the | military | salutes | . | When | performing | the | salute, | the | body | is | upright | and | the | eyes | are | fixed | on | the | target | . | It | is | \"eye | - | gaze | + | salute\" | ."
+    },
+    {
+      "slide": 8,
+      "text": "Gun salute | This | is | used | in | military | parades | or | when | performing | ceremonial | duties | . | Action | essentials | : | Hold | the | gun | in | front | of | the | chest, | with | the | gun | body | vertical | and | aligned | with | the | button | line, | the | gun | facing | backward, | about | 10 | cm | away | from | the | body, | the | muzzle | at | the | same | height | as | the | eyes, | and | the | upper | arm | lightly | touching | the | right | side | ; | at | the | same | time, | hold | the | upper | part | of | the | sight | with | the | left | hand, | with | the | forearm | slightly | flat, | and | the | upper | arm | lightly | touching | the | left | side | ; | at | the | same | time, | turn | the | head | to | the | right | to | look | at | the | recipient, | and | greet | and | see | him | off | with | your | eyes | ."
+    },
+    {
+      "slide": 9,
+      "text": "Face detection | The | AI | ௙௙IDFH | detection | mode | has | a | \"size\" | mode, | which | measures | the | size | of | the | face | entering | the | camera | range | . | When | the | AI | ௙௙YLVLRQ | module | is | in | face | recognition | size | mode, | it | will | automatically | identify | the | face | entering | the | camera | range | and | return | the | face | size | . | When | the | AI | ௙௙YLVLRQ | module | recognizes | a | face, | a | green | box | with | \"OK\" | in | the | upper | left | corner | will | appear | on | the | screen | of | the | AI | ௙௙YLVLRQ | module | . | This | box | is | used | to | capture | the | face, | and | the | box | size | will | change | according | to | the | distance | between | the | face | and | the | camera | . | The | closer | the | face | is | to | the | camera, | the | larger | the | box | will | be, | otherwise | the | opposite | is | true | ."
+    },
+    {
+      "slide": 10,
+      "text": "Coding block  | - | face detection | When a face appears on the screen, the face size value will be returned. | Description: | Return value: The return value is 0 when the image is not recognized or  | there is no learning image."
+    },
+    {
+      "slide": 11,
+      "text": "Practice | 03"
+    },
+    {
+      "slide": 12,
+      "text": "Effect Demonstration"
+    },
+    {
+      "slide": 13,
+      "text": "Design and assembly | According | to | the | building | manual, | build | a | saluting | robot | . | We | need | a | controller | to | control | the | motor | rotation | and | call | the | AI | ௙௙YLVLRQ | module | . | Connect | the | AI | ௙௙YLVLRQ | module | to | the | P | 8 | port | of | the | controller, | and | connect | the | motors | to | the | M | 2 | and | M | 4 | ports | ."
+    },
+    {
+      "slide": 14,
+      "text": "Project tasks"
+    },
+    {
+      "slide": 15,
+      "text": "Programming | logo | 1 | . | Initialization | Set | the | Ai | vision | module | to | face | detection | mode, | set | the | font | to | medium, | and | create | a | new | variable | \"coefficient\" | to | 0 | . | 4 | ."
+    },
+    {
+      "slide": 16,
+      "text": "Programming | logo | 2 | . | Salute | when | a | face | is | detected | If | the | face | size | detected | is | > | 0 | , | then | set | motor | M | 2 | to | rotate | to | 180 | ° | at | a | speed | of | - | 50 | , | and | the | robot | salutes | ."
+    },
+    {
+      "slide": 17,
+      "text": "Programming | logo | 3 | . | Follow | the | face | Then | in | the | \"Repeat | until\" | program, | create | new | variables | \"size\" | and | \"coordinates\" | to | detect | the | face | size | and | X | coordinate | respectively | . | At | the | same | time, | set | the | \"turn\" | variable | to | (\"coordinate\" | - | 130 | )*\"coefficient\", | and | the | motor | M | 4 | speed | to | ( | 0 | +\"turn\") | . | At | this | time, | the | robot | moves | with | the | face | ."
+    },
+    {
+      "slide": 18,
+      "text": "Programming | 4 | . | Stop | saluting | Until | no | more | human | faces | are | detected, | the | robot | lowers | its | arms | and | stops | performing | the | saluting | gesture | ."
+    },
+    {
+      "slide": 19,
+      "text": "Programming | logo | 5. Overall program | Download the program to the controller  | DQG\u0003REVHUYH\u0003WKH\u0003SURJUDP¶V\u0003HIIHFW\u0011"
+    },
+    {
+      "slide": 20,
+      "text": "Expansion | 04"
+    },
+    {
+      "slide": 21,
+      "text": "Expansion task | Set the initial position of the salute robot so  | that it returns to its original position after  | completing the salute action."
+    },
+    {
+      "slide": 22,
+      "text": "Further Reading | The | knights | of | the | ancient | Roman | Empire | had | the | tradition | of | raising | the | visor | on | their | armor | when | they | met | . | It | is | said | that | this | was | to | show | respect | and | chivalry | ; | at | the | same | time, | it | could | also | show | their | faces | to | their | companions | to | avoid | being | killed | by | mistake | . | In | the | Middle | Ages, | the | warriors | in | Western | Europe | had | thrown | away | their | visors, | and | the | tradition | of | raising | the | visor | evolved | into | taking | off | the | helmet | or | hat | . | After | the | British | bourgeois | revolution, | its | army | officially | changed | the | tradition | of | taking | off | the | hat | to | salute | by | touching | the | brim | of | the | hat | or | a | bunch | of | hair | with | the | hand | (when | not | wearing | a | hat) | for | the | sake | of | simplicity | ."
+    },
+    {
+      "slide": 23,
+      "text": "Thanks!"
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}
