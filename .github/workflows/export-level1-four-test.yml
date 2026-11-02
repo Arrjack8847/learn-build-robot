@@ -1,0 +1,32 @@
+name: Export four Level 1 PDFs for approved editing test
+on:
+  push:
+    branches: [audit/pdf-branding-20261102]
+    paths: ['.github/workflows/export-level1-four-test.yml']
+  workflow_dispatch:
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - name: Download just the four PDFs
+        run: |
+          git lfs pull --include="public/Level 1/Learning/Illumination & Signals/Color-changing Light/*.pdf,public/Level 1/Learning/Illumination & Signals/Blinking robot/*.pdf,public/Level 1/Learning/Illumination & Signals/Corridor lamp/*.pdf,public/Level 1/Learning/Illumination & Signals/Help light/*.pdf" --exclude="*.mp4,*.zip"
+      - name: Copy and verify PDFs
+        shell: bash
+        run: |
+          mkdir -p original-pdfs
+          cp "public/Level 1/Learning/Illumination & Signals/Color-changing Light/02.Color- changing Light -Slides.pdf" "original-pdfs/02_Color_Changing_Light.pdf"
+          cp "public/Level 1/Learning/Illumination & Signals/Blinking robot/Blinking robot_Powerpoint.pdf" "original-pdfs/Blinking_Robot.pdf"
+          cp "public/Level 1/Learning/Illumination & Signals/Corridor lamp/Corridor lamp_Powerpoint.pdf" "original-pdfs/Corridor_Lamp.pdf"
+          cp "public/Level 1/Learning/Illumination & Signals/Help light/Help light_Powerpoint.pdf" "original-pdfs/Help_Light.pdf"
+          file original-pdfs/*.pdf
+          sha256sum original-pdfs/*.pdf
+      - uses: actions/upload-artifact@v4
+        with:
+          name: level1-four-original-pdfs
+          path: original-pdfs/*.pdf
+          retention-days: 7
