@@ -1,0 +1,115 @@
+{
+  "projectId": "level-6-code-scanning-gate",
+  "sourcePath": "public/Level 6/Learning/Automation & Security/Code-scanning Gate/04.Code-scanning Gate-Teaching Slides.pdf",
+  "wixFileId": "7fc4ca_65a75edffea84e60aafda2cf9b2c51a6.pdf",
+  "sourceBytes": 1227800,
+  "pageCount": 26,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 4.  | Code | - | scanning Gate | edu.zmrobo.com | LETURER:"
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties | 1 | . |   | Learn |   | about |   | electronic |   | gates | . | 2 | . |   | Understand |   | the |   | electronic |   | password | . | 1. Compare the data in the list. | 2. Variables are used to determine the number of digits. "
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information"
+    },
+    {
+      "slide": 4,
+      "text": "Background Information | As |   | the |   | name |   | suggests, |   | a |   | door |   | lock |   | is |   | a |   | device |   | used |   | to |   | lock |   | the |   | door |   | to |   | prevent |   | others |   | from |   | opening |   | the |   | door | . |   | There |   | are |   | many |   | classifications |   | of |   | door |   | locks, |   | and |   | the |   | requirements |   | for |   | door |   | locks |   | are |   | different |   | on |   | various |   | occasions | . |   | Generally |   | speaking, |   | anti | - | theft |   | door |   | locks |   | for |   | home |   | use |   | have |   | high |   | security |   | and |   | relatively |   | cheap |   | prices | . | In |   | China, |   | the |   | levels |   | of |   | different |   | locks |   | are |   | determined |   | according |   | to |   | the |   | time |   | required |   | for |   | disassembly | . |   | The |   | more |   | time |   | it |   | takes |   | to |   | open |   | the |   | door |   | lock |   | destructively, |   | the |   | higher |   | the |   | level | ."
+    },
+    {
+      "slide": 5,
+      "text": "Background Information | Traditional |   | door |   | locks |   | have |   | some |   | limitations |   | in |   | terms |   | of |   | security | . |   | For |   | example, |   | there |   | are |   | not |   | many |   | keys, |   | and |   | customers |   | need |   | to |   | provide |   | additional |   | keys | ; |   | the |   | door |   | lock |   | has |   | a |   | very |   | small |   | probability |   | of |   | being |   | opened |   | by |   | a |   | key |   | from |   | the |   | same |   | manufacturer | ; |   | after |   | the |   | key |   | is |   | lost, |   | the |   | safest |   | way |   | is |   | to |   | change |   | the |   | lock, |   | etc | ."
+    },
+    {
+      "slide": 6,
+      "text": "Background Information | In |   | large |   | enterprises |   | or |   | factories, |   | people |   | are |   | more |   | accustomed |   | to |   | using |   | electronic |   | combination |   | locks | . |   | Electronic |   | combination |   | locks |   | are |   | electronic |   | products |   | that |   | control |   | the |   | operation |   | of |   | circuits |   | or |   | chips |   | through |   | password |   | input, |   | thereby |   | controlling |   | the |   | closing |   | of |   | mechanical |   | switches |   | and |   | completing |   | the |   | tasks |   | of |   | unlocking |   | and |   | locking | . |   | With |   | the |   | development |   | of |   | science |   | and |   | technology, |   | electronic |   | combination |   | locks |   | are |   | no |   | longer |   | limited |   | to |   | traditional |   | mechanical |   | keys | . |   | Touch |   | panels |   | that |   | can |   | avoid |   | fingerprints |   | to |   | record |   | passwords, |   | face |   | recognition, |   | scan |   | code |   | recognition, |   | etc | . | , |   | have |   | appeared |   | on |   | the |   | market, |   | and |   | electronic |   | locks |   | with |   | more |   | complete |   | functions |   | and |   | safer |   | protection | ."
+    },
+    {
+      "slide": 7,
+      "text": "Background Information | In |   | addition |   | to |   | a |   | single |   | unlocking |   | mode, |   | some |   | high | - | end |   | products |   | also |   | use |   | multiple |   | password |   | authentication |   | methods | . |   | For |   | example, |   | the |   | combination |   | of |   | face |   | and |   | digital |   | password, |   | the |   | combination |   | of |   | scanning |   | code |   | and |   | face, |   | the |   | combination |   | of |   | voice |   | and |   | password, |   | through |   | multiple |   | measures |   | to |   | ensure |   | the |   | safety |   | of |   | users | ."
+    },
+    {
+      "slide": 8,
+      "text": "Knowledge  | Introduction"
+    },
+    {
+      "slide": 9,
+      "text": "Knowledge Introduction | The |   | current |   | mainstream |   | combination |   | lock |   | works |   | like |   | this | . |   | First, |   | we |   | need |   | to |   | set |   | a |   | management |   | password |   | for |   | it | . |   | The |   | management |   | password |   | has |   | higher |   | authority |   | and |   | can |   | manage |   | the |   | entire |   | electronic |   | system |   | of |   | the |   | combination |   | lock, |   | but |   | it |   | cannot |   | be |   | used |   | to |   | open |   | the |   | door |   | directly | . |   | After |   | the |   | management |   | password |   | is |   | set, |   | the |   | door | - | opening |   | password |   | can |   | be |   | set | . |   | This |   | password |   | can |   | only |   | be |   | used |   | to |   | open |   | the |   | door, |   | and |   | cannot |   | modify |   | the |   | password |   | or |   | set |   | as |   | a |   | new |   | password | ."
+    },
+    {
+      "slide": 10,
+      "text": "Knowledge Introduction | No |   | matter |   | how |   | complicated |   | the |   | unlocking |   | form |   | of |   | the |   | electronic |   | combination |   | lock |   | is, |   | the |   | essence |   | is |   | the |   | comparison |   | between |   | the |   | preset |   | password |   | and |   | the |   | input |   | password | . |   | For |   | example, |   | face |   | recognition |   | can |   | convert |   | the |   | characteristics |   | of |   | the |   | face |   | into |   | digital |   | form |   | and |   | save |   | it |   | in |   | the |   | preset |   | password | ; |   | scan |   | the |   | code |   | to |   | open |   | the |   | door |   | and |   | read |   | whether |   | the |   | QR |   | code |   | data |   | is |   | consistent |   | with |   | the |   | preset |   | password | . |   | When |   | the |   | password |   | is |   | correct, |   | open |   | the |   | door |   | and |   | the |   | password |   | Multiple |   | errors |   | will |   | trigger |   | the |   | power | - | off |   | protection |   | mechanism | . |   | When |   | programming, |   | we |   | should |   | think |   | more |   | about |   | the |   | essence |   | behind |   | different |   | forms, |   | and |   | don't |   | be |   | blinded |   | by |   | the |   | form | ."
+    },
+    {
+      "slide": 11,
+      "text": "Knowledge Introduction | Today, |   | we |   | will |   | use |   | the |   | Scanning |   | Camera |   | to |   | make |   | a |   | door |   | lock |   | that |   | scans |   | the |   | code |   | to |   | open |   | the |   | door |   | and |   | feel |   | how |   | the |   | combination |   | lock |   | works |   | through |   | the |   | comparison |   | of |   | the |   | list |   | data | ."
+    },
+    {
+      "slide": 12,
+      "text": "Practice"
+    },
+    {
+      "slide": 13,
+      "text": "New Knowledge | The power to open  | the door | Scanning  | camera | Door | Build |   | a |   | code | - | scanning |   | door |   | according |   | to |   | the |   | construction |   | manual, |   | and |   | realize |   | the |   | function |   | of |   | opening |   | the |   | door |   | by |   | scanning |   | the |   | code |   | and |   | the |   | function |   | of |   | alarm | ."
+    },
+    {
+      "slide": 14,
+      "text": "Practice  | |  | Flow Chart | After |   | scanning |   | the |   | code, |   | the |   | data |   | is |   | stored |   | in |   | the |   | controller | . |   | When |   | the |   | number |   | of |   | code |   | scanning |   | is |   | consistent |   | with |   | the |   | digits |   | of |   | the |   | password, |   | it |   | is |   | judged |   | whether |   | the |   | password |   | is |   | correct | . |   | If |   | it |   | is |   | correct, |   | the |   | door |   | will |   | be |   | opened, |   | and |   | if |   | it |   | is |   | incorrect, |   | the |   | red |   | light |   | will |   | flash | . | List |   | 1 |   | in |   | the |   | figure |   | refers |   | to |   | the |   | preset |   | password, |   | and |   | List |   | 2 |   | is |   | the |   | scan |   | password | . |   | Judging |   | the |   | password |   | is |   | the |   | key |   | to |   | the |   | program, |   | and |   | sort |   | out |   | the |   | ideas |   | through |   | another |   | flow |   | chart | ."
+    },
+    {
+      "slide": 15,
+      "text": "Practice  | |  | Flow Chart | Compare |   | each |   | number |   | in |   | the |   | two |   | lists, |   | for |   | example, |   | the |   | first |   | number |   | in |   | list |   | 1 |   | (preset |   | password) |   | is |   | equal |   | to |   | the |   | first |   | number |   | in |   | list |   | 2 |   | (scanned |   | password), |   | then |   | continue |   | to |   | compare |   | until |   | the |   | number |   | of |   | digits |   | in |   | the |   | password |   | is |   | the |   | same |   | as |   | the |   | scanned |   | number |   | unanimous | . |   | In |   | the |   | process |   | of |   | comparison, |   | as |   | long |   | as |   | any |   | set |   | of |   | passwords |   | is |   | found |   | to |   | be |   | unequal, |   | the |   | alarm |   | will |   | be |   | turned |   | on | ."
+    },
+    {
+      "slide": 16,
+      "text": "Practice  | |  | Flow Chart | Compare |   | each |   | number |   | in |   | the |   | two |   | lists, |   | for |   | example, |   | the |   | first |   | number |   | in |   | list |   | 1 |   | (preset |   | password) |   | is |   | equal |   | to |   | the |   | first |   | number |   | in |   | list |   | 2 |   | (scanned |   | password), |   | then |   | continue |   | to |   | compare |   | until |   | the |   | number |   | of |   | digits |   | in |   | the |   | password |   | is |   | the |   | same |   | as |   | the |   | scanned |   | number |   | unanimous | . |   | In |   | the |   | process |   | of |   | comparison, |   | as |   | long |   | as |   | any |   | set |   | of |   | passwords |   | is |   | found |   | to |   | be |   | unequal, |   | the |   | alarm |   | will |   | be |   | turned |   | on | ."
+    },
+    {
+      "slide": 17,
+      "text": "Practice  | |  | Programming | 01 | logo | Initial settings | Set the password and then  | repeatedly read the value of the  | scanning camera to the variable."
+    },
+    {
+      "slide": 18,
+      "text": "Practice  | |  | Programming | logo | 02 | Judgment |   | of |   | scanning | Save |   | the |   | scanning |   | password |   | (QR |   | code) |   | to |   | the |   | list, |   | and |   | judge |   | whether |   | the |   | scan |   | password |   | is |   | correct |   | after |   | scanning |   | enough |   | passwords | ."
+    },
+    {
+      "slide": 19,
+      "text": "Practice  | |  | Programming | logo | 03 | Function |   | of |   | judging |   | password | Determine |   | whether |   | the |   | numbers |   | of |   | each |   | item |   | in |   | the |   | two |   | lists |   | correspond |   | one | - | to | - | one, |   | and |   | if |   | they |   | do |   | not |   | correspond, |   | an |   | alarm |   | will |   | be |   | issued, |   | and |   | if |   | they |   | do, |   | the |   | door |   | will |   | be |   | opened | ."
+    },
+    {
+      "slide": 20,
+      "text": "Practice  | |  | Programming | logo | 04 | The |   | function |   | of |   | opening |   | the |   | door | Control |   | the |   | motor |   | to |   | rotate, |   | and |   | initialize |   | the |   | combination |   | lock |   | after |   | closing |   | the |   | door | ."
+    },
+    {
+      "slide": 21,
+      "text": "Practice  | |  | Programming | logo | 05 | Integrate |   | the |   | program | According |   | to |   | the |   | flowchart, |   | integrate |   | each |   | segment |   | of |   | the |   | program | ."
+    },
+    {
+      "slide": 22,
+      "text": "Practice  | |  | Programming | logo"
+    },
+    {
+      "slide": 23,
+      "text": "Results"
+    },
+    {
+      "slide": 24,
+      "text": "Program Optimization | This |   | lesson |   | realizes |   | the |   | function |   | of |   | scanning |   | the |   | code |   | to |   | open |   | the |   | door | . |   | Only |   | by |   | scanning |   | the |   | QR |   | code |   | according |   | to |   | the |   | password |   | in |   | turn |   | can |   | the |   | door |   | be |   | opened |   | correctly, |   | otherwise |   | the |   | door |   | will |   | be |   | closed | . | Next, |   | modify |   | the |   | program, |   | add |   | more |   | items |   | in |   | the |   | preset |   | password |   | list, |   | and |   | combine |   | more |   | complicated |   | door |   | opening |   | passwords | . | Requirement | : |   | Add |   | a |   | preset |   | password |   | item |   | and |   | make |   | a |   | 6 | - | digit |   | password | ."
+    },
+    {
+      "slide": 25,
+      "text": "Further Reading | Visible |   | light |   | interactive |   | technology |   | is |   | an |   | Internet |   | of |   | Things |   | technology |   | independently |   | patented |   | by |   | China | . |   | Simply |   | put, |   | we |   | can |   | transmit |   | and |   | transmit |   | data |   | through |   | the |   | light |   | we |   | see | . |   | Through |   | technological |   | breakthroughs, |   | we |   | can |   | now |   | use |   | this |   | light |   | for |   | daily |   | interactions | . |   | Including |   | opening |   | the |   | door, |   | taking |   | the |   | bus, |   | and |   | paying, |   | etc | . |   | can |   | be |   | done |   | with |   | it | . |   | It's |   | similar |   | to |   | how |   | we |   | scan |   | the |   | QR |   | code |   | now, |   | except |   | that |   | the |   | process |   | of |   | scanning |   | the |   | QR |   | code |   | is |   | replaced |   | by |   | light |   | transmission | . |   | Hundreds |   | of |   | millions |   | of |   | data |   | can |   | be |   | sent |   | out |   | in |   | just |   | one |   | second, |   | and |   | there |   | is |   | no |   | way |   | for |   | you |   | to |   | intercept |   | it |   | in |   | just |   | one |   | second | . |   | Therefore, |   | it |   | is |   | superior |   | to |   | QR |   | codes |   | in |   | terms |   | of |   | security |   | and |   | its |   | data |   | volume | ."
+    },
+    {
+      "slide": 26,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER: "
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, PDF Page tree, zlib FlateDecode, PDF BT/ET text operators",
+  "visualReviewComplete": false
+}

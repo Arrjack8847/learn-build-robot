@@ -1,0 +1,111 @@
+{
+  "projectId": "level-6-smart-camera",
+  "sourcePath": "public/Level 6/Learning/Sensor-Focused Robots/Smart Camera/22.Smart Camera-Slides.pdf",
+  "wixFileId": "7fc4ca_5c16e189f17f43aebec61610054753a5.pdf",
+  "sourceBytes": 1326655,
+  "pageCount": 25,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Smart Camera | Lesson 23"
+    },
+    {
+      "slide": 2,
+      "text": "Key points from this lesson: | 1. Understand the principles of face detection | \u0015\u0011\u0003/HDUQ\u0003WR\u0003XVH\u0003WKH\u0003IDFH\u0003GHWHFWLRQ\u0003PRGH\u0003RI\u0003WKH\u0003$,\u0003௙௙YLVLRQ\u0003PRGXOH | Possible difficulties from this lesson: | 1. Build a smart access control model"
+    },
+    {
+      "slide": 3,
+      "text": "CONTENTS | 1 | Introduction  | 2 | New Knowledge | 3 | Practice | 4 | Expansion "
+    },
+    {
+      "slide": 4,
+      "text": "Introduction | 01"
+    },
+    {
+      "slide": 5,
+      "text": "Introduction | With | the | development | of | intelligent | technology, | the | functions | of | cameras | are | becoming | more | and | more | abundant | . | In | addition | to | regional | monitoring, | it | can | also | detect | faces | and | track | a | person | in | real | time | in | a | certain | area, | which | is | face | tracking | . | These | highly | intelligent | cameras | will | track | the | position | of | the | face | when | detecting | a | face, | thereby | realizing | the | function | of | face | tracking | . | We | can | also | use | the | face | detection | function | of | the | AI | ௙௙YLVLRQ | module | to | make | a | face | tracking | robot | and | experience | the | application | value | of | face | recognition | ."
+    },
+    {
+      "slide": 6,
+      "text": "New Knowledge | 02"
+    },
+    {
+      "slide": 7,
+      "text": "Face tracking | Face | tracking | is | to | continue | to | capture | the | location | and | size | of | the | face | in | subsequent | frames | after | the | face | is | detected, | including | face | recognition | and | face | tracking | technology | . | The | AI | ௙௙YLVLRQ | module | has | the | function | of | face | detection | . | When | the | AI | ௙௙YLVLRQ | module | detects | a | face | using | a | camera, | it | returns | the | X | and | Y | coordinate | values | ௙௙RI | the | face | to | the | controller | and | uses | the | X | and | Y | coordinates | to | determine | the | face | position | ."
+    },
+    {
+      "slide": 8,
+      "text": "Face tracking | In | the | face | recognition | mode | of | the | AI | ௙௙YLVLRQ | module, | the | X | coordinate | (i | . | e | . | , | horizontal | coordinate) | ranges | from | 0 | to | 240 | , | and | the | Y | coordinate | (i | . | e | . | , | vertical | coordinate) | ranges | from | 0 | to | 180 | . | The | X | and | Y | coordinates | in | the | upper | left | corner | of | the | camera | screen | are | the | origin, | and | the | coordinates | are | ( | 0 | , | 0 | ) | . | When | the | camera | captures | a | face, | the | coordinates | of | the | face | in | the | screen | are | (X, | Y), | that | is, | the | combination | of | the | horizontal | coordinate | and | the | vertical | coordinate | is | the | position | of | the | face | captured | by | the | camera | . | Origin (0,0) | X | - | axis (Horizontal  | coordinate) | Y | - | axis (Vertical  | coordinate)"
+    },
+    {
+      "slide": 9,
+      "text": "Face detection | When | entering | the | face | detection | mode, | the | AI | ௙௙YLVLRQ | module | starts | to | detect | faces | and | identify | coordinates | . | When | a | face | is | recognized, | a | green | box | will | appear | on | the | screen | to | capture | the | face | . | The | center | point | of | the | box | is | the | X | and | Y | coordinates | of | the | face | . | Coordinates of  | the face (X, Y)"
+    },
+    {
+      "slide": 10,
+      "text": "Coding block | This coding block reads the coordinate position of the detected face on the  | screen. | Description: | Return value: 0 | - | \u0015\u0017\u0013\u000f\u0003FRUUHVSRQGLQJ\u0003WR\u0003WKH\u0003\u0015\u0017\u0013\r\u0015\u0017\u0013\u0003VFUHHQ\u0003RI\u0003WKH\u0003$,\u0003௙௙YLVLRQ\u0003 | module"
+    },
+    {
+      "slide": 11,
+      "text": "Practice | 03"
+    },
+    {
+      "slide": 12,
+      "text": "Effect Demonstration"
+    },
+    {
+      "slide": 13,
+      "text": "Design and assembly | Please | follow | the | building | manual | to | build | the | Smart | Camera | robot | . | You | need | a | controller | to | control | the | motor | rotation | and | call | the | AI | ௙௙YLVLRQ | module | . | Connect | the | AI | ௙௙YLVLRQ | module | to | the | P | 8 | port | of | the | controller, | and | connect | the | motor | to | the | M | 1 | port | ."
+    },
+    {
+      "slide": 14,
+      "text": "Project tasks"
+    },
+    {
+      "slide": 15,
+      "text": "Programming | logo | 1. Set the detection mode. | 6HW\u0003WKH\u0003$,\u0003௙௙YLVLRQ\u0003PRGXOH\u0003WR\u0003IDFH\u0003 | detection mode."
+    },
+    {
+      "slide": 16,
+      "text": "Programming | logo | 2. Set variables. | Create new variables \"turn\" and \"K1\",  | with K1 set to 0.3."
+    },
+    {
+      "slide": 17,
+      "text": "Programming | logo | 3. Get the X coordinate of face detection. | Set the variable \"X\" to the X coordinate of AI  | face detection."
+    },
+    {
+      "slide": 18,
+      "text": "Programming | logo | 4. The camera is still. | If \"X\" = 0,  | the camera is not moving | ."
+    },
+    {
+      "slide": 19,
+      "text": "Programming | logo | 5 | . | Dynamic | rotation | of | the | camera | . | If | the | condition | of | \"X\" | = | 0 | is | not | met, | then | set | turn | to | X | - | 150 | . | Set | the | motor | speed | to | 0 | - | 150 | . | Download | the | program | to | the | controller | at | this | time | . | And | observe | the | program | effect | . | Through | actual | observation, | it | is | found | that | the | camera | will | follow | the | face | , | but | when | the | face | is | tilted | to | the | left | or | right | , | the | camera | will | rotate | too | fast | and | cannot | track | the | face | ."
+    },
+    {
+      "slide": 20,
+      "text": "Programming | logo | 6 | . | Slow | down | the | rotation | speed | . | Therefore, | we | need | to | use | the | variable | \"K | 1 | \" | to | slow | down | the | rotation | speed | of | the | camera | ."
+    },
+    {
+      "slide": 21,
+      "text": "Programming | logo | 7. The overall procedure is shown  | in the figure."
+    },
+    {
+      "slide": 22,
+      "text": "Expansion | 04"
+    },
+    {
+      "slide": 23,
+      "text": "Expansion task | When a face is recognized, the screen  | turns green."
+    },
+    {
+      "slide": 24,
+      "text": "忀剩⮅䎗ḋḑ∐䔏份䟨䚿㴲憶巄䦢䙫⊆僤Ə㎌ᷲ㝌῕㔠䧲⹶Ə | 宐㴲巄㜡♏ạ⮅䎗⮁䂠㴲憶䙫⊆僤˛ | せồ㸸㏻ | 微㎎∝♏✗✧宥⮁巄䦢敦⺍Ə✏德堳凚㋮⮁巄䦢㗝Ə | ⻏ | 渊♏⒴嵞˛ | Face | detection | refers | to | the | process | of | searching | any | given | image | using | a | certain | strategy | to | determine | whether | it | contains | a | face, | and | if | so, | returning | the | position | and | size | of | the | face | . | Face | detection | has | important | application | value | in | content | - | based | retrieval, | digital | video | processing, | video | detection, | etc | . | Take | the | beauty | software | in | a | mobile | phone | as | an | example | . | When | the | software | is | turned | on, | the | software's | built | - | in | algorithm | starts | to | detect | faces | . | When | a | face | is | detected, | the | software | automatically | adds | a | beauty | effect | to | the | face | . | Further Reading"
+    },
+    {
+      "slide": 25,
+      "text": "Thanks!"
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

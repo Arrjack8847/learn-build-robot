@@ -6,6 +6,7 @@ import { getProject } from "@/data/practical";
 import { isPdfActivityProject } from "@/data/pdfActivityManuals";
 import { getLevelOneLecture } from "@/data/levelOneLectures";
 import { LevelOneBackdrop, LevelOneHeader, categoryTones } from "@/components/practical/LevelOneHeader";
+import { QuizPassedBadge } from "@/components/quiz/QuizAchievement";
 
 export const Route = createFileRoute("/practical/level-1/$categoryId")({
   component: LevelOneCategoryPage,
@@ -92,6 +93,7 @@ function LevelOneCategoryPage() {
                     )}
                   </div>
                   <h3 className="mt-4 text-lg font-extrabold leading-snug">{entry.name}</h3>
+                  {liveProject ? <QuizPassedBadge projectId={liveProject.id} /> : null}
                   <p className="mt-2 text-xs font-medium text-slate-500">{sourceLabel} in the syllabus</p>
                   <div className="mt-auto pt-5">
                     {liveProject ? (

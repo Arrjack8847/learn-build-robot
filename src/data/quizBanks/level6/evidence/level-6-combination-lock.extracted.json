@@ -1,0 +1,103 @@
+{
+  "projectId": "level-6-combination-lock",
+  "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/Combination Lock/29.Combination Lock -Slides.pdf",
+  "wixFileId": "7fc4ca_854b3400ca844dc28e03a6ce1d0605f8.pdf",
+  "sourceBytes": 1289549,
+  "pageCount": 23,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Combination Lock | Lesson 29"
+    },
+    {
+      "slide": 2,
+      "text": "Key points from this lesson: | 1. Learn the functions of  | combination |   | locks in depth | 2. Learn to use variables flexibly | Possible difficulties from this lesson: | 1. |   | Build a model of a combination lock "
+    },
+    {
+      "slide": 3,
+      "text": "CONTENTS | 1 | Introduction  | 2 | New Knowledge | 3 | Practice | 4 | Expansion "
+    },
+    {
+      "slide": 4,
+      "text": "Introduction | 01"
+    },
+    {
+      "slide": 5,
+      "text": "Combination lock  | A |   | combination |   | lock |   | is |   | a |   | type |   | of |   | lock |   | that |   | uses |   | a |   | series |   | of |   | numbers |   | or |   | symbols |   | to |   | open | . |   | Traditional |   | combination |   | locks |   | mainly |   | use |   | the |   | gap |   | in |   | the |   | inner |   | ring |   | of |   | the |   | combination |   | wheel |   | to |   | match |   | the |   | protrusion |   | of |   | the |   | lock |   | beam |   | to |   | unlock | . |   | With |   | the |   | development |   | of |   | the |   | intelligent |   | era, |   | combination |   | locks |   | have |   | become |   | more |   | and |   | more |   | intelligent, |   | and |   | fingerprint, |   | electronic, |   | and |   | card | - | swipe |   | combination |   | locks |   | have |   | appeared, |   | which |   | are |   | often |   | used |   | in |   | smart |   | access |   | control, |   | luggage, |   | bank |   | asset |   | insurance |   | management, |   | etc | . |   | But |   | the |   | main |   | form |   | is |   | still |   | to |   | enter |   | the |   | password |   | and |   | unlock | . | We |   | can |   | also |   | use |   | an |   | AI |   | vision |   | module |   | with |   | building |   | blocks |   | and |   | motors |   | to |   | make |   | a |   | combination |   | lock | ."
+    },
+    {
+      "slide": 6,
+      "text": "New Knowledge | 02"
+    },
+    {
+      "slide": 7,
+      "text": "Dial type combination lock | This |   | is |   | a |   | fully |   | mechanical |   | combination |   | lock |   | with |   | a |   | large |   | number |   | of |   | keys |   | and |   | high |   | reliability |   | without |   | electronic |   | devices | . |   | It |   | is |   | mainly |   | used |   | in |   | file |   | cabinets, |   | suitcases, |   | etc | . | Features | : | ( | 1 | ) |   | No |   | keys, |   | no |   | power |   | supply, |   | no |   | batteries, |   | no |   | pollutants | . | ( | 2 | ) |   | Fully |   | mechanical |   | structure, |   | can |   | withstand |   | a |   | very |   | harsh |   | external |   | environment |   | and |   | has |   | a |   | wide |   | range |   | of |   | applications | . | ( | 3 | ) |   | Simple |   | operation, |   | relatively |   | short |   | unlocking |   | time, |   | the |   | average |   | unlocking |   | time |   | is |   | about |   | 15 |   | seconds | . | ( | 4 | ) |   | The |   | actual |   | password |   | volume |   | is |   | large, |   | the |   | confidentiality |   | performance |   | is |   | high, |   | and |   | the |   | probability |   | of |   | trial |   | unlocking |   | is |   | almost |   | zero | ."
+    },
+    {
+      "slide": 8,
+      "text": "Electronic combination lock | An |   | electronic |   | password |   | lock |   | is |   | an |   | electronic |   | product |   | that |   | can |   | unlock |   | or |   | lock |   | a |   | door |   | by |   | inputting |   | a |   | password | . |   | It |   | is |   | mainly |   | used |   | in |   | safes, |   | smart |   | access |   | control |   | systems, |   | etc | . |   | Features | : | ( | 1 | ) |   | Good |   | confidentiality, |   | large |   | number |   | of |   | codes, |   | much |   | larger |   | than |   | pin |   | locks | . |   | The |   | success |   | rate |   | of |   | random |   | unlocking |   | is |   | almost |   | zero | . | ( | 2 | ) |   | Password |   | changeability | . |   | Users |   | can |   | change |   | passwords |   | frequently |   | to |   | prevent |   | password |   | theft, |   | and |   | also |   | to |   | avoid |   | the |   | lock's |   | security |   | level |   | from |   | decreasing |   | due |   | to |   | personnel |   | changes | . | ( | 3 | ) |   | Error |   | code |   | input |   | protection | . |   | When |   | the |   | password |   | is |   | entered |   | incorrectly |   | multiple |   | times, |   | the |   | alarm |   | system |   | automatically |   | starts | . | ( | 4 | ) |   | Electronic |   | password |   | locks |   | are |   | easy |   | to |   | operate |   | and |   | can |   | be |   | learned |   | in |   | one |   | go | ."
+    },
+    {
+      "slide": 9,
+      "text": "Practice | 03"
+    },
+    {
+      "slide": 10,
+      "text": "Effect Demonstration"
+    },
+    {
+      "slide": 11,
+      "text": "Design and assembly | According |   | to |   | the |   | building |   | manual, |   | build |   | a |   | combination |   | lock | . |   | We |   | need |   | a |   | controller |   | to |   | control |   | the |   | motor |   | rotation |   | and |   | call |   | the |   | AI |   | ௙௙YLVLRQ |   | module | . |   | Connect |   | the |   | AI |   | ௙௙YLVLRQ |   | module |   | to |   | the |   | P | 8 |   | port |   | of |   | the |   | controller |   | and |   | the |   | motor |   | to |   | the |   | M | 1 |   | port | ."
+    },
+    {
+      "slide": 12,
+      "text": "Project tasks"
+    },
+    {
+      "slide": 13,
+      "text": "Programming | logo | 1 | . |   | Define |   | the |   | password | . | First, |   | set |   | the |   | AI |   | ௙௙YLVLRQ |   | module |   | to |   | enter |   | the |   | tag |   | code |   | recognition |   | mode, |   | then |   | set |   | the |   | two | - | digit |   | password |   | to |   | 2 | , |   | 1 | . |   | Then |   | set |   | the |   | order |   | to |   | 0 | ."
+    },
+    {
+      "slide": 14,
+      "text": "Programming | logo | 2 | . |   | Store |   | the |   | input |   | password |   | and |   | define |   | the |   | input |   | order | . | If |   | sequence |   | = |   | 2 |   | is |   | not |   | established, |   | wait |   | for |   | the |   | tag |   | code |   | identification |   | ID |   | = |   | 0 |   | to |   | be |   | established |   | and |   | execute |   | the |   | \"Enter |   | password |   | and |   | define |   | order\" |   | sub | - | function | . |   | At |   | this |   | time, |   | the |   | input |   | tag |   | code |   | can |   | be |   | stored |   | as |   | a |   | password, |   | and |   | the |   | ³RUGHU\u0005 |   | value |   | is |   | increased |   | by |   | 1 | , |   | indicating |   | how |   | many |   | times |   | the |   | password |   | has |   | been |   | entered | ."
+    },
+    {
+      "slide": 15,
+      "text": "Programming | logo | The |   | sub | - | function |   | is |   | shown |   | in |   | the |   | figure | . |   | If |   | \"order\" |   | = |   | 0 | , |   | the |   | label |   | code |   | entered |   | for |   | the |   | first |   | time |   | will |   | be |   | stored | ; |   | if |   | \"order\" |   | = |   | 1 | , |   | the |   | label |   | code |   | entered |   | for |   | the |   | second |   | time |   | will |   | be |   | stored | . |   | After |   | pressing |   | the |   | left |   | button, |   | the |   | \"order\" |   | will |   | increase |   | by |   | 1 | ."
+    },
+    {
+      "slide": 16,
+      "text": "Programming | logo | 3 | . |   | Execute |   | the |   | alarm |   | or |   | unlock |   | command | . | If |   | \"order\" |   | = |   | 2 | , |   | then |   | execute |   | the |   | \"unlock |   | or |   | alarm\" |   | sub | - | function | ."
+    },
+    {
+      "slide": 17,
+      "text": "Programming | logo | The |   | sub | - | function |   | is |   | as |   | follows | . |   | If |   | the |   | passwords |   | entered |   | twice |   | are |   | the |   | same |   | as |   | the |   | initial |   | password, |   | the |   | password |   | lock |   | is |   | turned |   | on | . |   | Press |   | the |   | right |   | button |   | to |   | turn |   | off |   | the |   | password |   | lock, |   | otherwise, |   | the |   | password |   | lock |   | will |   | alarm | ."
+    },
+    {
+      "slide": 18,
+      "text": "Programming | logo | 4 | . |   | Clear |   | data | . | After |   | executing |   | the |   | sub | - | function, |   | set |   | \"Enter |   | password |   | 1 | \", |   | \"Enter |   | password |   | 2 | \", |   | and |   | ³RUGHU\u0005 |   | to |   | 0 | . |   | At |   | the |   | same |   | time, |   | the |   | controller |   | screen |   | is |   | cleared | ."
+    },
+    {
+      "slide": 19,
+      "text": "Programming | logo | 5.The overall program is  | shown in the figure."
+    },
+    {
+      "slide": 20,
+      "text": "Expansion | 04"
+    },
+    {
+      "slide": 21,
+      "text": "Expansion task | Use |   | the |   | tag |   | code |   | recognition |   | mode |   | to |   | set |   | the |   | initial |   | password, |   | then |   | use |   | the |   | left |   | and |   | right |   | buttons |   | to |   | enter |   | the |   | password | . |   | If |   | the |   | password |   | is |   | correct, |   | the |   | combination |   | lock |   | will |   | be |   | opened | ."
+    },
+    {
+      "slide": 22,
+      "text": "Further Reading | Locks |   | are |   | not |   | only |   | daily |   | necessities |   | for |   | human |   | beings, |   | but |   | also |   | cultural |   | (folk) |   | objects | . |   | They |   | represent |   | the |   | culture |   | of |   | a |   | country |   | and |   | a |   | nation |   | in |   | different |   | historical |   | periods | . |   | Chinese |   | locks |   | have |   | lasted |   | for |   | thousands |   | of |   | years, |   | and |   | they |   | were |   | born |   | almost |   | at |   | the |   | same |   | time |   | as |   | human |   | private |   | ownership | . |   | At |   | first, |   | humans |   | simply |   | wrapped |   | their |   | personal |   | valuables |   | with |   | animal |   | skins, |   | tied |   | them |   | tightly |   | with |   | ropes, |   | and |   | finally |   | tied |   | a |   | special |   | knot |   | at |   | the |   | opening | . |   | This |   | tightly |   | tied |   | knot |   | can |   | only |   | be |   | picked |   | open |   | with |   | a |   | tool |   | called |   | \" | cuo | \" | . |   | Cuo | , |   | also |   | known |   | as |   | \"xiao\", |   | \"knife\", |   | and |   | \"screwdriver\" | . |   | It |   | is |   | made |   | of |   | animal |   | teeth |   | or |   | bones, |   | and |   | is |   | shaped |   | like |   | a |   | sickle | - | shaped |   | hook | . |   | In |   | fact, |   | the |   | knot |   | is |   | the |   | earliest |   | lock, |   | and |   | \" | cuo | \" |   | is |   | the |   | earliest |   | key | . |   | This |   | is |   | the |   | prototype |   | of |   | my |   | country's |   | locks | . |   | This |   | type |   | of |   | lock |   | was |   | used |   | from |   | the |   | Shang |   | Dynasty |   | to |   | the |   | Han |   | Dynasty, |   | and |   | later |   | it |   | was |   | made |   | of |   | jade |   | and |   | evolved |   | into |   | an |   | ornament |   | on |   | aristocratic |   | clothing | ."
+    },
+    {
+      "slide": 23,
+      "text": "Thanks!"
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

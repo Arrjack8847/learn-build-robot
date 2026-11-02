@@ -1,0 +1,150 @@
+{
+  "projectId": "level-6-high-temperature-alarm",
+  "sourcePath": "public/Level 6/Learning/Sensor Automation/High Temperature Alarm/29. High Temperature Alarm-Teaching Slides.pdf",
+  "sourceBlobSha": "bc8e18b6acd224f5ecfacca71dac51e3c4d75d60",
+  "sourceBytes": 926817,
+  "pageCount": 23,
+  "extractionMethod": "Decode GitHub contents/base64; decompress PDF Flate streams; collect PDF text operators by numbered page; no image interpretation",
+  "visualReviewComplete": false,
+  "questionsValidated": false,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 29. | High Temperature Alarm | edu.zmrobo.com | XXX",
+      "textCharacters": 52,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | Learning Objectives | Possible Difficulties | 1. | Learn | about | the | temperature | sensing | function | of | the | temperature | and | humidity | sensor | . | 2. | Send | an | alarm | through | the | alarm | . | 1. | The | alarm | will | become | sharper | as | the | temperature | rises | . | 2. | Draw | a | high | temperature | red | border | .",
+      "textCharacters": 284,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information",
+      "textCharacters": 22,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 4,
+      "text": "Context Import | High | temperature | warning, | that | is, | a | high | temperature | warning | issued | when | the | highest | temperature | is | expected | to | be | higher | than | 35 | ° | C | in | a | certain | period | of | time | in | the | future | . | It | is | to | arouse | people's | vigilance | and | do | a | good | job | of | heatstroke | prevention | and | cooling | in | time | .",
+      "textCharacters": 293,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 5,
+      "text": "Context Import | There | are | some | differences | in | the | heat | warnings | issued | by | each | country, | but | they | can | be | roughly | divided | into | the | following | three | levels | : | (1) High temperature yellow warning signal | Standard | : | The | daily | maximum | temperature | will | be | above | 35 | ° | C | for | three | consecutive | days | . | ( | 2 | ) | High | temperature | orange | warning | signal | Standard | : | The | highest | temperature | will | rise | above | 37 | ° | C | within | 24 | hours | . | ( | 3 | ) | High | temperature | red | warning | signal | Standard | : | The | highest | temperature | will | rise | above | 40 | ° | C | within | 24 | hours | .",
+      "textCharacters": 525,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 6,
+      "text": "Context Import | The | temperature | alarm | is | an | instrument | that | uses | a | temperature | sensor | to | detect | the | temperature | of | the | outside | world | in | real | time | . | When | the | temperature | exceeds | or | falls | below | a | critical | value | set | by | the | user, | an | alarm | is | sent | to | the | outside | world | .",
+      "textCharacters": 264,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 7,
+      "text": "Knowledge | Introduction",
+      "textCharacters": 22,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 8,
+      "text": "New Knowledge | | | Temperature and Humidity Sensor | The | temperature | and | humidity | sensor | is | a | digital | sensor | used | to | detect | temperature | and | humidity | . | The | temperature | and | humidity | detection | modules | are | integrated | in | a | small | cube | module, | which | can | work | stably | for | a | long | time | . | The | temperature | detection | range | is | - | 40 | ° | C | to | 125 | ° | C | ; | the | humidity | detection | range | is | 0 | to | 100 | % | RH | .",
+      "textCharacters": 376,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 9,
+      "text": "New Knowledge | | | Temperature and Humidity Sensor | There | is | an | integrated | module | at | the | front | end | of | the | temperature | and | humidity | sensor, | which | has | integrated | heat | - | sensitive | and | humidity | - | sensitive | elements | . | The | temperature | and | humidity | signals | can | be | collected, | and | after | being | processed | by | the | built | - | in | circuit, | they | can | be | converted | into | current | signals | or | voltage | signals | that | are | linearly | related | to | temperature | and | humidity | for | output | . | Temperature and | Humidity Sensor | Integrated modules | Sensor panel cover",
+      "textCharacters": 515,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 10,
+      "text": "New Knowledge | | | Temperature and Humidity Sensor | Read the temperature or humidity detected by the temperature and humidity sensor | Parameter value: 1 | - | 8, sensor connection port | Parameter value: 0 | - | 1, respectively temperature and humidity",
+      "textCharacters": 237,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 11,
+      "text": "Practice",
+      "textCharacters": 8,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 12,
+      "text": "New Knowledge | Assemble a temperature alarm according to | the building manual, which beeps when the | temperature changes. | Temperature and | Humidity Sensor | Temperature | Alarm",
+      "textCharacters": 168,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 13,
+      "text": "Practice | | | Flow Chart | The | controller | emits | beeps | according | to | the | value | of | the | temperature | sensor, | the | higher | the | temperature, | the | faster | the | beep | . | In | addition | to | beeping, | a | red | border | can | also | be | displayed | on | the | screen | to | indicate | the | danger | of | high | temperature | . | This | part | can | be | included | in | the | process | of | issuing | an | alarm | .",
+      "textCharacters": 329,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 14,
+      "text": "Practice | | | Programming | 01 | logo | Initial | settings | After | setting | the | font | size, | activate | the | temperature | and | humidity | sensor | .",
+      "textCharacters": 123,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 15,
+      "text": "Practice | | | Programming | logo | 02 | Display the value | Read data and display temperature value.",
+      "textCharacters": 89,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 16,
+      "text": "Practice | | | Programming | logo | 03 | Alarm | function | Use | self | - | made | building | blocks | to | create | an | alarm | function, | and | control | the | on | - | off | interval | of | the | buzzer | through | the | time | parameter | .",
+      "textCharacters": 183,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 17,
+      "text": "Practice | | | Programming | logo | 04 | Sound | the | alarm | The | alarm | will | become | rapid | as | the | temperature | increases | . | Here, | the | temperature | is | used | as | the | denominator | to | realize | the | function | that | the | temperature | rises | and | the | alarm | becomes | more | rapid | . | Here | we | assume | that | the | temperature | is | high | when | it | reaches | 31 | ° | C | . | That | is | : | at | 31 | ° | C, | switch | the | buzzer | switch | every | 0 | . | 1 | seconds | .",
+      "textCharacters": 377,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 18,
+      "text": "Practice | | | Programming | logo | 05 | Integrate programs | Integrate the program according to the program flowchart.",
+      "textCharacters": 107,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 19,
+      "text": "Practice | | | Programming | logo",
+      "textCharacters": 27,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 20,
+      "text": "Results",
+      "textCharacters": 7,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 21,
+      "text": "Program Optimization | This | class | implements | the | function | of | changing | the | beep | sound | according | to | the | change | of | the | temperature | value | . | Next, | modify | the | program | so | that | the | beeping | alarm | is | at | a | high | temperature, | and | the | frequency | of | the | beeping | alarm | is | reduced | . | Requirement | : | Change | the | formula | of | the | buzzer | alarm, | the | higher | the | temperature, | the | slower | the | buzzer | will | be | .",
+      "textCharacters": 376,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 22,
+      "text": "Further Reading | High | temperature | warning | signals | are | divided | into | three | levels | in | China, | namely | yellow, | orange | and | red | . | Corresponding | to | the | day's | maximum | temperature | rose | to | 35 | , | 37 | , | 40 | , | respectively | . | When | there | is | a | red | high | temperature | warning, | we | can | refer | to | the | following | defense | guidelines | : | 1 | . | Do | a | good | job | of | heatstroke | prevention | and | sun | protection | when | going | out | ; | try | to | avoid | outdoor | activities | . | 2 | . | Stop | outdoor | open | - | air | operations | except | for | special | industries | . | 3 | . | Keep | food | fresh | and | prevent | bacterial | food | poisoning | . | 4 | . | The | government | and | relevant | departments | shall | do | a | good | job | in | dealing | with | high | temperature | and | fire | prevention | in | accordance | with | the | plan | .",
+      "textCharacters": 692,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 23,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER:",
+      "textCharacters": 32,
+      "visualReviewRequired": true
+    }
+  ]
+}

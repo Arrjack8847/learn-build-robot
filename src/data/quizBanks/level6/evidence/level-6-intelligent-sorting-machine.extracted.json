@@ -1,0 +1,115 @@
+{
+  "projectId": "level-6-intelligent-sorting-machine",
+  "sourcePath": "public/Level 6/Learning/Sensor Automation/Intelligent Sorting Machine/24.Intelligent Sorting Machine-Slides.pdf",
+  "wixFileId": "7fc4ca_22e7f48c5cf04bddb4aafbcfce53c121.pdf",
+  "sourceBytes": 1400190,
+  "pageCount": 26,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Intelligent Sorting Machine | Lesson 24"
+    },
+    {
+      "slide": 2,
+      "text": "Key points from this lesson: | 1. Understand the principles of image learning | \u0015\u0011\u0003/HDUQ\u0003WR\u0003XVH\u0003WKH\u0003LPDJH\u0003OHDUQLQJ\u0003IXQFWLRQ\u0003RI\u0003WKH\u0003$,\u0003௙௙YLVLRQ\u0003PRGXOH | Possible difficulties from this lesson: | 1. |   | Build an intelligent sorting machine model"
+    },
+    {
+      "slide": 3,
+      "text": "CONTENTS | 1 | Introduction  | 2 | New Knowledge | 3 | Practice | 4 | Expansion "
+    },
+    {
+      "slide": 4,
+      "text": "Introduction | 01"
+    },
+    {
+      "slide": 5,
+      "text": "Introduction | Sorting |   | machines |   | are |   | machines |   | used |   | to |   | place |   | different |   | objects |   | separately | . |   | They |   | are |   | widely |   | used |   | in |   | factory |   | production, |   | product |   | packaging, |   | express |   | delivery |   | and |   | other |   | scenarios |   | due |   | to |   | their |   | fast |   | sorting |   | speed, |   | high |   | efficiency, |   | stable |   | sorting |   | and |   | smooth |   | operation | . |   | With |   | the |   | development |   | of |   | intelligent |   | machinery, |   | sorting |   | machines |   | have |   | become |   | more |   | intelligent | . |   | Relying |   | on |   | smart |   | cameras, |   | they |   | can |   | match |   | product |   | appearance, |   | weight, |   | or |   | other |   | information |   | with |   | the |   | system's |   | internal |   | information |   | to |   | complete |   | sorting |   | products | ."
+    },
+    {
+      "slide": 6,
+      "text": "New Knowledge | 02"
+    },
+    {
+      "slide": 7,
+      "text": "The principle of image learning | Image |   | classification |   | is |   | an |   | image |   | processing |   | method |   | that |   | distinguishes |   | different |   | categories |   | of |   | objects |   | based |   | on |   | the |   | different |   | features |   | reflected |   | in |   | the |   | image |   | information | . |   | It |   | uses |   | computers |   | to |   | perform |   | quantitative |   | analysis |   | on |   | images |   | and |   | classify |   | the |   | image |   | or |   | each |   | pixel |   | or |   | area |   | in |   | the |   | image |   | into |   | one |   | of |   | several |   | categories |   | to |   | replace |   | human |   | visual |   | interpretation | . |   | Image |   | classification |   | mainly |   | includes |   | classification |   | based |   | on |   | texture, |   | shape, |   | color, |   | and |   | other |   | features | . | Get image (enter  | information) | Get |   | samples  | (make training  | collections) | Feature  | extraction (size,  | color, etc.) | Store in database,  | assign ID value | Feature  | matching | Output  | ID value | Contrast"
+    },
+    {
+      "slide": 8,
+      "text": "Steps of Image Learning | 1. Choose three objects as learning objects and take a photo of each of them. | Learning ID 1 | Learning ID 2 | Learning ID 3"
+    },
+    {
+      "slide": 9,
+      "text": "Steps of Image Learning | \u0015\u0011\u00037DNH\u0003DQRWKHU\u0003\u001c\u0003SKRWRV\u0003DV\u0003D\u0003WUDLQLQJ\u0003FROOHFWLRQ\u0003WR\u0003HQDEOH\u0003WKH\u0003$,\u0003௙௙YLVLRQ\u0003PRGXOH\u0003WR\u0003 | train and learn."
+    },
+    {
+      "slide": 10,
+      "text": "Steps of Image Learning | 3. The effect after learning is completed is shown in the figure."
+    },
+    {
+      "slide": 11,
+      "text": "Coding block  | ± |   | image classification ( | ID | ) | When |   | there |   | is |   | a |   | learned |   | image |   | in |   | the |   | screen, |   | the |   | corresponding |   | ID |   | is |   | returned | . |   | When |   | the |   | program |   | is |   | running, |   | you |   | need |   | to |   | turn |   | the |   | dial |   | of |   | the |   | AI |   | ௙௙YLVLRQ |   | module |   | to |   | shoot |   | and |   | learn |   | the |   | color | . | Description | : | Return |   | value | : |   | 0 | ~ | 4 | , |   | the |   | return |   | value |   | is |   | 0 |   | when |   | the |   | image |   | is |   | not |   | recognized |   | or |   | there |   | is |   | no |   | learning |   | image"
+    },
+    {
+      "slide": 12,
+      "text": "Practice | 03"
+    },
+    {
+      "slide": 13,
+      "text": "Effect Demonstration"
+    },
+    {
+      "slide": 14,
+      "text": "Design and assembly | According |   | to |   | the |   | building |   | manual, |   | build |   | a |   | intelligent |   | sorting |   | machine | . |   | We |   | need |   | a |   | controller |   | to |   | control |   | the |   | motor |   | rotation |   | and |   | call |   | the |   | AI |   | ௙௙YLVLRQ |   | module | . |   | Connect |   | the |   | AI |   | ௙௙YLVLRQ |   | module |   | to |   | the |   | P | 8 |   | port |   | of |   | the |   | controller, |   | and |   | connect |   | the |   | motor |   | to |   | the |   | M | 1 |   | and |   | M | 3 |   | ports | ."
+    },
+    {
+      "slide": 15,
+      "text": "Project tasks"
+    },
+    {
+      "slide": 16,
+      "text": "Programming | logo | 1. | Create a new sub | - | function. | Create two new functions,  | corresponding to different  | kinetic energy, so that they can  | be called and executed later."
+    },
+    {
+      "slide": 17,
+      "text": "Programming | logo | 2. Set the detection mode. | 6HW\u0003WKH\u0003$,\u0003௙௙YLVLRQ\u0003PRGXOH\u0003WR\u0003HQWHU\u0003WKH\u0003 | \"image classification learning\" mode."
+    },
+    {
+      "slide": 18,
+      "text": "Programming | logo | 3 | . |   | Detection |   | results |   | of |   | image |   | classification |   | ID | . | In |   | repeated |   | execution, |   | set |   | variable |   | \"X\" |   | to |   | AI |   | image |   | classification |   | ID | ."
+    },
+    {
+      "slide": 19,
+      "text": "Programming | logo | 4 | . |   | Grab |   | the |   | object |   | at |   | a |   | fixed |   | point | . | If |   | \"X\" |   | > |   | 0 |   | and |   | the |   | M | 1 |   | motor |   | encoder |   | value |    | > |   | - | 120 | , |   | the |   | number |   | X |   | will |   | be |   | displayed |   | on |   | the |   | second |   | line |   | of |   | the |   | screen |   | and |   | the |   | \"grab |   | at |   | point\" |   | sub | - | function |   | will |   | be |   | called | . |   | At |   | this |   | time, |   | the |   | sorting |   | mechanism |   | will |   | grab |   | the |   | object |   | at |   | a |   | fixed |   | point | ."
+    },
+    {
+      "slide": 20,
+      "text": "Programming | 5 | . |   | Move |   | to |   | the |   | fixed |   | point | . | After |   | grabbing |   | the |   | object, |   | the |   | motor |   | M | 1 |   | rotates |   | at |   | a |   | speed |   | of |   | 20 |   | until |   | the |   | M | 1 |   | encoder |   | value |   | = |   | ( | - | 120 | - | (X | - | 40 | )) | . |   | At |   | this |   | time, |   | the |   | sorting |   | mechanism |   | places |   | the |   | object |   | at |   | the |   | specified |   | position |   | according |   | to |   | the |   | ID |   | value |   | of |   | the |   | object | ."
+    },
+    {
+      "slide": 21,
+      "text": "Programming | logo | 6 | . |   | Place |   | the |   | object |   | at |   | the |   | designated |   | location | . | After |   | reaching |   | the |   | designated |   | location, |   | the |   | motor |   | stops |   | and |   | the |   | sorting |   | mechanism |   | will |   | put |   | the |   | object |   | down | ."
+    },
+    {
+      "slide": 22,
+      "text": "Programming | logo | 7. The overall program is shown  | in the figure."
+    },
+    {
+      "slide": 23,
+      "text": "Expansion | 04"
+    },
+    {
+      "slide": 24,
+      "text": "Expansion task | Set the initial position of the sorter so that it  | automatically returns to its original position after  | completing sorting each time."
+    },
+    {
+      "slide": 25,
+      "text": "Further Reading | Max | - | AI |   | is |   | an |   | artificial |   | intelligence |   | garbage |   | sorting |   | robot |   | that |   | can |   | be |   | compared |   | with |   | manual |   | operation | . |   | It |   | uses |   | deep |   | learning |   | technology, |   | multi | - | layer |   | neural |   | networks |   | and |   | visual |   | systems |   | to |   | identify |   | items, |   | and |   | can |   | sort |   | various |   | types |   | of |   | recyclable |   | items, |   | thus |   | avoiding |   | direct |   | contact |   | between |   | people |   | and |   | waste | . | Max | - | AI |   | consists |   | of |   | a |   | visual |   | system, |   | artificial |   | intelligence, |   | and |   | a |   | sorting |   | system | . |   | The |   | visual |   | system |   | is |   | used |   | to |   | obtain |   | visual |   | information |   | of |   | items | . |   | Even |   | if |   | garbage |   | passes |   | through |   | the |   | item |   | scanning |   | window |   | quickly, |   | it |   | can |   | be |   | recorded |   | by |   | the |   | visual |   | system |   | without |   | error | ; |   | after |   | obtaining |   | visual |   | information, |   | Max | - | AI |   | uses |   | artificial |   | intelligence |   | to |   | identify |   | items |   | according |   | to |   | their |   | size, |   | value |   | and |   | location |   | to |   | determine |   | the |   | sorting |   | priority |   | and |   | ensure |   | the |   | best |   | results | ; |   | after |   | the |   | judgment |   | is |   | completed, |   | the |   | robot |   | can |   | sort | ."
+    },
+    {
+      "slide": 26,
+      "text": "Thanks!"
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

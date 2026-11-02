@@ -1,0 +1,2302 @@
+{
+  "schemaVersion": 1,
+  "description": "Curriculum PDF source locator index. Source URLs are registered, NOT content-reviewed. Not a published question bank; audit slide text and figures before adding quiz.",
+  "sources": [
+    {
+      "projectId": "acceleration-car",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Autonomous Navigation & Ranging/Acceleration car/Acceleration car_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_21dca251e60f4144838f25e681b67102.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "athlete",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Foundational Robots/Athlete.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b594bd4936a84d8c8b70327d31365edc.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "basic-programming",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Foundational Robots/Basic programming.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_07ce76e66b30459cbf087ac5789cb554.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "big-head-robot",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Characters & Structures/Big head robot/Big head robot_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_98742f28d2e046c3b2da965a7624a7b5.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "bird",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Characters & Structures/Bird/Bird_PowerPoint-R.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_44cbf7cd33ff4cb5a74b3155ad84ed74.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "blinking-robot",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Illumination & Signals/Blinking robot/Blinking robot_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfe32fdc4f704433802e5092db2fbec1.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "car",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Manipulators/Car.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_00a19bf6521a464e9391fecc08e74bbd.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "clock",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Display & Movement/Clock/Clock_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4a207de112e94ae6b95b1ab3b13aa101.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "color-changing-light",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Illumination & Signals/Color-changing Light/02.Color- changing Light -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ec88b0a633b64cc1a9d73ac524e09575.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "corridor-lamp",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Illumination & Signals/Corridor lamp/Corridor lamp_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9ca593a218b04ba8a6a4e967d43236f5.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "crawl-slowly-basic",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Mechanisms & Simulators/Crawl Slowly/9. Crawl Slowly - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_50aee01dd7734999bfcaa061d2365342.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "crawl-slowly-optimized",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Mechanisms & Simulators/Crawl Slowly/9. Crawl Slowly - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_50aee01dd7734999bfcaa061d2365342.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "dart",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Interactive Systems/Dart/Dart_PowerPoint-R.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0d8d326e62aa483fa426e9143ccbef56.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "drawing-board",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Display & Movement/Drawing board/Drawing board_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_53397c183cdd467da050badd2d78eed0.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "drummer-robot",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Foundational Robots/Drummer robot.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_58d0f63b8ea94767b8e52efefef4b3df.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "dynamic-screen",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Manipulators/Dynamic screen.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a6a18f9b74c3412f8e80ab15e4ba3a37.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "ferocious-snake",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Biomimicry/Ferocious snake.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_48fdae39b8d145dcb25ac44ae3ce1786.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "first-robot-model",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Characters & Structures/First Robot Model/First Robot Model.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1ff7ed20dae948ab8e462ec3e291fce6.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "funny-cat",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Biomimicry/Funny cat.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_80503d8c691b4759b1ccee091a59f67f.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "gyro-transmitter",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Sensor-Focused Robots/Gyro transmitter/Gyro transmitter_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ebe5803b5087480fbcf5a7b371b69b0f.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "hello-world",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Display & Movement/Hello World/01.Hello World-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2bdef8378cac423981c404dd96d75a6e.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "help-light",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Illumination & Signals/Help light/Help light_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_cac8d105cb7644538c6813806335433f.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "house",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Characters & Structures/House/House_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_df6b508d0bef461ea1655147467579d7.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "lighthouse",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Illumination & Signals/Lighthouse/Lighthouse_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e509a50adda047479dc981985af60020.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "little-stars",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Illumination & Signals/Little stars/Little stars_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_feed20ada95f4224a3576aa0ca97be7c.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "mechanical-arm",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Mechanisms & Simulators/Mechanical arm/Mechanical arm_PowerPoint-R.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7f4b8905834d41568d00a0f82e603856.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "mechanical-masks",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Display & Movement/Mechanical masks/Mechanical masks_PowerPoint-R.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_38957b1ef87347209411564c5e5d8a85.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "motorcycle",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Vehicles & Complex Movers/Motorcycle/Motorcycle_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_76bda2cff165483fb83da0a5dad40308.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "pendulum-ride",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Manipulators/Pendulum ride.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_669b33f92ae0491885188e1433984025.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "primitive-robot",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Display & Movement/Primitive robot/Primitive robot_PowerPoint-.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b90344226226405db1e12060eee58539.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "pull-back-car",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Vehicles & Complex Movers/Pull back car/Pull back car_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2463e3dffdfd4f43ba97a313c57aa3f5.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "responder",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Interactive Systems/Responder/Responder_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0a9d0d3c701746b1bb14306edf00ceea.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "rex-robot",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Characters & Structures/REX robot/REX robot_PowerPoint-R.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2cdc7f311ab1485aae9d42ae81401b06.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "rotating-flying-chair",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Manipulators/Rotating flying chair.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f26afb12bf2548738b128dfac60164e0.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "sailboat",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Foundational Robots/Sailboat.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7471c9bce32c44fe906be37e39625a40.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "shock-absorber",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Mechanisms & Simulators/Shock absorber/Shock absorber_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_37685f0c983d4cdcbaaec43dea98eb9c.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "shy-penguin",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Biomimicry/Shy penguin.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_653e1ef501004956a6683fb1636d5029.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "skating",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Manipulators/Skating.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_06a3f7ab21f8440985d9d5c912e88b1c.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "sled",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Characters & Structures/Sled/Sled_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_72cf22365c274587b530f2aaf6ae085d.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "sled-dog",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Biomimicry/Sled dog.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dd34f324fd8140f482ba11c76d828eb2.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "spider",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Characters & Structures/Spider/Spider_PowerPoint- R.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6183b86c85224ebab3ac655949e5469a.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "spongebob",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Characters & Structures/SpongeBob/SpongeBob_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dccdf0c2b09c44809adf1df9b76e721d.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "the-lawn-mower",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Foundational Robots/The lawn mower.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7e15ea6a3673496b8f182c9dbafa3cfc.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "the-windmill-kingdom",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Manipulators/The windmill kingdom.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_56cb7fa26f484dfeaac3bd5526e722e6.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "traffic-light-signal",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Illumination & Signals/Traffic light Signal/Traffic light_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c98351e1248148478c1d03b0cb09b4c4.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "wali-robot",
+      "level": 1,
+      "sourcePath": "public/Level 1/Learning/Characters & Structures/Wali robot/Wali robot_PowerPoint-R.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f4b25249ee83427cbbb4ac04e41c0f40.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-animal-trap",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Mechanisms and Concepts/Animal trap.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8dd2e1f9e20141889ba4ee774b480a4f.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-automatic-window",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Machines & Mechanisms/Automatic window.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5cf1eae5b6054ea1893a067d05b9fe32.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-axe-robot",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Action-Oriented/Axe robot/Axe robot_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f8e198a690d14e289d7a4067ca9204f3.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-battery-robot",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Programming & Precise Control/Battery robot/Battery robot_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4f66a3a542034ae48d2bcc7117311cf3.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-batting-robot",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Action-Oriented/Batting robot/Batting robot_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0a260a34167449918ed7b106c5a78a8d.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-bee",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Biomimicry/Bee.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_632fa76d8704421f819fd4578aef9b08.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-bridge",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Mechanisms & Simulators/Bridge/Bridge_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_81ff4cfdd10c43d280362071d95fc13d.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-car-steering",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Manipulators/Car Steering.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dd9ea1a30b084afe8494ffdde84d360a.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-chimpanzees",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Biomimicry/Chimpanzees.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9fc8bfe383ec4f30ba77a05e6fedfc48.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-cliff-walk",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Manipulators/Cliff walk.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0def8dc383184a54ac9bfa22b184da4a.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-door",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Mechanisms & Simulators/Door/Door_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b8d97e8a7662404d9c526348a6545d4d.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-double-beam-crane",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Mechanisms & Simulators/Double Beam Crane/Double beam crane_Building_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f2ced3ce01394da2b7906fd9c2805d34.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-fan-robot",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Action-Oriented/Fan robot/Fan robot_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_80f9f0ee7b354dfe82a6138e3e7355f7.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-ferris-wheel",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Manipulators/Ferris wheel.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f93db4c7c7d6467d88768c9e3bff81b4.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-gearbox",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Mechanisms & Simulators/Gearbox/Gearbox_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6e4bc7f4a2384ac9bfba8ecfb66f09ab.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-hammer-robot",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Foundational Robots/Hammer robot.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b3dcd4058b20437a828e62c37cb3020b.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-hand-crank",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Mechanisms & Simulators/Hand crank/Hand crank_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e72cdec0b23f4a4089575b42155ce16d.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-harp",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Sound & Voice Interaction/Harp/Harp_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f2a590155cce418ea67a0c1f1b8dd026.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-headlights",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Mechanisms and Concepts/Headlights.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bf535766b2994ff087c2156d8a4b4156.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-helicopter",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Vehicles & Complex Movers/Helicopter/Helicopter_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7e48dc2244714aa5aa136a0643a3779c.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-jumping-machine",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Interactive Mechanisms/Jumping machine/Jumping machine_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_561df5c4c7bf4bdcb187aeb050dff45f.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-lifting-door",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Vehicles & Complex Movers/Lifting door/Lifting door_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e08b680d34064047b1b8a7fb94cfe882.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-lucky-turntable",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Foundational Robots/Lucky turntable.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7a9b27ddfd694c189f95ab9505c3457e.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-manual-flashlight",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Illumination & Signals/Manual Flashlight/Flashlight_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1dac99957fc342d68434bac2c07d3ece.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-mechanical-dog",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Characters & Structures/Mechanical dog/Mechanical dog_PowerPoint-R.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_fb0e93f5161f4636b565c3997b8db298.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-mechanisms-simulators-crane",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Mechanisms & Simulators/Crane/Crane_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b51afa7af9714ddebfad36939253413b.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-pirate-ship",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Action-Oriented/Pirate ship/Pirate ship__Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a14e854dead64b049f0fdb1e53d9fba4.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-push-ups",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Action-Oriented/Push ups/Push ups_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7d08867d572947aea78a9293411cb67e.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-robot-war",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Machines & Mechanisms/Robot war.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d51adeb278944aa9ade49bef46bce810.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-rotating-flying-chair",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Action-Oriented/Rotating flying chair/Rotating flying chair_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1f537dea73ab4315a0be4788223b2f41.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-round-trip-transportation",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Manipulators/Round-trip transportation.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ea76ba2d36c043678307358c7b384cd4.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-scaling-ladder",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Characters & Structures/Scaling ladder/Scaling ladder_PowerPoint -R.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_75884d1b929e4a76a9c8d83fbd208cbb.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-see-saw-v1",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Interactive Systems/See Saw/Balance_PowerPoint-R.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_45157e981ac644898195c1233255342a.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-see-saw-v2",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Interactive Systems/See Saw/Balance_PowerPoint-R.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_45157e981ac644898195c1233255342a.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-shift-gears",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Manipulators/Shift gears.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_efab1ff97e7e435689c02d112c10ec99.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-spinning-bike",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Mechanisms & Simulators/Spinning bike/Spinning bike_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b00ad5008b97429a9b65b398281c70e2.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-swing",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Mechanisms & Simulators/Swing/Swing_powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_012875f2733544f5af007f426fc6b18d.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-teeterboard",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Vehicles & Complex Movers/Teeterboard/13.Teeterboard_PowerPoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9387cb485df74966aedbc9cf9ced1223.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-the-treadmill",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Foundational Robots/The treadmill.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2ddeb5daebac44d49589a3c2909999a0.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-throwing-robot",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Action-Oriented/Throwing robot/Throwing robot_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c3f564074bf2429080db71fc83feb295.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-tightrope-walk",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Foundational Robots/Tightrope walk.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4618df856a4f491cbcea77e5e3e4edc3.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-tongs",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Interactive Systems/Tongs/Pliers_PowerPoint -R .pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0eb699ee532d4a2a800d93a77048b150.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-tower-crane",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Characters & Structures/Tower crane/Tower crane_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d181c3f2dbc24682a6c938268291f669.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-treadmill",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Mechanisms & Simulators/Treadmill/Treadmill_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5e85e5a4bcfb430ea940ff57a1afe2f5.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-2-walking-robot",
+      "level": 2,
+      "sourcePath": "public/Level 2/Learning/Sensor-Focused Robots/Walking robot/Walking robot_PowerPoint -R.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c8b6bacef46244958495d05f0eabf081.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-anti-fall-robot",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Interactive Systems/Anti-fall Robot/11.Anti-fall Robot-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c67ac1088cfc49678d98ca7128c77d2c.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-automated-guided-vehicle",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Display & Movement/Automated Guided Vehicle/24.Automated Guided Vehicle-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2abca718727a404f89f5f881419d4b0e.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-automatic-door",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Interactive Systems/Automatic Door/17.Automatic Door -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a92eb92b4d7746b1bc46e0574f6e9ca1.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-automatic-seesaw",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Automation & Security/Automatic Seesaw/24. Automatic Seesaw.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_cf653a76a29d4edcb74dff909b473a28.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-blood-bank-centrifuge",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Manipulators/Blood bank Centrifuge.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e1253865a7c64a47b6e226e7ff035c81.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-bumper-car-foundational-robots",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Foundational Robots/Bumper car.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_adae373f074f4102a6df6282fe4a5b07.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-bumper-car-interactive-mechanisms",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Interactive Mechanisms/Bumper car/Bumper car_Powerpoint-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_fe37964557564ad1839c96e3d55091b4.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-clip-robot",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Action-Oriented/Clip robot/Clip robot_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d27864f39c514630ba9894b3e85fc4af.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-cycle-sport-basic",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Action-Oriented/Cycle Sport/3. Cycle Sport - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f050ed008e4245689474ca651a6369f1.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-cycle-sport-optimized",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Action-Oriented/Cycle Sport/3. Cycle Sport - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f050ed008e4245689474ca651a6369f1.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-disinfection-lamp",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Illumination & Signals/Disinfection Lamp/13.Disinfection Lamp-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_85ddc163e3684fe88d96555248a7a123.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-drawbridge",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Mechanisms and Concepts/Drawbridge.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_286760776ecf4f51b1125753f595b61b.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-electric-bulldozer",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Characters & Structures/Electric Bulldozer/23.Electric Bulldozer -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9e74e39cfcff4cfe924238980eec3578.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-electric-fan-characters-structures",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Characters & Structures/Electric Fan/05.Electric Fan-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_de38eb784e124898b785d5fb8bee48a5.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-electric-fan-mechanisms-and-concepts",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Mechanisms and Concepts/Electric fan.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_cf6353c3b017493ca3a8757f8f060632.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-electric-guitar",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Sound & Voice Interaction/Electric guitar/10.Electric guitar_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6d93d226841d49059d4fda1766763d42.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-electronic-scale",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Manipulators/Electronic scale.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8f64c695854f4c27ae4b0dfbed4c37d3.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-f1-racing-car",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Vehicles & Complex Movers/F1 racing car/F1 racing car_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bce2e711c5be45e58ffa179dcc164beb.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-fire-ladder",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Mechanisms and Concepts/Fire ladder.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_56d632f730ac433a94b4f11b1e61d091.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-flashlight-sensor",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Illumination & Signals/Flashlight Sensor/04.Flashlight -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e80ef80890dd413ab22e11a3293e8541.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-following-robot",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Autonomous Navigation & Ranging/Following Robot/Following Robot_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bbe96668ca9346d796d8ba4428079d1f.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-gyro-transmitter",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Manipulators/Gyro transmitter.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b9dcc5a5164b4f1da2e2c4124aa7313e.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-juicer-machine",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Interactive Systems/Juicer Machine/06.Juicer Machine-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6a9e6a518f0b455cb376f2fe7be90904.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-light-sensitive-curtains",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Illumination & Signals/Light-sensitive Curtains/14.Light-sensitive Curtains -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_75d34c2934e242abac6fac7f019e9314.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-line-patrol-car",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Foundational Robots/Line patrol car.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a5744350e8b742318b325b8b8c079050.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-long-lived-turtle",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Vehicles & Complex Movers/Long-Lived Turtle/11. The Long-lived Turtle - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b54b4e44eb47466b9fb1d490f29fd460.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-money-detector",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Machines & Mechanisms/Money detector.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e170364c6d164e0c9222ba880ea8ee0e.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-music-box",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Sound & Voice Interaction/Music Box/29.Music Box -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_09fa97c2dc0c4a6f8a10f59fc33cddab.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-music-doorbell",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Sound & Voice Interaction/Music Doorbell/07.Music Doorbell- Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0f5fcb2cce1f4b828da5aeac5e1615c9.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-obstacle-avoidance-robot-1",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Autonomous Navigation & Ranging/Obstacle Avoidance Robot 1/Obstacle Avoidance Robot 1_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_609ab746462046619034977992b73449.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-parking-gate",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Machines & Mechanisms/Parking gate.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_78102d8d02074b80a2a0c9fc6d85a062.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-race-walking-basic",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b4efcd7e0bde4d968e4157dc7aea5bf7.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-race-walking-optimized",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b4efcd7e0bde4d968e4157dc7aea5bf7.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-race-walking-optimized-ratchet",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b4efcd7e0bde4d968e4157dc7aea5bf7.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-safe",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Characters & Structures/Safe/15.Safe -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2ab55530d254464580a07df7b626e3b5.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-security-door",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Automation & Security/Security door/Security door_Powerpoint-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ba9bea37b8e14b3d8dcec88a5636f630.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-sign",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Mechanisms and Concepts/Sign.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0b2bac56f2af4d54b9141e47f72c7fc1.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-smart-audio",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Sound & Voice Interaction/Smart Audio/Smart Audio_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c3b2388227664351ae71d4d4e84847d2.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-smart-door",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Automation & Security/Smart door/Smart door_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_19b2e69b1677404c8dede78ea304e44b.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-smart-trash-bin",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Characters & Structures/Smart Trash Bin/20.Smart Trash Bin-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1b62b57b13e8409eb73cf28b08eea2ce.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-sonometer",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Sound & Voice Interaction/Sonometer/Sonometer_Powerpoint-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1c48f9507c4d485b8eae7e6b1046f67e.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-sound-level-meter",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Sound & Voice Interaction/Sound Level Meter/16.Sound Level Meter -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_61f7b623a84a4c088aa13d12e53cc4cf.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-stag-beetle",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Biomimicry/Stag beetle.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2e0fc1b0f6e643ed9ae9f7e0edaaa226.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-sunflower",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Biomimicry & Stimulus Response/Sunflower/09.Sunflower.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_832f5d9d09914f6f9c6eaad474800d37.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-super-trajectory-robot-1",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Advanced Navigation & Control/Super Trajectory Robot 1/13.Super Trajectory Robot 1-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5699d2510df04929b20089664e20ea86.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-3-washing-machine",
+      "level": 3,
+      "sourcePath": "public/Level 3/Learning/Interactive Systems/Washing Machine/08.Washing Machine-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_01a521bc581d45f5a4f5b896f71a5bdb.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-a-timid-mouse",
+      "level": 4,
+      "sourcePath": "public/Level 4/Characters & Structures/A Timid Mouse/Lesson 25. A Timid Mouse-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2e7030b14ae3429298bb864815f358f2.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-acoustic-control-lamp",
+      "level": 4,
+      "sourcePath": "public/Level 4/Sound & Voice Interaction/Acoustic control lamp/Acoustic control lamp_Powerpoint-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b96e40df65904576a56d8f22247bbb87.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-architectural-design",
+      "level": 4,
+      "sourcePath": "public/Level 4/Complex Mechanisms & Coordinated Motion/Architectural design/Architectural design.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e7687abdef434b4583426d2597a08f59.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-back-up-buzzer",
+      "level": 4,
+      "sourcePath": "public/Level 4/Sensors/Back-up buzzer.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dd352cab52c7438a8584b794b6002141.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-basketball-shooting-machine",
+      "level": 4,
+      "sourcePath": "public/Level 4/Interactive Systems/Basketball Shooting Machine/27.Basketball Shooting Machine -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_cbe4d780039148dd8fd2016ad718cfe6.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-biped-robot",
+      "level": 4,
+      "sourcePath": "public/Level 4/Mechanisms & Simulators/Biped Robot/20. Biped Robot-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a004325759284a68923c3152a8fa9fb4.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-card-machine",
+      "level": 4,
+      "sourcePath": "public/Level 4/Complex Mechanisms & Coordinated Motion/Card Machine/05.Card Machine-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dcedb9d9019c4f3fb536f8809f7abf14.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-card-reader",
+      "level": 4,
+      "sourcePath": "public/Level 4/Sensor Automation/Card reader/08.Card reader-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_aceff6fc834e40709649d2a954cfa2bc.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-counting-system",
+      "level": 4,
+      "sourcePath": "public/Level 4/Sensors/Counting system.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_642715ee5604413b9a5a93f572d98a2a.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-dancing-robot",
+      "level": 4,
+      "sourcePath": "public/Level 4/Display & Movement/Dancing Robot/31.Dancing Robot-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ca193ec9fbde4912b702e502881e0935.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-dangerous-assassin",
+      "level": 4,
+      "sourcePath": "public/Level 4/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_56804ee7ea2d4f4dba91d965784cac27.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-drop-proof-robot",
+      "level": 4,
+      "sourcePath": "public/Level 4/Advanced Navigation & Control/Drop-proof Robot/12.Drop-proof Robot-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5e2bce57737349f8b6c17fa9bbe88321.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-electric-piano",
+      "level": 4,
+      "sourcePath": "public/Level 4/Sound & Voice Interaction/Electric Piano/32.Electric Piano-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a464622cfeb84ff7bf014ac5fdc1e7f6.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-elf-in-the-tree",
+      "level": 4,
+      "sourcePath": "public/Level 4/Characters & Structures/Elf in the Tree/12. Elf in the Tree - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a0f4c9df7cbe46f2af7935bd880075cb.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-energy-detector",
+      "level": 4,
+      "sourcePath": "public/Level 4/Sensor-Focused Robots/Energy Detector/05. Energy Detector-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_48d0cc18f7e04355bc034e1fc25ce4fa.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-guide-dogs",
+      "level": 4,
+      "sourcePath": "public/Level 4/Autonomous Navigation & Ranging/Guide Dogs/10. Guide Dogs - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_579c1137dbba41c2a823de88d667e2e8.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-horizontal-bar",
+      "level": 4,
+      "sourcePath": "public/Level 4/Mechanisms & Simulators/Horizontal Bar/5. Horizontal Bar- Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c633e965ecdc4b92b11789af1e851e5f.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-induction-desk-lamp",
+      "level": 4,
+      "sourcePath": "public/Level 4/Illumination & Signals/Induction Desk Lamp/13. Induction Desk Lamp-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ac00375bc99b4c45abbd55e696a83f9d.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-keeping-distance",
+      "level": 4,
+      "sourcePath": "public/Level 4/Autonomous Navigation & Ranging/Keeping Distance/12. Keeping Distance-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_462d9619335c48c2a9a578b31e222efa.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-laser-rangefinder",
+      "level": 4,
+      "sourcePath": "public/Level 4/Autonomous Navigation & Ranging/Laser Rangefinder/10. Laser Rangefinder - Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a01249e7387440e5b4012bdacadd4703.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-lucky-cat",
+      "level": 4,
+      "sourcePath": "public/Level 4/Vehicles & Complex Movers/Lucky Cat/13.Lucky Cat-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_53a3eef9457d48059a6f3aa05cd49f67.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-magnetically-controlled-door",
+      "level": 4,
+      "sourcePath": "public/Level 4/Autonomous Navigation & Ranging/Magnetically Controlled Door/06. Magnetically controlled door-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dd84e8ff46b54be880a313dda63c5229.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-nocturnal-beetle",
+      "level": 4,
+      "sourcePath": "public/Level 4/Biomimicry & Stimulus Response/Nocturnal beetle/10.Nocturnal beetle-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2f07a1ebf63342c1a4acdc89b9d3ece9.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-obstacle-avoidance-in-snow",
+      "level": 4,
+      "sourcePath": "public/Level 4/Autonomous Navigation & Ranging/Obstacle Avoidance In Snow/4. Obstacle Avoidance In Snow - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_518227f5fe224c938a9a7dcf97e882c1.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-obstacle-avoidance-robot",
+      "level": 4,
+      "sourcePath": "public/Level 4/Interactive Systems/Obstacle Avoidance Robot/18.Obstacle Avoidance Robot-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_fc5df0e41cb845c9b68455d31ecc1bca.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-obstacle-avoidance-robot-2",
+      "level": 4,
+      "sourcePath": "public/Level 4/Autonomous Navigation & Ranging/Obstacle Avoidance Robot 2/Obstacle Avoidance Robot 2_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ebc39e295b324ac29412dd33e2205b76.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-obstacle-avoiding-scorpion",
+      "level": 4,
+      "sourcePath": "public/Level 4/Programming & Precise Control/Obstacle-avoiding Scorpion/01.Obstacle-avoiding Scorpion_Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5dd9b7c2ca484beb96b0149a7a3229ff.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-oscillating-fan",
+      "level": 4,
+      "sourcePath": "public/Level 4/Mechanisms & Simulators/Oscillating Fan/19.Oscillating Fan -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_992c8117c357457281b324c9fce4961a.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-parts-sorter",
+      "level": 4,
+      "sourcePath": "public/Level 4/Characters & Structures/Parts Sorter/22.Parts Sorter- Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e71b82d378b64f638f120b6780324a26.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-password-box",
+      "level": 4,
+      "sourcePath": "public/Level 4/Sensor Automation/Password box/06.Password box-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_fc90d169de5849f9a140f3388f9f965d.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-personal-bodyguard",
+      "level": 4,
+      "sourcePath": "public/Level 4/Automation & Security/Personal Bodyguard/09. Personal Bodyguard-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c3d44b5d3d5a4304bbf9baeefe30aeb8.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-probe-vehicle",
+      "level": 4,
+      "sourcePath": "public/Level 4/Autonomous Navigation & Ranging/Probe Vehicle/02.Probe Vehicle.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_648f5d37be2b45638078c02c2004106c.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-radar-vehicle",
+      "level": 4,
+      "sourcePath": "public/Level 4/Autonomous Navigation & Ranging/Radar vehicle/Radar vehicle_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e1ca8d3a35b543d08f91d76ba96da687.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-ranging-robot",
+      "level": 4,
+      "sourcePath": "public/Level 4/Sensor-Focused Robots/Ranging robot/Ranging robot_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f5b7938e0ee54aafb17536ba421a9455.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-reaction-tester",
+      "level": 4,
+      "sourcePath": "public/Level 4/Interactive Systems/Reaction Tester/19.Reaction Tester-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d100c6047e1846c2b8324d53e25018be.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-remote-control-car",
+      "level": 4,
+      "sourcePath": "public/Level 4/Vehicles & Complex Movers/Remote Control Car/04. Remote Control Car-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dcca1ad2cffd48c3a9ebb9365ba40b7f.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-safe-box",
+      "level": 4,
+      "sourcePath": "public/Level 4/Machines & Mechanisms/Safe Box.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f282e37d752041829a188187bd8cd042.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-scan-to-open-the-gate",
+      "level": 4,
+      "sourcePath": "public/Level 4/Automation & Security/Scan to Open the Gate/01. Scan to Open the Gate-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9f76c60220d944baa8063766506704b4.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-scorpion",
+      "level": 4,
+      "sourcePath": "public/Level 4/Interactive Mechanisms/Scorpion/Scorpion_Powerpoint-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7bf30ba10ed8495396d11530007c8f8b.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-skiing-robot",
+      "level": 4,
+      "sourcePath": "public/Level 4/Display & Movement/Skiing Robot/28.Skiing Robot -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bd33202fa6c848f98920689c134a3521.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-smart-curtain",
+      "level": 4,
+      "sourcePath": "public/Level 4/Automation & Security/Smart curtain/Smart curtain_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_257c71671ff4450c811c68bca8b984c5.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-smart-luggage",
+      "level": 4,
+      "sourcePath": "public/Level 4/Interactive Mechanisms/Smart Luggage/16. Smart Luggage-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3345836b8c8b44b0a43686f3f0700778.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-smart-speaker",
+      "level": 4,
+      "sourcePath": "public/Level 4/Sound & Voice Interaction/Smart Speaker/30.Smart Speaker-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6ae48919a1c046f6b89e662547a3d5cb.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-spinning-cups",
+      "level": 4,
+      "sourcePath": "public/Level 4/Mechanisms & Simulators/Spinning Cups/14. Spinning Cups-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_53a6801a58af429cb497cdf38789b419.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-super-trajectory-robot-2",
+      "level": 4,
+      "sourcePath": "public/Level 4/Advanced Navigation & Control/Super Trajectory Robot 2/14. Super Trajectory Robot 2-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_13334ff861434753a371b43dc7561f67.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-swimming-plesiosaur",
+      "level": 4,
+      "sourcePath": "public/Level 4/Characters & Structures/Swimming Plesiosaur/19. Swimming Plesiosaur-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1cdfbcb287f748568928c51d3e8095ef.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-tag-recognition",
+      "level": 4,
+      "sourcePath": "public/Level 4/Automation & Security/Tag Recognition/06. Tag Recognition.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1d8b29d09d54434ea097e49ec2616047.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-tail-wagging-stegosaurus",
+      "level": 4,
+      "sourcePath": "public/Level 4/Characters & Structures/Tail-Wagging Stegosaurus/18. Tail-Wagging Stegosaurus-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_abd64d11ad744b4191ff43ce3d7c85fa.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-telegraph",
+      "level": 4,
+      "sourcePath": "public/Level 4/Mechanisms & Simulators/Telegraph/09.Telegraph -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ec49306494724fbb9c2bb8f6b72b9a97.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-telegraph-machine",
+      "level": 4,
+      "sourcePath": "public/Level 4/Interactive Mechanisms/Telegraph machine/Telegraph machine_Powerpoint-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_37a37eab3769438ba1223bfc0c3c944e.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-transformer-robot",
+      "level": 4,
+      "sourcePath": "public/Level 4/Vehicles & Complex Movers/Transformer Robot/06.Transformer Robot-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_77a5159a69f6454681e32d5e57ce3b73.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-tumbler",
+      "level": 4,
+      "sourcePath": "public/Level 4/Interactive Systems/Tumbler/01. Tumbler - Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f3e774679194428fbef5be4f421fc870.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-turbo-drop",
+      "level": 4,
+      "sourcePath": "public/Level 4/Mechanisms & Simulators/Turbo Drop/28. Turbo Drop-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_cd11152ae3cc4330911ff26a17d2c173.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-vending-machine",
+      "level": 4,
+      "sourcePath": "public/Level 4/Foundational Robots/Vending machine.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_363e43b69c834d22bf14f545585f7940.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-voice-control",
+      "level": 4,
+      "sourcePath": "public/Level 4/Interactive Mechanisms/Voice Control/01.Voice Control.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d3d5874f2c0d4cf18b7a569f7a1c3fba.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-4-warrior-with-claws",
+      "level": 4,
+      "sourcePath": "public/Level 4/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_af49e528968a4f5c8a8e27e2f9214956.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-autonomous-driving",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Autonomous Navigation & Ranging/Autonomous driving/03. Autonomous Driving.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_662b01ca4cf842a987939c119961ffdd.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-barometric-sensor",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Sensor Automation/Barometric Sensor/17.Barometric Pressure Meter-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8de5d82d973e4fbeaf112b9c6e5d46c4.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-big-pendulum",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Mechanisms & Simulators/Big Pendulum/26. The Big Pendulum-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a97cf38f030447c78606534cbc4beeca.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-car-lights",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Illumination & Signals/Car Lights/11. Car Lights-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_71a4688066d141339ec55cdf4d2bb54f.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-car-speed-detector",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Sensor-Focused Robots/Car Speed Detector/11. Car Speed Detector-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_88b3b8b76a654bb1bab431e20dd3ebe1.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-chairoplane",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Mechanisms & Simulators/Chairoplane/27. Chairoplane-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_094b762419ca47dd90e6b5083449413c.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-clothes-dryer",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Programming & Precise Control/Clothes Dryer/30. Clothes Dryer-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a6cce30a46dd403b8ce2b4d4497d3ac0.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-crack-shot",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Mechanisms & Simulators/Crack Shot/6. Crack Shot -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8d7e9061930940ceaf893cc3ac204237.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-curling-game",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Action-Oriented/Curling Game/2. Curling Game - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c5be6b8d422a4f4881876cff639b0fcd.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-direction-indicator",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Illumination & Signals/Direction Indicator/06.Direction Indicator-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7377edf8159e4009b3ec07a0b7a15475.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-drawing-machine",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Action-Oriented/Drawing Machine/23. Drawing Machine-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a549d925ea73464eb6b1c9e162b6d5bb.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-face-tracking",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Automation & Security/Face tracking/07. Face tracking.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e205cdb073e749789b2df23c201384b4.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-facial-recognition-time-clock",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Sensor-Focused Robots/Facial Recognition Time Clock/28.Facial Recognition Time Clock-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_de7b3dedeec0449580dede3bfad3f482.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-firefly",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Action-Oriented/Firefly/02.Firefly-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4aa78155ca264a3d82bec7b07d0254a1.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-goalkeeper",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Action-Oriented/Goalkeeper/23.Goalkeeper-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1f08b82c1987495fbc326078ff48a336.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-hexapod-robot",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Vehicles & Complex Movers/Hexapod Robot/21. Hexapod Robot-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d8474f9fa8dc4101aba2988ea95dddbb.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-kiddie-ride",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Mechanisms & Simulators/Kiddie Ride/16. Kiddie Ride-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_30d33c7d4e4f45a9ac77cf8b545e0918.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-light-chasing-car",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Vehicles & Complex Movers/Light Chasing Car/08.Light Chasing Car -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2a9c2c3f0b384c1e92b915c93e68e9da.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-lucky-prize-wheel",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Characters & Structures/Lucky Prize Wheel/21. Lucky Prize Wheel -Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9b6874922b834e368260a4b37385c952.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-machine-gun",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Mechanisms & Simulators/Machine Gun/10.Machine Gun-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a45bbb157d8b4b009207695a77da0f19.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-magnetic-anti-theft-cabinet",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Automation & Security/Magnetic Anti-theft Cabinet/08. Magnetic Anti-theft Cabinet_Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_922dd2a97199487ea0dd964b8fbedf0b.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-magnetic-object-finder",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Interactive Mechanisms/Magnetic Object Finder/07. Magnetic Object Finder-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4ced57e22da54105ac40ec2e88024b56.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-music-box",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Complex Mechanisms & Coordinated Motion/Music box/Music box-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_57805abfd1ce4b74970e933b0addb1ff.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-oil-pumping-unit",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Characters & Structures/Oil Pumping Unit/21. Oil Pumping Unit -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e99387777c8e4e27844267eeedbfc402.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-passenger-counter",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Interactive Mechanisms/Passenger Counter/14.Passenger Counter-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2ac17a2d7b544139b71bca496e4842d3.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-please-scan-to-ride",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Automation & Security/Please Scan to Ride/03.Please Scan to Ride-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0df2effca0b64860ae49287a1dc825e3.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-remote-control-car",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Display & Movement/Remote Control Car/12.Remote Control Car-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9ec168b2960e417eac2c0a4f359f838c.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-remote-control-fan",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Programming & Precise Control/Remote Control Fan/26. Remote Control Fan-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_62ba2e2279454477953ec5ef6a6d652f.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-rescue-robot",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Programming & Precise Control/Rescue Robot/17.Rescue Robot -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9f3d18c35edf456e9d8aef5da06804bb.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-revolving-door",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Mechanisms & Simulators/Revolving Door/15. Revolving Door-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_fe25699fbdc944eba844c0a6bcc99f55.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-runner",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Display & Movement/Runner/25.Runner -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_aab536548ec6465bbbf9e3fcbea4c1bb.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-shopping-guide-robot",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Vehicles & Complex Movers/Shopping Guide Robot/14.Shopping Guide Robot-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bfaec64c21204a9986ee0fffbe904d5e.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-smart-cash-register",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Automation & Security/Smart Cash Register/02.Smart Cash Register-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5ea9fce45a9544039199cb4f23dfb52b.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-smart-guiding-car",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Autonomous Navigation & Ranging/Smart Guiding Car/02. Smart Guiding Car - Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0a5e8d8ed8fd414c9545e0c45ae3a192.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-smart-turnstile",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Mechanisms & Simulators/Smart Turnstile/21.Smart Turnstile-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_34a6090878c44303b704b15aca103513.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-spanish-bullfight",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Action-Oriented/Spanish Bullfight/03.Spanish Bullfight-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_68420518df4f4e508fc337f0fac78bfe.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-super-patrol-car",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Vehicles & Motion/Super patrol car.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_cdd74909e840415099749231a95bf3c9.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-super-trajectory-robot-3",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Advanced Navigation & Control/Super Trajectory Robot 3/15.Super Trajectory Robot 3.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_349f81213f584caa8f29f69faff3c184.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-super-trajectory-robot-4",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Advanced Navigation & Control/Super Trajectory Robot 4/16. Super Trajectory Robot 4.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e992eae113464425a2f01e1bf5033c12.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-swing-with-rhythm",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Sound & Voice Interaction/Swing With Rhythm/24. Swing With Rhythm-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8fb2c9fbbfd94552b91d86b2161e04b7.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-swinging-shark",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Characters & Structures/Swinging Shark/03. Swinging Shark - Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6595d2727d4a4c9fb63670c5a981d755.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-the-warrior",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Action-Oriented/The Warrior/22. The Warrior-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4c1bc03fa3fb49aeb91897a3f58c56ff.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-top-scorer",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Mechanisms & Simulators/Top Scorer/8. Top Scorer -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d82408f3deb74079bc59af019881a66e.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-tracking-car",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Advanced Navigation & Control/Tracking car/11.Tracking car-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_98a43cfee662463a8f1d3d16cceebec5.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-traffic-robot",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Sensor-Focused Robots/Traffic Robot/20.Traffic Robot-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6fa10e1b23a14885aaf24446125cf2ae.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-traffic-signs",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Programming & Precise Control/Traffic signs/05.traffic signs.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1b6bae1099f04528adc6593f8a12bb54.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-voice-control-snail",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Sound & Voice Interaction/Voice control snail/Voice control snail_Powerpoint.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f9726020e18c4795ac0ee887364a3653.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-voice-control-vehicle",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Sound & Voice Interaction/Voice Control Vehicle/Voice Control Vehicle_Powerpoint-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3e400d3e61174f9dbff7a3a660ba231f.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-voice-controlled-frog",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Vehicles & Complex Movers/Voice-controlled Frog/07.Voice-controlled Frog_Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e77de70429d948e3a041ad44339e9c04.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-welcome-sign",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Display & Movement/Welcome Sign/08. Welcome Sign-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_335dfa085fad4f578125234edb697c8c.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-5-wind-up-car",
+      "level": 5,
+      "sourcePath": "public/Level 5/Learning/Vehicles & Complex Movers/Wind-up Car/05.Wind-up Car_Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_509d78df7f2a46c3bd1e2e4bb1dac398.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-accurate-shooting",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Complex Mechanisms & Coordinated Motion/Accurate Shooting/13. Accurate Shooting-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_03322395b9f2462ab96810596cfefd96.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-altimeter",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Sensor Automation/Altimeter/18. Altimeter-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0c58011396af4f79975697d02fb5ab6d.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-autonomous-driving",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Programming & Precise Control/Autonomous Driving/18.Autonomous Driving -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8353c83f51c543ea8c2e0425db11e7f3.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-ball-tracking",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Sensor-Focused Robots/Ball Tracking/08.Ball Tracking.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9503b470d9a84c08bf7b2c20a72ae9a6.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-clown",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Characters & Structures/Clown/05.Clown-Teaching slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8ab11a33ca2a4d3292fd9fc9604651f3.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-code-scanning-gate",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Automation & Security/Code-scanning Gate/04.Code-scanning Gate-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_65a75edffea84e60aafda2cf9b2c51a6.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-colorblind-assistant-robot",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Sensor-Focused Robots/Colorblind Assistant Robot/25.Colorblind Assistant Robot-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_50ae26fd830f44a6a55bb2ca1ea4dd45.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-combination-lock",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/Combination Lock/29.Combination Lock -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_854b3400ca844dc28e03a6ce1d0605f8.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-dancing-robot",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Complex Mechanisms & Coordinated Motion/Dancing Robot/0.3Dancing Robot-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b22bbeadbff14160a019b9677ff75735.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-digital-countdown",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Display & Movement/Digital Countdown/07.Digital Countdown-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_66af56955e5e48e19b3ebdab8d33cd96.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-finger-guessing-robot",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Interactive Mechanisms/Finger-guessing Robot/04.Finger-guessing Robot.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5fb522d96a0f47fb97a9bf51c5394534.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-gesture-commanding-car",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Autonomous Navigation & Ranging/Gesture-commanding Car/23. Gesture-commanding Car-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d151ee5645114092a57574e7170e6e9d.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-gibbon",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/Gibbon/14. Gibbon - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9e670dbaab384b03be6dd5752f8547fe.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-gorilla",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Action-Oriented/Gorilla/04.Gorilla - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0464d9e94998495daf87835ca1284e14.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-high-temperature-alarm",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Sensor Automation/High Temperature Alarm/29. High Temperature Alarm-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c2583fd2f0d947d4a4faa69cb219384f.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-intelligent-passing-light",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Automation & Security/Intelligent Passing Light/09. Intelligent Passing Light-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bb8275b38b5f47d6b0383f2c44cbd432.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-intelligent-sorting-machine",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Sensor Automation/Intelligent Sorting Machine/24.Intelligent Sorting Machine-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_22e7f48c5cf04bddb4aafbcfce53c121.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-matador",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Biomimicry & Stimulus Response/Matador/02.Matador-update.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_224e421cf13642aca2eb46de184cdf63.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-minesweeper-robot",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Programming & Precise Control/Minesweeper Robot/12.Minesweeper Robot -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ab7dcf18670c4b4fadf48eac661f6cf0.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-parcel-sorting-machine",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Sensor Automation/Parcel Sorting Machine/31. Parcel Sorting Machine-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4060613e75994fb78ab78e2fad1b0464.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-pay-by-card",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/Pay by card/16.Pay by card -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e621d088a45d4595a51e413c6ea9197b.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-picture-projector",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Action-Oriented/Picture Projector/28. Picture Projector-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_770c9c1740554e568ef871beaf43e1dd.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-pinball-machine",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Interactive Mechanisms/Pinball Machine/30. Pinball Machine-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b63cb23789f147b7ab6324bf9d32ce5b.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-product-search",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/Product Search/15.Product Search -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b92cf4d768aa429fb13d975755f4cb5e.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-punch-hard",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/Punch Hard/7. Punch Hard - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d19ce2e35c174852b58529aeafc709b4.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-rc-airplane",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/RC Airplane/11.RC Airplane - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2f2aad081c234f6380c500000db2d197.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-red-light-warning-device",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Illumination & Signals/Red Light Warning Device/12. Red Light Warning Device-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c4757efc438f47a49ae20ef6ee65b42c.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-regional-weather-station",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Biomimicry & Stimulus Response/Regional Weather Station/32.Regional Weather Station-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_70bcb09fa82a404f868be3ab03d1f9cd.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-remote-control-lift",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Programming & Precise Control/Remote Control Lift/22. Remote Control Lift-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a9faa8a5eda64d92ad2ef716de12d536.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-ring-toss-game",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/Ring Toss Game/15. Ring Toss Game-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a8da14e5e3484867b80cddd6bb5b1921.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-robotic-arm",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/Robotic Arm/32. The Robotic Arm-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f50ea41fd511490e9cbd488b08f49c39.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-rock-paper-scissors-robot",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Sensor-Focused Robots/Rock-paper-scissors Robot/30.Rock-paper-scissors Robot-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_19eceab6caab42ef9186b74f8299a089.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-saluting-robot",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Programming & Precise Control/Saluting Robot/26.Saluting Robot -Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2a089b75dfa74543a1d609e3b7c0ec58.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-smart-camera",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Sensor-Focused Robots/Smart Camera/22.Smart Camera-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5c16e189f17f43aebec61610054753a5.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-smart-electric-drill",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Programming & Precise Control/Smart Electric Drill/20. Smart Electric Drill-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5cad4c85c8854e0e866e5498ca7ec93f.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-smart-fan",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Interactive Systems/Smart Fan/31.Smart Fan-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_401042567af7472aa5e35a1a044c3dd4.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-smart-flashlight",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Illumination & Signals/Smart Flashlight/27.Lesson 27 Smart Flashlight-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_23880ba2054e44d08fe54e4767b0a045.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-super-scorpion",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Biomimicry & Stimulus Response/Super Scorpion/16. Super Scorpion - Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_640d126e2ccf4ff0a02b49772987bf81.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-the-flapping-pterosaur",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Action-Oriented/The Flapping Pterosaur/17. The Flapping Pterosaur-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b2e916f53f7245968b4f700db21af650.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-the-interesting-rotor",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Interactive Systems/The Interesting Rotor/19. The Interesting Rotor-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3734b8fb71e044a8912f0d93d296f50d.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-traffic-lights-display",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Illumination & Signals/Traffic Lights Display/10. Traffic Lights-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ef3e09d6a3f541dea33e02f373a9e9f4.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-tricycle",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Vehicles & Complex Movers/Tricycle/29. Tricycle-Teaching Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_18cc6b9f0c624098866243986ce0ed6c.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    },
+    {
+      "projectId": "level-6-vending-machine",
+      "level": 6,
+      "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/Vending Machine/27.Vending Machine-Slides.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f4ad71e83ded4a668ce378c5f77b8636.pdf",
+      "source": "registered Learning PDF",
+      "reviewed": false
+    }
+  ]
+}

@@ -60,6 +60,8 @@ export const Route = createFileRoute("/practical/$projectId")({
   validateSearch: (search: Record<string, unknown>) => ({
     mode: search.mode === "learning" ? ("learning" as const) : ("building" as const),
     variant: search.variant === "optimized" ? ("optimized" as const) : undefined,
+    slide: Number.isInteger(Number(search.slide)) && Number(search.slide) >= 1 && Number(search.slide) <= 500
+      ? Number(search.slide) : undefined,
   }),
   component: PracticalProjectPage,
 });
@@ -68,7 +70,7 @@ type SessionStage = "steps" | "complete";
 
 function PracticalProjectPage() {
   const { projectId = "" } = Route.useParams();
-  const { mode, variant } = Route.useSearch();
+  const { mode, variant, slide } = Route.useSearch();
   const project = getProject(projectId);
   const { hydrated } = useProgress();
 
@@ -84,7 +86,7 @@ function PracticalProjectPage() {
     project.level === 5 || project.level === 6 ? levelFiveSixLearningLectures[project.id] : undefined;
   // Legacy direct links to slide-only projects should still open their lecture.
   if (lecture && (mode === "learning" || lecture.learningOnly)) {
-    return <LevelOneLearningStudio key={project.id} projectId={project.id} title={project.title} level={project.level === 5 || project.level === 6 ? project.level : project.level === 4 ? 4 : project.level === 3 ? 3 : project.level === 2 ? 2 : 1} categoryId={project.categoryId} lecture={lecture} />;
+    return <LevelOneLearningStudio key={project.id} projectId={project.id} title={project.title} level={project.level === 5 || project.level === 6 ? project.level : project.level === 4 ? 4 : project.level === 3 ? 3 : project.level === 2 ? 2 : 1} categoryId={project.categoryId} lecture={lecture} initialSlide={slide} />;
   }
 
   if (!hydrated) {

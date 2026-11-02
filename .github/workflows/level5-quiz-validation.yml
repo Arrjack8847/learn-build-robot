@@ -1,0 +1,45 @@
+name: Level 5 Quiz Studio validation
+on:
+  pull_request:
+    paths:
+      - 'src/data/quizStudio.ts'
+      - 'src/data/quizBanks/level5/**'
+      - 'public/Level 5/Learning/**'
+      - 'tests/quiz-level5.test.mjs'
+      - 'tests/quiz-studio.test.mjs'
+      - 'scripts/extract-quiz-slides.mjs'
+      - 'scripts/quiz-learning-source-manifest.json'
+      - '.github/workflows/level5-quiz-validation.yml'
+  workflow_dispatch:
+
+jobs:
+  quiz-level5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: oven-sh/setup-bun@v2
+      - name: Install locked dependencies
+        run: bun install --frozen-lockfile
+      - name: Type check
+        run: bunx tsc --noEmit
+      - name: Extract all 51 official Level 5 Learning PDFs
+        run: node scripts/extract-quiz-slides.mjs --level 5 --limit 51 --local-only
+      - name: Preserve extracted slide evidence for remaining quiz banks
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: level5-official-learning-slide-extracts
+          path: quiz-research/*.json
+          if-no-files-found: warn
+      - name: Check Quiz Studio and all Level 5 banks
+        run: node --experimental-strip-types --test tests/quiz-studio.test.mjs tests/quiz-level5.test.mjs
+      - name: Run existing UI tests
+        run: bun run test:ui
+      - name: Build app without deployment
+        run: bun run build

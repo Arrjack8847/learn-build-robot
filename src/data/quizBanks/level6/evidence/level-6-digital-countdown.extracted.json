@@ -1,0 +1,111 @@
+{
+  "projectId": "level-6-digital-countdown",
+  "sourcePath": "public/Level 6/Learning/Display & Movement/Digital Countdown/07.Digital Countdown-Teaching Slides.pdf",
+  "wixFileId": "7fc4ca_66af56955e5e48e19b3ebdab8d33cd96.pdf",
+  "sourceBytes": 1130637,
+  "pageCount": 25,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 7.  | Digital Countdown | edu.zmrobo.com | LECTURER: "
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties | 1 | . | Realize | the | countdown | displaying | two | digits | . | 2 | . | How | to | use | the | algorithm | . | 1. Calculation method of single | - | digit and tens | - | digit. | 2. The effect of absolute value and rounding down. "
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information"
+    },
+    {
+      "slide": 4,
+      "text": "Background Information | In | film | and | television | works, | we | often | hear | Traditional | Chinese | timekeeping | methods | such | as | a | stick | of | incense, | a | cup | of | tea, | etc | . | Do | you | know | how | long | they | each | represent? | In | ancient | China, | a | day | was | divided | into | twelve | units, | each | equal | to | two | hours | today | . | And | further | divisions | were | made | on | this | basis | to | make | the | time | more | precise | ."
+    },
+    {
+      "slide": 5,
+      "text": "Background Information | There | are | twelve | hours | in | a | day, | and | one | hour | is | two | hours | of | modern | time | ; | one | hour | has | eight | quarters, | and | one | quarter | is | 15 | minutes | of | modern | time | ; | one | quarter | has | three | tea | time, | one | tea | time | is | five | minutes | of | modern | time | ; | one | tea | time | has | two | sticks | of | incense, | the | time | of | one | stick | of | incense | is | 2 | minutes | and | 30 | seconds | ; | the | time | of | one | stick | of | incense | is | 5 | minutes, | and | the | time | of | one | minute | is | 30 | seconds | ; | Second | . | These | are | all | modern | people's | calculations | of | ancient | timekeeping | . | In | fact, | the | error | began | to | increase | after | the | \"one | quarter\" | of | the | ancient | time | unit | ."
+    },
+    {
+      "slide": 6,
+      "text": "Background Information | In | order | to | improve | timing | accuracy, | ancient | scientists | invented | many | different | types | of | timing | tools, | among | which | the | Water | Clock | is | a | typical | representative, | and | the | timing | is | carried | out | in | the | form | of | flowing | water | . | Part | of | the | data | records | that | the | accuracy | of | the | Water | Clock | is | 20 | seconds | per | day, | which | was | quite | a | remarkable | timekeeping | tool | at | that | time | ."
+    },
+    {
+      "slide": 7,
+      "text": "Knowledge  | Introduction"
+    },
+    {
+      "slide": 8,
+      "text": "Knowledge Introduction | The | word | ³FRXQWGRZQ´ | comes | from | the | 1927 | German | fantasy | feature | film | 㸪 | The | Moon | Maid | . | In | this | film, | director | Frieze | designed | the | launch | program | of | \" | 9 | , | 8 | , | 7 | , | ... | 3 | , | 2 | , | 1 | \" | ignition | in | the | shot | of | the | rocket | launch | in | order | to | increase | the | artistic | effect | and | be | exciting | ."
+    },
+    {
+      "slide": 9,
+      "text": "Knowledge Introduction | This | program | has | been | unanimously | praised | by | rocket | experts, | who | believe | that | it | is | very | accurate, | clear | and | scientifically | highlights | the | dwindling | time | of | the | rocket | launch, | and | makes | people | feel | a | sense | of | urgency | before | the | rocket | launch | . | Since | then, | \"countdown\" | has | been | widely | adopted, | and | has | surpassed | the | scope | of | use, | becoming | a | term | with | strong | applicability | and | a | wide | range | of | applications | ."
+    },
+    {
+      "slide": 10,
+      "text": "Knowledge Introduction | Not | only | for | rocket | launches, | we | also | need | to | use | countdowns | reasonably | in | our | daily | lives | to | precisely | control | things | such | as | cooking, | crossing | the | road, | and | trains | entering | stations | . | Today, | we | will | use | the | dot | matrix | screen | to | make | a | precise | countdown | machine | ."
+    },
+    {
+      "slide": 11,
+      "text": "Programming module | Dot matrix screen  | - | clear screen | Using this module, all the lights of the dot matrix screen can be turned off."
+    },
+    {
+      "slide": 12,
+      "text": "Practice"
+    },
+    {
+      "slide": 13,
+      "text": "New Knowledge | Build | a | countdown | robot | according | to | the | building | manual, | and | count | down | after | entering | the | time | . | Timer Button | Countdown  | Display | Timing  | Joystick"
+    },
+    {
+      "slide": 14,
+      "text": "Practice | Flow Chart | After | shaking | the | motor, | press | the | button | to | start | timing | . | During | the | timing, | the | countdown | number | will | be | displayed | and | a | prompt | will | sound | at | the | end | . | When | displaying | the | countdown | number, | we | need | to | split | the | countdown | into | tens | digits | and | single | digits | to | display | separately | ."
+    },
+    {
+      "slide": 15,
+      "text": "Practice | Programming | 01 | logo | Initial | settings | Initialize | the | dot | matrix | screen | settings | and | avoid | other | invalid | data | when | starting | the | program | again | ."
+    },
+    {
+      "slide": 16,
+      "text": "Practice | Programming | logo | 02 | Function | - | Display | Define | the | \"display\" | function, | the | single | - | digit | is | the | remainder | after | dividing | by | 10 | , | and | the | tens | digit | is | the | rounding | down | after | dividing | by | 10 | . | Suppose | the | current | countdown | is | 30 | , | the | single | - | digit | displays | 0 | , | and | the | tens | digit | displays | 3 | ; | when | the | countdown | becomes | 29 | , | the | single | digit | displays | 9 | , | and | the | tens | digit | displays | 2 | . | Round | down | (floor) | : | take | only | the | integer | part | of | the | value | ."
+    },
+    {
+      "slide": 17,
+      "text": "Practice | Programming | logo | 03 | Judgment | on | whether | to | press | the | button | Button | judgment | is | used | to | determine | when | to | start | the | countdown | . | You | can | set | the | countdown | value | before | pressing | the | key, | and | the | countdown | will | start | after | pressing | the | key | . | In | order | to | avoid | negative | numbers | in | the | countdown, | it | is | necessary | to | perform | absolute | value | calculations | and | then | round | down | . | Absolute | value | operation | : | It | does | not | distinguish | between | positive | and | negative | values, | and | they | are | unified | as | positive | numbers | . | Pay | attention | to | distinguishing | the | concepts | of | absolute | value | operation | and | absolute | value | ."
+    },
+    {
+      "slide": 18,
+      "text": "Practice | Programming | logo | 04 | Function | - | Beep | Create | a | beep | function | that | sounds | a | \"beep\" | every | half | a | second | ."
+    },
+    {
+      "slide": 19,
+      "text": "Practice | Programming | logo | The | program | of | the | countdown | Enter | the | countdown, | and | count | down | by | 1 | every | second | until | the | countdown | returns | to | zero | . | During | this | process, | the | corresponding | value | is | always | displayed | . | 05"
+    },
+    {
+      "slide": 20,
+      "text": "Practice | Programming | logo | Integrate | the | program | Integrate | the | entire | program | according | to | the | flowchart | . | 06"
+    },
+    {
+      "slide": 21,
+      "text": "Practice | Programming | logo"
+    },
+    {
+      "slide": 22,
+      "text": "Results"
+    },
+    {
+      "slide": 23,
+      "text": "Program Optimization | This | lesson | realizes | the | countdown | function | displayed | on | the | dot | matrix | screen | . | After | setting | the | countdown | time | by | rotating | the | motor, | the | program | will | start | the | countdown | by | itself | . | Next, | modify | the | program | to | limit | the | countdown | to | three | digits | . | Requirements | : | Limit | the | maximum | countdown | to | 99 | to | avoid | display | bugs | ."
+    },
+    {
+      "slide": 24,
+      "text": "Further Reading | The | clocks | and | watches | that | people | usually | use | have | an | error | of | about | 1 | minute | per | year | with | high | precision, | which | has | no | effect | on | daily | life, | but | more | accurate | timing | tools | are | needed | in | demanding | production | and | scientific | research | . | At | present, | the | most | accurate | timekeeping | tool | in | the | world | is | the | atomic | clock, | which | appeared | in | the | 1950 | s | . | Atomic | clocks | keep | time | by | using | electromagnetic | waves | emitted | when | atoms | absorb | or | release | energy | . | Because | this | electromagnetic | wave | is | very | stable | and | controlled | by | a | series | of | sophisticated | instruments, | the | timing | of | atomic | clocks | can | be | very | accurate | . | The | elements | currently | used | in | atomic | clocks | include | Hydrogen, | Cesium, | and | Rubidium | . | Atomic | clocks | are | accurate | to | only | 1 | second | every | 20 | million | years | . | This | provides | a | strong | guarantee | for | astronomy, | navigation, | and | space | navigation | ."
+    },
+    {
+      "slide": 25,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER: "
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

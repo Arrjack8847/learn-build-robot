@@ -1,0 +1,107 @@
+{
+  "projectId": "level-6-gibbon",
+  "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/Gibbon/14. Gibbon - Slides.pdf",
+  "wixFileId": "7fc4ca_9e670dbaab384b03be6dd5752f8547fe.pdf",
+  "sourceBytes": 1378375,
+  "pageCount": 24,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 14.  | Gibbon | edu.zmrobo.com | Lecturer: "
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties | 1. | Get |   | to |   | know |   | gibbons |   | and |   | build |   | a |   | gibbon |   | robot | . | 2. | Use |   | RoboCode |   | to |   | write |   | programs |   | to |   | control |   | the |   | movement |   | and |   | other |   | actions |   | of |   | the |   | gibbon | . | 3. | Let |   | the |   | gibbon |   | use |   | its |   | arms |   | to |   | move | . | 1. | Build a structure for the gibbon to use its arms to move. | 2. | Processing of ultrasonic sensor data."
+    },
+    {
+      "slide": 3,
+      "text": "Background"
+    },
+    {
+      "slide": 4,
+      "text": "Background Knowledge  | |  | Primates | Primates |   | are |   | an |   | order |   | under |   | the |   | class |   | Mammalia, |   | with |   | a |   | total |   | of |   | 2 |   | suborders, |   | 16 |   | families, |   | approximately |   | 78 |   | genera |   | and |   | 514 |   | species | . |   | The |   | size |   | of |   | primates |   | varies |   | greatly, |   | from |   | the |   | Belvedere's |   | lemur |   | weighing |   | only |   | 30 |   | grams |   | to |   | the |   | eastern |   | gorilla |   | weighing |   | up |   | to |   | 200 |   | kilograms | . | It |   | is |   | divided |   | into |   | the |   | prosimian |   | suborder |   | and |   | the |   | simian |   | suborder | : |   | the |   | prosimian |   | suborder |   | has |   | a |   | fox | - | like |   | face | ; |   | the |   | simian |   | suborder |   | has |   | a |   | human | - | like |   | face | ."
+    },
+    {
+      "slide": 5,
+      "text": "Gibbon |   | is |   | the |   | general |   | name |   | for |   | a |   | family |   | of |   | primates | . |   | There |   | are |   | 16 |   | species |   | in |   | 4 |   | genera, |   | with |   | different |   | body |   | sizes |   | and |   | coat |   | colors | . |   | They |   | are |   | named |   | because |   | of |   | their |   | particularly |   | long |   | arms | . | They |   | are |   | mainly |   | distributed |   | in |   | tropical |   | or |   | subtropical |   | forests |   | on |   | the |   | mainland |   | and |   | islands |   | in |   | southern |   | and |   | southeastern |   | Asia | . | Background Knowledge  | | |   | Gibbon"
+    },
+    {
+      "slide": 6,
+      "text": "Introduction"
+    },
+    {
+      "slide": 7,
+      "text": "Introduction  | |  | How Gibbons Move"
+    },
+    {
+      "slide": 8,
+      "text": "Practice"
+    },
+    {
+      "slide": 9,
+      "text": "Practice | Robot Building | Build |   | the |   | Gibbon |   | robot |   | according |   | to |   | the |   | building |   | manual, |   | and |   | select |   | the |   | ports |   | for |   | the |   | large |   | motor |   | and |   | ultrasonic |   | sensor | . | Measuring distance with  | the ultrasonic sensor | Arms swinging up and  | down"
+    },
+    {
+      "slide": 10,
+      "text": "Practice | Flowchart | The |   | program |   | flow |   | of |   | the |   | Gibbon |   | robot | : | ʒ |   | If |   | there |   | are |   | no |   | obstacles, |   | go |   | straight | ; | ʓ | If |   | there |   | is |   | an |   | obstacle |   | ahead, |   | make |   | a |   | random |   | left |   | or |   | right |   | turn | ; | ʔ |   | Repeat |   | this |   | cycle | ."
+    },
+    {
+      "slide": 11,
+      "text": "Practice | Programming | The |   | program |   | flow |   | of |   | the |   | Gibbon |   | robot | : | ʒ |   | If |   | there |   | are |   | no |   | obstacles, |   | go |   | straight | ; | ʓ | If |   | there |   | is |   | an |   | obstacle |   | ahead, |   | make |   | a |   | random |   | left |   | or |   | right |   | turn | ; | ʔ |   | Repeat |   | this |   | cycle | ."
+    },
+    {
+      "slide": 12,
+      "text": "Exploration"
+    },
+    {
+      "slide": 13,
+      "text": "Exploration | Discussion | Please tell me what problems you found while building the robot and programming. | Arms not long enough? | Staying in the same spot and unable to  | move forward or turn? | Not enough action? | Add more effects?"
+    },
+    {
+      "slide": 14,
+      "text": "Exploration  | | |   | Discussion | So, how to solve these problems and  | make improvements?"
+    },
+    {
+      "slide": 15,
+      "text": "Exploration  | |  | Set Up Audio Modules | This module is used to set the tone and playback duration for the buzzer."
+    },
+    {
+      "slide": 16,
+      "text": "Optimization"
+    },
+    {
+      "slide": 17,
+      "text": "Optimization | Analysis | logo | Test, |   | observe |   | and |   | think | 1 | . |   | Which |   | places |   | need |   | reinforcement? | 2 | . |   | How |   | to |   | improve |   | and |   | modify |   | the |   | center |   | of |   | gravity |   | of |   | Gibbon? | Please |   | modify |   | your |   | robot |   | to |   | make |   | the |   | model |   | more |   | interesting |   | and |   | play |   | freely |   | based |   | on |   | this | ."
+    },
+    {
+      "slide": 18,
+      "text": "Optimization | Analysis | logo | Test, |   | observe |   | and |   | think | 1 | . |   | How |   | to |   | add |   | program |   | of |   | more |   | actions? | 2 | . |   | How |   | to |   | set |   | the |   | distance |   | to |   | judge |   | the |   | ultrasonic |   | sensor? | Please |   | design |   | movements |   | for |   | the |   | robot |   | and |   | complete |   | the |   | programming, |   | and |   | then |   | play |   | freely |   | based |   | on |   | this | ."
+    },
+    {
+      "slide": 19,
+      "text": "Optimization | Analysis | logo | Test, |   | observe |   | and |   | think | 1 | . |   | How |   | to |   | add |   | program |   | of |   | more |   | actions? | 2 | . |   | How |   | to |   | set |   | the |   | distance |   | to |   | judge |   | the |   | ultrasonic |   | sensor? | Please |   | design |   | movements |   | for |   | the |   | robot |   | and |   | complete |   | the |   | programming, |   | and |   | then |   | play |   | freely |   | based |   | on |   | this | ."
+    },
+    {
+      "slide": 20,
+      "text": "Result"
+    },
+    {
+      "slide": 21,
+      "text": "Result  | | |   | Display Your Robots | Please introduce your robots. |  | Start with an interesting, powerful, and informative introduction  | to yourself |  | Describe the building steps and program implementation  | process (problems encountered and solutions) |  | Run the program to display your robot |  | Explain the highlights of the work (add explanations for creative  | effects)"
+    },
+    {
+      "slide": 22,
+      "text": "Further Reading: The relationship between gibbons and humans | The |   | reason |   | why |   | people |   | say |   | that |   | gibbons |   | are |   | related |   | to |   | humans |   | is |   | because |   | they |   | have |   | very |   | close |   | morphological |   | structures, |   | physiological |   | functions |   | and |   | living |   | habits |   | to |   | humans | . |   | They |   | are |   | smaller |   | in |   | stature |   | and |   | are |   | descendants |   | of |   | Pliocene |   | apes |   | from |   | the |   | Miocene |   | Epoch | . |   | However, |   | they |   | are |   | very |   | closely |   | related |   | to |   | humans, |   | so |   | they |   | are |   | not |   | only |   | important |   | materials |   | for |   | studying |   | the |   | evolutionary |   | process |   | from |   | apes |   | to |   | humans, |   | but |   | also |   | an |   | important |   | topic |   | for |   | primate |   | research | ."
+    },
+    {
+      "slide": 23,
+      "text": "Further Reading: The relationship between gibbons and humans | Their |   | similarities |   | to |   | humans |   | are |   | extremely |   | shocking |   | to |   | humans | . |   | For |   | example, |   | they |   | both |   | have |   | 32 |   | teeth | ; |   | each |   | has |   | a |   | pair |   | of |   | nipples |   | on |   | the |   | chest | ; |   | the |   | brain |   | and |   | nervous |   | system |   | are |   | well |   | developed | ; |   | in |   | terms |   | of |   | blood |   | types, |   | in |   | addition |   | to |   | type |   | O, |   | they |   | have |   | type |   | A, |   | type |   | B |   | and |   | type |   | AB | . |   | The |   | number |   | of |   | chromosomes |   | in |   | their |   | cells |   | is |   | only |   | one |   | less |   | than |   | that |   | of |   | humans, |   | with |   | humans |   | having |   | 23 |   | pairs |   | and |   | theirs |   | having |   | 22 |   | pairs | . |   | Their |   | gestation |   | cycle |   | is |   | shorter |   | than |   | that |   | of |   | humans, |   | about |   | 7 |   | months | ; |   | and |   | their |   | female |   | apes |   | have |   | similar |   | menstrual |   | cycles |   | to |   | humans, |   | both |   | of |   | which |   | are |   | about |   | 30 |   | days | ; |   | the |   | embryonic |   | development |   | process |   | is |   | also |   | the |   | most |   | similar |   | to |   | that |   | of |   | human |   | embryos | . |   | long | . |   | The |   | reason |   | why |   | gibbons |   | have |   | always |   | been |   | one |   | of |   | the |   | subjects |   | of |   | human |   | study |   | in |   | zoology, |   | psychology, |   | medicine, |   | anthropology, |   | sociology |   | and |   | other |   | disciplines |   | is |   | because |   | they |   | are |   | too |   | similar |   | to |   | humans | ."
+    },
+    {
+      "slide": 24,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER: "
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}
