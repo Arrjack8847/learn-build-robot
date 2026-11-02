@@ -1,0 +1,104 @@
+name: Read-only PDF branding audit
+on:
+  push:
+    branches:
+      - audit/pdf-branding-20261102
+  workflow_dispatch:
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          fetch-depth: 1
+      - name: Download LFS PDF files only
+        shell: bash
+        run: |
+          git lfs pull --include="*.pdf,*.PDF" --exclude="*.mp4,*.mov,*.avi,*.webm,*.zip"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PDF reader
+        run: pip install pymupdf
+      - name: Run exact-text audit (no PDF modifications)
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv, hashlib, json, pathlib, re, collections
+          import fitz
+          output=pathlib.Path('audit-results');output.mkdir(exist_ok=True)
+          pdfs=sorted(pathlib.Path('public').rglob('*.pdf'))+sorted(pathlib.Path('curriculum-source').rglob('*.pdf'))
+          han=re.compile(r'[\u3400-\u9fff\uf900-\ufaff\U00020000-\U0002FA1F]')
+          terms={
+             'intelligence_storm':re.compile(r'\bintelligence\s*[-–—]?\s*storm\b',re.I),
+             'intelligent_storm':re.compile(r'\bintelligent\s*[-–—]?\s*storm\b',re.I),
+             'zhongming_chinese':re.compile('中[鸣鳴]'),
+             'zhongming_english':re.compile(r'\bzhong\s*ming\b',re.I),
+          }
+          files=[]; pagehits=[]; images=[]; errors=[]; sha_map=collections.defaultdict(list)
+          for i,p in enumerate(pdfs,1):
+            rp=p.as_posix()
+            match=re.search(r'(?:^|/)Level[ -]?([1-6])(?:/|$)',rp,re.I)
+            level='Level '+match[1] if match else 'Uncategorized'
+            row={'pdf':rp,'level':level,'bytes':p.stat().st_size,'pages':0,
+               'chinese_characters':0,'pages_with_chinese':0,
+               'intelligence_storm':0,'intelligent_storm':0,
+               'zhongming_chinese':0,'zhongming_english':0,
+               'image_or_vector_pages':0,'error':''}
+            try:
+              sha=hashlib.sha256(p.read_bytes()).hexdigest()
+              sha_map[sha].append(rp)
+              doc=fitz.open(p)
+              row['pages']=len(doc)
+              for pn,pg in enumerate(doc,1):
+                txt=pg.get_text('text') or ''
+                matches={'chinese_characters':len(han.findall(txt))}
+                matches.update({k:len(pattern.findall(txt)) for k,pattern in terms.items()})
+                for k,n in matches.items():row[k]+=n
+                if matches['chinese_characters']:row['pages_with_chinese']+=1
+                if any(matches.values()):
+                  contexts=' '.join(txt.split())
+                  pagehits.append({'pdf':rp,'page':pn,**matches,
+                     'snippet':contexts[:250]})
+                graphic=bool(pg.get_images(full=True)) or bool(pg.get_drawings())
+                if graphic:
+                  row['image_or_vector_pages']+=1
+                  images.append({'pdf':rp,'page':pn,'visual_review_needed':True})
+              doc.close()
+            except Exception as e:
+              row['error']=str(e)
+              errors.append({'pdf':rp,'error':str(e)})
+            files.append(row)
+            if i%20==0 or i==len(pdfs):print(f'PROGRESS {i}/{len(pdfs)}',flush=True)
+          def write(name,rows,cols):
+            with (output/name).open('w',newline='',encoding='utf-8-sig') as f:
+              w=csv.DictWriter(f,fieldnames=cols,extrasaction='ignore');w.writeheader();w.writerows(rows)
+          filecols=['pdf','level','bytes','pages','chinese_characters','pages_with_chinese',
+              'intelligence_storm','intelligent_storm','zhongming_chinese',
+              'zhongming_english','image_or_vector_pages','error']
+          write('pdf_inventory.csv',files,filecols)
+          write('page_hits.csv',pagehits,['pdf','page','chinese_characters',*terms,'snippet'])
+          write('visual_review_queue.csv',images,['pdf','page','visual_review_needed'])
+          write('errors.csv',errors,['pdf','error'])
+          s={'pdf_paths':len(pdfs),'valid_pdfs':len(files)-len(errors),'failed_pdfs':len(errors),
+             'total_pages':sum(x['pages'] for x in files),'exact_duplicate_groups':[g for g in sha_map.values() if len(g)>1],
+             'pdfs_with_chinese_text':sum(x['chinese_characters']>0 for x in files),
+             'chinese_characters_found':sum(x['chinese_characters'] for x in files),
+             'pdfs_with_storm_text':sum(x['intelligence_storm']>0 or x['intelligent_storm']>0 for x in files),
+             'intelligence_storm_mentions':sum(x['intelligence_storm'] for x in files),
+             'intelligent_storm_mentions':sum(x['intelligent_storm'] for x in files),
+             'zhongming_chinese_mentions':sum(x['zhongming_chinese'] for x in files),
+             'pages_with_graphics_needing_visual_review':len(images),
+             'limitations':'Embedded text only. Logos/images and flattened Chinese text need visual/OCR review; no source PDFs modified.'}
+          (output/'summary.json').write_text(json.dumps(s,ensure_ascii=False,indent=2),encoding='utf-8')
+          print('AUDIT_SUMMARY_JSON='+json.dumps(s,ensure_ascii=False),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step1-pdf-branding-audit
+          path: audit-results/
