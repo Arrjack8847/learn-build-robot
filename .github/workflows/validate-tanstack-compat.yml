@@ -1,0 +1,58 @@
+name: Validate TanStack package compatibility
+on:
+  push:
+    branches: [fix/tanstack-router-compat-20261102]
+    paths: ['.github/workflows/validate-tanstack-compat.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          lfs: false
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.2.23'
+      - name: Align top-level router packages to patched Start graph
+        run: |
+          bun add --exact '@tanstack/react-router@1.170.41' '@tanstack/router-plugin@1.168.42'
+          bun install --frozen-lockfile
+      - name: Confirm resolved framework versions and patch
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs');
+          const p=JSON.parse(fs.readFileSync('package.json','utf8'));
+          for(const [k,v] of Object.entries({'@tanstack/react-start':'1.168.60','@tanstack/react-router':'1.170.41','@tanstack/router-plugin':'1.168.42'}))
+            if(p.dependencies[k]!==v)throw Error(k+' expected '+v+' got '+p.dependencies[k]);
+          const l=fs.readFileSync('bun.lock','utf8');
+          for(const x of ['"@tanstack/router-core": ["@tanstack/router-core@1.171.34"','"@tanstack/start-server-core": ["@tanstack/start-server-core@1.169.39"'])
+            if(!l.includes(x))throw Error('lock mismatch: '+x);
+          console.log('PASS: compatible router-core 1.171.34 and patched server core 1.169.39');
+          NODE
+      - name: Verify production build
+        run: bun run build
+      - name: Verify Level 1-3 content integrity
+        run: bun run test:level123
+      - name: Commit only dependency changes
+        shell: bash
+        run: |
+          git diff --check
+          git add -- package.json bun.lock
+          python - <<'PY'
+          import subprocess
+          x=subprocess.check_output(['git','diff','--cached','--name-only']).decode().splitlines()
+          assert set(x)=={'package.json','bun.lock'},x
+          print('PASS: only package.json and bun.lock staged')
+          PY
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m "fix(build): align TanStack router dependencies for patched Start"
+          git push origin HEAD:fix/tanstack-router-compat-20261102
