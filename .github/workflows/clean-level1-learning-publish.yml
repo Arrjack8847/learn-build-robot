@@ -53,6 +53,7 @@ jobs:
           assert all(p.read_bytes().startswith(b'%PDF-') for p in pdfs)
           print("PASS: artifact pre-publish checks")
           PY
+          git restore -- scripts/pdf/clean_level1_learning_once.py
           git fetch origin main
           git switch -C level1-pdf-publish origin/main
           cp -a /tmp/bsr-level1-clean/output/. "public/Level 1/Learning/"
