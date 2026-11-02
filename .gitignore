@@ -16,6 +16,14 @@ dist-ssr
 .nitro
 *.local
 
+# Vercel CLI local project binding (project remains linked in Vercel dashboard)
+.vercel/
+
+# Local environment configuration and secrets
+.env
+.env.*
+!.env.example
+
 # Wrangler / Cloudflare
 .wrangler/
 .dev.vars
