@@ -1,0 +1,37 @@
+name: Verify Level 1 cleaned Learning PDF routing
+on:
+  push:
+    branches: [fix/level1-local-clean-pdfs-20261102]
+    paths: ['.github/workflows/validate-level1-clean-pdf-routing.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          lfs: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.2.23'
+      - run: bun install --frozen-lockfile
+      - name: Verify cleaned Level 1 PDFs exist in public
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          files=list(Path('public/Level 1/Learning').rglob('*.pdf'))
+          assert len(files)==45,len(files)
+          assert all(p.read_bytes()[:5]==b'%PDF-' for p in files)
+          print('PASS: 45 Level 1 PDFs at their expected website paths')
+          PY
+      - run: bun run test:level123
+      - run: bun run build
