@@ -1,0 +1,48 @@
+name: Step 1 - complete remaining PDF page OCR
+on:
+  push:
+    branches:
+      - audit/pdf-branding-20261102
+    paths:
+      - '.github/workflows/full-page-ocr.yml'
+  workflow_dispatch:
+jobs:
+  scan-remaining:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        group: ['Level 1','Level 2','Level 3','Level 4','Level 5','Level 6','Other']
+        shard: [0,1]
+    env:
+      AUDIT_GROUP: ${{ matrix.group }}
+      AUDIT_SHARD: ${{ matrix.shard }}
+      OMP_THREAD_LIMIT: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          fetch-depth: 1
+      - name: Download relevant PDF assets only
+        shell: bash
+        run: |
+          if [ "$AUDIT_GROUP" = "Other" ]; then
+            git lfs pull --include="public/*.pdf,curriculum-source/**" --exclude="*.mp4,*.zip,*.mov"
+          else
+            git lfs pull --include="public/$AUDIT_GROUP/**" --exclude="*.mp4,*.zip,*.mov"
+          fi
+      - name: Install OCR packages
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-chi-sim >/dev/null
+          python -m pip install -q pymupdf Pillow pytesseract
+      - name: OCR all unsampled pages
+        run: python scripts/visual_ocr_remaining_pages.py
+      - name: Upload CSV output
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step1-remaining-${{ matrix.group }}-${{ matrix.shard }}
+          path: full-ocr-results/
+          retention-days: 30
