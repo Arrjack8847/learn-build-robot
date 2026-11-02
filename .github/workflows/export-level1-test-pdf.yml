@@ -1,0 +1,30 @@
+name: Level 1 Hello World - export original for controlled test
+on:
+  push:
+    branches: [audit/pdf-branding-20261102]
+    paths: ['.github/workflows/export-level1-test-pdf.yml']
+  workflow_dispatch:
+jobs:
+  export-original:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - name: Fetch the single source PDF
+        run: git lfs pull --include="public/Level 1/Learning/Display & Movement/Hello World/01.Hello World-Slides.pdf" --exclude="*.mp4"
+      - name: Verify and copy source
+        shell: bash
+        run: |
+          mkdir -p level1-original
+          cp "public/Level 1/Learning/Display & Movement/Hello World/01.Hello World-Slides.pdf" "level1-original/Hello_World_Level1_original.pdf"
+          file level1-original/Hello_World_Level1_original.pdf
+          sha256sum level1-original/Hello_World_Level1_original.pdf
+      - uses: actions/upload-artifact@v4
+        with:
+          name: level1-hello-world-original-${{ github.run_id }}
+          path: level1-original/Hello_World_Level1_original.pdf
+          retention-days: 5
