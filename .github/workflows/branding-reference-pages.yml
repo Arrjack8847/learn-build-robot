@@ -1,0 +1,51 @@
+name: Step 1 - visual branding reference pages
+on:
+  push:
+    branches: [audit/pdf-branding-20261102]
+    paths: ['.github/workflows/branding-reference-pages.yml']
+  workflow_dispatch:
+jobs:
+  render-examples:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - name: Fetch sample PDF assets
+        run: |
+          git lfs pull --include="public/Level 1/**,public/Level 3/**,public/Level 4/**,public/Level 5/**,public/Level 6/**" --exclude="*.mp4,*.zip,*.mov"
+      - name: Install renderer
+        run: python -m pip install -q pymupdf Pillow
+      - name: Render representative cover and closing pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import fitz
+          sources=[
+            ("L1_Hello_World","public/Level 1/Learning/Display & Movement/Hello World/01.Hello World-Slides.pdf",[0,-1]),
+            ("L3_Electric_Fan","public/Level 3/Learning/Characters & Structures/Electric Fan/05.Electric Fan-Slides.pdf",[0,-1]),
+            ("L4_Tag_Recognition","public/Level 4/Automation & Security/Tag Recognition/06. Tag Recognition.pdf",[0,-1]),
+            ("L5_Firefly","public/Level 5/Learning/Action-Oriented/Firefly/02.Firefly-Slides.pdf",[0,-1]),
+            ("L6_Gorilla","public/Level 6/Learning/Action-Oriented/Gorilla/04.Gorilla - Slides.pdf",[0,-1]),
+          ]
+          output=Path('branding-visual-evidence');output.mkdir(exist_ok=True)
+          for key,path,pages in sources:
+            try:
+              with fitz.open(path) as doc:
+                for page in pages:
+                  idx=page if page>=0 else len(doc)+page
+                  pg=doc[idx]
+                  scale=min(1.75,2200/max(pg.rect.width,pg.rect.height))
+                  pix=pg.get_pixmap(matrix=fitz.Matrix(scale,scale),alpha=False)
+                  pix.save(output/f"{key}_page_{idx+1}.png")
+            except Exception as e:
+              print(key,repr(e),flush=True)
+          print('Rendered',len(list(output.glob('*.png'))),'reference pages')
+          PY
+      - name: Upload sample renders
+        uses: actions/upload-artifact@v4
+        with:
+          name: branding-visual-evidence
+          path: branding-visual-evidence/
+          retention-days: 30
