@@ -6,6 +6,16 @@ A responsive robotics learning platform with six levels and official project cat
 
 TanStack Start, React 19, TypeScript, Vite 8, Tailwind CSS 4, PDF.js and Three.js.
 
+## Vercel deployment
+
+The GitHub repository is already connected to the existing [BE STEM READY Vercel project](https://vercel.com/soe-min-khants-projects/learn-build-robot).
+
+- **Current production website:** https://learn-build-robot.vercel.app (deployed from `main`; does not yet include the six-level quiz integration).
+- **321-quiz integration preview:** https://learn-build-robot-adxh0vifi-soe-min-khants-projects.vercel.app (protected Vercel preview from `feat/quiz-all-levels-integrated-20261101`).
+- **Integration pull request:** https://github.com/Arrjack8847/learn-build-robot/pull/65 (draft; requires end-to-end quiz testing before merging into `main`).
+
+The local `.vercel/` directory created by the Vercel CLI and local `.env*` configuration are ignored by Git; excluding those local files does not establish or disconnect the hosted Git integration.
+
 ## Local development
 
 ```bash
