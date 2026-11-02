@@ -1,0 +1,48 @@
+name: Step 1 - sampled visual OCR audit
+on:
+  push:
+    branches:
+      - audit/pdf-branding-20261102
+    paths:
+      - '.github/workflows/visual-ocr-audit.yml'
+  workflow_dispatch:
+jobs:
+  sampled-ocr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix:
+        group: ['Level 1', 'Level 2', 'Level 3', 'Level 4', 'Level 5', 'Level 6', 'Other']
+    env:
+      AUDIT_GROUP: ${{ matrix.group }}
+      OMP_THREAD_LIMIT: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          fetch-depth: 1
+      - name: Download PDF files for this level
+        shell: bash
+        run: |
+          if [ "$AUDIT_GROUP" = "Other" ]; then
+            git lfs pull --include="public/*.pdf,curriculum-source/**" --exclude="*.mp4,*.zip,*.mov"
+          else
+            git lfs pull --include="public/$AUDIT_GROUP/**" --exclude="*.mp4,*.zip,*.mov"
+          fi
+      - name: Install OCR and Python tools
+        shell: bash
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-chi-sim >/dev/null
+          python -m pip install --quiet pymupdf Pillow pytesseract
+          tesseract --list-langs
+      - name: Scan page samples (read-only)
+        run: python scripts/visual_ocr_sample_audit.py
+      - name: Upload per-level report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step1-ocr-${{ matrix.group }}
+          path: visual-ocr-results/
+          retention-days: 30
