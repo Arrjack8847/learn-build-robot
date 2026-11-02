@@ -1,0 +1,40 @@
+name: Export Level 1 Learning PDF originals (controlled cleanup)
+on:
+  push:
+    branches: [audit/pdf-branding-20261102]
+    paths: ['.github/workflows/export-level1-all-test.yml']
+  workflow_dispatch:
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - name: Download Level 1 Learning PDFs only
+        shell: bash
+        run: |
+          git lfs pull --include="public/Level 1/Learning/**/*.pdf" --exclude="*.mp4,*.zip"
+      - name: Stage original PDFs without modifying them
+        shell: bash
+        run: |
+          mkdir -p level1-originals
+          cp -a "public/Level 1/Learning/." "level1-originals/"
+          find level1-originals -type f ! -name '*.pdf' -delete
+          find level1-originals -type f -iname '*.pdf' -print | sort > level1-pdf-inventory.txt
+          printf 'Total PDFs: '; wc -l < level1-pdf-inventory.txt
+          test "$(wc -l < level1-pdf-inventory.txt)" -eq 45
+          python - <<'PY'
+          from pathlib import Path
+          for f in Path('level1-originals').rglob('*.pdf'):
+              assert f.read_bytes()[:5] == b'%PDF-', f'Not a PDF: {f}'
+          print('All 45 files have PDF signatures')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: level1-all-45-original-pdfs
+          path: |
+            level1-originals/
+            level1-pdf-inventory.txt
+          retention-days: 3
