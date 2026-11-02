@@ -1,0 +1,40 @@
+name: Step 1 - graphical logo template scan
+on:
+  push:
+    branches: [audit/pdf-branding-20261102]
+    paths: ['.github/workflows/logo-template-scan.yml']
+  workflow_dispatch:
+jobs:
+  match-logos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix:
+        group: ['Level 1','Level 2','Level 3','Level 4','Level 5','Level 6','Other']
+    env:
+      AUDIT_GROUP: ${{ matrix.group }}
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - name: Get necessary PDFs
+        shell: bash
+        run: |
+          if [ "$AUDIT_GROUP" = "Other" ]; then
+            git lfs pull --include="public/*.pdf,curriculum-source/**,public/Level 1/**,public/Level 3/**,public/Level 4/**" --exclude="*.mp4,*.zip,*.mov"
+          else
+            git lfs pull --include="public/$AUDIT_GROUP/**,public/Level 1/**,public/Level 3/**,public/Level 4/**" --exclude="*.mp4,*.zip,*.mov"
+          fi
+      - name: Install image matcher
+        run: python -m pip install -q pymupdf opencv-python-headless numpy
+      - name: Scan with five verified logo templates
+        run: python scripts/audit_logo_template_matches.py
+      - name: Upload candidate matches
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: step1-logo-${{ matrix.group }}
+          path: logo-match-results/
+          retention-days: 30
