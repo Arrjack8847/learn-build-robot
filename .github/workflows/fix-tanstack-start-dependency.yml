@@ -35,13 +35,12 @@ jobs:
           node <<'NODE'
           const fs=require('node:fs');
           const pkg=JSON.parse(fs.readFileSync('package.json','utf8'));
-          const lock=JSON.parse(fs.readFileSync('bun.lock','utf8'));
+          const lock=fs.readFileSync('bun.lock','utf8');
           if(pkg.dependencies['@tanstack/react-start']!=='1.168.60') throw Error('Incorrect direct dependency');
-          if(lock.workspaces[''].dependencies['@tanstack/react-start']!=='1.168.60') throw Error('Manifest/lock mismatch');
-          const packages=lock.packages;
-          const matches=Object.entries(packages).filter(([key])=>key.endsWith('@tanstack/start-server-core')||key==='@tanstack/start-server-core');
-          if(!matches.length) throw Error('Missing start-server-core lock entry');
-          const versions=matches.map(([key,value]) => (value[0].match(/@([0-9]+\\.[0-9]+\\.[0-9]+)/)||[])[1]);
+          if(!lock.includes('"@tanstack/react-start": "1.168.60"')) throw Error('Manifest/lock mismatch');
+          const matches=lock.split('\n').filter(s=>s.trim().startsWith('"@tanstack/start-server-core": ['));
+          if(!matches.length)throw Error('Missing start-server-core lock entry');
+          const versions=matches.map(line=>line.split('start-server-core@')[1]?.split('"')[0]);
           function safe(v){if(!v)return false;const a=v.split('.').map(Number),b=[1,169,39];for(let i=0;i<3;i++){if(a[i]!==b[i])return a[i]>b[i]}return true;}
           if(!versions.every(safe))throw Error('Vulnerable start-server-core remains: '+versions.join(','));
           console.log('PASS: react-start',pkg.dependencies['@tanstack/react-start'],'start-server-core',versions.join(','));
