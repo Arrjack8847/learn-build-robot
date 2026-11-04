@@ -1,0 +1,78 @@
+name: Temporary Level 3 Footer Verification
+on:
+  push:
+    branches: [tmp/level3-pdf-cleanup-runner]
+    paths: [.github/workflows/temp-level3-footer-verification.yml]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: original
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level3-pdf-cleanup
+          path: cleaned
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - run: python3 -m pip install --quiet pymupdf pillow numpy
+      - name: Validate actual visible final-slide footer pixels
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          import pymupdf as fitz
+          import numpy as np
+          from PIL import Image,ImageDraw,ImageChops
+          o=sorted(Path('original/public/Level 3/Learning').rglob('*.pdf'))
+          c=sorted(Path('cleaned/public/Level 3/Learning').rglob('*.pdf'))
+          dark=[10,11,12,13,14,18,19,20,22,23,24,25,36,37,40]
+          assert len(o)==len(c)==43
+          out=Path('/tmp/level3-footer-proof')
+          out.mkdir(parents=True,exist_ok=True)
+          sheet=Image.new('RGB',(720*3,430*5),'#ddd')
+          label=ImageDraw.Draw(sheet)
+          report=[]
+          for j,k in enumerate(dark):
+            a=fitz.open(o[k]);b=fitz.open(c[k])
+            assert len(a)==len(b)
+            before=a[-1].get_pixmap(matrix=fitz.Matrix(1,1),alpha=False)
+            after=b[-1].get_pixmap(matrix=fitz.Matrix(1,1),alpha=False)
+            assert (before.width,before.height)==(after.width,after.height)==(720,405)
+            raw=np.frombuffer(before.samples,dtype=np.uint8).reshape((405,720,3))
+            clean=np.frombuffer(after.samples,dtype=np.uint8).reshape((405,720,3))
+            # Lower-right 430...715 x 302...399 isolates Intelligent Storm footer, not the creator's top-right logo.
+            x0,x1,y0,y1=430,716,302,399
+            aa=raw[y0:y1,x0:x1]; bb=clean[y0:y1,x0:x1]
+            base_bright=int(np.sum(np.min(aa,axis=2)>160))
+            clean_bright=int(np.sum(np.min(bb,axis=2)>160))
+            pixel_changed=int(np.count_nonzero(np.any(aa!=bb,axis=2)))
+            # The clean footer must contain no light-colored brand text at all.
+            assert clean_bright<40,(k,'footer still bright',clean_bright)
+            assert pixel_changed>25,(k,'unexpectedly unchanged footer')
+            record={'index':k,'file':str(o[k]),'original_footer_bright_pixels':base_bright,'cleaned_footer_bright_pixels':clean_bright,'footer_changed_pixels':pixel_changed,'pages':len(a)}
+            report.append(record)
+            r=j//3;col=j%3;px=720*col;py=r*430
+            img=Image.frombytes('RGB',(720,405),after.samples)
+            sheet.paste(img,(px,py+25))
+            label.text((px+7,py+6),str(k)+' '+c[k].stem[:57],fill='black')
+            print(json.dumps(record),flush=True)
+            a.close();b.close()
+          sheet.save(out/'15-cleaned-dark-closings.png',optimize=True)
+          (out/'footer-summary.json').write_text(json.dumps({'success':True,'checked_closing_pages':len(report),'failed_footer_roi_checks':0,'records':report},indent=2))
+          print('ALL_15_DARK_CLOSINGS_PASS no remaining light Intelligent Storm footer logo visible in target region',flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: level3-footer-visible-pixel-proof
+          path: /tmp/level3-footer-proof/
+          retention-days: 21
