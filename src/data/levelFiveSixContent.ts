@@ -1440,7 +1440,9 @@ function publicUrl(path: string): string {
   // just as Level 1 Learning does. Do not route these back to the old Wix copies.
   // Level 5 Building manuals and all Level 6 PDFs still use their existing Wix URLs.
   if (path.startsWith("Level 5/Learning/") && path.endsWith(".pdf")) {
-    return "/" + encodePath(path);
+    // Vite resolves literal "&" in pathname segments but returns 404 for "%26".
+    // Preserve only ampersands; keep spaces, Unicode and other reserved characters encoded.
+    return "/" + encodePath(path).replace(/%26/gi, "&");
   }
   // Explicit Level 6 lookup retains the existing Level 6 Wix contract.
   const wixUrl = levelSixWixPdfUrls[path];
