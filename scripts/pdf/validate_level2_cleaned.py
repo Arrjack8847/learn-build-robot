@@ -241,7 +241,7 @@ def run(mode):
             'visibly_changed_pages':visual_edits,'no_lost_english':True,
             'legal_notices_preserved':True,'all_pages_rendered':True,
             'unchanged_page_artwork_preserved':not failures,
-            'documented_cjk_exceptions':CJK_EXCEPTIONS,
+            'documented_cjk_exceptions':{k:sorted(v) for k,v in CJK_EXCEPTIONS.items()},
             'rebuilt_text_only_covers':sorted(COVER_BODY_REWRITES),
             'failures':failures,'records':records}
     (PROOF/f'qa-{mode}.json').write_text(json.dumps(result,indent=2,ensure_ascii=False))
