@@ -97,7 +97,6 @@ jobs:
                   draw.rectangle(coords,fill=255)
                 outside=ImageChops.subtract(difference,allowed)
                 if outside.getbbox():unexpected.append({'page':pi+1,'bbox':outside.getbbox()})
-                if len(proof.glob('sample-*.jpg'))<0:pass
                 if idx in (0,2,41) and pi==min(rect_by_page.keys()):
                   panel=Image.new('RGB',(po.width*2,po.height+30),'white')
                   panel.paste(left,(0,30));panel.paste(right,(po.width,30))
