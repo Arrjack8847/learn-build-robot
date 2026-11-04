@@ -1,0 +1,86 @@
+name: Temporary Level 3 Original vs Cleaned Review
+on:
+  push:
+    branches:
+      - tmp/level3-pdf-cleanup-runner
+    paths:
+      - .github/workflows/temp-level3-review.yml
+permissions:
+  contents: write
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: orig
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level3-pdf-cleanup
+          path: edited
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - run: python3 -m pip install --quiet pymupdf pillow
+      - name: Compare original and edited documents, extract original Chinese text
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import pymupdf as fitz,re,json
+          from PIL import Image,ImageDraw
+          H=re.compile(r'[\u3400-\u9fff\uf900-\ufaff]')
+          a=sorted(Path("orig/public/Level 3/Learning").rglob("*.pdf"))
+          b=sorted(Path("edited/public/Level 3/Learning").rglob("*.pdf"))
+          assert len(a)==len(b)==43
+          dest=Path("qa-review");dest.mkdir(exist_ok=True)
+          chinese=[]
+          previews=[]
+          for i,(src,tgt) in enumerate(zip(a,b)):
+            assert src.relative_to("orig")==tgt.relative_to("edited"),(src,tgt)
+            ori=fitz.open(src);cln=fitz.open(tgt);assert len(ori)==len(cln)
+            for pi,page in enumerate(ori):
+              text=page.get_text()
+              if not H.search(text):continue
+              lines=[]
+              for block in page.get_text("dict")["blocks"]:
+                for line in block.get("lines",[]):
+                  s=''.join(z["text"] for z in line["spans"])
+                  if H.search(s):
+                    lines.append({"text":s,"bbox":[round(v,1) for v in line["bbox"]],"spans":[{"text":q["text"],"bbox":[round(v,1) for v in q["bbox"]],"size":round(q["size"],2),"font":q["font"],"color":q["color"]} for q in line["spans"]]})
+              chinese.append({"index":i,"path":str(src.relative_to("orig")),"page":pi+1,"width":page.rect.width,"height":page.rect.height,"lines":lines,"full_page_text":text[:5000]})
+          for idx in [0,10,15,16,29,41]:
+            before=fitz.open(a[idx]);after=fitz.open(b[idx])
+            selection=sorted(set([0,1,min(4,len(before)-1),len(before)-1]+([24,25,26,27] if idx==15 else [])+([10] if idx==16 else [])))
+            for j in selection:
+              if j>=len(before):continue
+              v=Image.new("RGB",(1440,405),(230,230,230))
+              for k,doc in enumerate([before,after]):
+                p=doc[j];z=p.get_pixmap(matrix=fitz.Matrix(1,1),alpha=False)
+                im=Image.frombytes("RGB",(z.width,z.height),z.samples);im.thumbnail((720,405))
+                v.paste(im,(k*720+(720-im.width)//2,(405-im.height)//2))
+              ImageDraw.Draw(v).text((6,4),f"ORIGINAL / EDITED  PDF {idx} PAGE {j+1}",fill=(0,0,0))
+              name=f"cmp-{idx:02d}-p{j+1:02d}.png"
+              v.save(dest/name,optimize=True)
+              previews.append(name)
+          (dest/"chinese.json").write_text(json.dumps(chinese,ensure_ascii=False,indent=2))
+          (dest/"previews.json").write_text(json.dumps(previews,indent=2))
+          print("FILES",len(a),"ORIGINAL CHINESE PAGES",len(chinese),"PREVIEWS",len(previews))
+          PY
+      - name: Publish temporary preview images
+        shell: bash
+        run: |
+          git -C orig config user.name 'github-actions[bot]'
+          git -C orig config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C orig fetch origin tmp/level3-pdf-cleanup-runner
+          git -C orig switch -c tmp-publish FETCH_HEAD
+          mkdir -p orig/qa/level3/review
+          cp -r qa-review/. orig/qa/level3/review/
+          git -C orig add --sparse qa/level3/review/
+          git -C orig commit -m 'qa(level3): compare cleaned and original PDF previews [skip ci]'
+          git -C orig push origin HEAD:tmp/level3-pdf-cleanup-runner
