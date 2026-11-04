@@ -58,6 +58,9 @@ jobs:
       - name: Run Level 5 and Level 6 registry, routing, and legacy asset tests
         run: |
           node --version
+          # Git's default core.quotePath escapes the unicode parentheses in Goalkeeper PDF.
+          # Keep original filenames human-readable for the legacy git ls-tree checks.
+          git config core.quotePath false
           node --test tests/level-five-wix-urls.test.mjs tests/level-six-wix-urls.test.mjs tests/level-five-six-assets.test.mjs tests/level-five-six-extra-pdfs.test.mjs
       - name: Ensure only intended paths differ from main
         shell: bash
