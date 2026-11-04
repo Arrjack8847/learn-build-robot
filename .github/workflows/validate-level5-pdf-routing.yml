@@ -1,0 +1,27 @@
+name: Temporary Level 5 local PDF routing regression
+on:
+  push:
+    branches: ['tmp/level5-local-pdf-routing-validation-20261104']
+    paths: ['.github/workflows/validate-level5-pdf-routing.yml']
+permissions:
+  contents: read
+jobs:
+  check-level5-routing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            src/data/levelFiveSixContent.ts
+            src/data/levelFiveWixPdfUrls.ts
+            src/data/levelSixWixPdfUrls.ts
+            tests/level-five-wix-urls.test.mjs
+          sparse-checkout-cone-mode: false
+      - name: Report Node and source revision
+        run: |
+          node --version
+          git log -1 --format='BRANCH_HEAD=%H'
+      - name: Verify all 51 local Learning URLs and retained Wix variants
+        run: node --test tests/level-five-wix-urls.test.mjs
