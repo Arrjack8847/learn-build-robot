@@ -132,3 +132,30 @@ jobs:
           path: /tmp/level6-proof/
           retention-days: 21
           if-no-files-found: warn
+
+      - name: Compare approved Level 1 Learning standard and render representative sample
+        shell: bash
+        run: |
+          python - <<'PY'
+          import fitz,subprocess,json
+          from pathlib import Path
+          ref='89c0ae9ed145ccc166af625aed680d7f5b84657f'
+          sample='public/Level 1/Learning/Mechanisms & Simulators/Shock absorber/Shock absorber_Powerpoint.pdf'
+          data=subprocess.check_output(['git','show',ref+':'+sample])
+          pdf=fitz.open(stream=data,filetype='pdf')
+          assert len(pdf)>1
+          out=Path('/tmp/level6-proof/level1-reference');out.mkdir(parents=True,exist_ok=True)
+          (out/'approved-level1-sample.pdf').write_bytes(data)
+          for idx in sorted({0,1,len(pdf)-1}):
+            pix=pdf[idx].get_pixmap(matrix=fitz.Matrix(.9,.9),alpha=False)
+            pix.save(out/f'level1-p{idx+1:02d}.png')
+          print('LEVEL1_REFERENCE',json.dumps({'path':sample,'pages':len(pdf),'page_size':list(pdf[0].rect),
+            'first_page_excerpt':pdf[0].get_text()[:400],'last_page_excerpt':pdf[-1].get_text()[:400]}))
+          PY
+      - name: Export exact current remote Level 6 Learning PDFs for independent complete visual inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: level6-final-exact-43-remote-pdfs
+          path: public/Level 6/Learning/
+          retention-days: 3
+          if-no-files-found: error
