@@ -1,0 +1,169 @@
+name: Level 6 Learning PDF full read-only audit
+on:
+  push:
+    branches:
+      - fix/level6-pdf-cleanup
+    paths:
+      - .github/workflows/level6-learning-pdf-audit-20261104.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - name: Checkout only Level 6 Learning PDFs and audit workflow
+        uses: actions/checkout@v4
+        with:
+          ref: fix/level6-pdf-cleanup
+          filter: blob:none
+          fetch-depth: 0
+          sparse-checkout: |
+            public/Level 6/Learning
+            .github/workflows
+          sparse-checkout-cone-mode: true
+          persist-credentials: true
+          lfs: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install PDF audit tools
+        run: python -m pip install --quiet 'PyMuPDF==1.26.7' 'Pillow>=10,<13'
+      - name: Full Level 6 audit and baseline comparison
+        shell: bash
+        run: |
+          python - <<'PY'
+          import collections, hashlib, io, json, re, subprocess, traceback
+          from pathlib import Path
+          import fitz
+          from PIL import Image, ImageChops, ImageDraw
+          base = "b52b9cca94269e30d00024c87e746cec51a55234"
+          root = Path("public/Level 6/Learning")
+          output = Path("/tmp/level6-audit")
+          output.mkdir(parents=True, exist_ok=True)
+          paths = sorted(root.rglob("*.pdf"))
+          assert len(paths)==43, f"Expected exactly 43 Learning PDFs, found {len(paths)}"
+          changed = set(subprocess.check_output([
+              "git","diff","--name-only",base,"HEAD","--","public/Level 6/Learning"
+          ], text=True).splitlines())
+          def tile(page, title):
+              pix=page.get_pixmap(matrix=fitz.Matrix(.48,.48), alpha=False)
+              pic=Image.frombytes("RGB",(pix.width,pix.height),pix.samples)
+              pic.thumbnail((480,285))
+              canvas=Image.new("RGB",(500,320),"white")
+              canvas.paste(pic,((500-pic.width)//2,6))
+              ImageDraw.Draw(canvas).text((8,295),title[:78],fill="black")
+              return canvas
+          tiles=[]
+          summary={"files_total":len(paths),"pdf_pages":0,"Chinese_character_occurrences":0,
+                   "Chinese_text_files":0,"branding_text_files":0,"branding_text_pages":0,
+                   "modified_pdf_files":len(changed),"baseline_problems":[],"errors":[],"records":[]}
+          logos=collections.defaultdict(lambda: {"occurrences":0,"files":set(),"pages":[],"dims":[]})
+          brand_terms=("intelligent storm","intelligence storm","智能风暴","智力风暴","zmrobo")
+          for p in paths:
+              path=p.as_posix()
+              record={"path":path,"bytes":p.stat().st_size,"pages":0,"chinese_pages":[],
+                      "branding_pages":[],"textless_pages":[],"image_placements":0,
+                      "fonts":[],"edited_vs_baseline":path in changed}
+              try:
+                  doc=fitz.open(p)
+                  record["pages"]=len(doc)
+                  summary["pdf_pages"]+=len(doc)
+                  record["page_sizes"]=[[round(x.rect.width,2),round(x.rect.height,2)]
+                                        for x in (doc[0],doc[-1])] if len(doc) else []
+                  fonts=set()
+                  for i,page in enumerate(doc):
+                      txt=page.get_text()
+                      fonts.update(f[3] for f in page.get_fonts())
+                      chinese=re.findall(r"[\u3400-\u9fff]",txt)
+                      brands=[term for term in brand_terms if term in txt.casefold()]
+                      if chinese:
+                          record["chinese_pages"].append({
+                              "page":i+1,"chars":len(chinese),
+                              "lines":[line[:125] for line in txt.splitlines()
+                                  if re.search(r"[\u3400-\u9fff]",line)][:8]})
+                          summary["Chinese_character_occurrences"]+=len(chinese)
+                      if brands:
+                          record["branding_pages"].append({"page":i+1,"terms":brands})
+                          summary["branding_text_pages"]+=1
+                      if not txt.strip():record["textless_pages"].append(i+1)
+                      for im in page.get_images(full=True):
+                          xref=im[0]
+                          try:
+                              data=doc.extract_image(xref)
+                              digest=hashlib.sha256(data["image"]).hexdigest()[:20]
+                              item=logos[digest]
+                              item["occurrences"]+=1;item["files"].add(path)
+                              item["dims"]=[data["width"],data["height"]]
+                              if len(item["pages"])<5:item["pages"].append([p.stem[:28],i+1])
+                              record["image_placements"]+=1
+                          except Exception as exc:
+                              record.setdefault("warnings",[]).append(str(exc)[:150])
+                  record["fonts"]=sorted(fonts)
+                  summary["Chinese_text_files"]+=bool(record["chinese_pages"])
+                  summary["branding_text_files"]+=bool(record["branding_pages"])
+                  selected=[0,len(doc)-1]+[c["page"]-1 for c in record["chinese_pages"][:2]]
+                  selected += [c["page"]-1 for c in record["branding_pages"][:2]]
+                  for i in sorted(set(selected)):
+                      if 0<=i<len(doc):tiles.append(tile(doc[i],p.stem[:35]+f" p{i+1}"))
+                  if path in changed:
+                      try:
+                          old_bytes=subprocess.check_output(["git","show",base+":"+path])
+                          old=fitz.open(stream=old_bytes,filetype="pdf")
+                          comparison={"original_pages":len(old),"edited_pages":len(doc),
+                                      "original_bytes":len(old_bytes),"edited_bytes":p.stat().st_size,
+                                      "dimensions_match":len(old)==len(doc) and all(
+                                          tuple(old[j].rect)==tuple(doc[j].rect)
+                                          for j in range(len(doc)))}
+                          assert comparison["dimensions_match"],"page count/dimensions changed"
+                          differences=0
+                          for j in range(len(old)):
+                              a=old[j].get_pixmap(matrix=fitz.Matrix(.33,.33),alpha=False)
+                              b=doc[j].get_pixmap(matrix=fitz.Matrix(.33,.33),alpha=False)
+                              assert (a.width,a.height)==(b.width,b.height)
+                              if a.samples!=b.samples:differences+=1
+                          comparison["visually_changed_pages"]=differences
+                          record["baseline_comparison"]=comparison
+                          old.close()
+                      except Exception as exc:
+                          summary["baseline_problems"].append([path,str(exc)])
+                  doc.close()
+              except Exception as exc:
+                  summary["errors"].append([path,repr(exc),traceback.format_exc()[-350:]])
+              summary["records"].append(record)
+          summary["repeated_image_signatures"]=[
+              {"hash":k,"occurrences":v["occurrences"],"file_count":len(v["files"]),
+               "dims":v["dims"],"example_pages":v["pages"]}
+              for k,v in sorted(logos.items(),key=lambda kv:-kv[1]["occurrences"])[:75]]
+          for start in range(0,len(tiles),12):
+              sheet=Image.new("RGB",(1500,1280),"#dddddd")
+              for idx,im in enumerate(tiles[start:start+12]):
+                  sheet.paste(im,((idx%3)*500,(idx//3)*320))
+              sheet.save(output/f"contact-{start//12+1:02d}.jpg",quality=80,optimize=True)
+          (output/"report.json").write_text(
+              json.dumps(summary,ensure_ascii=False,indent=2),encoding="utf8")
+          compact={k:v for k,v in summary.items() if k not in ("records","repeated_image_signatures")}
+          print("LEVEL6_FULL_AUDIT_SUMMARY="+json.dumps(compact))
+          for record in summary["records"]:
+              print("LEVEL6_FILE="+json.dumps({
+                  "path":record["path"],"pages":record["pages"],
+                  "chinese_chars":sum(p["chars"] for p in record["chinese_pages"]),
+                  "chinese_pages":len(record["chinese_pages"]),
+                  "branding_pages":len(record["branding_pages"]),
+                  "edited":record["edited_vs_baseline"],
+                  "baseline":record.get("baseline_comparison")
+              },ensure_ascii=False))
+          print("LEVEL6_VISUAL_CONTACT_SHEETS="+str(len(list(output.glob("*.jpg")))))
+          assert len(changed)==8, (len(changed),sorted(changed))
+          assert not summary["errors"],summary["errors"]
+          assert not summary["baseline_problems"],summary["baseline_problems"]
+          PY
+      - name: Upload audit and visual evidence without modifying PDFs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: level6-43-pdf-read-only-audit
+          path: /tmp/level6-audit/
+          retention-days: 21
+          if-no-files-found: warn
