@@ -1,0 +1,37 @@
+name: Level 4 routing integration isolated checks
+on:
+  push:
+    branches:
+      - internal/level4-routing-qa-20261104
+permissions:
+  contents: read
+jobs:
+  level4-routing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout proposed routing branch
+        uses: actions/checkout@v4
+        with:
+          ref: feat/level4-cleaned-learning-local-routing-20261104
+          filter: blob:none
+          sparse-checkout: |
+            src
+            tests
+            public/Level 4
+            package.json
+            bun.lock
+            bunfig.toml
+            tsconfig.json
+            vite.config.ts
+            .gitignore
+          persist-credentials: false
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Install locked dependencies
+        run: bun install --frozen-lockfile
+      - name: Level 4 Learning, Building and Wix regression tests
+        run: node --test tests/level-four-learning.test.mjs tests/level-four-building.test.mjs tests/level-four-wix-urls.test.mjs
+      - name: TypeScript type check
+        run: bunx tsc --noEmit
