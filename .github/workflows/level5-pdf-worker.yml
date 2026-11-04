@@ -28,3 +28,10 @@ jobs:
           name: level5-pdf-inventory
           path: /tmp/bsr-level5-worker/audit.json
           retention-days: 5
+      - name: Upload complete original Level 5 Learning PDF corpus for controlled editing
+        uses: actions/upload-artifact@v4
+        with:
+          name: level5-learning-originals
+          path: public/Level 5/Learning/
+          compression-level: 0
+          retention-days: 2
