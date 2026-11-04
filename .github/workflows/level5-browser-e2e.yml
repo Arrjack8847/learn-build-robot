@@ -1,0 +1,123 @@
+name: Level 5 browser E2E — cleaned Learning and Building fallback
+on:
+  push:
+    branches: ['tmp/level5-integrated-premerge-qa-20261104']
+    paths: ['.github/workflows/level5-browser-e2e.yml']
+permissions:
+  contents: read
+jobs:
+  browser-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          lfs: false
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.1
+      - name: Install application and browser test dependencies
+        run: |
+          bun install --frozen-lockfile
+          npm install --prefix /tmp/level5-browser --no-save playwright@1.58.2
+          /tmp/level5-browser/node_modules/.bin/playwright install --with-deps chromium
+      - name: Start application server
+        shell: bash
+        run: |
+          set -euo pipefail
+          nohup bun run dev --host 127.0.0.1 --port 4173 > /tmp/level5-browser-vite.log 2>&1 < /dev/null &
+          ready=0
+          for i in $(seq 1 60); do
+            if curl --silent --max-time 2 --output /dev/null http://127.0.0.1:4173/; then ready=1; break; fi
+            sleep 2
+          done
+          if [ "$ready" -ne 1 ]; then cat /tmp/level5-browser-vite.log; exit 1; fi
+      - name: Real Chromium Learning Studio, page navigation, and Building fallback
+        shell: bash
+        run: |
+          mkdir -p /tmp/level5-browser-screenshots
+          node --input-type=module <<'JS'
+          import assert from "node:assert/strict";
+          import {createRequire} from "node:module";
+          const require = createRequire("/tmp/level5-browser/package.json");
+          const {chromium} = require("playwright");
+          const browser = await chromium.launch({headless:true,args:["--no-sandbox"]});
+          const host = "http://127.0.0.1:4173";
+          const cases = [
+            {id:"level-5-curling-game",title:"Curling Game",width:1280,height:800},
+            {id:"level-5-super-trajectory-robot-3",title:"Super Trajectory Robot 3",width:390,height:844},
+            {id:"level-5-face-tracking",title:"Face tracking",width:375,height:812},
+            {id:"level-5-car-lights",title:"Car Lights",width:430,height:932},
+          ];
+          const fail=[];
+          async function checkCanvas(page,label){
+            await page.locator('canvas[role="img"]').first().waitFor({state:"visible",timeout:45000});
+            await page.waitForFunction(()=>{
+              const c=document.querySelector('canvas[role="img"]');
+              return Boolean(c && c.width>100 && c.height>100 && !document.querySelector('[role="alert"]'));
+            },null,{timeout:45000});
+            await page.locator('div[role="status"]').filter({hasText:"Rendering original PDF"}).waitFor({state:"hidden",timeout:45000});
+            const data=await page.locator('canvas[role="img"]').first().evaluate(c=>({
+              w:c.width,h:c.height,style:c.getAttribute("aria-label"),
+              image:c.getContext("2d")?.getImageData(Math.floor(c.width/2),Math.floor(c.height/2),1,1).data?.[3]
+            }));
+            assert.ok(data.w>100&&data.h>100,label+" must render canvas");
+            assert.ok(data.image>0,label+" must paint an opaque canvas");
+            return data;
+          }
+          try {
+            for(const item of cases){
+              const page = await browser.newPage({viewport:{width:item.width,height:item.height},deviceScaleFactor:1,hasTouch:item.width<500,isMobile:item.width<500});
+              const errors=[];
+              page.on("pageerror",e=>errors.push(e.message));
+              const localPDFs=[];
+              page.on("request", req=>{if(req.url().startsWith(host+"/Level%205/Learning/")||req.url().startsWith(host+"/Level 5/Learning/"))localPDFs.push(req.url());});
+              const url=host+"/practical/"+item.id+"?mode=learning";
+              const resp=await page.goto(url,{waitUntil:"domcontentloaded",timeout:40000});
+              assert.ok(resp?.ok(),item.id+" failed page HTTP");
+              await page.getByText("Learning Studio",{exact:false}).first().waitFor({state:"visible",timeout:30000});
+              const meta=await checkCanvas(page,item.id+" lecture slide one");
+              assert.ok(meta.style?.includes("slide 1"),item.id+" initial page label incorrect: "+meta.style);
+              const selected=page.getByLabel("Choose lecture slide");
+              await selected.waitFor({state:"visible"});
+              const count=await selected.locator("option").count();
+              assert.ok(count>=2,item.id+" should have multiple slides");
+              await page.getByRole("button",{name:/Next/}).click();
+              await page.waitForFunction(()=>{
+                const c=document.querySelector('canvas[role="img"]');
+                return c?.getAttribute("aria-label")?.includes("slide 2");
+              },null,{timeout:25000});
+              await checkCanvas(page,item.id+" lecture slide two");
+              await page.screenshot({path:"/tmp/level5-browser-screenshots/"+item.id+"-"+item.width+".png",fullPage:false});
+              assert.equal(errors.length,0,item.id+" page errors: "+errors.join(" | "));
+              assert.ok(localPDFs.length>0,item.id+" did not request a local cleaned PDF");
+              console.log("PASS_BROWSER_LEARNING",JSON.stringify({id:item.id,width:item.width,height:item.height,pages:count,requests:localPDFs.length,canvas:meta.w+"x"+meta.h}));
+              await page.close();
+            }
+            const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true});
+            const fallback=await page.goto(host+"/practical/level-5-super-trajectory-robot-3?mode=building",{waitUntil:"domcontentloaded",timeout:40000});
+            assert.ok(fallback?.ok());
+            await page.getByRole("note").filter({hasText:"no separate Building manual"}).waitFor({state:"visible",timeout:35000});
+            const meta=await checkCanvas(page,"Level 5 building Learning fallback");
+            console.log("PASS_BROWSER_BUILDING_FALLBACK",JSON.stringify({id:"level-5-super-trajectory-robot-3",canvas:meta.w+"x"+meta.h}));
+            await page.screenshot({path:"/tmp/level5-browser-screenshots/building-fallback-390.png",fullPage:false});
+            await page.close();
+          } catch(err) {
+            console.error("BROWSER_E2E_FAILED",err.stack||String(err));
+            throw err;
+          } finally {
+            await browser.close();
+          }
+          JS
+      - name: Upload browser screenshots
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: level5-browser-e2e-mobile-desktop
+          path: /tmp/level5-browser-screenshots/
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: Output app logs on failure
+        if: failure()
+        run: tail -120 /tmp/level5-browser-vite.log || true
