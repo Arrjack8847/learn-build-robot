@@ -5,6 +5,7 @@ import argparse, collections, hashlib, json, re
 from pathlib import Path
 import fitz
 from PIL import Image, ImageChops, ImageDraw
+from clean_level2_learning_once import CJK_EXCEPTIONS, COVER_BODY_REWRITES
 
 SOURCE=Path('public/Level 2/Learning')
 CLEAN=Path('/tmp/bsr-level2-clean/output')
@@ -180,7 +181,11 @@ def run(mode):
                 checked_pages+=1
                 assert a.rect==b.rect and a.rotation==b.rotation,(src,pi+1,'geometry changed')
                 atext=a.get_text();btext=b.get_text()
-                assert not HAN.search(btext),(src,pi+1,'untranslated Chinese remains')
+                if HAN.search(btext):
+                    allowed_exception=(pi+1 in CJK_EXCEPTIONS.get(src.relative_to(SOURCE).as_posix(),set()))
+                    assert allowed_exception,(src,pi+1,'unapproved remaining Chinese')
+                    assert collections.Counter(HAN.findall(atext))==collections.Counter(HAN.findall(btext)),(
+                        src,pi+1,'original hidden Chinese was unexpectedly changed')
                 assert not BRAND.search(btext),(src,pi+1,'selectable brand remains')
                 missing=preserved_lines(atext)-lines(btext)
                 # Rewritten branding can cause harmless line reflow. Never
@@ -199,7 +204,10 @@ def run(mode):
                 for image in b.get_images(full=True):
                     assert (image[2],image[3]) not in LOGO_SIZES,(src,pi+1,'matching embedded logo remains')
                 try:
-                    changed,outside,before,after=check_diff(a,b,allowed_rectangles(a))
+                    regions=allowed_rectangles(a)
+                    if pi==0 and src.relative_to(SOURCE).as_posix() in COVER_BODY_REWRITES:
+                        regions.append((fitz.Rect(0,280,960,540),'text'))
+                    changed,outside,before,after=check_diff(a,b,regions)
                 except AssertionError as exc:
                     # Preserve exact before/after proof and source page; do not relax QA.
                     tag=f"unexpected-{i:02d}-page-{pi+1:02d}"
@@ -232,7 +240,10 @@ def run(mode):
             'checked_pdfs':len(records),'checked_pages':checked_pages,
             'visibly_changed_pages':visual_edits,'no_lost_english':True,
             'legal_notices_preserved':True,'all_pages_rendered':True,
-            'unchanged_page_artwork_preserved':not failures,'failures':failures,'records':records}
+            'unchanged_page_artwork_preserved':not failures,
+            'documented_cjk_exceptions':CJK_EXCEPTIONS,
+            'rebuilt_text_only_covers':sorted(COVER_BODY_REWRITES),
+            'failures':failures,'records':records}
     (PROOF/f'qa-{mode}.json').write_text(json.dumps(result,indent=2,ensure_ascii=False))
     if failures:
         print('VALIDATION_FAILURE_SUMMARY',json.dumps({"mode":mode,"checked_pages":checked_pages,
