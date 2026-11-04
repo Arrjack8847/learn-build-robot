@@ -1,0 +1,142 @@
+name: Temporary Level 3 Identical Interior Logo Removal
+on:
+  push:
+    branches: [tmp/level3-pdf-cleanup-runner]
+    paths:
+      - .github/workflows/temp-level3-interior-logos-fix.yml
+permissions:
+  contents: write
+jobs:
+  correct:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level3-pdf-cleanup
+          persist-credentials: true
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - name: Verify no concurrent edit to target branch
+        shell: bash
+        run: |
+          test "$(git rev-parse HEAD)" = "fe91f5e6816cdfbea95a0f20858c020ef500fc17"
+      - run: python3 -m pip install --quiet pymupdf pillow
+      - name: Remove fingerprint-confirmed interior logo XObjects and compare pages
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import pymupdf as fitz
+          from PIL import Image,ImageChops,ImageDraw
+          from pathlib import Path
+          from tempfile import NamedTemporaryFile
+          import io,json,os,collections,hashlib
+          files=sorted(Path('public/Level 3/Learning').rglob('*.pdf'))
+          assert len(files)==43
+          assert sum(len(fitz.open(p)) for p in files)==1062
+          BRAND_SHA='6139a0a0486a87544601a357fd5a1df27b780152fa41a7771fe81dafaa01e62f'
+          report=[]; modified=[]; total_placements=0
+          proof=Path('/tmp/level3-interior-logo-correction');proof.mkdir(exist_ok=True)
+          for idx,path in enumerate(files):
+            old_bytes=path.read_bytes()
+            doc=fitz.open(stream=old_bytes,filetype='pdf')
+            marks={};rect_by_page=collections.defaultdict(list)
+            for pi,page in enumerate(doc):
+              for obj in page.get_images(full=True):
+                xref,w,h=obj[0],obj[2],obj[3]
+                if (w,h)!=(586,178):continue
+                if xref in marks and not marks[xref]:continue
+                image_bytes=doc.extract_image(xref)['image']
+                im=Image.open(io.BytesIO(image_bytes)).convert('RGB')
+                digest=hashlib.sha256(im.tobytes()).hexdigest()
+                if digest!=BRAND_SHA:continue
+                rects=page.get_image_rects(xref)
+                if not rects:continue
+                marks[xref]=True
+                for rect in rects:rect_by_page[pi].append(rect)
+            if not marks:
+              doc.close()
+              continue
+            pre_text=[p.get_text() for p in doc]
+            pre_sizes=[tuple(p.rect) for p in doc]
+            pre_metadata=doc.metadata.copy()
+            # Deleting one pure-logo image object updates its occurrences throughout this PDF.
+            for xref in marks:
+              first=next(pi for pi,page in enumerate(doc) if any(im[0]==xref for im in page.get_images(full=True)))
+              doc[first].delete_image(xref)
+            with NamedTemporaryFile(prefix='level3-interior-',suffix='.pdf',dir=str(path.parent),delete=False) as tf:
+              candidate=Path(tf.name)
+            try:
+              doc.save(candidate,garbage=4,deflate=True)
+              doc.close()
+              cleaned=fitz.open(candidate)
+              old=fitz.open(stream=old_bytes,filetype='pdf')
+              assert len(old)==len(cleaned)
+              assert cleaned.metadata==pre_metadata,(path,'metadata change')
+              affected_pages=0;unexpected=[]
+              for pi,(p,q) in enumerate(zip(old,cleaned)):
+                assert p.get_text()==q.get_text()==pre_text[pi],(path,pi+1,'instructional text changed')
+                assert tuple(p.rect)==tuple(q.rect)==pre_sizes[pi]
+                po=p.get_pixmap(matrix=fitz.Matrix(.8,.8),alpha=False)
+                pn=q.get_pixmap(matrix=fitz.Matrix(.8,.8),alpha=False)
+                assert (po.width,po.height)==(pn.width,pn.height)
+                if po.samples==pn.samples:
+                  if pi in rect_by_page:raise AssertionError((path,pi+1,'expected logo not visually removed'))
+                  continue
+                assert pi in rect_by_page,(path,pi+1,'page unexpectedly changed')
+                affected_pages+=1
+                left=Image.frombytes('RGB',(po.width,po.height),po.samples)
+                right=Image.frombytes('RGB',(pn.width,pn.height),pn.samples)
+                difference=ImageChops.difference(left,right).convert('L').point(lambda k:255 if k else 0)
+                allowed=Image.new('L',(po.width,po.height),0)
+                draw=ImageDraw.Draw(allowed)
+                for r in rect_by_page[pi]:
+                  coords=[max(0,int(r.x0*.8)-3),max(0,int(r.y0*.8)-3),
+                          min(po.width,int(r.x1*.8)+4),min(po.height,int(r.y1*.8)+4)]
+                  draw.rectangle(coords,fill=255)
+                outside=ImageChops.subtract(difference,allowed)
+                if outside.getbbox():unexpected.append({'page':pi+1,'bbox':outside.getbbox()})
+                if len(proof.glob('sample-*.jpg'))<0:pass
+                if idx in (0,2,41) and pi==min(rect_by_page.keys()):
+                  panel=Image.new('RGB',(po.width*2,po.height+30),'white')
+                  panel.paste(left,(0,30));panel.paste(right,(po.width,30))
+                  ImageDraw.Draw(panel).text((8,7),f'PDF {idx:02d} page {pi+1}: before / after identical-logo removal',fill='black')
+                  panel.save(proof/f'sample-{idx:02d}-p{pi+1:02d}.jpg',quality=90)
+              assert not unexpected,(path,unexpected[:5])
+              assert affected_pages==len(rect_by_page),(path,affected_pages,len(rect_by_page))
+              cleaned.close();old.close()
+              os.replace(candidate,path)
+            except:
+              if candidate.exists():candidate.unlink()
+              raise
+            placements=sum(len(v) for v in rect_by_page.values())
+            total_placements+=placements
+            modified.append(str(path))
+            record={'index':idx,'path':str(path),'pages':len(pre_sizes),'removed_logo_xrefs':list(marks),'affected_pages':sorted(pi+1 for pi in rect_by_page),'logo_placements_removed':placements,'metadata_and_text_unchanged':True,'unexpected_render_changes':0}
+            report.append(record)
+            print('PASS',idx,placements,len(rect_by_page),path,flush=True)
+          print('CORRECTION_RESULT',json.dumps({'files_modified':len(modified),'logo_placements_removed':total_placements,'report_files':len(report)}),flush=True)
+          assert len(modified)==12,('expected exactly 12 confirmed cyan-series PDF edits',modified)
+          assert total_placements>=24
+          (proof/'report.json').write_text(json.dumps({'base_sha':'fe91f5e6816cdfbea95a0f20858c020ef500fc17','files_modified':len(modified),'logo_placements_removed':total_placements,'records':report},indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: level3-interior-logo-correction-proof
+          path: /tmp/level3-interior-logo-correction/
+          retention-days: 21
+      - name: Commit ONLY the validated Level 3 Learning PDFs
+        shell: bash
+        run: |
+          git add --sparse --all -- 'public/Level 3/Learning/'
+          git diff --cached --name-only | tee /tmp/level3-interior-changes.txt
+          test "$(wc -l < /tmp/level3-interior-changes.txt)" -eq 12
+          if grep -Ev '^public/Level 3/Learning/.*\.pdf$' /tmp/level3-interior-changes.txt; then
+            echo 'ERROR: change outside assigned PDFs'
+            exit 1
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'fix(level3): remove identical embedded logos from instructional artwork'
+          git push origin HEAD:fix/level3-pdf-cleanup
