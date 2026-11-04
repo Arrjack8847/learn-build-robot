@@ -60,7 +60,10 @@ jobs:
           ImageDraw.Draw(view).text((8,8),'ORIGINAL CLEANED / FOOTER REPAIR SAMPLE (same page)',fill='black')
           view.save('/tmp/level3-footer-before-after.png',optimize=True)
           pix_before=np.asarray(a);pix_after=np.asarray(b);diff=np.any(pix_before!=pix_after,axis=2)
-          mask=np.zeros(diff.shape,bool);mask[int(435*1.5):,int(416*1.5):]=True
+          rect=page.get_image_rects(bg[0])[0]
+          pdf_x=rect.x0+x0/W*rect.width
+          pdf_y=rect.y0+y0/H*rect.height
+          mask=np.zeros(diff.shape,bool);mask[max(0,int(pdf_y*1.5)-2):,max(0,int(pdf_x*1.5)-2):]=True
           print('DIFF',json.dumps({'outside_patch_changed_pixels':int(np.sum(diff&~mask)),'inside_patch_changed_pixels':int(np.sum(diff&mask)),'source_size':im.size,'docs_pages':len(chk)}))
           assert np.sum(diff&~mask)==0
           assert len(chk)==34
