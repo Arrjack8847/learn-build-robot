@@ -192,8 +192,20 @@ def run(mode):
                 # treat a changed line break as missing education content:
                 # verify all nonbrand English WORDS, including repetitions,
                 # instead. Changed positions remain subject to visual QA.
-                english_missing=preserved_english_tokens(atext)-preserved_english_tokens(btext)
-                assert not english_missing,(src,pi+1,'English tokens lost (including mixed-language lines)',dict(english_missing))
+                english_before=preserved_english_tokens(atext)
+                english_after=preserved_english_tokens(btext)
+                is_rebuilt_cover=(pi==0 and src.relative_to(SOURCE).as_posix() in COVER_BODY_REWRITES)
+                if is_rebuilt_cover:
+                    # Five source covers contained duplicated/overlapping
+                    # hidden brand-paragraph text objects. The repair renders
+                    # one readable paragraph. Verify every distinct original
+                    # nonbrand English word remains; duplicated hidden
+                    # extraction must not force the visible duplication back.
+                    missing_unique=set(english_before)-set(english_after)
+                    assert not missing_unique,(src,pi+1,'cover educational vocabulary lost',sorted(missing_unique))
+                else:
+                    english_missing=english_before-english_after
+                    assert not english_missing,(src,pi+1,'English tokens lost (including mixed-language lines)',dict(english_missing))
                 if missing:
                     print("ENGLISH_LINE_REFLOW",str(src),"page",pi+1,
                           "source_lines",dict(missing),flush=True)
