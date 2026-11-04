@@ -1,0 +1,1264 @@
+[
+  {
+    "index": 1,
+    "path": "public/Level 3/Learning/Action-Oriented/Cycle Sport/3. Cycle Sport - Slides.pdf",
+    "page": 2,
+    "width": 720.0,
+    "height": 405.0,
+    "lines": [
+      {
+        "text": "课程目标",
+        "bbox": [
+          171.8,
+          91.1,
+          235.6,
+          112.0
+        ],
+        "spans": [
+          {
+            "text": "课程目标",
+            "bbox": [
+              171.8,
+              91.1,
+              235.6,
+              112.0
+            ],
+            "size": 15.96,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      },
+      {
+        "text": "课程难点",
+        "bbox": [
+          171.8,
+          246.0,
+          235.6,
+          266.9
+        ],
+        "spans": [
+          {
+            "text": "课程难点",
+            "bbox": [
+              171.8,
+              246.0,
+              235.6,
+              266.9
+            ],
+            "size": 15.96,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "Lesson Objective\n课程目标\n课程难点\nLearning Objectives\nPossible Difficulties\n1.\nLearn about cycling and build a bicycle robot.\n2.\nUse a double-crank mechanism to imitate the movement of a bicycle while \nriding.\n3.\nUse a medium motor to drive the bicycle to turn, and use a belt drive to drive \nthe bicycle to move.\n1.\nBuilding of bicycle robot.\n2.\nUnderstanding and analysis of dead center position.\n3.\nAdjust the double-crank mechanism to avoid dead center position.\n"
+  },
+  {
+    "index": 3,
+    "path": "public/Level 3/Learning/Automation & Security/Automatic Seesaw/24. Automatic Seesaw.pdf",
+    "page": 2,
+    "width": 720.0,
+    "height": 405.0,
+    "lines": [
+      {
+        "text": "课程目标",
+        "bbox": [
+          171.8,
+          91.1,
+          235.6,
+          112.0
+        ],
+        "spans": [
+          {
+            "text": "课程目标",
+            "bbox": [
+              171.8,
+              91.1,
+              235.6,
+              112.0
+            ],
+            "size": 15.96,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      },
+      {
+        "text": "课程难点",
+        "bbox": [
+          171.8,
+          246.0,
+          235.6,
+          266.9
+        ],
+        "spans": [
+          {
+            "text": "课程难点",
+            "bbox": [
+              171.8,
+              246.0,
+              235.6,
+              266.9
+            ],
+            "size": 15.96,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "Lesson Objective\n课程目标\n课程难点\nLearning Objectives\nPossible Difficulties\n1.\nLearn about the seesaw.\n2.\nLearn about the lever principle of the seesaw.\n1.\nBuild a seesaw.\n2.\nThe program of moving up and down on both sides of the seesaw.\n"
+  },
+  {
+    "index": 8,
+    "path": "public/Level 3/Learning/Biomimicry/Stag beetle.pdf",
+    "page": 23,
+    "width": 960.0,
+    "height": 540.0,
+    "lines": [
+      {
+        "text": "控制器上的接口除了传递信息还具有什么作用？",
+        "bbox": [
+          296.1,
+          278.1,
+          674.1,
+          300.0
+        ],
+        "spans": [
+          {
+            "text": "控制器上的接口除了",
+            "bbox": [
+              296.1,
+              282.0,
+              458.1,
+              300.0
+            ],
+            "size": 18.0,
+            "font": "MS-Gothic",
+            "color": 16777215
+          },
+          {
+            "text": "传递信息还具有什么作用？",
+            "bbox": [
+              458.1,
+              278.1,
+              674.1,
+              299.4
+            ],
+            "size": 18.0,
+            "font": "MicrosoftJhengHeiRegular",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "控制器上的接口除了传递信息还具有什么作用？\n5.Evaluation\nWhich of the following command modules is not used in \nthe programming of the stag beetle? \nA. Motor module \nB. Waiting time module \nC. Sensor module \nD. Repeated execution module\n"
+  },
+  {
+    "index": 15,
+    "path": "public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf",
+    "page": 2,
+    "width": 720.0,
+    "height": 405.0,
+    "lines": [
+      {
+        "text": "课程目标",
+        "bbox": [
+          171.8,
+          91.1,
+          235.7,
+          112.1
+        ],
+        "spans": [
+          {
+            "text": "课程目标",
+            "bbox": [
+              171.8,
+              91.1,
+              235.7,
+              112.1
+            ],
+            "size": 15.98,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      },
+      {
+        "text": "课程难点",
+        "bbox": [
+          171.8,
+          246.1,
+          235.7,
+          267.0
+        ],
+        "spans": [
+          {
+            "text": "课程难点",
+            "bbox": [
+              171.8,
+              246.1,
+              235.7,
+              267.0
+            ],
+            "size": 15.98,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "Lesson Objective\n课程目标\n课程难点\nLearning Objectives\nPossible Difficulties\n1.\nLearn about the sport of race walking and build a race-walking robot.\n2.\nBuild a robot that imitates human walking posture and program it to start\nwalking.\n3.\nUse the ultrasonic sensor to control the race-walking robot to stop.\n1.\nLearn about the motion mode of the linkage mechanism.\n2.\nAdjust the structure of the robot by imitating human walking postures.\n3.\nApplication of ratchet structure.\n"
+  },
+  {
+    "index": 15,
+    "path": "public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf",
+    "page": 25,
+    "width": 720.0,
+    "height": 405.0,
+    "lines": [
+      {
+        "text": "这节实现两个利用编码盘测量距离的功能，接下来修改程序，",
+        "bbox": [
+          117.2,
+          169.6,
+          603.2,
+          193.2
+        ],
+        "spans": [
+          {
+            "text": "这节实现两个利用编码盘测量距离的功能，接下来修改程序，",
+            "bbox": [
+              117.2,
+              169.6,
+              603.2,
+              193.2
+            ],
+            "size": 18.0,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      },
+      {
+        "text": "让测距机器人实现定点测量的功能。",
+        "bbox": [
+          117.2,
+          195.5,
+          405.2,
+          219.1
+        ],
+        "spans": [
+          {
+            "text": "让测距机器人实现定点测量的功能。",
+            "bbox": [
+              117.2,
+              195.5,
+              405.2,
+              219.1
+            ],
+            "size": 18.0,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      },
+      {
+        "text": "要求：通过控制器地址设定距离长度，在运行至指定距离时，",
+        "bbox": [
+          117.2,
+          229.5,
+          603.2,
+          253.1
+        ],
+        "spans": [
+          {
+            "text": "要求：通过控制器地址设定距离长度，在运行至指定距离时，",
+            "bbox": [
+              117.2,
+              229.5,
+              603.2,
+              253.1
+            ],
+            "size": 18.0,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      },
+      {
+        "text": "蜂鸣器响起。",
+        "bbox": [
+          117.2,
+          255.4,
+          225.2,
+          279.0
+        ],
+        "spans": [
+          {
+            "text": "蜂鸣器响起。",
+            "bbox": [
+              117.2,
+              255.4,
+              225.2,
+              279.0
+            ],
+            "size": 18.0,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "Result | Further Reading - Linkage Mechanism\n这节实现两个利用编码盘测量距离的功能，接下来修改程序，\n让测距机器人实现定点测量的功能。\n要求：通过控制器地址设定距离长度，在运行至指定距离时，\n蜂鸣器响起。\nWatt’s linkage\nWatt's linkage (also known as the\nparallel linkage) is a type of mechanical\nlinkage invented\nby James Watt who\nimproved the steam engine. In the Watt’s\nlinkage,\nthe\nfreedom\nof\nmovement’s\nmidpoint is limited, and it can only move\napproximately in a straight line. It was first\nused in the Watt steam turbine, and was\nlater used in the suspension structure of\nautomobiles.\n"
+  },
+  {
+    "index": 15,
+    "path": "public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf",
+    "page": 26,
+    "width": 720.0,
+    "height": 405.0,
+    "lines": [
+      {
+        "text": "这节实现两个利用编码盘测量距离的功能，接下来修改程序，",
+        "bbox": [
+          117.2,
+          169.6,
+          603.2,
+          193.2
+        ],
+        "spans": [
+          {
+            "text": "这节实现两个利用编码盘测量距离的功能，接下来修改程序，",
+            "bbox": [
+              117.2,
+              169.6,
+              603.2,
+              193.2
+            ],
+            "size": 18.0,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      },
+      {
+        "text": "让测距机器人实现定点测量的功能。",
+        "bbox": [
+          117.2,
+          195.5,
+          405.2,
+          219.1
+        ],
+        "spans": [
+          {
+            "text": "让测距机器人实现定点测量的功能。",
+            "bbox": [
+              117.2,
+              195.5,
+              405.2,
+              219.1
+            ],
+            "size": 18.0,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      },
+      {
+        "text": "要求：通过控制器地址设定距离长度，在运行至指定距离时，",
+        "bbox": [
+          117.2,
+          229.5,
+          603.2,
+          253.1
+        ],
+        "spans": [
+          {
+            "text": "要求：通过控制器地址设定距离长度，在运行至指定距离时，",
+            "bbox": [
+              117.2,
+              229.5,
+              603.2,
+              253.1
+            ],
+            "size": 18.0,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      },
+      {
+        "text": "蜂鸣器响起。",
+        "bbox": [
+          117.2,
+          255.4,
+          225.2,
+          279.0
+        ],
+        "spans": [
+          {
+            "text": "蜂鸣器响起。",
+            "bbox": [
+              117.2,
+              255.4,
+              225.2,
+              279.0
+            ],
+            "size": 18.0,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "Result | Further Reading - Linkage Mechanism\n这节实现两个利用编码盘测量距离的功能，接下来修改程序，\n让测距机器人实现定点测量的功能。\n要求：通过控制器地址设定距离长度，在运行至指定距离时，\n蜂鸣器响起。\nJansen's linkage\nJansen's linkage is a planar leg mechanism\ndesigned by the kinetic sculptor Theo Jansen to\ngenerate a smooth walking motion. Jansen has used his\nmechanism in a variety of kinetic sculptures which are\nknown as Strandbeesten (Dutch for \"beach beasts\").\nThis linkage has both aesthetic value and technical\nadvantages. It can imitate biological walking motion\nthrough simple rotation input. This linkage has been\nused in walking robots and gait analysis.\n"
+  },
+  {
+    "index": 15,
+    "path": "public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf",
+    "page": 27,
+    "width": 720.0,
+    "height": 405.0,
+    "lines": [
+      {
+        "text": "这节实现两个利用编码盘测量距离的功能，接下来修改程序，",
+        "bbox": [
+          117.2,
+          169.6,
+          603.2,
+          193.2
+        ],
+        "spans": [
+          {
+            "text": "这节实现两个利用编码盘测量距离的功能，接下来修改程序，",
+            "bbox": [
+              117.2,
+              169.6,
+              603.2,
+              193.2
+            ],
+            "size": 18.0,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      },
+      {
+        "text": "让测距机器人实现定点测量的功能。",
+        "bbox": [
+          117.2,
+          195.5,
+          405.2,
+          219.1
+        ],
+        "spans": [
+          {
+            "text": "让测距机器人实现定点测量的功能。",
+            "bbox": [
+              117.2,
+              195.5,
+              405.2,
+              219.1
+            ],
+            "size": 18.0,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      },
+      {
+        "text": "要求：通过控制器地址设定距离长度，在运行至指定距离时，",
+        "bbox": [
+          117.2,
+          229.5,
+          603.2,
+          253.1
+        ],
+        "spans": [
+          {
+            "text": "要求：通过控制器地址设定距离长度，在运行至指定距离时，",
+            "bbox": [
+              117.2,
+              229.5,
+              603.2,
+              253.1
+            ],
+            "size": 18.0,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      },
+      {
+        "text": "蜂鸣器响起。",
+        "bbox": [
+          117.2,
+          255.4,
+          225.2,
+          279.0
+        ],
+        "spans": [
+          {
+            "text": "蜂鸣器响起。",
+            "bbox": [
+              117.2,
+              255.4,
+              225.2,
+              279.0
+            ],
+            "size": 18.0,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "Result | Further Reading - Linkage Mechanism\n这节实现两个利用编码盘测量距离的功能，接下来修改程序，\n让测距机器人实现定点测量的功能。\n要求：通过控制器地址设定距离长度，在运行至指定距离时，\n蜂鸣器响起。\nChebyshev linkage\nChebyshev's linkage is a four-bar\nlinkage\nthat\nconverts\nrotational\nmotion\nto\napproximate\nlinear\nmotion and is often used to simulate\nrobot walking.\n"
+  },
+  {
+    "index": 15,
+    "path": "public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf",
+    "page": 28,
+    "width": 720.0,
+    "height": 405.0,
+    "lines": [
+      {
+        "text": "这节实现两个利用编码盘测量距离的功能，接下来修改程序，",
+        "bbox": [
+          117.2,
+          169.6,
+          603.2,
+          193.2
+        ],
+        "spans": [
+          {
+            "text": "这节实现两个利用编码盘测量距离的功能，接下来修改程序，",
+            "bbox": [
+              117.2,
+              169.6,
+              603.2,
+              193.2
+            ],
+            "size": 18.0,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      },
+      {
+        "text": "让测距机器人实现定点测量的功能。",
+        "bbox": [
+          117.2,
+          195.5,
+          405.2,
+          219.1
+        ],
+        "spans": [
+          {
+            "text": "让测距机器人实现定点测量的功能。",
+            "bbox": [
+              117.2,
+              195.5,
+              405.2,
+              219.1
+            ],
+            "size": 18.0,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      },
+      {
+        "text": "要求：通过控制器地址设定距离长度，在运行至指定距离时，",
+        "bbox": [
+          117.2,
+          229.5,
+          603.2,
+          253.1
+        ],
+        "spans": [
+          {
+            "text": "要求：通过控制器地址设定距离长度，在运行至指定距离时，",
+            "bbox": [
+              117.2,
+              229.5,
+              603.2,
+              253.1
+            ],
+            "size": 18.0,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      },
+      {
+        "text": "蜂鸣器响起。",
+        "bbox": [
+          117.2,
+          255.4,
+          225.2,
+          279.0
+        ],
+        "spans": [
+          {
+            "text": "蜂鸣器响起。",
+            "bbox": [
+              117.2,
+              255.4,
+              225.2,
+              279.0
+            ],
+            "size": 18.0,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "Result | Further Reading - Linkage Mechanism\n这节实现两个利用编码盘测量距离的功能，接下来修改程序，\n让测距机器人实现定点测量的功能。\n要求：通过控制器地址设定距离长度，在运行至指定距离时，\n蜂鸣器响起。\nPeaucellier–Lipkin linkage\nThe Peaucellier–Lipkin linkage,\ninvented in 1864, was the first true\nplanar straight line mechanism – the\nfirst\nplanar\nlinkage\ncapable\nof\ntransforming rotary motion into perfect\nstraight-line motion, and vice versa.\n"
+  },
+  {
+    "index": 16,
+    "path": "public/Level 3/Learning/Foundational Robots/Bumper car.pdf",
+    "page": 11,
+    "width": 960.0,
+    "height": 540.0,
+    "lines": [
+      {
+        "text": "控制器上的接口除了传递信息还具有什么作用？",
+        "bbox": [
+          296.1,
+          278.1,
+          674.1,
+          300.0
+        ],
+        "spans": [
+          {
+            "text": "控制器上的接口除了",
+            "bbox": [
+              296.1,
+              282.0,
+              458.1,
+              300.0
+            ],
+            "size": 18.0,
+            "font": "MS-Gothic",
+            "color": 16777215
+          },
+          {
+            "text": "传递信息还具有什么作用？",
+            "bbox": [
+              458.1,
+              278.1,
+              674.1,
+              299.4
+            ],
+            "size": 18.0,
+            "font": "MicrosoftJhengHeiRegular",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "控制器上的接口除了传递信息还具有什么作用？\n5.Challenge\nIn the bumper car race, what do we need to do to make the \nbumper car stronger?\n1. Reinforce the wheels and body; \n2. Install \"aggressive\" devices around the body to win the \nbumper car race.\n"
+  },
+  {
+    "index": 17,
+    "path": "public/Level 3/Learning/Foundational Robots/Line patrol car.pdf",
+    "page": 11,
+    "width": 960.0,
+    "height": 540.0,
+    "lines": [
+      {
+        "text": "控制器上的接口除了传递信息还具有什么作用？",
+        "bbox": [
+          296.1,
+          278.1,
+          674.1,
+          300.0
+        ],
+        "spans": [
+          {
+            "text": "控制器上的接口除了",
+            "bbox": [
+              296.1,
+              282.0,
+              458.1,
+              300.0
+            ],
+            "size": 18.0,
+            "font": "MS-Gothic",
+            "color": 16777215
+          },
+          {
+            "text": "传递信息还具有什么作用？",
+            "bbox": [
+              458.1,
+              278.1,
+              674.1,
+              299.4
+            ],
+            "size": 18.0,
+            "font": "MicrosoftJhengHeiRegular",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "控制器上的接口除了传递信息还具有什么作用？\n5.Evaluation\nCan you explain how the Grayscale Integration Sensor works?\nWhen the machine is running, the gray value exceeds the boundary \nstandard value, indicating that it is biased towards the direction of \nthe black line; during the running process, the gray value is lower \nthan the boundary standard value, indicating that it is biased \ntowards the direction of the field.\n"
+  },
+  {
+    "index": 26,
+    "path": "public/Level 3/Learning/Machines & Mechanisms/Money detector.pdf",
+    "page": 16,
+    "width": 960.0,
+    "height": 540.0,
+    "lines": [
+      {
+        "text": "控制器上的接口除了传递信息还具有什么作用？",
+        "bbox": [
+          296.1,
+          278.1,
+          674.1,
+          300.0
+        ],
+        "spans": [
+          {
+            "text": "控制器上的接口除了",
+            "bbox": [
+              296.1,
+              282.0,
+              458.1,
+              300.0
+            ],
+            "size": 18.0,
+            "font": "MS-Gothic",
+            "color": 16777215
+          },
+          {
+            "text": "传递信息还具有什么作用？",
+            "bbox": [
+              458.1,
+              278.1,
+              674.1,
+              299.4
+            ],
+            "size": 18.0,
+            "font": "MicrosoftJhengHeiRegular",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "控制器上的接口除了传递信息还具有什么作用？\n5.Evaluation\nWhat mechanical structure is used in the structure of the \nmoney detector? (\n) What does it do? ( ) \n•\nGear reduction structure \n•\nLet the gear reduce the speed\n"
+  },
+  {
+    "index": 27,
+    "path": "public/Level 3/Learning/Machines & Mechanisms/Parking gate.pdf",
+    "page": 15,
+    "width": 960.0,
+    "height": 540.0,
+    "lines": [
+      {
+        "text": "控制器上的接口除了传递信息还具有什么作用？",
+        "bbox": [
+          296.1,
+          278.1,
+          674.1,
+          300.0
+        ],
+        "spans": [
+          {
+            "text": "控制器上的接口除了",
+            "bbox": [
+              296.1,
+              282.0,
+              458.1,
+              300.0
+            ],
+            "size": 18.0,
+            "font": "MS-Gothic",
+            "color": 16777215
+          },
+          {
+            "text": "传递信息还具有什么作用？",
+            "bbox": [
+              458.1,
+              278.1,
+              674.1,
+              299.4
+            ],
+            "size": 18.0,
+            "font": "MicrosoftJhengHeiRegular",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "控制器上的接口除了传递信息还具有什么作用？\n5.Evaluation\nWe can also use Infrared Sensors to identify colors. Please \nenter two numbers at will, and observe what color the \nInfrared Sensor recognizes.\n"
+  },
+  {
+    "index": 28,
+    "path": "public/Level 3/Learning/Manipulators/Blood bank Centrifuge.pdf",
+    "page": 26,
+    "width": 960.0,
+    "height": 540.0,
+    "lines": [
+      {
+        "text": "控制器上的接口除了传递信息还具有什么作用？",
+        "bbox": [
+          296.1,
+          278.1,
+          674.1,
+          300.0
+        ],
+        "spans": [
+          {
+            "text": "控制器上的接口除了",
+            "bbox": [
+              296.1,
+              282.0,
+              458.1,
+              300.0
+            ],
+            "size": 18.0,
+            "font": "MS-Gothic",
+            "color": 16777215
+          },
+          {
+            "text": "传递信息还具有什么作用？",
+            "bbox": [
+              458.1,
+              278.1,
+              674.1,
+              299.4
+            ],
+            "size": 18.0,
+            "font": "MicrosoftJhengHeiRegular",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "控制器上的接口除了传递信息还具有什么作用？\n5.Evaluation\nIs the structure shown in the picture a second stage acceleration? why.\n"
+  },
+  {
+    "index": 28,
+    "path": "public/Level 3/Learning/Manipulators/Blood bank Centrifuge.pdf",
+    "page": 27,
+    "width": 960.0,
+    "height": 540.0,
+    "lines": [
+      {
+        "text": "控制器上的接口除了传递信息还具有什么作用？",
+        "bbox": [
+          296.1,
+          278.1,
+          674.1,
+          300.0
+        ],
+        "spans": [
+          {
+            "text": "控制器上的接口除了",
+            "bbox": [
+              296.1,
+              282.0,
+              458.1,
+              300.0
+            ],
+            "size": 18.0,
+            "font": "MS-Gothic",
+            "color": 16777215
+          },
+          {
+            "text": "传递信息还具有什么作用？",
+            "bbox": [
+              458.1,
+              278.1,
+              674.1,
+              299.4
+            ],
+            "size": 18.0,
+            "font": "MicrosoftJhengHeiRegular",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "控制器上的接口除了传递信息还具有什么作用？\n5.Evaluation\nSecond stage acceleration of gears generally \nrequires 2 large gears and 2 small gears.\nAnd the big gear needs to drive the small \ngear. Note that there is a small gear and a \nlarge gear on the same shaft.\n"
+  },
+  {
+    "index": 29,
+    "path": "public/Level 3/Learning/Manipulators/Electronic scale.pdf",
+    "page": 25,
+    "width": 960.0,
+    "height": 540.0,
+    "lines": [
+      {
+        "text": "控制器上的接口除了传递信息还具有什么作用？",
+        "bbox": [
+          296.1,
+          278.1,
+          674.1,
+          300.0
+        ],
+        "spans": [
+          {
+            "text": "控制器上的接口除了",
+            "bbox": [
+              296.1,
+              282.0,
+              458.1,
+              300.0
+            ],
+            "size": 18.0,
+            "font": "MS-Gothic",
+            "color": 16777215
+          },
+          {
+            "text": "传递信息还具有什么作用？",
+            "bbox": [
+              458.1,
+              278.1,
+              674.1,
+              299.4
+            ],
+            "size": 18.0,
+            "font": "MicrosoftJhengHeiRegular",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "控制器上的接口除了传递信息还具有什么作用？\n5.Evaluation\nObserve the position of the weights of the two steel scales \nbelow. Which fruit do you think is heavier?\n"
+  },
+  {
+    "index": 29,
+    "path": "public/Level 3/Learning/Manipulators/Electronic scale.pdf",
+    "page": 26,
+    "width": 960.0,
+    "height": 540.0,
+    "lines": [
+      {
+        "text": "控制器上的接口除了传递信息还具有什么作用？",
+        "bbox": [
+          296.1,
+          278.1,
+          674.1,
+          300.0
+        ],
+        "spans": [
+          {
+            "text": "控制器上的接口除了",
+            "bbox": [
+              296.1,
+              282.0,
+              458.1,
+              300.0
+            ],
+            "size": 18.0,
+            "font": "MS-Gothic",
+            "color": 16777215
+          },
+          {
+            "text": "传递信息还具有什么作用？",
+            "bbox": [
+              458.1,
+              278.1,
+              674.1,
+              299.4
+            ],
+            "size": 18.0,
+            "font": "MicrosoftJhengHeiRegular",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "控制器上的接口除了传递信息还具有什么作用？\n5.Challenge\nExpression Screen is not used yet, can you edit a program \nto make Expression Screen display some symbols? \nFor example, if the value exceeds a certain number, a \nsymbol will be displayed.\n"
+  },
+  {
+    "index": 30,
+    "path": "public/Level 3/Learning/Manipulators/Gyro transmitter.pdf",
+    "page": 20,
+    "width": 960.0,
+    "height": 540.0,
+    "lines": [
+      {
+        "text": "控制器上的接口除了传递信息还具有什么作用？",
+        "bbox": [
+          296.1,
+          278.1,
+          674.1,
+          300.0
+        ],
+        "spans": [
+          {
+            "text": "控制器上的接口除了",
+            "bbox": [
+              296.1,
+              282.0,
+              458.1,
+              300.0
+            ],
+            "size": 18.0,
+            "font": "MS-Gothic",
+            "color": 16777215
+          },
+          {
+            "text": "传递信息还具有什么作用？",
+            "bbox": [
+              458.1,
+              278.1,
+              674.1,
+              299.4
+            ],
+            "size": 18.0,
+            "font": "MicrosoftJhengHeiRegular",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "控制器上的接口除了传递信息还具有什么作用？\n5.Evaluation\nWhat is the function of the big gear driving the small gear? \nA. Decelerate \nB. Accelerate \nC. Keep speed unchanged\n"
+  },
+  {
+    "index": 31,
+    "path": "public/Level 3/Learning/Mechanisms and Concepts/Drawbridge.pdf",
+    "page": 20,
+    "width": 960.0,
+    "height": 540.0,
+    "lines": [
+      {
+        "text": "控制器上的接口除了传递信息还具有什么作用？",
+        "bbox": [
+          296.1,
+          278.1,
+          674.1,
+          300.0
+        ],
+        "spans": [
+          {
+            "text": "控制器上的接口除了",
+            "bbox": [
+              296.1,
+              282.0,
+              458.1,
+              300.0
+            ],
+            "size": 18.0,
+            "font": "MS-Gothic",
+            "color": 16777215
+          },
+          {
+            "text": "传递信息还具有什么作用？",
+            "bbox": [
+              458.1,
+              278.1,
+              674.1,
+              299.4
+            ],
+            "size": 18.0,
+            "font": "MicrosoftJhengHeiRegular",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "控制器上的接口除了传递信息还具有什么作用？\n5.Evaluation\nWhat is our core mechanical structure in this course? What \nstructural parts does it consist of? Where else do you think \nit could be used?\n"
+  },
+  {
+    "index": 32,
+    "path": "public/Level 3/Learning/Mechanisms and Concepts/Electric fan.pdf",
+    "page": 13,
+    "width": 960.0,
+    "height": 540.0,
+    "lines": [
+      {
+        "text": "控制器上的接口除了传递信息还具有什么作用？",
+        "bbox": [
+          296.1,
+          278.1,
+          674.1,
+          300.0
+        ],
+        "spans": [
+          {
+            "text": "控制器上的接口除了",
+            "bbox": [
+              296.1,
+              282.0,
+              458.1,
+              300.0
+            ],
+            "size": 18.0,
+            "font": "MS-Gothic",
+            "color": 16777215
+          },
+          {
+            "text": "传递信息还具有什么作用？",
+            "bbox": [
+              458.1,
+              278.1,
+              674.1,
+              299.4
+            ],
+            "size": 18.0,
+            "font": "MicrosoftJhengHeiRegular",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "控制器上的接口除了传递信息还具有什么作用？\n5.Challenge\nIf you need to replace the Infrared Sensor with a Touch \nSensor, write another program: press the Touch Sensor \nfan once to run, press the Touch Sensor fan again to stop.\n"
+  },
+  {
+    "index": 33,
+    "path": "public/Level 3/Learning/Mechanisms and Concepts/Fire ladder.pdf",
+    "page": 24,
+    "width": 960.0,
+    "height": 540.0,
+    "lines": [
+      {
+        "text": "控制器上的接口除了传递信息还具有什么作用？",
+        "bbox": [
+          296.1,
+          278.1,
+          674.1,
+          300.0
+        ],
+        "spans": [
+          {
+            "text": "控制器上的接口除了",
+            "bbox": [
+              296.1,
+              282.0,
+              458.1,
+              300.0
+            ],
+            "size": 18.0,
+            "font": "MS-Gothic",
+            "color": 16777215
+          },
+          {
+            "text": "传递信息还具有什么作用？",
+            "bbox": [
+              458.1,
+              278.1,
+              674.1,
+              299.4
+            ],
+            "size": 18.0,
+            "font": "MicrosoftJhengHeiRegular",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "控制器上的接口除了传递信息还具有什么作用？\n5.Evaluation\nQuestion: \nWhat structures did we use in our structural design? \nWhich sensors do we use and what do they do?\n"
+  },
+  {
+    "index": 34,
+    "path": "public/Level 3/Learning/Mechanisms and Concepts/Sign.pdf",
+    "page": 19,
+    "width": 960.0,
+    "height": 540.0,
+    "lines": [
+      {
+        "text": "控制器上的接口除了传递信息还具有什么作用？",
+        "bbox": [
+          296.1,
+          278.1,
+          674.1,
+          300.0
+        ],
+        "spans": [
+          {
+            "text": "控制器上的接口除了",
+            "bbox": [
+              296.1,
+              282.0,
+              458.1,
+              300.0
+            ],
+            "size": 18.0,
+            "font": "MS-Gothic",
+            "color": 16777215
+          },
+          {
+            "text": "传递信息还具有什么作用？",
+            "bbox": [
+              458.1,
+              278.1,
+              674.1,
+              299.4
+            ],
+            "size": 18.0,
+            "font": "MicrosoftJhengHeiRegular",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "控制器上的接口除了传递信息还具有什么作用？\n5.Evaluation\nWe can also try changing the symbols. Replace left and \nright turns with other symbols. please try.\n"
+  },
+  {
+    "index": 42,
+    "path": "public/Level 3/Learning/Vehicles & Complex Movers/Long-Lived Turtle/11. The Long-lived Turtle - Slides.pdf",
+    "page": 2,
+    "width": 720.0,
+    "height": 405.0,
+    "lines": [
+      {
+        "text": "课程目标",
+        "bbox": [
+          171.8,
+          91.1,
+          235.7,
+          112.1
+        ],
+        "spans": [
+          {
+            "text": "课程目标",
+            "bbox": [
+              171.8,
+              91.1,
+              235.7,
+              112.1
+            ],
+            "size": 15.98,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      },
+      {
+        "text": "课程难点",
+        "bbox": [
+          171.8,
+          246.1,
+          235.7,
+          267.0
+        ],
+        "spans": [
+          {
+            "text": "课程难点",
+            "bbox": [
+              171.8,
+              246.1,
+              235.7,
+              267.0
+            ],
+            "size": 15.98,
+            "font": "MicrosoftYaHei",
+            "color": 16777215
+          }
+        ]
+      }
+    ],
+    "full_page_text": "Lesson Objective\n课程目标\n课程难点\nLearning Objectives\nPossible Difficulties\n1.\nGet to know turtles and build a turtle robot.\n2.\nUse RoboCode to write a program to control the movement of the turtle.\n3.\nLet the turtle move randomly after encountering obstacles.\n1.\nThe building of the crank slider and linkage structure\n2.\nApplication of random numbers\n"
+  }
+]
