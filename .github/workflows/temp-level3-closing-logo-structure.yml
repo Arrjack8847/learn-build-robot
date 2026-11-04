@@ -1,0 +1,37 @@
+name: Temporary Level 3 Closing Logo Structure Diagnostic
+on:
+  push:
+    branches: [tmp/level3-pdf-cleanup-runner]
+    paths: [.github/workflows/temp-level3-closing-logo-structure.yml]
+permissions:
+  contents: read
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level3-pdf-cleanup
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - run: python3 -m pip install --quiet pymupdf pillow
+      - name: Inspect graphical vectors and images near final-page footer
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import fitz,json
+          from pathlib import Path
+          paths=sorted(Path('public/Level 3/Learning').rglob('*.pdf'))
+          dark=[10,11,12,13,14,18,19,20,22,23,24,25,36,37,40]
+          for idx in dark:
+            path=paths[idx];doc=fitz.open(path);p=doc[-1];r=p.rect
+            images=[]
+            for im in p.get_images(full=True):
+              xref,w,h=im[0],im[2],im[3]
+              images.append({'xref':xref,'size':[w,h],'rects':[[round(y,1) for y in x] for x in p.get_image_rects(xref)]})
+            drawings=[{'rect':[round(y,1) for y in d['rect']],'type':d['type'],'items':len(d['items'])} for d in p.get_drawings() if d['rect'].y1>r.height*.67]
+            chars=[{'text':z['text'][:140],'bbox':[round(y,1) for y in z['bbox']]} for b in p.get_text('dict')['blocks'] for l in b.get('lines',[]) for z in l['spans'] if z['bbox'][1]>r.height*.6]
+            print(json.dumps({'id':idx,'file':str(path),'size':[r.width,r.height],'images':images,'drawings':drawings[:40],'drawing_count':len(drawings),'text':chars},ensure_ascii=False),flush=True)
+          PY
