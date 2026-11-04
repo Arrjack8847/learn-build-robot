@@ -1,0 +1,86 @@
+name: Temporary Level 3 PDF QA Worker
+on:
+  push:
+    branches:
+      - tmp/level3-pdf-cleanup-runner
+    paths:
+      - .github/workflows/temp-level3-pdf-worker.yml
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: tmp/level3-pdf-cleanup-runner
+          filter: blob:none
+          sparse-checkout: |
+            .github/workflows
+            public/Level 3/Learning
+            public/Level 1/Learning
+            qa/level3
+      - name: Install PDF inspection packages
+        run: python3 -m pip install --quiet pymupdf pillow
+      - name: Audit and render contact sheets
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import glob,json,re,os
+          from pathlib import Path
+          import pymupdf
+          from PIL import Image,ImageDraw
+          root=Path('public/Level 3/Learning')
+          paths=sorted(root.rglob('*.pdf'))
+          assert len(paths)==43, f"Expected 43 Level 3 Learning PDFs; got {len(paths)}"
+          out=Path('qa/level3')
+          out.mkdir(parents=True,exist_ok=True)
+          HAN=re.compile(r'[\u3400-\u9fff\uf900-\ufaff]')
+          BR=re.compile(r'intelligen(?:t|ce)\s+storm|智能风暴',re.I)
+          records=[]
+          for i,p in enumerate(paths):
+           d=pymupdf.open(p)
+           flagged=[];han=0;brands=0
+           for j,page in enumerate(d):
+            s=page.get_text()
+            h=len(HAN.findall(s)); b=len(BR.findall(s))
+            if h or b:flagged.append({'page':j+1,'han_chars':h,'brand_matches':b,'snippets':[line.strip()[:100] for line in s.splitlines() if HAN.search(line) or BR.search(line)][:3]})
+            han+=h;brands+=b
+           records.append({'idx':i,'path':str(p),'pages':len(d),'han_chars':han,'brand_hits':brands,'flagged':flagged})
+           print(f"{i:02d} {len(d):3d} pages CJK={han:3d} brand={brands:2d} {p.name}")
+          for kind in ['cover','last']:
+           for group in range(3):
+            subset=records[group*15:(group+1)*15]
+            dst=Image.new('RGB',(5*290,3*238),(235,235,235));draw=ImageDraw.Draw(dst)
+            for j,rec in enumerate(subset):
+             doc=pymupdf.open(rec['path'])
+             page=doc[0] if kind=='cover' else doc[-1]
+             pm=page.get_pixmap(matrix=pymupdf.Matrix(.42,.42),alpha=False)
+             thumb=Image.frombytes('RGB',(pm.width,pm.height),pm.samples)
+             thumb.thumbnail((275,198))
+             col=j%5;row=j//5;left=col*290;top=row*238
+             dst.paste(thumb,(left+(290-thumb.width)//2,top+26))
+             draw.text((left+4,top+6),str(rec['idx']).zfill(2)+' '+Path(rec['path']).stem[:26],fill='black')
+            dst.save(out/f'{kind}-{group}.png',optimize=True)
+          # All-pages contact sheet of representative Level 3 file
+          p=paths[0]
+          doc=pymupdf.open(p)
+          canvas=Image.new('RGB',(4*360,5*250),(230,230,230));draw=ImageDraw.Draw(canvas)
+          for i,page in enumerate(doc):
+           pm=page.get_pixmap(matrix=pymupdf.Matrix(.47,.47),alpha=False)
+           img=Image.frombytes('RGB',(pm.width,pm.height),pm.samples);img.thumbnail((345,218))
+           x=(i%4)*360;y=(i//4)*250
+           canvas.paste(img,(x+(360-img.width)//2,y+24))
+           draw.text((x+8,y+5),'Page '+str(i+1),fill='black')
+          canvas.save(out/'clip-all-pages.png',optimize=True)
+          (out/'audit.json').write_text(json.dumps(records,indent=2,ensure_ascii=False))
+          print('TOTAL',len(records),'PAGES',sum(x['pages'] for x in records),'HAN',sum(x['han_chars'] for x in records),'BRAND',sum(x['brand_hits'] for x in records))
+          PY
+      - name: Publish QA previews to temporary branch only
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --sparse qa/level3/
+          git commit -m 'ci(level3): record source PDF contact sheets [skip ci]'
+          git push origin HEAD:tmp/level3-pdf-cleanup-runner
