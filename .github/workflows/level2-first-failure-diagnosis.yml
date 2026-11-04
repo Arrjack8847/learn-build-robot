@@ -1,0 +1,107 @@
+name: Level 2 first-failure visual diagnosis (read-only)
+on:
+  push:
+    branches: [fix/level2-pdf-cleanup]
+    paths: [.github/workflows/level2-first-failure-diagnosis.yml]
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level2-pdf-cleanup
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 2/Learning
+            scripts/pdf
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet 'PyMuPDF==1.26.7' 'pypdf==6.4.0' pillow
+      - name: Generate exact original vs modified page comparisons
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import importlib.util, json
+          import fitz
+          from PIL import Image, ImageChops, ImageDraw
+          source=Path("public/Level 2/Learning")
+          out=Path("/tmp/level2-first-failure")
+          out.mkdir(parents=True, exist_ok=True)
+          spec=importlib.util.spec_from_file_location("c","scripts/pdf/clean_level2_learning_once.py")
+          c=importlib.util.module_from_spec(spec);spec.loader.exec_module(c)
+          spec=importlib.util.spec_from_file_location("v","scripts/pdf/validate_level2_cleaned.py")
+          v=importlib.util.module_from_spec(spec);spec.loader.exec_module(v)
+          names=["Axe robot_Powerpoint.pdf","Automatic window.pdf",
+                 "Mechanical dog_PowerPoint-R.pdf","13.Teeterboard_PowerPoint.pdf",
+                 "Push ups_Powerpoint.pdf"]
+          records=[];seen=0
+          for name in names:
+              path=next(p for p in source.rglob("*.pdf") if p.name==name)
+              print("PROCESS",path,flush=True)
+              try:
+                  c.process(path)
+              except Exception as e:
+                  records.append({"file":str(path),"cleaning_error":repr(e)})
+                  print("CLEANING_ERROR",path,repr(e),flush=True)
+                  continue
+              clean=c.OUT/path.relative_to(source)
+              a=fitz.open(path);b=fitz.open(clean)
+              for page_idx,(old,new) in enumerate(zip(a,b)):
+                  try:
+                      v.check_diff(old,new,v.allowed_rectangles(old))
+                  except AssertionError as e:
+                      key=f"issue-{len(records)+1:02d}"
+                      im_before=v.render(old)
+                      im_after=v.render(new)
+                      diff=ImageChops.difference(im_before,im_after)
+                      mask=Image.new("RGB",im_before.size,"black")
+                      draw=ImageDraw.Draw(mask)
+                      boxes=v.allowed_rectangles(old)
+                      for rect,kind in boxes:
+                          gap=15 if kind=="text" else (1 if kind=="glyph" else 5)
+                          rr=[int(max(0,(rect.x0-gap)*.5)),int(max(0,(rect.y0-gap)*.5)),
+                              int(min(im_before.width,(rect.x1+gap)*.5)),int(min(im_before.height,(rect.y1+gap)*.5))]
+                          draw.rectangle(rr,fill="white")
+                      im_before.save(out/(key+"-BEFORE.png"))
+                      im_after.save(out/(key+"-AFTER.png"))
+                      diff.save(out/(key+"-DIFF.png"))
+                      mask.save(out/(key+"-ALLOWED.png"))
+                      lineinfo=[]
+                      for block in old.get_text("dict")["blocks"]:
+                          for line in block.get("lines",[]):
+                              text="".join(span["text"] for span in line["spans"])
+                              if text.strip():
+                                  lineinfo.append({"text":text[:170],"bbox":list(line["bbox"])})
+                      def images(page):
+                          result=[]
+                          for im in page.get_images(full=True):
+                              rects=[list(x) for x in page.get_image_rects(im[0])]
+                              if rects: result.append({"xref":im[0],"size":[im[2],im[3]],"rects":rects})
+                          return result
+                      row={"file":str(path),"page":page_idx+1,"error":str(e),"page_bounds":list(old.rect),
+                           "expected_change_regions":[{"kind":kind,"bbox":list(rect)} for rect,kind in boxes],
+                           "original_image_placements":images(old),"cleaned_image_placements":images(new),
+                           "original_text_lines":lineinfo}
+                      records.append(row);seen+=1
+                      print("VISUAL_FAILURE",json.dumps({k:row[k] for k in ("file","page","error")}),flush=True)
+                      if seen>=8:break
+                  if seen>=8:break
+              a.close();b.close()
+              if seen>=8:break
+          (out/"report.json").write_text(json.dumps(records,indent=2),encoding="utf-8")
+          print("DIAG_COUNT",seen,flush=True)
+          assert records, "No diagnostic findings, unexpected for prior failure"
+          PY
+      - name: Upload diagnostic screenshots and exact regions
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: level2-exact-first-failure-screenshots
+          path: /tmp/level2-first-failure/
+          if-no-files-found: warn
+          retention-days: 14
