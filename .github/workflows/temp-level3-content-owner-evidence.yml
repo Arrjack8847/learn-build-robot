@@ -1,0 +1,113 @@
+name: Temporary Level 3 Content and Attribution Evidence
+on:
+  push:
+    branches: [tmp/level3-pdf-cleanup-runner]
+    paths:
+      - .github/workflows/temp-level3-content-owner-evidence.yml
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: original
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level3-pdf-cleanup
+          path: cleaned
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - run: python3 -m pip install --quiet pymupdf pillow
+      - name: Inventory attribution, metadata and lesson-image candidate regions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import collections, json, re, math
+          import pymupdf
+          from PIL import Image,ImageDraw,ImageFont
+          base=Path('original/public/Level 3/Learning')
+          edited=Path('cleaned/public/Level 3/Learning')
+          files=sorted(x.relative_to(base) for x in base.rglob('*.pdf'))
+          assert len(files)==43
+          out=Path('/tmp/level3-content-owner-evidence');out.mkdir(parents=True,exist_ok=True)
+          sheets=out/'contact-sheets';sheets.mkdir(exist_ok=True)
+          SRC=re.compile(r'joinmax|znrobo|be\s*stem\s*ready|little\s*makers|copyright|©|all\s+rights\s+reserved|creative\s+commons|cc[- ]by|licen[sc]e',re.I)
+          NOTE=re.compile(r'joinmax|znrobo|copyright|©|all\s+rights\s+reserved|creative\s+commons|cc[- ]by|licen[sc]e',re.I)
+          records=[];lost=[];photo_candidates=0;photo_selected=0;page_total=0;source_hits=0
+          for fi,relative in enumerate(files):
+            original=pymupdf.open(base/relative)
+            clean=pymupdf.open(edited/relative)
+            assert len(original)==len(clean)
+            page_total+=len(clean)
+            before_hits=[];after_hits=[];candidates=[]
+            for pi,(p,q) in enumerate(zip(original,clean)):
+              oldtext=p.get_text();newtext=q.get_text()
+              a=collections.Counter(s.lower() for s in SRC.findall(oldtext))
+              b=collections.Counter(s.lower() for s in SRC.findall(newtext))
+              if a:before_hits.append({'page':pi+1,'matches':dict(a)})
+              if b:after_hits.append({'page':pi+1,'matches':dict(b)})
+              nonbrand_original=collections.Counter(s.lower() for s in NOTE.findall(oldtext))
+              nonbrand_clean=collections.Counter(s.lower() for s in NOTE.findall(newtext))
+              missing=nonbrand_original-nonbrand_clean
+              if missing:lost.append({'path':str(relative),'page':pi+1,'removed_attribution_terms':dict(missing)})
+              pagearea=p.rect.width*p.rect.height
+              candidate=[]
+              for im in q.get_images(full=True):
+                xref,iw,ih=im[0],im[2],im[3]
+                if iw<230 or ih<140:continue
+                for r in q.get_image_rects(xref):
+                  prop=(r.width*r.height)/pagearea
+                  if not (.018<=prop<=.72 and r.width>65 and r.height>45):continue
+                  if r.y0<.17*p.rect.height and r.y1<.24*p.rect.height:continue
+                  score=prop*(1 if 0.6<iw/ih<2.6 else .7)
+                  candidate.append({'bbox':[round(v,1) for v in r],'image_size':[iw,ih],'xref':xref,'score':round(score,4)})
+              if candidate:
+                best=max(candidate,key=lambda x:x['score'])
+                candidates.append((best['score'],pi,best))
+            photo_candidates+=len(candidates)
+            selected=sorted(sorted(candidates,key=lambda t:t[0],reverse=True)[:5],key=lambda t:t[1])
+            photo_selected+=len(selected)
+            if selected:
+              cols=min(3,len(selected)); rows=math.ceil(len(selected)/cols)
+              tilew,tileh=460,295
+              sheet=Image.new('RGB',(cols*tilew,rows*tileh),(247,247,247))
+              d=ImageDraw.Draw(sheet)
+              for n,(_,pi,info) in enumerate(selected):
+                page=clean[pi]
+                pix=page.get_pixmap(matrix=pymupdf.Matrix(1.1,1.1),alpha=False)
+                whole=Image.frombytes('RGB',(pix.width,pix.height),pix.samples)
+                r=pymupdf.Rect(info['bbox'])
+                box=(int(r.x0*1.1),int(r.y0*1.1),int(r.x1*1.1),int(r.y1*1.1))
+                photo=whole.crop(box)
+                photo.thumbnail((tilew-20,tileh-48))
+                x=n%cols*tilew; y=n//cols*tileh
+                d.text((x+5,y+5),f'{fi+1:02d} - {relative.stem[:36]} p.{pi+1}',fill=(20,20,20))
+                sheet.paste(photo,(x+(tilew-photo.width)//2,y+30+(tileh-48-photo.height)//2))
+              sheet.save(sheets/f'{fi+1:02d}-{relative.stem[:45].replace(" ","_")}.jpg',quality=88,optimize=True)
+            original_meta={k:v for k,v in original.metadata.items() if k in ['title','author','subject','creator','producer','keywords','creationDate','modDate'] and v}
+            clean_meta={k:v for k,v in clean.metadata.items() if k in ['title','author','subject','creator','producer','keywords','creationDate','modDate'] and v}
+            record={'index':fi,'path':str(relative),'pages':len(clean),'source_hits_original':before_hits,'source_hits_cleaned':after_hits,'original_metadata':original_meta,'cleaned_metadata':clean_meta,'embedded_files_original':original.embfile_count(),'embedded_files_cleaned':clean.embfile_count(),'candidate_image_pages':len(candidates),'selected_image_pages':[pi+1 for _,pi,_ in selected]}
+            records.append(record);source_hits+=len(before_hits)
+            original.close();clean.close()
+            print(f'{fi+1:02d}/43 pages={record["pages"]} source_pages={len(before_hits)} image_candidates={len(candidates)} selections={len(selected)} {relative}',flush=True)
+          assert page_total==1062
+          report={'files':43,'pages':page_total,'source_text_pages_original':source_hits,'possible_attribution_loss':lost,'photo_candidate_pages':photo_candidates,'photo_selected_pages':photo_selected,'records':records}
+          (out/'report.json').write_text(json.dumps(report,indent=2,ensure_ascii=False))
+          lines=[f'# Level 3 attribution and visual-candidate evidence',f'',f'PDFs: 43; pages: {page_total}; candidate pages: {photo_candidates}; contact-sheet candidates: {photo_selected}',f'Potential attribution term removals: {len(lost)}',f'',f'The contact sheets are selective, not a guarantee that every photo logo was inspected. Metadata is descriptive evidence, not a license grant.',f'']
+          for x in lost:lines.append(f'- {x["path"]} p.{x["page"]}: {x["removed_attribution_terms"]}')
+          (out/'overview.md').write_text('\n'.join(lines))
+          print('CONTENT_OWNER_EVIDENCE',json.dumps({'files':43,'pages':page_total,'source_pages':source_hits,'attribution_term_loss':len(lost),'candidate_image_pages':photo_candidates,'selected_photo_pages':photo_selected}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: level3-content-owner-evidence
+          path: /tmp/level3-content-owner-evidence/
+          retention-days: 30
