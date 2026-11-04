@@ -1,0 +1,766 @@
+[
+  {
+    "idx": 0,
+    "path": "public/Level 3/Learning/Action-Oriented/Clip robot/Clip robot_Powerpoint.pdf",
+    "pages": 17,
+    "han_chars": 0,
+    "brand_hits": 3,
+    "flagged": [
+      {
+        "page": 1,
+        "han_chars": 0,
+        "brand_matches": 2,
+        "snippets": [
+          "Intelligence Storm - Series",
+          "Intelligence Storm is a building block programming robot developed by Joinmax. The kit"
+        ]
+      },
+      {
+        "page": 17,
+        "han_chars": 0,
+        "brand_matches": 1,
+        "snippets": [
+          "Intelligence Storm Series"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 1,
+    "path": "public/Level 3/Learning/Action-Oriented/Cycle Sport/3. Cycle Sport - Slides.pdf",
+    "pages": 28,
+    "han_chars": 8,
+    "brand_hits": 0,
+    "flagged": [
+      {
+        "page": 2,
+        "han_chars": 8,
+        "brand_matches": 0,
+        "snippets": [
+          "课程目标",
+          "课程难点"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 2,
+    "path": "public/Level 3/Learning/Advanced Navigation & Control/Super Trajectory Robot 1/13.Super Trajectory Robot 1-update.pdf",
+    "pages": 19,
+    "han_chars": 0,
+    "brand_hits": 3,
+    "flagged": [
+      {
+        "page": 1,
+        "han_chars": 0,
+        "brand_matches": 2,
+        "snippets": [
+          "Intelligence Storm - Series",
+          "Intelligence Storm is a building block programming robot research and development by"
+        ]
+      },
+      {
+        "page": 19,
+        "han_chars": 0,
+        "brand_matches": 1,
+        "snippets": [
+          "Intelligence Storm Series"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 3,
+    "path": "public/Level 3/Learning/Automation & Security/Automatic Seesaw/24. Automatic Seesaw.pdf",
+    "pages": 21,
+    "han_chars": 8,
+    "brand_hits": 0,
+    "flagged": [
+      {
+        "page": 2,
+        "han_chars": 8,
+        "brand_matches": 0,
+        "snippets": [
+          "课程目标",
+          "课程难点"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 4,
+    "path": "public/Level 3/Learning/Automation & Security/Security door/Security door_Powerpoint-update.pdf",
+    "pages": 20,
+    "han_chars": 0,
+    "brand_hits": 3,
+    "flagged": [
+      {
+        "page": 1,
+        "han_chars": 0,
+        "brand_matches": 2,
+        "snippets": [
+          "Intelligence Storm - Series",
+          "Intelligence Storm is a building block programming robot developed by Joinmax. The kit is equipped w"
+        ]
+      },
+      {
+        "page": 20,
+        "han_chars": 0,
+        "brand_matches": 1,
+        "snippets": [
+          "Intelligence Storm Series"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 5,
+    "path": "public/Level 3/Learning/Automation & Security/Smart door/Smart door_Powerpoint.pdf",
+    "pages": 22,
+    "han_chars": 0,
+    "brand_hits": 3,
+    "flagged": [
+      {
+        "page": 1,
+        "han_chars": 0,
+        "brand_matches": 2,
+        "snippets": [
+          "The Intelligence Storm Set is a building block robot developed by Joinmax. It builds",
+          "Intelligence Storm - Series"
+        ]
+      },
+      {
+        "page": 22,
+        "han_chars": 0,
+        "brand_matches": 1,
+        "snippets": [
+          "Intelligence Storm Series"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 6,
+    "path": "public/Level 3/Learning/Autonomous Navigation & Ranging/Following Robot/Following Robot_Powerpoint.pdf",
+    "pages": 22,
+    "han_chars": 0,
+    "brand_hits": 3,
+    "flagged": [
+      {
+        "page": 1,
+        "han_chars": 0,
+        "brand_matches": 2,
+        "snippets": [
+          "The Intelligence Storm Set is a building block robot developed by Joinmax. It builds the",
+          "Intelligence Storm - Series"
+        ]
+      },
+      {
+        "page": 22,
+        "han_chars": 0,
+        "brand_matches": 1,
+        "snippets": [
+          "Intelligence Storm Series"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 7,
+    "path": "public/Level 3/Learning/Autonomous Navigation & Ranging/Obstacle Avoidance Robot 1/Obstacle Avoidance Robot 1_Powerpoint.pdf",
+    "pages": 19,
+    "han_chars": 0,
+    "brand_hits": 3,
+    "flagged": [
+      {
+        "page": 1,
+        "han_chars": 0,
+        "brand_matches": 2,
+        "snippets": [
+          "The Intelligence Storm Set is a building block robot developed by Joinmax. It builds",
+          "Intelligence Storm - Series"
+        ]
+      },
+      {
+        "page": 19,
+        "han_chars": 0,
+        "brand_matches": 1,
+        "snippets": [
+          "Intelligence Storm Series"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 8,
+    "path": "public/Level 3/Learning/Biomimicry/Stag beetle.pdf",
+    "pages": 24,
+    "han_chars": 20,
+    "brand_hits": 0,
+    "flagged": [
+      {
+        "page": 23,
+        "han_chars": 20,
+        "brand_matches": 0,
+        "snippets": [
+          "控制器上的接口除了传递信息还具有什么作用？"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 9,
+    "path": "public/Level 3/Learning/Biomimicry & Stimulus Response/Sunflower/09.Sunflower.pdf",
+    "pages": 19,
+    "han_chars": 0,
+    "brand_hits": 3,
+    "flagged": [
+      {
+        "page": 1,
+        "han_chars": 0,
+        "brand_matches": 2,
+        "snippets": [
+          "Intelligence Storm - Series",
+          "Intelligence Storm is a building block programming robot research and development by"
+        ]
+      },
+      {
+        "page": 19,
+        "han_chars": 0,
+        "brand_matches": 1,
+        "snippets": [
+          "Intelligence Storm Series"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 10,
+    "path": "public/Level 3/Learning/Characters & Structures/Electric Bulldozer/23.Electric Bulldozer -Slides.pdf",
+    "pages": 34,
+    "han_chars": 0,
+    "brand_hits": 0,
+    "flagged": []
+  },
+  {
+    "idx": 11,
+    "path": "public/Level 3/Learning/Characters & Structures/Electric Fan/05.Electric Fan-Slides.pdf",
+    "pages": 31,
+    "han_chars": 0,
+    "brand_hits": 0,
+    "flagged": []
+  },
+  {
+    "idx": 12,
+    "path": "public/Level 3/Learning/Characters & Structures/Safe/15.Safe -Slides.pdf",
+    "pages": 33,
+    "han_chars": 0,
+    "brand_hits": 0,
+    "flagged": []
+  },
+  {
+    "idx": 13,
+    "path": "public/Level 3/Learning/Characters & Structures/Smart Trash Bin/20.Smart Trash Bin-Slides.pdf",
+    "pages": 31,
+    "han_chars": 0,
+    "brand_hits": 0,
+    "flagged": []
+  },
+  {
+    "idx": 14,
+    "path": "public/Level 3/Learning/Display & Movement/Automated Guided Vehicle/24.Automated Guided Vehicle-Slides.pdf",
+    "pages": 36,
+    "han_chars": 0,
+    "brand_hits": 0,
+    "flagged": []
+  },
+  {
+    "idx": 15,
+    "path": "public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf",
+    "pages": 29,
+    "han_chars": 284,
+    "brand_hits": 0,
+    "flagged": [
+      {
+        "page": 2,
+        "han_chars": 8,
+        "brand_matches": 0,
+        "snippets": [
+          "课程目标",
+          "课程难点"
+        ]
+      },
+      {
+        "page": 25,
+        "han_chars": 69,
+        "brand_matches": 0,
+        "snippets": [
+          "这节实现两个利用编码盘测量距离的功能，接下来修改程序，",
+          "让测距机器人实现定点测量的功能。",
+          "要求：通过控制器地址设定距离长度，在运行至指定距离时，"
+        ]
+      },
+      {
+        "page": 26,
+        "han_chars": 69,
+        "brand_matches": 0,
+        "snippets": [
+          "这节实现两个利用编码盘测量距离的功能，接下来修改程序，",
+          "让测距机器人实现定点测量的功能。",
+          "要求：通过控制器地址设定距离长度，在运行至指定距离时，"
+        ]
+      },
+      {
+        "page": 27,
+        "han_chars": 69,
+        "brand_matches": 0,
+        "snippets": [
+          "这节实现两个利用编码盘测量距离的功能，接下来修改程序，",
+          "让测距机器人实现定点测量的功能。",
+          "要求：通过控制器地址设定距离长度，在运行至指定距离时，"
+        ]
+      },
+      {
+        "page": 28,
+        "han_chars": 69,
+        "brand_matches": 0,
+        "snippets": [
+          "这节实现两个利用编码盘测量距离的功能，接下来修改程序，",
+          "让测距机器人实现定点测量的功能。",
+          "要求：通过控制器地址设定距离长度，在运行至指定距离时，"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 16,
+    "path": "public/Level 3/Learning/Foundational Robots/Bumper car.pdf",
+    "pages": 12,
+    "han_chars": 20,
+    "brand_hits": 0,
+    "flagged": [
+      {
+        "page": 11,
+        "han_chars": 20,
+        "brand_matches": 0,
+        "snippets": [
+          "控制器上的接口除了传递信息还具有什么作用？"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 17,
+    "path": "public/Level 3/Learning/Foundational Robots/Line patrol car.pdf",
+    "pages": 12,
+    "han_chars": 20,
+    "brand_hits": 0,
+    "flagged": [
+      {
+        "page": 11,
+        "han_chars": 20,
+        "brand_matches": 0,
+        "snippets": [
+          "控制器上的接口除了传递信息还具有什么作用？"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 18,
+    "path": "public/Level 3/Learning/Illumination & Signals/Disinfection Lamp/13.Disinfection Lamp-Slides.pdf",
+    "pages": 30,
+    "han_chars": 0,
+    "brand_hits": 0,
+    "flagged": []
+  },
+  {
+    "idx": 19,
+    "path": "public/Level 3/Learning/Illumination & Signals/Flashlight Sensor/04.Flashlight -Slides.pdf",
+    "pages": 29,
+    "han_chars": 0,
+    "brand_hits": 0,
+    "flagged": []
+  },
+  {
+    "idx": 20,
+    "path": "public/Level 3/Learning/Illumination & Signals/Light-sensitive Curtains/14.Light-sensitive Curtains -Slides.pdf",
+    "pages": 38,
+    "han_chars": 0,
+    "brand_hits": 0,
+    "flagged": []
+  },
+  {
+    "idx": 21,
+    "path": "public/Level 3/Learning/Interactive Mechanisms/Bumper car/Bumper car_Powerpoint-update.pdf",
+    "pages": 18,
+    "han_chars": 0,
+    "brand_hits": 3,
+    "flagged": [
+      {
+        "page": 1,
+        "han_chars": 0,
+        "brand_matches": 2,
+        "snippets": [
+          "The Intelligence Storm Set is a building block robot developed by Joinmax.",
+          "Intelligence Storm - Series"
+        ]
+      },
+      {
+        "page": 18,
+        "han_chars": 0,
+        "brand_matches": 1,
+        "snippets": [
+          "Intelligence Storm Series"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 22,
+    "path": "public/Level 3/Learning/Interactive Systems/Anti-fall Robot/11.Anti-fall Robot-Slides.pdf",
+    "pages": 33,
+    "han_chars": 0,
+    "brand_hits": 0,
+    "flagged": []
+  },
+  {
+    "idx": 23,
+    "path": "public/Level 3/Learning/Interactive Systems/Automatic Door/17.Automatic Door -Slides.pdf",
+    "pages": 34,
+    "han_chars": 0,
+    "brand_hits": 0,
+    "flagged": []
+  },
+  {
+    "idx": 24,
+    "path": "public/Level 3/Learning/Interactive Systems/Juicer Machine/06.Juicer Machine-Slides.pdf",
+    "pages": 29,
+    "han_chars": 0,
+    "brand_hits": 0,
+    "flagged": []
+  },
+  {
+    "idx": 25,
+    "path": "public/Level 3/Learning/Interactive Systems/Washing Machine/08.Washing Machine-Slides.pdf",
+    "pages": 30,
+    "han_chars": 0,
+    "brand_hits": 0,
+    "flagged": []
+  },
+  {
+    "idx": 26,
+    "path": "public/Level 3/Learning/Machines & Mechanisms/Money detector.pdf",
+    "pages": 17,
+    "han_chars": 20,
+    "brand_hits": 0,
+    "flagged": [
+      {
+        "page": 16,
+        "han_chars": 20,
+        "brand_matches": 0,
+        "snippets": [
+          "控制器上的接口除了传递信息还具有什么作用？"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 27,
+    "path": "public/Level 3/Learning/Machines & Mechanisms/Parking gate.pdf",
+    "pages": 16,
+    "han_chars": 20,
+    "brand_hits": 0,
+    "flagged": [
+      {
+        "page": 15,
+        "han_chars": 20,
+        "brand_matches": 0,
+        "snippets": [
+          "控制器上的接口除了传递信息还具有什么作用？"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 28,
+    "path": "public/Level 3/Learning/Manipulators/Blood bank Centrifuge.pdf",
+    "pages": 28,
+    "han_chars": 40,
+    "brand_hits": 0,
+    "flagged": [
+      {
+        "page": 26,
+        "han_chars": 20,
+        "brand_matches": 0,
+        "snippets": [
+          "控制器上的接口除了传递信息还具有什么作用？"
+        ]
+      },
+      {
+        "page": 27,
+        "han_chars": 20,
+        "brand_matches": 0,
+        "snippets": [
+          "控制器上的接口除了传递信息还具有什么作用？"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 29,
+    "path": "public/Level 3/Learning/Manipulators/Electronic scale.pdf",
+    "pages": 27,
+    "han_chars": 40,
+    "brand_hits": 0,
+    "flagged": [
+      {
+        "page": 25,
+        "han_chars": 20,
+        "brand_matches": 0,
+        "snippets": [
+          "控制器上的接口除了传递信息还具有什么作用？"
+        ]
+      },
+      {
+        "page": 26,
+        "han_chars": 20,
+        "brand_matches": 0,
+        "snippets": [
+          "控制器上的接口除了传递信息还具有什么作用？"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 30,
+    "path": "public/Level 3/Learning/Manipulators/Gyro transmitter.pdf",
+    "pages": 21,
+    "han_chars": 20,
+    "brand_hits": 0,
+    "flagged": [
+      {
+        "page": 20,
+        "han_chars": 20,
+        "brand_matches": 0,
+        "snippets": [
+          "控制器上的接口除了传递信息还具有什么作用？"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 31,
+    "path": "public/Level 3/Learning/Mechanisms and Concepts/Drawbridge.pdf",
+    "pages": 21,
+    "han_chars": 20,
+    "brand_hits": 0,
+    "flagged": [
+      {
+        "page": 20,
+        "han_chars": 20,
+        "brand_matches": 0,
+        "snippets": [
+          "控制器上的接口除了传递信息还具有什么作用？"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 32,
+    "path": "public/Level 3/Learning/Mechanisms and Concepts/Electric fan.pdf",
+    "pages": 14,
+    "han_chars": 20,
+    "brand_hits": 0,
+    "flagged": [
+      {
+        "page": 13,
+        "han_chars": 20,
+        "brand_matches": 0,
+        "snippets": [
+          "控制器上的接口除了传递信息还具有什么作用？"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 33,
+    "path": "public/Level 3/Learning/Mechanisms and Concepts/Fire ladder.pdf",
+    "pages": 25,
+    "han_chars": 20,
+    "brand_hits": 0,
+    "flagged": [
+      {
+        "page": 24,
+        "han_chars": 20,
+        "brand_matches": 0,
+        "snippets": [
+          "控制器上的接口除了传递信息还具有什么作用？"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 34,
+    "path": "public/Level 3/Learning/Mechanisms and Concepts/Sign.pdf",
+    "pages": 20,
+    "han_chars": 20,
+    "brand_hits": 0,
+    "flagged": [
+      {
+        "page": 19,
+        "han_chars": 20,
+        "brand_matches": 0,
+        "snippets": [
+          "控制器上的接口除了传递信息还具有什么作用？"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 35,
+    "path": "public/Level 3/Learning/Sound & Voice Interaction/Electric guitar/10.Electric guitar_Powerpoint.pdf",
+    "pages": 21,
+    "han_chars": 0,
+    "brand_hits": 3,
+    "flagged": [
+      {
+        "page": 1,
+        "han_chars": 0,
+        "brand_matches": 2,
+        "snippets": [
+          "The Intelligence Storm Set is a building block robot developed by Joinmax. It builds the",
+          "Intelligence Storm - Series"
+        ]
+      },
+      {
+        "page": 21,
+        "han_chars": 0,
+        "brand_matches": 1,
+        "snippets": [
+          "Intelligence Storm Series"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 36,
+    "path": "public/Level 3/Learning/Sound & Voice Interaction/Music Box/29.Music Box -Slides.pdf",
+    "pages": 34,
+    "han_chars": 0,
+    "brand_hits": 0,
+    "flagged": []
+  },
+  {
+    "idx": 37,
+    "path": "public/Level 3/Learning/Sound & Voice Interaction/Music Doorbell/07.Music Doorbell- Slides.pdf",
+    "pages": 26,
+    "han_chars": 0,
+    "brand_hits": 0,
+    "flagged": []
+  },
+  {
+    "idx": 38,
+    "path": "public/Level 3/Learning/Sound & Voice Interaction/Smart Audio/Smart Audio_Powerpoint.pdf",
+    "pages": 21,
+    "han_chars": 0,
+    "brand_hits": 3,
+    "flagged": [
+      {
+        "page": 1,
+        "han_chars": 0,
+        "brand_matches": 2,
+        "snippets": [
+          "The Intelligence Storm Set is a building block robot developed by Zhongming Robot. It",
+          "Intelligence Storm - Series"
+        ]
+      },
+      {
+        "page": 21,
+        "han_chars": 0,
+        "brand_matches": 1,
+        "snippets": [
+          "Intelligence Storm Series"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 39,
+    "path": "public/Level 3/Learning/Sound & Voice Interaction/Sonometer/Sonometer_Powerpoint-update.pdf",
+    "pages": 23,
+    "han_chars": 0,
+    "brand_hits": 3,
+    "flagged": [
+      {
+        "page": 1,
+        "han_chars": 0,
+        "brand_matches": 2,
+        "snippets": [
+          "The Intelligence Storm Set is a building block robot developed by Joinmax.",
+          "Intelligence Storm - Series"
+        ]
+      },
+      {
+        "page": 23,
+        "han_chars": 0,
+        "brand_matches": 1,
+        "snippets": [
+          "Intelligence Storm Series"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 40,
+    "path": "public/Level 3/Learning/Sound & Voice Interaction/Sound Level Meter/16.Sound Level Meter -Slides.pdf",
+    "pages": 34,
+    "han_chars": 0,
+    "brand_hits": 0,
+    "flagged": []
+  },
+  {
+    "idx": 41,
+    "path": "public/Level 3/Learning/Vehicles & Complex Movers/F1 racing car/F1 racing car_Powerpoint.pdf",
+    "pages": 20,
+    "han_chars": 0,
+    "brand_hits": 3,
+    "flagged": [
+      {
+        "page": 1,
+        "han_chars": 0,
+        "brand_matches": 2,
+        "snippets": [
+          "Intelligence Storm - Series",
+          "Intelligence Storm is a building block programming robot developed by Joinmax. The"
+        ]
+      },
+      {
+        "page": 20,
+        "han_chars": 0,
+        "brand_matches": 1,
+        "snippets": [
+          "Intelligence Storm Series"
+        ]
+      }
+    ]
+  },
+  {
+    "idx": 42,
+    "path": "public/Level 3/Learning/Vehicles & Complex Movers/Long-Lived Turtle/11. The Long-lived Turtle - Slides.pdf",
+    "pages": 24,
+    "han_chars": 8,
+    "brand_hits": 0,
+    "flagged": [
+      {
+        "page": 2,
+        "han_chars": 8,
+        "brand_matches": 0,
+        "snippets": [
+          "课程目标",
+          "课程难点"
+        ]
+      }
+    ]
+  }
+]
