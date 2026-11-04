@@ -40,7 +40,7 @@ jobs:
         shell: bash
         run: |
           bunx tsc --noEmit > /tmp/level4-tsc.log 2>&1 || true
-          if grep -E '^src/data/levelFourLearning\\.ts\\([0-9]+,[0-9]+\\): error TS' /tmp/level4-tsc.log; then
+          if grep -E '^src/data/levelFourLearning\.ts\([0-9]+,[0-9]+\): error TS' /tmp/level4-tsc.log; then
             cat /tmp/level4-tsc.log
             exit 1
           fi
