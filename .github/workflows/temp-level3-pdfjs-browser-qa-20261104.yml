@@ -7,7 +7,7 @@ permissions:
   contents: read
 jobs:
   pdfjs-browser:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
@@ -53,7 +53,7 @@ jobs:
             rel=p.resolve().relative_to(root).as_posix()
             manifest.append({'path':rel,'url':'/public/'+quote(rel,safe='/')})
           (directory/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2))
-          html='''<!doctype html><html><head><meta charset="utf-8"></head><body><div id="qa">PDF.js browser QA</div><script type="module">
+          html='''<!doctype html><html><head><meta charset="utf-8"><link rel="icon" href="data:,"></head><body><div id="qa">PDF.js browser QA</div><script type="module">
           import * as pdfjs from '/node_modules/pdfjs-dist/build/pdf.mjs';
           pdfjs.GlobalWorkerOptions.workerSrc='/node_modules/pdfjs-dist/build/pdf.worker.min.mjs';
           window.pdfjsReady=true;
