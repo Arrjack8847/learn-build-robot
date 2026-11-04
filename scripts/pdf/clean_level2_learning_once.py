@@ -15,6 +15,28 @@ LOGO_SIZES={(586,178),(1086,268)}
 TURQUOISE=(97/255,195/255,208/255)
 TARGET_FONTS=("MS-Gothic","MicrosoftJhengHei","MicrosoftYaHei")
 reports=[]
+# Source pages with invisible Chinese glyphs geometrically overlapping English.
+# Redacting these removes visible educational words. Preserve them unchanged;
+# record explicit selectable-CJK exceptions instead of destroying lesson text.
+CJK_EXCEPTIONS={
+ "Biomimicry/Chimpanzees.pdf": {13},
+ "Foundational Robots/Hammer robot.pdf": {21},
+ "Foundational Robots/The treadmill.pdf": {17},
+ "Manipulators/Cliff walk.pdf": {11},
+ "Manipulators/Ferris wheel.pdf": {20},
+ "Manipulators/Round-trip transportation.pdf": {14},
+ "Mechanisms and Concepts/Animal trap.pdf": {16},
+ "Mechanisms and Concepts/Headlights.pdf": {13},
+}
+# Covers whose source has duplicate/overlapping brand paragraph text objects.
+# Rebuild the white text-only body once; keep image-rich turquoise art untouched.
+COVER_BODY_REWRITES={
+ "Characters & Structures/Tower crane/Tower crane_Powerpoint.pdf",
+ "Mechanisms & Simulators/Crane/Crane_Powerpoint.pdf",
+ "Mechanisms & Simulators/Door/Door_Powerpoint.pdf",
+ "Mechanisms & Simulators/Gearbox/Gearbox_Powerpoint.pdf",
+ "Vehicles & Complex Movers/Lifting door/Lifting door_Powerpoint.pdf",
+}
 
 def original_spans(pg):
     for block in pg.get_text("dict")["blocks"]:
@@ -36,6 +58,8 @@ def remove_chinese_font_content(src, relative):
     doc=fitz.open(src)
     touched=0
     for index,page in enumerate(doc):
+        if index+1 in CJK_EXCEPTIONS.get(relative.as_posix(),set()):
+            continue
         original=page.get_text()
         if not CJK.search(original):
             continue
@@ -148,6 +172,37 @@ def hello_world_task(doc):
     p.apply_redactions(images=0,graphics=0,text=0)
     p.insert_text((211.27,168.05),"Welcome!",fontsize=12,fontname="tiro",color=(0,0,0))
 
+def restore_branded_cover_body(doc, relative):
+    """Replace only the plain-white body of five verified cover layouts.
+
+    The source PDFs contain overlapping/duplicate original brand text streams
+    that the prior span-by-span redactor damaged. Redact only text (not images,
+    vector art or backgrounds) in the lower white paragraph area, then render
+    a single neutral English description retaining all educational details
+    and the original Joinmax manufacturer attribution.
+    """
+    if relative.as_posix() not in COVER_BODY_REWRITES:
+        return
+    p=doc[0]
+    area=fitz.Rect(0,280,960,540)
+    p.add_redact_annot(area,fill=False,cross_out=False)
+    p.apply_redactions(images=0,graphics=0,text=0)
+    description=(
+        "This robotics kit is a building block programming robot research and development by Joinmax. "
+        "The kit is equipped with various sensors such as sound sensitivity, color sensor, touch sensor, "
+        "photoelectric sensor, color light, ultrasonic, camera and many building blocks parts. "
+        "Students can build various building block robots with their imagination, and use graphical "
+        "programming software to program the robot and experience the joy of hands-on creation."
+    )
+    area=fitz.Rect(40,290,920,528)
+    for size in (21,20,19,18):
+        remainder=p.insert_textbox(area,description,fontsize=size,fontname="tiro",
+                                   lineheight=1.2,color=(0,0,0),overlay=True)
+        if remainder>=0:
+            return
+    raise RuntimeError("Could not safely typeset cover paragraph: "+relative.as_posix())
+
+
 def process(src):
     rel=src.relative_to(ROOT)
     intermediate=remove_chinese_font_content(src,rel)
@@ -166,6 +221,7 @@ def process(src):
         hello_world_task(doc)
     for index,pg in enumerate(doc):
         events+=cover_and_brand(pg,index+1,len(doc))
+    restore_branded_cover_body(doc,rel)
     # Preserve legible instructional cover paragraphs; these two had overlapping
     # old title paragraphs in the approved preview.
     if str(rel) in (
@@ -189,13 +245,16 @@ def process(src):
     check=fitz.open(dest)
     hits=[]
     for i,p in enumerate(check):
-        if BRAND.search(p.get_text()) or CJK.search(p.get_text()):hits.append(i+1)
+        if BRAND.search(p.get_text()):hits.append(i+1)
+        if CJK.search(p.get_text()) and (i+1 not in CJK_EXCEPTIONS.get(rel.as_posix(),set())):
+            hits.append(i+1)
         for im in p.get_images(full=True):
             if (im[2],im[3]) in LOGO_SIZES:hits.append(i+1)
     assert not hits,(str(rel),hits)
     assert len(check)==total
     check.close()
-    return {"path":str(rel),"pages":total,"changed":len(events),"removed_logos":len(logo_ids)}
+    return {"path":str(rel),"pages":total,"changed":len(events),"removed_logos":len(logo_ids),
+            "preserved_cjk_exception_pages":sorted(CJK_EXCEPTIONS.get(rel.as_posix(),set()))}
 
 def main():
     files=sorted(p for p in ROOT.rglob("*.pdf") if "_building_" not in p.name.lower())
