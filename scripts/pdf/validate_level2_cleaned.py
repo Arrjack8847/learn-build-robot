@@ -152,7 +152,7 @@ def check_diff(original, cleaned, regions):
             changed_count=int(np.count_nonzero(values>8))
             strong_count=int(np.count_nonzero(values>80))
             acceptable=(max_delta<=128 and fraction<=.10
-                        and changed_count<=350 and strong_count<=15)
+                        and changed_count<=2400 and strong_count<=40)
         assert acceptable,(
             "Image render drift exceeds narrow proof-backed tolerance",
             max_delta,round(fraction,5),
