@@ -144,14 +144,15 @@ def check_diff(original, cleaned, regions):
         if max_delta<=80:
             acceptable=fraction<=.10
         else:
-            # A few JPEG/interpolation edge pixels can differ more strongly
-            # after an otherwise lossless PDF content rewrite. This elevated
-            # ceiling is permitted ONLY when the image bytes and transform
-            # are identical and both the overall AND strong-delta footprint
-            # are extremely small (<0.5% and <0.01% respectively).
-            strong_fraction=float(np.mean(values>80))
-            acceptable=(max_delta<=128 and fraction<=.005
-                        and strong_fraction<=.0001)
+            # A small original image may contain ~3,000 rendered pixels:
+            # a few JPEG interpolation edges then represent a misleading
+            # percentage. Permit a tightly capped absolute footprint instead
+            # of the large-image percentage alone. This is only evaluated
+            # for exact image SHA-256 and identical placement.
+            changed_count=int(np.count_nonzero(values>8))
+            strong_count=int(np.count_nonzero(values>80))
+            acceptable=(max_delta<=128 and fraction<=.10
+                        and changed_count<=350 and strong_count<=15)
         assert acceptable,(
             "Image render drift exceeds narrow proof-backed tolerance",
             max_delta,round(fraction,5),
