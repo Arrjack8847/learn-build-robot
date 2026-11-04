@@ -1,0 +1,89 @@
+name: Temporary Level 2 Learning PDF Source Audit
+on:
+  push:
+    branches:
+      - tmp/level2-pdf-cleanup-runner
+    paths:
+      - .github/workflows/temp-level2-pdf-audit.yml
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 2/Learning
+            public/Level 1/Learning
+          persist-credentials: false
+      - run: python3 -m pip install --quiet pymupdf pillow
+      - name: Inventory, examine Level 1 reference, render Level 2 source covers
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import os,json,re,collections,hashlib,io
+          from pathlib import Path
+          import pymupdf as fitz
+          from PIL import Image,ImageDraw
+          root=Path('public/Level 2/Learning')
+          pdfs=sorted(root.rglob('*.pdf'))
+          assert len(pdfs)==44,('Unexpected Level 2 inventory',len(pdfs))
+          H=re.compile(r'[\u3400-\u9fff\uf900-\ufaff]')
+          B=re.compile(r'intelligen(?:t|ce)\s+storm|智能风暴|joinmax|znrobo',re.I)
+          C=re.compile(r'copyright|©|all rights reserved|licen[sc]e',re.I)
+          out=Path('/tmp/level2-source-audit');out.mkdir(exist_ok=True)
+          rows=[];pages=0;dims=collections.Counter()
+          for n,p in enumerate(pdfs):
+            doc=fitz.open(p);pages+=len(doc);flagged=[];font_stats=collections.Counter();image_dims=collections.Counter()
+            for k,page in enumerate(doc):
+              s=page.get_text()
+              fonts=[(f[3],f[4]) for f in page.get_fonts(full=True)]
+              font_stats.update(x[0] for x in fonts)
+              for im in page.get_images(full=True): image_dims.update([(im[2],im[3])])
+              if H.search(s) or B.search(s):
+                flagged.append({'page':k+1,'chinese':len(H.findall(s)),'brand':len(B.findall(s)),
+                                'lines':[a.strip()[:130] for a in s.splitlines() if H.search(a) or B.search(a)][:6]})
+              dims.update([tuple(page.rect)])
+            row={'index':n,'path':str(p),'pages':len(doc),'size_bytes':p.stat().st_size,
+                 'chinese_total':sum(x['chinese'] for x in flagged),'branding_total':sum(x['brand'] for x in flagged),
+                 'flagged':flagged,'fonts':font_stats.most_common(8),
+                 'top_image_dimensions':[{'width':w,'height':h,'occurrences':c} for (w,h),c in image_dims.most_common(12)],
+                 'copyright_or_license_pages':[i+1 for i,page in enumerate(doc) if C.search(page.get_text())],
+                 'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+            rows.append(row)
+            print(f"{n+1:02d}/44 {len(doc):3d} pages Chinese={row['chinese_total']:3d} brand={row['branding_total']:2d} {p}",flush=True)
+          for kind in ('first','last'):
+            for group in range(3):
+              subset=rows[group*16:(group+1)*16]
+              canvas=Image.new('RGB',(4*330,4*250),(235,235,235));draw=ImageDraw.Draw(canvas)
+              for j,r in enumerate(subset):
+                doc=fitz.open(r['path']);page=doc[0] if kind=='first' else doc[-1]
+                pm=page.get_pixmap(matrix=fitz.Matrix(.42,.42),alpha=False)
+                thumb=Image.frombytes('RGB',(pm.width,pm.height),pm.samples);thumb.thumbnail((318,211))
+                x=j%4*330;y=j//4*250
+                canvas.paste(thumb,(x+(330-thumb.width)//2,y+25))
+                draw.text((x+4,y+4),f"{r['index']:02d} {Path(r['path']).stem[:30]}",fill='black')
+              canvas.save(out/f'{kind}-{group}.png',optimize=True)
+          l1=sorted(Path('public/Level 1/Learning').rglob('*.pdf'))
+          sample=[]
+          for p in l1[:3]:
+            d=fitz.open(p)
+            sample.append({'path':str(p),'pages':len(d),'chinese':sum(len(H.findall(pg.get_text())) for pg in d),
+                           'branding':sum(len(B.findall(pg.get_text())) for pg in d),
+                           'fonts':list({f[3] for pg in d for f in pg.get_fonts(full=True)})[:12]})
+          result={'source_sha':'b52b9cca94269e30d00024c87e746cec51a55234','pdf_count':len(rows),
+                  'page_count':pages,'source_mb':round(sum(x['size_bytes'] for x in rows)/1e6,2),
+                  'chinese_selectable':sum(x['chinese_total'] for x in rows),'branding_selectable':sum(x['branding_total'] for x in rows),
+                  'page_dimensions':[(list(k),v) for k,v in dims.items()],'level1_examples':sample,'records':rows}
+          (out/'source-inventory.json').write_text(json.dumps(result,indent=2,ensure_ascii=False))
+          print('AUDIT_TOTALS',json.dumps({k:v for k,v in result.items() if k not in ('records','page_dimensions')}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: level2-source-inventory-and-cover-renders
+          path: /tmp/level2-source-audit/
+          retention-days: 14
