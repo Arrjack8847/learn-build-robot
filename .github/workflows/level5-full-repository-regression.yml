@@ -1,0 +1,36 @@
+name: Level 5 premerge full repository regression suite
+on:
+  push:
+    branches: ['tmp/level5-integrated-premerge-qa-20261104']
+    paths: ['.github/workflows/level5-full-repository-regression.yml']
+permissions:
+  contents: read
+jobs:
+  full-node-suite:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout combined Level 5 PDF and routing PRs
+        uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          lfs: false
+      - name: Prepare Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.1
+      - name: Install locked dependencies
+        run: bun install --frozen-lockfile
+      - name: Run every Node test in the repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config core.quotePath false
+          echo "Test modules: $(find tests -maxdepth 1 -name '*.test.mjs' | wc -l)"
+          node --test tests/*.test.mjs
+      - name: Output combined branch and tracked changes
+        if: always()
+        shell: bash
+        run: |
+          git rev-parse --short HEAD
+          git status --short
