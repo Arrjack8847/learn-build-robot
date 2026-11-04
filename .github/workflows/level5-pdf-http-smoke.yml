@@ -1,0 +1,71 @@
+name: Level 5 51 PDF HTTP integration smoke test
+on:
+  push:
+    branches: ['tmp/level5-integrated-premerge-qa-20261104']
+    paths: ['.github/workflows/level5-pdf-http-smoke.yml']
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout combined Level 5 PDFs and routing
+        uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          lfs: false
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.1
+      - name: Install locked project packages
+        run: bun install --frozen-lockfile
+      - name: Start real application dev server
+        shell: bash
+        run: |
+          set -euo pipefail
+          nohup bun run dev --host 127.0.0.1 --port 4173 > /tmp/level5-vite.log 2>&1 < /dev/null &
+          echo $! > /tmp/level5-vite.pid
+          ready=0
+          for i in $(seq 1 60); do
+            if curl --max-time 2 --silent --output /dev/null http://127.0.0.1:4173/; then ready=1; break; fi
+            sleep 2
+          done
+          if [ "$ready" -ne 1 ]; then cat /tmp/level5-vite.log; exit 1; fi
+          echo 'PASS: Vite app responded on localhost:4173'
+      - name: Verify 51 cleaned PDFs via actual encoded HTTP URLs
+        shell: bash
+        run: |
+          node --input-type=module <<'JS'
+          import {readFileSync} from "node:fs";
+          import assert from "node:assert/strict";
+          const source=readFileSync("src/data/levelFiveSixContent.ts","utf8");
+          const match=source.match(/export const levelFiveSixLessons: readonly AdvancedLessonAsset\[\] = (\[[\s\S]*?\]);/);
+          assert.ok(match,"Lesson registry");
+          const lessons=JSON.parse(match[1]).filter(x=>x.level===5);
+          assert.equal(lessons.length,51);
+          let successes=0;
+          for(const lesson of lessons){
+            const urlPath="/"+lesson.learningPdf.split("/").map(encodeURIComponent).join("/");
+            const response=await fetch("http://127.0.0.1:4173"+urlPath,{
+              headers:{"Range":"bytes=0-31"},
+              signal:AbortSignal.timeout(15000)
+            });
+            assert.ok(response.ok,lesson.id+" HTTP "+response.status+" for "+urlPath);
+            const mime=response.headers.get("content-type")??"";
+            assert.ok(mime.includes("pdf"),lesson.id+" wrong MIME: "+mime);
+            const reader=response.body.getReader();
+            const first=await reader.read();
+            await reader.cancel();
+            assert.ok(first.value,lesson.id+" empty HTTP body");
+            const header=new TextDecoder().decode(first.value.subarray(0,8));
+            assert.ok(header.startsWith("%PDF-"),lesson.id+" wrong file header: "+header);
+            successes++;
+          }
+          console.log("PASS: "+successes+"/51 Level 5 Learning PDFs served over HTTP with correct paths, status, MIME, and PDF signature");
+          JS
+      - name: Check logs on failure
+        if: failure()
+        shell: bash
+        run: tail -100 /tmp/level5-vite.log || true
