@@ -28,7 +28,12 @@ function loadDataModule(relativePath) {
     }
     throw new Error("Unexpected data module import: " + specifier);
   };
-  vm.runInNewContext(outputText, { module, exports: module.exports, require }, { filename: path });
+  // Vite compiles import.meta.env.* in the browser; this CommonJS-only test sandbox
+  // must replace those compile-time flags before loading shared Level 5/6 data modules.
+  const sandboxText = outputText
+    .replace(/\bimport\.meta\.env\.DEV\b/g, "false")
+    .replace(/\bimport\.meta\.env\.[A-Za-z_$][\w$]*/g, "undefined");
+  vm.runInNewContext(sandboxText, { module, exports: module.exports, require }, { filename: path });
   return module.exports;
 }
 

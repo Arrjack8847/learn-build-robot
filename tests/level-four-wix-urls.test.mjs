@@ -26,8 +26,9 @@ test("All 106 Level 4 PDFs have exact Wix URLs", () => {
   }
 });
 
-test("Level 4 Learning and Building studio PDFs use Wix if available, local otherwise", () => {
-  assert.match(learning, /return levelFourWixPdfUrls\[path\] \?\? "\/" \+ path\.split/);
+test("Level 4 Learning uses cleaned local PDF assets while Building keeps Wix URLs", () => {
+  assert.match(learning, /return "\/" \+ path\.split\("\/"\)\.map\(encodeURIComponent\)\.join\("\/"\);/);
+  assert.doesNotMatch(learning, /levelFourWixPdfUrls\[path\]/);
   assert.match(building, /return levelFourWixPdfUrls\[originalPath\] \?\? "\/Level%204\/Building\/"/);
   assert.match(learning, /originalPowerPointFile: lesson\.originalPowerPointFile/);
   assert.match(building, /hasLevelFourOptimizedManual/);
