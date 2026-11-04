@@ -116,7 +116,7 @@ jobs:
             for(const width of viewports){
               await page.setViewportSize({width,height:width===1280?800:844});
               const img=await page.evaluate(async ({url})=>window.pdfjsProbe(url),manifest[0]);
-              assert.ok(img.width>100&&img.width<=width,item);
+              assert.ok(img.width>100&&img.width<=width,'viewport '+width+' rendered width '+img.width);
               renderWidths.push({viewport:width,canvasWidth:img.width,canvasHeight:img.height});
             }
             assert.deepEqual(errors,[],errors.join('\n'));
