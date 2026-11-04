@@ -1,0 +1,119 @@
+name: Temporary Level 2 PDF Cleaning and Full Visual QA
+on:
+  push:
+    branches:
+      - tmp/level2-pdf-cleanup-runner
+    paths:
+      - .github/workflows/temp-level2-pdf-clean-run.yml
+permissions:
+  contents: write
+jobs:
+  clean-level2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - name: Checkout approved Level 2 cleanup tooling (isolated)
+        uses: actions/checkout@v4
+        with:
+          ref: tmp/level2-pdf-cleanup-runner
+          path: runner
+          filter: blob:none
+          sparse-checkout: |
+            scripts/pdf/clean_level2_learning_once.py
+            scripts/pdf/validate_level2_cleaned.py
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+      - name: Checkout only target Level 2 Learning PDFs
+        uses: actions/checkout@v4
+        with:
+          ref: fix/level2-pdf-cleanup
+          path: target
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 2/Learning
+          persist-credentials: true
+          lfs: false
+      - name: Pin base commit; prevent concurrent-branch overwrite
+        working-directory: target
+        run: |
+          test "$(git rev-parse HEAD)" = "9d0a3318dba0d7bc930180c96fabc7d3430edf26"
+          git status --porcelain
+          test -z "$(git status --porcelain)"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Level 1-approved PDF libraries
+        run: python3 -m pip install --quiet 'PyMuPDF==1.26.7' 'pypdf==6.4.0' pillow
+      - name: Process representative sample first, without commits
+        working-directory: target
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import importlib.util
+          from pathlib import Path
+          spec=importlib.util.spec_from_file_location("level2_clean","../runner/scripts/pdf/clean_level2_learning_once.py")
+          mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
+          eligible=[p for p in mod.ROOT.rglob("*.pdf") if "_building_" not in p.name.lower()]
+          sample=["Axe robot_Powerpoint.pdf","Automatic window.pdf",
+                  "Mechanical dog_PowerPoint-R.pdf","13.Teeterboard_PowerPoint.pdf"]
+          for name in sample:
+            source=next(p for p in eligible if p.name==name)
+            result=mod.process(source)
+            print("SAMPLE_CLEAN",result,flush=True)
+          PY
+          python3 ../runner/scripts/pdf/validate_level2_cleaned.py --mode sample
+      - name: Clean all eligible Level 2 Learning PDFs using approved method
+        working-directory: target
+        run: python3 ../runner/scripts/pdf/clean_level2_learning_once.py
+      - name: Validate all pages, instructional English, attribution, visual deltas and page counts
+        working-directory: target
+        run: python3 ../runner/scripts/pdf/validate_level2_cleaned.py --mode full
+      - name: Upload QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: level2-learning-cleaning-sample-and-full-qa
+          path: |
+            /tmp/bsr-level2-proof/
+            /tmp/bsr-level2-clean/report.json
+          retention-days: 21
+          if-no-files-found: warn
+      - name: Confirm existing public URL paths serve edited PDFs
+        working-directory: target
+        shell: bash
+        run: |
+          cp -a /tmp/bsr-level2-clean/output/. "public/Level 2/Learning/"
+          python3 -m http.server 8765 --directory public >/tmp/level2-http.log 2>&1 &
+          echo $! >/tmp/level2-server.pid
+          sleep 2
+          python3 - <<'PY'
+          from urllib.request import urlopen
+          from urllib.parse import quote
+          from pathlib import Path
+          files=sorted(p for p in Path('public/Level 2/Learning').rglob('*.pdf') if '_building_' not in p.name.lower())
+          assert len(files)==43
+          for p in files:
+            url='http://127.0.0.1:8765/'+quote(p.relative_to('public').as_posix(),safe='/')
+            with urlopen(url,timeout=15) as resp:
+              assert resp.status==200,(p,resp.status)
+              assert resp.read(5)==b'%PDF-',p
+          print('HTTP_PATH_QA_PASS',len(files),'unchanged local PDF URLs',flush=True)
+          PY
+          kill "$(cat /tmp/level2-server.pid)"
+      - name: Commit ONLY 43 cleaned Level 2 Learning PDFs to assigned branch; no merge
+        working-directory: target
+        shell: bash
+        run: |
+          git add -- 'public/Level 2/Learning/'
+          python3 - <<'PY'
+          import subprocess
+          paths=[x.decode() for x in subprocess.check_output(['git','diff','--cached','--name-only','-z']).split(b'\0') if x]
+          assert len(paths)==43,('Unexpected number of changed PDFs',len(paths),paths)
+          assert all(p.startswith('public/Level 2/Learning/') and p.lower().endswith('.pdf') and '_building_' not in p.lower() for p in paths),paths
+          print('SCOPE_VALIDATED',len(paths),'Level 2 Learning PDFs; Building fallback untouched',flush=True)
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'content(level2): clean Learning PDFs while preserving instructional diagrams'
+          git push origin HEAD:fix/level2-pdf-cleanup
+          git log -1 --format='LEVEL2_COMMIT=%H'
