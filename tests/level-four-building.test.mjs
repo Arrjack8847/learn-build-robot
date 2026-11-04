@@ -42,6 +42,12 @@ const {
 const { levelFourLearningLessons, levelFourLearningManuals } =
   loadDataModule("src/data/levelFourLearning.ts");
 const { getAdvancedLevel } = loadDataModule("src/data/advancedSyllabus.ts");
+const { levelFourWixPdfUrls } = loadDataModule("src/data/levelFourWixPdfUrls.ts");
+const buildingPathsByUrl = new Map(
+  Object.entries(levelFourWixPdfUrls)
+    .filter(([path]) => path.startsWith("Level 4/Building/"))
+    .map(([path, url]) => [url, path]),
+);
 
 test("50 uploaded Level 4 Building PDFs cover 48 syllabus projects", () => {
   assert.equal(collectPdfs(resolve(root, "public/Level 4/Building")).length, 50);
@@ -60,9 +66,10 @@ test("50 uploaded Level 4 Building PDFs cover 48 syllabus projects", () => {
       assert.equal(building.learningFallback, true);
       assert.equal(isLevelFourBuildingFallback(lesson.id), true);
     } else {
-      assert.ok(building.url.startsWith("/Level%204/Building/"));
+      assert.match(building.url, /^https:\/\//, "Official Building manual should remain on Wix");
       assert.equal(building.learningFallback, undefined);
-      const relative = decodeURIComponent(building.url).slice(1);
+      const relative = buildingPathsByUrl.get(building.url);
+      assert.ok(relative, "Unmapped Building Wix URL: " + building.url);
       const file = resolve(root, "public", relative);
       assert.equal(readFileSync(file).subarray(0, 5).toString("ascii"), "%PDF-");
       sourceFiles.add(file);
@@ -80,7 +87,10 @@ test("optimized versions are accessible and have independent completion keys", (
     const optimized = getLevelFourBuildingManual(id, "optimized");
     assert.notEqual(base.url, optimized.url);
     assert.notEqual(base.completionStepId, optimized.completionStepId);
-    const path = resolve(root, "public", decodeURIComponent(optimized.url).slice(1));
+    assert.match(optimized.url, /^https:\/\//, "Optimized Building manual should remain on Wix");
+    const relative = buildingPathsByUrl.get(optimized.url);
+    assert.ok(relative, "Unmapped optimized Building Wix URL: " + optimized.url);
+    const path = resolve(root, "public", relative);
     assert.equal(readFileSync(path).subarray(0, 5).toString("ascii"), "%PDF-");
   }
   assert.equal(hasLevelFourOptimizedManual("level-4-personal-bodyguard"), false);
