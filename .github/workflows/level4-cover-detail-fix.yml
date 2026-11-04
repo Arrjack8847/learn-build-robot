@@ -1,0 +1,123 @@
+name: Level 4 cover educational detail refinement
+on:
+  push:
+    branches:
+      - internal/level4-cover-qa-fix-20261104
+permissions:
+  contents: write
+jobs:
+  refine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: internal/level4-cover-qa-fix-20261104
+          path: worker
+          sparse-checkout: |
+            .github/workflows/level4-cover-detail-fix.yml
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level4-pdf-cleanup
+          path: app
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 4
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -q pymupdf
+      - name: Preserve technical information on branded cover pages
+        shell: bash
+        run: |
+          python - <<'PY'
+          import fitz, os, json, re, tempfile
+          from pathlib import Path
+          root = Path("app/public/Level 4")
+          long_names = {
+           "12.Drop-proof Robot-update.pdf",
+           "14. Super Trajectory Robot 2-update.pdf",
+           "10.Nocturnal beetle-update.pdf",
+           "Architectural design.pdf",
+           "05.Card Machine-update.pdf",
+           "08.Card reader-update.pdf",
+           "06.Password box-update.pdf",
+           "Ranging robot_Powerpoint.pdf",
+          }
+          modified=[]
+          for file in sorted(root.rglob("*.pdf")):
+           if "Building" in file.relative_to(root).parts: continue
+           doc=fitz.open(file)
+           page=doc[0]
+           if "Robotics Learning Series" not in page.get_text():
+            doc.close();continue
+           bs=[b for b in page.get_text("blocks") if "This robotics kit" in b[4]]
+           assert len(bs)==1,(str(file),len(bs))
+           box=fitz.Rect(bs[0][:4])
+           old=bs[0][4]
+           manufacturer="ZMRobo" if "ZMRobo" in old else "Joinmax"
+           if file.name in long_names:
+            new=f"Developed by {manufacturer}, this programmable building-block robot kit includes sound-sensitivity, color, touch, photoelectric, ultrasonic and camera sensors, colored lights, and modular parts. Students can design varied robots and use graphical programming software for hands-on creation."
+           else:
+            new=f"Developed by {manufacturer}, this building-block robot uses modular parts to construct its body, while programming software and sensors enable a range of interactive functions."
+           assert "storm" not in new.lower()
+           original_page_count=len(doc)
+           old_rects=[tuple(p.rect) for p in doc]
+           page.add_redact_annot(fitz.Rect(box.x0-2,box.y0-3,box.x1+3,box.y1+3),fill=False,cross_out=False)
+           page.apply_redactions(images=0,graphics=0,text=0)
+           area=fitz.Rect(box.x0,box.y0-4,929,515)
+           result=page.insert_textbox(area,new,fontname="times-roman",fontsize=21,lineheight=1.30,color=(.16,.16,.16),overlay=True)
+           assert result >= 0, (str(file),"Cover text didn't fit",result)
+           fd,tmp=tempfile.mkstemp(suffix=".pdf",dir=file.parent)
+           os.close(fd)
+           try:
+            doc.save(tmp,garbage=4,deflate=True); doc.close()
+            ck=fitz.open(tmp)
+            assert len(ck)==original_page_count
+            assert [tuple(p.rect) for p in ck]==old_rects
+            assert "Developed by" in ck[0].get_text()
+            assert "This robotics kit" not in ck[0].get_text()
+            assert not re.search(r"intelligen(?:ce|t)\s*storm|[\u3400-\u9fff]",ck[0].get_text(),re.I)
+            ck[0].get_pixmap(matrix=fitz.Matrix(.5,.5),alpha=False)
+            ck.close()
+            os.replace(tmp,file)
+           except:
+            if os.path.exists(tmp):os.remove(tmp)
+            raise
+           modified.append({"path":str(file.relative_to(Path("app"))),"type":"long" if file.name in long_names else "short","manufacturer":manufacturer,"chars":len(new)})
+           print("REFINED",len(modified),file.name,flush=True)
+          assert len(modified)==14, ("Expected 14 turquoise covers",len(modified))
+          assert sum(x["type"]=="long" for x in modified)==8
+          report={"count":len(modified),"summary":"Preserved educational descriptions on 14 covers; original brand product names removed","files":modified}
+          Path("cover_editorial_validation.json").write_text(json.dumps(report,indent=2))
+          print("READY: 14 covers updated; only first page educational descriptions changed")
+          
+          PY
+      - name: Enforce Learning-only PDF diff
+        working-directory: app
+        shell: bash
+        run: |
+          python - <<'PY'
+          import subprocess
+          files=subprocess.check_output(["git","diff","--name-only"],text=True).splitlines()
+          assert len(files)==14,("Expected 14 revised cover PDFs",files)
+          for f in files:
+              assert f.startswith("public/Level 4/") and f.endswith(".pdf") and "/Building/" not in f,f
+          print("DIFF SAFE: 14 Level 4 Learning PDFs, no other files",flush=True)
+          PY
+      - name: Commit educational cover refinements only
+        working-directory: app
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -u -- "public/Level 4"
+          git commit -m "fix(level4): retain educational details on 14 cleaned lesson covers"
+          git push origin HEAD:fix/level4-pdf-cleanup
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: level4-cover-editorial-refinement
+          path: cover_editorial_validation.json
