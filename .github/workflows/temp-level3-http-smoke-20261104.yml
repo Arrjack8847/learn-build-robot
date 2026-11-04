@@ -1,0 +1,128 @@
+name: Temporary Level 3 Local PDF HTTP Smoke Test
+on:
+  push:
+    branches: [tmp/level3-pdf-cleanup-runner]
+    paths: [.github/workflows/temp-level3-http-smoke-20261104.yml]
+permissions:
+  contents: read
+jobs:
+  local-http:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: source
+          filter: blob:none
+          sparse-checkout: |
+            src/data/levelThreeLectures.ts
+            src/data/levelOneToThreeWixPdfUrls.ts
+            src/data/staticPdfUrl.ts
+          sparse-checkout-cone-mode: false
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level3-pdf-cleanup
+          path: cleaned
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - name: Install PDF parser
+        run: python3 -m pip install --quiet pymupdf
+      - name: Serve and verify all Level 3 cleaned PDFs over local HTTP
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
+          from pathlib import Path
+          from urllib.request import urlopen,Request
+          from urllib.parse import quote
+          import hashlib,json,re,threading,functools,datetime
+          import pymupdf
+          original=Path('source/src/data/levelThreeLectures.ts').read_text()
+          wix=Path('source/src/data/levelOneToThreeWixPdfUrls.ts').read_text()
+          resolver=Path('source/src/data/staticPdfUrl.ts').read_text()
+          pairs=re.findall(r'\["(level-3-[^"]+)",\s*"([^"]+\.pdf)"\]',original)
+          fallback=re.search(r'LEVEL_THREE_BUILDING_PDF_LEARNING_FALLBACK_IDS = \[([\s\S]*?)\] as const',original)
+          fallback_ids=re.findall(r'"(level-3-[^"]+)"',fallback.group(1))
+          root=Path('cleaned/public').resolve()
+          all_pdf=sorted(root.joinpath('Level 3/Learning').rglob('*.pdf'))
+          uniq={v for _,v in pairs}
+          assert len(pairs)==46,(len(pairs),'project entries')
+          assert len(uniq)==len(all_pdf)==43
+          assert len(fallback_ids)==5
+          assert all(root.joinpath('Level 3/Learning',p).is_file() for p in uniq)
+          assert len(re.findall(r'"Level 3/Learning/[^"]+\.pdf":',wix))==43
+          assert 'if (level === 1) return localUrl;' in resolver
+          assert 'levelOneToThreeWixPdfUrls[filename]' in resolver
+          class QuietHandler(SimpleHTTPRequestHandler):
+            def log_message(self,*args):pass
+          handler=functools.partial(QuietHandler,directory=str(root))
+          server=ThreadingHTTPServer(('127.0.0.1',0),handler)
+          port=server.server_address[1]
+          thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
+          results=[];pages=0;download_bytes=0
+          try:
+            for i,relative in enumerate(sorted(uniq),1):
+              file=root/'Level 3/Learning'/relative
+              payload=file.read_bytes()
+              url_path='/'+quote('Level 3/Learning/'+relative,safe='/')
+              url='http://127.0.0.1:'+str(port)+url_path
+              with urlopen(Request(url,method='HEAD'),timeout=20) as response:
+                assert response.status==200,(relative,'HEAD',response.status)
+                assert response.headers.get_content_type()=='application/pdf',(relative,response.headers.get_content_type())
+                assert int(response.headers.get('Content-Length','-1'))==len(payload),(relative,'HEAD size')
+                last_modified=response.headers.get('Last-Modified')
+              with urlopen(url,timeout=30) as response:
+                assert response.status==200,(relative,'GET',response.status)
+                assert response.headers.get_content_type()=='application/pdf'
+                actual=response.read()
+              assert actual[:5]==b'%PDF-',relative
+              assert actual==payload,(relative,'served byte mismatch')
+              with pymupdf.open(stream=actual,filetype='pdf') as doc:
+                page_count=len(doc)
+                assert page_count>0
+              cached_status=None
+              if last_modified:
+                try:
+                  with urlopen(Request(url,headers={'If-Modified-Since':last_modified}),timeout=20) as response:
+                    cached_status=response.status
+                except Exception as exc:
+                  if getattr(exc,'code',None)==304:cached_status=304
+                  else:raise
+                assert cached_status==304,(relative,cached_status)
+              pages+=page_count;download_bytes+=len(actual)
+              results.append({'path':relative,'url_path':url_path,'http_head':200,'http_get':200,'cache_conditional':cached_status,'bytes':len(actual),'pages':page_count,'sha256':hashlib.sha256(actual).hexdigest()})
+              print('HTTP_PDF_PASS',i,relative,'pages',page_count,flush=True)
+          finally:
+            server.shutdown();server.server_close();thread.join(timeout=5)
+          assert pages==1062,('page total',pages)
+          assert download_bytes==65685897,('aggregate byte size',download_bytes)
+          report={
+            'status':'PASS_ISOLATED_LOCAL_SERVER',
+            'source_commit':'b52b9cca94269e30d00024c87e746cec51a55234',
+            'pdf_commit':'2b22e5bf02156439b0cb066b5ab32544259bf9d8',
+            'http_head_200':len(results),
+            'http_get_200':len(results),
+            'matching_pdf_bytes':len(results),
+            'application_pdf_content_type':len(results),
+            'conditional_get_304':sum(r['cache_conditional']==304 for r in results),
+            'all_pdfs_opened':len(results),
+            'pages':pages,
+            'cleaned_total_bytes':download_bytes,
+            'project_entries_mapping_to_pdfs':len(pairs),
+            'building_fallbacks_intact':len(fallback_ids),
+            'live_deployment_tested':False,
+            'browser_pdf_worker_tested':False,
+            'network_cdn_cache_tested':False,
+            'details':results
+          }
+          out=Path('/tmp/level3-http-smoke');out.mkdir(exist_ok=True)
+          (out/'http-test-results.json').write_text(json.dumps(report,indent=2))
+          print('LEVEL3_HTTP_SMOKE',json.dumps({k:v for k,v in report.items() if k!='details'}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: level3-http-smoke-results
+          path: /tmp/level3-http-smoke/
+          retention-days: 21
