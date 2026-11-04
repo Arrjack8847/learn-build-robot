@@ -188,13 +188,13 @@ def process(src):
     return {"path":str(rel),"pages":total,"changed":len(events),"removed_logos":len(logo_ids)}
 
 def main():
-    files=sorted(ROOT.rglob("*.pdf"))
-    assert len(files)==44,f"Expected 44 Level 2 Learning PDFs, found {len(files)}"
+    files=sorted(p for p in ROOT.rglob("*.pdf") if "_building_" not in p.name.lower())
+    assert len(files)==43,f"Expected 43 eligible Level 2 Learning PDFs, found {len(files)}"
     for index,file in enumerate(files):
         row=process(file);reports.append(row)
-        print(f"{index+1:02d}/44 {row['path']} [{row['pages']} pages]",flush=True)
+        print(f"{index+1:02d}/43 {row['path']} [{row['pages']} pages]",flush=True)
     assert sum(row["pages"] for row in reports)>0
     (WORK/"report.json").write_text(json.dumps({"files":len(reports),"pages":sum(row["pages"] for row in reports),"results":reports},indent=2))
-    print("PASS: 44 PDFs, page counts checked, targeted text/branding cleanup generated")
+    print("PASS: 43 eligible Level 2 Learning PDFs processed; Building-named fallback excluded")
 
 if __name__=="__main__":main()
