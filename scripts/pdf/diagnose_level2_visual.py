@@ -15,8 +15,8 @@ import fitz
 SOURCE=Path("public/Level 2/Learning")
 CLEAN=Path("/tmp/bsr-level2-clean/output")
 OUT=Path("level2-visual-diagnostics")
-BRAND=re.compile(r"intelligen(?:t|ce)?\\s+storm|smart\\s+storm|智能风暴",re.I)
-HAN=re.compile(r"[\\u3400-\\u9fff\\uf900-\\ufaff]")
+BRAND=re.compile(r"intelligen(?:t|ce)?\s+storm|smart\s+storm|智能风暴",re.I)
+HAN=re.compile(r"[\u3400-\u9fff\uf900-\ufaff]")
 LOGO_SIZES={(586,178),(1086,268)}
 
 def render(page, scale=.5):
