@@ -1,0 +1,96 @@
+name: Temporary Level 3 Independent PDF Renderer QA
+on:
+  push:
+    branches: [tmp/level3-pdf-cleanup-runner]
+    paths: [.github/workflows/temp-level3-second-renderer-qa.yml]
+permissions:
+  contents: read
+jobs:
+  cross-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level3-pdf-cleanup
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - name: Install PDF validation tools
+        run: |
+          python3 -m pip install --quiet pymupdf pillow
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils
+      - name: Validate every page in independent renderers
+        run: |
+          python3 - <<'PY'
+          import re,json,math,subprocess,tempfile
+          from pathlib import Path
+          import pymupdf
+          from PIL import Image,ImageStat,ImageDraw
+          files=sorted(Path('public/Level 3/Learning').rglob('*.pdf'))
+          assert len(files)==43,len(files)
+          out=Path('/tmp/level3-secondary-render');out.mkdir(parents=True,exist_ok=True)
+          stats=[];pages=0;errored=[];mismatch=[];empty=[];clipping=[]
+          han=re.compile(r'[\u3400-\u9fff\uf900-\ufaff]')
+          brand=re.compile(r'intelligen(?:t|ce)\s+storm|智能风暴',re.I)
+          for f in files:
+            fidx=len(stats)
+            doc=pymupdf.open(f);n=len(doc)
+            info=subprocess.run(['pdfinfo',str(f)],capture_output=True,text=True,timeout=60)
+            assert info.returncode==0,(f,info.stderr[-700:])
+            mt=re.search(r'^Pages:\s*(\d+)',info.stdout,re.M)
+            assert mt and int(mt.group(1))==n,(f,mt.group(1) if mt else '')
+            with tempfile.TemporaryDirectory() as d:
+              prefix=str(Path(d)/'page')
+              cmd=['pdftoppm','-r','36','-jpeg','-jpegopt','quality=80','-f','1','-l',str(n),str(f),prefix]
+              p=subprocess.run(cmd,capture_output=True,text=True,timeout=360)
+              assert p.returncode==0,(f,p.stderr[-1200:])
+              renders=sorted(Path(d).glob('page-*.jpg'))
+              assert len(renders)==n,(f,n,len(renders))
+              for i,(src,path) in enumerate(zip(doc,renders)):
+                pix=src.get_pixmap(matrix=pymupdf.Matrix(.5,.5),alpha=False)
+                if pix.width==0 or pix.height==0:errored.append([str(f),i+1,'MuPDF zero dimension'])
+                im1=Image.frombytes('RGB',(pix.width,pix.height),pix.samples)
+                with Image.open(path) as raw: im2=raw.convert('RGB')
+                if abs(im1.width-im2.width)>2 or abs(im1.height-im2.height)>2:
+                  errored.append([str(f),i+1,f'dimensions {im1.size} vs {im2.size}'])
+                  continue
+                if im1.size!=im2.size:im2=im2.resize(im1.size)
+                a=sum(ImageStat.Stat(im1).mean)/3
+                b=sum(ImageStat.Stat(im2).mean)/3
+                if abs(a-b)>15:
+                  mismatch.append({'pdf':str(f),'page':i+1,'mupdf_mean':round(a,2),'poppler_mean':round(b,2),'difference':round(abs(a-b),2)})
+                  if len(mismatch)<=8:
+                    panel=Image.new('RGB',(im1.width*2,im1.height+20),'white')
+                    panel.paste(im1,(0,20));panel.paste(im2,(im1.width,20))
+                    ImageDraw.Draw(panel).text((5,4),f'PDF {fidx} page {i+1} left MuPDF / right Poppler',fill='black')
+                    panel.save(out/f'diff-{fidx:02d}-{i+1:03d}.png')
+                if src.get_text().strip()=='':
+                  empty.append({'pdf':str(f),'page':i+1,'note':'no selectable text; image-based slide possible'})
+                text=src.get_text()
+                if han.search(text) or brand.search(text):errored.append([str(f),i+1,'CJK/Storm extractable'])
+                for item in src.get_text('dict')['blocks']:
+                  for line in item.get('lines',[]):
+                    for span in line['spans']:
+                      bb=span['bbox']
+                      if bb[2]<-8 or bb[0]>src.rect.width+8 or bb[3]<-8 or bb[1]>src.rect.height+8:
+                        clipping.append({'pdf':str(f),'page':i+1,'bbox':[round(x,1) for x in bb],'text':span['text'][:80]})
+                pages+=1
+            stats.append({'pdf':str(f),'pages':n})
+            print(f'{len(stats)}/43 Poppler & MuPDF rendered {n} pages OK {f.name}',flush=True)
+          assert pages==1062,pages
+          summary={'files':len(stats),'pages':pages,'poppler_and_mupdf_rendered':pages,
+          'render_errors':errored,'mean_luminance_mismatches_over_15':mismatch,
+          'pages_without_selectable_text':len(empty),'out_of_page_text_spans':clipping,
+          'files_inventory':stats}
+          (out/'report.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False))
+          print('DUAL_RENDER_QA',json.dumps({'files':len(stats),'pages':pages,'errors':len(errored),'large_luma_mismatches':len(mismatch),'pages_with_no_selectable_text':len(empty),'out_of_page_spans':len(clipping)}),flush=True)
+          assert not errored,'Some pages failed PDF validation; see report'
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: level3-two-renderer-qa
+          path: /tmp/level3-secondary-render/
+          retention-days: 21
