@@ -1,0 +1,63 @@
+name: Level 4 isolated PDF cleanup deployer
+on:
+  push:
+    branches:
+      - internal/level4-pdf-clean-deployer-20261104
+permissions:
+  contents: write
+jobs:
+  clean-level4:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout dedicated cleanup worker
+        uses: actions/checkout@v4
+        with:
+          ref: internal/level4-pdf-clean-deployer-20261104
+          path: worker
+          sparse-checkout: |
+            scripts/level4_pdf_cleaner.py
+          persist-credentials: false
+      - name: Checkout Level 4 working branch only
+        uses: actions/checkout@v4
+        with:
+          ref: fix/level4-pdf-cleanup
+          path: app
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 4
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install standalone PDF dependencies
+        run: python -m pip install --disable-pip-version-check -q pymupdf numpy
+      - name: Process and render-test 56 Level 4 Learning PDFs
+        run: python worker/scripts/level4_pdf_cleaner.py
+      - name: Confirm only permitted Level 4 PDF paths have changed
+        working-directory: app
+        run: |
+          python - <<'PY'
+          import subprocess
+          changed=subprocess.check_output(['git','diff','--name-only']).decode().splitlines()
+          assert len(changed)==56, ('Expected 56 changed Learning PDFs',len(changed),changed)
+          for name in changed:
+              assert name.startswith('public/Level 4/') and name.lower().endswith('.pdf') and '/Building/' not in name, name
+          print('SAFE_DIFF: exactly 56 permitted Learning PDF files; Building and other levels untouched')
+          PY
+      - name: Commit only approved Level 4 Learning PDFs
+        working-directory: app
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -u -- "public/Level 4"
+          git diff --cached --name-only
+          git commit -m "fix(level4): clean 56 Learning PDFs without changing diagrams"
+          git push origin HEAD:fix/level4-pdf-cleanup
+      - name: Upload Level 4 validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: level4-cleaned-pdf-validation
+          path: level4-clean-report.json
