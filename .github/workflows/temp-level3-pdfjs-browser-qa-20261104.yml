@@ -60,10 +60,11 @@ jobs:
           window.pdfjsProbe=async function(url,renderPage=1){
             const task=pdfjs.getDocument({url,disableFontFace:false});
             try{
-              const document=await task.promise;
-              const numPages=document.numPages;
-              const page=await document.getPage(renderPage);
-              const viewport=page.getViewport({scale:Math.min(1.0,Math.max(.4,(window.innerWidth-24)/page.getViewport({scale:1}).width))});
+              const pdfDocument=await task.promise;
+              const numPages=pdfDocument.numPages;
+              const page=await pdfDocument.getPage(renderPage);
+              const originalWidth=page.getViewport({scale:1}).width;
+              const viewport=page.getViewport({scale:Math.min(1.0,Math.max(.05,(window.innerWidth-24)/originalWidth))});
               const canvas=document.createElement('canvas');
               canvas.width=Math.ceil(viewport.width);canvas.height=Math.ceil(viewport.height);
               const ctx=canvas.getContext('2d',{alpha:false});
@@ -74,7 +75,7 @@ jobs:
                 const v=(samples[i]+samples[i+1]+samples[i+2])/3;
                 min=Math.min(v,min);max=Math.max(v,max);
               }
-              await document.destroy();
+              await pdfDocument.destroy();
               return {pages:numPages,width:canvas.width,height:canvas.height,min,max};
             }finally{try{await task.destroy()}catch(_){}}
           };
