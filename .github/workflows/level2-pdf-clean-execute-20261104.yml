@@ -47,7 +47,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install PDF libraries
-        run: python3 -m pip install --quiet 'PyMuPDF==1.26.7' 'pypdf==6.4.0' pillow
+        run: python3 -m pip install --quiet 'PyMuPDF==1.26.7' 'pypdf==6.4.0' pillow 'numpy>=1.26,<3'
       - name: Test 4 representative source styles and validate BEFORE edits
         shell: bash
         run: |
