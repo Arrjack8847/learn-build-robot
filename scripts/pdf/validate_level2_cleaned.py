@@ -123,7 +123,15 @@ def run(mode):
             legal_pages+=bool(legal_before)
             for image in b.get_images(full=True):
                 assert (image[2],image[3]) not in LOGO_SIZES,(src,pi+1,'matching embedded logo remains')
-            changed,outside,before,after=check_diff(a,b,allowed_rectangles(a))
+            try:
+                changed,outside,before,after=check_diff(a,b,allowed_rectangles(a))
+            except AssertionError as exc:
+                # Preserve exact before/after proof and source page; do not relax QA.
+                tag=f"unexpected-{i:02d}-page-{pi+1:02d}"
+                render(a).save(PROOF/f"{tag}-before.png")
+                render(b).save(PROOF/f"{tag}-after.png")
+                print("VISUAL_QA_FAIL",str(src),"page",pi+1,repr(exc),flush=True)
+                raise AssertionError((str(src),pi+1,"visual-delta-outside-approved-regions",str(exc))) from exc
             if changed:edits+=1
             if mode=='sample' and pi in {0,len(old)-1, min(2,len(old)-1)}:
                 tag=f'{i:02d}-{pi+1:02d}'
