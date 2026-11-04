@@ -4,15 +4,13 @@ from pathlib import Path
 from collections import Counter
 import re, json, tempfile, shutil
 import fitz
-from pypdf import PdfReader
-from pypdf.generic import ContentStream
 
 ROOT=Path("public/Level 2/Learning")
 WORK=Path("/tmp/bsr-level2-clean")
 OUT=WORK/"output"
 OUT.mkdir(parents=True,exist_ok=True)
 BRAND=re.compile(r"intelligen(?:t|ce)?\s+storm|smart\s+storm",re.I)
-CJK=re.compile(r"[\u3400-\u9fff]")
+CJK=re.compile(r"[\u3400-\u9fff\uf900-\ufaff]")
 LOGO_SIZES={(586,178),(1086,268)}
 TURQUOISE=(97/255,195/255,208/255)
 TARGET_FONTS=("MS-Gothic","MicrosoftJhengHei","MicrosoftYaHei")
@@ -24,43 +22,58 @@ def original_spans(pg):
             for sp in line["spans"]:
                 yield sp
 
-def remove_chinese_font_content(src,relative):
-    if str(relative).startswith("Display & Movement/Hello World/"):
+def remove_chinese_font_content(src, relative):
+    """Remove only visible Han glyphs, never entire Chinese-font text operations.
+
+    Older font-based removal incorrectly erased English (e.g. the "push ups"
+    label on Push ups page 7). Locate individual Unicode Han characters via
+    raw PDF text extraction and redact only their glyph boxes. Transparent
+    redaction preserves original slide backgrounds, images, and English text.
+    Any text extraction anomaly is a hard stop, not permission to over-remove.
+    """
+    if relative.as_posix().startswith("Display & Movement/Hello World/"):
         return src
-    check=fitz.open(src)
-    if not any(CJK.search(p.get_text()) for p in check):
-        check.close()
-        return src
-    reader=PdfReader(str(src))
+    doc=fitz.open(src)
     touched=0
-    for index,page in enumerate(reader.pages):
-        if not CJK.search(check[index].get_text()):continue
-        fontkeys=[]
-        for key,ref in page.get("/Resources",{}).get("/Font",{}).items():
-            base=str(ref.get_object().get("/BaseFont","")).lower()
-            if any(n.lower() in base for n in TARGET_FONTS):fontkeys.append(key)
-        if not fontkeys:continue
-        contents=check[index].get_contents()
-        if len(contents)!=1:continue
-        stream=ContentStream(page.get_contents(),reader)
-        ops=[];font=None
-        for args,op in stream.operations:
-            if op==b"BT":font=None
-            if op==b"Tf":font=args[0]
-            if op in (b"Tj",b"TJ",b"'",b'"') and font in fontkeys:
-                touched+=1
-            else:ops.append((args,op))
-        if touched:
-            stream.operations=ops
-            check.update_stream(contents[0],stream.get_data(),compress=True)
+    for index,page in enumerate(doc):
+        original=page.get_text()
+        if not CJK.search(original):
+            continue
+        target_rects=[]
+        for block in page.get_text("rawdict")["blocks"]:
+            for line in block.get("lines",[]):
+                for span in line.get("spans",[]):
+                    for char in span.get("chars",[]):
+                        if not CJK.search(char.get("c","")):
+                            continue
+                        r=fitz.Rect(char["bbox"])
+                        if r.is_empty or r.is_infinite:
+                            doc.close()
+                            raise RuntimeError(f"Invalid Chinese glyph bbox: {src}, page {index+1}")
+                        # Tighten glyph box to avoid deleting adjacent Latin
+                        # letters (PyMuPDF redacts any character intersecting).
+                        margin=min(0.2,r.width*.06,r.height*.06)
+                        if margin>0:
+                            r=fitz.Rect(r.x0+margin,r.y0+margin,r.x1-margin,r.y1-margin)
+                        target_rects.append(r)
+        if not target_rects:
+            doc.close()
+            raise RuntimeError(f"CJK found but glyph positions unavailable: {src}, page {index+1}")
+        for r in target_rects:
+            page.add_redact_annot(r,fill=False,cross_out=False)
+        page.apply_redactions(images=0,graphics=0,text=0)
+        if CJK.search(page.get_text()):
+            doc.close()
+            raise RuntimeError(f"Chinese glyphs remain after selective removal: {src}, page {index+1}")
+        touched+=len(target_rects)
     if not touched:
-        check.close()
+        doc.close()
         return src
-    name=WORK/"surgical"/relative
-    name.parent.mkdir(parents=True,exist_ok=True)
-    check.save(name,garbage=4,deflate=True)
-    check.close()
-    return name
+    target=WORK/"surgical"/relative
+    target.parent.mkdir(parents=True,exist_ok=True)
+    doc.save(target,garbage=4,deflate=True)
+    doc.close()
+    return target
 
 def new_text(t,typ):
     # Preserve Joinmax, ZMROBO, and other non-target manufacturer attribution.
