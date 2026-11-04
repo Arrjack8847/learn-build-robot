@@ -181,7 +181,7 @@ def run(mode):
         paths=[next(p for p in eligible if p.name==name) for name in names]
     else:paths=eligible
     PROOF.mkdir(parents=True,exist_ok=True)
-    records=[];checked_pages=0;visual_edits=0;all_images=0
+    records=[];checked_pages=0;visual_edits=0;all_images=0;failures=[]
     for i,src in enumerate(paths):
         dest=CLEAN/src.relative_to(SOURCE)
         assert dest.is_file(),('Output not found',str(dest))
@@ -192,36 +192,45 @@ def run(mode):
             assert old.metadata.get(key)==new.metadata.get(key),(src,key,'metadata lost')
         edits=0;legal_pages=0
         for pi,(a,b) in enumerate(zip(old,new)):
-            checked_pages+=1
-            assert a.rect==b.rect and a.rotation==b.rotation,(src,pi+1,'geometry changed')
-            atext=a.get_text();btext=b.get_text()
-            assert not HAN.search(btext),(src,pi+1,'untranslated Chinese remains')
-            assert not BRAND.search(btext),(src,pi+1,'selectable brand remains')
-            missing=preserved_lines(atext)-lines(btext)
-            assert not missing,(src,pi+1,'nonbrand English lost',dict(missing))
-            english_missing=preserved_english_tokens(atext)-preserved_english_tokens(btext)
-            assert not english_missing,(src,pi+1,'English tokens lost (including mixed-language lines)',dict(english_missing))
-            legal_before=[x.strip() for x in atext.splitlines() if COPYRIGHT.search(x)]
-            legal_after=[x.strip() for x in btext.splitlines() if COPYRIGHT.search(x)]
-            assert legal_before==legal_after,(src,pi+1,'legal line changed',legal_before,legal_after)
-            legal_pages+=bool(legal_before)
-            for image in b.get_images(full=True):
-                assert (image[2],image[3]) not in LOGO_SIZES,(src,pi+1,'matching embedded logo remains')
             try:
-                changed,outside,before,after=check_diff(a,b,allowed_rectangles(a))
-            except AssertionError as exc:
-                # Preserve exact before/after proof and source page; do not relax QA.
-                tag=f"unexpected-{i:02d}-page-{pi+1:02d}"
-                render(a).save(PROOF/f"{tag}-before.png")
-                render(b).save(PROOF/f"{tag}-after.png")
-                print("VISUAL_QA_FAIL",str(src),"page",pi+1,repr(exc),flush=True)
-                raise AssertionError((str(src),pi+1,"visual-delta-outside-approved-regions",str(exc))) from exc
-            if changed:edits+=1
-            if mode=='sample' and pi in {0,len(old)-1, min(2,len(old)-1)}:
-                tag=f'{i:02d}-{pi+1:02d}'
-                before.thumbnail((820,620));after.thumbnail((820,620))
-                before.save(PROOF/f'{tag}-before.png',optimize=True)
-                after.save(PROOF/f'{tag}-after.png',optimize=True)
+                checked_pages+=1
+                assert a.rect==b.rect and a.rotation==b.rotation,(src,pi+1,'geometry changed')
+                atext=a.get_text();btext=b.get_text()
+                assert not HAN.search(btext),(src,pi+1,'untranslated Chinese remains')
+                assert not BRAND.search(btext),(src,pi+1,'selectable brand remains')
+                missing=preserved_lines(atext)-lines(btext)
+                assert not missing,(src,pi+1,'nonbrand English lost',dict(missing))
+                english_missing=preserved_english_tokens(atext)-preserved_english_tokens(btext)
+                assert not english_missing,(src,pi+1,'English tokens lost (including mixed-language lines)',dict(english_missing))
+                legal_before=[x.strip() for x in atext.splitlines() if COPYRIGHT.search(x)]
+                legal_after=[x.strip() for x in btext.splitlines() if COPYRIGHT.search(x)]
+                assert legal_before==legal_after,(src,pi+1,'legal line changed',legal_before,legal_after)
+                legal_pages+=bool(legal_before)
+                for image in b.get_images(full=True):
+                    assert (image[2],image[3]) not in LOGO_SIZES,(src,pi+1,'matching embedded logo remains')
+                try:
+                    changed,outside,before,after=check_diff(a,b,allowed_rectangles(a))
+                except AssertionError as exc:
+                    # Preserve exact before/after proof and source page; do not relax QA.
+                    tag=f"unexpected-{i:02d}-page-{pi+1:02d}"
+                    render(a).save(PROOF/f"{tag}-before.png")
+                    render(b).save(PROOF/f"{tag}-after.png")
+                    print("VISUAL_QA_FAIL",str(src),"page",pi+1,repr(exc),flush=True)
+                    raise AssertionError((str(src),pi+1,"visual-delta-outside-approved-regions",str(exc))) from exc
+                if changed:edits+=1
+                if mode=='sample' and pi in {0,len(old)-1, min(2,len(old)-1)}:
+                    tag=f'{i:02d}-{pi+1:02d}'
+                    before.thumbnail((820,620));after.thumbnail((820,620))
+                    before.save(PROOF/f'{tag}-before.png',optimize=True)
+                    after.save(PROOF/f'{tag}-after.png',optimize=True)
+            except Exception as exc:
+                message=repr(exc)
+                failures.append({"file":str(src),"page":pi+1,"error":message})
+                print("QA_PAGE_FAILURE",str(src),"page",pi+1,message,flush=True)
+                if len(failures)<=30:
+                    tag=f"issue-{len(failures):03d}"
+                    render(a).save(PROOF/f"{tag}-before.png")
+                    render(b).save(PROOF/f"{tag}-after.png")
         old.close();new.close()
         visual_edits+=edits
         records.append({'path':str(src),'pages':len(fitz.open(src)),
@@ -233,8 +242,13 @@ def run(mode):
             'checked_pdfs':len(records),'checked_pages':checked_pages,
             'visibly_changed_pages':visual_edits,'no_lost_english':True,
             'legal_notices_preserved':True,'all_pages_rendered':True,
-            'unchanged_page_artwork_preserved':True,'records':records}
+            'unchanged_page_artwork_preserved':not failures,'failures':failures,'records':records}
     (PROOF/f'qa-{mode}.json').write_text(json.dumps(result,indent=2,ensure_ascii=False))
+    if failures:
+        print('VALIDATION_FAILURE_SUMMARY',json.dumps({"mode":mode,"checked_pages":checked_pages,
+              "failed_pages":len(failures),"examples":failures[:35]},ensure_ascii=False),flush=True)
+        raise AssertionError(("PDF QA failures",len(failures),
+                              str(PROOF/f'qa-{mode}.json')))
     print('VALIDATION_SUCCESS',json.dumps({k:v for k,v in result.items() if k!='records'}),flush=True)
 
 if __name__=='__main__':
