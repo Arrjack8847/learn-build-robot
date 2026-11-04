@@ -1,0 +1,117 @@
+name: Temporary Level 3 Educational Text and Attribution Audit
+on:
+  push:
+    branches:
+      - tmp/level3-pdf-cleanup-runner
+    paths:
+      - .github/workflows/temp-level3-content-review.yml
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: original
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level3-pdf-cleanup
+          path: cleaned
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - run: python3 -m pip install --quiet pymupdf pillow
+      - name: Review educational English preservation and source notice changes
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,collections,re,math
+          import pymupdf as fitz
+          from PIL import Image,ImageDraw
+          base=Path('original/public/Level 3/Learning')
+          dest=Path('cleaned/public/Level 3/Learning')
+          src=sorted(p.relative_to(base) for p in base.rglob('*.pdf'))
+          assert len(src)==43
+          output=Path('/tmp/level3-content-review');output.mkdir(exist_ok=True)
+          han=re.compile(r'[\u3400-\u9fff\uf900-\ufaff]')
+          brand=re.compile(r'intelligen(?:t|ce)\s*storm|智能风暴',re.I)
+          attribution=re.compile(r'copyright|all rights reserved|©|license|licensed|joinmax|zhongming|publisher|author|attribution|znrobo|znrobo|source:|manufacturer',re.I)
+          def lines(page):
+            return [re.sub(r'\s+',' ',s).strip() for s in page.get_text().splitlines() if s.strip()]
+          def is_english_untouched(s):
+            return not han.search(s) and not brand.search(s)
+          missing=[];credit_events=[];other_changes=[];changes=[];file_reports=[]
+          page_count=0
+          for i,rel in enumerate(src):
+            a=fitz.open(base/rel);b=fitz.open(dest/rel)
+            assert len(a)==len(b)
+            modified=[]
+            for j,(old,new) in enumerate(zip(a,b)):
+              page_count+=1
+              left=lines(old);right=lines(new)
+              expected=collections.Counter(x for x in left if is_english_untouched(x))
+              actual=collections.Counter(right)
+              for line,n in (expected-actual).items():
+                missing.append({'index':i,'file':str(rel),'page':j+1,'line':line,'count':n})
+              # All original explicit manufacturer/copyright information is recorded, whether visible or intentionally replaced.
+              for value in left:
+                if attribution.search(value):
+                  credit_events.append({'index':i,'file':str(rel),'page':j+1,'original':value,
+                    'still_exact':value in right,
+                    'new_page_text_contains_manufacturer':any(k in ' '.join(right).lower() for k in ('joinmax','zhongming','znrobo','copyright','license','author'))})
+              left_set=set(left);right_set=set(right)
+              added=[v for v in right if v not in left_set]
+              removed=[v for v in left if v not in right_set]
+              if added or removed:
+                other_changes.append({'index':i,'file':str(rel),'page':j+1,'added':added[:10],'removed':removed[:10]})
+              pa=old.get_pixmap(matrix=fitz.Matrix(.5,.5),alpha=False)
+              pb=new.get_pixmap(matrix=fitz.Matrix(.5,.5),alpha=False)
+              if pa.samples!=pb.samples:
+                changes.append((i,j+1,rel))
+                modified.append(j+1)
+            file_reports.append({'index':i,'file':str(rel),'pages':len(a),'changed_pages':modified})
+            print(f'{i+1:02d}/43 pgs={len(a)} changes={len(modified)} {rel}',flush=True)
+          assert page_count==1062
+          # Assemble all changed-page previews into 6-column x 5-row contact sheets.
+          # Images are of the actual cleaned pages, to expose blank boxes or accidental page cropping.
+          per_sheet=30
+          sheets=[]
+          for n in range(math.ceil(len(changes)/per_sheet)):
+            subset=changes[n*per_sheet:(n+1)*per_sheet]
+            image=Image.new('RGB',(6*333,5*217),(232,232,232))
+            draw=ImageDraw.Draw(image)
+            files_open={}
+            for k,(idx,page,rel) in enumerate(subset):
+              if rel not in files_open:files_open[rel]=fitz.open(dest/rel)
+              p=files_open[rel][page-1]
+              pix=p.get_pixmap(matrix=fitz.Matrix(.42,.42),alpha=False)
+              thumb=Image.frombytes('RGB',(pix.width,pix.height),pix.samples)
+              thumb.thumbnail((328,179))
+              x=(k%6)*333;y=(k//6)*217
+              image.paste(thumb,(x+(333-thumb.width)//2,y+26))
+              draw.text((x+5,y+5),f'{idx:02d}/43 p{page} '+rel.stem[:22],fill=(0,0,0))
+            for doc in files_open.values():doc.close()
+            name=f'changed-{n+1:02d}.jpg'
+            image.save(output/name,quality=85,optimize=True)
+            sheets.append(name)
+          (output/'audit.json').write_text(json.dumps({'baseline':'main','branch':'fix/level3-pdf-cleanup',
+            'files':len(src),'pages':page_count,'visual_changed_pages':len(changes),
+            'untouched_english_missing':missing,'attribution_events':credit_events,'changed_text_pages':other_changes,
+            'file_reports':file_reports,'contact_sheets':sheets},indent=2,ensure_ascii=False))
+          print('CONTENT_REVIEW_SUMMARY',json.dumps({'files':len(src),'pages':page_count,'visual_changed_pages':len(changes),
+            'missing_original_nonbranded_english_lines':len(missing),'attribution_matches':len(credit_events),
+            'changed_text_pages':len(other_changes),'contact_sheets':len(sheets)}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: level3-educational-text-and-visual-contact-sheets
+          path: /tmp/level3-content-review/
+          retention-days: 21
