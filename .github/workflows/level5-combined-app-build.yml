@@ -1,0 +1,35 @@
+name: Level 5 combined PR app build smoke check
+on:
+  push:
+    branches: ['tmp/level5-integrated-premerge-qa-20261104']
+    paths: ['.github/workflows/level5-combined-app-build.yml']
+permissions:
+  contents: read
+jobs:
+  build-combined:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out combined PR source
+        uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          lfs: false
+          fetch-depth: 1
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.1
+      - name: Install locked dependencies
+        run: bun install --frozen-lockfile
+      - name: Compile combined Level 5 website
+        run: bun run build
+        env:
+          CI: 'true'
+      - name: Assert compiled Vite/TanStack output
+        shell: bash
+        run: |
+          set -euo pipefail
+          du -sh .output dist 2>/dev/null || true
+          test -d .output || test -d dist
+          echo 'PASS: application build output produced from merged-preview branch'
