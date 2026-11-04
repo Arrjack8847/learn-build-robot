@@ -1,0 +1,33 @@
+name: Temporary Level 3 Diagnostics
+on:
+  push:
+    branches:
+      - tmp/level3-pdf-cleanup-runner
+    paths:
+      - .github/workflows/temp-level3-diagnostics.yml
+      - qa/level3/inspect.py
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: tmp/level3-pdf-cleanup-runner
+          filter: blob:none
+          sparse-checkout: |
+            .github/workflows
+            public/Level 3/Learning
+            public/Level 1/Learning
+            qa/level3
+      - run: python3 -m pip install --quiet pymupdf pillow
+      - name: Inspect selected pages
+        run: python3 qa/level3/inspect.py
+      - name: Publish diagnostics on temporary branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --sparse qa/level3/diagnostic/
+          git commit -m 'qa(level3): capture diagnostic page previews [skip ci]' || exit 0
+          git push origin HEAD:tmp/level3-pdf-cleanup-runner
