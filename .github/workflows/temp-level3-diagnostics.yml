@@ -23,7 +23,7 @@ jobs:
             qa/level3
       - run: python3 -m pip install --quiet pymupdf pillow
       - name: Inspect selected pages
-        run: python3 qa/level3/inspect.py
+        run: python3 -c 'exec(compile(open("qa/level3/inspect.py").read(), "pdf_probe", "exec"))'
       - name: Publish diagnostics on temporary branch
         run: |
           git config user.name 'github-actions[bot]'
