@@ -50,7 +50,7 @@ jobs:
           (directory/'public').symlink_to(root,target_is_directory=True)
           manifest=[]
           for p in pdfs:
-            rel=p.relative_to(root).as_posix()
+            rel=p.resolve().relative_to(root).as_posix()
             manifest.append({'path':rel,'url':'/public/'+quote(rel,safe='/')})
           (directory/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2))
           html='''<!doctype html><html><head><meta charset="utf-8"></head><body><div id="qa">PDF.js browser QA</div><script type="module">
@@ -97,7 +97,7 @@ jobs:
           page.setDefaultTimeout(40000);
           const response=await page.goto('http://127.0.0.1:8765/index.html',{waitUntil:'load'});
           assert.equal(response.status(),200);
-          await page.waitForFunction(()=>window.pdfjsReady===true,{timeout:45000});
+          await page.waitForFunction(()=>window.pdfjsReady===true,null,{timeout:45000});
           const reports=[];
           let totalPages=0;
           try{
