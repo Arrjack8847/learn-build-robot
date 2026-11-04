@@ -167,3 +167,41 @@ jobs:
           path: /tmp/level6-audit/
           retention-days: 21
           if-no-files-found: warn
+
+      - name: Diagnose dark-slide artwork without edits
+        shell: bash
+        run: |
+          python - <<'PY'
+          import fitz,json
+          from pathlib import Path
+          from PIL import Image
+          root=Path("public/Level 6/Learning")
+          out=Path("/tmp/level6-dark-artwork");out.mkdir(parents=True,exist_ok=True)
+          targets=("Gorilla","Vending Machine","Autonomous Driving","Product Search","Picture Projector")
+          for name in targets:
+              path=next(p for p in root.rglob("*.pdf") if p.parent.name==name)
+              doc=fitz.open(path)
+              for ix in sorted({0,min(2,len(doc)-1),len(doc)-1}):
+                  page=doc[ix]
+                  item={"lesson":name,"page":ix+1,"rect":list(page.rect),
+                        "text":page.get_text()[:650],
+                        "images":[]}
+                  for a in page.get_images(full=True):
+                      xref=a[0]
+                      rects=[list(v) for v in page.get_image_rects(xref)]
+                      item["images"].append({"xref":xref,"width":a[2],"height":a[3],
+                                             "rects":rects})
+                  print("LEVEL6_DARK_DIAGNOSTIC="+json.dumps(item,ensure_ascii=False))
+                  if ix in {0,len(doc)-1}:
+                      pix=page.get_pixmap(matrix=fitz.Matrix(1.1,1.1),alpha=False)
+                      pix.save(out/f"{name.replace(' ','_')}-{ix+1}.png")
+              doc.close()
+          PY
+      - name: Upload dark-slide artwork diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: level6-dark-slide-artwork-inspection
+          path: /tmp/level6-dark-artwork/
+          retention-days: 21
+          if-no-files-found: warn
