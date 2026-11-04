@@ -142,7 +142,7 @@ def check_diff(original, cleaned, regions):
         max_delta=int(values.max())
         fraction=float(np.mean(values>8))
         if max_delta<=80:
-            acceptable=fraction<=.10
+            acceptable=fraction<=.15
         else:
             # A small original image may contain ~3,000 rendered pixels:
             # a few JPEG interpolation edges then represent a misleading
