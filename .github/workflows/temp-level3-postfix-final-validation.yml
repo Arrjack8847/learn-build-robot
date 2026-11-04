@@ -1,0 +1,86 @@
+name: Temporary Level 3 Post-Correction Final Validation
+on:
+  push:
+    branches: [tmp/level3-pdf-cleanup-runner]
+    paths:
+      - .github/workflows/temp-level3-postfix-final-validation.yml
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: original
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level3-pdf-cleanup
+          path: cleaned
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - run: python3 -m pip install --quiet pymupdf pillow
+      - name: Validate all Level 3 Learning PDFs against main
+        run: |
+          python3 - <<'PY'
+          import pymupdf as fitz
+          from PIL import Image
+          from pathlib import Path
+          import re,json,collections,hashlib,io
+          originals=Path('original/public/Level 3/Learning')
+          cleaned=Path('cleaned/public/Level 3/Learning')
+          paths=sorted(p.relative_to(originals) for p in originals.rglob('*.pdf'))
+          assert len(paths)==43
+          HAN=re.compile(r'[\u3400-\u9fff\uf900-\ufaff]')
+          STORM=re.compile(r'intelligen(?:t|ce)\s+storm|智能风暴',re.I)
+          SOURCE=re.compile(r'joinmax|znrobo|zhongming|copyright|©|all rights reserved|licen[sc]e',re.I)
+          BRAND_SHA='6139a0a0486a87544601a357fd5a1df27b780152fa41a7771fe81dafaa01e62f'
+          pages=0;credit_loss=[];english_loss=[];matched_logo_resources=[];book=[]
+          for idx,rel in enumerate(paths):
+            src=fitz.open(originals/rel);dst=fitz.open(cleaned/rel)
+            assert len(src)==len(dst)
+            assert src.metadata==dst.metadata,(rel,'metadata mismatch')
+            assert src.embfile_count()==dst.embfile_count()
+            for pi,(a,b) in enumerate(zip(src,dst)):
+              pages+=1
+              assert a.rect==b.rect
+              before=a.get_text();after=b.get_text()
+              assert not HAN.search(after),(rel,pi+1,'Chinese extractable')
+              assert not STORM.search(after),(rel,pi+1,'Storm extractable')
+              original_lines=collections.Counter(s.strip() for s in before.splitlines() if s.strip() and not HAN.search(s) and not STORM.search(s))
+              cleaned_lines=collections.Counter(s.strip() for s in after.splitlines() if s.strip())
+              missing=original_lines-cleaned_lines
+              if missing:english_loss.append({'file':str(rel),'page':pi+1,'missing':dict(missing)})
+              credits_before=collections.Counter(s.lower() for s in SOURCE.findall(before))
+              credits_after=collections.Counter(s.lower() for s in SOURCE.findall(after))
+              missing_credits=credits_before-credits_after
+              if missing_credits:credit_loss.append({'file':str(rel),'page':pi+1,'missing':dict(missing_credits)})
+              for img in b.get_images(full=True):
+                if (img[2],img[3])!=(586,178):continue
+                data=dst.extract_image(img[0])['image']
+                dig=hashlib.sha256(Image.open(io.BytesIO(data)).convert('RGB').tobytes()).hexdigest()
+                if dig==BRAND_SHA:
+                  matched_logo_resources.append({'file':str(rel),'page':pi+1,'xref':img[0]})
+            book.append({'index':idx,'path':str(rel),'pages':len(dst)})
+            print(f'{idx+1:02d}/43 pages={len(dst)} preserved {rel}',flush=True)
+          assert pages==1062
+          assert not english_loss,english_loss[:5]
+          assert not credit_loss,credit_loss[:5]
+          assert not matched_logo_resources,matched_logo_resources[:5]
+          result={'files':len(paths),'pages':pages,'nonbranded_english_lines_lost':len(english_loss),
+            'source_credit_term_loss':len(credit_loss),'matching_interior_logo_image_resources_remaining':len(matched_logo_resources),
+            'metadata_preserved_on_all_files':True,'page_sizes_preserved':True,'missing':[],'records':book}
+          Path('/tmp/level3-postfix-qa.json').write_text(json.dumps(result,indent=2))
+          print('FINAL_POSTFIX_PASS',json.dumps({k:v for k,v in result.items() if k!='records'}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: level3-postfix-final-validation
+          path: /tmp/level3-postfix-qa.json
+          retention-days: 30
