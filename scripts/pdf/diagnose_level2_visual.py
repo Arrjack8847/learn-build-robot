@@ -24,18 +24,10 @@ def render(page, scale=.5):
     return Image.frombytes("RGB",(pix.width,pix.height),pix.samples)
 
 def allowed(page, scale=.5):
-    objects=[]
-    for block in page.get_text("dict")["blocks"]:
-        for line in block.get("lines",[]):
-            for span in line["spans"]:
-                s=span["text"]
-                if BRAND.search(s) or HAN.search(s):
-                    objects.append({"kind":"text","bbox":list(span["bbox"]),"value":s[:130]})
-    for im in page.get_images(full=True):
-        if (im[2],im[3]) not in LOGO_SIZES:continue
-        for rect in page.get_image_rects(im[0]):
-            objects.append({"kind":"matching-image","xref":im[0],"native_dimensions":[im[2],im[3]],"bbox":list(rect)})
-    return objects
+    # Use the exact same intended-edit mask as independent QA.
+    # This includes branding split across spans, not just per-span matches.
+    from validate_level2_cleaned import allowed_rectangles
+    return [{"kind":kind,"bbox":list(rect)} for rect,kind in allowed_rectangles(page)]
 
 def failure(old,new):
     before=render(old);after=render(new)
@@ -44,7 +36,7 @@ def failure(old,new):
     d=ImageDraw.Draw(mask)
     objects=allowed(old)
     for obj in objects:
-        r=obj["bbox"];gap=15 if obj["kind"]=="text" else 5
+        r=obj["bbox"];gap=15 if obj["kind"]=="text" else (1 if obj["kind"]=="glyph" else 5)
         d.rectangle((max(0,int((r[0]-gap)*.5)),max(0,int((r[1]-gap)*.5)),
                      min(before.width,int((r[2]+gap)*.5+1)),min(before.height,int((r[3]+gap)*.5+1))),fill=255)
     outside=ImageChops.subtract(diff,mask)
