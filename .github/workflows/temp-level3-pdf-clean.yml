@@ -1,0 +1,174 @@
+name: Temporary Level 3 PDF Cleanup
+on:
+  push:
+    branches:
+      - tmp/level3-pdf-cleanup-runner
+    paths:
+      - .github/workflows/temp-level3-pdf-clean.yml
+permissions:
+  contents: write
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout isolated Level 3 branch
+        uses: actions/checkout@v4
+        with:
+          ref: fix/level3-pdf-cleanup
+          persist-credentials: true
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - name: Install PDF libraries
+        run: python3 -m pip install --quiet pymupdf pillow
+      - name: Clean all 43 Level 3 Learning PDFs and inspect page integrity
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import re,os,json,collections,hashlib
+          from pathlib import Path
+          from tempfile import NamedTemporaryFile
+          import pymupdf
+          from PIL import Image,ImageDraw
+          
+          paths=sorted(Path("public/Level 3/Learning").rglob("*.pdf"))
+          assert len(paths)==43,("unexpected pdf inventory",len(paths))
+          HAN=re.compile(r'[\u3400-\u9fff\uf900-\ufaff]')
+          BRAND=re.compile(r'intelligen(?:t|ce)\s+storm|智能风暴',re.I)
+          FONT_KEY=re.compile(r'microsoftyahei|ms-gothic|microsoftjhenghei',re.I)
+          BT=re.compile(rb'(?<![A-Za-z])BT\s.*?\sET(?![A-Za-z])',re.S)
+          TF=re.compile(rb'/([A-Za-z0-9_]+)\s+[-+.0-9]+\s+Tf')
+          records=[];total=0;logos_total=0;chinese_total=0;intro_total=0
+          changed=[]
+          for idx,path in enumerate(paths):
+           assert str(path).startswith("public/Level 3/Learning/") and path.suffix.lower()==".pdf"
+           original_bytes=path.read_bytes()
+           d=pymupdf.open(stream=original_bytes,filetype="pdf")
+           pages=len(d);total+=pages
+           english_before=[]
+           for p in d:
+            english_before.append(collections.Counter(z.strip() for z in p.get_text().splitlines() if z.strip() and not HAN.search(z) and not BRAND.search(z)))
+           cjk_objects=0; logos=[]; intros=[]; changed_pages=set()
+           for pi,p in enumerate(d):
+            names={x[4] for x in p.get_fonts(full=True) if FONT_KEY.search(x[3])}
+            if not names or not HAN.search(p.get_text()):continue
+            for xref in p.get_contents():
+             data=d.xref_stream(xref);stats=[0,0]
+             def drop(m):
+              fonts={v.decode('latin1') for v in TF.findall(m.group(0))}
+              if fonts and fonts.issubset(names):
+               stats[0]+=1
+               return b'\n'
+              if fonts.intersection(names):stats[1]+=1
+              return m.group(0)
+             new=BT.sub(drop,data)
+             if stats[1]:raise RuntimeError(f"mixed font content at {path}, page {pi+1}")
+             if new!=data:
+              d.update_stream(xref,new);cjk_objects+=stats[0];changed_pages.add(pi)
+           selected={}
+           for pi,p in enumerate(d):
+            for im in p.get_images(full=True):
+             xref,w,h=im[0],im[2],im[3]
+             for rect in p.get_image_rects(xref):
+              cover=pi==0 and (w,h)==(1086,268) and rect.x0<.24*p.rect.width and rect.x1>.8*p.rect.width and rect.y1<.64*p.rect.height
+              closing=pi==len(d)-1 and (w,h) in [(1086,268),(586,178)] and rect.x0>.53*p.rect.width and rect.y0>.7*p.rect.height
+              corner=pi>0 and (w,h)==(586,178) and rect.x0<.06*p.rect.width and rect.y0<.17*p.rect.height and rect.x1<.35*p.rect.width
+              if cover or closing or corner:
+               selected[xref]=(pi,'cover' if cover else 'closing' if closing else 'corner')
+           for xref,(pi,role) in selected.items():
+            # Deleting this image resource globally is intentional, as it is logo-only.
+            for q,p in enumerate(d):
+             if any(x[0]==xref for x in p.get_images(full=True)):changed_pages.add(q)
+            d[pi].delete_image(xref)
+            logos.append({"xref":xref,"page":pi+1,"role":role})
+           for pi,p in enumerate(d):
+            if pi not in (0,len(d)-1):continue
+            target_lines=[];add=[]
+            for block in p.get_text('dict')['blocks']:
+             if 'lines' not in block:continue
+             for line in block['lines']:
+              s=''.join(sp['text'] for sp in line['spans'])
+              if not BRAND.search(s):continue
+              sp=line['spans'][0];bb=pymupdf.Rect(line['bbox'])
+              is_intro=pi==0 and any(z in s.lower() for z in ['develop','building','robotics'])
+              if is_intro:
+               new=re.sub(r'The Intelligence Storm Set','This robotics kit',s,flags=re.I)
+               new=re.sub(r'Intelligence Storm','This robotics kit',new,flags=re.I)
+               add.append((sp['origin'],new,sp['size']))
+              target_lines.append((bb,s))
+            if target_lines:
+             changed_pages.add(pi)
+             for bb,s in target_lines:p.add_redact_annot(bb,fill=False,cross_out=False)
+             p.apply_redactions(images=0,graphics=0,text=0)
+             for origin,new,sz in add:
+              available=max(100,p.rect.width-origin[0]-15)
+              w=pymupdf.get_text_length(new,fontname="tiro",fontsize=sz)
+              if w>available:sz*=available/w
+              p.insert_text(origin,new,fontsize=sz,fontname="tiro",color=(0,0,0),overlay=True)
+              intros.append({"page":pi+1,"replacement":new[:130]})
+           assert cjk_objects or logos or intros, f"Unexpected unchanged file: {path}"
+           with NamedTemporaryFile(prefix="level3_",suffix=".pdf",dir=str(path.parent),delete=False) as t:tmp=Path(t.name)
+           try:
+            d.save(str(tmp),garbage=4,deflate=True)
+            d.close()
+            edited=pymupdf.open(tmp);before=pymupdf.open(stream=original_bytes,filetype="pdf")
+            assert len(edited)==len(before)==pages
+            for pi,(old,new) in enumerate(zip(before,edited)):
+             text=new.get_text()
+             assert not HAN.search(text),(path,pi+1,"remaining Chinese text")
+             assert not BRAND.search(text),(path,pi+1,"remaining Storm text")
+             present=collections.Counter(s.strip() for s in text.splitlines() if s.strip())
+             missing=english_before[pi]-present
+             assert not missing,(path,pi+1,"lost non-branded English",dict(missing))
+             assert new.rect==old.rect,(path,pi+1,"page size changed")
+             pix_new=new.get_pixmap(matrix=pymupdf.Matrix(.25,.25),alpha=False)
+             pix_old=old.get_pixmap(matrix=pymupdf.Matrix(.25,.25),alpha=False)
+             if pi not in changed_pages:
+              assert pix_new.samples==pix_old.samples,(path,pi+1,"visual change outside edited page")
+            edited.close();before.close()
+            os.replace(tmp,path)
+           except:
+            if tmp.exists():tmp.unlink()
+            raise
+           cjk_after=sum(len(HAN.findall(p.get_text())) for p in pymupdf.open(path))
+           brand_after=sum(len(BRAND.findall(p.get_text())) for p in pymupdf.open(path))
+           assert not cjk_after and not brand_after,(path,cjk_after,brand_after)
+           chinese_total+=cjk_objects;logos_total+=len(logos);intro_total+=len(intros)
+           changed.append(str(path))
+           records.append({"path":str(path),"pages":pages,"cjk_objects_removed":cjk_objects,
+           "logo_objects_removed":len(logos),"cover_intros_replaced":len(intros),
+           "remaining_cjk":cjk_after,"remaining_brand":brand_after,
+           "byte_sha256":hashlib.sha256(path.read_bytes()).hexdigest()})
+           print(f"{idx+1:02d}/43 pages={pages} CJKobjects={cjk_objects} logos={len(logos)} intro={len(intros)} PASS {path.name}",flush=True)
+          assert total==1062,(total,"page count drift")
+          assert chinese_total==52,(chinese_total,"Chinese object total drift")
+          assert logos_total==40,(logos_total,"logo count drift")
+          assert intro_total==12,(intro_total,"intro count drift")
+          Path("/tmp/level3-pdf-qa.json").write_text(json.dumps({"source_main":"b52b9cca94269e30d00024c87e746cec51a55234",
+          "pdfs_discovered":len(paths),"pdfs_processed":len(changed),"pdfs_validated":len(records),
+          "pages":total,"removed_chinese_objects":chinese_total,"removed_logo_objects":logos_total,
+          "edited_cover_intros":intro_total,"remaining_extractable_cjk":0,"remaining_extractable_brand":0,
+          "records":records},indent=2))
+          print("QA SUCCESS: 43 PDFs, 1062 pages, 52 Chinese text objects, 40 logo images, 12 neutralized cover intros. All PDF pages reopened, text tested, and unaffected pages render-checked.")
+          PY
+      - name: Store QA audit for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: level3-pdf-cleanup-qa
+          path: /tmp/level3-pdf-qa.json
+          retention-days: 30
+      - name: Commit only cleaned Level 3 Learning PDFs
+        shell: bash
+        run: |
+          git add --sparse --all -- 'public/Level 3/Learning/'
+          git diff --cached --name-only | tee /tmp/level3-changed.txt
+          test -s /tmp/level3-changed.txt
+          if grep -Ev '^public/Level 3/Learning/.*\.pdf$' /tmp/level3-changed.txt; then
+            echo 'ERROR: attempted commit outside assigned Level 3 Learning PDFs'
+            exit 1
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'content(level3): remove unwanted branding and Chinese text from 43 Learning PDFs'
+          git push origin HEAD:fix/level3-pdf-cleanup
