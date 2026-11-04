@@ -1,0 +1,76 @@
+name: Temporary Level 3 Residual Artwork QA
+on:
+  push:
+    branches: [tmp/level3-pdf-cleanup-runner]
+    paths:
+      - .github/workflows/temp-level3-residual-audit.yml
+permissions:
+  contents: write
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: original
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level3-pdf-cleanup
+          path: cleaned
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - run: python3 -m pip install --quiet pymupdf pillow
+      - name: Examine footer branding and image resources
+        run: |
+          python3 - <<'PY'
+          import fitz,json
+          from pathlib import Path
+          from PIL import Image,ImageDraw,ImageChops
+          src=sorted(Path("original/public/Level 3/Learning").rglob("*.pdf"))
+          tgt=sorted(Path("cleaned/public/Level 3/Learning").rglob("*.pdf"))
+          assert len(src)==len(tgt)==43
+          dark=[10,11,12,13,14,18,19,20,22,23,24,25,36,37,40]
+          out=Path("qa-residual");out.mkdir(exist_ok=True)
+          canvas=Image.new("RGB",(1920,5*275),(225,225,225))
+          dr=ImageDraw.Draw(canvas)
+          rec=[]
+          for z,i in enumerate(dark):
+            original=fitz.open(src[i]);cleaned=fitz.open(tgt[i])
+            p=original[-1];q=cleaned[-1]
+            for b,doc in enumerate([original,cleaned]):
+              pix=doc[-1].get_pixmap(matrix=fitz.Matrix(.45,.45),alpha=False)
+              im=Image.frombytes("RGB",(pix.width,pix.height),pix.samples)
+              ix=(z%3)*640+b*320;iy=(z//3)*275
+              canvas.paste(im,(ix,iy+28))
+            dr.text(((z%3)*640+5,(z//3)*275+8),f"{i:02d} {src[i].stem[:37]} | Original > Cleaned",fill=(0,0,0))
+            items=[]
+            for im in p.get_images(full=True):
+              xref=im[0]
+              info=original.extract_image(xref)
+              for r in p.get_image_rects(xref):
+                if r.y0>p.rect.height*.55 and r.x1>p.rect.width*.5:
+                  items.append({"xref":xref,"rect":[round(x,1) for x in r],"w":info["width"],"h":info["height"],"extension":info["ext"],"deleted_same_xref":all(x[0]!=xref for x in q.get_images(full=True))})
+            rec.append({"index":i,"path":str(src[i]),"page_count":len(original),"bottom_right_images":items})
+            original.close();cleaned.close()
+          canvas.save(out/"closing-compare.png",optimize=True)
+          (out/"closing-images.json").write_text(json.dumps(rec,indent=2))
+          for r in rec:
+            print(r["index"],Path(r["path"]).stem[:30],r["bottom_right_images"])
+          PY
+      - name: Publish diagnostic only on temporary branch
+        run: |
+          git -C original fetch origin tmp/level3-pdf-cleanup-runner
+          git -C original switch -c tmp-diagnostic FETCH_HEAD
+          mkdir -p original/qa/level3/residual
+          cp qa-residual/* original/qa/level3/residual/
+          git -C original add --sparse qa/level3/residual
+          git -C original config user.name 'github-actions[bot]'
+          git -C original config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C original commit -m 'qa(level3): diagnose remaining graphical footer branding [skip ci]'
+          git -C original push origin HEAD:tmp/level3-pdf-cleanup-runner
