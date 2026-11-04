@@ -1,0 +1,124 @@
+name: Temporary Level 3 Final Visual Parity and Covers
+on:
+  push:
+    branches:
+      - tmp/level3-pdf-cleanup-runner
+    paths:
+      - .github/workflows/temp-level3-final-qa.yml
+permissions:
+  contents: write
+jobs:
+  final-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: original
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level3-pdf-cleanup
+          path: cleaned
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - run: python3 -m pip install --quiet pymupdf pillow
+      - name: Verify Chinese-text removal is visually identical; add approved neutral cover headers
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from tempfile import NamedTemporaryFile
+          import pymupdf as fitz,re,json,os
+          from PIL import Image,ImageDraw,ImageChops
+          Han=re.compile(r'[\u3400-\u9fff\uf900-\ufaff]')
+          Brand=re.compile(r'intelligen(?:t|ce)\s+storm|智能风暴',re.I)
+          a=sorted(Path("original/public/Level 3/Learning").rglob("*.pdf"))
+          b=sorted(Path("cleaned/public/Level 3/Learning").rglob("*.pdf"))
+          assert len(a)==len(b)==43
+          cyan={0,2,4,5,6,7,9,21,35,38,39,41}
+          checked=0;diffs=[];before_pages=0;after_pages=0;sample=[]
+          for i,(o,e) in enumerate(zip(a,b)):
+            assert o.relative_to("original")==e.relative_to("cleaned")
+            src=fitz.open(o);doc=fitz.open(e)
+            assert len(src)==len(doc)
+            before_pages+=len(src);after_pages+=len(doc)
+            for j,p in enumerate(src):
+              if not Han.search(p.get_text()):continue
+              checked+=1
+              clean=doc[j]
+              pm1=p.get_pixmap(matrix=fitz.Matrix(1,1),alpha=False)
+              pm2=clean.get_pixmap(matrix=fitz.Matrix(1,1),alpha=False)
+              assert pm1.width==pm2.width and pm1.height==pm2.height
+              if pm1.samples!=pm2.samples:
+                bb=ImageChops.difference(Image.frombytes("RGB",(pm1.width,pm1.height),pm1.samples),Image.frombytes("RGB",(pm2.width,pm2.height),pm2.samples)).getbbox()
+                diffs.append({"file":str(o),"page":j+1,"diff_bbox":bb})
+            if i in cyan:
+              p=doc[0]
+              assert p.rect.width==960 and p.rect.height==540, str(e)
+              assert "Learning Series" not in p.get_text()
+              p.insert_text((51,93),"Learning Series",fontname="tiro",fontsize=48,color=(1,1,1),overlay=True)
+              assert "Learning Series" in p.get_text()
+              with NamedTemporaryFile(dir=e.parent,suffix=".pdf",delete=False) as t:temp=Path(t.name)
+              doc.save(temp,garbage=4,deflate=True)
+              doc.close()
+              os.replace(temp,e)
+              doc=fitz.open(e)
+              pix=doc[0].get_pixmap(matrix=fitz.Matrix(.4,.4),alpha=False)
+              thumb=Image.frombytes("RGB",(pix.width,pix.height),pix.samples)
+              sample.append((i,e.stem,thumb))
+            assert len(doc)==len(src)
+            for p in doc:
+              txt=p.get_text()
+              assert not Han.search(txt),(e,"CJK remains")
+              assert not Brand.search(txt),(e,"brand remains")
+            doc.close();src.close()
+          assert before_pages==after_pages==1062
+          assert checked==22,(checked,"expected 22 Chinese-containing pages")
+          # All Chinese-character removals must have been visually invisible in the source.
+          assert not diffs, json.dumps(diffs[:20])
+          assert len(sample)==12
+          dst=Image.new("RGB",(3*420,4*285),(230,230,230));dr=ImageDraw.Draw(dst)
+          for n,(i,label,im) in enumerate(sample):
+            x=n%3*420;y=n//3*285
+            dst.paste(im,(x,y+25))
+            dr.text((x+4,y+5),str(i).zfill(2)+" "+label[:35],fill=(0,0,0))
+          dst.save("/tmp/level3-final-covers.png",optimize=True)
+          Path("/tmp/level3-final-qa.json").write_text(json.dumps({"pdfs":43,"pages_original":before_pages,"pages_cleaned":after_pages,"chinese_pages_visual_equal":checked,"chinese_pages_changed":len(diffs),"neutral_covers_added":len(sample),"remaining_extractable_chinese":0,"remaining_extractable_brand":0,"preview_labels":[x[1] for x in sample]},indent=2))
+          print("PASS: 43 PDFs, 1062 pages, 22 Chinese-containing source pages visually identical, 12 neutral Learning Series covers inserted")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: level3-final-cover-and-cjk-qa
+          path: |
+            /tmp/level3-final-qa.json
+            /tmp/level3-final-covers.png
+          retention-days: 30
+      - name: Commit ONLY the 12 corrected Level 3 Learning PDF covers
+        run: |
+          git -C cleaned add --sparse --all -- 'public/Level 3/Learning/'
+          git -C cleaned diff --cached --name-only | tee /tmp/final-modified.txt
+          test "$(wc -l < /tmp/final-modified.txt)" -eq 12
+          if grep -Ev '^public/Level 3/Learning/.*\.pdf$' /tmp/final-modified.txt; then
+            echo 'ERROR: unexpected file change'
+            exit 1
+          fi
+          git -C cleaned config user.name 'github-actions[bot]'
+          git -C cleaned config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C cleaned commit -m 'content(level3): match Level 1 clean Learning Series covers'
+          git -C cleaned push origin HEAD:fix/level3-pdf-cleanup
+      - name: Publish cover proof image on isolated QA branch
+        run: |
+          git -C original fetch origin tmp/level3-pdf-cleanup-runner
+          git -C original switch -c tmp-publish FETCH_HEAD
+          mkdir -p original/qa/level3/final
+          cp /tmp/level3-final-qa.json original/qa/level3/final/qa.json
+          cp /tmp/level3-final-covers.png original/qa/level3/final/covers.png
+          git -C original add --sparse qa/level3/final
+          git -C original config user.name 'github-actions[bot]'
+          git -C original config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C original commit -m 'qa(level3): publish verified final cover contact sheet [skip ci]'
+          git -C original push origin HEAD:tmp/level3-pdf-cleanup-runner
