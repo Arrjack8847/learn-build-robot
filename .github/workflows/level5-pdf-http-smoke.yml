@@ -52,7 +52,24 @@ jobs:
               headers:{"Range":"bytes=0-31"},
               signal:AbortSignal.timeout(15000)
             });
-            assert.ok(response.ok,lesson.id+" HTTP "+response.status+" for "+urlPath);
+            if(!response.ok){
+              console.error("FAILED CANONICAL",lesson.id,response.status,urlPath);
+              console.error("ON DISK?",lesson.learningPdf,readFileSync("public/"+lesson.learningPdf).subarray(0,8).toString());
+              const variants=[
+                ["ampersand_raw",urlPath.replaceAll("%26","&")],
+                ["raw_path","/"+lesson.learningPdf],
+                ["encodeURI","/"+encodeURI(lesson.learningPdf)],
+                ["double_amp","/"+lesson.learningPdf.split("/").map(encodeURIComponent).join("/").replaceAll("%26","%2526")]
+              ];
+              for(const [mode,p] of variants){
+                try{
+                  const alt=await fetch("http://127.0.0.1:4173"+p,{signal:AbortSignal.timeout(15000)});
+                  console.error("VARIANT",mode,alt.status,alt.headers.get("content-type"),p);
+                  if(alt.body){const rd=alt.body.getReader();await rd.cancel();}
+                }catch(err){console.error("VARIANT ERROR",mode,String(err));}
+              }
+              throw new Error(lesson.id+" HTTP "+response.status+" for "+urlPath);
+            }
             const mime=response.headers.get("content-type")??"";
             assert.ok(mime.includes("pdf"),lesson.id+" wrong MIME: "+mime);
             const reader=response.body.getReader();
