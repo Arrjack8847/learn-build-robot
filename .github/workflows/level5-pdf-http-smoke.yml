@@ -45,9 +45,13 @@ jobs:
           assert.ok(match,"Lesson registry");
           const lessons=JSON.parse(match[1]).filter(x=>x.level===5);
           assert.equal(lessons.length,51);
+          const resolverBody=source.match(/function publicUrl\(path: string\): string \{([\s\S]*?)\n\}\nfunction curriculumUrl/);
+          assert.ok(resolverBody,"Actual publicUrl resolver must be present");
+          const route=new Function("path","levelFiveWixPdfUrls","levelSixWixPdfUrls","assetBase","encodePath",resolverBody[1]);
+          const routeFor=path=>route(path,{}, {},()=>null,p=>p.split("/").map(encodeURIComponent).join("/"));
           let successes=0;
           for(const lesson of lessons){
-            const urlPath="/"+lesson.learningPdf.split("/").map(encodeURIComponent).join("/");
+            const urlPath=routeFor(lesson.learningPdf);
             const response=await fetch("http://127.0.0.1:4173"+urlPath,{
               headers:{"Range":"bytes=0-31"},
               signal:AbortSignal.timeout(15000)
