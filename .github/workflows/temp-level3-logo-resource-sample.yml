@@ -1,0 +1,62 @@
+name: Temporary Level 3 Embedded Logo Resource Inspection
+on:
+  push:
+    branches: [tmp/level3-pdf-cleanup-runner]
+    paths: [.github/workflows/temp-level3-logo-resource-sample.yml]
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level3-pdf-cleanup
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - run: python3 -m pip install --quiet pymupdf pillow
+      - name: Extract original raster resource candidates from two cyan-series PDFs
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image,ImageDraw
+          import pymupdf,io,json,math
+          files=sorted(Path('public/Level 3/Learning').rglob('*.pdf'))
+          out=Path('/tmp/logo-resource-sample');out.mkdir(exist_ok=True)
+          records=[];tiles=[]
+          for i,pages in [(0,[5,11,15]),(2,[5,11])]:
+            doc=pymupdf.open(files[i])
+            for pnum in pages:
+              page=doc[pnum-1];area=page.rect.width*page.rect.height
+              for im in page.get_images(full=True):
+                xref,w,h=im[0],im[2],im[3]
+                if w<180 or h<100:continue
+                rects=page.get_image_rects(xref)
+                if not any(r.width*r.height>area*.015 for r in rects):continue
+                key=(i,xref)
+                if any(x['id']==list(key) for x in records):continue
+                d=doc.extract_image(xref)
+                src=Image.open(io.BytesIO(d['image'])).convert('RGB')
+                outp=f'pdf-{i:02d}-xref-{xref}.png'
+                src.save(out/outp,optimize=True)
+                rec={'id':list(key),'file':str(files[i]),'xref':xref,'source_px':[w,h],'page':pnum,'rects':[[round(v,1) for v in r] for r in rects],'asset':outp}
+                records.append(rec)
+                thumb=src.copy();thumb.thumbnail((420,240))
+                tiles.append((i,xref,pnum,thumb))
+          cols=3;rows=math.ceil(len(tiles)/cols)
+          sheet=Image.new('RGB',(cols*440,rows*290),'white'); dr=ImageDraw.Draw(sheet)
+          for pos,(i,xref,pn,im) in enumerate(tiles):
+            x=pos%cols*440;y=pos//cols*290
+            sheet.paste(im,(x+(440-im.width)//2,y+32+(245-im.height)//2))
+            dr.text((x+8,y+10),f'PDF {i:02d} p{pn} XRef {xref}',fill='black')
+          sheet.save(out/'image-resources.jpg',quality=90)
+          (out/'resources.json').write_text(json.dumps(records,indent=2))
+          print('LOGO_RESOURCE_INSPECTION',json.dumps({'count':len(records),'by_pdf':{str(i):sum(r['id'][0]==i for r in records) for i in [0,2]}}))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: level3-logo-resource-sample
+          path: /tmp/logo-resource-sample/
+          retention-days: 14
