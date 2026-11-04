@@ -183,7 +183,8 @@ def process(src):
     metadata["keywords"]="BE STEM READY learning edition"
     doc.set_metadata(metadata)
     dest=OUT/rel;dest.parent.mkdir(parents=True,exist_ok=True)
-    doc.save(dest,garbage=4,deflate=True,clean=True)
+    # Do not normalize/redraw unrelated page content: keep image rendering stable.
+    doc.save(dest,garbage=4,deflate=True,clean=False)
     total=len(doc); doc.close()
     check=fitz.open(dest)
     hits=[]
