@@ -1,0 +1,90 @@
+name: Temporary Level 3 Pixel-Region Safety Audit
+on:
+  push:
+    branches:
+      - tmp/level3-pdf-cleanup-runner
+    paths:
+      - .github/workflows/temp-level3-region-qa-20261104.yml
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: original
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level3-pdf-cleanup
+          path: cleaned
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - run: python3 -m pip install --quiet pymupdf pillow
+      - name: Check visual-change regions are limited to intended branding
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image,ImageChops,ImageDraw
+          import pymupdf as fitz,json
+          original=Path('original/public/Level 3/Learning')
+          cleaned=Path('cleaned/public/Level 3/Learning')
+          rels=sorted(x.relative_to(original) for x in original.rglob('*.pdf'))
+          assert len(rels)==43
+          results=[];unexpected=[];num_changes=0
+          for idx,rel in enumerate(rels):
+            src=fitz.open(original/rel);dst=fitz.open(cleaned/rel)
+            assert len(src)==len(dst)
+            filecount=0
+            for j,(p,q) in enumerate(zip(src,dst)):
+              ap=p.get_pixmap(matrix=fitz.Matrix(.7,.7),alpha=False)
+              bp=q.get_pixmap(matrix=fitz.Matrix(.7,.7),alpha=False)
+              if ap.samples==bp.samples:continue
+              num_changes+=1;filecount+=1
+              a=Image.frombytes('RGB',(ap.width,ap.height),ap.samples)
+              b=Image.frombytes('RGB',(bp.width,bp.height),bp.samples)
+              delta=ImageChops.difference(a,b).convert('L')
+              delta=delta.point(lambda t:255 if t else 0)
+              n_total=delta.histogram()[255]
+              bb=delta.getbbox()
+              cover=j==0;last=j==len(src)-1
+              race=rel.name=='1. Race Walking - Slides.pdf' and j+1 in (25,26,27,28)
+              kind='cover' if cover else 'last' if last else 'race_hidden_cjk' if race else 'interior_logo'
+              expected=[]
+              if kind=='interior_logo':
+                for it in p.get_images(full=True):
+                  xref,w,h=it[0],it[2],it[3]
+                  if (w,h)!=(586,178):continue
+                  for r in p.get_image_rects(xref):
+                    if r.x0<.06*p.rect.width and r.y0<.17*p.rect.height and r.x1<.35*p.rect.width:
+                      expected.append([max(0,int(r.x0*.7)-3),max(0,int(r.y0*.7)-3),min(ap.width,int(r.x1*.7)+4),min(ap.height,int(r.y1*.7)+4)])
+              if expected:
+                allowed=Image.new('L',delta.size,0)
+                for xy in expected:ImageDraw.Draw(allowed).rectangle(xy,fill=255)
+                mask=ImageChops.subtract(delta,allowed)
+                n_out=mask.histogram()[255]
+              else:n_out=0 if kind in ('cover','last','race_hidden_cjk') else n_total
+              entry={'file':str(rel),'page':j+1,'kind':kind,'pixels_changed':n_total,'bbox':bb,'expected_logo_regions':expected,'pixels_outside_logo_regions':n_out}
+              if kind=='interior_logo' and n_out>100:
+                unexpected.append(entry)
+              if kind=='race_hidden_cjk' and n_total>300:
+                unexpected.append(entry)
+              results.append(entry)
+            print(f'{idx+1}/43 {rel} changed={filecount}',flush=True)
+          assert num_changes==215,(num_changes,"changed visual-page count drift")
+          outfile=Path('/tmp/level3-region-qa.json')
+          outfile.write_text(json.dumps({'files':43,'pages':1062,'changed_visual_pages':num_changes,'unexpected_count':len(unexpected),'unexpected':unexpected,'results':results},indent=2))
+          print('REGION_QA_RESULT',json.dumps({'changed_pages':num_changes,'unexpected_count':len(unexpected),'sample':unexpected[:10]}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: level3-region-qa-20261104
+          path: /tmp/level3-region-qa.json
+          retention-days: 14
