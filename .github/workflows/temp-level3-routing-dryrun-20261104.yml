@@ -1,0 +1,120 @@
+name: Temporary Level 3 Cleaned-PDF Routing Dry Run
+on:
+  push:
+    branches: [tmp/level3-pdf-cleanup-runner]
+    paths: [.github/workflows/temp-level3-routing-dryrun-20261104.yml]
+permissions:
+  contents: read
+jobs:
+  routing-dryrun:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: source
+          filter: blob:none
+          sparse-checkout: |
+            src/data/staticPdfUrl.ts
+            src/data/levelThreeLectures.ts
+            src/data/levelOneToThreeWixPdfUrls.ts
+            tests/level-one-to-three-wix-urls.test.mjs
+            tests/level-three-lectures.test.mjs
+          sparse-checkout-cone-mode: false
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level3-pdf-cleanup
+          path: cleaned
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - name: Execute source resolver with an in-memory Level 3-only change
+        shell: bash
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import path from 'node:path';
+          import assert from 'node:assert/strict';
+          import vm from 'node:vm';
+          const root='source', pdfRoot='cleaned/public/Level 3/Learning';
+          const src=fs.readFileSync(root+'/src/data/staticPdfUrl.ts','utf8');
+          const lectures=fs.readFileSync(root+'/src/data/levelThreeLectures.ts','utf8');
+          const wixSource=fs.readFileSync(root+'/src/data/levelOneToThreeWixPdfUrls.ts','utf8');
+          const match=wixSource.match(/export const levelOneToThreeWixPdfUrls: Readonly<Record<string, string>> = (\{[\s\S]*?\});/);
+          assert.ok(match,'Wix map parse failed');
+          const wix=JSON.parse(match[1]);
+          const modified=src.replace('if (level === 1) return localUrl;', 'if (level === 1 || level === 3) return localUrl;');
+          assert.notEqual(modified,src,'Level 3-only replacement missing');
+          const method=/export function levelOneToThreeLearningPdfUrl\([\s\S]*?\n\}/;
+          assert.ok(method.test(src));
+          function compile(s) {
+            const fn=s.match(method)[0].replace('export function','function').replace('level: 1 | 2 | 3','level');
+            return vm.runInNewContext(fn+'; levelOneToThreeLearningPdfUrl',{levelOneToThreeWixPdfUrls:wix,encodeURIComponent});
+          }
+          const before=compile(src), after=compile(modified);
+          const lectureArray=lectures.match(/const uploadedLectureFiles = (\[[\s\S]*?\]) as const;/);
+          const fallbackArray=lectures.match(/LEVEL_THREE_BUILDING_PDF_LEARNING_FALLBACK_IDS = (\[[\s\S]*?\]) as const;/);
+          assert.ok(lectureArray&&fallbackArray);
+          const entries=vm.runInNewContext('('+lectureArray[1]+')');
+          const fallback=vm.runInNewContext('('+fallbackArray[1]+')');
+          function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(x=>x.isDirectory()?walk(path.join(dir,x.name)):[path.join(dir,x.name)]);}
+          const paths=walk(pdfRoot).filter(f=>f.toLowerCase().endsWith('.pdf')).map(p=>p.slice(pdfRoot.length+1).replaceAll(path.sep,'/'));
+          const uniq=[...new Set(entries.map(e=>e[1]))];
+          const keys=Object.keys(wix).filter(x=>x.startsWith('Level 3/Learning/'));
+          assert.equal(entries.length,46);
+          assert.equal(uniq.length,43);
+          assert.equal(paths.length,43);
+          assert.equal(keys.length,43);
+          assert.equal(fallback.length,5);
+          assert.deepEqual([...uniq].sort(),[...paths].sort());
+          assert.deepEqual(keys.map(k=>k.slice('Level 3/Learning/'.length)).sort(),[...paths].sort());
+          for (const [id,relative] of entries){
+            const wixUrl=wix['Level 3/Learning/'+relative];
+            assert.equal(before(3,relative),wixUrl,'old Wix behavior changed: '+id);
+            const local='/'+('Level 3/Learning/'+relative).split('/').map(encodeURIComponent).join('/');
+            assert.equal(after(3,relative),local,'new local URL mismatch: '+id);
+            assert.equal(decodeURIComponent(local).slice(1),'Level 3/Learning/'+relative);
+            const file=path.join(pdfRoot,...relative.split('/'));
+            const fd=fs.openSync(file,'r'),buf=Buffer.alloc(5);
+            try{fs.readSync(fd,buf,0,5,0);}finally{fs.closeSync(fd);}
+            assert.equal(buf.toString(),'%PDF-',file);
+          }
+          for(const level of [1,2]){
+            for(const relative of uniq){
+              assert.equal(after(level,relative),before(level,relative),'Level '+level+' changed');
+            }
+          }
+          assert.match(src,/export function staticPdfUrl\(filename: string\): string \{\s*return levelOneToThreeWixPdfUrls\[filename\] \?\? "\/" \+ encodeURIComponent\(filename\);/);
+          assert.match(lectures,/url: manual\.url/);
+          const oldTest=fs.readFileSync(root+'/tests/level-one-to-three-wix-urls.test.mjs','utf8');
+          const lectureTest=fs.readFileSync(root+'/tests/level-three-lectures.test.mjs','utf8');
+          assert.ok(oldTest.includes('Levels 2–3 retain Wix'));
+          assert.ok(lectureTest.includes('uploadedEntries.length, 46'));
+          const report={
+            baseline_main:'b52b9cca94269e30d00024c87e746cec51a55234',
+            cleanup_pr_head:'2b22e5bf02156439b0cb066b5ab32544259bf9d8',
+            unique_local_pdfs:43,
+            project_entries_local:46,
+            building_fallback_entries_unchanged:5,
+            other_levels_unchanged:[1,2],
+            original_root_building_resolver_unchanged:true,
+            pdf_header_checks:46,
+            current_test_conflict:'Update the Wix regression test to say Level 2 stays Wix; Level 3 becomes local.',
+            result:'DRY_RUN_PASS_NO_CODE_COMMITTED'
+          };
+          fs.mkdirSync('/tmp/level3-routing-dryrun',{recursive:true});
+          fs.writeFileSync('/tmp/level3-routing-dryrun/report.json',JSON.stringify(report,null,2));
+          fs.writeFileSync('/tmp/level3-routing-dryrun/implementation-plan.txt',
+            'Suggested separate PR after content-owner signoff:\n'+
+            '1. staticPdfUrl.ts: change if (level === 1) to if (level === 1 || level === 3).\n'+
+            '2. tests/level-one-to-three-wix-urls.test.mjs: preserve Wix for Level 2, local for Level 3, unchanged root/Building.\n'+
+            '3. Re-run project registry, URL, PDF viewer and build checks; verify URL-encoded spaces and ampersands.\n'+
+            '4. Do not merge this PR or the cleanup PR automatically.\n');
+          console.log('LEVEL3_ROUTING_DRY_RUN',JSON.stringify(report));
+          JS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: level3-routing-dryrun
+          path: /tmp/level3-routing-dryrun/
+          retention-days: 21
