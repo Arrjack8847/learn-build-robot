@@ -1,0 +1,30 @@
+name: Level 5 PDF isolated audit worker
+on:
+  push:
+    branches: ['ops/level5-pdf-audit-clean-20261104']
+    paths: ['.github/workflows/level5-pdf-worker.yml']
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout only Level 5 Learning and isolated worker
+        uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 5/Learning
+            scripts/pdf
+          lfs: false
+      - name: Install PDF inspection library
+        run: python -m pip install --quiet 'PyMuPDF==1.26.7' 'pypdf==6.4.0'
+      - name: Inventory all Level 5 Learning PDF pages and brand text
+        run: python scripts/pdf/level5_pdf_worker.py
+      - name: Upload audit JSON
+        uses: actions/upload-artifact@v4
+        with:
+          name: level5-pdf-inventory
+          path: /tmp/bsr-level5-worker/audit.json
+          retention-days: 5
