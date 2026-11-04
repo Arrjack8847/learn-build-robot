@@ -1,0 +1,73 @@
+name: Level 4 authoritative PDF export (PR 69 exact commit)
+on:
+  push:
+    branches:
+      - internal/level4-authoritative-pdf-package-20261104
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout exact cleaned PDF source from PR 69
+        uses: actions/checkout@v4
+        with:
+          ref: 99a5cc0ec5346a6fc4ea7f1c361fb46f93c37ea3
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 4
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate and archive exact PDF bytes
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile,ZIP_DEFLATED
+          from hashlib import sha256
+          import subprocess, csv, json
+          SOURCE_SHA="99a5cc0ec5346a6fc4ea7f1c361fb46f93c37ea3"
+          head=subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()
+          assert head==SOURCE_SHA, (head,SOURCE_SHA)
+          root=Path("public/Level 4")
+          files=sorted(p for p in root.rglob("*.pdf") if "Building" not in p.relative_to(root).parts)
+          assert len(files)==56,("Expected 56 Learning PDFs",len(files))
+          assert len(list((root/"Building").rglob("*.pdf")))==50
+          destination=Path("authoritative-export")
+          destination.mkdir(exist_ok=True)
+          archive=destination/"BE_STEM_READY_Level4_GitHub_PR69_Exact_PDFs.zip"
+          rows=[]
+          total=0
+          with ZipFile(archive,"w",ZIP_DEFLATED,compresslevel=6) as z:
+              for p in files:
+                  content=p.read_bytes()
+                  assert content.startswith(b"%PDF-"),p
+                  blob=subprocess.check_output(["git","hash-object",str(p)],text=True).strip()
+                  rel=p.as_posix()
+                  z.writestr(rel,content)
+                  rows.append(dict(path=rel,size_bytes=len(content),sha256=sha256(content).hexdigest(),git_blob_sha=blob,source_commit=SOURCE_SHA))
+                  total+=len(content)
+          with (destination/"Level4_PR69_GitHub_Exact_SHA256_Manifest.csv").open("w",newline="",encoding="utf-8") as f:
+              writer=csv.DictWriter(f,fieldnames=list(rows[0]))
+              writer.writeheader();writer.writerows(rows)
+          metadata={"source_repo":"Arrjack8847/learn-build-robot",
+                    "pr":69,"source_sha":SOURCE_SHA,"documents":len(rows),
+                    "total_pdf_bytes":total,"archive_sha256":sha256(archive.read_bytes()).hexdigest(),
+                    "building_pdf_count_excluded":50}
+          (destination/"Level4_PR69_Source_Provenance.json").write_text(json.dumps(metadata,indent=2)+"\n")
+          with ZipFile(archive) as z:
+              assert len(z.namelist())==56
+              for row in rows:
+                  assert sha256(z.read(row["path"])).hexdigest()==row["sha256"]
+          print("PR69_EXACT_ARCHIVE_VERIFIED",json.dumps(metadata),flush=True)
+          PY
+      - name: Upload immutable source package and checksums
+        uses: actions/upload-artifact@v4
+        with:
+          name: level4-pr69-exact-pdf-bundle-20261104
+          path: authoritative-export/
+          if-no-files-found: error
+          compression-level: 0
