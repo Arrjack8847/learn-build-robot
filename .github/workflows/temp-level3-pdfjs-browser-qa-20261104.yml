@@ -1,0 +1,157 @@
+name: Temporary Level 3 PDF.js Browser Worker QA
+on:
+  push:
+    branches: [tmp/level3-pdf-cleanup-runner]
+    paths: [.github/workflows/temp-level3-pdfjs-browser-qa-20261104.yml]
+permissions:
+  contents: read
+jobs:
+  pdfjs-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: baseline
+          filter: blob:none
+          sparse-checkout: |
+            package.json
+            src/data/levelThreeLectures.ts
+          sparse-checkout-cone-mode: false
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level3-pdf-cleanup
+          path: cleaned
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install exact website PDF.js version and isolated Chromium
+        shell: bash
+        run: |
+          mkdir -p /tmp/level3-pdfjs-browser
+          cd /tmp/level3-pdfjs-browser
+          npm install --no-audit --no-fund --no-save --no-package-lock pdfjs-dist@5.4.296 playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Test every cleaned PDF in PDF.js Chromium worker and viewport gallery
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from urllib.parse import quote
+          import json
+          directory=Path('/tmp/level3-pdfjs-browser')
+          pdfs=sorted(Path('cleaned/public/Level 3/Learning').rglob('*.pdf'))
+          assert len(pdfs)==43
+          root=Path('cleaned/public').resolve()
+          (directory/'public').symlink_to(root,target_is_directory=True)
+          manifest=[]
+          for p in pdfs:
+            rel=p.relative_to(root).as_posix()
+            manifest.append({'path':rel,'url':'/public/'+quote(rel,safe='/')})
+          (directory/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2))
+          html='''<!doctype html><html><head><meta charset="utf-8"></head><body><div id="qa">PDF.js browser QA</div><script type="module">
+          import * as pdfjs from '/node_modules/pdfjs-dist/build/pdf.mjs';
+          pdfjs.GlobalWorkerOptions.workerSrc='/node_modules/pdfjs-dist/build/pdf.worker.min.mjs';
+          window.pdfjsReady=true;
+          window.pdfjsProbe=async function(url,renderPage=1){
+            const task=pdfjs.getDocument({url,disableFontFace:false});
+            try{
+              const document=await task.promise;
+              const numPages=document.numPages;
+              const page=await document.getPage(renderPage);
+              const viewport=page.getViewport({scale:Math.min(1.0,Math.max(.4,(window.innerWidth-24)/page.getViewport({scale:1}).width))});
+              const canvas=document.createElement('canvas');
+              canvas.width=Math.ceil(viewport.width);canvas.height=Math.ceil(viewport.height);
+              const ctx=canvas.getContext('2d',{alpha:false});
+              await page.render({canvasContext:ctx,viewport,canvas}).promise;
+              const samples=ctx.getImageData(0,0,canvas.width,canvas.height).data;
+              let min=255,max=0;
+              for(let i=0;i<samples.length;i+=Math.max(4,Math.floor(samples.length/3000/4)*4)){
+                const v=(samples[i]+samples[i+1]+samples[i+2])/3;
+                min=Math.min(v,min);max=Math.max(v,max);
+              }
+              await document.destroy();
+              return {pages:numPages,width:canvas.width,height:canvas.height,min,max};
+            }finally{try{await task.destroy()}catch(_){}}
+          };
+          </script></body></html>''';
+          (directory/'index.html').write_text(html)
+          PY
+          cat > /tmp/level3-pdfjs-browser/check.mjs <<'JS'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          import { chromium } from 'playwright';
+          const manifest=JSON.parse(fs.readFileSync('/tmp/level3-pdfjs-browser/manifest.json','utf8'));
+          assert.equal(manifest.length,43);
+          const browser=await chromium.launch({headless:true,args:['--disable-dev-shm-usage']});
+          const context=await browser.newContext({viewport:{width:390,height:844}});
+          const page=await context.newPage();
+          const errors=[];
+          page.on('pageerror',e=>errors.push('pageerror: '+e.message));
+          page.on('console',msg=>{if(msg.type()==='error')errors.push('console: '+msg.text())});
+          page.setDefaultTimeout(40000);
+          const response=await page.goto('http://127.0.0.1:8765/index.html',{waitUntil:'load'});
+          assert.equal(response.status(),200);
+          await page.waitForFunction(()=>window.pdfjsReady===true,{timeout:45000});
+          const reports=[];
+          let totalPages=0;
+          try{
+            for(const [i,item] of manifest.entries()){
+              const res=await page.evaluate(async ({url})=>window.pdfjsProbe(url),item);
+              assert.ok(res.pages>0,item.path);
+              assert.ok(res.width>100&&res.height>100,item.path);
+              assert.ok(res.max>res.min,item.path+': blank canvas');
+              totalPages+=res.pages;
+              reports.push({...item,...res});
+              console.log('PDFJS_BROWSER_PASS',i+1,res.pages,item.path);
+            }
+            assert.equal(totalPages,1062);
+            // Test 4 mobile sizes and a desktop size using an actual Level 3 cleaned lesson.
+            const viewports=[320,360,390,430,1280];
+            const renderWidths=[];
+            for(const width of viewports){
+              await page.setViewportSize({width,height:width===1280?800:844});
+              const img=await page.evaluate(async ({url})=>window.pdfjsProbe(url),manifest[0]);
+              assert.ok(img.width>100&&img.width<=width,item);
+              renderWidths.push({viewport:width,canvasWidth:img.width,canvasHeight:img.height});
+            }
+            assert.deepEqual(errors,[],errors.join('\n'));
+            const report={
+              status:'PASS_ISOLATED_PDFJS_BROWSER',
+              repo_commit:'b52b9cca94269e30d00024c87e746cec51a55234',
+              pdf_commit:'2b22e5bf02156439b0cb066b5ab32544259bf9d8',
+              website_pdfjs_version:'5.4.296',
+              distinct_pdfs:reports.length,
+              rendered_first_pages:reports.length,
+              total_pages:totalPages,
+              responsive_viewports:renderWidths,
+              browser_errors:errors,
+              live_website_tested:false,
+              production_cdn_tested:false,
+              files:reports
+            };
+            fs.mkdirSync('/tmp/level3-pdfjs-output',{recursive:true});
+            fs.writeFileSync('/tmp/level3-pdfjs-output/report.json',JSON.stringify(report,null,2));
+            console.log('LEVEL3_PDFJS_BROWSER_SUMMARY',JSON.stringify({...report,files:undefined}));
+          }finally{
+            await browser.close();
+          }
+          JS
+          python3 -m http.server 8765 --bind 127.0.0.1 --directory /tmp/level3-pdfjs-browser >/tmp/level3-pdfjs-http.log 2>&1 &
+          SERVER_PID=$!
+          trap "kill $SERVER_PID || true" EXIT
+          for i in $(seq 1 30); do if curl -fsS -o /dev/null http://127.0.0.1:8765/index.html; then break; fi; sleep 1; done
+          cd /tmp/level3-pdfjs-browser
+          node ./check.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: level3-pdfjs-browser-qa
+          path: |
+            /tmp/level3-pdfjs-output/
+            /tmp/level3-pdfjs-http.log
+          retention-days: 21
