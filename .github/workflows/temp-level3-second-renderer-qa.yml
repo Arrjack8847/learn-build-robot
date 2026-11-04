@@ -46,7 +46,7 @@ jobs:
               cmd=['pdftoppm','-r','36','-jpeg','-jpegopt','quality=80','-f','1','-l',str(n),str(f),prefix]
               p=subprocess.run(cmd,capture_output=True,text=True,timeout=360)
               assert p.returncode==0,(f,p.stderr[-1200:])
-              renders=sorted(Path(d).glob('page-*.jpg'))
+              renders=sorted(Path(d).glob('page-*.jpg'),key=lambda q:int(q.stem.rsplit('-',1)[-1]))
               assert len(renders)==n,(f,n,len(renders))
               for i,(src,path) in enumerate(zip(doc,renders)):
                 pix=src.get_pixmap(matrix=pymupdf.Matrix(.5,.5),alpha=False)
