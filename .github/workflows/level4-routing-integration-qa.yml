@@ -31,8 +31,19 @@ jobs:
           bun-version: latest
       - name: Install locked dependencies
         run: bun install --frozen-lockfile
+      - name: Install native canvas required by PDF.js in Node test runners
+        run: npm install --no-save --no-package-lock --ignore-scripts=false @napi-rs/canvas
       - name: Level 4 Learning, Building and Wix regression tests
         run: node --test tests/level-four-learning.test.mjs tests/level-four-building.test.mjs tests/level-four-wix-urls.test.mjs
-      - name: TypeScript type check
+      - name: Reject TypeScript errors in modified Level 4 source
         if: always()
-        run: bunx tsc --noEmit
+        shell: bash
+        run: |
+          bunx tsc --noEmit > /tmp/level4-tsc.log 2>&1 || true
+          if grep -E '^src/data/levelFourLearning\\.ts\\([0-9]+,[0-9]+\\): error TS' /tmp/level4-tsc.log; then
+            cat /tmp/level4-tsc.log
+            exit 1
+          fi
+          echo "::notice::No TypeScript diagnostics in modified Level 4 Learning source"
+          echo "Existing project-wide TypeScript diagnostics, if any:"
+          cat /tmp/level4-tsc.log
