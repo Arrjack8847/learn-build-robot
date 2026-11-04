@@ -33,12 +33,16 @@ test("Level 5 Learning PDFs resolve locally while Building PDFs retain Wix", () 
   const learning = lessons.filter(x => x.level === 5);
   assert.equal(learning.length, 51);
   for (const lesson of learning) {
-    assert.equal(urlFor(lesson.learningPdf), "/" + encoded(lesson.learningPdf), lesson.id + " should use cleaned local Learning PDF");
-    assert.equal(urlFor(lesson.learningPdf, "https://assets.example.test"), "/" + encoded(lesson.learningPdf), lesson.id + " must never fall back to old Wix");
+    assert.equal(urlFor(lesson.learningPdf), "/" + encoded(lesson.learningPdf).replace(/%26/gi, "&"), lesson.id + " should use cleaned local Learning PDF");
+    assert.equal(urlFor(lesson.learningPdf, "https://assets.example.test"), "/" + encoded(lesson.learningPdf).replace(/%26/gi, "&"), lesson.id + " must never fall back to old Wix");
     for (const manual of [lesson.buildingBasic, lesson.buildingOptimized].filter(Boolean)) {
       assert.equal(urlFor(manual), links[manual], lesson.id + " Building manual must remain on Wix");
     }
   }
+  const ampersandPath = learning.find(lesson => lesson.learningPdf.includes("&"));
+  assert.ok(ampersandPath, "At least one category contains an ampersand");
+  assert.match(urlFor(ampersandPath.learningPdf), /&/, "Literal ampersands avoid Vite static-file 404s");
+  assert.doesNotMatch(urlFor(ampersandPath.learningPdf), /%26/i);
   for (const lesson of lessons.filter(x => x.level === 6)) {
     for (const pdf of [lesson.learningPdf, lesson.buildingBasic, lesson.buildingOptimized].filter(Boolean)) {
       assert.equal(urlFor(pdf), levelSixLinks[pdf], lesson.id + " Level 6 PDF must remain on Wix");
