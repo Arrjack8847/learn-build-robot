@@ -46,5 +46,6 @@ test("Level 5 Learning PDFs resolve locally while Building PDFs retain Wix", () 
   }
   assert.equal(urlFor("Level 5/NonPDF/example.sb3"), "/Level%205/NonPDF/example.sb3", "Non-PDF assets retain fallback behavior");
   assert.equal(urlFor("Level 5/NonPDF/example.sb3", "https://assets.example.test"), "https://assets.example.test/public/Level%205/NonPDF/example.sb3");
-  assert.match(source, /const wixUrl = levelFiveWixPdfUrls\[path\] \?\? levelSixWixPdfUrls\[path\];/);
+  assert.match(source, /const wixUrl = levelSixWixPdfUrls\[path\];/);
+  assert.match(source, /const levelFiveWixUrl = levelFiveWixPdfUrls\[path\];/);
 });
