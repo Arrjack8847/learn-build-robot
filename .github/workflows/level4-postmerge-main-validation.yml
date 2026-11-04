@@ -1,0 +1,73 @@
+name: Level 4 post-merge main validation
+on:
+  push:
+    branches:
+      - internal/level4-postmerge-qa-20261104
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout pinned main merge commit
+        uses: actions/checkout@v4
+        with:
+          ref: 89c0ae9ed145ccc166af625aed680d7f5b84657f
+          filter: blob:none
+          sparse-checkout: |
+            src
+            tests
+            public/Level 4
+            package.json
+            bun.lock
+            tsconfig.json
+          persist-credentials: false
+      - name: Confirm pinned main SHA
+        shell: bash
+        run: |
+          test "$(git rev-parse HEAD)" = "89c0ae9ed145ccc166af625aed680d7f5b84657f"
+          echo "Main merge commit confirmed"
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+      - name: Install PDF.js Node canvas support
+        run: npm install --no-save --no-package-lock @napi-rs/canvas
+      - name: Run Level 4 Learning, Building and Wix test suite
+        run: node --test tests/level-four-learning.test.mjs tests/level-four-building.test.mjs tests/level-four-wix-urls.test.mjs
+      - name: Verify all cleaned PDFs resolve as local HTTP resources
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from functools import partial
+          from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
+          from threading import Thread
+          from urllib.parse import quote
+          from urllib.request import Request,urlopen
+          import re
+          paths=re.findall(r'pdfFile:\s*"([^"]+)"',Path("src/data/levelFourLearning.ts").read_text())
+          assert len(paths)==len(set(paths))==56, len(paths)
+          class Quiet(SimpleHTTPRequestHandler):
+              def log_message(self,*args):pass
+          server=ThreadingHTTPServer(("127.0.0.1",0),partial(Quiet,directory="public"))
+          Thread(target=server.serve_forever,daemon=True).start()
+          total=0
+          try:
+              for p in paths:
+                  file=Path("public")/p
+                  data=file.read_bytes()
+                  assert data[:5]==b"%PDF-",p
+                  path="/"+"/".join(quote(part,safe="") for part in p.split("/"))
+                  with urlopen(Request(f"http://127.0.0.1:{server.server_port}{path}",method="HEAD"),timeout=10) as response:
+                      assert response.status==200,(p,response.status)
+                      assert response.headers.get_content_type()=="application/pdf",p
+                      assert int(response.headers["Content-Length"])==len(data),p
+                  total+=len(data)
+          finally:
+              server.shutdown()
+          assert total==71894435,total
+          print(f"POSTMERGE_HTTP_PASS: {len(paths)} PDFs; {total} bytes; all 200/application/pdf")
+          PY
