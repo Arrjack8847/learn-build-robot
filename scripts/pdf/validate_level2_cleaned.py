@@ -22,17 +22,41 @@ def preserved_lines(text):
                                if x.strip() and not HAN.search(x) and not BRAND.search(x))
 
 def allowed_rectangles(page):
+    """Precisely identify expected changes, including split-brand heading spans.
+
+    A Chinese character can share a font/span with unrelated English, so only
+    its individual glyph bbox is permitted. A branding replacement can occupy
+    multiple spans on the same line: in that case the heading/paragraph's
+    original line bounds are allowed, not any other page area.
+    """
     result=[]
-    for block in page.get_text('dict')['blocks']:
+    for block in page.get_text('rawdict')['blocks']:
         for line in block.get('lines',[]):
-            for span in line['spans']:
-                if HAN.search(span['text']) or BRAND.search(span['text']):
-                    result.append((fitz.Rect(span['bbox']),"text"))
+            spans=line.get('spans',[])
+            all_chars=[char for span in spans for char in span.get('chars',[])]
+            text=''.join(ch.get('c','') for ch in all_chars)
+            if BRAND.search(text):
+                if all_chars:
+                    area=fitz.Rect(all_chars[0]['bbox'])
+                    for char in all_chars[1:]:area|=fitz.Rect(char['bbox'])
+                    result.append((area,'text'))
+                continue
+            for char in all_chars:
+                if HAN.search(char.get('c','')):
+                    result.append((fitz.Rect(char['bbox']),'glyph'))
     for image in page.get_images(full=True):
-        if (image[2],image[3]) not in LOGO_SIZES: continue
+        if (image[2],image[3]) not in LOGO_SIZES:continue
         for rect in page.get_image_rects(image[0]):
-            result.append((rect,"image"))
+            result.append((rect,'image'))
     return result
+
+def preserved_english_tokens(text):
+    """Keep English in mixed-language lines; old font deletion lost labels."""
+    items=collections.Counter()
+    for line in text.splitlines():
+        if BRAND.search(line):continue
+        items.update(tok.lower() for tok in re.findall(r'[A-Za-z]+',line))
+    return items
 
 def render(page, scale=.5):
     pm=page.get_pixmap(matrix=fitz.Matrix(scale,scale),alpha=False)
@@ -46,7 +70,7 @@ def check_diff(original, cleaned, regions):
     permitted=Image.new('L',before.size,0);draw=ImageDraw.Draw(permitted)
     scale=.5
     for box,kind in regions:
-        gap=15 if kind=="text" else 5
+        gap=15 if kind=="text" else (1 if kind=="glyph" else 5)
         x0=max(0,int((box.x0-gap)*scale));y0=max(0,int((box.y0-gap)*scale))
         x1=min(before.width,int((box.x1+gap)*scale+1))
         y1=min(before.height,int((box.y1+gap)*scale+1))
@@ -91,6 +115,8 @@ def run(mode):
             assert not BRAND.search(btext),(src,pi+1,'selectable brand remains')
             missing=preserved_lines(atext)-lines(btext)
             assert not missing,(src,pi+1,'nonbrand English lost',dict(missing))
+            english_missing=preserved_english_tokens(atext)-preserved_english_tokens(btext)
+            assert not english_missing,(src,pi+1,'English tokens lost (including mixed-language lines)',dict(english_missing))
             legal_before=[x.strip() for x in atext.splitlines() if COPYRIGHT.search(x)]
             legal_after=[x.strip() for x in btext.splitlines() if COPYRIGHT.search(x)]
             assert legal_before==legal_after,(src,pi+1,'legal line changed',legal_before,legal_after)
