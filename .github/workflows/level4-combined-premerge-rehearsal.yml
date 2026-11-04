@@ -1,0 +1,124 @@
+name: Level 4 combined pre-merge rehearsal (no deploy)
+on:
+  push:
+    branches:
+      - internal/level4-premerge-rehearsal-20261104
+permissions:
+  contents: read
+jobs:
+  combined-level4:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout approved candidate Learning PDF branch (PR 69)
+        uses: actions/checkout@v4
+        with:
+          ref: 99a5cc0ec5346a6fc4ea7f1c361fb46f93c37ea3
+          path: app
+          filter: blob:none
+          sparse-checkout: |
+            src
+            tests
+            public/Level 4
+            package.json
+            bun.lock
+            tsconfig.json
+          persist-credentials: false
+      - name: Checkout exact integration candidate (PR 73)
+        uses: actions/checkout@v4
+        with:
+          ref: 974f70fadbcac7e80bb0167be5894bcfa042b734
+          path: overlay
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            src/data/levelFourLearning.ts
+            tests/level-four-building.test.mjs
+            tests/level-four-learning.test.mjs
+            tests/level-four-wix-urls.test.mjs
+          persist-credentials: false
+      - name: Overlay only the four reviewed Level 4 integration files
+        shell: bash
+        run: |
+          set -euo pipefail
+          for file in src/data/levelFourLearning.ts tests/level-four-building.test.mjs tests/level-four-learning.test.mjs tests/level-four-wix-urls.test.mjs; do
+            test -f "overlay/$file"
+            cp "overlay/$file" "app/$file"
+          done
+          cd app
+          python - <<'PY'
+          import subprocess
+          changed = set(subprocess.check_output(["git","diff","--name-only"],text=True).splitlines())
+          expected = {
+            "src/data/levelFourLearning.ts",
+            "tests/level-four-building.test.mjs",
+            "tests/level-four-learning.test.mjs",
+            "tests/level-four-wix-urls.test.mjs",
+          }
+          assert changed == expected, (changed,expected)
+          print("COMBINED_FILES: exact 4 integration files over the cleaned PDF PR")
+          PY
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Install locked dependencies
+        working-directory: app
+        run: bun install --frozen-lockfile
+      - name: Install PDF.js canvas for Node
+        working-directory: app
+        run: npm install --no-save --no-package-lock @napi-rs/canvas
+      - name: Run Learning, Building, and Wix regressions on combined code
+        working-directory: app
+        run: node --test tests/level-four-learning.test.mjs tests/level-four-building.test.mjs tests/level-four-wix-urls.test.mjs
+      - name: HTTP HEAD smoke-test all 56 cleaned Learning URLs
+        working-directory: app
+        shell: bash
+        run: |
+          python - <<'PY'
+          from functools import partial
+          from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+          from pathlib import Path
+          from threading import Thread
+          from urllib.parse import quote
+          from urllib.request import Request,urlopen
+          import re
+          root=Path("public").resolve()
+          src=Path("src/data/levelFourLearning.ts").read_text()
+          paths=re.findall(r'pdfFile:\s*"([^"]+)"',src)
+          assert len(paths)==len(set(paths))==56,(len(paths),len(set(paths)))
+          class QuietHandler(SimpleHTTPRequestHandler):
+              def log_message(self,format,*args):pass
+          httpd=ThreadingHTTPServer(("127.0.0.1",0),partial(QuietHandler,directory=str(root)))
+          Thread(target=httpd.serve_forever,daemon=True).start()
+          total_bytes=0
+          try:
+              for path in paths:
+                  uri="/"+"/".join(quote(seg,safe="") for seg in path.split("/"))
+                  url=f"http://127.0.0.1:{httpd.server_port}{uri}"
+                  with urlopen(Request(url,method="HEAD"),timeout=8) as response:
+                      assert response.status==200,(path,response.status)
+                      assert response.headers.get_content_type()=="application/pdf",(path,response.headers.get_content_type())
+                      length=int(response.headers["Content-Length"])
+                      assert length>5000,(path,length)
+                      total_bytes+=length
+                  assert (root/path).read_bytes()[:5]==b"%PDF-"
+          finally:
+              httpd.shutdown()
+          print(f"HTTP_SMOKE_PASSED: {len(paths)} distinct cleaned Learning URLs; {total_bytes} bytes")
+          PY
+      - name: Confirm Building Wix URL registry unchanged
+        working-directory: app
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          s=Path("src/data/levelFourBuilding.ts").read_text()
+          w=Path("src/data/levelFourWixPdfUrls.ts").read_text()
+          assert "return levelFourWixPdfUrls[originalPath]" in s
+          allpaths=re.findall(r'["](Level 4/[^"]+\.pdf)["]\s*:\s*["]https://',w)
+          assert len(allpaths)==106,len(allpaths)
+          assert sum(x.startswith("Level 4/Building/") for x in allpaths)==50
+          fallbacks=s.split("LEVEL_FOUR_LEARNING_AS_BUILDING_IDS = [")[1].split("] as const")[0]
+          assert fallbacks.count('"level-4-')==8
+          print("BUILDING_UNTOUCHED: 50 Wix Building URLs, 8 inherited fallbacks")
+          PY
