@@ -34,4 +34,5 @@ jobs:
       - name: Level 4 Learning, Building and Wix regression tests
         run: node --test tests/level-four-learning.test.mjs tests/level-four-building.test.mjs tests/level-four-wix-urls.test.mjs
       - name: TypeScript type check
+        if: always()
         run: bunx tsc --noEmit
