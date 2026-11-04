@@ -5,6 +5,9 @@ on:
       - fix/level2-pdf-cleanup
     paths:
       - .github/workflows/level2-pdf-clean-execute-20261104.yml
+      - scripts/pdf/clean_level2_learning_once.py
+      - scripts/pdf/validate_level2_cleaned.py
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:
