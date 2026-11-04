@@ -1,0 +1,85 @@
+name: Temporary Level 3 Deep Visual Audit
+on:
+  push:
+    branches:
+      - tmp/level3-pdf-cleanup-runner
+    paths:
+      - .github/workflows/temp-level3-deep-audit-20261104.yml
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: original
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level3-pdf-cleanup
+          path: cleaned
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 3/Learning
+      - run: python3 -m pip install --quiet pymupdf pillow
+      - name: Audit all changed pages and render instructional-text comparisons
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,re,collections
+          import pymupdf as fitz
+          from PIL import Image,ImageChops,ImageDraw
+          H=re.compile(r'[\u3400-\u9fff\uf900-\ufaff]')
+          O=Path('original/public/Level 3/Learning')
+          C=Path('cleaned/public/Level 3/Learning')
+          paths=sorted(p.relative_to(O) for p in O.rglob('*.pdf'))
+          assert len(paths)==43
+          out=Path('/tmp/level3-deep-audit');out.mkdir()
+          allfiles=[];cn=0;vischanged=0;clean_pages=0;chinese_pages=[]
+          for idx,rel in enumerate(paths):
+            before=fitz.open(O/rel);after=fitz.open(C/rel)
+            assert len(before)==len(after)
+            info={'file':str(rel),'pages':len(before),'changed_pages':[],'chinese_pages':[]}
+            clean_pages+=len(before)
+            for j,(a,b) in enumerate(zip(before,after)):
+              atxt=a.get_text();btxt=b.get_text()
+              apix=a.get_pixmap(matrix=fitz.Matrix(.7,.7),alpha=False)
+              bpix=b.get_pixmap(matrix=fitz.Matrix(.7,.7),alpha=False)
+              assert apix.width==bpix.width and apix.height==bpix.height
+              changed=apix.samples!=bpix.samples
+              if changed:
+                vischanged+=1; info['changed_pages'].append(j+1)
+              ch=bool(H.search(atxt))
+              if ch:
+                cn+=1; info['chinese_pages'].append(j+1)
+                oldlines=[]
+                for block in a.get_text('dict')['blocks']:
+                  for line in block.get('lines',[]):
+                    text=''.join(sp['text'] for sp in line['spans'])
+                    if H.search(text):
+                      oldlines.append({'text':text,'bbox':[round(x,1) for x in line['bbox']]})
+                ab=Image.frombytes('RGB',(apix.width,apix.height),apix.samples)
+                bb=Image.frombytes('RGB',(bpix.width,bpix.height),bpix.samples)
+                canvas=Image.new('RGB',(ab.width*2,ab.height+30),'white')
+                canvas.paste(ab,(0,30));canvas.paste(bb,(ab.width,30))
+                ImageDraw.Draw(canvas).text((5,6),f'ORIGINAL left / EDITED right  file {idx+1} p{j+1}',fill='black')
+                filename=f'chinese-{idx:02d}-p{j+1:02d}.png'
+                canvas.save(out/filename,optimize=True)
+                chinese_pages.append({'file':str(rel),'page':j+1,'original_chinese':oldlines,'render':filename,'pixel_changed':changed,'cleaned_text_excerpt':btxt[:1500]})
+            allfiles.append(info)
+            print(f'{idx+1}/43 {len(before)} pages edited-visual={len(info["changed_pages"])} original-chinese={len(info["chinese_pages"])} {rel}',flush=True)
+          assert clean_pages==1062
+          (out/'audit.json').write_text(json.dumps({'pdfs':43,'total_pages':clean_pages,'changed_pages_count':vischanged,'original_chinese_pages':cn,'files':allfiles,'chinese_details':chinese_pages},ensure_ascii=False,indent=2))
+          print('DEEP_AUDIT_PASS 43 PDFs 1062 pages',vischanged,'visually changed pages',cn,'pages with original Chinese text',flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: level3-deep-audit-20261104
+          path: /tmp/level3-deep-audit/
+          retention-days: 14
