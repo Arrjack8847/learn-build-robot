@@ -4,7 +4,7 @@ on:
     branches: ['fix/level5-pdf-cleanup']
     paths: ['.github/workflows/level5-verification-export.yml']
 permissions:
-  contents: read
+  contents: write
 jobs:
   export-pdfs:
     runs-on: ubuntu-24.04
@@ -30,3 +30,13 @@ jobs:
           if-no-files-found: error
           retention-days: 3
           compression-level: 0
+
+      - name: Restore Level 5 PDF-only PR after verification export
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/level5-verification-export.yml
+          git commit -m "chore(level5): remove temporary visual QA export workflow"
+          git push origin HEAD:fix/level5-pdf-cleanup
