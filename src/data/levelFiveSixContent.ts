@@ -1442,8 +1442,12 @@ function publicUrl(path: string): string {
   if (path.startsWith("Level 5/Learning/") && path.endsWith(".pdf")) {
     return "/" + encodePath(path);
   }
-  const wixUrl = levelFiveWixPdfUrls[path] ?? levelSixWixPdfUrls[path];
+  // Explicit Level 6 lookup retains the existing Level 6 Wix contract.
+  const wixUrl = levelSixWixPdfUrls[path];
   if (wixUrl) return wixUrl;
+  // Other Level 5 PDFs (Building manuals) continue to use their Wix copies.
+  const levelFiveWixUrl = levelFiveWixPdfUrls[path];
+  if (levelFiveWixUrl) return levelFiveWixUrl;
   const base = assetBase();
   return base ? base + "/" + encodePath("public/" + path) : "/" + encodePath(path);
 }
