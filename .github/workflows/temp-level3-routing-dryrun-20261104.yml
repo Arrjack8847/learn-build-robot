@@ -49,7 +49,7 @@ jobs:
           const method=/export function levelOneToThreeLearningPdfUrl\([\s\S]*?\n\}/;
           assert.ok(method.test(src));
           function compile(s) {
-            const fn=s.match(method)[0].replace('export function','function').replace('level: 1 | 2 | 3','level');
+            const fn=s.match(method)[0].replace('export function','function').replace('level: 1 | 2 | 3','level').replace('relativePath: string','relativePath').replace('): string {',') {');
             return vm.runInNewContext(fn+'; levelOneToThreeLearningPdfUrl',{levelOneToThreeWixPdfUrls:wix,encodeURIComponent});
           }
           const before=compile(src), after=compile(modified);
