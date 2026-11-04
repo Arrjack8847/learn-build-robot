@@ -1,0 +1,73 @@
+name: Level 5 integrated pre-merge QA (cleaned PDFs + routing)
+on:
+  push:
+    branches: ['tmp/level5-integrated-premerge-qa-20261104']
+    paths: ['.github/workflows/level5-integrated-premerge-qa.yml']
+permissions:
+  contents: read
+jobs:
+  verify-combined-prs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out combined Level 5 PDF and routing changes
+        uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            public/Level 5/Learning
+            src
+            tests
+            scripts
+          sparse-checkout-cone-mode: true
+          lfs: false
+      - name: Check exact repository paths and PDF integrity
+        shell: bash
+        run: |
+          python -m pip install --quiet 'PyMuPDF==1.26.7'
+          python - <<'PY'
+          import re,json,fitz
+          from pathlib import Path
+          root=Path('public/Level 5/Learning')
+          files=sorted(root.rglob('*.pdf'))
+          assert len(files)==51,('Wrong Level 5 Learning PDF count',len(files))
+          source=Path('src/data/levelFiveSixContent.ts').read_text()
+          data=json.loads(re.search(r'export const levelFiveSixLessons: readonly AdvancedLessonAsset\[\] = (\[[\s\S]*?\]);',source).group(1))
+          paths={p['learningPdf'] for p in data if p['level']==5}
+          assert len(paths)==51
+          actual={f.relative_to(Path('public')).as_posix() for f in files}
+          assert actual==paths,('Missing PDF paths',list(paths-actual),'Extra PDFs',list(actual-paths))
+          cjk=re.compile(r'[\u3400-\u9fff]')
+          brand=re.compile(r'intelligen(?:t|ce)?\s*storm|smart\s*storm|joinmax',re.I)
+          n=0
+          for file in files:
+              assert file.read_bytes().startswith(b'%PDF-'),file
+              doc=fitz.open(file)
+              assert not doc.is_encrypted and len(doc)>0,file
+              for page in doc:
+                  text=page.get_text()
+                  assert not cjk.search(text),(file,'Chinese text still embedded')
+                  assert not brand.search(text),(file,'Branding remains')
+                  img=page.get_pixmap(matrix=fitz.Matrix(.2,.2),alpha=False)
+                  assert img.width>0 and img.height>0,(file,'Cannot render')
+                  n+=1
+              doc.close()
+          assert n==1251,n
+          print('PASS: all 51 PDFs match Level 5 registry; all 1,251 pages open/render; no remaining selectable CJK or target branding')
+          PY
+      - name: Run Level 5 and Level 6 registry, routing, and legacy asset tests
+        run: |
+          node --version
+          node --test tests/level-five-wix-urls.test.mjs tests/level-six-wix-urls.test.mjs tests/level-five-six-assets.test.mjs tests/level-five-six-extra-pdfs.test.mjs
+      - name: Ensure only intended paths differ from main
+        shell: bash
+        run: |
+          git fetch origin main
+          python - <<'PY'
+          import subprocess
+          names=subprocess.check_output(['git','diff','--name-only','origin/main...HEAD']).decode().splitlines()
+          expected={'src/data/levelFiveSixContent.ts','tests/level-five-wix-urls.test.mjs','.github/workflows/level5-integrated-premerge-qa.yml'}
+          assert len(names)==54,(len(names),names)
+          assert all(n.startswith('public/Level 5/Learning/') and n.endswith('.pdf') or n in expected for n in names),names
+          print('PASS: precisely 51 PDFs + routing source + test + temporary QA workflow')
+          PY
