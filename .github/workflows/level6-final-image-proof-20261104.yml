@@ -1,0 +1,134 @@
+name: Level 6 Final Read-only Visual and Source Integrity QA
+on:
+  push:
+    branches: [fix/level6-pdf-cleanup]
+    paths: [.github/workflows/level6-final-image-proof-20261104.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level6-pdf-cleanup
+          filter: blob:none
+          fetch-depth: 0
+          sparse-checkout: |
+            public/Level 6/Learning
+            .github/workflows
+          sparse-checkout-cone-mode: true
+          lfs: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet 'PyMuPDF==1.26.7' 'Pillow>=10,<13' 'numpy>=1.26,<3'
+      - name: Compare all PDF text, page geometry, embedded artwork and output exact baseline samples
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from collections import Counter
+          from PIL import Image,ImageDraw
+          import fitz,json,subprocess,re,io,hashlib
+          root=Path('public/Level 6/Learning')
+          base='b52b9cca94269e30d00024c87e746cec51a55234'
+          out=Path('/tmp/level6-proof');out.mkdir(parents=True,exist_ok=True)
+          originals=out/'original-eight';originals.mkdir(exist_ok=True)
+          finals=out/'final-eight';finals.mkdir(exist_ok=True)
+          targetPaths=[
+            'Autonomous Navigation & Ranging/Gesture-commanding Car/23. Gesture-commanding Car-Teaching Slides.pdf',
+            'Biomimicry & Stimulus Response/Matador/02.Matador-update.pdf',
+            'Complex Mechanisms & Coordinated Motion/Dancing Robot/0.3Dancing Robot-update.pdf',
+            'Illumination & Signals/Smart Flashlight/27.Lesson 27 Smart Flashlight-Teaching Slides.pdf',
+            'Interactive Mechanisms/Finger-guessing Robot/04.Finger-guessing Robot.pdf',
+            'Interactive Systems/The Interesting Rotor/19. The Interesting Rotor-Teaching Slides.pdf',
+            'Programming & Precise Control/Remote Control Lift/22. Remote Control Lift-Teaching Slides.pdf',
+            'Sensor-Focused Robots/Ball Tracking/08.Ball Tracking.pdf'
+          ]
+          rootPaths=sorted(root.rglob('*.pdf'))
+          assert len(rootPaths)==43,('inventory',len(rootPaths))
+          assert len(targetPaths)==8 and all((root/p).exists() for p in targetPaths)
+          brand=re.compile(r'intelligen(?:ce|t)?\s+storm|smart\s+storm|智能风暴',re.I)
+          cjk=re.compile(r'[\u3400-\u9fff\uf900-\ufaff]')
+          logos={(1086,268),(586,178)}
+          allreport={'files':[],'total_pages':0,'chinese_text_pages':[],'brand_text_pages':[],'brand_logo_pages':[],'errors':[],'base8':[]}
+          allPages=0
+          for path in rootPaths:
+            d=fitz.open(path);name=path.relative_to(root).as_posix()
+            allreport['total_pages']+=len(d)
+            item={'path':name,'pages':len(d),'size':path.stat().st_size,'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'blank_pages':[]}
+            for i,page in enumerate(d):
+              text=page.get_text()
+              if cjk.search(text):allreport['chinese_text_pages'].append([name,i+1])
+              if brand.search(text):allreport['brand_text_pages'].append([name,i+1])
+              if not text.strip() and len(page.get_images(full=True))==0:
+                item['blank_pages'].append(i+1)
+              if any((im[2],im[3]) in logos for im in page.get_images(full=True)):
+                allreport['brand_logo_pages'].append([name,i+1])
+            allreport['files'].append(item)
+            d.close()
+          assert allreport['total_pages']==1068,allreport['total_pages']
+          oldtiles=[];oldpages=0
+          for idx,p in enumerate(targetPaths):
+            full='public/Level 6/Learning/'+p
+            b=subprocess.check_output(['git','show',base+':'+full])
+            original=originals/f'{idx+1:02d}.pdf';original.write_bytes(b)
+            final=finals/f'{idx+1:02d}.pdf';final.write_bytes((root/p).read_bytes())
+            a=fitz.open(stream=b,filetype='pdf');c=fitz.open(root/p)
+            r={'path':p,'pages_before':len(a),'pages_after':len(c),'original_sha256':hashlib.sha256(b).hexdigest(),'final_sha256':hashlib.sha256((root/p).read_bytes()).hexdigest(),'text_missing_pages':[],'image_change_pages':[],'visible_change_pages':[],'geometry_change_pages':[],'loss_of_legal_pages':[],'branded_before_pages':[],'branded_after_pages':[]}
+            assert len(a)==len(c),(p,'page count')
+            for n in range(len(a)):
+              oldpages+=1;old=a[n];new=c[n]
+              if tuple(old.rect)!=tuple(new.rect) or old.rotation!=new.rotation:r['geometry_change_pages'].append(n+1)
+              txt0=old.get_text();txt1=new.get_text()
+              # Retain all distinct non-brand English terms. Changed cover headings may reflow.
+              tokens=lambda txt:Counter(re.findall(r'[a-z]+',brand.sub(' ',txt.lower())))
+              missing=tokens(txt0)-tokens(txt1)
+              if missing:r['text_missing_pages'].append([n+1,dict(missing)])
+              legal=lambda txt:[s.strip() for s in txt.splitlines() if re.search(r'copyright|all rights reserved|©',s,re.I)]
+              if legal(txt0)!=legal(txt1):r['loss_of_legal_pages'].append(n+1)
+              if brand.search(txt0):r['branded_before_pages'].append(n+1)
+              if brand.search(txt1):r['branded_after_pages'].append(n+1)
+              ims=lambda doc,page:Counter((im[2],im[3],hashlib.sha256(doc.extract_image(im[0])['image']).hexdigest()[:12])
+                 for im in page.get_images(full=True) if (im[2],im[3]) not in logos and (im[2],im[3])!=(1,1))
+              if ims(a,old)!=ims(c,new):r['image_change_pages'].append(n+1)
+              pix0=old.get_pixmap(matrix=fitz.Matrix(.40,.40),alpha=False)
+              pix1=new.get_pixmap(matrix=fitz.Matrix(.40,.40),alpha=False)
+              if (pix0.width,pix0.height)!=(pix1.width,pix1.height) or pix0.samples!=pix1.samples:
+                r['visible_change_pages'].append(n+1)
+                def snapshot(pix):
+                  im=Image.frombytes('RGB',(pix.width,pix.height),pix.samples)
+                  im.thumbnail((390,255))
+                  return im
+                im0=snapshot(pix0);im1=snapshot(pix1)
+                tile=Image.new('RGB',(800,290),'white')
+                tile.paste(im0,((400-im0.width)//2,9))
+                tile.paste(im1,(400+(400-im1.width)//2,9))
+                ImageDraw.Draw(tile).text((5,265),f'{idx+1:02d} {Path(p).stem[:45]} page {n+1} before / after',fill='black')
+                oldtiles.append(tile)
+            allreport['base8'].append(r);a.close();c.close()
+          for start in range(0,len(oldtiles),8):
+            sheet=Image.new('RGB',(1600,1160),'#dadada')
+            for j,tile in enumerate(oldtiles[start:start+8]):sheet.paste(tile,((j%2)*800,(j//2)*290))
+            sheet.save(out/f'first8-all-changed-{start//8+1:02d}.jpg',quality=80,optimize=True)
+          (out/'final-report.json').write_text(json.dumps(allreport,indent=2,ensure_ascii=False),encoding='utf8')
+          print('LEVEL6_FINAL_COUNT',json.dumps({k:allreport[k] for k in ('total_pages','chinese_text_pages','brand_text_pages','brand_logo_pages')},ensure_ascii=False))
+          print('LEVEL6_FIRST8_RESULTS',json.dumps(allreport['base8'],ensure_ascii=False))
+          print('LEVEL6_FIRST8_CONTACTS',len(oldtiles),len(list(out.glob('first8-all-changed-*.jpg'))))
+          print('LEVEL6_FINAL_PDF_SHA256',json.dumps([[x['path'],x['sha256']] for x in allreport['files']]))
+          assert not allreport['chinese_text_pages'],allreport['chinese_text_pages']
+          assert not allreport['brand_text_pages'],allreport['brand_text_pages']
+          assert not allreport['brand_logo_pages'],allreport['brand_logo_pages']
+          assert all(not v['geometry_change_pages'] and not v['loss_of_legal_pages'] for v in allreport['base8'])
+          PY
+      - name: Upload complete Level 6 proof and eight pre-clean baseline PDFs for independent visual review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: level6-final-visual-source-qa
+          path: /tmp/level6-proof/
+          retention-days: 21
+          if-no-files-found: warn
