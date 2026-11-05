@@ -1,0 +1,81 @@
+name: Level 2 independent full-resolution visual evidence
+on:
+  push:
+    branches: [audit/level2-full-resolution-visual-20261105]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: b52b9cca94269e30d00024c87e746cec51a55234
+          path: original
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/level2-pdf-cleanup
+          path: cleaned
+          persist-credentials: false
+      - name: Ensure audited delivery head is unchanged
+        run: |
+          test "$(git -C cleaned rev-parse HEAD)" = "239204ff69c017aa6ced8f927e5bc297b4d7cdb4"
+      - name: Install rendering dependencies
+        run: python -m pip install --disable-pip-version-check pymupdf pillow numpy
+      - name: Render every visually changed page at 2x
+        env:
+          SHARD: ${{ matrix.shard }}
+        run: |
+          python - <<'PY'
+          import os, pathlib, json, fitz
+          from PIL import Image, ImageChops, ImageEnhance
+          from io import BytesIO
+          root=pathlib.Path('public/Level 2/Learning')
+          base=pathlib.Path('original')/root
+          new=pathlib.Path('cleaned')/root
+          files=sorted(new.rglob('*.pdf'))
+          files=[p for p in files if p.name!='Double beam crane_Building_Powerpoint.pdf']
+          assert len(files)==43, f'expected 43, got {len(files)}'
+          shard=int(os.environ['SHARD'])
+          subset=[p for i,p in enumerate(files) if i%6==shard]
+          out=pathlib.Path('visual-evidence')/f'shard-{shard}'
+          out.mkdir(parents=True,exist_ok=True)
+          summary=[]
+          for p in subset:
+            rel=p.relative_to(new)
+            orig=base/rel
+            assert orig.is_file(),str(rel)
+            with fitz.open(orig) as a,fitz.open(p) as b:
+              assert len(a)==len(b),str(rel)
+              pages=[]
+              for idx in range(len(a)):
+                pa=a[idx].get_pixmap(matrix=fitz.Matrix(2,2),alpha=False)
+                pb=b[idx].get_pixmap(matrix=fitz.Matrix(2,2),alpha=False)
+                assert (pa.width,pa.height)==(pb.width,pb.height),(str(rel),idx)
+                ia=Image.frombytes('RGB',(pa.width,pa.height),pa.samples)
+                ib=Image.frombytes('RGB',(pb.width,pb.height),pb.samples)
+                diff=ImageChops.difference(ia,ib)
+                if diff.getbbox() is None: continue
+                pages.append(idx+1)
+                folder=out/rel.with_suffix('')/f'page-{idx+1:03}'
+                folder.mkdir(parents=True,exist_ok=True)
+                ia.save(folder/'before.png',optimize=True)
+                ib.save(folder/'after.png',optimize=True)
+                ImageEnhance.Contrast(diff).enhance(4).save(folder/'diff-enhanced.png',optimize=True)
+              summary.append({'pdf':str(rel),'pages':len(a),'changed_pages':pages})
+          (out/'manifest.json').write_text(json.dumps(summary,indent=2))
+          print('shard',shard,'PDFs',len(summary),'changed pages',sum(len(x['changed_pages']) for x in summary))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: level2-fullres-shard-${{ matrix.shard }}
+          path: visual-evidence/
+          retention-days: 21
+          compression-level: 6
