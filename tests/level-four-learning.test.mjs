@@ -39,6 +39,7 @@ function loadDataModule(relativePath) {
 
 const { getAdvancedLevel, syllabusSlug } = loadDataModule("src/data/advancedSyllabus.ts");
 const { levelFourLearningLessons } = loadDataModule("src/data/levelFourLearning.ts");
+const { levelFourWixPdfUrls } = loadDataModule("src/data/levelFourWixPdfUrls.ts");
 const { pdfActivityManuals, isPdfActivityProject } = loadDataModule(
   "src/data/pdfActivityManuals.ts",
 );
@@ -95,7 +96,7 @@ test("Every uploaded Level 4 PDF parses in the website renderer with its source 
   for (const lesson of levelFourLearningLessons) {
     const file = resolve(root, "public", lesson.pdfFile);
     expectedFiles.add(file);
-    assert.equal(lesson.url, "/" + lesson.pdfFile.split("/").map(encodeURIComponent).join("/"));
+    assert.equal(lesson.url, levelFourWixPdfUrls[lesson.pdfFile]);
     const bytes = readFileSync(file);
     assert.equal(bytes.subarray(0, 5).toString("ascii"), "%PDF-", lesson.pdfFile);
     const task = getDocument({ data: new Uint8Array(bytes) });
