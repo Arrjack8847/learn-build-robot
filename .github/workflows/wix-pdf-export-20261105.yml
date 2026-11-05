@@ -15,10 +15,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - level: "4"
+          - level: "1"
             ref: "main"
-            source: "public/Level 4"
-            expected: "56"
+            source: "public/Level 1/Learning"
+            expected: "45"
 
     steps:
       - name: Fetch just this level's PDF source
