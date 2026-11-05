@@ -1,0 +1,127 @@
+name: Verify Wix-first cleaned Learning PDF mappings
+
+on:
+  push:
+    branches:
+      - fix/wix-cleaned-learning-links-20261105
+  pull_request:
+    paths:
+      - src/data/levelOneToThreeWixPdfUrls.ts
+      - src/data/levelFourWixPdfUrls.ts
+      - src/data/levelFiveWixPdfUrls.ts
+      - src/data/levelSixWixPdfUrls.ts
+      - src/data/staticPdfUrl.ts
+      - src/data/levelFourLearning.ts
+      - tests/level-one-to-three-wix-urls.test.mjs
+      - tests/level-four-wix-urls.test.mjs
+      - tests/level-five-wix-urls.test.mjs
+
+jobs:
+  routing-and-scope:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Existing Wix URL mapping regressions
+        run: |
+          node --test tests/level-one-to-three-wix-urls.test.mjs tests/level-four-wix-urls.test.mjs tests/level-five-wix-urls.test.mjs
+      - name: Verify 281 cleaned Learning URLs and all original Building URLs
+        run: |
+          python3 - <<'PY'
+          import json, re, subprocess
+          from pathlib import Path
+
+          specs = [
+            ('src/data/levelOneToThreeWixPdfUrls.ts', {1:45,2:43,3:43}),
+            ('src/data/levelFourWixPdfUrls.ts', {4:56}),
+            ('src/data/levelFiveWixPdfUrls.ts', {5:51}),
+            ('src/data/levelSixWixPdfUrls.ts', {6:43}),
+          ]
+          match = re.compile(r'^\s*"([^"]+)":\s*"([^"]+)"[,]?\s*$',re.M)
+          result = {}
+          new_urls = []
+          for path, counts in specs:
+            actual = dict(match.findall(Path(path).read_text()))
+            previous = dict(match.findall(subprocess.check_output(
+              ['git','show',f'origin/main:{path}'],text=True
+            )))
+            assert actual.keys()==previous.keys(), f'Changed registry keys: {path}'
+            for level, count in counts.items():
+              prefix=f'Level {level}/'
+              learn=[k for k in actual if k.startswith(prefix) and
+                (k.startswith(prefix+'Learning/') if level!=4 else not k.startswith(prefix+'Building/'))]
+              if level==2:
+                learn=[k for k in learn if '_Building_' not in k]
+              assert len(learn)==count,(level,len(learn),count)
+              for k in learn:
+                assert actual[k]!=previous[k], f'Unchanged Learning URL: {k}'
+                url=actual[k]
+                assert re.fullmatch(
+                  r'https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0\.usrfiles\.com/ugd/78042f_[a-f0-9]{32}\.pdf',
+                  url
+                ), f'Invalid cleaned Wix PDF URL: {k} -> {url}'
+                new_urls.append(url)
+              result[level]=len(learn)
+            for k in actual:
+              if k not in [q for l in counts for q in actual if q.startswith(f'Level {l}/') and (q.startswith(f'Level {l}/Learning/') if l!=4 else not q.startswith(f'Level {l}/Building/'))]:
+                assert actual[k]==previous[k], f'Unexpected change to non-Learning URL: {k}'
+          assert sum(result.values())==281,result
+          assert len(new_urls)==281 and len(set(new_urls))==281, 'Duplicate or missing cleaned Wix Learning URLs'
+          source=Path('src/data/staticPdfUrl.ts').read_text()
+          level4=Path('src/data/levelFourLearning.ts').read_text()
+          advanced=Path('src/data/levelFiveSixContent.ts').read_text()
+          assert 'if (level === 1) return localUrl' not in source
+          assert 'return levelOneToThreeWixPdfUrls[path] ?? localUrl' in source
+          assert 'return levelFourWixPdfUrls[path] ??' in level4
+          assert 'levelFiveWixPdfUrls[path] ?? levelSixWixPdfUrls[path]' in advanced
+          print('PASS: cleaned Wix Learning URLs',result,'and all untouched Building/legacy mappings')
+          PY
+      - name: Public Wix PDF response smoke test (one per level)
+        run: |
+          python3 - <<'PY'
+          import re
+          import urllib.request
+          from pathlib import Path
+
+          registry_paths = {
+            1: 'src/data/levelOneToThreeWixPdfUrls.ts',
+            2: 'src/data/levelOneToThreeWixPdfUrls.ts',
+            3: 'src/data/levelOneToThreeWixPdfUrls.ts',
+            4: 'src/data/levelFourWixPdfUrls.ts',
+            5: 'src/data/levelFiveWixPdfUrls.ts',
+            6: 'src/data/levelSixWixPdfUrls.ts',
+          }
+          entry = re.compile(r'^\s*"([^"]+)":\s*"(https://[^"]+\.pdf)"[,]?\s*$', re.M)
+
+          for level, filename in registry_paths.items():
+            mappings = dict(entry.findall(Path(filename).read_text()))
+            if level == 4:
+              candidates = [
+                (name, url) for name, url in mappings.items()
+                if name.startswith('Level 4/') and not name.startswith('Level 4/Building/')
+              ]
+            else:
+              candidates = [
+                (name, url) for name, url in mappings.items()
+                if name.startswith(f'Level {level}/Learning/')
+                and not (level == 2 and '_Building_' in name)
+              ]
+            assert candidates, f'No Learning PDF URLs found for Level {level}'
+            name, url = candidates[0]
+            request = urllib.request.Request(
+              url,
+              headers={
+                'Range': 'bytes=0-15',
+                'User-Agent': 'Mozilla/5.0 BE-STEM-READY-PDF-QA'
+              }
+            )
+            with urllib.request.urlopen(request, timeout=30) as response:
+              status = response.status
+              magic = response.read(5)
+              content_type = response.headers.get('Content-Type', '')
+            assert status in (200, 206), (level, name, status)
+            assert magic == b'%PDF-', (level, name, status, content_type, magic)
+            print(f'PASS Level {level}: HTTP {status}, {content_type}, {name}')
+          PY
