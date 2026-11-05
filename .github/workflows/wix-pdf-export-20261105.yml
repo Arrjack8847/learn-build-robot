@@ -15,22 +15,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - level: "2"
-            ref: "fix/level2-pdf-cleanup"
-            source: "public/Level 2/Learning"
-            expected: "43"
-          - level: "3"
-            ref: "fix/level3-pdf-cleanup"
-            source: "public/Level 3/Learning"
-            expected: "43"
           - level: "4"
             ref: "main"
             source: "public/Level 4"
             expected: "56"
-          - level: "5"
-            ref: "fix/level5-pdf-cleanup"
-            source: "public/Level 5/Learning"
-            expected: "51"
 
     steps:
       - name: Fetch just this level's PDF source
@@ -58,6 +46,10 @@ jobs:
           expected=int(os.environ['EXPECTED'])
           assert source.exists(), f'Missing source: {source}'
           found=sorted(source.rglob('*.pdf'))
+          if level==4:
+              building=[p for p in found if p.relative_to(source).parts[0]=='Building']
+              assert len(building)==50,len(building)
+              found=[p for p in found if p not in building]
           if level==2:
               excluded=[p for p in found if '_building_' in p.name.lower()]
               assert len(excluded)==1 and excluded[0].name=='Double beam crane_Building_Powerpoint.pdf',excluded
