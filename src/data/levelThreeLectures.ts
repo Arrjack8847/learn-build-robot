@@ -1,4 +1,4 @@
-import { pdfActivityManuals } from "./pdfActivityManuals";
+import { pdfActivityManuals, type PdfActivityManual } from "./pdfActivityManuals";
 import type { LevelOneLecture } from "./levelOneLectures";
 import { levelOneToThreeLearningPdfUrl } from "./staticPdfUrl";
 
@@ -74,8 +74,8 @@ export const levelThreeLectures: Record<string, LevelOneLecture> = {
     {
       projectId,
       url: levelOneToThreeLearningPdfUrl(3, relativePath),
-      // Preserve the current presentation-only projects' unavailable Building mode.
-      learningOnly: pdfActivityManuals[projectId]?.sourceKind === "powerpoint",
+      // Presentation-only sources now have a separate Building reference activity.
+      learningOnly: false,
     },
   ])),
   ...Object.fromEntries(LEVEL_THREE_BUILDING_PDF_LEARNING_FALLBACK_IDS.map(projectId => {
@@ -93,3 +93,17 @@ export const levelThreeLectures: Record<string, LevelOneLecture> = {
 
 export const getLevelThreeLecture = (projectId: string): LevelOneLecture | undefined =>
   levelThreeLectures[projectId];
+
+/** Reuse verified Learning slides for Level 3 projects with no confirmed assembly manual. */
+export function getLevelThreeBuildingReferenceManual(projectId: string): PdfActivityManual | undefined {
+  const original = pdfActivityManuals[projectId];
+  const lecture = levelThreeLectures[projectId];
+  if (original?.sourceKind !== "powerpoint" || !lecture) return undefined;
+  return {
+    id: projectId,
+    title: original.title,
+    url: lecture.url,
+    completionStepId: projectId + "-building-reference-reviewed",
+    learningFallback: true,
+  };
+}

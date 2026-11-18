@@ -23,7 +23,7 @@ import { PdfActivityViewer } from "@/components/practical/PdfActivityViewer";
 import { pdfActivityManuals } from "@/data/pdfActivityManuals";
 import { getLevelOneLecture } from "@/data/levelOneLectures";
 import { getLevelTwoLecture } from "@/data/levelTwoLectures";
-import { getLevelThreeLecture } from "@/data/levelThreeLectures";
+import { getLevelThreeLecture, getLevelThreeBuildingReferenceManual } from "@/data/levelThreeLectures";
 import { getLevelFourBuildingManual } from "@/data/levelFourBuilding";
 import { levelFourLearningManuals } from "@/data/levelFourLearning";
 import { getLevelFiveSixBuildingManual, levelFiveSixLearningLectures } from "@/data/levelFiveSixContent";
@@ -58,8 +58,8 @@ import type { PracticalProject } from "@/types/learning";
 
 export const Route = createFileRoute("/practical/$projectId")({
   validateSearch: (search: Record<string, unknown>) => ({
-    mode: search.mode === "learning" ? ("learning" as const) : ("building" as const),
-    variant: search.variant === "optimized" ? ("optimized" as const) : undefined,
+    mode: search["mode"] === "learning" ? ("learning" as const) : ("building" as const),
+    ...(search["variant"] === "optimized" ? { variant: "optimized" as const } : {}),
   }),
   component: PracticalProjectPage,
 });
@@ -76,19 +76,25 @@ function PracticalProjectPage() {
     return <MissingProject />;
   }
 
+  const levelFourLecture = project.level === 4 ? levelFourLearningManuals[project.id] : undefined;
   const lecture = project.level === 1 ? getLevelOneLecture(project.id) :
     project.level === 2 ? getLevelTwoLecture(project.id) :
     project.level === 3 ? getLevelThreeLecture(project.id) :
-    project.level === 4 && levelFourLearningManuals[project.id]
-      ? { projectId: project.id, url: levelFourLearningManuals[project.id].url, learningOnly: false } :
+    project.level === 4 && levelFourLecture
+      ? { projectId: project.id, url: levelFourLecture.url, learningOnly: false } :
     project.level === 5 || project.level === 6 ? levelFiveSixLearningLectures[project.id] : undefined;
-  // Legacy direct links to slide-only projects should still open their lecture.
-  if (lecture && (mode === "learning" || lecture.learningOnly)) {
+  // Respect the selected mode even when a project has only Learning slides.
+  if (lecture && mode === "learning") {
     return <LevelOneLearningStudio key={project.id} projectId={project.id} title={project.title} level={project.level === 5 || project.level === 6 ? project.level : project.level === 4 ? 4 : project.level === 3 ? 3 : project.level === 2 ? 2 : 1} categoryId={project.categoryId} lecture={lecture} />;
   }
 
   if (!hydrated) {
     return <BuildLoading />;
+  }
+
+  if (project.level === 3 && mode === "building") {
+    const reference = getLevelThreeBuildingReferenceManual(project.id);
+    if (reference) return <PdfActivityViewer key={project.id + "-building-reference"} manual={reference} />;
   }
 
   if (project.level === 4 && mode === "building") {

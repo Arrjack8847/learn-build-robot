@@ -8,7 +8,7 @@ import { getProject } from "@/data/practical";
 import { pdfActivityManuals } from "@/data/pdfActivityManuals";
 import { getLevelOneLecture } from "@/data/levelOneLectures";
 import { getLevelTwoLecture } from "@/data/levelTwoLectures";
-import { getLevelThreeLecture } from "@/data/levelThreeLectures";
+import { getLevelThreeLecture, getLevelThreeBuildingReferenceManual } from "@/data/levelThreeLectures";
 import { getLevelFourBuildingManual, hasLevelFourOptimizedManual, isLevelFourBuildingFallback } from "@/data/levelFourBuilding";
 import { getLevelFiveSixBuildingManual, hasLevelFiveSixOptimizedManual, isLevelFiveSixBuildingReference, levelFiveSixLearningLectures } from "@/data/levelFiveSixContent";
 import { getProjectSupplementaryPdfs } from "@/data/levelFiveSixExtraPdfs";
@@ -46,6 +46,7 @@ function ProjectOverviewPage() {
       : getAdvancedLevel(level).find((entry) => entry.id === project.categoryId)
     : undefined;
   const isPresentation = pdfActivityManuals[project.id]?.sourceKind === "powerpoint";
+  const levelThreeBuildingReference = level === 3 ? getLevelThreeBuildingReferenceManual(project.id) : undefined;
   const lecture = level === 1 ? getLevelOneLecture(project.id) :
     level === 2 ? getLevelTwoLecture(project.id) :
     level === 3 ? getLevelThreeLecture(project.id) : undefined;
@@ -54,8 +55,8 @@ function ProjectOverviewPage() {
   const hasLearning = Boolean(lecture) || isPresentation || Boolean(levelFiveSixLearningLectures[project.id]);
   const hasBuilding = level === 4
     ? Boolean(getLevelFourBuildingManual(project.id))
-    : isLevelFiveSix ? Boolean(getLevelFiveSixBuildingManual(project.id)) : !isPresentation && !lecture?.learningOnly;
-  const usingLearningForBuilding = (level === 4 && isLevelFourBuildingFallback(project.id))
+    : isLevelFiveSix ? Boolean(getLevelFiveSixBuildingManual(project.id)) : Boolean(levelThreeBuildingReference) || (!isPresentation && !lecture?.learningOnly);
+  const usingLearningForBuilding = Boolean(levelThreeBuildingReference) || (level === 4 && isLevelFourBuildingFallback(project.id))
     || (isLevelFiveSix && isLevelFiveSixBuildingReference(project.id));
   const hasOptimizedBuilding = (level === 4 && hasLevelFourOptimizedManual(project.id))
     || (isLevelFiveSix && hasLevelFiveSixOptimizedManual(project.id));
@@ -145,7 +146,7 @@ function ProjectOverviewPage() {
             <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
               {usingLearningForBuilding
                 ? "No separate Building manual was supplied. Use the original Learning slides as a building reference."
-                : hasBuilding ? "Follow the project's existing interactive 3D or official PDF building instructions."
+                : hasBuilding ? "Open the project's available PDF reference or interactive 3D building activity."
                 : "A building activity has not been added for this slide-only project."}
             </p>
             {hasBuilding ? (

@@ -8,6 +8,9 @@ import ts from "typescript";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const read = path => readFileSync(resolve(root, path), "utf8");
+const mappingSource = read("src/data/levelOneToThreeWixPdfUrls.ts");
+const wixUrls = JSON.parse(mappingSource.match(/export const levelOneToThreeWixPdfUrls: Readonly<Record<string, string>> = (\{[\s\S]*?\});/)[1]);
+const sourcePathByUrl = new Map(Object.entries(wixUrls).map(([path, url]) => [url, path]));
 const modules = new Map();
 
 function loadDataModule(path) {
@@ -22,7 +25,9 @@ function loadDataModule(path) {
     assert.ok(specifier.startsWith("."), "Unexpected module import: " + specifier);
     return loadDataModule(resolve(dirname(absolute), specifier + ".ts"));
   };
-  runInNewContext(outputText, { module, exports: module.exports, require }, { filename: absolute });
+  // Vite supplies import.meta.env in the browser; VM/CommonJS needs a test-only substitute.
+  const testOutput = outputText.replaceAll("import.meta.env", "({ DEV: false })");
+  runInNewContext(testOutput, { module, exports: module.exports, require }, { filename: absolute });
   return module.exports;
 }
 
@@ -39,6 +44,7 @@ const {
   LEVEL_THREE_BUILDING_PDF_LEARNING_FALLBACK_IDS,
   levelThreeLectures,
   getLevelThreeLecture,
+  getLevelThreeBuildingReferenceManual,
 } = loadDataModule("src/data/levelThreeLectures.ts");
 const { pdfActivityManuals } = loadDataModule("src/data/pdfActivityManuals.ts");
 const { getAdvancedLevel } = loadDataModule("src/data/advancedSyllabus.ts");
@@ -49,11 +55,11 @@ test("all 43 uploaded Level 3 lecture PDFs are mapped and unchanged", () => {
   const pdfs = allPdfs(resolve(root, "public/Level 3/Learning"));
   assert.equal(pdfs.length, 43);
   assert.equal(LEVEL_THREE_UPLOADED_LECTURE_COUNT, 43);
-  const uploadedEntries = Object.values(levelThreeLectures).filter(x => x.url.startsWith("/Level%203/Learning/"));
+  const uploadedEntries = Object.values(levelThreeLectures).filter(x => sourcePathByUrl.get(x.url)?.startsWith("Level 3/Learning/"));
   assert.equal(uploadedEntries.length, 46); // Cycle Sport (2), Race Walking (3)
   const distinct = new Set();
   for (const lecture of uploadedEntries) {
-    const file = resolve(root, "public", decodeURIComponent(lecture.url).slice(1));
+    const file = resolve(root, "public", sourcePathByUrl.get(lecture.url));
     assert.ok(pdfs.includes(file), "Uploaded PDF missing: " + file);
     assert.equal(readFileSync(file).subarray(0, 5).toString("ascii"), "%PDF-");
     distinct.add(file);
@@ -76,14 +82,14 @@ test("the five missing lectures reuse their exact existing Building PDF URLs", (
     const building = pdfActivityManuals[id];
     assert.ok(learning && building, "Learning or Building PDF missing for " + id);
     assert.equal(learning.url, building.url);
-    assert.equal(learning.url, "/" + encodeURIComponent(files.get(id)));
+    assert.equal(learning.url, wixUrls[files.get(id)]);
     assert.equal(learning.learningOnly, false);
     const path = resolve(root, "public", files.get(id));
     assert.equal(readFileSync(path).subarray(0, 5).toString("ascii"), "%PDF-");
   }
 });
 
-test("all 48 Level 3 projects have Learning while Building modes remain unchanged", () => {
+test("all 48 Level 3 projects have Learning and presentation-only projects gain Building references", () => {
   const syllabus = getAdvancedLevel(3);
   assert.equal(syllabus.length, 20);
   assert.equal(syllabus.reduce((n, cat) => n + cat.entries.length, 0), 48);
@@ -94,7 +100,16 @@ test("all 48 Level 3 projects have Learning while Building modes remain unchange
     const manual = pdfActivityManuals[project.id];
     assert.ok(learning, "No Learning for " + project.id);
     assert.ok(manual, "Existing Building manual mapping missing for " + project.id);
-    assert.equal(learning.learningOnly, manual.sourceKind === "powerpoint");
+    assert.equal(learning.learningOnly, false);
+    const reference = getLevelThreeBuildingReferenceManual(project.id);
+    if (manual.sourceKind === "powerpoint") {
+      assert.ok(reference, "Missing Building reference for " + project.id);
+      assert.equal(reference.url, learning.url);
+      assert.equal(reference.learningFallback, true);
+      assert.notEqual(reference.completionStepId, manual.completionStepId);
+    } else {
+      assert.equal(reference, undefined);
+    }
   }
   for (const id of ["level-3-cycle-sport-basic", "level-3-cycle-sport-optimized"]) {
     assert.equal(getLevelThreeLecture(id).url, getLevelThreeLecture("level-3-cycle-sport-basic").url);
@@ -112,7 +127,7 @@ test("Learning uses the established slides viewer and retains existing Building 
   const studio = read("src/components/practical/LevelOneLearningStudio.tsx");
   assert.ok(overview.includes("getLevelThreeLecture(project.id)"));
   assert.ok(route.includes("getLevelThreeLecture(project.id)"));
-  assert.ok(route.includes("level={project.level === 3 ? 3 : project.level === 2 ? 2 : 1}"));
+  assert.ok(route.includes("level={project.level === 5 || project.level === 6 ? project.level :"));
   assert.ok(overview.includes('search={{ mode: "learning" }}'));
   assert.ok(overview.includes('search={{ mode: "building" }}'));
   assert.ok(route.includes("<PdfActivityViewer key={project.id} manual={pdfManual} />"));
