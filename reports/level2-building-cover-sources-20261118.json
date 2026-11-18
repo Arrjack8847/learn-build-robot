@@ -1,0 +1,132 @@
+{
+  "project": "BE STEM READY",
+  "scope": "Level 2 Building cover translations only",
+  "source_commit": "521fe7e1fe9829eb811356982a09bb3c4c6cce6a",
+  "edited_pdf_count": 20,
+  "source_pdf_pages": 346,
+  "non_cover_pages_validated_pixel_identical": 326,
+  "files": [
+    {
+      "path": "public/Rotating flying chair_Building.pdf",
+      "pages": 11,
+      "original_blob_sha": "4291b8dd08df9c651e270e1f855d76b304ecb8d3",
+      "original_bytes": 2269253
+    },
+    {
+      "path": "public/Pirate ship_Building.pdf",
+      "pages": 15,
+      "original_blob_sha": "cae6cbbfa3b330627394b7b10e879b8dfc609313",
+      "original_bytes": 3891910
+    },
+    {
+      "path": "public/Scaling ladder.pdf",
+      "pages": 22,
+      "original_blob_sha": "f001a8447b56b90a639b2b923b4a33774fa1e76c",
+      "original_bytes": 5694282
+    },
+    {
+      "path": "public/Mechanical dog.pdf",
+      "pages": 14,
+      "original_blob_sha": "0b40358a925639d5ffac13f551ac69c1aebc0f96",
+      "original_bytes": 3518255
+    },
+    {
+      "path": "public/Tower crane_Building.pdf",
+      "pages": 18,
+      "original_blob_sha": "1a92c09b5a21f26a51b9868677eb283cd2e3605e",
+      "original_bytes": 4832886
+    },
+    {
+      "path": "public/Flashlight_Building.pdf",
+      "pages": 15,
+      "original_blob_sha": "e14747c661a5eb3b8264d4f63ac1b8c270e0c89f",
+      "original_bytes": 3632102
+    },
+    {
+      "path": "public/Jumping machine_Building.pdf",
+      "pages": 18,
+      "original_blob_sha": "fdef944d28b23099fb20fd92139eaf2fd57c6608",
+      "original_bytes": 3184655
+    },
+    {
+      "path": "public/Bridge_Building.pdf",
+      "pages": 15,
+      "original_blob_sha": "8798795f26e5ce13efd4fff8b96fa21f6aebc33c",
+      "original_bytes": 4625800
+    },
+    {
+      "path": "public/Door_Building.pdf",
+      "pages": 10,
+      "original_blob_sha": "67668a7e64bc00f196cb7ff009a328d77bdb3090",
+      "original_bytes": 3138338
+    },
+    {
+      "path": "public/Double beam crane_Building.pdf",
+      "pages": 22,
+      "original_blob_sha": "d48c08a547336a19d3765d8c7ccb24da13e15ecf",
+      "original_bytes": 5341143
+    },
+    {
+      "path": "public/Hand crank_Building.pdf",
+      "pages": 11,
+      "original_blob_sha": "aac537c905dafec17ce41d94a53450a866e212a1",
+      "original_bytes": 3037978
+    },
+    {
+      "path": "public/Gearbox_Building.pdf",
+      "pages": 20,
+      "original_blob_sha": "152fdae6b1a305dbd7b8eb1b1dca97ab8d522cf3",
+      "original_bytes": 6562579
+    },
+    {
+      "path": "public/Crane_.pdf",
+      "pages": 40,
+      "original_blob_sha": "6d67b0f8c9895428b9b7a38e6c90cddd1a396977",
+      "original_bytes": 20909075
+    },
+    {
+      "path": "public/Walking Robot.pdf",
+      "pages": 35,
+      "original_blob_sha": "a12735eb2559ce9044880d77771eb99970216f09",
+      "original_bytes": 8898498
+    },
+    {
+      "path": "public/Teeterboard.pdf",
+      "pages": 10,
+      "original_blob_sha": "21df7860ba63c17acc720bc69381d4cf41d34e76",
+      "original_bytes": 3235199
+    },
+    {
+      "path": "public/Harp_Building.pdf",
+      "pages": 10,
+      "original_blob_sha": "8fdc6663611b7aeb684afe9a756cfca658b58106",
+      "original_bytes": 2852241
+    },
+    {
+      "path": "public/Lifting door_Building.pdf",
+      "pages": 27,
+      "original_blob_sha": "c9462f702c7602c40e1e53001500c2d107f87b7f",
+      "original_bytes": 7494567
+    },
+    {
+      "path": "public/Balance.pdf",
+      "pages": 10,
+      "original_blob_sha": "953286e4ef78a9c375a054fb39a9d27bde3cbbf5",
+      "original_bytes": 2443571
+    },
+    {
+      "path": "public/Pliers.pdf",
+      "pages": 13,
+      "original_blob_sha": "b87354730e587b2f22920041c60e61f960703463",
+      "original_bytes": 3708413
+    },
+    {
+      "path": "public/Balance_v2.pdf",
+      "pages": 10,
+      "original_blob_sha": "21df7860ba63c17acc720bc69381d4cf41d34e76",
+      "original_bytes": 3235199
+    }
+  ],
+  "asset_commit_status": "NOT_COMMITTED: 20 edited PDFs remain in isolated review sandbox; only generator and audit sources may be committed by this PR",
+  "testing": "Local isolated Vercel sandbox, no GitHub Actions"
+}
