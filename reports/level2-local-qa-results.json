@@ -1,0 +1,562 @@
+{
+  "schema": "be-stem-ready-level2-qa-v1",
+  "date": "2026-11-18",
+  "repository": "Arrjack8847/learn-build-robot",
+  "working_branch": "qa/level2-pdf-testing-20261118",
+  "reviewed_prs": [
+    {
+      "number": 75,
+      "head": "239204ff69c017aa6ced8f927e5bc297b4d7cdb4",
+      "status": "draft; unmerged"
+    },
+    {
+      "number": 78,
+      "head": "a27ff20248744b9b5141ba0402785fe34f0f180b",
+      "status": "draft; unmerged"
+    }
+  ],
+  "execution": {
+    "method": "independent local copies of PR #78 scripts via connected GitHub fetch; no GitHub Actions",
+    "python": "3.13.5",
+    "pymupdf": "1.26.7",
+    "pillow": "12.3.0",
+    "numpy": "2.3.5",
+    "repository_checkout": false,
+    "full_binary_corpus_local": false,
+    "reason": "private GitHub PDF bytes not available to this local execution workspace; repository git cannot resolve github.com"
+  },
+  "inventory": {
+    "source_files": 44,
+    "delivery_files": 44,
+    "eligible": 43,
+    "changed_blobs": 43,
+    "building_unchanged": true,
+    "expected_pages": 787,
+    "verified_page_counts": 0,
+    "expected_edited_pages_prior_report": 600,
+    "edited_pages_independently_verified": null,
+    "paths": [
+      {
+        "path": "public/Level 2/Learning/Action-Oriented/Axe robot/Axe robot_Powerpoint.pdf",
+        "original_sha": "6d1fcab0ad5c328560d5ccac2ee107bea7791f6f",
+        "delivery_sha": "fcc0410f083ec4214b0be87034c711a6f4a921a1",
+        "original_bytes": 725323,
+        "delivery_bytes": 707954,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Action-Oriented/Batting robot/Batting robot_Powerpoint.pdf",
+        "original_sha": "74da7952e3091b43ed8cb79d12d716c50819e8ce",
+        "delivery_sha": "6a0cf5b656a28a7e2928d8f98faff209a9be4bfc",
+        "original_bytes": 771740,
+        "delivery_bytes": 690477,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Action-Oriented/Fan robot/Fan robot_Powerpoint.pdf",
+        "original_sha": "7ed3501074c2ff99ece0cd2f29b66dc6c11041a4",
+        "delivery_sha": "267adda6857376ae0dc103f01e22c87841d8cd6e",
+        "original_bytes": 590392,
+        "delivery_bytes": 574531,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Action-Oriented/Pirate ship/Pirate ship__Powerpoint.pdf",
+        "original_sha": "cef1bfd9d3195abd6eca7835e8256f925835c4df",
+        "delivery_sha": "34e329bda5710354c1fde2151a67e4e830dfef5f",
+        "original_bytes": 869666,
+        "delivery_bytes": 749301,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Action-Oriented/Push ups/Push ups_Powerpoint.pdf",
+        "original_sha": "b5888a6a2e6f6ecfb3c12f29a2140f9fe416e1ca",
+        "delivery_sha": "3f76b1760532ce245b314b36717e687e70683955",
+        "original_bytes": 686703,
+        "delivery_bytes": 601976,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Action-Oriented/Rotating flying chair/Rotating flying chair_Powerpoint.pdf",
+        "original_sha": "6eceb78ddf98c576eeed3a445fcd4b72c78253c7",
+        "delivery_sha": "96114c74c753913ec7026812f117afe68bce94f5",
+        "original_bytes": 747994,
+        "delivery_bytes": 641173,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Action-Oriented/Throwing robot/Throwing robot_Powerpoint.pdf",
+        "original_sha": "612038a2a2e2bfd3367c9dd896243bc4555d99a7",
+        "delivery_sha": "7fe85fcfe1b0e213107975ecd2b1c987cb04c478",
+        "original_bytes": 661804,
+        "delivery_bytes": 640223,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Biomimicry/Bee.pdf",
+        "original_sha": "d2fd32d2294f977199becc5e241e4eac9cce1c38",
+        "delivery_sha": "dee4808cd8f8ce2bfcb2ad6ac192124be9294000",
+        "original_bytes": 913828,
+        "delivery_bytes": 929817,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Biomimicry/Chimpanzees.pdf",
+        "original_sha": "59350dc39812536db47c6d6f617cbf08a1f01eb2",
+        "delivery_sha": "a0a96963819f6a8ac87d366335dbbde15e5d0883",
+        "original_bytes": 876104,
+        "delivery_bytes": 887949,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Characters & Structures/Mechanical dog/Mechanical dog_PowerPoint-R.pdf",
+        "original_sha": "a09dad4867b5a8d9b2c062b870c020a978159f9d",
+        "delivery_sha": "81dd4af9b7727866608b71167c11aa78ecc0bd5e",
+        "original_bytes": 2033947,
+        "delivery_bytes": 2051453,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Characters & Structures/Scaling ladder/Scaling ladder_PowerPoint -R.pdf",
+        "original_sha": "b9b1fd33aa8fb5326cced37b8209a16e4a76cb99",
+        "delivery_sha": "9c14b498ed75bdce7ce61122fde5a6de49b5dce3",
+        "original_bytes": 811368,
+        "delivery_bytes": 825689,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Characters & Structures/Tower crane/Tower crane_Powerpoint.pdf",
+        "original_sha": "c63555cbbb2c7e97e05686b5216652aa7600b3eb",
+        "delivery_sha": "21a5949e67f617a7ae27f35d0fc79cc6acc45fa6",
+        "original_bytes": 1048074,
+        "delivery_bytes": 922444,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Foundational Robots/Hammer robot.pdf",
+        "original_sha": "94a10e82844a8e4fc7d73050442c66ce26aa5aa7",
+        "delivery_sha": "572adaecc633e908ba1267a3220844bcd997246b",
+        "original_bytes": 1129444,
+        "delivery_bytes": 1145079,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Foundational Robots/Lucky turntable.pdf",
+        "original_sha": "dd5bf5b40336a3b6ee5415f3ec2a69206a274502",
+        "delivery_sha": "4057f4494f0226056fd4a25c6d0728364b4ae6d5",
+        "original_bytes": 1248463,
+        "delivery_bytes": 1265909,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Foundational Robots/The treadmill.pdf",
+        "original_sha": "363b7087550c1cc03f2a10a2538bda4c4280266c",
+        "delivery_sha": "922d3e555e28a6503053a371895e667612fab1b1",
+        "original_bytes": 884807,
+        "delivery_bytes": 899886,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Foundational Robots/Tightrope walk.pdf",
+        "original_sha": "b35c97174f751611d585f7a1259c43ae3a8b10c1",
+        "delivery_sha": "99de1fce943a3e4a9600496301613710225d8e9d",
+        "original_bytes": 895949,
+        "delivery_bytes": 906678,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Illumination & Signals/Manual Flashlight/Flashlight_Powerpoint.pdf",
+        "original_sha": "5b03c6cd1bfd9936fe51915c3b8af9cd3caef68e",
+        "delivery_sha": "64a4319f0782dc38c61f9d9371b75c58548c271e",
+        "original_bytes": 917011,
+        "delivery_bytes": 877590,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Interactive Mechanisms/Jumping machine/Jumping machine_Powerpoint.pdf",
+        "original_sha": "9f479643be2a5b31301060137fb2970974c0eb5f",
+        "delivery_sha": "e316c30d123777f2daafa1f3fc5f2928b1b32aed",
+        "original_bytes": 1097247,
+        "delivery_bytes": 988693,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Interactive Systems/See Saw/Balance_PowerPoint-R.pdf",
+        "original_sha": "63a57fa4d38868257dd92cedee3af66adec61b8a",
+        "delivery_sha": "637a275dd41716c82621396e04453f6bf414b2c0",
+        "original_bytes": 1087700,
+        "delivery_bytes": 1077192,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Interactive Systems/Tongs/Pliers_PowerPoint -R .pdf",
+        "original_sha": "226d39cb0678abf43dc032ebb48a6502bac60682",
+        "delivery_sha": "bb52fcf7eccdd5102a2eb2df4084c9712158dbac",
+        "original_bytes": 1042917,
+        "delivery_bytes": 1057298,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Machines & Mechanisms/Automatic window.pdf",
+        "original_sha": "75db29438554b03d21b99d599aa5de7ff5da2bbb",
+        "delivery_sha": "a99c0767cd63fc81a12b364b45a1b2d43344d222",
+        "original_bytes": 1654656,
+        "delivery_bytes": 1667785,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Machines & Mechanisms/Robot war.pdf",
+        "original_sha": "916cbdc41e6757bb16eafcb223a5c49d4226aec3",
+        "delivery_sha": "28af24db9604da6403717b90e22290ae85de99d3",
+        "original_bytes": 1629195,
+        "delivery_bytes": 1647984,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Manipulators/Car Steering.pdf",
+        "original_sha": "a9681922bad299e76161f8f563ca202983281342",
+        "delivery_sha": "f7b46c00ccfb6fcf705414579ebca16ec8f58f94",
+        "original_bytes": 1600202,
+        "delivery_bytes": 1616689,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Manipulators/Cliff walk.pdf",
+        "original_sha": "73721b23a1e8cefacc1080ae8fca30c4759ec630",
+        "delivery_sha": "ace9fff3d350222a0ea44826ca8a1394e18a6871",
+        "original_bytes": 901554,
+        "delivery_bytes": 910692,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Manipulators/Ferris wheel.pdf",
+        "original_sha": "6180f870a03e295e3934fae4ad37abf46c26a74b",
+        "delivery_sha": "b670819bd088fb75d7edcece00d30dd8ce8d49d8",
+        "original_bytes": 2041612,
+        "delivery_bytes": 2061322,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Manipulators/Round-trip transportation.pdf",
+        "original_sha": "15058b069680f375270ed0731000b96dc1d38866",
+        "delivery_sha": "3a8c207b83e3b64812cd3a8fe2588053e1671599",
+        "original_bytes": 953061,
+        "delivery_bytes": 961367,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Manipulators/Shift gears.pdf",
+        "original_sha": "e78748595223787215ea3cd67dfd29b95a7cc34f",
+        "delivery_sha": "40be1a02639ab0a36a39eca1cba832963f45916e",
+        "original_bytes": 1305875,
+        "delivery_bytes": 1320204,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Bridge/Bridge_Powerpoint.pdf",
+        "original_sha": "dece04a3d55ba36be0817b641122fa13852f1b96",
+        "delivery_sha": "48dbc7be05df2709d9aa3f5733c5a23e26728004",
+        "original_bytes": 1013834,
+        "delivery_bytes": 905197,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Crane/Crane_Powerpoint.pdf",
+        "original_sha": "7104484f551325ce5bd9dca78424d7bf1d75b98d",
+        "delivery_sha": "66f4323fd555677f362483f6f153c76882b326b7",
+        "original_bytes": 728331,
+        "delivery_bytes": 713190,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Door/Door_Powerpoint.pdf",
+        "original_sha": "8cc6dda2f22b1c27f986abbae243147e251b7f37",
+        "delivery_sha": "d362364707888fa74d2d7c27df65b3d08d68cef7",
+        "original_bytes": 951118,
+        "delivery_bytes": 845704,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Double Beam Crane/Double beam crane_Building_Powerpoint.pdf",
+        "original_sha": "5c621de2afb0ff425a3a0ba27d467f084895ef6d",
+        "delivery_sha": "5c621de2afb0ff425a3a0ba27d467f084895ef6d",
+        "original_bytes": 808924,
+        "delivery_bytes": 808924,
+        "blob_changed": false,
+        "building_excluded": true
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Gearbox/Gearbox_Powerpoint.pdf",
+        "original_sha": "05bf534363ca8f176d00c3d250656cc9f508b167",
+        "delivery_sha": "8bbbe394321037e4dc3f63e905cbfa4ee4acac99",
+        "original_bytes": 1015125,
+        "delivery_bytes": 810251,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Hand crank/Hand crank_Powerpoint.pdf",
+        "original_sha": "d08c240ab896b1fee7f0d1c008a5b5ded0fa8dca",
+        "delivery_sha": "1754e9d42cc25e185ace4df5ee2fdcfc69001935",
+        "original_bytes": 990391,
+        "delivery_bytes": 876205,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Spinning bike/Spinning bike_Powerpoint.pdf",
+        "original_sha": "6990dba9fd738e2769557849cb0f613b20395352",
+        "delivery_sha": "0a3112173c7aaecbf748a32f0e87ffd553af1a4a",
+        "original_bytes": 711540,
+        "delivery_bytes": 629911,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Swing/Swing_powerpoint.pdf",
+        "original_sha": "2cac6b3a3620f4a9e16613280fa0dc29a9516540",
+        "delivery_sha": "d85df92ba34729c8a40131a7a97bfec7c09686f2",
+        "original_bytes": 724983,
+        "delivery_bytes": 723933,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Treadmill/Treadmill_Powerpoint.pdf",
+        "original_sha": "c398ae01eb88f9ec2da04087d1b58dcc6a73d8c9",
+        "delivery_sha": "0cd2dce21d03bf061109d315839693d160a2dc35",
+        "original_bytes": 895514,
+        "delivery_bytes": 722093,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms and Concepts/Animal trap.pdf",
+        "original_sha": "a1ad330c7776dbd5a0c7f60fed0c05bd852e0a68",
+        "delivery_sha": "639633f195ffb6bb1a83ca41c5af27ca8c4da51e",
+        "original_bytes": 1220161,
+        "delivery_bytes": 1236628,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms and Concepts/Headlights.pdf",
+        "original_sha": "cbdac8aae51af8ce1c2dd07357c2a8902f1d128b",
+        "delivery_sha": "95d05c03c91974d0cae3850ded490b0500b09e67",
+        "original_bytes": 1048932,
+        "delivery_bytes": 1059755,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Programming & Precise Control/Battery robot/Battery robot_Powerpoint.pdf",
+        "original_sha": "6786d2c886a6d457e47695905b8ffd90da26b6fe",
+        "delivery_sha": "e6b9703a4aeaa9d963bff953ff3ef7d1e08d617e",
+        "original_bytes": 1053648,
+        "delivery_bytes": 953125,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Sensor-Focused Robots/Walking robot/Walking robot_PowerPoint -R.pdf",
+        "original_sha": "fa3f28181e5f4cad807a2dcd2b2ceabad8caf658",
+        "delivery_sha": "7c2a507eebec2b6e2010821e41f4eed551963576",
+        "original_bytes": 2864823,
+        "delivery_bytes": 2889676,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Sound & Voice Interaction/Harp/Harp_Powerpoint.pdf",
+        "original_sha": "6cfe40dba130ea2afa28ec46bc56bb705001e6a3",
+        "delivery_sha": "73f8ac06429fe19b61ecd641c5b7b3e9aacade3a",
+        "original_bytes": 754568,
+        "delivery_bytes": 735096,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Vehicles & Complex Movers/Helicopter/Helicopter_Powerpoint.pdf",
+        "original_sha": "c2b26f7ff6a3b78975dc4b18eea4b9cf3dc9a9d0",
+        "delivery_sha": "8a279f2b82b9df5ef5b34e5ec96ac6db53fbc9c8",
+        "original_bytes": 678938,
+        "delivery_bytes": 662832,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Vehicles & Complex Movers/Lifting door/Lifting door_Powerpoint.pdf",
+        "original_sha": "37cc743ede3d1cdabbb0304e2b40add8d58ff694",
+        "delivery_sha": "fe2675e8443b50282fd9140951da7c0c50f10c3f",
+        "original_bytes": 927805,
+        "delivery_bytes": 722457,
+        "blob_changed": true,
+        "building_excluded": false
+      },
+      {
+        "path": "public/Level 2/Learning/Vehicles & Complex Movers/Teeterboard/13.Teeterboard_PowerPoint.pdf",
+        "original_sha": "27cab4794d18003c90f99aa1fd3b591c025902c1",
+        "delivery_sha": "2342004bfe768eca55dc8b6d67d336457476c545",
+        "original_bytes": 1633987,
+        "delivery_bytes": 1651347,
+        "blob_changed": true,
+        "building_excluded": false
+      }
+    ]
+  },
+  "synthetic_tests": {
+    "original_five": {
+      "passed": 5,
+      "failed": 0
+    },
+    "baseline_adversarial": {
+      "passed": 0,
+      "failed": 2,
+      "failures": [
+        "unclassified Chinese instructional content was deleted",
+        "an unrelated 586x178 educational diagram was deleted"
+      ]
+    },
+    "guarded_additional": {
+      "passed": 2,
+      "failed": 0
+    },
+    "guarded_total": {
+      "passed": 7,
+      "failed": 0
+    },
+    "compiled": true
+  },
+  "full_corpus": {
+    "pdfs_tested": 0,
+    "pages_tested": 0,
+    "pages_rendered": 0,
+    "english_preservation": "NOT_VERIFIED",
+    "visual_integrity": "NOT_VERIFIED",
+    "legal_attribution": "NOT_VERIFIED",
+    "full_resolution_before_after": "NOT_CREATED_FOR_REAL_PDFS",
+    "ready_for_final_review": false
+  },
+  "known_regressions": [
+    {
+      "name": "Tower Crane",
+      "path": "public/Level 2/Learning/Characters & Structures/Tower crane/Tower crane_Powerpoint.pdf",
+      "in_expected_inventory": true,
+      "real_pdf_comparison": "NOT_RUN"
+    },
+    {
+      "name": "Rotating Flying Chair",
+      "path": "public/Level 2/Learning/Action-Oriented/Rotating flying chair/Rotating flying chair_Powerpoint.pdf",
+      "in_expected_inventory": true,
+      "real_pdf_comparison": "NOT_RUN"
+    },
+    {
+      "name": "Jumping Machine",
+      "path": "public/Level 2/Learning/Interactive Mechanisms/Jumping machine/Jumping machine_Powerpoint.pdf",
+      "in_expected_inventory": true,
+      "real_pdf_comparison": "NOT_RUN"
+    },
+    {
+      "name": "Acceleration Car",
+      "path": null,
+      "in_expected_inventory": false,
+      "real_pdf_comparison": "NOT_RUN"
+    },
+    {
+      "name": "Gyro Transmitter",
+      "path": null,
+      "in_expected_inventory": false,
+      "real_pdf_comparison": "NOT_RUN"
+    }
+  ],
+  "chinese_text_exceptions": [
+    {
+      "path": "public/Level 2/Learning/Biomimicry/Chimpanzees.pdf",
+      "page": 13,
+      "status": "NOT_REVIEWED",
+      "decision": "UNDETERMINED"
+    },
+    {
+      "path": "public/Level 2/Learning/Foundational Robots/Hammer robot.pdf",
+      "page": 21,
+      "status": "NOT_REVIEWED",
+      "decision": "UNDETERMINED"
+    },
+    {
+      "path": "public/Level 2/Learning/Foundational Robots/The treadmill.pdf",
+      "page": 17,
+      "status": "NOT_REVIEWED",
+      "decision": "UNDETERMINED"
+    },
+    {
+      "path": "public/Level 2/Learning/Manipulators/Cliff walk.pdf",
+      "page": 11,
+      "status": "NOT_REVIEWED",
+      "decision": "UNDETERMINED"
+    },
+    {
+      "path": "public/Level 2/Learning/Manipulators/Ferris wheel.pdf",
+      "page": 20,
+      "status": "NOT_REVIEWED",
+      "decision": "UNDETERMINED"
+    },
+    {
+      "path": "public/Level 2/Learning/Manipulators/Round-trip transportation.pdf",
+      "page": 14,
+      "status": "NOT_REVIEWED",
+      "decision": "UNDETERMINED"
+    },
+    {
+      "path": "public/Level 2/Learning/Mechanisms and Concepts/Animal trap.pdf",
+      "page": 16,
+      "status": "NOT_REVIEWED",
+      "decision": "UNDETERMINED"
+    },
+    {
+      "path": "public/Level 2/Learning/Mechanisms and Concepts/Headlights.pdf",
+      "page": 13,
+      "status": "NOT_REVIEWED",
+      "decision": "UNDETERMINED"
+    }
+  ],
+  "outstanding": [
+    "Get original and cleaned PDF binaries into an isolated accessible local/Codex workspace without overwriting source",
+    "Visual-review Chinese content (including eight exceptions) and approve exact removal/retention decisions",
+    "Visually identify each logo before recording per-document SHA-256 for deletion",
+    "Regenerate 43 outputs with guarded cleaner and run strict 787-page original-versus-new comparison",
+    "Produce full-resolution PNG pairs for each actually modified page and inspect all unexpected differences",
+    "Inspect real introductory paragraphs on Tower Crane, Rotating Flying Chair and Jumping Machine",
+    "Do not move Acceleration Car or Gyro Transmitter from other levels into this Level 2 scope",
+    "No final visual sign-off granted"
+  ]
+}
