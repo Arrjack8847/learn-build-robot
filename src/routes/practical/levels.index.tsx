@@ -34,7 +34,7 @@ function SyllabusLevelsPage() {
           <p className="mx-auto w-fit rounded-full border border-[#c8e7f9] bg-[#e9f7ff]/90 px-5 py-1 text-[clamp(10px,1.65svh,14px)] font-bold text-[#388cbd]">Explore Categories</p>
           <h1 className="mt-[clamp(4px,1dvh,14px)] text-[clamp(22px,3.8svh,40px)] font-black leading-tight tracking-tight text-[#21476c]">Choose Your Level</h1>
         </div>
-        <ul aria-label="Choose your syllabus level" className="mx-auto my-auto grid min-h-0 w-full max-w-[900px] flex-1 grid-cols-2 grid-rows-3 gap-[clamp(7px,1.2svh,16px)] py-[clamp(7px,1.2svh,14px)] md:grid-cols-3 md:grid-rows-2">
+        <ul aria-label="Choose your syllabus level" className="mx-auto my-auto grid min-h-0 w-full max-w-[900px] flex-1 grid-cols-2 grid-rows-3 gap-[clamp(7px,1.2svh,16px)] py-[clamp(7px,1.2svh,14px)] md:landscape:grid-cols-3 md:landscape:grid-rows-2">
           {levels.map((level) => {
             const totals = level.number === 1 ? { categories: 14, entries: 59 } : getLevelTotals(level.number);
             const card = (
