@@ -47,16 +47,21 @@ test("All six levels have accessible navigation and category/detail routes", () 
   const artwork = [...index.matchAll(/\\{\\s*number:\\s*([1-6]),\\s*art:\\s*"([^"]+)"/g)];
   assert.deepEqual(artwork.map(match => Number(match[1])), [1, 2, 3, 4, 5, 6]);
   assert.deepEqual(artwork.map(match => match[2]), [
-    "level-1-bulb.jpg", "level-2-gears.jpeg", "level-3-rocket-repaired.svg",
-    "level-4-laptop.jpeg", "level-5-globe.jpeg", "level-6-robot.jpeg",
+    "level-1.webp", "level-2.webp", "level-3.webp",
+    "level-4.webp", "level-5.webp", "level-6.webp",
   ]);
   for (const [, , file] of artwork) {
     const bytes = readFileSync(new URL("../public/assets/level-artwork/" + file, import.meta.url));
-    if (file.endsWith(".svg")) assert.match(bytes.toString("utf8"), /<svg[^>]*viewBox=/);
-    else assert.equal(bytes[0], 0xff, `${file} should be JPEG artwork`);
+    assert.equal(bytes.toString("ascii", 0, 4), "RIFF", file + " is not genuine WebP");
+    assert.equal(bytes.toString("ascii", 8, 12), "WEBP", file + " is not genuine WebP");
   }
-  assert.match(index, /blue-wave-header\\.jpeg/);
-  assert.match(index, /level-landscape-repaired\\.svg/);
+  for (const asset of ["header-wave.webp", "landscape.webp"]) {
+    const bytes = readFileSync(new URL("../public/assets/level-artwork/" + asset, import.meta.url));
+    assert.equal(bytes.toString("ascii", 0, 4), "RIFF");
+    assert.equal(bytes.toString("ascii", 8, 12), "WEBP");
+  }
+  assert.match(index, /header-wave\\.webp/);
+  assert.match(index, /landscape\\.webp/);
   assert.doesNotMatch(index, /getImageData|level-3-rocket\\.png|level-landscape-background\\.png/);
   assert.match(index, /to="\/practical\/level-1"/);
   assert.match(index, /to="\/practical\/levels\/\$levelNumber"/);

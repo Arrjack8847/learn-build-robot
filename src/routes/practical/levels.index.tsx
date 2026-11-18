@@ -7,12 +7,12 @@ export const Route = createFileRoute("/practical/levels/")({
 });
 
 const levels = [
-  { number: 1, art: "level-1-bulb.jpg", name: "Little Inventors", scale: 1.00, color: "#e7f5ff", ink: "#138ad4" },
-  { number: 2, art: "level-2-gears.jpeg", name: "Creative Builders", scale: 1.00, color: "#e7f7e8", ink: "#298c51" },
-  { number: 3, art: "level-3-rocket-repaired.svg", name: "Problem Solvers", scale: 1.0, color: "#fff0f7", ink: "#d7478b" },
-  { number: 4, art: "level-4-laptop.jpeg", name: "Tech Explorers", scale: 1.06, color: "#e9f1ff", ink: "#4d75ca" },
-  { number: 5, art: "level-5-globe.jpeg", name: "Innovators", scale: 1.00, color: "#fff4db", ink: "#b67c25" },
-  { number: 6, art: "level-6-robot.jpeg", name: "Future Makers", scale: 1.00, color: "#f0eaff", ink: "#8655c3" },
+  { number: 1, art: "level-1.webp", name: "Little Inventors", scale: 1.00, color: "#e7f5ff", ink: "#138ad4" },
+  { number: 2, art: "level-2.webp", name: "Creative Builders", scale: 1.00, color: "#e7f7e8", ink: "#298c51" },
+  { number: 3, art: "level-3.webp", name: "Problem Solvers", scale: 1.0, color: "#fff0f7", ink: "#d7478b" },
+  { number: 4, art: "level-4.webp", name: "Tech Explorers", scale: 1.06, color: "#e9f1ff", ink: "#4d75ca" },
+  { number: 5, art: "level-5.webp", name: "Innovators", scale: 1.00, color: "#fff4db", ink: "#b67c25" },
+  { number: 6, art: "level-6.webp", name: "Future Makers", scale: 1.00, color: "#f0eaff", ink: "#8655c3" },
 ] as const;
 
 const artRoot = "/assets/level-artwork/";
@@ -38,13 +38,13 @@ function SyllabusLevelsPage() {
       <img
         aria-hidden="true"
         alt=""
-        src={artRoot + "blue-wave-header.jpeg"}
+        src={artRoot + "header-wave.webp"}
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[min(26svh,190px)] w-full object-cover object-top opacity-20 [mask-image:linear-gradient(to_bottom,black_0%,transparent_100%)]"
       />
       <img
         aria-hidden="true"
         alt=""
-        src={artRoot + "level-landscape-repaired.svg"}
+        src={artRoot + "landscape.webp"}
         className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[clamp(145px,31svh,340px)] w-full object-cover object-bottom opacity-85 [mask-image:linear-gradient(to_bottom,transparent_0%,black_58%)]"
       />
       <header className="relative mx-auto flex h-[clamp(48px,9svh,80px)] w-full max-w-[1120px] shrink-0 items-center justify-between px-4 sm:px-8">
