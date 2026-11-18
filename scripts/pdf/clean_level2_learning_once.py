@@ -140,6 +140,21 @@ def cover_and_brand(pg, page_num, total):
         events.append((page_num, label))
     return events
 
+def instructional_english(text):
+    """Strict prose fingerprint: protect English even if it mentions old brands."""
+    parts = []
+    for raw in text.splitlines():
+        line = raw.strip()
+        if not line or BRAND_ONLY.fullmatch(line):
+            continue
+        if line in ("BE STEM READY", "Learning Series"):
+            continue
+        line = CJK.sub("", line)
+        if line.strip():
+            parts.append(line)
+    return re.sub(r"\s+", " ", " ".join(parts)).strip()
+
+
 def process(src):
     rel=src.relative_to(ROOT)
     intermediate=remove_chinese_font_content(src,rel)
@@ -169,6 +184,17 @@ def process(src):
     doc.save(dest,garbage=4,deflate=True,clean=False)
     total=len(doc); doc.close()
     check=fitz.open(dest)
+    source_check=fitz.open(src)
+    for index, (before, after) in enumerate(zip(source_check, check), start=1):
+        old_english=instructional_english(before.get_text())
+        new_english=instructional_english(after.get_text())
+        if old_english != new_english:
+            source_check.close()
+            check.close()
+            raise RuntimeError(
+                f"Instructional English regression in {rel} page {index}: "
+                f"{old_english[:180]!r} != {new_english[:180]!r}")
+    source_check.close()
     hits=[]
     for i,p in enumerate(check):
         if CJK.search(p.get_text()):hits.append(i+1)
