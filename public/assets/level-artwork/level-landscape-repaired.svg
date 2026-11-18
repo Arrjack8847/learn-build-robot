@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 500" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Soft watercolor green hills and distant blue mountains">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ecf8ff" stop-opacity="0"/><stop offset=".6" stop-color="#eaf7ff" stop-opacity=".32"/><stop offset="1" stop-color="#dff4f8" stop-opacity=".8"/></linearGradient>
+<linearGradient id="far" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c4dff2"/><stop offset="1" stop-color="#ccebe9"/></linearGradient>
+<linearGradient id="back" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b6e5c4"/><stop offset="1" stop-color="#b1e4d4"/></linearGradient>
+<linearGradient id="hill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#a6dbb4"/><stop offset="1" stop-color="#77caac"/></linearGradient>
+<linearGradient id="front" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b9e7bd"/><stop offset=".6" stop-color="#88d1a8"/><stop offset="1" stop-color="#80cfa7"/></linearGradient>
+</defs>
+<rect width="1600" height="500" fill="url(#sky)"/>
+<path d="M0 290L180 183l92 58 171-113 207 158 189-151 204 150 125-92 211 121 121-36 100 58v164H0Z" fill="url(#far)" opacity=".53"/>
+<path d="M0 319Q205 276 362 323T755 305Q997 265 1132 313T1600 295v205H0Z" fill="#d9eced" opacity=".85"/>
+<path d="M0 353Q150 295 361 349T794 352Q1057 289 1229 352T1600 345V500H0Z" fill="url(#back)" opacity=".86"/>
+<path d="M0 402Q270 310 550 382T1077 366Q1368 318 1600 391V500H0Z" fill="url(#hill)" opacity=".72"/>
+<path d="M0 434Q220 378 438 417T856 427Q1187 341 1600 430V500H0Z" fill="url(#front)" opacity=".87"/>
+<path d="M0 474Q205 445 391 468T822 478Q1130 445 1363 471T1600 465V500H0Z" fill="#8acfa9" opacity=".65"/>
+<g stroke="#65b99b" stroke-width="5" stroke-linecap="round" opacity=".42"><path d="M83 476q-18-22-23-39m23 39q16-22 22-37"/><path d="M200 489q-18-32-19-43m19 43q19-30 32-43"/><path d="M1417 480q-18-31-19-40m19 40q18-25 30-38"/><path d="M1512 488q-12-24-16-39m16 39q18-28 31-41"/></g></svg>

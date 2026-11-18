@@ -11,6 +11,7 @@ const layout = read("src/routes/practical/level-1.tsx");
 const detail = read("src/routes/practical/level-1.$categoryId.tsx");
 const home = read("src/routes/index.tsx");
 const picker = read("src/routes/practical/index.tsx");
+const sharedCategories = read("src/components/practical/ResponsiveCategories.tsx");
 
 const names = [
   "Autonomous Navigation & Ranging",
@@ -38,10 +39,10 @@ test("Level 1 route is nested correctly, searchable, mobile-friendly and accessi
   assert.match(layout, /<Outlet\s*\/>/);
   assert.match(index, /createFileRoute\("\/practical\/level-1\/"\)/);
   assert.match(detail, /createFileRoute\("\/practical\/level-1\/\$categoryId"\)/);
-  assert.match(index, /type="search"/);
-  assert.match(index, /LEVEL_ONE_CATEGORIES\.filter/);
+  assert.match(sharedCategories, /type="search"/);
+  assert.match(sharedCategories, /categories\.filter/);
   assert.match(index, /aria-label=\{\x60Explore/);
-  assert.match(index, /grid-cols-1/);
+  assert.match(sharedCategories, /grid-cols-2 grid-rows-4/);
   assert.match(index, /focus-visible:/);
 });
 
@@ -61,7 +62,7 @@ test("All 59 Level 1 syllabus entries have exact category placement", () => {
 test("Existing robot lessons remain accessible; missing lessons are not clickable builds", () => {
   assert.match(home, /to="\/practical\/levels"/);
   assert.match(picker, /redirect\(\{ to: "\/practical\/levels" \}\)/);
-  assert.match(index, /to="\/practical\/levels"/);
+  assert.match(sharedCategories, /to="\/practical\/levels"/);
   assert.match(detail, /getLevelOneProjects\(category\.id\)/);
   assert.match(detail, /getProject\(entry\.availableProjectId\)/);
   assert.match(detail, /liveProject \?/);
