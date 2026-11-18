@@ -9,7 +9,17 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
-import { getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
+// PDF.js needs DOMMatrix at module evaluation time, even for text-only parsing.
+// This isolated QA worker never renders pixels; browser matrix operations aren't used.
+if (typeof globalThis.DOMMatrix === "undefined") {
+  globalThis.DOMMatrix = class TextOnlyDOMMatrix {
+    constructor() {
+      this.a = 1; this.b = 0; this.c = 0; this.d = 1;
+      this.e = 0; this.f = 0; this.is2D = true;
+    }
+  };
+}
+const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const registrySource = readFileSync(resolve(root, "src/data/levelOneToThreeWixPdfUrls.ts"), "utf8");
