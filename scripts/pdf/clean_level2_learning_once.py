@@ -14,10 +14,10 @@ ROOT=Path("public/Level 2/Learning")
 WORK=Path("/tmp/bsr-level2-clean")
 OUT=WORK/"output"
 OUT.mkdir(parents=True,exist_ok=True)
-BRAND=re.compile(r"intelligen(?:t|ce)?\\s+storm|smart\\s+storm",re.I)
+BRAND=re.compile(r"intelligen(?:t|ce)?\s+storm|smart\s+storm",re.I)
 BRAND_ONLY=re.compile(
-    r"^\\s*(?:intelligen(?:t|ce)?\\s+storm|smart\\s+storm)"
-    r"(?:[\\s()\\-–—]*series)?\\s*$", re.I)
+    r"^\s*(?:intelligen(?:t|ce)?\s+storm|smart\s+storm)"
+    r"(?:[\s()\-–—]*series)?\s*$", re.I)
 
 CJK=re.compile(r"[\u3400-\u9fff\uf900-\ufaff]")
 LOGO_SIZES={(586,178),(1086,268)}
