@@ -1,77 +1,61 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, BookOpen, Grid2X2, Sparkles } from "lucide-react";
-import { LevelOneBackdrop } from "@/components/practical/LevelOneHeader";
-import { SyllabusHeader } from "@/components/practical/SyllabusHeader";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getLevelTotals } from "@/data/advancedSyllabus";
 
 export const Route = createFileRoute("/practical/levels/")({
   component: SyllabusLevelsPage,
 });
 
-const levels = [1, 2, 3, 4, 5, 6] as const;
-const tones = [
-  {panel:"#eaf5ff", ink:"#168eea"}, {panel:"#eaf8ed", ink:"#259a41"},
-  {panel:"#fff5dc", ink:"#bd7800"}, {panel:"#fff0f8", ink:"#d4217f"},
-  {panel:"#eaf5ff", ink:"#168eea"}, {panel:"#eaf8ed", ink:"#259a41"},
+const levels = [
+  { number: 1, art: "cheerful-light-bulb-books-gear.jpeg", name: "Little Inventors", color: "#e7f5ff", ink: "#138ad4" },
+  { number: 2, art: "colorful-gears-wrench-leaves.jpeg", name: "Creative Builders", color: "#e7f7e8", ink: "#298c51" },
+  { number: 3, art: "magenta-rocket-clouds.jpeg", name: "Problem Solvers", color: "#fff0f7", ink: "#d7478b" },
+  { number: 4, art: "glossy-blue-coding-laptop.jpeg", name: "Tech Explorers", color: "#e9f1ff", ink: "#4d75ca" },
+  { number: 5, art: "glossy-earth-sprouting-plant.jpeg", name: "Innovators", color: "#fff4db", ink: "#b67c25" },
+  { number: 6, art: "friendly-eco-tech-robot.png", name: "Future Makers", color: "#f0eaff", ink: "#8655c3" },
 ] as const;
+
+const artRoot = "/assets/level-artwork/";
 
 function SyllabusLevelsPage() {
   return (
-    <div className="relative h-[100dvh] overflow-y-auto bg-white text-slate-800">
-      <LevelOneBackdrop />
-      <SyllabusHeader label="Home" />
-      <main className="relative mx-auto max-w-7xl px-4 pb-[max(3rem,env(safe-area-inset-bottom))] pt-7 sm:px-7 sm:pt-10">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="inline-flex items-center gap-1 rounded-full bg-[#eaf5ff] px-4 py-1.5 text-xs font-extrabold tracking-wide text-[#168eea]">
-            <Sparkles className="size-4" aria-hidden="true" /> BE STEM READY
-          </p>
-          <h1 className="mt-3 text-[clamp(2rem,5vw,3.3rem)] font-black tracking-tight">
-            Pick your <span className="text-[#168eea]">level!</span>
-          </h1>
-          <p className="mt-3 text-sm font-medium leading-6 text-slate-600 sm:text-base">
-            Explore the real project categories from your six-level robotics syllabus.
-            Open a level, find a project, and choose Learning or Building.
-          </p>
+    <main className="relative isolate flex h-[100dvh] min-h-0 flex-col overflow-hidden bg-[#f4fbff] text-[#20395c]">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,#e5f5ff_0%,#f8fcff_55%,#eff9ee_100%)]" />
+      <img aria-hidden="true" alt="" src={artRoot + "level-landscape-background.png"} className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[43%] w-full object-contain object-bottom opacity-75 md:hidden" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[min(24vh,170px)] bg-[#dff2ff]/75" />
+      <img aria-hidden="true" alt="" src={artRoot + "blue-wave-header.jpeg"} className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[min(24vh,170px)] w-full object-cover object-top opacity-40" />
+      <header className="relative mx-auto flex h-[clamp(60px,11dvh,94px)] w-full max-w-[1120px] shrink-0 items-center justify-between px-4 sm:px-8">
+        <Link to="/" aria-label="Back home" className="grid size-10 place-items-center rounded-full border border-sky-100 bg-white/90 text-sky-700 shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">
+          <ArrowLeft className="size-5" />
+        </Link>
+        <img alt="BE STEM READY" src="/home/be-stem-ready-logo.svg" className="h-[clamp(36px,7dvh,65px)] max-w-[58%] object-contain" />
+        <span aria-hidden="true" className="size-10" />
+      </header>
+      <section className="mx-auto flex min-h-0 w-full max-w-[1100px] flex-1 flex-col px-4 pb-[max(12px,env(safe-area-inset-bottom))] sm:px-8">
+        <div className="shrink-0 text-center">
+          <p className="mx-auto w-fit rounded-full border border-[#c8e7f9] bg-[#e9f7ff]/90 px-5 py-1 text-[clamp(11px,1.8dvh,15px)] font-bold text-[#388cbd]">Explore Categories</p>
+          <h1 className="mt-[clamp(4px,1dvh,14px)] text-[clamp(23px,4.1dvh,43px)] font-black leading-tight tracking-tight text-[#21476c]">Choose Your Level</h1>
         </div>
-
-        <ul aria-label="Syllabus levels" className="mt-8 grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 lg:grid-cols-3 sm:mt-10">
-          {levels.map((level, index) => {
-            const tone = tones[index] ?? tones[0];
-            const totals = level === 1 ? {categories:14, entries:59} : getLevelTotals(level);
-            const body = (
-              <div className="group flex h-full min-h-[200px] flex-col rounded-[30px] border border-sky-100 bg-white p-5 shadow-[0_8px_25px_rgba(22,142,234,.07)] transition duration-200 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(22,142,234,.13)] motion-reduce:transform-none motion-reduce:transition-none sm:p-6">
-                <div className="flex items-center justify-between">
-                  <span style={{background:tone.panel,color:tone.ink}} className="grid size-14 place-items-center rounded-2xl text-2xl font-black">
-                    {level}
-                  </span>
-                  <BookOpen className="size-6 text-slate-300" aria-hidden="true"/>
-                </div>
-                <h2 className="mt-4 text-xl font-extrabold text-slate-800">Level {level}</h2>
-                <p className="mt-1 text-sm font-medium text-slate-600">{totals.categories} categories · {totals.entries} projects</p>
-                <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-extrabold" style={{color:tone.ink}}>
-                  Explore projects <ArrowRight className="size-4" aria-hidden="true"/>
-                </span>
+        <ul aria-label="Choose your syllabus level" className="mx-auto my-auto grid min-h-0 w-full max-w-[960px] flex-1 grid-cols-2 grid-rows-3 gap-[clamp(8px,1.6dvh,20px)] py-[clamp(10px,2dvh,25px)] md:grid-cols-3 md:grid-rows-2">
+          {levels.map((level) => {
+            const totals = level.number === 1 ? { categories: 14, entries: 59 } : getLevelTotals(level.number);
+            const card = (
+              <div className="group flex h-full min-h-0 flex-col items-center justify-center overflow-hidden rounded-[clamp(16px,2.6vw,28px)] border border-white/90 px-2 py-2 text-center shadow-[0_7px_22px_rgba(54,107,143,.12)] transition-transform duration-200 hover:-translate-y-1 motion-reduce:transform-none" style={{ backgroundColor: level.color }}>
+                <img alt="" src={artRoot + level.art} className="min-h-0 w-full max-w-[170px] flex-1 object-contain" />
+                <span className="shrink-0 text-[clamp(14px,2.3dvh,23px)] font-black leading-tight" style={{ color: level.ink }}>Level {level.number}</span>
+                <span className="shrink-0 text-[clamp(10px,1.6dvh,15px)] font-semibold leading-tight text-[#48637b]">{level.name}</span>
+                <span className="mt-0.5 shrink-0 text-[clamp(9px,1.35dvh,12px)] text-[#5e7488]">{totals.categories} categories · {totals.entries} projects</span>
               </div>
             );
-            return (
-              <li key={level} className="min-w-0">
-                {level === 1 ? (
-                  <Link to="/practical/level-1" aria-label="Explore Level 1 categories"
-                    className="block h-full rounded-[30px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168eea]">{body}</Link>
-                ) : (
-                  <Link to="/practical/levels/$levelNumber" params={{levelNumber:String(level)}}
-                    aria-label={`Explore Level ${level} categories`}
-                    className="block h-full rounded-[30px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168eea]">{body}</Link>
-                )}
-              </li>
-            );
+            return <li key={level.number} className="min-h-0 min-w-0">
+              {level.number === 1
+                ? <Link to="/practical/level-1" aria-label="Explore Level 1 categories" className="block h-full rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">{card}</Link>
+                : <Link to="/practical/levels/$levelNumber" params={{ levelNumber: String(level.number) }} aria-label={`Explore Level ${level.number} categories`} className="block h-full rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">{card}</Link>}
+            </li>;
           })}
         </ul>
-        <div className="mt-8 flex items-center justify-center gap-2 text-center text-sm font-medium text-slate-600">
-          <Grid2X2 className="size-5 text-[#168eea]" aria-hidden="true"/>
-          Every level keeps its own syllabus categories.
-        </div>
-      </main>
-    </div>
+        <p className="flex shrink-0 items-center justify-center gap-2 pb-1 text-center text-[clamp(10px,1.6dvh,14px)] font-semibold text-[#527a9c]">Pick a level to explore its projects <ArrowRight className="size-4" aria-hidden="true" /></p>
+      </section>
+    </main>
   );
 }
