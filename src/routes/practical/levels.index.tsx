@@ -7,9 +7,9 @@ export const Route = createFileRoute("/practical/levels/")({
 });
 
 const levels = [
-  { number: 1, art: "friendly-eco-tech-robot.png", name: "Little Inventors", scale: 1.00, color: "#e7f5ff", ink: "#138ad4" },
+  { number: 1, art: "level-1-bulb.jpg", name: "Little Inventors", scale: 1.00, color: "#e7f5ff", ink: "#138ad4" },
   { number: 2, art: "magenta-rocket-clouds.jpeg", name: "Creative Builders", scale: 1.00, color: "#e7f7e8", ink: "#298c51" },
-  { number: 3, art: "cheerful-light-bulb-books-gear.jpeg", name: "Problem Solvers", scale: 1.22, color: "#fff0f7", ink: "#d7478b" },
+  { number: 3, art: "level-3-rocket.png", name: "Problem Solvers", scale: 1.0, color: "#fff0f7", ink: "#d7478b" },
   { number: 4, art: "colorful-gears-wrench-leaves.jpeg", name: "Tech Explorers", scale: 1.06, color: "#e9f1ff", ink: "#4d75ca" },
   { number: 5, art: "glossy-blue-coding-laptop.jpeg", name: "Innovators", scale: 1.00, color: "#fff4db", ink: "#b67c25" },
   { number: 6, art: "glossy-earth-sprouting-plant.jpeg", name: "Future Makers", scale: 1.00, color: "#f0eaff", ink: "#8655c3" },
@@ -39,8 +39,8 @@ function SyllabusLevelsPage() {
             const totals = level.number === 1 ? { categories: 14, entries: 59 } : getLevelTotals(level.number);
             const card = (
               <div className="group flex h-full min-h-0 flex-col items-center justify-center overflow-hidden rounded-[clamp(16px,2.6vw,28px)] border border-white/90 px-2 py-[clamp(5px,1svh,12px)] text-center shadow-[0_7px_22px_rgba(54,107,143,.12)] transition-transform duration-200 hover:-translate-y-1 motion-reduce:transform-none" style={{ backgroundColor: level.color }}>
-                <div className="flex min-h-0 w-full flex-1 items-center justify-center overflow-hidden">
-                  <img alt="" src={artRoot + level.art} className="h-full max-h-[min(16svh,140px)] w-full max-w-[145px] object-contain mix-blend-multiply" style={{ transform: `scale(${level.scale})` }} />
+                <div className="flex min-h-0 w-full flex-1 items-center justify-center">
+                  <img alt="" src={artRoot + level.art} className={`h-full max-h-[min(16svh,140px)] w-full max-w-[145px] object-contain ${level.number === 3 ? "" : "mix-blend-multiply"}`} style={{ transform: `scale(${level.scale})` }} />
                 </div>
                 <div className="flex shrink-0 flex-col items-center gap-[clamp(1px,.3svh,4px)] pb-1 text-center">
                   <span className="text-[clamp(14px,2.15svh,22px)] font-black leading-tight" style={{ color: level.ink }}>Level {level.number}</span>
