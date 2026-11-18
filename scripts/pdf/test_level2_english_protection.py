@@ -71,6 +71,17 @@ class EnglishProtectionTests(unittest.TestCase):
         self.assertEqual(events, [(1, "heading")])
         doc.close()
 
+    def test_visual_qa_mask_excludes_embedded_brand_in_english_prose(self):
+        doc = fitz.open()
+        page = doc.new_page(width=960, height=540)
+        page.insert_text((35, 85), "Intelligence Storm - Series", fontsize=24)
+        page.insert_text((35, 310), INTRO, fontsize=11)
+        regions = validator.allowed_rectangles(page)
+        editable_text_regions = [rect for rect, kind in regions if kind == "text"]
+        self.assertEqual(len(editable_text_regions), 1)
+        self.assertLess(editable_text_regions[0].y1, 220)
+        doc.close()
+
     def test_split_font_span_inside_sentence_is_not_redacted(self):
         doc = fitz.open()
         page = doc.new_page(width=960, height=540)
