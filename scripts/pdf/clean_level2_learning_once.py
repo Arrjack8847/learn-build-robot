@@ -7,11 +7,11 @@ This script must NOT be used to release PDFs without independent full visual QA.
 """
 from pathlib import Path
 from collections import Counter
-import re, json, tempfile, shutil
+import re, json, tempfile, shutil, hashlib, os
 import fitz
 
-ROOT=Path("public/Level 2/Learning")
-WORK=Path("/tmp/bsr-level2-clean")
+ROOT=Path(os.environ.get("BSR_LEVEL2_SOURCE", "public/Level 2/Learning"))
+WORK=Path(os.environ.get("BSR_LEVEL2_WORK", "/tmp/bsr-level2-clean"))
 OUT=WORK/"output"
 OUT.mkdir(parents=True,exist_ok=True)
 BRAND=re.compile(r"intelligen(?:t|ce)?\s+storm|smart\s+storm",re.I)
@@ -21,6 +21,13 @@ BRAND_ONLY=re.compile(
 
 CJK=re.compile(r"[\u3400-\u9fff\uf900-\ufaff]")
 LOGO_SIZES={(586,178),(1086,268)}
+# Fail closed: neither text language nor bitmap dimensions prove that content is
+# disposable. A reviewer must record exact source page and text/logo fingerprints
+# *after* visual classification before adding an entry to either manifest.
+# Map (relative PDF path, one-based page) -> exact approved Chinese-containing lines.
+APPROVED_CJK_REMOVALS = {}
+# Map relative PDF path -> SHA-256 digests of specifically verified logo bitmaps.
+APPROVED_LOGO_SHA256 = {}
 TURQUOISE=(97/255,195/255,208/255)
 TARGET_FONTS=("MS-Gothic","MicrosoftJhengHei","MicrosoftYaHei")
 reports=[]
@@ -48,6 +55,16 @@ def remove_chinese_font_content(src, relative):
         original=page.get_text()
         if not CJK.search(original):
             continue
+        page_key = (relative.as_posix(), index + 1)
+        approved_lines = set(APPROVED_CJK_REMOVALS.get(page_key, ()))
+        present_lines = [line.strip() for line in original.splitlines()
+                         if CJK.search(line)]
+        unclassified = [line for line in present_lines if line not in approved_lines]
+        if unclassified:
+            doc.close()
+            raise RuntimeError(
+                f"Unclassified Chinese content in {relative}, page {index+1}: "
+                f"{unclassified!r}. Require visual review and exact manifest approval.")
         target_rects=[]
         for block in page.get_text("rawdict")["blocks"]:
             for line in block.get("lines",[]):
@@ -163,7 +180,19 @@ def process(src):
     for pg in doc:
         for im in pg.get_images(full=True):
             if (im[2],im[3]) in LOGO_SIZES:logo_ids.add(im[0])
+    approved_digests = set(APPROVED_LOGO_SHA256.get(rel.as_posix(), ()))
     for xref in logo_ids:
+        extracted = doc.extract_image(xref)
+        payload = extracted.get("image") if extracted else None
+        if not payload:
+            doc.close()
+            raise RuntimeError(f"Unverifiable potential logo image in {rel}: xref={xref}")
+        digest = hashlib.sha256(payload).hexdigest()
+        if digest not in approved_digests:
+            doc.close()
+            raise RuntimeError(
+                f"Unclassified logo-sized image in {rel}: xref={xref}, sha256={digest}. "
+                "Do not delete an illustration based on dimensions alone.")
         for pg in doc:
             if any(im[0]==xref for im in pg.get_images(full=True)):
                 pg.delete_image(xref)

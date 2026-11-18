@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """Independent Level 2 structural, visual and exact instructional English QA."""
 from __future__ import annotations
-import argparse, collections, hashlib, json, re
+import argparse, collections, hashlib, json, re, os
 from pathlib import Path
 import fitz
 from PIL import Image, ImageChops, ImageDraw
 
-SOURCE=Path('public/Level 2/Learning')
-CLEAN=Path('/tmp/bsr-level2-clean/output')
-PROOF=Path('/tmp/bsr-level2-proof')
+SOURCE=Path(os.environ.get('BSR_LEVEL2_SOURCE', 'public/Level 2/Learning'))
+CLEAN=Path(os.environ.get('BSR_LEVEL2_OUTPUT', '/tmp/bsr-level2-clean/output'))
+PROOF=Path(os.environ.get('BSR_LEVEL2_PROOF', '/tmp/bsr-level2-proof'))
+PIXEL_SCALE=2.0
 HAN=re.compile(r'[\u3400-\u9fff\uf900-\ufaff]')
 BRAND=re.compile(r'intelligen(?:t|ce)?\s+storm|smart\s+storm|智能风暴',re.I)
 BRAND_ONLY=re.compile(
@@ -79,7 +80,7 @@ def canonical_instructional_english(text):
             parts.append(line)
     return re.sub(r"\s+", " ", " ".join(parts)).strip()
 
-def render(page, scale=.5):
+def render(page, scale=PIXEL_SCALE):
     pm=page.get_pixmap(matrix=fitz.Matrix(scale,scale),alpha=False)
     return Image.frombytes("RGB",(pm.width,pm.height),pm.samples)
 
@@ -130,7 +131,7 @@ def check_diff(original, cleaned, regions):
 
     permitted=Image.new('L',before.size,0)
     draw=ImageDraw.Draw(permitted)
-    scale=.5
+    scale=PIXEL_SCALE
     for box,kind in regions:
         gap=15 if kind=="text" else (1 if kind=="glyph" else 5)
         x0=max(0,int((box.x0-gap)*scale));y0=max(0,int((box.y0-gap)*scale))
@@ -249,7 +250,15 @@ def run(mode):
                     render(b).save(PROOF/f"{tag}-after.png")
                     print("VISUAL_QA_FAIL",str(src),"page",pi+1,repr(exc),flush=True)
                     raise AssertionError((str(src),pi+1,"visual-delta-outside-approved-regions",str(exc))) from exc
-                if changed:edits+=1
+                if changed:
+                    edits+=1
+                    if mode=='full':
+                        # Preserve full-resolution evidence for every changed page.
+                        slug=hashlib.sha256(str(src.relative_to(SOURCE)).encode()).hexdigest()[:16]
+                        folder=PROOF/'full-resolution'/slug
+                        folder.mkdir(parents=True,exist_ok=True)
+                        before.save(folder/f'{pi+1:03d}-before.png')
+                        after.save(folder/f'{pi+1:03d}-after.png')
                 if mode=='sample' and pi in {0,len(old)-1, min(2,len(old)-1)}:
                     tag=f'{i:02d}-{pi+1:02d}'
                     before.thumbnail((820,620));after.thumbnail((820,620))
@@ -270,10 +279,13 @@ def run(mode):
                         'sha256_clean':hashlib.sha256(dest.read_bytes()).hexdigest()})
         print(f'VALIDATED {i+1:02d}/{len(paths)} {records[-1]["pages"]:3d} pages '
               f'changed_pages={edits} {src.name}',flush=True)
+    if mode=='full' and checked_pages != 787:
+        failures.append({'file':'<inventory>', 'page':None,
+                         'error':f'Expected 787 pages, checked {checked_pages}'})
     result={'mode':mode,'source_pdfs':44,'eligible_learning_pdfs':43,'building_fallback_excluded':str(building[0]),
             'checked_pdfs':len(records),'checked_pages':checked_pages,
-            'visibly_changed_pages':visual_edits,'no_lost_english':True,
-            'legal_notices_preserved':True,'all_pages_rendered':True,
+            'visibly_changed_pages':visual_edits,'no_lost_english':not failures,
+            'legal_notices_preserved':not failures,'all_pages_rendered':not failures,
             'unchanged_page_artwork_preserved':not failures,'failures':failures,'records':records}
     (PROOF/f'qa-{mode}.json').write_text(json.dumps(result,indent=2,ensure_ascii=False))
     if failures:
