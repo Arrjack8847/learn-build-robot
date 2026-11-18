@@ -30,7 +30,7 @@ def allowed_rectangles(page):
     A Chinese character can share a font/span with unrelated English, so only
     its individual glyph bbox is permitted. A branding replacement can occupy
     multiple spans on the same line: in that case the heading/paragraph's
-    original line bounds are allowed, not any other page area.
+    original branding-only line bounds are allowed, never English prose.
     """
     result=[]
     for block in page.get_text('rawdict')['blocks']:
@@ -38,7 +38,7 @@ def allowed_rectangles(page):
             spans=line.get('spans',[])
             all_chars=[char for span in spans for char in span.get('chars',[])]
             text=''.join(ch.get('c','') for ch in all_chars)
-            if BRAND.search(text):
+            if BRAND_ONLY.fullmatch(text.strip()):
                 if all_chars:
                     area=fitz.Rect(all_chars[0]['bbox'])
                     for char in all_chars[1:]:area|=fitz.Rect(char['bbox'])
