@@ -59,11 +59,10 @@ def main():
         MANIFEST.parent.mkdir(parents=True, exist_ok=True)
         MANIFEST.write_text(json.dumps(approved, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     else:
-        names = [
-            "Acceleration car_Building.pdf", "Clock_Building.pdf",
-            "Big head robot_Building.pdf", "Lighthouse_Building.pdf",
-            "Mechanical arm.pdf", "Motorcycle_Building.pdf"
-        ]
+        source = (ROOT / "src" / "data" / "pdfActivityManuals.ts").read_text(encoding="utf-8")
+        level_one_declarations = source.split("const level2AxeRobotPdfUrl", 1)[0]
+        names = sorted(set(re.findall(r'staticPdfUrl\\("([^"]+\\.pdf)"\\)', level_one_declarations)))
+        names.insert(0, "Acceleration car_Building.pdf")
         for filename in names:
             path = PUBLIC / filename
             if not path.exists():
