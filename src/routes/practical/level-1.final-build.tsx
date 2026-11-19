@@ -96,7 +96,12 @@ function FinalBuildPage() {
   function spin() {
     if (spinning || session.stage !== "spin") return;
     setSpinning(true);
-    const index = Math.floor(Math.random() * PROJECTS.length);
+    // Local development only: ?project=Clock allows verifying one model without rerolling.
+    const testProject = import.meta.env.DEV && typeof window !== "undefined"
+      ? new URLSearchParams(window.location.search).get("project") : null;
+    const fixedIndex = testProject
+      ? PROJECTS.findIndex(item => item.name.toLowerCase() === testProject.toLowerCase()) : -1;
+    const index = fixedIndex >= 0 ? fixedIndex : Math.floor(Math.random() * PROJECTS.length);
     update({ stage: "ready", projectIndex: index, checks: [false,false,false,false,false], completed: false, deadline: null, completedAt: null, result: null });
     window.setTimeout(() => setSpinning(false), 450);
   }
