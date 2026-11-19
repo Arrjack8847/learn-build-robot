@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
@@ -30,11 +30,19 @@ function allPdfPaths(dir) {
 
 test("Level 2 registry contains 43 cleaned Learning PDFs and one untouched Building fallback", () => {
   const sourceRoot = resolve(root, "public/Level 2/Learning");
-  const diskKeys = allPdfPaths(sourceRoot).map(path =>
-    prefix + relative(sourceRoot, path).replaceAll("\\", "/"));
+  // In Git-based Vercel builds, the 44 Wix-hosted PDFs are intentionally
+  // absent from the checkout via .vercelignore. Keep the full file inventory
+  // comparison for regular local testing where those source PDFs are present.
+  const diskKeys = existsSync(sourceRoot) ? allPdfPaths(sourceRoot).map(path =>
+    prefix + relative(sourceRoot, path).replaceAll("\\", "/")) : [];
   assert.equal(levelTwoKeys.length, 44);
   assert.equal(cleanedKeys.length, 43);
-  assert.deepEqual(new Set(levelTwoKeys), new Set(diskKeys));
+  if (diskKeys.length > 0) {
+    assert.deepEqual(new Set(levelTwoKeys), new Set(diskKeys));
+  } else {
+    assert.match(read(".vercelignore"), /^public\/Level 2\/\*\*\/\*\.pdf$/m,
+      "Missing local PDFs are allowed only with an explicit Vercel exclusion");
+  }
   assert.match(urls[buildingFallback], /\/ugd\/7fc4ca_[a-z0-9]+\.pdf$/);
 });
 
