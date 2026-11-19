@@ -192,7 +192,17 @@ function FinalBuildPage() {
             </div>
           )}
         </section>
-        <Link to="/practical/level-1" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-sky-700"><ArrowLeft className="size-4" />Back to Categories</Link>
+        <div className="mt-5 flex items-center justify-between gap-4">
+          <Link to="/practical/level-1" className="inline-flex items-center gap-2 text-sm font-bold text-sky-700"><ArrowLeft className="size-4" />Back to Categories</Link>
+          {import.meta.env.DEV && (
+            <button type="button" onClick={() => {
+              localStorage.removeItem(STORAGE_KEY);
+              setSession({ ...initial, checks: [...initial.checks] });
+            }} className="rounded-xl border border-slate-200 px-3 py-2 text-xs font-bold text-slate-500">
+              Reset local test
+            </button>
+          )}
+        </div>
       </main>
     </div>
   );
