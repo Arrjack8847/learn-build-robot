@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowLeft, CheckCircle2, RotateCcw, Timer, Trophy } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ExternalLink, RotateCcw, Timer, Trophy } from "lucide-react";
 import { LEVEL_ONE_CATEGORIES } from "@/data/levelOneCategories";
 import { getLevelOneProjects } from "@/data/levelOneProjects";
 import { pdfActivityManuals } from "@/data/pdfActivityManuals";
 import { levelOneToThreeWixPdfUrls } from "@/data/levelOneToThreeWixPdfUrls";
 import { ACCELERATION_MANUAL_URL } from "@/data/accelerationCarManual";
 import { LevelOneBackdrop, LevelOneHeader } from "@/components/practical/LevelOneHeader";
-import { FinalBuildWheel } from "@/components/practical/FinalBuildWheel";
+import { FinalBuildScanner } from "@/components/practical/FinalBuildScanner";
 import { FinalBuildPrototype, type PrototypeStatus } from "@/components/practical/FinalBuildPrototype";
 import prototypeCrops from "@/data/levelOnePrototypeCrops.json";
 
@@ -21,7 +21,7 @@ const PROTOTYPE_BY_FILENAME = new Map(
 );
 const STORAGE_KEY = "be-stem-ready-level1-final-build-v1";
 const LIMIT_MS = 15 * 60 * 1000;
-const SPIN_DURATION_MS = 5200;
+const SPIN_DURATION_MS = 4200;
 const ORIGINAL_PDF_BY_URL = new Map(
   Object.entries(levelOneToThreeWixPdfUrls)
     .filter(([filename]) => !filename.includes("/"))
@@ -75,11 +75,12 @@ function FinalBuildPage() {
   const [session, setSession] = useState<Session>(initial);
   const [storageReady, setStorageReady] = useState(false);
   const [now, setNow] = useState(() => Date.now());
-  const [modelStatus, setModelStatus] = useState<{ filename: string; status: PrototypeStatus } | null>(null);
   const reviewMode = typeof window !== "undefined" &&
     new URLSearchParams(window.location.search).get("review") === "1";
   const onModelStatus = useCallback((filename: string, status: PrototypeStatus) => {
-    setModelStatus(old => old?.filename === filename && old.status === status ? old : { filename, status });
+    // Reviewer crop diagnostics are separate from the student Wix link.
+    void filename;
+    void status;
   }, []);
   useEffect(() => {
     // Reviewer-only deep link: ?review=1&project=Clock. No reroll is changed
@@ -119,10 +120,10 @@ function FinalBuildPage() {
     ? "Acceleration car_Building.pdf"
     : sourcePdfFilename(manualUrl);
   const candidate = manualFilename ? PROTOTYPE_BY_FILENAME.get(manualFilename) : undefined;
-  const modelReady = Boolean(manualFilename && modelStatus?.filename === manualFilename && modelStatus.status === "ready");
   // No unapproved candidate may unlock the student challenge.
-  const canStart = Boolean(candidate?.approved && modelReady);
-  const canTest = Boolean(reviewMode && candidate && !candidate.approved && modelReady);
+  // The live build challenge opens the official Wix-hosted PDF rather than
+  // gating students on unapproved/experimental cropped model screenshots.
+  const canStart = Boolean(manualUrl?.startsWith("https://") && /\.pdf(?:\?|$)/i.test(manualUrl));
   const checks = useMemo(() => project ? checksFor(project.name, project.category) : [], [project]);
   const remaining = session.deadline ? Math.max(0, session.deadline - now) : LIMIT_MS;
   const time = `${String(Math.floor(remaining / 60000)).padStart(2, "0")}:${String(Math.floor((remaining % 60000) / 1000)).padStart(2, "0")}`;
@@ -130,7 +131,7 @@ function FinalBuildPage() {
   const finishSpin = useCallback(() => {
     setSession(old => old.stage === "spinning" ? { ...old, stage: "ready" } : old);
   }, []);
-  function spin() {
+  function discover() {
     if (session.stage !== "spin") return;
     // Local development only: ?project=Clock allows verifying one model without rerolling.
     const testProject = import.meta.env.DEV && typeof window !== "undefined"
@@ -138,14 +139,11 @@ function FinalBuildPage() {
     const fixedIndex = testProject
       ? PROJECTS.findIndex(item => item.name.toLowerCase() === testProject.toLowerCase()) : -1;
     const index = fixedIndex >= 0 ? fixedIndex : Math.floor(Math.random() * PROJECTS.length);
-    // There are 59 equal-width positions, grouped into category-colored slices.
-    // The selected project position must stop directly under the fixed top pointer.
-    const center = (index + 0.5) * 360 / PROJECTS.length;
-    const turns = 6 + Math.floor(Math.random() * 2);
-    const rotation = turns * 360 + 360 - center;
+    // One uniform draw from 59 projects. Scanner silhouettes are decorative.
+    // The reveal never changes the previously selected result.
     update({
       stage: "spinning", projectIndex: index, variantIndex: 0,
-      spinFinishAt: Date.now() + SPIN_DURATION_MS, spinRotation: rotation,
+      spinFinishAt: Date.now() + SPIN_DURATION_MS, spinRotation: null,
       checks: [false,false,false,false,false], completed: false,
       deadline: null, completedAt: null, result: null,
     });
@@ -165,7 +163,6 @@ function FinalBuildPage() {
   };
   const selectReviewProject = (index: number) => {
     if (!reviewMode) return;
-    setModelStatus(null);
     setSession({ ...initial, checks: [...initial.checks], stage: "ready", projectIndex: index, variantIndex: 0 });
   };
   return (
@@ -176,47 +173,45 @@ function FinalBuildPage() {
         {spinScreen ? (
           <div className="relative flex min-h-0 flex-1 flex-col">
             <header className="mb-2 shrink-0 text-center sm:mb-3">
-              <p className="text-[10px] font-black tracking-[.16em] text-[#c84f79] sm:text-xs">🎪 LEVEL 1 · FINAL BUILD CHALLENGE</p>
-              <h1 className="text-[clamp(1.45rem,3.5vw,2.5rem)] font-black leading-tight tracking-tight text-[#513073]">
-                Spin Your Robot!
+              <p className="text-[10px] font-black tracking-[.17em] text-[#2779bf] sm:text-xs">🔬 LEVEL 1 · FINAL BUILD CHALLENGE</p>
+              <h1 className="text-[clamp(1.5rem,3.5vw,2.7rem)] font-black leading-tight tracking-tight text-[#18418a]">
+                Robot Discovery Scanner
               </h1>
+              <p className="mt-1 hidden text-xs font-semibold text-[#6479a3] sm:block">A new STEM adventure is waiting inside the discovery chamber!</p>
             </header>
-            <section aria-label="Spin the wheel to choose a robot" className="grid min-h-0 flex-1 grid-rows-[minmax(0,1fr)_auto] overflow-hidden rounded-[26px] border-[3px] border-[#f8c95f] bg-white shadow-[0_12px_45px_rgba(143,80,144,.15)] sm:rounded-[34px] lg:grid-cols-[1.08fr_.92fr] lg:grid-rows-1 lg:border-[5px]">
-              <div className="relative flex min-h-0 items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_center,#ffffff_10%,#fff7dd_70%,#ffecb8_100%)] px-2 py-1 sm:px-4 lg:py-5">
-                <div aria-hidden="true" className="pointer-events-none absolute left-[9%] top-[9%] text-2xl text-[#e589eb] lg:text-4xl">✦</div>
-                <div aria-hidden="true" className="pointer-events-none absolute bottom-[8%] right-[10%] text-2xl text-[#ff9d37] lg:text-4xl">★</div>
-                <FinalBuildWheel
-                  spinning={session.stage === "spinning"}
-                  targetRotation={session.spinRotation}
-                  finishAt={session.spinFinishAt}
-                  onFinish={finishSpin}
-                />
+            <section aria-label="Discover a randomly selected robot" className="grid min-h-0 flex-1 grid-rows-[minmax(0,1fr)_auto] overflow-hidden rounded-[26px] border-[3px] border-[#47c8fc] bg-white shadow-[0_12px_45px_rgba(42,111,192,.18)] sm:rounded-[34px] lg:grid-cols-[1.12fr_.88fr] lg:grid-rows-1 lg:border-[5px]">
+              <div className="relative flex min-h-0 items-center justify-center overflow-hidden bg-[#0B1B4E]">
+                <FinalBuildScanner scanning={session.stage === "spinning"} onSkip={finishSpin}/>
               </div>
-              <div className="flex shrink-0 flex-col justify-center gap-2 bg-white px-3 pb-3 pt-2 sm:px-6 lg:min-h-0 lg:gap-5 lg:border-l-4 lg:border-[#ffe6a1] lg:px-8 lg:py-6 xl:px-12">
-                <p className="hidden w-fit rounded-full bg-[#fff0b0] px-4 py-2 text-xs font-black tracking-wide text-[#a15322] lg:block">🎉 THE BIG ROBOT DRAW!</p>
-                <h2 className="text-center text-lg font-black leading-tight text-[#513073] sm:text-xl lg:text-left lg:text-[clamp(1.7rem,2.6vw,2.7rem)]">
-                  Which robot will you get?
+              <div className="flex shrink-0 flex-col justify-center gap-2 bg-gradient-to-br from-white via-[#f0f9ff] to-[#f1edff] px-3 pb-3 pt-2 sm:px-6 lg:min-h-0 lg:gap-5 lg:border-l-4 lg:border-[#9eeaff] lg:px-8 lg:py-6 xl:px-12">
+                <p className="hidden w-fit rounded-full bg-[#d7f7ff] px-4 py-2 text-xs font-black tracking-wide text-[#1478bd] lg:block">🚀 WELCOME TO THE DISCOVERY LAB</p>
+                <h2 className="text-center text-lg font-black leading-tight text-[#19428f] sm:text-xl lg:text-left lg:text-[clamp(1.65rem,2.5vw,2.7rem)]">
+                  {session.stage === "spinning" ? "Scanning your next robot!" : "Which robot will you discover?"}
                 </h2>
-                <p className="hidden max-w-md text-base font-medium leading-relaxed text-[#66547a] lg:block">
-                  Give the wheel a spin! A surprise robot from your Level 1 STEM worlds is waiting for you.
+                <p className="hidden max-w-md text-base font-medium leading-relaxed text-[#557194] lg:block">
+                  Activate the scanner! Watch it search through the STEM lab, then reveal one surprise robot for your Final Build Challenge.
                 </p>
                 <div className="flex items-center justify-center gap-2 lg:justify-start lg:gap-3">
-                  <span className="rounded-full bg-[#efe6ff] px-3 py-1.5 text-[11px] font-black text-[#7045bd] sm:text-sm">🤖 59 robots</span>
-                  <span className="rounded-full bg-[#d7f9e6] px-3 py-1.5 text-[11px] font-black text-[#267d56] sm:text-sm">⏱️ 15-minute build</span>
+                  <span className="rounded-full bg-[#e0efff] px-3 py-1.5 text-[11px] font-black text-[#275bb3] sm:text-sm">🤖 59 robots</span>
+                  <span className="rounded-full bg-[#def8e9] px-3 py-1.5 text-[11px] font-black text-[#267d56] sm:text-sm">⏱️ 15-minute build</span>
                 </div>
-                <button type="button" onClick={spin} disabled={session.stage === "spinning"}
-                  className="group min-h-14 w-full shrink-0 rounded-[20px] border-2 border-[#d93973] border-b-[6px] bg-[#ff5590] px-5 py-2 text-lg font-black tracking-wide text-white shadow-[0_7px_0_#f6b7ce] transition hover:bg-[#f53f7f] active:translate-y-1 active:border-b-2 active:shadow-none focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#7045bd] disabled:cursor-wait disabled:opacity-85 disabled:active:translate-y-0 sm:min-h-16 sm:text-xl lg:min-h-20 lg:text-2xl">
-                  {session.stage === "spinning" ? "🎡 SPINNING..." : "🎯 SPIN THE WHEEL!"}
+                <button type="button" onClick={discover} disabled={session.stage === "spinning"}
+                  className="min-h-14 w-full shrink-0 rounded-[20px] border-2 border-[#d28b23] border-b-[6px] bg-gradient-to-b from-[#ffe67a] to-[#ffc341] px-5 py-2 text-lg font-black tracking-wide text-[#193875] shadow-[0_7px_0_#dce6ff] transition hover:from-[#fff1ab] hover:to-[#ffd263] active:translate-y-1 active:border-b-2 active:shadow-none focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#2187e1] disabled:cursor-wait disabled:opacity-80 sm:min-h-16 sm:text-xl lg:min-h-20 lg:text-2xl">
+                  {session.stage === "spinning" ? "🔬 SCANNING ROBOTS..." : "🔎 DISCOVER MY ROBOT!"}
                 </button>
-                <p className="text-center text-[10px] font-bold leading-tight text-[#826f8f] sm:text-xs lg:text-left" role="status" aria-live="polite">
-                  {session.stage === "spinning"
-                    ? "Watch the pointer! Your surprise robot is coming..."
-                    : "Every robot has the same chance. Spin → Build → Check!"}
+                <p className="text-center text-[10px] font-bold leading-tight text-[#6c81a4] sm:text-xs lg:text-left" role="status" aria-live="polite">
+                  {session.stage === "spinning" ? "Searching the lab… one surprise robot is coming!"
+                    : "Every robot has the same chance. Discover → Build → Check!"}
                 </p>
+                {session.stage === "spinning" && (
+                  <button type="button" onClick={finishSpin} className="min-h-9 text-center text-xs font-bold text-[#356aa9] underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2187e1]">
+                    Skip animation
+                  </button>
+                )}
                 <div className="hidden grid-cols-3 gap-3 lg:grid" aria-hidden="true">
-                  <div className="rounded-xl bg-[#fff1a9] p-3 text-center text-sm font-black text-[#965f17]">1 · SPIN</div>
-                  <div className="rounded-xl bg-[#d3edff] p-3 text-center text-sm font-black text-[#326caa]">2 · BUILD</div>
-                  <div className="rounded-xl bg-[#e9dfff] p-3 text-center text-sm font-black text-[#7050ad]">3 · CHECK</div>
+                  <div className="rounded-xl bg-[#d9edff] p-3 text-center text-sm font-black text-[#285faf]">1 · DISCOVER</div>
+                  <div className="rounded-xl bg-[#deffed] p-3 text-center text-sm font-black text-[#277b64]">2 · BUILD</div>
+                  <div className="rounded-xl bg-[#f4e2ff] p-3 text-center text-sm font-black text-[#764aab]">3 · CHECK</div>
                 </div>
               </div>
             </section>
@@ -266,7 +261,7 @@ function FinalBuildPage() {
                   <label htmlFor="crawl-variant" className="text-xs font-bold text-[#65438a]">Official variant</label>
                   <select id="crawl-variant" value={session.variantIndex}
                     disabled={session.stage !== "ready"}
-                    onChange={event => { setModelStatus(null); update({ variantIndex: Number(event.target.value) }); }}
+                    onChange={event => update({ variantIndex: Number(event.target.value) })}
                     className="min-h-11 rounded-xl border border-[#d4b7f2] bg-white px-3 text-sm font-bold text-[#65438a]">
                     {project.availableProjectVariants.map((option,index) => (
                       <option value={index} key={option.projectId}>{option.label}</option>
@@ -276,32 +271,24 @@ function FinalBuildPage() {
               )}
               {(session.stage === "ready" || session.stage === "building") && (
                 <>
-                  <div className="mb-4 rounded-2xl border border-sky-200 bg-slate-50 p-3 text-center">
-                    {candidate && manualFilename && manualUrl ? (
-                      <div>
-                        <FinalBuildPrototype
-                          filename={manualFilename}
-                          url={manualUrl}
-                          pageNumber={candidate.page}
-                          crop={candidate.crop}
-                          title={project.name}
-                          onStatusChange={onModelStatus}
-                        />
-                        <p className="mt-2 text-xs font-semibold text-slate-600">
-                          Original Building PDF · Page {candidate.page} · Model region only
-                        </p>
-                        {!candidate.approved && (
-                          <p className="mt-1 text-xs font-bold text-amber-800" role="note">
-                            Preview candidate — image crop awaits approval{candidate.confidence === "low" ? " (model identification uncertain)" : ""}.
-                          </p>
-                        )}
-                      </div>
+                  <div className="mb-4 rounded-2xl border-2 border-sky-200 bg-gradient-to-b from-[#e9f8ff] to-white p-4 text-center">
+                    <div aria-hidden="true" className="mx-auto mb-2 flex size-16 items-center justify-center rounded-2xl bg-[#d2f5ff] text-4xl shadow-inner">🤖</div>
+                    <p className="text-sm font-black text-[#195ca5]">Robot detected!</p>
+                    <p className="mt-1 text-xs font-semibold text-slate-600">Your official Building Guide is hosted on Wix Studio.</p>
+                    {manualUrl?.startsWith("https://") ? (
+                      <a href={manualUrl} target="_blank" rel="noopener noreferrer"
+                        className="mx-auto mt-3 flex min-h-12 max-w-sm items-center justify-center gap-2 rounded-xl border-2 border-[#3ab4ea] bg-white px-4 text-sm font-black text-[#17619b] shadow-sm hover:bg-[#f4fcff] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2187e1]">
+                        View Original Building PDF (Wix) <ExternalLink className="size-4"/>
+                      </a>
                     ) : (
-                      <div className="py-5">
-                        <p className="font-bold text-[#745397]">Robot reference not identified</p>
-                        <p className="mt-2 text-xs text-slate-500">
-                          This project cannot start until its original prototype has been verified.
-                        </p>
+                      <p className="mt-3 text-sm font-bold text-rose-700" role="alert">The official Building PDF link is unavailable for this project.</p>
+                    )}
+                    {reviewMode && candidate && manualFilename && manualUrl && (
+                      <div className="mt-3 rounded-xl border border-amber-200 bg-white p-2">
+                        <p className="mb-2 text-xs font-bold text-amber-800">Reviewer-only candidate crop · Not approved</p>
+                        <FinalBuildPrototype filename={manualFilename} url={manualUrl}
+                          pageNumber={candidate.page} crop={candidate.crop} title={project.name}
+                          onStatusChange={onModelStatus}/>
                       </div>
                     )}
                   </div>
@@ -309,18 +296,15 @@ function FinalBuildPage() {
                 </>
               )}
               {session.stage === "ready" && (
-                <button type="button" disabled={!canStart} onClick={() => update({ stage: "building", deadline: Date.now() + LIMIT_MS, completedAt: null })} className="min-h-14 w-full rounded-2xl border-b-4 border-[#c34d83] bg-[#f85a96] font-extrabold text-white shadow-lg disabled:cursor-not-allowed disabled:opacity-50">Start My 15-Minute Build</button>
-              )}
-              {session.stage === "ready" && canTest && (
-                <button type="button" onClick={() => update({ stage: "building", deadline: Date.now() + LIMIT_MS, completedAt: null })}
-                  className="mt-3 min-h-12 w-full rounded-2xl border-2 border-[#b6a0ed] bg-[#efe6ff] px-4 font-extrabold text-[#6740a2] hover:bg-[#e2d2ff]">
-                  Test 15-Minute Timer (review only)
+                <button type="button" disabled={!canStart} onClick={() => update({ stage: "building", deadline: Date.now() + LIMIT_MS, completedAt: null })}
+                  className="min-h-14 w-full rounded-2xl border-b-4 border-[#c34d83] bg-[#f85a96] font-extrabold text-white shadow-lg disabled:cursor-not-allowed disabled:opacity-50">
+                  Start My 15-Minute Build
                 </button>
               )}
               {session.stage === "ready" && !canStart && (
                 <button type="button" onClick={() => retry(false)}
                   className="mt-3 min-h-12 w-full rounded-2xl border-2 border-[#f0c878] bg-[#fff5d8] px-4 font-extrabold text-[#8857aa] hover:bg-[#ffeab0]">
-                  <RotateCcw className="mr-2 inline size-4" />Spin Again
+                  <RotateCcw className="mr-2 inline size-4"/>Discover Another Robot
                 </button>
               )}
               {session.stage === "building" && (

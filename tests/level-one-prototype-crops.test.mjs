@@ -44,15 +44,28 @@ test("PDF reference viewer displays a crop only and never offers step navigation
   assert.doesNotMatch(component, /<iframe|<object|<embed|window\.open|download=/);
 });
 
-test("student Start button is gated on approved reference and successful PDF render", () => {
+test("student Start button requires a Wix-hosted official Building PDF link", () => {
   const route = readFileSync(new URL("../src/routes/practical/level-1.final-build.tsx", import.meta.url), "utf8");
-  assert.match(route, /const canStart = Boolean\(candidate\?\.approved && modelReady\)/);
+  assert.match(route, /const canStart = Boolean\(manualUrl\?\.startsWith\("https:\/\/"\)/);
   assert.match(route, /disabled=\{!canStart\}/);
-  assert.match(route, /reviewMode && candidate && !candidate\.approved && modelReady/);
+  assert.match(route, /View Original Building PDF \(Wix\)/);
 });
 
 test("Acceleration Car has a dedicated official PDF reference", () => {
   const route = readFileSync(new URL("../src/routes/practical/level-1.final-build.tsx", import.meta.url), "utf8");
   assert.match(route, /ACCELERATION_MANUAL_URL/);
   assert.match(route, /Acceleration car_Building\.pdf/);
+});
+
+test("Robot Discovery Scanner replaces carnival wheel without changing equal selection", () => {
+  const route = readFileSync(new URL("../src/routes/practical/level-1.final-build.tsx", import.meta.url), "utf8");
+  const scanner = readFileSync(new URL("../src/components/practical/FinalBuildScanner.tsx", import.meta.url), "utf8");
+  assert.match(route, /FinalBuildScanner/);
+  assert.doesNotMatch(route, /<FinalBuildWheel/);
+  assert.match(route, /Math\\.floor\\(Math\\.random\\(\\) \\* PROJECTS\\.length\\)/);
+  assert.match(route, /SPIN_DURATION_MS = 4200/);
+  assert.match(route, /onClick=\\{discover\\}/);
+  assert.match(route, /Skip animation/);
+  assert.match(scanner, /prefers-reduced-motion: reduce/);
+  assert.match(scanner, /bsr-scanner-beam/);
 });
