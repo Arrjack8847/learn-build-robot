@@ -28,28 +28,40 @@ function wixEntries(relativeFile) {
 const rootRegistry = wixEntries("src/data/levelOneToThreeWixPdfUrls.ts");
 const level4Registry = wixEntries("src/data/levelFourWixPdfUrls.ts");
 
-// All 172 legacy root PDF files represent the shared Level 1-3 Building
-// manuals. Their Wix URLs are the app's source of truth.
-const rootBuilding = [...rootRegistry.entries()]
-  .filter(([key]) => !key.includes("/") && key.toLowerCase().endsWith(".pdf"));
-
-// Level 4 includes separately hosted Learning files; keep those local.
-const level4Building = [...level4Registry.entries()]
-  .filter(([key]) => key.startsWith("Level 4/Building/") && key.toLowerCase().endsWith(".pdf"));
-
-if (rootBuilding.length !== 172 || level4Building.length !== 50) {
-  throw new Error(
-    "Wix Building registry coverage changed; refusing asset pruning: " +
-    rootBuilding.length + " root, " + level4Building.length + " Level 4",
-  );
+// Prune ONLY the 209 audited Level 1–4 Building paths. The Wix URL registries
+// also contain Learning and supplementary PDFs that must not be excluded.
+const manifest = JSON.parse(
+  readFileSync(
+    join(repoRoot, "reports/level1-4-building-link-only-paths-20261119.json"),
+    "utf8",
+  ),
+);
+if (manifest.auditedCounts?.distinctPaths !== 209 ||
+    !Array.isArray(manifest.paths) || manifest.paths.length !== 209) {
+  throw new Error("Expected exactly 209 audited Building PDF paths.");
 }
-
-const paths = [...rootBuilding, ...level4Building].map(([path, url]) => {
-  if (!url.startsWith(wixHost) || !url.endsWith(".pdf") || path.includes("..")) {
-    throw new Error("Missing or invalid Wix Building PDF mapping: " + path);
+const paths = manifest.paths.map((repositoryPath) => {
+  const segments = repositoryPath.split("/");
+  if (!repositoryPath.startsWith("public/") ||
+      !repositoryPath.toLowerCase().endsWith(".pdf") ||
+      segments.some((part) => part === "." || part === "..") ||
+      segments.includes("Learning")) {
+    throw new Error("Unsafe Building PDF inventory path: " + repositoryPath);
   }
-  return path;
+  const relativePath = segments.slice(1).join("/");
+  const registry = relativePath.startsWith("Level 4/Building/")
+    ? level4Registry
+    : rootRegistry;
+  const url = registry.get(relativePath);
+  if (typeof url !== "string" || !url.startsWith(wixHost) ||
+      !url.endsWith(".pdf")) {
+    throw new Error("Missing Wix link for Building PDF: " + repositoryPath);
+  }
+  return relativePath;
 });
+if (new Set(paths).size !== paths.length) {
+  throw new Error("Duplicate path in audited Building PDF manifest.");
+}
 
 // Vite/TanStack Start/Nitro can emit assets into different folders.
 // Prune only exact path matches in generated output directories, never public/.
