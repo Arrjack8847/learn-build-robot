@@ -1,0 +1,585 @@
+{
+  "project": "BE STEM READY",
+  "scope": "Level 3 Building PDFs only",
+  "source_commit": "521fe7e1fe9829eb811356982a09bb3c4c6cce6a",
+  "audit_date": "2026-11-19",
+  "registered_building_entries": 42,
+  "unique_building_pdfs": 40,
+  "pages_total": 691,
+  "original_git_blob_sha_verified": 40,
+  "affected_cover_count": 1,
+  "affected_cover": "public/Gyro transmitter_Building.pdf",
+  "unaffected_pdf_count": 39,
+  "interior_extractable_chinese_deferred": [
+    {
+      "path": "public/Electronic scale.pdf",
+      "extractable_chinese_characters": 40
+    }
+  ],
+  "verification": "All 40 Wix copies matched the exact original Git blob SHA. First pages rendered and visually reviewed. No selectable Chinese on any cover. Gyro transmitter cover has image-embedded Chinese; all other covers showed no visible Chinese title.",
+  "edit_status": "Generated and locally validated in isolated Vercel Python workspace. Edited PDF binary NOT committed to GitHub.",
+  "files": [
+    {
+      "path": "public/Clip robot_Building.pdf",
+      "original_blob_sha": "a5b7ceb46d32842808328d9d0b613d0ea9130157",
+      "original_bytes": 11186721,
+      "pages": 30,
+      "first_page_points": [
+        1587,
+        893
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-clip-robot"
+      ]
+    },
+    {
+      "path": "public/3. Cycle Sport-Basic Building Manual.pdf",
+      "original_blob_sha": "6f6c9ea0b49892055b550782b01d8e791b1ce6a1",
+      "original_bytes": 23318422,
+      "pages": 21,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-cycle-sport-basic"
+      ]
+    },
+    {
+      "path": "public/3. Cycle Sport-Optimized Building Manual.pdf",
+      "original_blob_sha": "58370ce13bd4492ce57424b712a889ae476db9ec",
+      "original_bytes": 7994296,
+      "pages": 6,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-cycle-sport-optimized"
+      ]
+    },
+    {
+      "path": "public/24. Automatic Seesaw -Building Manual.pdf",
+      "original_blob_sha": "3b58f8f73766eafed4b619c7a1a1f2152be73e1e",
+      "original_bytes": 10796425,
+      "pages": 29,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-automatic-seesaw"
+      ]
+    },
+    {
+      "path": "public/Security door_Building.pdf",
+      "original_blob_sha": "03d7becdd7b35c4ec87ff0e3fe32a00b91919906",
+      "original_bytes": 4868092,
+      "pages": 10,
+      "first_page_points": [
+        1587,
+        893
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-security-door"
+      ]
+    },
+    {
+      "path": "public/Smart door_Building.pdf",
+      "original_blob_sha": "99db02e958996e1ec0d66d0f7303deb077934de5",
+      "original_bytes": 3883470,
+      "pages": 5,
+      "first_page_points": [
+        2064,
+        1161
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-smart-door"
+      ]
+    },
+    {
+      "path": "public/Following Robot_Building.pdf",
+      "original_blob_sha": "ac69d581c188c7569669246a2eadbce94257ed59",
+      "original_bytes": 6655951,
+      "pages": 9,
+      "first_page_points": [
+        2064,
+        1161
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-following-robot"
+      ]
+    },
+    {
+      "path": "public/Obstacle Avoidance Robot 1_Building.pdf",
+      "original_blob_sha": "e61505dcb3e4c0f19123408449c93c2253d3e283",
+      "original_bytes": 9637658,
+      "pages": 11,
+      "first_page_points": [
+        2064,
+        1161
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-obstacle-avoidance-robot-1"
+      ]
+    },
+    {
+      "path": "public/Sunflower.pdf",
+      "original_blob_sha": "84c4ee8db080d4f2ca2991a03c7ed5c8d5307461",
+      "original_bytes": 9345616,
+      "pages": 14,
+      "first_page_points": [
+        2064,
+        1161
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-sunflower"
+      ]
+    },
+    {
+      "path": "public/23.Electric Bulldozer -Building Manual.pdf",
+      "original_blob_sha": "6af098a5a9ea6bde37a01a5549187f0b37026c14",
+      "original_bytes": 9513897,
+      "pages": 26,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-electric-bulldozer"
+      ]
+    },
+    {
+      "path": "public/05.Electric Fan-Building Manual.pdf",
+      "original_blob_sha": "5526dcd1f86e025a7c016363f1d81647255543f1",
+      "original_bytes": 3692066,
+      "pages": 12,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-electric-fan-characters-structures",
+        "level-3-electric-fan-mechanisms-and-concepts"
+      ]
+    },
+    {
+      "path": "public/15.Safe -Building Manual.pdf",
+      "original_blob_sha": "eb59936b933ffca57769e24093959de5278f7e9c",
+      "original_bytes": 6942434,
+      "pages": 24,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-safe"
+      ]
+    },
+    {
+      "path": "public/20.Smart Trash Bin-Building Manual.pdf",
+      "original_blob_sha": "7fe5fb43232b10dfb335d96cc6c43df75c71c537",
+      "original_bytes": 6521735,
+      "pages": 22,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-smart-trash-bin"
+      ]
+    },
+    {
+      "path": "public/Lifting Maintenance Vehicle.pdf",
+      "original_blob_sha": "6b7da9e2496b02780b96b229b0e068abf8fd5f95",
+      "original_bytes": 23827851,
+      "pages": 22,
+      "first_page_points": [
+        841.9,
+        595.3
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-lifting-maintenance-vehicle"
+      ]
+    },
+    {
+      "path": "public/24.Automated Guided Vehicle-Building Manual.pdf",
+      "original_blob_sha": "ab64321405422d0b89dcb9a45772a450e060d5ce",
+      "original_bytes": 7824597,
+      "pages": 24,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-automated-guided-vehicle"
+      ]
+    },
+    {
+      "path": "public/1. Race Walking - Basic Building Manual.pdf",
+      "original_blob_sha": "b6e2a731e486b8ddf1402df179e966795f204781",
+      "original_bytes": 7658532,
+      "pages": 7,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-race-walking-basic"
+      ]
+    },
+    {
+      "path": "public/1. Race Walking - Optimized Building Manual.pdf",
+      "original_blob_sha": "68535fb14b515e980237b3f969466facbcd98060",
+      "original_bytes": 7353583,
+      "pages": 6,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-race-walking-optimized"
+      ]
+    },
+    {
+      "path": "public/1. Race Walking - Optimized Building Manual - Added Ratchet.pdf",
+      "original_blob_sha": "4cb49db89cf60b8810d7d3d10138324541d317c8",
+      "original_bytes": 2480952,
+      "pages": 2,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-race-walking-optimized-ratchet"
+      ]
+    },
+    {
+      "path": "public/Bumper car_Building.pdf",
+      "original_blob_sha": "ea125a179e492944bdbf1d02753bca32e7716bfc",
+      "original_bytes": 6118026,
+      "pages": 13,
+      "first_page_points": [
+        1587,
+        893
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-bumper-car-foundational-robots",
+        "level-3-bumper-car-interactive-mechanisms"
+      ]
+    },
+    {
+      "path": "public/13.Disinfection Lamp-Building Manual.pdf",
+      "original_blob_sha": "40e3072459b2597e4eb29771a3af4ac78ad9c236",
+      "original_bytes": 6161967,
+      "pages": 20,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-disinfection-lamp"
+      ]
+    },
+    {
+      "path": "public/14.Light-sensitive Curtains -Building Manual.pdf",
+      "original_blob_sha": "e91d74604d885d7ac0ec02a019ffc8c48606c36a",
+      "original_bytes": 7066042,
+      "pages": 28,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-light-sensitive-curtains"
+      ]
+    },
+    {
+      "path": "public/11.Anti-fall Robot-Building Manual.pdf",
+      "original_blob_sha": "bf0f4db6aee851eea552fe4fcc58c13d7d62f28c",
+      "original_bytes": 4991217,
+      "pages": 16,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-anti-fall-robot"
+      ]
+    },
+    {
+      "path": "public/17.Automatic Door -Building Manual.pdf",
+      "original_blob_sha": "8a28b083039ee8d6f9805d17573e5f28ab0d70d7",
+      "original_bytes": 7319134,
+      "pages": 23,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-automatic-door"
+      ]
+    },
+    {
+      "path": "public/06..Juicer Machine-Building Manual.pdf",
+      "original_blob_sha": "4f0afb1938a516c540603da9d852b4a509f17294",
+      "original_bytes": 4569325,
+      "pages": 14,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-juicer-machine"
+      ]
+    },
+    {
+      "path": "public/08.Washing Machine-Building Manual.pdf",
+      "original_blob_sha": "b6598180cda7dd76906d29bf2b32f609d278068c",
+      "original_bytes": 5838232,
+      "pages": 18,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-washing-machine"
+      ]
+    },
+    {
+      "path": "public/Electronic scale.pdf",
+      "original_blob_sha": "3afceb33862213ed99d10bfa0fb4d994c57a7184",
+      "original_bytes": 1734649,
+      "pages": 27,
+      "first_page_points": [
+        792,
+        612
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-electronic-scale"
+      ]
+    },
+    {
+      "path": "public/Gyro transmitter_Building.pdf",
+      "original_blob_sha": "82871820203830b6932c5b314ab7afa70183f215",
+      "original_bytes": 3810920,
+      "pages": 17,
+      "first_page_points": [
+        807.9,
+        595.3
+      ],
+      "cover_visual_chinese": true,
+      "registration_ids": [
+        "level-3-gyro-transmitter"
+      ]
+    },
+    {
+      "path": "public/Biting Monster.pdf",
+      "original_blob_sha": "12e6817e8bdc45b6e27c8738d84454c67dd7c424",
+      "original_bytes": 19489610,
+      "pages": 24,
+      "first_page_points": [
+        841.9,
+        595.3
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-biting-monster"
+      ]
+    },
+    {
+      "path": "public/Electric Gyro Launcher.pdf",
+      "original_blob_sha": "3d28bbef01ceeee9749fc009efffbf07e261e6f4",
+      "original_bytes": 6244587,
+      "pages": 12,
+      "first_page_points": [
+        841.9,
+        595.3
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-electric-gyro-launcher"
+      ]
+    },
+    {
+      "path": "public/Responder.pdf",
+      "original_blob_sha": "7d621e24ed155d78f1917b6de3a27b093be8b763",
+      "original_bytes": 8584798,
+      "pages": 12,
+      "first_page_points": [
+        841.9,
+        595.3
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-responder"
+      ]
+    },
+    {
+      "path": "public/10.Electric guitar_Building.pdf",
+      "original_blob_sha": "113c6f8587f9bb550a15c68af618fdec8760f28c",
+      "original_bytes": 15795140,
+      "pages": 16,
+      "first_page_points": [
+        2064,
+        1161
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-electric-guitar"
+      ]
+    },
+    {
+      "path": "public/29.Music Box -Building Manual.pdf",
+      "original_blob_sha": "cf1c89ff3347fa79a8940f93de0df4281dc7dc69",
+      "original_bytes": 5897344,
+      "pages": 24,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-music-box"
+      ]
+    },
+    {
+      "path": "public/07.Music Doorbell-Building Manual.pdf",
+      "original_blob_sha": "06d759c2122e8b8853820061ab2c6c22f480beaf",
+      "original_bytes": 3266387,
+      "pages": 12,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-music-doorbell"
+      ]
+    },
+    {
+      "path": "public/Smart Audio_Building.pdf",
+      "original_blob_sha": "0dfd3d13fe65d021868056ef3ecdbcf104dc1ed3",
+      "original_bytes": 8917740,
+      "pages": 11,
+      "first_page_points": [
+        2064,
+        1161
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-smart-audio"
+      ]
+    },
+    {
+      "path": "public/Sonometer_Building.pdf",
+      "original_blob_sha": "bd571b772b2ae9adfa1df0d19e6586484aae48ce",
+      "original_bytes": 3150815,
+      "pages": 8,
+      "first_page_points": [
+        1587,
+        893
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-sonometer"
+      ]
+    },
+    {
+      "path": "public/16.Sound Level Meter -Building Manual.pdf",
+      "original_blob_sha": "b0e8a89dd29edd9a0476f35ce3000fc1faa1fc63",
+      "original_bytes": 5394073,
+      "pages": 20,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-sound-level-meter"
+      ]
+    },
+    {
+      "path": "public/F1 racing car_Building.pdf",
+      "original_blob_sha": "cab10741b85d7f4087628164d3a79979373b2ee4",
+      "original_bytes": 15203452,
+      "pages": 37,
+      "first_page_points": [
+        1587,
+        893
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-f1-racing-car"
+      ]
+    },
+    {
+      "path": "public/11. The Long-lived Turtle - Basic Building Manual.pdf",
+      "original_blob_sha": "19958e694dfc2e8091d251e58e99dd7571efe6fa",
+      "original_bytes": 25502290,
+      "pages": 23,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-long-lived-turtle"
+      ]
+    },
+    {
+      "path": "public/Lunar Rover.pdf",
+      "original_blob_sha": "1bdd4d89b5e8e3773753b3dcb3a9330e6c09ad1e",
+      "original_bytes": 7810384,
+      "pages": 24,
+      "first_page_points": [
+        841.9,
+        595.3
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-lunar-rover"
+      ]
+    },
+    {
+      "path": "public/04.Flashlight-Building Manual.pdf",
+      "original_blob_sha": "7c3150b2641e06394d9f1c34336982e64b0733ce",
+      "original_bytes": 3928338,
+      "pages": 12,
+      "first_page_points": [
+        842,
+        596
+      ],
+      "cover_visual_chinese": false,
+      "registration_ids": [
+        "level-3-flashlight-sensor"
+      ]
+    }
+  ]
+}
