@@ -13,8 +13,8 @@ const PROJECTS = LEVEL_ONE_CATEGORIES.flatMap(category =>
 const STORAGE_KEY = "be-stem-ready-level1-final-build-v1";
 const LIMIT_MS = 15 * 60 * 1000;
 type Stage = "spin" | "ready" | "building" | "assessment" | "result";
-type Session = { stage: Stage; projectIndex: number | null; deadline: number | null; checks: boolean[]; completed: boolean; attempts: number; result: "pass" | "retry" | null };
-const initial: Session = { stage: "spin", projectIndex: null, deadline: null, checks: [false,false,false,false,false], completed: false, attempts: 0, result: null };
+type Session = { stage: Stage; projectIndex: number | null; deadline: number | null; completedAt: number | null; checks: boolean[]; completed: boolean; attempts: number; result: "pass" | "retry" | null };
+const initial: Session = { stage: "spin", projectIndex: null, deadline: null, completedAt: null, checks: [false,false,false,false,false], completed: false, attempts: 0, result: null };
 function load(): Session {
   if (typeof window === "undefined") return initial;
   try {
@@ -73,12 +73,12 @@ function FinalBuildPage() {
     if (spinning || session.stage !== "spin") return;
     setSpinning(true);
     const index = Math.floor(Math.random() * PROJECTS.length);
-    update({ stage: "ready", projectIndex: index, checks: [false,false,false,false,false], completed: false, deadline: null, result: null });
+    update({ stage: "ready", projectIndex: index, checks: [false,false,false,false,false], completed: false, deadline: null, completedAt: null, result: null });
     window.setTimeout(() => setSpinning(false), 450);
   }
   function assess() {
     const score = session.checks.filter(Boolean).length;
-    const pass = session.completed && score >= 4 && (session.deadline === null || Date.now() <= session.deadline);
+    const pass = session.completed && score >= 4 && (session.deadline !== null && session.completedAt !== null && session.completedAt <= session.deadline);
     update({ stage: "result", result: pass ? "pass" : "retry" });
   }
   function retry(same: boolean) {
@@ -121,10 +121,10 @@ function FinalBuildPage() {
                 </>
               )}
               {session.stage === "ready" && (
-                <button type="button" onClick={() => update({ stage: "building", deadline: Date.now() + LIMIT_MS })} className="min-h-12 w-full rounded-2xl bg-[#168eea] font-extrabold text-white">Start My 15-Minute Build</button>
+                <button type="button" onClick={() => update({ stage: "building", deadline: Date.now() + LIMIT_MS, completedAt: null })} className="min-h-12 w-full rounded-2xl bg-[#168eea] font-extrabold text-white">Start My 15-Minute Build</button>
               )}
               {session.stage === "building" && (
-                <button type="button" onClick={() => update({ stage: "assessment", completed: true })} className="min-h-12 w-full rounded-2xl bg-emerald-600 font-extrabold text-white">I Finished My Robot!</button>
+                <button type="button" onClick={() => update({ stage: "assessment", completed: true, completedAt: Date.now() })} className="min-h-12 w-full rounded-2xl bg-emerald-600 font-extrabold text-white">I Finished My Robot!</button>
               )}
               {session.stage === "assessment" && (
                 <div>
