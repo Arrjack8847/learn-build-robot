@@ -1,0 +1,325 @@
+{
+  "date": "2026-11-19",
+  "repository": "Arrjack8847/learn-build-robot",
+  "base_main_git_sha": "9e5f2410a1bfa79c0fd1618794820cf4c08a00c5",
+  "branch": "fix/level1-complete-building-english-20261119",
+  "scope": "Level 1 Building PDFs only",
+  "status": "LOCALLY_VALIDATED_BINARY_DELIVERY_TO_GITHUB_UNCONFIRMED",
+  "total_pdfs": 60,
+  "total_pages": 1010,
+  "modified_pdf_count": 36,
+  "unchanged_pdf_count": 24,
+  "interior_34_pages_repaired": true,
+  "first_robot_model_cover_repaired": true,
+  "raster_chinese_covers_repaired": 17,
+  "raster_chinese_footer_pages_repaired": 228,
+  "raster_chinese_text": "\u4e2d\u9e23\u673a\u5668\u4eba",
+  "english_translation": "Zhongming Robot",
+  "remaining_extractable_chinese_pages": 0,
+  "tests": {
+    "page_counts": true,
+    "page_dimensions": true,
+    "original_sha_verified": true,
+    "initial_19_scripts_pass": true,
+    "footer_228_page_raster_localization_pass": true,
+    "cover_17_page_raster_localization_pass": true,
+    "ocr_1010_page_screen_performed": true,
+    "ocr_false_positives_remain_possible": true,
+    "visual_reviewed_every_page_manually": false,
+    "github_modified_pdf_blob_commits_confirmed": false,
+    "merged_to_main": false
+  },
+  "archive_name": "level1-building-english-36-repaired-pdfs-20261119.zip",
+  "archive_sha256": "052a86b487ebd18117aa0dce1ef0bfeccb78b1c77e1a81ddff0d6c33f9273534",
+  "not_merged_and_not_production": "The PDF bytes were not committed to GitHub by this audit-only commit.",
+  "modified_files": [
+    {
+      "path": "public/Acceleration car_Building.pdf",
+      "source_blob": "e0398a0137390754ac7f14b3bf64e7b180a2aa76",
+      "new_blob": "a5b0e1735fcee1e62a844eeff3a440cd9db61ba5",
+      "sha256": "26f8d86ad73967286ea89c62b98a7f262e76e11ed4dfbd14b0a837a1f81b68b2",
+      "pages": 19,
+      "bytes": 5332002
+    },
+    {
+      "path": "public/FUNNY CAT.pdf",
+      "source_blob": "0ae397b461df78897d34b73a0e5c6c82729e1314",
+      "new_blob": "b398989a9d37c76d1e78a1e5d31bcb7aa61b903d",
+      "sha256": "11a943d801cb821201e734a826ef681d852075c4f8d7790c4412cf3b85d28b7a",
+      "pages": 21,
+      "bytes": 1413093
+    },
+    {
+      "path": "public/Ferocious snake.pdf",
+      "source_blob": "ac2441e1d6309b44a4c486ec7404ecd3fa3f4732",
+      "new_blob": "94d2d662f81350c8256d260cb595f46d59bae0fd",
+      "sha256": "fcc28da32d3e2190b0bd32e2b88fe155c6b7f417a66e7cfbd2d90a5dd7b8333b",
+      "pages": 24,
+      "bytes": 1754491
+    },
+    {
+      "path": "public/Shy penguin.pdf",
+      "source_blob": "79149a28054b2fa4a9b088a5761fe5669f063835",
+      "new_blob": "e00cb216fe1310993f36721841dcc4ba9b5fa5cc",
+      "sha256": "4b48ce113f01e15ebc329ed0b90c5b86c91bdbd44dc2fe7acd8dcef4b3062cfe",
+      "pages": 24,
+      "bytes": 1147793
+    },
+    {
+      "path": "public/Sled dog.pdf",
+      "source_blob": "e6b2bc12f65930446ff1522ad29960a31eb23568",
+      "new_blob": "0db0becbda43cf0b88eb6a2cfae78692034312a1",
+      "sha256": "0645247648b7511feefb3b4f19d250483c5a6d9571db97c45975240dde64dded",
+      "pages": 17,
+      "bytes": 907327
+    },
+    {
+      "path": "public/Big head robot_Building.pdf",
+      "source_blob": "c6007ca350e10e7a4a992eed822a7c0d54f5ed16",
+      "new_blob": "addeed3f47c1692e99c6d34b663122b2cd1c4199",
+      "sha256": "ad990572e97966098b02ce2e01cc114455b5e4037e7f4d12a541abe66cd06d2a",
+      "pages": 11,
+      "bytes": 3763185
+    },
+    {
+      "path": "public/First Robot Model.pdf",
+      "source_blob": "73c12dc37b41ed6a78b8786672ef1d19c3b8d781",
+      "new_blob": "e99f77f05b348452db1b7f188ceca5abc79505a9",
+      "sha256": "0fd7d03e7b9c88a922ed828b115bdae9d2fbe0301987a7d1695e773eba836503",
+      "pages": 15,
+      "bytes": 2167315
+    },
+    {
+      "path": "public/House_Building.pdf",
+      "source_blob": "647eb4c3b0e4a9d6818dbb340224fa974a8bc435",
+      "new_blob": "c2ba461ca6f0986b8af80ce51707889ffda5e179",
+      "sha256": "30235c6cb51fb8603520852f081ccfdbb1df8bb762a84b6821a62260cabf8147",
+      "pages": 34,
+      "bytes": 13384268
+    },
+    {
+      "path": "public/Sled_Building.pdf",
+      "source_blob": "d0b6aa886a7d29d5ee877b3bab528624d3ef99f8",
+      "new_blob": "976712c3e1b1916b46abee6fbf931231b60b0ff2",
+      "sha256": "24592bb34f1129cb5037e275db5edd9e1e3c288653a0bc032dca93ba88d30c97",
+      "pages": 13,
+      "bytes": 2994711
+    },
+    {
+      "path": "public/SpongeBob_Building.pdf",
+      "source_blob": "5107d61e9ab4e4847df37bd427db6d7600342228",
+      "new_blob": "d54d8ef32a2ce7c90d7ae5785def3d77695e5f1c",
+      "sha256": "41367d963f221a80bd9d85de9af1219a659a20b62b0c3a65abb926400c050f22",
+      "pages": 9,
+      "bytes": 2862083
+    },
+    {
+      "path": "public/Clock_Building.pdf",
+      "source_blob": "3995134bbc521707fcf7d16af6bfc341f6e13fba",
+      "new_blob": "1045ad1922d21d38fcdad6d6b99e3c0fbf50a205",
+      "sha256": "d29899d3fe0839599b33e7596c5112bb746ed9667c8570b833657d0a40f0e947",
+      "pages": 19,
+      "bytes": 7362924
+    },
+    {
+      "path": "public/Drawing board_Building.pdf",
+      "source_blob": "06711ddc484baa38f286c793bb2fd6689374fb4f",
+      "new_blob": "85a1f1136fc716a311d2e512ee2f7af347d046a2",
+      "sha256": "15c14780924d3a1efd9ef42643a4f006cf4ad3d0f24c606e8a4dafad69552337",
+      "pages": 12,
+      "bytes": 3373350
+    },
+    {
+      "path": "public/Athlete.pdf",
+      "source_blob": "f9fb100fcb27cdbca66d555343162db60d40b323",
+      "new_blob": "12626c506228b883678ae8c9fc1b4f332205fc9b",
+      "sha256": "d4f1c2bf756ff3b33d19a8ca00be3acac3a0df9075edc49957167c1153951833",
+      "pages": 29,
+      "bytes": 1370413
+    },
+    {
+      "path": "public/Basic programming.pdf",
+      "source_blob": "d8ecb1661d930160e04d03cdd9825f49fa76c8b8",
+      "new_blob": "5057fc5ded495ea7ac0c78968c0a3c229831de9b",
+      "sha256": "10f59b1de8b0ae60f019e28078b8f8b4f83693181e9d8ff5ec8c9a16c46cf9ba",
+      "pages": 34,
+      "bytes": 1547334
+    },
+    {
+      "path": "public/Drummer robot.pdf",
+      "source_blob": "f8c622f5d2143372ffe508c251f1610381d87ecc",
+      "new_blob": "a5ded2885e1c527781b49741c4d4ec88536cf3d3",
+      "sha256": "836b9b41c88008c792889258f53dfce6ff26aae149bdd88f0adf4c52aab554d4",
+      "pages": 23,
+      "bytes": 1538535
+    },
+    {
+      "path": "public/Sailboat.pdf",
+      "source_blob": "be89c789802af585db97d1cbb39ecfc24877a1c3",
+      "new_blob": "2229c72c2ca2514c309259bef1953ec1a5bd617c",
+      "sha256": "54f1b6ffc12b27c153561b52801770034cd2be67c2e04c483bc1824dfb8dcd10",
+      "pages": 24,
+      "bytes": 1801498
+    },
+    {
+      "path": "public/The lawn mower.pdf",
+      "source_blob": "13c474d454b47282cbfcd3a1f84cbe4ab1132983",
+      "new_blob": "81f72907c168f1d887bb4f8bdae9271b6ca7bd2b",
+      "sha256": "28db95cc2c82eaf01b86dfd8e9aa5dc8fba16993373fff40b7f0b7f3ee24a0dd",
+      "pages": 19,
+      "bytes": 896556
+    },
+    {
+      "path": "public/Car.pdf",
+      "source_blob": "1cc1f1d9e95f02e8b793135f3e87a3b082158347",
+      "new_blob": "9ed4174c8de990a41fb04f9e5d2327ff191854a1",
+      "sha256": "2474639765d302590644cf166fdf5efb3366e68426b50b860923e244017c1957",
+      "pages": 14,
+      "bytes": 995551
+    },
+    {
+      "path": "public/Dynamic screen.pdf",
+      "source_blob": "0c26fb3c17f375aa272ba7f90b0688cd675f4a5d",
+      "new_blob": "dee143dca28c4f04a2d15e2b85a5eb8de7f6938c",
+      "sha256": "1f352dbdc21df25352f6ae80b949026390cc652de01003d8b011fecb4cd05af3",
+      "pages": 13,
+      "bytes": 1267155
+    },
+    {
+      "path": "public/Pendulum ride.pdf",
+      "source_blob": "ad8bca01f8d9badfefb39d1914fa615cbf4df3ac",
+      "new_blob": "6acf1af5a54bf9730e3cc983232b919c99babfc7",
+      "sha256": "6e432646c8614f317de81c1c82f54bb5765dc2ccdf4a9d1af7f3fe35526fec38",
+      "pages": 17,
+      "bytes": 4298650
+    },
+    {
+      "path": "public/Rotating flying chair.pdf",
+      "source_blob": "541ca580fb782bcdc3998e0daa88946b61ca9065",
+      "new_blob": "0f1b24fef412dedd0407e0ab1a320d98ffe9d438",
+      "sha256": "c0156da1c937452ba825da7ffc7e81e7e5aa132bef17b4155987f954da2be28e",
+      "pages": 17,
+      "bytes": 1212688
+    },
+    {
+      "path": "public/Skating.pdf",
+      "source_blob": "4259c59548bd06eb9126b51e7b93773ec55cce33",
+      "new_blob": "bc634edca663f8eeec48618233dc1191bcb57b55",
+      "sha256": "7428acb3038834f44e47c978cda9b1321eec70a5c49b2869acd2e8323a7bdbbc",
+      "pages": 11,
+      "bytes": 796909
+    },
+    {
+      "path": "public/The windmill kingdom.pdf",
+      "source_blob": "e881cb11620ff153479f45d749ba2b2d5d146bc7",
+      "new_blob": "69a16ce64e996a1cca62b603b74efdd19a1cd334",
+      "sha256": "4b75c30bb0e9a63711f67b768fae4845d7a1bfc6e2b7a81a537b7860e5f39e8d",
+      "pages": 29,
+      "bytes": 1659070
+    },
+    {
+      "path": "public/Blinking robot_Building.pdf",
+      "source_blob": "ef3fe63c9490932b7a566343cb7d05fc4124929c",
+      "new_blob": "693885a2c0c765ff1ee43d77f668b14dd1c8309b",
+      "sha256": "0d2eaa0e63f3a1c7cf3440f63d44b2ffef622963c9bd975ebd88571a51d06e28",
+      "pages": 8,
+      "bytes": 2294045
+    },
+    {
+      "path": "public/Corridor lamp_Building.pdf",
+      "source_blob": "c9f6512d2b9b18b09826418a8b4c412c777a7866",
+      "new_blob": "d9429db2d051e8e6258e3bbfe5bf71e033493e0c",
+      "sha256": "37fe62ad933b5dfb79b9bf56f5458de0c1741ec8da06e8b18274e39e37ef9ef4",
+      "pages": 13,
+      "bytes": 5168475
+    },
+    {
+      "path": "public/Help light_Building.pdf",
+      "source_blob": "b6eff27ab0217fded465c3d0c0ea6a55a1e659c5",
+      "new_blob": "653554cd5a64870b415b09bf8d98a5e15fb5bab7",
+      "sha256": "34a9f9f83b86a26f9970ca8630217010d3ed8e84a0f58c60c8eb05cac38e87cb",
+      "pages": 8,
+      "bytes": 1791448
+    },
+    {
+      "path": "public/Lighthouse_Building.pdf",
+      "source_blob": "29df31ff6222be819c34f42add05a594076d1b52",
+      "new_blob": "1269f67c8bfdc79c253621fb6450c741475ebcec",
+      "sha256": "2c5c187be820385e1d46adb3fe412997b31bb4cafe370b99f7accf0eb0da7bfc",
+      "pages": 18,
+      "bytes": 5516843
+    },
+    {
+      "path": "public/Little stars_Building.pdf",
+      "source_blob": "96a51712e440ef64b34622744a1c8ef5402a08c4",
+      "new_blob": "8029ba4fe2b3a8535ab58bc219f857e5f72eae4b",
+      "sha256": "cc773feea38809223ee94b89e877d918c55828ec1a9389c053c6041a2f8f253a",
+      "pages": 13,
+      "bytes": 2954406
+    },
+    {
+      "path": "public/Traffic light_Building.pdf",
+      "source_blob": "66eb7ebd399a556668d6f8b3a15665437eb6eab4",
+      "new_blob": "5a4ae83ed2e349fe2fb5c3de8ee69034eec9c1af",
+      "sha256": "c479996809aa94f0bb69a1db489ec083331bc9eb1aa7ad51c71bea9680ca6b99",
+      "pages": 9,
+      "bytes": 2220925
+    },
+    {
+      "path": "public/Responder_Building.pdf",
+      "source_blob": "4ca98ac8f0aed59432de2cc10142dc5f1781154f",
+      "new_blob": "75000b9d9c6a1f895356092991434cbb3eb4beb3",
+      "sha256": "3b9544757c9bbad6b0767ef4f0f45b2257645919ef19a7b076e9af9f1bf3bf03",
+      "pages": 7,
+      "bytes": 2071450
+    },
+    {
+      "path": "public/Gyro transmitter_Building.pdf",
+      "source_blob": "82871820203830b6932c5b314ab7afa70183f215",
+      "new_blob": "62f133066474b9aa8738cd9ecbecd17035afc674",
+      "sha256": "68390bcd888a73425e31a20750176d419f05dcc0a96cde5c9f496102ed61d6b0",
+      "pages": 17,
+      "bytes": 3890445
+    },
+    {
+      "path": "public/Motorcycle_Building.pdf",
+      "source_blob": "65cad44adc8585d75e68f9fb9e14f82bd84c703a",
+      "new_blob": "a33ef7fd38c1b29f4bde7c2893a8969d998bf31e",
+      "sha256": "6ed03d35ce9b766ce5e7e77748d9bb8c992b4ee2a7bb7f3592ca6ddf6c93a0ef",
+      "pages": 20,
+      "bytes": 4909616
+    },
+    {
+      "path": "public/Pull back car_Building.pdf",
+      "source_blob": "abd0734123d08e22a289f15aced283814f1930fa",
+      "new_blob": "a977913aa0e356570fbe13aa067a08f130542e81",
+      "sha256": "d0720d84fb0e2b841a3ba23b357e19bc6979edf31a0610b12148c1107c12fe6f",
+      "pages": 19,
+      "bytes": 5969736
+    },
+    {
+      "path": "public/Little Owl.pdf",
+      "source_blob": "73329b0e9e67e1ea5147d17c68228da68dc893e4",
+      "new_blob": "1a040ef26c48ec5c964237e856806edba582ed99",
+      "sha256": "16923de407113e4199a4252c8e7ef2ff54059d1ba6171b3e2f5a45352fa8409e",
+      "pages": 18,
+      "bytes": 9138371
+    },
+    {
+      "path": "public/Oscillating Fan.pdf",
+      "source_blob": "fd4be72ff27de80a2e96cc7066eb1cad54c14e8e",
+      "new_blob": "d894a8b87e98a953d583b1b146a25bfda9e8b96e",
+      "sha256": "f1fd833dea6d6a85a3b2b1d4d88a209850bd185f7175cf6f4a6c7a157ad0e2d0",
+      "pages": 20,
+      "bytes": 7954662
+    },
+    {
+      "path": "public/Hand-cranking Fan.pdf",
+      "source_blob": "760146f07926a0a5f045077bdb5c18f41f54b5ea",
+      "new_blob": "8af23436c8aca2b6b4b874147a6ccd1ec93b5a5a",
+      "sha256": "7119ba2b10b0a75db06a48ba49f69c3afbca3eeb05b5b9b3c80f3acc8bbdd770",
+      "pages": 12,
+      "bytes": 4459965
+    }
+  ]
+}
