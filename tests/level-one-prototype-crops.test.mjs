@@ -16,7 +16,11 @@ test("all 60 Level 1 source manuals have one matching candidate crop", () => {
     assert.ok(entry, `Missing prototype for ${source.filename}`);
     assert.equal(entry.page, source.page);
     assert.equal(entry.kind, source.kind);
-    assert.equal(entry.approved, false, "No student reference should be approved without final visual review");
+    assert.equal(typeof entry.approved, "boolean", "Approval must be explicit");
+    if (entry.approved) {
+      assert.ok(entry.approvedAt && entry.approvedBy,
+        "Any approved reference must record who verified the crop and when");
+    }
     const { x, y, width, height } = entry.crop;
     for (const v of [x, y, width, height]) assert.ok(Number.isFinite(v));
     assert.ok(x >= 0 && y >= 0 && width > 0 && height > 0, entry.filename);
@@ -45,4 +49,10 @@ test("student Start button is gated on approved reference and successful PDF ren
   assert.match(route, /const canStart = Boolean\(candidate\?\.approved && modelReady\)/);
   assert.match(route, /disabled=\{!canStart\}/);
   assert.match(route, /reviewMode && candidate && !candidate\.approved && modelReady/);
+});
+
+test("Acceleration Car has a dedicated official PDF reference", () => {
+  const route = readFileSync(new URL("../src/routes/practical/level-1.final-build.tsx", import.meta.url), "utf8");
+  assert.match(route, /ACCELERATION_MANUAL_URL/);
+  assert.match(route, /Acceleration car_Building\.pdf/);
 });
