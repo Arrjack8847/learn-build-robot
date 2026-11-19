@@ -65,7 +65,9 @@ function checksFor(name: string, category: string): string[] {
   return checks;
 }
 function FinalBuildPage() {
-  const [session, setSession] = useState<Session>(load);
+  // Hydrate persisted progress after mount to keep server and browser markup in sync.
+  const [session, setSession] = useState<Session>(initial);
+  const [storageReady, setStorageReady] = useState(false);
   const [now, setNow] = useState(() => Date.now());
   const [references, setReferences] = useState<Record<string, { image: string; page: number; source: string }>>({});
   useEffect(() => {
@@ -73,7 +75,13 @@ function FinalBuildPage() {
     fetch("/final-build/level-1/references.json").then(response => response.ok ? response.json() : {}).then(data => { if (active) setReferences(data); }).catch(() => {});
     return () => { active = false; };
   }, []);
-  useEffect(() => { localStorage.setItem(STORAGE_KEY, JSON.stringify(session)); }, [session]);
+  useEffect(() => {
+    setSession(load());
+    setStorageReady(true);
+  }, []);
+  useEffect(() => {
+    if (storageReady) localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+  }, [session, storageReady]);
   useEffect(() => {
     const id = window.setInterval(() => setNow(Date.now()), 250);
     return () => window.clearInterval(id);
