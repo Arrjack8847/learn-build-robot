@@ -61,7 +61,7 @@ export function FinalBuildWheel({ spinning, targetRotation, finishAt, onFinish }
   useEffect(() => {
     if (!spinning || targetRotation === null || finishAt === null) return;
     const remaining = Math.max(0, finishAt - Date.now());
-    if (remaining === 0 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (remaining === 0 || (typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches)) {
       setAngle(targetRotation);
       onFinish();
       return;
@@ -84,7 +84,7 @@ export function FinalBuildWheel({ spinning, targetRotation, finishAt, onFinish }
   }, [spinning, targetRotation, finishAt, onFinish]);
 
   return (
-    <div className="mx-auto w-full max-w-[390px]">
+    <div className="mx-auto w-full max-w-[min(350px,43dvh)]">
       <div className="relative mx-auto aspect-square w-full">
         <svg viewBox="0 0 400 400" className="h-full w-full overflow-visible drop-shadow-[0_10px_12px_rgba(42,108,152,0.18)]"
           role="img" aria-label="Colorful spinning wheel with 59 equally sized project spaces across 14 STEM categories">
@@ -135,13 +135,13 @@ export function FinalBuildWheel({ spinning, targetRotation, finishAt, onFinish }
       <p className="mt-1 text-center text-xs font-bold text-sky-800" aria-live="polite">
         {spinning ? "Round and round… let's see your robot!" : "14 STEM worlds · 59 robot challenges"}
       </p>
-      <div className="mt-4 grid grid-cols-2 gap-x-3 gap-y-2 sm:grid-cols-3"
+      <div className="mt-3 grid grid-cols-3 gap-1.5"
         aria-label="Wheel category colors and names">
         {categories.map(item => (
-          <div key={item.id} className="flex items-center gap-2 rounded-xl bg-slate-50 px-2 py-1.5 text-left">
+          <div key={item.id} className="flex items-center gap-1 rounded-xl bg-slate-50 px-1.5 py-1 text-left">
             <span className="grid size-6 shrink-0 place-items-center rounded-lg text-xs"
               style={{ backgroundColor: item.color }} aria-hidden="true">{item.icon}</span>
-            <span className="truncate text-[11px] font-bold text-slate-700" title={item.name}>{item.label}</span>
+            <span className="truncate text-[10px] font-bold text-slate-700" title={item.name}>{item.label}</span>
           </div>
         ))}
       </div>
