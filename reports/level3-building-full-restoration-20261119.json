@@ -1,74 +1,414 @@
 {
   "project": "BE STEM READY",
   "scope": "Level 3 Building PDFs only",
-  "date": "2026-11-19",
+  "audit_date": "2026-11-19",
   "source": {
-    "files": 40,
-    "pages": 691,
-    "source_git_blob_verified": 40
+    "unique_building_pdfs": 40,
+    "total_pages": 691,
+    "original_git_blob_sha_verified": 40,
+    "registered_entries": 42,
+    "coverage": "All 40 covers and 651 interior pages scanned"
   },
-  "extractable_chinese": {
-    "files": 1,
-    "path": "public/Electronic scale.pdf",
-    "pages": [
-      25,
-      26
+  "methodology": {
+    "steps": [
+      "Validate every original Git SHA and page count",
+      "Extract native text on every page and identify Unicode Han characters",
+      "Render every page and run Chinese-capable RapidOCR",
+      "Review strong OCR detections and all non-Gyro multi-character detections against cropped source diagrams",
+      "Repair confirmed Chinese with page-local edits; compare affected and unaffected rasters"
     ],
-    "characters_total": 40,
-    "original": "控制器上的接口除了传递信息还具有什么作用？",
-    "translation": "Besides transmitting information, what other functions do the controller's ports serve?"
+    "qualification": "OCR can produce false negatives; isolated low-confidence one-character detections not all manually reviewed, so these scans are not absolute proof that every raster contains zero Chinese."
   },
-  "gyro": {
-    "path": "public/Gyro transmitter_Building.pdf",
-    "chinese_image_text_removed": [
-      "陀螺发射器",
-      "搭建手册",
-      "中鸣机器人"
-    ],
-    "english_preserved": "Gyro transmitter BUILDING MANUAL; ZMROBO",
-    "pages": 17,
-    "non_cover_pages_raster_identical": 16,
-    "local_cleaned_git_blob_sha": "940af00301405ff56c75d586d64d8a7df789c60b"
+  "confirmed_chinese": {
+    "files": 2,
+    "gyro": {
+      "path": "public/Gyro transmitter_Building.pdf",
+      "cover": [
+        "陀螺发射器",
+        "搭建手册",
+        "中鸣机器人"
+      ],
+      "repeated_interior_logo": "中鸣机器人",
+      "logo_pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "translation": "Gyro transmitter; Building Manual; Zhongming Robotics",
+      "english_brand_preserved": "ZMROBO"
+    },
+    "electronic_scale": {
+      "path": "public/Electronic scale.pdf",
+      "pages": [
+        25,
+        26
+      ],
+      "extractable_Han_characters": 40,
+      "original": "控制器上的接口除了传递信息还具有什么作用？",
+      "english": "Besides transmitting information, what other functions do the controller's ports serve?"
+    }
   },
-  "electronic_scale": {
-    "path": "public/Electronic scale.pdf",
-    "pages": 27,
-    "edited_pages": [
-      25,
-      26
-    ],
-    "non_target_pages_raster_identical": 25,
-    "changes_confined_to_rect_pixels": [
-      243,
-      311,
-      468,
-      337
-    ],
-    "remaining_extractable_chinese": 0,
-    "local_cleaned_git_blob_sha": "455a447492facf43e23892af5076af5bc8c8c9e6"
+  "final_local_binaries": {
+    "gyro": {
+      "path": "public/Gyro transmitter_Building.pdf",
+      "source_git_blob_sha": "82871820203830b6932c5b314ab7afa70183f215",
+      "local_cleaned_git_blob_sha": "e0c905c9b5affabddac75de96f7de0481d0a210d",
+      "size_bytes": 3770940,
+      "pages": 17,
+      "cover_chinese_image_ocr_after": 0,
+      "interior_pages_edited": 16,
+      "image_ocr_Han_after_on_every_interior_page": 0,
+      "change_region_interior_points": [
+        410,
+        558,
+        515,
+        585
+      ],
+      "all_other_interior_pixels_unchanged": true,
+      "English_title_and_logo_preserved": true
+    },
+    "electronic_scale": {
+      "path": "public/Electronic scale.pdf",
+      "source_git_blob_sha": "3afceb33862213ed99d10bfa0fb4d994c57a7184",
+      "local_cleaned_git_blob_sha": "a56708e48fb4f4337ea9578823a5cbace65eab06",
+      "size_bytes": 1696344,
+      "pages": 27,
+      "edited_pages": [
+        25,
+        26
+      ],
+      "all_other_25_pages_pixel_identical": true,
+      "translation_printed_in_blank_content_margin_points": [
+        176,
+        445,
+        562,
+        481
+      ],
+      "image_diagrams_preserved": true,
+      "extractable_Han_after": 0
+    }
   },
-  "cover_ocr": {
-    "pages": 40,
-    "chinese_confirmed": "Gyro Transmitter (original) only",
-    "other_low_confidence_ocr_marks": "Unconfirmed; diagrams and numbers may be misrecognized as CJK",
-    "status": "completed"
+  "image_audit": {
+    "cover_images_scanned": 40,
+    "interior_images_scanned": 651,
+    "additional_confirmed_chinese_files": 0,
+    "suspicious_multi_character_non_gyro": 5,
+    "multi_character_suspects_reviewed": "5/5 OCR misread assembly part quantities or diagram labels",
+    "other_high_confidence_non_gyro": 12,
+    "high_confidence_suspects_reviewed": "12/12 OCR misread part labels or mechanical illustrations",
+    "gyro_logo_consistency": "Identical manufacturer footer visible on all 16 interior pages even where OCR omitted it",
+    "status": "Automated screen finished; no other confirmed Chinese found"
   },
-  "interior_image_ocr": {
-    "status": "running; not yet validated",
-    "warning": "Neither extractable-text scanning nor automated OCR alone can prove no artwork-embedded Chinese."
-  },
-  "pdf_binary_delivery": {
-    "local_repaired_pdfs_created": 2,
-    "github_binary_committed": false,
-    "github_main_integrated": false,
-    "reason": "GitHub text-content connector cannot upload binary PDFs; Vercel recovery workspace cannot push via Git without credentials.",
-    "required_next_step": "Authenticate binary Git upload or enable a binary-preserving transfer path, then verify both SHA values in target branch."
+  "validation_status": "PASS: locally corrected PDFs generated; page counts, geometry and unaffected pixels checked",
+  "integration_status": {
+    "branch": "fix/level3-complete-building-english-20261119",
+    "pull_request": "https://github.com/Arrjack8847/learn-build-robot/pull/89",
+    "draft": true,
+    "scripts_and_report_committed_to_GitHub": true,
+    "actual_pdf_binaries_committed_to_GitHub": false,
+    "main_merged": false,
+    "blocker": "Authenticated GitHub connector supports text content but not 1.7–3.8 MB PDF blob uploads. Remote PDF-processing sandbox has no authenticated Git push credential.",
+    "safeguard": "Do not merge or announce completed repository integration until two real binary files appear in PR changed files with verified blob SHA."
   },
   "restrictions": {
-    "learning_pdfs_modified": false,
+    "Learning_PDFs_modified": false,
     "other_levels_modified": false,
-    "github_actions_run": false,
-    "browser_use": false
+    "GitHub_Actions_used": false,
+    "Browser_Use_used": false
   },
-  "validation": "LOCAL TARGETED REPAIRS PASS; FULL IMAGE AUDIT AND GITHUB BINARY INTEGRATION PENDING"
+  "per_file_audit": [
+    {
+      "path": "public/Clip robot_Building.pdf",
+      "source_pages": 30,
+      "original_blob_sha": "a5b7ceb46d32842808328d9d0b613d0ea9130157",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/3. Cycle Sport-Basic Building Manual.pdf",
+      "source_pages": 21,
+      "original_blob_sha": "6f6c9ea0b49892055b550782b01d8e791b1ce6a1",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/3. Cycle Sport-Optimized Building Manual.pdf",
+      "source_pages": 6,
+      "original_blob_sha": "58370ce13bd4492ce57424b712a889ae476db9ec",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/24. Automatic Seesaw -Building Manual.pdf",
+      "source_pages": 29,
+      "original_blob_sha": "3b58f8f73766eafed4b619c7a1a1f2152be73e1e",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/Security door_Building.pdf",
+      "source_pages": 10,
+      "original_blob_sha": "03d7becdd7b35c4ec87ff0e3fe32a00b91919906",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/Smart door_Building.pdf",
+      "source_pages": 5,
+      "original_blob_sha": "99db02e958996e1ec0d66d0f7303deb077934de5",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/Following Robot_Building.pdf",
+      "source_pages": 9,
+      "original_blob_sha": "ac69d581c188c7569669246a2eadbce94257ed59",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/Obstacle Avoidance Robot 1_Building.pdf",
+      "source_pages": 11,
+      "original_blob_sha": "e61505dcb3e4c0f19123408449c93c2253d3e283",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/Sunflower.pdf",
+      "source_pages": 14,
+      "original_blob_sha": "84c4ee8db080d4f2ca2991a03c7ed5c8d5307461",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/23.Electric Bulldozer -Building Manual.pdf",
+      "source_pages": 26,
+      "original_blob_sha": "6af098a5a9ea6bde37a01a5549187f0b37026c14",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/05.Electric Fan-Building Manual.pdf",
+      "source_pages": 12,
+      "original_blob_sha": "5526dcd1f86e025a7c016363f1d81647255543f1",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/15.Safe -Building Manual.pdf",
+      "source_pages": 24,
+      "original_blob_sha": "eb59936b933ffca57769e24093959de5278f7e9c",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/20.Smart Trash Bin-Building Manual.pdf",
+      "source_pages": 22,
+      "original_blob_sha": "7fe5fb43232b10dfb335d96cc6c43df75c71c537",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/Lifting Maintenance Vehicle.pdf",
+      "source_pages": 22,
+      "original_blob_sha": "6b7da9e2496b02780b96b229b0e068abf8fd5f95",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/24.Automated Guided Vehicle-Building Manual.pdf",
+      "source_pages": 24,
+      "original_blob_sha": "ab64321405422d0b89dcb9a45772a450e060d5ce",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/1. Race Walking - Basic Building Manual.pdf",
+      "source_pages": 7,
+      "original_blob_sha": "b6e2a731e486b8ddf1402df179e966795f204781",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/1. Race Walking - Optimized Building Manual.pdf",
+      "source_pages": 6,
+      "original_blob_sha": "68535fb14b515e980237b3f969466facbcd98060",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/1. Race Walking - Optimized Building Manual - Added Ratchet.pdf",
+      "source_pages": 2,
+      "original_blob_sha": "4cb49db89cf60b8810d7d3d10138324541d317c8",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/Bumper car_Building.pdf",
+      "source_pages": 13,
+      "original_blob_sha": "ea125a179e492944bdbf1d02753bca32e7716bfc",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/13.Disinfection Lamp-Building Manual.pdf",
+      "source_pages": 20,
+      "original_blob_sha": "40e3072459b2597e4eb29771a3af4ac78ad9c236",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/14.Light-sensitive Curtains -Building Manual.pdf",
+      "source_pages": 28,
+      "original_blob_sha": "e91d74604d885d7ac0ec02a019ffc8c48606c36a",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/11.Anti-fall Robot-Building Manual.pdf",
+      "source_pages": 16,
+      "original_blob_sha": "bf0f4db6aee851eea552fe4fcc58c13d7d62f28c",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/17.Automatic Door -Building Manual.pdf",
+      "source_pages": 23,
+      "original_blob_sha": "8a28b083039ee8d6f9805d17573e5f28ab0d70d7",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/06..Juicer Machine-Building Manual.pdf",
+      "source_pages": 14,
+      "original_blob_sha": "4f0afb1938a516c540603da9d852b4a509f17294",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/08.Washing Machine-Building Manual.pdf",
+      "source_pages": 18,
+      "original_blob_sha": "b6598180cda7dd76906d29bf2b32f609d278068c",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/Electronic scale.pdf",
+      "source_pages": 27,
+      "original_blob_sha": "3afceb33862213ed99d10bfa0fb4d994c57a7184",
+      "english_audit_result": "Translated pages 25-26; unchanged diagrams",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/Gyro transmitter_Building.pdf",
+      "source_pages": 17,
+      "original_blob_sha": "82871820203830b6932c5b314ab7afa70183f215",
+      "english_audit_result": "Corrected cover and 16 repeated manufacturer footers",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/Biting Monster.pdf",
+      "source_pages": 24,
+      "original_blob_sha": "12e6817e8bdc45b6e27c8738d84454c67dd7c424",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/Electric Gyro Launcher.pdf",
+      "source_pages": 12,
+      "original_blob_sha": "3d28bbef01ceeee9749fc009efffbf07e261e6f4",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/Responder.pdf",
+      "source_pages": 12,
+      "original_blob_sha": "7d621e24ed155d78f1917b6de3a27b093be8b763",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/10.Electric guitar_Building.pdf",
+      "source_pages": 16,
+      "original_blob_sha": "113c6f8587f9bb550a15c68af618fdec8760f28c",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/29.Music Box -Building Manual.pdf",
+      "source_pages": 24,
+      "original_blob_sha": "cf1c89ff3347fa79a8940f93de0df4281dc7dc69",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/07.Music Doorbell-Building Manual.pdf",
+      "source_pages": 12,
+      "original_blob_sha": "06d759c2122e8b8853820061ab2c6c22f480beaf",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/Smart Audio_Building.pdf",
+      "source_pages": 11,
+      "original_blob_sha": "0dfd3d13fe65d021868056ef3ecdbcf104dc1ed3",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/Sonometer_Building.pdf",
+      "source_pages": 8,
+      "original_blob_sha": "bd571b772b2ae9adfa1df0d19e6586484aae48ce",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/16.Sound Level Meter -Building Manual.pdf",
+      "source_pages": 20,
+      "original_blob_sha": "b0e8a89dd29edd9a0476f35ce3000fc1faa1fc63",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/F1 racing car_Building.pdf",
+      "source_pages": 37,
+      "original_blob_sha": "cab10741b85d7f4087628164d3a79979373b2ee4",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/11. The Long-lived Turtle - Basic Building Manual.pdf",
+      "source_pages": 23,
+      "original_blob_sha": "19958e694dfc2e8091d251e58e99dd7571efe6fa",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/Lunar Rover.pdf",
+      "source_pages": 24,
+      "original_blob_sha": "1bdd4d89b5e8e3773753b3dcb3a9330e6c09ad1e",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    },
+    {
+      "path": "public/04.Flashlight-Building Manual.pdf",
+      "source_pages": 12,
+      "original_blob_sha": "7c3150b2641e06394d9f1c34336982e64b0733ce",
+      "english_audit_result": "No confirmed Chinese in combined text and image scan",
+      "page_count_preserved": true
+    }
+  ]
 }
