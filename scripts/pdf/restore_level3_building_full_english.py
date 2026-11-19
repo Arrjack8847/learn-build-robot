@@ -68,6 +68,27 @@ def gyro_english(source: Path, output: Path) -> None:
     Image.fromarray(fixed).save(buf, format="PNG")
     page.insert_image(fitz.Rect(390, 555, 484, 575),
                       stream=buf.getvalue(), overlay=True)
+
+    # All 16 instruction pages repeat the same image-embedded Chinese
+    # manufacturer subtitle (中鸣机器人) beside the roman brand ZMROBO.
+    # Remove only that Chinese footer; do not modify assembly diagrams.
+    footer = fitz.Rect(410, 558, 515, 585)
+    for index in range(1, len(pdf)):
+        interior = pdf[index]
+        rendered = interior.get_pixmap(
+            matrix=fitz.Matrix(scale, scale), alpha=False)
+        rgb = np.frombuffer(rendered.samples, np.uint8).reshape(
+            rendered.height, rendered.width, 3)
+        x0, y0, x1, y1 = (int(v * scale) for v in
+                          [footer.x0, footer.y0, footer.x1, footer.y1])
+        cropped = rgb[y0:y1, x0:x1].copy()
+        grayscale = cv2.cvtColor(cropped, cv2.COLOR_RGB2GRAY)
+        mask = cv2.dilate(np.uint8(grayscale < 228) * 255,
+                          np.ones((3, 3), np.uint8), iterations=1)
+        retouched = cv2.inpaint(cropped, mask, 3, cv2.INPAINT_TELEA)
+        patch = io.BytesIO()
+        Image.fromarray(retouched).save(patch, format="PNG")
+        interior.insert_image(footer, stream=patch.getvalue(), overlay=True)
     tmp = output / ".gyro-complete.tmp.pdf"
     pdf.save(tmp, garbage=4, deflate=True)
     pdf.close()
@@ -108,14 +129,20 @@ def validate(source: Path, output: Path) -> dict:
             p, q = original[i], edited[i]
             if p.rect != q.rect:
                 raise RuntimeError(f"Page size changed: {name} {i+1}")
-            matrix = fitz.Matrix(1.4 if name.startswith("Gyro") else 1, 
-                                 1.4 if name.startswith("Gyro") else 1)
+            matrix = fitz.Matrix(1, 1)
             src = p.get_pixmap(matrix=matrix, alpha=False)
             dst = q.get_pixmap(matrix=matrix, alpha=False)
             if name.startswith("Gyro") and i > 0:
-                if src.samples != dst.samples:
-                    raise RuntimeError(f"Gyro interior changed on page {i+1}")
-                unchanged += 1
+                a = np.frombuffer(src.samples, np.uint8).reshape(
+                    src.height, src.width, src.n)
+                b = np.frombuffer(dst.samples, np.uint8).reshape(
+                    dst.height, dst.width, dst.n)
+                yy, xx = np.where(np.any(a != b, axis=2))
+                # The source and restored interior page must be pixel-identical
+                # everywhere outside the tiny Chinese footer.
+                if not len(xx) or (xx.min() < 409 or xx.max() > 516 or
+                                   yy.min() < 557 or yy.max() > 586):
+                    raise RuntimeError(f"Unexpected Gyro interior edit on page {i+1}")
             elif name == "Electronic scale.pdf" and i not in (24, 25):
                 if src.samples != dst.samples or p.get_text() != q.get_text():
                     raise RuntimeError(f"Unexpected Electronic Scale edit on {i+1}")
@@ -137,6 +164,8 @@ def validate(source: Path, output: Path) -> dict:
             "clean_git_blob_sha": blob_sha((output / name).read_bytes()),
             "pages": count,
             "untouched_pages_pixel_identical": unchanged,
+            "targeted_gyro_footer_edits": 16 if name.startswith("Gyro") else 0,
+            "outside_target_regions_pixel_identical": True,
             "status": "PASS",
         })
         original.close()
