@@ -4,6 +4,7 @@
 Requirements: pip install pymupdf pillow
 Usage:
   python scripts/extract_level1_final_build_references.py
+  python scripts/extract_level1_final_build_references.py --inspect "Clock_Building.pdf"
   python scripts/extract_level1_final_build_references.py --approve "Clock_Building.pdf:1" "Big head robot_Building.pdf:1"
 
 First run exports candidate page 1 from every recognized Building PDF into a review
@@ -28,13 +29,29 @@ def slug(name):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--approve", nargs="*", default=[], metavar="PDF_NAME:PAGE")
+    parser.add_argument("--inspect", nargs="*", default=[], metavar="PDF_NAME",
+                        help="Render every page of the named PDF(s) for visual review")
     args = parser.parse_args()
     try:
-        import fitz
+        import pymupdf as fitz
     except ImportError as exc:
         raise SystemExit("Install PyMuPDF: python -m pip install pymupdf") from exc
     REVIEW.mkdir(parents=True, exist_ok=True)
     DEST.mkdir(parents=True, exist_ok=True)
+    if args.inspect:
+        for filename in args.inspect:
+            path = PUBLIC / filename
+            if not path.is_file() or path.suffix.lower() != ".pdf":
+                parser.error("Missing PDF under public/: " + filename)
+            pages_dir = REVIEW / slug(path.stem)
+            pages_dir.mkdir(parents=True, exist_ok=True)
+            with fitz.open(path) as doc:
+                for page_index, page in enumerate(doc):
+                    output = pages_dir / f"page-{page_index + 1:03d}.png"
+                    page.get_pixmap(matrix=fitz.Matrix(1.1, 1.1), alpha=False).save(output)
+                print("Review all", len(doc), "pages in", pages_dir.relative_to(ROOT))
+        if not args.approve:
+            return
     approved = {}
     if MANIFEST.exists():
         approved = json.loads(MANIFEST.read_text(encoding="utf-8"))
@@ -74,6 +91,9 @@ def main():
                 out = REVIEW / (slug(path.stem) + "-page-1.png")
                 doc[0].get_pixmap(matrix=fitz.Matrix(1.3, 1.3), alpha=False).save(out)
                 print("Review candidate:", out.relative_to(ROOT), "pages:", len(doc))
+                if len(doc) > 1:
+                    last = REVIEW / (slug(path.stem) + f"-page-{len(doc)}.png")
+                    doc[-1].get_pixmap(matrix=fitz.Matrix(1.3, 1.3), alpha=False).save(last)
         print("No student images published. Inspect candidates and use --approve for confirmed completed-model pages.")
 
 if __name__ == "__main__":
