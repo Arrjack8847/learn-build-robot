@@ -32,8 +32,8 @@ function sourcePdfFilename(url: string | undefined): string | undefined {
   return ORIGINAL_PDF_BY_URL.get(withoutQuery) || decodeURIComponent(withoutQuery.split("/").pop() || "");
 }
 type Stage = "spin" | "spinning" | "ready" | "building" | "assessment" | "result";
-type Session = { stage: Stage; projectIndex: number | null; spinFinishAt: number | null; spinRotation: number | null; deadline: number | null; completedAt: number | null; checks: boolean[]; completed: boolean; attempts: number; result: "pass" | "retry" | null };
-const initial: Session = { stage: "spin", projectIndex: null, spinFinishAt: null, spinRotation: null, deadline: null, completedAt: null, checks: [false,false,false,false,false], completed: false, attempts: 0, result: null };
+type Session = { stage: Stage; projectIndex: number | null; spinFinishAt: number | null; spinRotation: number | null; variantIndex: number; deadline: number | null; completedAt: number | null; checks: boolean[]; completed: boolean; attempts: number; result: "pass" | "retry" | null };
+const initial: Session = { stage: "spin", projectIndex: null, spinFinishAt: null, spinRotation: null, variantIndex: 0, deadline: null, completedAt: null, checks: [false,false,false,false,false], completed: false, attempts: 0, result: null };
 function load(): Session {
   if (typeof window === "undefined") return initial;
   try {
@@ -86,7 +86,8 @@ function FinalBuildPage() {
     const query = new URLSearchParams(window.location.search);
     const requestedName = query.get("review") === "1" ? query.get("project") : null;
     const reviewIndex = requestedName
-      ? PROJECTS.findIndex(item => item.name.toLowerCase() === requestedName.toLowerCase()) : -1;
+      ? PROJECTS.findIndex(item => item.name.toLowerCase() === requestedName.toLowerCase())
+      : (query.get("review") === "1" ? 0 : -1);
     setSession(reviewIndex >= 0
       ? { ...initial, checks: [...initial.checks], stage: "ready", projectIndex: reviewIndex }
       : load());
@@ -109,7 +110,7 @@ function FinalBuildPage() {
     }
   }, [now, session.stage, session.deadline, session.spinFinishAt]);
   const project = session.projectIndex === null ? null : PROJECTS[session.projectIndex];
-  const manualProjectId = project?.availableProjectId ?? project?.availableProjectVariants?.[0]?.projectId;
+  const manualProjectId = project?.availableProjectId ?? project?.availableProjectVariants?.[session.variantIndex]?.projectId ?? project?.availableProjectVariants?.[0]?.projectId;
   const manualUrl = manualProjectId ? pdfActivityManuals[manualProjectId]?.url : undefined;
   const manualFilename = project?.name === "Acceleration car"
     ? "Acceleration car_Building.pdf"
@@ -140,7 +141,7 @@ function FinalBuildPage() {
     const turns = 6 + Math.floor(Math.random() * 2);
     const rotation = turns * 360 + 360 - center;
     update({
-      stage: "spinning", projectIndex: index,
+      stage: "spinning", projectIndex: index, variantIndex: 0,
       spinFinishAt: Date.now() + SPIN_DURATION_MS, spinRotation: rotation,
       checks: [false,false,false,false,false], completed: false,
       deadline: null, completedAt: null, result: null,
@@ -152,12 +153,17 @@ function FinalBuildPage() {
     update({ stage: "result", result: pass ? "pass" : "retry" });
   }
   function retry(same: boolean) {
-    setSession({ ...initial, attempts: session.attempts + 1, stage: same && project ? "ready" : "spin", projectIndex: same ? session.projectIndex : null });
+    setSession({ ...initial, attempts: session.attempts + 1, stage: same && project ? "ready" : "spin", projectIndex: same ? session.projectIndex : null, variantIndex: same ? session.variantIndex : 0 });
   }
   const spinScreen = session.stage === "spin" || session.stage === "spinning";
   const resetLocalTest = () => {
     localStorage.removeItem(STORAGE_KEY);
     setSession({ ...initial, checks: [...initial.checks] });
+  };
+  const selectReviewProject = (index: number) => {
+    if (!reviewMode) return;
+    setModelStatus(null);
+    setSession({ ...initial, checks: [...initial.checks], stage: "ready", projectIndex: index, variantIndex: 0 });
   };
   return (
     <div className="relative flex h-[100dvh] flex-col overflow-hidden bg-gradient-to-br from-[#fffae9] via-[#fff3fb] to-[#eaf7ff] text-slate-800">
@@ -224,6 +230,27 @@ function FinalBuildPage() {
               <p className="text-xs font-black tracking-wider text-[#a44fba]">🎉 YOUR ROBOT CHALLENGE!</p>
               <h1 className="mt-1 text-2xl font-black tracking-tight text-[#513073]">Time to Build!</h1>
             </div>
+            {reviewMode && project && (
+              <div className="mb-4 rounded-2xl border-2 border-[#d9c8fa] bg-[#f7f1ff] p-3">
+                <p className="mb-2 text-center text-xs font-black text-[#6946a5]">
+                  🔎 Candidate Review · {Number(session.projectIndex) + 1} / {PROJECTS.length} projects · Not approved
+                </p>
+                <div className="flex items-center gap-2">
+                  <button type="button" aria-label="Previous project" onClick={() => selectReviewProject((Number(session.projectIndex) - 1 + PROJECTS.length) % PROJECTS.length)}
+                    className="min-h-11 rounded-xl bg-white px-3 font-bold text-[#6946a5]">←</button>
+                  <select aria-label="Choose project for prototype reference review"
+                    value={Number(session.projectIndex)}
+                    onChange={event => selectReviewProject(Number(event.target.value))}
+                    className="min-h-11 min-w-0 flex-1 rounded-xl border border-[#cbb3f3] bg-white px-2 text-sm font-bold text-[#4f357e]">
+                    {PROJECTS.map((item, index) => (
+                      <option key={item.id} value={index}>{item.name}</option>
+                    ))}
+                  </select>
+                  <button type="button" aria-label="Next project" onClick={() => selectReviewProject((Number(session.projectIndex) + 1) % PROJECTS.length)}
+                    className="min-h-11 rounded-xl bg-white px-3 font-bold text-[#6946a5]">→</button>
+                </div>
+              </div>
+            )}
             <section className="flex-1" aria-live="polite">
           {project && session.stage !== "spin" && session.stage !== "spinning" && (
             <div>
@@ -231,6 +258,19 @@ function FinalBuildPage() {
                 <p className="text-xs font-bold uppercase tracking-wide text-sky-600">{project.category}</p>
                 <h2 className="mt-1 text-2xl font-black text-[#513073]">{project.name}</h2>
               </div>
+              {project.availableProjectVariants && project.availableProjectVariants.length > 1 && (session.stage === "ready" || session.stage === "building") && (
+                <div className="mb-3 flex items-center justify-center gap-2">
+                  <label htmlFor="crawl-variant" className="text-xs font-bold text-[#65438a]">Official variant</label>
+                  <select id="crawl-variant" value={session.variantIndex}
+                    disabled={session.stage !== "ready"}
+                    onChange={event => { setModelStatus(null); update({ variantIndex: Number(event.target.value) }); }}
+                    className="min-h-11 rounded-xl border border-[#d4b7f2] bg-white px-3 text-sm font-bold text-[#65438a]">
+                    {project.availableProjectVariants.map((option,index) => (
+                      <option value={index} key={option.projectId}>{option.label}</option>
+                    ))}
+                  </select>
+                </div>
+              )}
               {(session.stage === "ready" || session.stage === "building") && (
                 <>
                   <div className="mb-4 rounded-2xl border border-sky-200 bg-slate-50 p-3 text-center">
