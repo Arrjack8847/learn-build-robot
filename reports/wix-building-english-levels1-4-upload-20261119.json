@@ -889,75 +889,131 @@
           "operationStatus": "READY"
         },
         {
-          "success": false,
-          "error": "Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Robot%20war.pdf (HTTP 429: Wix returned an HTML error page)."
+          "success": true,
+          "id": "78042f_565442dd664f4d839b23319a3cf693c2.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_565442dd664f4d839b23319a3cf693c2.pdf",
+          "mediaType": "DOCUMENT",
+          "operationStatus": "READY"
         },
         {
-          "success": false,
-          "error": "Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Rotating%20flying%20chair_Building.pdf (HTTP 429: Wix returned an HTML error page)."
+          "success": true,
+          "id": "78042f_c3b083b9ebae4025b7d68017b64dd1aa.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c3b083b9ebae4025b7d68017b64dd1aa.pdf",
+          "mediaType": "DOCUMENT",
+          "operationStatus": "READY"
         },
         {
-          "success": false,
-          "error": "Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Round-trip%20transportation.pdf (HTTP 429: Wix returned an HTML error page)."
+          "success": true,
+          "id": "78042f_7b55e529ac684005bbbcca7dc25da110.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_7b55e529ac684005bbbcca7dc25da110.pdf",
+          "mediaType": "DOCUMENT",
+          "operationStatus": "READY"
         },
         {
-          "success": false,
-          "error": "Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Scaling%20ladder.pdf (HTTP 429: Wix returned an HTML error page)."
+          "success": true,
+          "id": "78042f_39cdb93334904fa18a188f9d5a2a7c96.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_39cdb93334904fa18a188f9d5a2a7c96.pdf",
+          "mediaType": "DOCUMENT",
+          "operationStatus": "READY"
         },
         {
-          "success": false,
-          "error": "Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Shift%20gears.pdf (HTTP 429: Wix returned an HTML error page)."
+          "success": true,
+          "id": "78042f_08aeb18334204c7fb65fcede60af5012.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_08aeb18334204c7fb65fcede60af5012.pdf",
+          "mediaType": "DOCUMENT",
+          "operationStatus": "READY"
         },
         {
-          "success": false,
-          "error": "Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Tank.pdf (HTTP 429: Wix returned an HTML error page)."
+          "success": true,
+          "id": "78042f_e9bdb4f105704dbe8e61d9025882d4b2.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e9bdb4f105704dbe8e61d9025882d4b2.pdf",
+          "mediaType": "DOCUMENT",
+          "operationStatus": "READY"
         },
         {
-          "success": false,
-          "error": "Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Teeterboard.pdf (HTTP 429: Wix returned an HTML error page)."
+          "success": true,
+          "id": "78042f_2178e928238b40e8afd79d03ec978435.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2178e928238b40e8afd79d03ec978435.pdf",
+          "mediaType": "DOCUMENT",
+          "operationStatus": "READY"
         },
         {
-          "success": false,
-          "error": "Wix could not import https://sb-7erkdqx2jvyf.vercel.run/The%20treadmill.pdf (HTTP 429: Wix returned an HTML error page)."
+          "success": true,
+          "id": "78042f_6c374dba007d41649bcb36c9cc9b168f.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6c374dba007d41649bcb36c9cc9b168f.pdf",
+          "mediaType": "DOCUMENT",
+          "operationStatus": "READY"
         },
         {
-          "success": false,
-          "error": "Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Tightrope%20walk.pdf (HTTP 429: Wix returned an HTML error page)."
+          "success": true,
+          "id": "78042f_9d342a952cad44c0a67abeb185a9870c.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9d342a952cad44c0a67abeb185a9870c.pdf",
+          "mediaType": "DOCUMENT",
+          "operationStatus": "READY"
         },
         {
-          "success": false,
-          "error": "Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Tower%20crane_Building.pdf (HTTP 429: Wix returned an HTML error page)."
+          "success": true,
+          "id": "78042f_df23e113a7f7491a8a40730a0a1e5da9.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_df23e113a7f7491a8a40730a0a1e5da9.pdf",
+          "mediaType": "DOCUMENT",
+          "operationStatus": "READY"
         },
         {
-          "success": false,
-          "error": "Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Walking%20Robot.pdf (HTTP 429: Wix returned an HTML error page)."
+          "success": true,
+          "id": "78042f_b9e03b9e4fe64cf18c49fd214b63ef62.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b9e03b9e4fe64cf18c49fd214b63ef62.pdf",
+          "mediaType": "DOCUMENT",
+          "operationStatus": "READY"
         },
         {
-          "success": false,
-          "error": "Wix could not import https://sb-6djsojuxftdz.vercel.run/level3/cleaned/Gyro%20transmitter_Building.pdf (HTTP 429: Wix returned an HTML error page)."
+          "success": true,
+          "id": "78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+          "mediaType": "DOCUMENT",
+          "operationStatus": "READY"
         },
         {
-          "success": false,
-          "error": "Wix could not import https://sb-6djsojuxftdz.vercel.run/level3/cleaned/Electronic%20scale.pdf (HTTP 429: Wix returned an HTML error page)."
+          "success": true,
+          "id": "78042f_9ea1f915116b429895c75c161797983d.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9ea1f915116b429895c75c161797983d.pdf",
+          "mediaType": "DOCUMENT",
+          "operationStatus": "READY"
         },
         {
-          "success": false,
-          "error": "Wix could not import https://sb-5r73vjdapeal.vercel.run/public/Level%204/Building/Characters%20%26%20Structures/Swimming%20Plesiosaur/19.%20Swimming%20Plesiosaur-Building%20Manual.pdf (HTTP 429: Wix returned an HTML error page)."
+          "success": true,
+          "id": "78042f_e1d762a64ef24a5897241782a262a6a0.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e1d762a64ef24a5897241782a262a6a0.pdf",
+          "mediaType": "DOCUMENT",
+          "operationStatus": "READY"
         },
         {
-          "success": false,
-          "error": "Wix could not import https://sb-5r73vjdapeal.vercel.run/public/Level%204/Building/Mechanisms%20%26%20Simulators/Telegraph/09.Telegraph%20-Building%20Manual.pdf (HTTP 429: Wix returned an HTML error page)."
+          "success": true,
+          "id": "78042f_572488c57ef34acb8426a499803d90c4.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_572488c57ef34acb8426a499803d90c4.pdf",
+          "mediaType": "DOCUMENT",
+          "operationStatus": "READY"
         },
         {
-          "success": false,
-          "error": "Wix could not import https://sb-5r73vjdapeal.vercel.run/public/Level%204/Building/Mechanisms%20%26%20Simulators/Turbo%20Drop/28.%20Turbo%20Drop-Building%20Manual.pdf (HTTP 429: Wix returned an HTML error page)."
+          "success": true,
+          "id": "78042f_269c5a865bd4412c821edde18123cb41.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_269c5a865bd4412c821edde18123cb41.pdf",
+          "mediaType": "DOCUMENT",
+          "operationStatus": "READY"
         },
         {
-          "success": false,
-          "error": "Wix could not import https://sb-5r73vjdapeal.vercel.run/public/Level%204/Building/Vehicles%20%26%20Complex%20Movers/Lucky%20Cat/13.Lucky%20Cat-Building%20Manual.pdf (HTTP 429: Wix returned an HTML error page)."
+          "success": true,
+          "id": "78042f_91015c8c0eac4c149be0bd82586169bd.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_91015c8c0eac4c149be0bd82586169bd.pdf",
+          "mediaType": "DOCUMENT",
+          "operationStatus": "READY"
         }
       ]
     },
     "content": "Uploaded 60 of 77 file(s) (17 failed).\n\n1. OK — ID: 78042f_135af4d6159446868f555c6341ac107f.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_135af4d6159446868f555c6341ac107f.pdf, DOCUMENT, READY\n2. OK — ID: 78042f_cd064f746c184a6a98cce2e3e4307273.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cd064f746c184a6a98cce2e3e4307273.pdf, DOCUMENT, READY\n3. OK — ID: 78042f_87f5be1948b044109a9e60dc75d81662.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_87f5be1948b044109a9e60dc75d81662.pdf, DOCUMENT, READY\n4. OK — ID: 78042f_55648fbb48b042029c2492401d896455.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_55648fbb48b042029c2492401d896455.pdf, DOCUMENT, READY\n5. OK — ID: 78042f_181a683a445145b98065b903fe98816a.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_181a683a445145b98065b903fe98816a.pdf, DOCUMENT, READY\n6. OK — ID: 78042f_4a06e63507c34d0a9653786ac61b5135.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_4a06e63507c34d0a9653786ac61b5135.pdf, DOCUMENT, READY\n7. OK — ID: 78042f_bee0a42061e0453bba7541e6a760c3c6.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_bee0a42061e0453bba7541e6a760c3c6.pdf, DOCUMENT, READY\n8. OK — ID: 78042f_833a5f2eb330445c8c361d5a7e0cd6d4.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_833a5f2eb330445c8c361d5a7e0cd6d4.pdf, DOCUMENT, READY\n9. OK — ID: 78042f_52ad92b0136b49ad9ef631e7586fb9e9.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_52ad92b0136b49ad9ef631e7586fb9e9.pdf, DOCUMENT, READY\n10. OK — ID: 78042f_7c8b26ad8ce74600a3000d03b0977970.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_7c8b26ad8ce74600a3000d03b0977970.pdf, DOCUMENT, READY\n11. OK — ID: 78042f_daf635f4bb6241e8a6b885391277b01c.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_daf635f4bb6241e8a6b885391277b01c.pdf, DOCUMENT, READY\n12. OK — ID: 78042f_42d48b6cddb746ca9a2448795ba1d22c.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_42d48b6cddb746ca9a2448795ba1d22c.pdf, DOCUMENT, READY\n13. OK — ID: 78042f_94972a4ae8f245798c092dd10387db2c.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_94972a4ae8f245798c092dd10387db2c.pdf, DOCUMENT, READY\n14. OK — ID: 78042f_2df25f674ef64e43a2fc67ca426671b7.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2df25f674ef64e43a2fc67ca426671b7.pdf, DOCUMENT, READY\n15. OK — ID: 78042f_1e90024877ad484694a504f5aa66ef58.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_1e90024877ad484694a504f5aa66ef58.pdf, DOCUMENT, READY\n16. OK — ID: 78042f_6356acb21e21497a8933560f27e83d0f.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6356acb21e21497a8933560f27e83d0f.pdf, DOCUMENT, READY\n17. OK — ID: 78042f_758a67da5f494919902be22388e6db65.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_758a67da5f494919902be22388e6db65.pdf, DOCUMENT, READY\n18. OK — ID: 78042f_9a9bf34f269f4a0fa317a3c8d22303c7.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9a9bf34f269f4a0fa317a3c8d22303c7.pdf, DOCUMENT, READY\n19. OK — ID: 78042f_a1ba4b03abad49b1a650978a7f5846ae.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_a1ba4b03abad49b1a650978a7f5846ae.pdf, DOCUMENT, READY\n20. OK — ID: 78042f_56d00d83000d4ceea9088b3c22e9d16c.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_56d00d83000d4ceea9088b3c22e9d16c.pdf, DOCUMENT, READY\n21. OK — ID: 78042f_e930f1bea6d24672be033e2ceb286db0.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e930f1bea6d24672be033e2ceb286db0.pdf, DOCUMENT, READY\n22. OK — ID: 78042f_8dafbc61078b403cbabe58cbc04ac83c.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_8dafbc61078b403cbabe58cbc04ac83c.pdf, DOCUMENT, READY\n23. OK — ID: 78042f_ff09b2a4b37648cc9427ed9ab29fbbb8.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ff09b2a4b37648cc9427ed9ab29fbbb8.pdf, DOCUMENT, READY\n24. OK — ID: 78042f_40cb5c9dc47f484ca486051177f6fd7b.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_40cb5c9dc47f484ca486051177f6fd7b.pdf, DOCUMENT, READY\n25. OK — ID: 78042f_7058712da41041dcaca710b4534264e8.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_7058712da41041dcaca710b4534264e8.pdf, DOCUMENT, READY\n26. OK — ID: 78042f_81194bf536064aaa9754a0a2975cfd2b.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_81194bf536064aaa9754a0a2975cfd2b.pdf, DOCUMENT, READY\n27. OK — ID: 78042f_0e0f8121b47d4bd4a1b9f0545c19ed2e.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0e0f8121b47d4bd4a1b9f0545c19ed2e.pdf, DOCUMENT, READY\n28. OK — ID: 78042f_aace3c23f40844a796268ca64c280033.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_aace3c23f40844a796268ca64c280033.pdf, DOCUMENT, READY\n29. OK — ID: 78042f_56b3ad6a55d542d5b2232d6867c01ba9.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_56b3ad6a55d542d5b2232d6867c01ba9.pdf, DOCUMENT, READY\n30. OK — ID: 78042f_6e35900c7e384c67bbf3213ed06b73a6.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6e35900c7e384c67bbf3213ed06b73a6.pdf, DOCUMENT, READY\n31. OK — ID: 78042f_e9cf0a2786e944f094444c3e7a31cded.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e9cf0a2786e944f094444c3e7a31cded.pdf, DOCUMENT, READY\n32. OK — ID: 78042f_1ca5caf3ad2f4a7c9d64be4b7f4f82b9.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_1ca5caf3ad2f4a7c9d64be4b7f4f82b9.pdf, DOCUMENT, READY\n33. OK — ID: 78042f_1112349c669b43429df7daa91ca3b94f.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_1112349c669b43429df7daa91ca3b94f.pdf, DOCUMENT, READY\n34. OK — ID: 78042f_b51988ff5bef422fb26954d6f9e6bb7f.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b51988ff5bef422fb26954d6f9e6bb7f.pdf, DOCUMENT, READY\n35. OK — ID: 78042f_1acc28084a3c44ad8fcd7f6ebc7dbb4c.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_1acc28084a3c44ad8fcd7f6ebc7dbb4c.pdf, DOCUMENT, READY\n36. OK — ID: 78042f_c031b42bbda14028bf8a654778ceaa45.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c031b42bbda14028bf8a654778ceaa45.pdf, DOCUMENT, READY\n37. OK — ID: 78042f_ab01dd19b27c4795a341e0ab8a5d80f1.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ab01dd19b27c4795a341e0ab8a5d80f1.pdf, DOCUMENT, READY\n38. OK — ID: 78042f_e349f1cbc2934e179872a23a815df844.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e349f1cbc2934e179872a23a815df844.pdf, DOCUMENT, READY\n39. OK — ID: 78042f_b23c014f2a3446359a14032430ea48b8.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b23c014f2a3446359a14032430ea48b8.pdf, DOCUMENT, READY\n40. OK — ID: 78042f_f2257130ccc54df8a8ea61f70e87fb91.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f2257130ccc54df8a8ea61f70e87fb91.pdf, DOCUMENT, READY\n41. OK — ID: 78042f_65862b24eee445128168f5de4ee80ee1.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_65862b24eee445128168f5de4ee80ee1.pdf, DOCUMENT, READY\n42. OK — ID: 78042f_c8fe4c3cc3f147f3871f79cc6646bb3e.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c8fe4c3cc3f147f3871f79cc6646bb3e.pdf, DOCUMENT, READY\n43. OK — ID: 78042f_faf03246048040b692f555249b32ad15.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_faf03246048040b692f555249b32ad15.pdf, DOCUMENT, READY\n44. OK — ID: 78042f_0506a47611384efc957ca1d9120301e7.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0506a47611384efc957ca1d9120301e7.pdf, DOCUMENT, READY\n45. OK — ID: 78042f_e899154e23df4b3ca5f313347744217c.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e899154e23df4b3ca5f313347744217c.pdf, DOCUMENT, READY\n46. OK — ID: 78042f_9f73091b93e9459fac2603819689b4ba.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9f73091b93e9459fac2603819689b4ba.pdf, DOCUMENT, READY\n47. OK — ID: 78042f_cf9221967f804769ad6e7d3d50c47eab.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cf9221967f804769ad6e7d3d50c47eab.pdf, DOCUMENT, READY\n48. OK — ID: 78042f_e19ce390112d4687ba0f3e7c9ece89aa.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e19ce390112d4687ba0f3e7c9ece89aa.pdf, DOCUMENT, READY\n49. OK — ID: 78042f_0e2b16ec833946eaa67305b1b38fc319.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0e2b16ec833946eaa67305b1b38fc319.pdf, DOCUMENT, READY\n50. OK — ID: 78042f_47fcd935e8894045b7b4017ab210183e.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_47fcd935e8894045b7b4017ab210183e.pdf, DOCUMENT, READY\n51. OK — ID: 78042f_976489b6546f4ab5a8f1723f2eadad2d.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_976489b6546f4ab5a8f1723f2eadad2d.pdf, DOCUMENT, READY\n52. OK — ID: 78042f_088e2b77a9a746fd9508de9054bf429d.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_088e2b77a9a746fd9508de9054bf429d.pdf, DOCUMENT, READY\n53. OK — ID: 78042f_127112d924ea469091806c1c47dce36b.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_127112d924ea469091806c1c47dce36b.pdf, DOCUMENT, READY\n54. OK — ID: 78042f_a5ed1f1e93d543a886c753f87c0b6330.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_a5ed1f1e93d543a886c753f87c0b6330.pdf, DOCUMENT, READY\n55. OK — ID: 78042f_0d9f6f2dec834ead9e33b7c90d06e15f.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0d9f6f2dec834ead9e33b7c90d06e15f.pdf, DOCUMENT, READY\n56. OK — ID: 78042f_cec9616801f946c2ae0043bc95f8a536.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cec9616801f946c2ae0043bc95f8a536.pdf, DOCUMENT, READY\n57. OK — ID: 78042f_80611a94450b4d62a6a2ea78e409db6e.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_80611a94450b4d62a6a2ea78e409db6e.pdf, DOCUMENT, READY\n58. OK — ID: 78042f_07f47f0b3c5c4a32b68f1152a8c02093.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_07f47f0b3c5c4a32b68f1152a8c02093.pdf, DOCUMENT, READY\n59. OK — ID: 78042f_00644c98f0204033a9713840dfc58dbc.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_00644c98f0204033a9713840dfc58dbc.pdf, DOCUMENT, READY\n60. OK — ID: 78042f_2865bdb79f2c48f88386b685adc5bb8f.pdf, URL: https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2865bdb79f2c48f88386b685adc5bb8f.pdf, DOCUMENT, READY\n61. FAILED — Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Robot%20war.pdf (HTTP 429: Wix returned an HTML error page).\n62. FAILED — Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Rotating%20flying%20chair_Building.pdf (HTTP 429: Wix returned an HTML error page).\n63. FAILED — Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Round-trip%20transportation.pdf (HTTP 429: Wix returned an HTML error page).\n64. FAILED — Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Scaling%20ladder.pdf (HTTP 429: Wix returned an HTML error page).\n65. FAILED — Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Shift%20gears.pdf (HTTP 429: Wix returned an HTML error page).\n66. FAILED — Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Tank.pdf (HTTP 429: Wix returned an HTML error page).\n67. FAILED — Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Teeterboard.pdf (HTTP 429: Wix returned an HTML error page).\n68. FAILED — Wix could not import https://sb-7erkdqx2jvyf.vercel.run/The%20treadmill.pdf (HTTP 429: Wix returned an HTML error page).\n69. FAILED — Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Tightrope%20walk.pdf (HTTP 429: Wix returned an HTML error page).\n70. FAILED — Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Tower%20crane_Building.pdf (HTTP 429: Wix returned an HTML error page).\n71. FAILED — Wix could not import https://sb-7erkdqx2jvyf.vercel.run/Walking%20Robot.pdf (HTTP 429: Wix returned an HTML error page).\n72. FAILED — Wix could not import https://sb-6djsojuxftdz.vercel.run/level3/cleaned/Gyro%20transmitter_Building.pdf (HTTP 429: Wix returned an HTML error page).\n73. FAILED — Wix could not import https://sb-6djsojuxftdz.vercel.run/level3/cleaned/Electronic%20scale.pdf (HTTP 429: Wix returned an HTML error page).\n74. FAILED — Wix could not import https://sb-5r73vjdapeal.vercel.run/public/Level%204/Building/Characters%20%26%20Structures/Swimming%20Plesiosaur/19.%20Swimming%20Plesiosaur-Building%20Manual.pdf (HTTP 429: Wix returned an HTML error page).\n75. FAILED — Wix could not import https://sb-5r73vjdapeal.vercel.run/public/Level%204/Building/Mechanisms%20%26%20Simulators/Telegraph/09.Telegraph%20-Building%20Manual.pdf (HTTP 429: Wix returned an HTML error page).\n76. FAILED — Wix could not import https://sb-5r73vjdapeal.vercel.run/public/Level%204/Building/Mechanisms%20%26%20Simulators/Turbo%20Drop/28.%20Turbo%20Drop-Building%20Manual.pdf (HTTP 429: Wix returned an HTML error page).\n77. FAILED — Wix could not import https://sb-5r73vjdapeal.vercel.run/public/Level%204/Building/Vehicles%20%26%20Complex%20Movers/Lucky%20Cat/13.Lucky%20Cat-Building%20Manual.pdf (HTTP 429: Wix returned an HTML error page)."
+  },
+  "retry": {
+    "attempted": 17,
+    "successful": 17,
+    "failed": 0
   }
 }
