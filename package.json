@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "node --test tests/level-two-cleaned-wix-routing.test.mjs && vite build",
+    "build": "node --test tests/level-two-cleaned-wix-routing.test.mjs tests/level-one-prototype-crops.test.mjs && vite build",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
