@@ -4,7 +4,7 @@
   "base_main_git_sha": "9e5f2410a1bfa79c0fd1618794820cf4c08a00c5",
   "branch": "fix/level1-complete-building-english-20261119",
   "scope": "Level 1 Building PDFs only",
-  "status": "LOCALLY_VALIDATED_BINARY_DELIVERY_TO_GITHUB_UNCONFIRMED",
+  "status": "PARTIAL_BINARY_DELIVERY_4_OF_36_ON_WORKING_BRANCH",
   "total_pdfs": 60,
   "total_pages": 1010,
   "modified_pdf_count": 36,
@@ -13,7 +13,7 @@
   "first_robot_model_cover_repaired": true,
   "raster_chinese_covers_repaired": 17,
   "raster_chinese_footer_pages_repaired": 228,
-  "raster_chinese_text": "\u4e2d\u9e23\u673a\u5668\u4eba",
+  "raster_chinese_text": "中鸣机器人",
   "english_translation": "Zhongming Robot",
   "remaining_extractable_chinese_pages": 0,
   "tests": {
@@ -31,7 +31,7 @@
   },
   "archive_name": "level1-building-english-36-repaired-pdfs-20261119.zip",
   "archive_sha256": "052a86b487ebd18117aa0dce1ef0bfeccb78b1c77e1a81ddff0d6c33f9273534",
-  "not_merged_and_not_production": "The PDF bytes were not committed to GitHub by this audit-only commit.",
+  "not_merged_and_not_production": "Four corrected PDF binaries are committed on the working branch but are not on main. The other 32 validated replacement PDFs remain locally generated only. Do not merge this branch as the complete Level 1 English restoration.",
   "modified_files": [
     {
       "path": "public/Acceleration car_Building.pdf",
@@ -321,5 +321,33 @@
       "pages": 12,
       "bytes": 4459965
     }
-  ]
+  ],
+  "git_binary_delivery": {
+    "verified_on_branch": true,
+    "verified_binary_count": 4,
+    "validated_replacement_target_count": 36,
+    "pending_binary_count": 32,
+    "commit": "edb88300bf05e1f933dda7f7ba8f63a5e037098b",
+    "branch": "fix/level1-complete-building-english-20261119",
+    "merge_status": "not_merged",
+    "verified_paths": [
+      {
+        "path": "public/Car.pdf",
+        "git_blob_sha": "9ed4174c8de990a41fb04f9e5d2327ff191854a1"
+      },
+      {
+        "path": "public/Skating.pdf",
+        "git_blob_sha": "bc634edca663f8eeec48618233dc1191bcb57b55"
+      },
+      {
+        "path": "public/Sled dog.pdf",
+        "git_blob_sha": "0db0becbda43cf0b88eb6a2cfae78692034312a1"
+      },
+      {
+        "path": "public/The lawn mower.pdf",
+        "git_blob_sha": "81f72907c168f1d887bb4f8bdae9271b6ca7bd2b"
+      }
+    ],
+    "integrity": "All four PDF blobs matched SHA-1 Git object hashes independently produced by the validated restoration sandbox and confirmed against the branch Git tree."
+  }
 }
