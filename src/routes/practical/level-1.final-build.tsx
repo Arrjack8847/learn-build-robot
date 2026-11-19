@@ -137,45 +137,82 @@ function FinalBuildPage() {
   function retry(same: boolean) {
     setSession({ ...initial, attempts: session.attempts + 1, stage: same && project ? "ready" : "spin", projectIndex: same ? session.projectIndex : null });
   }
+  const spinScreen = session.stage === "spin" || session.stage === "spinning";
+  const resetLocalTest = () => {
+    localStorage.removeItem(STORAGE_KEY);
+    setSession({ ...initial, checks: [...initial.checks] });
+  };
   return (
-    <div className="relative min-h-[100dvh] bg-white text-slate-800">
+    <div className="relative flex h-[100dvh] flex-col overflow-hidden bg-gradient-to-br from-[#fffae9] via-[#fff3fb] to-[#eaf7ff] text-slate-800">
       <LevelOneBackdrop />
       <LevelOneHeader backTo="/practical/level-1" backLabel="Level 1 categories" />
-      <main className="relative mx-auto max-w-2xl px-4 pb-12 pt-5 sm:px-6">
-        <div className="mb-5 text-center">
-          <div className="mx-auto mb-2 grid size-14 place-items-center rounded-2xl bg-amber-100 text-amber-700"><Trophy className="size-8" /></div>
-          <p className="text-xs font-extrabold uppercase tracking-widest text-sky-600">Level 1 · Final Challenge</p>
-          <h1 className="mt-1 text-2xl font-black sm:text-3xl">Build a Robot!</h1>
-          <p className="mt-2 text-sm text-slate-600">Spin, build your robot in 15 minutes, then check your work.</p>
-        </div>
-        <section className="rounded-[28px] border border-sky-100 bg-white p-5 shadow-lg shadow-sky-100/60 sm:p-7" aria-live="polite">
-          {(session.stage === "spin" || session.stage === "spinning") && (
-            <div className="text-center">
-              <FinalBuildWheel
-                spinning={session.stage === "spinning"}
-                targetRotation={session.spinRotation}
-                finishAt={session.spinFinishAt}
-                onFinish={finishSpin}
-              />
-              <p className="mb-4 mt-4 text-sm font-medium text-slate-600">
-                Each of the 59 robots has an equal chance to be chosen.
-              </p>
-              {session.stage === "spin" ? (
-                <button type="button" onClick={spin} className="min-h-12 w-full rounded-2xl bg-[#168eea] px-6 font-extrabold text-white shadow-lg shadow-sky-100 transition hover:bg-[#0879c8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600">
-                  Spin for My Robot!
-                </button>
-              ) : (
-                <p className="min-h-12 rounded-2xl bg-amber-50 px-4 py-3 font-extrabold text-amber-800" role="status">
-                  🎉 Spinning… watch the pointer!
+      <main className="relative mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col px-3 pb-[max(8px,env(safe-area-inset-bottom))] pt-2 sm:px-6 sm:py-3">
+        {spinScreen ? (
+          <div className="relative flex min-h-0 flex-1 flex-col">
+            <header className="mb-2 shrink-0 text-center sm:mb-3">
+              <p className="text-[10px] font-black tracking-[.16em] text-[#c84f79] sm:text-xs">🎪 LEVEL 1 · FINAL BUILD CHALLENGE</p>
+              <h1 className="text-[clamp(1.45rem,3.5vw,2.5rem)] font-black leading-tight tracking-tight text-[#513073]">
+                Spin Your Robot!
+              </h1>
+            </header>
+            <section aria-label="Spin the wheel to choose a robot" className="grid min-h-0 flex-1 grid-rows-[minmax(0,1fr)_auto] overflow-hidden rounded-[26px] border-[3px] border-[#f8c95f] bg-white shadow-[0_12px_45px_rgba(143,80,144,.15)] sm:rounded-[34px] lg:grid-cols-[1.08fr_.92fr] lg:grid-rows-1 lg:border-[5px]">
+              <div className="relative flex min-h-0 items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_center,#ffffff_10%,#fff7dd_70%,#ffecb8_100%)] px-2 py-1 sm:px-4 lg:py-5">
+                <div aria-hidden="true" className="pointer-events-none absolute left-[9%] top-[9%] text-2xl text-[#e589eb] lg:text-4xl">✦</div>
+                <div aria-hidden="true" className="pointer-events-none absolute bottom-[8%] right-[10%] text-2xl text-[#ff9d37] lg:text-4xl">★</div>
+                <FinalBuildWheel
+                  spinning={session.stage === "spinning"}
+                  targetRotation={session.spinRotation}
+                  finishAt={session.spinFinishAt}
+                  onFinish={finishSpin}
+                />
+              </div>
+              <div className="flex shrink-0 flex-col justify-center gap-2 bg-white px-3 pb-3 pt-2 sm:px-6 lg:min-h-0 lg:gap-5 lg:border-l-4 lg:border-[#ffe6a1] lg:px-8 lg:py-6 xl:px-12">
+                <p className="hidden w-fit rounded-full bg-[#fff0b0] px-4 py-2 text-xs font-black tracking-wide text-[#a15322] lg:block">🎉 THE BIG ROBOT DRAW!</p>
+                <h2 className="text-center text-lg font-black leading-tight text-[#513073] sm:text-xl lg:text-left lg:text-[clamp(1.7rem,2.6vw,2.7rem)]">
+                  Which robot will you get?
+                </h2>
+                <p className="hidden max-w-md text-base font-medium leading-relaxed text-[#66547a] lg:block">
+                  Give the wheel a spin! A surprise robot from your Level 1 STEM worlds is waiting for you.
                 </p>
-              )}
+                <div className="flex items-center justify-center gap-2 lg:justify-start lg:gap-3">
+                  <span className="rounded-full bg-[#efe6ff] px-3 py-1.5 text-[11px] font-black text-[#7045bd] sm:text-sm">🤖 59 robots</span>
+                  <span className="rounded-full bg-[#d7f9e6] px-3 py-1.5 text-[11px] font-black text-[#267d56] sm:text-sm">⏱️ 15-minute build</span>
+                </div>
+                <button type="button" onClick={spin} disabled={session.stage === "spinning"}
+                  className="group min-h-14 w-full shrink-0 rounded-[20px] border-2 border-[#d93973] border-b-[6px] bg-[#ff5590] px-5 py-2 text-lg font-black tracking-wide text-white shadow-[0_7px_0_#f6b7ce] transition hover:bg-[#f53f7f] active:translate-y-1 active:border-b-2 active:shadow-none focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#7045bd] disabled:cursor-wait disabled:opacity-85 disabled:active:translate-y-0 sm:min-h-16 sm:text-xl lg:min-h-20 lg:text-2xl">
+                  {session.stage === "spinning" ? "🎡 SPINNING..." : "🎯 SPIN THE WHEEL!"}
+                </button>
+                <p className="text-center text-[10px] font-bold leading-tight text-[#826f8f] sm:text-xs lg:text-left" role="status" aria-live="polite">
+                  {session.stage === "spinning"
+                    ? "Watch the pointer! Your surprise robot is coming..."
+                    : "Every robot has the same chance. Spin → Build → Check!"}
+                </p>
+                <div className="hidden grid-cols-3 gap-3 lg:grid" aria-hidden="true">
+                  <div className="rounded-xl bg-[#fff1a9] p-3 text-center text-sm font-black text-[#965f17]">1 · SPIN</div>
+                  <div className="rounded-xl bg-[#d3edff] p-3 text-center text-sm font-black text-[#326caa]">2 · BUILD</div>
+                  <div className="rounded-xl bg-[#e9dfff] p-3 text-center text-sm font-black text-[#7050ad]">3 · CHECK</div>
+                </div>
+              </div>
+            </section>
+            {import.meta.env.DEV && (
+              <button type="button" onClick={resetLocalTest} className="absolute right-0 top-0 z-10 rounded-lg border border-slate-200 bg-white/95 px-2 py-1 text-[10px] font-bold text-slate-500">
+                Reset test
+              </button>
+            )}
+          </div>
+        ) : (
+          <div className="mx-auto flex min-h-0 w-full max-w-2xl flex-1 flex-col overflow-y-auto rounded-[26px] border-[3px] border-[#ffdfa2] bg-white/95 p-3 shadow-[0_12px_45px_rgba(143,80,144,.12)] sm:p-6">
+            <div className="mb-4 text-center">
+              <div className="mx-auto mb-2 grid size-12 place-items-center rounded-2xl bg-[#fff0ad] text-[#c2691a]"><Trophy className="size-7" /></div>
+              <p className="text-xs font-black tracking-wider text-[#a44fba]">🎉 YOUR ROBOT CHALLENGE!</p>
+              <h1 className="mt-1 text-2xl font-black tracking-tight text-[#513073]">Time to Build!</h1>
             </div>
-          )}
+            <section className="flex-1" aria-live="polite">
           {project && session.stage !== "spin" && session.stage !== "spinning" && (
             <div>
-              <div className="mb-4 rounded-2xl bg-sky-50 p-4 text-center">
+              <div className="mb-4 rounded-[24px] border-2 border-[#ffd37c] bg-[#fff4d8] p-4 text-center">
                 <p className="text-xs font-bold uppercase tracking-wide text-sky-600">{project.category}</p>
-                <h2 className="mt-1 text-xl font-black">{project.name}</h2>
+                <h2 className="mt-1 text-2xl font-black text-[#513073]">{project.name}</h2>
               </div>
               {(session.stage === "ready" || session.stage === "building") && (
                 <>
@@ -196,7 +233,7 @@ function FinalBuildPage() {
                 </>
               )}
               {session.stage === "ready" && (
-                <button type="button" disabled={!reference} onClick={() => update({ stage: "building", deadline: Date.now() + LIMIT_MS, completedAt: null })} className="min-h-12 w-full rounded-2xl bg-[#168eea] font-extrabold text-white disabled:cursor-not-allowed disabled:opacity-50">Start My 15-Minute Build</button>
+                <button type="button" disabled={!reference} onClick={() => update({ stage: "building", deadline: Date.now() + LIMIT_MS, completedAt: null })} className="min-h-14 w-full rounded-2xl border-b-4 border-[#c34d83] bg-[#f85a96] font-extrabold text-white shadow-lg disabled:cursor-not-allowed disabled:opacity-50">Start My 15-Minute Build</button>
               )}
               {session.stage === "building" && (
                 <button type="button" onClick={() => update({ stage: "assessment", completed: true, completedAt: Date.now() })} className="min-h-12 w-full rounded-2xl bg-emerald-600 font-extrabold text-white">I Finished My Robot!</button>
@@ -228,18 +265,17 @@ function FinalBuildPage() {
               )}
             </div>
           )}
-        </section>
-        <div className="mt-5 flex items-center justify-between gap-4">
-          <Link to="/practical/level-1" className="inline-flex items-center gap-2 text-sm font-bold text-sky-700"><ArrowLeft className="size-4" />Back to Categories</Link>
-          {import.meta.env.DEV && (
-            <button type="button" onClick={() => {
-              localStorage.removeItem(STORAGE_KEY);
-              setSession({ ...initial, checks: [...initial.checks] });
-            }} className="rounded-xl border border-slate-200 px-3 py-2 text-xs font-bold text-slate-500">
-              Reset local test
-            </button>
-          )}
-        </div>
+            </section>
+            <div className="mt-4 flex items-center justify-between gap-3 border-t border-[#ffebc9] pt-3">
+              <Link to="/practical/level-1" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#7449ae] sm:text-sm"><ArrowLeft className="size-4" />Back to Categories</Link>
+              {import.meta.env.DEV && (
+                <button type="button" onClick={resetLocalTest} className="rounded-xl border border-slate-200 px-3 py-2 text-xs font-bold text-slate-500">
+                  Reset local test
+                </button>
+              )}
+            </div>
+          </div>
+        )}
       </main>
     </div>
   );
