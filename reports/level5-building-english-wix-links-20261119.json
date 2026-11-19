@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-19",
+  "site": "Steam — BE STEM READY",
+  "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+  "target": "Wix links only; leave original tracked PDFs and all Learning assets unchanged",
+  "auditedBuildingManuals": 45,
+  "restoredPdfCount": 5,
+  "confirmedChangedPages": 7,
+  "visualEnglishOnlyCertification": false,
+  "status": "ALL_5_WIX_MEDIA_READY_LINKS_UPDATED_ON_MAIN",
+  "source": "Level5_Building_English_Repairs_5_PDFs.zip (verified against Level 5 PR #87 repair manifest)",
+  "changes": [
+    {
+      "path": "public/Level 5/Building/Action-Oriented/Spanish Bullfight/03.Spanish Bullfight-Building Manual.pdf",
+      "oldWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0dc4563701a940ea8e6e4e34f05431dc.pdf",
+      "newWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ebe74e45dd4c40c1b8aa9be178947e9b.pdf",
+      "expectedApprovedGitBlob": "3bc2b5a8a9bb8c57b23d979f3aeddfce3af010c8",
+      "repairedPage": 6
+    },
+    {
+      "path": "public/Level 5/Building/Automation & Security/Smart Cash Register/02.Smart Cash Register-Building Manual.pdf",
+      "oldWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_cfbdc14ab4a840969122a4e262717032.pdf",
+      "newWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_20999a71d2f74de5883dbfd3dbc68ae2.pdf",
+      "expectedApprovedGitBlob": "b27254ab5ae6a3b0f907750944c38d433aae97f7",
+      "repairedPage": 20
+    },
+    {
+      "path": "public/Level 5/Building/Display & Movement/Welcome Sign/08. Welcome Sign-Building Manual.pdf",
+      "oldWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_663f0d3d38434658a65d7f60aaf495ba.pdf",
+      "newWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_96ebc23bd9694ade9e0f1acfa503a974.pdf",
+      "expectedApprovedGitBlob": "5ada5ba8b3e4fea89bea80837f9e32ab8dcb126c",
+      "repairedPage": 12
+    },
+    {
+      "path": "public/Level 5/Building/Mechanisms & Simulators/Chairoplane/27. Chairoplane-Building Manual.pdf",
+      "oldWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_06054a7a075b4a05bbe4d2a9445d7564.pdf",
+      "newWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9a8ea080f20d4148944d163f64db2731.pdf",
+      "expectedApprovedGitBlob": "a866bd4cd98b2a6e21dae3aafa26636d656f39c1",
+      "repairedPage": 30
+    },
+    {
+      "path": "public/Level 5/Building/Mechanisms & Simulators/Machine Gun/10.Machine Gun-Building Manual.pdf",
+      "oldWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c301560155bd4209ba9cf1d3b9d6d84d.pdf",
+      "newWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f65e51bc47304554b99de3e3a96109cb.pdf",
+      "expectedApprovedGitBlob": "4280fa96fd8be96bc662b4328860fe806d2bdbc5",
+      "repairedPage": 29
+    }
+  ]
+}
