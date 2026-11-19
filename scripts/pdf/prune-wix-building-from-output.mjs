@@ -1,5 +1,5 @@
 /**
- * Remove Wix-hosted Level 1-4 Building PDF duplicates from built deployment assets.
+ * Remove Wix-hosted Level 1–5 Building PDF duplicates from built deployment assets.
  *
  * Never modifies public/ source files or Learning PDF assets. Every removed file
  * must have a verified Wix URL in the exact path registries.
@@ -27,20 +27,33 @@ function wixEntries(relativeFile) {
 
 const rootRegistry = wixEntries("src/data/levelOneToThreeWixPdfUrls.ts");
 const level4Registry = wixEntries("src/data/levelFourWixPdfUrls.ts");
+const level5Registry = wixEntries("src/data/levelFiveWixPdfUrls.ts");
 
-// Prune ONLY the 209 audited Level 1–4 Building paths. The Wix URL registries
-// also contain Learning and supplementary PDFs that must not be excluded.
+// Prune ONLY the audited 209 Level 1–4 + 45 Level 5 Building paths.
+// Wix registries also contain Learning and supplementary PDFs; retain those.
 const manifest = JSON.parse(
   readFileSync(
     join(repoRoot, "reports/level1-4-building-link-only-paths-20261119.json"),
     "utf8",
   ),
 );
+const level5Manifest = JSON.parse(
+  readFileSync(
+    join(repoRoot, "reports/level5-building-link-only-paths-20261119.json"),
+    "utf8",
+  ),
+);
 if (manifest.auditedCounts?.distinctPaths !== 209 ||
-    !Array.isArray(manifest.paths) || manifest.paths.length !== 209) {
-  throw new Error("Expected exactly 209 audited Building PDF paths.");
+    !Array.isArray(manifest.paths) || manifest.paths.length !== 209 ||
+    level5Manifest.uniqueBuildingPdfCount !== 45 ||
+    !Array.isArray(level5Manifest.paths) || level5Manifest.paths.length !== 45) {
+  throw new Error("Expected exactly 209 Level 1–4 and 45 Level 5 Building PDF paths.");
 }
-const paths = manifest.paths.map((repositoryPath) => {
+const allBuildingPaths = [...manifest.paths, ...level5Manifest.paths];
+if (allBuildingPaths.length !== 254) {
+  throw new Error("Expected 254 Wix-hosted Building PDF paths.");
+}
+const paths = allBuildingPaths.map((repositoryPath) => {
   const segments = repositoryPath.split("/");
   if (!repositoryPath.startsWith("public/") ||
       !repositoryPath.toLowerCase().endsWith(".pdf") ||
@@ -49,9 +62,11 @@ const paths = manifest.paths.map((repositoryPath) => {
     throw new Error("Unsafe Building PDF inventory path: " + repositoryPath);
   }
   const relativePath = segments.slice(1).join("/");
-  const registry = relativePath.startsWith("Level 4/Building/")
-    ? level4Registry
-    : rootRegistry;
+  const registry = relativePath.startsWith("Level 5/Building/")
+    ? level5Registry
+    : relativePath.startsWith("Level 4/Building/")
+      ? level4Registry
+      : rootRegistry;
   const url = registry.get(relativePath);
   if (typeof url !== "string" || !url.startsWith(wixHost) ||
       !url.endsWith(".pdf")) {
@@ -92,6 +107,6 @@ for (const relativeFolder of outputFolders) {
 
 console.log(
   "[PDF link-only deployment] " + paths.length +
-  " Wix-backed Level 1-4 Building PDF paths checked; " +
+  " Wix-backed Level 1–5 Building PDF paths checked; " +
   deleted + " copied PDFs excluded from build output. Learning PDFs preserved.",
 );
