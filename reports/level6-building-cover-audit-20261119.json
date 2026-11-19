@@ -1,0 +1,548 @@
+{
+  "audit": "BE STEM READY Level 6 Building PDFs - English cover replacement eligibility",
+  "date": "2026-11-19",
+  "repository": "Arrjack8847/learn-build-robot",
+  "base_branch": "main",
+  "base_commit_at_source_inspection": "521fe7e1fe9829eb811356982a09bb3c4c6cce6a",
+  "reference_pull_request": 81,
+  "scope": "Level 6 Building PDFs only; no Learning PDFs or interior pages modified",
+  "methodology": [
+    "Enumerated 41 PDF assets from GitHub Level 6 Building tree and cross-checked against 41 registered Wix URLs and the 43-project Level 6 lesson registry",
+    "Downloaded all 41 existing Wix-hosted PDFs into an isolated Python sandbox",
+    "Verified Git blob SHA-1 of every downloaded original against its exact GitHub main source blob",
+    "Opened all PDFs using PyMuPDF; recorded page counts and dimensions",
+    "Rendered and visually reviewed the first page of every original PDF, including three 16/16/9-page contact sheets and individually enlarged examples",
+    "Scanned extractable text on all 1007 pages; separately recorded Chinese found outside the first page"
+  ],
+  "summary": {
+    "building_pdf_count": 41,
+    "unique_source_blob_count": 41,
+    "original_source_hashes_verified": 41,
+    "total_original_pages": 1007,
+    "total_original_bytes": 507066535,
+    "first_page_visually_reviewed_count": 41,
+    "first_pages_with_extractable_chinese": 0,
+    "first_pages_with_visibly_identifiable_chinese": 0,
+    "affected_building_pdfs_requiring_cover_replacement": 0,
+    "edited_binary_pdf_count": 0,
+    "non_cover_comparison_count": 0,
+    "non_cover_comparison_not_applicable": "No source PDF was edited because none of the 41 first pages showed Chinese needing replacement"
+  },
+  "layout": {
+    "pdf_page_dimensions_points": {
+      "842x596": 990,
+      "842x595": 17
+    }
+  },
+  "interior_findings": [
+    {
+      "path": "public/Level 6/Building/Sensor-Focused Robots/Rock-paper-scissors Robot/30.Rock-paper-scissors Robot-Building Manual.pdf",
+      "page_number": 14,
+      "extractable_chinese_character_count": 17,
+      "text": "大型马达\\nAI模块\\n中型马达\\n大型马达\\n控制器",
+      "action": "Preserved unchanged; interior-page cleanup is explicitly outside this task"
+    }
+  ],
+  "delivery": {
+    "branch": "fix/level6-building-english-covers-20261119",
+    "pdf_binaries_committed": 0,
+    "reason": "No first-page Chinese found; intentionally avoided unnecessary alterations to the 41 original Building PDFs",
+    "power_shell_delivery_helper": "not applicable because there are no PDF replacements to commit",
+    "github_actions_invoked": false,
+    "learning_pdf_changes": 0
+  },
+  "files": [
+    {
+      "path": "public/Level 6/Building/Action-Oriented/Gorilla/04.Gorilla-Building Manual.pdf",
+      "original_blob_sha": "0c1dae235396f3ad2816c2d51b06166eb124c481",
+      "original_bytes": 8153918,
+      "original_page_count": 24,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Action-Oriented/Picture Projector/28. Picture Projector-Building Manual.pdf",
+      "original_blob_sha": "ec65a8c0a381cb8f92eadda3bc28024eaf5b01ea",
+      "original_bytes": 3136157,
+      "original_page_count": 11,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Action-Oriented/The Flapping Pterosaur/17. The Flapping Pterosaur-Building Manual.pdf",
+      "original_blob_sha": "3e474b0a4aaa26035baf7203f28879a1403d6fc2",
+      "original_bytes": 20131061,
+      "original_page_count": 70,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Automation & Security/Code-scanning Gate/04.Code-scanning Gate-Building Manual.pdf",
+      "original_blob_sha": "cedd874e3b00dd8dca94a6d696bc15dcc33e194d",
+      "original_bytes": 9973061,
+      "original_page_count": 27,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Automation & Security/Intelligent Passing Light/09. Intelligent Passing Light -Building Manual.pdf",
+      "original_blob_sha": "5631d95c4d702902643127ce707cccbd40317e92",
+      "original_bytes": 4058127,
+      "original_page_count": 18,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Autonomous Navigation & Ranging/Gesture-commanding Car/23. Gesture-commanding Car-Building Manual.pdf",
+      "original_blob_sha": "b01eee7153ffe54f3947d2d616a649ba007cffa7",
+      "original_bytes": 5442297,
+      "original_page_count": 18,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Biomimicry & Stimulus Response/Regional Weather Station/32.Regional Weather Station-Building Manual.pdf",
+      "original_blob_sha": "2da1221e39233623740ded9b35ac3e43dae5f8e1",
+      "original_bytes": 12605820,
+      "original_page_count": 51,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Biomimicry & Stimulus Response/Super Scorpion/16. Super Scorpion - Basic Building Manual.pdf",
+      "original_blob_sha": "23004ccd4b873878afbbbd73f16739637a7389b7",
+      "original_bytes": 43780193,
+      "original_page_count": 42,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Biomimicry & Stimulus Response/Super Scorpion/16. Super Scorpion - Optimized Building Manual.pdf",
+      "original_blob_sha": "f1bfb447511de5a6529f60e43e432fa488450af8",
+      "original_bytes": 4871492,
+      "original_page_count": 3,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Characters & Structures/Clown/05.Clown-Building Manual.pdf",
+      "original_blob_sha": "7da2056de8dfecb0f9182cc66f9db07476ace2ac",
+      "original_bytes": 4432620,
+      "original_page_count": 20,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Complex Mechanisms & Coordinated Motion/Accurate Shooting/13. Accurate Shooting-Building Manual.pdf",
+      "original_blob_sha": "9e5ec84bacf6de00da52fe4326c425f37e829397",
+      "original_bytes": 8353875,
+      "original_page_count": 30,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Display & Movement/Digital Countdown/07.Digital Countdown-Building Manual.pdf",
+      "original_blob_sha": "34dc7c6d04818d190f1b5e440a4eb9aeb4238a3b",
+      "original_bytes": 5318800,
+      "original_page_count": 21,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Illumination & Signals/Red Light Warning Device/12. Red Light Warning Device-Building Manual.pdf",
+      "original_blob_sha": "199c00c6ab9e983220528b8d11c4ee4b77b42ac8",
+      "original_bytes": 3645910,
+      "original_page_count": 12,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Illumination & Signals/Smart Flashlight/27.Smart Flashlight-Building Manual.pdf",
+      "original_blob_sha": "fe6dcf11f5392c81fea146830564625c4c0dc73b",
+      "original_bytes": 4566573,
+      "original_page_count": 15,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Illumination & Signals/Traffic Lights Display/10. Traffic Lights-Building Manual.pdf",
+      "original_blob_sha": "aa7617b0d68897f432e558068006ad99d446a330",
+      "original_bytes": 4301323,
+      "original_page_count": 18,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Interactive Mechanisms/Pinball Machine/30. Pinball Machine-Building Manual.pdf",
+      "original_blob_sha": "4d2b2fa6deea6b351b49661efbbf17eb03f39e26",
+      "original_bytes": 10371886,
+      "original_page_count": 24,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Interactive Systems/Smart Fan/31.Smart Fan-Building Manual.pdf",
+      "original_blob_sha": "423439593933dd60a9be8c952767ceb426088e39",
+      "original_bytes": 10498788,
+      "original_page_count": 37,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Interactive Systems/The Interesting Rotor/19. The Interesting Rotor-Building Manual.pdf",
+      "original_blob_sha": "856b23820ab6a2e21185f8a281276bf397fe3666",
+      "original_bytes": 15230879,
+      "original_page_count": 48,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Mechanisms & Simulators/Combination Lock/29.Combination Lock -Building Manual.pdf",
+      "original_blob_sha": "ab167ad965967e295352eac94b951b4bd98eb7a5",
+      "original_bytes": 30818655,
+      "original_page_count": 26,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Mechanisms & Simulators/Gibbon/14. Gibbon - Basic Building Manual.pdf",
+      "original_blob_sha": "aafb4cc726907006acbeb36f3d24c92cac2410ce",
+      "original_bytes": 14533894,
+      "original_page_count": 16,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Mechanisms & Simulators/Gibbon/14. Gibbon - Optimized Building Manual.pdf",
+      "original_blob_sha": "c3027d3d9380f7aba708ee1dd73fa2343be8ea09",
+      "original_bytes": 10631909,
+      "original_page_count": 10,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Mechanisms & Simulators/Pay by card/16.Pay by card -Building Manual.pdf",
+      "original_blob_sha": "da2a96757c2b6c0a8e67882b74488d678287d7d0",
+      "original_bytes": 5864225,
+      "original_page_count": 17,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Mechanisms & Simulators/Product Search/15.Product Search -Building Manual.pdf",
+      "original_blob_sha": "540334dcedb3a2ab538fbf8e097c4c47ab83a41b",
+      "original_bytes": 6891422,
+      "original_page_count": 24,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Mechanisms & Simulators/Punch Hard/7. Punch Hard - Basic Building Manual.pdf",
+      "original_blob_sha": "c82af90fa9c3f597a04cab1b62761f83c7739113",
+      "original_bytes": 15535258,
+      "original_page_count": 16,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Mechanisms & Simulators/RC Airplane/11.RC Airplane -Building Manual.pdf",
+      "original_blob_sha": "6b75d94b31a73e86ae5551bdba733e0601fbb361",
+      "original_bytes": 7763009,
+      "original_page_count": 26,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Mechanisms & Simulators/Ring Toss Game/15. Ring Toss Game-Building Manual.pdf",
+      "original_blob_sha": "28dde7a08b9d2905c3ef7eae0e088ed01a92764a",
+      "original_bytes": 8025938,
+      "original_page_count": 32,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Mechanisms & Simulators/Robotic Arm/32. The Robotic Arm-Building Manual.pdf",
+      "original_blob_sha": "d72dd2caf322b328a98ef0d259134d63867aae19",
+      "original_bytes": 12886761,
+      "original_page_count": 37,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Mechanisms & Simulators/Vending Machine/27.Vending Machine-Building Manual.pdf",
+      "original_blob_sha": "a32685279c3e23f824ce3ae3abe27e7963e6580c",
+      "original_bytes": 24636482,
+      "original_page_count": 23,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Programming & Precise Control/Autonomous Driving/18.Autonomous Driving -Building Manual.pdf",
+      "original_blob_sha": "8ff6d0790bb8d7baf616473e3fef9b0df6a70885",
+      "original_bytes": 20226771,
+      "original_page_count": 17,
+      "first_page_dimensions_points": [
+        842,
+        595
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Programming & Precise Control/Minesweeper Robot/12.Minesweeper Robot - Building Manual.pdf",
+      "original_blob_sha": "14c63e8beb0a6cae97c17704a839809f51ae908b",
+      "original_bytes": 8850967,
+      "original_page_count": 28,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Programming & Precise Control/Remote Control Lift/22. Remote Control Lift -Building Manual.pdf",
+      "original_blob_sha": "37aa39b130091b0a1bd17d28cb14c4edb332fad9",
+      "original_bytes": 11188381,
+      "original_page_count": 33,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Programming & Precise Control/Saluting Robot/26.Saluting Robot -Building Manual.pdf",
+      "original_blob_sha": "045dad4e51de524ad2515b4f64b154cd1ae32431",
+      "original_bytes": 23111340,
+      "original_page_count": 20,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Programming & Precise Control/Smart Electric Drill/20. Smart Electric Drill-Building Manual.pdf",
+      "original_blob_sha": "5e4561c21e9e4e836e52f4857c0f6db9f2143c36",
+      "original_bytes": 5288078,
+      "original_page_count": 19,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Sensor Automation/Altimeter/18. Altimeter-Building Manual.pdf",
+      "original_blob_sha": "e4c521ae5296db33c87be5fc8f5f6ca9a79c0d88",
+      "original_bytes": 3610602,
+      "original_page_count": 13,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Sensor Automation/High Temperature Alarm/29. High Temperature Alarm-Building Manual.pdf",
+      "original_blob_sha": "6719221a2ea67bc7cc2b35e7f33a431c165d6549",
+      "original_bytes": 7372543,
+      "original_page_count": 23,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Sensor Automation/Intelligent Sorting Machine/24.Intelligent Sorting Machine-Building Manual.pdf",
+      "original_blob_sha": "1801ad212494d2c3d6040f37889728405f6c2a5d",
+      "original_bytes": 42462004,
+      "original_page_count": 33,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Sensor Automation/Parcel Sorting Machine/31. Parcel Sorting Machine-Building Manual.pdf",
+      "original_blob_sha": "6e579ce687f1e9fdaff0ebc3478482b9e4516e03",
+      "original_bytes": 12205505,
+      "original_page_count": 39,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Sensor-Focused Robots/Colorblind Assistant Robot/25.Colorblind Assistant Robot-Building Manual.pdf",
+      "original_blob_sha": "052324f6524cbf01626cfb5e6b8782aabb4f075a",
+      "original_bytes": 17663837,
+      "original_page_count": 14,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Sensor-Focused Robots/Rock-paper-scissors Robot/30.Rock-paper-scissors Robot-Building Manual.pdf",
+      "original_blob_sha": "af9423f2a5191ca8577b18cd3fa827da09fd829b",
+      "original_bytes": 16315903,
+      "original_page_count": 14,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Sensor-Focused Robots/Smart Camera/22.Smart Camera-Building Manual.pdf",
+      "original_blob_sha": "b73adbc3d2994f09c737ca144fb30d942db16fc5",
+      "original_bytes": 14510955,
+      "original_page_count": 14,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    },
+    {
+      "path": "public/Level 6/Building/Vehicles & Complex Movers/Tricycle/29. Tricycle-Building Manual.pdf",
+      "original_blob_sha": "6442758fb141eddfed084dca4d36df0afc6f1cac",
+      "original_bytes": 7799316,
+      "original_page_count": 24,
+      "first_page_dimensions_points": [
+        842,
+        596
+      ],
+      "visually_observed_chinese_on_first_page": false,
+      "edited": false
+    }
+  ]
+}
