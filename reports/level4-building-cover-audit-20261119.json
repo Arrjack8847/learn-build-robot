@@ -1,0 +1,622 @@
+{
+  "report": "Level 4 Building PDF Chinese cover audit, 2026-11-19",
+  "source_branch": "main",
+  "source_commit": "521fe7e1fe9829eb811356982a09bb3c4c6cce6a",
+  "scope": "Original Level 4 Building PDFs only; Learning fallbacks excluded",
+  "verified_originals": 50,
+  "registered_projects": 48,
+  "optimized_versions": 2,
+  "total_pages": 1029,
+  "chinese_selectable_cover_count": 0,
+  "ocr_possible_han_count": 15,
+  "ocr_findings": "15 isolated single-character detections; all reviewed as false positives from hardware drawings, numbering and linework",
+  "confirmed_visible_chinese_covers": 0,
+  "affected_binary_pdf_count": 0,
+  "modified_learning_pdf_count": 0,
+  "modified_building_pdf_count": 0,
+  "non_cover_comparison": "Not applicable: no PDF was edited; all source pages remain untouched",
+  "interior_chinese_note": "No extractable Chinese found in any page, but image-based interior artwork was not audited or edited",
+  "duplicate_content_paths": [],
+  "files": {
+    "public/Level 4/Building/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Basic Building Manual.pdf": {
+      "blob_sha": "d1358a0c96d6c48022803df79634c7f34627105f",
+      "bytes": 18045566,
+      "pages": 19,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 1,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Optimized Building Manual.pdf": {
+      "blob_sha": "b083ef6fa3d617c1f34a9baab4bf683f26ec83db",
+      "bytes": 12246430,
+      "pages": 13,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Advanced Navigation & Control/Drop-proof Robot/Drop-proof Robot.pdf": {
+      "blob_sha": "740e06789ab28723ec20601638f847a100cbe1ee",
+      "bytes": 4233666,
+      "pages": 7,
+      "first_page_pt": [
+        2064,
+        1161
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Automation & Security/Personal Bodyguard/09. Personal Bodyguard-Building Manual.pdf": {
+      "blob_sha": "c8f9d3e43bd7d6627be43d3b3e961e50dc402813",
+      "bytes": 7044855,
+      "pages": 21,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Automation & Security/Scan to Open the Gate/01. Scan to Open the Gate- Building Manual.pdf": {
+      "blob_sha": "36c81dc372e35b1e2fa3e90c354dff47a0bcc773",
+      "bytes": 7633037,
+      "pages": 22,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Automation & Security/Smart curtain/Smart curtain_Building.pdf": {
+      "blob_sha": "8ff7c35d34a9a91549fcecccae16a473fa8ae631",
+      "bytes": 5133607,
+      "pages": 10,
+      "first_page_pt": [
+        1587,
+        893
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Autonomous Navigation & Ranging/Guide Dogs/10. Guide Dogs - Basic Building Manual.pdf": {
+      "blob_sha": "4cbb0db73ab4f37e3fe2440eca8f675a37c80227",
+      "bytes": 13318011,
+      "pages": 13,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Autonomous Navigation & Ranging/Keeping Distance/12. Keeping Distance-Building Manual.pdf": {
+      "blob_sha": "47444ce46ab6611754a9cd960684741cb2b21717",
+      "bytes": 6536716,
+      "pages": 21,
+      "first_page_pt": [
+        842,
+        595
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 1,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Autonomous Navigation & Ranging/Laser Rangefinder/10. Laser Rangefinder - Building Manual.pdf": {
+      "blob_sha": "4aabb9a91adbd8eb890528483d9578a0e6dd35c1",
+      "bytes": 2929882,
+      "pages": 13,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Autonomous Navigation & Ranging/Magnetically Controlled Door/06. Magnetically controlled door-Building Manual.pdf": {
+      "blob_sha": "c6b9c61b01d1ff30ea0de14e5fc11193c17deb1c",
+      "bytes": 6571640,
+      "pages": 22,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Autonomous Navigation & Ranging/Obstacle Avoidance In Snow/4. Obstacle Avoidance In Snow-Basic Building Manual.pdf": {
+      "blob_sha": "e5a122e0513b23d1beb2390e266f0e16e9952175",
+      "bytes": 6947629,
+      "pages": 6,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 1,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Autonomous Navigation & Ranging/Obstacle Avoidance Robot 2/Obstacle Avoidance Robot 2_Building.pdf": {
+      "blob_sha": "85326b1504e1c5f7211800abcc22d655d0110c01",
+      "bytes": 8694115,
+      "pages": 14,
+      "first_page_pt": [
+        1587,
+        893
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Autonomous Navigation & Ranging/Radar vehicle/Radar vehicle_Building.pdf": {
+      "blob_sha": "8925f5672303a55b8caaf1c73434acd2a9aa88ef",
+      "bytes": 6861249,
+      "pages": 9,
+      "first_page_pt": [
+        2064,
+        1161
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Biomimicry & Stimulus Response/Nocturnal beetle/Nocturnal beetle.pdf": {
+      "blob_sha": "d0af4ddd01984b93e5cb03b48906518493c3081d",
+      "bytes": 10343712,
+      "pages": 19,
+      "first_page_pt": [
+        2064,
+        1161
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 2,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Characters & Structures/A Timid Mouse/Lesson 25. A Timid Mouse-Building Manual.pdf": {
+      "blob_sha": "30e167ec98f268265b6e987bb48b9ed04bed92b7",
+      "bytes": 6060124,
+      "pages": 19,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 2,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Characters & Structures/Elf in the Tree/12. Elf in the Tree - Basic Building Manual.pdf": {
+      "blob_sha": "6d5c6bb51f9e82610c6a8926e4fafd6c7c10e2ec",
+      "bytes": 22844617,
+      "pages": 22,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Characters & Structures/Parts Sorter/22.Parts Sorter-Building Manual.pdf": {
+      "blob_sha": "ab27b6bf252041055c5c634351f4765fb754b21e",
+      "bytes": 5254820,
+      "pages": 18,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Characters & Structures/Swimming Plesiosaur/19. Swimming Plesiosaur-Building Manual.pdf": {
+      "blob_sha": "73217eadc98fe48e164237db8db12f64668445cf",
+      "bytes": 18007313,
+      "pages": 40,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Characters & Structures/Tail-Wagging Stegosaurus/18. Tail-Wagging Stegosaurus-Building Manual.pdf": {
+      "blob_sha": "4e718c78c1c53115260d22b1420206633b2e22c2",
+      "bytes": 13592864,
+      "pages": 45,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 1,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Complex Mechanisms & Coordinated Motion/Architectural design/Architectural design.pdf": {
+      "blob_sha": "c95320c064bfff7d7757990377fdc43baec55af5",
+      "bytes": 11660939,
+      "pages": 24,
+      "first_page_pt": [
+        2064,
+        1161
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 1,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Complex Mechanisms & Coordinated Motion/Card Machine/Card Machine.pdf": {
+      "blob_sha": "f063338187fe40f0291b3c62eff0d60bb2a725a4",
+      "bytes": 7983266,
+      "pages": 9,
+      "first_page_pt": [
+        2064,
+        1161
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Display & Movement/Dancing Robot/31.Dancing Robot-Building Manual.pdf": {
+      "blob_sha": "0175df1dfd067cafebbfae1f1a4a29a5ca473ada",
+      "bytes": 6913446,
+      "pages": 22,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Display & Movement/Skiing Robot/28.Skiing Robot -Building Manual.pdf": {
+      "blob_sha": "3a3e207efba57b4f6b39cad689c475d84b43ea17",
+      "bytes": 11798338,
+      "pages": 31,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Illumination & Signals/Induction Desk Lamp/13. Induction Desk Lamp-Building Manual.pdf": {
+      "blob_sha": "b56fc14de734b56d0d252cc9435f3d8da7ece472",
+      "bytes": 8852353,
+      "pages": 32,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Interactive Mechanisms/Scorpion/Scorpion_Building.pdf": {
+      "blob_sha": "ec6535e60e9cd67de8b5f1c81cfcac3a5fdb3531",
+      "bytes": 7044005,
+      "pages": 17,
+      "first_page_pt": [
+        1587,
+        893
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 1,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Interactive Mechanisms/Smart Luggage/16. Smart Luggage-Building Manual.pdf": {
+      "blob_sha": "7cd9a427b0e99735ff5861f87675d373e9856e8b",
+      "bytes": 8036639,
+      "pages": 26,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Interactive Mechanisms/Telegraph machine/Telegraph machine_Building.pdf": {
+      "blob_sha": "085306b3bb116a006d3c7dad7e10fb3174a9f871",
+      "bytes": 4013078,
+      "pages": 11,
+      "first_page_pt": [
+        1587,
+        893
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Interactive Systems/Basketball Shooting Machine/27.Basketball Shooting Machine-Building Manual.pdf": {
+      "blob_sha": "270f432abb9183c2d507ba99a5da77bd80356160",
+      "bytes": 9512549,
+      "pages": 28,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 1,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Interactive Systems/Obstacle Avoidance Robot/18.Obstacle Avoidance Robot-Building Manual.pdf": {
+      "blob_sha": "dc706e7674d2ad9a96fb667eddc73d17854ca196",
+      "bytes": 5538978,
+      "pages": 16,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 2,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Interactive Systems/Reaction Tester/19.Reaction Tester-Building Manual.pdf": {
+      "blob_sha": "f266912c72d25c620bb7649ed63137e2bd2a4199",
+      "bytes": 3433955,
+      "pages": 12,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Interactive Systems/Tumbler/01. Tumbler - Building Manual.pdf": {
+      "blob_sha": "0b6ccd4de7404bdaa661cf0407ae368c9a6d22a2",
+      "bytes": 6455197,
+      "pages": 22,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 2,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Mechanisms & Simulators/Biped Robot/20. Biped Robot-Building Manual.pdf": {
+      "blob_sha": "ad0339df13a460e329c92223489f60b3f2491a3e",
+      "bytes": 18606180,
+      "pages": 57,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Mechanisms & Simulators/Horizontal Bar/5. Horizontal Bar-Basic Building Manual.pdf": {
+      "blob_sha": "0405b88beb5ecd30d17278557cad22419fffdce9",
+      "bytes": 13600460,
+      "pages": 13,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Mechanisms & Simulators/Oscillating Fan/19.Oscillating Fan -Building Manual.pdf": {
+      "blob_sha": "49b9e72fe57300974e88b39e342dd963d6083056",
+      "bytes": 23694522,
+      "pages": 22,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Mechanisms & Simulators/Spinning Cups/14. Spinning Cups-Building Manual.pdf": {
+      "blob_sha": "21117de94a3b2540b27604bdb76dcb8bd1218035",
+      "bytes": 8196276,
+      "pages": 25,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Mechanisms & Simulators/Telegraph/09.Telegraph -Building Manual.pdf": {
+      "blob_sha": "afb49aca75e0bd166af3114a981d46ebb26933f7",
+      "bytes": 8682674,
+      "pages": 25,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Mechanisms & Simulators/Turbo Drop/28. Turbo Drop-Building Manual.pdf": {
+      "blob_sha": "3b7bad44e4c92a4f56c7281ca6f34424e469a87f",
+      "bytes": 12573557,
+      "pages": 34,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Programming & Precise Control/Obstacle-avoiding Scorpion/01.Obstacle-avoiding Scorpion_Building Manual.pdf": {
+      "blob_sha": "8e0936d27819a7b84bf00533b6cfe9906f225e43",
+      "bytes": 6873645,
+      "pages": 22,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Sensor Automation/Card reader/Card reader.pdf": {
+      "blob_sha": "773494e6a82765fb7b5811fde836bd21e65c912c",
+      "bytes": 2881636,
+      "pages": 12,
+      "first_page_pt": [
+        2064,
+        1161
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 2,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Sensor Automation/Password box/Password box.pdf": {
+      "blob_sha": "96c5f48a497334b3303afc21a079283fd6093106",
+      "bytes": 14362754,
+      "pages": 18,
+      "first_page_pt": [
+        2064,
+        1161
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 4,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Sensor-Focused Robots/Energy Detector/05. Energy Detector--Building Manual.pdf": {
+      "blob_sha": "dc0b133a972b1fd1287cfaeed52e22ad29294d8f",
+      "bytes": 7082627,
+      "pages": 20,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Sensor-Focused Robots/Ranging robot/Ranging robot_Building.pdf": {
+      "blob_sha": "8bcb40b365b818ea4d73f7447bfca9d9224455d9",
+      "bytes": 5002524,
+      "pages": 13,
+      "first_page_pt": [
+        1587,
+        893
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Sound & Voice Interaction/Acoustic control lamp/Acoustic control lamp_Building.pdf": {
+      "blob_sha": "e71adbb1661ce5ddaf88bcb6763f19e794325d85",
+      "bytes": 3674513,
+      "pages": 8,
+      "first_page_pt": [
+        1587,
+        893
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Sound & Voice Interaction/Electric Piano/32.Electric Piano-Building Manual.pdf": {
+      "blob_sha": "bba143f29f5acfddcbe3638521240e04e2b5c3e8",
+      "bytes": 7588116,
+      "pages": 24,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Sound & Voice Interaction/Smart Speaker/30.Smart Speaker-Building Manual.pdf": {
+      "blob_sha": "b4820e408f852a1357c7ec8e91c6262d94507045",
+      "bytes": 6829696,
+      "pages": 20,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 1,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin - Basic Building Manual.pdf": {
+      "blob_sha": "1e66e2590d334b9c6baee8ca8294c56d1f130edc",
+      "bytes": 24123813,
+      "pages": 25,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin - Optimized Building Manual.pdf": {
+      "blob_sha": "aeebbfbd31a2d6a5709065da1b9fa1a244e35e08",
+      "bytes": 15348734,
+      "pages": 10,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 1,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Vehicles & Complex Movers/Lucky Cat/13.Lucky Cat-Building Manual.pdf": {
+      "blob_sha": "6915639b79eb8fb6acd980bf2752ad24b4ed5d5f",
+      "bytes": 8421760,
+      "pages": 28,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Vehicles & Complex Movers/Remote Control Car/04. Remote Control Car-Building Manual.pdf": {
+      "blob_sha": "67232e791e7ab74c07af17f05eca661b89f4edd7",
+      "bytes": 7405990,
+      "pages": 24,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    },
+    "public/Level 4/Building/Vehicles & Complex Movers/Transformer Robot/06.Transformer Robot-Building Manual.pdf": {
+      "blob_sha": "992ab3f7d5aff463f4230170b158061c7935f0b1",
+      "bytes": 8943816,
+      "pages": 26,
+      "first_page_pt": [
+        842,
+        596
+      ],
+      "extractable_chinese_first_page": 0,
+      "ocr_isolated_han_suggestions": 0,
+      "visually_confirmed_chinese_cover": false
+    }
+  }
+}
