@@ -52,7 +52,7 @@ try {
   if ($staged.Count -ne 1 -or $staged[0] -ne $target) {
     throw "Unexpected staged files: $($staged -join ', ')"
   }
-  & git -c core.hooksPath=NUL commit -m "fix(level1-building): upload verified First Robot Model English cover [skip ci]"
+  & git commit -m "fix(level1-building): upload verified First Robot Model English cover [skip ci]"
   if ($LASTEXITCODE -ne 0) { throw "Commit failed." }
   & git push origin main
   if ($LASTEXITCODE -ne 0) { throw "Push failed; local commit was retained." }
