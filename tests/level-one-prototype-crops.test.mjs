@@ -62,9 +62,9 @@ test("Robot Discovery Scanner replaces carnival wheel without changing equal sel
   const scanner = readFileSync(new URL("../src/components/practical/FinalBuildScanner.tsx", import.meta.url), "utf8");
   assert.match(route, /FinalBuildScanner/);
   assert.doesNotMatch(route, /<FinalBuildWheel/);
-  assert.match(route, /Math\\.floor\\(Math\\.random\\(\\) \\* PROJECTS\\.length\\)/);
+  assert.ok(route.includes("Math.floor(Math.random() * PROJECTS.length)"));
   assert.match(route, /SPIN_DURATION_MS = 4200/);
-  assert.match(route, /onClick=\\{discover\\}/);
+  assert.ok(route.includes("onClick={discover}"));
   assert.match(route, /Skip animation/);
   assert.match(scanner, /prefers-reduced-motion: reduce/);
   assert.match(scanner, /bsr-scanner-beam/);
