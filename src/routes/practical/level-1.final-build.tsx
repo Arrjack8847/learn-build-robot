@@ -7,11 +7,16 @@ import { pdfActivityManuals } from "@/data/pdfActivityManuals";
 import { levelOneToThreeWixPdfUrls } from "@/data/levelOneToThreeWixPdfUrls";
 import { LevelOneBackdrop, LevelOneHeader } from "@/components/practical/LevelOneHeader";
 import { FinalBuildWheel } from "@/components/practical/FinalBuildWheel";
+import { FinalBuildPrototype, type PrototypeStatus } from "@/components/practical/FinalBuildPrototype";
+import prototypeCrops from "@/data/levelOnePrototypeCrops.json";
 
 export const Route = createFileRoute("/practical/level-1/final-build")({ component: FinalBuildPage });
 
 const PROJECTS = LEVEL_ONE_CATEGORIES.flatMap(category =>
   getLevelOneProjects(category.id).map(project => ({ ...project, category: category.name }))
+);
+const PROTOTYPE_BY_FILENAME = new Map(
+  prototypeCrops.references.map(candidate => [candidate.filename, candidate])
 );
 const STORAGE_KEY = "be-stem-ready-level1-final-build-v1";
 const LIMIT_MS = 15 * 60 * 1000;
@@ -69,19 +74,27 @@ function FinalBuildPage() {
   const [session, setSession] = useState<Session>(initial);
   const [storageReady, setStorageReady] = useState(false);
   const [now, setNow] = useState(() => Date.now());
-  const [references, setReferences] = useState<Record<string, { image: string; page: number; source: string }>>({});
-  useEffect(() => {
-    let active = true;
-    fetch("/final-build/level-1/references.json").then(response => response.ok ? response.json() : {}).then(data => { if (active) setReferences(data); }).catch(() => {});
-    return () => { active = false; };
+  const [modelStatus, setModelStatus] = useState<{ filename: string; status: PrototypeStatus } | null>(null);
+  const reviewMode = typeof window !== "undefined" &&
+    new URLSearchParams(window.location.search).get("review") === "1";
+  const onModelStatus = useCallback((filename: string, status: PrototypeStatus) => {
+    setModelStatus(old => old?.filename === filename && old.status === status ? old : { filename, status });
   }, []);
   useEffect(() => {
-    setSession(load());
+    // Reviewer-only deep link: ?review=1&project=Clock. No reroll is changed
+    // for normal students. Allows inspection of all 59 candidate slides.
+    const query = new URLSearchParams(window.location.search);
+    const requestedName = query.get("review") === "1" ? query.get("project") : null;
+    const reviewIndex = requestedName
+      ? PROJECTS.findIndex(item => item.name.toLowerCase() === requestedName.toLowerCase()) : -1;
+    setSession(reviewIndex >= 0
+      ? { ...initial, checks: [...initial.checks], stage: "ready", projectIndex: reviewIndex }
+      : load());
     setStorageReady(true);
   }, []);
   useEffect(() => {
-    if (storageReady) localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
-  }, [session, storageReady]);
+    if (storageReady && !reviewMode) localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+  }, [session, storageReady, reviewMode]);
   useEffect(() => {
     const id = window.setInterval(() => setNow(Date.now()), 250);
     return () => window.clearInterval(id);
@@ -101,7 +114,11 @@ function FinalBuildPage() {
   const manualFilename = project?.name === "Acceleration car"
     ? "Acceleration car_Building.pdf"
     : sourcePdfFilename(manualUrl);
-  const reference = manualFilename ? references[manualFilename] : undefined;
+  const candidate = manualFilename ? PROTOTYPE_BY_FILENAME.get(manualFilename) : undefined;
+  const modelReady = Boolean(manualFilename && modelStatus?.filename === manualFilename && modelStatus.status === "ready");
+  // No unapproved candidate may unlock the student challenge.
+  const canStart = Boolean(candidate?.approved && modelReady);
+  const canTest = Boolean(reviewMode && candidate && !candidate.approved && modelReady);
   const checks = useMemo(() => project ? checksFor(project.name, project.category) : [], [project]);
   const remaining = session.deadline ? Math.max(0, session.deadline - now) : LIMIT_MS;
   const time = `${String(Math.floor(remaining / 60000)).padStart(2, "0")}:${String(Math.floor((remaining % 60000) / 1000)).padStart(2, "0")}`;
@@ -217,15 +234,31 @@ function FinalBuildPage() {
               {(session.stage === "ready" || session.stage === "building") && (
                 <>
                   <div className="mb-4 rounded-2xl border border-sky-200 bg-slate-50 p-3 text-center">
-                    {reference ? (
+                    {candidate && manualFilename && manualUrl ? (
                       <div>
-                        <img src={reference.image} alt={`Finished ${project.name} model from the original Building PDF`} className="mx-auto max-h-[45dvh] w-full object-contain" />
-                        <p className="mt-2 text-xs font-semibold text-slate-600">Your robot picture · Original Building PDF, page {reference.page}</p>
+                        <FinalBuildPrototype
+                          filename={manualFilename}
+                          url={manualUrl}
+                          pageNumber={candidate.page}
+                          crop={candidate.crop}
+                          title={project.name}
+                          onStatusChange={onModelStatus}
+                        />
+                        <p className="mt-2 text-xs font-semibold text-slate-600">
+                          Original Building PDF · Page {candidate.page} · Model region only
+                        </p>
+                        {!candidate.approved && (
+                          <p className="mt-1 text-xs font-bold text-amber-800" role="note">
+                            Preview candidate — image crop awaits approval{candidate.confidence === "low" ? " (model identification uncertain)" : ""}.
+                          </p>
+                        )}
                       </div>
                     ) : (
                       <div className="py-5">
-                        <p className="font-bold text-[#745397]">🎨 This robot picture is not ready yet</p>
-                        <p className="mt-2 text-xs text-slate-500">A completed-model picture must be checked before this challenge is ready for students.</p>
+                        <p className="font-bold text-[#745397]">Robot reference not identified</p>
+                        <p className="mt-2 text-xs text-slate-500">
+                          This project cannot start until its original prototype has been verified.
+                        </p>
                       </div>
                     )}
                   </div>
@@ -233,12 +266,18 @@ function FinalBuildPage() {
                 </>
               )}
               {session.stage === "ready" && (
-                <button type="button" disabled={!reference} onClick={() => update({ stage: "building", deadline: Date.now() + LIMIT_MS, completedAt: null })} className="min-h-14 w-full rounded-2xl border-b-4 border-[#c34d83] bg-[#f85a96] font-extrabold text-white shadow-lg disabled:cursor-not-allowed disabled:opacity-50">Start My 15-Minute Build</button>
+                <button type="button" disabled={!canStart} onClick={() => update({ stage: "building", deadline: Date.now() + LIMIT_MS, completedAt: null })} className="min-h-14 w-full rounded-2xl border-b-4 border-[#c34d83] bg-[#f85a96] font-extrabold text-white shadow-lg disabled:cursor-not-allowed disabled:opacity-50">Start My 15-Minute Build</button>
               )}
-              {session.stage === "ready" && !reference && (
+              {session.stage === "ready" && canTest && (
+                <button type="button" onClick={() => update({ stage: "building", deadline: Date.now() + LIMIT_MS, completedAt: null })}
+                  className="mt-3 min-h-12 w-full rounded-2xl border-2 border-[#b6a0ed] bg-[#efe6ff] px-4 font-extrabold text-[#6740a2] hover:bg-[#e2d2ff]">
+                  Test 15-Minute Timer (review only)
+                </button>
+              )}
+              {session.stage === "ready" && !canStart && (
                 <button type="button" onClick={() => retry(false)}
                   className="mt-3 min-h-12 w-full rounded-2xl border-2 border-[#f0c878] bg-[#fff5d8] px-4 font-extrabold text-[#8857aa] hover:bg-[#ffeab0]">
-                  <RotateCcw className="mr-2 inline size-4" />Spin Again — Picture Not Ready
+                  <RotateCcw className="mr-2 inline size-4" />Spin Again
                 </button>
               )}
               {session.stage === "building" && (
