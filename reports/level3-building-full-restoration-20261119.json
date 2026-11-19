@@ -1,0 +1,74 @@
+{
+  "project": "BE STEM READY",
+  "scope": "Level 3 Building PDFs only",
+  "date": "2026-11-19",
+  "source": {
+    "files": 40,
+    "pages": 691,
+    "source_git_blob_verified": 40
+  },
+  "extractable_chinese": {
+    "files": 1,
+    "path": "public/Electronic scale.pdf",
+    "pages": [
+      25,
+      26
+    ],
+    "characters_total": 40,
+    "original": "控制器上的接口除了传递信息还具有什么作用？",
+    "translation": "Besides transmitting information, what other functions do the controller's ports serve?"
+  },
+  "gyro": {
+    "path": "public/Gyro transmitter_Building.pdf",
+    "chinese_image_text_removed": [
+      "陀螺发射器",
+      "搭建手册",
+      "中鸣机器人"
+    ],
+    "english_preserved": "Gyro transmitter BUILDING MANUAL; ZMROBO",
+    "pages": 17,
+    "non_cover_pages_raster_identical": 16,
+    "local_cleaned_git_blob_sha": "940af00301405ff56c75d586d64d8a7df789c60b"
+  },
+  "electronic_scale": {
+    "path": "public/Electronic scale.pdf",
+    "pages": 27,
+    "edited_pages": [
+      25,
+      26
+    ],
+    "non_target_pages_raster_identical": 25,
+    "changes_confined_to_rect_pixels": [
+      243,
+      311,
+      468,
+      337
+    ],
+    "remaining_extractable_chinese": 0,
+    "local_cleaned_git_blob_sha": "455a447492facf43e23892af5076af5bc8c8c9e6"
+  },
+  "cover_ocr": {
+    "pages": 40,
+    "chinese_confirmed": "Gyro Transmitter (original) only",
+    "other_low_confidence_ocr_marks": "Unconfirmed; diagrams and numbers may be misrecognized as CJK",
+    "status": "completed"
+  },
+  "interior_image_ocr": {
+    "status": "running; not yet validated",
+    "warning": "Neither extractable-text scanning nor automated OCR alone can prove no artwork-embedded Chinese."
+  },
+  "pdf_binary_delivery": {
+    "local_repaired_pdfs_created": 2,
+    "github_binary_committed": false,
+    "github_main_integrated": false,
+    "reason": "GitHub text-content connector cannot upload binary PDFs; Vercel recovery workspace cannot push via Git without credentials.",
+    "required_next_step": "Authenticate binary Git upload or enable a binary-preserving transfer path, then verify both SHA values in target branch."
+  },
+  "restrictions": {
+    "learning_pdfs_modified": false,
+    "other_levels_modified": false,
+    "github_actions_run": false,
+    "browser_use": false
+  },
+  "validation": "LOCAL TARGETED REPAIRS PASS; FULL IMAGE AUDIT AND GITHUB BINARY INTEGRATION PENDING"
+}
