@@ -4,6 +4,7 @@ import { ArrowLeft, CheckCircle2, RotateCcw, Timer, Trophy } from "lucide-react"
 import { LEVEL_ONE_CATEGORIES } from "@/data/levelOneCategories";
 import { getLevelOneProjects } from "@/data/levelOneProjects";
 import { pdfActivityManuals } from "@/data/pdfActivityManuals";
+import { levelOneToThreeWixPdfUrls } from "@/data/levelOneToThreeWixPdfUrls";
 import { LevelOneBackdrop, LevelOneHeader } from "@/components/practical/LevelOneHeader";
 
 export const Route = createFileRoute("/practical/level-1/final-build")({ component: FinalBuildPage });
@@ -13,6 +14,16 @@ const PROJECTS = LEVEL_ONE_CATEGORIES.flatMap(category =>
 );
 const STORAGE_KEY = "be-stem-ready-level1-final-build-v1";
 const LIMIT_MS = 15 * 60 * 1000;
+const ORIGINAL_PDF_BY_URL = new Map(
+  Object.entries(levelOneToThreeWixPdfUrls)
+    .filter(([filename]) => !filename.includes("/"))
+    .map(([filename, url]) => [url.split("?")[0], filename])
+);
+function sourcePdfFilename(url: string | undefined): string | undefined {
+  if (!url) return undefined;
+  const withoutQuery = url.split("?")[0];
+  return ORIGINAL_PDF_BY_URL.get(withoutQuery) || decodeURIComponent(withoutQuery.split("/").pop() || "");
+}
 type Stage = "spin" | "ready" | "building" | "assessment" | "result";
 type Session = { stage: Stage; projectIndex: number | null; deadline: number | null; completedAt: number | null; checks: boolean[]; completed: boolean; attempts: number; result: "pass" | "retry" | null };
 const initial: Session = { stage: "spin", projectIndex: null, deadline: null, completedAt: null, checks: [false,false,false,false,false], completed: false, attempts: 0, result: null };
@@ -72,9 +83,11 @@ function FinalBuildPage() {
     }
   }, [now, session.stage, session.deadline]);
   const project = session.projectIndex === null ? null : PROJECTS[session.projectIndex];
-  const manualUrl = project?.availableProjectId ? pdfActivityManuals[project.availableProjectId]?.url : undefined;
-  const manualFilename = project?.name === "Acceleration car" ? "Acceleration car_Building.pdf" :
-    manualUrl ? decodeURIComponent(manualUrl.split("?")[0].split("/").pop() || "") : undefined;
+  const manualProjectId = project?.availableProjectId ?? project?.availableProjectVariants?.[0]?.projectId;
+  const manualUrl = manualProjectId ? pdfActivityManuals[manualProjectId]?.url : undefined;
+  const manualFilename = project?.name === "Acceleration car"
+    ? "Acceleration car_Building.pdf"
+    : sourcePdfFilename(manualUrl);
   const reference = manualFilename ? references[manualFilename] : undefined;
   const checks = useMemo(() => project ? checksFor(project.name, project.category) : [], [project]);
   const remaining = session.deadline ? Math.max(0, session.deadline - now) : LIMIT_MS;
