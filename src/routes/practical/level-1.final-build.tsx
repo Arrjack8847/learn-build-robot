@@ -223,8 +223,8 @@ function FinalBuildPage() {
                         <p className="mt-2 text-xs font-semibold text-slate-600">Your robot picture · Original Building PDF, page {reference.page}</p>
                       </div>
                     ) : (
-                      <div className="py-6">
-                        <p className="font-bold text-slate-600">Reference image not approved yet</p>
+                      <div className="py-5">
+                        <p className="font-bold text-[#745397]">🎨 This robot picture is not ready yet</p>
                         <p className="mt-2 text-xs text-slate-500">A completed-model picture must be checked before this challenge is ready for students.</p>
                       </div>
                     )}
@@ -234,6 +234,12 @@ function FinalBuildPage() {
               )}
               {session.stage === "ready" && (
                 <button type="button" disabled={!reference} onClick={() => update({ stage: "building", deadline: Date.now() + LIMIT_MS, completedAt: null })} className="min-h-14 w-full rounded-2xl border-b-4 border-[#c34d83] bg-[#f85a96] font-extrabold text-white shadow-lg disabled:cursor-not-allowed disabled:opacity-50">Start My 15-Minute Build</button>
+              )}
+              {session.stage === "ready" && !reference && (
+                <button type="button" onClick={() => retry(false)}
+                  className="mt-3 min-h-12 w-full rounded-2xl border-2 border-[#f0c878] bg-[#fff5d8] px-4 font-extrabold text-[#8857aa] hover:bg-[#ffeab0]">
+                  <RotateCcw className="mr-2 inline size-4" />Spin Again — Picture Not Ready
+                </button>
               )}
               {session.stage === "building" && (
                 <button type="button" onClick={() => update({ stage: "assessment", completed: true, completedAt: Date.now() })} className="min-h-12 w-full rounded-2xl bg-emerald-600 font-extrabold text-white">I Finished My Robot!</button>
