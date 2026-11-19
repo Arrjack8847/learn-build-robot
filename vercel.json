@@ -2,7 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "git": {
     "deploymentEnabled": {
-      "feat/responsive-selection-ui-20261118": false
+      "feat/responsive-selection-ui-20261118": false,
+      "main": false
     }
   }
 }
