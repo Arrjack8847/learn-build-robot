@@ -1,0 +1,80 @@
+{
+  "date": "2026-11-19",
+  "scope": "BE STEM READY Levels 1-6 Building PDFs only; Chinese covers targeted",
+  "source_main": "521fe7e1fe9829eb811356982a09bb3c4c6cce6a",
+  "levels": [
+    {
+      "level": 1,
+      "building_pdfs": 60,
+      "original_blobs_verified": 60,
+      "extractable_chinese_any_page": 19,
+      "first_page_selectable_chinese": 1,
+      "known_affected_cover": [
+        "public/First Robot Model.pdf"
+      ],
+      "known_interior_chinese_pdf_count": 18,
+      "visual_image_cover_screening_complete": false,
+      "generated_binary_in_sandbox": 1,
+      "pdf_binary_in_git": false
+    },
+    {
+      "level": 2,
+      "known_affected_cover_pdfs": 20,
+      "noncover_pages_validated": 326,
+      "generated_binary_in_sandbox": 20,
+      "pdf_binary_in_git": false,
+      "reference_pr": 81
+    },
+    {
+      "level": 3,
+      "building_pdfs": 40,
+      "original_blobs_verified": 40,
+      "known_affected_cover": [
+        "public/Gyro transmitter_Building.pdf"
+      ],
+      "generated_binary_in_sandbox": 1,
+      "pdf_binary_in_git": false,
+      "interior_chinese_exception": [
+        "public/Electronic scale.pdf"
+      ],
+      "reference_branch": "fix/level3-building-english-covers-20261119"
+    },
+    {
+      "level": 4,
+      "building_pdfs": 50,
+      "known_affected_cover": [],
+      "pdf_binary_in_git": false,
+      "reference_pr": 83
+    },
+    {
+      "level": 5,
+      "building_pdfs": 45,
+      "known_affected_cover": [],
+      "pdf_binary_in_git": false
+    },
+    {
+      "level": 6,
+      "building_pdfs": 41,
+      "known_affected_cover": [],
+      "pdf_binary_in_git": false,
+      "interior_chinese_exception": [
+        "Rock-paper-scissors Robot page 14"
+      ],
+      "reference_pr": 82
+    }
+  ],
+  "restrictions": [
+    "No Learning PDFs",
+    "No GitHub Actions",
+    "No merging or deployment",
+    "Preserve originals' noncover pages",
+    "Only commit verified binary replacements"
+  ],
+  "notes": [
+    "Only Level 1 First Robot Model title has been proven selectable CJK on first page; Level 1 image-embedded covers need independent review.",
+    "Level 2 generated review PDFs were not committed, even though 20 were locally validated.",
+    "Level 3 generator and audit already exist on isolated branch; its one binary was not committed.",
+    "Zero-target levels should remain untouched.",
+    "A code-only PR does not imply the edited PDFs were delivered."
+  ]
+}
