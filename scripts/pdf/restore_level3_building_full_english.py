@@ -105,11 +105,14 @@ def scale_english(source: Path, output: Path) -> None:
                          if 0x3400 <= ord(c) <= 0x9FFF)
         if actual != expected_chinese:
             raise RuntimeError(f"Unexpected Chinese on page {index + 1}")
+        # The original Chinese lives behind assembly artwork and is not
+        # visibly readable. Remove its embedded text without touching images,
+        # then place the translation in the blank bottom content margin.
         page.add_redact_annot(fitz.Rect(242, 310, 558, 335),
                               fill=False, cross_out=False)
         page.apply_redactions(images=0, graphics=0, text=0)
         remaining = page.insert_textbox(
-            fitz.Rect(243, 308, 563, 345), TRANSLATION,
+            fitz.Rect(176, 445, 562, 481), TRANSLATION,
             fontname="helv", fontsize=11.6, lineheight=1.14,
             color=(0, 0, 0), overlay=True)
         if remaining < 0:
@@ -151,8 +154,8 @@ def validate(source: Path, output: Path) -> dict:
                 a = np.frombuffer(src.samples, np.uint8).reshape(src.height, src.width, src.n)
                 b = np.frombuffer(dst.samples, np.uint8).reshape(dst.height, dst.width, dst.n)
                 yy, xx = np.where(np.any(a != b, axis=2))
-                if not len(xx) or (xx.min() < 238 or xx.max() > 567 or
-                                   yy.min() < 306 or yy.max() > 345):
+                if not len(xx) or (xx.min() < 174 or xx.max() > 565 or
+                                   yy.min() < 439 or yy.max() > 485):
                     raise RuntimeError(f"Unexpected changed region on page {i+1}")
         if name == "Electronic scale.pdf":
             for i, page in enumerate(edited):
