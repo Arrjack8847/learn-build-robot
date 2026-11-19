@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft, CheckCircle2, RotateCcw, Timer, Trophy } from "lucide-react";
 import { LEVEL_ONE_CATEGORIES } from "@/data/levelOneCategories";
@@ -6,6 +6,7 @@ import { getLevelOneProjects } from "@/data/levelOneProjects";
 import { pdfActivityManuals } from "@/data/pdfActivityManuals";
 import { levelOneToThreeWixPdfUrls } from "@/data/levelOneToThreeWixPdfUrls";
 import { LevelOneBackdrop, LevelOneHeader } from "@/components/practical/LevelOneHeader";
+import { FinalBuildWheel } from "@/components/practical/FinalBuildWheel";
 
 export const Route = createFileRoute("/practical/level-1/final-build")({ component: FinalBuildPage });
 
@@ -14,6 +15,7 @@ const PROJECTS = LEVEL_ONE_CATEGORIES.flatMap(category =>
 );
 const STORAGE_KEY = "be-stem-ready-level1-final-build-v1";
 const LIMIT_MS = 15 * 60 * 1000;
+const SPIN_DURATION_MS = 5200;
 const ORIGINAL_PDF_BY_URL = new Map(
   Object.entries(levelOneToThreeWixPdfUrls)
     .filter(([filename]) => !filename.includes("/"))
@@ -24,14 +26,14 @@ function sourcePdfFilename(url: string | undefined): string | undefined {
   const withoutQuery = url.split("?")[0];
   return ORIGINAL_PDF_BY_URL.get(withoutQuery) || decodeURIComponent(withoutQuery.split("/").pop() || "");
 }
-type Stage = "spin" | "ready" | "building" | "assessment" | "result";
-type Session = { stage: Stage; projectIndex: number | null; deadline: number | null; completedAt: number | null; checks: boolean[]; completed: boolean; attempts: number; result: "pass" | "retry" | null };
-const initial: Session = { stage: "spin", projectIndex: null, deadline: null, completedAt: null, checks: [false,false,false,false,false], completed: false, attempts: 0, result: null };
+type Stage = "spin" | "spinning" | "ready" | "building" | "assessment" | "result";
+type Session = { stage: Stage; projectIndex: number | null; spinFinishAt: number | null; spinRotation: number | null; deadline: number | null; completedAt: number | null; checks: boolean[]; completed: boolean; attempts: number; result: "pass" | "retry" | null };
+const initial: Session = { stage: "spin", projectIndex: null, spinFinishAt: null, spinRotation: null, deadline: null, completedAt: null, checks: [false,false,false,false,false], completed: false, attempts: 0, result: null };
 function load(): Session {
   if (typeof window === "undefined") return initial;
   try {
     const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null") as Session | null;
-    if (data && ["spin","ready","building","assessment","result"].includes(data.stage) && (data.projectIndex === null || (Number.isInteger(data.projectIndex) && data.projectIndex >= 0 && data.projectIndex < PROJECTS.length))) {
+    if (data && ["spin","spinning","ready","building","assessment","result"].includes(data.stage) && (data.projectIndex === null || (Number.isInteger(data.projectIndex) && data.projectIndex >= 0 && data.projectIndex < PROJECTS.length))) {
       return { ...initial, ...data, checks: Array.isArray(data.checks) && data.checks.length === 5 ? data.checks : initial.checks };
     }
   } catch { /* ignore corrupt saved session */ }
@@ -65,7 +67,6 @@ function checksFor(name: string, category: string): string[] {
 function FinalBuildPage() {
   const [session, setSession] = useState<Session>(load);
   const [now, setNow] = useState(() => Date.now());
-  const [spinning, setSpinning] = useState(false);
   const [references, setReferences] = useState<Record<string, { image: string; page: number; source: string }>>({});
   useEffect(() => {
     let active = true;
@@ -81,7 +82,11 @@ function FinalBuildPage() {
     if (session.stage === "building" && session.deadline !== null && now >= session.deadline) {
       setSession(old => old.stage === "building" ? { ...old, stage: "assessment", completed: false } : old);
     }
-  }, [now, session.stage, session.deadline]);
+    // A saved spin always completes, even if the page reloads or the tab is hidden.
+    if (session.stage === "spinning" && session.spinFinishAt !== null && now >= session.spinFinishAt) {
+      setSession(old => old.stage === "spinning" ? { ...old, stage: "ready" } : old);
+    }
+  }, [now, session.stage, session.deadline, session.spinFinishAt]);
   const project = session.projectIndex === null ? null : PROJECTS[session.projectIndex];
   const manualProjectId = project?.availableProjectId ?? project?.availableProjectVariants?.[0]?.projectId;
   const manualUrl = manualProjectId ? pdfActivityManuals[manualProjectId]?.url : undefined;
@@ -93,17 +98,28 @@ function FinalBuildPage() {
   const remaining = session.deadline ? Math.max(0, session.deadline - now) : LIMIT_MS;
   const time = `${String(Math.floor(remaining / 60000)).padStart(2, "0")}:${String(Math.floor((remaining % 60000) / 1000)).padStart(2, "0")}`;
   const update = (change: Partial<Session>) => setSession(old => ({ ...old, ...change }));
+  const finishSpin = useCallback(() => {
+    setSession(old => old.stage === "spinning" ? { ...old, stage: "ready" } : old);
+  }, []);
   function spin() {
-    if (spinning || session.stage !== "spin") return;
-    setSpinning(true);
+    if (session.stage !== "spin") return;
     // Local development only: ?project=Clock allows verifying one model without rerolling.
     const testProject = import.meta.env.DEV && typeof window !== "undefined"
       ? new URLSearchParams(window.location.search).get("project") : null;
     const fixedIndex = testProject
       ? PROJECTS.findIndex(item => item.name.toLowerCase() === testProject.toLowerCase()) : -1;
     const index = fixedIndex >= 0 ? fixedIndex : Math.floor(Math.random() * PROJECTS.length);
-    update({ stage: "ready", projectIndex: index, checks: [false,false,false,false,false], completed: false, deadline: null, completedAt: null, result: null });
-    window.setTimeout(() => setSpinning(false), 450);
+    // There are 59 equal-width positions, grouped into category-colored slices.
+    // The selected project position must stop directly under the fixed top pointer.
+    const center = (index + 0.5) * 360 / PROJECTS.length;
+    const turns = 6 + Math.floor(Math.random() * 2);
+    const rotation = turns * 360 + 360 - center;
+    update({
+      stage: "spinning", projectIndex: index,
+      spinFinishAt: Date.now() + SPIN_DURATION_MS, spinRotation: rotation,
+      checks: [false,false,false,false,false], completed: false,
+      deadline: null, completedAt: null, result: null,
+    });
   }
   function assess() {
     const score = session.checks.filter(Boolean).length;
@@ -125,16 +141,29 @@ function FinalBuildPage() {
           <p className="mt-2 text-sm text-slate-600">Spin, build your robot in 15 minutes, then check your work.</p>
         </div>
         <section className="rounded-[28px] border border-sky-100 bg-white p-5 shadow-lg shadow-sky-100/60 sm:p-7" aria-live="polite">
-          {session.stage === "spin" && (
+          {(session.stage === "spin" || session.stage === "spinning") && (
             <div className="text-center">
-              <div className="mx-auto mb-5 grid size-48 place-items-center rounded-full border-[12px] border-sky-100 bg-[conic-gradient(#f9d7e8_0_60deg,#d5f1ff_60deg_120deg,#e2f5d9_120deg_180deg,#fff0bb_180deg_240deg,#e9dfff_240deg_300deg,#ffdccc_300deg_360deg)] shadow-inner sm:size-56">
-                <div className="grid size-24 place-items-center rounded-full bg-white/90 text-center text-lg font-black text-sky-700 shadow">59<br/>Robots</div>
-              </div>
-              <p className="mb-4 text-sm font-medium text-slate-600">Every Level 1 project has an equal chance.</p>
-              <button type="button" disabled={spinning} onClick={spin} className="min-h-12 w-full rounded-2xl bg-[#168eea] px-6 font-extrabold text-white disabled:opacity-60">Spin for My Robot!</button>
+              <FinalBuildWheel
+                spinning={session.stage === "spinning"}
+                targetRotation={session.spinRotation}
+                finishAt={session.spinFinishAt}
+                onFinish={finishSpin}
+              />
+              <p className="mb-4 mt-4 text-sm font-medium text-slate-600">
+                Each of the 59 robots has an equal chance to be chosen.
+              </p>
+              {session.stage === "spin" ? (
+                <button type="button" onClick={spin} className="min-h-12 w-full rounded-2xl bg-[#168eea] px-6 font-extrabold text-white shadow-lg shadow-sky-100 transition hover:bg-[#0879c8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600">
+                  Spin for My Robot!
+                </button>
+              ) : (
+                <p className="min-h-12 rounded-2xl bg-amber-50 px-4 py-3 font-extrabold text-amber-800" role="status">
+                  🎉 Spinning… watch the pointer!
+                </p>
+              )}
             </div>
           )}
-          {project && session.stage !== "spin" && (
+          {project && session.stage !== "spin" && session.stage !== "spinning" && (
             <div>
               <div className="mb-4 rounded-2xl bg-sky-50 p-4 text-center">
                 <p className="text-xs font-bold uppercase tracking-wide text-sky-600">{project.category}</p>
