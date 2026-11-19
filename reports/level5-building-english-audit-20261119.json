@@ -42,7 +42,10 @@
     "image_embedded_chinese_verified": false,
     "chinese_occurrences_confirmed": null,
     "page_count": null,
-    "explanation": "The GitHub connector exposed repository paths, sizes and Git blob IDs but not PDF bytes. A binary-content request returned empty content or a UTF-8 decoding error; direct repository checkout was not network accessible. File contents and page artwork were not inspected. This is not a zero-change English-only certification."
+    "explanation": "This session could not retrieve PDF bytes. A prior Level 5 cover-only audit opened and rehashed 45/45 originals, enumerated 1,031 pages, and reported no Chinese covers. All 45 Git blob IDs were independently verified unchanged between that historical source commit and this main commit. The prior audit did not check all interior images, so no full English-only certification is justified.",
+    "historical_cover_only_pages_rendered": 45,
+    "historical_cover_only_pdf_count": 45,
+    "historical_all_pages_enumerated": 1031
   },
   "delivery": {
     "pdf_files_edited": 0,
@@ -510,5 +513,29 @@
       "visually_checked": false,
       "content_status": "unverified"
     }
-  ]
+  ],
+  "historical_cover_audit": {
+    "evidence_file": "level5_building_cover_audit_20261119.md (prior review artifact, 2026-11-19)",
+    "source_main_commit": "521fe7e1fe9829eb811356982a09bb3c4c6cce6a",
+    "original_binaries_rehashed_against_git": 45,
+    "pdfs_opened": 45,
+    "total_pdf_pages_reported": 1031,
+    "first_page_extractable_chinese_detected": 0,
+    "first_page_chinese_image_ocr_detected": 0,
+    "first_pages_rendered": 45,
+    "selected_first_pages_visually_inspected": true,
+    "confirmed_chinese_covers": 0,
+    "scope_limitations": "Historical audit was cover-only. It did not visually inspect all interior pages; 0 cover replacements were needed. Historical results are not a new content audit.",
+    "provenance_check": {
+      "method": "Independently enumerated public/Level 5/Building/**/*.pdf from untruncated GitHub recursive trees at both commit hashes and compared exact Git blob IDs for all paths.",
+      "current_main_commit": "9e5f2410a1bfa79c0fd1618794820cf4c08a00c5",
+      "prior_pdf_paths": 45,
+      "current_pdf_paths": 45,
+      "unchanged_pdf_blob_ids": 45,
+      "changed_pdf_blob_ids": 0,
+      "added_pdf_paths": 0,
+      "removed_pdf_paths": 0,
+      "meaning": "The historical cover-only inspection was performed on PDFs with exactly the same Git blob IDs as the inspected main commit. It does not cover image-embedded Chinese in interiors."
+    }
+  }
 }
