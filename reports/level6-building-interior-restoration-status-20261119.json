@@ -4,18 +4,24 @@
   "repository": "Arrjack8847/learn-build-robot",
   "base_branch": "main",
   "target_branch": "fix/level6-complete-building-english-20261119",
-  "main_commit_inspected": "9e5f2410a1bfa79c0fd1618794820cf4c08a00c5",
+  "main_commit_inspected": "cbb05892baf25db6d669237f18cf46711a5fda52",
   "inventory": {
     "building_pdf_count": 41,
-    "unique_git_blobs": 41,
     "source_blob_hashes_matching_existing_audit": 41,
     "source_blob_hash_mismatches": 0,
-    "page_count_from_existing_audit": 1007
+    "original_page_count": 1007,
+    "all_41_source_pdfs_downloaded_and_rehashed": true,
+    "all_1007_pages_text_inspected": true,
+    "all_interior_pages_rendered": true,
+    "text_layer_chinese_documents": 1,
+    "text_layer_chinese_pages": 1,
+    "full_human_visual_image_review_complete": false
   },
-  "confirmed_text_layer_chinese_from_prior_audit": [
+  "confirmed_text_layer_chinese": [
     {
       "path": "public/Level 6/Building/Sensor-Focused Robots/Rock-paper-scissors Robot/30.Rock-paper-scissors Robot-Building Manual.pdf",
       "page_number": 14,
+      "characters": 17,
       "labels": [
         "大型马达",
         "AI模块",
@@ -23,10 +29,50 @@
         "大型马达",
         "控制器"
       ],
-      "original_blob_sha": "af9423f2a5191ca8577b18cd3fa827da09fd829b"
+      "source_git_blob_sha": "af9423f2a5191ca8577b18cd3fa827da09fd829b"
     }
   ],
-  "current_execution": {
+  "real_pdf_restoration": {
+    "original_bytes": 16315903,
+    "original_pages": 14,
+    "source_blob_verified": true,
+    "output_bytes": 16305651,
+    "output_git_blob_sha": "6ec85674cd6503ad402d7206d518b38d1668bb03",
+    "translated_labels": 5,
+    "unchanged_pages_raster_identical": 13,
+    "significant_pixels_changed_outside_localized_page14_label_regions": 0,
+    "extractable_chinese_remaining_on_repaired_page14": 0,
+    "corrected_file_generated_in_vercel_sandbox": true,
+    "full_page_visual_signoff": false
+  },
+  "wix_delivery": {
+    "site_id": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+    "media_id": "78042f_ee943e948c6f4141b53d9d3e90481801.pdf",
+    "media_status": "READY",
+    "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ee943e948c6f4141b53d9d3e90481801.pdf",
+    "downloaded_byte_for_byte_matches_validated_output": true,
+    "downloaded_git_blob_sha": "6ec85674cd6503ad402d7206d518b38d1668bb03"
+  },
+  "github_delivery": {
+    "building_pdf_binaries_in_main_updated": 0,
+    "pdf_binary_committed_to_working_branch": false,
+    "wix_url_updated_on_working_branch": true,
+    "wix_url_updated_on_main": false,
+    "working_branch_commit": "0a186f93533ed3211d0baffa569868630899c01b",
+    "pull_request": 88,
+    "merge_status": "draft_unmerged"
+  },
+  "exclusions": [
+    "No Learning PDFs changed",
+    "No GitHub Actions used",
+    "Other Building PDFs remain unchanged"
+  ],
+  "pending": [
+    "Review contact sheets for image-embedded Chinese; no full English-only certification until manual review",
+    "Review page 14 appearance at full resolution",
+    "Decide merge of single link-only replacement to main separately from any binary GitHub delivery"
+  ],
+  "prior_blocked_attempt": {
     "source_binary_downloaded": false,
     "page_14_visual_review": "BLOCKED: original 16,315,903-byte PDF not retrievable with available tools",
     "exact_label_bounding_boxes": "NOT MEASURED",
@@ -40,5 +86,5 @@
     "other_level_files_modified": 0,
     "learning_pdf_files_modified": 0
   },
-  "classification": "PARTIAL - source access blocked, NOT restored or visually certified"
+  "classification": "REAL_PAGE14_REPAIR_VERIFIED_WIX_READY_BRANCH_LINK_STAGED; FULL_IMAGE_ONLY_AUDIT_NOT_SIGNED_OFF"
 }
