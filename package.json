@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "node --test tests/level-two-cleaned-wix-routing.test.mjs tests/level-one-prototype-crops.test.mjs && vite build",
+    "build": "node --test tests/level-two-cleaned-wix-routing.test.mjs tests/level-one-prototype-crops.test.mjs tests/vercel-wix-pdf-exclusion.test.mjs && node scripts/prune-vercel-wix-pdfs.mjs --verify && vite build && node scripts/prune-vercel-wix-pdfs.mjs --prune",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",

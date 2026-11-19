@@ -1,0 +1,9 @@
+# Only exclude PDFs already represented by exact Wix CDN URLs.
+# Keep cleaned Level 1 Learning and Level 4 Learning PDFs served locally.
+# Git-tracked source PDFs remain intact in GitHub; .gitignore cannot remove them.
+public/*.pdf
+public/Level 2/**/*.pdf
+public/Level 3/**/*.pdf
+public/Level 4/Building/**/*.pdf
+public/Level 5/**/*.pdf
+public/Level 6/**/*.pdf
