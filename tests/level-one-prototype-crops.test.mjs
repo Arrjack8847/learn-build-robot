@@ -44,12 +44,15 @@ test("PDF reference viewer displays a crop only and never offers step navigation
   assert.doesNotMatch(component, /<iframe|<object|<embed|window\.open|download=/);
 });
 
-test("student Start button requires Building Studio and blocks unpublished cleaned PDFs", () => {
+test("Final Build stays on the same page with the robot-only PDF crop and 15-minute timer", () => {
   const route = readFileSync(new URL("../src/routes/practical/level-1.final-build.tsx", import.meta.url), "utf8");
-  assert.match(route, /const canStart = Boolean\(buildingStudioHref && manualUrl && !cleanUploadPending\)/);
+  assert.match(route, /const canStart = Boolean\(candidate\?\.approved && modelReady && !cleanUploadPending\)/);
   assert.match(route, /disabled=\{!canStart\}/);
-  assert.match(route, /Open Building Studio/);
-  assert.doesNotMatch(route, /View Original Building PDF \(Wix\)/);
+  assert.match(route, /<FinalBuildPrototype/);
+  assert.match(route, /onStatusChange=\{onModelStatus\}/);
+  assert.match(route, /Start My 15-Minute Build/);
+  assert.match(route, /Test 15-Minute Timer \(review only\)/);
+  assert.doesNotMatch(route, /Open Building Studio|mode=building|View Original Building PDF \(Wix\)/);
 });
 
 test("Acceleration Car has a dedicated official PDF reference", () => {
@@ -71,12 +74,13 @@ test("Robot Discovery Scanner replaces carnival wheel without changing equal sel
   assert.match(scanner, /bsr-scanner-beam/);
 });
 
-test("all 19 unpublished restored PDFs are blocked from Final Build until their binaries are committed", () => {
+test("all 19 unpublished restored PDFs are blocked until cleaned references are published", () => {
   const module = readFileSync(new URL("../src/data/levelOneBuildingCleanStatus.ts", import.meta.url), "utf8");
   const ids = [...module.matchAll(/^  "([a-z0-9-]+)",?$/gm)].map(match => match[1]);
   assert.equal(ids.length, 19);
   assert.equal(new Set(ids).size, 19);
   const route = readFileSync(new URL("../src/routes/practical/level-1.final-build.tsx", import.meta.url), "utf8");
   assert.match(route, /LEVEL_ONE_BUILDING_CLEAN_UPLOAD_PENDING\.has\(manualProjectId\)/);
-  assert.match(route, /\?mode=building/);
+  assert.match(route, /cleanUploadPending \? \(/);
+  assert.doesNotMatch(route, /mode=building/);
 });

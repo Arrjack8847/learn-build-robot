@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowLeft, CheckCircle2, ExternalLink, RotateCcw, Timer, Trophy } from "lucide-react";
+import { ArrowLeft, CheckCircle2, RotateCcw, Timer, Trophy } from "lucide-react";
 import { LEVEL_ONE_CATEGORIES } from "@/data/levelOneCategories";
 import { getLevelOneProjects } from "@/data/levelOneProjects";
 import { pdfActivityManuals } from "@/data/pdfActivityManuals";
@@ -76,12 +76,11 @@ function FinalBuildPage() {
   const [session, setSession] = useState<Session>(initial);
   const [storageReady, setStorageReady] = useState(false);
   const [now, setNow] = useState(() => Date.now());
+  const [modelStatus, setModelStatus] = useState<{ filename: string; status: PrototypeStatus } | null>(null);
   const reviewMode = typeof window !== "undefined" &&
     new URLSearchParams(window.location.search).get("review") === "1";
   const onModelStatus = useCallback((filename: string, status: PrototypeStatus) => {
-    // Reviewer crop diagnostics are separate from the student Wix link.
-    void filename;
-    void status;
+    setModelStatus(old => old?.filename === filename && old.status === status ? old : { filename, status });
   }, []);
   useEffect(() => {
     // Reviewer-only deep link: ?review=1&project=Clock. No reroll is changed
@@ -121,16 +120,15 @@ function FinalBuildPage() {
     ? "Acceleration car_Building.pdf"
     : sourcePdfFilename(manualUrl);
   const candidate = manualFilename ? PROTOTYPE_BY_FILENAME.get(manualFilename) : undefined;
-  // No unapproved candidate may unlock the student challenge.
-  // The live build challenge opens the official Wix-hosted PDF rather than
-  // gating students on unapproved/experimental cropped model screenshots.
+  // Final Build is deliberately independent of Building Studio: show just
+  // the selected completed-model reference, with no slides or navigation.
+  // The image is rendered from a single crop of the Wix-hosted source PDF.
   const cleanUploadPending = Boolean(manualProjectId && LEVEL_ONE_BUILDING_CLEAN_UPLOAD_PENDING.has(manualProjectId));
-  const buildingStudioHref = manualProjectId
-    ? `/practical/${encodeURIComponent(manualProjectId)}?mode=building`
-    : undefined;
-  // The 19 verified replacements are not in Git yet. Do not expose the older
-  // Wix PDFs as though they were restored to English.
-  const canStart = Boolean(buildingStudioHref && manualUrl && !cleanUploadPending);
+  const modelReady = Boolean(manualFilename && modelStatus?.filename === manualFilename && modelStatus.status === "ready");
+  // No unapproved candidate, failed render, or old (uncleaned) manual can
+  // unlock the student challenge.
+  const canStart = Boolean(candidate?.approved && modelReady && !cleanUploadPending);
+  const canTest = Boolean(reviewMode && candidate && modelReady && !cleanUploadPending);
   const checks = useMemo(() => project ? checksFor(project.name, project.category) : [], [project]);
   const remaining = session.deadline ? Math.max(0, session.deadline - now) : LIMIT_MS;
   const time = `${String(Math.floor(remaining / 60000)).padStart(2, "0")}:${String(Math.floor((remaining % 60000) / 1000)).padStart(2, "0")}`;
@@ -140,6 +138,7 @@ function FinalBuildPage() {
   }, []);
   function discover() {
     if (session.stage !== "spin") return;
+    setModelStatus(null);
     // Local development only: ?project=Clock allows verifying one model without rerolling.
     const testProject = import.meta.env.DEV && typeof window !== "undefined"
       ? new URLSearchParams(window.location.search).get("project") : null;
@@ -161,6 +160,7 @@ function FinalBuildPage() {
     update({ stage: "result", result: pass ? "pass" : "retry" });
   }
   function retry(same: boolean) {
+    setModelStatus(null);
     setSession({ ...initial, attempts: session.attempts + 1, stage: same && project ? "ready" : "spin", projectIndex: same ? session.projectIndex : null, variantIndex: same ? session.variantIndex : 0 });
   }
   const spinScreen = session.stage === "spin" || session.stage === "spinning";
@@ -170,6 +170,7 @@ function FinalBuildPage() {
   };
   const selectReviewProject = (index: number) => {
     if (!reviewMode) return;
+    setModelStatus(null);
     setSession({ ...initial, checks: [...initial.checks], stage: "ready", projectIndex: index, variantIndex: 0 });
   };
   return (
@@ -268,7 +269,7 @@ function FinalBuildPage() {
                   <label htmlFor="crawl-variant" className="text-xs font-bold text-[#65438a]">Official variant</label>
                   <select id="crawl-variant" value={session.variantIndex}
                     disabled={session.stage !== "ready"}
-                    onChange={event => update({ variantIndex: Number(event.target.value) })}
+                    onChange={event => { setModelStatus(null); update({ variantIndex: Number(event.target.value) }); }}
                     className="min-h-11 rounded-xl border border-[#d4b7f2] bg-white px-3 text-sm font-bold text-[#65438a]">
                     {project.availableProjectVariants.map((option,index) => (
                       <option value={index} key={option.projectId}>{option.label}</option>
@@ -278,30 +279,43 @@ function FinalBuildPage() {
               )}
               {(session.stage === "ready" || session.stage === "building") && (
                 <>
-                  <div className="mb-4 rounded-2xl border-2 border-sky-200 bg-gradient-to-b from-[#e9f8ff] to-white p-4 text-center">
-                    <div aria-hidden="true" className="mx-auto mb-2 flex size-16 items-center justify-center rounded-2xl bg-[#d2f5ff] text-4xl shadow-inner">🤖</div>
-                    <p className="text-sm font-black text-[#195ca5]">Robot detected!</p>
-                    <p className="mt-1 text-xs font-semibold text-slate-600">
-                      Open the official Building Studio while keeping your challenge timer here.
+                  <div className="mb-4 rounded-2xl border-2 border-sky-200 bg-gradient-to-b from-[#e9f8ff] to-white p-3 text-center sm:p-4">
+                    <p className="mb-2 text-xs font-black uppercase tracking-wider text-[#2d72b7]">
+                      🤖 Your robot reference
                     </p>
                     {cleanUploadPending ? (
-                      <p className="mt-3 rounded-xl border border-amber-300 bg-amber-50 px-3 py-3 text-sm font-bold text-amber-900" role="status">
-                        The English-cleaned Building PDF has passed restoration checks but is not yet published on GitHub. This challenge is paused rather than showing the older Chinese version.
-                      </p>
-                    ) : buildingStudioHref ? (
-                      <a href={buildingStudioHref} target="_blank" rel="noopener noreferrer"
-                        className="mx-auto mt-3 flex min-h-12 max-w-sm items-center justify-center gap-2 rounded-xl border-2 border-[#3ab4ea] bg-white px-4 text-sm font-black text-[#17619b] shadow-sm hover:bg-[#f4fcff] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2187e1]">
-                        Open Building Studio <ExternalLink className="size-4"/>
-                      </a>
+                      <div className="rounded-2xl border border-amber-300 bg-amber-50 px-4 py-6" role="status">
+                        <p className="text-sm font-black text-amber-900">Cleaned model reference pending</p>
+                        <p className="mt-2 text-xs font-semibold leading-5 text-amber-800">
+                          This robot's English-cleaned PDF was validated but its replacement file has not yet been published.
+                          Final Build will not display the old Chinese PDF.
+                        </p>
+                      </div>
+                    ) : candidate && manualFilename && manualUrl ? (
+                      <div>
+                        <FinalBuildPrototype
+                          filename={manualFilename}
+                          url={manualUrl}
+                          pageNumber={candidate.page}
+                          crop={candidate.crop}
+                          title={project.name}
+                          onStatusChange={onModelStatus}
+                        />
+                        <p className="mt-2 text-xs font-semibold text-[#59748c]">
+                          Completed-model image only · From the Wix-hosted Building PDF
+                        </p>
+                        {!candidate.approved && (
+                          <p className="mt-2 text-xs font-semibold text-amber-800" role="note">
+                            Preview candidate: the robot crop still needs visual approval before the student challenge can begin.
+                          </p>
+                        )}
+                      </div>
                     ) : (
-                      <p className="mt-3 text-sm font-bold text-rose-700" role="alert">The Building Studio is unavailable for this project.</p>
-                    )}
-                    {reviewMode && candidate && manualFilename && manualUrl && (
-                      <div className="mt-3 rounded-xl border border-amber-200 bg-white p-2">
-                        <p className="mb-2 text-xs font-bold text-amber-800">Reviewer-only candidate crop · Not approved</p>
-                        <FinalBuildPrototype filename={manualFilename} url={manualUrl}
-                          pageNumber={candidate.page} crop={candidate.crop} title={project.name}
-                          onStatusChange={onModelStatus}/>
+                      <div className="rounded-xl bg-white px-3 py-6">
+                        <p className="text-sm font-bold text-[#745397]">Finished-model picture not identified</p>
+                        <p className="mt-2 text-xs font-medium text-slate-500">
+                          This challenge remains locked until its actual robot reference is verified.
+                        </p>
                       </div>
                     )}
                   </div>
@@ -309,15 +323,23 @@ function FinalBuildPage() {
                 </>
               )}
               {session.stage === "ready" && (
-                <button type="button" disabled={!canStart} onClick={() => update({ stage: "building", deadline: Date.now() + LIMIT_MS, completedAt: null })}
+                <button type="button" disabled={!canStart}
+                  onClick={() => update({ stage: "building", deadline: Date.now() + LIMIT_MS, completedAt: null })}
                   className="min-h-14 w-full rounded-2xl border-b-4 border-[#c34d83] bg-[#f85a96] font-extrabold text-white shadow-lg disabled:cursor-not-allowed disabled:opacity-50">
                   Start My 15-Minute Build
+                </button>
+              )}
+              {session.stage === "ready" && canTest && (
+                <button type="button"
+                  onClick={() => update({ stage: "building", deadline: Date.now() + LIMIT_MS, completedAt: null })}
+                  className="mt-3 min-h-12 w-full rounded-2xl border-2 border-[#b6a0ed] bg-[#efe6ff] px-4 font-extrabold text-[#6740a2] hover:bg-[#e2d2ff]">
+                  Test 15-Minute Timer (review only)
                 </button>
               )}
               {session.stage === "ready" && !canStart && (
                 <button type="button" onClick={() => retry(false)}
                   className="mt-3 min-h-12 w-full rounded-2xl border-2 border-[#f0c878] bg-[#fff5d8] px-4 font-extrabold text-[#8857aa] hover:bg-[#ffeab0]">
-                  <RotateCcw className="mr-2 inline size-4"/>Discover Another Robot
+                  <RotateCcw className="mr-2 inline size-4" /> Discover Another Robot
                 </button>
               )}
               {session.stage === "building" && (
