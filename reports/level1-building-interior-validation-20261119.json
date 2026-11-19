@@ -1,0 +1,42 @@
+{
+  "project": "BE STEM READY",
+  "date": "2026-11-19",
+  "scope": "Level 1 Building PDFs only",
+  "total_built_manually_or_registered": 60,
+  "total_pages_scanned": 1010,
+  "source_modified_files": 19,
+  "interior_files_repaired": 18,
+  "interior_pages_repaired": 34,
+  "cover_files_repaired": 1,
+  "repair_types": {
+    "overlaid_controller_question_removed": 30,
+    "duplicate_english_header_cleanup": 3,
+    "component_labels_translated_to_english": 1
+  },
+  "components_translation": {
+    "original": [
+      "方孔",
+      "圆孔"
+    ],
+    "english": [
+      "Square hole",
+      "Round hole"
+    ],
+    "pdf": "public/Oscillating Fan.pdf",
+    "page": 10
+  },
+  "verification": {
+    "all_18_interior_documents_no_extractable_chinese": true,
+    "all_60_manuals_zero_extractable_chinese_with_19_substitutions": true,
+    "all_1010_pages_rechecked": true,
+    "non_target_render_pixels_preserved": true,
+    "pre_existing_english_text_spans_preserved": true,
+    "page_dimensions_and_counts_preserved": true,
+    "original_source_git_sha_verified": true,
+    "pdf_binaries_committed_to_main": false,
+    "image_embedded_chinese_visual_ocr_verification_complete": false
+  },
+  "delivery": "19 repaired PDF binaries exist in verified temporary sandbox ZIP; binary push to main remains separate because GitHub connector cannot directly upload PDF files",
+  "script": "scripts/pdf/clean_level1_building_interior_chinese.py",
+  "manifest": "reports/level1-building-interior-original-manifest.json"
+}
