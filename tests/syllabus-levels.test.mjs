@@ -42,13 +42,32 @@ test("All six levels have accessible navigation and category/detail routes", () 
   const levelParent = read("src/routes/practical/levels.$levelNumber.tsx");
   const categoryIndex = read("src/routes/practical/levels.$levelNumber.index.tsx");
   const detail = read("src/routes/practical/levels.$levelNumber.$categoryId.tsx");
+  const sharedCategories = read("src/components/practical/ResponsiveCategories.tsx");
   assert.match(home, /to="\/practical\/levels"/);
-  assert.match(index, /const levels = \[1, 2, 3, 4, 5, 6\]/);
+  const artwork = [...index.matchAll(/\\{\\s*number:\\s*([1-6]),\\s*art:\\s*"([^"]+)"/g)];
+  assert.deepEqual(artwork.map(match => Number(match[1])), [1, 2, 3, 4, 5, 6]);
+  assert.deepEqual(artwork.map(match => match[2]), [
+    "level-1.webp", "level-2.webp", "level-3.webp",
+    "level-4.webp", "level-5.webp", "level-6.webp",
+  ]);
+  for (const [, , file] of artwork) {
+    const bytes = readFileSync(new URL("../public/assets/level-artwork/" + file, import.meta.url));
+    assert.equal(bytes.toString("ascii", 0, 4), "RIFF", file + " is not genuine WebP");
+    assert.equal(bytes.toString("ascii", 8, 12), "WEBP", file + " is not genuine WebP");
+  }
+  for (const asset of ["header-wave.webp", "landscape.webp"]) {
+    const bytes = readFileSync(new URL("../public/assets/level-artwork/" + asset, import.meta.url));
+    assert.equal(bytes.toString("ascii", 0, 4), "RIFF");
+    assert.equal(bytes.toString("ascii", 8, 12), "WEBP");
+  }
+  assert.match(index, /header-wave\\.webp/);
+  assert.match(index, /landscape\\.webp/);
+  assert.doesNotMatch(index, /getImageData|level-3-rocket\\.png|level-landscape-background\\.png/);
   assert.match(index, /to="\/practical\/level-1"/);
   assert.match(index, /to="\/practical\/levels\/\$levelNumber"/);
   assert.match(parent, /<Outlet\s*\/>/);
   assert.match(levelParent, /<Outlet\s*\/>/);
-  assert.match(categoryIndex, /type="search"/);
+  assert.match(sharedCategories, /type="search"/);
   assert.match(categoryIndex, /to="\/practical\/levels\/\$levelNumber\/\$categoryId"/);
   assert.match(detail, /getAdvancedLevel\(level\)/);
   assert.match(detail, /Lesson not added yet/);
