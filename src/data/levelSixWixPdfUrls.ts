@@ -24,7 +24,7 @@ export const levelSixWixPdfUrls: Readonly<Record<string, string>> = {
   "Level 6/Building/Mechanisms & Simulators/Combination Lock/29.Combination Lock -Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1ad9706a8fe14752b5977b0b73a275e3.pdf",
   "Level 6/Building/Mechanisms & Simulators/Gibbon/14. Gibbon - Basic Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9205950c0e4f44d1aa5a777ad14570cf.pdf",
   "Level 6/Building/Mechanisms & Simulators/Gibbon/14. Gibbon - Optimized Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_11b0bbf05ffc48f385d9c3fc9104e203.pdf",
-  "Level 6/Building/Mechanisms & Simulators/Pay by card/16.Pay by card -Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_224b9ff26dac477a9607384da4f37518.pdf",
+  "Level 6/Building/Mechanisms & Simulators/Pay by card/16.Pay by card -Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_4509b73b391142b3866b767bdb5bbc6e.pdf",
   "Level 6/Building/Mechanisms & Simulators/Product Search/15.Product Search -Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_807e7ccfcd8f4b41bcc52db3297c41d6.pdf",
   "Level 6/Building/Mechanisms & Simulators/Punch Hard/7. Punch Hard - Basic Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5d81d7f258ae4db1b679b0c1d350c80a.pdf",
   "Level 6/Building/Mechanisms & Simulators/RC Airplane/11.RC Airplane -Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_082792eb6fae4bb7939e4e34b85d3bd5.pdf",
