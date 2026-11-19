@@ -3,6 +3,7 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft, CheckCircle2, RotateCcw, Timer, Trophy } from "lucide-react";
 import { LEVEL_ONE_CATEGORIES } from "@/data/levelOneCategories";
 import { getLevelOneProjects } from "@/data/levelOneProjects";
+import { pdfActivityManuals } from "@/data/pdfActivityManuals";
 import { LevelOneBackdrop, LevelOneHeader } from "@/components/practical/LevelOneHeader";
 
 export const Route = createFileRoute("/practical/level-1/final-build")({ component: FinalBuildPage });
@@ -54,6 +55,12 @@ function FinalBuildPage() {
   const [session, setSession] = useState<Session>(load);
   const [now, setNow] = useState(() => Date.now());
   const [spinning, setSpinning] = useState(false);
+  const [references, setReferences] = useState<Record<string, { image: string; page: number; source: string }>>({});
+  useEffect(() => {
+    let active = true;
+    fetch("/final-build/level-1/references.json").then(response => response.ok ? response.json() : {}).then(data => { if (active) setReferences(data); }).catch(() => {});
+    return () => { active = false; };
+  }, []);
   useEffect(() => { localStorage.setItem(STORAGE_KEY, JSON.stringify(session)); }, [session]);
   useEffect(() => {
     const id = window.setInterval(() => setNow(Date.now()), 250);
@@ -65,6 +72,10 @@ function FinalBuildPage() {
     }
   }, [now, session.stage, session.deadline]);
   const project = session.projectIndex === null ? null : PROJECTS[session.projectIndex];
+  const manualUrl = project?.availableProjectId ? pdfActivityManuals[project.availableProjectId]?.url : undefined;
+  const manualFilename = project?.name === "Acceleration car" ? "Acceleration car_Building.pdf" :
+    manualUrl ? decodeURIComponent(manualUrl.split("?")[0].split("/").pop() || "") : undefined;
+  const reference = manualFilename ? references[manualFilename] : undefined;
   const checks = useMemo(() => project ? checksFor(project.name, project.category) : [], [project]);
   const remaining = session.deadline ? Math.max(0, session.deadline - now) : LIMIT_MS;
   const time = `${String(Math.floor(remaining / 60000)).padStart(2, "0")}:${String(Math.floor((remaining % 60000) / 1000)).padStart(2, "0")}`;
@@ -113,15 +124,24 @@ function FinalBuildPage() {
               </div>
               {(session.stage === "ready" || session.stage === "building") && (
                 <>
-                  <div className="mb-4 rounded-2xl border-2 border-dashed border-sky-200 bg-slate-50 p-5 text-center">
-                    <p className="font-bold text-slate-600">Completed-model picture coming soon</p>
-                    <p className="mt-2 text-xs text-slate-500">The original Building PDF needs visual verification before we show its reference image. No building instructions are shown here.</p>
+                  <div className="mb-4 rounded-2xl border border-sky-200 bg-slate-50 p-3 text-center">
+                    {reference ? (
+                      <div>
+                        <img src={reference.image} alt={`Finished ${project.name} model from the original Building PDF`} className="mx-auto max-h-[45dvh] w-full object-contain" />
+                        <p className="mt-2 text-xs font-semibold text-slate-600">Your robot picture · Original Building PDF, page {reference.page}</p>
+                      </div>
+                    ) : (
+                      <div className="py-6">
+                        <p className="font-bold text-slate-600">Reference image not approved yet</p>
+                        <p className="mt-2 text-xs text-slate-500">A completed-model picture must be checked before this challenge is ready for students.</p>
+                      </div>
+                    )}
                   </div>
                   <div className="mb-4 flex items-center justify-center gap-2 text-3xl font-black tabular-nums text-sky-700"><Timer />{time}</div>
                 </>
               )}
               {session.stage === "ready" && (
-                <button type="button" onClick={() => update({ stage: "building", deadline: Date.now() + LIMIT_MS, completedAt: null })} className="min-h-12 w-full rounded-2xl bg-[#168eea] font-extrabold text-white">Start My 15-Minute Build</button>
+                <button type="button" disabled={!reference} onClick={() => update({ stage: "building", deadline: Date.now() + LIMIT_MS, completedAt: null })} className="min-h-12 w-full rounded-2xl bg-[#168eea] font-extrabold text-white disabled:cursor-not-allowed disabled:opacity-50">Start My 15-Minute Build</button>
               )}
               {session.stage === "building" && (
                 <button type="button" onClick={() => update({ stage: "assessment", completed: true, completedAt: Date.now() })} className="min-h-12 w-full rounded-2xl bg-emerald-600 font-extrabold text-white">I Finished My Robot!</button>
