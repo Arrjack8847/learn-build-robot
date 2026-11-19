@@ -4,7 +4,7 @@
 Use from the repository root after original PDF binaries are available:
   python scripts/pdf/audit_level5_building_interiors.py
   python scripts/pdf/audit_level5_building_interiors.py --render-all
-  python scripts/pdf/audit_level5_building_interiors.py --render-all --ocr
+  python scripts/pdf/audit_level5_building_interiors.py --source-root build/level5-building-verified-originals --render-all --ocr
 
 The script never writes to public/ and never modifies any PDF. A zero-detection
 result is NOT an English-only certification until every page is visually reviewed.
@@ -64,6 +64,8 @@ def ocr_suspects(png: Path) -> list[str]:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--repo", type=Path, default=Path("."))
+    ap.add_argument("--source-root", type=Path, default=None,
+                    help="Optional root for staged, Git-verified originals (preserving public/ paths)")
     ap.add_argument("--output", type=Path, default=Path("build/level5-building-english-audit"))
     ap.add_argument("--render-all", action="store_true",
                     help="Export every page as a PNG for mandatory visual review")
@@ -73,6 +75,8 @@ def main() -> None:
     args = ap.parse_args()
 
     root = args.repo.resolve()
+    source_root = ((args.source_root if args.source_root.is_absolute()
+                    else root / args.source_root) if args.source_root else root)
     output = args.output if args.output.is_absolute() else root / args.output
     output.mkdir(parents=True, exist_ok=True)
 
@@ -106,7 +110,7 @@ def main() -> None:
         "files": [],
     }
     for index, item in enumerate(originals, start=1):
-        path = root / item["path"]
+        path = source_root / item["path"]
         if not path.is_file():
             raise FileNotFoundError(
                 f"Original PDF missing: {path}. Do not substitute Wix content "
