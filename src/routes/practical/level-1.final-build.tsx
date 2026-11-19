@@ -5,6 +5,7 @@ import { LEVEL_ONE_CATEGORIES } from "@/data/levelOneCategories";
 import { getLevelOneProjects } from "@/data/levelOneProjects";
 import { pdfActivityManuals } from "@/data/pdfActivityManuals";
 import { levelOneToThreeWixPdfUrls } from "@/data/levelOneToThreeWixPdfUrls";
+import { ACCELERATION_MANUAL_URL } from "@/data/accelerationCarManual";
 import { LevelOneBackdrop, LevelOneHeader } from "@/components/practical/LevelOneHeader";
 import { FinalBuildWheel } from "@/components/practical/FinalBuildWheel";
 import { FinalBuildPrototype, type PrototypeStatus } from "@/components/practical/FinalBuildPrototype";
@@ -111,7 +112,9 @@ function FinalBuildPage() {
   }, [now, session.stage, session.deadline, session.spinFinishAt]);
   const project = session.projectIndex === null ? null : PROJECTS[session.projectIndex];
   const manualProjectId = project?.availableProjectId ?? project?.availableProjectVariants?.[session.variantIndex]?.projectId ?? project?.availableProjectVariants?.[0]?.projectId;
-  const manualUrl = manualProjectId ? pdfActivityManuals[manualProjectId]?.url : undefined;
+  const manualUrl = project?.name === "Acceleration car"
+    ? ACCELERATION_MANUAL_URL
+    : manualProjectId ? pdfActivityManuals[manualProjectId]?.url : undefined;
   const manualFilename = project?.name === "Acceleration car"
     ? "Acceleration car_Building.pdf"
     : sourcePdfFilename(manualUrl);
