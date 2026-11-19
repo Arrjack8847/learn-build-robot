@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-19",
+  "scope": "Level 6 Building PDFs only",
+  "repository": "Arrjack8847/learn-build-robot",
+  "base_branch": "main",
+  "target_branch": "fix/level6-complete-building-english-20261119",
+  "main_commit_inspected": "9e5f2410a1bfa79c0fd1618794820cf4c08a00c5",
+  "inventory": {
+    "building_pdf_count": 41,
+    "unique_git_blobs": 41,
+    "source_blob_hashes_matching_existing_audit": 41,
+    "source_blob_hash_mismatches": 0,
+    "page_count_from_existing_audit": 1007
+  },
+  "confirmed_text_layer_chinese_from_prior_audit": [
+    {
+      "path": "public/Level 6/Building/Sensor-Focused Robots/Rock-paper-scissors Robot/30.Rock-paper-scissors Robot-Building Manual.pdf",
+      "page_number": 14,
+      "labels": [
+        "大型马达",
+        "AI模块",
+        "中型马达",
+        "大型马达",
+        "控制器"
+      ],
+      "original_blob_sha": "af9423f2a5191ca8577b18cd3fa827da09fd829b"
+    }
+  ],
+  "current_execution": {
+    "source_binary_downloaded": false,
+    "page_14_visual_review": "BLOCKED: original 16,315,903-byte PDF not retrievable with available tools",
+    "exact_label_bounding_boxes": "NOT MEASURED",
+    "restoration_utility_written": true,
+    "restoration_utility_synthetic_test": "PASS: five labels replaced; 13 other pages raster-identical",
+    "restoration_utility_original_pdf_test": "NOT RUN",
+    "other_40_pdf_full_visual_audit": "NOT PERFORMED",
+    "modified_pdf_binaries_generated": 0,
+    "pdf_binaries_committed_to_github": 0,
+    "engaged_github_actions": false,
+    "other_level_files_modified": 0,
+    "learning_pdf_files_modified": 0
+  },
+  "classification": "PARTIAL - source access blocked, NOT restored or visually certified"
+}
