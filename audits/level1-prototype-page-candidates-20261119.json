@@ -1,0 +1,611 @@
+{
+  "auditDate": "2026-11-19",
+  "repository": "Arrjack8847/learn-build-robot",
+  "branch": "feat/level1-final-build-local-20261119",
+  "scope": "Level 1 Building PDFs",
+  "projectCount": 59,
+  "manualCount": 60,
+  "verification": "Candidate page numbers based on visual inspection; none approved for student release",
+  "candidatePages": [
+    {
+      "index": 0,
+      "filename": "Acceleration car_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 1,
+      "filename": "Caged Bird.pdf",
+      "page": 9,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Late assembly panel shows completed cage; page 10 blank"
+    },
+    {
+      "index": 2,
+      "filename": "FUNNY CAT.pdf",
+      "page": 21,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 3,
+      "filename": "Ferocious snake.pdf",
+      "page": 24,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 4,
+      "filename": "Shy penguin.pdf",
+      "page": 24,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 5,
+      "filename": "Sled dog.pdf",
+      "page": 17,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 6,
+      "filename": "Big head robot_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 7,
+      "filename": "Bird.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 8,
+      "filename": "First Robot Model.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 9,
+      "filename": "House_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 10,
+      "filename": "REX robot_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 11,
+      "filename": "Sled_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 12,
+      "filename": "Spider.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 13,
+      "filename": "SpongeBob_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 14,
+      "filename": "Wali robot.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 15,
+      "filename": "Clock_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 16,
+      "filename": "Drawing board_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 17,
+      "filename": "01.Hello World-Building Manual.pdf",
+      "page": 12,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Last build step shows finished model; crop step number"
+    },
+    {
+      "index": 18,
+      "filename": "Mechanical masks.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 19,
+      "filename": "Primitive robot_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 20,
+      "filename": "Athlete.pdf",
+      "page": 29,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 21,
+      "filename": "Basic programming.pdf",
+      "page": 26,
+      "kind": "needs-model-confirmation",
+      "confidence": "low",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Physical model appears near page 26; confirm Basic Programming has a unique intended prototype"
+    },
+    {
+      "index": 22,
+      "filename": "Drummer robot.pdf",
+      "page": 23,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 23,
+      "filename": "Propeller Aircraft.pdf",
+      "page": 14,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 24,
+      "filename": "Sailboat.pdf",
+      "page": 10,
+      "kind": "model-in-lesson-photo",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Page 10 shows constructed sailboat; inspect crop and clarity"
+    },
+    {
+      "index": 25,
+      "filename": "The lawn mower.pdf",
+      "page": 19,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 26,
+      "filename": "Car.pdf",
+      "page": 14,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 27,
+      "filename": "Dynamic screen.pdf",
+      "page": 8,
+      "kind": "needs-model-confirmation",
+      "confidence": "low",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Page 8 shows device hardware; confirm this is the intended completed Dynamic Screen model"
+    },
+    {
+      "index": 28,
+      "filename": "Pendulum ride.pdf",
+      "page": 17,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 29,
+      "filename": "Rotating flying chair.pdf",
+      "page": 17,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 30,
+      "filename": "Skating.pdf",
+      "page": 5,
+      "kind": "needs-model-confirmation",
+      "confidence": "low",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Page 5 shows a skating model; confirm against intended build"
+    },
+    {
+      "index": 31,
+      "filename": "The windmill kingdom.pdf",
+      "page": 29,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 32,
+      "filename": "9. Crawl Slowly - Basic Building Manual.pdf",
+      "page": 15,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Basic variant; one syllabus project has two official manuals"
+    },
+    {
+      "index": 33,
+      "filename": "9. Crawl Slowly - Optimized Building Manual.pdf",
+      "page": 15,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Optimized variant; one syllabus project has two official manuals"
+    },
+    {
+      "index": 34,
+      "filename": "Mechanical arm.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 35,
+      "filename": "Shock absorber_Building.pdf",
+      "page": 15,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Page 15 shows completed shock absorber on blue background"
+    },
+    {
+      "index": 36,
+      "filename": "Blinking robot_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 37,
+      "filename": "02.Color- changing  Light -Building Manual.pdf",
+      "page": 10,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Page 10 shows assembled Color-changing Light"
+    },
+    {
+      "index": 38,
+      "filename": "Corridor lamp_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 39,
+      "filename": "Help light_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 40,
+      "filename": "Lighthouse_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 41,
+      "filename": "Little stars_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 42,
+      "filename": "Traffic light_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 43,
+      "filename": "Dart.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 44,
+      "filename": "Responder_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 45,
+      "filename": "Wiper.pdf",
+      "page": 14,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 46,
+      "filename": "Gyro transmitter_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 47,
+      "filename": "Motorcycle_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 48,
+      "filename": "Pull back car_Building.pdf",
+      "page": 1,
+      "kind": "model-on-cover",
+      "confidence": "high",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Completed robot visible on cover; crop original image to hide title and branding"
+    },
+    {
+      "index": 49,
+      "filename": "Hand-cranking Giant Stride.pdf",
+      "page": 13,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Page 14 blank; model assembled on page 13"
+    },
+    {
+      "index": 50,
+      "filename": "Hermit Crab.pdf",
+      "page": 17,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Page 18 blank; assembled crab on page 17"
+    },
+    {
+      "index": 51,
+      "filename": "Little Owl.pdf",
+      "page": 18,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 52,
+      "filename": "Oscillating Fan.pdf",
+      "page": 19,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Page 20 blank; model on page 19"
+    },
+    {
+      "index": 53,
+      "filename": "Pocket Pistol.pdf",
+      "page": 14,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 54,
+      "filename": "Pullback Bicycle.pdf",
+      "page": 13,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Page 14 blank; model on page 13"
+    },
+    {
+      "index": 55,
+      "filename": "Rotating Coffee Cup.pdf",
+      "page": 18,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 56,
+      "filename": "Balanced Bird.pdf",
+      "page": 11,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Page 12 blank; visible model on page 11"
+    },
+    {
+      "index": 57,
+      "filename": "Dancing Music Box.pdf",
+      "page": 16,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 58,
+      "filename": "Hand-cranking Fan.pdf",
+      "page": 12,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Model visible in a later slide; isolate robot from step text, arrows, or lesson content"
+    },
+    {
+      "index": 59,
+      "filename": "Old-fashioned Telephone.pdf",
+      "page": 12,
+      "kind": "model-in-final-step-or-challenge",
+      "confidence": "medium",
+      "approved": false,
+      "cropRequired": true,
+      "notes": "Page 12 shows model; last page displays parts"
+    }
+  ]
+}
