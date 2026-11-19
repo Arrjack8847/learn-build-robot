@@ -3,13 +3,22 @@
 # Usage (Windows PowerShell from the repository root):
 # powershell -ExecutionPolicy Bypass -File scripts/pdf/upload_22_building_covers.ps1 -Archive "D:\Downloads\be-stem-ready-building-english-pdfs-22-20261119.zip"
 param(
-  [Parameter(Mandatory = $true)]
   [string]$Archive
 )
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 $root = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
-$archiveFile = (Resolve-Path $Archive).Path
+$temporaryArchive = $null
+if ([string]::IsNullOrWhiteSpace($Archive)) {
+  # Optional one-command mode; the link is a temporary sandbox release,
+  # so save the ZIP locally if you need to run the uploader later.
+  $temporaryArchive = Join-Path ([IO.Path]::GetTempPath()) ("bsr-building-22-" + [guid]::NewGuid().ToString('N') + '.zip')
+  $deliveryUrl = 'https://sb-6djsojuxftdz.vercel.run/be-stem-ready-building-english-pdfs-22-20261119.zip'
+  Invoke-WebRequest -Uri $deliveryUrl -OutFile $temporaryArchive -UseBasicParsing
+  $archiveFile = $temporaryArchive
+} else {
+  $archiveFile = (Resolve-Path $Archive).Path
+}
 $staging = Join-Path ([IO.Path]::GetTempPath()) ("bsr-building-english-" + [guid]::NewGuid().ToString('N'))
 function RunGit([string[]]$gitArgs) {
   $result = & git @gitArgs
@@ -78,4 +87,5 @@ try {
 } finally {
   Pop-Location
   if (Test-Path -LiteralPath $staging) { Remove-Item -LiteralPath $staging -Recurse -Force }
+  if ($temporaryArchive -and (Test-Path -LiteralPath $temporaryArchive)) { Remove-Item -LiteralPath $temporaryArchive -Force }
 }
