@@ -15,7 +15,15 @@
     "all_interior_pages_rendered": true,
     "text_layer_chinese_documents": 1,
     "text_layer_chinese_pages": 1,
-    "full_human_visual_image_review_complete": false
+    "full_human_visual_image_review_complete": false,
+    "image_chinese_ocr_page_scan_complete": true,
+    "image_chinese_ocr_pages_screened": 1007,
+    "image_ocr_errors": 0,
+    "raw_ocr_han_candidate_pages": 811,
+    "high_priority_ocr_label_hits": 6,
+    "visual_classification_of_high_priority_hits": "3 hits = Rock-paper-scissors p14 known Chinese labels; 2 hits = Pay by card p3 previously hidden image-embedded Chinese; 1 hit = Clown p2 illustration false positive.",
+    "known_chinese_affected_building_pdfs": 2,
+    "known_chinese_affected_pages": 2
   },
   "confirmed_text_layer_chinese": [
     {
@@ -58,9 +66,10 @@
     "pdf_binary_committed_to_working_branch": false,
     "wix_url_updated_on_working_branch": true,
     "wix_url_updated_on_main": false,
-    "working_branch_commit": "0a186f93533ed3211d0baffa569868630899c01b",
+    "working_branch_commit": "a42677a6a4d8baceb7d5cc9b8820fdb933d98c29",
     "pull_request": 88,
-    "merge_status": "draft_unmerged"
+    "merge_status": "draft_unmerged",
+    "staged_corrected_wix_links": 2
   },
   "exclusions": [
     "No Learning PDFs changed",
@@ -68,9 +77,9 @@
     "Other Building PDFs remain unchanged"
   ],
   "pending": [
-    "Review contact sheets for image-embedded Chinese; no full English-only certification until manual review",
-    "Review page 14 appearance at full resolution",
-    "Decide merge of single link-only replacement to main separately from any binary GitHub delivery"
+    "Review low-confidence image-based OCR candidates at full page resolution; 811 page-level raw candidates not all manually examined",
+    "Review live website PDF.js view after link-only changes are merged to main",
+    "Optional GitHub binary delivery if required; both approved PDFs are durably available via Wix"
   ],
   "prior_blocked_attempt": {
     "source_binary_downloaded": false,
@@ -86,5 +95,36 @@
     "other_level_files_modified": 0,
     "learning_pdf_files_modified": 0
   },
-  "classification": "REAL_PAGE14_REPAIR_VERIFIED_WIX_READY_BRANCH_LINK_STAGED; FULL_IMAGE_ONLY_AUDIT_NOT_SIGNED_OFF"
+  "classification": "TWO_CONFIRMED_CHINESE_BUILDING_MANUALS_REPAIRED_WIX_READY_LINKS_STAGED; NO_100PCT_VISUAL_CERTIFICATION",
+  "image_embedded_chinese_findings": [
+    {
+      "path": "public/Level 6/Building/Mechanisms & Simulators/Pay by card/16.Pay by card -Building Manual.pdf",
+      "page_number": 3,
+      "chinese": "颜色传感器",
+      "english": "Color Sensor",
+      "classification": "confirmed original image-embedded Chinese; original selectable-text scan missed it"
+    },
+    {
+      "path": "public/Level 6/Building/Characters & Structures/Clown/05.Clown-Building Manual.pdf",
+      "page_number": 2,
+      "ocr_han": "正四",
+      "classification": "false positive after image inspection: robot ornament; no text to remove"
+    }
+  ],
+  "pay_by_card_restoration": {
+    "original_pdf_pages": 17,
+    "original_git_blob_sha": "da2a96757c2b6c0a8e67882b74488d678287d7d0",
+    "output_pdf_pages": 17,
+    "output_bytes": 5863427,
+    "output_git_blob_sha": "2416aab788ac2d9422b8cc206b4cd8af509e29d4",
+    "translated_label": "颜色传感器 → Color Sensor",
+    "untouched_pages_raster_identical": 16,
+    "pixels_changed_outside_page3_label_region": 0,
+    "manual_crop_review": "PASS: English label legible; color-sensor illustration and red pointer line visible",
+    "wix_media_id": "78042f_4509b73b391142b3866b767bdb5bbc6e.pdf",
+    "wix_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_4509b73b391142b3866b767bdb5bbc6e.pdf",
+    "wix_status": "READY",
+    "wix_bytes_verified_identical": true,
+    "git_pdf_binary_uploaded": false
+  }
 }
