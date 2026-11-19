@@ -1,0 +1,514 @@
+{
+  "report": "Level 5 Building PDF complete-English restoration: verified inventory and outstanding content audit",
+  "generated_date": "2026-11-19",
+  "status": "INCOMPLETE_CONTENT_AUDIT_NOT_ENGLISH_ONLY_CERTIFIED",
+  "source": {
+    "repository": "Arrjack8847/learn-build-robot",
+    "branch": "main",
+    "commit": "9e5f2410a1bfa79c0fd1618794820cf4c08a00c5",
+    "git_tree_source": "GitHub REST recursive tree",
+    "registry": "src/data/levelFiveSixContent.ts",
+    "wix_mappings": "src/data/levelFiveWixPdfUrls.ts"
+  },
+  "scope": {
+    "include": "public/Level 5/Building/**/*.pdf",
+    "exclude": [
+      "Level 5 Learning PDFs",
+      "Level 5 supplementary files in curriculum-source",
+      "all other levels"
+    ]
+  },
+  "inventory_checks": {
+    "unique_pdf_paths": 45,
+    "unique_git_blob_ids": 45,
+    "unique_project_directories": 43,
+    "category_directories": 13,
+    "registry_building_paths_matched": 45,
+    "wix_building_paths_matched": 45,
+    "duplicate_git_blob_content_pairs": 0,
+    "total_git_object_bytes": 451802624,
+    "optimized_alternative_pairs": [
+      "Curling Game",
+      "Crack Shot"
+    ],
+    "cleaned_english_replacements_in_scoped_directory_identified": 0
+  },
+  "content_audit": {
+    "original_pdf_bytes_locally_accessible": false,
+    "originals_independently_verified_by_rehash": 0,
+    "pdfs_text_extracted": 0,
+    "pages_text_checked": 0,
+    "pages_visually_reviewed": 0,
+    "image_embedded_chinese_verified": false,
+    "chinese_occurrences_confirmed": null,
+    "page_count": null,
+    "explanation": "The GitHub connector exposed repository paths, sizes and Git blob IDs but not PDF bytes. A binary-content request returned empty content or a UTF-8 decoding error; direct repository checkout was not network accessible. File contents and page artwork were not inspected. This is not a zero-change English-only certification."
+  },
+  "delivery": {
+    "pdf_files_edited": 0,
+    "pdf_binary_changes_committed": 0,
+    "learning_files_edited": 0,
+    "github_actions_used": false,
+    "branch": "fix/level5-complete-building-english-20261119",
+    "report_only": true,
+    "merge_status": "not merged"
+  },
+  "next_required_verification": [
+    "Acquire the complete 45 original PDF binaries, confirm each Git blob ID against its actual bytes",
+    "Scan all pages for Unicode Chinese and embedded image Chinese",
+    "Visually review every page image, record any confirmed occurrence with translation",
+    "Repair confirmed Chinese only, validate all page dimensions and unchanged artwork, then commit PDF binaries"
+  ],
+  "files": [
+    {
+      "path": "public/Level 5/Building/Action-Oriented/Curling Game/2. Curling Game-Basic Building Manual.pdf",
+      "git_blob_sha": "a1c9ae03d2cd0c2a138b1dc4b91f4169aa25351e",
+      "git_object_bytes": 9844939,
+      "category": "Action-Oriented",
+      "project": "Curling Game",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Action-Oriented/Curling Game/2. Curling Game-Optimized Building Manual.pdf",
+      "git_blob_sha": "a352f25d1f818f6ad250eaa0f89a11bf86d14a10",
+      "git_object_bytes": 4950824,
+      "category": "Action-Oriented",
+      "project": "Curling Game",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Action-Oriented/Drawing Machine/23. Drawing Machine-Building Manual.pdf",
+      "git_blob_sha": "9e5caf7bc1ce290aa1af2df1c32713295edb85f5",
+      "git_object_bytes": 12464758,
+      "category": "Action-Oriented",
+      "project": "Drawing Machine",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Action-Oriented/Firefly/02.Firefly-Building Manual.pdf",
+      "git_blob_sha": "6f45403af6a30a2963f3447143d49ae580651077",
+      "git_object_bytes": 7957757,
+      "category": "Action-Oriented",
+      "project": "Firefly",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Action-Oriented/Goalkeeper/23.Goalkeeper-Building Manual（with rubber band）.pdf",
+      "git_blob_sha": "2060acf57f87221187ed33a976948175b0048a1c",
+      "git_object_bytes": 30642421,
+      "category": "Action-Oriented",
+      "project": "Goalkeeper",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Action-Oriented/Spanish Bullfight/03.Spanish Bullfight-Building Manual.pdf",
+      "git_blob_sha": "cba54570389c192fbaf13d9bb1ba0fe8cae5ea52",
+      "git_object_bytes": 9498239,
+      "category": "Action-Oriented",
+      "project": "Spanish Bullfight",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Action-Oriented/The Warrior/22. The Warrior-Building Manual.pdf",
+      "git_blob_sha": "aae0dc26dcbb6f99dd8d43ad63d483bca4bde8ae",
+      "git_object_bytes": 8968942,
+      "category": "Action-Oriented",
+      "project": "The Warrior",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Automation & Security/Magnetic Anti-theft Cabinet/08. Magnetic Anti-theft Cabinet_Building Manual.pdf",
+      "git_blob_sha": "5b08eaf615aabcc1b4d6767c6ac4ed31acc48d32",
+      "git_object_bytes": 5824019,
+      "category": "Automation & Security",
+      "project": "Magnetic Anti-theft Cabinet",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Automation & Security/Please Scan to Ride/03.Please Scan to Ride-Building Manual.pdf",
+      "git_blob_sha": "3ec354a5564bc2ec666173da87d98c53de02163b",
+      "git_object_bytes": 10140591,
+      "category": "Automation & Security",
+      "project": "Please Scan to Ride",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Automation & Security/Smart Cash Register/02.Smart Cash Register-Building Manual.pdf",
+      "git_blob_sha": "2838117dc5e3b62b074c5bd5d8e3f224396c3e70",
+      "git_object_bytes": 14496472,
+      "category": "Automation & Security",
+      "project": "Smart Cash Register",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Autonomous Navigation & Ranging/Smart Guiding Car/02. Smart Guiding Car -Building Manual.pdf",
+      "git_blob_sha": "f950cc895c7288b9255863c46c1dfae4492fb680",
+      "git_object_bytes": 5917225,
+      "category": "Autonomous Navigation & Ranging",
+      "project": "Smart Guiding Car",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Characters & Structures/Lucky Prize Wheel/21. Lucky Prize Wheel-Building Manual.pdf",
+      "git_blob_sha": "997f2bfda55627fa33aff7c289e2199430083e53",
+      "git_object_bytes": 7648447,
+      "category": "Characters & Structures",
+      "project": "Lucky Prize Wheel",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Characters & Structures/Oil Pumping Unit/21.Oil Pumping Unit-Building Manual.pdf",
+      "git_blob_sha": "c04e9a7f4a1c322fa30e3dfbbc48cb984269388c",
+      "git_object_bytes": 9148708,
+      "category": "Characters & Structures",
+      "project": "Oil Pumping Unit",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Characters & Structures/Swinging Shark/03. Swinging Shark - Building Manual.pdf",
+      "git_blob_sha": "0a9e0cfbecc7c11775357fc0c679fdf22cfc96d1",
+      "git_object_bytes": 14247572,
+      "category": "Characters & Structures",
+      "project": "Swinging Shark",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Display & Movement/Remote Control Car/12.Remote Control Car-Building Manual.pdf",
+      "git_blob_sha": "6bfbf17f1e1a3e0d0701b2a55d81820a8e98dc24",
+      "git_object_bytes": 6771525,
+      "category": "Display & Movement",
+      "project": "Remote Control Car",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Display & Movement/Runner/25.Runner -Building Manual.pdf",
+      "git_blob_sha": "1259a49a971fc5ccc9651b1c5c1f7af9ca36eda2",
+      "git_object_bytes": 8716884,
+      "category": "Display & Movement",
+      "project": "Runner",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Display & Movement/Welcome Sign/08. Welcome Sign-Building Manual.pdf",
+      "git_blob_sha": "6bb08061338f5dbca693b4de3ac55074cdc276cb",
+      "git_object_bytes": 5221625,
+      "category": "Display & Movement",
+      "project": "Welcome Sign",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Illumination & Signals/Car Lights/11. Car Lights-Building Manual.pdf",
+      "git_blob_sha": "64313e15f8126f3c3919bfd59170e13311548f78",
+      "git_object_bytes": 12676515,
+      "category": "Illumination & Signals",
+      "project": "Car Lights",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Illumination & Signals/Direction Indicator/06.Direction Indicator-Building Manual.pdf",
+      "git_blob_sha": "7d9c4d21c283368825483ffbdb54269090468480",
+      "git_object_bytes": 5723164,
+      "category": "Illumination & Signals",
+      "project": "Direction Indicator",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Interactive Mechanisms/Magnetic Object Finder/07. Magnetic Object Finder-Building Manual.pdf",
+      "git_blob_sha": "94148e14d60dce992de6207dae62c7f094be4cd4",
+      "git_object_bytes": 3437837,
+      "category": "Interactive Mechanisms",
+      "project": "Magnetic Object Finder",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Interactive Mechanisms/Passenger Counter/14.Passenger Counter-Building Manual.pdf",
+      "git_blob_sha": "201209e3fd39dff576888ca0f3125939139673c1",
+      "git_object_bytes": 12174035,
+      "category": "Interactive Mechanisms",
+      "project": "Passenger Counter",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Mechanisms & Simulators/Big Pendulum/26. The Big Pendulum-Building Manual.pdf",
+      "git_blob_sha": "9e9b88336217a4f6cecd67adb87d0906819e2832",
+      "git_object_bytes": 8276004,
+      "category": "Mechanisms & Simulators",
+      "project": "Big Pendulum",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Mechanisms & Simulators/Chairoplane/27. Chairoplane-Building Manual.pdf",
+      "git_blob_sha": "08c7fcfadc98f5b149268fc26c8926e182ec6ada",
+      "git_object_bytes": 11579128,
+      "category": "Mechanisms & Simulators",
+      "project": "Chairoplane",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Mechanisms & Simulators/Crack Shot/6. Crack Shot - Basic Building Manual.pdf",
+      "git_blob_sha": "0d7b05b81e933bbbf6614c01602e73b87a403bcf",
+      "git_object_bytes": 27984913,
+      "category": "Mechanisms & Simulators",
+      "project": "Crack Shot",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Mechanisms & Simulators/Crack Shot/6. Crack Shot - Optimized Building Manual.pdf",
+      "git_blob_sha": "69ab2fb45921fc89ba70a4223e7ce60e7d4492c0",
+      "git_object_bytes": 5685574,
+      "category": "Mechanisms & Simulators",
+      "project": "Crack Shot",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Mechanisms & Simulators/Kiddie Ride/16. Kiddie Ride-Building Manual.pdf",
+      "git_blob_sha": "e6dfcc9365a33d41b6abf0d5abc65b2b7652ced6",
+      "git_object_bytes": 13479892,
+      "category": "Mechanisms & Simulators",
+      "project": "Kiddie Ride",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Mechanisms & Simulators/Machine Gun/10.Machine Gun-Building Manual.pdf",
+      "git_blob_sha": "5cf32ac3e629f6878c778a9fe5a5f77661c2ffff",
+      "git_object_bytes": 9608087,
+      "category": "Mechanisms & Simulators",
+      "project": "Machine Gun",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Mechanisms & Simulators/Revolving Door/15. Revolving Door-Building Manual.pdf",
+      "git_blob_sha": "de6cbe202aa71f35eac7d80a70454101ae31bbf4",
+      "git_object_bytes": 7442633,
+      "category": "Mechanisms & Simulators",
+      "project": "Revolving Door",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Mechanisms & Simulators/Smart Turnstile/21.Smart Turnstile-Building Manual.pdf",
+      "git_blob_sha": "fff9477200442c25129207415d3d05a979542703",
+      "git_object_bytes": 15196248,
+      "category": "Mechanisms & Simulators",
+      "project": "Smart Turnstile",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Mechanisms & Simulators/Top Scorer/8. Top Scorer - Basic Building Manual.pdf",
+      "git_blob_sha": "c47316c22140b78cc851527ccff6a2ff2152e6fc",
+      "git_object_bytes": 10898760,
+      "category": "Mechanisms & Simulators",
+      "project": "Top Scorer",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Programming & Precise Control/Clothes Dryer/30. Clothes Dryer-Building Manual.pdf",
+      "git_blob_sha": "14f76a4acd17fec9081debd33c035357bae17e5e",
+      "git_object_bytes": 5625683,
+      "category": "Programming & Precise Control",
+      "project": "Clothes Dryer",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Programming & Precise Control/Remote Control Fan/26. Remote Control Fan -Building Manual.pdf",
+      "git_blob_sha": "6bceca1faca4cbbddc5e908180aa7c586a2290d8",
+      "git_object_bytes": 6725482,
+      "category": "Programming & Precise Control",
+      "project": "Remote Control Fan",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Programming & Precise Control/Rescue Robot/17.Rescue Robot -Building Manual.pdf",
+      "git_blob_sha": "ec119a9932c85f2f83751b19ceae61300c9f970b",
+      "git_object_bytes": 22713644,
+      "category": "Programming & Precise Control",
+      "project": "Rescue Robot",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Sensor Automation/Barometric Sensor/17.Barometric Pressure Meter-Building Manual.pdf",
+      "git_blob_sha": "40e0f0fed1c3a699297d2028602a4a263f9e92bd",
+      "git_object_bytes": 1783219,
+      "category": "Sensor Automation",
+      "project": "Barometric Sensor",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Sensor-Focused Robots/Car Speed Detector/11. Car Speed Detector-Building Manual.pdf",
+      "git_blob_sha": "f9f62ff49e40279e599b2864e9b6ddf4f2ca5886",
+      "git_object_bytes": 4882541,
+      "category": "Sensor-Focused Robots",
+      "project": "Car Speed Detector",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Sensor-Focused Robots/Facial Recognition Time Clock/28.Facial Recognition Time Clock-Building Manual.pdf",
+      "git_blob_sha": "41d5560082aff7764d34ff8b7bdc34ce33851d3a",
+      "git_object_bytes": 7378340,
+      "category": "Sensor-Focused Robots",
+      "project": "Facial Recognition Time Clock",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Sensor-Focused Robots/Traffic Robot/20.Traffic Robot-Building Manual.pdf",
+      "git_blob_sha": "f364815f6ea7d3206a03388bebe8320983736d09",
+      "git_object_bytes": 20450981,
+      "category": "Sensor-Focused Robots",
+      "project": "Traffic Robot",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Sound & Voice Interaction/Swing With Rhythm/24. Swing With Rhythm-Building Manual.pdf",
+      "git_blob_sha": "5c9f3aaba4d533912b0ec22239d1edc2e5df1a12",
+      "git_object_bytes": 6413671,
+      "category": "Sound & Voice Interaction",
+      "project": "Swing With Rhythm",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Sound & Voice Interaction/Voice control snail/08.Voice control snail-building.pdf",
+      "git_blob_sha": "af36928a9d005d5ec52f7c7cf9c628e80c075aad",
+      "git_object_bytes": 8455258,
+      "category": "Sound & Voice Interaction",
+      "project": "Voice control snail",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Sound & Voice Interaction/Voice Control Vehicle/Voice Control Vehicle_Building.pdf",
+      "git_blob_sha": "2c0adb3bb7b022d36d20aed30fbc04997d4d647d",
+      "git_object_bytes": 5255100,
+      "category": "Sound & Voice Interaction",
+      "project": "Voice Control Vehicle",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Vehicles & Complex Movers/Hexapod Robot/21. Hexapod Robot-Building Manual.pdf",
+      "git_blob_sha": "6a45d0e9aba0c11e45ee2ae867b485740fe3c5c5",
+      "git_object_bytes": 18287080,
+      "category": "Vehicles & Complex Movers",
+      "project": "Hexapod Robot",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Vehicles & Complex Movers/Light Chasing Car/08.Light Chasing Car -Building Manual.pdf",
+      "git_blob_sha": "cae14adbf589a14c2c263e0caa1eb536ae46eeea",
+      "git_object_bytes": 5896213,
+      "category": "Vehicles & Complex Movers",
+      "project": "Light Chasing Car",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Vehicles & Complex Movers/Shopping Guide Robot/14.Shopping Guide Robot-Building Manual.pdf",
+      "git_blob_sha": "451fdcfc670fbfab58967e0957bf0d8b2eba747b",
+      "git_object_bytes": 5442250,
+      "category": "Vehicles & Complex Movers",
+      "project": "Shopping Guide Robot",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Vehicles & Complex Movers/Voice-controlled Frog/07.Voice-controlled Frog_Building Manual.pdf",
+      "git_blob_sha": "55486489a6570ac5464fe1575cca09a53ad54408",
+      "git_object_bytes": 7297185,
+      "category": "Vehicles & Complex Movers",
+      "project": "Voice-controlled Frog",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    },
+    {
+      "path": "public/Level 5/Building/Vehicles & Complex Movers/Wind-up Car/05.Wind-up Car_Building Manual.pdf",
+      "git_blob_sha": "e135c6d8456a61ff41d4518b8490af3d6c600c42",
+      "git_object_bytes": 8572239,
+      "category": "Vehicles & Complex Movers",
+      "project": "Wind-up Car",
+      "text_checked": false,
+      "visually_checked": false,
+      "content_status": "unverified"
+    }
+  ]
+}
