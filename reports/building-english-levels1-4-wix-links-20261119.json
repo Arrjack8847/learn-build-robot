@@ -1,0 +1,556 @@
+{
+  "date": "2026-11-19",
+  "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+  "siteUrl": "https://www.bestemready.com/",
+  "verifiedWixMediaCount": 77,
+  "levels": {
+    "level1": 35,
+    "level2": 36,
+    "level3": 2,
+    "level4": 4
+  },
+  "sourcePdfRepairs": 78,
+  "sharedGyroCanonical": "Level 3 repaired PDF used by both Level 1 and 3",
+  "status": "WIX_MEDIA_READY_AND_GITHUB_URL_MAPPINGS_UPDATED; GITHUB_PDF_BINARY_REPLACEMENT_STILL_PENDING",
+  "urls": [
+    {
+      "level": 1,
+      "path": "public/Acceleration car_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_fad6da7e893443b982fc171d4fe2bd8c.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_135af4d6159446868f555c6341ac107f.pdf",
+      "approvedGitBlob": "a5b0e1735fcee1e62a844eeff3a440cd9db61ba5"
+    },
+    {
+      "level": 1,
+      "path": "public/FUNNY CAT.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2b8802ea8624453bbb777a82a6365208.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cd064f746c184a6a98cce2e3e4307273.pdf",
+      "approvedGitBlob": "b398989a9d37c76d1e78a1e5d31bcb7aa61b903d"
+    },
+    {
+      "level": 1,
+      "path": "public/Ferocious snake.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9540c205faa34a68bfe95eb83db4ab16.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_87f5be1948b044109a9e60dc75d81662.pdf",
+      "approvedGitBlob": "94d2d662f81350c8256d260cb595f46d59bae0fd"
+    },
+    {
+      "level": 1,
+      "path": "public/Shy penguin.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8d52d03348c84e9181778a81f5a03add.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_55648fbb48b042029c2492401d896455.pdf",
+      "approvedGitBlob": "e00cb216fe1310993f36721841dcc4ba9b5fa5cc"
+    },
+    {
+      "level": 1,
+      "path": "public/Sled dog.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_293e1b04be82475081e32fa341c29365.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_181a683a445145b98065b903fe98816a.pdf",
+      "approvedGitBlob": "0db0becbda43cf0b88eb6a2cfae78692034312a1"
+    },
+    {
+      "level": 1,
+      "path": "public/Big head robot_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9c2cd8a0c3ea4640bbca00eae1941a08.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_4a06e63507c34d0a9653786ac61b5135.pdf",
+      "approvedGitBlob": "addeed3f47c1692e99c6d34b663122b2cd1c4199"
+    },
+    {
+      "level": 1,
+      "path": "public/First Robot Model.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b393cf94706a447dbbf786e024ccf925.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_bee0a42061e0453bba7541e6a760c3c6.pdf",
+      "approvedGitBlob": "e99f77f05b348452db1b7f188ceca5abc79505a9"
+    },
+    {
+      "level": 1,
+      "path": "public/House_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ece0187753d24dc9b3a319a39cd448b6.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_833a5f2eb330445c8c361d5a7e0cd6d4.pdf",
+      "approvedGitBlob": "c2ba461ca6f0986b8af80ce51707889ffda5e179"
+    },
+    {
+      "level": 1,
+      "path": "public/Sled_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_97bbb110118342e9b9b221d8aafb4aad.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_52ad92b0136b49ad9ef631e7586fb9e9.pdf",
+      "approvedGitBlob": "976712c3e1b1916b46abee6fbf931231b60b0ff2"
+    },
+    {
+      "level": 1,
+      "path": "public/SpongeBob_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c4f76e3a575341beafdb3826a27dca3e.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_7c8b26ad8ce74600a3000d03b0977970.pdf",
+      "approvedGitBlob": "d54d8ef32a2ce7c90d7ae5785def3d77695e5f1c"
+    },
+    {
+      "level": 1,
+      "path": "public/Clock_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8db2c87ca75640d1abf73c156bb89bab.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_daf635f4bb6241e8a6b885391277b01c.pdf",
+      "approvedGitBlob": "1045ad1922d21d38fcdad6d6b99e3c0fbf50a205"
+    },
+    {
+      "level": 1,
+      "path": "public/Drawing board_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_38f6ac8df9134375995b7d396544d7db.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_42d48b6cddb746ca9a2448795ba1d22c.pdf",
+      "approvedGitBlob": "85a1f1136fc716a311d2e512ee2f7af347d046a2"
+    },
+    {
+      "level": 1,
+      "path": "public/Athlete.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0b6e1db5e60849958e2b73714d7eb3e2.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_94972a4ae8f245798c092dd10387db2c.pdf",
+      "approvedGitBlob": "12626c506228b883678ae8c9fc1b4f332205fc9b"
+    },
+    {
+      "level": 1,
+      "path": "public/Basic programming.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9b2af281194a4ab48653af30cfa02ea7.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2df25f674ef64e43a2fc67ca426671b7.pdf",
+      "approvedGitBlob": "5057fc5ded495ea7ac0c78968c0a3c229831de9b"
+    },
+    {
+      "level": 1,
+      "path": "public/Drummer robot.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bbdb6fba185d4bbf88f0dcd207d9aef5.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_1e90024877ad484694a504f5aa66ef58.pdf",
+      "approvedGitBlob": "a5ded2885e1c527781b49741c4d4ec88536cf3d3"
+    },
+    {
+      "level": 1,
+      "path": "public/Sailboat.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8e776c73ac3b4378ae41d70af61e32cf.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6356acb21e21497a8933560f27e83d0f.pdf",
+      "approvedGitBlob": "2229c72c2ca2514c309259bef1953ec1a5bd617c"
+    },
+    {
+      "level": 1,
+      "path": "public/The lawn mower.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_53e805761fbd4e169f5d4fa234151da7.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_758a67da5f494919902be22388e6db65.pdf",
+      "approvedGitBlob": "81f72907c168f1d887bb4f8bdae9271b6ca7bd2b"
+    },
+    {
+      "level": 1,
+      "path": "public/Car.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7948f96c96a14fbe94c1668e703a1a2b.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9a9bf34f269f4a0fa317a3c8d22303c7.pdf",
+      "approvedGitBlob": "9ed4174c8de990a41fb04f9e5d2327ff191854a1"
+    },
+    {
+      "level": 1,
+      "path": "public/Dynamic screen.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_cc11f49362a04524bfd5829fea742f42.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_a1ba4b03abad49b1a650978a7f5846ae.pdf",
+      "approvedGitBlob": "dee143dca28c4f04a2d15e2b85a5eb8de7f6938c"
+    },
+    {
+      "level": 1,
+      "path": "public/Pendulum ride.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1443e978f9c245e6898c24a22af95466.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_56d00d83000d4ceea9088b3c22e9d16c.pdf",
+      "approvedGitBlob": "6acf1af5a54bf9730e3cc983232b919c99babfc7"
+    },
+    {
+      "level": 1,
+      "path": "public/Rotating flying chair.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b18491bf630e48fe9f42c06de4d358d2.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e930f1bea6d24672be033e2ceb286db0.pdf",
+      "approvedGitBlob": "0f1b24fef412dedd0407e0ab1a320d98ffe9d438"
+    },
+    {
+      "level": 1,
+      "path": "public/Skating.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ed7a9cd29b564f1e94a636ba1dbcceed.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_8dafbc61078b403cbabe58cbc04ac83c.pdf",
+      "approvedGitBlob": "bc634edca663f8eeec48618233dc1191bcb57b55"
+    },
+    {
+      "level": 1,
+      "path": "public/The windmill kingdom.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e573335eee5e4bec9a465a90084e6dea.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ff09b2a4b37648cc9427ed9ab29fbbb8.pdf",
+      "approvedGitBlob": "69a16ce64e996a1cca62b603b74efdd19a1cd334"
+    },
+    {
+      "level": 1,
+      "path": "public/Blinking robot_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8a13f94f6abe4015ab0cb64268270a49.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_40cb5c9dc47f484ca486051177f6fd7b.pdf",
+      "approvedGitBlob": "693885a2c0c765ff1ee43d77f668b14dd1c8309b"
+    },
+    {
+      "level": 1,
+      "path": "public/Corridor lamp_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_35d55ed3c66d40c285a36880435e5477.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_7058712da41041dcaca710b4534264e8.pdf",
+      "approvedGitBlob": "d9429db2d051e8e6258e3bbfe5bf71e033493e0c"
+    },
+    {
+      "level": 1,
+      "path": "public/Help light_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3d0155d5ae3f4b05998b58076899a1a5.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_81194bf536064aaa9754a0a2975cfd2b.pdf",
+      "approvedGitBlob": "653554cd5a64870b415b09bf8d98a5e15fb5bab7"
+    },
+    {
+      "level": 1,
+      "path": "public/Lighthouse_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7aa7fef3e2244caab1b63750239545fb.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0e0f8121b47d4bd4a1b9f0545c19ed2e.pdf",
+      "approvedGitBlob": "1269f67c8bfdc79c253621fb6450c741475ebcec"
+    },
+    {
+      "level": 1,
+      "path": "public/Little stars_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7c6a33c7dc2b47b7bf4d8419d2f8ef66.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_aace3c23f40844a796268ca64c280033.pdf",
+      "approvedGitBlob": "8029ba4fe2b3a8535ab58bc219f857e5f72eae4b"
+    },
+    {
+      "level": 1,
+      "path": "public/Traffic light_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d138ca0269a84429b7eff132f08f0799.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_56b3ad6a55d542d5b2232d6867c01ba9.pdf",
+      "approvedGitBlob": "5a4ae83ed2e349fe2fb5c3de8ee69034eec9c1af"
+    },
+    {
+      "level": 1,
+      "path": "public/Responder_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_561eddd3604a49a0b9459a6807cf5b08.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6e35900c7e384c67bbf3213ed06b73a6.pdf",
+      "approvedGitBlob": "75000b9d9c6a1f895356092991434cbb3eb4beb3"
+    },
+    {
+      "level": 1,
+      "path": "public/Motorcycle_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a182b6e3bce8414591a5538e9af9923c.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e9cf0a2786e944f094444c3e7a31cded.pdf",
+      "approvedGitBlob": "a33ef7fd38c1b29f4bde7c2893a8969d998bf31e"
+    },
+    {
+      "level": 1,
+      "path": "public/Pull back car_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c45229f4642f48b2a0f941aa85c780d9.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_1ca5caf3ad2f4a7c9d64be4b7f4f82b9.pdf",
+      "approvedGitBlob": "a977913aa0e356570fbe13aa067a08f130542e81"
+    },
+    {
+      "level": 1,
+      "path": "public/Little Owl.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_84f8cee9ece8423182ed7c192c8a9928.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_1112349c669b43429df7daa91ca3b94f.pdf",
+      "approvedGitBlob": "1a040ef26c48ec5c964237e856806edba582ed99"
+    },
+    {
+      "level": 1,
+      "path": "public/Oscillating Fan.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3cbea296cea34702a25e77f876e9341e.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b51988ff5bef422fb26954d6f9e6bb7f.pdf",
+      "approvedGitBlob": "d894a8b87e98a953d583b1b146a25bfda9e8b96e"
+    },
+    {
+      "level": 1,
+      "path": "public/Hand-cranking Fan.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_62f62ce2f4744a70a12d4ff62b7cf538.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_1acc28084a3c44ad8fcd7f6ebc7dbb4c.pdf",
+      "approvedGitBlob": "8af23436c8aca2b6b4b874147a6ccd1ec93b5a5a"
+    },
+    {
+      "level": 2,
+      "path": "public/Animal trap.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5d611ed2c78044969346f0e74579fcb5.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c031b42bbda14028bf8a654778ceaa45.pdf",
+      "approvedGitBlob": "d3817c2e738575e30efa8646640aeab17b499de9"
+    },
+    {
+      "level": 2,
+      "path": "public/Automatic window.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8c37f8edce7c4c00bd2c433d7634b6e9.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ab01dd19b27c4795a341e0ab8a5d80f1.pdf",
+      "approvedGitBlob": "3a3995703be1fa8f6cc66c580f6dbe56c8c27244"
+    },
+    {
+      "level": 2,
+      "path": "public/Balance_v2.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_39eb2700696a48ff851df498f6797d64.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e349f1cbc2934e179872a23a815df844.pdf",
+      "approvedGitBlob": "a94fc8f028b6936405f124b93e6b1fd8796a9164"
+    },
+    {
+      "level": 2,
+      "path": "public/Balance.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7a30d06baac841f9bceacd7e2350cb08.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b23c014f2a3446359a14032430ea48b8.pdf",
+      "approvedGitBlob": "fc3fa184708687887055bed12497c3f9be9cd515"
+    },
+    {
+      "level": 2,
+      "path": "public/BEE.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f84820b9035b47b199b8816986e43f16.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f2257130ccc54df8a8ea61f70e87fb91.pdf",
+      "approvedGitBlob": "1abea2a1902ff6a704a56aa0d5968bd9b406d7e8"
+    },
+    {
+      "level": 2,
+      "path": "public/Bridge_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_658c1006a3294e20b0d6b777a9f0d18e.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_65862b24eee445128168f5de4ee80ee1.pdf",
+      "approvedGitBlob": "823fab22170a2243a6593601350a7a5baedc2480"
+    },
+    {
+      "level": 2,
+      "path": "public/Car Steering.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dc17cc81267944349df6ed40bdbc07c0.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c8fe4c3cc3f147f3871f79cc6646bb3e.pdf",
+      "approvedGitBlob": "cd9b60ba4d0d80e8160192fbe8ae7abc1a28c7cf"
+    },
+    {
+      "level": 2,
+      "path": "public/Chimpanzees.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_90450b1048904ae69066d3680ce10320.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_faf03246048040b692f555249b32ad15.pdf",
+      "approvedGitBlob": "74b5b054951fac6bbb3c8fd96ce74237074a74a3"
+    },
+    {
+      "level": 2,
+      "path": "public/Cliff walk.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c8cff61dae714d8aa5fbe5fa4338f835.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0506a47611384efc957ca1d9120301e7.pdf",
+      "approvedGitBlob": "997b01642531a48355a2abe5d1320a50b5a6c10b"
+    },
+    {
+      "level": 2,
+      "path": "public/Crane_.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2510982afea7462fb8c502e1d6e6d127.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e899154e23df4b3ca5f313347744217c.pdf",
+      "approvedGitBlob": "6df91bf8dd41076ed1026ee74be7070b3122f3f6"
+    },
+    {
+      "level": 2,
+      "path": "public/Door_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4fbd7efe2fa74925b72c937892367ac8.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9f73091b93e9459fac2603819689b4ba.pdf",
+      "approvedGitBlob": "b784dbfd94d07c3142820d0e5d384370fd4fe159"
+    },
+    {
+      "level": 2,
+      "path": "public/Double beam crane_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_316b5bb5e1fb4a02870164f80b880f45.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cf9221967f804769ad6e7d3d50c47eab.pdf",
+      "approvedGitBlob": "08499d01d01ad8181ff70509175d0fabf8f7954d"
+    },
+    {
+      "level": 2,
+      "path": "public/Ferris wheel.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f62af6173ce5478babe17f761a8eefd1.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e19ce390112d4687ba0f3e7c9ece89aa.pdf",
+      "approvedGitBlob": "75bec5b05105a9b87d3339ba10c4cd46b3110fa7"
+    },
+    {
+      "level": 2,
+      "path": "public/Flashlight_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7c8d103b3d17438b95970d7d615a9432.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0e2b16ec833946eaa67305b1b38fc319.pdf",
+      "approvedGitBlob": "3868875e6339b4e6713e7b074e98f713779dd629"
+    },
+    {
+      "level": 2,
+      "path": "public/Gearbox_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1c4985676d1a428d925be899d03208d7.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_47fcd935e8894045b7b4017ab210183e.pdf",
+      "approvedGitBlob": "d36685c96cdddcb74ac98ea3f1751b9f55116faa"
+    },
+    {
+      "level": 2,
+      "path": "public/Hammer robot.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_09a4cf01602840b9bd6cc41b71dc5b10.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_976489b6546f4ab5a8f1723f2eadad2d.pdf",
+      "approvedGitBlob": "d88e7aeef7235812336128d83a6120f66dc83039"
+    },
+    {
+      "level": 2,
+      "path": "public/Hand crank_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ee6f586059a242d3b50e1e34f6e11d30.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_088e2b77a9a746fd9508de9054bf429d.pdf",
+      "approvedGitBlob": "42ffa3111761e2de0fe0024ff7345c95291ec08b"
+    },
+    {
+      "level": 2,
+      "path": "public/Harp_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_26d86b62487d4698b04734faabe64380.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_127112d924ea469091806c1c47dce36b.pdf",
+      "approvedGitBlob": "06e478e8223ad72672f696d169af5fd401d405c9"
+    },
+    {
+      "level": 2,
+      "path": "public/Headlights.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_51b392b3e3fe4756851db74a98bdc23c.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_a5ed1f1e93d543a886c753f87c0b6330.pdf",
+      "approvedGitBlob": "b881202ec518483feab50e6968e9dc3691a0d399"
+    },
+    {
+      "level": 2,
+      "path": "public/Jumping machine_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c97b811b43fa41af8c257e657fa242ac.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0d9f6f2dec834ead9e33b7c90d06e15f.pdf",
+      "approvedGitBlob": "59f644717ed7455240e0eacaabeb73ed0098a3d8"
+    },
+    {
+      "level": 2,
+      "path": "public/Lifting door_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1e7f6d01a2a540f39f9299b85bceac0c.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cec9616801f946c2ae0043bc95f8a536.pdf",
+      "approvedGitBlob": "bcacb16aaa15caf58dbfcbce704dc7eb56f95c5d"
+    },
+    {
+      "level": 2,
+      "path": "public/Lucky turntable.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_596584d30768430b9262fc2202c2e971.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_80611a94450b4d62a6a2ea78e409db6e.pdf",
+      "approvedGitBlob": "90ecdd468a6e75504b37099ca6696d181382a12c"
+    },
+    {
+      "level": 2,
+      "path": "public/Mechanical dog.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e5a00944617d42d58cad667d269d385b.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_07f47f0b3c5c4a32b68f1152a8c02093.pdf",
+      "approvedGitBlob": "8dd115c7bdbc0dfd27a0d79244f7ec5db43e6b0b"
+    },
+    {
+      "level": 2,
+      "path": "public/Pirate ship_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5bc63a64fdce4ec1b22fd20a04d372bc.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_00644c98f0204033a9713840dfc58dbc.pdf",
+      "approvedGitBlob": "742622419638d99be016e612ba5ba1eae4d76416"
+    },
+    {
+      "level": 2,
+      "path": "public/Pliers.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0eebf71d52864fa3ae4b3bae241f0c49.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2865bdb79f2c48f88386b685adc5bb8f.pdf",
+      "approvedGitBlob": "fb30842584028de64cf628cc0ccc3eebb12d0636"
+    },
+    {
+      "level": 2,
+      "path": "public/Robot war.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_870ea4b342b6416aba7c0cd82de84333.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_565442dd664f4d839b23319a3cf693c2.pdf",
+      "approvedGitBlob": "79333498bf300bc3a3a452d7728296f83ecc842d"
+    },
+    {
+      "level": 2,
+      "path": "public/Rotating flying chair_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bbb8d28b8454440688605b91e0456f68.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c3b083b9ebae4025b7d68017b64dd1aa.pdf",
+      "approvedGitBlob": "0eda57ae2bc959aca61c49703fc3373d131b7395"
+    },
+    {
+      "level": 2,
+      "path": "public/Round-trip transportation.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a8d743bbfcfe43479f86874462bb49f3.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_7b55e529ac684005bbbcca7dc25da110.pdf",
+      "approvedGitBlob": "443a39cbb547a8a9b491f1d532c4d69ecdb4231e"
+    },
+    {
+      "level": 2,
+      "path": "public/Scaling ladder.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f7ae068a17e64c298e12488c95a98714.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_39cdb93334904fa18a188f9d5a2a7c96.pdf",
+      "approvedGitBlob": "b519581c67658ca7ed5943a038708ec06674211a"
+    },
+    {
+      "level": 2,
+      "path": "public/Shift gears.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e9177999e5ff4cb695f739e8f104ed89.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_08aeb18334204c7fb65fcede60af5012.pdf",
+      "approvedGitBlob": "ec4a4e8428450ca2fd7db6a5ca5fc9fd8ee396b9"
+    },
+    {
+      "level": 2,
+      "path": "public/Tank.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_42ac4d1bbeea4a018e2b039f14b145ff.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e9bdb4f105704dbe8e61d9025882d4b2.pdf",
+      "approvedGitBlob": "f086f4ffe0a71fb23e3b10b82981e3a1fac1b025"
+    },
+    {
+      "level": 2,
+      "path": "public/Teeterboard.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_398218310083422d9293e36dacf2a107.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2178e928238b40e8afd79d03ec978435.pdf",
+      "approvedGitBlob": "66845acdc2468e72600bbd096ea1cc7ca69f3966"
+    },
+    {
+      "level": 2,
+      "path": "public/The treadmill.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6764f6c73d294e4e80fba8fe2ddbfea0.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6c374dba007d41649bcb36c9cc9b168f.pdf",
+      "approvedGitBlob": "e9dba3aa4add16ae6a32a77e6d6ff17bc423705e"
+    },
+    {
+      "level": 2,
+      "path": "public/Tightrope walk.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_43571888d44e4c7fbef045e0f0053549.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9d342a952cad44c0a67abeb185a9870c.pdf",
+      "approvedGitBlob": "65c3e1c4d4f529e45f7cf6721682f1318664b79b"
+    },
+    {
+      "level": 2,
+      "path": "public/Tower crane_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_70adbc4adab3415cac2d0495136d11a6.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_df23e113a7f7491a8a40730a0a1e5da9.pdf",
+      "approvedGitBlob": "929597f5dffba314146eb44862df26fad317dcb5"
+    },
+    {
+      "level": 2,
+      "path": "public/Walking Robot.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_fb0f761e88c741839e9471fcb0cdfd1a.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b9e03b9e4fe64cf18c49fd214b63ef62.pdf",
+      "approvedGitBlob": "0b9ade90acc26a3f8039a88def478349eff19683"
+    },
+    {
+      "level": 3,
+      "path": "public/Gyro transmitter_Building.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_02798ae95a234a18a65a4d5dd5c46e4d.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+      "approvedGitBlob": "e0c905c9b5affabddac75de96f7de0481d0a210d"
+    },
+    {
+      "level": 3,
+      "path": "public/Electronic scale.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5f58d45cca2040c69f5b9b0f5019dcb2.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9ea1f915116b429895c75c161797983d.pdf",
+      "approvedGitBlob": "a56708e48fb4f4337ea9578823a5cbace65eab06"
+    },
+    {
+      "level": 4,
+      "path": "public/Level 4/Building/Characters & Structures/Swimming Plesiosaur/19. Swimming Plesiosaur-Building Manual.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_cadf2aedae25403a8e15688fa5b5554b.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e1d762a64ef24a5897241782a262a6a0.pdf",
+      "approvedGitBlob": "61fdc1a5eebd57f349fbd7eb10de4dc35ccd3f2d"
+    },
+    {
+      "level": 4,
+      "path": "public/Level 4/Building/Mechanisms & Simulators/Telegraph/09.Telegraph -Building Manual.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_33bd21e1e7ed41598e9e24fb89daa3b1.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_572488c57ef34acb8426a499803d90c4.pdf",
+      "approvedGitBlob": "f4a54eca331ed4c296d175b9d8d59041dc5fe201"
+    },
+    {
+      "level": 4,
+      "path": "public/Level 4/Building/Mechanisms & Simulators/Turbo Drop/28. Turbo Drop-Building Manual.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7896840d9f0341ed9d1a660a454c1ea2.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_269c5a865bd4412c821edde18123cb41.pdf",
+      "approvedGitBlob": "f3eb20ac66892bbd7b3e920d3c12a1af86dacf54"
+    },
+    {
+      "level": 4,
+      "path": "public/Level 4/Building/Vehicles & Complex Movers/Lucky Cat/13.Lucky Cat-Building Manual.pdf",
+      "previousUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_658d1dafac9642bd89a8ae42d72e0a54.pdf",
+      "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_91015c8c0eac4c149be0bd82586169bd.pdf",
+      "approvedGitBlob": "9fcd3d4ff56b602719b0a301dc0cedbc09a6f77f"
+    }
+  ]
+}
