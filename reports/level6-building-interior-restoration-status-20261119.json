@@ -23,7 +23,10 @@
     "high_priority_ocr_label_hits": 6,
     "visual_classification_of_high_priority_hits": "3 hits = Rock-paper-scissors p14 known Chinese labels; 2 hits = Pay by card p3 previously hidden image-embedded Chinese; 1 hit = Clown p2 illustration false positive.",
     "known_chinese_affected_building_pdfs": 2,
-    "known_chinese_affected_pages": 2
+    "known_chinese_affected_pages": 2,
+    "additional_single_character_high_confidence_candidates_manually_reviewed": 14,
+    "additional_single_character_high_confidence_candidates_confirmed_chinese": 0,
+    "high_confidence_visual_review_note": "14 unusual OCR glyphs with confidence >=80, from Combination Lock, Flapping Pterosaur, Robotic Arm, Intelligent Sorting Machine, Regional Weather Station, Red Light Warning Device, Altimeter, Remote Control Lift, Vending Machine and Autonomous Driving, were inspected as rendered crops. All 14 are illustrations/robot hardware rather than Chinese text."
   },
   "confirmed_text_layer_chinese": [
     {
