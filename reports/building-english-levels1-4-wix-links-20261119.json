@@ -552,5 +552,19 @@
       "updatedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_91015c8c0eac4c149be0bd82586169bd.pdf",
       "approvedGitBlob": "9fcd3d4ff56b602719b0a301dc0cedbc09a6f77f"
     }
-  ]
+  ],
+  "wixMediaByteForByteVerification": {
+    "performed": true,
+    "verified_files": 77,
+    "matched_approved_git_blob_sha": 77,
+    "total_bytes": 303053750,
+    "mismatches": 0,
+    "method": "Download each READY Wix PDF and compute Git blob SHA-1 against approved local repair hash"
+  },
+  "githubMainPostMappingVerification": {
+    "commit": "8b493ce415db5034376b7524037d37b798720010",
+    "link_entries_matching": 77,
+    "original_binary_files_still_unmodified": 77,
+    "updated_binary_files_committed": 0
+  }
 }
