@@ -1,0 +1,744 @@
+{
+  "date": "2026-11-19",
+  "project": "BE STEM READY",
+  "scope": "Levels 1–4 Building PDFs only",
+  "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+  "siteUrl": "https://www.bestemready.com/",
+  "github_main_verified_before_upload": "02f1877fa56002ea065e99be817965e628d21967",
+  "distinct_approved_pdf_count": 77,
+  "level_specific_repairs": 78,
+  "shared_file_note": "Level 1 and Level 3 Gyro transmitter_Building.pdf share the same repository path; canonical restored file uses Level 3's complete cover and 16 footer corrections.",
+  "wix_status": "ALL_77_MEDIA_FILES_READY_AND_LINKED_IN_GITHUB_MAIN",
+  "github_pdf_binaries_status": "NOT_YET_COMMITTED_TO_MAIN",
+  "files": [
+    {
+      "level": 1,
+      "repository_path": "public/Acceleration car_Building.pdf",
+      "original_git_blob_sha": "e0398a0137390754ac7f14b3bf64e7b180a2aa76",
+      "approved_english_git_blob_sha": "a5b0e1735fcee1e62a844eeff3a440cd9db61ba5",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_135af4d6159446868f555c6341ac107f.pdf",
+      "wix_media_id": "78042f_135af4d6159446868f555c6341ac107f.pdf",
+      "pages": 19,
+      "bytes": 5332002
+    },
+    {
+      "level": 1,
+      "repository_path": "public/FUNNY CAT.pdf",
+      "original_git_blob_sha": "0ae397b461df78897d34b73a0e5c6c82729e1314",
+      "approved_english_git_blob_sha": "b398989a9d37c76d1e78a1e5d31bcb7aa61b903d",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cd064f746c184a6a98cce2e3e4307273.pdf",
+      "wix_media_id": "78042f_cd064f746c184a6a98cce2e3e4307273.pdf",
+      "pages": 21,
+      "bytes": 1413093
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Ferocious snake.pdf",
+      "original_git_blob_sha": "ac2441e1d6309b44a4c486ec7404ecd3fa3f4732",
+      "approved_english_git_blob_sha": "94d2d662f81350c8256d260cb595f46d59bae0fd",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_87f5be1948b044109a9e60dc75d81662.pdf",
+      "wix_media_id": "78042f_87f5be1948b044109a9e60dc75d81662.pdf",
+      "pages": 24,
+      "bytes": 1754491
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Shy penguin.pdf",
+      "original_git_blob_sha": "79149a28054b2fa4a9b088a5761fe5669f063835",
+      "approved_english_git_blob_sha": "e00cb216fe1310993f36721841dcc4ba9b5fa5cc",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_55648fbb48b042029c2492401d896455.pdf",
+      "wix_media_id": "78042f_55648fbb48b042029c2492401d896455.pdf",
+      "pages": 24,
+      "bytes": 1147793
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Sled dog.pdf",
+      "original_git_blob_sha": "e6b2bc12f65930446ff1522ad29960a31eb23568",
+      "approved_english_git_blob_sha": "0db0becbda43cf0b88eb6a2cfae78692034312a1",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_181a683a445145b98065b903fe98816a.pdf",
+      "wix_media_id": "78042f_181a683a445145b98065b903fe98816a.pdf",
+      "pages": 17,
+      "bytes": 907327
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Big head robot_Building.pdf",
+      "original_git_blob_sha": "c6007ca350e10e7a4a992eed822a7c0d54f5ed16",
+      "approved_english_git_blob_sha": "addeed3f47c1692e99c6d34b663122b2cd1c4199",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_4a06e63507c34d0a9653786ac61b5135.pdf",
+      "wix_media_id": "78042f_4a06e63507c34d0a9653786ac61b5135.pdf",
+      "pages": 11,
+      "bytes": 3763185
+    },
+    {
+      "level": 1,
+      "repository_path": "public/First Robot Model.pdf",
+      "original_git_blob_sha": "73c12dc37b41ed6a78b8786672ef1d19c3b8d781",
+      "approved_english_git_blob_sha": "e99f77f05b348452db1b7f188ceca5abc79505a9",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_bee0a42061e0453bba7541e6a760c3c6.pdf",
+      "wix_media_id": "78042f_bee0a42061e0453bba7541e6a760c3c6.pdf",
+      "pages": 15,
+      "bytes": 2167315
+    },
+    {
+      "level": 1,
+      "repository_path": "public/House_Building.pdf",
+      "original_git_blob_sha": "647eb4c3b0e4a9d6818dbb340224fa974a8bc435",
+      "approved_english_git_blob_sha": "c2ba461ca6f0986b8af80ce51707889ffda5e179",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_833a5f2eb330445c8c361d5a7e0cd6d4.pdf",
+      "wix_media_id": "78042f_833a5f2eb330445c8c361d5a7e0cd6d4.pdf",
+      "pages": 34,
+      "bytes": 13384268
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Sled_Building.pdf",
+      "original_git_blob_sha": "d0b6aa886a7d29d5ee877b3bab528624d3ef99f8",
+      "approved_english_git_blob_sha": "976712c3e1b1916b46abee6fbf931231b60b0ff2",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_52ad92b0136b49ad9ef631e7586fb9e9.pdf",
+      "wix_media_id": "78042f_52ad92b0136b49ad9ef631e7586fb9e9.pdf",
+      "pages": 13,
+      "bytes": 2994711
+    },
+    {
+      "level": 1,
+      "repository_path": "public/SpongeBob_Building.pdf",
+      "original_git_blob_sha": "5107d61e9ab4e4847df37bd427db6d7600342228",
+      "approved_english_git_blob_sha": "d54d8ef32a2ce7c90d7ae5785def3d77695e5f1c",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_7c8b26ad8ce74600a3000d03b0977970.pdf",
+      "wix_media_id": "78042f_7c8b26ad8ce74600a3000d03b0977970.pdf",
+      "pages": 9,
+      "bytes": 2862083
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Clock_Building.pdf",
+      "original_git_blob_sha": "3995134bbc521707fcf7d16af6bfc341f6e13fba",
+      "approved_english_git_blob_sha": "1045ad1922d21d38fcdad6d6b99e3c0fbf50a205",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_daf635f4bb6241e8a6b885391277b01c.pdf",
+      "wix_media_id": "78042f_daf635f4bb6241e8a6b885391277b01c.pdf",
+      "pages": 19,
+      "bytes": 7362924
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Drawing board_Building.pdf",
+      "original_git_blob_sha": "06711ddc484baa38f286c793bb2fd6689374fb4f",
+      "approved_english_git_blob_sha": "85a1f1136fc716a311d2e512ee2f7af347d046a2",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_42d48b6cddb746ca9a2448795ba1d22c.pdf",
+      "wix_media_id": "78042f_42d48b6cddb746ca9a2448795ba1d22c.pdf",
+      "pages": 12,
+      "bytes": 3373350
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Athlete.pdf",
+      "original_git_blob_sha": "f9fb100fcb27cdbca66d555343162db60d40b323",
+      "approved_english_git_blob_sha": "12626c506228b883678ae8c9fc1b4f332205fc9b",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_94972a4ae8f245798c092dd10387db2c.pdf",
+      "wix_media_id": "78042f_94972a4ae8f245798c092dd10387db2c.pdf",
+      "pages": 29,
+      "bytes": 1370413
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Basic programming.pdf",
+      "original_git_blob_sha": "d8ecb1661d930160e04d03cdd9825f49fa76c8b8",
+      "approved_english_git_blob_sha": "5057fc5ded495ea7ac0c78968c0a3c229831de9b",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2df25f674ef64e43a2fc67ca426671b7.pdf",
+      "wix_media_id": "78042f_2df25f674ef64e43a2fc67ca426671b7.pdf",
+      "pages": 34,
+      "bytes": 1547334
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Drummer robot.pdf",
+      "original_git_blob_sha": "f8c622f5d2143372ffe508c251f1610381d87ecc",
+      "approved_english_git_blob_sha": "a5ded2885e1c527781b49741c4d4ec88536cf3d3",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_1e90024877ad484694a504f5aa66ef58.pdf",
+      "wix_media_id": "78042f_1e90024877ad484694a504f5aa66ef58.pdf",
+      "pages": 23,
+      "bytes": 1538535
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Sailboat.pdf",
+      "original_git_blob_sha": "be89c789802af585db97d1cbb39ecfc24877a1c3",
+      "approved_english_git_blob_sha": "2229c72c2ca2514c309259bef1953ec1a5bd617c",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6356acb21e21497a8933560f27e83d0f.pdf",
+      "wix_media_id": "78042f_6356acb21e21497a8933560f27e83d0f.pdf",
+      "pages": 24,
+      "bytes": 1801498
+    },
+    {
+      "level": 1,
+      "repository_path": "public/The lawn mower.pdf",
+      "original_git_blob_sha": "13c474d454b47282cbfcd3a1f84cbe4ab1132983",
+      "approved_english_git_blob_sha": "81f72907c168f1d887bb4f8bdae9271b6ca7bd2b",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_758a67da5f494919902be22388e6db65.pdf",
+      "wix_media_id": "78042f_758a67da5f494919902be22388e6db65.pdf",
+      "pages": 19,
+      "bytes": 896556
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Car.pdf",
+      "original_git_blob_sha": "1cc1f1d9e95f02e8b793135f3e87a3b082158347",
+      "approved_english_git_blob_sha": "9ed4174c8de990a41fb04f9e5d2327ff191854a1",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9a9bf34f269f4a0fa317a3c8d22303c7.pdf",
+      "wix_media_id": "78042f_9a9bf34f269f4a0fa317a3c8d22303c7.pdf",
+      "pages": 14,
+      "bytes": 995551
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Dynamic screen.pdf",
+      "original_git_blob_sha": "0c26fb3c17f375aa272ba7f90b0688cd675f4a5d",
+      "approved_english_git_blob_sha": "dee143dca28c4f04a2d15e2b85a5eb8de7f6938c",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_a1ba4b03abad49b1a650978a7f5846ae.pdf",
+      "wix_media_id": "78042f_a1ba4b03abad49b1a650978a7f5846ae.pdf",
+      "pages": 13,
+      "bytes": 1267155
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Pendulum ride.pdf",
+      "original_git_blob_sha": "ad8bca01f8d9badfefb39d1914fa615cbf4df3ac",
+      "approved_english_git_blob_sha": "6acf1af5a54bf9730e3cc983232b919c99babfc7",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_56d00d83000d4ceea9088b3c22e9d16c.pdf",
+      "wix_media_id": "78042f_56d00d83000d4ceea9088b3c22e9d16c.pdf",
+      "pages": 17,
+      "bytes": 4298650
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Rotating flying chair.pdf",
+      "original_git_blob_sha": "541ca580fb782bcdc3998e0daa88946b61ca9065",
+      "approved_english_git_blob_sha": "0f1b24fef412dedd0407e0ab1a320d98ffe9d438",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e930f1bea6d24672be033e2ceb286db0.pdf",
+      "wix_media_id": "78042f_e930f1bea6d24672be033e2ceb286db0.pdf",
+      "pages": 17,
+      "bytes": 1212688
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Skating.pdf",
+      "original_git_blob_sha": "4259c59548bd06eb9126b51e7b93773ec55cce33",
+      "approved_english_git_blob_sha": "bc634edca663f8eeec48618233dc1191bcb57b55",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_8dafbc61078b403cbabe58cbc04ac83c.pdf",
+      "wix_media_id": "78042f_8dafbc61078b403cbabe58cbc04ac83c.pdf",
+      "pages": 11,
+      "bytes": 796909
+    },
+    {
+      "level": 1,
+      "repository_path": "public/The windmill kingdom.pdf",
+      "original_git_blob_sha": "e881cb11620ff153479f45d749ba2b2d5d146bc7",
+      "approved_english_git_blob_sha": "69a16ce64e996a1cca62b603b74efdd19a1cd334",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ff09b2a4b37648cc9427ed9ab29fbbb8.pdf",
+      "wix_media_id": "78042f_ff09b2a4b37648cc9427ed9ab29fbbb8.pdf",
+      "pages": 29,
+      "bytes": 1659070
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Blinking robot_Building.pdf",
+      "original_git_blob_sha": "ef3fe63c9490932b7a566343cb7d05fc4124929c",
+      "approved_english_git_blob_sha": "693885a2c0c765ff1ee43d77f668b14dd1c8309b",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_40cb5c9dc47f484ca486051177f6fd7b.pdf",
+      "wix_media_id": "78042f_40cb5c9dc47f484ca486051177f6fd7b.pdf",
+      "pages": 8,
+      "bytes": 2294045
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Corridor lamp_Building.pdf",
+      "original_git_blob_sha": "c9f6512d2b9b18b09826418a8b4c412c777a7866",
+      "approved_english_git_blob_sha": "d9429db2d051e8e6258e3bbfe5bf71e033493e0c",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_7058712da41041dcaca710b4534264e8.pdf",
+      "wix_media_id": "78042f_7058712da41041dcaca710b4534264e8.pdf",
+      "pages": 13,
+      "bytes": 5168475
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Help light_Building.pdf",
+      "original_git_blob_sha": "b6eff27ab0217fded465c3d0c0ea6a55a1e659c5",
+      "approved_english_git_blob_sha": "653554cd5a64870b415b09bf8d98a5e15fb5bab7",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_81194bf536064aaa9754a0a2975cfd2b.pdf",
+      "wix_media_id": "78042f_81194bf536064aaa9754a0a2975cfd2b.pdf",
+      "pages": 8,
+      "bytes": 1791448
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Lighthouse_Building.pdf",
+      "original_git_blob_sha": "29df31ff6222be819c34f42add05a594076d1b52",
+      "approved_english_git_blob_sha": "1269f67c8bfdc79c253621fb6450c741475ebcec",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0e0f8121b47d4bd4a1b9f0545c19ed2e.pdf",
+      "wix_media_id": "78042f_0e0f8121b47d4bd4a1b9f0545c19ed2e.pdf",
+      "pages": 18,
+      "bytes": 5516843
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Little stars_Building.pdf",
+      "original_git_blob_sha": "96a51712e440ef64b34622744a1c8ef5402a08c4",
+      "approved_english_git_blob_sha": "8029ba4fe2b3a8535ab58bc219f857e5f72eae4b",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_aace3c23f40844a796268ca64c280033.pdf",
+      "wix_media_id": "78042f_aace3c23f40844a796268ca64c280033.pdf",
+      "pages": 13,
+      "bytes": 2954406
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Traffic light_Building.pdf",
+      "original_git_blob_sha": "66eb7ebd399a556668d6f8b3a15665437eb6eab4",
+      "approved_english_git_blob_sha": "5a4ae83ed2e349fe2fb5c3de8ee69034eec9c1af",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_56b3ad6a55d542d5b2232d6867c01ba9.pdf",
+      "wix_media_id": "78042f_56b3ad6a55d542d5b2232d6867c01ba9.pdf",
+      "pages": 9,
+      "bytes": 2220925
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Responder_Building.pdf",
+      "original_git_blob_sha": "4ca98ac8f0aed59432de2cc10142dc5f1781154f",
+      "approved_english_git_blob_sha": "75000b9d9c6a1f895356092991434cbb3eb4beb3",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6e35900c7e384c67bbf3213ed06b73a6.pdf",
+      "wix_media_id": "78042f_6e35900c7e384c67bbf3213ed06b73a6.pdf",
+      "pages": 7,
+      "bytes": 2071450
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Motorcycle_Building.pdf",
+      "original_git_blob_sha": "65cad44adc8585d75e68f9fb9e14f82bd84c703a",
+      "approved_english_git_blob_sha": "a33ef7fd38c1b29f4bde7c2893a8969d998bf31e",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e9cf0a2786e944f094444c3e7a31cded.pdf",
+      "wix_media_id": "78042f_e9cf0a2786e944f094444c3e7a31cded.pdf",
+      "pages": 20,
+      "bytes": 4909616
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Pull back car_Building.pdf",
+      "original_git_blob_sha": "abd0734123d08e22a289f15aced283814f1930fa",
+      "approved_english_git_blob_sha": "a977913aa0e356570fbe13aa067a08f130542e81",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_1ca5caf3ad2f4a7c9d64be4b7f4f82b9.pdf",
+      "wix_media_id": "78042f_1ca5caf3ad2f4a7c9d64be4b7f4f82b9.pdf",
+      "pages": 19,
+      "bytes": 5969736
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Little Owl.pdf",
+      "original_git_blob_sha": "73329b0e9e67e1ea5147d17c68228da68dc893e4",
+      "approved_english_git_blob_sha": "1a040ef26c48ec5c964237e856806edba582ed99",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_1112349c669b43429df7daa91ca3b94f.pdf",
+      "wix_media_id": "78042f_1112349c669b43429df7daa91ca3b94f.pdf",
+      "pages": 18,
+      "bytes": 9138371
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Oscillating Fan.pdf",
+      "original_git_blob_sha": "fd4be72ff27de80a2e96cc7066eb1cad54c14e8e",
+      "approved_english_git_blob_sha": "d894a8b87e98a953d583b1b146a25bfda9e8b96e",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b51988ff5bef422fb26954d6f9e6bb7f.pdf",
+      "wix_media_id": "78042f_b51988ff5bef422fb26954d6f9e6bb7f.pdf",
+      "pages": 20,
+      "bytes": 7954662
+    },
+    {
+      "level": 1,
+      "repository_path": "public/Hand-cranking Fan.pdf",
+      "original_git_blob_sha": "760146f07926a0a5f045077bdb5c18f41f54b5ea",
+      "approved_english_git_blob_sha": "8af23436c8aca2b6b4b874147a6ccd1ec93b5a5a",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_1acc28084a3c44ad8fcd7f6ebc7dbb4c.pdf",
+      "wix_media_id": "78042f_1acc28084a3c44ad8fcd7f6ebc7dbb4c.pdf",
+      "pages": 12,
+      "bytes": 4459965
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Animal trap.pdf",
+      "original_git_blob_sha": "3c1bfe3b2ebaa836dc54d581ed267fb4b57564cc",
+      "approved_english_git_blob_sha": "d3817c2e738575e30efa8646640aeab17b499de9",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c031b42bbda14028bf8a654778ceaa45.pdf",
+      "wix_media_id": "78042f_c031b42bbda14028bf8a654778ceaa45.pdf",
+      "pages": 18
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Automatic window.pdf",
+      "original_git_blob_sha": "436e8bdaadc0f85d0101662efcf5c64d43cf99ef",
+      "approved_english_git_blob_sha": "3a3995703be1fa8f6cc66c580f6dbe56c8c27244",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ab01dd19b27c4795a341e0ab8a5d80f1.pdf",
+      "wix_media_id": "78042f_ab01dd19b27c4795a341e0ab8a5d80f1.pdf",
+      "pages": 19
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Balance_v2.pdf",
+      "original_git_blob_sha": "21df7860ba63c17acc720bc69381d4cf41d34e76",
+      "approved_english_git_blob_sha": "a94fc8f028b6936405f124b93e6b1fd8796a9164",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e349f1cbc2934e179872a23a815df844.pdf",
+      "wix_media_id": "78042f_e349f1cbc2934e179872a23a815df844.pdf",
+      "pages": 10
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Balance.pdf",
+      "original_git_blob_sha": "953286e4ef78a9c375a054fb39a9d27bde3cbbf5",
+      "approved_english_git_blob_sha": "fc3fa184708687887055bed12497c3f9be9cd515",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b23c014f2a3446359a14032430ea48b8.pdf",
+      "wix_media_id": "78042f_b23c014f2a3446359a14032430ea48b8.pdf",
+      "pages": 10
+    },
+    {
+      "level": 2,
+      "repository_path": "public/BEE.pdf",
+      "original_git_blob_sha": "14f650e83617d5aa17d5c5ebe3ed15a549bc17da",
+      "approved_english_git_blob_sha": "1abea2a1902ff6a704a56aa0d5968bd9b406d7e8",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f2257130ccc54df8a8ea61f70e87fb91.pdf",
+      "wix_media_id": "78042f_f2257130ccc54df8a8ea61f70e87fb91.pdf",
+      "pages": 20
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Bridge_Building.pdf",
+      "original_git_blob_sha": "8798795f26e5ce13efd4fff8b96fa21f6aebc33c",
+      "approved_english_git_blob_sha": "823fab22170a2243a6593601350a7a5baedc2480",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_65862b24eee445128168f5de4ee80ee1.pdf",
+      "wix_media_id": "78042f_65862b24eee445128168f5de4ee80ee1.pdf",
+      "pages": 15
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Car Steering.pdf",
+      "original_git_blob_sha": "71d6652607982fe78dae04fad75dc482ae4f7be7",
+      "approved_english_git_blob_sha": "cd9b60ba4d0d80e8160192fbe8ae7abc1a28c7cf",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c8fe4c3cc3f147f3871f79cc6646bb3e.pdf",
+      "wix_media_id": "78042f_c8fe4c3cc3f147f3871f79cc6646bb3e.pdf",
+      "pages": 22
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Chimpanzees.pdf",
+      "original_git_blob_sha": "1c6f7bc66a50a5d6289f30d5f2f016dae2c89d01",
+      "approved_english_git_blob_sha": "74b5b054951fac6bbb3c8fd96ce74237074a74a3",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_faf03246048040b692f555249b32ad15.pdf",
+      "wix_media_id": "78042f_faf03246048040b692f555249b32ad15.pdf",
+      "pages": 14
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Cliff walk.pdf",
+      "original_git_blob_sha": "d4fc4797753b387dd6b0bf40b713ca8e706c37c7",
+      "approved_english_git_blob_sha": "997b01642531a48355a2abe5d1320a50b5a6c10b",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0506a47611384efc957ca1d9120301e7.pdf",
+      "wix_media_id": "78042f_0506a47611384efc957ca1d9120301e7.pdf",
+      "pages": 12
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Crane_.pdf",
+      "original_git_blob_sha": "6d67b0f8c9895428b9b7a38e6c90cddd1a396977",
+      "approved_english_git_blob_sha": "6df91bf8dd41076ed1026ee74be7070b3122f3f6",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e899154e23df4b3ca5f313347744217c.pdf",
+      "wix_media_id": "78042f_e899154e23df4b3ca5f313347744217c.pdf",
+      "pages": 40
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Door_Building.pdf",
+      "original_git_blob_sha": "67668a7e64bc00f196cb7ff009a328d77bdb3090",
+      "approved_english_git_blob_sha": "b784dbfd94d07c3142820d0e5d384370fd4fe159",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9f73091b93e9459fac2603819689b4ba.pdf",
+      "wix_media_id": "78042f_9f73091b93e9459fac2603819689b4ba.pdf",
+      "pages": 10
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Double beam crane_Building.pdf",
+      "original_git_blob_sha": "d48c08a547336a19d3765d8c7ccb24da13e15ecf",
+      "approved_english_git_blob_sha": "08499d01d01ad8181ff70509175d0fabf8f7954d",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cf9221967f804769ad6e7d3d50c47eab.pdf",
+      "wix_media_id": "78042f_cf9221967f804769ad6e7d3d50c47eab.pdf",
+      "pages": 22
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Ferris wheel.pdf",
+      "original_git_blob_sha": "92a8ffdac55fe538042e20ba7cda47dbce50f834",
+      "approved_english_git_blob_sha": "75bec5b05105a9b87d3339ba10c4cd46b3110fa7",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e19ce390112d4687ba0f3e7c9ece89aa.pdf",
+      "wix_media_id": "78042f_e19ce390112d4687ba0f3e7c9ece89aa.pdf",
+      "pages": 22
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Flashlight_Building.pdf",
+      "original_git_blob_sha": "e14747c661a5eb3b8264d4f63ac1b8c270e0c89f",
+      "approved_english_git_blob_sha": "3868875e6339b4e6713e7b074e98f713779dd629",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0e2b16ec833946eaa67305b1b38fc319.pdf",
+      "wix_media_id": "78042f_0e2b16ec833946eaa67305b1b38fc319.pdf",
+      "pages": 15
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Gearbox_Building.pdf",
+      "original_git_blob_sha": "152fdae6b1a305dbd7b8eb1b1dca97ab8d522cf3",
+      "approved_english_git_blob_sha": "d36685c96cdddcb74ac98ea3f1751b9f55116faa",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_47fcd935e8894045b7b4017ab210183e.pdf",
+      "wix_media_id": "78042f_47fcd935e8894045b7b4017ab210183e.pdf",
+      "pages": 20
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Hammer robot.pdf",
+      "original_git_blob_sha": "3289cba0dc5f248ee4ea637e5dc2bbae5fe4dfbe",
+      "approved_english_git_blob_sha": "d88e7aeef7235812336128d83a6120f66dc83039",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_976489b6546f4ab5a8f1723f2eadad2d.pdf",
+      "wix_media_id": "78042f_976489b6546f4ab5a8f1723f2eadad2d.pdf",
+      "pages": 22
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Hand crank_Building.pdf",
+      "original_git_blob_sha": "aac537c905dafec17ce41d94a53450a866e212a1",
+      "approved_english_git_blob_sha": "42ffa3111761e2de0fe0024ff7345c95291ec08b",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_088e2b77a9a746fd9508de9054bf429d.pdf",
+      "wix_media_id": "78042f_088e2b77a9a746fd9508de9054bf429d.pdf",
+      "pages": 11
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Harp_Building.pdf",
+      "original_git_blob_sha": "8fdc6663611b7aeb684afe9a756cfca658b58106",
+      "approved_english_git_blob_sha": "06e478e8223ad72672f696d169af5fd401d405c9",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_127112d924ea469091806c1c47dce36b.pdf",
+      "wix_media_id": "78042f_127112d924ea469091806c1c47dce36b.pdf",
+      "pages": 10
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Headlights.pdf",
+      "original_git_blob_sha": "961ea85e1cd52a18318791b874a8229cad743c23",
+      "approved_english_git_blob_sha": "b881202ec518483feab50e6968e9dc3691a0d399",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_a5ed1f1e93d543a886c753f87c0b6330.pdf",
+      "wix_media_id": "78042f_a5ed1f1e93d543a886c753f87c0b6330.pdf",
+      "pages": 14
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Jumping machine_Building.pdf",
+      "original_git_blob_sha": "fdef944d28b23099fb20fd92139eaf2fd57c6608",
+      "approved_english_git_blob_sha": "59f644717ed7455240e0eacaabeb73ed0098a3d8",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0d9f6f2dec834ead9e33b7c90d06e15f.pdf",
+      "wix_media_id": "78042f_0d9f6f2dec834ead9e33b7c90d06e15f.pdf",
+      "pages": 18
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Lifting door_Building.pdf",
+      "original_git_blob_sha": "c9462f702c7602c40e1e53001500c2d107f87b7f",
+      "approved_english_git_blob_sha": "bcacb16aaa15caf58dbfcbce704dc7eb56f95c5d",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cec9616801f946c2ae0043bc95f8a536.pdf",
+      "wix_media_id": "78042f_cec9616801f946c2ae0043bc95f8a536.pdf",
+      "pages": 27
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Lucky turntable.pdf",
+      "original_git_blob_sha": "049c3292d095ae3eb9cc8d31d246b93934a007d8",
+      "approved_english_git_blob_sha": "90ecdd468a6e75504b37099ca6696d181382a12c",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_80611a94450b4d62a6a2ea78e409db6e.pdf",
+      "wix_media_id": "78042f_80611a94450b4d62a6a2ea78e409db6e.pdf",
+      "pages": 22
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Mechanical dog.pdf",
+      "original_git_blob_sha": "0b40358a925639d5ffac13f551ac69c1aebc0f96",
+      "approved_english_git_blob_sha": "8dd115c7bdbc0dfd27a0d79244f7ec5db43e6b0b",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_07f47f0b3c5c4a32b68f1152a8c02093.pdf",
+      "wix_media_id": "78042f_07f47f0b3c5c4a32b68f1152a8c02093.pdf",
+      "pages": 14
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Pirate ship_Building.pdf",
+      "original_git_blob_sha": "cae6cbbfa3b330627394b7b10e879b8dfc609313",
+      "approved_english_git_blob_sha": "742622419638d99be016e612ba5ba1eae4d76416",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_00644c98f0204033a9713840dfc58dbc.pdf",
+      "wix_media_id": "78042f_00644c98f0204033a9713840dfc58dbc.pdf",
+      "pages": 15
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Pliers.pdf",
+      "original_git_blob_sha": "b87354730e587b2f22920041c60e61f960703463",
+      "approved_english_git_blob_sha": "fb30842584028de64cf628cc0ccc3eebb12d0636",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2865bdb79f2c48f88386b685adc5bb8f.pdf",
+      "wix_media_id": "78042f_2865bdb79f2c48f88386b685adc5bb8f.pdf",
+      "pages": 13
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Robot war.pdf",
+      "original_git_blob_sha": "8a7f1760c9623ffa6e089c90701648c6e1aecbe3",
+      "approved_english_git_blob_sha": "79333498bf300bc3a3a452d7728296f83ecc842d",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_565442dd664f4d839b23319a3cf693c2.pdf",
+      "wix_media_id": "78042f_565442dd664f4d839b23319a3cf693c2.pdf",
+      "pages": 25
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Rotating flying chair_Building.pdf",
+      "original_git_blob_sha": "4291b8dd08df9c651e270e1f855d76b304ecb8d3",
+      "approved_english_git_blob_sha": "0eda57ae2bc959aca61c49703fc3373d131b7395",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c3b083b9ebae4025b7d68017b64dd1aa.pdf",
+      "wix_media_id": "78042f_c3b083b9ebae4025b7d68017b64dd1aa.pdf",
+      "pages": 11
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Round-trip transportation.pdf",
+      "original_git_blob_sha": "4302e1cc92b1474f5abdef57a2de9736f42a5e0a",
+      "approved_english_git_blob_sha": "443a39cbb547a8a9b491f1d532c4d69ecdb4231e",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_7b55e529ac684005bbbcca7dc25da110.pdf",
+      "wix_media_id": "78042f_7b55e529ac684005bbbcca7dc25da110.pdf",
+      "pages": 15
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Scaling ladder.pdf",
+      "original_git_blob_sha": "f001a8447b56b90a639b2b923b4a33774fa1e76c",
+      "approved_english_git_blob_sha": "b519581c67658ca7ed5943a038708ec06674211a",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_39cdb93334904fa18a188f9d5a2a7c96.pdf",
+      "wix_media_id": "78042f_39cdb93334904fa18a188f9d5a2a7c96.pdf",
+      "pages": 22
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Shift gears.pdf",
+      "original_git_blob_sha": "3041120a52e8b7091c8796580670e2f5ae47dc8f",
+      "approved_english_git_blob_sha": "ec4a4e8428450ca2fd7db6a5ca5fc9fd8ee396b9",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_08aeb18334204c7fb65fcede60af5012.pdf",
+      "wix_media_id": "78042f_08aeb18334204c7fb65fcede60af5012.pdf",
+      "pages": 19
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Tank.pdf",
+      "original_git_blob_sha": "529bccadbde1fc83b5f994d69e412e72e46410da",
+      "approved_english_git_blob_sha": "f086f4ffe0a71fb23e3b10b82981e3a1fac1b025",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e9bdb4f105704dbe8e61d9025882d4b2.pdf",
+      "wix_media_id": "78042f_e9bdb4f105704dbe8e61d9025882d4b2.pdf",
+      "pages": 32
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Teeterboard.pdf",
+      "original_git_blob_sha": "21df7860ba63c17acc720bc69381d4cf41d34e76",
+      "approved_english_git_blob_sha": "66845acdc2468e72600bbd096ea1cc7ca69f3966",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2178e928238b40e8afd79d03ec978435.pdf",
+      "wix_media_id": "78042f_2178e928238b40e8afd79d03ec978435.pdf",
+      "pages": 10
+    },
+    {
+      "level": 2,
+      "repository_path": "public/The treadmill.pdf",
+      "original_git_blob_sha": "30f93ed7184c756294d27c60c6e71c7e88329285",
+      "approved_english_git_blob_sha": "e9dba3aa4add16ae6a32a77e6d6ff17bc423705e",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6c374dba007d41649bcb36c9cc9b168f.pdf",
+      "wix_media_id": "78042f_6c374dba007d41649bcb36c9cc9b168f.pdf",
+      "pages": 18
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Tightrope walk.pdf",
+      "original_git_blob_sha": "fc2a37c7bcfac70c0f1b2afb6ff68f7f21ce02a3",
+      "approved_english_git_blob_sha": "65c3e1c4d4f529e45f7cf6721682f1318664b79b",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9d342a952cad44c0a67abeb185a9870c.pdf",
+      "wix_media_id": "78042f_9d342a952cad44c0a67abeb185a9870c.pdf",
+      "pages": 14
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Tower crane_Building.pdf",
+      "original_git_blob_sha": "1a92c09b5a21f26a51b9868677eb283cd2e3605e",
+      "approved_english_git_blob_sha": "929597f5dffba314146eb44862df26fad317dcb5",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_df23e113a7f7491a8a40730a0a1e5da9.pdf",
+      "wix_media_id": "78042f_df23e113a7f7491a8a40730a0a1e5da9.pdf",
+      "pages": 18
+    },
+    {
+      "level": 2,
+      "repository_path": "public/Walking Robot.pdf",
+      "original_git_blob_sha": "a12735eb2559ce9044880d77771eb99970216f09",
+      "approved_english_git_blob_sha": "0b9ade90acc26a3f8039a88def478349eff19683",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b9e03b9e4fe64cf18c49fd214b63ef62.pdf",
+      "wix_media_id": "78042f_b9e03b9e4fe64cf18c49fd214b63ef62.pdf",
+      "pages": 35
+    },
+    {
+      "level": 3,
+      "repository_path": "public/Gyro transmitter_Building.pdf",
+      "original_git_blob_sha": "82871820203830b6932c5b314ab7afa70183f215",
+      "approved_english_git_blob_sha": "e0c905c9b5affabddac75de96f7de0481d0a210d",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+      "wix_media_id": "78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+      "pages": 17,
+      "sharedWithLevel1": true
+    },
+    {
+      "level": 3,
+      "repository_path": "public/Electronic scale.pdf",
+      "original_git_blob_sha": "3afceb33862213ed99d10bfa0fb4d994c57a7184",
+      "approved_english_git_blob_sha": "a56708e48fb4f4337ea9578823a5cbace65eab06",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9ea1f915116b429895c75c161797983d.pdf",
+      "wix_media_id": "78042f_9ea1f915116b429895c75c161797983d.pdf",
+      "pages": 27
+    },
+    {
+      "level": 4,
+      "repository_path": "public/Level 4/Building/Characters & Structures/Swimming Plesiosaur/19. Swimming Plesiosaur-Building Manual.pdf",
+      "original_git_blob_sha": "73217eadc98fe48e164237db8db12f64668445cf",
+      "approved_english_git_blob_sha": "61fdc1a5eebd57f349fbd7eb10de4dc35ccd3f2d",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e1d762a64ef24a5897241782a262a6a0.pdf",
+      "wix_media_id": "78042f_e1d762a64ef24a5897241782a262a6a0.pdf",
+      "pages": 40
+    },
+    {
+      "level": 4,
+      "repository_path": "public/Level 4/Building/Mechanisms & Simulators/Telegraph/09.Telegraph -Building Manual.pdf",
+      "original_git_blob_sha": "afb49aca75e0bd166af3114a981d46ebb26933f7",
+      "approved_english_git_blob_sha": "f4a54eca331ed4c296d175b9d8d59041dc5fe201",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_572488c57ef34acb8426a499803d90c4.pdf",
+      "wix_media_id": "78042f_572488c57ef34acb8426a499803d90c4.pdf",
+      "pages": 25
+    },
+    {
+      "level": 4,
+      "repository_path": "public/Level 4/Building/Mechanisms & Simulators/Turbo Drop/28. Turbo Drop-Building Manual.pdf",
+      "original_git_blob_sha": "3b7bad44e4c92a4f56c7281ca6f34424e469a87f",
+      "approved_english_git_blob_sha": "f3eb20ac66892bbd7b3e920d3c12a1af86dacf54",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_269c5a865bd4412c821edde18123cb41.pdf",
+      "wix_media_id": "78042f_269c5a865bd4412c821edde18123cb41.pdf",
+      "pages": 34
+    },
+    {
+      "level": 4,
+      "repository_path": "public/Level 4/Building/Vehicles & Complex Movers/Lucky Cat/13.Lucky Cat-Building Manual.pdf",
+      "original_git_blob_sha": "6915639b79eb8fb6acd980bf2752ad24b4ed5d5f",
+      "approved_english_git_blob_sha": "9fcd3d4ff56b602719b0a301dc0cedbc09a6f77f",
+      "wix_media_url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_91015c8c0eac4c149be0bd82586169bd.pdf",
+      "wix_media_id": "78042f_91015c8c0eac4c149be0bd82586169bd.pdf",
+      "pages": 28
+    }
+  ]
+}
