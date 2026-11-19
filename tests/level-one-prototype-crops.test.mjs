@@ -44,11 +44,12 @@ test("PDF reference viewer displays a crop only and never offers step navigation
   assert.doesNotMatch(component, /<iframe|<object|<embed|window\.open|download=/);
 });
 
-test("student Start button requires a Wix-hosted official Building PDF link", () => {
+test("student Start button requires Building Studio and blocks unpublished cleaned PDFs", () => {
   const route = readFileSync(new URL("../src/routes/practical/level-1.final-build.tsx", import.meta.url), "utf8");
-  assert.match(route, /const canStart = Boolean\(manualUrl\?\.startsWith\("https:\/\/"\)/);
+  assert.match(route, /const canStart = Boolean\(buildingStudioHref && manualUrl && !cleanUploadPending\)/);
   assert.match(route, /disabled=\{!canStart\}/);
-  assert.match(route, /View Original Building PDF \(Wix\)/);
+  assert.match(route, /Open Building Studio/);
+  assert.doesNotMatch(route, /View Original Building PDF \(Wix\)/);
 });
 
 test("Acceleration Car has a dedicated official PDF reference", () => {
@@ -68,4 +69,14 @@ test("Robot Discovery Scanner replaces carnival wheel without changing equal sel
   assert.match(route, /Skip animation/);
   assert.match(scanner, /prefers-reduced-motion: reduce/);
   assert.match(scanner, /bsr-scanner-beam/);
+});
+
+test("all 19 unpublished restored PDFs are blocked from Final Build until their binaries are committed", () => {
+  const module = readFileSync(new URL("../src/data/levelOneBuildingCleanStatus.ts", import.meta.url), "utf8");
+  const ids = [...module.matchAll(/^  "([a-z0-9-]+)",?$/gm)].map(match => match[1]);
+  assert.equal(ids.length, 19);
+  assert.equal(new Set(ids).size, 19);
+  const route = readFileSync(new URL("../src/routes/practical/level-1.final-build.tsx", import.meta.url), "utf8");
+  assert.match(route, /LEVEL_ONE_BUILDING_CLEAN_UPLOAD_PENDING\.has\(manualProjectId\)/);
+  assert.match(route, /\?mode=building/);
 });

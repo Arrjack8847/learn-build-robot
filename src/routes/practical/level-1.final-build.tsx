@@ -10,6 +10,7 @@ import { LevelOneBackdrop, LevelOneHeader } from "@/components/practical/LevelOn
 import { FinalBuildScanner } from "@/components/practical/FinalBuildScanner";
 import { FinalBuildPrototype, type PrototypeStatus } from "@/components/practical/FinalBuildPrototype";
 import prototypeCrops from "@/data/levelOnePrototypeCrops.json";
+import { LEVEL_ONE_BUILDING_CLEAN_UPLOAD_PENDING } from "@/data/levelOneBuildingCleanStatus";
 
 export const Route = createFileRoute("/practical/level-1/final-build")({ component: FinalBuildPage });
 
@@ -123,7 +124,13 @@ function FinalBuildPage() {
   // No unapproved candidate may unlock the student challenge.
   // The live build challenge opens the official Wix-hosted PDF rather than
   // gating students on unapproved/experimental cropped model screenshots.
-  const canStart = Boolean(manualUrl?.startsWith("https://") && /\.pdf(?:\?|$)/i.test(manualUrl));
+  const cleanUploadPending = Boolean(manualProjectId && LEVEL_ONE_BUILDING_CLEAN_UPLOAD_PENDING.has(manualProjectId));
+  const buildingStudioHref = manualProjectId
+    ? `/practical/${encodeURIComponent(manualProjectId)}?mode=building`
+    : undefined;
+  // The 19 verified replacements are not in Git yet. Do not expose the older
+  // Wix PDFs as though they were restored to English.
+  const canStart = Boolean(buildingStudioHref && manualUrl && !cleanUploadPending);
   const checks = useMemo(() => project ? checksFor(project.name, project.category) : [], [project]);
   const remaining = session.deadline ? Math.max(0, session.deadline - now) : LIMIT_MS;
   const time = `${String(Math.floor(remaining / 60000)).padStart(2, "0")}:${String(Math.floor((remaining % 60000) / 1000)).padStart(2, "0")}`;
@@ -274,14 +281,20 @@ function FinalBuildPage() {
                   <div className="mb-4 rounded-2xl border-2 border-sky-200 bg-gradient-to-b from-[#e9f8ff] to-white p-4 text-center">
                     <div aria-hidden="true" className="mx-auto mb-2 flex size-16 items-center justify-center rounded-2xl bg-[#d2f5ff] text-4xl shadow-inner">🤖</div>
                     <p className="text-sm font-black text-[#195ca5]">Robot detected!</p>
-                    <p className="mt-1 text-xs font-semibold text-slate-600">Your official Building Guide is hosted on Wix Studio.</p>
-                    {manualUrl?.startsWith("https://") ? (
-                      <a href={manualUrl} target="_blank" rel="noopener noreferrer"
+                    <p className="mt-1 text-xs font-semibold text-slate-600">
+                      Open the official Building Studio while keeping your challenge timer here.
+                    </p>
+                    {cleanUploadPending ? (
+                      <p className="mt-3 rounded-xl border border-amber-300 bg-amber-50 px-3 py-3 text-sm font-bold text-amber-900" role="status">
+                        The English-cleaned Building PDF has passed restoration checks but is not yet published on GitHub. This challenge is paused rather than showing the older Chinese version.
+                      </p>
+                    ) : buildingStudioHref ? (
+                      <a href={buildingStudioHref} target="_blank" rel="noopener noreferrer"
                         className="mx-auto mt-3 flex min-h-12 max-w-sm items-center justify-center gap-2 rounded-xl border-2 border-[#3ab4ea] bg-white px-4 text-sm font-black text-[#17619b] shadow-sm hover:bg-[#f4fcff] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2187e1]">
-                        View Original Building PDF (Wix) <ExternalLink className="size-4"/>
+                        Open Building Studio <ExternalLink className="size-4"/>
                       </a>
                     ) : (
-                      <p className="mt-3 text-sm font-bold text-rose-700" role="alert">The official Building PDF link is unavailable for this project.</p>
+                      <p className="mt-3 text-sm font-bold text-rose-700" role="alert">The Building Studio is unavailable for this project.</p>
                     )}
                     {reviewMode && candidate && manualFilename && manualUrl && (
                       <div className="mt-3 rounded-xl border border-amber-200 bg-white p-2">
