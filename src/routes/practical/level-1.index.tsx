@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import {
   ArrowRight, Bot, Car, Cog, Hand, HandMetal, Lightbulb, MonitorPlay,
-  Orbit, PawPrint, Puzzle, Radar, ScanEye, Search, Shapes, Truck,
+  Orbit, PawPrint, Puzzle, Radar, ScanEye, Search, Shapes, Truck, Trophy,
   type LucideIcon,
 } from "lucide-react";
 import { LEVEL_ONE_CATEGORIES, type LevelOneCategory } from "@/data/levelOneCategories";
@@ -107,6 +107,16 @@ function LevelOneCategoriesPage() {
             </div>
           )}
         </section>
+
+        <Link to="/practical/level-1/final-build"
+          className="mt-7 flex min-h-28 items-center gap-4 rounded-[26px] border-2 border-amber-200 bg-amber-50 p-5 shadow-sm transition hover:bg-amber-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500">
+          <span className="grid size-16 shrink-0 place-items-center rounded-2xl bg-amber-200 text-amber-800"><Trophy className="size-9" aria-hidden="true" /></span>
+          <span className="flex-1">
+            <span className="block text-lg font-black text-slate-800">Final Build Challenge</span>
+            <span className="mt-1 block text-sm font-semibold text-slate-600">Spin for a robot · Build in 15 minutes · Check your work</span>
+          </span>
+          <ArrowRight className="size-6 shrink-0 text-amber-700" aria-hidden="true" />
+        </Link>
 
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3 rounded-[24px] border border-sky-100 bg-[#f3faff] px-5 py-5 text-center">
           <p className="text-sm font-semibold text-slate-600">
