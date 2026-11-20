@@ -44,7 +44,7 @@ test("All six levels have accessible navigation and category/detail routes", () 
   const detail = read("src/routes/practical/levels.$levelNumber.$categoryId.tsx");
   const sharedCategories = read("src/components/practical/ResponsiveCategories.tsx");
   assert.match(home, /to="\/practical\/levels"/);
-  const artwork = [...index.matchAll(/\{\s*number:\\s*([1-6]),\\s*art:\\s*"([^"]+)"/g)];
+  const artwork = [...index.matchAll(/\{\s*number:\s*([1-6]),\s*art:\s*"([^"]+)"/g)];
   assert.deepEqual(artwork.map(match => Number(match[1])), [1, 2, 3, 4, 5, 6]);
   assert.deepEqual(artwork.map(match => match[2]), [
     "level-1.webp", "level-2.webp", "level-3.webp",
