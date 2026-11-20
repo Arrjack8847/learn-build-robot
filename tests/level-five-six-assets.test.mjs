@@ -26,7 +26,7 @@ test("original curriculum resources are represented without inventing manuals", 
 });
 
 test("every registered asset is tracked in the repository", () => {
-  const listed = new Set(execFileSync("git", ["ls-tree", "-r", "--name-only", "HEAD"], { encoding: "utf8" }).trim().split(/\r?\n/));
+  const listed = new Set(execFileSync("git", ["-c", "core.quotePath=false", "ls-tree", "-r", "--name-only", "HEAD"], { encoding: "utf8" }).trim().split(/\r?\n/));
   for (const lesson of lessons) {
     for (const pdf of [lesson.learningPdf, lesson.buildingBasic, lesson.buildingOptimized].filter(Boolean)) {
       assert.ok(listed.has("public/" + pdf), "Missing public PDF: " + pdf);
