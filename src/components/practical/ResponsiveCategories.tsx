@@ -49,6 +49,7 @@ export function ResponsiveCategories({ level, categories, extras }: { level: num
         </ul>
         {!visible.length && <p className="py-8 text-center text-sm">No matching categories.</p>}
       </div>
+      <a href={"/practical/level-" + level + "/final-build"} className="mb-2 flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-2xl border-2 border-[#75d3ff] bg-white px-4 text-sm font-black text-[#1767a8] shadow-sm hover:bg-sky-50 focus-visible:outline-4 focus-visible:outline-sky-500">🔬 Level {level} Final Build Exam · Robot Discovery Scanner</a>
       <div className="flex shrink-0 items-center justify-center gap-4 pb-1">
         <button type="button" aria-label="Previous categories" disabled={current===0} onClick={()=>setPage(p=>Math.max(0,p-1))} className="grid size-10 place-items-center rounded-full bg-white/90 text-sky-700 shadow-sm disabled:opacity-30"><ChevronLeft/></button>
         <span className="text-xs font-bold text-[#587a99]">Page {current+1} of {pages}</span>
