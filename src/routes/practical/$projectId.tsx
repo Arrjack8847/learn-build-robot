@@ -57,9 +57,11 @@ import { getProject } from "@/data/practical";
 import type { PracticalProject } from "@/types/learning";
 
 export const Route = createFileRoute("/practical/$projectId")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    mode: search.mode === "learning" ? ("learning" as const) : ("building" as const),
-    variant: search.variant === "optimized" ? ("optimized" as const) : undefined,
+  validateSearch: (search: Record<string, unknown>): { mode: "building" | "learning"; variant?: "optimized"; slide?: number } => ({
+    mode: search["mode"] === "learning" ? "learning" : "building",
+    ...(search["variant"] === "optimized" ? { variant: "optimized" as const } : {}),
+    ...(typeof search["slide"] === "number" && Number.isInteger(search["slide"]) && search["slide"] >= 1
+      ? { slide: search["slide"] as number } : {}),
   }),
   component: PracticalProjectPage,
 });
@@ -80,7 +82,7 @@ function PracticalProjectPage() {
     project.level === 2 ? getLevelTwoLecture(project.id) :
     project.level === 3 ? getLevelThreeLecture(project.id) :
     project.level === 4 && levelFourLearningManuals[project.id]
-      ? { projectId: project.id, url: levelFourLearningManuals[project.id].url, learningOnly: false } :
+      ? { projectId: project.id, url: levelFourLearningManuals[project.id]!.url, learningOnly: false } :
     project.level === 5 || project.level === 6 ? levelFiveSixLearningLectures[project.id] : undefined;
   // Legacy direct links to slide-only projects should still open their lecture.
   if (lecture && (mode === "learning" || lecture.learningOnly)) {
