@@ -26,7 +26,7 @@
     "prebuild:dev": "npm run assets:webp",
     "pretest:ui": "npm run assets:webp",
     "test:level2:release": "node --test tests/level-two-cleaned-wix-routing.test.mjs",
-    "postbuild": "node scripts/pdf/prune-wix-building-from-output.mjs"
+    "postbuild": "node scripts/pdf/prune-wix-building-from-output.mjs && node scripts/pdf/verify-level4-wix-cloud.mjs"
   },
   "overrides": {
     "rolldown": "1.2.1"
