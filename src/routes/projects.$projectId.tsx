@@ -5,6 +5,8 @@ import { LevelOneBackdrop } from "@/components/practical/LevelOneHeader";
 import { getAdvancedLevel } from "@/data/advancedSyllabus";
 import { findLevelOneCategory } from "@/data/levelOneCategories";
 import { getProject } from "@/data/practical";
+import { getQuizBank } from "@/data/quizStudio";
+import { QuizProjectProgress } from "@/components/quiz/QuizAchievement";
 import { pdfActivityManuals } from "@/data/pdfActivityManuals";
 import { getLevelOneLecture } from "@/data/levelOneLectures";
 import { getLevelTwoLecture } from "@/data/levelTwoLectures";
@@ -170,6 +172,17 @@ function ProjectOverviewPage() {
             )}
           </article>
         </section>
+
+        {getQuizBank(project.id) && (
+          <section aria-label="Quiz Studio" className="mt-6 rounded-[28px] border border-amber-200 bg-white p-6 shadow-sm">
+            <h2 className="text-xl font-black text-[#132654]">Quiz Studio</h2>
+            <p className="mt-2 text-sm leading-6 text-slate-600">Test what you learned with five questions, hints, explanations, and saved progress.</p>
+            <div className="mt-3"><QuizProjectProgress projectId={project.id} /></div>
+            <Link to="/quiz/$projectId" params={{ projectId: project.id }} className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-amber-500 px-5 font-extrabold text-white hover:bg-amber-600">
+              Start Quiz <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </section>
+        )}
 
         {supplementaryPdfs.length > 0 && (
           <section aria-label="Additional project source PDFs" className="mt-6 rounded-[28px] border border-sky-100 bg-white p-5 shadow-sm sm:p-6">
