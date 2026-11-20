@@ -1,0 +1,394 @@
+{
+  "date": "2026-11-19",
+  "source": "GitHub main repository tree and Level 1 syllabus/registry",
+  "main_commit": "9e5f2410a1bfa79c0fd1618794820cf4c08a00c5",
+  "branch": "fix/level1-complete-building-english-20261119",
+  "scope": "60 unique Level 1 Building PDFs; excludes Level 1 Learning PDFs and every other level",
+  "verified_from_live_github_metadata": true,
+  "pdf_bytes_not_locally_present_in_this_chat_session": true,
+  "pdf_render_visual_audit_complete": false,
+  "binaries_uploaded_to_branch": false,
+  "binaries_uploaded_to_main": false,
+  "prior_repair_report": {
+    "interior_pdfs": 18,
+    "interior_pages": 34,
+    "cover_pdfs": 1,
+    "total_pdfs": 19,
+    "previous_validation_report": "reports/level1-building-interior-validation-20261119.json",
+    "status": "Reported previously; binaries not available to independently revalidate in current isolated workspace"
+  },
+  "inventory": {
+    "count": 60,
+    "bytes": 334954232,
+    "interior_target_count": 18,
+    "cover_target_count": 1,
+    "additional_to_registry": "public/Acceleration car_Building.pdf",
+    "files": [
+      {
+        "path": "public/Caged Bird.pdf",
+        "blob_sha": "7f245b1e3a0b9eb740c56c3bc0fc9bf778165077",
+        "bytes": 5018776,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/FUNNY CAT.pdf",
+        "blob_sha": "0ae397b461df78897d34b73a0e5c6c82729e1314",
+        "bytes": 1417946,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/Ferocious snake.pdf",
+        "blob_sha": "ac2441e1d6309b44a4c486ec7404ecd3fa3f4732",
+        "bytes": 1758773,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/Shy penguin.pdf",
+        "blob_sha": "79149a28054b2fa4a9b088a5761fe5669f063835",
+        "bytes": 1155757,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/Sled dog.pdf",
+        "blob_sha": "e6b2bc12f65930446ff1522ad29960a31eb23568",
+        "bytes": 910299,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/Big head robot_Building.pdf",
+        "blob_sha": "c6007ca350e10e7a4a992eed822a7c0d54f5ed16",
+        "bytes": 3685027,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Bird.pdf",
+        "blob_sha": "db10d12e3ae20c27523ed66af54b33ba3aa3bccd",
+        "bytes": 4426143,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/First Robot Model.pdf",
+        "blob_sha": "73c12dc37b41ed6a78b8786672ef1d19c3b8d781",
+        "bytes": 3560757,
+        "kind": "cover_repair"
+      },
+      {
+        "path": "public/House_Building.pdf",
+        "blob_sha": "647eb4c3b0e4a9d6818dbb340224fa974a8bc435",
+        "bytes": 13324647,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/REX robot_Building.pdf",
+        "blob_sha": "a1e4c53849982b52dc1ec8106ed26fa2eb84850d",
+        "bytes": 5995887,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Sled_Building.pdf",
+        "blob_sha": "d0b6aa886a7d29d5ee877b3bab528624d3ef99f8",
+        "bytes": 2942222,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Spider.pdf",
+        "blob_sha": "8871cc723c24dd2719d29ec75d7ad6befbc23b7b",
+        "bytes": 5097014,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/SpongeBob_Building.pdf",
+        "blob_sha": "5107d61e9ab4e4847df37bd427db6d7600342228",
+        "bytes": 2807427,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Wali robot.pdf",
+        "blob_sha": "b80036bef43374411ac29cf51e2959c4530d5e3d",
+        "bytes": 4803113,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Clock_Building.pdf",
+        "blob_sha": "3995134bbc521707fcf7d16af6bfc341f6e13fba",
+        "bytes": 7323572,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Drawing board_Building.pdf",
+        "blob_sha": "06711ddc484baa38f286c793bb2fd6689374fb4f",
+        "bytes": 3328977,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/01.Hello World-Building Manual.pdf",
+        "blob_sha": "272120111a0443f174bd3d1d772125c84b6c5f27",
+        "bytes": 4150681,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Mechanical masks.pdf",
+        "blob_sha": "86974e366a70b08aa371ef7391d5a9d5dd3ab326",
+        "bytes": 8923106,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Primitive robot_Building.pdf",
+        "blob_sha": "1f5a9ec9a72b7c0bed88ae72512ed7dca507843b",
+        "bytes": 2446093,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Athlete.pdf",
+        "blob_sha": "f9fb100fcb27cdbca66d555343162db60d40b323",
+        "bytes": 1375393,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/Basic programming.pdf",
+        "blob_sha": "d8ecb1661d930160e04d03cdd9825f49fa76c8b8",
+        "bytes": 1551977,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/Drummer robot.pdf",
+        "blob_sha": "f8c622f5d2143372ffe508c251f1610381d87ecc",
+        "bytes": 1542596,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/Propeller Aircraft.pdf",
+        "blob_sha": "bd5a99b4c205dacc2162fa34d9ae5b6309813512",
+        "bytes": 8527183,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Sailboat.pdf",
+        "blob_sha": "be89c789802af585db97d1cbb39ecfc24877a1c3",
+        "bytes": 1804806,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/The lawn mower.pdf",
+        "blob_sha": "13c474d454b47282cbfcd3a1f84cbe4ab1132983",
+        "bytes": 899856,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/Car.pdf",
+        "blob_sha": "1cc1f1d9e95f02e8b793135f3e87a3b082158347",
+        "bytes": 998620,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/Dynamic screen.pdf",
+        "blob_sha": "0c26fb3c17f375aa272ba7f90b0688cd675f4a5d",
+        "bytes": 1269976,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/Pendulum ride.pdf",
+        "blob_sha": "ad8bca01f8d9badfefb39d1914fa615cbf4df3ac",
+        "bytes": 4302389,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/Rotating flying chair.pdf",
+        "blob_sha": "541ca580fb782bcdc3998e0daa88946b61ca9065",
+        "bytes": 1218010,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/Skating.pdf",
+        "blob_sha": "4259c59548bd06eb9126b51e7b93773ec55cce33",
+        "bytes": 799345,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/The windmill kingdom.pdf",
+        "blob_sha": "e881cb11620ff153479f45d749ba2b2d5d146bc7",
+        "bytes": 1663431,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/9. Crawl Slowly - Basic Building Manual.pdf",
+        "blob_sha": "7dc9781d1ca7c46db46fee642f2b113b5263a71f",
+        "bytes": 15010341,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/9. Crawl Slowly - Optimized Building Manual.pdf",
+        "blob_sha": "b334f5f19b22ee98d2932901224ff22f1cb0fda8",
+        "bytes": 15003863,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Mechanical arm.pdf",
+        "blob_sha": "cbd52e30499fc636e5a5abcf055b074d7a6349a3",
+        "bytes": 3841519,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Shock absorber_Building.pdf",
+        "blob_sha": "7141d8dd2760fbdb5d7e2886ee255af94971cb7f",
+        "bytes": 5772895,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Blinking robot_Building.pdf",
+        "blob_sha": "ef3fe63c9490932b7a566343cb7d05fc4124929c",
+        "bytes": 2228613,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/02.Color- changing  Light -Building Manual.pdf",
+        "blob_sha": "a77da52b8ba44ac72ac15cba2e82a1879665dc4a",
+        "bytes": 3126725,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Corridor lamp_Building.pdf",
+        "blob_sha": "c9f6512d2b9b18b09826418a8b4c412c777a7866",
+        "bytes": 5109868,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Help light_Building.pdf",
+        "blob_sha": "b6eff27ab0217fded465c3d0c0ea6a55a1e659c5",
+        "bytes": 1729854,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Lighthouse_Building.pdf",
+        "blob_sha": "29df31ff6222be819c34f42add05a594076d1b52",
+        "bytes": 5460123,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Little stars_Building.pdf",
+        "blob_sha": "96a51712e440ef64b34622744a1c8ef5402a08c4",
+        "bytes": 2913299,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Traffic light_Building.pdf",
+        "blob_sha": "66eb7ebd399a556668d6f8b3a15665437eb6eab4",
+        "bytes": 2154140,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Dart.pdf",
+        "blob_sha": "e11b3a2ffd14e43f4a8af487a55518151a0ad679",
+        "bytes": 3356347,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Responder_Building.pdf",
+        "blob_sha": "4ca98ac8f0aed59432de2cc10142dc5f1781154f",
+        "bytes": 2012410,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Wiper.pdf",
+        "blob_sha": "12bc1c003253ac964d8aaa391c92faa37055a051",
+        "bytes": 10691520,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Gyro transmitter_Building.pdf",
+        "blob_sha": "82871820203830b6932c5b314ab7afa70183f215",
+        "bytes": 3810920,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Motorcycle_Building.pdf",
+        "blob_sha": "65cad44adc8585d75e68f9fb9e14f82bd84c703a",
+        "bytes": 4850666,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Pull back car_Building.pdf",
+        "blob_sha": "abd0734123d08e22a289f15aced283814f1930fa",
+        "bytes": 5902834,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Hand-cranking Giant Stride.pdf",
+        "blob_sha": "2781f8affd685f236a6939f1ea6d8d0f6741698c",
+        "bytes": 21673503,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Hermit Crab.pdf",
+        "blob_sha": "076c7fb6ddf66e08df811c55c4835dff3b16dda3",
+        "bytes": 11383655,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Little Owl.pdf",
+        "blob_sha": "73329b0e9e67e1ea5147d17c68228da68dc893e4",
+        "bytes": 12411013,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/Oscillating Fan.pdf",
+        "blob_sha": "fd4be72ff27de80a2e96cc7066eb1cad54c14e8e",
+        "bytes": 10790384,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/Pocket Pistol.pdf",
+        "blob_sha": "f34c3fd01cc7406163299e8abea21883de04418f",
+        "bytes": 9572266,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Pullback Bicycle.pdf",
+        "blob_sha": "b0270f0070ecf9ed0545442e8626f2ab8631bdb2",
+        "bytes": 9327706,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Rotating Coffee Cup.pdf",
+        "blob_sha": "c8cb0cf219a39ce8cd4cb71ab19d7a954d5d6093",
+        "bytes": 17211309,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Balanced Bird.pdf",
+        "blob_sha": "3836dc042262d5d40660dd8f395736b3e3cc6559",
+        "bytes": 5100255,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Dancing Music Box.pdf",
+        "blob_sha": "e41af6525cce937461cf43a5d9a82a5da2583b93",
+        "bytes": 12216203,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Hand-cranking Fan.pdf",
+        "blob_sha": "760146f07926a0a5f045077bdb5c18f41f54b5ea",
+        "bytes": 5857548,
+        "kind": "interior_repair"
+      },
+      {
+        "path": "public/Old-fashioned Telephone.pdf",
+        "blob_sha": "81812f1e845fef00a02fb7819a6dfb6cf2f1e757",
+        "bytes": 12139152,
+        "kind": "unchanged_expected"
+      },
+      {
+        "path": "public/Acceleration car_Building.pdf",
+        "blob_sha": "e0398a0137390754ac7f14b3bf64e7b180a2aa76",
+        "bytes": 5265502,
+        "kind": "unchanged_expected"
+      }
+    ]
+  },
+  "blockers": [
+    "Previously generated 19-PDF archive has not been recovered in this session.",
+    "No newly rendered all-pages visual inspection of image-embedded Chinese has been completed.",
+    "The branch cannot be considered delivery-complete without corrected PDF binaries and validation."
+  ]
+}
