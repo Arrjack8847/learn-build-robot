@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "node --test tests/level-two-cleaned-wix-routing.test.mjs && vite build",
+    "build": "npm run audit:level1:wix && node --test tests/level-one-cleaned-wix-routing.test.mjs && node --test tests/level-two-cleaned-wix-routing.test.mjs && vite build",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
@@ -26,7 +26,8 @@
     "prebuild:dev": "npm run assets:webp",
     "pretest:ui": "npm run assets:webp",
     "test:level2:release": "node --test tests/level-two-cleaned-wix-routing.test.mjs",
-    "postbuild": "node scripts/pdf/prune-wix-building-from-output.mjs"
+    "postbuild": "node scripts/pdf/prune-wix-building-from-output.mjs",
+    "audit:level1:wix": "node scripts/pdf/audit-level1-cleaned-wix.mjs"
   },
   "overrides": {
     "rolldown": "1.2.1"
