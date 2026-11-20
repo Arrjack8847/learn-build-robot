@@ -22,7 +22,7 @@ export const levelFiveWixPdfUrls: Readonly<Record<string, string>> = {
   "Level 5/Building/Interactive Mechanisms/Magnetic Object Finder/07. Magnetic Object Finder-Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c0aaa473fd414db18171424e5c4b8132.pdf",
   "Level 5/Building/Interactive Mechanisms/Passenger Counter/14.Passenger Counter-Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4a300e3072034964b9295c2f32c87c0d.pdf",
   "Level 5/Building/Mechanisms & Simulators/Big Pendulum/26. The Big Pendulum-Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0223c6e5d9454de7b416aede2d4a72fe.pdf",
-  "Level 5/Building/Mechanisms & Simulators/Chairoplane/27. Chairoplane-Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9a8ea080f20d4148944d163f64db2731.pdf",
+  "Level 5/Building/Mechanisms & Simulators/Chairoplane/27. Chairoplane-Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f1161d0495ff427dac1089bb54520bc5.pdf",
   "Level 5/Building/Mechanisms & Simulators/Crack Shot/6. Crack Shot - Basic Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_593d79649e204933bc8b6ccc2186a9a7.pdf",
   "Level 5/Building/Mechanisms & Simulators/Crack Shot/6. Crack Shot - Optimized Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_835593144e5f475e995524016c5791d4.pdf",
   "Level 5/Building/Mechanisms & Simulators/Kiddie Ride/16. Kiddie Ride-Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3a22ab81d3654125b47d991d87311de8.pdf",
