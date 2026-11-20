@@ -72,7 +72,7 @@ test("15-minute timer is deadline-based, persistent and level-isolated", () => {
 test("assessment stays within Final Build and is clearly self-reported", () => {
   assert.match(exam, /"assessment"/);
   assert.match(exam, /prev\.checks\.filter\(Boolean\)\.length >= 4/);
-  assert.match(exam, /"I Finished My Robot!"/);
+  assert.match(exam, /I Finished My Robot!/);
   assert.match(exam, /Self-reported practical completion/);
   assert.match(exam, /Retry Same Robot/);
   assert.match(exam, /Discover Another Robot/);
