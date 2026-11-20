@@ -4,6 +4,7 @@
  */
 import { readFileSync } from "node:fs";
 import { getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
+import { createCanvas } from "@napi-rs/canvas";
 
 const registrySource = readFileSync(
   new URL("../../src/data/levelOneToThreeWixPdfUrls.ts", import.meta.url),
@@ -21,6 +22,9 @@ if (selected.length !== 45) throw new Error("Expected exactly 45 Level 1 Learnin
 
 const han = /[\u3400-\u9fff\uf900-\ufaff]/u;
 const branding = /Intelligent\s*Storm|智能风暴|智\s*能\s*风\s*暴/i;
+const renderSamples = new Set(["Acceleration car_Powerpoint.pdf", "01.Hello World-Slides.pdf", "First Robot Model.pdf", "9. Crawl Slowly - Slides.pdf", "Motorcycle_Powerpoint.pdf"]);
+const renderResults = [];
+const corsResults = [];
 let totalPages = 0;
 let opened = 0;
 let extractedPages = 0;
@@ -33,9 +37,12 @@ for (const [path, url] of selected) {
   try {
     const response = await fetch(url, {
       signal: AbortSignal.timeout(40000),
-      headers: { Accept: "application/pdf" },
+      headers: { Accept: "application/pdf", Origin: "https://learn-build-robot.vercel.app" },
     });
     if (!response.ok) throw new Error("GET HTTP " + response.status);
+    const accessControlAllowOrigin = response.headers.get("access-control-allow-origin");
+    const corsOK = accessControlAllowOrigin === "*" || accessControlAllowOrigin === "https://learn-build-robot.vercel.app";
+    corsResults.push({file: name, corsOK, accessControlAllowOrigin});
     const bytes = new Uint8Array(await response.arrayBuffer());
     const validHeader = new TextDecoder().decode(bytes.subarray(0, 5)) === "%PDF-";
     if (!validHeader) throw new Error("Response is not a PDF");
@@ -66,6 +73,14 @@ for (const [path, url] of selected) {
         brandPageCount++;
         findings.push({ file: name, page: pageNumber, kind: "Unwanted branding", excerpt: text.slice(0, 250) });
       }
+      if (renderSamples.has(name) && (pageNumber === 1 || pageNumber === pdf.numPages)) {
+        const viewport = page.getViewport({scale:0.4});
+        const canvas = createCanvas(Math.ceil(viewport.width), Math.ceil(viewport.height));
+        await page.render({canvasContext:canvas.getContext("2d"), viewport}).promise;
+        const pngSize = canvas.toBuffer("image/png").length;
+        if (pngSize < 1000) throw new Error("Suspiciously small rendered PNG at page " + pageNumber);
+        renderResults.push({file:name, page:pageNumber, pngBytes:pngSize});
+      }
       page.cleanup();
     }
     records.push({ file: name, pages: pdf.numPages, pagesWithEnglish: latinPageCount, pagesWithChinese: chinesePageCount, pagesWithBranding: brandPageCount });
@@ -86,8 +101,13 @@ const summary = {
   filesWithUnwantedBranding: new Set(findings.filter(f=>f.kind === "Unwanted branding").map(f=>f.file)).size,
   failures,
   findings: findings.slice(0, 100),
+  corsChecked: corsResults.length,
+  corsCompatible: corsResults.filter(r=>r.corsOK).length,
+  corsFailures: corsResults.filter(r=>!r.corsOK),
+  representativeRenderCount: renderResults.length,
+  representativeRenders: renderResults,
 };
 console.log("[L1-PDFQA] FINAL " + JSON.stringify(summary));
-if (opened !== 45 || failures.length || findings.length || extractedPages !== totalPages) {
+if (opened !== 45 || failures.length || findings.length || extractedPages !== totalPages || corsResults.some(r=>!r.corsOK) || renderResults.length !== 10) {
   process.exitCode = 1;
 }
