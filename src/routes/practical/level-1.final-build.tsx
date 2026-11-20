@@ -11,6 +11,7 @@ import { FinalBuildScanner } from "@/components/practical/FinalBuildScanner";
 import { FinalBuildPrototype, type PrototypeStatus } from "@/components/practical/FinalBuildPrototype";
 import prototypeCrops from "@/data/levelOnePrototypeCrops.json";
 import { LEVEL_ONE_CLEANED_BUILDING_WIX_URLS } from "@/data/levelOneBuildingCleanStatus";
+import { secureRandomIndex } from "@/data/finalBuildRegistry";
 
 export const Route = createFileRoute("/practical/level-1/final-build")({ component: FinalBuildPage });
 
@@ -146,7 +147,7 @@ function FinalBuildPage() {
       ? new URLSearchParams(window.location.search).get("project") : null;
     const fixedIndex = testProject
       ? PROJECTS.findIndex(item => item.name.toLowerCase() === testProject.toLowerCase()) : -1;
-    const index = fixedIndex >= 0 ? fixedIndex : Math.floor(Math.random() * PROJECTS.length);
+    const index = fixedIndex >= 0 ? fixedIndex : secureRandomIndex(PROJECTS.length);
     // One uniform draw from 59 projects. Scanner silhouettes are decorative.
     // The reveal never changes the previously selected result.
     update({
