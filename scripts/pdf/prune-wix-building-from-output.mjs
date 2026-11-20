@@ -1,5 +1,5 @@
 /**
- * Remove Wix-hosted Building and cleaned Level 1 Learning PDF duplicates from built deployment assets.
+ * Remove Wix-hosted Building and cleaned Level 1 + Level 3 Learning PDF duplicates from built deployment assets.
  *
  * Never modifies public/ source files. Every removed file must have a verified
  * Wix URL and an exact audited path in the registries.
@@ -94,6 +94,27 @@ if (levelOneLearningPaths.length !== 45 ||
 }
 paths.push(...levelOneLearningPaths);
 
+// Exactly 43 Wix-confirmed, READY Level 3 cleaned Learning PDFs; preserve
+// source binaries in Git while excluding copied deployment assets.
+const levelThreeLearningPaths = [...rootRegistry.entries()]
+  .filter(([key]) => key.startsWith("Level 3/Learning/"))
+  .map(([key, url]) => {
+    if (!/^Level 3\/Learning\/.+\.pdf$/i.test(key) ||
+        key.split("/").some(part => part === "." || part === "..") ||
+        typeof url !== "string" ||
+        !url.startsWith(wixHost + "78042f_") ||
+        !/^https:\/\/fe3fa828-9f74-45e8-97f7-8d00cbb7fba0\.usrfiles\.com\/ugd\/78042f_[0-9a-f]{32}\.pdf$/.test(url)) {
+      throw new Error("Invalid cleaned Level 3 Learning Wix PDF: " + key);
+    }
+    return key;
+  });
+if (levelThreeLearningPaths.length !== 43 ||
+    new Set(levelThreeLearningPaths).size !== 43 ||
+    new Set(levelThreeLearningPaths.map(key => rootRegistry.get(key))).size !== 43) {
+  throw new Error("Expected 43 distinct cleaned Level 3 Learning Wix PDFs.");
+}
+paths.push(...levelThreeLearningPaths);
+
 if (new Set(paths).size !== paths.length) {
   throw new Error("Duplicate path in audited Building PDF manifest.");
 }
@@ -127,6 +148,6 @@ for (const relativeFolder of outputFolders) {
 
 console.log(
   "[PDF link-only deployment] " + paths.length +
-  " Wix-backed Building and cleaned Level 1 Learning PDF paths checked; " +
+  " Wix-backed Building and cleaned Level 1 + Level 3 Learning PDF paths checked; " +
   deleted + " copied PDFs excluded from build output. Repository source PDFs preserved.",
 );
