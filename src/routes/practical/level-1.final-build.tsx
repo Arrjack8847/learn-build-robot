@@ -10,7 +10,7 @@ import { LevelOneBackdrop, LevelOneHeader } from "@/components/practical/LevelOn
 import { FinalBuildScanner } from "@/components/practical/FinalBuildScanner";
 import { FinalBuildPrototype, type PrototypeStatus } from "@/components/practical/FinalBuildPrototype";
 import prototypeCrops from "@/data/levelOnePrototypeCrops.json";
-import { LEVEL_ONE_BUILDING_CLEAN_UPLOAD_PENDING } from "@/data/levelOneBuildingCleanStatus";
+import { LEVEL_ONE_CLEANED_BUILDING_WIX_URLS } from "@/data/levelOneBuildingCleanStatus";
 
 export const Route = createFileRoute("/practical/level-1/final-build")({ component: FinalBuildPage });
 
@@ -113,22 +113,24 @@ function FinalBuildPage() {
   }, [now, session.stage, session.deadline, session.spinFinishAt]);
   const project = session.projectIndex === null ? null : PROJECTS[session.projectIndex];
   const manualProjectId = project?.availableProjectId ?? project?.availableProjectVariants?.[session.variantIndex]?.projectId ?? project?.availableProjectVariants?.[0]?.projectId;
-  const manualUrl = project?.name === "Acceleration car"
+  const sourceManualUrl = project?.name === "Acceleration car"
     ? ACCELERATION_MANUAL_URL
     : manualProjectId ? pdfActivityManuals[manualProjectId]?.url : undefined;
   const manualFilename = project?.name === "Acceleration car"
     ? "Acceleration car_Building.pdf"
-    : sourcePdfFilename(manualUrl);
+    : sourcePdfFilename(sourceManualUrl);
+  // Level 1 cleaned PDFs are already published on Wix and indexed in GitHub
+  // main; prefer those exact verified URLs instead of the older source links.
+  const manualUrl = (manualFilename ? LEVEL_ONE_CLEANED_BUILDING_WIX_URLS[manualFilename] : undefined) ?? sourceManualUrl;
   const candidate = manualFilename ? PROTOTYPE_BY_FILENAME.get(manualFilename) : undefined;
   // Final Build is deliberately independent of Building Studio: show just
   // the selected completed-model reference, with no slides or navigation.
   // The image is rendered from a single crop of the Wix-hosted source PDF.
-  const cleanUploadPending = Boolean(manualProjectId && LEVEL_ONE_BUILDING_CLEAN_UPLOAD_PENDING.has(manualProjectId));
   const modelReady = Boolean(manualFilename && modelStatus?.filename === manualFilename && modelStatus.status === "ready");
-  // No unapproved candidate, failed render, or old (uncleaned) manual can
-  // unlock the student challenge.
-  const canStart = Boolean(candidate?.approved && modelReady && !cleanUploadPending);
-  const canTest = Boolean(reviewMode && candidate && modelReady && !cleanUploadPending);
+  // Do not start a build without a verified completed-model crop and
+  // successful PDF render; reviewer mode can test provisional candidates.
+  const canStart = Boolean(candidate?.approved && modelReady && manualUrl);
+  const canTest = Boolean(reviewMode && candidate && modelReady && manualUrl);
   const checks = useMemo(() => project ? checksFor(project.name, project.category) : [], [project]);
   const remaining = session.deadline ? Math.max(0, session.deadline - now) : LIMIT_MS;
   const time = `${String(Math.floor(remaining / 60000)).padStart(2, "0")}:${String(Math.floor((remaining % 60000) / 1000)).padStart(2, "0")}`;
@@ -283,15 +285,7 @@ function FinalBuildPage() {
                     <p className="mb-2 text-xs font-black uppercase tracking-wider text-[#2d72b7]">
                       🤖 Your robot reference
                     </p>
-                    {cleanUploadPending ? (
-                      <div className="rounded-2xl border border-amber-300 bg-amber-50 px-4 py-6" role="status">
-                        <p className="text-sm font-black text-amber-900">Cleaned model reference pending</p>
-                        <p className="mt-2 text-xs font-semibold leading-5 text-amber-800">
-                          This robot's English-cleaned PDF was validated but its replacement file has not yet been published.
-                          Final Build will not display the old Chinese PDF.
-                        </p>
-                      </div>
-                    ) : candidate && manualFilename && manualUrl ? (
+                    {candidate && manualFilename && manualUrl ? (
                       <div>
                         <FinalBuildPrototype
                           filename={manualFilename}

@@ -46,7 +46,7 @@ test("PDF reference viewer displays a crop only and never offers step navigation
 
 test("Final Build stays on the same page with the robot-only PDF crop and 15-minute timer", () => {
   const route = readFileSync(new URL("../src/routes/practical/level-1.final-build.tsx", import.meta.url), "utf8");
-  assert.match(route, /const canStart = Boolean\(candidate\?\.approved && modelReady && !cleanUploadPending\)/);
+  assert.match(route, /const canStart = Boolean\(candidate\?\.approved && modelReady && manualUrl\)/);
   assert.match(route, /disabled=\{!canStart\}/);
   assert.match(route, /<FinalBuildPrototype/);
   assert.match(route, /onStatusChange=\{onModelStatus\}/);
@@ -74,13 +74,36 @@ test("Robot Discovery Scanner replaces carnival wheel without changing equal sel
   assert.match(scanner, /bsr-scanner-beam/);
 });
 
-test("all 19 unpublished restored PDFs are blocked until cleaned references are published", () => {
-  const module = readFileSync(new URL("../src/data/levelOneBuildingCleanStatus.ts", import.meta.url), "utf8");
-  const ids = [...module.matchAll(/^  "([a-z0-9-]+)",?$/gm)].map(match => match[1]);
-  assert.equal(ids.length, 19);
-  assert.equal(new Set(ids).size, 19);
+test("all 35 published English-cleaned Level 1 Building PDFs have Wix-hosted routes", () => {
+  const urls = readFileSync(new URL("../src/data/levelOneBuildingCleanStatus.ts", import.meta.url), "utf8");
+  const entries = [...urls.matchAll(/^  "([^"]+\\.pdf)": "(https:[^"]+)",?$/gm)];
+  assert.equal(entries.length, 35);
+  assert.equal(new Set(entries.map(x => x[1])).size, 35);
+  assert.ok(entries.every(([, , url]) => url.includes(".usrfiles.com/ugd/") && url.endsWith(".pdf")));
+  const mustInclude = [
+    "FUNNY CAT.pdf",
+    "Ferocious snake.pdf",
+    "Shy penguin.pdf",
+    "Sled dog.pdf",
+    "Athlete.pdf",
+    "Basic programming.pdf",
+    "Drummer robot.pdf",
+    "Sailboat.pdf",
+    "The lawn mower.pdf",
+    "Car.pdf",
+    "Dynamic screen.pdf",
+    "Pendulum ride.pdf",
+    "Rotating flying chair.pdf",
+    "Skating.pdf",
+    "The windmill kingdom.pdf",
+    "Little Owl.pdf",
+    "Hand-cranking Fan.pdf",
+    "Oscillating Fan.pdf",
+    "First Robot Model.pdf"
+  ];
+  const names = new Set(entries.map(x => x[1]));
+  for (const name of mustInclude) assert.ok(names.has(name), `Missing cleaned PDF: ${name}`);
   const route = readFileSync(new URL("../src/routes/practical/level-1.final-build.tsx", import.meta.url), "utf8");
-  assert.match(route, /LEVEL_ONE_BUILDING_CLEAN_UPLOAD_PENDING\.has\(manualProjectId\)/);
-  assert.match(route, /cleanUploadPending \? \(/);
-  assert.doesNotMatch(route, /mode=building/);
+  assert.match(route, /LEVEL_ONE_CLEANED_BUILDING_WIX_URLS\\[manualFilename\\]/);
+  assert.doesNotMatch(route, /Cleaned model reference pending|cleanUploadPending|Open Building Studio|mode=building/);
 });
