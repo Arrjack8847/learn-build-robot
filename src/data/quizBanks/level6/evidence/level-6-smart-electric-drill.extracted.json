@@ -1,0 +1,99 @@
+{
+  "projectId": "level-6-smart-electric-drill",
+  "sourcePath": "public/Level 6/Learning/Programming & Precise Control/Smart Electric Drill/20. Smart Electric Drill-Teaching Slides.pdf",
+  "wixFileId": "7fc4ca_5cad4c85c8854e0e866e5498ca7ec93f.pdf",
+  "sourceBytes": 1158882,
+  "pageCount": 22,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 20.  | Smart Electric Drill | edu.zmrobo.com | LECTURER | ͵"
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties     | 1. | In | - | depth | understanding | of | barometric | sensor | . | 2. | Learn | about | the | impact | of | high | and | low | atmospheric | pressure | on | people | . | 1. | Atmospheric pressure values need to use relative values. | 2. | Atmospheric pressure is affected by other environments."
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information"
+    },
+    {
+      "slide": 4,
+      "text": "Context Import | Astronauts | need | to | wear | spacesuits | whether | they | are | inside | or | outside | the | rocket, | but | the | two | spacesuits | are | actually | different | . | In | - | cabin | spacesuits | are | spacesuits | used | in | the | cabin | of | manned | spacecraft | . | This | spacesuit | is | developed | on | the | basis | of | high | - | altitude | flight | airtight | suits | (referred | to | as | pressure | suits) | in | aviation | . | When | the | pressure | suit | is | inflated | and | pressurized, | it | is | in | an | anthropomorphic | state | . | Wearing | a | pressure | suit, | the | whole | body | can | be | in | the | same | and | uniform | atmospheric | pressure | environment | ."
+    },
+    {
+      "slide": 5,
+      "text": "Context Import | If | the | space | suit | is | not | worn | properly, | the | pressure | changes | caused | by | the | rocket | lift | - | off | can | be | extremely | uncomfortable, | which | can | damage | the | DVWURQDXWµV | physical | functions | . | So, | what | effect | low | atmospheric | pressure | has | on | the | human | body?"
+    },
+    {
+      "slide": 6,
+      "text": "Context Import | According | to | the | degree | of | low | atmospheric | pressure, | it | can | be | divided | into | three | situations | : | 1 | . | If | it | is | a | mild | low | pressure | , | people | will | not | feel | much | sense, | on | the | contrary, | they | will | feel | more | comfortable | . | For | example, | people | living | in | plateau | will | be | more | strenuous, | but | the | seaside | will | be | more | comfortable | . | 2 | . | If | it | is | moderately | low | pressure | , | people | will | feel | uncomfortable, | the | internal | pressure | of | the | body | will | increase | (compared | to | the | external | pressure), | mild | swelling | will | appear, | and | the | blood | circulation | will | be | poor | . | 3 | . | If | it | is | a | severe | low | pressure | , | people | will | die | because | of | the | high | internal | pressure | . | So | astronauts | need | to | wear | good | space | suits | to | get | on | the | rocket | ."
+    },
+    {
+      "slide": 7,
+      "text": "Knowledge  | Introduction"
+    },
+    {
+      "slide": 8,
+      "text": "New Knowledge | Atmospheric | pressure | is | so | important | . | In | extreme | environments, | we | need | to | always | pay | attention | to | the | atmospheric | pressure | of | our | environment | to | ensure | our | own | life | and | health | ."
+    },
+    {
+      "slide": 9,
+      "text": "New Knowledge | The | current | altitude | can | be | measured | by | atmospheric | pressure, | and | various | altitude | - | related | tools | can | be | made | through | this | feature | . | In | addition | to | the | existence | of | atmospheric | pressure | on | the | surface, | atmospheric | pressure | also | exists | below | the | surface | where | it | can | touch | the | air | . | For | example, | when | mining, | workers | need | to | go | down | to | a | depth | of | hundreds | of | meters, | or | even | thousands | of | meters | ."
+    },
+    {
+      "slide": 10,
+      "text": "New Knowledge | Under | a | slightly | higher | pressure, | it | can | make | people | feel | a | sense | of | fullness | in | the | ears, | leading | to | tinnitus, | dizziness, | etc | .; | when | the | atmospheric | pressure | is | greater | than | 7 | Kpa, | it | may | cause | slow | heartbeat, | confusion, | and | even | death | . | Of | course, | the | reality | is | that | even | if | we | go | thousands | of | meters | underground, | there | will | be | no | danger | of | such | high | pressure | . | Make | an | electric | drill | controlled | by | atmospheric | pressure | . | When | the | atmospheric | pressure | reaches | the | set | value, | the | electric | drill | stops | working | ."
+    },
+    {
+      "slide": 11,
+      "text": "Practice"
+    },
+    {
+      "slide": 12,
+      "text": "New Knowledge | Assemble | a | electric | drill | according | to | the | building | manual, | and | the | electric | drill | will | rotate | by | itself | within | the | target | height | . | Drill | Barometric  | Sensor "
+    },
+    {
+      "slide": 13,
+      "text": "Practice | Programming | Pneumatic | drills | use | relative | atmospheric | pressure | as | a | reference | and | stop | turning | when | the | atmospheric | pressure | exceeds | the | target | . | In | order | to | be | able | to | know | the | specific | data, | it | is | also | necessary | to | supplement | the | value | of | the | displayed | variable | . | For | the | convenience | of | understanding, | the | subsequent | altitude | refers | to | the | atmospheric | pressure | ."
+    },
+    {
+      "slide": 14,
+      "text": "Practice | Programming | 01 | logo | Get the data | Get the current atmospheric  | pressure as an altitude value."
+    },
+    {
+      "slide": 15,
+      "text": "Practice | Programming | 02 | The judgment of touch and  | rotation | It | starts | to | rotate | after | touching, | and | stops | when | the | height | difference | is | between | - | 2 | and | 2 | . | In | the | process | of | rotation, | it | is | necessary | to | continuously | read | the | sensor | value | to | judge | the | rotation | ."
+    },
+    {
+      "slide": 16,
+      "text": "Practice | Programming | logo | 03 | The | judgement | of | pressing | the | button | Press | the | left | button | to | increase | the | height | by | 1 | , | and | press | the | right | button | to | decrease | the | altitude | by | 1 | . | The | final | target | altitude | consists | of | the | current | altitude | plus | the | adjusted | altitude | . | During | this | process, | the | changed | value | is | displayed, | allowing | us | to | operate | the | electric | drill | better | ."
+    },
+    {
+      "slide": 17,
+      "text": "Practice | Programming | logo | 04 | Integrate programs | Integrate each program according  | to the flow chart."
+    },
+    {
+      "slide": 18,
+      "text": "Practice | Programming | logo"
+    },
+    {
+      "slide": 19,
+      "text": "Results"
+    },
+    {
+      "slide": 20,
+      "text": "Program Optimization | This | lesson | achieves | the | effect | of | controlling | the | electric | drill | to | stop | working | through | atmospheric | pressure | . | After | starting | the | electric | drill, | if | it | reaches | the | stop | range, | it | will | no | longer | rotate | . | Next, | modify | the | program | to | make | the | button | effect | more | complete | . | Requirement | : | Modify | the | function | of | the | button, | and | only | add/subtract | 1 | each | time | it | is | pressed | ."
+    },
+    {
+      "slide": 21,
+      "text": "Further Reading | According | to | physiological | and | hygienic | experimental | research, | the | most | suitable | altitude | for | human | survival | is | 500 | meters | to | 2000 | meters | . | 1500 | meters | above | sea | level | is | a | refreshing | altitude | ."
+    },
+    {
+      "slide": 22,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER: "
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

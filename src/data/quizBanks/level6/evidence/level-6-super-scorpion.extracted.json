@@ -1,0 +1,115 @@
+{
+  "projectId": "level-6-super-scorpion",
+  "sourcePath": "public/Level 6/Learning/Biomimicry & Stimulus Response/Super Scorpion/16. Super Scorpion - Slides.pdf",
+  "wixFileId": "7fc4ca_640d126e2ccf4ff0a02b49772987bf81.pdf",
+  "sourceBytes": 1302229,
+  "pageCount": 26,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 16.  | Super Scorpion | edu.zmrobo.com | Lecturer:"
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties | 1. | Get |   | to |   | know |   | scorpions |   | and |   | build |   | a |   | scorpion |   | robot | . | 2. | Use |   | RoboCode |   | to |   | write |   | a |   | program |   | to |   | control |   | the |   | scorpion's |   | random |   | movement |   | and |   | attack | . | 3. | Let |   | the |   | scorpion |   | adjust |   | its |   | direction |   | according |   | to |   | the |   | location |   | of |   | the |   | prey |   | after |   | discovering |   | it | . | 1. | Build the connecting rod structure and tail structure | 2. | Application of AI module"
+    },
+    {
+      "slide": 3,
+      "text": "Background"
+    },
+    {
+      "slide": 4,
+      "text": "Background Knowledge  | |  | Scorpion | Scorpions |   | are |   | the |   | collective |   | name |   | for |   | species |   | in |   | the |   | phylum |   | Arachnida, |   | order |   | Scorpion, |   | in |   | the |   | phylum |   | Arachnida, |   | and |   | spiders |   | also |   | belong |   | to |   | the |   | same |   | class | . | Their |   | typical |   | features |   | include |   | an |   | elongated |   | body, |   | pincers, |   | and |   | a |   | curved, |   | segmented |   | tail |   | (posterior |   | abdomen) |   | with |   | a |   | stinger | . | The |   | earliest |   | scorpions |   | on |   | land |   | appeared |   | in |   | the |   | Silurian |   | Period |   | (Silurian |   | Period) |   | about |   | 430 |   | million |   | years |   | ago | . | All |   | scorpions |   | are |   | poisonous, |   | with |   | varying |   | degrees |   | of |   | toxicity | ."
+    },
+    {
+      "slide": 5,
+      "text": "Background Knowledge  | |  | Scorpion | 1 | . |   | Scorpions |   | are |   | diurnal |   | and |   | nocturnal |   | animals | . |   | They |   | like |   | tides |   | and |   | are |   | afraid |   | of |   | dryness, |   | and |   | like |   | darkness |   | and |   | are |   | afraid |   | of |   | strong |   | light |   | stimulation | . |   | They |   | like |   | to |   | live |   | in |   | groups, |   | like |   | to |   | be |   | quiet |   | and |   | not |   | active, |   | and |   | have |   | the |   | habit |   | of |   | knowing |   | their |   | nests |   | and |   | groups | . | 2 | . |   | Scorpions |   | have |   | the |   | habit |   | of |   | hibernating | . |   | They |   | usually |   | emerge |   | from |   | hibernation |   | in |   | mid | - | to | - | late |   | April, |   | that |   | is, |   | after |   | the |   | wake |   | of |   | hibernation, |   | and |   | slowly |   | begin |   | to |   | hibernate |   | in |   | early |   | November | . |   | They |   | are |   | active |   | for |   | about |   | 6 |   | months |   | throughout |   | the |   | year | . | 3 | . |   | Although |   | scorpions |   | are |   | cold | - | blooded |   | animals, |   | they |   | are |   | still |   | relatively |   | cold | - |   | and |   | heat | - | resistant | . |   | Scorpions |   | can |   | survive |   | when |   | the |   | temperature |   | of |   | the |   | external |   | environment |   | is |   | between |   | 40 | ° | C |   | and |   | minus |   | 5 | ° | C | ."
+    },
+    {
+      "slide": 6,
+      "text": "Background Knowledge  | |  | Scorpion | 4 | . |   | The |   | growth |   | and |   | reproduction |   | of |   | scorpions |   | are |   | also |   | closely |   | related |   | to |   | the |   | humidity |   | of |   | the |   | external |   | environment | . | 5 | . |   | Scorpions |   | like |   | darkness |   | and |   | are |   | afraid |   | of |   | light, |   | especially |   | the |   | stimulation |   | of |   | strong |   | light, |   | but |   | they |   | also |   | need |   | a |   | certain |   | amount |   | of |   | illumination | . | 6 | . |   | Scorpions |   | have |   | a |   | strong |   | avoidance |   | of |   | various |   | strong |   | smells, |   | such |   | as |   | paint, |   | gasoline, |   | kerosene, |   | asphalt |   | and |   | various |   | chemicals, |   | pesticides, |   | fertilizers, |   | quicklime, |   | etc | ."
+    },
+    {
+      "slide": 7,
+      "text": "Introduction"
+    },
+    {
+      "slide": 8,
+      "text": "Introduction | Link telescopic mechanism | There |   | are |   | many |   | applications |   | for |   | linkage |   | telescopic |   | mechanisms, |   | such |   | as |   | lifts, |   | telescopic |   | doors, |   | etc | . |   | The |   | wonderful |   | function |   | of |   | this |   | mechanism |   | is |   | that |   | it |   | can |   | save |   | space |   | and |   | can |   | also |   | realize |   | the |   | conversion |   | from |   | a |   | short |   | distance |   | to |   | a |   | long |   | distance | ."
+    },
+    {
+      "slide": 9,
+      "text": "Introduction  | | |   | Application of Quadrilateral Linkage | Quadrilaterals |   | do |   | not |   | have |   | the |   | stability |   | of |   | triangles |   | and |   | are |   | easily |   | deformed | . | However, |   | it |   | is |   | precisely |   | because |   | of |   | the |   | mobility |   | of |   | the |   | quadrilateral |   | due |   | to |   | its |   | instability |   | that |   | when |   | it |   | is |   | made |   | into |   | a |   | stretched |   | or |   | folded |   | structure, |   | it |   | is |   | widely |   | used |   | in |   | life, |   | such |   | as |   | stretch |   | doors | ."
+    },
+    {
+      "slide": 10,
+      "text": "Practice"
+    },
+    {
+      "slide": 11,
+      "text": "Practice | Robot Building | Build |   | the |   | scorpion |   | robot |   | according |   | to |   | the |   | building |   | manual |   | and |   | choose |   | the |   | port |   | yourself | . | Parallelogram linkage  | telescopic structure | Ultrasonic Sensor | Multi | - | link mechanism"
+    },
+    {
+      "slide": 12,
+      "text": "Practice | Flowchart | The program flow of Scorpion robot: | ʒ |   | If there are no obstacles in front, the  | scorpion will move randomly. | ʓ |   | If there is an obstacle in front of you,  | the scorpion will sprint and attack with  | its tail, and then reset. | ʔ |   | Repeat this cycle."
+    },
+    {
+      "slide": 13,
+      "text": "Practice | Programming"
+    },
+    {
+      "slide": 14,
+      "text": "Exploration"
+    },
+    {
+      "slide": 15,
+      "text": "Exploration | Discussion | Please tell me what problems you found while building the robot and programming. | Not precise enough when  | looking for prey? | More movement? | Not enough action? | Add more effects?"
+    },
+    {
+      "slide": 16,
+      "text": "Exploration  | | |   | Discussion | So, how to solve these problems and  | make improvements?"
+    },
+    {
+      "slide": 17,
+      "text": "Exploration  | | |   | AI | Vision | Module | The AI vision module has rich functions, which  | greatly expands the practicality of the robot. | The AI vision module must be connected to the P8  | interface. | The functions are as follows: | Color |   | detection, |   | QR |   | code |   | recognition, |   | ball |   | recognition, |   | road |   | recognition, |   | face |   | detection, |   | image |   | classification, |   | tag |   | code |   | recognition, |   | color |   | recognition |   | learning, |   | face |   | recognition |   | learning, |   | gesture |   | recognition, |   | image |   | classification |   | learning, |   | traffic |   | sign |   | recognition | ."
+    },
+    {
+      "slide": 18,
+      "text": "Exploration | Function: Read the data of the ball in the screen, and identify the red ball by default. | Return value: 0 | - | 240, corresponding to the AI module 240*240 screen, the middle coordinate is  | (120,120). | Function: Wait for the AI module to switch to the specified recognition mode (the AII  | module needs to be connected to the controller serial port P8) | Function: Get the number of recognized color blocks"
+    },
+    {
+      "slide": 19,
+      "text": "Optimization"
+    },
+    {
+      "slide": 20,
+      "text": "Optimization | Analysis | logo | Test, |   | observe |   | and |   | think | 1 | . |   | Which |   | places |   | need |   | reinforcement? | 2 | . |   | How |   | to |   | replace |   | the |   | AI |   | vision |   | module? | Please |   | modify |   | your |   | robot |   | to |   | make |   | the |   | model |   | more |   | interesting |   | and |   | play |   | freely |   | based |   | on |   | this | ."
+    },
+    {
+      "slide": 21,
+      "text": "Optimization | Analysis | logo | Test, |   | observe |   | and |   | think | 1. | How |   | to |   | set |   | up |   | the |   | location |   | of |   | prey? | 2. | How |   | do |   | scorpions |   | adjust |   | their |   | direction |   | after |   | finding |   | prey? | Please |   | design |   | movements |   | for |   | the |   | robot |   | and |   | complete |   | the |   | programming, |   | and |   | then |   | play |   | freely |   | based |   | on |   | this | ."
+    },
+    {
+      "slide": 22,
+      "text": "Optimization | Analysis | logo | Test, |   | observe |   | and |   | think | 1 | . |   | How |   | to |   | set |   | up |   | the |   | location |   | of |   | prey? | 2 | . |   | How |   | to |   | make |   | scorpions |   | adjust |   | their |   | direction |   | after |   | finding |   | prey? | Please |   | design |   | movements |   | for |   | the |   | robot |   | and |   | complete |   | the |   | programming, |   | and |   | then |   | play |   | freely |   | based |   | on |   | this | ."
+    },
+    {
+      "slide": 23,
+      "text": "Result"
+    },
+    {
+      "slide": 24,
+      "text": "Result  | | |   | Display Your Robots | Please introduce your robots. |  | Start with an interesting, powerful, and informative introduction  | to yourself |  | Describe the building steps and program implementation  | process (problems encountered and solutions) |  | Run the program to display your robot |  | Explain the highlights of the work (add explanations for creative  | effects)"
+    },
+    {
+      "slide": 25,
+      "text": "Further Reading | ͵ | Transformers | - | Scorponok | Scorponok |   | appeared |   | on |   | the |   | space |   | station |   | in |   | the |   | form |   | of |   | a |   | scorpion |   | as |   | a |   | machine |   | monster |   | used |   | by |   | the |   | Quintessons | , |   | responsible |   | for |   | destroying |   | the |   | invaders | . |   | His |   | powerful |   | body |   | made |   | Optimus |   | Prime |   | and |   | Megatron, |   | who |   | were |   | trapped |   | by |   | the |   | Quintessons | , |   | helpless |   | against |   | him | . |   | It |   | transforms |   | so |   | the |   | pliers |   | can |   | fire | . |   | Its |   | home |   | planet |   | was |   | once |   | a |   | Cybertron |   | colony | . |   | It |   | is |   | a |   | mechanical |   | race |   | of |   | Cybertron | . |   | It |   | was |   | instigated |   | by |   | Quintessons |   | to |   | kill |   | each |   | other |   | due |   | to |   | the |   | civil |   | war | . |   | It |   | is |   | already |   | the |   | last |   | member |   | of |   | the |   | Scorponok |   | race | . |   | Scorponok |   | almost |   | forced |   | both |   | sides |   | into |   | a |   | desperate |   | situation |   | at |   | the |   | same |   | time | . |   | He |   | once |   | forced |   | Optimus |   | Prime |   | into |   | a |   | desperate |   | situation |   | twice, |   | but |   | was |   | saved |   | by |   | Megatron's |   | fire |   | both |   | times | . |   | In |   | the |   | end, |   | he |   | was |   | defeated |   | by |   | the |   | two |   | major |   | factions |   | who |   | joined |   | forces | ."
+    },
+    {
+      "slide": 26,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER: "
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

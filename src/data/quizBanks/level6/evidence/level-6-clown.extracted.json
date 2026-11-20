@@ -1,0 +1,115 @@
+{
+  "projectId": "level-6-clown",
+  "sourcePath": "public/Level 6/Learning/Characters & Structures/Clown/05.Clown-Teaching slides.pdf",
+  "wixFileId": "7fc4ca_8ab11a33ca2a4d3292fd9fc9604651f3.pdf",
+  "sourceBytes": 1176881,
+  "pageCount": 26,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 5.  | Clown | edu.zmrobo.com | LECTURER:"
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties | 1. | Learn | about | the | communication | of | expressions | . | 2. | Know | how | to | use | the | dot | matrix | screen | . | 1. | The direction of the pattern displayed on the dot matrix screen | 2. | How to use the remainder to switch expression patterns."
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information"
+    },
+    {
+      "slide": 4,
+      "text": "Background Information | Expressions | are | a | form | of | external | expression | of | human | emotions | . | There | are | three | main | ways | of | human | expression | : | facial | expression, | language | tone | expression, | and | body | posture | expression | ."
+    },
+    {
+      "slide": 5,
+      "text": "Background Information | Facial | expression | refers | to | the | expression | of | various | emotional | states | through | the | changes | in | eye | muscles, | facial | muscles, | and | oral | muscles | . | For | example, | eyes | can | not | only | express | feelings | but | also | communicate | ideas, | and | facial | expressions | are | a | very | important | means | of | non | - | verbal | communication | . | Artists | often | express | the | inner | emotions | and | emotions | of | the | characters | through | the | depiction | of | the | facial | expressions | of | the | characters | and | vividly | show | the | spiritual | outlook | of | the | characters | ."
+    },
+    {
+      "slide": 6,
+      "text": "Background Information | Facial | expressions | serve | as | a | powerful | tool | for | communication | . | A | fascinating | demonstration | of | this | is | through | imitation | . | Humans | and | orangutans | alike | often | physically | mimic | the | emotions | of | those | around | them | . | When | individuals | sense | another's | sadness, | they | naturally | display | sadness | themselves | - | as | Darwin | once | observed | . | This | imitation | is | likely | an | effort | to | express | sympathy | and | shared | sorrow | in | response | to | difficult | experiences | ."
+    },
+    {
+      "slide": 7,
+      "text": "Background Information | Facial | expressions | can | be | divided | into | eight | categories | : | excitement, | joy, | surprise, | sadness, | fear, | shyness, | contempt | or | disgust, | and | anger | . | In | general, | the | muscle | groups | around | the | eyes | and | mouth | are | the | most | expressive | parts | of | the | face | ."
+    },
+    {
+      "slide": 8,
+      "text": "Knowledge  | Introduction"
+    },
+    {
+      "slide": 9,
+      "text": "Knowledge Introduction | Clowns | are | comedians | with | the | most | facial | expressions | . | They | often | perform | on | stages, | circuses, | variety | shows, | carnivals, | children's | shows | and | birthday | parties | . | In | order | to | let | everyone | feel | the | emotions | of | the | characters | as | much | as | possible, | they | tend | to | exaggerate | all | expressions | . | Therefore, | actors | who | play | clowns | need | to | have | a | very | deep | understanding | of | different | expressions | ."
+    },
+    {
+      "slide": 10,
+      "text": "Knowledge Introduction | When | clowns | perform, | they | often | wear | oversized | shoes | and | exotic | clothes | . | Their | faces | are | also | painted, | especially | the | nose | . | These | wacky, | hilarious | costumes | bring | laughter | to | the | audience | . | Usually, | clowns | entertain | audiences | by | embarrassing | themselves | . | Today, | we | will | use | the | dot | matrix | screen | to | make | the | eyes | of | the | clown | and | make | different | expressions | through | different | eyes | ."
+    },
+    {
+      "slide": 11,
+      "text": "Dot Matrix Screen | The | 16 | x | 16 | dot | matrix | screen | is | an | electronic | component | that | can | be | used | to | display | Chinese | characters, | letters, | numbers | and | expressions | . | A | variety | of | functions | can | be | realized, | including | 16 | - | level | brightness | adjustment, | customizing | the | on | and | off | of | each | point, | scrolling | display | strings, | displaying | hand | - | drawn | expressions, | etc | ."
+    },
+    {
+      "slide": 12,
+      "text": "Programming Module | Show Pattern | Make the dot matrix screen display the specified pattern. | Parameter value: 1 | - | 8, connection port | Parameter value: 4*16 | - | bit \"0000\" data, each 4 | - | bit data represents a row of dot  | matrix data, calculated in hexadecimal. | Parameter value: 0 | - | 15, 16 levels of controllable brightness adjustment"
+    },
+    {
+      "slide": 13,
+      "text": "Practice"
+    },
+    {
+      "slide": 14,
+      "text": "New Knowledge | According | to | the | building | manual, | build | a | clown | robot | to | realize | the | function | of | changing | expression | by | pressing | the | nose | . | Dot Matrix  | Screen | Red nose  | (Touch Sensor)"
+    },
+    {
+      "slide": 15,
+      "text": "Practice | Flow Chart | Press | the | button | and | release | it | to | switch | between | different | eye | shapes | . | Then, | the | variable | will | continue | to | increase, | but | the | number | of | expressions | is | limited | . | When | the | variable | value | exceeds | the | number | of | expressions, | the | expression | will | no | longer | change | . | In | switching | expressions, | you | need | to | use | a | remainder | algorithm | ."
+    },
+    {
+      "slide": 16,
+      "text": "Practice | Programming | logo | 00 | Dot | matrix | screen | Patterns | can | be | made | in | the | drawing | area | , | and | the | four | functions | in | the | functional | area | are | clear, | brush, | eraser | and | save | . |  | Clear | : | Clear | the | current | pattern | . |  | Brush | : | switch | to | brush | mode | for | drawing | patterns | . |  | Eraser | : | switch | to | eraser | mode | for | erasing | patterns | . |  | Save | : | the | pattern | can | be | saved | to | the | call | area | for | easy | reuse | ."
+    },
+    {
+      "slide": 17,
+      "text": "Practice | Programming | 01 | logo | Initial | setting | After | initialization, | it | is | repeated | to | determine | if | the | button | is | pressed | and | released | . | The | variable | will | increase | when | the | button | is | fully | pressed | and | then | released | ."
+    },
+    {
+      "slide": 18,
+      "text": "Practice | Programming | logo | 02 | Make patterns | Make different patterns by clicking on  | the squares on the dot matrix screen."
+    },
+    {
+      "slide": 19,
+      "text": "Practice | Programming | logo | 03 | Function | of | displaying | expression | Define | the | display | expression | function, | and | the | expression | parameters | are | used | to | judge | the | displayed | eyes | ."
+    },
+    {
+      "slide": 20,
+      "text": "Practice | Programming | logo | 04 | Function | of | opening | the | door | The | parameter | to | display | the | expression | needs | to | use | the | remainder | operation | . | As | shown | in | the | figure, | the | result | of | the | remainder | operation | can | only | be | one | of | the | three | numbers | 0 | , | 1 | , | and | 2 | ."
+    },
+    {
+      "slide": 21,
+      "text": "Practice | Programming | logo | 05 | Integrate | the | program | According | to | the | flowchart, | integrate | each | segment | of | the | program | ."
+    },
+    {
+      "slide": 22,
+      "text": "Practice | Programming | logo"
+    },
+    {
+      "slide": 23,
+      "text": "Results"
+    },
+    {
+      "slide": 24,
+      "text": "Program Optimization | This lesson realizes the function of changing expressions by  | pressing the nose. When the nose is pressed and then released,  | different expressions can be displayed in a cycle. | Next, modify the program and modify the remainder operation, so  | that the robot can display more expressions in a loop. | Requirements: To play 5 expression patterns in a loop."
+    },
+    {
+      "slide": 25,
+      "text": "Further Reading | May | 25 | is | celebrated | as | Clown | Day | in | Peru | in | honor | of | Jose | Alvarez | Velez, | also | known | as | ³7RQ\\ | 3HUHMLO´ | . | He | brought | joy | to | people | in | Lima's | slums | in | the | 1970 | s | and | 1980 | s, | and | was | called | \"the | poor | man's | clown\" | ."
+    },
+    {
+      "slide": 26,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER: "
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, PDF Page tree, zlib FlateDecode, PDF BT/ET text operators",
+  "visualReviewComplete": false
+}

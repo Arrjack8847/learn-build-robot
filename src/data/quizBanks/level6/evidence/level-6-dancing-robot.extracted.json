@@ -1,0 +1,120 @@
+{
+  "projectId": "level-6-dancing-robot",
+  "sourcePath": "public/Level 6/Learning/Complex Mechanisms & Coordinated Motion/Dancing Robot/0.3Dancing Robot-update.pdf",
+  "sourceBlobSha": "1ff54eb098ce239b4dcc67be28f9dfcffb0819c1",
+  "sourceBytes": 815447,
+  "pageCount": 18,
+  "extractionMethod": "Decode GitHub contents/base64; decompress PDF Flate streams; collect PDF text operators by numbered page; no image interpretation",
+  "visualReviewComplete": false,
+  "questionsValidated": false,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Intelligence | Storm | - | Series | Dancing Robot | Intelligence Storm is a building block programming robot research and development by | Joinmax | . The kit is equipped with various sensors such as sound sensitivity, color sensor, touch | sensor, photoelectric sensor, color light, ultrasonic, camera and many building blocks parts. | Students can build various building block robots with their imagination, and use graphical | programming software to program the robot and experience the joy of hands | - | on creation.",
+      "textCharacters": 498,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 2,
+      "text": "L | earning | T | arget | Knowledge of variables and how to use | variables for calculations. | Knowledge goal | 01 | Familiar with the use of color sensor module, | master the basic operation of variables. | Ability goal | 02 | Learn to think in essence. | Emotional attitudes and values | 03",
+      "textCharacters": 265,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 3,
+      "text": "Master the basic usage of color sensor. | Learning focus | 01 | Flexible application of knowledge of | variables and their operations. | Learning difficulties | 02 | L | earning | T | arget",
+      "textCharacters": 169,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 4,
+      "text": "C | ourse | Introduction | T | eaching | N | ew | K | nowledge | D | esign | A | ssembly | T | est | E | ffect | 01 | 02 | 03 | 04 | 0 | 5 | P | rogramming | and | D | ebugging",
+      "textCharacters": 122,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 5,
+      "text": "C | ourse | I | ntroduction",
+      "textCharacters": 21,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 6,
+      "text": "Do | you | know | what | dances | there | are | in | Spain? | There are many types of Spanish dance. | The main one is Flamenco, an art form | originating in the Andalusia region of | southern Spain. It includes song, music and | dance. There are 50 kinds of Flamenco | music, each with its own rhythm pattern. | Flamenco dance is an improvised dance with | no fixed movements and relies on the | emotional interaction between the dancer and | the singer, the accompanist and the audience. | Course | I | ntroduction",
+      "textCharacters": 474,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 7,
+      "text": "In this lesson, the robot is called \"Dance\". Spain has a | very famous traditional dance, whether it's flamenco or | bullfight, which is very infectious. Let's make a dancing | robot today and try to imitate this traditional Spanish | dance. Here we learn together. | Meet the Dancing Robot | Dancing Robot | Course | I | ntroduction",
+      "textCharacters": 315,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 8,
+      "text": "T | eaching | N | ew | K | nowledge",
+      "textCharacters": 25,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 9,
+      "text": "Logic | [and], | [or], | [ | not | ] | Logic | [ | and] | is | one | of | the | two | logical | variable | operations, | often | two | propositions | . | It | satisfies | : | the | result | is | true | if | and | only | if | the | truth | values | of | its | two | variables | are | both | true | . | Logic | [or] | is | one | of | the | two | logical | variable | operations, | often | are | the | two | propositions | . | It | satisfies | that | the | result | is | false | if | and | only | if | the | truth | values | of | both | of | its | variables | are | false | . | Logic | [not] | refers | to | the | opposite | of | the | original | value | . | For | example | : | \"!\" | 0 | \"the | logical | expression | has | a | value | of | 1 | . | (this | number | is | 0 | , | judgment, | is | the | expression | has | a | value | of | 1 | )\"! | 1 | \" | The | value | of | this | logical | expression | is | 0 | . | Teaching | N | ew | K | nowledge",
+      "textCharacters": 676,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 10,
+      "text": "R | andom number | The computer is a very precise thing. The calculation and generation of results | always follow the original mechanism setting. On the other hand, the computer is | also a little \"rigid\" and \"unable\" to produce random and probabilistic events. But | now we still can according to the nature of the random number set out similar | functions, pseudo random number. Pseudo random number is calculated using the | deterministic algorithm from [0, 1] is uniformly distributed random number | sequence. It is not really random, but has statistical characteristics similar to | random numbers, such as uniformity, independence, etc. | Teaching | N | ew | K | nowledge",
+      "textCharacters": 651,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 11,
+      "text": "D | esign | A | ssembly",
+      "textCharacters": 17,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 12,
+      "text": "i | Design | A | ssembly | 1. stable structure | 2. focus is right | 3. shape match | Assembly requirements",
+      "textCharacters": 93,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 13,
+      "text": "P | rogramming and | D | ebugging",
+      "textCharacters": 27,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 14,
+      "text": "start | No response | action string | defined | variable | Define | logical | relationships | Programming and Debugging",
+      "textCharacters": 103,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 15,
+      "text": "1 | . | Dancing | program, | which | makes | use | of | calculation | and | logical | relations | to | make | the | dancing | robot | make | different | rhythms | . | Programming and Debugging",
+      "textCharacters": 150,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 16,
+      "text": "C | hecking | E | ffect",
+      "textCharacters": 17,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 17,
+      "text": "i | Review | the | learning | content | and | deepen | your | impression | . | What is the name of the | robot made today? | What hardware do today's | robots use? | i | i | What else is special about | Spain? | Test | E | ffect | Question | 1 | Question | 2 | Question | 3",
+      "textCharacters": 221,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 18,
+      "text": "Thank you for watching | Intelligence | Storm Series",
+      "textCharacters": 48,
+      "visualReviewRequired": true
+    }
+  ]
+}

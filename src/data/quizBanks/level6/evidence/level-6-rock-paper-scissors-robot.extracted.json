@@ -1,0 +1,107 @@
+{
+  "projectId": "level-6-rock-paper-scissors-robot",
+  "sourcePath": "public/Level 6/Learning/Sensor-Focused Robots/Rock-paper-scissors Robot/30.Rock-paper-scissors Robot-Slides.pdf",
+  "wixFileId": "7fc4ca_19eceab6caab42ef9186b74f8299a089.pdf",
+  "sourceBytes": 1371312,
+  "pageCount": 24,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Rock | - | paper | - | scissors Robot | Lesson 30"
+    },
+    {
+      "slide": 2,
+      "text": "Key points from this lesson: | 1. Learn the gesture recognition function in depth | 2. Learn to combine gesture recognition with variable operations | Possible difficulties from this lesson: | 1. Build a rock | - | paper | - | scissors robot model"
+    },
+    {
+      "slide": 3,
+      "text": "Introduction | 01"
+    },
+    {
+      "slide": 4,
+      "text": "Introduction | Rock | - | paper | - | scissors | is | a | classic | game | . | Its | main | purpose | is | to | resolve | disputes | . | Because | the | three | players | are | mutually | restrained, | there | will | always | be | a | winner | no | matter | how | many | times | a | tie | occurs | . | The | rock | - | paper | - | scissors | game | can | determine | the | winner | by | using | only | three | gestures | : | scissors, | rock, | and | paper | . | In | the | process | of | rock | - | paper | - | scissors, | at | least | two | people | must | participate | to | determine | the | winner | . | In | the | JDPH¶V | rules, | rock | beats | scissors, | scissors | beats | paper, | and | paper | beats | rock | ."
+    },
+    {
+      "slide": 5,
+      "text": "New Knowledge | 02"
+    },
+    {
+      "slide": 6,
+      "text": "The origin of the rock | - | paper | - | scissors game | There | are | two | theories | about | its | origin | : | one | is | that | it | originated | in | China, | mainly | from | the | \"Wu | Za | Zu\" | written | by | people | in | the | Ming | Dynasty, | which | records | that | the | earliest | rock | - | paper | - | scissors | originated | from | the | hand | gestures | and | fist | - | fighting | of | the | Han | Dynasty | . | Another | theory | is | that | it | originated | in | Japan | in | the | 19 | th | century | . | In | the | 20 | th | century, | the | game | of | rock | - | paper | - | scissors | began | to | spread | to | Europe | and | the | United | States | . | Europe | and | the | United | States | called | it | the | \"Japanese | game,\" | and | the | French | called | it | \"jeu | Japonais\" | (meaning | Japanese | game) | ."
+    },
+    {
+      "slide": 7,
+      "text": "A psychological analysis of this game | \"Rock, | Paper, | Scissors\" | is | actually | a | psychological | game, | especially | when | you | first | play, | it | has | a | lot | to | do | with | your | psychological | personality | . | Like | to | play | \"Rock\" | - | Strong | adaptability | ; | aggressive | Like | to | play | \"Paper\" | - | Strong | control | desire, | good | at | socializing, | and | often | easy | to | get | wealth | . | Like | to | play | \"Scissors\" | - | Lack | of | security"
+    },
+    {
+      "slide": 8,
+      "text": "Practice | 03"
+    },
+    {
+      "slide": 9,
+      "text": "Effect Demonstration"
+    },
+    {
+      "slide": 10,
+      "text": "Design and assembly | Large motor:  | M4 port | Large motor:  | M2 port | Medium  | motor: M1  | port | AI vision  | module: P8  | port | According | to | the | building | manual, | build | a | rock | - | paper | - | scissors | robot | . | We | need | a | controller | to | control | the | motor | rotation | and | call | the | AI | ௙௙YLVLRQ | module | . | Connect | the | AI | ௙௙YLVLRQ | module | to | the | P | 8 | port | of | the | controller | and | the | motors | to | the | M | 1 | , | M | 2 | and | M | 4 | ports | ."
+    },
+    {
+      "slide": 11,
+      "text": "Project tasks"
+    },
+    {
+      "slide": 12,
+      "text": "Programming | The | rules | of | rock | - | paper | - | scissors | : | According | to | the | rules | of | the | rock | - | paper | - | scissors | game, | all | the | winning | and | losing | results | of | the | rock | - | paper | - | scissors | game | are | listed | . | It | can | be | found | that | when | the | result | = | 1 | or | - | 2 | , | the | game | fails | ; | when | the | result | = | - | 1 | or | 2 | , | the | game | wins | ; | if | the | result | = | 0 | , | then | it | is | a | draw | . | Scissors: | Rocker:  | Paper: "
+    },
+    {
+      "slide": 13,
+      "text": "Programming | logo | 1. Set the detection mode. | 6HW\u0003WKH\u0003$,\u0003௙௙YLVLRQ\u0003PRGXOH\u0003WR\u0003VZLWFK\u0003WR\u0003 | gesture recognition mode."
+    },
+    {
+      "slide": 14,
+      "text": "Programming | logo | 2 | . | Detect | the | gesture | recognition | ID | result | and | subtract | it | from | the | random | number | to | get | the | difference | . | Create | new | variables | \"X\", | \"ID\", | and | \"Result\", | where | \"X\" | is | set | to | a | random | number | ( | 1 | - | 3 | ), | \"ID\" | is | set | to | the | gesture | recognition | ID, | and | \"Result\" | is | set | to | the | difference | (\"ID\" | - | \"X\") | ."
+    },
+    {
+      "slide": 15,
+      "text": "Programming | logo | 3 | . | The | robot | shows | a | gesture | . | If | ID= | 0 | is | not | true, | that | is, | we | show | the | robot | a | gesture, | then | the | robot | will | randomly | show | a | gesture, | and | the | result | and | the | value | of | X | will | be | displayed | on | the | first | and | second | lines | of | the | screen | ."
+    },
+    {
+      "slide": 16,
+      "text": "Programming | logo | The gesture function is as follows.  | 'LIIHUHQW\u0003YDOXHV\u0003௙௙RI\u0003;\u0003UHSUHVHQW\u0003GLIIHUHQW\u0003 | gestures."
+    },
+    {
+      "slide": 17,
+      "text": "Programming | logo | 4 | . | Output | the | game | result | . | Then, | according | to | the | \"result\" | value, | the | corresponding | game | result | is | displayed | on | the | third | line | of | the | screen | ."
+    },
+    {
+      "slide": 18,
+      "text": "Programming | logo | 5. The robot resets and clears the  | data. | Wait for the gesture recognition ID to  | be 0, then the robot resets and clears  | the screen."
+    },
+    {
+      "slide": 19,
+      "text": "Programming | logo | The reset sub | - | function is as  | follows."
+    },
+    {
+      "slide": 20,
+      "text": "Programming | logo | 6. The overall program is as  | follows."
+    },
+    {
+      "slide": 21,
+      "text": "Expansion | 04"
+    },
+    {
+      "slide": 22,
+      "text": "Expansion task | Please add a color lamp module to light up  | different colors of lights when different  | calculation results are obtained."
+    },
+    {
+      "slide": 23,
+      "text": "Further Reading | Some | researchers | have | discovered | a | winning | strategy | for | rock | - | paper | - | scissors | through | experiments | . | The | researchers | recruited | 360 | students, | divided | them | into | six | groups, | and | randomly | paired | them | to | play | 300 | rounds | of | rock | - | paper | - | scissors | games | . | The | students | who | won | each | round | would | receive | a | small | amount | of | RMB | reward | . | By | observing | the | strategies | used | by | the | students, | they | found | the | game | strategies | that | winners | or | losers | usually | use | : | if | you | are | a | loser, | switch | to | a | move | that | can | defeat | your | opponent | in | the | next | round | ; | if | you | are | a | winner, | do | not | use | the | original | move | in | the | next | round | . | In | other | words, | if | you | beat | your | opponent's | scissors | with | rock, | then | you | can | no | longer | use | rock | in | the | next | round, | but | scissors, | because | the | opponent | is | likely | to | use | paper | ."
+    },
+    {
+      "slide": 24,
+      "text": "Thanks!"
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

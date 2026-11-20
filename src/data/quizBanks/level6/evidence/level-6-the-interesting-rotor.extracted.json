@@ -1,0 +1,150 @@
+{
+  "projectId": "level-6-the-interesting-rotor",
+  "sourcePath": "public/Level 6/Learning/Interactive Systems/The Interesting Rotor/19. The Interesting Rotor-Teaching Slides.pdf",
+  "sourceBlobSha": "6f624e315a63b0bcb88ccb61f8a0494fb9171cd7",
+  "sourceBytes": 938396,
+  "pageCount": 23,
+  "extractionMethod": "Decode GitHub contents/base64; decompress PDF Flate streams; collect PDF text operators by numbered page; no image interpretation",
+  "visualReviewComplete": false,
+  "questionsValidated": false,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 19. | The Interesting Rotor | edu.zmrobo.com | LECTURER | XXX",
+      "textCharacters": 60,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | Learning Objectives | Possible Difficulties | 1. | Understand | the | working | principle | and | characteristics | of | helicopters | . | 2. | Understand | the | relationship | between | air | pressure | and | helicopters | . | 1. | Conversion of atmospheric pressure and altitude. | 2. | Atmospheric pressure is affected by temperature, resulting in partial data | distortion.",
+      "textCharacters": 343,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information",
+      "textCharacters": 22,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 4,
+      "text": "Context Import | Helicopters | are | typical | military | - | civilian | dual | - | use | products, | which | can | be | widely | used | in | transportation, | patrol, | tourism, | rescue | and | other | fields | . | The | maximum | speed | of | the | helicopter | can | reach | more | than | 300 | km/h | . | During | the | flight | of | the | helicopter, | it | is | necessary | to | monitor | the | index | of | the | surrounding | environment | at | any | time | . | Such | as | environmental | wind | direction, | air | flow, | air | pressure, | etc | .",
+      "textCharacters": 420,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 5,
+      "text": "Context Import | At | an | altitude | of | 4 | , | 000 | meters, | the | air | density | is | about | 60 | - | 70 | % | of | that | at | sea | level, | and | the | power | of | the | helicopter | drops | by | about | 40 | % | . | Generally | speaking, | the | load | of | helicopters | drops | rapidly | in | plateau | areas, | let | alone | carrying | passengers, | and | even | flying | is | difficult | .",
+      "textCharacters": 297,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 6,
+      "text": "Context Import | At | high | altitudes, | the | air | pressure | is | very | low | . | If | the | plane | flies | to | a | certain | altitude, | the | human | body | will | feel | obvious | discomfort, | even | life | - | threatening | . | Therefore, | the | interior | of | the | aircraft | is | equipped | with | a | pressurization | system | to | maintain | the | stability | of | the | air | pressure | in | the | cabin | and | ensure | the | personal | safety | of | passengers | .",
+      "textCharacters": 364,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 7,
+      "text": "Knowledge | Introduction",
+      "textCharacters": 22,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 8,
+      "text": "New Knowledge | Helicopters | rely | on | the | engine | to | directly | push | the | propeller | to | rotate | to | generate | an | upward | \"pull\" | to | fly | . | Air | pressure | directly | affects | the | power | of | the | propeller | . | In | the | case | of | consuming | the | same | amount | of | energy, | the | lower | the | air | pressure, | the | lower | the | air | density, | and | the | less | power | the | propeller | does | to | the | air | .",
+      "textCharacters": 340,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 9,
+      "text": "New Knowledge | The | reduction | of | the | power | of | the | propeller | to | the | air | will | reduce | the | flight | distance | and | height | of | the | helicopter | . | To | maintain | a | certain | flight | distance | and | altitude, | the | helicopter | needs | to | increase | the | power | of | the | engine | , | increase | the | speed | of | the | propeller, | and | improve | the | work | efficiency | of | the | air | . | We | can | make | a | helicopter | using | a | barometric | pressure | sensor | .",
+      "textCharacters": 386,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 10,
+      "text": "New Knowledge | In | this | lesson, | we | simulate | the | situation | of | the | helicopter | in | the | air, | calculate | the | altitude | through | the | air | pressure | sensor | and | adjust | the | rotation | speed | according | to | the | altitude | . | For | ease | of | understanding, | the | simulation | is | the | opposite | of | reality | .",
+      "textCharacters": 269,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 11,
+      "text": "Practice",
+      "textCharacters": 8,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 12,
+      "text": "New Knowledge | Rotor of the | helicopter | Barometric | Sensor | Assemble | a | helicopter | robot | according | to | the | building | manual | to | realize | the | different | functions | of | adjusting | the | rotor | speed | according | to | the | atmospheric | pressure | .",
+      "textCharacters": 220,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 13,
+      "text": "Practice | Programming | There | are | different | speeds | at | different | altitudes, | which | can | be | divided | into | three | situations | : | the | altitude | is | too | low | (the | difference | in | atmospheric | pressure | is | not | large), | the | helicopter | rotates | faster | ; | the | altitude | is | moderate, | the | helicopter | rotates | slowly, | and | the | altitude | is | too | high, | the | helicopter | stops | rotating | . | Calculate | the | altitude | by | the | initial | atmospheric | pressure | : | If | the | altitude | is | too | low, | which | is | equivalent | to | a | small | difference | in | atmospheric | pressure | ; | If | the | altitude | is | moderate | and | the | difference | is | moderate, | it | means | that | the | difference | in | atmospheric | pressure | is | neither | too | large | nor | too | small, | which | is | relatively | moderate | ; | If | the | altitude | is | too | high, | it | is | equivalent | to | a | large | difference | in | atmospheric | pressure | .",
+      "textCharacters": 779,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 14,
+      "text": "Practice | Programming",
+      "textCharacters": 22,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 15,
+      "text": "Practice | Programming | 01 | logo | Initial | setting | Set | the | font | and | initialize | the | sensor, | set | the | initial | atmospheric | pressure | value | as | the | initial | atmospheric | pressure | and | display | it | .",
+      "textCharacters": 182,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 16,
+      "text": "Practice | Programming | 02 | The judgment of atmospheric pressure | When the difference in atmospheric pressure is small, the motor rotates faster.",
+      "textCharacters": 142,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 17,
+      "text": "Practice | Programming | logo | 03 | The judgment of | atmospheric pressure | When | the | difference | in | atmospheric | pressure | is | moderate, | the | speed | is | slow, | and | when | the | difference | is | large, | the | speed | returns | to | zero | .",
+      "textCharacters": 205,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 18,
+      "text": "Practice | Programming | logo | Integrate programs | Integrate each program according to the | flow chart. | 04",
+      "textCharacters": 101,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 19,
+      "text": "Practice | Programming | logo",
+      "textCharacters": 27,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 20,
+      "text": "Results",
+      "textCharacters": 7,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 21,
+      "text": "Program Optimization | This | lesson | realizes | the | function | of | the | helicopter | rotor | rotating | according | to | the | change | of | atmospheric | pressure | . | Moving | the | helicopter | up | and | down, | the | rotation | speed | of | the | rotor | will | change | significantly | . | The | higher | the | altitude, | the | lower | the | atmospheric | pressure, | and | the | slower | the | rotor | spins | until | it | stops | . | Next, | modify | the | program | to | make | the | helicopter | rotor | program | consistent | with | the | actual | situation | . | Requirements | : | The | higher | the | altitude, | the | lower | the | air | pressure | and | the | faster | the | rotor | speed | .",
+      "textCharacters": 542,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 22,
+      "text": "Further Reading | The | mercury | experiment | chosen | by | Torricelli | verified | the | fact | that | air | has | weight | . | He | filled | a | glass | tube | with | a | length | of | 1 | meter | with | mercury, | then | put | his | finger | against | the | mouth | of | the | tube, | and | inserted | it | upside | down | into | the | mercury | tank | filled | with | mercury | . | After | he | let | go | of | his | finger, | he | could | see | that | the | mercury | on | the | top | of | the | tube | had | fallen | . | , | leaving | room | for | observation, | while | the | part | below | remains | filled | with | mercury | . | Torricelli | also | found | in | experiments | that | no | matter | what | the | length | of | the | glass | tube | is, | and | no | matter | how | the | glass | tube | is | tilted, | the | vertical | height | of | the | mercury | column | always | remains | at | the | same | height | .",
+      "textCharacters": 676,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 23,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER:",
+      "textCharacters": 32,
+      "visualReviewRequired": true
+    }
+  ]
+}
