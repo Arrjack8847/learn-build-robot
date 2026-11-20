@@ -1,0 +1,84 @@
+{
+  "schema": "be-stem-ready-level2-cjk-remediation-v1",
+  "date": "2026-11-20",
+  "source_main_registry_sha": "5b06f034d40cf0930480185752edd8077ae801ac",
+  "scope": {
+    "eligible_pdfs": 43,
+    "hosting_scanned": 43,
+    "pages_scanned": 787,
+    "cjk_pages_before": 8,
+    "cjk_pages_after": 0,
+    "visible_changed_pixels_at_2x": 0,
+    "building_excluded": true
+  },
+  "method": "Cloud PyMuPDF page-stream surgery removed exactly two white-only Chinese text BT/ET blocks on each of eight pages. Compared all original English text spans, page count and a full 2x pixmap per changed page. Reopened repaired output and Wix-hosted copies; checked MD5, sizes and zero extractable CJK.",
+  "verified": {
+    "all_43_wix_pdfs_http_200_pdf": true,
+    "all_43_page_counts_total_787": true,
+    "wix_restored_uploads_ready": 8,
+    "wix_restored_upload_md5_identical": 8
+  },
+  "limitations": [
+    "English educational content across all 43 must still be independently compared against original source PDFs; these tests certify exact preservation in the eight surgically edited pages, not previously modified prose elsewhere.",
+    "Full graphical Chinese-text OCR and complete original/cleaned 787-page visual comparison not performed.",
+    "No GitHub Actions. No PDF binaries added to GitHub or Vercel deployment."
+  ],
+  "corrections": [
+    {
+      "path": "Level 2/Learning/Biomimicry/Chimpanzees.pdf",
+      "page": 13,
+      "md5": "f89a7d64022d6363d744903c6d967c36",
+      "old_id": "78042f_17aaef1445c44a9c990219e2126134e2.pdf",
+      "new_id": "78042f_1d71a0052d134d83a37c3d241719f1ae.pdf"
+    },
+    {
+      "path": "Level 2/Learning/Foundational Robots/Hammer robot.pdf",
+      "page": 21,
+      "md5": "116772032343ec25b93041ea1b1440a1",
+      "old_id": "78042f_4c35ee502ae441b481f4da1109d50245.pdf",
+      "new_id": "78042f_a88b2ace89bf46238a40b125168ac743.pdf"
+    },
+    {
+      "path": "Level 2/Learning/Foundational Robots/The treadmill.pdf",
+      "page": 17,
+      "md5": "8572da735da382074105d2b1fd1e3f05",
+      "old_id": "78042f_d200b042c89c44a082083c47ff5e892b.pdf",
+      "new_id": "78042f_0cafbb999c9d49b9be39f5c121dfbc95.pdf"
+    },
+    {
+      "path": "Level 2/Learning/Manipulators/Cliff walk.pdf",
+      "page": 11,
+      "md5": "119210ca3779ec4673e90a9579f2b50e",
+      "old_id": "78042f_fe190218fe5346fda2370d14061ac727.pdf",
+      "new_id": "78042f_33aab47e9c6a4f9684c0300e3e3c87c5.pdf"
+    },
+    {
+      "path": "Level 2/Learning/Manipulators/Ferris wheel.pdf",
+      "page": 20,
+      "md5": "ba5ce989751c0c0dd95dc6bdf92340d9",
+      "old_id": "78042f_456988998f5f43e79573c4384a616640.pdf",
+      "new_id": "78042f_60c534454d21444cbe325e557c9ae6b5.pdf"
+    },
+    {
+      "path": "Level 2/Learning/Manipulators/Round-trip transportation.pdf",
+      "page": 14,
+      "md5": "db272ab3024965e116dbb5ed5dee1428",
+      "old_id": "78042f_a38e15badd4b45318da701dc66e27707.pdf",
+      "new_id": "78042f_05c77e3455ef4932b0bf5fd6f910e900.pdf"
+    },
+    {
+      "path": "Level 2/Learning/Mechanisms and Concepts/Animal trap.pdf",
+      "page": 16,
+      "md5": "2ca596e4c3ad9b33f4428ca0be3e5f48",
+      "old_id": "78042f_52644145fb2d4d14a0f5700c9a3201b7.pdf",
+      "new_id": "78042f_27c0b807358f48e1806c5d8c7dbe35bf.pdf"
+    },
+    {
+      "path": "Level 2/Learning/Mechanisms and Concepts/Headlights.pdf",
+      "page": 13,
+      "md5": "5029f29848aeefce93d307f13b65e93d",
+      "old_id": "78042f_98f9454ed5f5489e978fb0cce1914ac3.pdf",
+      "new_id": "78042f_125ebac171ce46dcb593ab378aeafaf8.pdf"
+    }
+  ]
+}
