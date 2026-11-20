@@ -17,7 +17,7 @@
     "test:ui": "node --test tests/marksmanship-ui.test.mjs tests/building-studio-ui.test.mjs tests/level-one-categories.test.mjs tests/syllabus-levels.test.mjs tests/level-five-six-assets.test.mjs tests/legacy-programming-assets.test.mjs tests/level-six-wix-urls.test.mjs",
     "test:motion": "node --test tests/marksmanship-guided-motion.test.mjs",
     "start": "node .output/server/index.mjs",
-    "test:level56": "node --test tests/level-five-six-assets.test.mjs tests/level-six-wix-urls.test.mjs tests/level6-pdf-loading.test.mjs tests/level-five-wix-urls.test.mjs tests/level-four-wix-urls.test.mjs tests/level-five-six-extra-pdfs.test.mjs",
+    "test:level56": "node --test tests/level-five-six-assets.test.mjs tests/level-six-wix-urls.test.mjs tests/level6-pdf-loading.test.mjs tests/level-five-wix-urls.test.mjs tests/level-four-wix-urls.test.mjs tests/level-five-six-extra-pdfs.test.mjs tests/level-six-building-prune.test.mjs",
     "test:legacy-programs": "node --test tests/legacy-programming-assets.test.mjs",
     "test:level123": "node --test tests/level-one-to-three-wix-urls.test.mjs",
     "assets:webp": "node scripts/convert-level-artwork-to-webp.mjs",

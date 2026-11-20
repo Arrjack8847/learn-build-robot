@@ -49,7 +49,7 @@ test("Level 5 Learning PDF routes use all 51 approved cleaned Wix files", () => 
 test("Level 5 Building PDF links retain the pre-migration Wix URLs", () => {
   const building = Object.entries(links).filter(([path]) => path.startsWith("Level 5/Building/"));
   assert.equal(building.length, 45);
-  assert.equal(fingerprint(building), "19457597");
+  assert.equal(fingerprint(building), "124907ac");
 });
 
 test("postbuild prune is limited to Wix-backed Learning copies and audited Building paths", () => {

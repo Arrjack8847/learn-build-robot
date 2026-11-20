@@ -30,7 +30,7 @@ const level4Registry = wixEntries("src/data/levelFourWixPdfUrls.ts");
 const level5Registry = wixEntries("src/data/levelFiveWixPdfUrls.ts");
 const level6Registry = wixEntries("src/data/levelSixWixPdfUrls.ts");
 
-// Prune ONLY the audited 209 Level 1–4 + 45 Level 5 Building paths.
+// Prune ONLY the audited 209 Level 1–4 + 45 Level 5 + 41 Level 6 Building paths.
 // Wix registries also contain Learning and supplementary PDFs; retain those.
 const manifest = JSON.parse(
   readFileSync(
@@ -44,15 +44,23 @@ const level5Manifest = JSON.parse(
     "utf8",
   ),
 );
+const level6Manifest = JSON.parse(
+  readFileSync(
+    join(repoRoot, "reports/level6-building-link-only-paths-20261120.json"),
+    "utf8",
+  ),
+);
 if (manifest.auditedCounts?.distinctPaths !== 209 ||
     !Array.isArray(manifest.paths) || manifest.paths.length !== 209 ||
     level5Manifest.uniqueBuildingPdfCount !== 45 ||
-    !Array.isArray(level5Manifest.paths) || level5Manifest.paths.length !== 45) {
-  throw new Error("Expected exactly 209 Level 1–4 and 45 Level 5 Building PDF paths.");
+    !Array.isArray(level5Manifest.paths) || level5Manifest.paths.length !== 45 ||
+    level6Manifest.uniqueBuildingPdfCount !== 41 ||
+    !Array.isArray(level6Manifest.paths) || level6Manifest.paths.length !== 41) {
+  throw new Error("Expected 209 Level 1–4, 45 Level 5 and 41 Level 6 Building PDF paths.");
 }
-const allBuildingPaths = [...manifest.paths, ...level5Manifest.paths];
-if (allBuildingPaths.length !== 254) {
-  throw new Error("Expected 254 Wix-hosted Building PDF paths.");
+const allBuildingPaths = [...manifest.paths, ...level5Manifest.paths, ...level6Manifest.paths];
+if (allBuildingPaths.length !== 295 || new Set(allBuildingPaths).size !== 295) {
+  throw new Error("Expected 295 unique Wix-hosted Building PDF paths.");
 }
 const paths = allBuildingPaths.map((repositoryPath) => {
   const segments = repositoryPath.split("/");
@@ -63,11 +71,13 @@ const paths = allBuildingPaths.map((repositoryPath) => {
     throw new Error("Unsafe Building PDF inventory path: " + repositoryPath);
   }
   const relativePath = segments.slice(1).join("/");
-  const registry = relativePath.startsWith("Level 5/Building/")
-    ? level5Registry
-    : relativePath.startsWith("Level 4/Building/")
-      ? level4Registry
-      : rootRegistry;
+  const registry = relativePath.startsWith("Level 6/Building/")
+    ? level6Registry
+    : relativePath.startsWith("Level 5/Building/")
+      ? level5Registry
+      : relativePath.startsWith("Level 4/Building/")
+        ? level4Registry
+        : rootRegistry;
   const url = registry.get(relativePath);
   if (typeof url !== "string" || !url.startsWith(wixHost) ||
       !url.endsWith(".pdf")) {
