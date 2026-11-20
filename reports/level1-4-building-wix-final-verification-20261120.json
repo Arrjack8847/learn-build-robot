@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-20",
+  "project": "BE STEM READY",
+  "repository": "Arrjack8847/learn-build-robot",
+  "checkedMainSha": "ff4c682a00cfd2ef9da5a8be3bfdf8485d16a660",
+  "scope": "Levels 1–4 Building PDFs only",
+  "distribution": "Wix Media Manager URLs; no PDF binaries added to GitHub or Vercel deployment",
+  "levelRegistrations": {
+    "1": 60,
+    "2": 60,
+    "3": 40,
+    "4": 50
+  },
+  "levelRegistrationCount": 210,
+  "distinctBuildingPdfPaths": 209,
+  "sharedPathNote": "Gyro transmitter_Building.pdf is shared across Levels 1 and 3",
+  "sourceManifest": "reports/level1-4-building-link-only-paths-20261119.json",
+  "approvedRepairManifest": "reports/level1-4-english-building-binary-delivery-manifest-20261119.json",
+  "liveWixMediaVerification": {
+    "testedUniqueMedia": 209,
+    "passed": 209,
+    "failed": 0,
+    "checks": [
+      "exact file ID",
+      "exact Wix URL in current GitHub main registry",
+      "private=false",
+      "operationStatus=READY",
+      "state=OK",
+      "mediaType=DOCUMENT",
+      "recorded repaired-file size when present"
+    ],
+    "verifiedWith": "Wix Media Manager Get File Descriptor API"
+  },
+  "repairedPdfByteVerification": {
+    "repairedByLevel": {
+      "1": 35,
+      "2": 36,
+      "3": 2,
+      "4": 4
+    },
+    "distinctRepairedFiles": 77,
+    "downloadedDirectlyFromHostedWixURLs": 77,
+    "approvedGitBlobSHA1Matches": 77,
+    "pageCountMatches": 77,
+    "pdfFilesParsed": 77,
+    "extractableChineseTextPages": 0,
+    "failed": 0,
+    "hashDefinition": "SHA-1 of Git blob header (blob <byte length>\\0) concatenated with downloaded PDF bytes",
+    "tooling": "Python urllib, hashlib, PyMuPDF in isolated cloud sandbox; files were not added to GitHub"
+  },
+  "productionDeployment": {
+    "provider": "Vercel",
+    "project": "learn-build-robot",
+    "deploymentId": "dpl_C5zqeaqKaVQ2vLiHYSxz8y7zdS32",
+    "deployedCommitSha": "ada73c06a97067b815fd0f38922ef1e769333d79",
+    "deploymentStatus": "READY",
+    "testedPrunedLegacyLocalPaths": [
+      {
+        "path": "/Car.pdf",
+        "httpStatus": 404
+      },
+      {
+        "path": "/Bridge_Building.pdf",
+        "httpStatus": 404
+      }
+    ],
+    "testedExampleWixPdf": {
+      "path": "public/Sled dog.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "contentLengthBytes": 907327
+    },
+    "caveat": "Only representative production paths were tested; these do not constitute an exhaustive runtime route test."
+  },
+  "safeguards": [
+    "Learning PDFs unchanged by this verification",
+    "No changes to quizzes, Building Studio or other levels",
+    "No GitHub Actions",
+    "No browser automation",
+    "No new GitHub PDF binaries"
+  ],
+  "outstandingQualification": "No complete human visual sign-off of every page was performed. Existing restoration audits and targeted visual checks are documented in earlier reports; automated CJK extraction cannot detect every rasterized annotation.",
+  "olderDraftPRsNotMerged": [
+    92,
+    90,
+    89,
+    91
+  ],
+  "olderDraftPRNote": "These draft PRs propose GitHub binary copies. They are not required for the requested Wix-only link delivery and are not represented as merged."
+}
