@@ -7,7 +7,26 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
+// PDF.js references DOMMatrix when its module loads, even for page-count-only QA.
+// Vercel's Node build image has no canvas DOM. These metadata-only defaults are
+// not used for rendering; the production browser continues using native DOMMatrix.
+if (typeof globalThis.DOMMatrix === "undefined") {
+  globalThis.DOMMatrix = class PdfMetadataDOMMatrix {
+    constructor(init = [1, 0, 0, 1, 0, 0]) {
+      const values = Array.isArray(init) ? init : [1, 0, 0, 1, 0, 0];
+      [this.a, this.b, this.c, this.d, this.e, this.f] = values;
+      this.is2D = true;
+    }
+    multiplySelf() { return this; }
+    translateSelf() { return this; }
+    scaleSelf() { return this; }
+    invertSelf() { return this; }
+    rotateSelf() { return this; }
+    inverse() { return this; }
+    transformPoint(point) { return { x: point.x, y: point.y }; }
+  };
+}
+const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
 
 const root = fileURLToPath(new URL("../../", import.meta.url));
 const urlsSource = readFileSync(resolve(root, "src/data/levelFourWixPdfUrls.ts"), "utf8");
