@@ -50,7 +50,7 @@ export function LevelOneLearningStudio({
           url: lecture.url,
           ...(lecture.url.includes(".usrfiles.com/") ? { rangeChunkSize: 256 * 1024 } : {}),
         });
-        task.onProgress = ({ loaded: bytes, total }) => {
+        task.onProgress = ({ loaded: bytes, total }: { loaded: number; total: number }) => {
           if (!disposed) setDownloadProgress({ loaded: bytes, total });
         };
         const pdf = await task.promise;
