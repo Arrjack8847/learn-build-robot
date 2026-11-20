@@ -1436,10 +1436,20 @@ function encodePath(path: string): string {
   return path.split("/").map(encodeURIComponent).join("/");
 }
 function publicUrl(path: string): string {
-  // Use the individually uploaded Wix document for Level 6 PDF lessons.
-  // Keep Level 5 and non-PDF asset hosting behavior unchanged.
-  const wixUrl = levelFiveWixPdfUrls[path] ?? levelSixWixPdfUrls[path];
+  // Level 5 Learning uses cleaned PDFs stored at their original public paths,
+  // just as Level 1 Learning does. Do not route these back to the old Wix copies.
+  // Level 5 Building manuals and all Level 6 PDFs still use their existing Wix URLs.
+  if (path.startsWith("Level 5/Learning/") && path.endsWith(".pdf")) {
+    // Vite resolves literal "&" in pathname segments but returns 404 for "%26".
+    // Preserve only ampersands; keep spaces, Unicode and other reserved characters encoded.
+    return "/" + encodePath(path).replace(/%26/gi, "&");
+  }
+  // Explicit Level 6 lookup retains the existing Level 6 Wix contract.
+  const wixUrl = levelSixWixPdfUrls[path];
   if (wixUrl) return wixUrl;
+  // Other Level 5 PDFs (Building manuals) continue to use their Wix copies.
+  const levelFiveWixUrl = levelFiveWixPdfUrls[path];
+  if (levelFiveWixUrl) return levelFiveWixUrl;
   const base = assetBase();
   return base ? base + "/" + encodePath("public/" + path) : "/" + encodePath(path);
 }
