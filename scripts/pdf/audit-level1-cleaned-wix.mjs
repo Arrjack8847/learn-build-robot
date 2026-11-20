@@ -3,7 +3,6 @@
  * preview build. Does not modify or upload any PDFs and is not GitHub Actions.
  */
 import { readFileSync } from "node:fs";
-import { createHash } from "node:crypto";
 import { getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
 
 const registrySource = readFileSync(
@@ -11,7 +10,7 @@ const registrySource = readFileSync(
   "utf8",
 );
 const match = registrySource.match(
-  /export const levelOneToThreeWixPdfUrls: Readonly<Record<string, string>> = (\\{[\\s\\S]*?\\});/,
+  /export const levelOneToThreeWixPdfUrls: Readonly<Record<string, string>> = (\{[\s\S]*?\});/,
 );
 if (!match) throw new Error("Level 1 Wix registry not parseable");
 const registry = JSON.parse(match[1]);
@@ -20,8 +19,8 @@ const selected = Object.entries(registry).filter(([key]) =>
 );
 if (selected.length !== 45) throw new Error("Expected exactly 45 Level 1 Learning entries");
 
-const han = /[\\u3400-\\u9fff\\uf900-\\ufaff]/u;
-const branding = /Intelligent\\s*Storm|智能风暴|智\\s*能\\s*风\\s*暴/i;
+const han = /[\u3400-\u9fff\uf900-\ufaff]/u;
+const branding = /Intelligent\s*Storm|智能风暴|智\s*能\s*风\s*暴/i;
 let totalPages = 0;
 let opened = 0;
 let extractedPages = 0;
