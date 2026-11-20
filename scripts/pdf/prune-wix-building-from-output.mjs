@@ -1,8 +1,8 @@
 /**
- * Remove Wix-hosted Level 1–5 Building PDF duplicates from built deployment assets.
+ * Remove Wix-hosted Building and cleaned Level 1 Learning PDF duplicates from built deployment assets.
  *
- * Never modifies public/ source files or Learning PDF assets. Every removed file
- * must have a verified Wix URL in the exact path registries.
+ * Never modifies public/ source files. Every removed file must have a verified
+ * Wix URL and an exact audited path in the registries.
  *
  * Runs after vite build via package.json postbuild. No downloads are performed.
  */
@@ -74,6 +74,26 @@ const paths = allBuildingPaths.map((repositoryPath) => {
   }
   return relativePath;
 });
+// All 45 cleaned Level 1 Learning uploads are public, READY and exact URL-matched
+// against Wix Media Manager; prune their COPIES from deployment output only.
+const levelOneLearningPaths = [...rootRegistry.entries()]
+  .filter(([key]) => key.startsWith("Level 1/Learning/"))
+  .map(([key, url]) => {
+    if (!/^Level 1\/Learning\/.+\.pdf$/i.test(key) ||
+        key.split("/").some(part => part === "." || part === "..") ||
+        typeof url !== "string" ||
+        !url.startsWith(wixHost + "78042f_") ||
+        !url.endsWith(".pdf")) {
+      throw new Error("Invalid Level 1 cleaned Wix PDF mapping: " + key);
+    }
+    return key;
+  });
+if (levelOneLearningPaths.length !== 45 ||
+    new Set(levelOneLearningPaths).size !== 45) {
+  throw new Error("Expected exactly 45 cleaned Level 1 Learning Wix PDF paths.");
+}
+paths.push(...levelOneLearningPaths);
+
 if (new Set(paths).size !== paths.length) {
   throw new Error("Duplicate path in audited Building PDF manifest.");
 }
@@ -107,6 +127,6 @@ for (const relativeFolder of outputFolders) {
 
 console.log(
   "[PDF link-only deployment] " + paths.length +
-  " Wix-backed Level 1–5 Building PDF paths checked; " +
-  deleted + " copied PDFs excluded from build output. Learning PDFs preserved.",
+  " Wix-backed Building and cleaned Level 1 Learning PDF paths checked; " +
+  deleted + " copied PDFs excluded from build output. Repository source PDFs preserved.",
 );
