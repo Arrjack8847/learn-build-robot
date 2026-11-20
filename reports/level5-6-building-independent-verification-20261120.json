@@ -1,0 +1,112 @@
+{
+  "project": "BE STEM READY",
+  "date": "2026-11-20",
+  "scope": "Levels 5 and 6 Building PDFs only",
+  "sourceMainCommit": "5eced50b0eb9d44735bf72a4c5fed91c0cdcc95a",
+  "inventory": {
+    "level5PdfCount": 45,
+    "level6PdfCount": 41,
+    "totalPdfCount": 86,
+    "level5Pages": 1031,
+    "level6Pages": 1007,
+    "totalPages": 2038
+  },
+  "verifiedWixInputs": {
+    "downloaded": 86,
+    "matchingExpectedSourceOrApprovedGitBlob": 86,
+    "mismatches": 0,
+    "verifiedBytes": 970555642,
+    "mimeApplicationPdfAndRange206": 86,
+    "corsWildcard": 86
+  },
+  "automatedContentQA": {
+    "selectableChinesePages": 0,
+    "secondImageOcr": {
+      "pagesRendered": 2038,
+      "executionErrors": 0,
+      "engine": "Tesseract 5.5 chi_sim+eng PSM 6 at 1.58x",
+      "suspectedChineseCandidatePages": 697,
+      "multiCharacterLines": 183,
+      "highConfidenceSingleCharacters": 69
+    },
+    "firstImageOcr": {
+      "pagesRendered": 2038,
+      "executionErrors": 0,
+      "engine": "Tesseract chi_sim+eng PSM 11 at 1.07x",
+      "multiCharacterLines": 132
+    },
+    "fullIndependentHumanPageByPageVisualCertification": false,
+    "caveat": "OCR hypotheses are not confirmed defects; a complete, individually examined full-resolution review of every page has not been performed."
+  },
+  "verifiedNewCorrections": [
+    {
+      "level": 5,
+      "name": "Chairoplane",
+      "path": "public/Level 5/Building/Mechanisms & Simulators/Chairoplane/27. Chairoplane-Building Manual.pdf",
+      "page": 33,
+      "originalChinese": "7格梁隔层错位安装",
+      "english": "Install the 7-hole beams in staggered layers",
+      "newWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f1161d0495ff427dac1089bb54520bc5.pdf",
+      "approvedSourceBlob": "a866bd4cd98b2a6e21dae3aafa26636d656f39c1",
+      "approvedNewBlob": "882d18b299f6b80c2e414f55dd1a41590d16c54a",
+      "pageCount": 34,
+      "unmodifiedPagesRasterIdentical": 33,
+      "significantPixelDifferencesOutsideTargetRegion": 0,
+      "wixReady": true,
+      "wixByteForByteVerified": true,
+      "previousEnglishRepairOnPage30Preserved": true
+    },
+    {
+      "level": 6,
+      "name": "Red Light Warning Device",
+      "path": "public/Level 6/Building/Illumination & Signals/Red Light Warning Device/12. Red Light Warning Device-Building Manual.pdf",
+      "page": 9,
+      "originalChinese": "确认点阵屏位置",
+      "english": "Confirm the position of the dot-matrix display",
+      "newWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_613e0c239ba64e96ba94d3088dff2c3d.pdf",
+      "approvedSourceBlob": "199c00c6ab9e983220528b8d11c4ee4b77b42ac8",
+      "approvedNewBlob": "e977a1a1473d8ccc9c69eabc3a53fa96f",
+      "pageCount": 12,
+      "unmodifiedPagesRasterIdentical": 11,
+      "significantPixelDifferencesOutsideTargetRegion": 0,
+      "wixReady": true,
+      "wixByteForByteVerified": true
+    }
+  ],
+  "knownVerifiedEnglishWixRepairs": {
+    "level5DistinctBuildingManuals": 5,
+    "level6DistinctBuildingManuals": 4,
+    "combinedDistinctBuildingManuals": 9
+  },
+  "levelSixDeploymentPrune": {
+    "before": 0,
+    "after": 41,
+    "level5PruneAlreadyPresent": 45,
+    "totalLevels1To6UniqueBuildingPaths": 295,
+    "allValidatedWixBackedPathsChecked": 533,
+    "sourcePDFsNeverRemoved": true,
+    "simulationRemovedExactOutputCopies": 4,
+    "simulationPreservedSourceAndUnrelatedOutputs": true
+  },
+  "routingQA": {
+    "nodeTestsPassed": 10,
+    "nodeTestsFailed": 0,
+    "level5BuildingMappings": 45,
+    "level6BuildingMappings": 41,
+    "level6LearningMappingsUntouched": 43,
+    "level5LearningMappingsUntouched": 51
+  },
+  "deploymentQA": {
+    "lastReadyStagingBeforeRelease": "https://be-stem-ready-final-build-preview-el4l4irqj-jack-3b3d.vercel.app",
+    "stagingWasBuiltFromMain": "5eced50b0eb9d44735bf72a4c5fed91c0cdcc95a",
+    "interactiveViewerEndToEndConfirmed": false,
+    "reason": "Vercel staging deployment protected by Vercel Authentication; direct unauthenticated HTTP access redirects to login. Protection not changed."
+  },
+  "status": "CONFIRMED_ENGLISH_REPAIRS_WIX_READY; RELEASE_PR_TESTED; FULL_MANUAL_VISUAL_SIGNOFF_PENDING",
+  "exclusions": [
+    "No GitHub Actions invoked",
+    "No browser-use automation invoked",
+    "No PDF binaries committed to GitHub main",
+    "No Learning PDF paths changed"
+  ]
+}
