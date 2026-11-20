@@ -115,8 +115,28 @@ if (levelThreeLearningPaths.length !== 43 ||
 }
 paths.push(...levelThreeLearningPaths);
 
+// All 51 Level 5 Learning PDFs now have reviewed cleaned Wix URL mappings.
+// Remove only their copied deployment assets, retaining GitHub public/ source.
+const levelFiveLearningPaths = [...level5Registry.entries()]
+  .filter(([key]) => key.startsWith("Level 5/Learning/"))
+  .map(([key, url]) => {
+    if (!/^Level 5\/Learning\/.+\.pdf$/i.test(key) ||
+        key.split("/").some(part => part === "." || part === "..") ||
+        typeof url !== "string" ||
+        !url.startsWith(wixHost + "78042f_") ||
+        !url.endsWith(".pdf")) {
+      throw new Error("Invalid Level 5 cleaned Wix PDF mapping: " + key);
+    }
+    return key;
+  });
+if (levelFiveLearningPaths.length !== 51 ||
+    new Set(levelFiveLearningPaths).size !== 51) {
+  throw new Error("Expected exactly 51 cleaned Level 5 Learning Wix PDF paths.");
+}
+paths.push(...levelFiveLearningPaths);
+
 if (new Set(paths).size !== paths.length) {
-  throw new Error("Duplicate path in audited Building PDF manifest.");
+  throw new Error("Duplicate path in audited Wix PDF manifest.");
 }
 
 // Vite/TanStack Start/Nitro can emit assets into different folders.
@@ -148,6 +168,6 @@ for (const relativeFolder of outputFolders) {
 
 console.log(
   "[PDF link-only deployment] " + paths.length +
-  " Wix-backed Building and cleaned Level 1 + Level 3 Learning PDF paths checked; " +
+  " Wix-backed Building and cleaned Level 1 + Level 3 + Level 5 Learning PDF paths checked; " +
   deleted + " copied PDFs excluded from build output. Repository source PDFs preserved.",
 );
