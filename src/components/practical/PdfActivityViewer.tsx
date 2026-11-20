@@ -56,13 +56,18 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
           url: manual.url,
           ...(manual.url.includes(".usrfiles.com/") ? { rangeChunkSize: 256 * 1024 } : {}),
         });
-        task.onProgress = ({ loaded: bytes, total }) => {
+        task.onProgress = ({ loaded: bytes, total }: { loaded: number; total: number }) => {
           if (!disposed) setDownloadProgress({ loaded: bytes, total });
         };
         loaded = await task.promise;
         if (disposed) return;
         if (loaded.numPages < 1) throw new Error("This document has no slides or pages.");
         setPdfDocument(loaded);
+        // Manual-backed quiz questions also use ?slide=N for page review.
+        const reviewPage = Number(new URLSearchParams(window.location.search).get("slide"));
+        if (Number.isInteger(reviewPage) && reviewPage >= 1) {
+          setPage(Math.min(reviewPage, loaded.numPages));
+        }
         setReady(true);
         if (new URLSearchParams(window.location.search).has("pdfDebug")) {
           console.info("[BSR PDF] Building metadata ready in", Math.round(performance.now() - startedAt), "ms", manual.id);

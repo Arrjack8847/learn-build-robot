@@ -149,7 +149,8 @@ test("Existing project picker and Quiz Studio use the shared bank availability",
   const projectRoute = await readFile(resolve(root, "src/routes/projects.$projectId.tsx"), "utf8");
   const quizRoute = await readFile(resolve(root, "src/routes/quiz.$projectId.tsx"), "utf8");
   assert.match(chooser, /status: QuizSyllabusStatus = getQuizBank\(projectId\)/);
-  assert.match(projectRoute, /quizReady = quizEntry\?\.status === "ready"/);
+  assert.match(projectRoute, /getQuizBank\(project\.id\) &&/);
+  assert.match(projectRoute, /to="\/quiz\/\$projectId"/);
   assert.match(quizRoute, /getQuizBank\(projectId\)/);
   assert.match(quizRoute, /selectQuizQuestions\(/);
 });

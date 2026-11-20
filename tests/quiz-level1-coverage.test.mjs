@@ -121,18 +121,24 @@ test("existing Quiz route retains hint, navigation, saved progress and slide-rev
   assert.ok(route.includes("readQuizSavedState"));
   assert.ok(route.includes("writeQuizSavedState"));
   const studio = await readFile(resolve(root, "src/components/practical/LevelOneLearningStudio.tsx"), "utf8");
-  assert.ok(studio.includes("Construction Manual"));
-  assert.ok(studio.includes("Official teaching slides are not available"));
+  const pdfViewer = await readFile(resolve(root, "src/components/practical/PdfActivityViewer.tsx"), "utf8");
+  const practicalRoute = await readFile(resolve(root, "src/routes/practical/$projectId.tsx"), "utf8");
+  assert.ok(studio.includes('get("slide")'), "Learning Studio must open the requested review slide");
+  assert.ok(pdfViewer.includes('get("slide")'), "manual-backed reviews must open their requested page");
+  assert.ok(practicalRoute.includes("const pdfManual = pdfActivityManuals[project.id]"),
+    "manual-only projects must retain their real construction PDF");
 });
 
-test("Building-only projects have a distinct blocked state and cannot be described as lectures", async () => {
+test("Building-only quiz sources are identified honestly and remain playable", async () => {
   const syllabus = await readFile(resolve(root, "src/data/quizSyllabus.ts"), "utf8");
   const projectPage = await readFile(resolve(root, "src/routes/projects.$projectId.tsx"), "utf8");
   assert.ok(syllabus.includes('"building-manual-only"'), "missing fallback status");
   assert.ok(syllabus.includes("buildingManualOnlyLevelOneIds.has(projectId)"),
     "fallback gate must check source kind per project");
-  assert.ok(projectPage.includes('quizEntry.status === "building-manual-only"'));
-  assert.ok(projectPage.includes("Only a Building manual was supplied"));
+  assert.ok(projectPage.includes("getQuizBank(project.id) &&"),
+    "all verified manual-backed quiz banks must remain selectable");
+  assert.ok(projectPage.includes("Project-specific learning materials have not been added yet."),
+    "manual-only projects must not advertise nonexistent teaching slides");
   assert.ok(getQuizBank("pocket-pistol"), "safety-and-elasticity quiz must be available");
   assert.ok(syllabus.includes("usesBuildingManual:"), "source kind must reach the project UI");
   const quiz = await readFile(resolve(root, "src/routes/quiz.$projectId.tsx"), "utf8");

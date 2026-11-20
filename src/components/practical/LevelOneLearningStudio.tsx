@@ -50,13 +50,18 @@ export function LevelOneLearningStudio({
           url: lecture.url,
           ...(lecture.url.includes(".usrfiles.com/") ? { rangeChunkSize: 256 * 1024 } : {}),
         });
-        task.onProgress = ({ loaded: bytes, total }) => {
+        task.onProgress = ({ loaded: bytes, total }: { loaded: number; total: number }) => {
           if (!disposed) setDownloadProgress({ loaded: bytes, total });
         };
         const pdf = await task.promise;
         if (disposed) return;
         if (!pdf.numPages) throw new Error("No slides found in this PDF.");
         setDocument(pdf);
+        // Quiz review links point to a 1-based source page. Clamp to the real PDF.
+        const reviewSlide = Number(new URLSearchParams(window.location.search).get("slide"));
+        if (Number.isInteger(reviewSlide) && reviewSlide >= 1) {
+          setPage(Math.min(reviewSlide, pdf.numPages));
+        }
         if (new URLSearchParams(window.location.search).has("pdfDebug")) {
           console.info("[BSR PDF] Learning metadata ready in", Math.round(performance.now() - startedAt), "ms", projectId);
         }

@@ -854,18 +854,18 @@ export function readQuizSavedState(projectId: string): QuizSavedState {
     if (!value || typeof value !== "object") return blankQuizState();
     const record = value as Record<string, unknown>;
     const validIds = new Set(bank.questions.map(q => q.id));
-    const bestScore = typeof record.bestScore === "number" && Number.isInteger(record.bestScore)
-      && record.bestScore >= 0 && record.bestScore <= QUIZ_QUESTION_COUNT ? record.bestScore : null;
-    const lastQuestionIds = Array.isArray(record.lastQuestionIds)
-      ? record.lastQuestionIds.filter((id): id is string => typeof id === "string" && validIds.has(id))
+    const bestScore = typeof record["bestScore"] === "number" && Number.isInteger(record["bestScore"])
+      && record["bestScore"] >= 0 && record["bestScore"] <= QUIZ_QUESTION_COUNT ? record["bestScore"] : null;
+    const lastQuestionIds = Array.isArray(record["lastQuestionIds"])
+      ? record["lastQuestionIds"].filter((id): id is string => typeof id === "string" && validIds.has(id))
       : [];
     let draft: QuizDraft | null = null;
-    const saved = record.draft;
+    const saved = record["draft"];
     if (saved && typeof saved === "object") {
       const candidate = saved as Record<string, unknown>;
-      const questionIds = candidate.questionIds;
-      const savedAnswers = candidate.answers;
-      const currentIndex = candidate.currentIndex;
+      const questionIds = candidate["questionIds"];
+      const savedAnswers = candidate["answers"];
+      const currentIndex = candidate["currentIndex"];
       if (Array.isArray(questionIds) && questionIds.length === QUIZ_QUESTION_COUNT
         && questionIds.every(id => typeof id === "string" && validIds.has(id))
         && new Set(questionIds).size === QUIZ_QUESTION_COUNT

@@ -1522,7 +1522,7 @@ export function getLevelFiveSixDemoVideos(id: string): readonly AdvancedDemoVide
   // and VITE_BSR_DEMO_VIDEO_BASE_URL=/local-demos set in .env.local.
   // This does not turn the Git LFS raw URL into a streaming endpoint.
   const localVideoBase = import.meta.env.DEV
-    ? import.meta.env.VITE_BSR_DEMO_VIDEO_BASE_URL?.trim().replace(/\/+$/, "")
+    ? import.meta.env["VITE_BSR_DEMO_VIDEO_BASE_URL"]?.trim().replace(/\/+$/, "")
     : undefined;
   if (!assetBase() && !localVideoBase) return [];
   return lesson.videos.map(path => ({
