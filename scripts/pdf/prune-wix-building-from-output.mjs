@@ -1,5 +1,5 @@
 /**
- * Remove Wix-hosted Building and cleaned Level 1 + Level 3 Learning PDF duplicates from built deployment assets.
+ * Remove Wix-hosted Building and cleaned Level 1 + Level 3 + Level 4 + Level 5 Learning PDF duplicates from built deployment assets.
  *
  * Never modifies public/ source files. Every removed file must have a verified
  * Wix URL and an exact audited path in the registries.
@@ -135,6 +135,43 @@ if (levelFiveLearningPaths.length !== 51 ||
 }
 paths.push(...levelFiveLearningPaths);
 
+// Level 4: exclude exactly the 56 Wix-verified Learning PDF copies from build output.
+// Match the authoritative lesson list to the URL registry before deleting copied assets.
+// Source PDF files under public/ are never modified or deleted.
+const levelFourLearningSource = readFileSync(
+  join(repoRoot, "src/data/levelFourLearning.ts"),
+  "utf8",
+);
+const levelFourLearningPaths = [...levelFourLearningSource.matchAll(
+  /url:\s*publicPdfUrl\("([^"]+)"\)/g,
+)].map((match) => match[1]);
+const levelFourRegistryPaths = [...level4Registry.keys()]
+  .filter((key) => !key.startsWith("Level 4/Building/"));
+const uniqueLevelFourPaths = new Set(levelFourLearningPaths);
+if (levelFourLearningPaths.length !== 56 ||
+    uniqueLevelFourPaths.size !== 56 ||
+    levelFourRegistryPaths.length !== 56 ||
+    levelFourRegistryPaths.some((key) => !uniqueLevelFourPaths.has(key))) {
+  throw new Error("Expected exactly 56 matching Level 4 Learning lessons and Wix URLs.");
+}
+const uniqueLevelFourUrls = new Set();
+for (const key of levelFourLearningPaths) {
+  const url = level4Registry.get(key);
+  if (!key.startsWith("Level 4/") ||
+      key.split("/").some((part) => part === "." || part === ".." || part === "Building") ||
+      !key.toLowerCase().endsWith(".pdf") ||
+      typeof url !== "string" ||
+      !url.startsWith(wixHost + "78042f_") ||
+      !/^[a-f0-9]{32}\.pdf$/.test(url.slice((wixHost + "78042f_").length))) {
+    throw new Error("Unverified or unsafe Level 4 Learning PDF: " + key);
+  }
+  uniqueLevelFourUrls.add(url);
+}
+if (uniqueLevelFourUrls.size !== 56) {
+  throw new Error("Expected 56 unique cleaned Level 4 Wix Learning PDF URLs.");
+}
+paths.push(...levelFourLearningPaths);
+
 if (new Set(paths).size !== paths.length) {
   throw new Error("Duplicate path in audited Wix PDF manifest.");
 }
@@ -168,6 +205,6 @@ for (const relativeFolder of outputFolders) {
 
 console.log(
   "[PDF link-only deployment] " + paths.length +
-  " Wix-backed Building and cleaned Level 1 + Level 3 + Level 5 Learning PDF paths checked; " +
+  " Wix-backed Building and cleaned Level 1 + Level 3 + Level 4 + Level 5 Learning PDF paths checked; " +
   deleted + " copied PDFs excluded from build output. Repository source PDFs preserved.",
 );
