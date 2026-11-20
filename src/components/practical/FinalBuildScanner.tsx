@@ -182,7 +182,7 @@ export function FinalBuildScanner({
           {scanning ? <rect className="bsr-scanner-progress" x="137" y="467" width="286" height="8" rx="4" fill="#54F3E5"/> :
             <rect x="137" y="467" width="286" height="8" rx="4" fill="#2D82E0" opacity=".5"/>}
           <text x="280" y="498" fill="#C5DFFF" fontSize="11" textAnchor="middle" fontWeight="700">
-            {scanning ? "Finding your next STEM challenge" : "{projectCount} robots waiting to be discovered"}
+            {scanning ? "Finding your next STEM challenge" : projectCount + " robots waiting to be discovered"}
           </text>
         </g>
         <g stroke="#FFD867" strokeWidth="4" strokeLinecap="round">
