@@ -76,7 +76,7 @@ test("Robot Discovery Scanner replaces carnival wheel without changing equal sel
 
 test("all 35 published English-cleaned Level 1 Building PDFs have Wix-hosted routes", () => {
   const urls = readFileSync(new URL("../src/data/levelOneBuildingCleanStatus.ts", import.meta.url), "utf8");
-  const entries = [...urls.matchAll(/^  "([^"]+\\.pdf)": "(https:[^"]+)",?$/gm)];
+  const entries = [...urls.matchAll(/^  "([^"]+[.]pdf)": "(https:[^"]+)",?$/gm)];
   assert.equal(entries.length, 35);
   assert.equal(new Set(entries.map(x => x[1])).size, 35);
   assert.ok(entries.every(([, , url]) => url.includes(".usrfiles.com/ugd/") && url.endsWith(".pdf")));
@@ -104,6 +104,6 @@ test("all 35 published English-cleaned Level 1 Building PDFs have Wix-hosted rou
   const names = new Set(entries.map(x => x[1]));
   for (const name of mustInclude) assert.ok(names.has(name), `Missing cleaned PDF: ${name}`);
   const route = readFileSync(new URL("../src/routes/practical/level-1.final-build.tsx", import.meta.url), "utf8");
-  assert.match(route, /LEVEL_ONE_CLEANED_BUILDING_WIX_URLS\\[manualFilename\\]/);
+  assert.ok(route.includes("LEVEL_ONE_CLEANED_BUILDING_WIX_URLS[manualFilename]"));
   assert.doesNotMatch(route, /Cleaned model reference pending|cleanUploadPending|Open Building Studio|mode=building/);
 });
