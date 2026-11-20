@@ -79,7 +79,7 @@ const paths = allBuildingPaths.map((repositoryPath) => {
 const levelOneLearningPaths = [...rootRegistry.entries()]
   .filter(([key]) => key.startsWith("Level 1/Learning/"))
   .map(([key, url]) => {
-    if (!/^Level 1\\/Learning\\/.+\\.pdf$/i.test(key) ||
+    if (!/^Level 1\/Learning\/.+\.pdf$/i.test(key) ||
         key.split("/").some(part => part === "." || part === "..") ||
         typeof url !== "string" ||
         !url.startsWith(wixHost + "78042f_") ||
