@@ -30,3 +30,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Level 5 PDF audit staging; originals must be hash-verified before any repair
+build/level5-building-verified-originals/
+build/level5-building-english-audit/

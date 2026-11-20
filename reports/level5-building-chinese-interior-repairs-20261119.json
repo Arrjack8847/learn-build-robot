@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-19",
+  "repository": "Arrjack8847/learn-build-robot",
+  "branch": "fix/level5-complete-building-english-20261119",
+  "scope": "Level 5 Building PDFs only, not Learning PDFs",
+  "source_commit_with_original_pdf_blobs": "9e5f2410a1bfa79c0fd1618794820cf4c08a00c5",
+  "audit": {
+    "original_pdf_binaries_received_from_user_wix_archive": 45,
+    "original_pdf_github_blob_hashes_verified": 45,
+    "original_total_pages": 1031,
+    "extractable_chinese_pages": 0,
+    "pages_checked_by_chinese_ocr": 1031,
+    "ocr_scan_errors": 0,
+    "ocr_raw_candidates": 595,
+    "ocr_caveat": "OCR falsely interprets assembly diagram parts as Chinese glyphs; all candidate pages were not manually inspected.",
+    "chinese_instruction_areas_visually_confirmed": 7,
+    "visually_checked_multi_character_candidates": "All 25 pages with OCR runs of length >=3 manually screened; seven contained real Chinese instructions; 18 appeared to be false OCR detections.",
+    "other_ocr_candidates_remaining": "Single-character and some two-character OCR suspects were not exhaustively visually checked.",
+    "english_only_certified": false
+  },
+  "local_repair_results": {
+    "pdfs_repaired_in_sandbox": 5,
+    "page_areas_repaired": 7,
+    "unchanged_original_pdfs": 40,
+    "unchanged_pages_in_repaired_pdfs_pixel_identical": 142,
+    "changed_pages_all_pixel_differences_limited_to_intended_text_areas": true,
+    "new_text_is_selectable_english": true,
+    "binary_repaired_pdf_files_uploaded_to_github": false,
+    "binary_repaired_pdf_files_uploaded_to_wix": false,
+    "local_repair_output": "Level5_Building_English_Repairs_All45_PDFs.zip, Level5_Building_English_Repairs_5_PDFs.zip in ChatGPT sandbox",
+    "repair_script": "scripts/pdf/restore_level5_chinese_annotations.py",
+    "github_actions_used": false,
+    "browser_use_used": false,
+    "merge_status": "not merged"
+  },
+  "confirmed_replacements": [
+    {
+      "file": "02.Smart Cash Register-Building Manual.pdf",
+      "page": 20,
+      "chinese": "红线部分为橡皮筋",
+      "english": "Red lines indicate rubber bands."
+    },
+    {
+      "file": "03.Spanish Bullfight-Building Manual.pdf",
+      "page": 6,
+      "chinese": "两个销靠近安装",
+      "english": "Install the two pins close together."
+    },
+    {
+      "file": "03.Spanish Bullfight-Building Manual.pdf",
+      "page": 8,
+      "chinese": "销的位置与对面销的位置错开180度",
+      "english": "Offset opposing pins by 180°."
+    },
+    {
+      "file": "03.Spanish Bullfight-Building Manual.pdf",
+      "page": 9,
+      "chinese": "销的位置与对面销的位置错开180度",
+      "english": "Offset opposing pins by 180°."
+    },
+    {
+      "file": "08. Welcome Sign-Building Manual.pdf",
+      "page": 12,
+      "chinese": "如图示套入橡皮圈",
+      "english": "Fit the rubber band as shown."
+    },
+    {
+      "file": "10.Machine Gun-Building Manual.pdf",
+      "page": 29,
+      "chinese": "橡皮筋安装到此处，将3格实销和连轴套连接销连接到一起",
+      "english": "Attach the rubber band here. Connect the 3-hole solid pin and axle-sleeve connector pin together."
+    },
+    {
+      "file": "27. Chairoplane-Building Manual.pdf",
+      "page": 30,
+      "chinese": "7格梁隔层错位安装",
+      "english": "Install the 7-hole beams in staggered layers."
+    }
+  ],
+  "remaining": "Original PDFs were image-only on 43 of 45 files; exhaustive human inspection of all 595 OCR-positive pages is necessary for a definitive 100% English-only claim. Locally repaired binaries must be transferred to GitHub/Wix as a separate binary operation."
+}

@@ -1,0 +1,69 @@
+{
+  "generated_date": "2026-11-19",
+  "scope": "Level 5 Building PDFs only",
+  "status": "LOCAL_REPAIRS_VERIFIED_GITHUB_BINARY_UPLOAD_PENDING",
+  "repo": "Arrjack8847/learn-build-robot",
+  "branch": "fix/level5-complete-building-english-20261119",
+  "pr": 87,
+  "source": "Level5_Building_English_Repairs_5_PDFs.zip (conversation delivery)",
+  "pdf_count": 5,
+  "confirmed_chinese_repair_pages": 7,
+  "manual_full_english_certification": false,
+  "reason": "7 visibly confirmed Chinese instruction areas repaired. 1,031-page OCR review had remaining unconfirmed candidates. GitHub connector cannot upload full binary blobs of these sizes; branch currently contains report/scripts only.",
+  "repaired_pdfs": [
+    {
+      "path": "public/Level 5/Building/Action-Oriented/Spanish Bullfight/03.Spanish Bullfight-Building Manual.pdf",
+      "original_git_blob_sha": "cba54570389c192fbaf13d9bb1ba0fe8cae5ea52",
+      "expected_repaired_git_blob_sha": "3bc2b5a8a9bb8c57b23d979f3aeddfce3af010c8",
+      "repaired_bytes": 14465538,
+      "repaired_pages": [
+        6,
+        8,
+        9
+      ],
+      "binary_committed_to_git": false
+    },
+    {
+      "path": "public/Level 5/Building/Automation & Security/Smart Cash Register/02.Smart Cash Register-Building Manual.pdf",
+      "original_git_blob_sha": "2838117dc5e3b62b074c5bd5d8e3f224396c3e70",
+      "expected_repaired_git_blob_sha": "b27254ab5ae6a3b0f907750944c38d433aae97f7",
+      "repaired_bytes": 16287223,
+      "repaired_pages": [
+        20
+      ],
+      "binary_committed_to_git": false
+    },
+    {
+      "path": "public/Level 5/Building/Display & Movement/Welcome Sign/08. Welcome Sign-Building Manual.pdf",
+      "original_git_blob_sha": "6bb08061338f5dbca693b4de3ac55074cdc276cb",
+      "expected_repaired_git_blob_sha": "5ada5ba8b3e4fea89bea80837f9e32ab8dcb126c",
+      "repaired_bytes": 6215744,
+      "repaired_pages": [
+        12
+      ],
+      "binary_committed_to_git": false
+    },
+    {
+      "path": "public/Level 5/Building/Mechanisms & Simulators/Chairoplane/27. Chairoplane-Building Manual.pdf",
+      "original_git_blob_sha": "08c7fcfadc98f5b149268fc26c8926e182ec6ada",
+      "expected_repaired_git_blob_sha": "a866bd4cd98b2a6e21dae3aafa26636d656f39c1",
+      "repaired_bytes": 13147352,
+      "repaired_pages": [
+        30
+      ],
+      "binary_committed_to_git": false
+    },
+    {
+      "path": "public/Level 5/Building/Mechanisms & Simulators/Machine Gun/10.Machine Gun-Building Manual.pdf",
+      "original_git_blob_sha": "5cf32ac3e629f6878c778a9fe5a5f77661c2ffff",
+      "expected_repaired_git_blob_sha": "4280fa96fd8be96bc662b4328860fe806d2bdbc5",
+      "repaired_bytes": 11986469,
+      "repaired_pages": [
+        29
+      ],
+      "binary_committed_to_git": false
+    }
+  ],
+  "upload_script": "scripts/pdf/push_level5_building_repaired_pdfs.ps1",
+  "validation": "After binary upload, compare resulting Git tree blob SHA for each of five paths to expected_repaired_git_blob_sha. Re-evaluate main before any merge."
+}
