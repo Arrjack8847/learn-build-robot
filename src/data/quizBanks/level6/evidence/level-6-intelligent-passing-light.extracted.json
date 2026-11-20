@@ -1,0 +1,95 @@
+{
+  "projectId": "level-6-intelligent-passing-light",
+  "sourcePath": "public/Level 6/Learning/Automation & Security/Intelligent Passing Light/09. Intelligent Passing Light-Teaching Slides.pdf",
+  "wixFileId": "7fc4ca_bb8275b38b5f47d6b0383f2c44cbd432.pdf",
+  "sourceBytes": 1052564,
+  "pageCount": 21,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 9.  | Intelligent |   | Passing Light | edu.zmrobo.com | LECTURER:"
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties | 1 | . |   | Learn |   | about |   | the |   | common |   | traffic |   | system | . | 2 | . |   | Learn |   | about |   | the |   | method |   | of |   | judging |   | the |   | containment |   | relationship |   | in |   | the |   | list | . | 1. It is forbidden to pass the QR code that has not been entered. | 2. The inclusion relationship of the list."
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information"
+    },
+    {
+      "slide": 4,
+      "text": "Background Information | Also |   | known |   | as |   | scan |   | to |   | pay, |   | a |   | QR |   | code |   | payment |   | is |   | currently |   | the |   | most |   | convenient |   | mode |   | of |   | transportation | . |   | Passengers |   | only |   | need |   | to |   | simply |   | show |   | the |   | code |   | to |   | pay |   | the |   | fare |   | and |   | take |   | public |   | transportation | . |   | Similarly, |   | there |   | is |   | also |   | a |   | convenient |   | payment |   | method |   | for |   | driving |   | on |   | the |   | highway, |   | namely |   | ."
+    },
+    {
+      "slide": 5,
+      "text": "Background Information | Electronic |   | Toll |   | Collection |   | (ETC) |   | is |   | one |   | of |   | the |   | service |   | functions |   | of |   | the |   | intelligent |   | transportation |   | system, |   | which |   | is |   | especially |   | suitable |   | for |   | use |   | in |   | highways |   | or |   | bridge | - | tunnel |   | environments |   | with |   | heavy |   | traffic | . |   | The |   | expressway |   | toll |   | office |   | has |   | a |   | channel |   | for |   |   | tolls | . |   | As |   | long |   | as |   | the |   | car |   | owner |   | installs |   | the |   | induction |   | card |   | on |   | the |   | front |   | windshield |   | of |   | the |   | vehicle |   | and |   | pre | - | stores |   | the |   | fee, |   | there |   | is |   | no |   | need |   | to |   | pay |   | the |   | toll |   | manually |   | when |   | passing |   | the |   | toll |   | station, |   | and |   | there |   | is |   | no |   | need |   | to |   | stop | . |   | The |   | high | - | speed |   | toll |   | will |   | be |   | automatically |   | deducted |   | from |   | the |   | card, |   | which |   | can |   | realize |   | automatic |   | toll |   | collection | ."
+    },
+    {
+      "slide": 6,
+      "text": "Knowledge  | Introduction"
+    },
+    {
+      "slide": 7,
+      "text": "Knowledge Introduction | In |   | addition |   | to |   | ETC's |   | inductive |   | payment, |   | the |   | current |   | more |   | advanced |   | technology |   | is |   | license |   | plate |   | payment, |   | which |   | only |   | needs |   | the |   | site |   | to |   | recognize |   | the |   | car's |   | license |   | plate |   | to |   | make |   | payment | . |   | However, |   | this |   | payment |   | method |   | has |   | certain |   | disadvantages, |   | that |   | is, |   | the |   | cost |   | of |   | the |   | fake |   | license |   | plate |   | car |   | will |   | be |   | recorded |   | on |   | the |   | account |   | of |   | the |   | real |   | car |   | owner, |   | so |   | this |   | technology |   | has |   | not |   | been |   | applied |   | on |   | the |   | highway |   | for |   | the |   | time |   | being | ."
+    },
+    {
+      "slide": 8,
+      "text": "Knowledge Introduction | Although |   | license |   | plate |   | payment |   | has |   | some |   | defects, |   | it |   | still |   | cannot |   | change |   | its |   | convenience | . |   | In |   | many |   | fields |   | such |   | as |   | parking, |   | refueling, |   | and |   | car |   | washing, |   | payment |   | by |   | license |   | plate |   | is |   | still |   | the |   | first |   | choice |   | in |   | people's |   | minds | . | Unconscious |   | Pay |   | is |   | an |   | advanced |   | form |   | of |   | license |   | plate |   | payment, |   | which |   | realizes |   | convenient |   | payment |   | through |   | the |   | binding |   | of |   | the |   | license |   | plate |   | number |   | with |   | the |   | bank |   | wallet | . |   | I |   | believe |   | that |   | in |   | the |   | near |   | future, |   | we |   | will |   | have |   | an |   | easier, |   | more |   | convenient, |   | and |   | safer |   | payment |   | method | ."
+    },
+    {
+      "slide": 9,
+      "text": "Knowledge Introduction |   | technology |   | or |   | payment |   | by |   | license |   | plate |   | has |   | its |   | advantages | . |   | With |   | the |   | advancement |   | of |   | technology, |   | it |   | may |   | be |   | possible |   | to |   | directly |   | recognize |   | the |   | driver's |   | face |   | in |   | the |   | future |   | to |   | complete |   | the |   | payment | . | Today, |   | we |   | will |   | make |   | a |   | passing |   | light, |   | which |   | will |   | show |   | that |   | passing |   | is |   | allowed |   | when |   | the |   | QR |   | code |   | that |   | is |   | allowed |   | to |   | pass |   | is |   | scanned, |   | and |   | it |   | will |   | be |   | forbidden |   | to |   | pass |   | if |   | the |   | unregistered |   | QR |   | code |   | is |   | scanned | ."
+    },
+    {
+      "slide": 10,
+      "text": "Practice"
+    },
+    {
+      "slide": 11,
+      "text": "New Knowledge | Build |   | a |   | passing |   | light |   | according |   | to |   | the |   | building |   | manual | . |   | When |   | different |   | QR |   | code |   | traffic |   | lights |   | are |   | scanned, |   | the |   | passing |   | light |   | will |   | perform |   | corresponding |   | actions | . | Scanning Camera | Dot Matrix  | Screen | Indicator  | Light"
+    },
+    {
+      "slide": 12,
+      "text": "Practice  | |  | Flow Chart | After |   | scanning |   | the |   | code, |   | check |   | whether |   | the |   | value |   | has |   | been |   | registered |   | in |   | the |   | list | . |   | If |   | it |   | is, |   | the |   | green |   | light |   | will |   | be |   | on |   | to |   | indicate |   | ³$FFHVV |   | Allowed\", |   | otherwise |   | the |   | red |   | light |   | will |   | be |   | on |   | to |   | indicate |   | ³1R |   | Passing\" | . | Judging |   | whether |   | the |   | data |   | has |   | been |   | registered |   | is |   | the |   | key |   | to |   | the |   | program | . |   | It |   | can |   | be |   | understood |   | that |   | the |   | registered |   | number |   | is |   | allowed |   | to |   | pass, |   | and |   | the |   | unregistered |   | number |   | is |   | not |   | allowed |   | to |   | pass | ."
+    },
+    {
+      "slide": 13,
+      "text": "Practice  | |  | Programming | 01 | logo | Initial settings | Initialize the dot matrix screen and  | add the numbers 1 and 2 to the list."
+    },
+    {
+      "slide": 14,
+      "text": "Practice  | |  | Programming | logo | 02 | Judge |   | value | Judging |   | whether |   | the |   | scanned |   | code |   | value |   | is |   | valid, |   | excluding |   | two |   | invalid |   | data |   | of |   | 999 |   | and |   | 65488 | ."
+    },
+    {
+      "slide": 15,
+      "text": "Practice  | |  | Programming | logo | 03 | Judge whether to include | Judge whether the variable  | value is included in the list, if  | yes, allow access, if not,  | prohibit access. | Access |   | Allowed | : |   | the |   | green |   | light |   | is |   | on |   | and |   | shows |   | the |   | text |   | ³$FFHVV |   | $OORZHG´ | . | No Passing:  | red light and  | show the text  | ³1R\u00033DVVLQJ´\u0011"
+    },
+    {
+      "slide": 16,
+      "text": "Practice  | |  | Programming | logo | 04 | Integrate the program | Integrate the entire program  | according to the flowchart."
+    },
+    {
+      "slide": 17,
+      "text": "Practice  | |  | Programming | logo"
+    },
+    {
+      "slide": 18,
+      "text": "Results"
+    },
+    {
+      "slide": 19,
+      "text": "Program Optimization | In |   | this |   | lesson, |   | we |   | learned |   | how |   | to |   | realize |   | the |   | prompt |   | function |   | of |   | passing |   | and |   | prohibiting |   | passing | . |   | After |   | scanning |   | the |   | QR |   | code, |   | only |   | the |   | registered |   | QR |   | code |   | is |   | allowed |   | to |   | pass | . | Next, |   | add |   | a |   | gate |   | structure | . | Requirements | : |   | Open |   | the |   | gate |   | when |   | passing |   | is |   | allowed, |   | and |   | close |   | the |   | gate |   | when |   | passing |   | is |   | not |   | allowed | ."
+    },
+    {
+      "slide": 20,
+      "text": "Further Reading | Throughout |   | the |   | ages, |   | people |   | have |   | to |   | pay |   | tolls |   | if |   | they |   | want |   | to |   | get |   | to |   | another |   | city |   | on |   | a |   | road |   | repaired |   | by |   | the |   | three |   | types |   | of |   | public, |   | commercial, |   | and |   | private |   | transportation |   | systems | . |   | At |   | that |   | time, |   | the |   | transportation |   | methods |   | available |   | were |   | land |   | transportation |   | and |   | water |   | transportation | . | Take |   | the |   | Kaiyuan |   | period |   | of |   | the |   | Tang |   | Dynasty |   | as |   | an |   | example | . |   | At |   | that |   | time, |   | the |   | ninth | - | rank |   | officials, |   | who |   | were |   | equivalent |   | to |   | the |   | current |   | grassroots |   | cadres, |   | had |   | a |   | monthly |   | salary |   | of |   | 3 | , | 817 |   | renminbi |   | and |   | a |   | daily |   | income |   | of |   | about |   | 127 |   | renminbi | . |   | Two |   | people |   | carry |   | 100 |   | catties |   | of |   | things |   | and |   | walk |   | 100 |   | miles, |   | and |   | each |   | person |   | can |   | get |   | 50 |   | Wen | . |   | Taking |   | 50 |   | miles |   | a |   | day, |   | the |   | daily |   | income |   | is |   | 25 |   | Wen, |   | which |   | can |   | buy |   | 2 |   | buckets |   | of |   | rice |   | (about |   | 25 |   | catties) | . |   | not |   | tall | . |   | It |   | is |   | cheaper |   | if |   | you |   | go |   | by |   | water | ."
+    },
+    {
+      "slide": 21,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER: "
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

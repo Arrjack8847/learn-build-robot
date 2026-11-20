@@ -1,0 +1,132 @@
+{
+  "projectId": "level-6-matador",
+  "sourcePath": "public/Level 6/Learning/Biomimicry & Stimulus Response/Matador/02.Matador-update.pdf",
+  "sourceBlobSha": "6b9008054606d5c77b5e60d4149136278d11fe4d",
+  "sourceBytes": 895553,
+  "pageCount": 20,
+  "extractionMethod": "Decode GitHub contents/base64; decompress PDF Flate streams; collect PDF text operators by numbered page; no image interpretation",
+  "visualReviewComplete": false,
+  "questionsValidated": false,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Intelligence | Storm | - | Series | Matador | Intelligence | Storm | is | a | building | block | programming | robot | research | and | development | by | Joinmax | . | The | kit | is | equipped | with | various | sensors | such | as | sound | sensitivity, | color | sensor, | touch | sensor, | photoelectric | sensor, | color | light, | ultrasonic, | camera | and | many | building | blocks | parts | . | Students | can | build | various | building | block | robots | with | their | imagination, | and | use | graphical | programming | software | to | program | the | robot | and | experience | the | joy | of | hands | - | on | creation | .",
+      "textCharacters": 494,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 2,
+      "text": "L | earning | T | arget | Knowledge of variables and how to use | variables for calculations. | Knowledge goal | 01 | Familiar with the use of color sensor module, | master the basic operation of variables. | Ability goal | 02 | Learn to think in essence. | Emotional attitudes and values | 03",
+      "textCharacters": 265,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 3,
+      "text": "Master the basic usage of color sensor. | Learning focus | 01 | Flexible application of knowledge of | variables and their operations. | Learning difficulties | 02 | L | earning | T | arget",
+      "textCharacters": 169,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 4,
+      "text": "C | ourse | Introduction | T | eaching | N | ew | K | nowledge | D | esign | A | ssembly | T | est | E | ffect | 01 | 02 | 03 | 04 | 0 | 5 | P | rogramming | and | D | ebugging",
+      "textCharacters": 122,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 5,
+      "text": "C | ourse | I | ntroduction",
+      "textCharacters": 21,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 6,
+      "text": "Have | you | ever | seen | a | bullfight | in | Spain? | The charm of bullfighting lies in the fact that it | is an adventurous sport, full of breathtaking blood | and beautiful sublime. The entanglement between | the bullfighter and the bull is worthy of a | magnificent artistic dance. The Nobel Prize | winner Hemingway once said: \"bullfighting is the | only one artist in the art of death threats.\" Indeed, | the Spanish bullfighting endows this competitive | sport with artistic beauty. It is the first form of art, | and it is the perfect combination of strength and | beauty. | Course | I | ntroduction",
+      "textCharacters": 567,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 7,
+      "text": "Know | about Matador | Matador | Course | I | ntroduction | The | robot | in | this | lesson | is | called | \"Bullfight\" | . | The | bullfight | is | there, | so | where | are | the | bullfighters? | That | is, | of | course, | the | students, | you | have | a | look | at | the | terrible | bullfighting, | the | students | play | to | your | wisdom | and | see | how | to | surrender | it | below | we | learn | together | .",
+      "textCharacters": 318,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 8,
+      "text": "T | eaching | N | ew | K | nowledge",
+      "textCharacters": 25,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 9,
+      "text": "T | he | color | sensor | detects | the | color | by | comparing | the | color | of | the | object | with | the | reference | color | . | When | the | two | colors | match | within | a | certain | error | range, | the | detection | result | will | be | output | . | Usage | : | [electronic | module] | - | [sensor] | - | [color | detection] | P | for | the | connection | port | : | in | the | controller | screen | color | sensor | to | measure | numerical | - | red | is | 3 | to | 2 | to | 1 | , | green, | blue, | yellow, | and | black | for | 4 | to | 5 | , | white | is | 6 | . | Note | : | color | sensor | detection | objects | have | a | certain | distance, | in | appropriate | range | easier | to | detect | color | belongs | to | the | sex, | the | results | will | be | more | accurate | . | Teaching | N | ew | K | nowledge",
+      "textCharacters": 607,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 10,
+      "text": "When | calculating | at | the | same | level, | calculate | successively | from | left | to | right | ; | After | the | two | levels | of | operation, | calculate, | first, | add | and | subtract | . | Parentheses, | first | calculate | the | inside | of | the | parentheses, | then | the | outside | the | brackets | ; | Have | multilayer | brackets, | first | calculate | in | parentheses, | then | calculate | the | inside | of | the | parentheses, | and | then | the | braces, | finally | the | outside | the | parentheses | . | If | there | is | power, | the | first | to | calculate | power | . | In | the | mixed | operation, | first | calculate | the | number | in | brackets, | brackets | since | the | childhood, | if | there | is | a | power | to | calculate | power, | and | then | from | senior | to | junior | . | Teaching | N | ew | K | nowledge",
+      "textCharacters": 648,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 11,
+      "text": "Direct proportion refers to two related quantities, one of which changes | and the other changes with it. If the two amount corresponding to the ratio of | two Numbers must be in, These two quantities are called directly | proportional, and their relation is called directly proportional. The relation is | inversely proportional | . | Teaching | N | ew | K | nowledge",
+      "textCharacters": 348,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 12,
+      "text": "T | ask | P | ractice",
+      "textCharacters": 15,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 13,
+      "text": "Task | P | ractice | i | 1. stable structure | 2. focus is right | 3. shape match | Assembly requirements",
+      "textCharacters": 91,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 14,
+      "text": "P | rogramming and | D | ebugging",
+      "textCharacters": 27,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 15,
+      "text": "Start | output | variable | operation | defined | variable | defined | variable | Programming and Debugging",
+      "textCharacters": 91,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 16,
+      "text": "1 | . | When | the | variable | x | is | set | to | 3 | and | the | variable | y | is | set | to | 5 | , | the | results | of | \"x+ | 1 | \", | \"y | - | 3 | \" | and | \"x*y\" | will | be | displayed | in | row | 1 | / | 2 | / | 3 | respectively | Programming and Debugging",
+      "textCharacters": 185,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 17,
+      "text": "2 | . | When | the | robot | detects | different | colors, | it | uses | the | calculation | of | variables | to | make | \"Matador\" | more | difficult | . | Programming and Debugging",
+      "textCharacters": 142,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 18,
+      "text": "C | hecking | E | ffect",
+      "textCharacters": 17,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 19,
+      "text": "i | Review | the | learning | content | and | deepen | your | impression | . | What is the name of the | robot made today? | What hardware do today's | robots use? | i | i | What else is special about | Spain? | Test | E | ffect | Question | 1 | Question | 2 | Question | 3",
+      "textCharacters": 221,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 20,
+      "text": "Thank you for watching | Intelligence | Storm Series",
+      "textCharacters": 48,
+      "visualReviewRequired": true
+    }
+  ]
+}

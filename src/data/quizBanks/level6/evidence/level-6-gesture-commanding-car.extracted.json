@@ -1,0 +1,150 @@
+{
+  "projectId": "level-6-gesture-commanding-car",
+  "sourcePath": "public/Level 6/Learning/Autonomous Navigation & Ranging/Gesture-commanding Car/23. Gesture-commanding Car-Teaching Slides.pdf",
+  "sourceBlobSha": "9b80af55a490701b2b7c1dbc1d9708885527f374",
+  "sourceBytes": 806846,
+  "pageCount": 23,
+  "extractionMethod": "Decode GitHub contents/base64; decompress PDF Flate streams; collect PDF text operators by numbered page; no image interpretation",
+  "visualReviewComplete": false,
+  "questionsValidated": false,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 23. | Gesture | - | commanding Car | edu.zmrobo.com",
+      "textCharacters": 50,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | Learning Objectives | Possible Difficulties | 1. | In | - | depth | understanding | of | gesture | recognition | . | 2. | Use | the | gesture | sensor | to | control | the | movement | of | the | car | . | 1. | Multi | - | directional mobile program. | 2. | The logic of multi | - | layer judgment.",
+      "textCharacters": 253,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information",
+      "textCharacters": 22,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 4,
+      "text": "Context Import | How | do | people | communicate | when | it | is | not | convenient | to | speak? | We | communicate | vaguely | and | ambiguously | with | each | other | through | gestures | or | eye | contact | . | Although | the | efficiency | is | low | and | the | error | rate | is | high, | there | is | no | better | way | in | special | occasions | .",
+      "textCharacters": 270,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 5,
+      "text": "Context Import | In | the | same | way, | in | the | field | of | human | - | computer | interaction, | gesture | operations | also | exist | . | We | can | let | the | machine | recognize | different | gestures | , | and | then | execute | the | corresponding | instructions | to | meet | our | needs | . | Of | course, | under | normal | circumstances, | it | is | more | appropriate | to | input | commands | through | the | screen | or | keyboard | and | mouse | .",
+      "textCharacters": 354,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 6,
+      "text": "Context Import | At | present, | the | most | widely | used | gesture | control | is | mobile | devices | such | as | mobile | phones | and | tablets | . | When | you | need | to | light | up | the | screen | or | reject | an | incoming | call, | you | can | use | the | motion | of | waving | your | hand | to | complete | it | . | The | gestures | of | different | devices | will | be | different | .",
+      "textCharacters": 296,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 7,
+      "text": "Knowledge | Introduction",
+      "textCharacters": 22,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 8,
+      "text": "New Knowledge | Unimpeded | roads | are | a | major | prerequisite | for | vehicles | to | run | normally | . | However, | in | the | case | of | power | outages | or | severe | congestion, | road | traffic | lights | cannot | work | normally | . | At | this | time, | traffic | police | need | to | be | on | - | site | to | command | . | Gestures | are | often | used | to | command, | or | traffic | is | conducted | on | the | spot | with | the | sound | of | a | whistle | .",
+      "textCharacters": 353,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 9,
+      "text": "New Knowledge | Traffic | gestures | refer | to | the | gestures | used | by | traffic | police | to | ensure | safe | and | smooth | road | traffic | and | direct | vehicles | in | real | time | . | There | are | altogether | 8 | kinds | of | signals | : | stop, | go | straight, | turn | left, | turn | left | and | wait | to | turn, | turn | right, | change | lanes | slowly, | slow | down, | signal | vehicles | to | pull | over | and | stop | .",
+      "textCharacters": 333,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 10,
+      "text": "New Knowledge | In | addition | to | gestures | outside | the | car, | gesture | - | controlled | cars | have | long | been | born | . | It | is | a | car | that | can | recognize | the | driver's | gestures | . | The | driver | can | issue | instructions | to | the | car | by | making | corresponding | gestures | in | the | car | . | Today | we're | going | to | try | to | make | a | robot | that | recognizes | gestures | .",
+      "textCharacters": 316,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 11,
+      "text": "Practice",
+      "textCharacters": 8,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 12,
+      "text": "New Knowledge | Assemble | a | gesture | control | car | according | to | the | construction | manual, | so | that | the | robot | can | recognize | different | gestures | and | move | . | Gesture sensor | power",
+      "textCharacters": 165,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 13,
+      "text": "Practice | | | Programming | The | robot | moves | forward | slowly, | and | executes | the | corresponding | movement | program | after | recognizing | the | specified | gesture | . | When | the | car | receives | the | command | to | move | forward | slowly, | it | should | maintain | the | current | movement | command | for | a | period | of | time | .",
+      "textCharacters": 273,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 14,
+      "text": "Practice | | | Programming | 01 | logo | Read the data | Read the data of the gesture sensor and store it in a variable.",
+      "textCharacters": 108,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 15,
+      "text": "Practice | | | Programming | 02 | Movement | function | Through | self | - | made | building | blocks, | create | a | movement | function, | this | function | has | three | parameters, | namely | M | 1 | , | M | 2 | and | Time | . | Control | the | speed | of | M | 1 | , | the | speed | of | M | 2 | and | the | time | of | movement | respectively | .",
+      "textCharacters": 256,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 16,
+      "text": "Practice | | | Programming | logo | 03 | The | Judgment | of | Gesture | When | there | is | no | gesture, | the | robot | moves | forward | slowly | . | Here, | in | order | to | better | receive | gesture | information, | no | waiting | time | is | required | .",
+      "textCharacters": 197,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 17,
+      "text": "Practice | | | Programming | logo | 04 | The | Judgment | of | Gesture | When | there | is | a | gesture, | the | gesture | type | is | judged | in | turn, | and | if | the | gesture | is | satisfied, | the | corresponding | mobile | program | is | executed | . | Both | speed | and | time | can | be | modified | according | to | the | actual | movement | situation | .",
+      "textCharacters": 276,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 18,
+      "text": "Practice | | | Programming | logo | 05 | Integrate | programs | Integrate | the | above | programs | according | to | the | flowchart | .",
+      "textCharacters": 107,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 19,
+      "text": "Practice | | | Programming | logo",
+      "textCharacters": 27,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 20,
+      "text": "Results",
+      "textCharacters": 7,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 21,
+      "text": "Program Optimization | This | class | realizes | the | function | of | the | robot | to | recognize | the | movement | of | gestures | . | Under | different | gestures, | there | are | corresponding | movement | strategies | . | Next, | modify | the | program | to | realize | the | function | of | stopping | movement | . | Requirement | : | Set | any | gesture | as | a | stop | movement | gesture | .",
+      "textCharacters": 309,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 22,
+      "text": "Further Reading | In | addition | to | gesture | control | cars, | eye | tracking | technology | has | also | been | applied | to | cars | . | In | order | to | ensure | the | core | solution | of | vehicle | driving | safety, | this | technology | judges | the | driver's | attention | by | monitoring | the | relative | movement | of | the | driver's | eyeballs | . | With | the | continuous | development | of | artificial | intelligence | technology, | the | driving | control | and | driving | safety | of | automobiles | have | been | improved | unprecedentedly | .",
+      "textCharacters": 443,
+      "visualReviewRequired": true
+    },
+    {
+      "slide": 23,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER:",
+      "textCharacters": 32,
+      "visualReviewRequired": true
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "projectId": "level-6-minesweeper-robot",
+  "sourcePath": "public/Level 6/Learning/Programming & Precise Control/Minesweeper Robot/12.Minesweeper Robot -Slides.pdf",
+  "wixFileId": "7fc4ca_ab7dcf18670c4b4fadf48eac661f6cf0.pdf",
+  "sourceBytes": 2801187,
+  "pageCount": 33,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Minesweeper Robot | Lesson 12"
+    },
+    {
+      "slide": 2,
+      "text": "Key points from this lesson: | 1. Understand the priority of logical operations | 2. Learn to write programs using different logical operation modules | Possible difficulties from this lesson: | 1. Master the combined use of different logic operation modules"
+    },
+    {
+      "slide": 3,
+      "text": "Landmines | A | mine | is | an | explosive | firearm, | usually | buried | or | placed | on | the | ground | , | that | can | be | detonated | when | a | person | or | vehicle | approaches, | thereby | killing | or | preventing | the | person | from | moving | ."
+    },
+    {
+      "slide": 4,
+      "text": "Minesweeper | Soldiers | will | conduct | mine | sweeping | to | avoid | being | attacked | by | landmines | . | Manual | mine | sweeping | is | the | most | common | method, | usually | by | personnel | holding | tools | such | as | probes | and | shovels | to | detect | . | Mechanical | mine | sweeping | usually | uses | mine | sweepers | and | armored | vehicles | to | detect | and | remove | explosives | ."
+    },
+    {
+      "slide": 5,
+      "text": "Effect Demonstration"
+    },
+    {
+      "slide": 6,
+      "text": "Project Tasks | Design | a | minesweeper | robot | model | and | control | it | using | touch | sensors | and | buttons | . | Requirements | for | robot | functions | : | 1 | . | Press | the | touch | or | left | button | to | start, | and | press | the | touch | or | right | button | again | to | stop | . | 2 | . | When | the | detector | (color | sensor) | identifies | a | mine | (red), | the | robot | will | stop | . | 3 | . | The | robot | can | be | started | again | after | the | mine | is | cleared | ."
+    },
+    {
+      "slide": 7,
+      "text": "Build a robot | Build a worm gear mechanism"
+    },
+    {
+      "slide": 8,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 9,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 10,
+      "text": "Build a robot | Install the medium motor"
+    },
+    {
+      "slide": 11,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 12,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 13,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 14,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 15,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 16,
+      "text": "Build a robot | Build components of the  | airplane part"
+    },
+    {
+      "slide": 17,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 18,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 19,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 20,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 21,
+      "text": "Hardware connection | P2 | P1 | M1"
+    },
+    {
+      "slide": 22,
+      "text": "How do we achieve the required  | functions?"
+    },
+    {
+      "slide": 23,
+      "text": "Program Flow Chart | The | program | starts | and | enters | a | loop | . | Wait | until | the | touch | sensor | or | the | left | button | of | the | controller | is | pressed | when | no | mines | are | detected, | and | the | robot | starts | the | mine | - | sweeping | action | . | Wait | until | a | mine | is | detected | or | the | touch | or | left | button | is | pressed, | and | the | robot | stops | the | mine | - | sweeping | action | . | The | robot | takes | corresponding | actions | depending | on | whether | a | mine | is | detected | or | not | ."
+    },
+    {
+      "slide": 24,
+      "text": "Priority of logical operations | When | an | expression | contains | multiple | logical | operators, | operators | with | higher | priority | will | be | executed | before | operators | with | lower | priority | . | The | priority | of | logical | operators | from | high | to | low | is | : | brackets, | not | (not | true), | and, | or | . | However, | in | graphical | programming, | you | can | see | the | priority | of | logical | operations | very | intuitively | . | Usually, | they | are | executed | from | inside | to | outside | and | from | left | to | right | ."
+    },
+    {
+      "slide": 25,
+      "text": "1. Start when there are no mines | The | program | starts, | in | repeated | execution | : | Wait | until | the | color | sensor | recognizes | black | (no | mines), | and | press | the | touch | or | left | button | to | clear | the | screen | and | start | the | robot | . | Add | a | detection | of | releasing | the | touch | to | avoid | affecting | subsequent | programs | ."
+    },
+    {
+      "slide": 26,
+      "text": "2. There are mines or manual stop | If | red | is | detected | or | the | touch | sensor | is | pressed | again | or | the | right | button | of | the | controller | is | pressed, | the | robot | stops | ."
+    },
+    {
+      "slide": 27,
+      "text": "3. Prompt information | If | red | is | detected, | ³0LQHV | are | present\" | is | displayed | and | the | buzzer | sounds | . | Otherwise, | \"Manual | Stop\" | is | displayed | . | Wait | until | the | touch | sensor | is | released | before | detecting | whether | the | touch | is | pressed | again | ."
+    },
+    {
+      "slide": 28,
+      "text": "Expansion Tasks | Increase the types of detectable mines"
+    },
+    {
+      "slide": 29,
+      "text": "Expansion Program | The | robot | stops | when | it | recognizes | non | - | black | building | blocks | . | The | controller | screen | displays | different | information | depending | on | the | color | recognized | ."
+    },
+    {
+      "slide": 30,
+      "text": "Quiz | Single | - | choice | question | The following description is incorrect ( ) | A. | Logical operations have priorities | B. | AND modules and OR modules can be used in  | combination | C. | OR operations have the lowest priority | D. | NO modules have the highest priority | Answer: D"
+    },
+    {
+      "slide": 31,
+      "text": "Further Reading | As | of | 2016 | , | there | are | about | 100 | million | landmines | in | the | world, | many | of | which | are | left | over | from | wars | . | These | mines | kill | tens | of | thousands | of | people | every | year, | most | of | whom | are | innocent | civilians | . | A | design | team | led | by | Afghan | designer | and | entrepreneur | Massoud | Hassani | has | developed | a | 3 | D | printed | mine | - | clearing | drone | that | can | make | clearing | landmines | easier, | cheaper | and | safer | . | It | has | six | rotators | and | three | attachments | . | The | first | attachment | is | specifically | designed | to | map | minefields | . | The | second | is | a | metal | detector | that | detects | mines | and | then | marks | them | with | GPS | Maker | . | The | third | is | a | robotic | arm | that | replaces | the | metal | detector | after | the | mines | are | marked, | placing | small | detonators | the | size | of | ping | - | pong | balls | at | the | location | of | the | mines | and | then | detonating | them | . | The | drone | can | map, | detect | and | detonate | mines | autonomously | ."
+    },
+    {
+      "slide": 32,
+      "text": "Further Reading | According | to | Massoud | Hassani's | team, | this | technology | has | the | potential | to | remove | those | deadly | mines | from | the | world | in | less | than | 10 | years | . | It's | an | ambitious | but | worthwhile | goal | ."
+    },
+    {
+      "slide": 33,
+      "text": "Thanks!"
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

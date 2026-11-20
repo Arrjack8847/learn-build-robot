@@ -1,0 +1,127 @@
+{
+  "projectId": "level-6-traffic-lights-display",
+  "sourcePath": "public/Level 6/Learning/Illumination & Signals/Traffic Lights Display/10. Traffic Lights-Teaching Slides.pdf",
+  "wixFileId": "7fc4ca_ef3e09d6a3f541dea33e02f373a9e9f4.pdf",
+  "sourceBytes": 1305645,
+  "pageCount": 29,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 10.  | Traffic Lights | edu.zmrobo.com | LECTURER: "
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties | 1 | . | Understand | the | history | of | the | development | of | traffic | lights | . | 2 | . | Understand | ways | to | improve | the | efficiency | of | traffic | lights | . | 1. Touch the button to switch traffic lights. | 2. Alternately control the \"passing\" and \"no passing\" modes. "
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information"
+    },
+    {
+      "slide": 4,
+      "text": "Background Information | The | origin | of | traffic | lights | can | be | traced | back | to | Britain | in | the | early | 19 | th | century | . | At | that | time, | some | European | countries | including | the | United | Kingdom | had | popularized | horse | - | drawn | carriages, | but | they | did | not | have | signaling | equipment | to | guide | pedestrians | and | horse | - | drawn | carriages | . | Therefore, | whether | no | matter | on | the | mountain | trails | or | the | bustling | avenues | in | the | city | center, | there | are | often | accidents | where | horse | - | drawn | carriages | run | over | people, | which | not | only | endangers | the | safety | of | pedestrians | but | also | often | causes | traffic | chaos | and | congestion | ."
+    },
+    {
+      "slide": 5,
+      "text": "Background Information | At | that | time | in | York | City | in | central | England, | women's | clothing | was | not | arbitrary | , | and | the | two | colors | of | red | and | green | represented | different | identities | of | women | . | Among | them, | a | woman | in | a | red | dress | means | she | is | married, | while | a | woman | in | a | green | dress | must | be | unmarried | . | Inspired | by | women's | red | and | green | dresses, | signal | light | engineer | J | . | P | . | Knight | put | forward | the | idea | of | designing | traffic | lights | with | red | and | green | colors, | and | quickly | put | them | into | practice, | and | traffic | lights | gradually | came | into | being | ."
+    },
+    {
+      "slide": 6,
+      "text": "Background Information | On | December | 10 | , | 1868 | , | the | first | traffic | signal | light | in | history | appeared | in | front | of | the | Westminster | Parliament | Building | in | the | United | Kingdom | . | This | traffic | signal | light | was | about | 7 | meters | high, | and | a | red | and | green | rotatable | gas | lantern | was | hung | on | its | top | . | In | order | to | switch | between | the | red | and | green | lanterns, | a | policeman | with | a | long | pole | must | stand | under | the | lantern | and | pull | the | lantern | through | a | belt | to | change | the | color | ."
+    },
+    {
+      "slide": 7,
+      "text": "Background Information | Later, | a | red | lantern | was | added | in | the | middle | of | the | signal | lantern | . | Green | and | green | lampshades, | with | red | and | green | glass | alternately | blocking | the | front | . | The | gas | lamps | are | not | lit | during | the | day, | and | only | the | red | and | green | lampshades | are | switched | to | guide | people | to | move | forward | or | stop | ; | at | night, | the | gas | lamps | are | lit | to | illuminate | the | red | and | green | lampshades | ."
+    },
+    {
+      "slide": 8,
+      "text": "Background Information | In | 1912 | , | an | American | policeman, | Lester | Wire, | worried | about | the | growing | traffic, | came | up | with | the | first | electric | traffic | lights | . | On | August | 5 | , | 1914 | , | in | Cleveland, | Ohio, | USA, | engineers | installed | two | pairs | of | red | and | green | lights | at | an | intersection | . | The | world's | first | electric | traffic | lights | are | only | red | and | green, | without | yellow | lights | like | modern | traffic | signals | . | This | simple | move | set | the | pattern | for | road | planning | around | the | world, | revolutionizing | traffic | in | congested | cities | ."
+    },
+    {
+      "slide": 9,
+      "text": "Background Information | In | 1920 | , | a | policeman | named | William | Potts | in | Detroit, | Michigan | invented | the | first | four | - | way | and | three | - | color | traffic | lights | . | In | addition | to | red | and | green, | yellow, | as | a | third | color, | was | introduced | . | Detroit | becomes | the | first | city | to | implement | four | - | way, | three | - | color | traffic | lights | . | In | the | same | year, | four | - | way, | three | - | color | traffic | lights | were | installed | in | major | cities | around | the | world | . | Modern | traffic | lights | still | use | this | famous | model, | available | in | three | different | colors | ."
+    },
+    {
+      "slide": 10,
+      "text": "Knowledge  | Introduction"
+    },
+    {
+      "slide": 11,
+      "text": "Knowledge Introduction | Simply | relying | on | the | hand | - | operated | traffic | lights | of | the | traffic | police | has | exposed | many | shortcomings | in | the | actual | use | process | . | First | of | all, | if | the | police | on | duty | cannot | accurately | judge | the | road | conditions, | it | is | very | likely | that | they | will | become | more | and | more | chaotic | . | Secondly, | this | simple | signage | instruction | cannot | be | used | at | night, | which | greatly | limits | the | scope | of | its | application | . | At | the | same | time, | with | the | birth | of | the | first | internal | combustion | engine | car, | horse | - | drawn | carriages | were | gradually | replaced | by | faster | and | easier | - | to | - | operate | cars | . | At | this | time, | the | use | of | standardized | and | effective | traffic | lights | became | an | urgent | problem | that | people | needed | to | solve | ."
+    },
+    {
+      "slide": 12,
+      "text": "Knowledge Introduction | The | police | officers | need | to | control | the | switching | of | the | signal | lights | in | the | sentry | box | set | up | around | the | signal | lights | . | If | necessary, | they | can | also | control | the | length | of | the | signal | light | switching | time | according | to | the | actual | traffic | conditions | at | the | intersection | . | It | can | be | seen | that | the | awareness | of | \" | leaving | time | for | preparation | \" | was | produced | as | early | as | the | first | batch | of | electric | signal | lights | appeared | ."
+    },
+    {
+      "slide": 13,
+      "text": "Knowledge Introduction | For | the | first | time, | an | automatically | controllable | signal | light | appeared | on | the | streets | of | Toronto, | Canada | . | The | signal | light | uses | computer | chips | to | control | traffic | signals | . | At | the | same | time, | an | automatic | control | system | includes | traffic | lights | at | multiple | intersections | . | The | conversion | of | all | signal | lights | is | controlled | by | computers | . | , | The | police | only | need | to | conduct | unified | monitoring | at | designated | locations, | which | greatly | reduces | the | pressure | on | the | traffic | police | ."
+    },
+    {
+      "slide": 14,
+      "text": "Knowledge Introduction | With | the | development | of | technology, | today | we | will | see | more | traffic | lights | with | mature | functions, | such | as | more | efficient | traffic | lights, | which | prohibit | pedestrians | from | passing | under | normal | circumstances | or | turn | on | the | green | light | for | pedestrians | for | a | long | time, | and | pedestrians | can | control | traffic | by | pressing | buttons | on | the | side | of | the | road | Lights | are | switched | so | that | cars | can | travel | between | cities | more | efficiently | . | Today, | we | will | make | such | a | convenient | traffic | light | ."
+    },
+    {
+      "slide": 15,
+      "text": "Practice"
+    },
+    {
+      "slide": 16,
+      "text": "New Knowledge | Dot matrix screen in  | two directions | Pre | - | buried  | lines under  | the pavement | Temporary  | button for green  | light | According | to | the | building | manual, | build | a | traffic | light | with | a | dot | matrix | screen | . | In | addition | to | periodically | changing | the | state | of | passing | or | no | passing, | it | can | also | make | it | easier | for | pedestrians | to | cross | the | road | by | pressing | buttons | ."
+    },
+    {
+      "slide": 17,
+      "text": "Practice | Flow Chart | The | red/green | light | (passing | / | no | passing) | of | the | dot | matrix | screen | is | controlled | by | variables | . | When | a | certain | light | lasts | long | enough, | it | will | switch | to | another | light | . | When | the | red | light | is | in | the | direction | of | pedestrians, | it | can | be | temporarily | switched | to | the | green | light | by | pressing | the | button | . | . | The | variable | is | 1 | , | which | corresponds | to | the | green | light, | and | the | variable | is | - | 1 | , | which | corresponds | to | the | red | light | ; | using | the | controller | time | is | convenient | to | detect | the | button | status | at | any | time, | so | the | time | needs | to | be | reset | every | time | the | condition | for | changing | the | light | is | met | ."
+    },
+    {
+      "slide": 18,
+      "text": "Practice | Programming | 01 | logo | Draw | patterns | Draw | the | passing | and | no | passing | patterns | for | the | dot | matrix | screen | by | yourself | . | Two | patterns | are | used | to | indicate | the | direction | of | pedestrians, | and | the | other | two | patterns | are | used | to | indicate | the | direction | of | vehicles | ."
+    },
+    {
+      "slide": 19,
+      "text": "Practice | Programming | logo | Function | ± | light | up | LEDs | Make | two | functions | that | turn | on | the | LED | lights | . | When | making | it, | it | should | be | noted | that | the | green | light | in | the | direction | of | vehicles | is | equal | to | the | red | light | in | the | direction | of | pedestrians | . | 02"
+    },
+    {
+      "slide": 20,
+      "text": "Practice | Programming | logo | Function | ± | Changing | light | tips | Make | a | function | module, | the | light | change | reminder | is | used | to | remind | the | vehicle | that | the | light | is | about | to | be | changed | . | 03"
+    },
+    {
+      "slide": 21,
+      "text": "Practice | Programming | logo | 04 | The | main | structure | of | the | program | The | main | structure | is | used | to | judge | the | value | of | the | light | variable | and | change | the | variable | value | to | switch | the | state | of | the | light | after | the | duration | exceeds | the | specified | value | ."
+    },
+    {
+      "slide": 22,
+      "text": "Practice | Programming | logo | 05 | Button | to | change | lights | When | the | red | light | is | on, | the | button | detection | function | needs | to | be | added, | and | the | time | must | be | reset | after | changing | the | light | ."
+    },
+    {
+      "slide": 23,
+      "text": "Practice | Programming | logo | 06 | Change | lights | When | the | timeout | is | reached | After | the | red | light | is | on, | it | is | also | the | same | as | the | green | light, | and | the | light | needs | to | be | changed | after | the | time | exceeds | . | The | longer | the | red | light | time | is | set, | the | easier | it | is | for | vehicles | to | pass | directly | ."
+    },
+    {
+      "slide": 24,
+      "text": "Practice | Programming | logo | 07 | Integrate the program | Integrate the program  | according to the flow chart."
+    },
+    {
+      "slide": 25,
+      "text": "Practice | Programming | logo"
+    },
+    {
+      "slide": 26,
+      "text": "Results"
+    },
+    {
+      "slide": 27,
+      "text": "Program Optimization | In | this | lesson, | we | have | implemented | the | function | of | convenient | traffic | lights | for | pedestrians | to | switch | lights | through | buttons | . | During | red | lights, | pedestrians | can | press | the | button | at | any | time | to | temporarily | turn | the | traffic | lights | into | green | lights | . | Next, | modify | the | program, | and | there | will | also | be | a | reminder | for | normal | periodic | lamp | changes | . | Requirements | : | As | long | as | the | traffic | lights | are | changed, | the | light | - | changing | reminder | will | light | up | to | remind | vehicles | and | pedestrians | in | time | ."
+    },
+    {
+      "slide": 28,
+      "text": "Further Reading | Traffic | lights | that | detect | vehicle | horns | Automatic | traffic | signals | are | a | huge | success, | they | work | by | changing | the | signal | at | regular | intervals | . | But | this | can | sometimes | cause | waiting | vehicles, | because | even | if | there | is | no | traffic | passing | from | the | opposite | side, | it | may | be | a | red | light | . | So | some | people | began | to | think | about | a | better | traffic | signal | system | to | make | traffic | smoother | . | An | inventor | named | Charles | Adler | Jr | . | created | a | traffic | light | that | could | detect | the | honking | of | vehicles | and | change | the | signal | accordingly | . | A | microphone | is | mounted | at | the | pole | of | the | signal | and | once | the | vehicle | reaches | the | signal | all | it | needs | to | do | is | honk | and | the | lights | will | change | . | However, | this | introduces | the | problem | of | vehicular | honking, | causing | noise | pollution | to | those | living | nearby | . | Therefore, | this | traffic | light | was | later | canceled | ."
+    },
+    {
+      "slide": 29,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER: "
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

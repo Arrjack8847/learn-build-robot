@@ -1,0 +1,164 @@
+/**
+ * Level 1 question bank checked against official lesson PDF extracted page text.
+ * No diagram-dependent claims without visual QA. Unregistered content draft.
+ */
+import type { QuizBank } from "../../quizStudio";
+
+export const rexRobotBank: QuizBank = {
+  "projectId": "rex-robot",
+  "title": "REX Robot",
+  "sourcePdfPath": "public/Level 1/Learning/Characters & Structures/REX robot/REX robot_PowerPoint-R.pdf",
+  "sourcePageCount": 19,
+  "questions": [
+    {
+      "id": "rex-robot-01",
+      "topic": "robot-identity",
+      "learningSlide": 6,
+      "prompt": "What role does the lesson give the REX robot?",
+      "choices": [
+        "Sailboat captain",
+        "Gardener",
+        "Astronaut",
+        "Police officer"
+      ],
+      "correctIndex": 3,
+      "hint": "Recall the character's profession in the introduction.",
+      "explanation": "REX is introduced as a strong police robot."
+    },
+    {
+      "id": "rex-robot-02",
+      "topic": "robot-identity",
+      "learningSlide": 6,
+      "prompt": "How do you know what the REX robot is named in the story?",
+      "choices": [
+        "Its name means king",
+        "It has four wings",
+        "It moves underwater",
+        "It makes coloured glass"
+      ],
+      "correctIndex": 0,
+      "hint": "Recall what the introduction says REX means.",
+      "explanation": "The introduction says that REX's name carries the meaning of a king."
+    },
+    {
+      "id": "rex-robot-03",
+      "topic": "electronic-devices",
+      "learningSlide": 8,
+      "prompt": "Which item is listed as an electronic component?",
+      "choices": [
+        "Mechanical axle",
+        "Touch sensor",
+        "Plain beam",
+        "Unpowered peg"
+      ],
+      "correctIndex": 1,
+      "hint": "Think about a part that can sense an input.",
+      "explanation": "The electronic components slide includes a touch sensor."
+    },
+    {
+      "id": "rex-robot-04",
+      "topic": "electronic-devices",
+      "learningSlide": 8,
+      "prompt": "Which motor sizes appear in the REX component list?",
+      "choices": [
+        "Only hydraulic motors",
+        "Only wind-driven motors",
+        "Large and medium motors",
+        "Only miniature motors"
+      ],
+      "correctIndex": 2,
+      "hint": "Recall the two motor categories on the slide.",
+      "explanation": "The electronic components include large and medium motors."
+    },
+    {
+      "id": "rex-robot-05",
+      "topic": "beam-types",
+      "learningSlide": 9,
+      "prompt": "How are straight beams named in this lesson?",
+      "choices": [
+        "By their paint colour only",
+        "By their mass in kilograms",
+        "By their shape's temperature",
+        "By their number of holes"
+      ],
+      "correctIndex": 3,
+      "hint": "Look at the rule for 'n-beam'.",
+      "explanation": "Straight beams are described by hole count, such as Beam 7M."
+    },
+    {
+      "id": "rex-robot-06",
+      "topic": "beam-types",
+      "learningSlide": 9,
+      "prompt": "What is a Beam 7M in the lesson's terminology?",
+      "choices": [
+        "A straight beam identified by its hole count",
+        "A gear with seven teeth",
+        "A sensor with seven ports",
+        "A battery with seven cells"
+      ],
+      "correctIndex": 0,
+      "hint": "Consider the naming scheme for straight beams.",
+      "explanation": "The beam lesson uses Beam 7M as a straight-beam example."
+    },
+    {
+      "id": "rex-robot-07",
+      "topic": "connectors-and-axles",
+      "learningSlide": 10,
+      "prompt": "What is the main purpose of peg parts?",
+      "choices": [
+        "Storing programs",
+        "Connecting different parts",
+        "Making electronic sounds",
+        "Sensing colour"
+      ],
+      "correctIndex": 1,
+      "hint": "Recall how pieces are joined in a structure.",
+      "explanation": "The peg slide defines pegs as connectors between parts."
+    },
+    {
+      "id": "rex-robot-08",
+      "topic": "connectors-and-axles",
+      "learningSlide": 11,
+      "prompt": "Which part is described as having a stop?",
+      "choices": [
+        "Screen block",
+        "Speaker",
+        "Axle with stop",
+        "Colour sensor"
+      ],
+      "correctIndex": 2,
+      "hint": "The lesson distinguishes two related shaft types.",
+      "explanation": "It lists both a cross axle and an axle with stop."
+    },
+    {
+      "id": "rex-robot-09",
+      "topic": "gears-and-assembly",
+      "learningSlide": 13,
+      "prompt": "Which part is included in the REX gear list?",
+      "choices": [
+        "Touch sensor",
+        "Battery slot",
+        "Display screen",
+        "Worm gear"
+      ],
+      "correctIndex": 3,
+      "hint": "Look for a transmission component.",
+      "explanation": "The gear slide lists worm gears among gear types."
+    },
+    {
+      "id": "rex-robot-10",
+      "topic": "gears-and-assembly",
+      "learningSlide": 15,
+      "prompt": "What is required when assembling the REX robot?",
+      "choices": [
+        "Stable structure and matching shape",
+        "Loose connections and arbitrary balance",
+        "Only decoration with no structure",
+        "No consideration of balance"
+      ],
+      "correctIndex": 0,
+      "hint": "Think about the practice checklist.",
+      "explanation": "The REX assembly task requires a stable structure, proper gravity and matching shape."
+    }
+  ]
+};

@@ -1,0 +1,115 @@
+{
+  "projectId": "level-6-accurate-shooting",
+  "sourcePath": "public/Level 6/Learning/Complex Mechanisms & Coordinated Motion/Accurate Shooting/13. Accurate Shooting-Teaching Slides.pdf",
+  "wixFileId": "7fc4ca_03322395b9f2462ab96810596cfefd96.pdf",
+  "sourceBytes": 1584202,
+  "pageCount": 26,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 13.  | Accurate Shooting | edu.zmrobo.com | LECTURER: "
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties | 1. | Learn |   | about |   | shooting |   | games | . | 2. | The |   | programming |   | method |   | of |   | the |   | shooting |   | target |   | swinging |   | back |   | and |   | forth | . | 1. Write a program without using the wait module. | 2. Control the shooting target to swing back and forth within a range. "
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information"
+    },
+    {
+      "slide": 4,
+      "text": "Background Information | Amusement |   | parks |   | are |   | entertainment |   | venues |   | that |   | offer |   | a |   | wide |   | range |   | of |   | activities |   | and |   | are |   | often |   | located |   | near |   | densely |   | populated |   | cities | . |   | They |   | are |   | classified |   | as |   | theme |   | parks |   | and |   | feature |   | a |   | variety |   | of |   | attractions |   | including |   | simulations |   | of |   | primitive |   | societies, |   | futuristic |   | worlds, |   | thrilling |   | rides, |   | quiz |   | games, |   | and |   | classic |   | shooting |   | games | . |   | Some |   | parks |   | offer |   | a |   | complete |   | selection |   | of |   | activities |   | while |   | others |   | focus |   | on |   | specific |   | ones | ."
+    },
+    {
+      "slide": 5,
+      "text": "Background Information | The |   | most |   | prestigious |   | amusement |   | park |   | in |   | the |   | world |   | is |   | Disneyland, |   | built |   | in |   | Los |   | Angeles, |   | California, |   | USA |   | in |   | 1958 | . |   | It |   | is |   | the |   | masterpiece |   | of |   | Mickey |   | Mouse |   | cartoon |   | producer |   | Walt |   | Disney, |   | attracting |   | tens |   | of |   | millions |   | of |   | tourists |   | every |   | year | . |   | Later, |   | the |   | same |   | one |   | was |   | built |   | on |   | the |   | Florida |   | peninsula |   | in |   | the |   | south |   | of |   | the |   | United |   | States | . |   | In |   | 1983 | , |   | the |   | third |   | large | - | scale |   | amusement |   | park |   | named |   | \"Disney\" |   | was |   | completed |   | near |   | Tokyo, |   | Japan | . |   | In |   | recent |   | years, |   | a |   | Disneyland |   | has |   | also |   | been |   | built |   | in |   | Shanghai, |   | China | . |   | In |   | the |   | future, |   | with |   | the |   | development |   | of |   | domestic |   | and |   | foreign |   | tourism, |   | the |   | construction |   | of |   | amusement |   | parks |   | will |   | be |   | expanded |   | and |   | improved |   | day |   | by |   | day | . |   | There |   | are |   | many |   | roller |   | coasters |   | and |   | various |   | amusement |   | equipment |   | that |   | are |   | popular |   | among |   | young |   | people |   | in |   | the |   | playground | . |   | It |   | is |   | a |   | good |   | place |   | to |   | release |   | stress |   | and |   | feel |   | the |   | excitement!"
+    },
+    {
+      "slide": 6,
+      "text": "Background Information | Large | - | scale |   | amusement |   | projects |   | include |   | carousels, |   | Ferris |   | wheels, |   | roller |   | coasters, |   | pirate |   | ships, |   | etc | . |   | These |   | projects |   | are |   | too |   | exciting |   | and |   | have |   | certain |   | physical |   | requirements, |   | such |   | as |   | height |   | or |   | weight |   | needed |   | to |   | reach |   | a |   | certain |   | standard, |   | and |   | some |   | of |   | them |   | have |   | age |   | restrictions | ."
+    },
+    {
+      "slide": 7,
+      "text": "Background Information | In |   | addition |   | to |   | large | - | scale |   | projects, |   | there |   | are |   | many |   | relaxing |   | entertainment |   | projects |   | for |   | children |   | to |   | play | . |   | For |   | example, |   | shooting, |   | bumper |   | cars, |   | dance |   | machines, |   | rotating |   | coffee |   | cups, |   | trampolines, |   | etc | . |   | Today, |   | we |   | will |   | make |   | a |   | shooting |   | game | . |   | When |   | you |   | \"hit\" |   | the |   | target, |   | you |   | can |   | get |   | points | . |   | How |   | many |   | points |   | can |   | you |   | get?"
+    },
+    {
+      "slide": 8,
+      "text": "Knowledge  | Introduction"
+    },
+    {
+      "slide": 9,
+      "text": "Knowledge Introduction | Shooting |   | games |   | in |   | playgrounds |   | have |   | corresponding |   | rules | . |   | Generally |   | speaking, |   | electric |   | gun |   | toys |   | are |   | used | . |   | There |   | are |   | a |   | fixed |   | number |   | of |   | bullets |   | in |   | the |   | gun, |   | which |   | are |   | fired |   | after |   | aiming | . |   | Points |   | are |   | scored |   | after |   | hitting |   | the |   | balloon | . |   | Different |   | points |   | can |   | be |   | exchanged |   | for |   | different |   | prizes | ."
+    },
+    {
+      "slide": 10,
+      "text": "Knowledge Introduction | Due |   | to |   | the |   | strict |   | safety |   | control |   | of |   | amusement |   | parks |   | in |   | my |   | country, |   | the |   | use |   | of |   | darts, |   | toy |   | bullets, |   | and |   | other |   | bullets |   | that |   | can |   | cause |   | actual |   | damage |   | to |   | the |   | human |   | body |   | is |   | not |   | allowed, |   | so |   | shooting |   | games |   | are |   | rarely |   | seen |   | nowadays | ."
+    },
+    {
+      "slide": 11,
+      "text": "Practice"
+    },
+    {
+      "slide": 12,
+      "text": "New Knowledge | According |   | to |   | the |   | construction |   | manual, |   | build |   | a |   | model |   | of |   | a |   | shooting |   | game, |   | and |   | use |   | infrared |   | to |   | detect |   | whether |   | it |   | hits |   | the |   | target | . | Gun | Swinging   | Target | Scoreboard"
+    },
+    {
+      "slide": 13,
+      "text": "Practice  | |  | Flow Chart | The |   | flow |   | of |   | the |   | main |   | program |   | is |   | shown |   | on |   | the |   | left | . | Initialize |   | the |   | program |   | first, |   | and |   | then |   | execute |   | two |   | main |   | functions | : |   | one |   | to |   | control |   | the |   | swing |   | of |   | the |   | target, |   | and |   | the |   | other |   | to |   | control |   | the |   | gun |   | to |   | shoot | . | When |   | shooting, |   | the |   | swinging |   | back |   | and |   | forth |   | of |   | the |   | target |   | cannot |   | be |   | affected |   | and |   | there |   | is |   | a |   | little |   | randomness |   | in |   | the |   | swinging | ."
+    },
+    {
+      "slide": 14,
+      "text": "Practice  | |  | Flow Chart | The |   | function |   | of |   | the |   | gun |   | is |   | shown |   | on |   | the |   | left | . | The |   | gun |   | program |   | consists |   | of |   | two |   | parts, |   | namely |   | launch |   | and |   | receive | . | Pressing |   | the |   | touch |   | sensor |   | will |   | emit |   | infrared |   | data, |   | and |   | the |   | smart |   | eye |   | will |   | increase |   | the |   | corresponding |   | score |   | when |   | receiving |   | the |   | data | ."
+    },
+    {
+      "slide": 15,
+      "text": "Practice  | |  | Flow Chart | The |   | flow |   | chart |   | of |   | the |   | swinging |   | target |   | function |   | is |   | shown |   | on |   | the |   | left | . | The |   | direction |   | of |   | the |   | swinging |   | target |   | must |   | be |   | specified, |   | which |   | is |   | defined |   | here |   | as |   | direction |   | 1 |   | and |   | direction |   | 0 | . |   | Direction |   | 1 |   | means |   | clockwise |   | (forward |   | rotation), |   | and |   | direction |   | 0 |   | means |   | counterclockwise |   | (reverse |   | rotation) | . | To |   | reduce |   | collisions, |   | targets |   | are |   | slowed |   | down |   | after |   | crossing |   | the |   | center |   | line | . |   | , |   | switch |   | directions |   | when |   | reaching |   | the |   | bottom |   | of |   | the |   | other |   | side | ."
+    },
+    {
+      "slide": 16,
+      "text": "Practice  | |  | Programming | 01 | logo | The main program | Initialize the program and name  | the function."
+    },
+    {
+      "slide": 17,
+      "text": "Practice  | |  | Programming | logo | Function |   | - |   | Gun | The |   | first |   | \"if | ... | then\" |   | module |   | is |   | used |   | to |   | judge |   | whether |   | to |   | shoot |   | and |   | the |   | second |   | \"if | ... | then\" |   | module |   | is |   | used |   | to |   | judge |   | whether |   | it |   | hits | . |   | If |   | it |   | hits, |   | it |   | will |   | add |   | points |   | and |   | refresh |   | the |   | score | . | 02"
+    },
+    {
+      "slide": 18,
+      "text": "Practice  | |  | Programming | logo | Function |   | ± |   | swinging |   | target | Define |   | the |   | swinging |   | target, |   | display |   | the |   | coded |   | values |   | of |   | the |   | motors, |   | and |   | establish |   | the |   | basic |   | logic |   | structure | . | 03"
+    },
+    {
+      "slide": 19,
+      "text": "Practice  | |  | Programming | logo | 04 | Judgment |   | of |   | changing |   | lights | The |   | left |   | and |   | right |   | swings |   | have |   | the |   | same |   | structure |   | and |   | logic, |   | but |   | different |   | values | . | To |   | prevent |   | the |   | target |   | rod |   | from |   | continuously |   | hitting |   | the |   | building |   | blocks |   | and |   | destroying |   | the |   | overall |   | structure, |   | the |   | speed |   | of |   | the |   | motor |   | needs |   | to |   | be |   | limited | . |   | The |   | swing |   | range |   | of |   | the |   | target |   | rod |   | is |   | about |   | 150 | , |   | so |   | after |   | the |   | target |   | rod |   | crosses |   | the |   | center |   | line |   | ( | 75 | ), |   | the |   | motor |   | only |   | provides |   | slight |   | power | . |   | Use |   | the |   | coded |   | value |   | to |   | ensure |   | that |   | the |   | target |   | pole |   | swings |   | in |   | place |   | before |   | changing |   | the |   | swing |   | direction | ."
+    },
+    {
+      "slide": 20,
+      "text": "Practice  | |  | Programming | logo | 05 | The |   | complete |   | function |   | of |   | the |   | swinging |   | target |   | The |   | complete |   | swinging |   | target |   | function |   | is |   | shown |   | on |   | the |   | left | . | The |   | gun |   | target |   | will |   | continue |   | to |   | swing |   | back |   | and |   | forth |   | after |   | the |   | program |   | is |   | running | . |   | Note | : |   | Every |   | time |   | you |   | start |   | the |   | program, |   | you |   | need |   | to |   | swing |   | the |   | gun |   | target |   | to |   | the |   | left | ."
+    },
+    {
+      "slide": 21,
+      "text": "Practice  | |  | Programming | logo | 07 | Integrate |   | programs | Integrate |   | programs |   | according |   | to |   | the |   | flow |   | chart | ."
+    },
+    {
+      "slide": 22,
+      "text": "Practice  | |  | Programming"
+    },
+    {
+      "slide": 23,
+      "text": "Results"
+    },
+    {
+      "slide": 24,
+      "text": "Program Optimization | In |   | this |   | lesson, |   | we |   | implemented |   | the |   | game |   | function |   | of |   | swinging |   | the |   | gun |   | target |   | back |   | and |   | forth |   | and |   | simulating |   | shooting |   | through |   | the |   | wisdom |   | eye | . | Please |   | modify |   | the |   | program |   | so |   | that |   | the |   | gun |   | target |   | makes |   | a |   | sound |   | when |   | it |   | is |   | designed | . | Requirements | : |   | The |   | gun |   | target |   | makes |   | a |   | sound |   | after |   | being |   | hit, |   | while |   | the |   | swing |   | of |   | the |   | gun |   | target |   | is |   | not |   | affected | ."
+    },
+    {
+      "slide": 25,
+      "text": "Further Reading | Simulated |   | shooting |   | is |   | to |   | use |   | high | - | tech |   | means |   | such |   | as |   | image |   | capture |   | technology, |   | image |   | processing |   | technology, |   | voice |   | processing |   | technology, |   | information |   | sensing |   | technology, |   | virtual |   | reality |   | technology, |   | multimedia |   | technology, |   | data |   | acquisition |   | and |   | processing |   | technology, |   | computer |   | communication |   | technology, |   | and |   | other |   | high | - | tech |   | means |   | of |   | computer |   | trinity, |   | and |   | use |   | large | - | screen |   | projection |   | to |   | generate |   | virtual |   | shooting |   | environment |   | so |   | that |   | players |   | have |   | the |   | feeling |   | of |   | being |   | in |   | the |   | shooting |   | field | ."
+    },
+    {
+      "slide": 26,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER: "
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, PDF Page tree, zlib FlateDecode, PDF BT/ET text operators",
+  "visualReviewComplete": false
+}

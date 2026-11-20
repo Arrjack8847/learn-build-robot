@@ -1,0 +1,139 @@
+{
+  "projectId": "level-6-rc-airplane",
+  "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/RC Airplane/11.RC Airplane - Slides.pdf",
+  "wixFileId": "7fc4ca_2f2aad081c234f6380c500000db2d197.pdf",
+  "sourceBytes": 2494636,
+  "pageCount": 32,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "RC Airplane | Lesson 11"
+    },
+    {
+      "slide": 2,
+      "text": "Key points from this lesson: | 1. Learn to use the encoder's changing value to control the motor's rotation angle | 2. Learn to set the appropriate threshold to eliminate the device's vibration | Possible difficulties from this lesson: | 1. The problem should be consciously divided into multiple solvable small problems. | 2. Achieve overall problem | - | solving by solving each small problem."
+    },
+    {
+      "slide": 3,
+      "text": "RC airplane | Remote |   | control |   | airplanes |   | (RC |   | airplanes) |   | are |   | one |   | of |   | the |   | more |   | popular |   | and |   | interesting |   | toys |   | in |   | modern |   | times | . |   | The |   | airplane's |   | flight |   | direction, |   | speed, |   | and |   | altitude |   | can |   | be |   | controlled |   | remotely |   | using |   | the |   | remote |   | control | ."
+    },
+    {
+      "slide": 4,
+      "text": "Fixed | - | wing model aircraft | Fixed | - | wing |   | model |   | aircraft |   | have |   | fixed |   | wings |   | and |   | usually |   | use |   | electric |   | motors |   | or |   | gasoline |   | power |   | systems |   | to |   | drive |   | propellers |   | to |   | generate |   | thrust |   | so |   | that |   | the |   | aircraft |   | can |   | fly |   | forward | . | Compared |   | with |   | traditional |   | drones, |   | fixed | - | wing |   | model |   | aircraft |   | usually |   | require |   | more |   | advanced |   | radio |   | remote |   | control |   | technology |   | and |   | flight |   | control |   | technology, |   | as |   | well |   | as |   | higher |   | flying |   | skills |   | and |   | operating |   | skills | , |   | and |   | are |   | suitable |   | for |   | professionals |   | and |   | enthusiasts | ."
+    },
+    {
+      "slide": 5,
+      "text": "Effect Demonstration"
+    },
+    {
+      "slide": 6,
+      "text": "Project Tasks | Design |   | a |   | remote |   | control |   | airplane |   | model, |   | using |   | motors |   | and |   | touch |   | sensors |   | to |   | control |   | it | . | Requirements |   | for |   | robot |   | functions | : | 1 | . |   | There |   | are |   | 4 |   | gears |   | for |   | the |   | propeller |   | speed, |   | and |   | the |   | initial |   | gear |   | is |   | gear |   | 1 | . | 2 | . |   | Each |   | time |   | you |   | press |   | the |   | touch |   | button, |   | the |   | gear |   | increases |   | by |   | 1 |   | gear | ; |   | when |   | the |   | gear |   | is |   | 4 | , |   | pressing |   | the |   | touch |   | button |   | again |   | will |   | change |   | back |   | to |   | gear |   | 1 | . | 3 | . |   | If |   | you |   | push |   | the |   | joystick |   | to |   | the |   | left, |   | the |   | aircraft |   | will |   | deflect |   | to |   | the |   | left | ; |   | if |   | you |   | push |   | the |   | joystick |   | to |   | the |   | right, |   | the |   | aircraft |   | will |   | deflect |   | to |   | the |   | right | ."
+    },
+    {
+      "slide": 7,
+      "text": "Build a robot | Build the joystick base"
+    },
+    {
+      "slide": 8,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 9,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 10,
+      "text": "Build a robot | Install the touch sensor"
+    },
+    {
+      "slide": 11,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 12,
+      "text": "Build a robot | Install the motor that makes  | the aircraft tilt"
+    },
+    {
+      "slide": 13,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 14,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 15,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 16,
+      "text": "Build a robot | Build the components of the  | airplane"
+    },
+    {
+      "slide": 17,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 18,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 19,
+      "text": "Build a robot"
+    },
+    {
+      "slide": 20,
+      "text": "Hardware connection | P5 | M3 | M2 | M1"
+    },
+    {
+      "slide": 21,
+      "text": "How do we achieve the required functions?"
+    },
+    {
+      "slide": 22,
+      "text": "Use  | the |   | encoder to control the motor angle | 7KH\u0003IXQFWLRQ\u0003RI\u0003WKH\u0003HQFRGHU\u0003DOORZV\u0003\\RX\u0003WR\u0003FRQWURO\u0003PRWRU\u0003%¶V\u0003URWDWLRQ\u0003DQJOH\u0003E\\\u0003URWDWLQJ\u0003 | motor A. | motor A | motor B | controls"
+    },
+    {
+      "slide": 23,
+      "text": "Program Flow Chart | The |   | program |   | starts |   | and |   | enters |   | a |   | loop | . | The |   | propeller |   | speed |   | is |   | related |   | to |   | the |   | gear |   | position | . |   | If |   | the |   | button |   | is |   | pressed, |   | the |   | gear |   | will |   | increase | . |   | If |   | it |   | is |   | greater |   | than |   | 4 |   | gears, |   | the |   | gear |   | will |   | be |   | set |   | back |   | to |   | 1 |   | gear | . | If |   | the |   | joystick |   | is |   | pushed |   | to |   | the |   | left, |   | the |   | aircraft |   | will |   | deflect |   | to |   | the |   | left | ; |   | otherwise, |   | if |   | the |   | joystick |   | is |   | pushed |   | to |   | the |   | right, |   | the |   | aircraft |   | will |   | deflect |   | to |   | the |   | right | ."
+    },
+    {
+      "slide": 24,
+      "text": "1. |   | Propeller rotates | At |   | the |   | beginning |   | of |   | the |   | program, |   | the |   | font |   | is |   | set |   | and |   | the |   | value |   | of |   | the |   | variable |   | \"gear | \" |   | is |   | set |   | to |   | 1 | . | During |   | repeated |   | execution, |   | the |   | value |   | of |   | \" | gear | \" |   | is |   | displayed, |   | and |   | the |   | motor |   | speed |   | is |   | equal |   | to |   | \" | gear | \" |   | * |   | 25 |   | (because |   | the |   | maximum |   | speed |   | is |   | 100 | ) | ."
+    },
+    {
+      "slide": 25,
+      "text": "2. |   | Control gear position with touch sensor | If |   | the |   | touch |   | is |   | pressed, |   | increase |   | the |   | variable |   | \" | gear | \" |   | by |   | 1 | . | If |   | the |   | variable |   | \" | gear | \" |   | is |   | greater |   | than |   | 4 | , |   | set |   | it |   | to |   | 1 | ."
+    },
+    {
+      "slide": 26,
+      "text": "3. Use the joystick to control the direction | If |   | the |   | encoder |   | values |   | ௙௙RI |   | the |   | joystick |   | motor |   | and |   | the |   | aircraft |   | yaw |   | motor |   | are |   | different, |   | the |   | aircraft |   | yaw |   | motor |   | will |   | be |   | rotated, |   | and |   | the |   | angle |   | of |   | rotation |   | is |   | the |   | difference |   | between |   | the |   | two | . | Note |   | that |   | when |   | comparing |   | the |   | encoder |   | values |   | ௙௙RI |   | the |   | joystick |   | motor |   | and |   | the |   | aircraft |   | yaw |   | motor, |   | you |   | must |   | set |   | a |   | suitable |   | threshold, |   | otherwise |   | jitter |   | will |   | occur | ."
+    },
+    {
+      "slide": 27,
+      "text": "Expansion Tasks | Initial automatic reset of joystick and  | aircraft"
+    },
+    {
+      "slide": 28,
+      "text": "Expansion Program | The |   | joystick |   | can |   | be |   | reset |   | using |   | the |   | touch |   | sensor | . | The |   | aircraft |   | yaw |   | motor |   | can |   | be |   | tilted |   | to |   | the |   | right |   | and |   | then |   | to |   | the |   | center |   | position | ."
+    },
+    {
+      "slide": 29,
+      "text": "Quiz | Single | - | choice |   | question | The following description is incorrect ( ) | A. | The motor's rotation angle can be known through  | the encoder | B. | The sensor value can be marked with a variable | C. | The waiting type module has a blocking function | D. | The encoder will record the value after exiting  | the program | Answer:  | D"
+    },
+    {
+      "slide": 30,
+      "text": "Further Reading | A |   | propeller |   | plane |   | is |   | an |   | aircraft |   | that |   | uses |   | an |   | air |   | propeller |   | to |   | convert |   | the |   | engine's |   | power |   | into |   | propulsion | . |   | In |   | modern |   | aircraft, |   | in |   | addition |   | to |   | supersonic |   | aircraft |   | and |   | high | - | subsonic |   | mainline |   | passenger |   | aircraft, |   | propeller |   | planes |   | still |   | occupy |   | an |   | important |   | position | . |   | It |   | usually |   | has |   | the |   | following |   | characteristics | : | Good |   | low | - | speed |   | and |   | short | - | distance |   | takeoff |   | and |   | landing |   | performance | : |   | When |   | a |   | propeller |   | plane |   | flies |   | at |   | a |   | low |   | speed, |   | the |   | air |   | propeller |   | can |   | generate |   | greater |   | thrust, |   | allowing |   | the |   | aircraft |   | to |   | take |   | off |   | and |   | land |   | more |   | easily | . | Small propeller aircraft"
+    },
+    {
+      "slide": 31,
+      "text": "Further Reading | Simple |   | structure | : |   | Compared |   | with |   | jet |   | aircraft, |   | the |   | structure |   | of |   | propeller |   | aircraft |   | is |   | relatively |   | simple, |   | which |   | makes |   | its |   | manufacturing |   | cost |   | lower |   | and |   | maintenance |   | and |   | repair |   | more |   | convenient | . | Low |   | fuel |   | consumption | : |   | During |   | the |   | flight |   | of |   | a |   | propeller |   | aircraft, |   | the |   | speed |   | of |   | the |   | propeller |   | is |   | fixed, |   | so |   | its |   | fuel |   | consumption |   | is |   | relatively |   | stable |   | and |   | lower |   | than |   | that |   | of |   | a |   | jet |   | aircraft | . | High |   | noise | : |   | The |   | propeller |   | of |   | a |   | propeller |   | aircraft |   | will |   | generate |   | a |   | lot |   | of |   | noise |   | when |   | rotating |   | at |   | high |   | speed, |   | which |   | makes |   | the |   | propeller |   | aircraft |   | have |   | a |   | greater |   | impact |   | on |   | the |   | surrounding |   | environment |   | during |   | flight | . | Small propeller aircraft"
+    },
+    {
+      "slide": 32,
+      "text": "Thanks!"
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

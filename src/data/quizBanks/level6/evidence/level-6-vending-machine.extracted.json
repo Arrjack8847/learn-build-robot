@@ -1,0 +1,107 @@
+{
+  "projectId": "level-6-vending-machine",
+  "sourcePath": "public/Level 6/Learning/Mechanisms & Simulators/Vending Machine/27.Vending Machine-Slides.pdf",
+  "wixFileId": "7fc4ca_f4ad71e83ded4a668ce378c5f77b8636.pdf",
+  "sourceBytes": 1223981,
+  "pageCount": 24,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Vending Machine | Lesson 27"
+    },
+    {
+      "slide": 2,
+      "text": "Key points from this lesson: | 1. Understand the principle of vending machines | 2. Understand the classification of vending machines | Possible difficulties from this lesson: | 1. Build a vending machine model"
+    },
+    {
+      "slide": 3,
+      "text": "CONTENTS | 1 | Introduction  | 2 | New Knowledge | 3 | Practice | 4 | Expansion "
+    },
+    {
+      "slide": 4,
+      "text": "Introduction | 01"
+    },
+    {
+      "slide": 5,
+      "text": "Vending machine | A |   | vending |   | machine |   | is |   | a |   | machine |   | that |   | can |   | automatically |   | deliver |   | goods |   | according |   | to |   | the |   | coins |   | inserted | . |   | Vending |   | machines |   | are |   | commonly |   | used |   | equipment |   | for |   | commercial |   | automation | . |   | They |   | are |   | not |   | restricted |   | by |   | time |   | and |   | place, |   | can |   | save |   | manpower, |   | and |   | facilitate |   | transactions | . |   | It |   | is |   | a |   | new |   | form |   | of |   | commercial |   | retail, |   | also |   | known |   | as |   | a |   | 24 | - | hour |   | mini |   | supermarket | ."
+    },
+    {
+      "slide": 6,
+      "text": "New Knowledge | 02"
+    },
+    {
+      "slide": 7,
+      "text": "How a vending machine works | There |   | is |   | a |   | button |   | under |   | each |   | item, |   | and |   | the |   | items |   | we |   | see |   | are |   | samples | . |   | The |   | real |   | items |   | are |   | placed |   | in |   | the |   | warehouse |   | inside |   | the |   | vending |   | machine | . |   | When |   | we |   | put |   | coins |   | into |   | the |   | coin |   | slot |   | and |   | press |   | the |   | button |   | of |   | the |   | corresponding |   | item, |   | the |   | warehouse |   | door |   | corresponding |   | to |   | the |   | item |   | will |   | open | . |   | At |   | this |   | time, |   | we |   | will |   | get |   | the |   | items |   | we |   | need! | Coins  | detected | Control  | unit | Rotate the  | motor | Keyboard and  | LCD display | The commodity is  | pushed out of the  | hatch"
+    },
+    {
+      "slide": 8,
+      "text": "Traditional vending machines | The |   | payment |   | method |   | of |   | vending |   | machines |   | is |   | single, |   | and |   | most |   | of |   | them |   | use |   | banknotes |   | and |   | coins | . |   | When |   | consumers |   | put |   | money |   | into |   | the |   | coin |   | slot, |   | the |   | built | - | in |   | currency |   | identifier |   | will |   | quickly |   | recognize |   | it | . |   | After |   | the |   | recognition |   | is |   | passed, |   | the |   | controller |   | will |   | provide |   | the |   | user |   | with |   | optional |   | products |   | according |   | to |   | the |   | amount, |   | and |   | then |   | the |   | consumer |   | can |   | choose |   | the |   | product |   | by |   | himself | ."
+    },
+    {
+      "slide": 9,
+      "text": "Smart vending machines | It |   | has |   | various |   | payment |   | methods, |   | including |   | QR |   | code |   | payment |   | and |   | facial |   | recognition |   | payment | . |   | The |   | built | - | in |   | system |   | can |   | monitor |   | the |   | inventory |   | of |   | internal |   | goods |   | at |   | any |   | time | . |   | When |   | the |   | quantity |   | of |   | goods |   | is |   | insufficient, |   | it |   | will |   | automatically |   | send |   | data |   | to |   | the |   | background |   | to |   | remind |   | the |   | staff |   | to |   | replenish |   | the |   | goods |   | in |   | time | . |   | At |   | the |   | same |   | time, |   | it |   | can |   | also |   | self | - | check, |   | and |   | when |   | a |   | fault |   | occurs, |   | it |   | can |   | promptly |   | inform |   | the |   | staff |   | to |   | come |   | for |   | maintenance | ."
+    },
+    {
+      "slide": 10,
+      "text": "Practice | 03"
+    },
+    {
+      "slide": 11,
+      "text": "Effect Demonstration"
+    },
+    {
+      "slide": 12,
+      "text": "Design and assembly | According |   | to |   | the |   | building |   | manual, |   | build |   | a |   | vending |   | machine |   | with |   | sound |   | prompts | . |   | We |   | need |   | a |   | controller |   | to |   | control |   | the |   | motor |   | rotation |   | and |   | call |   | the |   | AI |   | ௙௙YLVLRQ |   | module | . |   | Connect |   | the |   | AI |   | ௙௙YLVLRQ |   | module |   | to |   | the |   | P | 8 |   | port |   | of |   | the |   | controller | ."
+    },
+    {
+      "slide": 13,
+      "text": "Project tasks"
+    },
+    {
+      "slide": 14,
+      "text": "Programming | logo | 1. Initialization. | Set the AI vision module to enter tag code  | recognition mode, set the font to medium,  | and set the new variable \"total price\" to 0."
+    },
+    {
+      "slide": 15,
+      "text": "Programming | logo | 2 | . |   | Check |   | the |   | ID |   | result |   | of |   | tag |   | code |   | recognition | . | Create |   | a |   | new |   | ³3URGXFW |   | 3ULFH´ |   | variable |   | and |   | set |   | it |   | to |   | the |   | recognized |   | ID |   | by |   | the |   | AI |   | ௙௙WDJ |   | code |   | recognition |   | mode | ."
+    },
+    {
+      "slide": 16,
+      "text": "Programming | 3 | . |   | Calculate |   | the |   | total |   | price |   | of |   | the |   | products | . | If |   | \"Product |   | Price\" |   | > |   | 0 | , |   | then |   | add |   | \"Product |   | Price\" |   | to |   | \"Total |   | Price\" | ."
+    },
+    {
+      "slide": 17,
+      "text": "Programming | logo | 4 | . |   | Open |   | the |   | left |   | hatch |   | and |   | take |   | out |   | the |   | goods | . | When |   | the |   | left |   | button |   | is |   | pressed, |   | if |   | the |   | total |   | price |   | > |   | 5 | , |   | then |   | open |   | the |   | left |   | hatch |   | and |   | take |   | out |   | the |   | goods | . |   | The |   | camera |   | only |   | recognizes |   | the |   | current |   | \"product |   | price\" |   | once, |   | and |   | can |   | only |   | read |   | the |   | \"product |   | price\" |   | again |   | when |   | the |   | \"product |   | price\" |   | = |   | 0 | ."
+    },
+    {
+      "slide": 18,
+      "text": "Programming | logo | 5 | . |   | Open |   | the |   | right |   | hatch |   | and |   | take |   | out |   | the |   | goods | . | When |   | you |   | press |   | the |   | left |   | button, |   | if |   | the |   | total |   | price |   | is |   | < | 5 | , |   | open |   | the |   | right |   | hatch |   | and |   | take |   | out |   | the |   | goods | ."
+    },
+    {
+      "slide": 19,
+      "text": "Programming | logo | 6. Total price is cleared. | After taking out the goods, the \"total price\"  | is cleared."
+    },
+    {
+      "slide": 20,
+      "text": "Programming | 7. The overall program is shown  | in the figure."
+    },
+    {
+      "slide": 21,
+      "text": "Expansion | 04"
+    },
+    {
+      "slide": 22,
+      "text": "Expansion task | Set fixed prices for the left and right containers.  | When the total price entered is greater than the  | left and right fixed prices, sell the goods in  | different containers and calculate the balance at  | the same time."
+    },
+    {
+      "slide": 23,
+      "text": "Further Reading | The |   | vending |   | machine |   | industry |   | is |   | moving |   | towards |   | informatization |   | and |   | further |   | rationalization | . |   | For |   | example, |   | the |   | online |   | method |   | is |   | implemented |   | to |   | transmit |   | the |   | inventory |   | information |   | in |   | the |   | vending |   | machine |   | to |   | the |   | computer |   | of |   | each |   | business |   | point |   | in |   | a |   | timely |   | manner |   | through |   | the |   | telephone |   | line, |   | thereby |   | ensuring |   | the |   | smooth |   | delivery, |   | replenishment |   | and |   | selection |   | of |   | goods | . |   | In |   | addition, |   | to |   | prevent |   | global |   | warming, |   | the |   | development |   | of |   | vending |   | machines |   | is |   | committed |   | to |   | energy |   | conservation, |   | and |   | energy | - | saving |   | refreshing |   | beverage |   | vending |   | machines |   | have |   | become |   | the |   | mainstream |   | of |   | the |   | industry | . |   | Automation |   | is |   | the |   | future |   | development |   | trend, |   | whether |   | it |   | is |   | manufacturing, |   | service |   | or |   | retail | . |   | We |   | will |   | see |   | more |   | equipment |   | replacing |   | manual |   | labor | . |   | Under |   | such |   | a |   | big |   | trend, |   | the |   | prospects |   | of |   | the |   | vending |   | machine |   | industry |   | are |   | bright | ."
+    },
+    {
+      "slide": 24,
+      "text": "Thanks!"
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

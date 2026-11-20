@@ -1,0 +1,107 @@
+{
+  "projectId": "level-6-parcel-sorting-machine",
+  "sourcePath": "public/Level 6/Learning/Sensor Automation/Parcel Sorting Machine/31. Parcel Sorting Machine-Teaching Slides.pdf",
+  "wixFileId": "7fc4ca_4060613e75994fb78ab78e2fad1b0464.pdf",
+  "sourceBytes": 1288796,
+  "pageCount": 24,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Parcel Sorting Machine"
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties | 1. | Learn | about | the | process | of | outbound | delivery | . | 2. | Learn | about | the | sorting | machine | . | 1. | Build a parcel sorting machine. | 2. | The algorithm of color corresponding angle."
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information"
+    },
+    {
+      "slide": 4,
+      "text": "Background Information | In | today's | age | of | e | - | commerce, | people | prefer | the | convenient | form | of | online | purchase | and | express | home | delivery | when | purchasing | goods | . | Do | you | know | how | these | couriers | are | dispatched | to | you?"
+    },
+    {
+      "slide": 5,
+      "text": "Background Information | Before | a | parcel | can | be | delivered, | it | must | first | be | released | from | the | warehouse | through | an | outbound | process | . | Only | after | this | process | can | express | delivery | be | shipped | to | any | destination | in | the | country | . | However, | the | traditional | outbound | process | is | inefficient | and | requires | a | significant | amount | of | manpower | . | Workers | must | pick | up | the | goods | based | on | order | requirements, | package | them, | and | then | use | a | conveyor | belt | to | transport | the | packaged | goods | to | the | vehicle | ."
+    },
+    {
+      "slide": 6,
+      "text": "Background Information | Therefore, | most | warehouses | today | have | adopted | automatic | sorting | systems | to | improve | the | efficiency | of | goods | out | of | the | warehouse | . | It | is | different | from | the | traditional | process | in | that | it | uses | sorting | machines | and | conveyor | belts | to | transport | the | goods | directly | to | the | workers | . | Workers | only | need | to | pack | and | check | the | sorted | goods | before | they | can | deliver | the | express | to | the | car, | which | greatly | improves | the | efficiency | of | delivery, | and | reduces | the | workload | of | workers | to | find | and | obtain | goods | in | person | ."
+    },
+    {
+      "slide": 7,
+      "text": "Background Information | Today, | we | will | make | a | sorting | machine | to | put | goods | representing | different | colors | into | different | positions | . | 4 | 3 | 2 | 1"
+    },
+    {
+      "slide": 8,
+      "text": "Knowledge  | Introduction"
+    },
+    {
+      "slide": 9,
+      "text": "New Knowledge | Hardware | After | World | War | II, | Western | developed | countries | gradually | began | to | use | automatic | sorting | systems | for | faster | and | more | efficient | logistics | distribution | . | The | automatic | sorting | system | is | composed | of | a | sorter | and | a | variety | of | conveyor | belts | . | The | sorter | is | used | to | identify | items, | and | the | conveyor | belt | is | used | to | transport | them | ."
+    },
+    {
+      "slide": 10,
+      "text": "New Knowledge | Hardware | There | are | various | types | of | sorting | machines | including | baffle, | floating, | and | roller | . | Today, | we | will | create | a | color | sorting | machine | which | is | a | variant | of | the | baffle | type | and | can | sort | blocks | of | different | colors | into | their | corresponding | positions | ."
+    },
+    {
+      "slide": 11,
+      "text": "Practice"
+    },
+    {
+      "slide": 12,
+      "text": "New Knowledge | According | to | the | construction | manual, | build | a | sorting | machine | . | The | color | sensor | is | used | to | control | the | rotation | direction | of | the | sorter, | and | after | moving | to | the | corresponding | position, | the | goods | are | jacked | up | for | delivery | . | Color Sensor | Sorting  | Channel | Direction  | Control | Sorting Door"
+    },
+    {
+      "slide": 13,
+      "text": "Practice | Flow Chart | The | color | controls | the | direction | of | motor | rotation, | and | judging | the | color | is | judging | the | direction | . | Set | three | functional | functions | : | initialization, | lifting | the | baffle, | and | direction | (color) | judgment | . | When | detecting | colors, | to | ensure | the | success | rate, | it | takes | more | than | one | second | to | read | each | color | ."
+    },
+    {
+      "slide": 14,
+      "text": "Practice | Flow Chart | Accurate | delivery | of | goods | requires | the | sorter | to | control | the | rotation | angle | of | the | motor, | so | it | is | necessary | to | determine | the | initial | position | of | the | sorter | and | initialize | it | at | the | beginning | . | In | addition, | it | is | necessary | to | calculate | the | rotation | degree | of | the | motor | when | different | colors | are | recognized | ."
+    },
+    {
+      "slide": 15,
+      "text": "Practice | Programming | 01 | logo | Function | - | Initialization | This | function | turns | the | sorting | machine | to | the | initial | position, | and | the | waiting | time | can | be | adjusted | according | to | the | actual | turning | position | . | When | initializing, | make | sure | the | sorter | is | close | to | the | main | controller | . | The | direction | represents | the | direction | of | the | motor | rotation, | - | 1 | represents | the | reverse | direction, | and | 1 | represents | the | positive | direction | ."
+    },
+    {
+      "slide": 16,
+      "text": "Practice | Programming | 02 | logo | Function  | ± | Lifting  | Lifting a block of color requires  | two actions of rising and falling  | of the baffle."
+    },
+    {
+      "slide": 17,
+      "text": "Practice | Programming | logo | Function | ± | Direction | Judgment | The | direction | is | judged | based | on | the | color | . | In | the | examples | in | this | section, | the | values | corresponding | to | different | colors | are | as | follows | : | red | 1 | , | green | 2 | , | blue | 3 | , | yellow | 4 | , | and | black | 5 | , | where | black | means | no | building | blocks | . | The | degree | interval | between | each | color | is | 30 | degrees, | which | can | be | modified | according | to | the | actual | situation | . | The | angle | refers | to | the | degree | the | motor | is | about | to | turn, | which | needs | to | be | subtracted | from | the | current | angle | . | Example | : | At | the | beginning, | the | current | angle | is | 0 | , | the | color | of | the | measured | building | block | is | red | 1 | , | and | the | motor | rotates | in | the | opposite | direction | ( | 30 | * | 1 | = | 30 | ) | degrees | . | Then | the | color | is | yellow | 4 | , | and | the | motor | rotates | in | the | opposite | direction | ( | 30 | * | 4 | - | 30 | = | 90 | ) | degrees | . | Due | to | the | existence | of | angle | subtraction, | there | will | be | negative | numbers, | so | it | is | necessary | to | use | the | absolute | value | operation | rules | to | obtain | positive | numbers | . | 03"
+    },
+    {
+      "slide": 18,
+      "text": "Practice | Programming | logo | 04 | The | Basic | process | of | the | main | program | - | part | 1 | After | the | main | program | is | initialized, | read | the | color | value | . | When | the | color | value | is | 5 | , | it | means | that | no | building | blocks | are | placed | and | there | is | no | need | to | rotate | ."
+    },
+    {
+      "slide": 19,
+      "text": "Practice | Programming | logo | The | Basic | process | of | the | main | program | - | part | 2 | When | a | building | block | is | detected, | in | order | to | avoid | misjudgment, | the | process | of | reading | the | color | will | last | for | one | second | . | Execute | the | direction | judgment | function | after | getting | the | accurate | color, | record | the | previous | color | and | current | angle | for | the | next | direction | judgment | comparison, | and | then | put | the | building | blocks | . | 05"
+    },
+    {
+      "slide": 20,
+      "text": "Practice | Programming | logo | Complete program | Integrate the program according to the flow chart. | 06"
+    },
+    {
+      "slide": 21,
+      "text": "Practice | Programming"
+    },
+    {
+      "slide": 22,
+      "text": "Results"
+    },
+    {
+      "slide": 23,
+      "text": "Program Optimization | In | this | lesson, | we | have | implemented | building | blocks | of | four | different | colors | to | their | set | positions | . | Modify | the | program | to | make | the | division | range | of | each | color | larger | . | Requirements | : | Make | the | motor | rotate | more | degrees, | change | the | spacing | between | the | positions | of | the | colors | ."
+    },
+    {
+      "slide": 24,
+      "text": "Further Reading | With | the | rapid | development | of | online | shopping | and | logistics | express, | the | number | of | express | delivery | is | increasing | rapidly | every | year | . | As | of | December | 8 | , | 2021 | , | the | annual | domestic | business | volume | in | China | will | exceed | 100 | billion | pieces | for | the | first | time | . | Hundreds | of | billions | of | express | delivery | have | also | created | a | large | amount | of | express | packaging | . | How | to | properly | handle | the | outer | packaging | of | express | delivery | has | gradually | become | the | main | problem | of | express | delivery | ."
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}

@@ -1,0 +1,103 @@
+{
+  "projectId": "level-6-tricycle",
+  "sourcePath": "public/Level 6/Learning/Vehicles & Complex Movers/Tricycle/29. Tricycle-Teaching Slides.pdf",
+  "wixFileId": "7fc4ca_18cc6b9f0c624098866243986ce0ed6c.pdf",
+  "sourceBytes": 1292939,
+  "pageCount": 23,
+  "pages": [
+    {
+      "slide": 1,
+      "text": "Lesson 29.  | Tricycle | edu.zmrobo.com | LECTURER:"
+    },
+    {
+      "slide": 2,
+      "text": "Lesson Objective | ર३ऩ߶ | ર३஡ࢵ | Learning Objectives | Possible Difficulties | 1. | Learn |   | about |   | the |   | three | - | wheeled |   | vehicle | . |   | 2. | Learn |   | about |   | the |   | program |   | for |   | controlling |   | three | - | wheeled |   | YHKLFOHV¶ |   | start, |   | stop, |   | and |   | steering | . | 1. | Three functions of the  | three | - | ZKHHOHG\u0003YHKLFOH¶V |   | program. | 2. | The program that the  | three | - | wheeled vehicles  | can automatically return to the  | center position after turning."
+    },
+    {
+      "slide": 3,
+      "text": "Background | Information"
+    },
+    {
+      "slide": 4,
+      "text": "Background Information | Various |   | vehicles, |   | from |   | bicycles |   | to |   | tricycles |   | and |   | four | - | wheeled |   | cars, |   | can |   | save |   | time |   | and |   | increase |   | efficiency | . |   | Each |   | mode |   | has |   | its |   | strengths | ; |   | bicycles |   | are |   | highly |   | mobile |   | and |   | don't |   | require |   | an |   | external |   | power |   | source, |   | tricycles |   | are |   | an |   | extension |   | of |   | bicycles |   | and |   | can |   | transport |   | goods, |   | and |   | four | - | wheeled |   | vehicles |   | rely |   | on |   | external |   | power |   | sources |   | to |   | travel |   | long |   | distances | ."
+    },
+    {
+      "slide": 5,
+      "text": "Background Information | In |   | addition |   | to |   | carrying |   | people, |   | tricycles |   | can |   | also |   | be |   | used |   | to |   | transport |   | goods | . |   | The |   | compact |   | body |   | allows |   | them |   | to |   | move |   | easily |   | through |   | the |   | streets | . |   | However, |   | when |   | tricycles |   | are |   | used |   | for |   | transporting |   | goods, |   | power |   | is |   | necessary | . |   | It |   | is |   | very |   | difficult |   | to |   | manually |   | operate |   | tricycles, |   | especially |   | as |   | the |   | weight |   | of |   | the |   | goods |   | increases | . |   | As |   | a |   | result, |   | manual |   | tricycles |   | are |   | gradually |   | being |   | phased |   | out | ."
+    },
+    {
+      "slide": 6,
+      "text": "Background Information | Currently, |   | tricycles |   | use |   | more |   | electricity |   | as |   | a |   | power |   | source | . |   | The |   | electric |   | tricycle |   | can |   | meet |   | the |   | requirements |   | of |   | people |   | to |   | carry |   | goods |   | while |   | reducing |   | the |   | physical |   | exertion |   | of |   | the |   | driver | . |   | As |   | a |   | result, |   | the |   | majority |   | of |   | couriers |   | use |   | electric |   | tricycles |   | as |   | the |   | delivery |   | tool |   | for |   | the |   | last |   | mile | . |   | Today, |   | we |   | will |   | build |   | an |   | electric |   | tricycle |   | that |   | can |   | turn, |   | return |   | to |   | the |   | center |   | position, |   | start, |   | and |   | stop | ."
+    },
+    {
+      "slide": 7,
+      "text": "Knowledge  | Introduction"
+    },
+    {
+      "slide": 8,
+      "text": "New Knowledge | Hardware | A |   | touch |   | sensor |   | is |   | a |   | sensor |   | that |   | can |   | sense |   | whether |   | it |   | is |   | in |   | touch |   | with |   | an |   | object, |   | thereby |   | recognizing |   | the |   | two |   | states |   | of |   | pressing |   | and |   | releasing | . |   | It |   | has |   | on |   | and |   | off |   | states |   | and |   | is |   | typically |   | used |   | as |   | a |   | collision |   | detection |   | or |   | switch | . |   | When |   | the |   | button |   | of |   | the |   | touch |   | sensor |   | is |   | pressed, |   | the |   | conductive |   | contact |   | is |   | driven |   | to |   | connect |   | the |   | circuit, |   | and |   | the |   | return |   | spring |   | is |   | compressed | ; |   | when |   | the |   | button |   | is |   | released, |   | the |   | return |   | spring |   | pushes |   | the |   | touch |   | button |   | back |   | to |   | its |   | original |   | position | . | Normal state  | (released) | Non | - | normal state  | (pressed)"
+    },
+    {
+      "slide": 9,
+      "text": "New Knowledge | Hardware | Therefore, |   | we |   | will |   | use |   | touch |   | sensors |   | as |   | switches |   | for |   | various |   | functions |   | of |   | the |   | tricycle | . |   | When |   | two |   | touch |   | sensors |   | are |   | pressed |   | at |   | the |   | same |   | time, |   | it |   | means |   | start/stop, |   | and |   | when |   | one |   | sensor |   | is |   | touched |   | alone, |   | it |   | means |   | turning |   | in |   | the |   | opposite |   | direction | ."
+    },
+    {
+      "slide": 10,
+      "text": "Practice"
+    },
+    {
+      "slide": 11,
+      "text": "New Knowledge | Power to the rear  | wheels | The touch  | button as a  | handlebar | Seat | Build |   | a |   | tricycle |   | according |   | to |   | the |   | building |   | manual |   | to |   | realize |   | the |   | three |   | functions |   | of |   | starting |   | and |   | stopping, |   | turning |   | and |   | returning |   | to |   | the |   | center | ."
+    },
+    {
+      "slide": 12,
+      "text": "Practice  | |  | Flow Chart | The |   | tricycle |   | realizes |   | the |   | functions |   | of |   | starting |   | and |   | stopping, |   | turning |   | and |   | returning |   | to |   | the |   | center |   | based |   | on |   | different |   | buttons | . | Anyway, |   | it |   | is |   | the |   | auxiliary |   | function |   | of |   | steering, |   | and |   | it |   | will |   | be |   | marked |   | again |   | in |   | the |   | steering |   | flow |   | chart | ."
+    },
+    {
+      "slide": 13,
+      "text": "Practice  | |  | Flow Chart | The |   | start | - | and | - | stop |   | function |   | is |   | used |   | to |   | toggle |   | forward |   | or |   | stop | . | The |   | changing |   | direction |   | function |   | is |   | used |   | to |   | control |   | the |   | handlebar |   | to |   | turn |   | left |   | and |   | right | ."
+    },
+    {
+      "slide": 14,
+      "text": "Practice  | |  | Flow Chart | The |   | return | - | to | - | center |   | function |   | is |   | used |   | to |   | return |   | the |   | handlebars |   | of |   | the |   | tricycle |   | to |   | the |   | centerline |   | position |   | after |   | turning | ."
+    },
+    {
+      "slide": 15,
+      "text": "Practice  | |  | Programming | 01 | logo | Start | - | and | - | stop |   | function |   | When |   | the |   | touch |   | sensor |   | is |   | pressed, |   | both |   | motors |   | stop |   | turning | . |   | After |   | releasing |   | the |   | touch |   | sensor, |   | the |   | motor |   | speed |   | is |   | 50 | , |   | execute |   | again, |   | the |   | motor |   | speed |   | is |   | 0 | ."
+    },
+    {
+      "slide": 16,
+      "text": "Practice  | |  | Programming | logo | Changing |   | direction |   | function | Press |   | the |   | P | 1 |   | sensor |   | and |   | turn |   | it |   | counterclockwise |   | (turn |   | left) | ; |   | press |   | the |   | P | 2 |   | sensor |   | and |   | turn |   | it |   | clockwise |   | (turn |   | right) | ; |   | if |   | both |   | are |   | released, |   | execute |   | the |   | return | - | to | - | center |   | function | . | 02"
+    },
+    {
+      "slide": 17,
+      "text": "Practice  | |  | Programming | logo | Return | - | to | - | center |   | function | After |   | releasing |   | the |   | touch |   | sensor, |   | if |   | the |   | encoder |   | has |   | data |   | and |   | has |   | changed |   | direction, |   | then |   | turn |   | it |   | counterclockwise |   | with |   | the |   | same |   | value |   | to |   | return |   | the |   | handlebar |   | to |   | the |   | centerline |   | position | . | 03"
+    },
+    {
+      "slide": 18,
+      "text": "Practice  | |  | Programming | logo | 04 | Integrate |   | the |    | program | Integrate | the | program | according | to | the | flow | chart | ."
+    },
+    {
+      "slide": 19,
+      "text": "Practice  | |  | Programming"
+    },
+    {
+      "slide": 20,
+      "text": "Results"
+    },
+    {
+      "slide": 21,
+      "text": "Program Optimization | In |   | this |   | lesson, |   | we |   | have |   | realized |   | the |   | function |   | of |   | the |   | touch |   | sensor |   | to |   | control |   | the |   | tricycle | . |   | Through |   | this |   | sensor, |   | the |   | tricycle |   | can |   | be |   | controlled |   | to |   | start, |   | stop, |   | turn, |   | and |   | return |   | to |   | the |   | center | . | Modify |   | the |   | program |   | to |   | change |   | the |   | way |   | the |   | steering |   | is |   | done | . | Requirement | : |   | Change |   | the |   | control |   | method |   | of |   | the |   | handlebar, |   | so |   | the |   | steering |   | direction |   | is |   | consistent |   | with |   | the |   | button |   | direction | ."
+    },
+    {
+      "slide": 22,
+      "text": "Further Reading | ³'DR |   | Qi |   | /X´\u000bUHDU |   | tricycle |   | ride) |   | is |   | a |   | human | - | powered |   | means |   | of |   | transportation | . |   | It |   | is |   | the |   | most |   | convenient |   | and |   | simplest |   | means |   | of |   | transportation |   | to |   | activate |   | large |   | and |   | small |   | cities |   | and |   | villages |   | in |   | Northeast |   | China, |   | and |   | it |   | is |   | a |   | scooter |   | favored |   | by |   | many |   | ordinary |   | people | . |   | Riding |   | a |   | donkey |   | upside |   | down |   | is |   | a |   | kind |   | of |   | tricycle | . |   | More |   | common |   | in |   | the |   | Northeast | . |   | For |   | a |   | normal |   | tricycle, |   | the |   | carriage |   | is |   | behind |   | and |   | the |   | rider |   | is |   | in |   | front, |   | while |   | the |   | carriage |   | of |   | the |   | ³'DR |   | Qi |   | /X´ |   | is |   | in |   | front |   | and |   | the |   | rider |   | is |   | behind | . |   | This |   | kind |   | of |   | tricycle |   | is |   | safer |   | and |   | easier |   | to |   | operate |   | than |   | ordinary |   | tricycles, |   | and |   | it |   | is |   | a |   | unique |   | scenery |   | on |   | the |   | streets |   | and |   | alleys |   | of |   | Northeast |   | China | ."
+    },
+    {
+      "slide": 23,
+      "text": "Thanks! | edu.zmrobo.com | LECTURER: "
+    }
+  ],
+  "extractionMethod": "original Wix Media Manager PDF binary, ordered PDF Page tree, zlib FlateDecode, text operators",
+  "visualReviewComplete": false
+}
