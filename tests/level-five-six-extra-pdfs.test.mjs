@@ -8,7 +8,7 @@ const match = source.match(/export const levelFiveSixExtraPdfFiles: readonly Sup
 assert.ok(match, "Extra PDF registry must be statically auditable");
 const files = JSON.parse(match[1]);
 test("All eight additional PDFs are present in GitHub and have distinct Wix links", () => {
-  const gitPaths = execFileSync("git", ["ls-tree", "-r", "--name-only", "HEAD"], {encoding:"utf8"}).trim().split(/\r?\n/);
+  const gitPaths = execFileSync("git", ["-c", "core.quotePath=false", "ls-tree", "-r", "--name-only", "HEAD"], {encoding:"utf8"}).trim().split(/\r?\n/);
   const pdfs = gitPaths.filter(path => /\.pdf$/i.test(path));
   assert.equal(pdfs.length, 598);
   assert.equal(files.length, 8);
@@ -29,8 +29,9 @@ test("Supplementary documents do not replace Learning or Building studio manuals
   assert.match(project, /getProjectSupplementaryPdfs/);
   assert.match(project, /Additional source document/);
   assert.match(project, /getLevelFiveSixBuildingManual/);
-  const level = read("../src/routes/practical/levels.$levelNumber.index.tsx");
-  assert.match(level, /getLevelExtraPdf/);
-  assert.match(level, /Assessment &amp; references/);
-  assert.match(level, /not an online graded test/);
+  const practical = read("../src/routes/practical/$projectId.tsx");
+  assert.match(practical, /getLevelFiveSixBuildingManual/);
+  assert.match(practical, /levelFiveSixLearningLectures/);
+  assert.doesNotMatch(practical, /getProjectSupplementaryPdfs/,
+    "supplementary PDFs must stay on overview cards rather than replacing studios");
 });
