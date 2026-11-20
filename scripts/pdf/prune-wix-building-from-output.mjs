@@ -173,15 +173,14 @@ if (uniqueLevelFourUrls.size !== 56) {
 }
 paths.push(...levelFourLearningPaths);
 
-// Level 6: the 43 Learning PDFs were byte-for-byte verified against the cleaned
-// source branch and successfully loaded through PDF.js from their Wix URLs.
-// Remove only copies in generated deployment output, never the GitHub source.
+// Level 6: 43 Learning PDFs were byte-for-byte verified against cleaned source
+// and loaded with PDF.js from Wix. Prune only build-output copies, never source.
 const levelSixLearningSource = readFileSync(
   join(repoRoot, "src/data/levelFiveSixContent.ts"),
   "utf8",
 );
 const levelSixLessonsMatch = levelSixLearningSource.match(
-  /export const levelFiveSixLessons: readonly AdvancedLessonAsset\\[\\] = (\\[[\\s\\S]*?\\]);/,
+  /export const levelFiveSixLessons: readonly AdvancedLessonAsset\[\] = (\[[\s\S]*?\]);/,
 );
 if (!levelSixLessonsMatch) {
   throw new Error("Cannot parse authoritative Level 5–6 lesson catalog.");
@@ -205,7 +204,7 @@ for (const key of levelSixLearningPaths) {
       !key.toLowerCase().endsWith(".pdf") ||
       key.split("/").some((part) => part === "." || part === ".." || part === "Building") ||
       typeof url !== "string" ||
-      !/^https:\\/\\/fe3fa828-9f74-45e8-97f7-8d00cbb7fba0\\.usrfiles\\.com\\/ugd\\/78042f_[0-9a-f]{32}\\.pdf$/.test(url)) {
+      !/^https:\/\/fe3fa828-9f74-45e8-97f7-8d00cbb7fba0\.usrfiles\.com\/ugd\/78042f_[0-9a-f]{32}\.pdf$/.test(url)) {
     throw new Error("Unverified Level 6 cleaned Wix Learning URL: " + key);
   }
   levelSixCleanUrls.add(url);
