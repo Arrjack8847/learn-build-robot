@@ -28,7 +28,7 @@ test("registries use actual syllabus and registered Building manuals instead of 
   assert.match(registry, /getLevelFiveSixBuildingManual/);
   assert.match(registry, /learningFallback/);
   assert.match(registry, /sourceKind !== "powerpoint"/);
-  assert.match(registry, /https:\\\/\\\//);
+  assert.ok(registry.includes(".usrfiles.com"));
   assert.match(registry, /getFinalBuildPool/);
   assert.match(registry, /variants\.length > 0/);
   assert.match(registry, /new Map\(result\.map\(v => \[v\.url, v\]\)\)/);
