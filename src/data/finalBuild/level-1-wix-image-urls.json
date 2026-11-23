@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "level": 1,
+  "status": "no-approved-uploads",
+  "siteName": "Steam",
+  "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+  "description": "Key each independent source-extracted WebP by its exact repository artwork path. Populate only after READY/public/media-type/dimension/filename verification.",
+  "images": {}
+}
