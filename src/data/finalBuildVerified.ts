@@ -3,6 +3,7 @@ import { getLevelSixEvidence } from "@/data/finalBuildLevel6Verified";
 import levelFiveReferences from "@/data/finalBuild/level-5-references.json";
 import levelFiveChecklists from "@/data/finalBuild/level-5-checklists.json";
 import levelFiveWixImages from "@/data/finalBuild/level-5-wix-image-urls.json";
+import levelFiveWixCandidates from "@/data/finalBuild/level-5-wix-candidates.json";
 import { getFinalBuildPool, type FinalBuildProject, type FinalBuildVariant } from "@/data/finalBuildRegistry";
 import type { PrototypeClip } from "@/components/practical/FinalBuildPrototype";
 
@@ -45,6 +46,18 @@ type VerifiedEvidence = {
 const referenceEntries = levelFiveReferences.items as ReferenceEntry[];
 const checklistEntries = levelFiveChecklists.items as ChecklistEntry[];
 const wixImages: Record<string, string> = levelFiveWixImages.urls;
+
+type CandidateImageRecord = {
+  variantId: string;
+  requiredFileName: string;
+  officialBuildingPdfUrl: string;
+  historicalPdfSha256: string;
+  image: { webpCreated: boolean; sha256: string | null; dimensions: number[] | null; decoded?: boolean };
+  wix: { mediaId: string | null; hostedUrl: string | null; operationStatus: string; mediaState?: string; mimeType: string | null; dimensions?: number[]; sourceUrl?: string; siteId?: string; publicVisibilityVerified: boolean; cdnHttpStatus?: number; cdnByteForByteSha256Verified?: boolean };
+  assessment: { independentlyApprovedQuestions: number; studentApproved: boolean; selectable: boolean };
+};
+const levelFiveCandidateImages = (levelFiveWixCandidates as unknown as { candidates: CandidateImageRecord[] }).candidates;
+
 const sha256Pattern = /^[0-9a-f]{64}$/i;
 
 function validCrop(values: number[] | null): values is [number, number, number, number] {
@@ -89,6 +102,34 @@ function getEvidence(level: number, projectId: string, variant: FinalBuildVarian
   // An empty Wix URL mapping deliberately falls back to the already verified Wix Building PDF crop.
   const candidateUrl = wixImages[variant.id];
   if (candidateUrl != null && candidateUrl !== "" && !validWixWebpUrl(candidateUrl)) return null;
+
+  // Independent additional-variant gate. Original 39 references have no candidate record,
+  // so their Wix URLs, PDFs and scanner behaviour remain untouched.
+  const candidateRows = levelFiveCandidateImages.filter(item => item.variantId === variant.id);
+  if (candidateRows.length > 1) return null;
+  const candidate = candidateRows[0];
+  if (candidate) {
+    const media = candidate.wix;
+    const approved = candidate.assessment;
+    if (!approved.studentApproved || !approved.selectable ||
+        approved.independentlyApprovedQuestions !== 5 ||
+        !candidate.image.webpCreated || candidate.image.decoded !== true ||
+        candidate.image.sha256 !== reference.imageSha256 ||
+        candidate.officialBuildingPdfUrl !== variant.url ||
+        candidate.historicalPdfSha256 !== reference.pdfSha256 ||
+        !Array.isArray(candidate.image.dimensions) || candidate.image.dimensions.length !== 2 ||
+        !candidate.image.dimensions.every(n => Number.isInteger(n) && n > 0) ||
+        !Array.isArray(media.dimensions) || media.dimensions.length !== 2 ||
+        media.dimensions.some((n, i) => n !== candidate.image.dimensions![i]) ||
+        media.operationStatus !== "READY" || media.mediaState !== "OK" ||
+        media.mimeType !== "image/webp" || !media.publicVisibilityVerified ||
+        !media.cdnByteForByteSha256Verified || media.cdnHttpStatus !== 200 ||
+        media.siteId !== "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0" ||
+        media.mediaId === null || media.mediaId === "" ||
+        media.hostedUrl !== "https://static.wixstatic.com/media/" + media.mediaId ||
+        media.hostedUrl !== candidateUrl ||
+        !media.sourceUrl?.endsWith("/" + candidate.requiredFileName)) return null;
+  }
   const [x, y, width, height] = reference.normalizedCrop;
   return {
     reference: {
