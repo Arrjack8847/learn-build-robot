@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Explicit source-backed recovery queue for six Level 5 variants blocked by ambiguous finished-model images; does not grant student approval",
+  "preparedAt": "2026-11-23",
+  "basePr": 113,
+  "sourceAudit": "src/data/finalBuild/level-5-audit.json",
+  "currentApprovedCount": 39,
+  "candidateCount": 6,
+  "approvedFromThisRecovery": 0,
+  "policy": {
+    "studentAccess": "fail-closed",
+    "commonEngineOwnedBy": "final integration worker",
+    "allowAiRobotArtwork": false,
+    "allowUnverifiedChecklists": false,
+    "preferExternalWixReference": true,
+    "referenceModeMayBePdfPageCrop": true,
+    "productionMergeAllowed": false
+  },
+  "candidates": [
+    {
+      "variantId": "level-5-remote-control-car",
+      "projectId": "level-5-remote-control-car",
+      "projectTitle": "Remote Control Car",
+      "variant": "official",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfd708a9edbb495fa9c9e0940706928b.pdf",
+      "recordedPdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+      "pdfPageCount": 20,
+      "previousCandidatePage": 20,
+      "alternativeReferenceModes": [
+        {
+          "type": "official-wix-pdf-crop",
+          "allowed": true,
+          "requirement": "Identify a genuinely completed model in this exact manual; inspect every page; record page + verified normalized crop. No unverified full-page substitute."
+        },
+        {
+          "type": "wix-hosted-webp",
+          "allowed": true,
+          "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
+        }
+      ],
+      "visualReviewStatus": "pending-full-manual-review",
+      "checklistReviewStatus": "pending-five-page-supported-questions",
+      "independentApprovalStatus": "blocked",
+      "sourcePagesToInspect": "all",
+      "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
+      "questionCount": 0,
+      "approvalMayChangeOnlyWhen": [
+        "same official source PDF SHA confirmed",
+        "completed model and variant independently identified",
+        "reference image or PDF page/crop independently visually approved",
+        "five variant-specific observable checks with source page evidence independently approved",
+        "relevant tests pass"
+      ],
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions."
+    },
+    {
+      "variantId": "level-5-crack-shot:optimized",
+      "projectId": "level-5-crack-shot",
+      "projectTitle": "Crack Shot",
+      "variant": "optimized",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_835593144e5f475e995524016c5791d4.pdf",
+      "recordedPdfSha256": "cfb54f435a8345ca010a6db10c0c1ed37a5a77f48d3086f25a5a7ae28f4f5dcf",
+      "pdfPageCount": 4,
+      "previousCandidatePage": 4,
+      "alternativeReferenceModes": [
+        {
+          "type": "official-wix-pdf-crop",
+          "allowed": true,
+          "requirement": "Identify a genuinely completed model in this exact manual; inspect every page; record page + verified normalized crop. No unverified full-page substitute."
+        },
+        {
+          "type": "wix-hosted-webp",
+          "allowed": true,
+          "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
+        }
+      ],
+      "visualReviewStatus": "pending-full-manual-review",
+      "checklistReviewStatus": "pending-five-page-supported-questions",
+      "independentApprovalStatus": "blocked",
+      "sourcePagesToInspect": "all",
+      "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
+      "questionCount": 0,
+      "approvalMayChangeOnlyWhen": [
+        "same official source PDF SHA confirmed",
+        "completed model and variant independently identified",
+        "reference image or PDF page/crop independently visually approved",
+        "five variant-specific observable checks with source page evidence independently approved",
+        "relevant tests pass"
+      ],
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions."
+    },
+    {
+      "variantId": "level-5-machine-gun",
+      "projectId": "level-5-machine-gun",
+      "projectTitle": "Machine Gun",
+      "variant": "official",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f65e51bc47304554b99de3e3a96109cb.pdf",
+      "recordedPdfSha256": "acc9ac20908550895909ac6c73d473301732d15cbbe4f03049c1d4b84f1a60c1",
+      "pdfPageCount": 29,
+      "previousCandidatePage": 29,
+      "alternativeReferenceModes": [
+        {
+          "type": "official-wix-pdf-crop",
+          "allowed": true,
+          "requirement": "Identify a genuinely completed model in this exact manual; inspect every page; record page + verified normalized crop. No unverified full-page substitute."
+        },
+        {
+          "type": "wix-hosted-webp",
+          "allowed": true,
+          "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
+        }
+      ],
+      "visualReviewStatus": "pending-full-manual-review",
+      "checklistReviewStatus": "pending-five-page-supported-questions",
+      "independentApprovalStatus": "blocked",
+      "sourcePagesToInspect": "all",
+      "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
+      "questionCount": 0,
+      "approvalMayChangeOnlyWhen": [
+        "same official source PDF SHA confirmed",
+        "completed model and variant independently identified",
+        "reference image or PDF page/crop independently visually approved",
+        "five variant-specific observable checks with source page evidence independently approved",
+        "relevant tests pass"
+      ],
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions."
+    },
+    {
+      "variantId": "level-5-facial-recognition-time-clock",
+      "projectId": "level-5-facial-recognition-time-clock",
+      "projectTitle": "Facial Recognition Time Clock",
+      "variant": "official",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfc2fffdf072479282e6a039a228b3e7.pdf",
+      "recordedPdfSha256": "d864a564ec020cf36df072b980ca763a133aabbd8d4115e50f564ffb02dca872",
+      "pdfPageCount": 7,
+      "previousCandidatePage": 7,
+      "alternativeReferenceModes": [
+        {
+          "type": "official-wix-pdf-crop",
+          "allowed": true,
+          "requirement": "Identify a genuinely completed model in this exact manual; inspect every page; record page + verified normalized crop. No unverified full-page substitute."
+        },
+        {
+          "type": "wix-hosted-webp",
+          "allowed": true,
+          "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
+        }
+      ],
+      "visualReviewStatus": "pending-full-manual-review",
+      "checklistReviewStatus": "pending-five-page-supported-questions",
+      "independentApprovalStatus": "blocked",
+      "sourcePagesToInspect": "all",
+      "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
+      "questionCount": 0,
+      "approvalMayChangeOnlyWhen": [
+        "same official source PDF SHA confirmed",
+        "completed model and variant independently identified",
+        "reference image or PDF page/crop independently visually approved",
+        "five variant-specific observable checks with source page evidence independently approved",
+        "relevant tests pass"
+      ],
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions."
+    },
+    {
+      "variantId": "level-5-voice-control-snail",
+      "projectId": "level-5-voice-control-snail",
+      "projectTitle": "Voice control snail",
+      "variant": "official",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f87b9b12193f4f79a103d973e8a0fc02.pdf",
+      "recordedPdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+      "pdfPageCount": 12,
+      "previousCandidatePage": 12,
+      "alternativeReferenceModes": [
+        {
+          "type": "official-wix-pdf-crop",
+          "allowed": true,
+          "requirement": "Identify a genuinely completed model in this exact manual; inspect every page; record page + verified normalized crop. No unverified full-page substitute."
+        },
+        {
+          "type": "wix-hosted-webp",
+          "allowed": true,
+          "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
+        }
+      ],
+      "visualReviewStatus": "pending-full-manual-review",
+      "checklistReviewStatus": "pending-five-page-supported-questions",
+      "independentApprovalStatus": "blocked",
+      "sourcePagesToInspect": "all",
+      "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
+      "questionCount": 0,
+      "approvalMayChangeOnlyWhen": [
+        "same official source PDF SHA confirmed",
+        "completed model and variant independently identified",
+        "reference image or PDF page/crop independently visually approved",
+        "five variant-specific observable checks with source page evidence independently approved",
+        "relevant tests pass"
+      ],
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions."
+    },
+    {
+      "variantId": "level-5-voice-control-vehicle",
+      "projectId": "level-5-voice-control-vehicle",
+      "projectTitle": "Voice Control Vehicle",
+      "variant": "official",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4ee4d1d889f84492b41e9df408633906.pdf",
+      "recordedPdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+      "pdfPageCount": 10,
+      "previousCandidatePage": 10,
+      "alternativeReferenceModes": [
+        {
+          "type": "official-wix-pdf-crop",
+          "allowed": true,
+          "requirement": "Identify a genuinely completed model in this exact manual; inspect every page; record page + verified normalized crop. No unverified full-page substitute."
+        },
+        {
+          "type": "wix-hosted-webp",
+          "allowed": true,
+          "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
+        }
+      ],
+      "visualReviewStatus": "pending-full-manual-review",
+      "checklistReviewStatus": "pending-five-page-supported-questions",
+      "independentApprovalStatus": "blocked",
+      "sourcePagesToInspect": "all",
+      "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
+      "questionCount": 0,
+      "approvalMayChangeOnlyWhen": [
+        "same official source PDF SHA confirmed",
+        "completed model and variant independently identified",
+        "reference image or PDF page/crop independently visually approved",
+        "five variant-specific observable checks with source page evidence independently approved",
+        "relevant tests pass"
+      ],
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions."
+    }
+  ]
+}
