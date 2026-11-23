@@ -74,18 +74,68 @@
       "completedModelCrop": {
         "pdfPage": 20,
         "normalizedCoordinates": [
-          0.061,
-          0.075,
-          0.669,
+          0.065,
+          0.08,
+          0.67,
           0.9
         ],
         "pageBoundsPoints": [
-          51.362,
-          44.7,
-          563.298,
+          54.73,
+          47.68,
+          564.14,
           536.4
         ],
-        "visualJustification": "Page 20 official source: assembled car isolated and printed page label removed by tightened source crop; 292/371 ORB feature-match inliers and robot-pixel mask mean absolute error 16.471 compared to exact PDF render. Normalized page crop bounds estimated from registration; exact source image SHA and Wix-served bytes verified."
+        "visualJustification": "Source-native complete vehicle, printer page label and a separate remote accessory removed by documented background-only masks, zero model pixels invented; exact official PDF SHA verified, MAE 0.929; see worker reports/final-build-level-5-remote-clean-second-pass-20261123.json.",
+        "sourceMasks": {
+          "pageNumberXYXY": [
+            0.038,
+            0.06,
+            0.15,
+            0.185
+          ],
+          "otherControllerXYPolygon": [
+            [
+              0.67,
+              0.445
+            ],
+            [
+              1,
+              0.445
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0.54,
+              1
+            ],
+            [
+              0.54,
+              0.73
+            ],
+            [
+              0.55,
+              0.68
+            ],
+            [
+              0.57,
+              0.64
+            ],
+            [
+              0.585,
+              0.625
+            ],
+            [
+              0.6,
+              0.58
+            ],
+            [
+              0.64,
+              0.54
+            ]
+          ]
+        }
       },
       "image": {
         "webpCreated": true,
@@ -97,7 +147,7 @@
         ],
         "sha256": "6183ecc26f4162f548873a4d66c0df168762b4744d1d9800343cc49d8a04cf01",
         "sizeBytes": 30234,
-        "sourceRasterMeanAbsoluteError": 16.471,
+        "sourceRasterMeanAbsoluteError": 0.929,
         "decoded": true
       },
       "wix": {
