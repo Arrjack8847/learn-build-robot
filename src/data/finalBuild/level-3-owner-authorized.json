@@ -7,7 +7,7 @@
   "wixSiteName": "Steam",
   "wixSiteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
   "authorization": "all-42-owner-authorized-for-inclusion",
-  "verificationLimit": "Authenticated PDF bytes and automated PDF-page matches are verified. Completed-model suitability and proposed technical self-check wording are not independently approved. Wix hosted bytes SHA256 are verified, but source Git WebP SHA256 has not been independently calculated.",
+  "verificationLimit": "42 GitHub source WebPs retrieved as binary from pinned worker SHA and independently SHA256/byte-size compared to Wix public CDN files: 42/42 exact. Authenticated PDF bytes and automated PDF-page match exist; independent determination of completed-model suitability and 210 construction prompts is still pending. Owner authorization enables selection without implying independent review.",
   "counts": {
     "variants": 42,
     "distinctPdfs": 40,
@@ -15,7 +15,9 @@
     "cdnHashesCalculated": 42,
     "questions": 210,
     "independentlyApprovedImages": 0,
-    "independentlyApprovedQuestions": 0
+    "independentlyApprovedQuestions": 0,
+    "sourceCdnSha256Equal": 42,
+    "sourceCdnLengthEqual": 42
   },
   "records": [
     {
@@ -45,7 +47,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-clip-robot-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "c05197bd89588e2ee0b256b87b34ec46916c9b660d0be44921167a1e9e198cfb",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_a6201358fdd5431cb5a19e6226031f54~mv2.webp",
         "mediaId": "78042f_a6201358fdd5431cb5a19e6226031f54~mv2.webp",
         "operationStatus": "READY",
@@ -64,7 +66,9 @@
         "previousStagingDimensions": [
           1419,
           1044
-        ]
+        ],
+        "sourceGitByteLength": 30030,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -137,7 +141,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-cycle-sport-basic-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "6c3409a7e21e0aabcd776b71bc2b7857862cd6c5de1b5344b78bc9f7c5efef72",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_6d7f6002981e4005b9e44df7cdd8e14f~mv2.webp",
         "mediaId": "78042f_6d7f6002981e4005b9e44df7cdd8e14f~mv2.webp",
         "operationStatus": "READY",
@@ -156,7 +160,9 @@
         "previousStagingDimensions": [
           750,
           1088
-        ]
+        ],
+        "sourceGitByteLength": 30000,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -229,7 +235,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-cycle-sport-optimized-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "9a762014908cc0666b0665f2ee4c1e8ea519e72ca0c066600f367fdf021e0114",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_f7038bd4d5ff4e5c964aa677eb0f44fe~mv2.webp",
         "mediaId": "78042f_f7038bd4d5ff4e5c964aa677eb0f44fe~mv2.webp",
         "operationStatus": "READY",
@@ -248,7 +254,9 @@
         "previousStagingDimensions": [
           893,
           1017
-        ]
+        ],
+        "sourceGitByteLength": 28516,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -321,7 +329,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-automatic-seesaw-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "cf7cf004c9cebdb7e17e44b76304f4e6fc4b44b3f902ad1c77c359aa859894da",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_e8225dce2e9c42cea61b70570aa3fe02~mv2.webp",
         "mediaId": "78042f_e8225dce2e9c42cea61b70570aa3fe02~mv2.webp",
         "operationStatus": "READY",
@@ -340,7 +348,9 @@
         "previousStagingDimensions": [
           1191,
           787
-        ]
+        ],
+        "sourceGitByteLength": 30114,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -413,7 +423,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-security-door-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "f62fde29cfefc22562607e03fb0a11698bd30c94141f56b9f38258044a934f43",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_9406cd8f24564c45bb0ff3f15c7ca21b~mv2.webp",
         "mediaId": "78042f_9406cd8f24564c45bb0ff3f15c7ca21b~mv2.webp",
         "operationStatus": "READY",
@@ -432,7 +442,9 @@
         "previousStagingDimensions": [
           892,
           773
-        ]
+        ],
+        "sourceGitByteLength": 29844,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -505,7 +517,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-smart-door-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "57bf4902350e141870c4aee9b2c92e1cc8e461e6eff2b74d9ff1e2af3895bb4e",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_e33d9c1cb9c44c40bbe05ae911a0714e~mv2.webp",
         "mediaId": "78042f_e33d9c1cb9c44c40bbe05ae911a0714e~mv2.webp",
         "operationStatus": "READY",
@@ -524,7 +536,9 @@
         "previousStagingDimensions": [
           1030,
           895
-        ]
+        ],
+        "sourceGitByteLength": 29772,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -597,7 +611,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-following-robot-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "e97adf8168d43c26366d640eace04dd70816b43f18306dc948cc38621dc8eac5",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_afd23ef01eae47eba8ccbdff48708a3a~mv2.webp",
         "mediaId": "78042f_afd23ef01eae47eba8ccbdff48708a3a~mv2.webp",
         "operationStatus": "READY",
@@ -616,7 +630,9 @@
         "previousStagingDimensions": [
           1549,
           2041
-        ]
+        ],
+        "sourceGitByteLength": 35776,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -689,7 +705,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-obstacle-avoidance-robot-1-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "27c50106ffa8d176e60d3db86aa60408ef01ecf3c1faa8ab31dd29d14367bdf7",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_a371f0441337453083f80c10398188ca~mv2.webp",
         "mediaId": "78042f_a371f0441337453083f80c10398188ca~mv2.webp",
         "operationStatus": "READY",
@@ -708,7 +724,9 @@
         "previousStagingDimensions": [
           1742,
           1088
-        ]
+        ],
+        "sourceGitByteLength": 37360,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -781,7 +799,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-sunflower-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "533365622ce8b9e8e6fcd52cd658afd366dc6e58643bb714dd9aa7510dad3e39",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_e8b4ee9d02d54769b52a4c1ebe431079~mv2.webp",
         "mediaId": "78042f_e8b4ee9d02d54769b52a4c1ebe431079~mv2.webp",
         "operationStatus": "READY",
@@ -800,7 +818,9 @@
         "previousStagingDimensions": [
           922,
           1641
-        ]
+        ],
+        "sourceGitByteLength": 29604,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -873,7 +893,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-electric-bulldozer-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "f7c252678219cd9fc5f3a79ddbd5c6b5306c1050e6f08b0eec84546c37bc0df4",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_785ce96cbd9542aebd1319c13f2d901f~mv2.webp",
         "mediaId": "78042f_785ce96cbd9542aebd1319c13f2d901f~mv2.webp",
         "operationStatus": "READY",
@@ -892,7 +912,9 @@
         "previousStagingDimensions": [
           1134,
           1094
-        ]
+        ],
+        "sourceGitByteLength": 28128,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -965,7 +987,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-electric-fan-characters-structures-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "71866f5b4e07e1e8c3048ec3bbbcb057f0ae8f78c29aacd246bf81fea89f193d",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_9fd6bb1a75cb44d7bd95b6d451681d1d~mv2.webp",
         "mediaId": "78042f_9fd6bb1a75cb44d7bd95b6d451681d1d~mv2.webp",
         "operationStatus": "READY",
@@ -984,7 +1006,9 @@
         "previousStagingDimensions": [
           855,
           1035
-        ]
+        ],
+        "sourceGitByteLength": 27310,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -1057,7 +1081,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-safe-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "dce2ad517e55149d591ba38f7e788ad820cd039f44043eff77cc94b48d64b062",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_f81be0820f5d4dd48c104668a6ac2a4e~mv2.webp",
         "mediaId": "78042f_f81be0820f5d4dd48c104668a6ac2a4e~mv2.webp",
         "operationStatus": "READY",
@@ -1076,7 +1100,9 @@
         "previousStagingDimensions": [
           1028,
           1008
-        ]
+        ],
+        "sourceGitByteLength": 28212,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -1149,7 +1175,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-smart-trash-bin-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "1767c39c17024992f55b7809862cccdb1faba6ccc04001a17b26367996c61bd8",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_74f7a7f5ebcf4cc98ce8b7898d055069~mv2.webp",
         "mediaId": "78042f_74f7a7f5ebcf4cc98ce8b7898d055069~mv2.webp",
         "operationStatus": "READY",
@@ -1168,7 +1194,9 @@
         "previousStagingDimensions": [
           880,
           1027
-        ]
+        ],
+        "sourceGitByteLength": 29154,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -1241,7 +1269,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-lifting-maintenance-vehicle-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "a52ab67ad8f1d5990597a953fddfab8bd7be51a6f55a4b64c68c5b0e2e5d4803",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_d8c18177ff674e5cb8cc6585a4b281d1~mv2.webp",
         "mediaId": "78042f_d8c18177ff674e5cb8cc6585a4b281d1~mv2.webp",
         "operationStatus": "READY",
@@ -1260,7 +1288,9 @@
         "previousStagingDimensions": [
           1684,
           1191
-        ]
+        ],
+        "sourceGitByteLength": 98132,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -1333,7 +1363,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-automated-guided-vehicle-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "ccb00664abe01d0552c9e68dea5b890f6b13d4f14ce9e9ba90a89388fb7af5a0",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_06dc2c131cf74082a202b95dad02746b~mv2.webp",
         "mediaId": "78042f_06dc2c131cf74082a202b95dad02746b~mv2.webp",
         "operationStatus": "READY",
@@ -1352,7 +1382,9 @@
         "previousStagingDimensions": [
           1053,
           989
-        ]
+        ],
+        "sourceGitByteLength": 27528,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -1425,7 +1457,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-race-walking-basic-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "b1b58440ffe3be021623281d4e85b5f5a659f3df5b013232c9a8918c54ddbed5",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_248693ed21ee49058aeb4d959cdd13f8~mv2.webp",
         "mediaId": "78042f_248693ed21ee49058aeb4d959cdd13f8~mv2.webp",
         "operationStatus": "READY",
@@ -1444,7 +1476,9 @@
         "previousStagingDimensions": [
           824,
           1098
-        ]
+        ],
+        "sourceGitByteLength": 28480,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -1517,7 +1551,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-race-walking-optimized-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "beb426ece046b78fb9a6ae6545ac8d0d1a4b2cb76ff36eb08b9f19546cf6c716",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_89ca9fc68a1b4603bd751502c18cb0c4~mv2.webp",
         "mediaId": "78042f_89ca9fc68a1b4603bd751502c18cb0c4~mv2.webp",
         "operationStatus": "READY",
@@ -1536,7 +1570,9 @@
         "previousStagingDimensions": [
           867,
           1098
-        ]
+        ],
+        "sourceGitByteLength": 28694,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -1609,7 +1645,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-race-walking-optimized-ratchet-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "13da7dcb5eeb4302c514d6b03271433b566c3e782b3169046a3df4297ace5a4e",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_206fddf9c1c7477ab3934c58e60fdd8d~mv2.webp",
         "mediaId": "78042f_206fddf9c1c7477ab3934c58e60fdd8d~mv2.webp",
         "operationStatus": "READY",
@@ -1628,7 +1664,9 @@
         "previousStagingDimensions": [
           1272,
           1038
-        ]
+        ],
+        "sourceGitByteLength": 30392,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -1701,7 +1739,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-bumper-car-foundational-robots-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "a3aafaaacd13b7278d3fe515e8a88c032243e47a3c2728ced7bd92df027e7df7",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_eb1ad320dbc944f5a17a99b2f1805c6c~mv2.webp",
         "mediaId": "78042f_eb1ad320dbc944f5a17a99b2f1805c6c~mv2.webp",
         "operationStatus": "READY",
@@ -1720,7 +1758,9 @@
         "previousStagingDimensions": [
           1198,
           921
-        ]
+        ],
+        "sourceGitByteLength": 29912,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -1793,7 +1833,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-disinfection-lamp-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "8854273f4aa8c4e30a414a1288903072bd85bff67af1c4bc9c2cf4105eae34f2",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_178ee0505ac14f019cb94d84af9113f9~mv2.webp",
         "mediaId": "78042f_178ee0505ac14f019cb94d84af9113f9~mv2.webp",
         "operationStatus": "READY",
@@ -1812,7 +1852,9 @@
         "previousStagingDimensions": [
           931,
           891
-        ]
+        ],
+        "sourceGitByteLength": 28774,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -1885,7 +1927,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-flashlight-sensor-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "db3c6163fae2aeaa1093482241cab729801ba5bb288d0dce6a572bb00e67e82b",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_4b74a0a60f1d4f129abccbf6c32ab498~mv2.webp",
         "mediaId": "78042f_4b74a0a60f1d4f129abccbf6c32ab498~mv2.webp",
         "operationStatus": "READY",
@@ -1904,7 +1946,9 @@
         "previousStagingDimensions": [
           855,
           725
-        ]
+        ],
+        "sourceGitByteLength": 28990,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -1977,7 +2021,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-light-sensitive-curtains-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "808ebcf4d65a41d5784695761e49658cfd96dd4d5659ed09fd66fe96f491a838",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_68be53ca268f413f9a9e2266632b68fd~mv2.webp",
         "mediaId": "78042f_68be53ca268f413f9a9e2266632b68fd~mv2.webp",
         "operationStatus": "READY",
@@ -1996,7 +2040,9 @@
         "previousStagingDimensions": [
           1013,
           917
-        ]
+        ],
+        "sourceGitByteLength": 27232,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -2069,7 +2115,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-bumper-car-interactive-mechanisms-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "a3aafaaacd13b7278d3fe515e8a88c032243e47a3c2728ced7bd92df027e7df7",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_372ebfbb8b594824852aaedfbc04e54e~mv2.webp",
         "mediaId": "78042f_372ebfbb8b594824852aaedfbc04e54e~mv2.webp",
         "operationStatus": "READY",
@@ -2088,7 +2134,9 @@
         "previousStagingDimensions": [
           1198,
           921
-        ]
+        ],
+        "sourceGitByteLength": 29912,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -2161,7 +2209,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-anti-fall-robot-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "39e21b0a461d67277bb83a0837d191e23c634dd409299303eca82c5eb76d4cce",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_5e312707e7c34f6e9f70d2d22f765c75~mv2.webp",
         "mediaId": "78042f_5e312707e7c34f6e9f70d2d22f765c75~mv2.webp",
         "operationStatus": "READY",
@@ -2180,7 +2228,9 @@
         "previousStagingDimensions": [
           961,
           948
-        ]
+        ],
+        "sourceGitByteLength": 27368,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -2253,7 +2303,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-automatic-door-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "b1b21b4fa929aff31672118b63239c6e7c8c12f555e80efddb75a25d9347c28a",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_dd09fd547472431996baeacd1dffa723~mv2.webp",
         "mediaId": "78042f_dd09fd547472431996baeacd1dffa723~mv2.webp",
         "operationStatus": "READY",
@@ -2272,7 +2322,9 @@
         "previousStagingDimensions": [
           1035,
           767
-        ]
+        ],
+        "sourceGitByteLength": 25584,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -2345,7 +2397,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-juicer-machine-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "2b64378982ef89a415a1cdfba854b3641d65bce81e8243ed564971c15b90e259",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_4c3ca4a02bd74bcc90b72c1bbd9dff3a~mv2.webp",
         "mediaId": "78042f_4c3ca4a02bd74bcc90b72c1bbd9dff3a~mv2.webp",
         "operationStatus": "READY",
@@ -2364,7 +2416,9 @@
         "previousStagingDimensions": [
           955,
           1066
-        ]
+        ],
+        "sourceGitByteLength": 28756,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -2437,7 +2491,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-washing-machine-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "715f2c510cf154c31b04e2694718391f335e42c8ec58e1ec6f3fa98266abc53a",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_08ec2bde314b4da48826d6182a575d48~mv2.webp",
         "mediaId": "78042f_08ec2bde314b4da48826d6182a575d48~mv2.webp",
         "operationStatus": "READY",
@@ -2456,7 +2510,9 @@
         "previousStagingDimensions": [
           925,
           1035
-        ]
+        ],
+        "sourceGitByteLength": 30450,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -2529,7 +2585,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-electronic-scale-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "ceff5f18c11c30ac6e4fd339f13fbd95cd9c0b01fb93bff57b1a4721ecf2f476",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_7238aed19a404c7f818e14eabbd00d08~mv2.webp",
         "mediaId": "78042f_7238aed19a404c7f818e14eabbd00d08~mv2.webp",
         "operationStatus": "READY",
@@ -2548,7 +2604,9 @@
         "previousStagingDimensions": [
           1584,
           990
-        ]
+        ],
+        "sourceGitByteLength": 26020,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -2621,7 +2679,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-gyro-transmitter-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "fc1bb6bd8898d60cd2e1001ac2fb73d1501671cb979badabdacf8afca55f101e",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_43c63e3f1eb548909f23861cd475876a~mv2.webp",
         "mediaId": "78042f_43c63e3f1eb548909f23861cd475876a~mv2.webp",
         "operationStatus": "READY",
@@ -2640,7 +2698,9 @@
         "previousStagingDimensions": [
           763,
           358
-        ]
+        ],
+        "sourceGitByteLength": 17848,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -2713,7 +2773,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-electric-fan-mechanisms-and-concepts-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "71866f5b4e07e1e8c3048ec3bbbcb057f0ae8f78c29aacd246bf81fea89f193d",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_065d3d25591b42519e32f55276643505~mv2.webp",
         "mediaId": "78042f_065d3d25591b42519e32f55276643505~mv2.webp",
         "operationStatus": "READY",
@@ -2732,7 +2792,9 @@
         "previousStagingDimensions": [
           855,
           1035
-        ]
+        ],
+        "sourceGitByteLength": 27310,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -2805,7 +2867,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-biting-monster-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "82e5a53db6f7513a631d30b2e7ff32d580e3b3c87e3d03c1720dbbe421125882",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_4f769ed72d6e4c19b13c94dd845153ee~mv2.webp",
         "mediaId": "78042f_4f769ed72d6e4c19b13c94dd845153ee~mv2.webp",
         "operationStatus": "READY",
@@ -2824,7 +2886,9 @@
         "previousStagingDimensions": [
           1659,
           971
-        ]
+        ],
+        "sourceGitByteLength": 62790,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -2897,7 +2961,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-electric-gyro-launcher-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "302c841799f70ccdeca40d4ad2b018f1925fb0ad5781fa262071424cf8cfef70",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_db64b25888544377890b948c3b336285~mv2.webp",
         "mediaId": "78042f_db64b25888544377890b948c3b336285~mv2.webp",
         "operationStatus": "READY",
@@ -2916,7 +2980,9 @@
         "previousStagingDimensions": [
           1659,
           970
-        ]
+        ],
+        "sourceGitByteLength": 14744,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -2989,7 +3055,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-responder-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "dd973cacdcc6d239066ff35d6faa575e0b1ef03d0d17470cb685e08a8f9f04a2",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_6e74b2981d0b4c879667f99710699f0c~mv2.webp",
         "mediaId": "78042f_6e74b2981d0b4c879667f99710699f0c~mv2.webp",
         "operationStatus": "READY",
@@ -3008,7 +3074,9 @@
         "previousStagingDimensions": [
           1684,
           1191
-        ]
+        ],
+        "sourceGitByteLength": 74806,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -3081,7 +3149,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-electric-guitar-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "9931047c7db70841a00575953fab97603522522e7b00c1fbc40a01b20ce053c4",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_2ef0dc36dbbd49598837b753ffc7ff47~mv2.webp",
         "mediaId": "78042f_2ef0dc36dbbd49598837b753ffc7ff47~mv2.webp",
         "operationStatus": "READY",
@@ -3100,7 +3168,9 @@
         "previousStagingDimensions": [
           2780,
           1212
-        ]
+        ],
+        "sourceGitByteLength": 22286,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -3173,7 +3243,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-music-box-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "5627fca452e1c8b2fb603a0e6fe4b3813c9961dc7215a0f5e416cb502a517c16",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_2dbacc5a50744319bc8dcdf5148c39c5~mv2.webp",
         "mediaId": "78042f_2dbacc5a50744319bc8dcdf5148c39c5~mv2.webp",
         "operationStatus": "READY",
@@ -3192,7 +3262,9 @@
         "previousStagingDimensions": [
           843,
           1012
-        ]
+        ],
+        "sourceGitByteLength": 28362,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -3265,7 +3337,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-music-doorbell-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "bd351c706e0d8de90419d55c64911f8d38849c0bd082aae56b6c6b8500174aed",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_035332b9d0fc48a1b388e1ad62907520~mv2.webp",
         "mediaId": "78042f_035332b9d0fc48a1b388e1ad62907520~mv2.webp",
         "operationStatus": "READY",
@@ -3284,7 +3356,9 @@
         "previousStagingDimensions": [
           1143,
           769
-        ]
+        ],
+        "sourceGitByteLength": 28400,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -3357,7 +3431,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-smart-audio-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "17a0a21fe396c5274e2d1c8d7cd82399ca74014ce4acf17f5e456fa2969e5ae2",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_c7d339f9fc38475cabcc677498dfb0b0~mv2.webp",
         "mediaId": "78042f_c7d339f9fc38475cabcc677498dfb0b0~mv2.webp",
         "operationStatus": "READY",
@@ -3376,7 +3450,9 @@
         "previousStagingDimensions": [
           1145,
           1093
-        ]
+        ],
+        "sourceGitByteLength": 27950,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -3449,7 +3525,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-sonometer-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "a2bb3c27047154b3cdb018a50aee36de1f65f96f1a57f57853a9cf88fe20e0a0",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_3a19fd7adbe1437599672957e6b15091~mv2.webp",
         "mediaId": "78042f_3a19fd7adbe1437599672957e6b15091~mv2.webp",
         "operationStatus": "READY",
@@ -3468,7 +3544,9 @@
         "previousStagingDimensions": [
           386,
           1275
-        ]
+        ],
+        "sourceGitByteLength": 26370,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -3541,7 +3619,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-sound-level-meter-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "903b5db9d1161a5b19a03adc3ca8fc27652aad0f8f622d5797a077fd5a8fdcee",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_798e8f6bf22b4c4d8a508c1923e6330c~mv2.webp",
         "mediaId": "78042f_798e8f6bf22b4c4d8a508c1923e6330c~mv2.webp",
         "operationStatus": "READY",
@@ -3560,7 +3638,9 @@
         "previousStagingDimensions": [
           1269,
           625
-        ]
+        ],
+        "sourceGitByteLength": 26350,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -3633,7 +3713,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-f1-racing-car-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "0b45c4feba1b38766dd570b499c6c9bbbc764a32816edeb8e88c320631cfe02d",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_b20084313f084c86b54a9f962b8beca0~mv2.webp",
         "mediaId": "78042f_b20084313f084c86b54a9f962b8beca0~mv2.webp",
         "operationStatus": "READY",
@@ -3652,7 +3732,9 @@
         "previousStagingDimensions": [
           1999,
           835
-        ]
+        ],
+        "sourceGitByteLength": 30090,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -3725,7 +3807,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-long-lived-turtle-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "b926ee271adbe15567ce28e37391b767f6d19a498a6b31006e01f1561e37db73",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_62d1916bde344026b79667ee4c193cf0~mv2.webp",
         "mediaId": "78042f_62d1916bde344026b79667ee4c193cf0~mv2.webp",
         "operationStatus": "READY",
@@ -3744,7 +3826,9 @@
         "previousStagingDimensions": [
           1383,
           921
-        ]
+        ],
+        "sourceGitByteLength": 29850,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
@@ -3817,7 +3901,7 @@
       },
       "image": {
         "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-lunar-rover-source-proposal.webp",
-        "originalGitWebpSha256": null,
+        "originalGitWebpSha256": "42e2c6bda16fe6a10164424ea2b7ab352b934264c24a9852805a1bf285297f72",
         "hostedUrl": "https://static.wixstatic.com/media/78042f_684f4369df734d1ca913baa542e59078~mv2.webp",
         "mediaId": "78042f_684f4369df734d1ca913baa542e59078~mv2.webp",
         "operationStatus": "READY",
@@ -3836,7 +3920,9 @@
         "previousStagingDimensions": [
           629,
           625
-        ]
+        ],
+        "sourceGitByteLength": 29598,
+        "sourceGitCdnByteEqualityVerified": true
       },
       "questions": [
         {
