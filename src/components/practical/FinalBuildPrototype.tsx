@@ -140,7 +140,7 @@ export function FinalBuildPrototype({
         <img
           key={imageUrl + ":" + attempt}
           src={imageUrl}
-          alt={`Verified finished-model reference of ${title}`}
+          alt={sourceLimited ? `Owner-authorized original Building-manual illustration of ${title}; finished assembly not independently certified` : `Verified finished-model reference of ${title}`}
           loading="eager"
           decoding="async"
           className={`mx-auto block h-auto max-h-[38dvh] max-w-full object-contain ${status === "ready" ? "" : "invisible"}`}
