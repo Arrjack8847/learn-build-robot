@@ -46,3 +46,16 @@ A new isolated Vercel sandbox was used **only as a cloud CLI test environment**,
 ## Exact unresolved requirements
 
 The only responsible way to reach 45/45 is to obtain **official completed-model artwork or corrected exact-variant Building manuals** for **Crack Shot Optimized, Machine Gun, Facial Recognition Time Clock**, then independently verify source image, five final-model questions, Wix READY/canonical image, and regression tests. All attempted source-inspection steps are complete; any missing robot assemblies must remain blocked until genuine official evidence exists.
+
+
+## Latest integration-head revalidation
+
+**Verified code commit:** `80abeeb7f13af008fae1a7772f77bab20bbbfd40`, checked after the coordinated integration branch advanced from the first pinned `0f60dd1` QA snapshot. In the same isolated sandbox, fetched and hard-reset the sparse checkout to this exact head (no source writes) and reran `npm run build`.
+
+- **PASS** — `npm run test:final-build`: **50 tests, 50 passed, 0 failed**.
+- **PASS** — full Vite client and server build, plus prebuild eight Level Selection WebPs and postbuild output pruning.
+- **PASS** — actual Wix CDN revalidation for the three newly approved Level 5 variants: HTTP 200, image/webp, matching complete source-file bytes and SHA-256.
+- **PASS** — scanner's explicit `SCAN_MS = 4200` and `LIMIT_MS = 15 * 60 * 1000` remain unchanged. These are code/source checks, not real-device interactive QA.
+- **No** GitHub Actions, Browser Use, PR merge or production/preview deployment.
+
+This revalidation supersedes the earlier pinned `0f60dd1` code test snapshot for the same Level 5 behavior. The three missing exact official completed-model images remain blocked.
