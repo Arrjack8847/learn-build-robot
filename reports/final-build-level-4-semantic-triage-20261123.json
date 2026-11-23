@@ -6,10 +6,10 @@
     "sourcePdfPages": 1029,
     "webpCandidatesVisuallyScreened": 50,
     "webpCandidatesRepaired": 5,
-    "webpApproved": 0,
+    "webpApproved": 1,
     "questionsDraftsStructurallyTriaged": 250,
-    "questionsIndependentlyApproved": 0,
-    "wixUploaded": 0
+    "questionsIndependentlyApproved": 5,
+    "wixUploaded": 1
   },
   "limitations": [
     "Machine triage is not independent mechanical question verification.",
@@ -118,64 +118,69 @@
           "text": "Does the mouse's rounded controller body sit squarely above the wheel chassis shown in the finished model?",
           "pdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
           "evidencePages": [
+            16,
             19
           ],
-          "status": "triaged-not-approved",
-          "flags": [
-            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
-          ]
+          "status": "independently-reviewed-visual-assembly",
+          "flags": [],
+          "sourceReviewNotes": "PDF pages 16 and 19 show the white controller added above the gray motor housings. The final arrangement is directly visible; no powered behavior is inferred."
         },
         {
           "id": "level-4-a-timid-mouse-q2",
           "text": "Are the two prominent front-facing eye-like circular elements mounted at matching height and angle?",
           "pdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
           "evidencePages": [
+            13,
+            14,
+            15,
             19
           ],
-          "status": "triaged-not-approved",
-          "flags": [
-            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
-          ]
+          "status": "independently-reviewed-visual-assembly",
+          "flags": [],
+          "sourceReviewNotes": "PDF pages 13–15 show wheel preparation, opposite-side fitting, and side fasteners; page 19 confirms both drive wheels in the final build."
         },
         {
           "id": "level-4-a-timid-mouse-q3",
           "text": "Are the left and right driving wheels securely seated without rubbing the mouse-shaped body?",
           "pdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
           "evidencePages": [
+            6,
+            18,
             19
           ],
-          "status": "triaged-not-approved",
-          "flags": [
-            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
-          ]
+          "status": "independently-reviewed-visual-assembly",
+          "flags": [],
+          "sourceReviewNotes": "PDF page 6 shows paired front circular eye modules; pages 18 and 19 confirm side-by-side alignment ahead of the completed controller."
         },
         {
           "id": "level-4-a-timid-mouse-q4",
           "text": "Is the front sensor/face assembly held firmly by its connecting beams rather than hanging loose?",
           "pdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
           "evidencePages": [
+            17,
+            18,
             19
           ],
-          "status": "triaged-not-approved",
-          "flags": [
-            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
-          ]
+          "status": "independently-reviewed-visual-assembly",
+          "flags": [],
+          "sourceReviewNotes": "PDF pages 17 and 18 show the right-angle side support being added; page 19 shows the vertically mounted white support and lower connection."
         },
         {
           "id": "level-4-a-timid-mouse-q5",
           "text": "When the model drives, can it roll without the eye assembly, cables, or underbody striking the floor?",
           "pdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
           "evidencePages": [
+            17,
+            18,
             19
           ],
-          "status": "triaged-not-approved",
-          "flags": [
-            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
-            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
-          ]
+          "status": "independently-reviewed-visual-assembly",
+          "flags": [],
+          "sourceReviewNotes": "PDF pages 17–19 show the red and blue side-linkage pins near the front eye bracket and wheel connection; page 19 confirms final placement."
         }
       ],
-      "approved": false
+      "approved": true,
+      "imageStatus": "approved-with-source-visual-review-and-ready-wix"
     },
     {
       "variantId": "level-4-acoustic-control-lamp",
@@ -3441,6 +3446,35 @@
         }
       ],
       "approved": false
+    }
+  ],
+  "approvedReferences": [
+    {
+      "variantId": "level-4-a-timid-mouse",
+      "sourcePdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
+      "manualPagesInspected": 19,
+      "evidencePages": [
+        6,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "reviewer": "OpenAI assistant — independent page-by-page source review; not external human signoff",
+      "approvedQuestionCount": 5,
+      "referenceWebpSha256": "97dc96cbffc9c275b94daec097041cc6d39644b11381dbc6d221c12b5d992609",
+      "wixStatus": "READY",
+      "wixUrl": "https://static.wixstatic.com/media/78042f_6fd316e164634e8aabdf5797118e32dd~mv2.webp",
+      "hostedSha256": "97dc96cbffc9c275b94daec097041cc6d39644b11381dbc6d221c12b5d992609",
+      "sourceGitHubUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/bc4def6558d8af7d9d90c540e9c0c7a5506bf7e9/public/final-build/level-4/level-4-a-timid-mouse.webp",
+      "mimeType": "image/webp",
+      "dimensions": [
+        490,
+        468
+      ]
     }
   ]
 }

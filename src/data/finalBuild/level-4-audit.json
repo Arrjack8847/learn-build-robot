@@ -16,18 +16,20 @@
     "optimizedVariants": 2,
     "learningOnlyActivities": 8,
     "previouslyRepairedEnglishVariants": 4,
-    "approvedVariants": 0,
-    "blockedVariants": 50,
-    "approvedWebp": 0,
-    "independentlyVerifiedChecklistSets": 0,
-    "candidateWebp": 50,
+    "approvedVariants": 1,
+    "blockedVariants": 49,
+    "approvedWebp": 1,
+    "independentlyVerifiedChecklistSets": 1,
+    "candidateWebp": 49,
     "hostedPdfSha256Verified": 50,
     "hostedPdfGitBlobMatches": 50,
     "hostedPdfPageMatches": 50,
     "refinedSourceModelCrops": 13,
     "draftedChecklists": 50,
     "draftedQuestions": 250,
-    "repairedCandidateWebps": 5
+    "repairedCandidateWebps": 5,
+    "independentlyApprovedQuestions": 5,
+    "verifiedWixReadyUploads": 1
   },
   "gates": {
     "pdfBytesFetched": true,
@@ -100,23 +102,6 @@
     }
   ],
   "blockedVariants": [
-    {
-      "variantId": "level-4-a-timid-mouse",
-      "projectId": "level-4-a-timid-mouse",
-      "variant": "basic",
-      "status": "blocked",
-      "sourcePath": "public/Level 4/Building/Characters & Structures/A Timid Mouse/Lesson 25. A Timid Mouse-Building Manual.pdf",
-      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1a7ea6c1066a4a5faffc677981b568de.pdf",
-      "pdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
-      "sourcePage": 19,
-      "image": "public/final-build/level-4/level-4-a-timid-mouse.webp",
-      "imageSha256": "97dc96cbffc9c275b94daec097041cc6d39644b11381dbc6d221c12b5d992609",
-      "reasonCodes": [
-        "RASTER_TEXT_SIGNOFF_PENDING",
-        "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
-        "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
-      ]
-    },
     {
       "variantId": "level-4-acoustic-control-lamp",
       "projectId": "level-4-acoustic-control-lamp",
@@ -1006,6 +991,8 @@
       "tests/level-four-wix-urls.test.mjs",
       "tests/syllabus-levels.test.mjs"
     ],
-    "testSetup": "Isolated Vercel Sandbox, official original 50 local Building PDFs checked out read-only, generated Level Selection WebPs with existing repository script; Sharp and TypeScript 5.8.3 installed separately outside repository. No dependency or lockfile changes committed."
+    "testSetup": "Isolated Vercel Sandbox, official original 50 local Building PDFs checked out read-only, generated Level Selection WebPs with existing repository script; Sharp and TypeScript 5.8.3 installed separately outside repository. No dependency or lockfile changes committed.",
+    "assistantManualSourceReviews": 1,
+    "readyWixLevel4References": 1
   }
 }

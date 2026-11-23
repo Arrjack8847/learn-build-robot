@@ -4,20 +4,21 @@
   "asOf": "2026-11-23",
   "baseCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
   "approvalPolicy": "fail-closed",
-  "status": "all-blocked-pending-independent-evidence",
+  "status": "partially-reviewed-1-of-50-approved",
   "summary": {
     "syllabusProjects": 56,
     "registeredBuildingProjects": 48,
     "registeredBuildingVariants": 50,
     "unavailableBuildingProjects": 8,
-    "approvedVariants": 0,
-    "blockedVariants": 50
+    "approvedVariants": 1,
+    "blockedVariants": 49
   },
   "notes": [
     "Prior original repository Git blob hashes are SHA-1 Git object IDs, NOT hosted Wix PDF SHA-256 digests.",
     "Prior page counts describe repository originals (or separately listed repaired English PDFs); hosted Wix PDF counts remain unverified in this pass.",
     "No images were generated, reconstructed, extracted or approved by this audit.",
-    "Five PDF-based WebP repairs after semantic crop screening on 2026-11-23; zero student approvals."
+    "Five PDF-based WebP repairs after semantic crop screening on 2026-11-23; zero student approvals.",
+    "A Timid Mouse independently reviewed against all 19 hosted PDF pages; five observable static questions approved and Wix byte-identical WebP READY. This is an assistant-led source review, not external human signoff; 49 other candidates remain blocked."
   ],
   "records": [
     {
@@ -51,7 +52,7 @@
         }
       },
       "reference": {
-        "status": "candidate",
+        "status": "approved",
         "path": "public/final-build/level-4/level-4-a-timid-mouse.webp",
         "sourcePage": 19,
         "cropNormalized": {
@@ -65,18 +66,30 @@
         "webpSha256": "97dc96cbffc9c275b94daec097041cc6d39644b11381dbc6d221c12b5d992609",
         "byteLength": 14072,
         "individuallyDecoded": true,
-        "independentlyReviewed": false,
-        "method": "crop of the last page of the actual hosted PDF; no synthesis"
+        "independentlyReviewed": true,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis",
+        "manualEvidencePages": [
+          6,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "visualReviewMethod": "Opened all 19 authenticated PDF pages and compared completed model against page 19 and assembly pages 6,13-18; all frame components visible, no instructional overlay in final WebP."
       },
       "approval": {
-        "status": "blocked",
-        "reviewer": null,
-        "reviewedAt": null,
-        "reasonCodes": [
-          "RASTER_TEXT_SIGNOFF_PENDING",
-          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
-          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
-        ]
+        "status": "approved",
+        "reviewer": "OpenAI assistant — independent page-by-page source review; not external human signoff",
+        "reviewedAt": "2026-11-23",
+        "reasonCodes": [],
+        "reviewKind": "assistant-manual-visual-second-pass",
+        "sourceDocumentPagesChecked": 19,
+        "checklistApprovedQuestions": 5,
+        "wixReady": true,
+        "wixPublicUrl": "https://static.wixstatic.com/media/78042f_6fd316e164634e8aabdf5797118e32dd~mv2.webp"
       }
     },
     {

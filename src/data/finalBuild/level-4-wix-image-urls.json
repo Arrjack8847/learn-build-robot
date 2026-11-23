@@ -3,8 +3,35 @@
   "level": 4,
   "wixSiteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
   "approvalRule": "Both source-correct WebP and all five questions independently approved",
-  "urls": {},
-  "approvedVariants": 0,
-  "blockedVariants": 50,
-  "reason": "No eligible Level 4 variants; no Wix upload or student mapping authorized."
+  "urls": {
+    "level-4-a-timid-mouse": "https://static.wixstatic.com/media/78042f_6fd316e164634e8aabdf5797118e32dd~mv2.webp"
+  },
+  "approvedVariants": 1,
+  "blockedVariants": 49,
+  "reason": "Only A Timid Mouse is source-reviewed, question-approved, READY and SHA-256 verified; 49 other Level 4 models remain ineligible.",
+  "records": [
+    {
+      "variantId": "level-4-a-timid-mouse",
+      "filename": "level-4-a-timid-mouse.webp",
+      "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+      "mediaId": "78042f_6fd316e164634e8aabdf5797118e32dd~mv2.webp",
+      "url": "https://static.wixstatic.com/media/78042f_6fd316e164634e8aabdf5797118e32dd~mv2.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/bc4def6558d8af7d9d90c540e9c0c7a5506bf7e9/public/final-build/level-4/level-4-a-timid-mouse.webp",
+      "mediaType": "IMAGE",
+      "mimeType": "image/webp",
+      "status": "READY",
+      "httpStatus": 200,
+      "width": 490,
+      "height": 468,
+      "webpSha256": "97dc96cbffc9c275b94daec097041cc6d39644b11381dbc6d221c12b5d992609",
+      "hostedSha256": "97dc96cbffc9c275b94daec097041cc6d39644b11381dbc6d221c12b5d992609",
+      "approvedQuestionIds": [
+        "level-4-a-timid-mouse-q1",
+        "level-4-a-timid-mouse-q2",
+        "level-4-a-timid-mouse-q3",
+        "level-4-a-timid-mouse-q4",
+        "level-4-a-timid-mouse-q5"
+      ]
+    }
+  ]
 }

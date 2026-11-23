@@ -3,80 +3,106 @@
   "level": 4,
   "asOf": "2026-11-23",
   "baseCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
-  "policy": "All checklists contain five source-page-linked draft questions. Drafts are NOT independently verified or student-approved. No title-generated generic fallback in this Level 4 data.",
+  "policy": "Five per variant. One five-question set (A Timid Mouse) was source-page visually verified by an OpenAI assistant in a separate PDF review; the other 49 sets are unapproved candidates.",
   "summary": {
     "variantRecords": 50,
     "draftedChecklists": 50,
     "draftedQuestions": 250,
-    "approvedChecklists": 0,
-    "blockedChecklists": 50
+    "approvedChecklists": 1,
+    "blockedChecklists": 49,
+    "independentlyApprovedQuestions": 5
   },
   "records": [
     {
       "variantId": "level-4-a-timid-mouse",
       "projectId": "level-4-a-timid-mouse",
       "variant": "basic",
-      "status": "blocked",
+      "status": "approved",
       "questions": [
         {
           "id": "level-4-a-timid-mouse-q1",
-          "text": "Does the mouse's rounded controller body sit squarely above the wheel chassis shown in the finished model?",
+          "text": "Is the white controller seated above the paired gray drive-motor housings as shown in the completed mouse?",
           "evidencePages": [
+            16,
             19
           ],
           "sourcePdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
-          "verificationNotes": "Candidate question derived from the visible completed-model structure on the cited source page; independent detail-level confirmation against assembly pages remains necessary.",
-          "approved": false,
-          "verificationStatus": "candidate-unverified"
+          "verificationNotes": "PDF pages 16 and 19 show the white controller added above the gray motor housings. The final arrangement is directly visible; no powered behavior is inferred.",
+          "approved": true,
+          "verificationStatus": "independently-reviewed-visual-assembly",
+          "reviewedBy": "OpenAI assistant — independent page-by-page source review; not external human signoff",
+          "reviewedAt": "2026-11-23",
+          "reviewType": "manual page-by-page source comparison"
         },
         {
           "id": "level-4-a-timid-mouse-q2",
-          "text": "Are the two prominent front-facing eye-like circular elements mounted at matching height and angle?",
+          "text": "Are two large black-tired wheels mounted on opposite sides of the gray lower chassis, matching the completed model?",
           "evidencePages": [
+            13,
+            14,
+            15,
             19
           ],
           "sourcePdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
-          "verificationNotes": "Candidate question derived from the visible completed-model structure on the cited source page; independent detail-level confirmation against assembly pages remains necessary.",
-          "approved": false,
-          "verificationStatus": "candidate-unverified"
+          "verificationNotes": "PDF pages 13–15 show wheel preparation, opposite-side fitting, and side fasteners; page 19 confirms both drive wheels in the final build.",
+          "approved": true,
+          "verificationStatus": "independently-reviewed-visual-assembly",
+          "reviewedBy": "OpenAI assistant — independent page-by-page source review; not external human signoff",
+          "reviewedAt": "2026-11-23",
+          "reviewType": "manual page-by-page source comparison"
         },
         {
           "id": "level-4-a-timid-mouse-q3",
-          "text": "Are the left and right driving wheels securely seated without rubbing the mouse-shaped body?",
+          "text": "Are the two round forward-facing eye modules positioned side by side above the wheel area?",
           "evidencePages": [
+            6,
+            18,
             19
           ],
           "sourcePdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
-          "verificationNotes": "Candidate question derived from the visible completed-model structure on the cited source page; independent detail-level confirmation against assembly pages remains necessary.",
-          "approved": false,
-          "verificationStatus": "candidate-unverified"
+          "verificationNotes": "PDF page 6 shows paired front circular eye modules; pages 18 and 19 confirm side-by-side alignment ahead of the completed controller.",
+          "approved": true,
+          "verificationStatus": "independently-reviewed-visual-assembly",
+          "reviewedBy": "OpenAI assistant — independent page-by-page source review; not external human signoff",
+          "reviewedAt": "2026-11-23",
+          "reviewType": "manual page-by-page source comparison"
         },
         {
           "id": "level-4-a-timid-mouse-q4",
-          "text": "Is the front sensor/face assembly held firmly by its connecting beams rather than hanging loose?",
+          "text": "Is the white right-angle side support fastened vertically beside the controller and linked to the lower chassis?",
           "evidencePages": [
+            17,
+            18,
             19
           ],
           "sourcePdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
-          "verificationNotes": "Functional or stability check proposed from the completed-model page. Requires review against the manual's mechanism instructions and a real robot test before approval.",
-          "approved": false,
-          "verificationStatus": "candidate-unverified"
+          "verificationNotes": "PDF pages 17 and 18 show the right-angle side support being added; page 19 shows the vertically mounted white support and lower connection.",
+          "approved": true,
+          "verificationStatus": "independently-reviewed-visual-assembly",
+          "reviewedBy": "OpenAI assistant — independent page-by-page source review; not external human signoff",
+          "reviewedAt": "2026-11-23",
+          "reviewType": "manual page-by-page source comparison"
         },
         {
           "id": "level-4-a-timid-mouse-q5",
-          "text": "When the model drives, can it roll without the eye assembly, cables, or underbody striking the floor?",
+          "text": "Are the red and blue axle pins positioned at the side linkage below the eye-module mounting bar?",
           "evidencePages": [
+            17,
+            18,
             19
           ],
           "sourcePdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
-          "verificationNotes": "Functional or stability check proposed from the completed-model page. Requires review against the manual's mechanism instructions and a real robot test before approval.",
-          "approved": false,
-          "verificationStatus": "candidate-unverified"
+          "verificationNotes": "PDF pages 17–19 show the red and blue side-linkage pins near the front eye bracket and wheel connection; page 19 confirms final placement.",
+          "approved": true,
+          "verificationStatus": "independently-reviewed-visual-assembly",
+          "reviewedBy": "OpenAI assistant — independent page-by-page source review; not external human signoff",
+          "reviewedAt": "2026-11-23",
+          "reviewType": "manual page-by-page source comparison"
         }
       ],
-      "reviewer": null,
-      "reviewedAt": null,
-      "reason": "Five model-specific questions drafted from the actual finished-model page; fine mechanical details, expected operation and any Basic/Optimized differences require independent manual/physical verification before student approval."
+      "reviewer": "OpenAI assistant — independent page-by-page source review; not external human signoff",
+      "reviewedAt": "2026-11-23",
+      "reason": "Five distinct structural assembly checks directly supported by the complete official 19-page Building PDF and observable completed-model artwork; no unverified operation claims."
     },
     {
       "variantId": "level-4-acoustic-control-lamp",

@@ -136,7 +136,7 @@ test("all 50 source-derived candidate WebP files exist with identical hashes, di
   let bytesTotal=0;
   for(const r of refs.records){
     const c=r.reference;
-    assert.equal(c.status,"candidate");
+    assert.equal(c.status,r.approval.status==="approved"?"approved":"candidate");
     assert.ok(c.path.startsWith("public/final-build/level-4/"));
     assert.ok(c.path.endsWith(".webp"));
     assert.ok(c.sourcePage>=1 && c.sourcePage<=r.source.hostedPdfPageCount);
@@ -156,8 +156,8 @@ test("all 50 source-derived candidate WebP files exist with identical hashes, di
     assert.deepEqual(dimensions(image),{width:c.width,height:c.height},r.variantId+" pixel size");
   }
   assert.ok(bytesTotal>100000 && bytesTotal<5000000);
-  assert.equal(audit.counts.candidateWebp,50);
-  assert.equal(audit.counts.approvedWebp,0);
+  assert.equal(audit.counts.candidateWebp,49);
+  assert.equal(audit.counts.approvedWebp,1);
 });
 
 test("each of the 50 checklist sets has exactly five distinct robot-specific, evidence-linked drafts",()=>{
@@ -169,7 +169,7 @@ test("each of the 50 checklist sets has exactly five distinct robot-specific, ev
     assert.ok(c,r.variantId);
     assert.equal(c.projectId,r.projectId);
     assert.equal(c.variant,r.variant);
-    assert.equal(c.status,"blocked");
+    assert.equal(c.status,r.approval.status==="approved"?"approved":"blocked");
     assert.equal(c.questions.length,5);
     assert.equal(new Set(c.questions.map(x=>x.text)).size,5);
     for(const q of c.questions){
@@ -180,23 +180,23 @@ test("each of the 50 checklist sets has exactly five distinct robot-specific, ev
       assert.ok(q.evidencePages.includes(r.reference.sourcePage));
       assert.equal(q.sourcePdfSha256,r.source.hostedPdfSha256);
       assert.ok(q.verificationNotes.length>=40);
-      assert.equal(q.approved,false);
-      assert.equal(q.verificationStatus,"candidate-unverified");
+      assert.equal(q.approved,r.approval.status==="approved");
+      assert.equal(q.verificationStatus,r.approval.status==="approved"?"independently-reviewed-visual-assembly":"candidate-unverified");
       total++;
     }
   }
   assert.equal(total,250);
   assert.equal(lists.summary.draftedQuestions,250);
-  assert.equal(lists.summary.approvedChecklists,0);
+  assert.equal(lists.summary.approvedChecklists,1);
 });
 
 test("student approvals fail closed and shared-engine integration blockers are documented",()=>{
   assert.equal(approval.status,"all-unreviewed");
   assert.deepEqual(approval.references,[]);
-  assert.equal(refs.records.filter(r=>r.approval.status==="approved").length,0);
-  assert.equal(audit.counts.approvedVariants,0);
-  assert.equal(audit.counts.blockedVariants,50);
-  assert.equal(audit.blockedVariants.length,50);
+  assert.equal(refs.records.filter(r=>r.approval.status==="approved").length,1);
+  assert.equal(audit.counts.approvedVariants,1);
+  assert.equal(audit.counts.blockedVariants,49);
+  assert.equal(audit.blockedVariants.length,49);
   assert.match(registry,/getFinalBuildPool/);
   assert.match(registry,/variants\.length > 0/);
   assert.match(exam,/checkDescriptions\(name/);
@@ -219,4 +219,7 @@ test("locked Level 1-style timer/scanner contracts unchanged by this worker",()=
 });
 
 
-test("Level 4 repair provenance, 250 triaged drafts, and zero Wix mappings", () => {const triage=data("reports/final-build-level-4-semantic-triage-20261123.json");const wix=data("src/data/finalBuild/level-4-wix-image-urls.json");assert.equal(triage.repairs.length,5);assert.equal(triage.questionSets.length,50);assert.equal(triage.questionSets.reduce((n,r)=>n+r.questions.length,0),250);assert.deepEqual(wix.urls,{});assert.equal(wix.approvedVariants,0);for(const x of triage.repairs){const r=byId.get(x.variantId);assert.equal(r.reference.webpSha256,x.webpSha256);assert.equal(r.approval.status,"blocked");assert.equal(r.reference.sourcePage,x.pdfPage);}});
+test("Level 4 repair provenance, 250 triaged drafts, and one verified Wix mapping", () => {const triage=data("reports/final-build-level-4-semantic-triage-20261123.json");const wix=data("src/data/finalBuild/level-4-wix-image-urls.json");assert.equal(triage.repairs.length,5);assert.equal(triage.questionSets.length,50);assert.equal(triage.questionSets.reduce((n,r)=>n+r.questions.length,0),250);assert.equal(Object.keys(wix.urls).length,1);assert.equal(wix.approvedVariants,1);assert.match(wix.urls["level-4-a-timid-mouse"],/static\.wixstatic\.com\/media\//);for(const x of triage.repairs){const r=byId.get(x.variantId);assert.equal(r.reference.webpSha256,x.webpSha256);assert.equal(r.approval.status,"blocked");assert.equal(r.reference.sourcePage,x.pdfPage);}});
+
+
+test("A Timid Mouse has five manual-supported questions and a byte-verified READY Wix record",()=>{const ww=data("src/data/finalBuild/level-4-wix-image-urls.json");const rr=byId.get("level-4-a-timid-mouse");const q=questionSets.get(rr.variantId);assert.equal(rr.approval.status,"approved");assert.equal(q.status,"approved");assert.equal(q.questions.length,5);assert.equal(q.questions.filter(z=>z.approved).length,5);assert.equal(ww.records.length,1);assert.equal(ww.records[0].status,"READY");assert.equal(ww.records[0].webpSha256,rr.reference.webpSha256);assert.equal(ww.records[0].hostedSha256,rr.reference.webpSha256);assert.deepEqual(ww.records[0].approvedQuestionIds,q.questions.map(z=>z.id));});
