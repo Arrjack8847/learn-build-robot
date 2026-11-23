@@ -140,6 +140,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
   function discover() {
     if (session.stage !== "discover" || !pool.length || !hydrated) return;
     const chosen = pool[secureRandomIndex(pool.length)];
+    if (!chosen) return;
     setModel(null);
     setSession(prev => ({
       ...emptySession(level), attempts: prev.attempts, projectId: chosen.id,
@@ -274,7 +275,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
                     </a>
                   </div>
                 ) : renderCandidate ? <FinalBuildPrototype key={variant.id + ":" + page}
-                  filename={variant.id} url={variant.url} imageUrl={approval?.imageUrl ?? undefined} pageNumber={page} crop={crop}
+                  filename={variant.id} url={variant.url} {...(approval?.imageUrl ? { imageUrl: approval.imageUrl } : {})} pageNumber={page} crop={crop}
                   title={project.name} sourceLimited={level === 3} onStatusChange={onModelStatus}/> :
                   <div className="rounded-xl bg-white p-8 text-sm font-semibold text-amber-900" role="status">
                     Robot reference unavailable. The registered PDF or verified finished-model WebP is required to begin.
