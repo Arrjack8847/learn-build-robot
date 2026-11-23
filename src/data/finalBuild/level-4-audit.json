@@ -1,0 +1,864 @@
+{
+  "schemaVersion": 1,
+  "level": 4,
+  "asOf": "2026-11-23",
+  "baseCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+  "previousAudits": [
+    "reports/final-build-levels-1-6-audit-20261120.md",
+    "reports/level4-building-cover-audit-20261119.json",
+    "reports/level1-4-building-wix-final-verification-20261120.json",
+    "reports/level1-4-english-building-binary-delivery-manifest-20261119.json"
+  ],
+  "counts": {
+    "syllabus": 56,
+    "buildingSourceProjects": 48,
+    "buildingSourceVariants": 50,
+    "optimizedVariants": 2,
+    "learningOnlyActivities": 8,
+    "previouslyRepairedEnglishVariants": 4,
+    "approvedVariants": 0,
+    "blockedVariants": 50,
+    "approvedWebp": 0,
+    "independentlyVerifiedChecklistSets": 0
+  },
+  "gates": {
+    "pdfBytesFetched": false,
+    "pdfSha256Calculated": false,
+    "hostedPageCountsValidated": false,
+    "finishedModelPagesVisuallyVerified": false,
+    "webpDecoded": false,
+    "checklistEvidenceVerified": false,
+    "independentSignoff": false,
+    "mobileDeviceQa": false
+  },
+  "fallbackProjects": [
+    {
+      "projectId": "level-4-super-trajectory-robot-2",
+      "projectName": "Super Trajectory Robot 2",
+      "category": "Advanced Navigation & Control",
+      "status": "blocked-no-separate-building-source",
+      "reason": "Canonical Level 4 resolver marks this activity as Learning fallback; no independently registered official Building manual. Never substitute Learning PDF."
+    },
+    {
+      "projectId": "level-4-tag-recognition",
+      "projectName": "Tag Recognition",
+      "category": "Automation & Security",
+      "status": "blocked-no-separate-building-source",
+      "reason": "Canonical Level 4 resolver marks this activity as Learning fallback; no independently registered official Building manual. Never substitute Learning PDF."
+    },
+    {
+      "projectId": "level-4-probe-vehicle",
+      "projectName": "Probe Vehicle",
+      "category": "Autonomous Navigation & Ranging",
+      "status": "blocked-no-separate-building-source",
+      "reason": "Canonical Level 4 resolver marks this activity as Learning fallback; no independently registered official Building manual. Never substitute Learning PDF."
+    },
+    {
+      "projectId": "level-4-vending-machine",
+      "projectName": "Vending machine",
+      "category": "Foundational Robots",
+      "status": "blocked-no-separate-building-source",
+      "reason": "Canonical Level 4 resolver marks this activity as Learning fallback; no independently registered official Building manual. Never substitute Learning PDF."
+    },
+    {
+      "projectId": "level-4-voice-control",
+      "projectName": "Voice Control",
+      "category": "Interactive Mechanisms",
+      "status": "blocked-no-separate-building-source",
+      "reason": "Canonical Level 4 resolver marks this activity as Learning fallback; no independently registered official Building manual. Never substitute Learning PDF."
+    },
+    {
+      "projectId": "level-4-safe-box",
+      "projectName": "Safe Box",
+      "category": "Machines & Mechanisms",
+      "status": "blocked-no-separate-building-source",
+      "reason": "Canonical Level 4 resolver marks this activity as Learning fallback; no independently registered official Building manual. Never substitute Learning PDF."
+    },
+    {
+      "projectId": "level-4-back-up-buzzer",
+      "projectName": "Back-up buzzer",
+      "category": "Sensors",
+      "status": "blocked-no-separate-building-source",
+      "reason": "Canonical Level 4 resolver marks this activity as Learning fallback; no independently registered official Building manual. Never substitute Learning PDF."
+    },
+    {
+      "projectId": "level-4-counting-system",
+      "projectName": "Counting system",
+      "category": "Sensors",
+      "status": "blocked-no-separate-building-source",
+      "reason": "Canonical Level 4 resolver marks this activity as Learning fallback; no independently registered official Building manual. Never substitute Learning PDF."
+    }
+  ],
+  "blockedVariants": [
+    {
+      "variantId": "level-4-a-timid-mouse",
+      "projectId": "level-4-a-timid-mouse",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Characters & Structures/A Timid Mouse/Lesson 25. A Timid Mouse-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1a7ea6c1066a4a5faffc677981b568de.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-acoustic-control-lamp",
+      "projectId": "level-4-acoustic-control-lamp",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Sound & Voice Interaction/Acoustic control lamp/Acoustic control lamp_Building.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_215f0a067e274ac1aa302fc5cacf906b.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-architectural-design",
+      "projectId": "level-4-architectural-design",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Complex Mechanisms & Coordinated Motion/Architectural design/Architectural design.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_459ed5d1ef8e493c8aae5b3ba2eac621.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-basketball-shooting-machine",
+      "projectId": "level-4-basketball-shooting-machine",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Interactive Systems/Basketball Shooting Machine/27.Basketball Shooting Machine-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c68928f39f754b49916d839d989569dd.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-biped-robot",
+      "projectId": "level-4-biped-robot",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Mechanisms & Simulators/Biped Robot/20. Biped Robot-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d750c0c3714d4b68a72576f1e2c30f99.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-card-machine",
+      "projectId": "level-4-card-machine",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Complex Mechanisms & Coordinated Motion/Card Machine/Card Machine.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d63c4cf912594a0d85952a97632ab842.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-card-reader",
+      "projectId": "level-4-card-reader",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Sensor Automation/Card reader/Card reader.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_808f6f08e55046cbb902337587a1b8ac.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-dancing-robot",
+      "projectId": "level-4-dancing-robot",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Display & Movement/Dancing Robot/31.Dancing Robot-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1180aa3508c846a5a48a064fb329ae4c.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-dangerous-assassin",
+      "projectId": "level-4-dangerous-assassin",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin - Basic Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c87e929581d64541923e3ffedbdb3edc.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-dangerous-assassin:optimized",
+      "projectId": "level-4-dangerous-assassin",
+      "variant": "optimized",
+      "sourcePath": "public/Level 4/Building/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin - Optimized Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_11414e5634c94a43ac7e0dfbd5f1282f.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-drop-proof-robot",
+      "projectId": "level-4-drop-proof-robot",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Advanced Navigation & Control/Drop-proof Robot/Drop-proof Robot.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bfc9117c992d4441ae7416f29101297e.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-electric-piano",
+      "projectId": "level-4-electric-piano",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Sound & Voice Interaction/Electric Piano/32.Electric Piano-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_481a0b5b0cb04cb483e9d3a4c3e30f68.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-elf-in-the-tree",
+      "projectId": "level-4-elf-in-the-tree",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Characters & Structures/Elf in the Tree/12. Elf in the Tree - Basic Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_48433fd24b67423d923129bf6187a873.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-energy-detector",
+      "projectId": "level-4-energy-detector",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Sensor-Focused Robots/Energy Detector/05. Energy Detector--Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_217b72e59bb2489c90d8a9fe39f77038.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-guide-dogs",
+      "projectId": "level-4-guide-dogs",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Autonomous Navigation & Ranging/Guide Dogs/10. Guide Dogs - Basic Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2b25803a2615468990aa682ff5e60e40.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-horizontal-bar",
+      "projectId": "level-4-horizontal-bar",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Mechanisms & Simulators/Horizontal Bar/5. Horizontal Bar-Basic Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_165b3ae978a54059a2987eb2f4652e7e.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-induction-desk-lamp",
+      "projectId": "level-4-induction-desk-lamp",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Illumination & Signals/Induction Desk Lamp/13. Induction Desk Lamp-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_791b7c00b5a247ad8047bb8fae56e041.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-keeping-distance",
+      "projectId": "level-4-keeping-distance",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Autonomous Navigation & Ranging/Keeping Distance/12. Keeping Distance-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7cb85be969fd4c479ef008c2a10280ca.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-laser-rangefinder",
+      "projectId": "level-4-laser-rangefinder",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Autonomous Navigation & Ranging/Laser Rangefinder/10. Laser Rangefinder - Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6a85b43940c84715accf6b57b79b1159.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-lucky-cat",
+      "projectId": "level-4-lucky-cat",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Vehicles & Complex Movers/Lucky Cat/13.Lucky Cat-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_91015c8c0eac4c149be0bd82586169bd.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-magnetically-controlled-door",
+      "projectId": "level-4-magnetically-controlled-door",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Autonomous Navigation & Ranging/Magnetically Controlled Door/06. Magnetically controlled door-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b42dacb9a2364c90b3d1e84e8eda948a.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-nocturnal-beetle",
+      "projectId": "level-4-nocturnal-beetle",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Biomimicry & Stimulus Response/Nocturnal beetle/Nocturnal beetle.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_02da39094fb8479f9812cb77754440d8.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-obstacle-avoidance-in-snow",
+      "projectId": "level-4-obstacle-avoidance-in-snow",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Autonomous Navigation & Ranging/Obstacle Avoidance In Snow/4. Obstacle Avoidance In Snow-Basic Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_88198dfb6f834a80a9b06c33f28876b3.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-obstacle-avoidance-robot",
+      "projectId": "level-4-obstacle-avoidance-robot",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Interactive Systems/Obstacle Avoidance Robot/18.Obstacle Avoidance Robot-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_eeef4a0d0e7e4302b10447d8fef63204.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-obstacle-avoidance-robot-2",
+      "projectId": "level-4-obstacle-avoidance-robot-2",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Autonomous Navigation & Ranging/Obstacle Avoidance Robot 2/Obstacle Avoidance Robot 2_Building.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ed14fc9a39e24f22b49445f47443e0da.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-obstacle-avoiding-scorpion",
+      "projectId": "level-4-obstacle-avoiding-scorpion",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Programming & Precise Control/Obstacle-avoiding Scorpion/01.Obstacle-avoiding Scorpion_Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ee33e7eb628f401b90edb165818635ff.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-oscillating-fan",
+      "projectId": "level-4-oscillating-fan",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Mechanisms & Simulators/Oscillating Fan/19.Oscillating Fan -Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9e62d299207d45a9b18191fd0f32a361.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-parts-sorter",
+      "projectId": "level-4-parts-sorter",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Characters & Structures/Parts Sorter/22.Parts Sorter-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e3bfc1a1adac4ff2b639c260492632ef.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-password-box",
+      "projectId": "level-4-password-box",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Sensor Automation/Password box/Password box.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6c3876b88b1d4e6d9e93cfc9c8c2631a.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-personal-bodyguard",
+      "projectId": "level-4-personal-bodyguard",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Automation & Security/Personal Bodyguard/09. Personal Bodyguard-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_55045d2da9ae488999a7c3f5256e7b97.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-radar-vehicle",
+      "projectId": "level-4-radar-vehicle",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Autonomous Navigation & Ranging/Radar vehicle/Radar vehicle_Building.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_686f982fc3874f8f8872fa86145b0f78.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-ranging-robot",
+      "projectId": "level-4-ranging-robot",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Sensor-Focused Robots/Ranging robot/Ranging robot_Building.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e5cd74cd78ff4829a689a16b3891b2a9.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-reaction-tester",
+      "projectId": "level-4-reaction-tester",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Interactive Systems/Reaction Tester/19.Reaction Tester-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_10ef38bb4b39427e80a0a0d34d72e5f2.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-remote-control-car",
+      "projectId": "level-4-remote-control-car",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Vehicles & Complex Movers/Remote Control Car/04. Remote Control Car-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_fd1e07a04995465ca76f6d5a6e284164.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-scan-to-open-the-gate",
+      "projectId": "level-4-scan-to-open-the-gate",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Automation & Security/Scan to Open the Gate/01. Scan to Open the Gate- Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_da9a09f1a366473cbdbb00561d83a451.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-scorpion",
+      "projectId": "level-4-scorpion",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Interactive Mechanisms/Scorpion/Scorpion_Building.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ab959215cace4244bb5f77ce52376f9b.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-skiing-robot",
+      "projectId": "level-4-skiing-robot",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Display & Movement/Skiing Robot/28.Skiing Robot -Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_21e59555c0a7404fa93c7f24128823ce.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-smart-curtain",
+      "projectId": "level-4-smart-curtain",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Automation & Security/Smart curtain/Smart curtain_Building.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e057685f05584ca9badf5ca590b9910e.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-smart-luggage",
+      "projectId": "level-4-smart-luggage",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Interactive Mechanisms/Smart Luggage/16. Smart Luggage-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3e72ce30b721485b97a6b9b515563717.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-smart-speaker",
+      "projectId": "level-4-smart-speaker",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Sound & Voice Interaction/Smart Speaker/30.Smart Speaker-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_94371a22a9e449cd806b67df5cd78f12.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-spinning-cups",
+      "projectId": "level-4-spinning-cups",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Mechanisms & Simulators/Spinning Cups/14. Spinning Cups-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_16a55b4f00074a0ea9c09bd0a0c92f32.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-swimming-plesiosaur",
+      "projectId": "level-4-swimming-plesiosaur",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Characters & Structures/Swimming Plesiosaur/19. Swimming Plesiosaur-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e1d762a64ef24a5897241782a262a6a0.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-tail-wagging-stegosaurus",
+      "projectId": "level-4-tail-wagging-stegosaurus",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Characters & Structures/Tail-Wagging Stegosaurus/18. Tail-Wagging Stegosaurus-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4cc78a4be44e47639876b8c036124249.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-telegraph",
+      "projectId": "level-4-telegraph",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Mechanisms & Simulators/Telegraph/09.Telegraph -Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_572488c57ef34acb8426a499803d90c4.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-telegraph-machine",
+      "projectId": "level-4-telegraph-machine",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Interactive Mechanisms/Telegraph machine/Telegraph machine_Building.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dafc21fa89384f18a970ca182587080f.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-transformer-robot",
+      "projectId": "level-4-transformer-robot",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Vehicles & Complex Movers/Transformer Robot/06.Transformer Robot-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3134e27ecb424dabb32b1e7376209287.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-tumbler",
+      "projectId": "level-4-tumbler",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Interactive Systems/Tumbler/01. Tumbler - Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b6e44635e9fe4ffeb39a9a8a68997c02.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-turbo-drop",
+      "projectId": "level-4-turbo-drop",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Mechanisms & Simulators/Turbo Drop/28. Turbo Drop-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_269c5a865bd4412c821edde18123cb41.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-warrior-with-claws",
+      "projectId": "level-4-warrior-with-claws",
+      "variant": "basic",
+      "sourcePath": "public/Level 4/Building/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Basic Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b4b91bf84fde495b84f9b4abde0d3277.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    },
+    {
+      "variantId": "level-4-warrior-with-claws:optimized",
+      "projectId": "level-4-warrior-with-claws",
+      "variant": "optimized",
+      "sourcePath": "public/Level 4/Building/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Optimized Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_36b8b1568b9e4225879cb6695f626294.pdf",
+      "status": "blocked",
+      "reasonCodes": [
+        "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+        "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+        "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+        "WEBP_NOT_EXTRACTED_OR_DECODED",
+        "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+      ]
+    }
+  ],
+  "integrationFindings": [
+    {
+      "id": "LEVEL_4_SHARED_POOL_PREAPPROVAL",
+      "severity": "blocker",
+      "owner": "integration",
+      "detail": "The shared getFinalBuildPool filters only variants.length > 0, not approved variants. Discovery must not expose unapproved projects in student mode; do not modify shared engine in this worker."
+    },
+    {
+      "id": "LEVEL_4_GENERIC_CHECKLIST",
+      "severity": "blocker",
+      "owner": "integration",
+      "detail": "The shared FinalBuildExam still uses checkDescriptions(name), a generic title-heuristic checklist, rather than variant-specific evidence-backed Level 4 questions."
+    },
+    {
+      "id": "LEVEL_4_WEBP_RENDERER",
+      "severity": "needs-integration-review",
+      "owner": "integration",
+      "detail": "Shared approval currently expects a Wix PDF page + normalized PDF crop, not a locally optimized WebP asset reference. Integration must explicitly support verified WebP files without bypassing approval gates."
+    }
+  ]
+}

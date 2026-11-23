@@ -1,0 +1,2289 @@
+{
+  "schemaVersion": 1,
+  "level": 4,
+  "asOf": "2026-11-23",
+  "baseCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+  "approvalPolicy": "fail-closed",
+  "status": "all-blocked-pending-independent-evidence",
+  "summary": {
+    "syllabusProjects": 56,
+    "registeredBuildingProjects": 48,
+    "registeredBuildingVariants": 50,
+    "unavailableBuildingProjects": 8,
+    "approvedVariants": 0,
+    "blockedVariants": 50
+  },
+  "notes": [
+    "Prior original repository Git blob hashes are SHA-1 Git object IDs, NOT hosted Wix PDF SHA-256 digests.",
+    "Prior page counts describe repository originals (or separately listed repaired English PDFs); hosted Wix PDF counts remain unverified in this pass.",
+    "No images were generated, reconstructed, extracted or approved by this audit."
+  ],
+  "records": [
+    {
+      "variantId": "level-4-a-timid-mouse",
+      "projectId": "level-4-a-timid-mouse",
+      "projectName": "A Timid Mouse",
+      "category": "Characters & Structures",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Characters & Structures/A Timid Mouse/Lesson 25. A Timid Mouse-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1a7ea6c1066a4a5faffc677981b568de.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "30e167ec98f268265b6e987bb48b9ed04bed92b7",
+          "pageCount": 19,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-acoustic-control-lamp",
+      "projectId": "level-4-acoustic-control-lamp",
+      "projectName": "Acoustic control lamp",
+      "category": "Sound & Voice Interaction",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Sound & Voice Interaction/Acoustic control lamp/Acoustic control lamp_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_215f0a067e274ac1aa302fc5cacf906b.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "e71adbb1661ce5ddaf88bcb6763f19e794325d85",
+          "pageCount": 8,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-architectural-design",
+      "projectId": "level-4-architectural-design",
+      "projectName": "Architectural design",
+      "category": "Complex Mechanisms & Coordinated Motion",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Complex Mechanisms & Coordinated Motion/Architectural design/Architectural design.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_459ed5d1ef8e493c8aae5b3ba2eac621.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "c95320c064bfff7d7757990377fdc43baec55af5",
+          "pageCount": 24,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-basketball-shooting-machine",
+      "projectId": "level-4-basketball-shooting-machine",
+      "projectName": "Basketball Shooting Machine",
+      "category": "Interactive Systems",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Interactive Systems/Basketball Shooting Machine/27.Basketball Shooting Machine-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c68928f39f754b49916d839d989569dd.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "270f432abb9183c2d507ba99a5da77bd80356160",
+          "pageCount": 28,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-biped-robot",
+      "projectId": "level-4-biped-robot",
+      "projectName": "Biped Robot",
+      "category": "Mechanisms & Simulators",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Mechanisms & Simulators/Biped Robot/20. Biped Robot-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d750c0c3714d4b68a72576f1e2c30f99.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "ad0339df13a460e329c92223489f60b3f2491a3e",
+          "pageCount": 57,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-card-machine",
+      "projectId": "level-4-card-machine",
+      "projectName": "Card Machine",
+      "category": "Complex Mechanisms & Coordinated Motion",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Complex Mechanisms & Coordinated Motion/Card Machine/Card Machine.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d63c4cf912594a0d85952a97632ab842.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "f063338187fe40f0291b3c62eff0d60bb2a725a4",
+          "pageCount": 9,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-card-reader",
+      "projectId": "level-4-card-reader",
+      "projectName": "Card reader",
+      "category": "Sensor Automation",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Sensor Automation/Card reader/Card reader.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_808f6f08e55046cbb902337587a1b8ac.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "773494e6a82765fb7b5811fde836bd21e65c912c",
+          "pageCount": 12,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-dancing-robot",
+      "projectId": "level-4-dancing-robot",
+      "projectName": "Dancing Robot",
+      "category": "Display & Movement",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Display & Movement/Dancing Robot/31.Dancing Robot-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1180aa3508c846a5a48a064fb329ae4c.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "0175df1dfd067cafebbfae1f1a4a29a5ca473ada",
+          "pageCount": 22,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-dangerous-assassin",
+      "projectId": "level-4-dangerous-assassin",
+      "projectName": "Dangerous Assassin",
+      "category": "Vehicles & Complex Movers",
+      "variant": "basic",
+      "variantLabel": "Basic",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin - Basic Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c87e929581d64541923e3ffedbdb3edc.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "1e66e2590d334b9c6baee8ca8294c56d1f130edc",
+          "pageCount": 25,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-dangerous-assassin:optimized",
+      "projectId": "level-4-dangerous-assassin",
+      "projectName": "Dangerous Assassin",
+      "category": "Vehicles & Complex Movers",
+      "variant": "optimized",
+      "variantLabel": "Optimized",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin - Optimized Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_11414e5634c94a43ac7e0dfbd5f1282f.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "aeebbfbd31a2d6a5709065da1b9fa1a244e35e08",
+          "pageCount": 10,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-drop-proof-robot",
+      "projectId": "level-4-drop-proof-robot",
+      "projectName": "Drop-proof Robot",
+      "category": "Advanced Navigation & Control",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Advanced Navigation & Control/Drop-proof Robot/Drop-proof Robot.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bfc9117c992d4441ae7416f29101297e.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "740e06789ab28723ec20601638f847a100cbe1ee",
+          "pageCount": 7,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-electric-piano",
+      "projectId": "level-4-electric-piano",
+      "projectName": "Electric Piano",
+      "category": "Sound & Voice Interaction",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Sound & Voice Interaction/Electric Piano/32.Electric Piano-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_481a0b5b0cb04cb483e9d3a4c3e30f68.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "bba143f29f5acfddcbe3638521240e04e2b5c3e8",
+          "pageCount": 24,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-elf-in-the-tree",
+      "projectId": "level-4-elf-in-the-tree",
+      "projectName": "Elf in the Tree",
+      "category": "Characters & Structures",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Characters & Structures/Elf in the Tree/12. Elf in the Tree - Basic Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_48433fd24b67423d923129bf6187a873.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "6d5c6bb51f9e82610c6a8926e4fafd6c7c10e2ec",
+          "pageCount": 22,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-energy-detector",
+      "projectId": "level-4-energy-detector",
+      "projectName": "Energy Detector",
+      "category": "Sensor-Focused Robots",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Sensor-Focused Robots/Energy Detector/05. Energy Detector--Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_217b72e59bb2489c90d8a9fe39f77038.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "dc0b133a972b1fd1287cfaeed52e22ad29294d8f",
+          "pageCount": 20,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-guide-dogs",
+      "projectId": "level-4-guide-dogs",
+      "projectName": "Guide Dogs",
+      "category": "Autonomous Navigation & Ranging",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Autonomous Navigation & Ranging/Guide Dogs/10. Guide Dogs - Basic Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2b25803a2615468990aa682ff5e60e40.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "4cbb0db73ab4f37e3fe2440eca8f675a37c80227",
+          "pageCount": 13,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-horizontal-bar",
+      "projectId": "level-4-horizontal-bar",
+      "projectName": "Horizontal Bar",
+      "category": "Mechanisms & Simulators",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Mechanisms & Simulators/Horizontal Bar/5. Horizontal Bar-Basic Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_165b3ae978a54059a2987eb2f4652e7e.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "0405b88beb5ecd30d17278557cad22419fffdce9",
+          "pageCount": 13,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-induction-desk-lamp",
+      "projectId": "level-4-induction-desk-lamp",
+      "projectName": "Induction Desk Lamp",
+      "category": "Illumination & Signals",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Illumination & Signals/Induction Desk Lamp/13. Induction Desk Lamp-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_791b7c00b5a247ad8047bb8fae56e041.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "b56fc14de734b56d0d252cc9435f3d8da7ece472",
+          "pageCount": 32,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-keeping-distance",
+      "projectId": "level-4-keeping-distance",
+      "projectName": "Keeping Distance",
+      "category": "Autonomous Navigation & Ranging",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Autonomous Navigation & Ranging/Keeping Distance/12. Keeping Distance-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7cb85be969fd4c479ef008c2a10280ca.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "47444ce46ab6611754a9cd960684741cb2b21717",
+          "pageCount": 21,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-laser-rangefinder",
+      "projectId": "level-4-laser-rangefinder",
+      "projectName": "Laser Rangefinder",
+      "category": "Autonomous Navigation & Ranging",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Autonomous Navigation & Ranging/Laser Rangefinder/10. Laser Rangefinder - Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6a85b43940c84715accf6b57b79b1159.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "4aabb9a91adbd8eb890528483d9578a0e6dd35c1",
+          "pageCount": 13,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-lucky-cat",
+      "projectId": "level-4-lucky-cat",
+      "projectName": "Lucky Cat",
+      "category": "Vehicles & Complex Movers",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Vehicles & Complex Movers/Lucky Cat/13.Lucky Cat-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_91015c8c0eac4c149be0bd82586169bd.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "6915639b79eb8fb6acd980bf2752ad24b4ed5d5f",
+          "pageCount": 28,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": {
+          "gitBlobSha1": "9fcd3d4ff56b602719b0a301dc0cedbc09a6f77f",
+          "pageCount": 28,
+          "report": "reports/level1-4-english-building-binary-delivery-manifest-20261119.json"
+        }
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-magnetically-controlled-door",
+      "projectId": "level-4-magnetically-controlled-door",
+      "projectName": "Magnetically Controlled Door",
+      "category": "Autonomous Navigation & Ranging",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Autonomous Navigation & Ranging/Magnetically Controlled Door/06. Magnetically controlled door-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b42dacb9a2364c90b3d1e84e8eda948a.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "c6b9c61b01d1ff30ea0de14e5fc11193c17deb1c",
+          "pageCount": 22,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-nocturnal-beetle",
+      "projectId": "level-4-nocturnal-beetle",
+      "projectName": "Nocturnal beetle",
+      "category": "Biomimicry & Stimulus Response",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Biomimicry & Stimulus Response/Nocturnal beetle/Nocturnal beetle.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_02da39094fb8479f9812cb77754440d8.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "d0af4ddd01984b93e5cb03b48906518493c3081d",
+          "pageCount": 19,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-obstacle-avoidance-in-snow",
+      "projectId": "level-4-obstacle-avoidance-in-snow",
+      "projectName": "Obstacle Avoidance In Snow",
+      "category": "Autonomous Navigation & Ranging",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Autonomous Navigation & Ranging/Obstacle Avoidance In Snow/4. Obstacle Avoidance In Snow-Basic Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_88198dfb6f834a80a9b06c33f28876b3.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "e5a122e0513b23d1beb2390e266f0e16e9952175",
+          "pageCount": 6,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-obstacle-avoidance-robot",
+      "projectId": "level-4-obstacle-avoidance-robot",
+      "projectName": "Obstacle Avoidance Robot",
+      "category": "Interactive Systems",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Interactive Systems/Obstacle Avoidance Robot/18.Obstacle Avoidance Robot-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_eeef4a0d0e7e4302b10447d8fef63204.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "dc706e7674d2ad9a96fb667eddc73d17854ca196",
+          "pageCount": 16,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-obstacle-avoidance-robot-2",
+      "projectId": "level-4-obstacle-avoidance-robot-2",
+      "projectName": "Obstacle Avoidance Robot 2",
+      "category": "Autonomous Navigation & Ranging",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Autonomous Navigation & Ranging/Obstacle Avoidance Robot 2/Obstacle Avoidance Robot 2_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ed14fc9a39e24f22b49445f47443e0da.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "85326b1504e1c5f7211800abcc22d655d0110c01",
+          "pageCount": 14,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-obstacle-avoiding-scorpion",
+      "projectId": "level-4-obstacle-avoiding-scorpion",
+      "projectName": "Obstacle-avoiding Scorpion",
+      "category": "Programming & Precise Control",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Programming & Precise Control/Obstacle-avoiding Scorpion/01.Obstacle-avoiding Scorpion_Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ee33e7eb628f401b90edb165818635ff.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "8e0936d27819a7b84bf00533b6cfe9906f225e43",
+          "pageCount": 22,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-oscillating-fan",
+      "projectId": "level-4-oscillating-fan",
+      "projectName": "Oscillating Fan",
+      "category": "Mechanisms & Simulators",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Mechanisms & Simulators/Oscillating Fan/19.Oscillating Fan -Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9e62d299207d45a9b18191fd0f32a361.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "49b9e72fe57300974e88b39e342dd963d6083056",
+          "pageCount": 22,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-parts-sorter",
+      "projectId": "level-4-parts-sorter",
+      "projectName": "Parts Sorter",
+      "category": "Characters & Structures",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Characters & Structures/Parts Sorter/22.Parts Sorter-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e3bfc1a1adac4ff2b639c260492632ef.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "ab27b6bf252041055c5c634351f4765fb754b21e",
+          "pageCount": 18,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-password-box",
+      "projectId": "level-4-password-box",
+      "projectName": "Password box",
+      "category": "Sensor Automation",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Sensor Automation/Password box/Password box.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6c3876b88b1d4e6d9e93cfc9c8c2631a.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "96c5f48a497334b3303afc21a079283fd6093106",
+          "pageCount": 18,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-personal-bodyguard",
+      "projectId": "level-4-personal-bodyguard",
+      "projectName": "Personal Bodyguard",
+      "category": "Automation & Security",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Automation & Security/Personal Bodyguard/09. Personal Bodyguard-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_55045d2da9ae488999a7c3f5256e7b97.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "c8f9d3e43bd7d6627be43d3b3e961e50dc402813",
+          "pageCount": 21,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-radar-vehicle",
+      "projectId": "level-4-radar-vehicle",
+      "projectName": "Radar vehicle",
+      "category": "Autonomous Navigation & Ranging",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Autonomous Navigation & Ranging/Radar vehicle/Radar vehicle_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_686f982fc3874f8f8872fa86145b0f78.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "8925f5672303a55b8caaf1c73434acd2a9aa88ef",
+          "pageCount": 9,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-ranging-robot",
+      "projectId": "level-4-ranging-robot",
+      "projectName": "Ranging robot",
+      "category": "Sensor-Focused Robots",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Sensor-Focused Robots/Ranging robot/Ranging robot_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e5cd74cd78ff4829a689a16b3891b2a9.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "8bcb40b365b818ea4d73f7447bfca9d9224455d9",
+          "pageCount": 13,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-reaction-tester",
+      "projectId": "level-4-reaction-tester",
+      "projectName": "Reaction Tester",
+      "category": "Interactive Systems",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Interactive Systems/Reaction Tester/19.Reaction Tester-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_10ef38bb4b39427e80a0a0d34d72e5f2.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "f266912c72d25c620bb7649ed63137e2bd2a4199",
+          "pageCount": 12,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-remote-control-car",
+      "projectId": "level-4-remote-control-car",
+      "projectName": "Remote Control Car",
+      "category": "Vehicles & Complex Movers",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Vehicles & Complex Movers/Remote Control Car/04. Remote Control Car-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_fd1e07a04995465ca76f6d5a6e284164.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "67232e791e7ab74c07af17f05eca661b89f4edd7",
+          "pageCount": 24,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-scan-to-open-the-gate",
+      "projectId": "level-4-scan-to-open-the-gate",
+      "projectName": "Scan to Open the Gate",
+      "category": "Automation & Security",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Automation & Security/Scan to Open the Gate/01. Scan to Open the Gate- Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_da9a09f1a366473cbdbb00561d83a451.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "36c81dc372e35b1e2fa3e90c354dff47a0bcc773",
+          "pageCount": 22,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-scorpion",
+      "projectId": "level-4-scorpion",
+      "projectName": "Scorpion",
+      "category": "Interactive Mechanisms",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Interactive Mechanisms/Scorpion/Scorpion_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ab959215cace4244bb5f77ce52376f9b.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "ec6535e60e9cd67de8b5f1c81cfcac3a5fdb3531",
+          "pageCount": 17,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-skiing-robot",
+      "projectId": "level-4-skiing-robot",
+      "projectName": "Skiing Robot",
+      "category": "Display & Movement",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Display & Movement/Skiing Robot/28.Skiing Robot -Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_21e59555c0a7404fa93c7f24128823ce.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "3a3e207efba57b4f6b39cad689c475d84b43ea17",
+          "pageCount": 31,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-smart-curtain",
+      "projectId": "level-4-smart-curtain",
+      "projectName": "Smart curtain",
+      "category": "Automation & Security",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Automation & Security/Smart curtain/Smart curtain_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e057685f05584ca9badf5ca590b9910e.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "8ff7c35d34a9a91549fcecccae16a473fa8ae631",
+          "pageCount": 10,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-smart-luggage",
+      "projectId": "level-4-smart-luggage",
+      "projectName": "Smart Luggage",
+      "category": "Interactive Mechanisms",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Interactive Mechanisms/Smart Luggage/16. Smart Luggage-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3e72ce30b721485b97a6b9b515563717.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "7cd9a427b0e99735ff5861f87675d373e9856e8b",
+          "pageCount": 26,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-smart-speaker",
+      "projectId": "level-4-smart-speaker",
+      "projectName": "Smart Speaker",
+      "category": "Sound & Voice Interaction",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Sound & Voice Interaction/Smart Speaker/30.Smart Speaker-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_94371a22a9e449cd806b67df5cd78f12.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "b4820e408f852a1357c7ec8e91c6262d94507045",
+          "pageCount": 20,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-spinning-cups",
+      "projectId": "level-4-spinning-cups",
+      "projectName": "Spinning Cups",
+      "category": "Mechanisms & Simulators",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Mechanisms & Simulators/Spinning Cups/14. Spinning Cups-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_16a55b4f00074a0ea9c09bd0a0c92f32.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "21117de94a3b2540b27604bdb76dcb8bd1218035",
+          "pageCount": 25,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-swimming-plesiosaur",
+      "projectId": "level-4-swimming-plesiosaur",
+      "projectName": "Swimming Plesiosaur",
+      "category": "Characters & Structures",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Characters & Structures/Swimming Plesiosaur/19. Swimming Plesiosaur-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e1d762a64ef24a5897241782a262a6a0.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "73217eadc98fe48e164237db8db12f64668445cf",
+          "pageCount": 40,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": {
+          "gitBlobSha1": "61fdc1a5eebd57f349fbd7eb10de4dc35ccd3f2d",
+          "pageCount": 40,
+          "report": "reports/level1-4-english-building-binary-delivery-manifest-20261119.json"
+        }
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-tail-wagging-stegosaurus",
+      "projectId": "level-4-tail-wagging-stegosaurus",
+      "projectName": "Tail-Wagging Stegosaurus",
+      "category": "Characters & Structures",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Characters & Structures/Tail-Wagging Stegosaurus/18. Tail-Wagging Stegosaurus-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4cc78a4be44e47639876b8c036124249.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "4e718c78c1c53115260d22b1420206633b2e22c2",
+          "pageCount": 45,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-telegraph",
+      "projectId": "level-4-telegraph",
+      "projectName": "Telegraph",
+      "category": "Mechanisms & Simulators",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Mechanisms & Simulators/Telegraph/09.Telegraph -Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_572488c57ef34acb8426a499803d90c4.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "afb49aca75e0bd166af3114a981d46ebb26933f7",
+          "pageCount": 25,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": {
+          "gitBlobSha1": "f4a54eca331ed4c296d175b9d8d59041dc5fe201",
+          "pageCount": 25,
+          "report": "reports/level1-4-english-building-binary-delivery-manifest-20261119.json"
+        }
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-telegraph-machine",
+      "projectId": "level-4-telegraph-machine",
+      "projectName": "Telegraph machine",
+      "category": "Interactive Mechanisms",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Interactive Mechanisms/Telegraph machine/Telegraph machine_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dafc21fa89384f18a970ca182587080f.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "085306b3bb116a006d3c7dad7e10fb3174a9f871",
+          "pageCount": 11,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-transformer-robot",
+      "projectId": "level-4-transformer-robot",
+      "projectName": "Transformer Robot",
+      "category": "Vehicles & Complex Movers",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Vehicles & Complex Movers/Transformer Robot/06.Transformer Robot-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3134e27ecb424dabb32b1e7376209287.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "992ab3f7d5aff463f4230170b158061c7935f0b1",
+          "pageCount": 26,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-tumbler",
+      "projectId": "level-4-tumbler",
+      "projectName": "Tumbler",
+      "category": "Interactive Systems",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Interactive Systems/Tumbler/01. Tumbler - Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b6e44635e9fe4ffeb39a9a8a68997c02.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "0b6ccd4de7404bdaa661cf0407ae368c9a6d22a2",
+          "pageCount": 22,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-turbo-drop",
+      "projectId": "level-4-turbo-drop",
+      "projectName": "Turbo Drop",
+      "category": "Mechanisms & Simulators",
+      "variant": "basic",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Mechanisms & Simulators/Turbo Drop/28. Turbo Drop-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_269c5a865bd4412c821edde18123cb41.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "3b7bad44e4c92a4f56c7281ca6f34424e469a87f",
+          "pageCount": 34,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": {
+          "gitBlobSha1": "f3eb20ac66892bbd7b3e920d3c12a1af86dacf54",
+          "pageCount": 34,
+          "report": "reports/level1-4-english-building-binary-delivery-manifest-20261119.json"
+        }
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-warrior-with-claws",
+      "projectId": "level-4-warrior-with-claws",
+      "projectName": "Warrior With Claws",
+      "category": "Action-Oriented",
+      "variant": "basic",
+      "variantLabel": "Basic",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Basic Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b4b91bf84fde495b84f9b4abde0d3277.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "d1358a0c96d6c48022803df79634c7f34627105f",
+          "pageCount": 19,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    },
+    {
+      "variantId": "level-4-warrior-with-claws:optimized",
+      "projectId": "level-4-warrior-with-claws",
+      "projectName": "Warrior With Claws",
+      "category": "Action-Oriented",
+      "variant": "optimized",
+      "variantLabel": "Optimized",
+      "source": {
+        "kind": "official-building-registration",
+        "repositoryPath": "public/Level 4/Building/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Optimized Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_36b8b1568b9e4225879cb6695f626294.pdf",
+        "hostedPdfSha256": null,
+        "hostedPdfPageCount": null,
+        "hostedPdfIdentityVerified": false,
+        "hostedPdfEnglishVerified": false,
+        "priorRepositoryOriginal": {
+          "gitBlobSha1": "b083ef6fa3d617c1f34a9baab4bf683f26ec83db",
+          "pageCount": 13,
+          "report": "reports/level4-building-cover-audit-20261119.json"
+        },
+        "priorRepairedEnglishWix": null
+      },
+      "reference": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "cropNormalized": null,
+        "width": null,
+        "height": null,
+        "webpSha256": null,
+        "independentlyReviewed": false
+      },
+      "approval": {
+        "status": "blocked",
+        "reviewer": null,
+        "reviewedAt": null,
+        "reasonCodes": [
+          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
+          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
+          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
+          "WEBP_NOT_EXTRACTED_OR_DECODED",
+          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,514 @@
+{
+  "schemaVersion": 1,
+  "level": 4,
+  "asOf": "2026-11-23",
+  "baseCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+  "policy": "No checklists may be approved from a robot title, page filename or provisional generic categories; inspect each PDF variant before authoring five observable, evidence-linked questions.",
+  "summary": {
+    "variantRecords": 50,
+    "approvedChecklists": 0,
+    "blockedChecklists": 50
+  },
+  "records": [
+    {
+      "variantId": "level-4-a-timid-mouse",
+      "projectId": "level-4-a-timid-mouse",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-acoustic-control-lamp",
+      "projectId": "level-4-acoustic-control-lamp",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-architectural-design",
+      "projectId": "level-4-architectural-design",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-basketball-shooting-machine",
+      "projectId": "level-4-basketball-shooting-machine",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-biped-robot",
+      "projectId": "level-4-biped-robot",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-card-machine",
+      "projectId": "level-4-card-machine",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-card-reader",
+      "projectId": "level-4-card-reader",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-dancing-robot",
+      "projectId": "level-4-dancing-robot",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-dangerous-assassin",
+      "projectId": "level-4-dangerous-assassin",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-dangerous-assassin:optimized",
+      "projectId": "level-4-dangerous-assassin",
+      "variant": "optimized",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-drop-proof-robot",
+      "projectId": "level-4-drop-proof-robot",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-electric-piano",
+      "projectId": "level-4-electric-piano",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-elf-in-the-tree",
+      "projectId": "level-4-elf-in-the-tree",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-energy-detector",
+      "projectId": "level-4-energy-detector",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-guide-dogs",
+      "projectId": "level-4-guide-dogs",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-horizontal-bar",
+      "projectId": "level-4-horizontal-bar",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-induction-desk-lamp",
+      "projectId": "level-4-induction-desk-lamp",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-keeping-distance",
+      "projectId": "level-4-keeping-distance",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-laser-rangefinder",
+      "projectId": "level-4-laser-rangefinder",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-lucky-cat",
+      "projectId": "level-4-lucky-cat",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-magnetically-controlled-door",
+      "projectId": "level-4-magnetically-controlled-door",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-nocturnal-beetle",
+      "projectId": "level-4-nocturnal-beetle",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-obstacle-avoidance-in-snow",
+      "projectId": "level-4-obstacle-avoidance-in-snow",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-obstacle-avoidance-robot",
+      "projectId": "level-4-obstacle-avoidance-robot",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-obstacle-avoidance-robot-2",
+      "projectId": "level-4-obstacle-avoidance-robot-2",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-obstacle-avoiding-scorpion",
+      "projectId": "level-4-obstacle-avoiding-scorpion",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-oscillating-fan",
+      "projectId": "level-4-oscillating-fan",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-parts-sorter",
+      "projectId": "level-4-parts-sorter",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-password-box",
+      "projectId": "level-4-password-box",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-personal-bodyguard",
+      "projectId": "level-4-personal-bodyguard",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-radar-vehicle",
+      "projectId": "level-4-radar-vehicle",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-ranging-robot",
+      "projectId": "level-4-ranging-robot",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-reaction-tester",
+      "projectId": "level-4-reaction-tester",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-remote-control-car",
+      "projectId": "level-4-remote-control-car",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-scan-to-open-the-gate",
+      "projectId": "level-4-scan-to-open-the-gate",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-scorpion",
+      "projectId": "level-4-scorpion",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-skiing-robot",
+      "projectId": "level-4-skiing-robot",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-smart-curtain",
+      "projectId": "level-4-smart-curtain",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-smart-luggage",
+      "projectId": "level-4-smart-luggage",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-smart-speaker",
+      "projectId": "level-4-smart-speaker",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-spinning-cups",
+      "projectId": "level-4-spinning-cups",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-swimming-plesiosaur",
+      "projectId": "level-4-swimming-plesiosaur",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-tail-wagging-stegosaurus",
+      "projectId": "level-4-tail-wagging-stegosaurus",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-telegraph",
+      "projectId": "level-4-telegraph",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-telegraph-machine",
+      "projectId": "level-4-telegraph-machine",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-transformer-robot",
+      "projectId": "level-4-transformer-robot",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-tumbler",
+      "projectId": "level-4-tumbler",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-turbo-drop",
+      "projectId": "level-4-turbo-drop",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-warrior-with-claws",
+      "projectId": "level-4-warrior-with-claws",
+      "variant": "basic",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    },
+    {
+      "variantId": "level-4-warrior-with-claws:optimized",
+      "projectId": "level-4-warrior-with-claws",
+      "variant": "optimized",
+      "status": "blocked",
+      "questions": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "reason": "No individually inspected hosted Building-manual mechanism/finished-model evidence; exactly five source-backed questions must be authored and independently reviewed before approval."
+    }
+  ]
+}
