@@ -1,0 +1,2804 @@
+{
+  "schema": "be-stem-ready-final-build-level-2-audit-v1",
+  "date": "2026-11-23",
+  "basePr": 108,
+  "baseCommit": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+  "branch": "feat/final-build-level-2",
+  "status": "blocked-pending-independent-visual-source-review",
+  "counts": {
+    "syllabusProjects": 59,
+    "registeredBuildingProjects": 59,
+    "registeredManualVariants": 60,
+    "priorRemediatedMappings": 36,
+    "legacyMappings": 24,
+    "approved": 0,
+    "blocked": 60,
+    "unresolved": 0
+  },
+  "definitions": {
+    "blocked": "Missing required independent PDF-byte/visual verification or question/image approval; never eligible for student draw",
+    "unresolved": "Source inventory identity mapping not reconciled; currently zero",
+    "priorRemediatedMappings": "Historical restored-upload and Git-blob SHA-1 claims only, not current worker PDF-byte verification"
+  },
+  "notes": [
+    "Source IDs and URLs are derived from current PR #108 registry only. This is registration reconciliation, not live PDF verification.",
+    "59 syllabus projects, 60 registered variants: See Saw has two source manuals (Balance.pdf and Balance_v2.pdf).",
+    "43 Level 2 cleaned Learning PDFs are separate from the 60 Building candidates. The Double Beam Crane learning fallback is not a substitute Building reference.",
+    "No SHA-256, page count, PDF screenshot, WebP, or manual-specific checklist is claimed without actual source inspection.",
+    "Do not change global FinalBuildApprovals.json; integration worker owns the student gate."
+  ],
+  "variants": [
+    {
+      "level": 2,
+      "projectId": "level-2-axe-robot",
+      "variantId": "level-2-axe-robot",
+      "officialName": "Axe robot",
+      "category": "Action-Oriented",
+      "categoryId": "action-oriented",
+      "syllabusEntry": "Axe robot",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Axe robot_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9f9583daaf254686980490a8cde41384.pdf",
+        "mediaId": "7fc4ca_9f9583daaf254686980490a8cde41384",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-axe-robot--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-batting-robot",
+      "variantId": "level-2-batting-robot",
+      "officialName": "Batting robot",
+      "category": "Action-Oriented",
+      "categoryId": "action-oriented",
+      "syllabusEntry": "Batting robot",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Batting robot_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ba70dd634abd49cf95a1a0ad467911d2.pdf",
+        "mediaId": "7fc4ca_ba70dd634abd49cf95a1a0ad467911d2",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-batting-robot--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-fan-robot",
+      "variantId": "level-2-fan-robot",
+      "officialName": "Fan robot",
+      "category": "Action-Oriented",
+      "categoryId": "action-oriented",
+      "syllabusEntry": "Fan robot",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Fan robot_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0b1c8872fa7b4920a91101276c3da729.pdf",
+        "mediaId": "7fc4ca_0b1c8872fa7b4920a91101276c3da729",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-fan-robot--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-pirate-ship",
+      "variantId": "level-2-pirate-ship",
+      "officialName": "Pirate ship",
+      "category": "Action-Oriented",
+      "categoryId": "action-oriented",
+      "syllabusEntry": "Pirate ship",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Pirate ship_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_00644c98f0204033a9713840dfc58dbc.pdf",
+        "mediaId": "78042f_00644c98f0204033a9713840dfc58dbc",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "742622419638d99be016e612ba5ba1eae4d76416",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5bc63a64fdce4ec1b22fd20a04d372bc.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_00644c98f0204033a9713840dfc58dbc.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-pirate-ship--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-push-ups",
+      "variantId": "level-2-push-ups",
+      "officialName": "Push ups",
+      "category": "Action-Oriented",
+      "categoryId": "action-oriented",
+      "syllabusEntry": "Push ups",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Push ups_building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_af76a0de49e04957b283cc49438c5989.pdf",
+        "mediaId": "7fc4ca_af76a0de49e04957b283cc49438c5989",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-push-ups--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-rotating-flying-chair",
+      "variantId": "level-2-rotating-flying-chair",
+      "officialName": "Rotating flying chair",
+      "category": "Action-Oriented",
+      "categoryId": "action-oriented",
+      "syllabusEntry": "Rotating flying chair",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Rotating flying chair_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c3b083b9ebae4025b7d68017b64dd1aa.pdf",
+        "mediaId": "78042f_c3b083b9ebae4025b7d68017b64dd1aa",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "0eda57ae2bc959aca61c49703fc3373d131b7395",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bbb8d28b8454440688605b91e0456f68.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c3b083b9ebae4025b7d68017b64dd1aa.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-rotating-flying-chair--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-throwing-robot",
+      "variantId": "level-2-throwing-robot",
+      "officialName": "Throwing robot",
+      "category": "Action-Oriented",
+      "categoryId": "action-oriented",
+      "syllabusEntry": "Throwing robot",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Throwing robot_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_969f1f7595fa447c9e81598fd5d5a5dd.pdf",
+        "mediaId": "7fc4ca_969f1f7595fa447c9e81598fd5d5a5dd",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-throwing-robot--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-bee",
+      "variantId": "level-2-bee",
+      "officialName": "Bee",
+      "category": "Biomimicry",
+      "categoryId": "biomimicry",
+      "syllabusEntry": "Bee.pptx",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "BEE.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f2257130ccc54df8a8ea61f70e87fb91.pdf",
+        "mediaId": "78042f_f2257130ccc54df8a8ea61f70e87fb91",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "1abea2a1902ff6a704a56aa0d5968bd9b406d7e8",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f84820b9035b47b199b8816986e43f16.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f2257130ccc54df8a8ea61f70e87fb91.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-bee--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-chimpanzees",
+      "variantId": "level-2-chimpanzees",
+      "officialName": "Chimpanzees",
+      "category": "Biomimicry",
+      "categoryId": "biomimicry",
+      "syllabusEntry": "Chimpanzees.pptx",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Chimpanzees.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_faf03246048040b692f555249b32ad15.pdf",
+        "mediaId": "78042f_faf03246048040b692f555249b32ad15",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "74b5b054951fac6bbb3c8fd96ce74237074a74a3",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_90450b1048904ae69066d3680ce10320.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_faf03246048040b692f555249b32ad15.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-chimpanzees--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-mechanical-dog",
+      "variantId": "level-2-mechanical-dog",
+      "officialName": "Mechanical dog",
+      "category": "Characters & Structures",
+      "categoryId": "characters-structures",
+      "syllabusEntry": "Mechanical dog",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Mechanical dog.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_07f47f0b3c5c4a32b68f1152a8c02093.pdf",
+        "mediaId": "78042f_07f47f0b3c5c4a32b68f1152a8c02093",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "8dd115c7bdbc0dfd27a0d79244f7ec5db43e6b0b",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e5a00944617d42d58cad667d269d385b.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_07f47f0b3c5c4a32b68f1152a8c02093.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-mechanical-dog--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-scaling-ladder",
+      "variantId": "level-2-scaling-ladder",
+      "officialName": "Scaling ladder",
+      "category": "Characters & Structures",
+      "categoryId": "characters-structures",
+      "syllabusEntry": "Scaling ladder",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Scaling ladder.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_39cdb93334904fa18a188f9d5a2a7c96.pdf",
+        "mediaId": "78042f_39cdb93334904fa18a188f9d5a2a7c96",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "b519581c67658ca7ed5943a038708ec06674211a",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f7ae068a17e64c298e12488c95a98714.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_39cdb93334904fa18a188f9d5a2a7c96.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-scaling-ladder--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-tower-crane",
+      "variantId": "level-2-tower-crane",
+      "officialName": "Tower crane",
+      "category": "Characters & Structures",
+      "categoryId": "characters-structures",
+      "syllabusEntry": "Tower crane",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Tower crane_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_df23e113a7f7491a8a40730a0a1e5da9.pdf",
+        "mediaId": "78042f_df23e113a7f7491a8a40730a0a1e5da9",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "929597f5dffba314146eb44862df26fad317dcb5",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_70adbc4adab3415cac2d0495136d11a6.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_df23e113a7f7491a8a40730a0a1e5da9.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-tower-crane--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-crane",
+      "variantId": "level-2-crane",
+      "officialName": "Crane",
+      "category": "Construction & Industry",
+      "categoryId": "construction-industry",
+      "syllabusEntry": "Crane.pdf",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Crane.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e184994e3de4492485f3f6941b264a34.pdf",
+        "mediaId": "7fc4ca_e184994e3de4492485f3f6941b264a34",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-crane--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-fare-gate",
+      "variantId": "level-2-fare-gate",
+      "officialName": "Fare Gate",
+      "category": "Construction & Industry",
+      "categoryId": "construction-industry",
+      "syllabusEntry": "Fare Gate.pdf",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Fare Gate.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1010df902c5e4391a1e4c4af9281e8cb.pdf",
+        "mediaId": "7fc4ca_1010df902c5e4391a1e4c4af9281e8cb",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-fare-gate--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-forklift",
+      "variantId": "level-2-forklift",
+      "officialName": "Forklift",
+      "category": "Construction & Industry",
+      "categoryId": "construction-industry",
+      "syllabusEntry": "Forklift.pdf",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Forklift.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_72dd4dd12363460e91f259cfd012322c.pdf",
+        "mediaId": "7fc4ca_72dd4dd12363460e91f259cfd012322c",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-forklift--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-hammer-robot",
+      "variantId": "level-2-hammer-robot",
+      "officialName": "Hammer robot",
+      "category": "Foundational Robots",
+      "categoryId": "foundational-robots",
+      "syllabusEntry": "Hammer robot.pptx",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Hammer robot.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_976489b6546f4ab5a8f1723f2eadad2d.pdf",
+        "mediaId": "78042f_976489b6546f4ab5a8f1723f2eadad2d",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "d88e7aeef7235812336128d83a6120f66dc83039",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_09a4cf01602840b9bd6cc41b71dc5b10.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_976489b6546f4ab5a8f1723f2eadad2d.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-hammer-robot--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-lucky-turntable",
+      "variantId": "level-2-lucky-turntable",
+      "officialName": "Lucky turntable",
+      "category": "Foundational Robots",
+      "categoryId": "foundational-robots",
+      "syllabusEntry": "Lucky turntable.pptx",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Lucky turntable.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_80611a94450b4d62a6a2ea78e409db6e.pdf",
+        "mediaId": "78042f_80611a94450b4d62a6a2ea78e409db6e",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "90ecdd468a6e75504b37099ca6696d181382a12c",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_596584d30768430b9262fc2202c2e971.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_80611a94450b4d62a6a2ea78e409db6e.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-lucky-turntable--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-the-treadmill",
+      "variantId": "level-2-the-treadmill",
+      "officialName": "The treadmill",
+      "category": "Foundational Robots",
+      "categoryId": "foundational-robots",
+      "syllabusEntry": "The treadmill.pptx",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "The treadmill.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6c374dba007d41649bcb36c9cc9b168f.pdf",
+        "mediaId": "78042f_6c374dba007d41649bcb36c9cc9b168f",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "e9dba3aa4add16ae6a32a77e6d6ff17bc423705e",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6764f6c73d294e4e80fba8fe2ddbfea0.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6c374dba007d41649bcb36c9cc9b168f.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-the-treadmill--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-tightrope-walk",
+      "variantId": "level-2-tightrope-walk",
+      "officialName": "Tightrope walk",
+      "category": "Foundational Robots",
+      "categoryId": "foundational-robots",
+      "syllabusEntry": "Tightrope walk.pptx",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Tightrope walk.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9d342a952cad44c0a67abeb185a9870c.pdf",
+        "mediaId": "78042f_9d342a952cad44c0a67abeb185a9870c",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "65c3e1c4d4f529e45f7cf6721682f1318664b79b",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_43571888d44e4c7fbef045e0f0053549.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9d342a952cad44c0a67abeb185a9870c.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-tightrope-walk--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-manual-flashlight",
+      "variantId": "level-2-manual-flashlight",
+      "officialName": "Manual Flashlight",
+      "category": "Illumination & Signals",
+      "categoryId": "illumination-signals",
+      "syllabusEntry": "Manual Flashlight",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Flashlight_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0e2b16ec833946eaa67305b1b38fc319.pdf",
+        "mediaId": "78042f_0e2b16ec833946eaa67305b1b38fc319",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "3868875e6339b4e6713e7b074e98f713779dd629",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7c8d103b3d17438b95970d7d615a9432.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0e2b16ec833946eaa67305b1b38fc319.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-manual-flashlight--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-jumping-machine",
+      "variantId": "level-2-jumping-machine",
+      "officialName": "Jumping machine",
+      "category": "Interactive Mechanisms",
+      "categoryId": "interactive-mechanisms",
+      "syllabusEntry": "Jumping machine",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Jumping machine_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0d9f6f2dec834ead9e33b7c90d06e15f.pdf",
+        "mediaId": "78042f_0d9f6f2dec834ead9e33b7c90d06e15f",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "59f644717ed7455240e0eacaabeb73ed0098a3d8",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c97b811b43fa41af8c257e657fa242ac.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0d9f6f2dec834ead9e33b7c90d06e15f.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-jumping-machine--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-see-saw-v1",
+      "variantId": "level-2-see-saw-v1",
+      "officialName": "See Saw",
+      "category": "Interactive Systems",
+      "categoryId": "interactive-systems",
+      "syllabusEntry": "See Saw",
+      "variantLabel": "Version 1",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Balance.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b23c014f2a3446359a14032430ea48b8.pdf",
+        "mediaId": "78042f_b23c014f2a3446359a14032430ea48b8",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "fc3fa184708687887055bed12497c3f9be9cd515",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7a30d06baac841f9bceacd7e2350cb08.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b23c014f2a3446359a14032430ea48b8.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-see-saw-v1--v1.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-see-saw-v1",
+      "variantId": "level-2-see-saw-v2",
+      "officialName": "See Saw",
+      "category": "Interactive Systems",
+      "categoryId": "interactive-systems",
+      "syllabusEntry": "See Saw",
+      "variantLabel": "Version 2",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Balance_v2.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e349f1cbc2934e179872a23a815df844.pdf",
+        "mediaId": "78042f_e349f1cbc2934e179872a23a815df844",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "a94fc8f028b6936405f124b93e6b1fd8796a9164",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_39eb2700696a48ff851df498f6797d64.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e349f1cbc2934e179872a23a815df844.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-see-saw-v1--v2.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-tongs",
+      "variantId": "level-2-tongs",
+      "officialName": "Tongs",
+      "category": "Interactive Systems",
+      "categoryId": "interactive-systems",
+      "syllabusEntry": "Tongs",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Pliers.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2865bdb79f2c48f88386b685adc5bb8f.pdf",
+        "mediaId": "78042f_2865bdb79f2c48f88386b685adc5bb8f",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "fb30842584028de64cf628cc0ccc3eebb12d0636",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0eebf71d52864fa3ae4b3bae241f0c49.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2865bdb79f2c48f88386b685adc5bb8f.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-tongs--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-automatic-window",
+      "variantId": "level-2-automatic-window",
+      "officialName": "Automatic window",
+      "category": "Machines & Mechanisms",
+      "categoryId": "machines-mechanisms",
+      "syllabusEntry": "Automatic window.pptx",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Automatic window.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ab01dd19b27c4795a341e0ab8a5d80f1.pdf",
+        "mediaId": "78042f_ab01dd19b27c4795a341e0ab8a5d80f1",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "3a3995703be1fa8f6cc66c580f6dbe56c8c27244",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8c37f8edce7c4c00bd2c433d7634b6e9.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ab01dd19b27c4795a341e0ab8a5d80f1.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-automatic-window--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-dung-beetle",
+      "variantId": "level-2-dung-beetle",
+      "officialName": "Dung Beetle",
+      "category": "Machines & Mechanisms",
+      "categoryId": "machines-mechanisms",
+      "syllabusEntry": "Dung Beetle.pdf",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Dung Beetle.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_261fe72a555d48bb98887bc3b82aad10.pdf",
+        "mediaId": "7fc4ca_261fe72a555d48bb98887bc3b82aad10",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-dung-beetle--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-mobile-shot",
+      "variantId": "level-2-mobile-shot",
+      "officialName": "Mobile Shot",
+      "category": "Machines & Mechanisms",
+      "categoryId": "machines-mechanisms",
+      "syllabusEntry": "Mobile Shot.pdf",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Mobile Shot.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0333ba1c98af459d9eed14b149fe83d5.pdf",
+        "mediaId": "7fc4ca_0333ba1c98af459d9eed14b149fe83d5",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-mobile-shot--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-robot-war",
+      "variantId": "level-2-robot-war",
+      "officialName": "Robot war",
+      "category": "Machines & Mechanisms",
+      "categoryId": "machines-mechanisms",
+      "syllabusEntry": "Robot war.pptx",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Robot war.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_565442dd664f4d839b23319a3cf693c2.pdf",
+        "mediaId": "78042f_565442dd664f4d839b23319a3cf693c2",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "79333498bf300bc3a3a452d7728296f83ecc842d",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_870ea4b342b6416aba7c0cd82de84333.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_565442dd664f4d839b23319a3cf693c2.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-robot-war--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-rolling-shutter",
+      "variantId": "level-2-rolling-shutter",
+      "officialName": "Rolling Shutter",
+      "category": "Machines & Mechanisms",
+      "categoryId": "machines-mechanisms",
+      "syllabusEntry": "Rolling Shutter.pdf",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Rolling Shutter.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7d057cae078745938728560908990a5f.pdf",
+        "mediaId": "7fc4ca_7d057cae078745938728560908990a5f",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-rolling-shutter--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-track-rickshaw",
+      "variantId": "level-2-track-rickshaw",
+      "officialName": "Track Rickshaw",
+      "category": "Machines & Mechanisms",
+      "categoryId": "machines-mechanisms",
+      "syllabusEntry": "Track Rickshaw.pdf",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Track Rickshaw.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b6f90ccb25a34d1e8a6f67565fb2115a.pdf",
+        "mediaId": "7fc4ca_b6f90ccb25a34d1e8a6f67565fb2115a",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-track-rickshaw--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-car-steering",
+      "variantId": "level-2-car-steering",
+      "officialName": "Car Steering",
+      "category": "Manipulators",
+      "categoryId": "manipulators",
+      "syllabusEntry": "Car Steering.pptx",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Car Steering.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c8fe4c3cc3f147f3871f79cc6646bb3e.pdf",
+        "mediaId": "78042f_c8fe4c3cc3f147f3871f79cc6646bb3e",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "cd9b60ba4d0d80e8160192fbe8ae7abc1a28c7cf",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dc17cc81267944349df6ed40bdbc07c0.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c8fe4c3cc3f147f3871f79cc6646bb3e.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-car-steering--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-cliff-walk",
+      "variantId": "level-2-cliff-walk",
+      "officialName": "Cliff walk",
+      "category": "Manipulators",
+      "categoryId": "manipulators",
+      "syllabusEntry": "Cliff walk.pptx",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Cliff walk.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0506a47611384efc957ca1d9120301e7.pdf",
+        "mediaId": "78042f_0506a47611384efc957ca1d9120301e7",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "997b01642531a48355a2abe5d1320a50b5a6c10b",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c8cff61dae714d8aa5fbe5fa4338f835.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0506a47611384efc957ca1d9120301e7.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-cliff-walk--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-ferris-wheel",
+      "variantId": "level-2-ferris-wheel",
+      "officialName": "Ferris wheel",
+      "category": "Manipulators",
+      "categoryId": "manipulators",
+      "syllabusEntry": "Ferris wheel.pptx",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Ferris wheel.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e19ce390112d4687ba0f3e7c9ece89aa.pdf",
+        "mediaId": "78042f_e19ce390112d4687ba0f3e7c9ece89aa",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "75bec5b05105a9b87d3339ba10c4cd46b3110fa7",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f62af6173ce5478babe17f761a8eefd1.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e19ce390112d4687ba0f3e7c9ece89aa.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-ferris-wheel--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-round-trip-transportation",
+      "variantId": "level-2-round-trip-transportation",
+      "officialName": "Round-trip transportation",
+      "category": "Manipulators",
+      "categoryId": "manipulators",
+      "syllabusEntry": "Round-trip transportation.pptx",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Round-trip transportation.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_7b55e529ac684005bbbcca7dc25da110.pdf",
+        "mediaId": "78042f_7b55e529ac684005bbbcca7dc25da110",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "443a39cbb547a8a9b491f1d532c4d69ecdb4231e",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a8d743bbfcfe43479f86874462bb49f3.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_7b55e529ac684005bbbcca7dc25da110.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-round-trip-transportation--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-shift-gears",
+      "variantId": "level-2-shift-gears",
+      "officialName": "Shift gears",
+      "category": "Manipulators",
+      "categoryId": "manipulators",
+      "syllabusEntry": "Shift gears.pptx",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Shift gears.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_08aeb18334204c7fb65fcede60af5012.pdf",
+        "mediaId": "78042f_08aeb18334204c7fb65fcede60af5012",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "ec4a4e8428450ca2fd7db6a5ca5fc9fd8ee396b9",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e9177999e5ff4cb695f739e8f104ed89.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_08aeb18334204c7fb65fcede60af5012.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-shift-gears--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-bridge",
+      "variantId": "level-2-bridge",
+      "officialName": "Bridge",
+      "category": "Mechanisms & Simulators",
+      "categoryId": "mechanisms-simulators",
+      "syllabusEntry": "Bridge",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Bridge_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_65862b24eee445128168f5de4ee80ee1.pdf",
+        "mediaId": "78042f_65862b24eee445128168f5de4ee80ee1",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "823fab22170a2243a6593601350a7a5baedc2480",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_658c1006a3294e20b0d6b777a9f0d18e.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_65862b24eee445128168f5de4ee80ee1.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-bridge--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-mechanisms-simulators-crane",
+      "variantId": "level-2-mechanisms-simulators-crane",
+      "officialName": "Crane",
+      "category": "Mechanisms & Simulators",
+      "categoryId": "mechanisms-simulators",
+      "syllabusEntry": "Crane",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Crane_.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e899154e23df4b3ca5f313347744217c.pdf",
+        "mediaId": "78042f_e899154e23df4b3ca5f313347744217c",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "6df91bf8dd41076ed1026ee74be7070b3122f3f6",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2510982afea7462fb8c502e1d6e6d127.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e899154e23df4b3ca5f313347744217c.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-mechanisms-simulators-crane--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-door",
+      "variantId": "level-2-door",
+      "officialName": "Door",
+      "category": "Mechanisms & Simulators",
+      "categoryId": "mechanisms-simulators",
+      "syllabusEntry": "Door",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Door_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9f73091b93e9459fac2603819689b4ba.pdf",
+        "mediaId": "78042f_9f73091b93e9459fac2603819689b4ba",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "b784dbfd94d07c3142820d0e5d384370fd4fe159",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4fbd7efe2fa74925b72c937892367ac8.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9f73091b93e9459fac2603819689b4ba.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-door--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-double-beam-crane",
+      "variantId": "level-2-double-beam-crane",
+      "officialName": "Double Beam Crane",
+      "category": "Mechanisms & Simulators",
+      "categoryId": "mechanisms-simulators",
+      "syllabusEntry": "Double Beam Crane",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Double beam crane_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cf9221967f804769ad6e7d3d50c47eab.pdf",
+        "mediaId": "78042f_cf9221967f804769ad6e7d3d50c47eab",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "08499d01d01ad8181ff70509175d0fabf8f7954d",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_316b5bb5e1fb4a02870164f80b880f45.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cf9221967f804769ad6e7d3d50c47eab.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-double-beam-crane--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-gearbox",
+      "variantId": "level-2-gearbox",
+      "officialName": "Gearbox",
+      "category": "Mechanisms & Simulators",
+      "categoryId": "mechanisms-simulators",
+      "syllabusEntry": "Gearbox",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Gearbox_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_47fcd935e8894045b7b4017ab210183e.pdf",
+        "mediaId": "78042f_47fcd935e8894045b7b4017ab210183e",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "d36685c96cdddcb74ac98ea3f1751b9f55116faa",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1c4985676d1a428d925be899d03208d7.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_47fcd935e8894045b7b4017ab210183e.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-gearbox--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-hand-crank",
+      "variantId": "level-2-hand-crank",
+      "officialName": "Hand crank",
+      "category": "Mechanisms & Simulators",
+      "categoryId": "mechanisms-simulators",
+      "syllabusEntry": "Hand crank",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Hand crank_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_088e2b77a9a746fd9508de9054bf429d.pdf",
+        "mediaId": "78042f_088e2b77a9a746fd9508de9054bf429d",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "42ffa3111761e2de0fe0024ff7345c95291ec08b",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ee6f586059a242d3b50e1e34f6e11d30.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_088e2b77a9a746fd9508de9054bf429d.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-hand-crank--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-spinning-bike",
+      "variantId": "level-2-spinning-bike",
+      "officialName": "Spinning bike",
+      "category": "Mechanisms & Simulators",
+      "categoryId": "mechanisms-simulators",
+      "syllabusEntry": "Spinning bike",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Spinning bike_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_545ec9836f684200a380780cf94b3f6b.pdf",
+        "mediaId": "7fc4ca_545ec9836f684200a380780cf94b3f6b",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-spinning-bike--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-swing",
+      "variantId": "level-2-swing",
+      "officialName": "Swing",
+      "category": "Mechanisms & Simulators",
+      "categoryId": "mechanisms-simulators",
+      "syllabusEntry": "Swing",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Swing_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_79f268a64faf430cb97a7685c2a36780.pdf",
+        "mediaId": "7fc4ca_79f268a64faf430cb97a7685c2a36780",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-swing--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-treadmill",
+      "variantId": "level-2-treadmill",
+      "officialName": "Treadmill",
+      "category": "Mechanisms & Simulators",
+      "categoryId": "mechanisms-simulators",
+      "syllabusEntry": "Treadmill",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Treadmill_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7224ffa602fa4c4fbc370822909a57e0.pdf",
+        "mediaId": "7fc4ca_7224ffa602fa4c4fbc370822909a57e0",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-treadmill--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-animal-trap",
+      "variantId": "level-2-animal-trap",
+      "officialName": "Animal trap",
+      "category": "Mechanisms and Concepts",
+      "categoryId": "mechanisms-and-concepts",
+      "syllabusEntry": "Animal trap.pptx",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Animal trap.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c031b42bbda14028bf8a654778ceaa45.pdf",
+        "mediaId": "78042f_c031b42bbda14028bf8a654778ceaa45",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "d3817c2e738575e30efa8646640aeab17b499de9",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5d611ed2c78044969346f0e74579fcb5.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c031b42bbda14028bf8a654778ceaa45.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-animal-trap--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-headlights",
+      "variantId": "level-2-headlights",
+      "officialName": "Headlights",
+      "category": "Mechanisms and Concepts",
+      "categoryId": "mechanisms-and-concepts",
+      "syllabusEntry": "Headlights.pptx",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Headlights.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_a5ed1f1e93d543a886c753f87c0b6330.pdf",
+        "mediaId": "78042f_a5ed1f1e93d543a886c753f87c0b6330",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "b881202ec518483feab50e6968e9dc3691a0d399",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_51b392b3e3fe4756851db74a98bdc23c.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_a5ed1f1e93d543a886c753f87c0b6330.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-headlights--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-battery-robot",
+      "variantId": "level-2-battery-robot",
+      "officialName": "Battery robot",
+      "category": "Programming & Precise Control",
+      "categoryId": "programming-precise-control",
+      "syllabusEntry": "Battery robot",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Battery robot_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_707b4397bb0f43bcb07fc2c83735393a.pdf",
+        "mediaId": "7fc4ca_707b4397bb0f43bcb07fc2c83735393a",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-battery-robot--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-walking-robot",
+      "variantId": "level-2-walking-robot",
+      "officialName": "Walking robot",
+      "category": "Sensor-Focused Robots",
+      "categoryId": "sensor-focused-robots",
+      "syllabusEntry": "Walking robot",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Walking Robot.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b9e03b9e4fe64cf18c49fd214b63ef62.pdf",
+        "mediaId": "78042f_b9e03b9e4fe64cf18c49fd214b63ef62",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "0b9ade90acc26a3f8039a88def478349eff19683",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_fb0f761e88c741839e9471fcb0cdfd1a.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b9e03b9e4fe64cf18c49fd214b63ef62.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-walking-robot--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-led-scrolling-screen",
+      "variantId": "level-2-led-scrolling-screen",
+      "officialName": "LED Scrolling Screen",
+      "category": "Sensors",
+      "categoryId": "sensors",
+      "syllabusEntry": "LED Scrolling Screen.pdf",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "LED Scrolling Screen.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a2fff3a4801a47be8a23e3b9f5f0639b.pdf",
+        "mediaId": "7fc4ca_a2fff3a4801a47be8a23e3b9f5f0639b",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-led-scrolling-screen--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-led-signboard",
+      "variantId": "level-2-led-signboard",
+      "officialName": "LED Signboard",
+      "category": "Sensors",
+      "categoryId": "sensors",
+      "syllabusEntry": "LED Signboard.pdf",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "LED Signboard.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_aa9fb0b2f7da43ddaa2abe9cf4a6f930.pdf",
+        "mediaId": "7fc4ca_aa9fb0b2f7da43ddaa2abe9cf4a6f930",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-led-signboard--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-reverse-parking",
+      "variantId": "level-2-reverse-parking",
+      "officialName": "Reverse Parking",
+      "category": "Sensors",
+      "categoryId": "sensors",
+      "syllabusEntry": "Reverse Parking.pdf",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Reverse Parking.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_49c37ce0afb34f458a1cf2d85d2420f3.pdf",
+        "mediaId": "7fc4ca_49c37ce0afb34f458a1cf2d85d2420f3",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-reverse-parking--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-smart-window",
+      "variantId": "level-2-smart-window",
+      "officialName": "Smart Window",
+      "category": "Sensors",
+      "categoryId": "sensors",
+      "syllabusEntry": "Smart Window.pdf",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Smart Window.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a4b25d7ec56f46bf962394caff6e0b24.pdf",
+        "mediaId": "7fc4ca_a4b25d7ec56f46bf962394caff6e0b24",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-smart-window--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-spirograph",
+      "variantId": "level-2-spirograph",
+      "officialName": "Spirograph",
+      "category": "Sensors",
+      "categoryId": "sensors",
+      "syllabusEntry": "Spirograph.pdf",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Spirograph.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e8fcba505eba4c02900703d1dfa30ea1.pdf",
+        "mediaId": "7fc4ca_e8fcba505eba4c02900703d1dfa30ea1",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-spirograph--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-harp",
+      "variantId": "level-2-harp",
+      "officialName": "Harp",
+      "category": "Sound & Voice Interaction",
+      "categoryId": "sound-voice-interaction",
+      "syllabusEntry": "Harp",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Harp_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_127112d924ea469091806c1c47dce36b.pdf",
+        "mediaId": "78042f_127112d924ea469091806c1c47dce36b",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "06e478e8223ad72672f696d169af5fd401d405c9",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_26d86b62487d4698b04734faabe64380.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_127112d924ea469091806c1c47dce36b.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-harp--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-helicopter",
+      "variantId": "level-2-helicopter",
+      "officialName": "Helicopter",
+      "category": "Vehicles & Complex Movers",
+      "categoryId": "vehicles-complex-movers",
+      "syllabusEntry": "Helicopter",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Helicopter_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_84b18e894b42437bbed9e9a1aba5a761.pdf",
+        "mediaId": "7fc4ca_84b18e894b42437bbed9e9a1aba5a761",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-helicopter--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-lifting-door",
+      "variantId": "level-2-lifting-door",
+      "officialName": "Lifting door",
+      "category": "Vehicles & Complex Movers",
+      "categoryId": "vehicles-complex-movers",
+      "syllabusEntry": "Lifting door",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Lifting door_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cec9616801f946c2ae0043bc95f8a536.pdf",
+        "mediaId": "78042f_cec9616801f946c2ae0043bc95f8a536",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "bcacb16aaa15caf58dbfcbce704dc7eb56f95c5d",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1e7f6d01a2a540f39f9299b85bceac0c.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cec9616801f946c2ae0043bc95f8a536.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-lifting-door--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-teeterboard",
+      "variantId": "level-2-teeterboard",
+      "officialName": "Teeterboard",
+      "category": "Vehicles & Complex Movers",
+      "categoryId": "vehicles-complex-movers",
+      "syllabusEntry": "Teeterboard",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Teeterboard.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2178e928238b40e8afd79d03ec978435.pdf",
+        "mediaId": "78042f_2178e928238b40e8afd79d03ec978435",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "66845acdc2468e72600bbd096ea1cc7ca69f3966",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_398218310083422d9293e36dacf2a107.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2178e928238b40e8afd79d03ec978435.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-teeterboard--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-four-wheel-drive",
+      "variantId": "level-2-four-wheel-drive",
+      "officialName": "Four-wheel Drive",
+      "category": "Vehicles & Motion",
+      "categoryId": "vehicles-motion",
+      "syllabusEntry": "Four-wheel Drive.pdf",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Four-wheel Drive.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d0538e2fcd3e4f3f993382e30c0459af.pdf",
+        "mediaId": "7fc4ca_d0538e2fcd3e4f3f993382e30c0459af",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-four-wheel-drive--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-pedal-waterwheel",
+      "variantId": "level-2-pedal-waterwheel",
+      "officialName": "Pedal Waterwheel",
+      "category": "Vehicles & Motion",
+      "categoryId": "vehicles-motion",
+      "syllabusEntry": "Pedal Waterwheel.pdf",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Pedal Waterwheel.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_962a8bba8fcd4c419a5f4764781d4445.pdf",
+        "mediaId": "7fc4ca_962a8bba8fcd4c419a5f4764781d4445",
+        "sourceVersion": "legacy-wix-registry-2026-11-23",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": null
+      },
+      "image": {
+        "filename": "level-2-pedal-waterwheel--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    },
+    {
+      "level": 2,
+      "projectId": "level-2-tank",
+      "variantId": "level-2-tank",
+      "officialName": "Tank",
+      "category": "Vehicles & Motion",
+      "categoryId": "vehicles-motion",
+      "syllabusEntry": "Tank.pdf",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "type": "registered-building-manual",
+        "registryFilename": "Tank.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e9bdb4f105704dbe8e61d9025882d4b2.pdf",
+        "mediaId": "78042f_e9bdb4f105704dbe8e61d9025882d4b2",
+        "sourceVersion": "wix-repaired-record-2026-11-19",
+        "sha256": null,
+        "pageCount": null,
+        "actualFileAccessible": null,
+        "englishCleanedConfirmed": false,
+        "priorEvidence": {
+          "type": "historical-Wix-repaired-file-match",
+          "gitBlobSha1": "f086f4ffe0a71fb23e3b10b82981e3a1fac1b025",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_42ac4d1bbeea4a018e2b039f14b145ff.pdf",
+          "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e9bdb4f105704dbe8e61d9025882d4b2.pdf",
+          "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
+          "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
+        }
+      },
+      "image": {
+        "filename": "level-2-tank--standard.webp",
+        "pdfPage": null,
+        "crop": null,
+        "width": null,
+        "height": null,
+        "sha256": null,
+        "verified": false
+      },
+      "checklistEvidence": [],
+      "validation": {
+        "pass1": false,
+        "pass2": false,
+        "actualPdfByteInspection": false,
+        "pdfPageVisualInspection": false,
+        "webpReopened": false,
+        "checklistIndependentlyValidated": false
+      },
+      "status": "blocked",
+      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+    }
+  ]
+}
