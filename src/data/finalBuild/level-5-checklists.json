@@ -2011,6 +2011,55 @@
       "approved": true,
       "status": "approved",
       "questionSource": "Five independently reviewed visible robot construction features from exact hash-matched official Building PDF completed-model page; no assumed functionality"
+    },
+    {
+      "variantId": "level-5-remote-control-car",
+      "projectId": "level-5-remote-control-car",
+      "questions": [
+        {
+          "id": "level-5-remote-control-car-check-1",
+          "text": "Does the vehicle show a rectangular-screen controller seated above the rear structural frame?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-remote-control-car-check-2",
+          "text": "Are the two prominent dark tires mounted on opposite sides of the forward axle assembly?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-remote-control-car-check-3",
+          "text": "Does the front of the vehicle have two angled light-colored structural panels separated by a red element?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-remote-control-car-check-4",
+          "text": "Is the rectangular grey mechanical housing attached along the right side behind the front wheel?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-remote-control-car-check-5",
+          "text": "Are the red and blue connector elements visible where the right-side housing meets the central frame?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        }
+      ],
+      "approved": true,
+      "status": "approved",
+      "questionSource": "Five independently corroborated assembled-car features visible on exact official Building PDF page 20 and clean source-derived WebP"
     }
   ],
   "items": [
@@ -2703,10 +2752,51 @@
     {
       "variantId": "level-5-remote-control-car",
       "projectId": "level-5-remote-control-car",
-      "questions": [],
-      "approved": false,
-      "status": "blocked",
-      "reason": "Reference image not independently approved; manual artwork contains multi-view, annotations or ambiguous final assembly"
+      "questions": [
+        {
+          "id": "level-5-remote-control-car-check-1",
+          "text": "Does the vehicle show a rectangular-screen controller seated above the rear structural frame?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-remote-control-car-check-2",
+          "text": "Are the two prominent dark tires mounted on opposite sides of the forward axle assembly?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-remote-control-car-check-3",
+          "text": "Does the front of the vehicle have two angled light-colored structural panels separated by a red element?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-remote-control-car-check-4",
+          "text": "Is the rectangular grey mechanical housing attached along the right side behind the front wheel?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-remote-control-car-check-5",
+          "text": "Are the red and blue connector elements visible where the right-side housing meets the central frame?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        }
+      ],
+      "approved": true,
+      "status": "approved",
+      "questionSource": "Five independently corroborated assembled-car features visible on exact official Building PDF page 20 and clean source-derived WebP"
     },
     {
       "variantId": "level-5-runner",
