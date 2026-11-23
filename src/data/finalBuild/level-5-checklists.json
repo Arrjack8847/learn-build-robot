@@ -1,0 +1,368 @@
+{
+  "schemaVersion": 1,
+  "level": 5,
+  "sourceAudit": "src/data/finalBuild/level-5-audit.json",
+  "approvedChecklists": [],
+  "items": [
+    {
+      "variantId": "level-5-curling-game",
+      "projectId": "level-5-curling-game",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-curling-game:optimized",
+      "projectId": "level-5-curling-game",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-drawing-machine",
+      "projectId": "level-5-drawing-machine",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-firefly",
+      "projectId": "level-5-firefly",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-goalkeeper",
+      "projectId": "level-5-goalkeeper",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-spanish-bullfight",
+      "projectId": "level-5-spanish-bullfight",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-the-warrior",
+      "projectId": "level-5-the-warrior",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-magnetic-anti-theft-cabinet",
+      "projectId": "level-5-magnetic-anti-theft-cabinet",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-please-scan-to-ride",
+      "projectId": "level-5-please-scan-to-ride",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-smart-cash-register",
+      "projectId": "level-5-smart-cash-register",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-smart-guiding-car",
+      "projectId": "level-5-smart-guiding-car",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-lucky-prize-wheel",
+      "projectId": "level-5-lucky-prize-wheel",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-oil-pumping-unit",
+      "projectId": "level-5-oil-pumping-unit",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-swinging-shark",
+      "projectId": "level-5-swinging-shark",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-remote-control-car",
+      "projectId": "level-5-remote-control-car",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-runner",
+      "projectId": "level-5-runner",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-welcome-sign",
+      "projectId": "level-5-welcome-sign",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-car-lights",
+      "projectId": "level-5-car-lights",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-direction-indicator",
+      "projectId": "level-5-direction-indicator",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-magnetic-object-finder",
+      "projectId": "level-5-magnetic-object-finder",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-passenger-counter",
+      "projectId": "level-5-passenger-counter",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-big-pendulum",
+      "projectId": "level-5-big-pendulum",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-chairoplane",
+      "projectId": "level-5-chairoplane",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-crack-shot",
+      "projectId": "level-5-crack-shot",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-crack-shot:optimized",
+      "projectId": "level-5-crack-shot",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-kiddie-ride",
+      "projectId": "level-5-kiddie-ride",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-machine-gun",
+      "projectId": "level-5-machine-gun",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-revolving-door",
+      "projectId": "level-5-revolving-door",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-smart-turnstile",
+      "projectId": "level-5-smart-turnstile",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-top-scorer",
+      "projectId": "level-5-top-scorer",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-clothes-dryer",
+      "projectId": "level-5-clothes-dryer",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-remote-control-fan",
+      "projectId": "level-5-remote-control-fan",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-rescue-robot",
+      "projectId": "level-5-rescue-robot",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-barometric-sensor",
+      "projectId": "level-5-barometric-sensor",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-car-speed-detector",
+      "projectId": "level-5-car-speed-detector",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-facial-recognition-time-clock",
+      "projectId": "level-5-facial-recognition-time-clock",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-traffic-robot",
+      "projectId": "level-5-traffic-robot",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-swing-with-rhythm",
+      "projectId": "level-5-swing-with-rhythm",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-voice-control-snail",
+      "projectId": "level-5-voice-control-snail",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-voice-control-vehicle",
+      "projectId": "level-5-voice-control-vehicle",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-hexapod-robot",
+      "projectId": "level-5-hexapod-robot",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-light-chasing-car",
+      "projectId": "level-5-light-chasing-car",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-shopping-guide-robot",
+      "projectId": "level-5-shopping-guide-robot",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-voice-controlled-frog",
+      "projectId": "level-5-voice-controlled-frog",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    },
+    {
+      "variantId": "level-5-wind-up-car",
+      "projectId": "level-5-wind-up-car",
+      "questions": [],
+      "approved": false,
+      "status": "blocked",
+      "reason": "No five claims with independently verified official Building-PDF evidence pages"
+    }
+  ]
+}

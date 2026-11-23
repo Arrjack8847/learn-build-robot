@@ -1,0 +1,2613 @@
+{
+  "schemaVersion": 1,
+  "level": 5,
+  "preparedAt": "2026-11-23",
+  "repository": "Arrjack8847/learn-build-robot",
+  "baseCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+  "branch": "feat/final-build-level-5",
+  "sourceOfTruth": {
+    "curriculum": "src/data/levelFiveSixContent.ts",
+    "wixUrls": "src/data/levelFiveWixPdfUrls.ts",
+    "historicPathInventory": "reports/level5-building-link-only-paths-20261119.json",
+    "historicRepairs": "reports/level5-building-english-wix-links-20261119.json",
+    "laterCorrection": "reports/level5-6-building-independent-verification-20261120.json"
+  },
+  "counts": {
+    "syllabusProjects": 51,
+    "registeredBuildingProjects": 43,
+    "registeredBuildingVariants": 45,
+    "syllabusProjectsWithoutIndependentBuildingManual": 8,
+    "approvedVariants": 0,
+    "blockedVariants": 45
+  },
+  "sourceValidation": {
+    "registrationCrosscheckedAgainstGitTree": true,
+    "allFortyFiveMappedToWix": true,
+    "allFiveHistoricalRepairsKept": true,
+    "chairoplaneLatestNovember20Applied": true,
+    "actualHostedPdfBytesReverified": false,
+    "sha256ForAllVariants": false,
+    "individualFinishedModelVisuallyReviewed": false,
+    "notes": "SHA-1 Git blob IDs are provenance identifiers, not SHA-256. Historical Wix verification does not prove crop validity or independently certify every page as English-only."
+  },
+  "historicalReport": {
+    "reportDate": "2026-11-20",
+    "level5PagesReported": 1031,
+    "level5PdfCountReported": 45,
+    "wixInputsReportedMatching": 86,
+    "fullIndependentHumanVisualCertification": false
+  },
+  "excludedSyllabusProjects": [
+    {
+      "projectId": "level-5-super-trajectory-robot-3",
+      "projectTitle": "Super Trajectory Robot 3",
+      "reason": "No independent registered Building manual; supplemental Learning/project PDF is not a substitute"
+    },
+    {
+      "projectId": "level-5-super-trajectory-robot-4",
+      "projectTitle": "Super Trajectory Robot 4",
+      "reason": "No independent registered Building manual; supplemental Learning/project PDF is not a substitute"
+    },
+    {
+      "projectId": "level-5-tracking-car",
+      "projectTitle": "Tracking car",
+      "reason": "No independent registered Building manual; supplemental Learning/project PDF is not a substitute"
+    },
+    {
+      "projectId": "level-5-face-tracking",
+      "projectTitle": "Face tracking",
+      "reason": "No independent registered Building manual; supplemental Learning/project PDF is not a substitute"
+    },
+    {
+      "projectId": "level-5-autonomous-driving",
+      "projectTitle": "Autonomous driving",
+      "reason": "No independent registered Building manual; supplemental Learning/project PDF is not a substitute"
+    },
+    {
+      "projectId": "level-5-music-box",
+      "projectTitle": "Music box",
+      "reason": "No independent registered Building manual; supplemental Learning/project PDF is not a substitute"
+    },
+    {
+      "projectId": "level-5-traffic-signs",
+      "projectTitle": "Traffic signs",
+      "reason": "No independent registered Building manual; supplemental Learning/project PDF is not a substitute"
+    },
+    {
+      "projectId": "level-5-super-patrol-car",
+      "projectTitle": "Super patrol car",
+      "reason": "No independent registered Building manual; supplemental Learning/project PDF is not a substitute"
+    }
+  ],
+  "variants": [
+    {
+      "variantId": "level-5-curling-game",
+      "projectId": "level-5-curling-game",
+      "projectTitle": "Curling Game",
+      "categoryId": "action-oriented",
+      "variant": "basic",
+      "registeredSourcePath": "public/Level 5/Building/Action-Oriented/Curling Game/2. Curling Game-Basic Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0d49fe6b3d724a4db75120b0a174b491.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "a1c9ae03d2cd0c2a138b1dc4b91f4169aa25351e",
+        "sizeBytes": 9844939,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-curling-game-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-curling-game:optimized",
+      "projectId": "level-5-curling-game",
+      "projectTitle": "Curling Game",
+      "categoryId": "action-oriented",
+      "variant": "optimized",
+      "registeredSourcePath": "public/Level 5/Building/Action-Oriented/Curling Game/2. Curling Game-Optimized Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f0fb68b32d8f475fae53a3683eecff6b.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "a352f25d1f818f6ad250eaa0f89a11bf86d14a10",
+        "sizeBytes": 4950824,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-curling-game-optimized.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-drawing-machine",
+      "projectId": "level-5-drawing-machine",
+      "projectTitle": "Drawing Machine",
+      "categoryId": "action-oriented",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Action-Oriented/Drawing Machine/23. Drawing Machine-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7dd5a7fb9df942bbaaa8bcf29bbfb756.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "9e5caf7bc1ce290aa1af2df1c32713295edb85f5",
+        "sizeBytes": 12464758,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-drawing-machine-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-firefly",
+      "projectId": "level-5-firefly",
+      "projectTitle": "Firefly",
+      "categoryId": "action-oriented",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Action-Oriented/Firefly/02.Firefly-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_07c341d91fd24f6aa77c3024019856e7.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "6f45403af6a30a2963f3447143d49ae580651077",
+        "sizeBytes": 7957757,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-firefly-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-goalkeeper",
+      "projectId": "level-5-goalkeeper",
+      "projectTitle": "Goalkeeper",
+      "categoryId": "action-oriented",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Action-Oriented/Goalkeeper/23.Goalkeeper-Building Manual（with rubber band）.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0308c7aaf5aa4745a6e8fc0195bfcf26.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "2060acf57f87221187ed33a976948175b0048a1c",
+        "sizeBytes": 30642421,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-goalkeeper-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-spanish-bullfight",
+      "projectId": "level-5-spanish-bullfight",
+      "projectTitle": "Spanish Bullfight",
+      "categoryId": "action-oriented",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Action-Oriented/Spanish Bullfight/03.Spanish Bullfight-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ebe74e45dd4c40c1b8aa9be178947e9b.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "cba54570389c192fbaf13d9bb1ba0fe8cae5ea52",
+        "sizeBytes": 9498239,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [
+        {
+          "sourceReport": "reports/level5-building-english-wix-links-20261119.json",
+          "reportedAt": "2026-11-19",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0dc4563701a940ea8e6e4e34f05431dc.pdf",
+          "reportedRepairedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ebe74e45dd4c40c1b8aa9be178947e9b.pdf",
+          "reportedApprovedGitBlobSha1": "3bc2b5a8a9bb8c57b23d979f3aeddfce3af010c8",
+          "repairedPage": 6
+        }
+      ],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-spanish-bullfight-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-the-warrior",
+      "projectId": "level-5-the-warrior",
+      "projectTitle": "The Warrior",
+      "categoryId": "action-oriented",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Action-Oriented/The Warrior/22. The Warrior-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8b9dd440103a47bc92c71803d54551bb.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "aae0dc26dcbb6f99dd8d43ad63d483bca4bde8ae",
+        "sizeBytes": 8968942,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-the-warrior-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-magnetic-anti-theft-cabinet",
+      "projectId": "level-5-magnetic-anti-theft-cabinet",
+      "projectTitle": "Magnetic Anti-theft Cabinet",
+      "categoryId": "automation-security",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Automation & Security/Magnetic Anti-theft Cabinet/08. Magnetic Anti-theft Cabinet_Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1ea3c09df5604e7999aa1d011102abaf.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "5b08eaf615aabcc1b4d6767c6ac4ed31acc48d32",
+        "sizeBytes": 5824019,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-magnetic-anti-theft-cabinet-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-please-scan-to-ride",
+      "projectId": "level-5-please-scan-to-ride",
+      "projectTitle": "Please Scan to Ride",
+      "categoryId": "automation-security",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Automation & Security/Please Scan to Ride/03.Please Scan to Ride-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7ec4a85b05834973a9181981ca869388.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "3ec354a5564bc2ec666173da87d98c53de02163b",
+        "sizeBytes": 10140591,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-please-scan-to-ride-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-smart-cash-register",
+      "projectId": "level-5-smart-cash-register",
+      "projectTitle": "Smart Cash Register",
+      "categoryId": "automation-security",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Automation & Security/Smart Cash Register/02.Smart Cash Register-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_20999a71d2f74de5883dbfd3dbc68ae2.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "2838117dc5e3b62b074c5bd5d8e3f224396c3e70",
+        "sizeBytes": 14496472,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [
+        {
+          "sourceReport": "reports/level5-building-english-wix-links-20261119.json",
+          "reportedAt": "2026-11-19",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_cfbdc14ab4a840969122a4e262717032.pdf",
+          "reportedRepairedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_20999a71d2f74de5883dbfd3dbc68ae2.pdf",
+          "reportedApprovedGitBlobSha1": "b27254ab5ae6a3b0f907750944c38d433aae97f7",
+          "repairedPage": 20
+        }
+      ],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-smart-cash-register-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-smart-guiding-car",
+      "projectId": "level-5-smart-guiding-car",
+      "projectTitle": "Smart Guiding Car",
+      "categoryId": "autonomous-navigation-ranging",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Autonomous Navigation & Ranging/Smart Guiding Car/02. Smart Guiding Car -Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d71a85cfa8854b2d845f20b94cc2bde9.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "f950cc895c7288b9255863c46c1dfae4492fb680",
+        "sizeBytes": 5917225,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-smart-guiding-car-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-lucky-prize-wheel",
+      "projectId": "level-5-lucky-prize-wheel",
+      "projectTitle": "Lucky Prize Wheel",
+      "categoryId": "characters-structures",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Characters & Structures/Lucky Prize Wheel/21. Lucky Prize Wheel-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5880ab56288e4a79ba863ccf492736ef.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "997f2bfda55627fa33aff7c289e2199430083e53",
+        "sizeBytes": 7648447,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-lucky-prize-wheel-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-oil-pumping-unit",
+      "projectId": "level-5-oil-pumping-unit",
+      "projectTitle": "Oil Pumping Unit",
+      "categoryId": "characters-structures",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Characters & Structures/Oil Pumping Unit/21.Oil Pumping Unit-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_da533f077fa24766a89547658c803ca5.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "c04e9a7f4a1c322fa30e3dfbbc48cb984269388c",
+        "sizeBytes": 9148708,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-oil-pumping-unit-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-swinging-shark",
+      "projectId": "level-5-swinging-shark",
+      "projectTitle": "Swinging Shark",
+      "categoryId": "characters-structures",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Characters & Structures/Swinging Shark/03. Swinging Shark - Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_860c1f7bc18e4a61b5ef4f840c5923a6.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "0a9e0cfbecc7c11775357fc0c679fdf22cfc96d1",
+        "sizeBytes": 14247572,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-swinging-shark-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-remote-control-car",
+      "projectId": "level-5-remote-control-car",
+      "projectTitle": "Remote Control Car",
+      "categoryId": "display-movement",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Display & Movement/Remote Control Car/12.Remote Control Car-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfd708a9edbb495fa9c9e0940706928b.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "6bfbf17f1e1a3e0d0701b2a55d81820a8e98dc24",
+        "sizeBytes": 6771525,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-remote-control-car-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-runner",
+      "projectId": "level-5-runner",
+      "projectTitle": "Runner",
+      "categoryId": "display-movement",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Display & Movement/Runner/25.Runner -Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_52b355e05eca48c3b4f92539063e6daf.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "1259a49a971fc5ccc9651b1c5c1f7af9ca36eda2",
+        "sizeBytes": 8716884,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-runner-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-welcome-sign",
+      "projectId": "level-5-welcome-sign",
+      "projectTitle": "Welcome Sign",
+      "categoryId": "display-movement",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Display & Movement/Welcome Sign/08. Welcome Sign-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_96ebc23bd9694ade9e0f1acfa503a974.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "6bb08061338f5dbca693b4de3ac55074cdc276cb",
+        "sizeBytes": 5221625,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [
+        {
+          "sourceReport": "reports/level5-building-english-wix-links-20261119.json",
+          "reportedAt": "2026-11-19",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_663f0d3d38434658a65d7f60aaf495ba.pdf",
+          "reportedRepairedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_96ebc23bd9694ade9e0f1acfa503a974.pdf",
+          "reportedApprovedGitBlobSha1": "5ada5ba8b3e4fea89bea80837f9e32ab8dcb126c",
+          "repairedPage": 12
+        }
+      ],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-welcome-sign-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-car-lights",
+      "projectId": "level-5-car-lights",
+      "projectTitle": "Car Lights",
+      "categoryId": "illumination-signals",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Illumination & Signals/Car Lights/11. Car Lights-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2f81f715f082454293694017013a6bf3.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "64313e15f8126f3c3919bfd59170e13311548f78",
+        "sizeBytes": 12676515,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-car-lights-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-direction-indicator",
+      "projectId": "level-5-direction-indicator",
+      "projectTitle": "Direction Indicator",
+      "categoryId": "illumination-signals",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Illumination & Signals/Direction Indicator/06.Direction Indicator-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1ef43984ce3246c5a47a2d506462aeb3.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "7d9c4d21c283368825483ffbdb54269090468480",
+        "sizeBytes": 5723164,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-direction-indicator-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-magnetic-object-finder",
+      "projectId": "level-5-magnetic-object-finder",
+      "projectTitle": "Magnetic Object Finder",
+      "categoryId": "interactive-mechanisms",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Interactive Mechanisms/Magnetic Object Finder/07. Magnetic Object Finder-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c0aaa473fd414db18171424e5c4b8132.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "94148e14d60dce992de6207dae62c7f094be4cd4",
+        "sizeBytes": 3437837,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-magnetic-object-finder-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-passenger-counter",
+      "projectId": "level-5-passenger-counter",
+      "projectTitle": "Passenger Counter",
+      "categoryId": "interactive-mechanisms",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Interactive Mechanisms/Passenger Counter/14.Passenger Counter-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4a300e3072034964b9295c2f32c87c0d.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "201209e3fd39dff576888ca0f3125939139673c1",
+        "sizeBytes": 12174035,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-passenger-counter-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-big-pendulum",
+      "projectId": "level-5-big-pendulum",
+      "projectTitle": "Big Pendulum",
+      "categoryId": "mechanisms-simulators",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Mechanisms & Simulators/Big Pendulum/26. The Big Pendulum-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0223c6e5d9454de7b416aede2d4a72fe.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "9e9b88336217a4f6cecd67adb87d0906819e2832",
+        "sizeBytes": 8276004,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-big-pendulum-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-chairoplane",
+      "projectId": "level-5-chairoplane",
+      "projectTitle": "Chairoplane",
+      "categoryId": "mechanisms-simulators",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Mechanisms & Simulators/Chairoplane/27. Chairoplane-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f1161d0495ff427dac1089bb54520bc5.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "08c7fcfadc98f5b149268fc26c8926e182ec6ada",
+        "sizeBytes": 11579128,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [
+        {
+          "sourceReport": "reports/level5-building-english-wix-links-20261119.json",
+          "reportedAt": "2026-11-19",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_06054a7a075b4a05bbe4d2a9445d7564.pdf",
+          "reportedRepairedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9a8ea080f20d4148944d163f64db2731.pdf",
+          "reportedApprovedGitBlobSha1": "a866bd4cd98b2a6e21dae3aafa26636d656f39c1",
+          "repairedPage": 30
+        },
+        {
+          "sourceReport": "reports/level5-6-building-independent-verification-20261120.json",
+          "reportedAt": "2026-11-20",
+          "reportedRepairedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f1161d0495ff427dac1089bb54520bc5.pdf",
+          "reportedApprovedGitBlobSha1": "882d18b299f6b80c2e414f55dd1a41590d16c54a",
+          "repairedPage": 33,
+          "reportedPageCount": 34
+        }
+      ],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-chairoplane-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-crack-shot",
+      "projectId": "level-5-crack-shot",
+      "projectTitle": "Crack Shot",
+      "categoryId": "mechanisms-simulators",
+      "variant": "basic",
+      "registeredSourcePath": "public/Level 5/Building/Mechanisms & Simulators/Crack Shot/6. Crack Shot - Basic Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_593d79649e204933bc8b6ccc2186a9a7.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "0d7b05b81e933bbbf6614c01602e73b87a403bcf",
+        "sizeBytes": 27984913,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-crack-shot-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-crack-shot:optimized",
+      "projectId": "level-5-crack-shot",
+      "projectTitle": "Crack Shot",
+      "categoryId": "mechanisms-simulators",
+      "variant": "optimized",
+      "registeredSourcePath": "public/Level 5/Building/Mechanisms & Simulators/Crack Shot/6. Crack Shot - Optimized Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_835593144e5f475e995524016c5791d4.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "69ab2fb45921fc89ba70a4223e7ce60e7d4492c0",
+        "sizeBytes": 5685574,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-crack-shot-optimized.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-kiddie-ride",
+      "projectId": "level-5-kiddie-ride",
+      "projectTitle": "Kiddie Ride",
+      "categoryId": "mechanisms-simulators",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Mechanisms & Simulators/Kiddie Ride/16. Kiddie Ride-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3a22ab81d3654125b47d991d87311de8.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "e6dfcc9365a33d41b6abf0d5abc65b2b7652ced6",
+        "sizeBytes": 13479892,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-kiddie-ride-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-machine-gun",
+      "projectId": "level-5-machine-gun",
+      "projectTitle": "Machine Gun",
+      "categoryId": "mechanisms-simulators",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Mechanisms & Simulators/Machine Gun/10.Machine Gun-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f65e51bc47304554b99de3e3a96109cb.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "5cf32ac3e629f6878c778a9fe5a5f77661c2ffff",
+        "sizeBytes": 9608087,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [
+        {
+          "sourceReport": "reports/level5-building-english-wix-links-20261119.json",
+          "reportedAt": "2026-11-19",
+          "oldUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c301560155bd4209ba9cf1d3b9d6d84d.pdf",
+          "reportedRepairedUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f65e51bc47304554b99de3e3a96109cb.pdf",
+          "reportedApprovedGitBlobSha1": "4280fa96fd8be96bc662b4328860fe806d2bdbc5",
+          "repairedPage": 29
+        }
+      ],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-machine-gun-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-revolving-door",
+      "projectId": "level-5-revolving-door",
+      "projectTitle": "Revolving Door",
+      "categoryId": "mechanisms-simulators",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Mechanisms & Simulators/Revolving Door/15. Revolving Door-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_58a20bb51fe04b0bb88a79c21cd39dbd.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "de6cbe202aa71f35eac7d80a70454101ae31bbf4",
+        "sizeBytes": 7442633,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-revolving-door-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-smart-turnstile",
+      "projectId": "level-5-smart-turnstile",
+      "projectTitle": "Smart Turnstile",
+      "categoryId": "mechanisms-simulators",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Mechanisms & Simulators/Smart Turnstile/21.Smart Turnstile-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ab1ad4c6e53d4d12a4511bbdf9859e59.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "fff9477200442c25129207415d3d05a979542703",
+        "sizeBytes": 15196248,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-smart-turnstile-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-top-scorer",
+      "projectId": "level-5-top-scorer",
+      "projectTitle": "Top Scorer",
+      "categoryId": "mechanisms-simulators",
+      "variant": "basic",
+      "registeredSourcePath": "public/Level 5/Building/Mechanisms & Simulators/Top Scorer/8. Top Scorer - Basic Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_036af418ef5d43efbd1fee76ace25214.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "c47316c22140b78cc851527ccff6a2ff2152e6fc",
+        "sizeBytes": 10898760,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-top-scorer-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-clothes-dryer",
+      "projectId": "level-5-clothes-dryer",
+      "projectTitle": "Clothes Dryer",
+      "categoryId": "programming-precise-control",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Programming & Precise Control/Clothes Dryer/30. Clothes Dryer-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f11855087e0f499e819452ac4e1a8217.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "14f76a4acd17fec9081debd33c035357bae17e5e",
+        "sizeBytes": 5625683,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-clothes-dryer-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-remote-control-fan",
+      "projectId": "level-5-remote-control-fan",
+      "projectTitle": "Remote Control Fan",
+      "categoryId": "programming-precise-control",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Programming & Precise Control/Remote Control Fan/26. Remote Control Fan -Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_910aae7800fe4378acc4a2f438496e2d.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "6bceca1faca4cbbddc5e908180aa7c586a2290d8",
+        "sizeBytes": 6725482,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-remote-control-fan-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-rescue-robot",
+      "projectId": "level-5-rescue-robot",
+      "projectTitle": "Rescue Robot",
+      "categoryId": "programming-precise-control",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Programming & Precise Control/Rescue Robot/17.Rescue Robot -Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c1ac9b2b50a543ffa7b55c86d7526cfa.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "ec119a9932c85f2f83751b19ceae61300c9f970b",
+        "sizeBytes": 22713644,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-rescue-robot-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-barometric-sensor",
+      "projectId": "level-5-barometric-sensor",
+      "projectTitle": "Barometric Sensor",
+      "categoryId": "sensor-automation",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Sensor Automation/Barometric Sensor/17.Barometric Pressure Meter-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0c52ef39ac6f46b9885901549a9a7758.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "40e0f0fed1c3a699297d2028602a4a263f9e92bd",
+        "sizeBytes": 1783219,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-barometric-sensor-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-car-speed-detector",
+      "projectId": "level-5-car-speed-detector",
+      "projectTitle": "Car Speed Detector",
+      "categoryId": "sensor-focused-robots",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Sensor-Focused Robots/Car Speed Detector/11. Car Speed Detector-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d5695c0995354831b650cc411b9e4379.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "f9f62ff49e40279e599b2864e9b6ddf4f2ca5886",
+        "sizeBytes": 4882541,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-car-speed-detector-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-facial-recognition-time-clock",
+      "projectId": "level-5-facial-recognition-time-clock",
+      "projectTitle": "Facial Recognition Time Clock",
+      "categoryId": "sensor-focused-robots",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Sensor-Focused Robots/Facial Recognition Time Clock/28.Facial Recognition Time Clock-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfc2fffdf072479282e6a039a228b3e7.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "41d5560082aff7764d34ff8b7bdc34ce33851d3a",
+        "sizeBytes": 7378340,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-facial-recognition-time-clock-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-traffic-robot",
+      "projectId": "level-5-traffic-robot",
+      "projectTitle": "Traffic Robot",
+      "categoryId": "sensor-focused-robots",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Sensor-Focused Robots/Traffic Robot/20.Traffic Robot-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a2ef3a73102d4a1abb319dbde5312426.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "f364815f6ea7d3206a03388bebe8320983736d09",
+        "sizeBytes": 20450981,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-traffic-robot-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-swing-with-rhythm",
+      "projectId": "level-5-swing-with-rhythm",
+      "projectTitle": "Swing With Rhythm",
+      "categoryId": "sound-voice-interaction",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Sound & Voice Interaction/Swing With Rhythm/24. Swing With Rhythm-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f60b4b38a6ec45b7bc6c433d6ed005ef.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "5c9f3aaba4d533912b0ec22239d1edc2e5df1a12",
+        "sizeBytes": 6413671,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-swing-with-rhythm-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-voice-control-snail",
+      "projectId": "level-5-voice-control-snail",
+      "projectTitle": "Voice control snail",
+      "categoryId": "sound-voice-interaction",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Sound & Voice Interaction/Voice control snail/08.Voice control snail-building.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f87b9b12193f4f79a103d973e8a0fc02.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "af36928a9d005d5ec52f7c7cf9c628e80c075aad",
+        "sizeBytes": 8455258,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-voice-control-snail-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-voice-control-vehicle",
+      "projectId": "level-5-voice-control-vehicle",
+      "projectTitle": "Voice Control Vehicle",
+      "categoryId": "sound-voice-interaction",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Sound & Voice Interaction/Voice Control Vehicle/Voice Control Vehicle_Building.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4ee4d1d889f84492b41e9df408633906.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "2c0adb3bb7b022d36d20aed30fbc04997d4d647d",
+        "sizeBytes": 5255100,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-voice-control-vehicle-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-hexapod-robot",
+      "projectId": "level-5-hexapod-robot",
+      "projectTitle": "Hexapod Robot",
+      "categoryId": "vehicles-complex-movers",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Vehicles & Complex Movers/Hexapod Robot/21. Hexapod Robot-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9b13f62977964536baccbdb6475ab992.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "6a45d0e9aba0c11e45ee2ae867b485740fe3c5c5",
+        "sizeBytes": 18287080,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-hexapod-robot-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-light-chasing-car",
+      "projectId": "level-5-light-chasing-car",
+      "projectTitle": "Light Chasing Car",
+      "categoryId": "vehicles-complex-movers",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Vehicles & Complex Movers/Light Chasing Car/08.Light Chasing Car -Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_73ffdb62cb9b48fc88b6a6bffa376766.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "cae14adbf589a14c2c263e0caa1eb536ae46eeea",
+        "sizeBytes": 5896213,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-light-chasing-car-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-shopping-guide-robot",
+      "projectId": "level-5-shopping-guide-robot",
+      "projectTitle": "Shopping Guide Robot",
+      "categoryId": "vehicles-complex-movers",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Vehicles & Complex Movers/Shopping Guide Robot/14.Shopping Guide Robot-Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bff71ed1ef22474ea0f594983df8f1ea.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "451fdcfc670fbfab58967e0957bf0d8b2eba747b",
+        "sizeBytes": 5442250,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-shopping-guide-robot-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-voice-controlled-frog",
+      "projectId": "level-5-voice-controlled-frog",
+      "projectTitle": "Voice-controlled Frog",
+      "categoryId": "vehicles-complex-movers",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Vehicles & Complex Movers/Voice-controlled Frog/07.Voice-controlled Frog_Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_27e4fc2a7b2244b99caf14fe5f64c265.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "55486489a6570ac5464fe1575cca09a53ad54408",
+        "sizeBytes": 7297185,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-voice-controlled-frog-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    },
+    {
+      "variantId": "level-5-wind-up-car",
+      "projectId": "level-5-wind-up-car",
+      "projectTitle": "Wind-up Car",
+      "categoryId": "vehicles-complex-movers",
+      "variant": "official",
+      "registeredSourcePath": "public/Level 5/Building/Vehicles & Complex Movers/Wind-up Car/05.Wind-up Car_Building Manual.pdf",
+      "wixBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e48cd7638c15437a85ff1331e6f1ab5e.pdf",
+      "registeredGitObject": {
+        "gitBlobSha1": "e135c6d8456a61ff41d4518b8490af3d6c600c42",
+        "sizeBytes": 8572239,
+        "kind": "repository tracked source; not a SHA-256 or proof hosted Wix bytes match"
+      },
+      "reportedCorrectionHistory": [],
+      "hostedPdfVerification": {
+        "directDownloadAttempted": false,
+        "sha256": null,
+        "pageCount": null,
+        "liveBytesMatchedToRecordedRepair": null,
+        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+      },
+      "sourceInspection": {
+        "pageByPageVisual": false,
+        "finishedModelPage": null,
+        "normalizedCrop": null,
+        "completedModelIdentityConfirmed": false,
+        "englishOnlyCertified": false
+      },
+      "image": {
+        "plannedPath": "public/final-build/level-5/level-5-wind-up-car-basic.webp",
+        "generated": false,
+        "sha256": null,
+        "dimensions": null,
+        "reopenedAndValidated": false
+      },
+      "checklist": {
+        "questionsWithEvidence": 0,
+        "verified": false
+      },
+      "independentValidation": {
+        "sourceIdentity": "registered-only",
+        "imageAndCrop": "not-performed",
+        "questions": "not-performed"
+      },
+      "release": {
+        "approved": false,
+        "status": "blocked",
+        "blockedReasons": [
+          "Hosted PDF SHA-256 and exact page count unverified in current worker",
+          "Completed-model page and faithful crop not independently inspected",
+          "No original-image WebP exported and reopened",
+          "No five manual-evidenced assessment questions independently checked"
+        ]
+      }
+    }
+  ],
+  "studentScannerSelectableVariantIds": []
+}
