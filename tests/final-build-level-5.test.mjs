@@ -58,11 +58,17 @@ test("Level 5 inventory and 45 variants reconcile to official source paths",()=>
     assert.equal(row.registeredSourcePath,"public/"+item.path);
     assert.equal(row.wixBuildingPdfUrl,wix[item.path]);
     assert.match(row.registeredGitObject.gitBlobSha1,/^[0-9a-f]{40}$/);
+    assert.match(row.hostedPdfVerification.sha256,/^[0-9a-f]{64}$/);
+    assert.ok(Number.isSafeInteger(row.hostedPdfVerification.pageCount)&&row.hostedPdfVerification.pageCount>0);
     assert.ok(row.registeredGitObject.sizeBytes>0);
     assert.equal(row.projectTitle,item.project.title);
     assert.ok(refById.has(item.id) && checklistById.has(item.id));
   }
   assert.equal(audit.studentScannerSelectableVariantIds.length,audit.counts.approvedVariants);
+  assert.equal(audit.counts.approvedVariants,39);
+  assert.equal(audit.counts.blockedVariants,6);
+  assert.equal(refs.renderableApprovedReferences.length,39);
+  assert.equal(lists.approvedChecklists.length,39);
 });
 
 test("five repaired Wix URLs still use the authoritative repaired mapping",()=>{
@@ -133,6 +139,7 @@ test("all approval records are fail-closed until complete evidence exists",()=>{
   }
   assert.deepEqual([...approvedIds].sort(),[...audit.studentScannerSelectableVariantIds].sort());
   assert.equal(approvedIds.length,audit.counts.approvedVariants);
+  assert.equal(lists.items.reduce((sum,item)=>sum+item.questions.length,0),195);
   assert.equal(audit.counts.blockedVariants,45-approvedIds.length);
 });
 

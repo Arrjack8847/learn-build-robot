@@ -50,8 +50,9 @@ The 195 assessment prompts are **five observable assembly checks per approved ro
 
 - Source-registration assertions before first draft: **236 pass, 0 fail**.
 - Level 5 Node suite on original fail-closed audit: **5 tests passed**.
-- Updated Level 5 Node suite: **to be executed against this committed revision**, including full-WebP SHA-256 and 195-question consistency checks; record results after execution.
-- Independent PDF/WebP source and pixel comparison executed for the 39 retained candidates and exact-PDF identity confirmed for 45. All exported images reopened.
+- Updated Level 5 Node suite executed against commit `f236e26267ab0e475a32d9969b190aca8a8c51ae`: **5 tests passed, 0 failed**. This includes source identity, repaired links, Basic/Optimized variants, WebP existence/dimensions/hash, and 195 page-evidenced checks.
+- Independent PDF/WebP source and pixel comparison executed against the exact committed 39 images, verifying source SHA-256, source Git blob identity, exact page count, output SHA-256, dimensions and normalized crop. All 39 WebPs reopened successfully. Resized source crop to delivered WebP mean absolute pixel difference ranged **1.38–4.41** (threshold 24).
+- Final sandbox worktree reconciled **39 Git-tracked WebP assets** and **zero approved records with missing output files**. The six blocked IDs have no delivered student reference.
 - HTML/mobile viewport validation at 320 / 375 / 390 / 430 pixels: **not executed** under the existing no-Browser-Use restriction. Shared engine, scanner, persistent timer, question interaction and browser-access security belong to final integration worker.
 - GitHub Actions: **not invoked**. Browser Use: **not invoked**. Production and main: **untouched**.
 - Only Level 5-scoped files, WebPs, tests and this report changed.
@@ -61,3 +62,10 @@ The 195 assessment prompts are **five observable assembly checks per approved ro
 Level 5 **content approval** is stored in the three Level 5 manifests. The shared `finalBuildApprovals.json` remains controlled by the coordinated integration worker and was deliberately not edited. Therefore this branch **does not by itself enable 39 student exams in the existing shared scanner**. The integration worker must translate approved Level 5 references and checklists into the shared runtime approval gate and verify scanner/timer/responsiveness without altering these verified source objects.
 
 **Delivery status:** 39 evidence-backed Level 5 content candidates approved in isolated worker manifests; six blocked. Not a production release or a merged application. No blanket English-only or whole-course visual certification.
+
+## Final commit QA record
+
+- Validated delivery commit: `f236e26267ab0e475a32d9969b190aca8a8c51ae`.
+- `node --test tests/final-build-level-5.test.mjs`: **PASS — 5/5**.
+- Independent PDF/WebP comparison: **45/45 PDF SHA-256 + Git object checks, 39/39 image hashes/crops, 195/195 question evidence mappings, six blocked, zero mismatched source identities**.
+- This supplemental QA report commit changes the report/test only; no scanner, deployment or source PDF changes.
