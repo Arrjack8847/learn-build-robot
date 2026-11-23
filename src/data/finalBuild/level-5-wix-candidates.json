@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "purpose": "Candidate-only source evidence for six previously blocked Level 5 variants: three authentic finished-model WebPs hosted on Wix, three image-blocked, and zero student approvals.",
+  "purpose": "Level 5 verified integration: original 39 WebP URLs preserved, three new exact-source official finished-model candidates approved with 15 questions and mapped to Wix; three incomplete-source manuals still blocked",
   "recordedAt": "2026-11-23",
   "wixSite": {
     "name": "Steam",
@@ -10,13 +10,56 @@
     "file": "src/data/finalBuild/level-5-wix-image-urls.json",
     "blobShaAtPreparation": "a91003d468226e4bf29f05ebf6342cb0bc9c04f1",
     "approvedCount": 39,
-    "unchanged": true
+    "unchanged": true,
+    "original39Urls": {
+      "level-5-curling-game": "https://static.wixstatic.com/media/78042f_e24113c5bfda443a9b94cf62d1ca8f1b~mv2.webp",
+      "level-5-curling-game:optimized": "https://static.wixstatic.com/media/78042f_94e1c77557e9455eb8bb3bfc699ec225~mv2.webp",
+      "level-5-drawing-machine": "https://static.wixstatic.com/media/78042f_36ed80a994434d6891381215cd3bfe06~mv2.webp",
+      "level-5-firefly": "https://static.wixstatic.com/media/78042f_ed8d4d3addeb49f1ac628ab64e96ae05~mv2.webp",
+      "level-5-goalkeeper": "https://static.wixstatic.com/media/78042f_e8cd1be466f04d209e3293eccd662f0d~mv2.webp",
+      "level-5-spanish-bullfight": "https://static.wixstatic.com/media/78042f_551642956d70493ca120386e4012a369~mv2.webp",
+      "level-5-the-warrior": "https://static.wixstatic.com/media/78042f_7456cf1890e9405086c8ad6cfdf7609a~mv2.webp",
+      "level-5-magnetic-anti-theft-cabinet": "https://static.wixstatic.com/media/78042f_49df27dad03643f0936a423fb96661c7~mv2.webp",
+      "level-5-please-scan-to-ride": "https://static.wixstatic.com/media/78042f_9975fd4b097b448e8807d7dc5e9391a8~mv2.webp",
+      "level-5-smart-cash-register": "https://static.wixstatic.com/media/78042f_bf3426b7c88b4736afe9e2711200af94~mv2.webp",
+      "level-5-smart-guiding-car": "https://static.wixstatic.com/media/78042f_d6e126af73a3461db0bff7c8f80bfb87~mv2.webp",
+      "level-5-lucky-prize-wheel": "https://static.wixstatic.com/media/78042f_218c126c701e41c09af20adf03186387~mv2.webp",
+      "level-5-oil-pumping-unit": "https://static.wixstatic.com/media/78042f_8de3f5ce74b54c21a32ec7885bf5ba18~mv2.webp",
+      "level-5-swinging-shark": "https://static.wixstatic.com/media/78042f_b51df103bd8c41b68929d62c9676cbe9~mv2.webp",
+      "level-5-runner": "https://static.wixstatic.com/media/78042f_aab5afda845f44f692041f5591fd5230~mv2.webp",
+      "level-5-welcome-sign": "https://static.wixstatic.com/media/78042f_5672764d041d4df8ba9693d285ccd265~mv2.webp",
+      "level-5-car-lights": "https://static.wixstatic.com/media/78042f_49536cc4dd6c401a90b677fd1fae2878~mv2.webp",
+      "level-5-direction-indicator": "https://static.wixstatic.com/media/78042f_8ffff24a37f249b5857bf419b40b5e7a~mv2.webp",
+      "level-5-magnetic-object-finder": "https://static.wixstatic.com/media/78042f_4547d9dbe48a411393aa366dda1168b7~mv2.webp",
+      "level-5-passenger-counter": "https://static.wixstatic.com/media/78042f_8c02a5ea7450486fa829e856b286c765~mv2.webp",
+      "level-5-big-pendulum": "https://static.wixstatic.com/media/78042f_abfc617aaa18400482f2384090f64b51~mv2.webp",
+      "level-5-chairoplane": "https://static.wixstatic.com/media/78042f_cf167070f5a1466186fe2e3f882aa148~mv2.webp",
+      "level-5-crack-shot": "https://static.wixstatic.com/media/78042f_51ffb03cdc3346f8b575a67ebae6f35e~mv2.webp",
+      "level-5-kiddie-ride": "https://static.wixstatic.com/media/78042f_8ce05720af564c74bb8233863b79f44a~mv2.webp",
+      "level-5-revolving-door": "https://static.wixstatic.com/media/78042f_e38da8fcd7b84535b7fd37177e8a3ee5~mv2.webp",
+      "level-5-smart-turnstile": "https://static.wixstatic.com/media/78042f_5415400a6c5a45ddadfe67d6c250b4a1~mv2.webp",
+      "level-5-top-scorer": "https://static.wixstatic.com/media/78042f_63b13f422fae468194c7ecc408c74b25~mv2.webp",
+      "level-5-clothes-dryer": "https://static.wixstatic.com/media/78042f_c273183a4b5a4c2d9c3dfdb4000b5eb8~mv2.webp",
+      "level-5-remote-control-fan": "https://static.wixstatic.com/media/78042f_3dcb0a18b65040dfba8821c9683c8adb~mv2.webp",
+      "level-5-rescue-robot": "https://static.wixstatic.com/media/78042f_9b17a2c7fd55448b8de730c56012f8d3~mv2.webp",
+      "level-5-barometric-sensor": "https://static.wixstatic.com/media/78042f_545f8036d43a4c47995489c711cb3432~mv2.webp",
+      "level-5-car-speed-detector": "https://static.wixstatic.com/media/78042f_030520f2f7a2422fb17c21fe153fc8f6~mv2.webp",
+      "level-5-traffic-robot": "https://static.wixstatic.com/media/78042f_9b221d3b2d0e404ca5fd2a63586cc09c~mv2.webp",
+      "level-5-swing-with-rhythm": "https://static.wixstatic.com/media/78042f_352fd6dcb839427d989290feb7556831~mv2.webp",
+      "level-5-hexapod-robot": "https://static.wixstatic.com/media/78042f_9579c314d0f349e284058cebdadae3af~mv2.webp",
+      "level-5-light-chasing-car": "https://static.wixstatic.com/media/78042f_1fef652fd1de4735aa5523124aace493~mv2.webp",
+      "level-5-shopping-guide-robot": "https://static.wixstatic.com/media/78042f_904ceeff89cc4a468f91076726c3b373~mv2.webp",
+      "level-5-voice-controlled-frog": "https://static.wixstatic.com/media/78042f_c713f67e0c62440ab36cea54491f33e0~mv2.webp",
+      "level-5-wind-up-car": "https://static.wixstatic.com/media/78042f_e6ce32837a8143ee84eea65aab9246ec~mv2.webp"
+    },
+    "currentApprovedCount": 42,
+    "original39EntriesPreserved": true
   },
-  "status": "3_SOURCE_VERIFIED_WIX_READY_CANDIDATES_3_STILL_IMAGE_BLOCKED",
+  "status": "42_APPROVED_3_SOURCE_IMAGE_BLOCKED",
   "sourceOfTruth": "src/data/finalBuild/level-5-recovery-candidates.json on feat/final-build-level-5",
   "imageReady": 3,
   "wixReady": 3,
-  "studentApproved": 0,
+  "studentApproved": 3,
   "candidates": [
     {
       "variantId": "level-5-remote-control-car",
@@ -31,18 +74,18 @@
       "completedModelCrop": {
         "pdfPage": 20,
         "normalizedCoordinates": [
-          0.06,
-          0.08,
-          0.56,
-          0.94
+          0.061,
+          0.075,
+          0.669,
+          0.9
         ],
         "pageBoundsPoints": [
-          50.52,
-          47.68,
-          471.52,
-          560.24
+          51.362,
+          44.7,
+          563.298,
+          536.4
         ],
-        "visualJustification": "The isolated completed vehicle is the left-hand assembly on page 20; the separate remote controller is not part of the vehicle image."
+        "visualJustification": "Page 20 official source: assembled car isolated and printed page label removed by tightened source crop; 292/371 ORB feature-match inliers and robot-pixel mask mean absolute error 16.471 compared to exact PDF render. Normalized page crop bounds estimated from registration; exact source image SHA and Wix-served bytes verified."
       },
       "image": {
         "webpCreated": true,
@@ -50,35 +93,35 @@
         "sourcePage": 20,
         "dimensions": [
           550,
-          669
+          528
         ],
-        "sha256": "75a25bad77af8968c6ce83bf9344ccba393b44e6933ea8fb5b11985b8a30ab6d",
-        "sizeBytes": 37136,
-        "sourceRasterMeanAbsoluteError": 1.077,
+        "sha256": "6183ecc26f4162f548873a4d66c0df168762b4744d1d9800343cc49d8a04cf01",
+        "sizeBytes": 30234,
+        "sourceRasterMeanAbsoluteError": 16.471,
         "decoded": true
       },
       "wix": {
-        "mediaId": "78042f_0c2947266eb7486381448607a8aa7b07~mv2.webp",
-        "hostedUrl": "https://static.wixstatic.com/media/78042f_0c2947266eb7486381448607a8aa7b07~mv2.webp",
+        "mediaId": "78042f_852c62df18ec40ee83c9ccb7e25f7460~mv2.webp",
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_852c62df18ec40ee83c9ccb7e25f7460~mv2.webp",
         "operationStatus": "READY",
         "mediaState": "OK",
         "mimeType": "image/webp",
         "dimensions": [
           550,
-          669
+          528
         ],
-        "sourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/611de7f416539827d7eba93c2ac6cfd7bfec9f1b/public/final-build/level-5/level-5-remote-control-car-basic.webp",
+        "sourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/d0cde35909a841c8279ea2a120692a239e41ccef/public/final-build/level-5/level-5-remote-control-car-basic.webp",
         "publicVisibilityVerified": true,
         "cdnHttpStatus": 200,
         "cdnByteForByteSha256Verified": true,
         "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0"
       },
       "assessment": {
-        "independentlyApprovedQuestions": 0,
-        "studentApproved": false,
-        "selectable": false
+        "independentlyApprovedQuestions": 5,
+        "studentApproved": true,
+        "selectable": true
       },
-      "blocker": "Image candidate READY, but five source-backed checklist questions have not been independently verified, so not student-approved."
+      "blocker": null
     },
     {
       "variantId": "level-5-crack-shot:optimized",
@@ -200,7 +243,7 @@
           1317.21,
           767.98
         ],
-        "visualJustification": "Page 12 has a single completely assembled snail view on the blue background; crop excludes the unrelated single-part inset."
+        "visualJustification": "Page 12 illustrates one fully assembled snail, on a blue background; part-list icon inset is outside crop."
       },
       "image": {
         "webpCreated": true,
@@ -232,11 +275,11 @@
         "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0"
       },
       "assessment": {
-        "independentlyApprovedQuestions": 0,
-        "studentApproved": false,
-        "selectable": false
+        "independentlyApprovedQuestions": 5,
+        "studentApproved": true,
+        "selectable": true
       },
-      "blocker": "Image candidate READY, but five source-backed checklist questions have not been independently verified, so not student-approved."
+      "blocker": null
     },
     {
       "variantId": "level-5-voice-control-vehicle",
@@ -262,7 +305,7 @@
           1587,
           839.42
         ],
-        "visualJustification": "Page 10 step 23 shows the complete wheeled vehicle; crop excludes the other steps and part callout."
+        "visualJustification": "Page 10 step 23 has completed wheeled vehicle; crop includes wheels, supports and display and excludes extra instruction panels and page label."
       },
       "image": {
         "webpCreated": true,
@@ -294,24 +337,24 @@
         "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0"
       },
       "assessment": {
-        "independentlyApprovedQuestions": 0,
-        "studentApproved": false,
-        "selectable": false
+        "independentlyApprovedQuestions": 5,
+        "studentApproved": true,
+        "selectable": true
       },
-      "blocker": "Image candidate READY, but five source-backed checklist questions have not been independently verified, so not student-approved."
+      "blocker": null
     }
   ],
-  "imageWorkerCommit": "611de7f416539827d7eba93c2ac6cfd7bfec9f1b",
-  "qaEvidence": "reports/final-build-level-5-six-webp-recovery-evidence-20261123.json",
+  "imageWorkerCommit": "d0cde35909a841c8279ea2a120692a239e41ccef",
+  "qaEvidence": "reports/final-build-level-5-six-webp-recovery-evidence-20261123.json on feat/final-build-level-5",
   "questionCandidateHandoff": {
     "workerBranch": "feat/final-build-level-5",
     "manifestPath": "src/data/finalBuild/level-5-six-question-candidates.json",
     "candidateQuestionCount": 30,
     "completedModelSourcePrompts": 15,
     "instructionalStagePrompts": 15,
-    "independentlyApprovedQuestionCount": 0,
-    "approvedChecklistImports": 0,
-    "studentEligibilityChange": false
+    "independentlyApprovedQuestionCount": 15,
+    "approvedChecklistImports": 3,
+    "studentEligibilityChange": true
   },
   "finalRegressionNote": {
     "date": "2026-11-23",
