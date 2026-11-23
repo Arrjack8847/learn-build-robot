@@ -32,6 +32,8 @@ test("No independent approval is fabricated by Level 3's explicitly separate own
   assert.match(adapter, /completedAssemblyIndependentlyConfirmed !== false/);
   assert.match(adapter, /owner-authorized-candidate-not-independently-validated/);
   assert.match(adapter, /m\.hostedHttpStatus !== 200/);
+  assert.match(adapter, /m\.originalGitWebpSha256 !== m\.hostedSha256/);
+  assert.match(adapter, /m\.sourceGitByteLength !== m\.hostedBytes/);
   assert.match(adapter, /m\.mimeType !== "image\/webp"/);
   assert.match(adapter, /m\.operationStatus !== "READY"/);
   assert.match(adapter, /new Set\(row\.questions\.map\(q => q\.text\)\)\.size !== 5/);
