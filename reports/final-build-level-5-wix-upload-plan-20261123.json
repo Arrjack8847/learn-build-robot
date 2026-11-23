@@ -1,0 +1,527 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-23",
+  "status": "planned-not-uploaded",
+  "candidateSource": "PR #113 / feat/final-build-level-5",
+  "targetWixSiteId": null,
+  "constraint": "Choose Wix site before calling media upload. Never use files from six blocked variants.",
+  "uploadInstructions": "Upload all 39 sourceWebpUrl files to confirmed Wix Media Manager site as one batch. Record only READY static.wixstatic.com/media/*.webp URLs into src/data/finalBuild/level-5-wix-image-urls.json keyed by variantId. Independently check each hosted URL matches its source robot and variant.",
+  "totalApproved": 39,
+  "blocked": [
+    "level-5-remote-control-car",
+    "level-5-crack-shot:optimized",
+    "level-5-machine-gun",
+    "level-5-facial-recognition-time-clock",
+    "level-5-voice-control-snail",
+    "level-5-voice-control-vehicle"
+  ],
+  "uploads": [
+    {
+      "variantId": "level-5-curling-game",
+      "projectId": "level-5-curling-game",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-curling-game-basic.webp",
+      "sourceWebpSha256": "a48a513ab6e217bcf7916d3501ed1cceeb4d30a5fe8477e3d97b303735ad8660",
+      "sourcePdfSha256": "69fec3ce90446b24df5342e2f43d79d112fec4fc85171c40cc3ff67ce7429114",
+      "expectedDimensions": [
+        550,
+        500
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-curling-game:optimized",
+      "projectId": "level-5-curling-game",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-curling-game-optimized.webp",
+      "sourceWebpSha256": "ac3906079aecbff67cc6aea9dbc81699e1ed674307da98afc68a81d35d3575e4",
+      "sourcePdfSha256": "3ac68494ba5efc16b954e8a0037cb77810789763b997c86c4561dbf1b8e50774",
+      "expectedDimensions": [
+        550,
+        500
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-drawing-machine",
+      "projectId": "level-5-drawing-machine",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-drawing-machine-basic.webp",
+      "sourceWebpSha256": "84eface4b0899e2b8b39d1af7c2d9a83534714190e4ffa190f4c09b02d7eb1d6",
+      "sourcePdfSha256": "d8d76abdceb9675b1139d5e1d28ead5cc23a61dd5576e2dd59cd28527e538ccd",
+      "expectedDimensions": [
+        550,
+        410
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-firefly",
+      "projectId": "level-5-firefly",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-firefly-basic.webp",
+      "sourceWebpSha256": "67a9e622ef017b49a3fcccc605188577c57c994439a4d6bab4e326651d243c24",
+      "sourcePdfSha256": "877e35222fb351276e80a42dc539582c70df1d2858ab207faff026a6bdf818df",
+      "expectedDimensions": [
+        550,
+        292
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-goalkeeper",
+      "projectId": "level-5-goalkeeper",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-goalkeeper-basic.webp",
+      "sourceWebpSha256": "a998a972aecac2973aed4c27cadd06221d0b8f2e370db03c75c1112a50ba5dbe",
+      "sourcePdfSha256": "3583e37b7974007eed042c5ec4f2a92e7a637cd8a432ed99025927eaeb042829",
+      "expectedDimensions": [
+        550,
+        271
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-spanish-bullfight",
+      "projectId": "level-5-spanish-bullfight",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-spanish-bullfight-basic.webp",
+      "sourceWebpSha256": "6b59696483fad0b34762ec6d4c6cec208c9ac36be623dcc2623784cbda613899",
+      "sourcePdfSha256": "2fb7c95e214c21e3db6cf8bc499683861d565a7dd1110d345f680c9b8c4c5faf",
+      "expectedDimensions": [
+        510,
+        485
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-the-warrior",
+      "projectId": "level-5-the-warrior",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-the-warrior-basic.webp",
+      "sourceWebpSha256": "d46b82d0eb219bcb85c2b181e6e0fd0b13c0190645884f00acedd68fa8f2380c",
+      "sourcePdfSha256": "d86373df8de92b592c5766aad7aa1dfeb248f0e384b5fc27d3012141999e2af3",
+      "expectedDimensions": [
+        426,
+        530
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-magnetic-anti-theft-cabinet",
+      "projectId": "level-5-magnetic-anti-theft-cabinet",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-magnetic-anti-theft-cabinet-basic.webp",
+      "sourceWebpSha256": "cdb5ad16afabadd777a200da69118fe91d40576be6553d534a6d8f6aa3118991",
+      "sourcePdfSha256": "dc52c6f297173cbe965380965a447e1fcf5a0889ad3b783c56596e849204b8b6",
+      "expectedDimensions": [
+        530,
+        471
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-please-scan-to-ride",
+      "projectId": "level-5-please-scan-to-ride",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-please-scan-to-ride-basic.webp",
+      "sourceWebpSha256": "33cff92eca9a77e29b6034b20c5337dd7108fdf2581f058c903e27b12c265576",
+      "sourcePdfSha256": "2d300785d8b8f97352beb40ea674c9a5106fc565d71ff68975e6816ead43e739",
+      "expectedDimensions": [
+        499,
+        550
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-smart-cash-register",
+      "projectId": "level-5-smart-cash-register",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-smart-cash-register-basic.webp",
+      "sourceWebpSha256": "0a40019f07f132571853913c4b7161708fc777b70680605626e44dcd0e9f27b7",
+      "sourcePdfSha256": "b1aa21089f3bd9943771e3f9ba5025812a01d038403a87d6e82313cfe26db577",
+      "expectedDimensions": [
+        550,
+        542
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-smart-guiding-car",
+      "projectId": "level-5-smart-guiding-car",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-smart-guiding-car-basic.webp",
+      "sourceWebpSha256": "1d985841f703927f40da9f7f5fc1e84f6b1ff2e189396e46cdd6ffcb043a269e",
+      "sourcePdfSha256": "07df21e9bed6f5a4fbeec458ae4d415937d740e88724250a585253cd03d6a9c9",
+      "expectedDimensions": [
+        530,
+        510
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-lucky-prize-wheel",
+      "projectId": "level-5-lucky-prize-wheel",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-lucky-prize-wheel-basic.webp",
+      "sourceWebpSha256": "acbf45e57069fc6174272a60036cae9dbcbc75f68f072e1b21fdd34b02ec606b",
+      "sourcePdfSha256": "f8b2db54d370f09809541296577ae4b172b0736bcd8a42aa2a2f514f66bfd14b",
+      "expectedDimensions": [
+        459,
+        490
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-oil-pumping-unit",
+      "projectId": "level-5-oil-pumping-unit",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-oil-pumping-unit-basic.webp",
+      "sourceWebpSha256": "f864ac47ce64c53f82023d4dae229316639482530154a7061704012888510ad3",
+      "sourcePdfSha256": "9ecdbaa0f4f34ebd577b0e4710378096ae0979318d062378c29751e20448c408",
+      "expectedDimensions": [
+        550,
+        324
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-swinging-shark",
+      "projectId": "level-5-swinging-shark",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-swinging-shark-basic.webp",
+      "sourceWebpSha256": "4e3f0962b421ead32c37ab0ed6ab81f67b7488d114dddbf2bdd6c20809aecf48",
+      "sourcePdfSha256": "ed617c57df965302c8a352b39bfdc0397effa02215f20e82054a9ece14b23e99",
+      "expectedDimensions": [
+        550,
+        421
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-runner",
+      "projectId": "level-5-runner",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-runner-basic.webp",
+      "sourceWebpSha256": "77a57f5e4ea7593f778cb88580447eb183f183f4230a3f47beb2e37692b2aef3",
+      "sourcePdfSha256": "733855b3e2cdc95f2933acfb7f04ef1322bb0735d52b4fe087b5fb12c359b92e",
+      "expectedDimensions": [
+        510,
+        448
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-welcome-sign",
+      "projectId": "level-5-welcome-sign",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-welcome-sign-basic.webp",
+      "sourceWebpSha256": "c4515c383fdbffb8e7c802de7c3a7e86dc0bb7ccaa8b6cdcf5013f8d19b1e376",
+      "sourcePdfSha256": "b4e1133a64e190d574289e47a02c2d1d6912e8f57a00074ea576635b0ade6ee8",
+      "expectedDimensions": [
+        430,
+        550
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-car-lights",
+      "projectId": "level-5-car-lights",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-car-lights-basic.webp",
+      "sourceWebpSha256": "d1248f80409a6390d4c804538488772c4a20de6583e0b822bad58dd4f977e799",
+      "sourcePdfSha256": "dfeeef3bc3767dd407d9b2f6702c68b97436bbc056a36473b7276ffb79bb33cb",
+      "expectedDimensions": [
+        550,
+        508
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-direction-indicator",
+      "projectId": "level-5-direction-indicator",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-direction-indicator-basic.webp",
+      "sourceWebpSha256": "0ad1aec96adf2e5c39e0ec867661acd974bf6f3f0af099238a123db49acfb7bc",
+      "sourcePdfSha256": "1cf36f5611f01f664f4a3f5136b7d641d22040bde35dbd282bb921ae34385d8b",
+      "expectedDimensions": [
+        536,
+        550
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-magnetic-object-finder",
+      "projectId": "level-5-magnetic-object-finder",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-magnetic-object-finder-basic.webp",
+      "sourceWebpSha256": "f07583d21cab0c89e2ab1bd255e9af22d6529623bf80f086f9771fce60aadb96",
+      "sourcePdfSha256": "8e417179e26d128148da81cf550ac751f8b31d70bb53163a24e776f3cf9e2712",
+      "expectedDimensions": [
+        386,
+        550
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-passenger-counter",
+      "projectId": "level-5-passenger-counter",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-passenger-counter-basic.webp",
+      "sourceWebpSha256": "cd7c0e1cb3f70fcdbc84ea2fa90bea226ac9a71d2c5f08d7900f159599ce845d",
+      "sourcePdfSha256": "fea987e7a68c269a644d886991eb2cc7a72f241c3f7963308fc8c326dd2403be",
+      "expectedDimensions": [
+        510,
+        485
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-big-pendulum",
+      "projectId": "level-5-big-pendulum",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-big-pendulum-basic.webp",
+      "sourceWebpSha256": "4b36db7fb11f88b91489735a81258f8f1f44eac6da8fff4f5a7f2bb7bc5ba8f0",
+      "sourcePdfSha256": "ed4095a6fc7dfcc55500c8b09500e5c538034cbdd9c7bdcc986389fddf16fab0",
+      "expectedDimensions": [
+        392,
+        550
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-chairoplane",
+      "projectId": "level-5-chairoplane",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-chairoplane-basic.webp",
+      "sourceWebpSha256": "157bdaecbaa8932937917f77f78fe7b46303b563d449f27996a8a3604218bc03",
+      "sourcePdfSha256": "20a2fab8ca0a1eec52ba0d9a61bc5df257e5ad477ba98f6df8f105bf1bccabaa",
+      "expectedDimensions": [
+        526,
+        550
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-crack-shot",
+      "projectId": "level-5-crack-shot",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-crack-shot-basic.webp",
+      "sourceWebpSha256": "a85a92badaec95498ca0424cf9aae24215339f5eb698290ec56feaebbbbb691d",
+      "sourcePdfSha256": "ae703af31b495b83d6c3c3eb93338e927cf4fe42ca58648923081c058a65fc35",
+      "expectedDimensions": [
+        550,
+        388
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-kiddie-ride",
+      "projectId": "level-5-kiddie-ride",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-kiddie-ride-basic.webp",
+      "sourceWebpSha256": "6516c4715586594e5b7a978e5b1c92fa98dae0b6c2de922c29b0d0e92919cbbe",
+      "sourcePdfSha256": "94d80f4cfc3d188a1bd14ea31658f6420634b3e17302756668b06b5aca20b07c",
+      "expectedDimensions": [
+        497,
+        530
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-revolving-door",
+      "projectId": "level-5-revolving-door",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-revolving-door-basic.webp",
+      "sourceWebpSha256": "dd2176e6eff84c23819a412c28b3a63123924aac2725ffe8b5ef3c2fa75b59cf",
+      "sourcePdfSha256": "877e5e57c306bfd5b08c58703044c46607b9fb3fa19208e7c65e7de7588bfe92",
+      "expectedDimensions": [
+        430,
+        429
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-smart-turnstile",
+      "projectId": "level-5-smart-turnstile",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-smart-turnstile-basic.webp",
+      "sourceWebpSha256": "aeb16ed58db5ea25aa6ab6e5426fb389c288a033fde6c1837a4356c8f5847b60",
+      "sourcePdfSha256": "746b3b42bd8aa31804a51ca4b4a0a3646791833aba3dc19e20d8ed3dd4cb873a",
+      "expectedDimensions": [
+        447,
+        510
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-top-scorer",
+      "projectId": "level-5-top-scorer",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-top-scorer-basic.webp",
+      "sourceWebpSha256": "8a1c2e1497f1cd9473ad1ba7b0918d91ed9acf707ad5cb88b3b508f4223d7ff2",
+      "sourcePdfSha256": "0da9d05afc288e9a996a79951fd69c3b5d28e8bb52f783a8d10aaf59f558945b",
+      "expectedDimensions": [
+        427,
+        550
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-clothes-dryer",
+      "projectId": "level-5-clothes-dryer",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-clothes-dryer-basic.webp",
+      "sourceWebpSha256": "04ccd56f2e1daaf9a358a9df7a2cc3cb64f61ff37edd7393fc873311dfa2cc48",
+      "sourcePdfSha256": "968cb80948d46d51c5c2f950b518a22e60e11a299aa83cd80df8b9c4b790c0bb",
+      "expectedDimensions": [
+        530,
+        469
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-remote-control-fan",
+      "projectId": "level-5-remote-control-fan",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-remote-control-fan-basic.webp",
+      "sourceWebpSha256": "2c2fe2864aa34e372fa6d58b279f1bec2ed5584894724bb5ee155c5e8d18cd52",
+      "sourcePdfSha256": "fce33182b0cffe97c729d6f6104de56b4dfaf78843723c1f999fc41945f7b66e",
+      "expectedDimensions": [
+        550,
+        451
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-rescue-robot",
+      "projectId": "level-5-rescue-robot",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-rescue-robot-basic.webp",
+      "sourceWebpSha256": "a3232eea0d6d88810b8211202b9677ebac1d0f7ca58f00feb2d3d65e37b27e1a",
+      "sourcePdfSha256": "c72584a1045fe7c8981fe0b1dde3201463281a603b358309942e2500b618ccee",
+      "expectedDimensions": [
+        510,
+        505
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-barometric-sensor",
+      "projectId": "level-5-barometric-sensor",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-barometric-sensor-basic.webp",
+      "sourceWebpSha256": "6d75b5b3bc4319864d128d2afeb144dd742efecfb3d1b6694ec877632438cd5c",
+      "sourcePdfSha256": "fb8f9ad6358f631fd25cdbbf86b073d1c7fc69765658ceeb2087e71682320c93",
+      "expectedDimensions": [
+        369,
+        550
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-car-speed-detector",
+      "projectId": "level-5-car-speed-detector",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-car-speed-detector-basic.webp",
+      "sourceWebpSha256": "7ea2703e60186e13de9f7f44e53d04b75deea2484457ff018c2ab9ac15269798",
+      "sourcePdfSha256": "b2b72b8696b5b5412573452e9b1b8fc598cee1958e4e4e16ffe37a81836ef5fe",
+      "expectedDimensions": [
+        372,
+        550
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-traffic-robot",
+      "projectId": "level-5-traffic-robot",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-traffic-robot-basic.webp",
+      "sourceWebpSha256": "b0a69e55726a90e090688b05f2288225350e15414ee7241cb64b16befcb79954",
+      "sourcePdfSha256": "0b358bdf4d53b1f8652e617a25c9598ff0072cf11d66277924e365aefa394358",
+      "expectedDimensions": [
+        510,
+        481
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-swing-with-rhythm",
+      "projectId": "level-5-swing-with-rhythm",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-swing-with-rhythm-basic.webp",
+      "sourceWebpSha256": "2e8d3c1284da1235e64acf45e997a8ec95161dd9cdfd0f32fc6fdcbcc204335b",
+      "sourcePdfSha256": "3ae26ba14d70fcd4b1cf56290474f34ef19db84dddbf2c6f0675e6b2d7f94ba8",
+      "expectedDimensions": [
+        550,
+        532
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-hexapod-robot",
+      "projectId": "level-5-hexapod-robot",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-hexapod-robot-basic.webp",
+      "sourceWebpSha256": "bdbf1f905c5aaf1726968cd67e2196037c6d08f4d93db4d0c18226fb46097b3f",
+      "sourcePdfSha256": "1eb38f89a39511c305c0f4a77f328962e8964685f9e2b2ce5d8b7f77d6871d20",
+      "expectedDimensions": [
+        550,
+        497
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-light-chasing-car",
+      "projectId": "level-5-light-chasing-car",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-light-chasing-car-basic.webp",
+      "sourceWebpSha256": "04179b7f9d9e83a72f15241a7d875f6cb10e4288899a85a92df8d84b6589b647",
+      "sourcePdfSha256": "31e2d6a65293d4cd1dcc6ba32760da74ae41063ea95e1ce6558c1d46d56f3ad3",
+      "expectedDimensions": [
+        510,
+        510
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-shopping-guide-robot",
+      "projectId": "level-5-shopping-guide-robot",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-shopping-guide-robot-basic.webp",
+      "sourceWebpSha256": "4e6a64afa578429244aa2cd760d4968c24fdc330cf10a0c77edec7f56acac7a6",
+      "sourcePdfSha256": "1433c669bd02c894a1f070c2ff45fafc400470aeb67111891f39ab5a557ce67a",
+      "expectedDimensions": [
+        382,
+        550
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-voice-controlled-frog",
+      "projectId": "level-5-voice-controlled-frog",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-voice-controlled-frog-basic.webp",
+      "sourceWebpSha256": "5747753692a55090610e5999b30817e3562b90c66c3cf90bd8546d5a20aad923",
+      "sourcePdfSha256": "299daab9b39419d8d59ae5db522985201d43ab8c6ff720841fb628683823de3f",
+      "expectedDimensions": [
+        530,
+        512
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    },
+    {
+      "variantId": "level-5-wind-up-car",
+      "projectId": "level-5-wind-up-car",
+      "sourceWebpUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-wind-up-car-basic.webp",
+      "sourceWebpSha256": "ff88a539e880c4fcf66adbe99d02d971a756c1bba64053841071621e8ccc235c",
+      "sourcePdfSha256": "a185d96a68e58bb288ae0fe60f36eb2f858c595320b1e0194fad695c10408523",
+      "expectedDimensions": [
+        550,
+        540
+      ],
+      "wixUrl": null,
+      "uploadStatus": "not-uploaded"
+    }
+  ]
+}
