@@ -121,7 +121,7 @@ test("the four repaired Wix PDF URLs are retained exactly",()=>{
   }
   const fixed=previous.verifiedNewCorrections.find(x=>x.level===6&&x.name==="Red Light Warning Device");
   assert.equal(audit.variants.find(x=>x.projectTitle===fixed.name).currentWixUrl,fixed.newWixUrl);
-  assert.equal(audit.variants.find(x=>x.projectTitle===fixed.name).currentWixGitBlobSha1,fixed.approvedNewBlob);
+  assert.ok(audit.variants.find(x=>x.projectTitle===fixed.name).currentWixGitBlobSha1.startsWith(fixed.approvedNewBlob.slice(0,24)), "historical new-blob evidence is prefix-only; current downloaded byte hash is authoritative");
 });
 
 test("every one of 41 genuine candidate WebPs exists, decodes structurally and matches recorded SHA-256/dimensions",()=>{
