@@ -1,0 +1,393 @@
+{
+  "schemaVersion": 1,
+  "level": 3,
+  "date": "2026-11-23",
+  "source": "Live signed original Wix file downloads; cryptographic hashes of full byte arrays",
+  "notes": "pdfPageObjectCount is a structural uncompressed-object count; separate independent visual page checks remain required. No approvals.",
+  "records": [
+    {
+      "id": "7fc4ca_b48d0f629fe1421bb4fc4c488a0dce95.pdf",
+      "filename": "Clip robot_Building.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b48d0f629fe1421bb4fc4c488a0dce95.pdf",
+      "expectedPages": 30,
+      "historicalBlob": "a5b7ceb46d32842808328d9d0b613d0ea9130157",
+      "status": "downloaded-valid-pdf",
+      "bytes": 11186721,
+      "sha256": "5bcac8acc6893fb9180fbf24562ef3f591642dc751440cac42701b308944f28c",
+      "calculatedGitBlobSha1": "a5b7ceb46d32842808328d9d0b613d0ea9130157",
+      "githubSourceMatches": true,
+      "pageObjectCount": 30,
+      "pdfPageTreeCounts": [
+        30
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 364,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_6a2df8f4cfff475897c187a70755bff6.pdf",
+      "filename": "3. Cycle Sport-Basic Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6a2df8f4cfff475897c187a70755bff6.pdf",
+      "expectedPages": 21,
+      "historicalBlob": "6f6c9ea0b49892055b550782b01d8e791b1ce6a1",
+      "status": "downloaded-valid-pdf",
+      "bytes": 23318422,
+      "sha256": "4bcfdd2f69b666ec92d3aef86479785a41f31cf0707d044582b936d6b9a73d95",
+      "calculatedGitBlobSha1": "6f6c9ea0b49892055b550782b01d8e791b1ce6a1",
+      "githubSourceMatches": true,
+      "pageObjectCount": 21,
+      "pdfPageTreeCounts": [
+        21
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 21,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_dd97e54e02f64fa6990e8db4d18354ca.pdf",
+      "filename": "3. Cycle Sport-Optimized Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dd97e54e02f64fa6990e8db4d18354ca.pdf",
+      "expectedPages": 6,
+      "historicalBlob": "58370ce13bd4492ce57424b712a889ae476db9ec",
+      "status": "downloaded-valid-pdf",
+      "bytes": 7994296,
+      "sha256": "9026906f2574636df80412568fa9e82134d4f9cf7f2089f685761350509f73c5",
+      "calculatedGitBlobSha1": "58370ce13bd4492ce57424b712a889ae476db9ec",
+      "githubSourceMatches": true,
+      "pageObjectCount": 6,
+      "pdfPageTreeCounts": [
+        6
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 6,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_d49106300f224a3986bf25c552b894df.pdf",
+      "filename": "24. Automatic Seesaw -Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d49106300f224a3986bf25c552b894df.pdf",
+      "expectedPages": 29,
+      "historicalBlob": "3b58f8f73766eafed4b619c7a1a1f2152be73e1e",
+      "status": "downloaded-valid-pdf",
+      "bytes": 10796425,
+      "sha256": "928ecf07c1cc39f072348fb41c72960f5498825ddd581761ab4ec3866a1c31fd",
+      "calculatedGitBlobSha1": "3b58f8f73766eafed4b619c7a1a1f2152be73e1e",
+      "githubSourceMatches": true,
+      "pageObjectCount": 29,
+      "pdfPageTreeCounts": [
+        29
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 29,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_8fabbeea8d3e434bbb7ff95d65f9e750.pdf",
+      "filename": "Security door_Building.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8fabbeea8d3e434bbb7ff95d65f9e750.pdf",
+      "expectedPages": 10,
+      "historicalBlob": "03d7becdd7b35c4ec87ff0e3fe32a00b91919906",
+      "status": "downloaded-valid-pdf",
+      "bytes": 4868092,
+      "sha256": "b6cf5cca9dc9ca10c7b95758c2c4711e079ae66adb00ea83f13a4cacd5385def",
+      "calculatedGitBlobSha1": "03d7becdd7b35c4ec87ff0e3fe32a00b91919906",
+      "githubSourceMatches": true,
+      "pageObjectCount": 10,
+      "pdfPageTreeCounts": [
+        10
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 250,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_4a51e35447664f778c21a960401809dc.pdf",
+      "filename": "Smart door_Building.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4a51e35447664f778c21a960401809dc.pdf",
+      "expectedPages": 5,
+      "historicalBlob": "99db02e958996e1ec0d66d0f7303deb077934de5",
+      "status": "downloaded-valid-pdf",
+      "bytes": 3883470,
+      "sha256": "b4840f25b998d1cd297001e951815385a58675c721ba86f1d22ba10e80ed1716",
+      "calculatedGitBlobSha1": "99db02e958996e1ec0d66d0f7303deb077934de5",
+      "githubSourceMatches": true,
+      "pageObjectCount": 5,
+      "pdfPageTreeCounts": [
+        5
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 177,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_dad2e2f73571417590aa81a368936a4e.pdf",
+      "filename": "Following Robot_Building.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dad2e2f73571417590aa81a368936a4e.pdf",
+      "expectedPages": 9,
+      "historicalBlob": "ac69d581c188c7569669246a2eadbce94257ed59",
+      "status": "downloaded-valid-pdf",
+      "bytes": 6655951,
+      "sha256": "4db51e13781a6bd994b3487e85b56cc282f07594cffe962d2d8c46be59efddd0",
+      "calculatedGitBlobSha1": "ac69d581c188c7569669246a2eadbce94257ed59",
+      "githubSourceMatches": true,
+      "pageObjectCount": 9,
+      "pdfPageTreeCounts": [
+        9
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 237,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_49d85ca5d7d24f42b9b349775f8704aa.pdf",
+      "filename": "Obstacle Avoidance Robot 1_Building.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_49d85ca5d7d24f42b9b349775f8704aa.pdf",
+      "expectedPages": 11,
+      "historicalBlob": "e61505dcb3e4c0f19123408449c93c2253d3e283",
+      "status": "downloaded-valid-pdf",
+      "bytes": 9637658,
+      "sha256": "67bdcdb78ae30b6bd8b59b34426c0f79258a9bdbe0f5a138b4df828a4c079ff8",
+      "calculatedGitBlobSha1": "e61505dcb3e4c0f19123408449c93c2253d3e283",
+      "githubSourceMatches": true,
+      "pageObjectCount": 11,
+      "pdfPageTreeCounts": [
+        11
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 341,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_3b60569142624d218cdbd6d6ecc4a3b1.pdf",
+      "filename": "Sunflower.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3b60569142624d218cdbd6d6ecc4a3b1.pdf",
+      "expectedPages": 14,
+      "historicalBlob": "84c4ee8db080d4f2ca2991a03c7ed5c8d5307461",
+      "status": "downloaded-valid-pdf",
+      "bytes": 9345616,
+      "sha256": "dc44b18f50b9e5d8e4f2e4074a42e2973be6b11ea34032589d34b5dda99fc7bb",
+      "calculatedGitBlobSha1": "84c4ee8db080d4f2ca2991a03c7ed5c8d5307461",
+      "githubSourceMatches": true,
+      "pageObjectCount": 14,
+      "pdfPageTreeCounts": [
+        14
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 402,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_c4cdf5cb69614575b6efb595355beb86.pdf",
+      "filename": "23.Electric Bulldozer -Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c4cdf5cb69614575b6efb595355beb86.pdf",
+      "expectedPages": 26,
+      "historicalBlob": "6af098a5a9ea6bde37a01a5549187f0b37026c14",
+      "status": "downloaded-valid-pdf",
+      "bytes": 9513897,
+      "sha256": "5aad4a8525cb2981206ab4fa95e5dfeab221c3084a5840e13a42db993e1b5218",
+      "calculatedGitBlobSha1": "6af098a5a9ea6bde37a01a5549187f0b37026c14",
+      "githubSourceMatches": true,
+      "pageObjectCount": 26,
+      "pdfPageTreeCounts": [
+        26
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 26,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+      "filename": "05.Electric Fan-Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+      "expectedPages": 12,
+      "historicalBlob": "5526dcd1f86e025a7c016363f1d81647255543f1",
+      "status": "downloaded-valid-pdf",
+      "bytes": 3692066,
+      "sha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+      "calculatedGitBlobSha1": "5526dcd1f86e025a7c016363f1d81647255543f1",
+      "githubSourceMatches": true,
+      "pageObjectCount": 12,
+      "pdfPageTreeCounts": [
+        12
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 12,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_d09f63c7e6a44cd1bb5fdafe9e11efb1.pdf",
+      "filename": "15.Safe -Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d09f63c7e6a44cd1bb5fdafe9e11efb1.pdf",
+      "expectedPages": 24,
+      "historicalBlob": "eb59936b933ffca57769e24093959de5278f7e9c",
+      "status": "downloaded-valid-pdf",
+      "bytes": 6942434,
+      "sha256": "3a0e0c3a45e024059a406f6c0d54e08e65ba5e340926f372b246bb0aa99721bf",
+      "calculatedGitBlobSha1": "eb59936b933ffca57769e24093959de5278f7e9c",
+      "githubSourceMatches": true,
+      "pageObjectCount": 24,
+      "pdfPageTreeCounts": [
+        24
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 24,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_70455707868643188c4e310a6eda9940.pdf",
+      "filename": "20.Smart Trash Bin-Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_70455707868643188c4e310a6eda9940.pdf",
+      "expectedPages": 22,
+      "historicalBlob": "7fe5fb43232b10dfb335d96cc6c43df75c71c537",
+      "status": "downloaded-valid-pdf",
+      "bytes": 6521735,
+      "sha256": "3c63afc1068bfb132a8d0150755a87fd3975905e77839de6fd5a6ceb78458e60",
+      "calculatedGitBlobSha1": "7fe5fb43232b10dfb335d96cc6c43df75c71c537",
+      "githubSourceMatches": true,
+      "pageObjectCount": 22,
+      "pdfPageTreeCounts": [
+        22
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 22,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_62b3ca692f6f47b79433f9e2b43b1106.pdf",
+      "filename": "Lifting Maintenance Vehicle.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_62b3ca692f6f47b79433f9e2b43b1106.pdf",
+      "expectedPages": 22,
+      "historicalBlob": "6b7da9e2496b02780b96b229b0e068abf8fd5f95",
+      "status": "downloaded-valid-pdf",
+      "bytes": 23827851,
+      "sha256": "6e5921a4926105cdf3467ef0adff2c2ba1d215dd48d9f29327bdfa2e1f983c5f",
+      "calculatedGitBlobSha1": "6b7da9e2496b02780b96b229b0e068abf8fd5f95",
+      "githubSourceMatches": true,
+      "pageObjectCount": 42,
+      "pdfPageTreeCounts": [
+        22,
+        5,
+        5,
+        5,
+        7
+      ],
+      "reportedPageCountMatches": false,
+      "pdfImageXObjects": 6,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_819b76017e764fcbba4d8d00ef18949f.pdf",
+      "filename": "24.Automated Guided Vehicle-Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_819b76017e764fcbba4d8d00ef18949f.pdf",
+      "expectedPages": 24,
+      "historicalBlob": "ab64321405422d0b89dcb9a45772a450e060d5ce",
+      "status": "downloaded-valid-pdf",
+      "bytes": 7824597,
+      "sha256": "db57e69925fbab00995f65adaf1c48248604e9aebe864ff4a0653c870e7f6b69",
+      "calculatedGitBlobSha1": "ab64321405422d0b89dcb9a45772a450e060d5ce",
+      "githubSourceMatches": true,
+      "pageObjectCount": 24,
+      "pdfPageTreeCounts": [
+        24
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 24,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_40ddc7964dab4006b0b855b7aeb59406.pdf",
+      "filename": "1. Race Walking - Basic Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_40ddc7964dab4006b0b855b7aeb59406.pdf",
+      "expectedPages": 7,
+      "historicalBlob": "b6e2a731e486b8ddf1402df179e966795f204781",
+      "status": "downloaded-valid-pdf",
+      "bytes": 7658532,
+      "sha256": "b1de0b9ac608240758e9173fad5fd2f66d96ebbc8164ef7df2931db0acc5c1fa",
+      "calculatedGitBlobSha1": "b6e2a731e486b8ddf1402df179e966795f204781",
+      "githubSourceMatches": true,
+      "pageObjectCount": 7,
+      "pdfPageTreeCounts": [
+        7
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 7,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_605e48fe69f641e29f7aeb53056a9d1c.pdf",
+      "filename": "1. Race Walking - Optimized Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_605e48fe69f641e29f7aeb53056a9d1c.pdf",
+      "expectedPages": 6,
+      "historicalBlob": "68535fb14b515e980237b3f969466facbcd98060",
+      "status": "downloaded-valid-pdf",
+      "bytes": 7353583,
+      "sha256": "638c446ffcbdb9d63965b4aa5d85f4f2bb551d77ed7ee2301cc81575fb753825",
+      "calculatedGitBlobSha1": "68535fb14b515e980237b3f969466facbcd98060",
+      "githubSourceMatches": true,
+      "pageObjectCount": 6,
+      "pdfPageTreeCounts": [
+        6
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 6,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_d7fd406eeee64108b91a20b812e3a521.pdf",
+      "filename": "1. Race Walking - Optimized Building Manual - Added Ratchet.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d7fd406eeee64108b91a20b812e3a521.pdf",
+      "expectedPages": 2,
+      "historicalBlob": "4cb49db89cf60b8810d7d3d10138324541d317c8",
+      "status": "downloaded-valid-pdf",
+      "bytes": 2480952,
+      "sha256": "0b3f192781910bd79b241951b6079ccdf8668cd6545207fd02a0ba4805580b9c",
+      "calculatedGitBlobSha1": "4cb49db89cf60b8810d7d3d10138324541d317c8",
+      "githubSourceMatches": true,
+      "pageObjectCount": 2,
+      "pdfPageTreeCounts": [
+        2
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 2,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+      "filename": "Bumper car_Building.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+      "expectedPages": 13,
+      "historicalBlob": "ea125a179e492944bdbf1d02753bca32e7716bfc",
+      "status": "downloaded-valid-pdf",
+      "bytes": 6118026,
+      "sha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+      "calculatedGitBlobSha1": "ea125a179e492944bdbf1d02753bca32e7716bfc",
+      "githubSourceMatches": true,
+      "pageObjectCount": 13,
+      "pdfPageTreeCounts": [
+        13
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 239,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_554500219aa24df9b769c8bc8b37513f.pdf",
+      "filename": "13.Disinfection Lamp-Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_554500219aa24df9b769c8bc8b37513f.pdf",
+      "expectedPages": 20,
+      "historicalBlob": "40e3072459b2597e4eb29771a3af4ac78ad9c236",
+      "status": "downloaded-valid-pdf",
+      "bytes": 6161967,
+      "sha256": "82f9a3faaa571777142b944904c2c69b2c328405d6d6b24205a653b18c920970",
+      "calculatedGitBlobSha1": "40e3072459b2597e4eb29771a3af4ac78ad9c236",
+      "githubSourceMatches": true,
+      "pageObjectCount": 20,
+      "pdfPageTreeCounts": [
+        20
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 20,
+      "visualPageValidation": "not-completed"
+    }
+  ]
+}
