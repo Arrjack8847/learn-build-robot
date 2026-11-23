@@ -1,0 +1,2776 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-23",
+  "project": "BE STEM READY",
+  "level": 6,
+  "repository": "Arrjack8847/learn-build-robot",
+  "coordinatedBase": {
+    "pr": 108,
+    "branch": "feat/final-build-exams-levels-1-6",
+    "sha": "1fe5c5336d45295e6e3252d0450b662337a1db50"
+  },
+  "workerBranch": "feat/final-build-level-6",
+  "scope": "Evidence-first metadata audit. This turn did not download or visually inspect the 41 current hosted PDF binaries or convert their images.",
+  "counts": {
+    "officialSyllabusProjects": 43,
+    "buildingRegisteredProjects": 39,
+    "registeredBuildingVariants": 41,
+    "missingBuildingSourceActivities": 4,
+    "approvedVariants": 0,
+    "blockedVariants": 41,
+    "publishedWebps": 0,
+    "approvedChecklists": 0
+  },
+  "evidenceProvenance": {
+    "canonical": "src/data/levelFiveSixContent.ts",
+    "syllabus": "src/data/advancedSyllabus.ts",
+    "currentWixMap": "src/data/levelSixWixPdfUrls.ts",
+    "historicalOriginalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+    "priorWixByteVerification": "reports/level5-6-building-independent-verification-20261120.json",
+    "priorPruneAndRouting": "reports/level6-building-link-only-paths-20261120.json",
+    "provenanceNote": "Historical Git blob SHA-1 is NOT a current Wix PDF SHA-256. Previous audit findings are not a substitute for fresh visual verification."
+  },
+  "knownCurrentWixRepairPaths": [
+    {
+      "project": "Red Light Warning Device",
+      "path": "public/Level 6/Building/Illumination & Signals/Red Light Warning Device/12. Red Light Warning Device-Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_613e0c239ba64e96ba94d3088dff2c3d.pdf",
+      "verification": "mapped_currently; not redownloaded_this_run"
+    },
+    {
+      "project": "Pay by card",
+      "path": "public/Level 6/Building/Mechanisms & Simulators/Pay by card/16.Pay by card -Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_4509b73b391142b3866b767bdb5bbc6e.pdf",
+      "verification": "mapped_currently; not redownloaded_this_run"
+    },
+    {
+      "project": "Product Search",
+      "path": "public/Level 6/Building/Mechanisms & Simulators/Product Search/15.Product Search -Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6ece41989cab43b3a0a3a58f5586a493.pdf",
+      "verification": "mapped_currently; not redownloaded_this_run"
+    },
+    {
+      "project": "Rock-paper-scissors Robot",
+      "path": "public/Level 6/Building/Sensor-Focused Robots/Rock-paper-scissors Robot/30.Rock-paper-scissors Robot-Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ee943e948c6f4141b53d9d3e90481801.pdf",
+      "verification": "mapped_currently; not redownloaded_this_run"
+    }
+  ],
+  "variants": [
+    {
+      "projectId": "level-6-gorilla",
+      "projectTitle": "Gorilla",
+      "categoryId": "action-oriented",
+      "variantId": "level-6-gorilla",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Action-Oriented/Gorilla/04.Gorilla-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_57169e1c5d0849d597949e1bced8dd94.pdf",
+      "historicalOriginalGitBlobSha1": "0c1dae235396f3ad2816c2d51b06166eb124c481",
+      "reportedOriginalPdfBytes": 8153918,
+      "reportedOriginalPageCount": 24,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-picture-projector",
+      "projectTitle": "Picture Projector",
+      "categoryId": "action-oriented",
+      "variantId": "level-6-picture-projector",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Action-Oriented/Picture Projector/28. Picture Projector-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b01fa85ecda24a128ec2aa8edb59731f.pdf",
+      "historicalOriginalGitBlobSha1": "ec65a8c0a381cb8f92eadda3bc28024eaf5b01ea",
+      "reportedOriginalPdfBytes": 3136157,
+      "reportedOriginalPageCount": 11,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-the-flapping-pterosaur",
+      "projectTitle": "The Flapping Pterosaur",
+      "categoryId": "action-oriented",
+      "variantId": "level-6-the-flapping-pterosaur",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Action-Oriented/The Flapping Pterosaur/17. The Flapping Pterosaur-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_72d2043635fb4f4fa387e9bdcb88973d.pdf",
+      "historicalOriginalGitBlobSha1": "3e474b0a4aaa26035baf7203f28879a1403d6fc2",
+      "reportedOriginalPdfBytes": 20131061,
+      "reportedOriginalPageCount": 70,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-code-scanning-gate",
+      "projectTitle": "Code-scanning Gate",
+      "categoryId": "automation-security",
+      "variantId": "level-6-code-scanning-gate",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Automation & Security/Code-scanning Gate/04.Code-scanning Gate-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_47e81d3a58624e97a23e81e31d8d9b65.pdf",
+      "historicalOriginalGitBlobSha1": "cedd874e3b00dd8dca94a6d696bc15dcc33e194d",
+      "reportedOriginalPdfBytes": 9973061,
+      "reportedOriginalPageCount": 27,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-intelligent-passing-light",
+      "projectTitle": "Intelligent Passing Light",
+      "categoryId": "automation-security",
+      "variantId": "level-6-intelligent-passing-light",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Automation & Security/Intelligent Passing Light/09. Intelligent Passing Light -Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f161c212e69c4abfacc10d6b4087d6e9.pdf",
+      "historicalOriginalGitBlobSha1": "5631d95c4d702902643127ce707cccbd40317e92",
+      "reportedOriginalPdfBytes": 4058127,
+      "reportedOriginalPageCount": 18,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-gesture-commanding-car",
+      "projectTitle": "Gesture-commanding Car",
+      "categoryId": "autonomous-navigation-ranging",
+      "variantId": "level-6-gesture-commanding-car",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Autonomous Navigation & Ranging/Gesture-commanding Car/23. Gesture-commanding Car-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2f7e30144fca4cd2b116433f83bafe0e.pdf",
+      "historicalOriginalGitBlobSha1": "b01eee7153ffe54f3947d2d616a649ba007cffa7",
+      "reportedOriginalPdfBytes": 5442297,
+      "reportedOriginalPageCount": 18,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-regional-weather-station",
+      "projectTitle": "Regional Weather Station",
+      "categoryId": "biomimicry-stimulus-response",
+      "variantId": "level-6-regional-weather-station",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Biomimicry & Stimulus Response/Regional Weather Station/32.Regional Weather Station-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ea276a20b2a34ae4b42338c9ec375ad4.pdf",
+      "historicalOriginalGitBlobSha1": "2da1221e39233623740ded9b35ac3e43dae5f8e1",
+      "reportedOriginalPdfBytes": 12605820,
+      "reportedOriginalPageCount": 51,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-super-scorpion",
+      "projectTitle": "Super Scorpion",
+      "categoryId": "biomimicry-stimulus-response",
+      "variantId": "level-6-super-scorpion",
+      "variant": "Basic",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Biomimicry & Stimulus Response/Super Scorpion/16. Super Scorpion - Basic Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ce34d4b7ad3b4f078531aa5db01841e7.pdf",
+      "historicalOriginalGitBlobSha1": "23004ccd4b873878afbbbd73f16739637a7389b7",
+      "reportedOriginalPdfBytes": 43780193,
+      "reportedOriginalPageCount": 42,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-super-scorpion",
+      "projectTitle": "Super Scorpion",
+      "categoryId": "biomimicry-stimulus-response",
+      "variantId": "level-6-super-scorpion:optimized",
+      "variant": "Optimized",
+      "variantKey": "optimized",
+      "sourcePath": "public/Level 6/Building/Biomimicry & Stimulus Response/Super Scorpion/16. Super Scorpion - Optimized Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2f7bfe9ee7224047b06209ce59a55165.pdf",
+      "historicalOriginalGitBlobSha1": "f1bfb447511de5a6529f60e43e432fa488450af8",
+      "reportedOriginalPdfBytes": 4871492,
+      "reportedOriginalPageCount": 3,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-clown",
+      "projectTitle": "Clown",
+      "categoryId": "characters-structures",
+      "variantId": "level-6-clown",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Characters & Structures/Clown/05.Clown-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2d5b5d0c29444bbab32566713eee166c.pdf",
+      "historicalOriginalGitBlobSha1": "7da2056de8dfecb0f9182cc66f9db07476ace2ac",
+      "reportedOriginalPdfBytes": 4432620,
+      "reportedOriginalPageCount": 20,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-accurate-shooting",
+      "projectTitle": "Accurate Shooting",
+      "categoryId": "complex-mechanisms-coordinated-motion",
+      "variantId": "level-6-accurate-shooting",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Complex Mechanisms & Coordinated Motion/Accurate Shooting/13. Accurate Shooting-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_fca7084f7fbf431ea62333e3393441fb.pdf",
+      "historicalOriginalGitBlobSha1": "9e5ec84bacf6de00da52fe4326c425f37e829397",
+      "reportedOriginalPdfBytes": 8353875,
+      "reportedOriginalPageCount": 30,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-digital-countdown",
+      "projectTitle": "Digital Countdown",
+      "categoryId": "display-movement",
+      "variantId": "level-6-digital-countdown",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Display & Movement/Digital Countdown/07.Digital Countdown-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_47e8b4aaa4d84052a62791fe0c21e959.pdf",
+      "historicalOriginalGitBlobSha1": "34dc7c6d04818d190f1b5e440a4eb9aeb4238a3b",
+      "reportedOriginalPdfBytes": 5318800,
+      "reportedOriginalPageCount": 21,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-red-light-warning-device",
+      "projectTitle": "Red Light Warning Device",
+      "categoryId": "illumination-signals",
+      "variantId": "level-6-red-light-warning-device",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Illumination & Signals/Red Light Warning Device/12. Red Light Warning Device-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_613e0c239ba64e96ba94d3088dff2c3d.pdf",
+      "historicalOriginalGitBlobSha1": "199c00c6ab9e983220528b8d11c4ee4b77b42ac8",
+      "reportedOriginalPdfBytes": 3645910,
+      "reportedOriginalPageCount": 12,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": "2026-11-20 page 9 translated; approved newer Wix object recorded in independent verification report"
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-smart-flashlight",
+      "projectTitle": "Smart Flashlight",
+      "categoryId": "illumination-signals",
+      "variantId": "level-6-smart-flashlight",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Illumination & Signals/Smart Flashlight/27.Smart Flashlight-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_667a054435b0463792c70a604615fbf1.pdf",
+      "historicalOriginalGitBlobSha1": "fe6dcf11f5392c81fea146830564625c4c0dc73b",
+      "reportedOriginalPdfBytes": 4566573,
+      "reportedOriginalPageCount": 15,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-traffic-lights-display",
+      "projectTitle": "Traffic Lights Display",
+      "categoryId": "illumination-signals",
+      "variantId": "level-6-traffic-lights-display",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Illumination & Signals/Traffic Lights Display/10. Traffic Lights-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2a44c4a367dd436b8500ffd515bab99d.pdf",
+      "historicalOriginalGitBlobSha1": "aa7617b0d68897f432e558068006ad99d446a330",
+      "reportedOriginalPdfBytes": 4301323,
+      "reportedOriginalPageCount": 18,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-pinball-machine",
+      "projectTitle": "Pinball Machine",
+      "categoryId": "interactive-mechanisms",
+      "variantId": "level-6-pinball-machine",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Interactive Mechanisms/Pinball Machine/30. Pinball Machine-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_319046fbc69148b3adb1c5ca9964940e.pdf",
+      "historicalOriginalGitBlobSha1": "4d2b2fa6deea6b351b49661efbbf17eb03f39e26",
+      "reportedOriginalPdfBytes": 10371886,
+      "reportedOriginalPageCount": 24,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-smart-fan",
+      "projectTitle": "Smart Fan",
+      "categoryId": "interactive-systems",
+      "variantId": "level-6-smart-fan",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Interactive Systems/Smart Fan/31.Smart Fan-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_74b32047c75a4ddaa8674e9d31ceee6f.pdf",
+      "historicalOriginalGitBlobSha1": "423439593933dd60a9be8c952767ceb426088e39",
+      "reportedOriginalPdfBytes": 10498788,
+      "reportedOriginalPageCount": 37,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-the-interesting-rotor",
+      "projectTitle": "The Interesting Rotor",
+      "categoryId": "interactive-systems",
+      "variantId": "level-6-the-interesting-rotor",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Interactive Systems/The Interesting Rotor/19. The Interesting Rotor-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5b9a2e421b7b45a4abb2c7b69b017229.pdf",
+      "historicalOriginalGitBlobSha1": "856b23820ab6a2e21185f8a281276bf397fe3666",
+      "reportedOriginalPdfBytes": 15230879,
+      "reportedOriginalPageCount": 48,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-combination-lock",
+      "projectTitle": "Combination Lock",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-combination-lock",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Combination Lock/29.Combination Lock -Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1ad9706a8fe14752b5977b0b73a275e3.pdf",
+      "historicalOriginalGitBlobSha1": "ab167ad965967e295352eac94b951b4bd98eb7a5",
+      "reportedOriginalPdfBytes": 30818655,
+      "reportedOriginalPageCount": 26,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-gibbon",
+      "projectTitle": "Gibbon",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-gibbon",
+      "variant": "Basic",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Gibbon/14. Gibbon - Basic Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9205950c0e4f44d1aa5a777ad14570cf.pdf",
+      "historicalOriginalGitBlobSha1": "aafb4cc726907006acbeb36f3d24c92cac2410ce",
+      "reportedOriginalPdfBytes": 14533894,
+      "reportedOriginalPageCount": 16,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-gibbon",
+      "projectTitle": "Gibbon",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-gibbon:optimized",
+      "variant": "Optimized",
+      "variantKey": "optimized",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Gibbon/14. Gibbon - Optimized Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_11b0bbf05ffc48f385d9c3fc9104e203.pdf",
+      "historicalOriginalGitBlobSha1": "c3027d3d9380f7aba708ee1dd73fa2343be8ea09",
+      "reportedOriginalPdfBytes": 10631909,
+      "reportedOriginalPageCount": 10,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-pay-by-card",
+      "projectTitle": "Pay by card",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-pay-by-card",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Pay by card/16.Pay by card -Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_4509b73b391142b3866b767bdb5bbc6e.pdf",
+      "historicalOriginalGitBlobSha1": "da2a96757c2b6c0a8e67882b74488d678287d7d0",
+      "reportedOriginalPdfBytes": 5864225,
+      "reportedOriginalPageCount": 17,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": "Prior Level 6 English repair; newer 78042f Wix object in current source registry"
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-product-search",
+      "projectTitle": "Product Search",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-product-search",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Product Search/15.Product Search -Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6ece41989cab43b3a0a3a58f5586a493.pdf",
+      "historicalOriginalGitBlobSha1": "540334dcedb3a2ab538fbf8e097c4c47ab83a41b",
+      "reportedOriginalPdfBytes": 6891422,
+      "reportedOriginalPageCount": 24,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": "Prior Level 6 English repair; newer 78042f Wix object in current source registry"
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-punch-hard",
+      "projectTitle": "Punch Hard",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-punch-hard",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Punch Hard/7. Punch Hard - Basic Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5d81d7f258ae4db1b679b0c1d350c80a.pdf",
+      "historicalOriginalGitBlobSha1": "c82af90fa9c3f597a04cab1b62761f83c7739113",
+      "reportedOriginalPdfBytes": 15535258,
+      "reportedOriginalPageCount": 16,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-rc-airplane",
+      "projectTitle": "RC Airplane",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-rc-airplane",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/RC Airplane/11.RC Airplane -Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_082792eb6fae4bb7939e4e34b85d3bd5.pdf",
+      "historicalOriginalGitBlobSha1": "6b75d94b31a73e86ae5551bdba733e0601fbb361",
+      "reportedOriginalPdfBytes": 7763009,
+      "reportedOriginalPageCount": 26,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-ring-toss-game",
+      "projectTitle": "Ring Toss Game",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-ring-toss-game",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Ring Toss Game/15. Ring Toss Game-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f7630973bd8c4142a3166879effd0763.pdf",
+      "historicalOriginalGitBlobSha1": "28dde7a08b9d2905c3ef7eae0e088ed01a92764a",
+      "reportedOriginalPdfBytes": 8025938,
+      "reportedOriginalPageCount": 32,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-robotic-arm",
+      "projectTitle": "Robotic Arm",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-robotic-arm",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Robotic Arm/32. The Robotic Arm-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_44d1ce2260fe49df9afcc6569a874a50.pdf",
+      "historicalOriginalGitBlobSha1": "d72dd2caf322b328a98ef0d259134d63867aae19",
+      "reportedOriginalPdfBytes": 12886761,
+      "reportedOriginalPageCount": 37,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-vending-machine",
+      "projectTitle": "Vending Machine",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-vending-machine",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Vending Machine/27.Vending Machine-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_95af5defe47a48ccadb87ec8a414590e.pdf",
+      "historicalOriginalGitBlobSha1": "a32685279c3e23f824ce3ae3abe27e7963e6580c",
+      "reportedOriginalPdfBytes": 24636482,
+      "reportedOriginalPageCount": 23,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-autonomous-driving",
+      "projectTitle": "Autonomous Driving",
+      "categoryId": "programming-precise-control",
+      "variantId": "level-6-autonomous-driving",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Autonomous Driving/18.Autonomous Driving -Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_26d1688cb2994bceb9c8a2a7b23aff6c.pdf",
+      "historicalOriginalGitBlobSha1": "8ff6d0790bb8d7baf616473e3fef9b0df6a70885",
+      "reportedOriginalPdfBytes": 20226771,
+      "reportedOriginalPageCount": 17,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-minesweeper-robot",
+      "projectTitle": "Minesweeper Robot",
+      "categoryId": "programming-precise-control",
+      "variantId": "level-6-minesweeper-robot",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Minesweeper Robot/12.Minesweeper Robot - Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0f9e228b1dac4694b871c14717dc05f9.pdf",
+      "historicalOriginalGitBlobSha1": "14c63e8beb0a6cae97c17704a839809f51ae908b",
+      "reportedOriginalPdfBytes": 8850967,
+      "reportedOriginalPageCount": 28,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-remote-control-lift",
+      "projectTitle": "Remote Control Lift",
+      "categoryId": "programming-precise-control",
+      "variantId": "level-6-remote-control-lift",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Remote Control Lift/22. Remote Control Lift -Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b0697e2872d541b39fb934ec6914b8f5.pdf",
+      "historicalOriginalGitBlobSha1": "37aa39b130091b0a1bd17d28cb14c4edb332fad9",
+      "reportedOriginalPdfBytes": 11188381,
+      "reportedOriginalPageCount": 33,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-saluting-robot",
+      "projectTitle": "Saluting Robot",
+      "categoryId": "programming-precise-control",
+      "variantId": "level-6-saluting-robot",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Saluting Robot/26.Saluting Robot -Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8ad9c7d2cec44ac2994985d336c8d9d8.pdf",
+      "historicalOriginalGitBlobSha1": "045dad4e51de524ad2515b4f64b154cd1ae32431",
+      "reportedOriginalPdfBytes": 23111340,
+      "reportedOriginalPageCount": 20,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-smart-electric-drill",
+      "projectTitle": "Smart Electric Drill",
+      "categoryId": "programming-precise-control",
+      "variantId": "level-6-smart-electric-drill",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Smart Electric Drill/20. Smart Electric Drill-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b2314aef68dc46e088fcca58040cb655.pdf",
+      "historicalOriginalGitBlobSha1": "5e4561c21e9e4e836e52f4857c0f6db9f2143c36",
+      "reportedOriginalPdfBytes": 5288078,
+      "reportedOriginalPageCount": 19,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-altimeter",
+      "projectTitle": "Altimeter",
+      "categoryId": "sensor-automation",
+      "variantId": "level-6-altimeter",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Sensor Automation/Altimeter/18. Altimeter-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e05642b6d03940c6b4936d7bd1a6b6a0.pdf",
+      "historicalOriginalGitBlobSha1": "e4c521ae5296db33c87be5fc8f5f6ca9a79c0d88",
+      "reportedOriginalPdfBytes": 3610602,
+      "reportedOriginalPageCount": 13,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-high-temperature-alarm",
+      "projectTitle": "High Temperature Alarm",
+      "categoryId": "sensor-automation",
+      "variantId": "level-6-high-temperature-alarm",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Sensor Automation/High Temperature Alarm/29. High Temperature Alarm-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2104018fc87d4651aaf3af617a55b78f.pdf",
+      "historicalOriginalGitBlobSha1": "6719221a2ea67bc7cc2b35e7f33a431c165d6549",
+      "reportedOriginalPdfBytes": 7372543,
+      "reportedOriginalPageCount": 23,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-intelligent-sorting-machine",
+      "projectTitle": "Intelligent Sorting Machine",
+      "categoryId": "sensor-automation",
+      "variantId": "level-6-intelligent-sorting-machine",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Sensor Automation/Intelligent Sorting Machine/24.Intelligent Sorting Machine-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2c1b3936f4044835bea28cec6c04c10d.pdf",
+      "historicalOriginalGitBlobSha1": "1801ad212494d2c3d6040f37889728405f6c2a5d",
+      "reportedOriginalPdfBytes": 42462004,
+      "reportedOriginalPageCount": 33,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-parcel-sorting-machine",
+      "projectTitle": "Parcel Sorting Machine",
+      "categoryId": "sensor-automation",
+      "variantId": "level-6-parcel-sorting-machine",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Sensor Automation/Parcel Sorting Machine/31. Parcel Sorting Machine-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_95133caeaf2f48d99baa85de2ae47455.pdf",
+      "historicalOriginalGitBlobSha1": "6e579ce687f1e9fdaff0ebc3478482b9e4516e03",
+      "reportedOriginalPdfBytes": 12205505,
+      "reportedOriginalPageCount": 39,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-colorblind-assistant-robot",
+      "projectTitle": "Colorblind Assistant Robot",
+      "categoryId": "sensor-focused-robots",
+      "variantId": "level-6-colorblind-assistant-robot",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Sensor-Focused Robots/Colorblind Assistant Robot/25.Colorblind Assistant Robot-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0e5596981caa481588e8b7c2d2531ef5.pdf",
+      "historicalOriginalGitBlobSha1": "052324f6524cbf01626cfb5e6b8782aabb4f075a",
+      "reportedOriginalPdfBytes": 17663837,
+      "reportedOriginalPageCount": 14,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-rock-paper-scissors-robot",
+      "projectTitle": "Rock-paper-scissors Robot",
+      "categoryId": "sensor-focused-robots",
+      "variantId": "level-6-rock-paper-scissors-robot",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Sensor-Focused Robots/Rock-paper-scissors Robot/30.Rock-paper-scissors Robot-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ee943e948c6f4141b53d9d3e90481801.pdf",
+      "historicalOriginalGitBlobSha1": "af9423f2a5191ca8577b18cd3fa827da09fd829b",
+      "reportedOriginalPdfBytes": 16315903,
+      "reportedOriginalPageCount": 14,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": "Prior Level 6 English repair; newer 78042f Wix object in current source registry"
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-smart-camera",
+      "projectTitle": "Smart Camera",
+      "categoryId": "sensor-focused-robots",
+      "variantId": "level-6-smart-camera",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Sensor-Focused Robots/Smart Camera/22.Smart Camera-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a27d70dd879d4ea1bf7db0e92f0a0cb9.pdf",
+      "historicalOriginalGitBlobSha1": "b73adbc3d2994f09c737ca144fb30d942db16fc5",
+      "reportedOriginalPdfBytes": 14510955,
+      "reportedOriginalPageCount": 14,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    },
+    {
+      "projectId": "level-6-tricycle",
+      "projectTitle": "Tricycle",
+      "categoryId": "vehicles-complex-movers",
+      "variantId": "level-6-tricycle",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Vehicles & Complex Movers/Tricycle/29. Tricycle-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9299ee18abed465ab1c44f0a7548fc00.pdf",
+      "historicalOriginalGitBlobSha1": "6442758fb141eddfed084dca4d36df0afc6f1cac",
+      "reportedOriginalPdfBytes": 7799316,
+      "reportedOriginalPageCount": 24,
+      "currentWixPdfSha256": null,
+      "currentWixBytesVerifiedThisRun": false,
+      "currentWixPdfPageCountVerifiedThisRun": null,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": null,
+        "cropNormalized": null,
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false
+      },
+      "webp": {
+        "path": null,
+        "sha256": null,
+        "width": null,
+        "height": null,
+        "inspectedAfterConversion": false
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": []
+      },
+      "firstPass": {
+        "status": "source_registry_reconciled_only",
+        "date": "2026-11-23"
+      },
+      "independentSecondPass": {
+        "status": "not_performed",
+        "reviewer": null,
+        "date": null
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Current hosted Wix PDF bytes, SHA-256 and version not independently reconfirmed in this worker",
+        "Finished model page and genuine image crop not visually verified",
+        "Five source-page-backed questions not reviewed",
+        "Independent second-pass signoff missing"
+      ]
+    }
+  ],
+  "missingActivities": [
+    {
+      "projectId": "level-6-matador",
+      "projectTitle": "Matador",
+      "categoryId": "biomimicry-stimulus-response",
+      "status": "missing_registered_building_source",
+      "buildingSource": null,
+      "excludedFromStudentDraw": true,
+      "reason": "Official syllabus entry has no independently registered Building PDF. A Learning PDF cannot be substituted."
+    },
+    {
+      "projectId": "level-6-dancing-robot",
+      "projectTitle": "Dancing Robot",
+      "categoryId": "complex-mechanisms-coordinated-motion",
+      "status": "missing_registered_building_source",
+      "buildingSource": null,
+      "excludedFromStudentDraw": true,
+      "reason": "Official syllabus entry has no independently registered Building PDF. A Learning PDF cannot be substituted."
+    },
+    {
+      "projectId": "level-6-finger-guessing-robot",
+      "projectTitle": "Finger-guessing Robot",
+      "categoryId": "interactive-mechanisms",
+      "status": "missing_registered_building_source",
+      "buildingSource": null,
+      "excludedFromStudentDraw": true,
+      "reason": "Official syllabus entry has no independently registered Building PDF. A Learning PDF cannot be substituted."
+    },
+    {
+      "projectId": "level-6-ball-tracking",
+      "projectTitle": "Ball Tracking",
+      "categoryId": "sensor-focused-robots",
+      "status": "missing_registered_building_source",
+      "buildingSource": null,
+      "excludedFromStudentDraw": true,
+      "reason": "Official syllabus entry has no independently registered Building PDF. A Learning PDF cannot be substituted."
+    }
+  ],
+  "sourceCertifications": {
+    "priorReportsWixCount": 41,
+    "priorReportsPageCount": 1007,
+    "priorFullPageHumanSignoff": false,
+    "currentPdfBytesDownloaded": 0,
+    "currentPdfHashesSha256Computed": 0,
+    "currentCompletedModelImagesInspected": 0
+  },
+  "releaseGate": {
+    "approved": false,
+    "reason": "No image, current source-byte or question-set independently verified. Keep all 41 variants blocked; shared engine/global approval cannot be changed by Level 6 worker."
+  }
+}
