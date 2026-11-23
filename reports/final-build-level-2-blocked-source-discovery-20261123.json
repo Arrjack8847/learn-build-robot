@@ -1,0 +1,711 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-23",
+  "method": "Steam Wix Media Manager Search Files, exact same-name PDFs plus same-name Building PDFs; metadata discovery only, not a visual/PDF-byte provenance validation",
+  "doesNotEstablishIndependentBuildingApproval": true,
+  "variants": [
+    {
+      "variantId": "level-2-bee",
+      "existingSourceFile": "BEE.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f2257130ccc54df8a8ea61f70e87fb91.pdf",
+      "existingSourcePdfSha256": "2ebdc81b17279ab9cc7457324909fd8e4a28da7a3b0bb77c41542ae5ef60a9d6",
+      "existingPdfPages": 20,
+      "existingBlockReason": "Registered Wix source 'BEE.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "BEE",
+      "resultsExamined": 11,
+      "alternativeFiles": [
+        {
+          "filename": "Bee.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_632fa76d8704421f819fd4578aef9b08.pdf",
+          "mediaId": "7fc4ca_632fa76d8704421f819fd4578aef9b08.pdf",
+          "bytes": 913828,
+          "sourceUrl": null
+        },
+        {
+          "filename": "BEE.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f84820b9035b47b199b8816986e43f16.pdf",
+          "mediaId": "7fc4ca_f84820b9035b47b199b8816986e43f16.pdf",
+          "bytes": 925321,
+          "sourceUrl": null
+        }
+      ],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-chimpanzees",
+      "existingSourceFile": "Chimpanzees.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_faf03246048040b692f555249b32ad15.pdf",
+      "existingSourcePdfSha256": "49e6960ad79bdeb4e8a4d0fa39def0b222b5422081626af07f3b65bfc97b6609",
+      "existingPdfPages": 14,
+      "existingBlockReason": "Registered Wix source 'Chimpanzees.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Chimpanzees",
+      "resultsExamined": 4,
+      "alternativeFiles": [
+        {
+          "filename": "Chimpanzees.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9fc8bfe383ec4f30ba77a05e6fedfc48.pdf",
+          "mediaId": "7fc4ca_9fc8bfe383ec4f30ba77a05e6fedfc48.pdf",
+          "bytes": 876104,
+          "sourceUrl": null
+        },
+        {
+          "filename": "Chimpanzees.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_90450b1048904ae69066d3680ce10320.pdf",
+          "mediaId": "7fc4ca_90450b1048904ae69066d3680ce10320.pdf",
+          "bytes": 820955,
+          "sourceUrl": null
+        }
+      ],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-crane",
+      "existingSourceFile": "Crane.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e184994e3de4492485f3f6941b264a34.pdf",
+      "existingSourcePdfSha256": "145ac5a81795a54d64ee895bb6f1e76e9da4cd741bab320da1dcec8338fdaaa1",
+      "existingPdfPages": 20,
+      "existingBlockReason": "Registered Wix source 'Crane.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Crane",
+      "resultsExamined": 19,
+      "alternativeFiles": [
+        {
+          "filename": "Crane_.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e899154e23df4b3ca5f313347744217c.pdf",
+          "mediaId": "78042f_e899154e23df4b3ca5f313347744217c.pdf",
+          "bytes": 20918760,
+          "sourceUrl": "https://sb-7erkdqx2jvyf.vercel.run/Crane_.pdf"
+        },
+        {
+          "filename": "Crane_.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2510982afea7462fb8c502e1d6e6d127.pdf",
+          "mediaId": "7fc4ca_2510982afea7462fb8c502e1d6e6d127.pdf",
+          "bytes": 20909075,
+          "sourceUrl": null
+        },
+        {
+          "filename": "Tower crane_Building.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_df23e113a7f7491a8a40730a0a1e5da9.pdf",
+          "mediaId": "78042f_df23e113a7f7491a8a40730a0a1e5da9.pdf",
+          "bytes": 4930007,
+          "sourceUrl": "https://sb-7erkdqx2jvyf.vercel.run/Tower%20crane_Building.pdf"
+        },
+        {
+          "filename": "Tower crane_Building.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_70adbc4adab3415cac2d0495136d11a6.pdf",
+          "mediaId": "7fc4ca_70adbc4adab3415cac2d0495136d11a6.pdf",
+          "bytes": 4832886,
+          "sourceUrl": null
+        },
+        {
+          "filename": "Double beam crane_Building.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cf9221967f804769ad6e7d3d50c47eab.pdf",
+          "mediaId": "78042f_cf9221967f804769ad6e7d3d50c47eab.pdf",
+          "bytes": 5415444,
+          "sourceUrl": "https://sb-7erkdqx2jvyf.vercel.run/Double%20beam%20crane_Building.pdf"
+        },
+        {
+          "filename": "Double beam crane_Building.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_316b5bb5e1fb4a02870164f80b880f45.pdf",
+          "mediaId": "7fc4ca_316b5bb5e1fb4a02870164f80b880f45.pdf",
+          "bytes": 5341143,
+          "sourceUrl": null
+        },
+        {
+          "filename": "Double beam crane_Building_Powerpoint.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f2ced3ce01394da2b7906fd9c2805d34.pdf",
+          "mediaId": "7fc4ca_f2ced3ce01394da2b7906fd9c2805d34.pdf",
+          "bytes": 808924,
+          "sourceUrl": null
+        }
+      ],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-fare-gate",
+      "existingSourceFile": "Fare Gate.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1010df902c5e4391a1e4c4af9281e8cb.pdf",
+      "existingSourcePdfSha256": "71d5c5c47e08fa603f66c00d0a5050a01304a7888cbd11686d48c0149933b485",
+      "existingPdfPages": 14,
+      "existingBlockReason": "Registered Wix source 'Fare Gate.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Fare Gate",
+      "resultsExamined": 10,
+      "alternativeFiles": [],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-forklift",
+      "existingSourceFile": "Forklift.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_72dd4dd12363460e91f259cfd012322c.pdf",
+      "existingSourcePdfSha256": "c3b8d3e79e29494be57dcc232d10f0f5bf694b411246b0bcd712b9b38d883230",
+      "existingPdfPages": 24,
+      "existingBlockReason": "Registered Wix source 'Forklift.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Forklift",
+      "resultsExamined": 1,
+      "alternativeFiles": [],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-hammer-robot",
+      "existingSourceFile": "Hammer robot.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_976489b6546f4ab5a8f1723f2eadad2d.pdf",
+      "existingSourcePdfSha256": "3119a370cdc0a1e280f2b66647922f65ff43130781e33726953783f794780622",
+      "existingPdfPages": 22,
+      "existingBlockReason": "Registered Wix source 'Hammer robot.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Hammer robot",
+      "resultsExamined": 100,
+      "alternativeFiles": [
+        {
+          "filename": "Hammer robot.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b3dcd4058b20437a828e62c37cb3020b.pdf",
+          "mediaId": "7fc4ca_b3dcd4058b20437a828e62c37cb3020b.pdf",
+          "bytes": 1129444,
+          "sourceUrl": null
+        },
+        {
+          "filename": "Hammer robot.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_09a4cf01602840b9bd6cc41b71dc5b10.pdf",
+          "mediaId": "7fc4ca_09a4cf01602840b9bd6cc41b71dc5b10.pdf",
+          "bytes": 1125874,
+          "sourceUrl": null
+        }
+      ],
+      "paginationIncomplete": true,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-lucky-turntable",
+      "existingSourceFile": "Lucky turntable.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_80611a94450b4d62a6a2ea78e409db6e.pdf",
+      "existingSourcePdfSha256": "50107e9622c1837747c766b05cc3e5b6e7b258d795e677eb065c01a588ca3680",
+      "existingPdfPages": 22,
+      "existingBlockReason": "Registered Wix source 'Lucky turntable.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Lucky turntable",
+      "resultsExamined": 11,
+      "alternativeFiles": [
+        {
+          "filename": "Lucky turntable.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_596584d30768430b9262fc2202c2e971.pdf",
+          "mediaId": "7fc4ca_596584d30768430b9262fc2202c2e971.pdf",
+          "bytes": 1078746,
+          "sourceUrl": null
+        },
+        {
+          "filename": "Lucky turntable.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7a9b27ddfd694c189f95ab9505c3457e.pdf",
+          "mediaId": "7fc4ca_7a9b27ddfd694c189f95ab9505c3457e.pdf",
+          "bytes": 1248463,
+          "sourceUrl": null
+        }
+      ],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-the-treadmill",
+      "existingSourceFile": "The treadmill.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6c374dba007d41649bcb36c9cc9b168f.pdf",
+      "existingSourcePdfSha256": "65c1da169137883128bf204f49f926cef89c9cbb45f4567c414986342059aa11",
+      "existingPdfPages": 18,
+      "existingBlockReason": "Registered Wix source 'The treadmill.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "The treadmill",
+      "resultsExamined": 48,
+      "alternativeFiles": [
+        {
+          "filename": "The treadmill.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6764f6c73d294e4e80fba8fe2ddbfea0.pdf",
+          "mediaId": "7fc4ca_6764f6c73d294e4e80fba8fe2ddbfea0.pdf",
+          "bytes": 946879,
+          "sourceUrl": null
+        },
+        {
+          "filename": "The treadmill.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2ddeb5daebac44d49589a3c2909999a0.pdf",
+          "mediaId": "7fc4ca_2ddeb5daebac44d49589a3c2909999a0.pdf",
+          "bytes": 884807,
+          "sourceUrl": null
+        }
+      ],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-tightrope-walk",
+      "existingSourceFile": "Tightrope walk.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9d342a952cad44c0a67abeb185a9870c.pdf",
+      "existingSourcePdfSha256": "0e1454f6ffaeb0d8993f17a421df9b9649aa1dbf071464992267366e2f8efade",
+      "existingPdfPages": 14,
+      "existingBlockReason": "Registered Wix source 'Tightrope walk.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Tightrope walk",
+      "resultsExamined": 20,
+      "alternativeFiles": [
+        {
+          "filename": "Tightrope walk.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_43571888d44e4c7fbef045e0f0053549.pdf",
+          "mediaId": "7fc4ca_43571888d44e4c7fbef045e0f0053549.pdf",
+          "bytes": 815384,
+          "sourceUrl": null
+        },
+        {
+          "filename": "Tightrope walk.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4618df856a4f491cbcea77e5e3e4edc3.pdf",
+          "mediaId": "7fc4ca_4618df856a4f491cbcea77e5e3e4edc3.pdf",
+          "bytes": 895949,
+          "sourceUrl": null
+        }
+      ],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-automatic-window",
+      "existingSourceFile": "Automatic window.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ab01dd19b27c4795a341e0ab8a5d80f1.pdf",
+      "existingSourcePdfSha256": "6a1d48f4e86d79a72761aca63501ab0847a685cb9f0bd2919ae6e8b55bf25199",
+      "existingPdfPages": 19,
+      "existingBlockReason": "Registered Wix source 'Automatic window.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Automatic window",
+      "resultsExamined": 14,
+      "alternativeFiles": [
+        {
+          "filename": "Automatic window.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5cf1eae5b6054ea1893a067d05b9fe32.pdf",
+          "mediaId": "7fc4ca_5cf1eae5b6054ea1893a067d05b9fe32.pdf",
+          "bytes": 1654656,
+          "sourceUrl": null
+        },
+        {
+          "filename": "Automatic window.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8c37f8edce7c4c00bd2c433d7634b6e9.pdf",
+          "mediaId": "7fc4ca_8c37f8edce7c4c00bd2c433d7634b6e9.pdf",
+          "bytes": 1319130,
+          "sourceUrl": null
+        }
+      ],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-dung-beetle",
+      "existingSourceFile": "Dung Beetle.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_261fe72a555d48bb98887bc3b82aad10.pdf",
+      "existingSourcePdfSha256": "6d356f3bcde8a5e57ea011964865bcc19a352c091f7ff74741213149d2eaabec",
+      "existingPdfPages": 26,
+      "existingBlockReason": "Registered Wix source 'Dung Beetle.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Dung Beetle",
+      "resultsExamined": 7,
+      "alternativeFiles": [],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-mobile-shot",
+      "existingSourceFile": "Mobile Shot.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0333ba1c98af459d9eed14b149fe83d5.pdf",
+      "existingSourcePdfSha256": "39cf59febae7c02b3a69749278550a26de419f11e08f4d9928c652a042fb05d2",
+      "existingPdfPages": 20,
+      "existingBlockReason": "Registered Wix source 'Mobile Shot.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Mobile Shot",
+      "resultsExamined": 17,
+      "alternativeFiles": [],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-robot-war",
+      "existingSourceFile": "Robot war.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_565442dd664f4d839b23319a3cf693c2.pdf",
+      "existingSourcePdfSha256": "05c840802a4b7e2cdaf89063818ff69a85feb665f14879d26b222a27ebbe7b72",
+      "existingPdfPages": 25,
+      "existingBlockReason": "Registered Wix source 'Robot war.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Robot war",
+      "resultsExamined": 100,
+      "alternativeFiles": [
+        {
+          "filename": "Robot war.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_870ea4b342b6416aba7c0cd82de84333.pdf",
+          "mediaId": "7fc4ca_870ea4b342b6416aba7c0cd82de84333.pdf",
+          "bytes": 1869071,
+          "sourceUrl": null
+        },
+        {
+          "filename": "Robot war.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d51adeb278944aa9ade49bef46bce810.pdf",
+          "mediaId": "7fc4ca_d51adeb278944aa9ade49bef46bce810.pdf",
+          "bytes": 1629195,
+          "sourceUrl": null
+        }
+      ],
+      "paginationIncomplete": true,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-rolling-shutter",
+      "existingSourceFile": "Rolling Shutter.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7d057cae078745938728560908990a5f.pdf",
+      "existingSourcePdfSha256": "4f290b057f636e84af730df984d3a773f01b752a43b8704d33e0435d5a37c05a",
+      "existingPdfPages": 16,
+      "existingBlockReason": "Registered Wix source 'Rolling Shutter.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Rolling Shutter",
+      "resultsExamined": 8,
+      "alternativeFiles": [],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-track-rickshaw",
+      "existingSourceFile": "Track Rickshaw.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b6f90ccb25a34d1e8a6f67565fb2115a.pdf",
+      "existingSourcePdfSha256": "c102ef8cd1fbc06091cd48caf69bc8821ed3dd266ab873a813ad25510148e50f",
+      "existingPdfPages": 18,
+      "existingBlockReason": "Registered Wix source 'Track Rickshaw.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Track Rickshaw",
+      "resultsExamined": 8,
+      "alternativeFiles": [],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-car-steering",
+      "existingSourceFile": "Car Steering.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c8fe4c3cc3f147f3871f79cc6646bb3e.pdf",
+      "existingSourcePdfSha256": "7802134fbb5cc7caf8eef2541cc06c980df2c19d09ee33ec92c7984e28bf22a4",
+      "existingPdfPages": 22,
+      "existingBlockReason": "Registered Wix source 'Car Steering.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Car Steering",
+      "resultsExamined": 68,
+      "alternativeFiles": [
+        {
+          "filename": "Car Steering.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dd9ea1a30b084afe8494ffdde84d360a.pdf",
+          "mediaId": "7fc4ca_dd9ea1a30b084afe8494ffdde84d360a.pdf",
+          "bytes": 1600202,
+          "sourceUrl": null
+        },
+        {
+          "filename": "Car Steering.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dc17cc81267944349df6ed40bdbc07c0.pdf",
+          "mediaId": "7fc4ca_dc17cc81267944349df6ed40bdbc07c0.pdf",
+          "bytes": 1741578,
+          "sourceUrl": null
+        }
+      ],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-cliff-walk",
+      "existingSourceFile": "Cliff walk.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0506a47611384efc957ca1d9120301e7.pdf",
+      "existingSourcePdfSha256": "5c17ec40a85f3784da5dfc89be1cf2d9bc9d2289d28321f021de3a0252536045",
+      "existingPdfPages": 12,
+      "existingBlockReason": "Registered Wix source 'Cliff walk.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Cliff walk",
+      "resultsExamined": 20,
+      "alternativeFiles": [
+        {
+          "filename": "Cliff walk.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0def8dc383184a54ac9bfa22b184da4a.pdf",
+          "mediaId": "7fc4ca_0def8dc383184a54ac9bfa22b184da4a.pdf",
+          "bytes": 901554,
+          "sourceUrl": null
+        },
+        {
+          "filename": "Cliff walk.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c8cff61dae714d8aa5fbe5fa4338f835.pdf",
+          "mediaId": "7fc4ca_c8cff61dae714d8aa5fbe5fa4338f835.pdf",
+          "bytes": 1056085,
+          "sourceUrl": null
+        }
+      ],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-ferris-wheel",
+      "existingSourceFile": "Ferris wheel.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e19ce390112d4687ba0f3e7c9ece89aa.pdf",
+      "existingSourcePdfSha256": "ff9692aebe943797c03ccdda408589f0fa27345d67bc533c23bc702b524b0779",
+      "existingPdfPages": 22,
+      "existingBlockReason": "Registered Wix source 'Ferris wheel.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Ferris wheel",
+      "resultsExamined": 9,
+      "alternativeFiles": [
+        {
+          "filename": "Ferris wheel.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f93db4c7c7d6467d88768c9e3bff81b4.pdf",
+          "mediaId": "7fc4ca_f93db4c7c7d6467d88768c9e3bff81b4.pdf",
+          "bytes": 2041612,
+          "sourceUrl": null
+        },
+        {
+          "filename": "Ferris wheel.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f62af6173ce5478babe17f761a8eefd1.pdf",
+          "mediaId": "7fc4ca_f62af6173ce5478babe17f761a8eefd1.pdf",
+          "bytes": 1390068,
+          "sourceUrl": null
+        }
+      ],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-round-trip-transportation",
+      "existingSourceFile": "Round-trip transportation.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_7b55e529ac684005bbbcca7dc25da110.pdf",
+      "existingSourcePdfSha256": "18fbac4a1217c841c42b72b1170d1a96880f34ab344899d531f4433573babfd9",
+      "existingPdfPages": 15,
+      "existingBlockReason": "Registered Wix source 'Round-trip transportation.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Round-trip transportation",
+      "resultsExamined": 7,
+      "alternativeFiles": [
+        {
+          "filename": "Round-trip transportation.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a8d743bbfcfe43479f86874462bb49f3.pdf",
+          "mediaId": "7fc4ca_a8d743bbfcfe43479f86874462bb49f3.pdf",
+          "bytes": 925499,
+          "sourceUrl": null
+        },
+        {
+          "filename": "Round-trip transportation.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ea76ba2d36c043678307358c7b384cd4.pdf",
+          "mediaId": "7fc4ca_ea76ba2d36c043678307358c7b384cd4.pdf",
+          "bytes": 953061,
+          "sourceUrl": null
+        }
+      ],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-shift-gears",
+      "existingSourceFile": "Shift gears.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_08aeb18334204c7fb65fcede60af5012.pdf",
+      "existingSourcePdfSha256": "0e640b29b17234bd8a16c9534f25aa25b820c28c18524478fec51a39da73a0c8",
+      "existingPdfPages": 19,
+      "existingBlockReason": "Registered Wix source 'Shift gears.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Shift gears",
+      "resultsExamined": 8,
+      "alternativeFiles": [
+        {
+          "filename": "Shift gears.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e9177999e5ff4cb695f739e8f104ed89.pdf",
+          "mediaId": "7fc4ca_e9177999e5ff4cb695f739e8f104ed89.pdf",
+          "bytes": 1226699,
+          "sourceUrl": null
+        },
+        {
+          "filename": "Shift gears.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_efab1ff97e7e435689c02d112c10ec99.pdf",
+          "mediaId": "7fc4ca_efab1ff97e7e435689c02d112c10ec99.pdf",
+          "bytes": 1305875,
+          "sourceUrl": null
+        }
+      ],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-animal-trap",
+      "existingSourceFile": "Animal trap.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c031b42bbda14028bf8a654778ceaa45.pdf",
+      "existingSourcePdfSha256": "a46e7c9d132603d2e210bb87e29140f44ef5966ede154e959983931aeb9047e4",
+      "existingPdfPages": 18,
+      "existingBlockReason": "Registered Wix source 'Animal trap.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Animal trap",
+      "resultsExamined": 50,
+      "alternativeFiles": [
+        {
+          "filename": "Animal trap.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8dd2e1f9e20141889ba4ee774b480a4f.pdf",
+          "mediaId": "7fc4ca_8dd2e1f9e20141889ba4ee774b480a4f.pdf",
+          "bytes": 1220161,
+          "sourceUrl": null
+        },
+        {
+          "filename": "Animal trap.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5d611ed2c78044969346f0e74579fcb5.pdf",
+          "mediaId": "7fc4ca_5d611ed2c78044969346f0e74579fcb5.pdf",
+          "bytes": 3993849,
+          "sourceUrl": null
+        }
+      ],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-headlights",
+      "existingSourceFile": "Headlights.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_a5ed1f1e93d543a886c753f87c0b6330.pdf",
+      "existingSourcePdfSha256": "a67d05ec8d653b644a6ad213d60bdd74688e5b9ca69687c3f5e0464294f4134d",
+      "existingPdfPages": 14,
+      "existingBlockReason": "Registered Wix source 'Headlights.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Headlights",
+      "resultsExamined": 4,
+      "alternativeFiles": [
+        {
+          "filename": "Headlights.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bf535766b2994ff087c2156d8a4b4156.pdf",
+          "mediaId": "7fc4ca_bf535766b2994ff087c2156d8a4b4156.pdf",
+          "bytes": 1048932,
+          "sourceUrl": null
+        },
+        {
+          "filename": "Headlights.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_51b392b3e3fe4756851db74a98bdc23c.pdf",
+          "mediaId": "7fc4ca_51b392b3e3fe4756851db74a98bdc23c.pdf",
+          "bytes": 1129690,
+          "sourceUrl": null
+        }
+      ],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-led-scrolling-screen",
+      "existingSourceFile": "LED Scrolling Screen.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a2fff3a4801a47be8a23e3b9f5f0639b.pdf",
+      "existingSourcePdfSha256": "00ef8962f3ff496c1d7b34ba3589c30ae44facd76ec244c17c493ced7e402b8b",
+      "existingPdfPages": 10,
+      "existingBlockReason": "Registered Wix source 'LED Scrolling Screen.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "LED Scrolling Screen",
+      "resultsExamined": 20,
+      "alternativeFiles": [],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-led-signboard",
+      "existingSourceFile": "LED Signboard.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_aa9fb0b2f7da43ddaa2abe9cf4a6f930.pdf",
+      "existingSourcePdfSha256": "d0cc5f6549b63fc94555403441bf95ab2c74ddc4148aba4849ec1c78d8b2c632",
+      "existingPdfPages": 12,
+      "existingBlockReason": "Registered Wix source 'LED Signboard.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "LED Signboard",
+      "resultsExamined": 16,
+      "alternativeFiles": [],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-reverse-parking",
+      "existingSourceFile": "Reverse Parking.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_49c37ce0afb34f458a1cf2d85d2420f3.pdf",
+      "existingSourcePdfSha256": "25bb429bec66e53a94622808c061fb70ecff343a2a6ce751fb21b9e7e143eac9",
+      "existingPdfPages": 12,
+      "existingBlockReason": "Registered Wix source 'Reverse Parking.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Reverse Parking",
+      "resultsExamined": 4,
+      "alternativeFiles": [],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-smart-window",
+      "existingSourceFile": "Smart Window.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a4b25d7ec56f46bf962394caff6e0b24.pdf",
+      "existingSourcePdfSha256": "b52d20afccc3905883ddc7388a4a1ce0867559eec3ca13fe8e76a92a2ea6faeb",
+      "existingPdfPages": 18,
+      "existingBlockReason": "Registered Wix source 'Smart Window.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Smart Window",
+      "resultsExamined": 46,
+      "alternativeFiles": [],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-spirograph",
+      "existingSourceFile": "Spirograph.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e8fcba505eba4c02900703d1dfa30ea1.pdf",
+      "existingSourcePdfSha256": "59c76e37ae12fbdf1db46c182df4fb0c42e830b8375bee87a3b26348d8827df0",
+      "existingPdfPages": 20,
+      "existingBlockReason": "Registered Wix source 'Spirograph.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Spirograph",
+      "resultsExamined": 1,
+      "alternativeFiles": [],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-four-wheel-drive",
+      "existingSourceFile": "Four-wheel Drive.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d0538e2fcd3e4f3f993382e30c0459af.pdf",
+      "existingSourcePdfSha256": "e3a551c87cc5e008d1b38062e62ae70cf4a6012e869b473f79c9b5b6d7555b44",
+      "existingPdfPages": 16,
+      "existingBlockReason": "Registered Wix source 'Four-wheel Drive.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Four-wheel Drive",
+      "resultsExamined": 25,
+      "alternativeFiles": [],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-pedal-waterwheel",
+      "existingSourceFile": "Pedal Waterwheel.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_962a8bba8fcd4c419a5f4764781d4445.pdf",
+      "existingSourcePdfSha256": "28195e267f57cfeb242db013a0ce9c072b0f5a0d187d201e475328f3a794c053",
+      "existingPdfPages": 12,
+      "existingBlockReason": "Registered Wix source 'Pedal Waterwheel.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Pedal Waterwheel",
+      "resultsExamined": 1,
+      "alternativeFiles": [],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    },
+    {
+      "variantId": "level-2-tank",
+      "existingSourceFile": "Tank.pdf",
+      "existingSourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e9bdb4f105704dbe8e61d9025882d4b2.pdf",
+      "existingSourcePdfSha256": "705f39620b4d47afc4855b924c0d88d056cb59a2b850df77cfa7709808001655",
+      "existingPdfPages": 32,
+      "existingBlockReason": "Registered Wix source 'Tank.pdf' was visually screened as a learning presentation or an insufficiently isolated Building manual: an authentic standalone finished-model reference and supported five-question Building checklist could not be approved.",
+      "searchTerms": "Tank",
+      "resultsExamined": 2,
+      "alternativeFiles": [
+        {
+          "filename": "Tank.pdf",
+          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_42ac4d1bbeea4a018e2b039f14b145ff.pdf",
+          "mediaId": "7fc4ca_42ac4d1bbeea4a018e2b039f14b145ff.pdf",
+          "bytes": 22811133,
+          "sourceUrl": null
+        }
+      ],
+      "paginationIncomplete": false,
+      "searchError": null,
+      "status": "blocked-pending-official-Building-PDF-identity-and-finished-model-visual-verification"
+    }
+  ]
+}
