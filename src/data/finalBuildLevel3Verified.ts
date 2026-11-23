@@ -20,6 +20,8 @@ type WixImage = {
   operationStatus: string; mediaState: string; mimeType: string;
   publicVisibility: boolean; siteId: string; width: number; height: number;
   hostedSha256: string; hostedBytes: number; hostedHttpStatus: number;
+  originalGitWebpSha256: string; sourceGitByteLength: number;
+  sourceGitCdnByteEqualityVerified: boolean;
   sourceFromOfficialPdfPage: boolean; completedAssemblyIndependentlyConfirmed: boolean;
 };
 type Question = {
@@ -106,6 +108,10 @@ export function getLevelThreeEvidence(
       !Number.isInteger(m.height) || m.height < 160 ||
       !Number.isInteger(m.hostedBytes) || m.hostedBytes <= 0 ||
       !sha.test(m.hostedSha256) ||
+      !sha.test(m.originalGitWebpSha256) ||
+      m.originalGitWebpSha256 !== m.hostedSha256 ||
+      m.sourceGitByteLength !== m.hostedBytes ||
+      m.sourceGitCdnByteEqualityVerified !== true ||
       m.hostedUrl !== "https://static.wixstatic.com/media/" + m.mediaId ||
       !/^78042f_[a-f0-9]{32}~mv2\.webp$/.test(m.mediaId) ||
       m.sourceGitUrl !== "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/" +
