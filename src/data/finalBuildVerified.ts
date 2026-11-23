@@ -1,4 +1,5 @@
 import { getLevelTwoEvidence } from "@/data/finalBuildLevel2Verified";
+import { getLevelThreeEvidence, withLevelThreeOwnerAuthorizedVariants } from "@/data/finalBuildLevel3Verified";
 import { getLevelSixEvidence } from "@/data/finalBuildLevel6Verified";
 import { getLevelFourEvidence } from "@/data/finalBuildLevel4Verified";
 import levelFiveReferences from "@/data/finalBuild/level-5-references.json";
@@ -139,6 +140,7 @@ function validWixWebpUrl(value: string): boolean {
 function getEvidence(level: number, projectId: string, variant: FinalBuildVariant): VerifiedEvidence | null {
   // Other levels stay closed until their own independently approved records are integrated.
   if (level === 2) return getLevelTwoEvidence(projectId, variant);
+  if (level === 3) return getLevelThreeEvidence(projectId, variant);
   if (level === 4) return getLevelFourEvidence(projectId, variant);
   if (level === 6) return getLevelSixEvidence(projectId, variant);
   if (level !== 5 || !variant.hostedOnWix) return null;
@@ -223,7 +225,9 @@ export function getVerifiedFinalBuildQuestions(
 
 /** Random discovery is uniform over eligible *projects*, not over their variants. */
 export function getVerifiedFinalBuildPool(level: number): FinalBuildProject[] {
-  return getFinalBuildPool(level).map(project => ({
+  const pool = getFinalBuildPool(level);
+  const inventory = level === 3 ? withLevelThreeOwnerAuthorizedVariants(pool) : pool;
+  return inventory.map(project => ({
     ...project,
     variants: project.variants.filter(variant => getEvidence(level, project.id, variant) !== null),
   })).filter(project => project.variants.length > 0);
