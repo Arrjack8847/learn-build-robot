@@ -983,7 +983,7 @@
     "webpDecodes": 50,
     "draftChecklistSets": 50,
     "draftQuestions": 250,
-    "nodeTestsPassed": 7,
+    "nodeTestsPassed": 20,
     "nodeTestsFailed": 0,
     "pixelFidelityPasses": 50,
     "maxPixelMeanAbsoluteError": 6.18,
@@ -991,6 +991,13 @@
     "approvedReferences": 0,
     "approvedChecklists": 0,
     "secondPassReport": "reports/final-build-level-4-independent-verification-20261123.json",
-    "caveat": "Pixel similarity and source hashes verified; image semantic correctness and the five questionnaire items per variant require independent manual sign-off."
+    "caveat": "Pixel similarity and source hashes verified; image semantic correctness and the five questionnaire items per variant require independent manual sign-off.",
+    "nodeTestFiles": [
+      "tests/final-build-level-4.test.mjs",
+      "tests/final-build-exams.test.mjs",
+      "tests/level-four-wix-urls.test.mjs",
+      "tests/syllabus-levels.test.mjs"
+    ],
+    "testSetup": "Headless sandbox; generated prerequisite Level Selection WebPs with existing script using isolated sharp install outside repository; no generated output committed"
   }
 }
