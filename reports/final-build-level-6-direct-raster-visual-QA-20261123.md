@@ -43,3 +43,13 @@ Legitimate remedy: a separate official complete finished-model source image from
 - No synthetic models, no WebP promotion, no GitHub Actions, no Browser Use, no merge or production deployment.
 
 **Approval conclusion:** Source limitations are now confirmed from direct original-image visual evidence, not merely inferred from a cropped candidate. The fully verified 39-variant subset can proceed to separate UI/browser QA and release assessment without mislabelling either absent final model.
+
+## Additional official Rock manual source-page checks (same-day follow-up)
+
+Independently recovered and visually inspected the entire underlying **original page-1 JPEG** (1,126,285 bytes) and **original page-13 JPEG** (1,586,424 bytes), using authenticated PDF byte-range GET and exact original JPEG stream reassembly (not generated imagery).
+
+- **Page 1:** Shows an exploded/simple early-stage gray motor-and-linkage module with instruction parts key and two-unit diagram. Not a complete robot.
+- **Page 13:** Shows an incomplete left-side assembly with black camera/sensor housing, upright finger levers and a separate right-hand arm with insertion arrows. The robot body is visibly cut at left and bottom. The right-hand arm is not yet joined in the illustration. Not a complete robot.
+- **Page 14:** Previously inspected original JPEG shows the next assembly detail at larger scale; outer extents and full finger assemblies are still missing, so it also is not an independently usable finished-model silhouette.
+
+The manual's first and penultimate assembly illustrations therefore provide no alternative complete final-model WebP. This supports keeping the Rock variant blocked under the existing authentic **Building-PDF-only** evidence rule. This does not claim a frame-by-frame visual certification of all 14 pages; the source JPEG count/hash parity is 14/14 and direct full-resolution visual checks were made on pages **1, 12, 13 and 14**.
