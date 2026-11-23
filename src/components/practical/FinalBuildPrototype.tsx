@@ -14,6 +14,7 @@ type Props = {
   filename: string;
   url: string;
   imageUrl?: string;
+  sourceLimited?: boolean;
   pageNumber: number;
   crop: PrototypeClip;
   title: string;
@@ -28,7 +29,7 @@ type Props = {
  * provisional until the original model art has been reviewed and approved.
  */
 export function FinalBuildPrototype({
-  filename, url, imageUrl, pageNumber, crop, title, onStatusChange,
+  filename, url, imageUrl, sourceLimited = false, pageNumber, crop, title, onStatusChange,
 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [status, setStatus] = useState<PrototypeStatus>("loading");
@@ -157,7 +158,7 @@ export function FinalBuildPrototype({
         <canvas
           ref={canvasRef}
           role="img"
-          aria-label={`Original completed-model reference of ${title}`}
+          aria-label={sourceLimited ? `Original construction-page illustration, not a complete finished-model image, of ${title}` : `Original completed-model reference of ${title}`}
           className={`mx-auto block h-auto max-h-[38dvh] max-w-full object-contain ${status === "ready" ? "" : "invisible"}`}
         />
       )}
