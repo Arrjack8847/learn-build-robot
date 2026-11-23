@@ -1,0 +1,3886 @@
+{
+  "schemaVersion": 1,
+  "level": 3,
+  "sourceWorkerHead": "0827f2b26d35d5340075c969e1df1ed69ed31d85",
+  "sourceReferenceFile": "src/data/finalBuild/level-3-references.json",
+  "sourceQuestionFile": "src/data/finalBuild/level-3-checklists.json",
+  "wixSiteName": "Steam",
+  "wixSiteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+  "authorization": "all-42-owner-authorized-for-inclusion",
+  "verificationLimit": "Authenticated PDF bytes and automated PDF-page matches are verified. Completed-model suitability and proposed technical self-check wording are not independently approved. Wix hosted bytes SHA256 are verified, but source Git WebP SHA256 has not been independently calculated.",
+  "counts": {
+    "variants": 42,
+    "distinctPdfs": 40,
+    "ownerAuthorizedWebpUrls": 42,
+    "cdnHashesCalculated": 42,
+    "questions": 210,
+    "independentlyApprovedImages": 0,
+    "independentlyApprovedQuestions": 0
+  },
+  "records": [
+    {
+      "variantId": "level-3-clip-robot",
+      "projectId": "level-3-clip-robot",
+      "projectName": "Clip robot",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "Clip robot_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b48d0f629fe1421bb4fc4c488a0dce95.pdf",
+        "mediaId": "7fc4ca_b48d0f629fe1421bb4fc4c488a0dce95.pdf",
+        "pdfSha256": "5bcac8acc6893fb9180fbf24562ef3f591642dc751440cac42701b308944f28c",
+        "pageCount": 30,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 30,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.275677,
+          "y": 0.207727,
+          "width": 0.44707,
+          "height": 0.584546
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-clip-robot-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_a6201358fdd5431cb5a19e6226031f54~mv2.webp",
+        "mediaId": "78042f_a6201358fdd5431cb5a19e6226031f54~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 1050,
+        "height": 773,
+        "hostedSha256": "c05197bd89588e2ee0b256b87b34ec46916c9b660d0be44921167a1e9e198cfb",
+        "hostedBytes": 30030,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "709939bf22d935b7e68c159da5f0bd0c939020ea3e01294820618fa093e8cb3b",
+        "previousStagingDimensions": [
+          1419,
+          1044
+        ]
+      },
+      "questions": [
+        {
+          "text": "Are both black gripping claws present at the front of the assembled clip robot?",
+          "evidencePage": 30,
+          "sourcePdfSha256": "5bcac8acc6893fb9180fbf24562ef3f591642dc751440cac42701b308944f28c",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the claw linkage connected to the red pivot and gear mechanism?",
+          "evidencePage": 30,
+          "sourcePdfSha256": "5bcac8acc6893fb9180fbf24562ef3f591642dc751440cac42701b308944f28c",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the gray main chassis support both gripping arms symmetrically?",
+          "evidencePage": 30,
+          "sourcePdfSha256": "5bcac8acc6893fb9180fbf24562ef3f591642dc751440cac42701b308944f28c",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the control unit mounted behind the gripping mechanism?",
+          "evidencePage": 30,
+          "sourcePdfSha256": "5bcac8acc6893fb9180fbf24562ef3f591642dc751440cac42701b308944f28c",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the long white connecting beams attached between the frame and claw mechanism?",
+          "evidencePage": 30,
+          "sourcePdfSha256": "5bcac8acc6893fb9180fbf24562ef3f591642dc751440cac42701b308944f28c",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b48d0f629fe1421bb4fc4c488a0dce95.pdf",
+        "page": 30,
+        "crop": {
+          "x": 0.275677,
+          "y": 0.207727,
+          "width": 0.44707,
+          "height": 0.584546
+        }
+      }
+    },
+    {
+      "variantId": "level-3-cycle-sport-basic",
+      "projectId": "level-3-cycle-sport-basic",
+      "projectName": "Cycle Sport",
+      "variantLabel": "Basic",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "3. Cycle Sport-Basic Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6a2df8f4cfff475897c187a70755bff6.pdf",
+        "mediaId": "7fc4ca_6a2df8f4cfff475897c187a70755bff6.pdf",
+        "pdfSha256": "4bcfdd2f69b666ec92d3aef86479785a41f31cf0707d044582b936d6b9a73d95",
+        "pageCount": 21,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 21,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.281473,
+          "y": 0.036074,
+          "width": 0.445368,
+          "height": 0.912752
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-cycle-sport-basic-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_6d7f6002981e4005b9e44df7cdd8e14f~mv2.webp",
+        "mediaId": "78042f_6d7f6002981e4005b9e44df7cdd8e14f~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 526,
+        "height": 762,
+        "hostedSha256": "6c3409a7e21e0aabcd776b71bc2b7857862cd6c5de1b5344b78bc9f7c5efef72",
+        "hostedBytes": 30000,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "031058cbcf5eac50d134b6fa8e0c4a10bc5cfaf87da96279d44d40b0fdb1d193",
+        "previousStagingDimensions": [
+          750,
+          1088
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the prominent wheel securely supported by the lower fork assembly?",
+          "evidencePage": 21,
+          "sourcePdfSha256": "4bcfdd2f69b666ec92d3aef86479785a41f31cf0707d044582b936d6b9a73d95",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Do the two long angled frame beams connect the upper drive assembly to the lower wheel area?",
+          "evidencePage": 21,
+          "sourcePdfSha256": "4bcfdd2f69b666ec92d3aef86479785a41f31cf0707d044582b936d6b9a73d95",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the exposed upper gear train positioned across the top of the frame?",
+          "evidencePage": 21,
+          "sourcePdfSha256": "4bcfdd2f69b666ec92d3aef86479785a41f31cf0707d044582b936d6b9a73d95",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the red drive coupling installed beside the central motor shaft?",
+          "evidencePage": 21,
+          "sourcePdfSha256": "4bcfdd2f69b666ec92d3aef86479785a41f31cf0707d044582b936d6b9a73d95",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the lower crank linkage aligned with the wheel-support brackets?",
+          "evidencePage": 21,
+          "sourcePdfSha256": "4bcfdd2f69b666ec92d3aef86479785a41f31cf0707d044582b936d6b9a73d95",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6a2df8f4cfff475897c187a70755bff6.pdf",
+        "page": 21,
+        "crop": {
+          "x": 0.281473,
+          "y": 0.036074,
+          "width": 0.445368,
+          "height": 0.912752
+        }
+      }
+    },
+    {
+      "variantId": "level-3-cycle-sport-optimized",
+      "projectId": "level-3-cycle-sport-basic",
+      "projectName": "Cycle Sport",
+      "variantLabel": "Optimized",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "3. Cycle Sport-Optimized Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dd97e54e02f64fa6990e8db4d18354ca.pdf",
+        "mediaId": "7fc4ca_dd97e54e02f64fa6990e8db4d18354ca.pdf",
+        "pdfSha256": "9026906f2574636df80412568fa9e82134d4f9cf7f2089f685761350509f73c5",
+        "pageCount": 6,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 6,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.238124,
+          "y": 0.069631,
+          "width": 0.530285,
+          "height": 0.853188
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-cycle-sport-optimized-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_f7038bd4d5ff4e5c964aa677eb0f44fe~mv2.webp",
+        "mediaId": "78042f_f7038bd4d5ff4e5c964aa677eb0f44fe~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 649,
+        "height": 740,
+        "hostedSha256": "9a762014908cc0666b0665f2ee4c1e8ea519e72ca0c066600f367fdf021e0114",
+        "hostedBytes": 28516,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "3bd15381c0261f74aa01cf458d035e01e9a7e09ef49452c72f2b5ab03619c2b9",
+        "previousStagingDimensions": [
+          893,
+          1017
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the display-equipped controller positioned on the front-lower part of the optimized vehicle?",
+          "evidencePage": 6,
+          "sourcePdfSha256": "9026906f2574636df80412568fa9e82134d4f9cf7f2089f685761350509f73c5",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the right-side wheel connect to the angled support structure?",
+          "evidencePage": 6,
+          "sourcePdfSha256": "9026906f2574636df80412568fa9e82134d4f9cf7f2089f685761350509f73c5",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the red central motor coupling attached to the drive linkage?",
+          "evidencePage": 6,
+          "sourcePdfSha256": "9026906f2574636df80412568fa9e82134d4f9cf7f2089f685761350509f73c5",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the long slanted upper frame beams joined at the top of the assembly?",
+          "evidencePage": 6,
+          "sourcePdfSha256": "9026906f2574636df80412568fa9e82134d4f9cf7f2089f685761350509f73c5",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the lower multi-link structure connected between the controller mount and wheel supports?",
+          "evidencePage": 6,
+          "sourcePdfSha256": "9026906f2574636df80412568fa9e82134d4f9cf7f2089f685761350509f73c5",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dd97e54e02f64fa6990e8db4d18354ca.pdf",
+        "page": 6,
+        "crop": {
+          "x": 0.238124,
+          "y": 0.069631,
+          "width": 0.530285,
+          "height": 0.853188
+        }
+      }
+    },
+    {
+      "variantId": "level-3-automatic-seesaw",
+      "projectId": "level-3-automatic-seesaw",
+      "projectName": "Automatic Seesaw",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "24. Automatic Seesaw -Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d49106300f224a3986bf25c552b894df.pdf",
+        "mediaId": "7fc4ca_d49106300f224a3986bf25c552b894df.pdf",
+        "pdfSha256": "928ecf07c1cc39f072348fb41c72960f5498825ddd581761ab4ec3866a1c31fd",
+        "pageCount": 29,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 29,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.146675,
+          "y": 0.155201,
+          "width": 0.707245,
+          "height": 0.660235
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-automatic-seesaw-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_e8225dce2e9c42cea61b70570aa3fe02~mv2.webp",
+        "mediaId": "78042f_e8225dce2e9c42cea61b70570aa3fe02~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 849,
+        "height": 561,
+        "hostedSha256": "cf7cf004c9cebdb7e17e44b76304f4e6fc4b44b3f902ad1c77c359aa859894da",
+        "hostedBytes": 30114,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "d5b218b596f241d8d0c4478ada906a3773ca9605f0ac8a4428576932924f57ed",
+        "previousStagingDimensions": [
+          1191,
+          787
+        ]
+      },
+      "questions": [
+        {
+          "text": "Does the seesaw beam extend to both sides of its central pivot?",
+          "evidencePage": 29,
+          "sourcePdfSha256": "928ecf07c1cc39f072348fb41c72960f5498825ddd581761ab4ec3866a1c31fd",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the central controller mounted above the main balance beam?",
+          "evidencePage": 29,
+          "sourcePdfSha256": "928ecf07c1cc39f072348fb41c72960f5498825ddd581761ab4ec3866a1c31fd",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the left and right end structures connected by the long horizontal beam?",
+          "evidencePage": 29,
+          "sourcePdfSha256": "928ecf07c1cc39f072348fb41c72960f5498825ddd581761ab4ec3866a1c31fd",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is a braced support frame positioned under the middle of the seesaw?",
+          "evidencePage": 29,
+          "sourcePdfSha256": "928ecf07c1cc39f072348fb41c72960f5498825ddd581761ab4ec3866a1c31fd",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the red connectors visible where the end mechanisms attach to the beam?",
+          "evidencePage": 29,
+          "sourcePdfSha256": "928ecf07c1cc39f072348fb41c72960f5498825ddd581761ab4ec3866a1c31fd",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d49106300f224a3986bf25c552b894df.pdf",
+        "page": 29,
+        "crop": {
+          "x": 0.146675,
+          "y": 0.155201,
+          "width": 0.707245,
+          "height": 0.660235
+        }
+      }
+    },
+    {
+      "variantId": "level-3-security-door",
+      "projectId": "level-3-security-door",
+      "projectName": "Security door",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "Security door_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8fabbeea8d3e434bbb7ff95d65f9e750.pdf",
+        "mediaId": "7fc4ca_8fabbeea8d3e434bbb7ff95d65f9e750.pdf",
+        "pdfSha256": "b6cf5cca9dc9ca10c7b95758c2c4711e079ae66adb00ea83f13a4cacd5385def",
+        "pageCount": 10,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 10,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.358538,
+          "y": 0.283875,
+          "width": 0.281033,
+          "height": 0.432811
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-security-door-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_9406cd8f24564c45bb0ff3f15c7ca21b~mv2.webp",
+        "mediaId": "78042f_9406cd8f24564c45bb0ff3f15c7ca21b~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 892,
+        "height": 773,
+        "hostedSha256": "f62fde29cfefc22562607e03fb0a11698bd30c94141f56b9f38258044a934f43",
+        "hostedBytes": 29844,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "6fae39c56bb360cdc8b4ddb3fe20daadfaaebc993b6c9e37e7f7dc97f21951d4",
+        "previousStagingDimensions": [
+          892,
+          773
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the rectangular doorway opening formed by connected upper and side beams?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "b6cf5cca9dc9ca10c7b95758c2c4711e079ae66adb00ea83f13a4cacd5385def",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the vertical red sliding elements installed inside the door frame?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "b6cf5cca9dc9ca10c7b95758c2c4711e079ae66adb00ea83f13a4cacd5385def",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the main drive block mounted to the right of the opening?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "b6cf5cca9dc9ca10c7b95758c2c4711e079ae66adb00ea83f13a4cacd5385def",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the lower crossbeam connect the left side of the door to its moving mechanism?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "b6cf5cca9dc9ca10c7b95758c2c4711e079ae66adb00ea83f13a4cacd5385def",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the two upper parallel support beams secured above the sliding parts?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "b6cf5cca9dc9ca10c7b95758c2c4711e079ae66adb00ea83f13a4cacd5385def",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8fabbeea8d3e434bbb7ff95d65f9e750.pdf",
+        "page": 10,
+        "crop": {
+          "x": 0.358538,
+          "y": 0.283875,
+          "width": 0.281033,
+          "height": 0.432811
+        }
+      }
+    },
+    {
+      "variantId": "level-3-smart-door",
+      "projectId": "level-3-smart-door",
+      "projectName": "Smart door",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "Smart door_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4a51e35447664f778c21a960401809dc.pdf",
+        "mediaId": "7fc4ca_4a51e35447664f778c21a960401809dc.pdf",
+        "pdfSha256": "b4840f25b998d1cd297001e951815385a58675c721ba86f1d22ba10e80ed1716",
+        "pageCount": 5,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 5,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.5453,
+          "y": 0.307494,
+          "width": 0.249516,
+          "height": 0.385444
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-smart-door-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_e33d9c1cb9c44c40bbe05ae911a0714e~mv2.webp",
+        "mediaId": "78042f_e33d9c1cb9c44c40bbe05ae911a0714e~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 1030,
+        "height": 895,
+        "hostedSha256": "57bf4902350e141870c4aee9b2c92e1cc8e461e6eff2b74d9ff1e2af3895bb4e",
+        "hostedBytes": 29772,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "876c4d54754fc5cde3bc783ffe37a6542999aeed39f17967f2a8e8ba3238b49a",
+        "previousStagingDimensions": [
+          1030,
+          895
+        ]
+      },
+      "questions": [
+        {
+          "text": "Are the two dark round sensing modules attached together above the front frame?",
+          "evidencePage": 5,
+          "sourcePdfSha256": "b4840f25b998d1cd297001e951815385a58675c721ba86f1d22ba10e80ed1716",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the rectangular front frame joined to the main control assembly?",
+          "evidencePage": 5,
+          "sourcePdfSha256": "b4840f25b998d1cd297001e951815385a58675c721ba86f1d22ba10e80ed1716",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the red angled connecting arms attached at the lower right of the assembly?",
+          "evidencePage": 5,
+          "sourcePdfSha256": "b4840f25b998d1cd297001e951815385a58675c721ba86f1d22ba10e80ed1716",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the screen-faced control block positioned behind the front uprights?",
+          "evidencePage": 5,
+          "sourcePdfSha256": "b4840f25b998d1cd297001e951815385a58675c721ba86f1d22ba10e80ed1716",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the left and right side mechanisms connected to the same central chassis?",
+          "evidencePage": 5,
+          "sourcePdfSha256": "b4840f25b998d1cd297001e951815385a58675c721ba86f1d22ba10e80ed1716",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4a51e35447664f778c21a960401809dc.pdf",
+        "page": 5,
+        "crop": {
+          "x": 0.5453,
+          "y": 0.307494,
+          "width": 0.249516,
+          "height": 0.385444
+        }
+      }
+    },
+    {
+      "variantId": "level-3-following-robot",
+      "projectId": "level-3-following-robot",
+      "projectName": "Following Robot",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "Following Robot_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dad2e2f73571417590aa81a368936a4e.pdf",
+        "mediaId": "7fc4ca_dad2e2f73571417590aa81a368936a4e.pdf",
+        "pdfSha256": "4db51e13781a6bd994b3487e85b56cc282f07594cffe962d2d8c46be59efddd0",
+        "pageCount": 9,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 9,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.235707,
+          "y": 0.060724,
+          "width": 0.375242,
+          "height": 0.878984
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-following-robot-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_afd23ef01eae47eba8ccbdff48708a3a~mv2.webp",
+        "mediaId": "78042f_afd23ef01eae47eba8ccbdff48708a3a~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 1100,
+        "height": 970,
+        "hostedSha256": "e97adf8168d43c26366d640eace04dd70816b43f18306dc948cc38621dc8eac5",
+        "hostedBytes": 35776,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "aa551b1eef11420e91aff280b58b72a709ec644a2c33cd027c5c902cebe660bf",
+        "previousStagingDimensions": [
+          1549,
+          2041
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the controller mounted horizontally across the top of the walking frame?",
+          "evidencePage": 8,
+          "sourcePdfSha256": "4db51e13781a6bd994b3487e85b56cc282f07594cffe962d2d8c46be59efddd0",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the angled side leg beams attached to the central axle mechanism?",
+          "evidencePage": 8,
+          "sourcePdfSha256": "4db51e13781a6bd994b3487e85b56cc282f07594cffe962d2d8c46be59efddd0",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Do the two front walking legs terminate in red foot connectors?",
+          "evidencePage": 8,
+          "sourcePdfSha256": "4db51e13781a6bd994b3487e85b56cc282f07594cffe962d2d8c46be59efddd0",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the red motor coupling located beneath the controller housing?",
+          "evidencePage": 8,
+          "sourcePdfSha256": "4db51e13781a6bd994b3487e85b56cc282f07594cffe962d2d8c46be59efddd0",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the right and left support legs arranged to balance the robot body?",
+          "evidencePage": 8,
+          "sourcePdfSha256": "4db51e13781a6bd994b3487e85b56cc282f07594cffe962d2d8c46be59efddd0",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dad2e2f73571417590aa81a368936a4e.pdf",
+        "page": 9,
+        "crop": {
+          "x": 0.235707,
+          "y": 0.060724,
+          "width": 0.375242,
+          "height": 0.878984
+        }
+      }
+    },
+    {
+      "variantId": "level-3-obstacle-avoidance-robot-1",
+      "projectId": "level-3-obstacle-avoidance-robot-1",
+      "projectName": "Obstacle Avoidance Robot 1",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "Obstacle Avoidance Robot 1_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_49d85ca5d7d24f42b9b349775f8704aa.pdf",
+        "mediaId": "7fc4ca_49d85ca5d7d24f42b9b349775f8704aa.pdf",
+        "pdfSha256": "67bdcdb78ae30b6bd8b59b34426c0f79258a9bdbe0f5a138b4df828a4c079ff8",
+        "pageCount": 11,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 11,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.230862,
+          "y": 0.26615,
+          "width": 0.421996,
+          "height": 0.468562
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-obstacle-avoidance-robot-1-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_a371f0441337453083f80c10398188ca~mv2.webp",
+        "mediaId": "78042f_a371f0441337453083f80c10398188ca~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 916,
+        "height": 1100,
+        "hostedSha256": "27c50106ffa8d176e60d3db86aa60408ef01ecf3c1faa8ab31dd29d14367bdf7",
+        "hostedBytes": 37360,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "f670ab6c5514b3e6d10bfb7a93787b4089610abfc5bd74dada4bfa7302afc644",
+        "previousStagingDimensions": [
+          1742,
+          1088
+        ]
+      },
+      "questions": [
+        {
+          "text": "Are the two black round distance-sensor eyes mounted at the front of the robot?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "67bdcdb78ae30b6bd8b59b34426c0f79258a9bdbe0f5a138b4df828a4c079ff8",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the screen-faced controller secured above the wheel chassis?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "67bdcdb78ae30b6bd8b59b34426c0f79258a9bdbe0f5a138b4df828a4c079ff8",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Do the gray beams hold the large side wheel to the drive assembly?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "67bdcdb78ae30b6bd8b59b34426c0f79258a9bdbe0f5a138b4df828a4c079ff8",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the red motor-and-axle structure installed near the lower front wheel?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "67bdcdb78ae30b6bd8b59b34426c0f79258a9bdbe0f5a138b4df828a4c079ff8",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the white side braces fastened to the central body frame?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "67bdcdb78ae30b6bd8b59b34426c0f79258a9bdbe0f5a138b4df828a4c079ff8",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_49d85ca5d7d24f42b9b349775f8704aa.pdf",
+        "page": 11,
+        "crop": {
+          "x": 0.230862,
+          "y": 0.26615,
+          "width": 0.421996,
+          "height": 0.468562
+        }
+      }
+    },
+    {
+      "variantId": "level-3-sunflower",
+      "projectId": "level-3-sunflower",
+      "projectName": "Sunflower",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "Sunflower.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3b60569142624d218cdbd6d6ecc4a3b1.pdf",
+        "mediaId": "7fc4ca_3b60569142624d218cdbd6d6ecc4a3b1.pdf",
+        "pdfSha256": "dc44b18f50b9e5d8e4f2e4074a42e2973be6b11ea34032589d34b5dda99fc7bb",
+        "pageCount": 14,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 14,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.387355,
+          "y": 0.146425,
+          "width": 0.223353,
+          "height": 0.706718
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-sunflower-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_e8b4ee9d02d54769b52a4c1ebe431079~mv2.webp",
+        "mediaId": "78042f_e8b4ee9d02d54769b52a4c1ebe431079~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 590,
+        "height": 1050,
+        "hostedSha256": "533365622ce8b9e8e6fcd52cd658afd366dc6e58643bb714dd9aa7510dad3e39",
+        "hostedBytes": 29604,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "ba633ae032dbabff22af1c3b2329ac334e459941d50ffffdb93afa0c3377d929",
+        "previousStagingDimensions": [
+          922,
+          1641
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the upper sunflower head attached to the long vertical stem?",
+          "evidencePage": 14,
+          "sourcePdfSha256": "dc44b18f50b9e5d8e4f2e4074a42e2973be6b11ea34032589d34b5dda99fc7bb",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the two small green-and-white leaf structures attached on opposite sides of the stem?",
+          "evidencePage": 14,
+          "sourcePdfSha256": "dc44b18f50b9e5d8e4f2e4074a42e2973be6b11ea34032589d34b5dda99fc7bb",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the stem supported by the rectangular lower base assembly?",
+          "evidencePage": 14,
+          "sourcePdfSha256": "dc44b18f50b9e5d8e4f2e4074a42e2973be6b11ea34032589d34b5dda99fc7bb",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the yellow and black elements arranged around the center of the flower head?",
+          "evidencePage": 14,
+          "sourcePdfSha256": "dc44b18f50b9e5d8e4f2e4074a42e2973be6b11ea34032589d34b5dda99fc7bb",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the red drive mechanism integrated into the lower base below the stem?",
+          "evidencePage": 14,
+          "sourcePdfSha256": "dc44b18f50b9e5d8e4f2e4074a42e2973be6b11ea34032589d34b5dda99fc7bb",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3b60569142624d218cdbd6d6ecc4a3b1.pdf",
+        "page": 14,
+        "crop": {
+          "x": 0.387355,
+          "y": 0.146425,
+          "width": 0.223353,
+          "height": 0.706718
+        }
+      }
+    },
+    {
+      "variantId": "level-3-electric-bulldozer",
+      "projectId": "level-3-electric-bulldozer",
+      "projectName": "Electric Bulldozer",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "23.Electric Bulldozer -Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c4cdf5cb69614575b6efb595355beb86.pdf",
+        "mediaId": "7fc4ca_c4cdf5cb69614575b6efb595355beb86.pdf",
+        "pdfSha256": "5aad4a8525cb2981206ab4fa95e5dfeab221c3084a5840e13a42db993e1b5218",
+        "pageCount": 26,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 26,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.165083,
+          "y": 0.035235,
+          "width": 0.673397,
+          "height": 0.917785
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-electric-bulldozer-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_785ce96cbd9542aebd1319c13f2d901f~mv2.webp",
+        "mediaId": "78042f_785ce96cbd9542aebd1319c13f2d901f~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 687,
+        "height": 663,
+        "hostedSha256": "f7c252678219cd9fc5f3a79ddbd5c6b5306c1050e6f08b0eec84546c37bc0df4",
+        "hostedBytes": 28128,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "bcd0ba570c725fcdeecacf50049df4782b366ed685d32e178825cfb7d436b372",
+        "previousStagingDimensions": [
+          1134,
+          1094
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the front bulldozer blade mounted across the width of the vehicle?",
+          "evidencePage": 26,
+          "sourcePdfSha256": "5aad4a8525cb2981206ab4fa95e5dfeab221c3084a5840e13a42db993e1b5218",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are both large side wheels attached to the main drive chassis?",
+          "evidencePage": 26,
+          "sourcePdfSha256": "5aad4a8525cb2981206ab4fa95e5dfeab221c3084a5840e13a42db993e1b5218",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the screen-faced controller enclosed behind the front lifting assembly?",
+          "evidencePage": 26,
+          "sourcePdfSha256": "5aad4a8525cb2981206ab4fa95e5dfeab221c3084a5840e13a42db993e1b5218",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the curved white lift-arm beams connected to the upper chassis?",
+          "evidencePage": 26,
+          "sourcePdfSha256": "5aad4a8525cb2981206ab4fa95e5dfeab221c3084a5840e13a42db993e1b5218",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the front blade linkage attach through the colored red, blue and yellow connectors?",
+          "evidencePage": 26,
+          "sourcePdfSha256": "5aad4a8525cb2981206ab4fa95e5dfeab221c3084a5840e13a42db993e1b5218",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c4cdf5cb69614575b6efb595355beb86.pdf",
+        "page": 26,
+        "crop": {
+          "x": 0.165083,
+          "y": 0.035235,
+          "width": 0.673397,
+          "height": 0.917785
+        }
+      }
+    },
+    {
+      "variantId": "level-3-electric-fan-characters-structures",
+      "projectId": "level-3-electric-fan-characters-structures",
+      "projectName": "Electric Fan",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "05.Electric Fan-Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+        "mediaId": "7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+        "pdfSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+        "pageCount": 12,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 12,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.250594,
+          "y": 0.069631,
+          "width": 0.50772,
+          "height": 0.868289
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-electric-fan-characters-structures-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_9fd6bb1a75cb44d7bd95b6d451681d1d~mv2.webp",
+        "mediaId": "78042f_9fd6bb1a75cb44d7bd95b6d451681d1d~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 558,
+        "height": 676,
+        "hostedSha256": "71866f5b4e07e1e8c3048ec3bbbcb057f0ae8f78c29aacd246bf81fea89f193d",
+        "hostedBytes": 27310,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "88dbb5b5001b4d04cfa7e0f79e23e2c6f261b767d9ca26396abb76d174207dcd",
+        "previousStagingDimensions": [
+          855,
+          1035
+        ]
+      },
+      "questions": [
+        {
+          "text": "Are the fan blades arranged radially around the upper gear hub?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the upper fan shaft supported by the tall upright frame?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the red lower brackets securing the upright assembly to the base?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the screen-faced controller mounted at the base beside the fan support?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the drive gears directly behind the fan-blade linkage?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+        "page": 12,
+        "crop": {
+          "x": 0.250594,
+          "y": 0.069631,
+          "width": 0.50772,
+          "height": 0.868289
+        }
+      }
+    },
+    {
+      "variantId": "level-3-safe",
+      "projectId": "level-3-safe",
+      "projectName": "Safe",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "15.Safe -Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d09f63c7e6a44cd1bb5fdafe9e11efb1.pdf",
+        "mediaId": "7fc4ca_d09f63c7e6a44cd1bb5fdafe9e11efb1.pdf",
+        "pdfSha256": "3a0e0c3a45e024059a406f6c0d54e08e65ba5e340926f372b246bb0aa99721bf",
+        "pageCount": 24,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 24,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.185273,
+          "y": 0.097315,
+          "width": 0.610451,
+          "height": 0.845638
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-safe-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_f81be0820f5d4dd48c104668a6ac2a4e~mv2.webp",
+        "mediaId": "78042f_f81be0820f5d4dd48c104668a6ac2a4e~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 673,
+        "height": 660,
+        "hostedSha256": "dce2ad517e55149d591ba38f7e788ad820cd039f44043eff77cc94b48d64b062",
+        "hostedBytes": 28212,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "0c063a02f3835d3b951c27629ed3f90f1d809121abf5f1113f0a36ae3599d878",
+        "previousStagingDimensions": [
+          1028,
+          1008
+        ]
+      },
+      "questions": [
+        {
+          "text": "Does the safe model include an upright gear-and-lock structure beside the controller?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "3a0e0c3a45e024059a406f6c0d54e08e65ba5e340926f372b246bb0aa99721bf",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the screen-faced controller resting on the lower support base?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "3a0e0c3a45e024059a406f6c0d54e08e65ba5e340926f372b246bb0aa99721bf",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are multiple interlocking gears visible in the locking mechanism?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "3a0e0c3a45e024059a406f6c0d54e08e65ba5e340926f372b246bb0aa99721bf",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the upper motor housing connected to the vertical gear tower?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "3a0e0c3a45e024059a406f6c0d54e08e65ba5e340926f372b246bb0aa99721bf",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the colored connectors holding the side latch and vertical rails in position?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "3a0e0c3a45e024059a406f6c0d54e08e65ba5e340926f372b246bb0aa99721bf",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d09f63c7e6a44cd1bb5fdafe9e11efb1.pdf",
+        "page": 24,
+        "crop": {
+          "x": 0.185273,
+          "y": 0.097315,
+          "width": 0.610451,
+          "height": 0.845638
+        }
+      }
+    },
+    {
+      "variantId": "level-3-smart-trash-bin",
+      "projectId": "level-3-smart-trash-bin",
+      "projectName": "Smart Trash Bin",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "20.Smart Trash Bin-Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_70455707868643188c4e310a6eda9940.pdf",
+        "mediaId": "7fc4ca_70455707868643188c4e310a6eda9940.pdf",
+        "pdfSha256": "3c63afc1068bfb132a8d0150755a87fd3975905e77839de6fd5a6ceb78458e60",
+        "pageCount": 22,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 22,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.247625,
+          "y": 0.086409,
+          "width": 0.522565,
+          "height": 0.861577
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-smart-trash-bin-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_74f7a7f5ebcf4cc98ce8b7898d055069~mv2.webp",
+        "mediaId": "78042f_74f7a7f5ebcf4cc98ce8b7898d055069~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 712,
+        "height": 831,
+        "hostedSha256": "1767c39c17024992f55b7809862cccdb1faba6ccc04001a17b26367996c61bd8",
+        "hostedBytes": 29154,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "463912c96c1d6587235d12a8a34cf22f579b2ac3f4d51e9fba11bb0ca3dc4eda",
+        "previousStagingDimensions": [
+          880,
+          1027
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the lid-lifting arm mounted above the rectangular trash-bin structure?",
+          "evidencePage": 22,
+          "sourcePdfSha256": "3c63afc1068bfb132a8d0150755a87fd3975905e77839de6fd5a6ceb78458e60",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the paired round sensing modules positioned near the front edge?",
+          "evidencePage": 22,
+          "sourcePdfSha256": "3c63afc1068bfb132a8d0150755a87fd3975905e77839de6fd5a6ceb78458e60",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the controller attached to the right side of the bin mechanism?",
+          "evidencePage": 22,
+          "sourcePdfSha256": "3c63afc1068bfb132a8d0150755a87fd3975905e77839de6fd5a6ceb78458e60",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the red motor-and-pivot assembly connect to the tall upper arm?",
+          "evidencePage": 22,
+          "sourcePdfSha256": "3c63afc1068bfb132a8d0150755a87fd3975905e77839de6fd5a6ceb78458e60",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the vertical rails secured between the lower chassis and lid support?",
+          "evidencePage": 22,
+          "sourcePdfSha256": "3c63afc1068bfb132a8d0150755a87fd3975905e77839de6fd5a6ceb78458e60",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_70455707868643188c4e310a6eda9940.pdf",
+        "page": 22,
+        "crop": {
+          "x": 0.247625,
+          "y": 0.086409,
+          "width": 0.522565,
+          "height": 0.861577
+        }
+      }
+    },
+    {
+      "variantId": "level-3-lifting-maintenance-vehicle",
+      "projectId": "level-3-lifting-maintenance-vehicle",
+      "projectName": "Lifting Maintenance Vehicle",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "Lifting Maintenance Vehicle.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_62b3ca692f6f47b79433f9e2b43b1106.pdf",
+        "mediaId": "7fc4ca_62b3ca692f6f47b79433f9e2b43b1106.pdf",
+        "pdfSha256": "6e5921a4926105cdf3467ef0adff2c2ba1d215dd48d9f29327bdfa2e1f983c5f",
+        "pageCount": 22,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 22,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-lifting-maintenance-vehicle-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_d8c18177ff674e5cb8cc6585a4b281d1~mv2.webp",
+        "mediaId": "78042f_d8c18177ff674e5cb8cc6585a4b281d1~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 922,
+        "height": 924,
+        "hostedSha256": "a52ab67ad8f1d5990597a953fddfab8bd7be51a6f55a4b64c68c5b0e2e5d4803",
+        "hostedBytes": 98132,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "581f43ba239ee503d202e9c2a5552ef121133199366b579be28f5adfa8dd9517",
+        "previousStagingDimensions": [
+          1684,
+          1191
+        ]
+      },
+      "questions": [
+        {
+          "text": "Does the lifting vehicle have a raised platform carried by crossed scissor arms?",
+          "evidencePage": 5,
+          "sourcePdfSha256": "6e5921a4926105cdf3467ef0adff2c2ba1d215dd48d9f29327bdfa2e1f983c5f",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the orange diagonal beams connected at intermediate pivot points?",
+          "evidencePage": 5,
+          "sourcePdfSha256": "6e5921a4926105cdf3467ef0adff2c2ba1d215dd48d9f29327bdfa2e1f983c5f",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the wheeled chassis wide enough to support the lifted platform?",
+          "evidencePage": 5,
+          "sourcePdfSha256": "6e5921a4926105cdf3467ef0adff2c2ba1d215dd48d9f29327bdfa2e1f983c5f",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the blue central lifting mechanism attached to the scissor-arm linkage?",
+          "evidencePage": 5,
+          "sourcePdfSha256": "6e5921a4926105cdf3467ef0adff2c2ba1d215dd48d9f29327bdfa2e1f983c5f",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the orange-and-white control housing mounted toward the front of the vehicle?",
+          "evidencePage": 5,
+          "sourcePdfSha256": "6e5921a4926105cdf3467ef0adff2c2ba1d215dd48d9f29327bdfa2e1f983c5f",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_62b3ca692f6f47b79433f9e2b43b1106.pdf",
+        "page": 22,
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      }
+    },
+    {
+      "variantId": "level-3-automated-guided-vehicle",
+      "projectId": "level-3-automated-guided-vehicle",
+      "projectName": "Automated Guided Vehicle",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "24.Automated Guided Vehicle-Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_819b76017e764fcbba4d8d00ef18949f.pdf",
+        "mediaId": "7fc4ca_819b76017e764fcbba4d8d00ef18949f.pdf",
+        "pdfSha256": "db57e69925fbab00995f65adaf1c48248604e9aebe864ff4a0653c870e7f6b69",
+        "pageCount": 24,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 24,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.204869,
+          "y": 0.098993,
+          "width": 0.625297,
+          "height": 0.829698
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-automated-guided-vehicle-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_06dc2c131cf74082a202b95dad02746b~mv2.webp",
+        "mediaId": "78042f_06dc2c131cf74082a202b95dad02746b~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 688,
+        "height": 646,
+        "hostedSha256": "ccb00664abe01d0552c9e68dea5b890f6b13d4f14ce9e9ba90a89388fb7af5a0",
+        "hostedBytes": 27528,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "4770037c4eaff15b1fe9e37a4460e2d7ff8ed3f50094804eba15a20536a0e7c9",
+        "previousStagingDimensions": [
+          1053,
+          989
+        ]
+      },
+      "questions": [
+        {
+          "text": "Are the large drive wheels mounted on both sides of the vehicle chassis?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "db57e69925fbab00995f65adaf1c48248604e9aebe864ff4a0653c870e7f6b69",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the controller fastened above the rectangular base frame?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "db57e69925fbab00995f65adaf1c48248604e9aebe864ff4a0653c870e7f6b69",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the front carrying platform extend forward from the controller assembly?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "db57e69925fbab00995f65adaf1c48248604e9aebe864ff4a0653c870e7f6b69",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are red axle connectors visible between the wheel supports and main frame?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "db57e69925fbab00995f65adaf1c48248604e9aebe864ff4a0653c870e7f6b69",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the vertical rear sensor block attached beside the upper controller?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "db57e69925fbab00995f65adaf1c48248604e9aebe864ff4a0653c870e7f6b69",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_819b76017e764fcbba4d8d00ef18949f.pdf",
+        "page": 24,
+        "crop": {
+          "x": 0.204869,
+          "y": 0.098993,
+          "width": 0.625297,
+          "height": 0.829698
+        }
+      }
+    },
+    {
+      "variantId": "level-3-race-walking-basic",
+      "projectId": "level-3-race-walking-basic",
+      "projectName": "Race Walking",
+      "variantLabel": "Basic",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "1. Race Walking - Basic Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_40ddc7964dab4006b0b855b7aeb59406.pdf",
+        "mediaId": "7fc4ca_40ddc7964dab4006b0b855b7aeb59406.pdf",
+        "pdfSha256": "b1de0b9ac608240758e9173fad5fd2f66d96ebbc8164ef7df2931db0acc5c1fa",
+        "pageCount": 7,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 7,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.281473,
+          "y": 0.041107,
+          "width": 0.489311,
+          "height": 0.921141
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-race-walking-basic-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_248693ed21ee49058aeb4d959cdd13f8~mv2.webp",
+        "mediaId": "78042f_248693ed21ee49058aeb4d959cdd13f8~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 638,
+        "height": 850,
+        "hostedSha256": "b1b58440ffe3be021623281d4e85b5f5a659f3df5b013232c9a8918c54ddbed5",
+        "hostedBytes": 28480,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "2c93dfb01eb2d16ece96d770eaa29d8829caf98b77f185eeedce8c57cf5a255a",
+        "previousStagingDimensions": [
+          824,
+          1098
+        ]
+      },
+      "questions": [
+        {
+          "text": "Are the long parallel walking legs attached to the robot's front crank mechanism?",
+          "evidencePage": 7,
+          "sourcePdfSha256": "b1de0b9ac608240758e9173fad5fd2f66d96ebbc8164ef7df2931db0acc5c1fa",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the controller mounted vertically above the leg assembly?",
+          "evidencePage": 7,
+          "sourcePdfSha256": "b1de0b9ac608240758e9173fad5fd2f66d96ebbc8164ef7df2931db0acc5c1fa",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the red crank couplings visible behind the front legs?",
+          "evidencePage": 7,
+          "sourcePdfSha256": "b1de0b9ac608240758e9173fad5fd2f66d96ebbc8164ef7df2931db0acc5c1fa",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the rear wheel connect to the horizontal motor housing?",
+          "evidencePage": 7,
+          "sourcePdfSha256": "b1de0b9ac608240758e9173fad5fd2f66d96ebbc8164ef7df2931db0acc5c1fa",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the white side braces installed on both sides of the walking linkage?",
+          "evidencePage": 7,
+          "sourcePdfSha256": "b1de0b9ac608240758e9173fad5fd2f66d96ebbc8164ef7df2931db0acc5c1fa",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_40ddc7964dab4006b0b855b7aeb59406.pdf",
+        "page": 7,
+        "crop": {
+          "x": 0.281473,
+          "y": 0.041107,
+          "width": 0.489311,
+          "height": 0.921141
+        }
+      }
+    },
+    {
+      "variantId": "level-3-race-walking-optimized",
+      "projectId": "level-3-race-walking-basic",
+      "projectName": "Race Walking",
+      "variantLabel": "Optimized",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "1. Race Walking - Optimized Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_605e48fe69f641e29f7aeb53056a9d1c.pdf",
+        "mediaId": "7fc4ca_605e48fe69f641e29f7aeb53056a9d1c.pdf",
+        "pdfSha256": "638c446ffcbdb9d63965b4aa5d85f4f2bb551d77ed7ee2301cc81575fb753825",
+        "pageCount": 6,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 6,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.252375,
+          "y": 0.055369,
+          "width": 0.514846,
+          "height": 0.921141
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-race-walking-optimized-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_89ca9fc68a1b4603bd751502c18cb0c4~mv2.webp",
+        "mediaId": "78042f_89ca9fc68a1b4603bd751502c18cb0c4~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 603,
+        "height": 764,
+        "hostedSha256": "beb426ece046b78fb9a6ae6545ac8d0d1a4b2cb76ff36eb08b9f19546cf6c716",
+        "hostedBytes": 28694,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "c47688bc53cc84b20db2039148fb02e325a8dfd487420331853ca7a96a02b6f7",
+        "previousStagingDimensions": [
+          867,
+          1098
+        ]
+      },
+      "questions": [
+        {
+          "text": "Are the paired black sensing modules mounted above the controller?",
+          "evidencePage": 6,
+          "sourcePdfSha256": "638c446ffcbdb9d63965b4aa5d85f4f2bb551d77ed7ee2301cc81575fb753825",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Do the front walking legs connect to the red drive cranks?",
+          "evidencePage": 6,
+          "sourcePdfSha256": "638c446ffcbdb9d63965b4aa5d85f4f2bb551d77ed7ee2301cc81575fb753825",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the additional small rear wheel installed on the optimized support frame?",
+          "evidencePage": 6,
+          "sourcePdfSha256": "638c446ffcbdb9d63965b4aa5d85f4f2bb551d77ed7ee2301cc81575fb753825",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the upper side arms mounted beside the controller housing?",
+          "evidencePage": 6,
+          "sourcePdfSha256": "638c446ffcbdb9d63965b4aa5d85f4f2bb551d77ed7ee2301cc81575fb753825",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the motor chassis aligned behind the walking-leg assembly?",
+          "evidencePage": 6,
+          "sourcePdfSha256": "638c446ffcbdb9d63965b4aa5d85f4f2bb551d77ed7ee2301cc81575fb753825",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_605e48fe69f641e29f7aeb53056a9d1c.pdf",
+        "page": 6,
+        "crop": {
+          "x": 0.252375,
+          "y": 0.055369,
+          "width": 0.514846,
+          "height": 0.921141
+        }
+      }
+    },
+    {
+      "variantId": "level-3-race-walking-optimized-ratchet",
+      "projectId": "level-3-race-walking-basic",
+      "projectName": "Race Walking",
+      "variantLabel": "Optimized + Ratchet",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "1. Race Walking - Optimized Building Manual - Added Ratchet.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d7fd406eeee64108b91a20b812e3a521.pdf",
+        "mediaId": "7fc4ca_d7fd406eeee64108b91a20b812e3a521.pdf",
+        "pdfSha256": "0b3f192781910bd79b241951b6079ccdf8668cd6545207fd02a0ba4805580b9c",
+        "pageCount": 2,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 2,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.074822,
+          "y": 0.02349,
+          "width": 0.755344,
+          "height": 0.870805
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-race-walking-optimized-ratchet-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_206fddf9c1c7477ab3934c58e60fdd8d~mv2.webp",
+        "mediaId": "78042f_206fddf9c1c7477ab3934c58e60fdd8d~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 849,
+        "height": 693,
+        "hostedSha256": "13da7dcb5eeb4302c514d6b03271433b566c3e782b3169046a3df4297ace5a4e",
+        "hostedBytes": 30392,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "7e7c5cbf3b39838eb2999e55273b50a8d44b080554d2f6be170fc45d4c3f250b",
+        "previousStagingDimensions": [
+          1272,
+          1038
+        ]
+      },
+      "questions": [
+        {
+          "text": "Are the ratchet wheel elements positioned at the intended leg-linkage mounting point?",
+          "evidencePage": 2,
+          "sourcePdfSha256": "0b3f192781910bd79b241951b6079ccdf8668cd6545207fd02a0ba4805580b9c",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the two black walking legs connected to their lower pivot joint?",
+          "evidencePage": 2,
+          "sourcePdfSha256": "0b3f192781910bd79b241951b6079ccdf8668cd6545207fd02a0ba4805580b9c",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the added small wheel linked to the lower side bracket?",
+          "evidencePage": 2,
+          "sourcePdfSha256": "0b3f192781910bd79b241951b6079ccdf8668cd6545207fd02a0ba4805580b9c",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the axle pins visible at the ratchet mechanism connection?",
+          "evidencePage": 2,
+          "sourcePdfSha256": "0b3f192781910bd79b241951b6079ccdf8668cd6545207fd02a0ba4805580b9c",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the added ratchet assembly attach without blocking the existing walking legs?",
+          "evidencePage": 2,
+          "sourcePdfSha256": "0b3f192781910bd79b241951b6079ccdf8668cd6545207fd02a0ba4805580b9c",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d7fd406eeee64108b91a20b812e3a521.pdf",
+        "page": 2,
+        "crop": {
+          "x": 0.074822,
+          "y": 0.02349,
+          "width": 0.755344,
+          "height": 0.870805
+        }
+      }
+    },
+    {
+      "variantId": "level-3-bumper-car-foundational-robots",
+      "projectId": "level-3-bumper-car-foundational-robots",
+      "projectName": "Bumper car",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "Bumper car_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+        "mediaId": "7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+        "pdfSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+        "pageCount": 13,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 13,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.310334,
+          "y": 0.241881,
+          "width": 0.377442,
+          "height": 0.515677
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-bumper-car-foundational-robots-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_eb1ad320dbc944f5a17a99b2f1805c6c~mv2.webp",
+        "mediaId": "78042f_eb1ad320dbc944f5a17a99b2f1805c6c~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 1050,
+        "height": 807,
+        "hostedSha256": "a3aafaaacd13b7278d3fe515e8a88c032243e47a3c2728ced7bd92df027e7df7",
+        "hostedBytes": 29912,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "7530b278b2cd16564b9be04d709118549e32911bef51f4276f96c60595f32573",
+        "previousStagingDimensions": [
+          1198,
+          921
+        ]
+      },
+      "questions": [
+        {
+          "text": "Are the two wheels connected to the bumper car's central drive frame?",
+          "evidencePage": 13,
+          "sourcePdfSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the front protective bumper built from curved and angled beams?",
+          "evidencePage": 13,
+          "sourcePdfSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the controller installed horizontally above the wheel assembly?",
+          "evidencePage": 13,
+          "sourcePdfSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the red motor couplings attached to the side drive mechanisms?",
+          "evidencePage": 13,
+          "sourcePdfSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the front bumper connectors aligned with the left and right support beams?",
+          "evidencePage": 13,
+          "sourcePdfSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+        "page": 13,
+        "crop": {
+          "x": 0.310334,
+          "y": 0.241881,
+          "width": 0.377442,
+          "height": 0.515677
+        }
+      }
+    },
+    {
+      "variantId": "level-3-disinfection-lamp",
+      "projectId": "level-3-disinfection-lamp",
+      "projectName": "Disinfection Lamp",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "13.Disinfection Lamp-Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_554500219aa24df9b769c8bc8b37513f.pdf",
+        "mediaId": "7fc4ca_554500219aa24df9b769c8bc8b37513f.pdf",
+        "pdfSha256": "82f9a3faaa571777142b944904c2c69b2c328405d6d6b24205a653b18c920970",
+        "pageCount": 20,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 20,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.229216,
+          "y": 0.147651,
+          "width": 0.55285,
+          "height": 0.747483
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-disinfection-lamp-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_178ee0505ac14f019cb94d84af9113f9~mv2.webp",
+        "mediaId": "78042f_178ee0505ac14f019cb94d84af9113f9~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 676,
+        "height": 647,
+        "hostedSha256": "8854273f4aa8c4e30a414a1288903072bd85bff67af1c4bc9c2cf4105eae34f2",
+        "hostedBytes": 28774,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "4377f6f47a49477380a9380e3e8e7aedc19ceeea00327dec42345a281ae16700",
+        "previousStagingDimensions": [
+          931,
+          891
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the upper lamp arm mounted above the rotating gear support?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "82f9a3faaa571777142b944904c2c69b2c328405d6d6b24205a653b18c920970",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the exposed gear train assembled directly below the lamp bracket?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "82f9a3faaa571777142b944904c2c69b2c328405d6d6b24205a653b18c920970",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the lower motor connect the gear tower to the main base?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "82f9a3faaa571777142b944904c2c69b2c328405d6d6b24205a653b18c920970",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the controller positioned horizontally beside the lamp support?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "82f9a3faaa571777142b944904c2c69b2c328405d6d6b24205a653b18c920970",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the vertical frame rails secured at both ends of the rotating mechanism?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "82f9a3faaa571777142b944904c2c69b2c328405d6d6b24205a653b18c920970",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_554500219aa24df9b769c8bc8b37513f.pdf",
+        "page": 20,
+        "crop": {
+          "x": 0.229216,
+          "y": 0.147651,
+          "width": 0.55285,
+          "height": 0.747483
+        }
+      }
+    },
+    {
+      "variantId": "level-3-flashlight-sensor",
+      "projectId": "level-3-flashlight-sensor",
+      "projectName": "Flashlight Sensor",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "04.Flashlight-Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_60546b12a6db461386a9864fc146d625.pdf",
+        "mediaId": "7fc4ca_60546b12a6db461386a9864fc146d625.pdf",
+        "pdfSha256": "1cf47dcb9585719a750d95d7ea2be39577fee58fc9081cfeffbdaacf41c15d76",
+        "pageCount": 12,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 12,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.246437,
+          "y": 0.21057,
+          "width": 0.50772,
+          "height": 0.608221
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-flashlight-sensor-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_4b74a0a60f1d4f129abccbf6c32ab498~mv2.webp",
+        "mediaId": "78042f_4b74a0a60f1d4f129abccbf6c32ab498~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 691,
+        "height": 586,
+        "hostedSha256": "db3c6163fae2aeaa1093482241cab729801ba5bb288d0dce6a572bb00e67e82b",
+        "hostedBytes": 28990,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "c47346ebea7f622a3ae424b341efbdef2b69b96923b9ea53d689cf822601855a",
+        "previousStagingDimensions": [
+          855,
+          725
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the front rectangular sensing block mounted outside the controller housing?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "1cf47dcb9585719a750d95d7ea2be39577fee58fc9081cfeffbdaacf41c15d76",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Do the two curved white frame beams arch above the controller?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "1cf47dcb9585719a750d95d7ea2be39577fee58fc9081cfeffbdaacf41c15d76",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the red sensor-mounting pivot secured to the left side support?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "1cf47dcb9585719a750d95d7ea2be39577fee58fc9081cfeffbdaacf41c15d76",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the crossbeams joined to the main controller base at both ends?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "1cf47dcb9585719a750d95d7ea2be39577fee58fc9081cfeffbdaacf41c15d76",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the raised rear attachment positioned behind the screen panel?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "1cf47dcb9585719a750d95d7ea2be39577fee58fc9081cfeffbdaacf41c15d76",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_60546b12a6db461386a9864fc146d625.pdf",
+        "page": 12,
+        "crop": {
+          "x": 0.246437,
+          "y": 0.21057,
+          "width": 0.50772,
+          "height": 0.608221
+        }
+      }
+    },
+    {
+      "variantId": "level-3-light-sensitive-curtains",
+      "projectId": "level-3-light-sensitive-curtains",
+      "projectName": "Light-sensitive Curtains",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "14.Light-sensitive Curtains -Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7a86681377184c5ea2c5b9bb96b7040d.pdf",
+        "mediaId": "7fc4ca_7a86681377184c5ea2c5b9bb96b7040d.pdf",
+        "pdfSha256": "e07668fe94a7de00fed87c8a7bcd482f0d75b1be8eeafe99c7456ed3cb348df9",
+        "pageCount": 28,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 28,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.208432,
+          "y": 0.115772,
+          "width": 0.601544,
+          "height": 0.769295
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-light-sensitive-curtains-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_68be53ca268f413f9a9e2266632b68fd~mv2.webp",
+        "mediaId": "78042f_68be53ca268f413f9a9e2266632b68fd~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 662,
+        "height": 600,
+        "hostedSha256": "808ebcf4d65a41d5784695761e49658cfd96dd4d5659ed09fd66fe96f491a838",
+        "hostedBytes": 27232,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "6b68237c3adbfd2342902184743b4bfef829e93eaf564952dbcf0fe60f92b08d",
+        "previousStagingDimensions": [
+          1013,
+          917
+        ]
+      },
+      "questions": [
+        {
+          "text": "Are the vertical sliding rods mounted between the two long horizontal rails?",
+          "evidencePage": 28,
+          "sourcePdfSha256": "e07668fe94a7de00fed87c8a7bcd482f0d75b1be8eeafe99c7456ed3cb348df9",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Do the red and blue connector blocks hold the parallel rods in place?",
+          "evidencePage": 28,
+          "sourcePdfSha256": "e07668fe94a7de00fed87c8a7bcd482f0d75b1be8eeafe99c7456ed3cb348df9",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the sensing unit mounted next to the upright curtain assembly?",
+          "evidencePage": 28,
+          "sourcePdfSha256": "e07668fe94a7de00fed87c8a7bcd482f0d75b1be8eeafe99c7456ed3cb348df9",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the screen-faced controller connect to the lower support frame?",
+          "evidencePage": 28,
+          "sourcePdfSha256": "e07668fe94a7de00fed87c8a7bcd482f0d75b1be8eeafe99c7456ed3cb348df9",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the upper and lower rails parallel around the curtain mechanism?",
+          "evidencePage": 28,
+          "sourcePdfSha256": "e07668fe94a7de00fed87c8a7bcd482f0d75b1be8eeafe99c7456ed3cb348df9",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7a86681377184c5ea2c5b9bb96b7040d.pdf",
+        "page": 28,
+        "crop": {
+          "x": 0.208432,
+          "y": 0.115772,
+          "width": 0.601544,
+          "height": 0.769295
+        }
+      }
+    },
+    {
+      "variantId": "level-3-bumper-car-interactive-mechanisms",
+      "projectId": "level-3-bumper-car-interactive-mechanisms",
+      "projectName": "Bumper car",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "Bumper car_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+        "mediaId": "7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+        "pdfSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+        "pageCount": 13,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 13,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.310334,
+          "y": 0.241881,
+          "width": 0.377442,
+          "height": 0.515677
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-bumper-car-interactive-mechanisms-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_372ebfbb8b594824852aaedfbc04e54e~mv2.webp",
+        "mediaId": "78042f_372ebfbb8b594824852aaedfbc04e54e~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 1050,
+        "height": 807,
+        "hostedSha256": "a3aafaaacd13b7278d3fe515e8a88c032243e47a3c2728ced7bd92df027e7df7",
+        "hostedBytes": 29912,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "7530b278b2cd16564b9be04d709118549e32911bef51f4276f96c60595f32573",
+        "previousStagingDimensions": [
+          1198,
+          921
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the front impact bumper joined to the central chassis at two mounting points?",
+          "evidencePage": 13,
+          "sourcePdfSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the curved bumper support arms arranged symmetrically?",
+          "evidencePage": 13,
+          "sourcePdfSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the motor-driven axle sit between the side wheels?",
+          "evidencePage": 13,
+          "sourcePdfSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the top controller attached behind the impact-sensitive front linkage?",
+          "evidencePage": 13,
+          "sourcePdfSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the red and blue connection points visible at the front assembly?",
+          "evidencePage": 13,
+          "sourcePdfSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+        "page": 13,
+        "crop": {
+          "x": 0.310334,
+          "y": 0.241881,
+          "width": 0.377442,
+          "height": 0.515677
+        }
+      }
+    },
+    {
+      "variantId": "level-3-anti-fall-robot",
+      "projectId": "level-3-anti-fall-robot",
+      "projectName": "Anti-fall Robot",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "11.Anti-fall Robot-Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_04a7868dd78a4216839d6ab3bc575381.pdf",
+        "mediaId": "7fc4ca_04a7868dd78a4216839d6ab3bc575381.pdf",
+        "pdfSha256": "0065cad3da26f5ccbe13e680c0a5f187de80c372e3b112548c01dfaa7b00ce7f",
+        "pageCount": 16,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 16,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.195962,
+          "y": 0.104027,
+          "width": 0.570665,
+          "height": 0.795302
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-anti-fall-robot-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_5e312707e7c34f6e9f70d2d22f765c75~mv2.webp",
+        "mediaId": "78042f_5e312707e7c34f6e9f70d2d22f765c75~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 699,
+        "height": 689,
+        "hostedSha256": "39e21b0a461d67277bb83a0837d191e23c634dd409299303eca82c5eb76d4cce",
+        "hostedBytes": 27368,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "85c42b33ccfca55553361ad0dc7143602c28aad04139f9de3649691e5996d36c",
+        "previousStagingDimensions": [
+          961,
+          948
+        ]
+      },
+      "questions": [
+        {
+          "text": "Are the two large driving wheels mounted on opposite sides of the chassis?",
+          "evidencePage": 16,
+          "sourcePdfSha256": "0065cad3da26f5ccbe13e680c0a5f187de80c372e3b112548c01dfaa7b00ce7f",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the front pair of white support brackets attached ahead of the wheels?",
+          "evidencePage": 16,
+          "sourcePdfSha256": "0065cad3da26f5ccbe13e680c0a5f187de80c372e3b112548c01dfaa7b00ce7f",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the front sensing elements directed downward toward the lower frame?",
+          "evidencePage": 16,
+          "sourcePdfSha256": "0065cad3da26f5ccbe13e680c0a5f187de80c372e3b112548c01dfaa7b00ce7f",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the control unit mounted across the upper chassis?",
+          "evidencePage": 16,
+          "sourcePdfSha256": "0065cad3da26f5ccbe13e680c0a5f187de80c372e3b112548c01dfaa7b00ce7f",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the rear motor and axle connectors aligned with the wheel drive?",
+          "evidencePage": 16,
+          "sourcePdfSha256": "0065cad3da26f5ccbe13e680c0a5f187de80c372e3b112548c01dfaa7b00ce7f",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_04a7868dd78a4216839d6ab3bc575381.pdf",
+        "page": 16,
+        "crop": {
+          "x": 0.195962,
+          "y": 0.104027,
+          "width": 0.570665,
+          "height": 0.795302
+        }
+      }
+    },
+    {
+      "variantId": "level-3-automatic-door",
+      "projectId": "level-3-automatic-door",
+      "projectName": "Automatic Door",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "17.Automatic Door -Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c2ff026d9c484c81b5e0f47d6c092230.pdf",
+        "mediaId": "7fc4ca_c2ff026d9c484c81b5e0f47d6c092230.pdf",
+        "pdfSha256": "0168d11271a6646952361113c3fe7e29ee6cb099bf1bd2447f1439ce2dc68a80",
+        "pageCount": 23,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 23,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.192993,
+          "y": 0.17953,
+          "width": 0.614608,
+          "height": 0.643456
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-automatic-door-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_dd09fd547472431996baeacd1dffa723~mv2.webp",
+        "mediaId": "78042f_dd09fd547472431996baeacd1dffa723~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 1035,
+        "height": 767,
+        "hostedSha256": "b1b21b4fa929aff31672118b63239c6e7c8c12f555e80efddb75a25d9347c28a",
+        "hostedBytes": 25584,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "51cefc6252292226693e88e535d7b6b46988edbffecb6d7a7895d25a4d184852",
+        "previousStagingDimensions": [
+          1035,
+          767
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the rectangular doorway formed by the left and right upright beams?",
+          "evidencePage": 23,
+          "sourcePdfSha256": "0168d11271a6646952361113c3fe7e29ee6cb099bf1bd2447f1439ce2dc68a80",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the upper black drive mechanism positioned above the door opening?",
+          "evidencePage": 23,
+          "sourcePdfSha256": "0168d11271a6646952361113c3fe7e29ee6cb099bf1bd2447f1439ce2dc68a80",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the controller mount beside the door frame on the right?",
+          "evidencePage": 23,
+          "sourcePdfSha256": "0168d11271a6646952361113c3fe7e29ee6cb099bf1bd2447f1439ce2dc68a80",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the middle horizontal crossbars connected to the sliding mechanism?",
+          "evidencePage": 23,
+          "sourcePdfSha256": "0168d11271a6646952361113c3fe7e29ee6cb099bf1bd2447f1439ce2dc68a80",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the lower frame fastened to the controller side without crossing the passage?",
+          "evidencePage": 23,
+          "sourcePdfSha256": "0168d11271a6646952361113c3fe7e29ee6cb099bf1bd2447f1439ce2dc68a80",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c2ff026d9c484c81b5e0f47d6c092230.pdf",
+        "page": 23,
+        "crop": {
+          "x": 0.192993,
+          "y": 0.17953,
+          "width": 0.614608,
+          "height": 0.643456
+        }
+      }
+    },
+    {
+      "variantId": "level-3-juicer-machine",
+      "projectId": "level-3-juicer-machine",
+      "projectName": "Juicer Machine",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "06..Juicer Machine-Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_62d1352e9abe4d26b7c5c764962615dc.pdf",
+        "mediaId": "7fc4ca_62d1352e9abe4d26b7c5c764962615dc.pdf",
+        "pdfSha256": "225d502801598f7c50cdf702ff219454cb64e9ca884c68887664f99801eddd62",
+        "pageCount": 14,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 14,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.216152,
+          "y": 0.056208,
+          "width": 0.567102,
+          "height": 0.894295
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-juicer-machine-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_4c3ca4a02bd74bcc90b72c1bbd9dff3a~mv2.webp",
+        "mediaId": "78042f_4c3ca4a02bd74bcc90b72c1bbd9dff3a~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 615,
+        "height": 686,
+        "hostedSha256": "2b64378982ef89a415a1cdfba854b3641d65bce81e8243ed564971c15b90e259",
+        "hostedBytes": 28756,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "fe5fde40b7fcf271741d3e79c394d8aecbe22082472dbf8030e35c8071d4d14e",
+        "previousStagingDimensions": [
+          955,
+          1066
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the upper gear assembly enclosed by a tall rectangular support frame?",
+          "evidencePage": 14,
+          "sourcePdfSha256": "225d502801598f7c50cdf702ff219454cb64e9ca884c68887664f99801eddd62",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the vertical shaft connected to the red turning component?",
+          "evidencePage": 14,
+          "sourcePdfSha256": "225d502801598f7c50cdf702ff219454cb64e9ca884c68887664f99801eddd62",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the controller sit beside the main juicer structure?",
+          "evidencePage": 14,
+          "sourcePdfSha256": "225d502801598f7c50cdf702ff219454cb64e9ca884c68887664f99801eddd62",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the lower support feet attached to the upright gear housing?",
+          "evidencePage": 14,
+          "sourcePdfSha256": "225d502801598f7c50cdf702ff219454cb64e9ca884c68887664f99801eddd62",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the upper crossbars secured around the central gear mechanism?",
+          "evidencePage": 14,
+          "sourcePdfSha256": "225d502801598f7c50cdf702ff219454cb64e9ca884c68887664f99801eddd62",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_62d1352e9abe4d26b7c5c764962615dc.pdf",
+        "page": 14,
+        "crop": {
+          "x": 0.216152,
+          "y": 0.056208,
+          "width": 0.567102,
+          "height": 0.894295
+        }
+      }
+    },
+    {
+      "variantId": "level-3-washing-machine",
+      "projectId": "level-3-washing-machine",
+      "projectName": "Washing Machine",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "08.Washing Machine-Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c4d4661ef7c14b3ba047ccefb7c20944.pdf",
+        "mediaId": "7fc4ca_c4d4661ef7c14b3ba047ccefb7c20944.pdf",
+        "pdfSha256": "3b0362c124754e823d2e59eb753f48e30272a626f3721abbddd0a0aef1c74ca3",
+        "pageCount": 18,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 18,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.223872,
+          "y": 0.064597,
+          "width": 0.549287,
+          "height": 0.868289
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-washing-machine-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_08ec2bde314b4da48826d6182a575d48~mv2.webp",
+        "mediaId": "78042f_08ec2bde314b4da48826d6182a575d48~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 605,
+        "height": 677,
+        "hostedSha256": "715f2c510cf154c31b04e2694718391f335e42c8ec58e1ec6f3fa98266abc53a",
+        "hostedBytes": 30450,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "92918b0828c1e1e60f2c4184923bceece5e52ae24505eb2e4bf2e53d09d0266c",
+        "previousStagingDimensions": [
+          925,
+          1035
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the large round drum or wheel enclosed by the upright frame?",
+          "evidencePage": 18,
+          "sourcePdfSha256": "3b0362c124754e823d2e59eb753f48e30272a626f3721abbddd0a0aef1c74ca3",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the top white supports connected around the circular drum?",
+          "evidencePage": 18,
+          "sourcePdfSha256": "3b0362c124754e823d2e59eb753f48e30272a626f3721abbddd0a0aef1c74ca3",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the screen-faced controller positioned to the side of the drum?",
+          "evidencePage": 18,
+          "sourcePdfSha256": "3b0362c124754e823d2e59eb753f48e30272a626f3721abbddd0a0aef1c74ca3",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the blue and red hinge brackets supporting the rotating assembly?",
+          "evidencePage": 18,
+          "sourcePdfSha256": "3b0362c124754e823d2e59eb753f48e30272a626f3721abbddd0a0aef1c74ca3",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the base frame stable under both the drum and controller?",
+          "evidencePage": 18,
+          "sourcePdfSha256": "3b0362c124754e823d2e59eb753f48e30272a626f3721abbddd0a0aef1c74ca3",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c4d4661ef7c14b3ba047ccefb7c20944.pdf",
+        "page": 18,
+        "crop": {
+          "x": 0.223872,
+          "y": 0.064597,
+          "width": 0.549287,
+          "height": 0.868289
+        }
+      }
+    },
+    {
+      "variantId": "level-3-electronic-scale",
+      "projectId": "level-3-electronic-scale",
+      "projectName": "Electronic scale",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "Electronic scale.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9ea1f915116b429895c75c161797983d.pdf",
+        "mediaId": "78042f_9ea1f915116b429895c75c161797983d.pdf",
+        "pdfSha256": "d8b367f8dc8ac6d1d498cd39b575d44bf606f1fe8619c79ac96373a60603d127",
+        "pageCount": 27,
+        "pdfIdentity": "historical-repaired-git-blob",
+        "sourcePage": 27,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0,
+          "y": 0.096405,
+          "width": 1,
+          "height": 0.808824
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-electronic-scale-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_7238aed19a404c7f818e14eabbd00d08~mv2.webp",
+        "mediaId": "78042f_7238aed19a404c7f818e14eabbd00d08~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 1100,
+        "height": 664,
+        "hostedSha256": "ceff5f18c11c30ac6e4fd339f13fbd95cd9c0b01fb93bff57b1a4721ecf2f476",
+        "hostedBytes": 26020,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "8bd50b1c4b8834290b266a4d25bbc9465ab52c145d71aa7f1e32b1945b4bde7c",
+        "previousStagingDimensions": [
+          1584,
+          990
+        ]
+      },
+      "questions": [
+        {
+          "text": "Does the balance beam extend to both sides of its central pivot?",
+          "evidencePage": 22,
+          "sourcePdfSha256": "d8b367f8dc8ac6d1d498cd39b575d44bf606f1fe8619c79ac96373a60603d127",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the hanging dark circular weight attached beneath the beam?",
+          "evidencePage": 22,
+          "sourcePdfSha256": "d8b367f8dc8ac6d1d498cd39b575d44bf606f1fe8619c79ac96373a60603d127",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the orange frame beams aligned around the weighing platform?",
+          "evidencePage": 22,
+          "sourcePdfSha256": "d8b367f8dc8ac6d1d498cd39b575d44bf606f1fe8619c79ac96373a60603d127",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the white-and-orange control unit mounted on the lower support base?",
+          "evidencePage": 22,
+          "sourcePdfSha256": "d8b367f8dc8ac6d1d498cd39b575d44bf606f1fe8619c79ac96373a60603d127",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the central vertical frame keep the beam elevated above the platform?",
+          "evidencePage": 22,
+          "sourcePdfSha256": "d8b367f8dc8ac6d1d498cd39b575d44bf606f1fe8619c79ac96373a60603d127",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9ea1f915116b429895c75c161797983d.pdf",
+        "page": 27,
+        "crop": {
+          "x": 0,
+          "y": 0.096405,
+          "width": 1,
+          "height": 0.808824
+        }
+      }
+    },
+    {
+      "variantId": "level-3-gyro-transmitter",
+      "projectId": "level-3-gyro-transmitter",
+      "projectName": "Gyro transmitter",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "Gyro transmitter_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+        "mediaId": "78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+        "pdfSha256": "d5f2cbe35d9c7bb445f0ac144b305d26d72dfdd04057ee6226567cf278313bb9",
+        "pageCount": 17,
+        "pdfIdentity": "historical-repaired-git-blob",
+        "sourcePage": 17,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.395421,
+          "y": 0.453401,
+          "width": 0.472153,
+          "height": 0.300588
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-gyro-transmitter-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_43c63e3f1eb548909f23861cd475876a~mv2.webp",
+        "mediaId": "78042f_43c63e3f1eb548909f23861cd475876a~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 763,
+        "height": 358,
+        "hostedSha256": "fc1bb6bd8898d60cd2e1001ac2fb73d1501671cb979badabdacf8afca55f101e",
+        "hostedBytes": 17848,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "46f564c72157fec8007dd5d7663bec9c4a9cecff23e89ef98c445095da19637a",
+        "previousStagingDimensions": [
+          763,
+          358
+        ]
+      },
+      "questions": [
+        {
+          "text": "Are the large meshed gear wheels fitted beneath the long horizontal frame?",
+          "evidencePage": 1,
+          "sourcePdfSha256": "d5f2cbe35d9c7bb445f0ac144b305d26d72dfdd04057ee6226567cf278313bb9",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the red upright end bracket fastened to the upper beam?",
+          "evidencePage": 1,
+          "sourcePdfSha256": "d5f2cbe35d9c7bb445f0ac144b305d26d72dfdd04057ee6226567cf278313bb9",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the black gear disc align with the central transmission axle?",
+          "evidencePage": 1,
+          "sourcePdfSha256": "d5f2cbe35d9c7bb445f0ac144b305d26d72dfdd04057ee6226567cf278313bb9",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the small black upright connector attached over the gear train?",
+          "evidencePage": 1,
+          "sourcePdfSha256": "d5f2cbe35d9c7bb445f0ac144b305d26d72dfdd04057ee6226567cf278313bb9",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the long side rails connected to the gear housing at both ends?",
+          "evidencePage": 1,
+          "sourcePdfSha256": "d5f2cbe35d9c7bb445f0ac144b305d26d72dfdd04057ee6226567cf278313bb9",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+        "page": 17,
+        "crop": {
+          "x": 0.395421,
+          "y": 0.453401,
+          "width": 0.472153,
+          "height": 0.300588
+        }
+      }
+    },
+    {
+      "variantId": "level-3-electric-fan-mechanisms-and-concepts",
+      "projectId": "level-3-electric-fan-mechanisms-and-concepts",
+      "projectName": "Electric fan",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "05.Electric Fan-Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+        "mediaId": "7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+        "pdfSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+        "pageCount": 12,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 12,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.250594,
+          "y": 0.069631,
+          "width": 0.50772,
+          "height": 0.868289
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-electric-fan-mechanisms-and-concepts-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_065d3d25591b42519e32f55276643505~mv2.webp",
+        "mediaId": "78042f_065d3d25591b42519e32f55276643505~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 558,
+        "height": 676,
+        "hostedSha256": "71866f5b4e07e1e8c3048ec3bbbcb057f0ae8f78c29aacd246bf81fea89f193d",
+        "hostedBytes": 27310,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "88dbb5b5001b4d04cfa7e0f79e23e2c6f261b767d9ca26396abb76d174207dcd",
+        "previousStagingDimensions": [
+          855,
+          1035
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the central fan blade assembly aligned with the gear-driven shaft?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the outer fan blades evenly distributed around the rotating hub?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the motor housing attach behind the raised fan support?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the controller base connected to the red upright brackets?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the lower frame beams stable beneath the upright fan tower?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+        "page": 12,
+        "crop": {
+          "x": 0.250594,
+          "y": 0.069631,
+          "width": 0.50772,
+          "height": 0.868289
+        }
+      }
+    },
+    {
+      "variantId": "level-3-biting-monster",
+      "projectId": "level-3-biting-monster",
+      "projectName": "Biting Monster",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "Biting Monster.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_65ab7f6608544c17a9dde9da09af12c8.pdf",
+        "mediaId": "7fc4ca_65ab7f6608544c17a9dde9da09af12c8.pdf",
+        "pdfSha256": "bc4fb8970464c327a463f2d36e1b756fdf6c5d96cb94acdf8511bd919a0d3051",
+        "pageCount": 24,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 24,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0,
+          "y": 0.184719,
+          "width": 0.985154,
+          "height": 0.815281
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-biting-monster-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_4f769ed72d6e4c19b13c94dd845153ee~mv2.webp",
+        "mediaId": "78042f_4f769ed72d6e4c19b13c94dd845153ee~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 875,
+        "height": 1100,
+        "hostedSha256": "82e5a53db6f7513a631d30b2e7ff32d580e3b3c87e3d03c1720dbbe421125882",
+        "hostedBytes": 62790,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "fc0991503bdac3822d1968aa9710feb280c09b64a1bce3351ca4e163ba37be03",
+        "previousStagingDimensions": [
+          1659,
+          971
+        ]
+      },
+      "questions": [
+        {
+          "text": "Are the blue jaw-like arms joined around the monster's front opening?",
+          "evidencePage": 5,
+          "sourcePdfSha256": "bc4fb8970464c327a463f2d36e1b756fdf6c5d96cb94acdf8511bd919a0d3051",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the upper white-and-blue head mechanism connected to the body?",
+          "evidencePage": 5,
+          "sourcePdfSha256": "bc4fb8970464c327a463f2d36e1b756fdf6c5d96cb94acdf8511bd919a0d3051",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the orange-and-white controller mount vertically in the lower torso?",
+          "evidencePage": 5,
+          "sourcePdfSha256": "bc4fb8970464c327a463f2d36e1b756fdf6c5d96cb94acdf8511bd919a0d3051",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the blue side support legs attached to the bottom of the model?",
+          "evidencePage": 5,
+          "sourcePdfSha256": "bc4fb8970464c327a463f2d36e1b756fdf6c5d96cb94acdf8511bd919a0d3051",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the moving jaw linkages fastened at the colored pivot points?",
+          "evidencePage": 5,
+          "sourcePdfSha256": "bc4fb8970464c327a463f2d36e1b756fdf6c5d96cb94acdf8511bd919a0d3051",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_65ab7f6608544c17a9dde9da09af12c8.pdf",
+        "page": 24,
+        "crop": {
+          "x": 0,
+          "y": 0.184719,
+          "width": 0.985154,
+          "height": 0.815281
+        }
+      }
+    },
+    {
+      "variantId": "level-3-electric-gyro-launcher",
+      "projectId": "level-3-electric-gyro-launcher",
+      "projectName": "Electric Gyro Launcher",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "Electric Gyro Launcher.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9f299f0c26c74943a8d90f30edb11246.pdf",
+        "mediaId": "7fc4ca_9f299f0c26c74943a8d90f30edb11246.pdf",
+        "pdfSha256": "6c2837f3694b724375ca1c5b29041a07ad0175d6232c89719c5478ae9493696b",
+        "pageCount": 12,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 12,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0,
+          "y": 0.185558,
+          "width": 0.985154,
+          "height": 0.814442
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-electric-gyro-launcher-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_db64b25888544377890b948c3b336285~mv2.webp",
+        "mediaId": "78042f_db64b25888544377890b948c3b336285~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 1050,
+        "height": 614,
+        "hostedSha256": "302c841799f70ccdeca40d4ad2b018f1925fb0ad5781fa262071424cf8cfef70",
+        "hostedBytes": 14744,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "11b72a1b4cee5f97efa1d09b588313b1badc40690db7fcd32592537c22ddec5c",
+        "previousStagingDimensions": [
+          1659,
+          970
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the gear cluster installed in line with the launcher's long frame?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "6c2837f3694b724375ca1c5b29041a07ad0175d6232c89719c5478ae9493696b",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the orange-and-white control housing attached beside the gear mechanism?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "6c2837f3694b724375ca1c5b29041a07ad0175d6232c89719c5478ae9493696b",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the yellow gears aligned with the central transmission shaft?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "6c2837f3694b724375ca1c5b29041a07ad0175d6232c89719c5478ae9493696b",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the blue motor connect to the launcher frame near the top?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "6c2837f3694b724375ca1c5b29041a07ad0175d6232c89719c5478ae9493696b",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the white structural beams secured around the gear track?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "6c2837f3694b724375ca1c5b29041a07ad0175d6232c89719c5478ae9493696b",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9f299f0c26c74943a8d90f30edb11246.pdf",
+        "page": 12,
+        "crop": {
+          "x": 0,
+          "y": 0.185558,
+          "width": 0.985154,
+          "height": 0.814442
+        }
+      }
+    },
+    {
+      "variantId": "level-3-responder",
+      "projectId": "level-3-responder",
+      "projectName": "Responder",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "Responder.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f39cdbb5cfb34248a850cdd356c1156f.pdf",
+        "mediaId": "7fc4ca_f39cdbb5cfb34248a850cdd356c1156f.pdf",
+        "pdfSha256": "3f999ea08653b91ef5c3e73b2d56cd51645ae01383e61bac6c904c1f81def151",
+        "pageCount": 12,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 12,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-responder-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_6e74b2981d0b4c879667f99710699f0c~mv2.webp",
+        "mediaId": "78042f_6e74b2981d0b4c879667f99710699f0c~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 997,
+        "height": 861,
+        "hostedSha256": "dd973cacdcc6d239066ff35d6faa575e0b1ef03d0d17470cb685e08a8f9f04a2",
+        "hostedBytes": 74806,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "581f43ba239ee503d202e9c2a5552ef121133199366b579be28f5adfa8dd9517",
+        "previousStagingDimensions": [
+          1684,
+          1191
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the central orange-and-white controller secured to the lower vehicle frame?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "3f999ea08653b91ef5c3e73b2d56cd51645ae01383e61bac6c904c1f81def151",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the blue front modules mounted along a horizontal support bar?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "3f999ea08653b91ef5c3e73b2d56cd51645ae01383e61bac6c904c1f81def151",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the upright orange posts attached behind the controller?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "3f999ea08653b91ef5c3e73b2d56cd51645ae01383e61bac6c904c1f81def151",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Do the side beams connect the controller to the front attachment?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "3f999ea08653b91ef5c3e73b2d56cd51645ae01383e61bac6c904c1f81def151",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the front sensor and support pieces aligned across the lower chassis?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "3f999ea08653b91ef5c3e73b2d56cd51645ae01383e61bac6c904c1f81def151",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f39cdbb5cfb34248a850cdd356c1156f.pdf",
+        "page": 12,
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      }
+    },
+    {
+      "variantId": "level-3-electric-guitar",
+      "projectId": "level-3-electric-guitar",
+      "projectName": "Electric guitar",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "10.Electric guitar_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_40e1c1967c774d0e83916ace3220b896.pdf",
+        "mediaId": "7fc4ca_40e1c1967c774d0e83916ace3220b896.pdf",
+        "pdfSha256": "c62cc4dc06e8ed207a84cecff6f2de2cb28da1c53ec2c32a142f2ecd340d2c2b",
+        "pageCount": 16,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 16,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.162548,
+          "y": 0.239449,
+          "width": 0.67345,
+          "height": 0.521964
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-electric-guitar-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_2ef0dc36dbbd49598837b753ffc7ff47~mv2.webp",
+        "mediaId": "78042f_2ef0dc36dbbd49598837b753ffc7ff47~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 1050,
+        "height": 458,
+        "hostedSha256": "9931047c7db70841a00575953fab97603522522e7b00c1fbc40a01b20ce053c4",
+        "hostedBytes": 22286,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "6bcb2ff0503785af7d7a5d5a0b6e7550d3c9b406bee7153c2f4daad6a48eaf62",
+        "previousStagingDimensions": [
+          2780,
+          1212
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the guitar's long neck built from connected parallel gray beams?",
+          "evidencePage": 16,
+          "sourcePdfSha256": "c62cc4dc06e8ed207a84cecff6f2de2cb28da1c53ec2c32a142f2ecd340d2c2b",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the central control housing join the long neck and short body section?",
+          "evidencePage": 16,
+          "sourcePdfSha256": "c62cc4dc06e8ed207a84cecff6f2de2cb28da1c53ec2c32a142f2ecd340d2c2b",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the red pivot connectors secured near the middle of the instrument?",
+          "evidencePage": 16,
+          "sourcePdfSha256": "c62cc4dc06e8ed207a84cecff6f2de2cb28da1c53ec2c32a142f2ecd340d2c2b",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the far end of the neck terminate in the intended white pronged assembly?",
+          "evidencePage": 16,
+          "sourcePdfSha256": "c62cc4dc06e8ed207a84cecff6f2de2cb28da1c53ec2c32a142f2ecd340d2c2b",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the upper brace links attached across the body and neck junction?",
+          "evidencePage": 16,
+          "sourcePdfSha256": "c62cc4dc06e8ed207a84cecff6f2de2cb28da1c53ec2c32a142f2ecd340d2c2b",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_40e1c1967c774d0e83916ace3220b896.pdf",
+        "page": 16,
+        "crop": {
+          "x": 0.162548,
+          "y": 0.239449,
+          "width": 0.67345,
+          "height": 0.521964
+        }
+      }
+    },
+    {
+      "variantId": "level-3-music-box",
+      "projectId": "level-3-music-box",
+      "projectName": "Music Box",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "29.Music Box -Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3870c6de5cc04f26984b7a2f105458f9.pdf",
+        "mediaId": "7fc4ca_3870c6de5cc04f26984b7a2f105458f9.pdf",
+        "pdfSha256": "0ff2006d62314f6a37796004724de1fee11c925d0e2580a177055e4550cb64bc",
+        "pageCount": 24,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 24,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.280285,
+          "y": 0.092282,
+          "width": 0.500594,
+          "height": 0.848993
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-music-box-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_2dbacc5a50744319bc8dcdf5148c39c5~mv2.webp",
+        "mediaId": "78042f_2dbacc5a50744319bc8dcdf5148c39c5~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 682,
+        "height": 819,
+        "hostedSha256": "5627fca452e1c8b2fb603a0e6fe4b3813c9961dc7215a0f5e416cb502a517c16",
+        "hostedBytes": 28362,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "9dcbd7f9f947353993d9fdc47870a6bf2ce5621cffd3dc170eea286286f95f06",
+        "previousStagingDimensions": [
+          843,
+          1012
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the exposed gear cluster mounted in the upright frame beside the controller?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "0ff2006d62314f6a37796004724de1fee11c925d0e2580a177055e4550cb64bc",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the red connector blocks holding the upper vertical mechanism in place?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "0ff2006d62314f6a37796004724de1fee11c925d0e2580a177055e4550cb64bc",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the controller connected to the lower horizontal support structure?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "0ff2006d62314f6a37796004724de1fee11c925d0e2580a177055e4550cb64bc",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the motor housing align with the gear-driven moving arm?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "0ff2006d62314f6a37796004724de1fee11c925d0e2580a177055e4550cb64bc",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the colored lower components secured beneath the gear assembly?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "0ff2006d62314f6a37796004724de1fee11c925d0e2580a177055e4550cb64bc",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3870c6de5cc04f26984b7a2f105458f9.pdf",
+        "page": 24,
+        "crop": {
+          "x": 0.280285,
+          "y": 0.092282,
+          "width": 0.500594,
+          "height": 0.848993
+        }
+      }
+    },
+    {
+      "variantId": "level-3-music-doorbell",
+      "projectId": "level-3-music-doorbell",
+      "projectName": "Music Doorbell",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "07.Music Doorbell-Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7dcf2c2fb93344f6a95b2d867dc55298.pdf",
+        "mediaId": "7fc4ca_7dcf2c2fb93344f6a95b2d867dc55298.pdf",
+        "pdfSha256": "b15f0a40b38ef896be42787b2754e7da13267848948a59a1362310276f5eb060",
+        "pageCount": 12,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 12,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.163302,
+          "y": 0.21057,
+          "width": 0.678741,
+          "height": 0.645134
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-music-doorbell-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_035332b9d0fc48a1b388e1ad62907520~mv2.webp",
+        "mediaId": "78042f_035332b9d0fc48a1b388e1ad62907520~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 849,
+        "height": 571,
+        "hostedSha256": "bd351c706e0d8de90419d55c64911f8d38849c0bd082aae56b6c6b8500174aed",
+        "hostedBytes": 28400,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "b83d11f18b68ffd31ead5cf8ab62eff19c54b806e2c64b7edc7aad62f113095f",
+        "previousStagingDimensions": [
+          1143,
+          769
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the yellow bell actuator attached to the far end of the right-side arm?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "b15f0a40b38ef896be42787b2754e7da13267848948a59a1362310276f5eb060",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the curved outer frame connected to both sides of the controller?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "b15f0a40b38ef896be42787b2754e7da13267848948a59a1362310276f5eb060",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the purple upright block sit above the upper frame joint?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "b15f0a40b38ef896be42787b2754e7da13267848948a59a1362310276f5eb060",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the gears and red connectors visible beside the striking mechanism?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "b15f0a40b38ef896be42787b2754e7da13267848948a59a1362310276f5eb060",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the lower rectangular base brace secured beneath the doorbell frame?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "b15f0a40b38ef896be42787b2754e7da13267848948a59a1362310276f5eb060",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7dcf2c2fb93344f6a95b2d867dc55298.pdf",
+        "page": 12,
+        "crop": {
+          "x": 0.163302,
+          "y": 0.21057,
+          "width": 0.678741,
+          "height": 0.645134
+        }
+      }
+    },
+    {
+      "variantId": "level-3-smart-audio",
+      "projectId": "level-3-smart-audio",
+      "projectName": "Smart Audio",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "Smart Audio_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_41d0fbb1b727427aae680e6afa835d4d.pdf",
+        "mediaId": "7fc4ca_41d0fbb1b727427aae680e6afa835d4d.pdf",
+        "pdfSha256": "37ad32948b214a91c7bb11d7d414d33380235a2449d800f6c54fec88cc6e284b",
+        "pageCount": 11,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 11,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.360707,
+          "y": 0.264858,
+          "width": 0.277374,
+          "height": 0.470715
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-smart-audio-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_c7d339f9fc38475cabcc677498dfb0b0~mv2.webp",
+        "mediaId": "78042f_c7d339f9fc38475cabcc677498dfb0b0~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 764,
+        "height": 729,
+        "hostedSha256": "17a0a21fe396c5274e2d1c8d7cd82399ca74014ce4acf17f5e456fa2969e5ae2",
+        "hostedBytes": 27950,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "375db629deb03fd22fedabdb7391e93ac3352cf42bb973a25242e938c4286503",
+        "previousStagingDimensions": [
+          1145,
+          1093
+        ]
+      },
+      "questions": [
+        {
+          "text": "Are the two speaker-like circular elements mounted inside the wide outer frame?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "37ad32948b214a91c7bb11d7d414d33380235a2449d800f6c54fec88cc6e284b",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the screen-faced controller fixed vertically near the middle of the assembly?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "37ad32948b214a91c7bb11d7d414d33380235a2449d800f6c54fec88cc6e284b",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the long white top and bottom rails parallel around the speakers?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "37ad32948b214a91c7bb11d7d414d33380235a2449d800f6c54fec88cc6e284b",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the red support connectors installed near the left and right frame joints?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "37ad32948b214a91c7bb11d7d414d33380235a2449d800f6c54fec88cc6e284b",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the wide chassis support both audio elements behind the controller?",
+          "evidencePage": 11,
+          "sourcePdfSha256": "37ad32948b214a91c7bb11d7d414d33380235a2449d800f6c54fec88cc6e284b",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_41d0fbb1b727427aae680e6afa835d4d.pdf",
+        "page": 11,
+        "crop": {
+          "x": 0.360707,
+          "y": 0.264858,
+          "width": 0.277374,
+          "height": 0.470715
+        }
+      }
+    },
+    {
+      "variantId": "level-3-sonometer",
+      "projectId": "level-3-sonometer",
+      "projectName": "Sonometer",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "Sonometer_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_24c6b260f92a4311a3c4b8da919ace91.pdf",
+        "mediaId": "7fc4ca_24c6b260f92a4311a3c4b8da919ace91.pdf",
+        "pdfSha256": "410685232e69b2d34936a5dcd804ddf3f47e13b46f17381832f71e7179fdaaa2",
+        "pageCount": 8,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 8,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.726528,
+          "y": 0.142777,
+          "width": 0.121613,
+          "height": 0.713886
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-sonometer-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_3a19fd7adbe1437599672957e6b15091~mv2.webp",
+        "mediaId": "78042f_3a19fd7adbe1437599672957e6b15091~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 318,
+        "height": 1050,
+        "hostedSha256": "a2bb3c27047154b3cdb018a50aee36de1f65f96f1a57f57853a9cf88fe20e0a0",
+        "hostedBytes": 26370,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "7dac9c53b2878d8c235cdb4ba5b6885a15b463dc3cc9aa70e22974ff17e75010",
+        "previousStagingDimensions": [
+          386,
+          1275
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the tall rectangular control housing attached to the vertical sensor frame?",
+          "evidencePage": 7,
+          "sourcePdfSha256": "410685232e69b2d34936a5dcd804ddf3f47e13b46f17381832f71e7179fdaaa2",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the upper gear assembly mounted above the controller body?",
+          "evidencePage": 7,
+          "sourcePdfSha256": "410685232e69b2d34936a5dcd804ddf3f47e13b46f17381832f71e7179fdaaa2",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the red brackets positioned on opposing sides of the sensor support?",
+          "evidencePage": 7,
+          "sourcePdfSha256": "410685232e69b2d34936a5dcd804ddf3f47e13b46f17381832f71e7179fdaaa2",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the long white side rail run parallel to the upright controller?",
+          "evidencePage": 7,
+          "sourcePdfSha256": "410685232e69b2d34936a5dcd804ddf3f47e13b46f17381832f71e7179fdaaa2",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the upper connection pins fitted to the exposed gear mechanism?",
+          "evidencePage": 7,
+          "sourcePdfSha256": "410685232e69b2d34936a5dcd804ddf3f47e13b46f17381832f71e7179fdaaa2",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_24c6b260f92a4311a3c4b8da919ace91.pdf",
+        "page": 8,
+        "crop": {
+          "x": 0.726528,
+          "y": 0.142777,
+          "width": 0.121613,
+          "height": 0.713886
+        }
+      }
+    },
+    {
+      "variantId": "level-3-sound-level-meter",
+      "projectId": "level-3-sound-level-meter",
+      "projectName": "Sound Level Meter",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "16.Sound Level Meter -Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a1da83b7d7044f6f818764858f06a22f.pdf",
+        "mediaId": "7fc4ca_a1da83b7d7044f6f818764858f06a22f.pdf",
+        "pdfSha256": "052ccffc762288f559cfb3e543b1454bcc11deffdc3f47206ec39d46e3216649",
+        "pageCount": 20,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 20,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.164489,
+          "y": 0.326342,
+          "width": 0.753563,
+          "height": 0.524329
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-sound-level-meter-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_798e8f6bf22b4c4d8a508c1923e6330c~mv2.webp",
+        "mediaId": "78042f_798e8f6bf22b4c4d8a508c1923e6330c~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 849,
+        "height": 418,
+        "hostedSha256": "903b5db9d1161a5b19a03adc3ca8fc27652aad0f8f622d5797a077fd5a8fdcee",
+        "hostedBytes": 26350,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "eb08b10f7d4eeeb7a734f92b08ec3eb471b5988ca5684c094162ea4a5b6f3fe1",
+        "previousStagingDimensions": [
+          1269,
+          625
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the exposed black gear-wheel cluster installed at the left side of the meter?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "052ccffc762288f559cfb3e543b1454bcc11deffdc3f47206ec39d46e3216649",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the screen-faced controller lie horizontally along the frame?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "052ccffc762288f559cfb3e543b1454bcc11deffdc3f47206ec39d46e3216649",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the two yellow mounting pieces secured between the gear unit and controller?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "052ccffc762288f559cfb3e543b1454bcc11deffdc3f47206ec39d46e3216649",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the white support beams fastened around the left gear assembly?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "052ccffc762288f559cfb3e543b1454bcc11deffdc3f47206ec39d46e3216649",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the lower chassis hold the sensing and control elements in line?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "052ccffc762288f559cfb3e543b1454bcc11deffdc3f47206ec39d46e3216649",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a1da83b7d7044f6f818764858f06a22f.pdf",
+        "page": 20,
+        "crop": {
+          "x": 0.164489,
+          "y": 0.326342,
+          "width": 0.753563,
+          "height": 0.524329
+        }
+      }
+    },
+    {
+      "variantId": "level-3-f1-racing-car",
+      "projectId": "level-3-f1-racing-car",
+      "projectName": "F1 racing car",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "F1 racing car_Building.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bc0928f33de348fba5c046bddc913815.pdf",
+        "mediaId": "7fc4ca_bc0928f33de348fba5c046bddc913815.pdf",
+        "pdfSha256": "61cbde687bf32afefcfa7ea648588ed21d3e2d0aa92bf7d82fe7b7abdd5f9899",
+        "pageCount": 37,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 37,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.18431,
+          "y": 0.266517,
+          "width": 0.629805,
+          "height": 0.467525
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-f1-racing-car-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_b20084313f084c86b54a9f962b8beca0~mv2.webp",
+        "mediaId": "78042f_b20084313f084c86b54a9f962b8beca0~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 1050,
+        "height": 439,
+        "hostedSha256": "0b45c4feba1b38766dd570b499c6c9bbbc764a32816edeb8e88c320631cfe02d",
+        "hostedBytes": 30090,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "88e0799cffa396b50438fba687467230353e82181743e43695b8ef2a9760e199",
+        "previousStagingDimensions": [
+          1999,
+          835
+        ]
+      },
+      "questions": [
+        {
+          "text": "Is the low front wing attached ahead of the front wheel assembly?",
+          "evidencePage": 37,
+          "sourcePdfSha256": "61cbde687bf32afefcfa7ea648588ed21d3e2d0aa92bf7d82fe7b7abdd5f9899",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the rear and front wheels aligned along the vehicle chassis?",
+          "evidencePage": 37,
+          "sourcePdfSha256": "61cbde687bf32afefcfa7ea648588ed21d3e2d0aa92bf7d82fe7b7abdd5f9899",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the display-equipped controller mounted centrally inside the car frame?",
+          "evidencePage": 37,
+          "sourcePdfSha256": "61cbde687bf32afefcfa7ea648588ed21d3e2d0aa92bf7d82fe7b7abdd5f9899",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the red and blue connection beams fixed around the wheel-support structures?",
+          "evidencePage": 37,
+          "sourcePdfSha256": "61cbde687bf32afefcfa7ea648588ed21d3e2d0aa92bf7d82fe7b7abdd5f9899",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the rear body include the raised spoiler assembly?",
+          "evidencePage": 37,
+          "sourcePdfSha256": "61cbde687bf32afefcfa7ea648588ed21d3e2d0aa92bf7d82fe7b7abdd5f9899",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bc0928f33de348fba5c046bddc913815.pdf",
+        "page": 37,
+        "crop": {
+          "x": 0.18431,
+          "y": 0.266517,
+          "width": 0.629805,
+          "height": 0.467525
+        }
+      }
+    },
+    {
+      "variantId": "level-3-long-lived-turtle",
+      "projectId": "level-3-long-lived-turtle",
+      "projectName": "Long-Lived Turtle",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "11. The Long-lived Turtle - Basic Building Manual.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ab5b83edbc3c4dcaab6df9829c6d9076.pdf",
+        "mediaId": "7fc4ca_ab5b83edbc3c4dcaab6df9829c6d9076.pdf",
+        "pdfSha256": "83011a8a6a502716eb900967a4d3a6f59f67bef7fd8398afe77a2cc732a4516d",
+        "pageCount": 23,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 23,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.089667,
+          "y": 0.153523,
+          "width": 0.821259,
+          "height": 0.772651
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-long-lived-turtle-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_62d1916bde344026b79667ee4c193cf0~mv2.webp",
+        "mediaId": "78042f_62d1916bde344026b79667ee4c193cf0~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 850,
+        "height": 566,
+        "hostedSha256": "b926ee271adbe15567ce28e37391b767f6d19a498a6b31006e01f1561e37db73",
+        "hostedBytes": 29850,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "749ff4ee0371e0be90876f3730d9524441dc9e94308fc64f045d49480874ed8d",
+        "previousStagingDimensions": [
+          1383,
+          921
+        ]
+      },
+      "questions": [
+        {
+          "text": "Are all four articulated walking limbs attached around the turtle's body?",
+          "evidencePage": 23,
+          "sourcePdfSha256": "83011a8a6a502716eb900967a4d3a6f59f67bef7fd8398afe77a2cc732a4516d",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the paired black sensor unit positioned at the front of the turtle?",
+          "evidencePage": 23,
+          "sourcePdfSha256": "83011a8a6a502716eb900967a4d3a6f59f67bef7fd8398afe77a2cc732a4516d",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Does the controller rest horizontally above the central chassis?",
+          "evidencePage": 23,
+          "sourcePdfSha256": "83011a8a6a502716eb900967a4d3a6f59f67bef7fd8398afe77a2cc732a4516d",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the red joint brackets aligned at the leg pivots?",
+          "evidencePage": 23,
+          "sourcePdfSha256": "83011a8a6a502716eb900967a4d3a6f59f67bef7fd8398afe77a2cc732a4516d",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Do the rear black angled legs attach securely to the extended body frame?",
+          "evidencePage": 23,
+          "sourcePdfSha256": "83011a8a6a502716eb900967a4d3a6f59f67bef7fd8398afe77a2cc732a4516d",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ab5b83edbc3c4dcaab6df9829c6d9076.pdf",
+        "page": 23,
+        "crop": {
+          "x": 0.089667,
+          "y": 0.153523,
+          "width": 0.821259,
+          "height": 0.772651
+        }
+      }
+    },
+    {
+      "variantId": "level-3-lunar-rover",
+      "projectId": "level-3-lunar-rover",
+      "projectName": "Lunar Rover",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorized": true,
+      "independentImageApproval": false,
+      "independentQuestionApproval": false,
+      "source": {
+        "filename": "Lunar Rover.pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_cae5df8160384c7098f08542d288b12d.pdf",
+        "mediaId": "7fc4ca_cae5df8160384c7098f08542d288b12d.pdf",
+        "pdfSha256": "b88a8f9baa1d204ef9cf671c1a0068c5e588fa149e96b12a03f30ffc5d706368",
+        "pageCount": 24,
+        "pdfIdentity": "original-git-blob",
+        "sourcePage": 24,
+        "sourcePageMatchMethod": "SIFT/RANSAC independently rasterized PDF pages",
+        "cropNormalized": {
+          "x": 0.523159,
+          "y": 0.36272,
+          "width": 0.373515,
+          "height": 0.524769
+        },
+        "completedAssemblyIndependentlyConfirmed": false
+      },
+      "image": {
+        "sourceGitUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/0827f2b26d35d5340075c969e1df1ed69ed31d85/assets/final-build/level-3/unapproved-source-crops/level-3-lunar-rover-source-proposal.webp",
+        "originalGitWebpSha256": null,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_684f4369df734d1ca913baa542e59078~mv2.webp",
+        "mediaId": "78042f_684f4369df734d1ca913baa542e59078~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "publicVisibility": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "width": 629,
+        "height": 625,
+        "hostedSha256": "42e2c6bda16fe6a10164424ea2b7ab352b934264c24a9852805a1bf285297f72",
+        "hostedBytes": 29598,
+        "hostedHttpStatus": 200,
+        "sourceFromOfficialPdfPage": true,
+        "completedAssemblyIndependentlyConfirmed": false,
+        "previousStagingSha256": "8e4e8d7469bd77f3f48afe198d9da0ba0957525b6c2fc33eade2d7e87c20beae",
+        "previousStagingDimensions": [
+          629,
+          625
+        ]
+      },
+      "questions": [
+        {
+          "text": "Are the two black tracked wheel assemblies installed beneath the rover's body?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "b88a8f9baa1d204ef9cf671c1a0068c5e588fa149e96b12a03f30ffc5d706368",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the orange-and-white controller centered above the track support?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "b88a8f9baa1d204ef9cf671c1a0068c5e588fa149e96b12a03f30ffc5d706368",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the orange structural beams attached around the central chassis?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "b88a8f9baa1d204ef9cf671c1a0068c5e588fa149e96b12a03f30ffc5d706368",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Is the blue upper module connected behind the controller housing?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "b88a8f9baa1d204ef9cf671c1a0068c5e588fa149e96b12a03f30ffc5d706368",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        },
+        {
+          "text": "Are the side track frames fastened securely to the lower rover platform?",
+          "evidencePage": 24,
+          "sourcePdfSha256": "b88a8f9baa1d204ef9cf671c1a0068c5e588fa149e96b12a03f30ffc5d706368",
+          "reviewStatus": "owner-authorized-candidate-not-independently-validated"
+        }
+      ],
+      "fallback": {
+        "kind": "authentic-original-building-pdf-page-crop",
+        "pdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_cae5df8160384c7098f08542d288b12d.pdf",
+        "page": 24,
+        "crop": {
+          "x": 0.523159,
+          "y": 0.36272,
+          "width": 0.373515,
+          "height": 0.524769
+        }
+      }
+    }
+  ]
+}
