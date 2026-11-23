@@ -50,14 +50,14 @@ test("question evidence distinguishes complete-model crops from incomplete manua
   assert.ok(draft.entries.every((v) => v.questions.every((q) => q.text.endsWith("?") && q.text.length > 55)));
 });
 
-test("two completed-model checklists passed independent source-page verification; four remain blocked", () => {
-  assert.equal(draft.counts.independentlyApprovedQuestions, 10);
-  assert.equal(draft.counts.studentApprovedVariants, 2);
+test("three completed-model checklists passed independent source-page verification; three remain blocked", () => {
+  assert.equal(draft.counts.independentlyApprovedQuestions, 15);
+  assert.equal(draft.counts.studentApprovedVariants, 3);
   const releasedIds = new Set(approved.approvedChecklists.map(c => c.variantId));
   const selectable = new Set(audit.studentScannerSelectableVariantIds);
-  assert.equal(releasedIds.size, 41);
+  assert.equal(releasedIds.size, 42);
   assert.deepEqual(releasedIds, selectable);
-  const newlyApproved = new Set(["level-5-voice-control-snail", "level-5-voice-control-vehicle"]);
+  const newlyApproved = new Set(["level-5-remote-control-car", "level-5-voice-control-snail", "level-5-voice-control-vehicle"]);
   for(const entry of draft.entries) {
     if(newlyApproved.has(entry.variantId)) {
       assert.equal(entry.studentApproved, true);
