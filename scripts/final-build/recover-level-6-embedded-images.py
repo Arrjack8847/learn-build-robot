@@ -28,15 +28,28 @@ SOURCES = {
         "pages": 14,
         "variantId": "level-6-rock-paper-scissors-robot",
     },
+    "rock-paper-scissors-original-building": {
+        "gitBlobSha1": "af9423f2a5191ca8577b18cd3fa827da09fd829b",
+        "pages": 14,
+        "variantId": "level-6-rock-paper-scissors-robot",
+    },
 }
 
 def sha(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
+def git_blob_sha1(data: bytes) -> str:
+    return hashlib.sha1(b"blob " + str(len(data)).encode("ascii") + b"\0" + data).hexdigest()
+
+def matches_expected_hash(data: bytes, profile: dict) -> bool:
+    return ("sha256" in profile and sha(data) == profile["sha256"]) or (
+        "gitBlobSha1" in profile and git_blob_sha1(data) == profile["gitBlobSha1"]
+    )
+
 def inspect(pdf: Path, output: Path, name: str, profile: dict, max_per_page: int) -> dict:
     data = pdf.read_bytes()
-    if sha(data) != profile["sha256"]:
-        raise ValueError(f"{name}: source PDF SHA-256 mismatch; refuse extraction")
+    if not matches_expected_hash(data, profile):
+        raise ValueError(f"{name}: source PDF hash mismatch; refuse extraction")
     document = fitz.open(stream=data, filetype="pdf")
     if document.page_count != profile["pages"]:
         raise ValueError(f"{name}: expected {profile['pages']} pages, got {document.page_count}")
@@ -109,7 +122,8 @@ def inspect(pdf: Path, output: Path, name: str, profile: dict, max_per_page: int
                       "imageObjectsSeen": len(seen), "exportedCandidates": min(len(found), max_per_page)})
     document.close()
     return {
-        "variantId": profile["variantId"], "sourceSha256": sha(data), "sourcePdf": pdf.name,
+        "variantId": profile["variantId"], "sourceSha256": sha(data),
+        "sourceGitBlobSha1": git_blob_sha1(data), "sourcePdf": pdf.name, "sourceProfile": name,
         "pages": pages, "candidateCount": len(candidates), "candidates": candidates,
         "approved": False, "verifiedQuestions": 0,
         "note": "Embedded image streams omit separately overlaid PDF text/vector marks. No model completeness or optimized identity is inferred.",
@@ -119,6 +133,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--optimized", type=Path, required=True)
     ap.add_argument("--rock", type=Path, required=True)
+    ap.add_argument("--rock-original", type=Path, help="Optional exact historical official Building PDF with 14 pages, verified against its original Git blob SHA-1")
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--max-per-page", type=int, default=6)
     args = ap.parse_args()
@@ -126,11 +141,13 @@ def main():
         ap.error("--max-per-page must be between 1 and 30")
     sources = [("super-scorpion-optimized", args.optimized),
                ("rock-paper-scissors-robot", args.rock)]
+    if args.rock_original:
+        sources.append(("rock-paper-scissors-original-building", args.rock_original))
     for name, path in sources:
         if not path.is_file():
             ap.error(f"Missing source PDF: {path}")
-        if sha(path.read_bytes()) != SOURCES[name]["sha256"]:
-            ap.error(f"{name}: source SHA-256 mismatch")
+        if not matches_expected_hash(path.read_bytes(), SOURCES[name]):
+            ap.error(f"{name}: source hash mismatch")
     args.out.mkdir(parents=True, exist_ok=True)
     reports = [inspect(path, args.out, name, SOURCES[name], args.max_per_page)
                for name, path in sources]
@@ -140,7 +157,7 @@ def main():
     }, indent=2) + "\n")
     print(json.dumps({
         "manifest": str(manifest),
-        "candidateCounts": {item["variantId"]: item["candidateCount"] for item in reports},
+        "candidateCounts": {item["sourceProfile"]: item["candidateCount"] for item in reports},
         "approved": False,
     }, indent=2))
 
