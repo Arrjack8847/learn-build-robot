@@ -129,16 +129,18 @@ No extractable CJK codepoints were found in text layers across the 60 parsed PDF
 
 ## Executed tests — authorized isolated Node 24 sandbox
 - `node --test tests/final-build-level-2.test.mjs tests/final-build-exams.test.mjs`:
-  **17 reported tests: 14 PASS, 0 FAIL, 3 TODO, 0 skipped**.
+  **17 reported tests: 15 PASS, 0 FAIL, 2 TODO, 0 skipped**.
 - The Level 2 suite checked 59/60 registry identities, the two See Saw variants, exact Wix source mappings, 36 historical hashes, blocked-record exclusion, all 30 image file existence/dimensions/**actual WebP SHA-256**, 30 exact PDF source bindings, 150 page-cited questions, and source-scanned Level 1 parity constants.
 - The shared Final Build regression suite checked route registration, unbiased scan index, unapproved Start gating, deadline persistence and self-assessment contracts.
+- The additional 15th passing test verifies the recorded Chromium viewport-run evidence as a committed fixture; this test does **not** itself launch Chromium.
 - Executed no GitHub Actions.
-- **Interactive viewport QA at 320/375/390/430 CSS pixels has not yet been completed in a rendered, deployed browser.** Do not equate component-source review with UI/device verification.
+- **Executed independent interactive headless Chromium viewport QA** against the actual Level 2 route served from a local Vite development server at **320, 375, 390 and 430 CSS pixels**. All four returned HTTP 200, had **zero initial/post-discovery horizontal overflow**, **zero reported page errors**, and completed the scanner transition after **4,347 / 4,321 / 4,332 / 4,311 milliseconds** respectively (the requested 4.2-second animation plus observation timing). All four showed the reference section with blocked-source warning; the 15-minute Start button stayed disabled, as required for a blocked robot. See `reports/final-build-level-2-responsive-qa-20261123.json` for exact executed evidence.
+- **Limit:** Chromium (not actual iPhone Safari) exercised only a blocked-reference path. Start/timeout/reload/4-of-5 pass/unlimited retries **cannot be interactively validated** until the integration worker wires the approved images, checklists and global gating. Do not treat source inspection as end-to-end production verification.
 
 ## Integration-worker required changes — shared files intentionally untouched
 1. **Approved-only scanner discovery:** current shared pool selects registered candidates, while the Start button checks global approvals afterward. Modify central selection so unapproved projects never appear in discovery, with fair unbiased random sampling and repeats allowed.
 2. **Level 2 approved WebP and checklist consumption:** shared `checkDescriptions(name)` title heuristics and dynamic PDF-page cropping must be replaced at the integration layer with exactly the `level-2-references.json` image path and 5 source-cited `level-2-checklists.json` entries keyed by variant ID.
-3. **Strict 15-min + device QA:** independently exercise scanner 4.2 s, delayed timer Start, persistent absolute deadline across reloads, timeout auto-assessment with timed pass disabled, 4/5 threshold, unlimited retries and 320/375/390/430 px viewport UI.
+3. **Strict 15-min + post-integration device QA:** the local Chromium scanner and blocked Start state passed at all four requested widths. After wiring verified Level 2 content, independently exercise an **enabled** session: Start-only timer initiation, persisted absolute deadline across reloads, automatic timeout assessment with timed pass disabled, 4/5 pass threshold, unlimited retries and ideally real iPhone Safari verification.
 4. **Global approvals:** integration worker, not Level 2 worker, must update global approvals only for these 30 independently approved records; preserve all 30 blocked IDs.
 
 ## QA scope and restrictions
