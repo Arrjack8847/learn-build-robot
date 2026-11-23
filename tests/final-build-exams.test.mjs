@@ -82,7 +82,7 @@ test("Level 5 contains 39 approved source references, 195 checks and six blocked
     const parsed = new URL(url);
     assert.equal(parsed.protocol, "https:");
     assert.equal(parsed.hostname, "static.wixstatic.com");
-    assert.ok(/^\\/media\\//.test(parsed.pathname) && /\\.webp$/i.test(parsed.pathname));
+    assert.ok(parsed.pathname.startsWith("/media/") && parsed.pathname.toLowerCase().endsWith(".webp"));
   }
   const checksByVariant = new Map(levelFiveChecklists.items.map(item => [item.variantId, item]));
   const seen = new Set();
