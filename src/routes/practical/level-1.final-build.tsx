@@ -9,6 +9,7 @@ import { ACCELERATION_MANUAL_URL } from "@/data/accelerationCarManual";
 import { LevelOneBackdrop, LevelOneHeader } from "@/components/practical/LevelOneHeader";
 import { FinalBuildScanner } from "@/components/practical/FinalBuildScanner";
 import { FinalBuildPrototype, type PrototypeStatus } from "@/components/practical/FinalBuildPrototype";
+import { LevelOneVerifiedWebp } from "@/components/practical/LevelOneVerifiedWebp";
 import prototypeCrops from "@/data/levelOnePrototypeCrops.json";
 import { LEVEL_ONE_CLEANED_BUILDING_WIX_URLS } from "@/data/levelOneBuildingCleanStatus";
 import { secureRandomIndex } from "@/data/finalBuildRegistry";
@@ -72,7 +73,7 @@ function load(): Session {
   if (typeof window === "undefined") return initial;
   try {
     const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null") as Session | null;
-    if (data && ["spin","spinning","ready","building","assessment","result"].includes(data.stage) && (data.projectIndex === null || (Number.isInteger(data.projectIndex) && data.projectIndex >= 0 && data.projectIndex < PROJECTS.length && Boolean(sourceFor(PROJECTS[data.projectIndex], data.variantIndex).approvedRef)))) {
+    if (data && ["spin","spinning","ready","building","assessment","result"].includes(data.stage) && (data.projectIndex === null || (Number.isInteger(data.projectIndex) && data.projectIndex >= 0 && data.projectIndex < PROJECTS.length && Number.isInteger(data.variantIndex) && data.variantIndex >= 0 && Boolean(sourceFor(PROJECTS[data.projectIndex], data.variantIndex).approvedRef)))) {
       return { ...initial, ...data, checks: Array.isArray(data.checks) && data.checks.length === 5 ? data.checks : initial.checks };
     }
   } catch { /* ignore corrupt saved session */ }
@@ -220,7 +221,7 @@ function FinalBuildPage() {
             </header>
             <section aria-label="Discover a randomly selected robot" className="grid min-h-0 flex-1 grid-rows-[minmax(0,1fr)_auto] overflow-hidden rounded-[26px] border-[3px] border-[#47c8fc] bg-white shadow-[0_12px_45px_rgba(42,111,192,.18)] sm:rounded-[34px] lg:grid-cols-[1.12fr_.88fr] lg:grid-rows-1 lg:border-[5px]">
               <div className="relative flex min-h-0 items-center justify-center overflow-hidden bg-[#0B1B4E]">
-                <FinalBuildScanner scanning={session.stage === "spinning"} onSkip={finishSpin}/>
+                <FinalBuildScanner scanning={session.stage === "spinning"} onSkip={finishSpin} projectCount={reviewMode ? PROJECTS.length : APPROVED_PROJECT_INDEXES.length}/>
               </div>
               <div className="flex shrink-0 flex-col justify-center gap-2 bg-gradient-to-br from-white via-[#f0f9ff] to-[#f1edff] px-3 pb-3 pt-2 sm:px-6 lg:min-h-0 lg:gap-5 lg:border-l-4 lg:border-[#9eeaff] lg:px-8 lg:py-6 xl:px-12">
                 <p className="hidden w-fit rounded-full bg-[#d7f7ff] px-4 py-2 text-xs font-black tracking-wide text-[#1478bd] lg:block">🚀 WELCOME TO THE DISCOVERY LAB</p>
@@ -231,7 +232,7 @@ function FinalBuildPage() {
                   Activate the scanner! Watch it search through the STEM lab, then reveal one surprise robot for your Final Build Challenge.
                 </p>
                 <div className="flex items-center justify-center gap-2 lg:justify-start lg:gap-3">
-                  <span className="rounded-full bg-[#e0efff] px-3 py-1.5 text-[11px] font-black text-[#275bb3] sm:text-sm">🤖 59 robots</span>
+                  <span className="rounded-full bg-[#e0efff] px-3 py-1.5 text-[11px] font-black text-[#275bb3] sm:text-sm">🤖 {reviewMode ? PROJECTS.length : APPROVED_PROJECT_INDEXES.length} verified robots</span>
                   <span className="rounded-full bg-[#def8e9] px-3 py-1.5 text-[11px] font-black text-[#267d56] sm:text-sm">⏱️ 15-minute build</span>
                 </div>
                 <button type="button" onClick={discover} disabled={session.stage === "spinning" || (!reviewMode && APPROVED_PROJECT_INDEXES.length === 0)}
@@ -316,16 +317,30 @@ function FinalBuildPage() {
                     </p>
                     {(reviewMode || approvedRef) && candidate && manualFilename && manualUrl ? (
                       <div>
-                        <FinalBuildPrototype
-                          filename={manualFilename}
-                          url={manualUrl}
-                          pageNumber={candidate.page}
-                          crop={candidate.crop}
-                          title={project.name}
-                          onStatusChange={onModelStatus}
-                        />
+                        {approvedRef?.approvedWebpUrl && approvedRef.webpWidth && approvedRef.webpHeight ? (
+                          <LevelOneVerifiedWebp
+                            filename={manualFilename}
+                            title={project.name}
+                            url={approvedRef.approvedWebpUrl}
+                            expectedWidth={approvedRef.webpWidth}
+                            expectedHeight={approvedRef.webpHeight}
+                            pdfUrl={manualUrl}
+                            pdfPage={candidate.page}
+                            crop={candidate.crop}
+                            onStatusChange={onModelStatus}
+                          />
+                        ) : (
+                          <FinalBuildPrototype
+                            filename={manualFilename}
+                            url={manualUrl}
+                            pageNumber={candidate.page}
+                            crop={candidate.crop}
+                            title={project.name}
+                            onStatusChange={onModelStatus}
+                          />
+                        )}
                         <p className="mt-2 text-xs font-semibold text-[#59748c]">
-                          Completed-model image only · From the Wix-hosted Building PDF
+                          Completed-model reference only · Source: official Wix-hosted Building PDF
                         </p>
                         {!candidate.approved && (
                           <p className="mt-2 text-xs font-semibold text-amber-800" role="note">
