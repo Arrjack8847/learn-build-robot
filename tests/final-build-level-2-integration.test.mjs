@@ -113,7 +113,7 @@ test("shared scanner uses Level 2 fail-closed adapter without replacing Level 5"
   assert.match(levelTwoAdapter, /registered-pdf-fallback/);
   assert.match(levelTwoAdapter, /source\.url !== variant\.url/);
   assert.match(exam, /Open original PDF reference/);
-  assert.match(exam, /showLevelTwoPdfFallback/);
+  assert.match(exam, /showRegisteredPdfFallback/);
   assert.match(exam, /model\.status === "error"/);
   assert.match(exam, /getVerifiedFinalBuildPool\(level\)/);
   assert.match(exam, /const LIMIT_MS = 15 \* 60 \* 1000/);
@@ -207,9 +207,9 @@ test("fallback scanner/UI retains five checks, 4-of-5 pass, 15 minute timer and 
   assert.match(exam, /const SCAN_MS = 4200/);
   assert.match(exam, /const LIMIT_MS = 15 \* 60 \* 1000/);
   assert.match(exam, /prev\.checks\.filter\(Boolean\)\.length >= 4/);
-  assert.match(exam, /showLevelTwoPdfFallback/);
+  assert.match(exam, /showRegisteredPdfFallback/);
   assert.match(exam, /approval\.sourceUrl === variant\.url/);
-  assert.match(exam, /pictureReady \|\| showLevelTwoPdfFallback/);
+  assert.match(exam, /pictureReady \|\| showRegisteredPdfFallback/);
   assert.match(exam, /target="_blank" rel="noopener noreferrer"/);
   assert.match(exam, /general observable checks, not independently verified/);
   assert.match(exam, /Retry Same Robot/);
