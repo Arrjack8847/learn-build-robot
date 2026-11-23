@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "level": 6,
+  "description": "Source-identity-verified but explicitly blocked Level 6 robot artwork. These two entries MUST NOT be imported into the student approved URL map.",
+  "wixSite": "Steam",
+  "wixSiteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+  "sourceCommit": "41eb797c2accb97180678e3c9c393f30a83a0936",
+  "approvedCount": 0,
+  "blockedCandidates": 2,
+  "files": [
+    {
+      "variantId": "level-6-super-scorpion:optimized",
+      "sourcePath": "public/final-build/level-6/level-6-super-scorpion-optimized.webp",
+      "pdfSourceHash": "e0c7b137eb0ce340cb334a7a36e4ea90172ae65337d8ffba8937b2839d368600",
+      "sourcePage": 1,
+      "sourceWebpSha256": "7b9327616f92c5654540e294cf1366af4ebb1510c78887765677751ee4dec8ce",
+      "width": 530,
+      "height": 414,
+      "byteSize": 17024,
+      "mediaId": "78042f_9f4fa84ca8c84893b24788d424bc9301~mv2.webp",
+      "url": "https://static.wixstatic.com/media/78042f_9f4fa84ca8c84893b24788d424bc9301~mv2.webp",
+      "reason": "Full displayed assembly corresponds to earlier stage; optimized post-change complete assembly not proven by three-page official PDF.",
+      "originalGitHubSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/41eb797c2accb97180678e3c9c393f30a83a0936/public/final-build/level-6/level-6-super-scorpion-optimized.webp",
+      "status": "candidate-unapproved",
+      "studentSelectable": false,
+      "checklistApproved": false,
+      "wixReady": true,
+      "wixPublic": true
+    },
+    {
+      "variantId": "level-6-rock-paper-scissors-robot",
+      "sourcePath": "public/final-build/level-6/level-6-rock-paper-scissors-robot.webp",
+      "pdfSourceHash": "1009562c300be9ec9bb86ea5c9420d8117d4399e848dbb1d1705f2b02db107fd",
+      "sourcePage": 14,
+      "sourceWebpSha256": "580dad96839b36de5369a2005c596b5b26986472528247284a78bdadb739be3e",
+      "width": 500,
+      "height": 349,
+      "byteSize": 15442,
+      "mediaId": "78042f_a2803cdfb38846b7891b86078c97650b~mv2.webp",
+      "url": "https://static.wixstatic.com/media/78042f_a2803cdfb38846b7891b86078c97650b~mv2.webp",
+      "reason": "Photo crop visibly clips upper and left mechanical components; red callout leader lines and labels are inside candidate.",
+      "originalGitHubSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/41eb797c2accb97180678e3c9c393f30a83a0936/public/final-build/level-6/level-6-rock-paper-scissors-robot.webp",
+      "status": "candidate-unapproved",
+      "studentSelectable": false,
+      "checklistApproved": false,
+      "wixReady": true,
+      "wixPublic": true
+    }
+  ],
+  "sourceReview": {
+    "optimized": {
+      "pdfMediaId": "7fc4ca_2f7bfe9ee7224047b06209ce59a55165.pdf",
+      "pdfBytes": 4871492,
+      "physicalPages": 3,
+      "embeddedJpegObjects": 3,
+      "allPageFilling": true
+    },
+    "rockEnglish": {
+      "pdfMediaId": "78042f_ee943e948c6f4141b53d9d3e90481801.pdf",
+      "pdfBytes": 16305651,
+      "physicalPages": 14,
+      "embeddedJpegObjects": 14,
+      "allPageFilling": true
+    },
+    "rockOriginal": {
+      "pdfMediaId": "7fc4ca_44cb70234f1c45f4aac978b3560314d3.pdf",
+      "pdfBytes": 16315903,
+      "knownHistoricalGitBlobSha1": "af9423f2a5191ca8577b18cd3fa827da09fd829b",
+      "notRenderedThisSession": true
+    }
+  }
+}
