@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "purpose": "Explicit source-backed recovery queue for six Level 5 variants blocked by ambiguous finished-model images; does not grant student approval",
+  "purpose": "Verified six-variant Level 5 recovery registry: three exact-PDF finished-model WebPs and 15 five-question checks approved; three incomplete-model sources remain fail-closed",
   "preparedAt": "2026-11-23",
   "basePr": 113,
   "sourceAudit": "src/data/finalBuild/level-5-audit.json",
-  "currentApprovedCount": 39,
+  "currentApprovedCount": 42,
   "candidateCount": 6,
-  "approvedFromThisRecovery": 0,
+  "approvedFromThisRecovery": 3,
   "policy": {
-    "studentAccess": "fail-closed",
+    "studentAccess": "fail-closed for three incomplete official models; three fully source-verified candidates released",
     "commonEngineOwnedBy": "final integration worker",
     "allowAiRobotArtwork": false,
     "allowUnverifiedChecklists": false,
@@ -38,12 +38,12 @@
           "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
         }
       ],
-      "visualReviewStatus": "source-authentic-image-candidate-verified",
-      "checklistReviewStatus": "blocked: zero independently approved questions",
-      "independentApprovalStatus": "blocked",
+      "visualReviewStatus": "source-authentic-completed-model-independently-verified",
+      "checklistReviewStatus": "passed: five exact-source observable checks",
+      "independentApprovalStatus": "approved",
       "sourcePagesToInspect": "completed; see evidenceReport",
       "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
-      "questionCount": 0,
+      "questionCount": 5,
       "approvalMayChangeOnlyWhen": [
         "same official source PDF SHA confirmed",
         "completed model and variant independently identified",
@@ -59,20 +59,20 @@
         "filename": "level-5-remote-control-car-basic.webp",
         "sourcePage": 20,
         "normalizedCrop": [
-          0.06,
-          0.08,
-          0.56,
-          0.94
+          0.061,
+          0.075,
+          0.669,
+          0.9
         ],
-        "sha256": "75a25bad77af8968c6ce83bf9344ccba393b44e6933ea8fb5b11985b8a30ab6d",
+        "sha256": "6183ecc26f4162f548873a4d66c0df168762b4744d1d9800343cc49d8a04cf01",
         "dimensions": [
           550,
-          669
+          528
         ],
         "wixReady": true,
-        "hostedUrl": "https://static.wixstatic.com/media/78042f_0c2947266eb7486381448607a8aa7b07~mv2.webp"
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_852c62df18ec40ee83c9ccb7e25f7460~mv2.webp"
       },
-      "remainingBlocker": "No five independently verified project-specific assessment questions; image is candidate only, not student-approved"
+      "remainingBlocker": null
     },
     {
       "variantId": "level-5-crack-shot:optimized",
@@ -218,12 +218,12 @@
           "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
         }
       ],
-      "visualReviewStatus": "source-authentic-image-candidate-verified",
-      "checklistReviewStatus": "blocked: zero independently approved questions",
-      "independentApprovalStatus": "blocked",
+      "visualReviewStatus": "source-authentic-completed-model-independently-verified",
+      "checklistReviewStatus": "passed: five exact-source observable checks",
+      "independentApprovalStatus": "approved",
       "sourcePagesToInspect": "completed; see evidenceReport",
       "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
-      "questionCount": 0,
+      "questionCount": 5,
       "approvalMayChangeOnlyWhen": [
         "same official source PDF SHA confirmed",
         "completed model and variant independently identified",
@@ -252,7 +252,7 @@
         "wixReady": true,
         "hostedUrl": "https://static.wixstatic.com/media/78042f_72ced3ae25a54a45b1815b9590380b6f~mv2.webp"
       },
-      "remainingBlocker": "No five independently verified project-specific assessment questions; image is candidate only, not student-approved"
+      "remainingBlocker": null
     },
     {
       "variantId": "level-5-voice-control-vehicle",
@@ -275,12 +275,12 @@
           "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
         }
       ],
-      "visualReviewStatus": "source-authentic-image-candidate-verified",
-      "checklistReviewStatus": "blocked: zero independently approved questions",
-      "independentApprovalStatus": "blocked",
+      "visualReviewStatus": "source-authentic-completed-model-independently-verified",
+      "checklistReviewStatus": "passed: five exact-source observable checks",
+      "independentApprovalStatus": "approved",
       "sourcePagesToInspect": "completed; see evidenceReport",
       "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
-      "questionCount": 0,
+      "questionCount": 5,
       "approvalMayChangeOnlyWhen": [
         "same official source PDF SHA confirmed",
         "completed model and variant independently identified",
@@ -309,12 +309,12 @@
         "wixReady": true,
         "hostedUrl": "https://static.wixstatic.com/media/78042f_d36f964af5eb46b39673760192b53422~mv2.webp"
       },
-      "remainingBlocker": "No five independently verified project-specific assessment questions; image is candidate only, not student-approved"
+      "remainingBlocker": null
     }
   ],
-  "sourceAuditUpdated": "2026-11-23",
-  "officialSourceHashesRechecked": 6,
-  "allSourcePagesVisuallyReviewed": 82,
+  "sourceAuditUpdated": true,
+  "officialSourceHashesRechecked": true,
+  "allSourcePagesVisuallyReviewed": true,
   "candidateImagesReady": 3,
   "candidateWixReady": 3,
   "candidatesWithoutAuthenticFinishedImage": 3,
