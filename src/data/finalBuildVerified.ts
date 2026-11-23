@@ -1,3 +1,4 @@
+import { getLevelTwoEvidence } from "@/data/finalBuildLevel2Verified";
 import levelFiveReferences from "@/data/finalBuild/level-5-references.json";
 import levelFiveChecklists from "@/data/finalBuild/level-5-checklists.json";
 import levelFiveWixImages from "@/data/finalBuild/level-5-wix-image-urls.json";
@@ -65,6 +66,7 @@ function validWixWebpUrl(value: string): boolean {
 
 function getEvidence(level: number, projectId: string, variant: FinalBuildVariant): VerifiedEvidence | null {
   // Other levels stay closed until their own independently approved records are integrated.
+  if (level === 2) return getLevelTwoEvidence(projectId, variant);
   if (level !== 5 || !variant.hostedOnWix) return null;
   const reference = referenceEntries.find(item => item.variantId === variant.id && item.projectId === projectId);
   const checklist = checklistEntries.find(item => item.variantId === variant.id && item.projectId === projectId);
