@@ -175,7 +175,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
   const readyChecks = project && variant ? getVerifiedFinalBuildQuestions(level, project.id, variant) : [];
   if (!hydrated) return <div className="grid min-h-dvh place-items-center bg-sky-50 text-sky-800" role="status">Preparing Final Build Exam…</div>;
   return (
-    <div className="relative min-h-dvh overflow-x-hidden bg-gradient-to-br from-[#effaff] via-[#fff9e9] to-[#f7efff] text-slate-800">
+    <div className="relative h-dvh overflow-x-hidden overflow-y-auto overscroll-y-contain bg-gradient-to-br from-[#effaff] via-[#fff9e9] to-[#f7efff] text-slate-800">
       <LevelOneBackdrop />
       <header className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:px-7">
         <a href={back} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white/90 px-3 text-sm font-bold text-sky-800 focus-visible:outline-4 focus-visible:outline-sky-500"><ArrowLeft className="size-4"/> Level {level}</a>
