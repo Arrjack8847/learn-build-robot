@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Non-playable Wix media candidates for six previously blocked Level 5 source variants. No image is present, uploaded, or approved.",
+  "recordedAt": "2026-11-23",
+  "wixSite": {
+    "name": "Steam",
+    "id": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0"
+  },
+  "immutableApprovedMapping": {
+    "file": "src/data/finalBuild/level-5-wix-image-urls.json",
+    "blobShaAtPreparation": "a91003d468226e4bf29f05ebf6342cb0bc9c04f1",
+    "approvedCount": 39,
+    "unchanged": true
+  },
+  "status": "BLOCKED_SOURCE_PDF_UNAVAILABLE_TO_EXTRACTION_RUNTIME",
+  "sourceOfTruth": "src/data/finalBuild/level-5-recovery-candidates.json on feat/final-build-level-5",
+  "imageReady": 0,
+  "wixReady": 0,
+  "studentApproved": 0,
+  "candidates": [
+    {
+      "variantId": "level-5-remote-control-car",
+      "name": "Remote Control Car",
+      "requiredFileName": "level-5-remote-control-car-basic.webp",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfd708a9edbb495fa9c9e0940706928b.pdf",
+      "historicalPdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+      "historicalPageCount": 20,
+      "pageForInitialInvestigation": 20,
+      "currentRunPdfHashVerified": false,
+      "allPagesVisuallyReviewed": false,
+      "completedModelCrop": null,
+      "image": {
+        "webpCreated": false,
+        "dimensions": null,
+        "sha256": null,
+        "sourcePage": null
+      },
+      "wix": {
+        "mediaId": null,
+        "hostedUrl": null,
+        "operationStatus": "NOT_UPLOADED",
+        "mimeType": null,
+        "publicVisibilityVerified": false
+      },
+      "assessment": {
+        "independentlyApprovedQuestions": 0,
+        "studentApproved": false,
+        "selectable": false
+      },
+      "blocker": "Authentic full-model crop not verified; official PDF bytes inaccessible in this attempt"
+    },
+    {
+      "variantId": "level-5-crack-shot:optimized",
+      "name": "Crack Shot — Optimized",
+      "requiredFileName": "level-5-crack-shot-optimized.webp",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_835593144e5f475e995524016c5791d4.pdf",
+      "historicalPdfSha256": "cfb54f435a8345ca010a6db10c0c1ed37a5a77f48d3086f25a5a7ae28f4f5dcf",
+      "historicalPageCount": 4,
+      "pageForInitialInvestigation": 4,
+      "currentRunPdfHashVerified": false,
+      "allPagesVisuallyReviewed": false,
+      "completedModelCrop": null,
+      "image": {
+        "webpCreated": false,
+        "dimensions": null,
+        "sha256": null,
+        "sourcePage": null
+      },
+      "wix": {
+        "mediaId": null,
+        "hostedUrl": null,
+        "operationStatus": "NOT_UPLOADED",
+        "mimeType": null,
+        "publicVisibilityVerified": false
+      },
+      "assessment": {
+        "independentlyApprovedQuestions": 0,
+        "studentApproved": false,
+        "selectable": false
+      },
+      "blocker": "Authentic full-model crop not verified; official PDF bytes inaccessible in this attempt"
+    },
+    {
+      "variantId": "level-5-machine-gun",
+      "name": "Machine Gun",
+      "requiredFileName": "level-5-machine-gun-basic.webp",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f65e51bc47304554b99de3e3a96109cb.pdf",
+      "historicalPdfSha256": "acc9ac20908550895909ac6c73d473301732d15cbbe4f03049c1d4b84f1a60c1",
+      "historicalPageCount": 29,
+      "pageForInitialInvestigation": 29,
+      "currentRunPdfHashVerified": false,
+      "allPagesVisuallyReviewed": false,
+      "completedModelCrop": null,
+      "image": {
+        "webpCreated": false,
+        "dimensions": null,
+        "sha256": null,
+        "sourcePage": null
+      },
+      "wix": {
+        "mediaId": null,
+        "hostedUrl": null,
+        "operationStatus": "NOT_UPLOADED",
+        "mimeType": null,
+        "publicVisibilityVerified": false
+      },
+      "assessment": {
+        "independentlyApprovedQuestions": 0,
+        "studentApproved": false,
+        "selectable": false
+      },
+      "blocker": "Authentic full-model crop not verified; official PDF bytes inaccessible in this attempt"
+    },
+    {
+      "variantId": "level-5-facial-recognition-time-clock",
+      "name": "Facial Recognition Time Clock",
+      "requiredFileName": "level-5-facial-recognition-time-clock-basic.webp",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfc2fffdf072479282e6a039a228b3e7.pdf",
+      "historicalPdfSha256": "d864a564ec020cf36df072b980ca763a133aabbd8d4115e50f564ffb02dca872",
+      "historicalPageCount": 7,
+      "pageForInitialInvestigation": 7,
+      "currentRunPdfHashVerified": false,
+      "allPagesVisuallyReviewed": false,
+      "completedModelCrop": null,
+      "image": {
+        "webpCreated": false,
+        "dimensions": null,
+        "sha256": null,
+        "sourcePage": null
+      },
+      "wix": {
+        "mediaId": null,
+        "hostedUrl": null,
+        "operationStatus": "NOT_UPLOADED",
+        "mimeType": null,
+        "publicVisibilityVerified": false
+      },
+      "assessment": {
+        "independentlyApprovedQuestions": 0,
+        "studentApproved": false,
+        "selectable": false
+      },
+      "blocker": "Authentic full-model crop not verified; official PDF bytes inaccessible in this attempt"
+    },
+    {
+      "variantId": "level-5-voice-control-snail",
+      "name": "Voice Control Snail",
+      "requiredFileName": "level-5-voice-control-snail-basic.webp",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f87b9b12193f4f79a103d973e8a0fc02.pdf",
+      "historicalPdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+      "historicalPageCount": 12,
+      "pageForInitialInvestigation": 12,
+      "currentRunPdfHashVerified": false,
+      "allPagesVisuallyReviewed": false,
+      "completedModelCrop": null,
+      "image": {
+        "webpCreated": false,
+        "dimensions": null,
+        "sha256": null,
+        "sourcePage": null
+      },
+      "wix": {
+        "mediaId": null,
+        "hostedUrl": null,
+        "operationStatus": "NOT_UPLOADED",
+        "mimeType": null,
+        "publicVisibilityVerified": false
+      },
+      "assessment": {
+        "independentlyApprovedQuestions": 0,
+        "studentApproved": false,
+        "selectable": false
+      },
+      "blocker": "Authentic full-model crop not verified; official PDF bytes inaccessible in this attempt"
+    },
+    {
+      "variantId": "level-5-voice-control-vehicle",
+      "name": "Voice Control Vehicle",
+      "requiredFileName": "level-5-voice-control-vehicle-basic.webp",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4ee4d1d889f84492b41e9df408633906.pdf",
+      "historicalPdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+      "historicalPageCount": 10,
+      "pageForInitialInvestigation": 10,
+      "currentRunPdfHashVerified": false,
+      "allPagesVisuallyReviewed": false,
+      "completedModelCrop": null,
+      "image": {
+        "webpCreated": false,
+        "dimensions": null,
+        "sha256": null,
+        "sourcePage": null
+      },
+      "wix": {
+        "mediaId": null,
+        "hostedUrl": null,
+        "operationStatus": "NOT_UPLOADED",
+        "mimeType": null,
+        "publicVisibilityVerified": false
+      },
+      "assessment": {
+        "independentlyApprovedQuestions": 0,
+        "studentApproved": false,
+        "selectable": false
+      },
+      "blocker": "Authentic full-model crop not verified; official PDF bytes inaccessible in this attempt"
+    }
+  ]
+}
