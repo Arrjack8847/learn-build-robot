@@ -133,3 +133,39 @@ The new Node test file audits registry identity, nine exclusions, all source URL
 **GitHub artwork visual audit: 42/42 candidate WebPs opened and individually inspected.** **25/42** exhibit observable presentation concerns (cropped model edges, page borders, neighboring assembly art, parts lists, or instructional fragments). The other **17** were renderable and had no issue recorded during this preliminary review, but also are **not** source-certified. All 42 remain blocked. The individual 42-record ledger, evidence links and issue descriptions are in `reports/final-build-level-3-visual-candidate-review-20261123.json`.
 
 No verified full-PDF source hash/page checks were produced; no candidate was independently matched to the actual completed model page, no clean-crop repair was performed, no five-question checklist was approved, and **no new Level 3 WebP was uploaded to Wix**. Current approval = **0/42**, blocked = **42/42**, approved checklist sets = **0/42**, Wix uploads = **0**. Both Level 3 and the shared student scanner remain fail-closed. This update does not supersede the unexecuted Node/mobile-browser testing limitations above.
+
+
+## RECOVERY AUDIT — 2026-11-23 (LATEST VERIFIED STATUS)
+
+**This latest section supersedes earlier statements that Wix PDF bytes and local tests were inaccessible.**
+
+### Source and artwork provenance
+- PASS: All 40 distinct registered Building PDFs downloaded as real bytes; SHA-256 computed; 38 original Git blob SHA-1 identities and two historically repaired English-only identities match; all 40 PDF page counts confirmed independently using PyMuPDF.
+- PASS: OpenCV SIFT/RANSAC source-page matching: 42/42 strong candidate WebP-to-registered-PDF matches. 34/42 matching final page; 8/42 matching earlier pages (Following Robot, Lifting Maintenance Vehicle, Electronic Scale, Gyro Transmitter, Biting Monster, Electric Gyro Launcher, Responder, Sonometer). **This is source matching, not finished-model approval.**
+- STAGED: 42 real PDF-rasterized crop proposals produced in isolated QA sandbox. Manifest records source PDF SHA256, page, dimensions, proposal image SHA256 and crop coordinates. Files are NOT approved, NOT uploaded to Steam Wix, NOT mapped to students. Reproducible scripts committed under scripts/final-build/level3-*.py.
+- ORIGINAL CANDIDATES: 42/42 visually inspected; 25 raised crop/page-material issues; 17 have no recorded presentation issue but still lack independent finished-model checks.
+
+### Checklist drafting
+- STAGED: Five unique project-specific candidate questions for each of 42 variants, 210 total, with source PDF SHA256 and source-matched page. Their status is 'draft-not-student-visible' and independent approval is pending. All official approved questions arrays remain empty; all variants blocked.
+
+### Executed local testing
+- PASS: 13/13 Level 3 Node tests (existing + visual QA + source/draft evidence).
+- PASS: 38/38 shared Final Build regression tests after regenerating required Level Selection WebPs.
+- PASS: Vite production build after checking out all necessary legacy Marksman 3D asset files.
+- FAIL, PRE-EXISTING: TypeScript noEmit reports five errors in shared FinalBuildExam.tsx (2), finalBuildRegistry.ts (2), Level 1 route (1). No shared engine/other-level changes were made by this worker.
+- PASS, local Chromium only: 320/375/390/430px review route HTTP 200, zero page JS errors, no horizontal overflow.
+- PASS with warning, local Chromium student route: after ~4.3–4.9 seconds per scan, an unapproved robot shows unavailable-reference message, with 'Start My 15-Minute Build' disabled; no unapproved reference image rendered. Initial scanner still misleadingly advertises 39 discoverable robots and permits discovery despite zero approvals. Integration should restrict selection upfront.
+- NOT VERIFIED: iOS Safari, production WebKit, true approved-only variant-selection flow, 15-minute timed pass/retry/resume end-to-end with an approved Level 3 variant.
+
+### Artifacts
+- reports/final-build-level-3-pdf-byte-integrity-20261123.json
+- reports/final-build-level-3-candidate-source-page-summary-20261123.json
+- reports/final-build-level-3-extracted-source-artwork-proposals-20261123.json
+- reports/final-build-level-3-browser-check-20261123.json
+- reports/final-build-level-3-student-fail-closed-browser-20261123.json
+- src/data/finalBuild/level-3-references.json; src/data/finalBuild/level-3-checklists.json; src/data/finalBuild/level-3-audit.json
+- scripts/final-build/level3-official-source-run.py; level3-source-match.py; level3-extract-proposals.py
+
+**Counts:** 40/40 downloaded-source byte/page verified; 42/42 strong automated source-page matches; 42 local crop proposals; 210 checklist drafts; **0 approved variants, 42 blocked, 0 independently approved checklists, 0 approved Wix WebP uploads**.
+
+**Release decision: HOLD.** Do not mistake authenticated PDF identity and image-page correlation for independent completed-model/crop/quiz approval. No merge or deployment, no GitHub Actions, no other-level edits.
