@@ -5,6 +5,7 @@ import { readFileSync } from "node:fs";
 const read = path => readFileSync(new URL("../" + path, import.meta.url), "utf8");
 const refs = JSON.parse(read("src/data/finalBuild/level-2-references.json"));
 const checks = JSON.parse(read("src/data/finalBuild/level-2-checklists.json"));
+const ownerFallbacks = JSON.parse(read("src/data/finalBuild/level-2-owner-approved-pdf-fallbacks.json"));
 const images = JSON.parse(read("src/data/finalBuild/level-2-wix-image-urls.json"));
 const upload = JSON.parse(read("reports/final-build-level-2-wix-upload-20261123.json"));
 const cdn = JSON.parse(read("reports/final-build-level-2-wix-cdn-sha256-20261123.json"));
@@ -105,10 +106,15 @@ test("shared scanner uses Level 2 fail-closed adapter without replacing Level 5"
   assert.match(helper, /import \{ getLevelTwoEvidence \} from/);
   assert.match(helper, /if \(level === 2\) return getLevelTwoEvidence\(projectId, variant\)/);
   assert.match(helper, /level !== 5 \|\| !variant\.hostedOnWix/);
-  assert.match(levelTwoAdapter, /blocked\.has\(variant\.id\)/);
+  assert.match(levelTwoAdapter, /previousBlocks\.has\(variant\.id\)/);
   assert.match(levelTwoAdapter, /reference\.sourceUrl !== variant\.url/);
   assert.match(levelTwoAdapter, /checklist\.questions\.length !== 5/);
-  assert.match(levelTwoAdapter, /if \(!imageUrl \|\| !validWixWebpUrl\(imageUrl\)\) return null/);
+  assert.match(levelTwoAdapter, /getLevelTwoEvidence/);
+  assert.match(levelTwoAdapter, /registered-pdf-fallback/);
+  assert.match(levelTwoAdapter, /source\.url !== variant\.url/);
+  assert.match(exam, /Open original PDF reference/);
+  assert.match(exam, /showLevelTwoPdfFallback/);
+  assert.match(exam, /model\.status === "error"/);
   assert.match(exam, /getVerifiedFinalBuildPool\(level\)/);
   assert.match(exam, /const LIMIT_MS = 15 \* 60 \* 1000/);
   assert.match(exam, /prev\.checks\.filter\(Boolean\)\.length >= 4/);
@@ -147,4 +153,67 @@ test("30 independently downloaded Wix CDN bodies match source SHA-256, exact byt
 
   assert.equal(unique.size, 30);
   for (const blockedId of refs.blockedVariantIds) assert.ok(!unique.has(blockedId));
+});
+
+test("owner inclusion is distinct from independent Building-manual/image approval", () => {
+  assert.equal(ownerFallbacks.level, 2);
+  assert.equal(ownerFallbacks.registeredVariants, 60);
+  assert.equal(ownerFallbacks.verifiedSourceWebpsPreserved, 30);
+  assert.equal(ownerFallbacks.registeredPdfFallbackVariants, 30);
+  assert.equal(ownerFallbacks.standaloneNewWebpsHosted, 0);
+  assert.equal(ownerFallbacks.records.length, 30);
+  const ids = new Set();
+  const sourceUrls = new Set(refs.references.map(x => x.sourceUrl));
+  const approvedIds = new Set(refs.references.map(x => x.variantId));
+  for (const r of ownerFallbacks.records) {
+    assert.ok(!ids.has(r.variantId), "duplicate fallback variant");
+    assert.ok(!approvedIds.has(r.variantId), "already approved variant must not become fallback");
+    ids.add(r.variantId);
+    assert.equal(r.ownerAuthorized, true);
+    assert.equal(r.independentlySourceApproved, false);
+    assert.equal(r.studentInclusionMode, "registered-pdf-fallback");
+    assert.equal(r.reference.mode, "original-registered-pdf");
+    assert.equal(r.reference.sourceKindIndependentlyConfirmed, false);
+    assert.equal(r.reference.sourcePdfBytesPreviouslyHashed, true);
+    assert.equal(r.reference.sourcePdfRevalidatedThisChange, false);
+    assert.match(r.reference.url, /^https:\/\/[^/]+\.usrfiles\.com\/.+\.pdf$/);
+    assert.match(r.reference.sha256, /^[0-9a-f]{64}$/);
+    assert.ok(r.reference.pageCount > 0);
+    assert.ok(!sourceUrls.has(r.reference.url), "duplicate canonical source URL");
+    sourceUrls.add(r.reference.url);
+    assert.equal(r.image.approvedWebp, false);
+    assert.equal(r.image.webpUrl, null);
+    assert.equal(images.urls[r.variantId], undefined);
+    assert.equal(r.assessment.provenance, "general-observable-not-pdf-page-verified");
+    assert.equal(r.assessment.independentlyPdfVerified, false);
+    assert.equal(r.assessment.questions.length, 5);
+    for (const question of r.assessment.questions) {
+      assert.ok(question.text.includes(r.officialName));
+      assert.ok(question.text.trim().length > 25);
+      assert.equal(question.evidenceType, "general-observable-not-pdf-verified");
+      assert.equal(question.pdfPage, null);
+    }
+  }
+  assert.equal(ids.size, 30);
+  assert.deepEqual(ids, new Set(refs.blockedVariantIds));
+  assert.deepEqual(ids, new Set(checks.blockedVariantIds));
+  assert.equal(sourceUrls.size, 60);
+  assert.equal(new Set([...approvedIds, ...ids]).size, 60);
+  assert.equal(new Set([...refs.references.map(x => x.projectId), ...ownerFallbacks.records.map(x => x.projectId)]).size, 59);
+  assert.equal(30 * 5 + ownerFallbacks.records.reduce((n, r) => n + r.assessment.questions.length, 0), 300);
+});
+
+test("fallback scanner/UI retains five checks, 4-of-5 pass, 15 minute timer and 4.2s scanner", () => {
+  assert.match(exam, /const SCAN_MS = 4200/);
+  assert.match(exam, /const LIMIT_MS = 15 \* 60 \* 1000/);
+  assert.match(exam, /prev\.checks\.filter\(Boolean\)\.length >= 4/);
+  assert.match(exam, /showLevelTwoPdfFallback/);
+  assert.match(exam, /approval\.sourceUrl === variant\.url/);
+  assert.match(exam, /pictureReady \|\| showLevelTwoPdfFallback/);
+  assert.match(exam, /target="_blank" rel="noopener noreferrer"/);
+  assert.match(exam, /general observable checks, not independently verified/);
+  assert.match(exam, /Retry Same Robot/);
+  assert.match(exam, /Discover Another Robot/);
+  assert.match(helper, /getVerifiedFinalBuildPool/);
+  assert.match(levelTwoAdapter, /assessment\.questions\.length !== 5/);
 });
