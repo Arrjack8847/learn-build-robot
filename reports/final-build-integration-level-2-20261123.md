@@ -69,3 +69,12 @@ Not executed in this turn:
 - Source PDF inspection: `.usrfiles.com` downloads were rejected by the connected Wix runtime (403 forbidden for that host), web PDF access also failed, and no authenticated alternate building-manual PDF/crop was visually approved. The 30 blocked remain excluded.
 
 **Current status:** uploaded artwork verified, integrated Level 2 source adapter and tests committed, draft PR maintained. Production and current-commit browser/TypeScript release gates are still unmet.
+
+
+## 2026-11-23 continuation — full blocked-search pagination and recheck
+
+- Worker PR #109, commit `f60ec44ec6740c494f972fe25bb9dee3764886f7`, completes the two previously outstanding Media Manager cursor searches: **Hammer Robot 142/142 matches (2 pages)** and **Robot War 152/152 matches (2 pages)**. The worker report now marks all 30 blocked search trails fully paginated.
+- Additional Level 2-labelled PDFs were identified, `BSR-L2--Foundational-Robots--Hammer robot.pdf` and `BSR-L2--Machines-Mechanisms--Robot war.pdf`. These are only PDF registration candidates. No new Building manual source provenance, finished-model visual acceptance or supported 5-question checklist has been established; no blocked variant was promoted.
+- A new independent, read-only connector-side audit of the **current branch files** executed **947/947 manifest/source-contract assertions** with zero failures: 30 approved references, 150 source-evidenced questions, 30 READY mappings, 30 blocked exclusions, unique hosted URL/media IDs, Level 2 eligible dispatch, 15-minute / 4-of-5 source contracts, and preservation of all 39 Level 5 Wix URLs.
+- This is **not** a full Node test, TypeScript compilation, Vite build, native mobile/Safari functional run or CDN-body SHA-256 comparison. Those release gates remain open.
+- Continue to keep PR #109 and PR #114 **DRAFT**, retain all 30 blocked variants outside student discovery, and do not merge or deploy production.
