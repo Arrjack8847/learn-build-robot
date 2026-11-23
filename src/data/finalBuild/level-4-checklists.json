@@ -350,7 +350,7 @@
       "questions": [
         {
           "id": "level-4-card-machine-q1",
-          "text": "Does the compact card-machine controller sit firmly on the built mechanism rather than as a detached unit?",
+          "text": "Does the completed card machine have the long low rectangular mechanism with its controller mounted at the right-hand end?",
           "evidencePages": [
             9
           ],
@@ -361,7 +361,7 @@
         },
         {
           "id": "level-4-card-machine-q2",
-          "text": "Are the card-feed rollers and their supporting beams fitted parallel to the intended card path?",
+          "text": "Is the large dark circular drive wheel with its contrasting central hub seated on the axle shown at the left end?",
           "evidencePages": [
             9
           ],
@@ -372,7 +372,7 @@
         },
         {
           "id": "level-4-card-machine-q3",
-          "text": "Are the wheel/drive components retained on their axles with the connectors shown in the final build?",
+          "text": "Are the side beams and linkages connecting the drive-wheel assembly to the controller frame securely pinned?",
           "evidencePages": [
             9
           ],
@@ -383,7 +383,7 @@
         },
         {
           "id": "level-4-card-machine-q4",
-          "text": "Can the feed mechanism turn without an axle sliding out or a card catching against a side rail?",
+          "text": "Can the large wheel and its linked mechanism turn without fouling the side beams or controller housing?",
           "evidencePages": [
             9
           ],
@@ -394,7 +394,7 @@
         },
         {
           "id": "level-4-card-machine-q5",
-          "text": "Does the machine accept and move a card in the expected direction when its mechanism is operated?",
+          "text": "Does the machine carry out its intended card-handling movement without the axle or feed linkage slipping?",
           "evidencePages": [
             9
           ],
@@ -406,7 +406,7 @@
       ],
       "reviewer": null,
       "reviewedAt": null,
-      "reason": "Five model-specific questions drafted from the actual finished-model page; fine mechanical details, expected operation and any Basic/Optimized differences require independent manual/physical verification before student approval."
+      "reason": "Five project-specific questions reviewed against the cleaner completed-model PDF crop; assembly-stage and functional requirements still await independent sign-off."
     },
     {
       "variantId": "level-4-card-reader",
@@ -1604,7 +1604,7 @@
       "questions": [
         {
           "id": "level-4-obstacle-avoidance-robot-2-q1",
-          "text": "Does the version-two chassis follow the wider, lower arrangement shown by its own final-page views?",
+          "text": "Does the version-two model retain its broad low central controller platform and the articulated front supports shown in its own drawing?",
           "evidencePages": [
             14
           ],
@@ -1615,7 +1615,7 @@
         },
         {
           "id": "level-4-obstacle-avoidance-robot-2-q2",
-          "text": "Are the version-two motor and sensor mounts fitted in their documented positions rather than copied from version one?",
+          "text": "Are the two projecting front linkages mounted in parallel at the documented connection points?",
           "evidencePages": [
             14
           ],
@@ -1626,7 +1626,7 @@
         },
         {
           "id": "level-4-obstacle-avoidance-robot-2-q3",
-          "text": "Are the front sensing units and their wires clear of the drive and steering linkages?",
+          "text": "Are the detection components and their cables attached clear of the chassis's forward mechanisms?",
           "evidencePages": [
             14
           ],
@@ -1637,7 +1637,7 @@
         },
         {
           "id": "level-4-obstacle-avoidance-robot-2-q4",
-          "text": "Does the wide base remain balanced and maneuver without a sensor mount touching the floor?",
+          "text": "Can the front mechanisms articulate without scraping one another or trapping a wire beneath the controller?",
           "evidencePages": [
             14
           ],
@@ -1648,7 +1648,7 @@
         },
         {
           "id": "level-4-obstacle-avoidance-robot-2-q5",
-          "text": "Does the version-two obstacle-detection response steer the vehicle away from nearby objects?",
+          "text": "Does the robot respond to a detected obstacle with its intended avoidance motion while the wide base stays assembled?",
           "evidencePages": [
             14
           ],
@@ -1660,7 +1660,7 @@
       ],
       "reviewer": null,
       "reviewedAt": null,
-      "reason": "Five model-specific questions drafted from the actual finished-model page; fine mechanical details, expected operation and any Basic/Optimized differences require independent manual/physical verification before student approval."
+      "reason": "Five project-specific questions reviewed against the cleaner completed-model PDF crop; assembly-stage and functional requirements still await independent sign-off."
     },
     {
       "variantId": "level-4-obstacle-avoiding-scorpion",
@@ -2330,7 +2330,7 @@
       "questions": [
         {
           "id": "level-4-scorpion-q1",
-          "text": "Does the scorpion-like robot have its forward pincers and raised curved tail connected to the chassis?",
+          "text": "Does the completed scorpion robot have an elevated tail-like arm rising above its compact wheeled body?",
           "evidencePages": [
             17
           ],
@@ -2341,7 +2341,7 @@
         },
         {
           "id": "level-4-scorpion-q2",
-          "text": "Are the tail's hinged beams secured to the motor or pivot at the documented points?",
+          "text": "Is the horizontal red beam at the top of the articulated upright tail firmly joined to its vertical support?",
           "evidencePages": [
             17
           ],
@@ -2352,7 +2352,7 @@
         },
         {
           "id": "level-4-scorpion-q3",
-          "text": "Are the controller and paired wheel mounts located below the scorpion body as pictured?",
+          "text": "Are the paired drive wheels, controller and body support beams aligned beneath the raised tail structure?",
           "evidencePages": [
             17
           ],
@@ -2363,7 +2363,7 @@
         },
         {
           "id": "level-4-scorpion-q4",
-          "text": "Can the tail or pincers move without striking the robot's wheels or disconnecting a cable?",
+          "text": "Can the scorpion's articulated arm move without contacting either drive wheel or disturbing its cable connections?",
           "evidencePages": [
             17
           ],
@@ -2374,7 +2374,7 @@
         },
         {
           "id": "level-4-scorpion-q5",
-          "text": "Does the completed scorpion perform its expected movement while keeping its body stable?",
+          "text": "Does the finished model execute its intended tail or scorpion movement without destabilizing the wheeled base?",
           "evidencePages": [
             17
           ],
@@ -2386,7 +2386,7 @@
       ],
       "reviewer": null,
       "reviewedAt": null,
-      "reason": "Five model-specific questions drafted from the actual finished-model page; fine mechanical details, expected operation and any Basic/Optimized differences require independent manual/physical verification before student approval."
+      "reason": "Five project-specific questions reviewed against the cleaner completed-model PDF crop; assembly-stage and functional requirements still await independent sign-off."
     },
     {
       "variantId": "level-4-skiing-robot",
@@ -2462,7 +2462,7 @@
       "questions": [
         {
           "id": "level-4-smart-curtain-q1",
-          "text": "Does the curtain model include the top rail and movable curtain panel assembly shown in the finished view?",
+          "text": "Does the curtain model have the upright movable panel mounted alongside the controller-and-motor base shown in its final illustration?",
           "evidencePages": [
             10
           ],
@@ -2473,7 +2473,7 @@
         },
         {
           "id": "level-4-smart-curtain-q2",
-          "text": "Are the sliding carriers and supporting rail connectors mounted parallel along the frame?",
+          "text": "Are the red upper linkage pivots connected securely to the vertical support that carries the movable panel?",
           "evidencePages": [
             10
           ],
@@ -2484,7 +2484,7 @@
         },
         {
           "id": "level-4-smart-curtain-q3",
-          "text": "Are the motor-drive and curtain support fasteners secure so the panel does not droop?",
+          "text": "Is the round drive hub on the right-hand support aligned with the mechanism that moves the panel?",
           "evidencePages": [
             10
           ],
@@ -2495,7 +2495,7 @@
         },
         {
           "id": "level-4-smart-curtain-q4",
-          "text": "Can the curtain slide its intended distance without the rail ends or wiring snagging?",
+          "text": "Can the panel and drive linkage travel without scraping the controller or binding against the side support?",
           "evidencePages": [
             10
           ],
@@ -2506,7 +2506,7 @@
         },
         {
           "id": "level-4-smart-curtain-q5",
-          "text": "Does the controller cause the curtain to open and close when the intended control condition occurs?",
+          "text": "Does the completed mechanism open and close the curtain panel when the intended control input occurs?",
           "evidencePages": [
             10
           ],
@@ -2518,7 +2518,7 @@
       ],
       "reviewer": null,
       "reviewedAt": null,
-      "reason": "Five model-specific questions drafted from the actual finished-model page; fine mechanical details, expected operation and any Basic/Optimized differences require independent manual/physical verification before student approval."
+      "reason": "Five project-specific questions reviewed against the cleaner completed-model PDF crop; assembly-stage and functional requirements still await independent sign-off."
     },
     {
       "variantId": "level-4-smart-luggage",
