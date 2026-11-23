@@ -12,10 +12,10 @@
     "approvedCount": 39,
     "unchanged": true
   },
-  "status": "BLOCKED_SOURCE_PDF_UNAVAILABLE_TO_EXTRACTION_RUNTIME",
+  "status": "3_SOURCE_VERIFIED_WIX_READY_CANDIDATES_3_STILL_IMAGE_BLOCKED",
   "sourceOfTruth": "src/data/finalBuild/level-5-recovery-candidates.json on feat/final-build-level-5",
-  "imageReady": 0,
-  "wixReady": 0,
+  "imageReady": 3,
+  "wixReady": 3,
   "studentApproved": 0,
   "candidates": [
     {
@@ -26,28 +26,59 @@
       "historicalPdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
       "historicalPageCount": 20,
       "pageForInitialInvestigation": 20,
-      "currentRunPdfHashVerified": false,
-      "allPagesVisuallyReviewed": false,
-      "completedModelCrop": null,
+      "currentRunPdfHashVerified": true,
+      "allPagesVisuallyReviewed": true,
+      "completedModelCrop": {
+        "pdfPage": 20,
+        "normalizedCoordinates": [
+          0.06,
+          0.08,
+          0.56,
+          0.94
+        ],
+        "pageBoundsPoints": [
+          50.52,
+          47.68,
+          471.52,
+          560.24
+        ],
+        "visualJustification": "The isolated completed vehicle is the left-hand assembly on page 20; the separate remote controller is not part of the vehicle image."
+      },
       "image": {
-        "webpCreated": false,
-        "dimensions": null,
-        "sha256": null,
-        "sourcePage": null
+        "webpCreated": true,
+        "filename": "level-5-remote-control-car-basic.webp",
+        "sourcePage": 20,
+        "dimensions": [
+          550,
+          669
+        ],
+        "sha256": "75a25bad77af8968c6ce83bf9344ccba393b44e6933ea8fb5b11985b8a30ab6d",
+        "sizeBytes": 37136,
+        "sourceRasterMeanAbsoluteError": 1.077,
+        "decoded": true
       },
       "wix": {
-        "mediaId": null,
-        "hostedUrl": null,
-        "operationStatus": "NOT_UPLOADED",
-        "mimeType": null,
-        "publicVisibilityVerified": false
+        "mediaId": "78042f_0c2947266eb7486381448607a8aa7b07~mv2.webp",
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_0c2947266eb7486381448607a8aa7b07~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "dimensions": [
+          550,
+          669
+        ],
+        "sourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/611de7f416539827d7eba93c2ac6cfd7bfec9f1b/public/final-build/level-5/level-5-remote-control-car-basic.webp",
+        "publicVisibilityVerified": true,
+        "cdnHttpStatus": 200,
+        "cdnByteForByteSha256Verified": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0"
       },
       "assessment": {
         "independentlyApprovedQuestions": 0,
         "studentApproved": false,
         "selectable": false
       },
-      "blocker": "Authentic full-model crop not verified; official PDF bytes inaccessible in this attempt"
+      "blocker": "Image candidate READY, but five source-backed checklist questions have not been independently verified, so not student-approved."
     },
     {
       "variantId": "level-5-crack-shot:optimized",
@@ -57,11 +88,12 @@
       "historicalPdfSha256": "cfb54f435a8345ca010a6db10c0c1ed37a5a77f48d3086f25a5a7ae28f4f5dcf",
       "historicalPageCount": 4,
       "pageForInitialInvestigation": 4,
-      "currentRunPdfHashVerified": false,
-      "allPagesVisuallyReviewed": false,
+      "currentRunPdfHashVerified": true,
+      "allPagesVisuallyReviewed": true,
       "completedModelCrop": null,
       "image": {
         "webpCreated": false,
+        "filename": null,
         "dimensions": null,
         "sha256": null,
         "sourcePage": null
@@ -78,7 +110,7 @@
         "studentApproved": false,
         "selectable": false
       },
-      "blocker": "Authentic full-model crop not verified; official PDF bytes inaccessible in this attempt"
+      "blocker": "Page 4 shows the optimized model under assembly, including a wheel not attached; other pages show earlier steps. No unambiguous complete optimized assembly."
     },
     {
       "variantId": "level-5-machine-gun",
@@ -88,11 +120,12 @@
       "historicalPdfSha256": "acc9ac20908550895909ac6c73d473301732d15cbbe4f03049c1d4b84f1a60c1",
       "historicalPageCount": 29,
       "pageForInitialInvestigation": 29,
-      "currentRunPdfHashVerified": false,
-      "allPagesVisuallyReviewed": false,
+      "currentRunPdfHashVerified": true,
+      "allPagesVisuallyReviewed": true,
       "completedModelCrop": null,
       "image": {
         "webpCreated": false,
+        "filename": null,
         "dimensions": null,
         "sha256": null,
         "sourcePage": null
@@ -109,7 +142,7 @@
         "studentApproved": false,
         "selectable": false
       },
-      "blocker": "Authentic full-model crop not verified; official PDF bytes inaccessible in this attempt"
+      "blocker": "Page 29 explicitly instructs attaching an uninstalled rubber band and connector; no isolated view of the assembly after that step."
     },
     {
       "variantId": "level-5-facial-recognition-time-clock",
@@ -119,11 +152,12 @@
       "historicalPdfSha256": "d864a564ec020cf36df072b980ca763a133aabbd8d4115e50f564ffb02dca872",
       "historicalPageCount": 7,
       "pageForInitialInvestigation": 7,
-      "currentRunPdfHashVerified": false,
-      "allPagesVisuallyReviewed": false,
+      "currentRunPdfHashVerified": true,
+      "allPagesVisuallyReviewed": true,
       "completedModelCrop": null,
       "image": {
         "webpCreated": false,
+        "filename": null,
         "dimensions": null,
         "sha256": null,
         "sourcePage": null
@@ -140,7 +174,7 @@
         "studentApproved": false,
         "selectable": false
       },
-      "blocker": "Authentic full-model crop not verified; official PDF bytes inaccessible in this attempt"
+      "blocker": "Page 7 shows the required camera module detached with red attachment guides; earlier pages omit the camera."
     },
     {
       "variantId": "level-5-voice-control-snail",
@@ -150,28 +184,59 @@
       "historicalPdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
       "historicalPageCount": 12,
       "pageForInitialInvestigation": 12,
-      "currentRunPdfHashVerified": false,
-      "allPagesVisuallyReviewed": false,
-      "completedModelCrop": null,
+      "currentRunPdfHashVerified": true,
+      "allPagesVisuallyReviewed": true,
+      "completedModelCrop": {
+        "pdfPage": 12,
+        "normalizedCoordinates": [
+          0.3,
+          0.18,
+          0.83,
+          0.86
+        ],
+        "pageBoundsPoints": [
+          476.1,
+          160.74,
+          1317.21,
+          767.98
+        ],
+        "visualJustification": "Page 12 has a single completely assembled snail view on the blue background; crop excludes the unrelated single-part inset."
+      },
       "image": {
-        "webpCreated": false,
-        "dimensions": null,
-        "sha256": null,
-        "sourcePage": null
+        "webpCreated": true,
+        "filename": "level-5-voice-control-snail-basic.webp",
+        "sourcePage": 12,
+        "dimensions": [
+          550,
+          397
+        ],
+        "sha256": "268a5d6a2fbb244da5871cd080bd7f4109980b731028f6aa87d1fce440fe503d",
+        "sizeBytes": 16834,
+        "sourceRasterMeanAbsoluteError": 1.322,
+        "decoded": true
       },
       "wix": {
-        "mediaId": null,
-        "hostedUrl": null,
-        "operationStatus": "NOT_UPLOADED",
-        "mimeType": null,
-        "publicVisibilityVerified": false
+        "mediaId": "78042f_72ced3ae25a54a45b1815b9590380b6f~mv2.webp",
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_72ced3ae25a54a45b1815b9590380b6f~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "dimensions": [
+          550,
+          397
+        ],
+        "sourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/611de7f416539827d7eba93c2ac6cfd7bfec9f1b/public/final-build/level-5/level-5-voice-control-snail-basic.webp",
+        "publicVisibilityVerified": true,
+        "cdnHttpStatus": 200,
+        "cdnByteForByteSha256Verified": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0"
       },
       "assessment": {
         "independentlyApprovedQuestions": 0,
         "studentApproved": false,
         "selectable": false
       },
-      "blocker": "Authentic full-model crop not verified; official PDF bytes inaccessible in this attempt"
+      "blocker": "Image candidate READY, but five source-backed checklist questions have not been independently verified, so not student-approved."
     },
     {
       "variantId": "level-5-voice-control-vehicle",
@@ -181,28 +246,61 @@
       "historicalPdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
       "historicalPageCount": 10,
       "pageForInitialInvestigation": 10,
-      "currentRunPdfHashVerified": false,
-      "allPagesVisuallyReviewed": false,
-      "completedModelCrop": null,
+      "currentRunPdfHashVerified": true,
+      "allPagesVisuallyReviewed": true,
+      "completedModelCrop": {
+        "pdfPage": 10,
+        "normalizedCoordinates": [
+          0.64,
+          0.52,
+          1,
+          0.94
+        ],
+        "pageBoundsPoints": [
+          1015.68,
+          464.36,
+          1587,
+          839.42
+        ],
+        "visualJustification": "Page 10 step 23 shows the complete wheeled vehicle; crop excludes the other steps and part callout."
+      },
       "image": {
-        "webpCreated": false,
-        "dimensions": null,
-        "sha256": null,
-        "sourcePage": null
+        "webpCreated": true,
+        "filename": "level-5-voice-control-vehicle-basic.webp",
+        "sourcePage": 10,
+        "dimensions": [
+          550,
+          361
+        ],
+        "sha256": "f627ccbb70fd03647d2135f0719fbea736ad9938b3c4397a1ef472f07a84b138",
+        "sizeBytes": 23852,
+        "sourceRasterMeanAbsoluteError": 2.251,
+        "decoded": true
       },
       "wix": {
-        "mediaId": null,
-        "hostedUrl": null,
-        "operationStatus": "NOT_UPLOADED",
-        "mimeType": null,
-        "publicVisibilityVerified": false
+        "mediaId": "78042f_d36f964af5eb46b39673760192b53422~mv2.webp",
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_d36f964af5eb46b39673760192b53422~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "dimensions": [
+          550,
+          361
+        ],
+        "sourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/611de7f416539827d7eba93c2ac6cfd7bfec9f1b/public/final-build/level-5/level-5-voice-control-vehicle-basic.webp",
+        "publicVisibilityVerified": true,
+        "cdnHttpStatus": 200,
+        "cdnByteForByteSha256Verified": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0"
       },
       "assessment": {
         "independentlyApprovedQuestions": 0,
         "studentApproved": false,
         "selectable": false
       },
-      "blocker": "Authentic full-model crop not verified; official PDF bytes inaccessible in this attempt"
+      "blocker": "Image candidate READY, but five source-backed checklist questions have not been independently verified, so not student-approved."
     }
-  ]
+  ],
+  "imageWorkerCommit": "611de7f416539827d7eba93c2ac6cfd7bfec9f1b",
+  "qaEvidence": "reports/final-build-level-5-six-webp-recovery-evidence-20261123.json"
 }
