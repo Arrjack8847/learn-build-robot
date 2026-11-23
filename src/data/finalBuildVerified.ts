@@ -88,6 +88,7 @@ function getOwnerAuthorizedPdfEvidence(
   const matching = ownerPdfFallbacks.filter(item => item.variantId === variant.id);
   if (matching.length !== 1) return null;
   const item = matching[0];
+  if (!item) return null;
   const reference = referenceEntries.find(ref => ref.variantId === variant.id && ref.projectId === projectId);
   const checklist = checklistEntries.find(check => check.variantId === variant.id && check.projectId === projectId);
   if (!variant.hostedOnWix || item.projectId !== projectId ||
