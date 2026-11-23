@@ -128,9 +128,9 @@ The separate `src/data/finalBuild/level-2-image-provenance.json` records each im
 No extractable CJK codepoints were found in text layers across the 60 parsed PDFs, and the checked covers and final model pages used English-facing manual/lesson labels. This check cannot eliminate rasterized Chinese symbols or publisher logos on every unexamined interior page. Any publisher branding remained in original PDFs and is not copied into the cropped finished-model images. The 36 historical cleaned-upload mappings were byte-confirmed against their recorded Git objects.
 
 ## Executed tests — authorized isolated Node 24 sandbox
-- `node --test tests/final-build-level-2.test.mjs tests/final-build-exams.test.mjs`:
-  **17 reported tests: 15 PASS, 0 FAIL, 2 TODO, 0 skipped**.
-- The Level 2 suite checked 59/60 registry identities, the two See Saw variants, exact Wix source mappings, 36 historical hashes, blocked-record exclusion, all 30 image file existence/dimensions/**actual WebP SHA-256**, 30 exact PDF source bindings, 150 page-cited questions, and source-scanned Level 1 parity constants.
+- **Final expanded Level 2 regression command:** `node --test tests/final-build-exams.test.mjs tests/final-build-level-2.test.mjs tests/level-one-to-three-wix-urls.test.mjs tests/level-two-cleaned-wix-routing.test.mjs` — **23 tests, 21 PASS, 0 FAIL, 2 TODO, 0 skipped** (exit status 0). The original `public/Level 2/Learning` directory (43 cleaned Learning PDFs plus one fallback) was included in the isolated sparse checkout for this run.
+- The narrower `node --test tests/final-build-level-2.test.mjs tests/final-build-exams.test.mjs` separately reported **17 tests, 15 PASS, 0 FAIL, 2 TODO**.
+- The Level 2 suite checked 59/60 registry identities, the two See Saw variants, exact Wix source mappings, 36 historical hashes, blocked-record exclusion, all 30 image file existence/dimensions/**actual WebP SHA-256**, 30 exact PDF source bindings, 150 page-cited questions, and source-scanned Level 1 parity constants. The expanded suite also checked all 304 Level 1–3 Wix URL registrations and the 43+1 Level 2 Learning PDF routing inventory.
 - The shared Final Build regression suite checked route registration, unbiased scan index, unapproved Start gating, deadline persistence and self-assessment contracts.
 - The additional 15th passing test verifies the recorded Chromium viewport-run evidence as a committed fixture; this test does **not** itself launch Chromium.
 - Executed no GitHub Actions.
