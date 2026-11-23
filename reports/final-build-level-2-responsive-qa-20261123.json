@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-23",
+  "method": "Local Chromium Playwright headless browser; no Browser Use",
+  "results": [
+    {
+      "width": 320,
+      "http": 200,
+      "initialOverflow": 0,
+      "postScanOverflow": 0,
+      "scannerDurationMs": 4347,
+      "disabled": true,
+      "hasReference": true,
+      "hasBlockedWarning": true,
+      "errors": []
+    },
+    {
+      "width": 375,
+      "http": 200,
+      "initialOverflow": 0,
+      "postScanOverflow": 0,
+      "scannerDurationMs": 4321,
+      "disabled": true,
+      "hasReference": true,
+      "hasBlockedWarning": true,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "http": 200,
+      "initialOverflow": 0,
+      "postScanOverflow": 0,
+      "scannerDurationMs": 4332,
+      "disabled": true,
+      "hasReference": true,
+      "hasBlockedWarning": true,
+      "errors": []
+    },
+    {
+      "width": 430,
+      "http": 200,
+      "initialOverflow": 0,
+      "postScanOverflow": 0,
+      "scannerDurationMs": 4311,
+      "disabled": true,
+      "hasReference": true,
+      "hasBlockedWarning": true,
+      "errors": []
+    }
+  ],
+  "pass": true
+}
