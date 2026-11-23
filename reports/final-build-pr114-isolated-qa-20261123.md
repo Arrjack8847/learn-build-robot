@@ -27,7 +27,7 @@ The initial sparse checkout lacked canonical PDFs and generated Level Selection 
 - Clarified index safety for four-value normalized PDF crops in the shared verification adapter.
 - Added only a nullish default to Level 1's PDF filename parser for standalone type safety. **Level 1 PDF reference URLs, image rendering, 4.2-second scanner animation, 15-minute clock, assessment logic and visual interface remain unchanged.**
 
-Vite's TanStack Router plugin regenerated `src/routeTree.gen.ts` in the temporary checkout before the final TypeScript check. This generated file is **not included in the focused source correction commit**; if running bare `tsc --noEmit` on a fresh checkout, first regenerate the route tree with the project Vite toolchain. `npm run build` already performs that generation.
+Vite's TanStack Router plugin regenerated `src/routeTree.gen.ts` in the temporary checkout before the final TypeScript check. The regenerated `src/routeTree.gen.ts` has now been committed separately as `0593fa7ac1ad0fbca67668c39a4c3ead22a0d0f9` (verified Git blob SHA-1 `42c602a57b1c44adb22fa11ab5257bec36298e0b`), so standalone `tsc --noEmit` has current typings on a fresh checkout. The isolated TypeScript check passed with this exact generated file.
 
 ## Remaining release checks
 
@@ -36,3 +36,8 @@ Vite's TanStack Router plugin regenerated `src/routeTree.gen.ts` in the temporar
 - Owner-authorized PDF reference fallbacks are not independently verified finished-model photographs; existing provenance labels remain.
 - Vercel's Git-connected preview checks have reported build-rate-limit failures; a successful isolated Vite build does not resolve external deployment quotas.
 - **Do not merge or deploy production** until these remaining user-experience and release checks are completed.
+
+## Follow-up HTTP and browser QA attempt
+
+- The built application served a Vite development HTML shell with HTTP 200 on `/practical/level-{2,3,4,5,6}/final-build`. This is **not** confirmation that the React UI hydrated or that the scanner worked in a browser.
+- Playwright/Chromium was installed in an isolated sandbox, but launching the browser failed because the image lacked `libglib-2.0.so.0`. Installing Linux browser dependencies encountered an existing package-manager lock. **No mobile browser pass is claimed**; this remains an explicit release gate.
