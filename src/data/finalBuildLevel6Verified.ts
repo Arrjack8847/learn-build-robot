@@ -96,7 +96,7 @@ export function getLevelSixEvidence(
         page: fallback.page,
         crop: { ...fallback.crop },
         imageUrl: null,
-        referenceKind: "official-pdf-construction",
+        referenceMode: "registered-pdf-fallback",
         referenceNotice: fallback.notice,
       },
       questions: fallback.questions.map(question => question.text),
