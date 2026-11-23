@@ -13,13 +13,13 @@ const projects = read("src/data/practical.ts");
 const manualSource = read("src/data/pdfActivityManuals.ts");
 const wixSource = read("src/data/levelOneToThreeWixPdfUrls.ts");
 const history = load("reports/building-english-levels1-4-wix-links-20261119.json");
-const wixMatch = wixSource.match(/export const levelOneToThreeWixPdfUrls: Readonly<Record<string, string>> = (\\{[\\s\\S]*?\\});/);
+const wixMatch = wixSource.match(/export const levelOneToThreeWixPdfUrls: Readonly<Record<string, string>> = (\{[\s\S]*?\});/);
 assert.ok(wixMatch, "Wix registry must be parseable");
 const wix = JSON.parse(wixMatch[1]);
 const variants = audit.variants;
 
 test("59 official Level 2 syllabus projects reconcile with 60 registered variants", () => {
-  const m = syllabus.match(/export const ADVANCED_SYLLABUS = (\\{[\\s\\S]*?\\}) as const;/);
+  const m = syllabus.match(/export const ADVANCED_SYLLABUS = (\{[\s\S]*?\}) as const;/);
   assert.ok(m);
   const official = JSON.parse(m[1])["2"];
   assert.equal(official.reduce((s, category) => s + category.length - 1, 0), 59);
@@ -34,15 +34,15 @@ test("59 official Level 2 syllabus projects reconcile with 60 registered variant
 });
 
 test("all source URLs, manual filenames and canonical IDs match exact registries", () => {
-  const variables = Object.fromEntries([...manualSource.matchAll(/const (\\w+) = staticPdfUrl\\("([^"]+)"\\)/g)].map(m => [m[1], m[2]]));
-  const manualNames = new Map([...manualSource.matchAll(/"(level-2-[^"]+)": \\{\\s*id: "[^"]+", title: "[^"]+", url: (\\w+)/g)].map(m => [m[1], variables[m[2]]]));
+  const variables = Object.fromEntries([...manualSource.matchAll(/const (\w+) = staticPdfUrl\("([^"]+)"\)/g)].map(m => [m[1], m[2]]));
+  const manualNames = new Map([...manualSource.matchAll(/"(level-2-[^"]+)": \{\s*id: "[^"]+", title: "[^"]+", url: (\w+)/g)].map(m => [m[1], variables[m[2]]]));
   for (const v of variants) {
     assert.equal(v.level, 2);
     assert.match(v.projectId, /^level-2-/);
     assert.ok(projects.includes('pdfManualProject("'+v.variantId+'",'), "Unregistered "+v.variantId);
     assert.equal(manualNames.get(v.variantId), v.source.registryFilename);
     assert.equal(wix[v.source.registryFilename], v.source.url);
-    assert.match(v.source.url, /^https:\\/\\/[^/]+\\.usrfiles\\.com\\/ugd\\/[a-z0-9_]+\\.pdf$/);
+    assert.match(v.source.url, /^https:\/\/[^/]+\.usrfiles\.com\/ugd\/[a-z0-9_]+\.pdf$/);
     assert.equal(v.source.type, "registered-building-manual");
     assert.ok(v.officialName && v.category && v.categoryId);
   }
@@ -121,11 +121,11 @@ test("every future approval requires image bytes, dimensions, SHA-256, two passe
 test("Level 2 reuses shared exam source; static 4.2-second/15-minute constants survive", () => {
   const route=read("src/routes/practical/level-2.final-build.tsx");
   const exam=read("src/components/practical/FinalBuildExam.tsx");
-  assert.match(route,/FinalBuildExam level=\\{2\\}/);
+  assert.match(route,/FinalBuildExam level=\{2\}/);
   assert.match(exam,/const SCAN_MS = 4200/);
-  assert.match(exam,/const LIMIT_MS = 15 \\* 60 \\* 1000/);
-  assert.match(exam,/prev\\.checks\\.filter\\(Boolean\\)\\.length >= 4/);
-  assert.match(exam,/window\\.localStorage/);
+  assert.match(exam,/const LIMIT_MS = 15 \* 60 \* 1000/);
+  assert.match(exam,/prev\.checks\.filter\(Boolean\)\.length >= 4/);
+  assert.match(exam,/window\.localStorage/);
   assert.match(exam,/Retry Same Robot/);
 });
 
