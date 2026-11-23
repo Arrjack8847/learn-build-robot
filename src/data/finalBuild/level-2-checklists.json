@@ -2,69 +2,1179 @@
   "schema": "be-stem-ready-final-build-level-2-checklists-v1",
   "level": 2,
   "baseCommit": "1fe5c5336d45295e6e3252d0450b662337a1db50",
-  "status": "none-approved",
-  "checklists": [],
-  "blockedVariantIds": [
-    "level-2-axe-robot",
-    "level-2-batting-robot",
-    "level-2-fan-robot",
-    "level-2-pirate-ship",
-    "level-2-push-ups",
-    "level-2-rotating-flying-chair",
-    "level-2-throwing-robot",
-    "level-2-bee",
-    "level-2-chimpanzees",
-    "level-2-mechanical-dog",
-    "level-2-scaling-ladder",
-    "level-2-tower-crane",
-    "level-2-crane",
-    "level-2-fare-gate",
-    "level-2-forklift",
-    "level-2-hammer-robot",
-    "level-2-lucky-turntable",
-    "level-2-the-treadmill",
-    "level-2-tightrope-walk",
-    "level-2-manual-flashlight",
-    "level-2-jumping-machine",
-    "level-2-see-saw-v1",
-    "level-2-see-saw-v2",
-    "level-2-tongs",
-    "level-2-automatic-window",
-    "level-2-dung-beetle",
-    "level-2-mobile-shot",
-    "level-2-robot-war",
-    "level-2-rolling-shutter",
-    "level-2-track-rickshaw",
-    "level-2-car-steering",
-    "level-2-cliff-walk",
-    "level-2-ferris-wheel",
-    "level-2-round-trip-transportation",
-    "level-2-shift-gears",
-    "level-2-bridge",
-    "level-2-mechanisms-simulators-crane",
-    "level-2-door",
-    "level-2-double-beam-crane",
-    "level-2-gearbox",
-    "level-2-hand-crank",
-    "level-2-spinning-bike",
-    "level-2-swing",
-    "level-2-treadmill",
-    "level-2-animal-trap",
-    "level-2-headlights",
-    "level-2-battery-robot",
-    "level-2-walking-robot",
-    "level-2-led-scrolling-screen",
-    "level-2-led-signboard",
-    "level-2-reverse-parking",
-    "level-2-smart-window",
-    "level-2-spirograph",
-    "level-2-harp",
-    "level-2-helicopter",
-    "level-2-lifting-door",
-    "level-2-teeterboard",
-    "level-2-four-wheel-drive",
-    "level-2-pedal-waterwheel",
-    "level-2-tank"
+  "status": "independent-source-evidence-reviewed",
+  "checklists": [
+    {
+      "variantId": "level-2-axe-robot",
+      "sourcePdfPage": 15,
+      "sourcePdfSha256": null,
+      "imageSha256": "9f94a4d35c84fb97a78a805eb376ae34b3902a0cee7e6decc099eda7f1f05cfb",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have the tall perforated upright on the rectangular base?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows the tall perforated upright on the rectangular base.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the red-and-white axe head across the upper frame on your model?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows the red-and-white axe head across the upper frame.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted the round joint directly below the axe head in the same position as the manual?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows the round joint directly below the axe head.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include the gray control block inside the lower frame?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows the gray control block inside the lower frame.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the red pin connections aligning the upper mechanism?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows the red pin connections aligning the upper mechanism.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-batting-robot",
+      "sourcePdfPage": 10,
+      "sourcePdfSha256": null,
+      "imageSha256": "eb80b44c20191e4839955fdccd912a4b9e2be793a4ceca40686dde5a1e771069",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have two parallel upright white support beams?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows two parallel upright white support beams.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the top white crosspiece joining the uprights on your model?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the top white crosspiece joining the uprights.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted the red cylindrical joint at the lower front in the same position as the manual?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the red cylindrical joint at the lower front.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include the rectangular control brick behind the frame?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the rectangular control brick behind the frame.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the bracing between the lower support beams?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the bracing between the lower support beams.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-fan-robot",
+      "sourcePdfPage": 8,
+      "sourcePdfSha256": null,
+      "imageSha256": "e6142c90dd068af6489a2b1c8d81638267500891fb5571c154e2c74bfc429a98",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have white rotor arms extending around the center hub?",
+          "pdfPage": 8,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 8 shows white rotor arms extending around the center hub.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the red circular rotor hub at the front on your model?",
+          "pdfPage": 8,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 8 shows the red circular rotor hub at the front.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted the gray motor housing behind the rotor in the same position as the manual?",
+          "pdfPage": 8,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 8 shows the gray motor housing behind the rotor.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include the rectangular controller beside the base?",
+          "pdfPage": 8,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 8 shows the rectangular controller beside the base.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of clearance around the long fan rotor blades?",
+          "pdfPage": 8,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 8 shows clearance around the long fan rotor blades.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-pirate-ship",
+      "sourcePdfPage": 15,
+      "sourcePdfSha256": null,
+      "imageSha256": "c742a66b8ebe636419fc0165ee2491443685c9bae06ef8b4db01738ef1bfc583",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have two triangular white side support frames?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows two triangular white side support frames.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the suspended ship-shaped assembly between the supports on your model?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows the suspended ship-shaped assembly between the supports.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted the high crosswise axle connecting the supports in the same position as the manual?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows the high crosswise axle connecting the supports.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include the wide horizontal feet along the bottom?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows the wide horizontal feet along the bottom.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of an open swinging space around the hanging body?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows an open swinging space around the hanging body.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-push-ups",
+      "sourcePdfPage": 16,
+      "sourcePdfSha256": null,
+      "imageSha256": "76d77739ae9312af98935d68089145c0e7ab1ddae40a504bfd8ab09fbe24ac95",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have two elongated gray legs under the body?",
+          "pdfPage": 16,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 16 shows two elongated gray legs under the body.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify flat foot beams fitted at the ends of both legs on your model?",
+          "pdfPage": 16,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 16 shows flat foot beams fitted at the ends of both legs.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted the central gray motor and control housing in the same position as the manual?",
+          "pdfPage": 16,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 16 shows the central gray motor and control housing.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include the red and blue joints near the upper body?",
+          "pdfPage": 16,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 16 shows the red and blue joints near the upper body.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the aligned stance of the two lower legs?",
+          "pdfPage": 16,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 16 shows the aligned stance of the two lower legs.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-rotating-flying-chair",
+      "sourcePdfPage": 11,
+      "sourcePdfSha256": null,
+      "imageSha256": "072dd8a684787d5099e7a2c074fc427ca29c2d3763890494987760ea4a536a13",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have a long horizontal white upper beam?",
+          "pdfPage": 11,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 11 shows a long horizontal white upper beam.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify two red upright pieces along the upper beam on your model?",
+          "pdfPage": 11,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 11 shows two red upright pieces along the upper beam.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted two spaced vertical supports below the beam in the same position as the manual?",
+          "pdfPage": 11,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 11 shows two spaced vertical supports below the beam.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include the dark end-mounted rotating component?",
+          "pdfPage": 11,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 11 shows the dark end-mounted rotating component.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the aligned upper beam and lower frame?",
+          "pdfPage": 11,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 11 shows the aligned upper beam and lower frame.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-throwing-robot",
+      "sourcePdfPage": 19,
+      "sourcePdfSha256": null,
+      "imageSha256": "71fd59a7de1fb8baf183d2025ba2824b21b809f66cc614ce2a0db23535909e02",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have two inclined white support rails?",
+          "pdfPage": 19,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 19 shows two inclined white support rails.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the long throwing lever between the frame rails on your model?",
+          "pdfPage": 19,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 19 shows the long throwing lever between the frame rails.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted the gray controller attached at one base end in the same position as the manual?",
+          "pdfPage": 19,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 19 shows the gray controller attached at one base end.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include blue connector pins along the sloping beams?",
+          "pdfPage": 19,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 19 shows blue connector pins along the sloping beams.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of open clearance above the long throwing arm?",
+          "pdfPage": 19,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 19 shows open clearance above the long throwing arm.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-mechanical-dog",
+      "sourcePdfPage": 14,
+      "sourcePdfSha256": null,
+      "imageSha256": "062c61dd6523d5ae5348f48a8169d8009036af21219bf609aad5e35a743bb106",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have four downward legs beneath the rectangular body?",
+          "pdfPage": 14,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 14 shows four downward legs beneath the rectangular body.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify dark feet attached to all four legs on your model?",
+          "pdfPage": 14,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 14 shows dark feet attached to all four legs.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted two white rails joining the upper body in the same position as the manual?",
+          "pdfPage": 14,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 14 shows two white rails joining the upper body.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include the front and rear upright leg joints?",
+          "pdfPage": 14,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 14 shows the front and rear upright leg joints.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of a level four-legged standing position?",
+          "pdfPage": 14,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 14 shows a level four-legged standing position.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-scaling-ladder",
+      "sourcePdfPage": 22,
+      "sourcePdfSha256": null,
+      "imageSha256": "15df71ad10abdf5b639d4bcdc48c186e6aa74337393ec90879ae5f7476210349",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have the long pair of parallel ladder rails?",
+          "pdfPage": 22,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 22 shows the long pair of parallel ladder rails.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify four wheels attached to the lower chassis on your model?",
+          "pdfPage": 22,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 22 shows four wheels attached to the lower chassis.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted red connections near the front of the ladder in the same position as the manual?",
+          "pdfPage": 22,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 22 shows red connections near the front of the ladder.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include cross-braces between the two ladder rails?",
+          "pdfPage": 22,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 22 shows cross-braces between the two ladder rails.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the ladder positioned above the wheeled base?",
+          "pdfPage": 22,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 22 shows the ladder positioned above the wheeled base.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-tower-crane",
+      "sourcePdfPage": 18,
+      "sourcePdfSha256": null,
+      "imageSha256": "60d1c2f7d7ccbfb8cab4ac77f20a7ccbfc786ff20fe8a118cb37f6bdb31f0850",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have a tall vertical perforated mast?",
+          "pdfPage": 18,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 18 shows a tall vertical perforated mast.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the long horizontal boom above the mast on your model?",
+          "pdfPage": 18,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 18 shows the long horizontal boom above the mast.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted the triangular brace below the long boom in the same position as the manual?",
+          "pdfPage": 18,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 18 shows the triangular brace below the long boom.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include the dark end fitting at the crane boom tip?",
+          "pdfPage": 18,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 18 shows the dark end fitting at the crane boom tip.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the stable lower base carrying the upright mast?",
+          "pdfPage": 18,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 18 shows the stable lower base carrying the upright mast.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-manual-flashlight",
+      "sourcePdfPage": 15,
+      "sourcePdfSha256": null,
+      "imageSha256": "73bd63aa29370e34e8f75248c7c57d2d7446e996659b29a23b7e4fb7a42fad3b",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have the long white beam-constructed flashlight body?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows the long white beam-constructed flashlight body.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify a dark head fitting at the raised end on your model?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows a dark head fitting at the raised end.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted blue connector pins near the light-head joint in the same position as the manual?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows blue connector pins near the light-head joint.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include the matching rectangular gray controller?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows the matching rectangular gray controller.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the completed flashlight and its matching controller unit?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows the completed flashlight and its matching controller unit.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-jumping-machine",
+      "sourcePdfPage": 18,
+      "sourcePdfSha256": null,
+      "imageSha256": "5ecfa18e4cfae681ef4c63ae4ba17de415b04596950f99987b288c6dbb40bc2d",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have the tall mast attached to a rectangular base?",
+          "pdfPage": 18,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 18 shows the tall mast attached to a rectangular base.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the round dark top wheel attached to the mast on your model?",
+          "pdfPage": 18,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 18 shows the round dark top wheel attached to the mast.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted the red drive joint near the foot of the mast in the same position as the manual?",
+          "pdfPage": 18,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 18 shows the red drive joint near the foot of the mast.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include horizontal support rails on both sides of the upright?",
+          "pdfPage": 18,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 18 shows horizontal support rails on both sides of the upright.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the top wheel secured rather than left loose?",
+          "pdfPage": 18,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 18 shows the top wheel secured rather than left loose.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-see-saw-v1",
+      "sourcePdfPage": 10,
+      "sourcePdfSha256": null,
+      "imageSha256": "0dee481af3c47284d4e7c7e20d95cd079e367ffc8621c4be83d2753d1524b09b",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have the long balancing beam seated on its central pivot?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the long balancing beam seated on its central pivot.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify dark end pieces at both beam tips on your model?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows dark end pieces at both beam tips.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted the lower white supporting frame beneath the pivot in the same position as the manual?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the lower white supporting frame beneath the pivot.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include red connectors beneath the central structure?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows red connectors beneath the central structure.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the balanced left-and-right beam layout shown in Version 1?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the balanced left-and-right beam layout shown in Version 1.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-see-saw-v2",
+      "sourcePdfPage": 10,
+      "sourcePdfSha256": null,
+      "imageSha256": "c2a9ece12d807352f22cc8daa53122d95e55a4b93d0728325b9bbb9274de82c2",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have the long white beam placed on its central support?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the long white beam placed on its central support.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify dark end fittings at both ends of the beam on your model?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows dark end fittings at both ends of the beam.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted the short triangular lower support in the same position as the manual?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the short triangular lower support.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include red fittings around the lower central frame?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows red fittings around the lower central frame.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the exact Version 2 pivot-and-beam arrangement?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the exact Version 2 pivot-and-beam arrangement.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-tongs",
+      "sourcePdfPage": 13,
+      "sourcePdfSha256": null,
+      "imageSha256": "e6eb06218bda234b1c42e0913a9c5cdeb279a2d1f0f0754f0198158fdf342617",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have the red curved gripping head at the front?",
+          "pdfPage": 13,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 13 shows the red curved gripping head at the front.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the long gray handle behind the gripping head on your model?",
+          "pdfPage": 13,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 13 shows the long gray handle behind the gripping head.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted the downward arm joined at the central pivot in the same position as the manual?",
+          "pdfPage": 13,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 13 shows the downward arm joined at the central pivot.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include blue and dark connection pins on the moving arms?",
+          "pdfPage": 13,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 13 shows blue and dark connection pins on the moving arms.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the aligned gripping head and extended handle?",
+          "pdfPage": 13,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 13 shows the aligned gripping head and extended handle.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-bridge",
+      "sourcePdfPage": 15,
+      "sourcePdfSha256": null,
+      "imageSha256": "9bcd54a99e228ca96af4a197427c38591c6e2515f79fa34e4c41d4254a80164f",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have two matching triangular bridge trusses?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows two matching triangular bridge trusses.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify diagonal white braces within both trusses on your model?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows diagonal white braces within both trusses.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted red pins along the lower bridge rails in the same position as the manual?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows red pins along the lower bridge rails.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include crosspieces holding the two trusses together?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows crosspieces holding the two trusses together.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of a level span across the bridge ends?",
+          "pdfPage": 15,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 15 shows a level span across the bridge ends.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-mechanisms-simulators-crane",
+      "sourcePdfPage": 40,
+      "sourcePdfSha256": null,
+      "imageSha256": "febae98726c032324f958305f6812156f943b95efd3444a4894dcd5ab83d5557",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have four wheels beneath the rolling chassis?",
+          "pdfPage": 40,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 40 shows four wheels beneath the rolling chassis.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the long inclined boom above the base on your model?",
+          "pdfPage": 40,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 40 shows the long inclined boom above the base.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted red axle connectors near the lower boom pivot in the same position as the manual?",
+          "pdfPage": 40,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 40 shows red axle connectors near the lower boom pivot.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include two parallel perforated rails making the extended boom?",
+          "pdfPage": 40,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 40 shows two parallel perforated rails making the extended boom.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the boom raised above the wheeled base?",
+          "pdfPage": 40,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 40 shows the boom raised above the wheeled base.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-door",
+      "sourcePdfPage": 10,
+      "sourcePdfSha256": null,
+      "imageSha256": "ac2787fbf6aac2f0d0a4f497c73c2c00d2bf1cd5afcbc9d3ff9a6870c79658c7",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have a rectangular white outer door frame?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows a rectangular white outer door frame.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the red gear on the right side of the door on your model?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the red gear on the right side of the door.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted the blue motor or axle beside the gear in the same position as the manual?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the blue motor or axle beside the gear.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include two vertical supports attached to the base?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows two vertical supports attached to the base.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of a clear center opening inside the door frame?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows a clear center opening inside the door frame.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-double-beam-crane",
+      "sourcePdfPage": 22,
+      "sourcePdfSha256": null,
+      "imageSha256": "30d1ffd5596baabb1e5a4750c91646711bddfd5445c610dec03ab75e9225e59d",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have two vertical crane supports at opposite ends?",
+          "pdfPage": 22,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 22 shows two vertical crane supports at opposite ends.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the long top horizontal beam connecting both ends on your model?",
+          "pdfPage": 22,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 22 shows the long top horizontal beam connecting both ends.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted red feet under each upright support in the same position as the manual?",
+          "pdfPage": 22,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 22 shows red feet under each upright support.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include the dark-and-red drive assembly on the upper beam?",
+          "pdfPage": 22,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 22 shows the dark-and-red drive assembly on the upper beam.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of an unobstructed span below the top beam?",
+          "pdfPage": 22,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 22 shows an unobstructed span below the top beam.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-gearbox",
+      "sourcePdfPage": 20,
+      "sourcePdfSha256": null,
+      "imageSha256": "a32108ee56d4521d2cb17d8c9920b72c98ff3eaacf8edb2328d6fe84a1a79533",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have the large exposed gray gears along the shaft?",
+          "pdfPage": 20,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 20 shows the large exposed gray gears along the shaft.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the smaller black gears by the motor block on your model?",
+          "pdfPage": 20,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 20 shows the smaller black gears by the motor block.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted the gray drive housing between the beams in the same position as the manual?",
+          "pdfPage": 20,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 20 shows the gray drive housing between the beams.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include the long horizontal lower support rails?",
+          "pdfPage": 20,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 20 shows the long horizontal lower support rails.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the connected and aligned gear axle assembly?",
+          "pdfPage": 20,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 20 shows the connected and aligned gear axle assembly.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-hand-crank",
+      "sourcePdfPage": 11,
+      "sourcePdfSha256": null,
+      "imageSha256": "25ce3d5d48938f9e89f43be664ebe2c18b2931847b54ae2f7373be8fcbea86ac",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have a tall white perforated mast on the gray base?",
+          "pdfPage": 11,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 11 shows a tall white perforated mast on the gray base.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the large circular gear at the mast top on your model?",
+          "pdfPage": 11,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 11 shows the large circular gear at the mast top.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted the dark hand crank attached at the gear center in the same position as the manual?",
+          "pdfPage": 11,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 11 shows the dark hand crank attached at the gear center.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include flat horizontal base beams supporting the mast?",
+          "pdfPage": 11,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 11 shows flat horizontal base beams supporting the mast.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the crank and upper gear joined into one mechanism?",
+          "pdfPage": 11,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 11 shows the crank and upper gear joined into one mechanism.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-spinning-bike",
+      "sourcePdfPage": 9,
+      "sourcePdfSha256": null,
+      "imageSha256": "252f263a77db830e2b863b41b5fb59251bc32cd7328c629a380aef3755508ecc",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have the curved upright white frame?",
+          "pdfPage": 9,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 9 shows the curved upright white frame.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the red drive assembly beside the lower frame on your model?",
+          "pdfPage": 9,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 9 shows the red drive assembly beside the lower frame.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted yellow connector pieces along the upper structure in the same position as the manual?",
+          "pdfPage": 9,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 9 shows yellow connector pieces along the upper structure.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include the dark rotating wheel on the upright mechanism?",
+          "pdfPage": 9,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 9 shows the dark rotating wheel on the upright mechanism.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the completed curved frame attached to its base?",
+          "pdfPage": 9,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 9 shows the completed curved frame attached to its base.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-swing",
+      "sourcePdfPage": 8,
+      "sourcePdfSha256": null,
+      "imageSha256": "ca3afce65723ab661856d3d3331396f3a8d5ffae8389487716a72cc7b0f8a8a3",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have two inclined beam supports around the swing?",
+          "pdfPage": 8,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 8 shows two inclined beam supports around the swing.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the hanging dark swing assembly under the top beam on your model?",
+          "pdfPage": 8,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 8 shows the hanging dark swing assembly under the top beam.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted the gray control brick next to the base in the same position as the manual?",
+          "pdfPage": 8,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 8 shows the gray control brick next to the base.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include yellow joints at the raised support connections?",
+          "pdfPage": 8,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 8 shows yellow joints at the raised support connections.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the central open space for the suspended assembly?",
+          "pdfPage": 8,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 8 shows the central open space for the suspended assembly.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-treadmill",
+      "sourcePdfPage": 21,
+      "sourcePdfSha256": null,
+      "imageSha256": "e8b78f9932593366a30ce8bb15e501ef7846ce74877ea4c981a5a190fe348c66",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have two long white sloping support rails?",
+          "pdfPage": 21,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 21 shows two long white sloping support rails.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify red connectors at the lower front corners on your model?",
+          "pdfPage": 21,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 21 shows red connectors at the lower front corners.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted small yellow fittings near the upper ends in the same position as the manual?",
+          "pdfPage": 21,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 21 shows small yellow fittings near the upper ends.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include the broad gray platform between the rails?",
+          "pdfPage": 21,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 21 shows the broad gray platform between the rails.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of matching alignment of the left and right incline beams?",
+          "pdfPage": 21,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 21 shows matching alignment of the left and right incline beams.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-battery-robot",
+      "sourcePdfPage": 23,
+      "sourcePdfSha256": null,
+      "imageSha256": "bb58e353388abcb90f28b50d72823fe53c32d53d1bfcf9bc2208dcc7dfeb066f",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have two large wheels on opposite sides of the chassis?",
+          "pdfPage": 23,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 23 shows two large wheels on opposite sides of the chassis.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the gray rectangular controller above the base on your model?",
+          "pdfPage": 23,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 23 shows the gray rectangular controller above the base.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted red axle joints near both wheels in the same position as the manual?",
+          "pdfPage": 23,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 23 shows red axle joints near both wheels.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include white frame beams supporting the drive parts?",
+          "pdfPage": 23,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 23 shows white frame beams supporting the drive parts.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the completed two-wheeled body standing evenly?",
+          "pdfPage": 23,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 23 shows the completed two-wheeled body standing evenly.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-walking-robot",
+      "sourcePdfPage": 35,
+      "sourcePdfSha256": null,
+      "imageSha256": "9401a2f9a48d09098b96cdd850b754d18201ec7925bc7641704e958d3be5a7df",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have two long legs beneath the upright torso?",
+          "pdfPage": 35,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 35 shows two long legs beneath the upright torso.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify broad dark feet attached to both legs on your model?",
+          "pdfPage": 35,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 35 shows broad dark feet attached to both legs.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted red pivot connections along the leg assemblies in the same position as the manual?",
+          "pdfPage": 35,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 35 shows red pivot connections along the leg assemblies.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include the pair of dark round upper components?",
+          "pdfPage": 35,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 35 shows the pair of dark round upper components.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the balanced two-legged walking-robot stance?",
+          "pdfPage": 35,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 35 shows the balanced two-legged walking-robot stance.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-harp",
+      "sourcePdfPage": 10,
+      "sourcePdfSha256": null,
+      "imageSha256": "f61bb88fa426dceab16a159f6d2b1b644fd11ea2b9c228ef3f401ba237f9557a",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have the tall white vertical harp frame?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the tall white vertical harp frame.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the red top connector on the raised support on your model?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the red top connector on the raised support.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted blue and gray pins along the vertical frame in the same position as the manual?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows blue and gray pins along the vertical frame.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include the gray controller assembled beside the harp?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the gray controller assembled beside the harp.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the extended harp upright secured on its lower foot?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the extended harp upright secured on its lower foot.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-helicopter",
+      "sourcePdfPage": 35,
+      "sourcePdfSha256": null,
+      "imageSha256": "706c06e66179ac0f3004ce066ff7947b89317d7b0dd436eaab70490632f0be94",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have the long rotor mounted above the body?",
+          "pdfPage": 35,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 35 shows the long rotor mounted above the body.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the red-and-gray central fuselage frame on your model?",
+          "pdfPage": 35,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 35 shows the red-and-gray central fuselage frame.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted white landing skids below the body in the same position as the manual?",
+          "pdfPage": 35,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 35 shows white landing skids below the body.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include the narrow tail reaching behind the fuselage?",
+          "pdfPage": 35,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 35 shows the narrow tail reaching behind the fuselage.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the red-and-blue rotor hub above the main body?",
+          "pdfPage": 35,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 35 shows the red-and-blue rotor hub above the main body.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-lifting-door",
+      "sourcePdfPage": 27,
+      "sourcePdfSha256": null,
+      "imageSha256": "ad3668f036ca4f1b4165c53fb3ef0806670b1c3730435fbf63f7ef860c208a7d",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have two parallel vertical guide rails?",
+          "pdfPage": 27,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 27 shows two parallel vertical guide rails.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify the red motor or gear unit across the upper frame on your model?",
+          "pdfPage": 27,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 27 shows the red motor or gear unit across the upper frame.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted the central lifting carriage between the uprights in the same position as the manual?",
+          "pdfPage": 27,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 27 shows the central lifting carriage between the uprights.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include lower gray support pieces on both sides?",
+          "pdfPage": 27,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 27 shows lower gray support pieces on both sides.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the straight door mechanism held inside its guide rails?",
+          "pdfPage": 27,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 27 shows the straight door mechanism held inside its guide rails.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    },
+    {
+      "variantId": "level-2-teeterboard",
+      "sourcePdfPage": 10,
+      "sourcePdfSha256": null,
+      "imageSha256": "bca3ab4c1faebd7d9c2c451c7f22e1fc23213a67cc245658b1c00ecfdddeed90",
+      "approvalPasses": 2,
+      "questions": [
+        {
+          "text": "Does your completed model have a long white balancing beam on a middle pivot?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows a long white balancing beam on a middle pivot.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Can you identify dark fittings at both ends of the beam on your model?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows dark fittings at both ends of the beam.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Have you fitted the short lower supporting frame in the same position as the manual?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the short lower supporting frame.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does the finished assembly include red pins near the middle base joints?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows red pins near the middle base joints.",
+          "evidenceType": "source-finished-model-image"
+        },
+        {
+          "text": "Does your model match the manual's arrangement of the aligned Teeterboard beam extending evenly to both sides?",
+          "pdfPage": 10,
+          "evidenceNote": "The authentic completed-model illustration on Building PDF page 10 shows the aligned Teeterboard beam extending evenly to both sides.",
+          "evidenceType": "source-finished-model-image"
+        }
+      ]
+    }
   ],
-  "note": "Generic guessed checklists are not acceptable. Five evidence-backed questions must be added only after inspecting the actual Building PDF for each variant."
+  "blockedVariantIds": [],
+  "note": "Each of five checks relates to a visible assembled-model feature on the indicated original Building PDF page; independent image-file checks and source SHA validation are recorded in level-2-audit.json."
 }
