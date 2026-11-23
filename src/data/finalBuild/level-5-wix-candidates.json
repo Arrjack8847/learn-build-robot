@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "purpose": "Non-playable Wix media candidates for six previously blocked Level 5 source variants. No image is present, uploaded, or approved.",
+  "purpose": "Candidate-only source evidence for six previously blocked Level 5 variants: three authentic finished-model WebPs hosted on Wix, three image-blocked, and zero student approvals.",
   "recordedAt": "2026-11-23",
   "wixSite": {
     "name": "Steam",
@@ -302,5 +302,24 @@
     }
   ],
   "imageWorkerCommit": "611de7f416539827d7eba93c2ac6cfd7bfec9f1b",
-  "qaEvidence": "reports/final-build-level-5-six-webp-recovery-evidence-20261123.json"
+  "qaEvidence": "reports/final-build-level-5-six-webp-recovery-evidence-20261123.json",
+  "questionCandidateHandoff": {
+    "workerBranch": "feat/final-build-level-5",
+    "manifestPath": "src/data/finalBuild/level-5-six-question-candidates.json",
+    "candidateQuestionCount": 30,
+    "completedModelSourcePrompts": 15,
+    "instructionalStagePrompts": 15,
+    "independentlyApprovedQuestionCount": 0,
+    "approvedChecklistImports": 0,
+    "studentEligibilityChange": false
+  },
+  "finalRegressionNote": {
+    "date": "2026-11-23",
+    "candidateManifestTests": 3,
+    "questionCandidateTests": 4,
+    "sharedFinalBuildTests": 8,
+    "locallyExecutedTotalPassed": 15,
+    "locallyExecutedTotalFailed": 0,
+    "fullBrowserAndCurrentProductionBuildNotRun": true
+  }
 }
