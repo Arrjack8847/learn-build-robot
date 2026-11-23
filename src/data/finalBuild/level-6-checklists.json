@@ -1,0 +1,338 @@
+{
+  "schemaVersion": 1,
+  "level": 6,
+  "baseCommit": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+  "description": "No source-page evidence yet: avoid title-inferred or generic student-facing questions.",
+  "approvedCount": 0,
+  "blockedCount": 41,
+  "entries": [
+    {
+      "projectId": "level-6-gorilla",
+      "variantId": "level-6-gorilla",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-picture-projector",
+      "variantId": "level-6-picture-projector",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-the-flapping-pterosaur",
+      "variantId": "level-6-the-flapping-pterosaur",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-code-scanning-gate",
+      "variantId": "level-6-code-scanning-gate",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-intelligent-passing-light",
+      "variantId": "level-6-intelligent-passing-light",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-gesture-commanding-car",
+      "variantId": "level-6-gesture-commanding-car",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-regional-weather-station",
+      "variantId": "level-6-regional-weather-station",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-super-scorpion",
+      "variantId": "level-6-super-scorpion",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-super-scorpion",
+      "variantId": "level-6-super-scorpion:optimized",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-clown",
+      "variantId": "level-6-clown",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-accurate-shooting",
+      "variantId": "level-6-accurate-shooting",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-digital-countdown",
+      "variantId": "level-6-digital-countdown",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-red-light-warning-device",
+      "variantId": "level-6-red-light-warning-device",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-smart-flashlight",
+      "variantId": "level-6-smart-flashlight",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-traffic-lights-display",
+      "variantId": "level-6-traffic-lights-display",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-pinball-machine",
+      "variantId": "level-6-pinball-machine",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-smart-fan",
+      "variantId": "level-6-smart-fan",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-the-interesting-rotor",
+      "variantId": "level-6-the-interesting-rotor",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-combination-lock",
+      "variantId": "level-6-combination-lock",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-gibbon",
+      "variantId": "level-6-gibbon",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-gibbon",
+      "variantId": "level-6-gibbon:optimized",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-pay-by-card",
+      "variantId": "level-6-pay-by-card",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-product-search",
+      "variantId": "level-6-product-search",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-punch-hard",
+      "variantId": "level-6-punch-hard",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-rc-airplane",
+      "variantId": "level-6-rc-airplane",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-ring-toss-game",
+      "variantId": "level-6-ring-toss-game",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-robotic-arm",
+      "variantId": "level-6-robotic-arm",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-vending-machine",
+      "variantId": "level-6-vending-machine",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-autonomous-driving",
+      "variantId": "level-6-autonomous-driving",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-minesweeper-robot",
+      "variantId": "level-6-minesweeper-robot",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-remote-control-lift",
+      "variantId": "level-6-remote-control-lift",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-saluting-robot",
+      "variantId": "level-6-saluting-robot",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-smart-electric-drill",
+      "variantId": "level-6-smart-electric-drill",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-altimeter",
+      "variantId": "level-6-altimeter",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-high-temperature-alarm",
+      "variantId": "level-6-high-temperature-alarm",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-intelligent-sorting-machine",
+      "variantId": "level-6-intelligent-sorting-machine",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-parcel-sorting-machine",
+      "variantId": "level-6-parcel-sorting-machine",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-colorblind-assistant-robot",
+      "variantId": "level-6-colorblind-assistant-robot",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-rock-paper-scissors-robot",
+      "variantId": "level-6-rock-paper-scissors-robot",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-smart-camera",
+      "variantId": "level-6-smart-camera",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    },
+    {
+      "projectId": "level-6-tricycle",
+      "variantId": "level-6-tricycle",
+      "status": "blocked",
+      "approved": false,
+      "questions": [],
+      "blocker": "Five observable questions require independent inspection of this exact Building manual variant; cannot infer mechanics from title alone."
+    }
+  ]
+}
