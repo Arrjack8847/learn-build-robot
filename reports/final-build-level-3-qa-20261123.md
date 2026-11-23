@@ -124,3 +124,12 @@ The new Node test file audits registry identity, nine exclusions, all source URL
 - Unresolved: Wix PDF byte access and actual version, interior rasterized Chinese, finished-model image identification (especially short variant PDFs), exact crop provenance, image hashes/legibility, real viewport checks, and build/integration regression.
 
 **Merge/release decision: Hold. All uncertain robots stay blocked.**
+
+
+## Follow-up verification — 2026-11-23, current worker session
+
+**Live Steam Wix Media Manager audit: PASS (descriptor-level only).** Site `fe3fa828-9f74-45e8-97f7-8d00cbb7fba0` returned all **40/40** distinct registered Building PDF descriptors from a single read-only `Get File Descriptors` query. Every returned record was a public `DOCUMENT` with `operationStatus: READY` and `state: OK`, matching the registered source file ID and URL. This establishes current Media Manager registration and availability, not an independent HTTP download or content provenance. Wix's 32-hex descriptor `hash` is **not** the required downloaded PDF SHA-256, and no PDF page image was read.
+
+**GitHub artwork visual audit: 42/42 candidate WebPs opened and individually inspected.** **25/42** exhibit observable presentation concerns (cropped model edges, page borders, neighboring assembly art, parts lists, or instructional fragments). The other **17** were renderable and had no issue recorded during this preliminary review, but also are **not** source-certified. All 42 remain blocked. The individual 42-record ledger, evidence links and issue descriptions are in `reports/final-build-level-3-visual-candidate-review-20261123.json`.
+
+No verified full-PDF source hash/page checks were produced; no candidate was independently matched to the actual completed model page, no clean-crop repair was performed, no five-question checklist was approved, and **no new Level 3 WebP was uploaded to Wix**. Current approval = **0/42**, blocked = **42/42**, approved checklist sets = **0/42**, Wix uploads = **0**. Both Level 3 and the shared student scanner remain fail-closed. This update does not supersede the unexecuted Node/mobile-browser testing limitations above.
