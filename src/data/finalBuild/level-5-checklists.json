@@ -1913,6 +1913,104 @@
       "approved": true,
       "status": "approved",
       "questionSource": "manual-specific observable assembly features from the source PDF final completed-model page; no unverified functional assumptions"
+    },
+    {
+      "variantId": "level-5-voice-control-snail",
+      "projectId": "level-5-voice-control-snail",
+      "questions": [
+        {
+          "id": "level-5-voice-control-snail-check-1",
+          "text": "Is the rectangular-screen controller mounted at an angle on the left side of the snail's base?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-voice-control-snail-check-2",
+          "text": "Does the dark controller display remain exposed and clearly face forward in the finished reference?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-voice-control-snail-check-3",
+          "text": "Do the white curved upright beams rise from the right-hand side of the lower base?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-voice-control-snail-check-4",
+          "text": "Is the small dark sensor-like module fixed to the top of the taller right-hand upright structure?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-voice-control-snail-check-5",
+          "text": "Does the long low grey-and-white beam assembly extend forward from beneath the angled controller?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        }
+      ],
+      "approved": true,
+      "status": "approved",
+      "questionSource": "Five independently reviewed visible robot construction features from exact hash-matched official Building PDF completed-model page; no assumed functionality"
+    },
+    {
+      "variantId": "level-5-voice-control-vehicle",
+      "projectId": "level-5-voice-control-vehicle",
+      "questions": [
+        {
+          "id": "level-5-voice-control-vehicle-check-1",
+          "text": "Is the rectangular controller mounted high over the rear portion of the wheeled chassis?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-voice-control-vehicle-check-2",
+          "text": "Is a large dark rubber tire fitted to the left side of the completed vehicle?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-voice-control-vehicle-check-3",
+          "text": "Does the front show a black U-shaped bumper joined by a short red cross-piece?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-voice-control-vehicle-check-4",
+          "text": "Are light-colored diagonal beams connecting the upper controller area to the lower front frame?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-voice-control-vehicle-check-5",
+          "text": "Are red and blue connector pins visible along the grey lower side chassis immediately behind the front bumper?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        }
+      ],
+      "approved": true,
+      "status": "approved",
+      "questionSource": "Five independently reviewed visible robot construction features from exact hash-matched official Building PDF completed-model page; no assumed functionality"
     }
   ],
   "items": [
@@ -3617,18 +3715,100 @@
     {
       "variantId": "level-5-voice-control-snail",
       "projectId": "level-5-voice-control-snail",
-      "questions": [],
-      "approved": false,
-      "status": "blocked",
-      "reason": "Reference image not independently approved; manual artwork contains multi-view, annotations or ambiguous final assembly"
+      "questions": [
+        {
+          "id": "level-5-voice-control-snail-check-1",
+          "text": "Is the rectangular-screen controller mounted at an angle on the left side of the snail's base?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-voice-control-snail-check-2",
+          "text": "Does the dark controller display remain exposed and clearly face forward in the finished reference?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-voice-control-snail-check-3",
+          "text": "Do the white curved upright beams rise from the right-hand side of the lower base?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-voice-control-snail-check-4",
+          "text": "Is the small dark sensor-like module fixed to the top of the taller right-hand upright structure?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-voice-control-snail-check-5",
+          "text": "Does the long low grey-and-white beam assembly extend forward from beneath the angled controller?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        }
+      ],
+      "approved": true,
+      "status": "approved",
+      "questionSource": "Five independently reviewed visible robot construction features from exact hash-matched official Building PDF completed-model page; no assumed functionality"
     },
     {
       "variantId": "level-5-voice-control-vehicle",
       "projectId": "level-5-voice-control-vehicle",
-      "questions": [],
-      "approved": false,
-      "status": "blocked",
-      "reason": "Reference image not independently approved; manual artwork contains multi-view, annotations or ambiguous final assembly"
+      "questions": [
+        {
+          "id": "level-5-voice-control-vehicle-check-1",
+          "text": "Is the rectangular controller mounted high over the rear portion of the wheeled chassis?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-voice-control-vehicle-check-2",
+          "text": "Is a large dark rubber tire fitted to the left side of the completed vehicle?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-voice-control-vehicle-check-3",
+          "text": "Does the front show a black U-shaped bumper joined by a short red cross-piece?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-voice-control-vehicle-check-4",
+          "text": "Are light-colored diagonal beams connecting the upper controller area to the lower front frame?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        },
+        {
+          "id": "level-5-voice-control-vehicle-check-5",
+          "text": "Are red and blue connector pins visible along the grey lower side chassis immediately behind the front bumper?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+          "evidenceKind": "visual-final-assembly",
+          "observable": true
+        }
+      ],
+      "approved": true,
+      "status": "approved",
+      "questionSource": "Five independently reviewed visible robot construction features from exact hash-matched official Building PDF completed-model page; no assumed functionality"
     },
     {
       "variantId": "level-5-hexapod-robot",
