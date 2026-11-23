@@ -47,7 +47,7 @@ test("no provisional image, generic question set, or unverified Wix upload can u
   assert.match(route, /\(reviewMode \|\| approvedRef\) && candidate/);
   assert.match(route, /candidate\?\.approved && modelReady && approvedRef/);
   assert.match(route, /import\.meta\.env\.DEV && typeof window/);
-  assert.match(route, /Boolean\(sourceFor\(PROJECTS\[data\.projectIndex\], data\.variantIndex\)\.approvedRef\)/);
+  assert.match(route, /isApprovedSelection\(data\.projectIndex, data\.variantIndex\)/);
 });
 
 test("original Level 1 timing, score threshold, scanner motion and retries remain in source", () => {
