@@ -1,0 +1,1876 @@
+{
+  "schemaVersion": 1,
+  "level": 2,
+  "policy": "owner-approved-registry-inclusion-with-explicit-source-provenance",
+  "createdOn": "2026-11-23",
+  "syllabusProjects": 59,
+  "registeredVariants": 60,
+  "verifiedSourceWebpsPreserved": 30,
+  "registeredPdfFallbackVariants": 30,
+  "standaloneNewWebpsHosted": 0,
+  "questionCountOriginalVerified": 150,
+  "questionCountGeneralFallback": 150,
+  "description": "30 owner-authorized registered PDF references. These DO NOT become independent Building-manual or finished-model approvals; show PDF rather than pretending to show official completed-model image.",
+  "records": [
+    {
+      "variantId": "level-2-bee",
+      "projectId": "level-2-bee",
+      "officialName": "Bee",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f2257130ccc54df8a8ea61f70e87fb91.pdf",
+        "filename": "BEE.pdf",
+        "sha256": "2ebdc81b17279ab9cc7457324909fd8e4a28da7a3b0bb77c41542ae5ef60a9d6",
+        "pageCount": 20,
+        "bytes": 922132,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Bee model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Bee model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Bee model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Bee model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-chimpanzees",
+      "projectId": "level-2-chimpanzees",
+      "officialName": "Chimpanzees",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_faf03246048040b692f555249b32ad15.pdf",
+        "filename": "Chimpanzees.pdf",
+        "sha256": "49e6960ad79bdeb4e8a4d0fa39def0b222b5422081626af07f3b65bfc97b6609",
+        "pageCount": 14,
+        "bytes": 818142,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Chimpanzees model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Chimpanzees model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Chimpanzees model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Chimpanzees model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-crane",
+      "projectId": "level-2-crane",
+      "officialName": "Crane",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e184994e3de4492485f3f6941b264a34.pdf",
+        "filename": "Crane.pdf",
+        "sha256": "145ac5a81795a54d64ee895bb6f1e76e9da4cd741bab320da1dcec8338fdaaa1",
+        "pageCount": 20,
+        "bytes": 21905917,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Crane model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Crane model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Crane model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Crane model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-fare-gate",
+      "projectId": "level-2-fare-gate",
+      "officialName": "Fare Gate",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1010df902c5e4391a1e4c4af9281e8cb.pdf",
+        "filename": "Fare Gate.pdf",
+        "sha256": "71d5c5c47e08fa603f66c00d0a5050a01304a7888cbd11686d48c0149933b485",
+        "pageCount": 14,
+        "bytes": 8937816,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Fare Gate model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Fare Gate model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Fare Gate model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Fare Gate model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-forklift",
+      "projectId": "level-2-forklift",
+      "officialName": "Forklift",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_72dd4dd12363460e91f259cfd012322c.pdf",
+        "filename": "Forklift.pdf",
+        "sha256": "c3b8d3e79e29494be57dcc232d10f0f5bf694b411246b0bcd712b9b38d883230",
+        "pageCount": 24,
+        "bytes": 22046970,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Forklift model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Forklift model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Forklift model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Forklift model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-hammer-robot",
+      "projectId": "level-2-hammer-robot",
+      "officialName": "Hammer robot",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_976489b6546f4ab5a8f1723f2eadad2d.pdf",
+        "filename": "Hammer robot.pdf",
+        "sha256": "3119a370cdc0a1e280f2b66647922f65ff43130781e33726953783f794780622",
+        "pageCount": 22,
+        "bytes": 1123020,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Hammer robot model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Hammer robot model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Hammer robot model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Hammer robot model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-lucky-turntable",
+      "projectId": "level-2-lucky-turntable",
+      "officialName": "Lucky turntable",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_80611a94450b4d62a6a2ea78e409db6e.pdf",
+        "filename": "Lucky turntable.pdf",
+        "sha256": "50107e9622c1837747c766b05cc3e5b6e7b258d795e677eb065c01a588ca3680",
+        "pageCount": 22,
+        "bytes": 1076189,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Lucky turntable model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Lucky turntable model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Lucky turntable model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Lucky turntable model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-the-treadmill",
+      "projectId": "level-2-the-treadmill",
+      "officialName": "The treadmill",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6c374dba007d41649bcb36c9cc9b168f.pdf",
+        "filename": "The treadmill.pdf",
+        "sha256": "65c1da169137883128bf204f49f926cef89c9cbb45f4567c414986342059aa11",
+        "pageCount": 18,
+        "bytes": 944042,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your The treadmill model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your The treadmill model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your The treadmill model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed The treadmill model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-tightrope-walk",
+      "projectId": "level-2-tightrope-walk",
+      "officialName": "Tightrope walk",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9d342a952cad44c0a67abeb185a9870c.pdf",
+        "filename": "Tightrope walk.pdf",
+        "sha256": "0e1454f6ffaeb0d8993f17a421df9b9649aa1dbf071464992267366e2f8efade",
+        "pageCount": 14,
+        "bytes": 812622,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Tightrope walk model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Tightrope walk model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Tightrope walk model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Tightrope walk model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-automatic-window",
+      "projectId": "level-2-automatic-window",
+      "officialName": "Automatic window",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ab01dd19b27c4795a341e0ab8a5d80f1.pdf",
+        "filename": "Automatic window.pdf",
+        "sha256": "6a1d48f4e86d79a72761aca63501ab0847a685cb9f0bd2919ae6e8b55bf25199",
+        "pageCount": 19,
+        "bytes": 1316199,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Automatic window model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Automatic window model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Automatic window model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Automatic window model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-dung-beetle",
+      "projectId": "level-2-dung-beetle",
+      "officialName": "Dung Beetle",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_261fe72a555d48bb98887bc3b82aad10.pdf",
+        "filename": "Dung Beetle.pdf",
+        "sha256": "6d356f3bcde8a5e57ea011964865bcc19a352c091f7ff74741213149d2eaabec",
+        "pageCount": 26,
+        "bytes": 20134131,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Dung Beetle model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Dung Beetle model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Dung Beetle model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Dung Beetle model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-mobile-shot",
+      "projectId": "level-2-mobile-shot",
+      "officialName": "Mobile Shot",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0333ba1c98af459d9eed14b149fe83d5.pdf",
+        "filename": "Mobile Shot.pdf",
+        "sha256": "39cf59febae7c02b3a69749278550a26de419f11e08f4d9928c652a042fb05d2",
+        "pageCount": 20,
+        "bytes": 13987029,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Mobile Shot model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Mobile Shot model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Mobile Shot model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Mobile Shot model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-robot-war",
+      "projectId": "level-2-robot-war",
+      "officialName": "Robot war",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_565442dd664f4d839b23319a3cf693c2.pdf",
+        "filename": "Robot war.pdf",
+        "sha256": "05c840802a4b7e2cdaf89063818ff69a85feb665f14879d26b222a27ebbe7b72",
+        "pageCount": 25,
+        "bytes": 1864707,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Robot war model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Robot war model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Robot war model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Robot war model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-rolling-shutter",
+      "projectId": "level-2-rolling-shutter",
+      "officialName": "Rolling Shutter",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7d057cae078745938728560908990a5f.pdf",
+        "filename": "Rolling Shutter.pdf",
+        "sha256": "4f290b057f636e84af730df984d3a773f01b752a43b8704d33e0435d5a37c05a",
+        "pageCount": 16,
+        "bytes": 14661539,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Rolling Shutter model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Rolling Shutter model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Rolling Shutter model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Rolling Shutter model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-track-rickshaw",
+      "projectId": "level-2-track-rickshaw",
+      "officialName": "Track Rickshaw",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b6f90ccb25a34d1e8a6f67565fb2115a.pdf",
+        "filename": "Track Rickshaw.pdf",
+        "sha256": "c102ef8cd1fbc06091cd48caf69bc8821ed3dd266ab873a813ad25510148e50f",
+        "pageCount": 18,
+        "bytes": 14889044,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Track Rickshaw model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Track Rickshaw model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Track Rickshaw model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Track Rickshaw model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-car-steering",
+      "projectId": "level-2-car-steering",
+      "officialName": "Car Steering",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c8fe4c3cc3f147f3871f79cc6646bb3e.pdf",
+        "filename": "Car Steering.pdf",
+        "sha256": "7802134fbb5cc7caf8eef2541cc06c980df2c19d09ee33ec92c7984e28bf22a4",
+        "pageCount": 22,
+        "bytes": 1738702,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Car Steering model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Car Steering model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Car Steering model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Car Steering model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-cliff-walk",
+      "projectId": "level-2-cliff-walk",
+      "officialName": "Cliff walk",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0506a47611384efc957ca1d9120301e7.pdf",
+        "filename": "Cliff walk.pdf",
+        "sha256": "5c17ec40a85f3784da5dfc89be1cf2d9bc9d2289d28321f021de3a0252536045",
+        "pageCount": 12,
+        "bytes": 1054107,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Cliff walk model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Cliff walk model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Cliff walk model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Cliff walk model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-ferris-wheel",
+      "projectId": "level-2-ferris-wheel",
+      "officialName": "Ferris wheel",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e19ce390112d4687ba0f3e7c9ece89aa.pdf",
+        "filename": "Ferris wheel.pdf",
+        "sha256": "ff9692aebe943797c03ccdda408589f0fa27345d67bc533c23bc702b524b0779",
+        "pageCount": 22,
+        "bytes": 1384156,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Ferris wheel model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Ferris wheel model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Ferris wheel model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Ferris wheel model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-round-trip-transportation",
+      "projectId": "level-2-round-trip-transportation",
+      "officialName": "Round-trip transportation",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_7b55e529ac684005bbbcca7dc25da110.pdf",
+        "filename": "Round-trip transportation.pdf",
+        "sha256": "18fbac4a1217c841c42b72b1170d1a96880f34ab344899d531f4433573babfd9",
+        "pageCount": 15,
+        "bytes": 923105,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Round-trip transportation model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Round-trip transportation model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Round-trip transportation model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Round-trip transportation model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-shift-gears",
+      "projectId": "level-2-shift-gears",
+      "officialName": "Shift gears",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_08aeb18334204c7fb65fcede60af5012.pdf",
+        "filename": "Shift gears.pdf",
+        "sha256": "0e640b29b17234bd8a16c9534f25aa25b820c28c18524478fec51a39da73a0c8",
+        "pageCount": 19,
+        "bytes": 1224182,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Shift gears model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Shift gears model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Shift gears model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Shift gears model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-animal-trap",
+      "projectId": "level-2-animal-trap",
+      "officialName": "Animal trap",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c031b42bbda14028bf8a654778ceaa45.pdf",
+        "filename": "Animal trap.pdf",
+        "sha256": "a46e7c9d132603d2e210bb87e29140f44ef5966ede154e959983931aeb9047e4",
+        "pageCount": 18,
+        "bytes": 3990003,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Animal trap model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Animal trap model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Animal trap model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Animal trap model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-headlights",
+      "projectId": "level-2-headlights",
+      "officialName": "Headlights",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_a5ed1f1e93d543a886c753f87c0b6330.pdf",
+        "filename": "Headlights.pdf",
+        "sha256": "a67d05ec8d653b644a6ad213d60bdd74688e5b9ca69687c3f5e0464294f4134d",
+        "pageCount": 14,
+        "bytes": 1127744,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Headlights model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Headlights model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Headlights model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Headlights model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-led-scrolling-screen",
+      "projectId": "level-2-led-scrolling-screen",
+      "officialName": "LED Scrolling Screen",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a2fff3a4801a47be8a23e3b9f5f0639b.pdf",
+        "filename": "LED Scrolling Screen.pdf",
+        "sha256": "00ef8962f3ff496c1d7b34ba3589c30ae44facd76ec244c17c493ced7e402b8b",
+        "pageCount": 10,
+        "bytes": 6014952,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your LED Scrolling Screen model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your LED Scrolling Screen model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your LED Scrolling Screen model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed LED Scrolling Screen model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-led-signboard",
+      "projectId": "level-2-led-signboard",
+      "officialName": "LED Signboard",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_aa9fb0b2f7da43ddaa2abe9cf4a6f930.pdf",
+        "filename": "LED Signboard.pdf",
+        "sha256": "d0cc5f6549b63fc94555403441bf95ab2c74ddc4148aba4849ec1c78d8b2c632",
+        "pageCount": 12,
+        "bytes": 19974368,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your LED Signboard model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your LED Signboard model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your LED Signboard model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed LED Signboard model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-reverse-parking",
+      "projectId": "level-2-reverse-parking",
+      "officialName": "Reverse Parking",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_49c37ce0afb34f458a1cf2d85d2420f3.pdf",
+        "filename": "Reverse Parking.pdf",
+        "sha256": "25bb429bec66e53a94622808c061fb70ecff343a2a6ce751fb21b9e7e143eac9",
+        "pageCount": 12,
+        "bytes": 7218409,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Reverse Parking model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Reverse Parking model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Reverse Parking model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Reverse Parking model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-smart-window",
+      "projectId": "level-2-smart-window",
+      "officialName": "Smart Window",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a4b25d7ec56f46bf962394caff6e0b24.pdf",
+        "filename": "Smart Window.pdf",
+        "sha256": "b52d20afccc3905883ddc7388a4a1ce0867559eec3ca13fe8e76a92a2ea6faeb",
+        "pageCount": 18,
+        "bytes": 15495399,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Smart Window model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Smart Window model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Smart Window model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Smart Window model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-spirograph",
+      "projectId": "level-2-spirograph",
+      "officialName": "Spirograph",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e8fcba505eba4c02900703d1dfa30ea1.pdf",
+        "filename": "Spirograph.pdf",
+        "sha256": "59c76e37ae12fbdf1db46c182df4fb0c42e830b8375bee87a3b26348d8827df0",
+        "pageCount": 20,
+        "bytes": 17952758,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Spirograph model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Spirograph model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Spirograph model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Spirograph model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-four-wheel-drive",
+      "projectId": "level-2-four-wheel-drive",
+      "officialName": "Four-wheel Drive",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d0538e2fcd3e4f3f993382e30c0459af.pdf",
+        "filename": "Four-wheel Drive.pdf",
+        "sha256": "e3a551c87cc5e008d1b38062e62ae70cf4a6012e869b473f79c9b5b6d7555b44",
+        "pageCount": 16,
+        "bytes": 11127299,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Four-wheel Drive model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Four-wheel Drive model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Four-wheel Drive model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Four-wheel Drive model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-pedal-waterwheel",
+      "projectId": "level-2-pedal-waterwheel",
+      "officialName": "Pedal Waterwheel",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_962a8bba8fcd4c419a5f4764781d4445.pdf",
+        "filename": "Pedal Waterwheel.pdf",
+        "sha256": "28195e267f57cfeb242db013a0ce9c072b0f5a0d187d201e475328f3a794c053",
+        "pageCount": 12,
+        "bytes": 22002457,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Pedal Waterwheel model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Pedal Waterwheel model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Pedal Waterwheel model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Pedal Waterwheel model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    },
+    {
+      "variantId": "level-2-tank",
+      "projectId": "level-2-tank",
+      "officialName": "Tank",
+      "ownerAuthorized": true,
+      "independentlySourceApproved": false,
+      "studentInclusionMode": "registered-pdf-fallback",
+      "reference": {
+        "mode": "original-registered-pdf",
+        "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e9bdb4f105704dbe8e61d9025882d4b2.pdf",
+        "filename": "Tank.pdf",
+        "sha256": "705f39620b4d47afc4855b924c0d88d056cb59a2b850df77cfa7709808001655",
+        "pageCount": 32,
+        "bytes": 16536868,
+        "sourceRegistrationType": "registered-building-manual",
+        "sourceVisualClassification": "presentation-or-inadequate-Building-source",
+        "sourceKindIndependentlyConfirmed": false,
+        "sourcePdfBytesPreviouslyHashed": true,
+        "sourcePdfRevalidatedThisChange": false
+      },
+      "image": {
+        "approvedWebp": false,
+        "webpUrl": null,
+        "webpSha256": null,
+        "sourcePdfPage": null,
+        "sourceCrop": null,
+        "wixUploadStatus": "NOT_UPLOADED_NO_AUTHENTIC_EXTRACT"
+      },
+      "assessment": {
+        "provenance": "general-observable-not-pdf-page-verified",
+        "ownerAuthorized": true,
+        "independentlyPdfVerified": false,
+        "questions": [
+          {
+            "text": "For your Tank model, can you identify and check every main assembly shown in the registered reference PDF?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Are all connected pieces on your Tank model secure, correctly aligned, and free of visibly loose parts?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Is your Tank model stable and supported in the position required for the intended demonstration?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you check that the sections intended to move, and the sections intended to remain fixed, are assembled without interference?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          },
+          {
+            "text": "Can you safely demonstrate or explain the intended function of your completed Tank model and identify anything that still needs adjustment?",
+            "evidenceType": "general-observable-not-pdf-verified",
+            "pdfPage": null
+          }
+        ]
+      },
+      "limitations": "Existing registered PDF may be a presentation or insufficient Building source; no independently verified standalone completed-model illustration. Owner permits participation using exact registered source only."
+    }
+  ]
+}
