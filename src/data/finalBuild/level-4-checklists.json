@@ -2200,6 +2200,7 @@
           "id": "level-4-remote-control-car-q1",
           "text": "Does the car retain its paired wheel sets and controller chassis shown in the complete vehicle view?",
           "evidencePages": [
+            23,
             24
           ],
           "sourcePdfSha256": "404225c14b061adcbba07b930fdd2923c4bc08ebf93f643db92f0c60aadb705a",
@@ -2211,6 +2212,7 @@
           "id": "level-4-remote-control-car-q2",
           "text": "Are the left and right motor drives installed with their wheels facing the correct direction?",
           "evidencePages": [
+            23,
             24
           ],
           "sourcePdfSha256": "404225c14b061adcbba07b930fdd2923c4bc08ebf93f643db92f0c60aadb705a",
@@ -2222,6 +2224,7 @@
           "id": "level-4-remote-control-car-q3",
           "text": "Is the receiver and its cable routed clear of the steering and wheel assemblies?",
           "evidencePages": [
+            23,
             24
           ],
           "sourcePdfSha256": "404225c14b061adcbba07b930fdd2923c4bc08ebf93f643db92f0c60aadb705a",
@@ -2233,6 +2236,7 @@
           "id": "level-4-remote-control-car-q4",
           "text": "Can the car move and steer without the chassis scraping or a wheel detaching?",
           "evidencePages": [
+            23,
             24
           ],
           "sourcePdfSha256": "404225c14b061adcbba07b930fdd2923c4bc08ebf93f643db92f0c60aadb705a",
@@ -2244,6 +2248,7 @@
           "id": "level-4-remote-control-car-q5",
           "text": "Does the car respond correctly to forward, reverse and turning commands from its controller?",
           "evidencePages": [
+            23,
             24
           ],
           "sourcePdfSha256": "404225c14b061adcbba07b930fdd2923c4bc08ebf93f643db92f0c60aadb705a",
@@ -2860,6 +2865,7 @@
           "id": "level-4-telegraph-q1",
           "text": "Does the telegraph have a horizontal signaling lever connected to the small controller base?",
           "evidencePages": [
+            24,
             25
           ],
           "sourcePdfSha256": "4998a0fac5c0000e7df03130040b6d628956c28bcf022c39ddcefa78ee51727c",
@@ -2871,6 +2877,7 @@
           "id": "level-4-telegraph-q2",
           "text": "Is the key or actuator pivot seated at the documented end of the lever arm?",
           "evidencePages": [
+            24,
             25
           ],
           "sourcePdfSha256": "4998a0fac5c0000e7df03130040b6d628956c28bcf022c39ddcefa78ee51727c",
@@ -2882,6 +2889,7 @@
           "id": "level-4-telegraph-q3",
           "text": "Are the signal contacts and wiring supported clear of the moving lever path?",
           "evidencePages": [
+            24,
             25
           ],
           "sourcePdfSha256": "4998a0fac5c0000e7df03130040b6d628956c28bcf022c39ddcefa78ee51727c",
@@ -2893,6 +2901,7 @@
           "id": "level-4-telegraph-q4",
           "text": "Can the lever be depressed and spring back without its support moving or binding?",
           "evidencePages": [
+            24,
             25
           ],
           "sourcePdfSha256": "4998a0fac5c0000e7df03130040b6d628956c28bcf022c39ddcefa78ee51727c",
@@ -2904,6 +2913,7 @@
           "id": "level-4-telegraph-q5",
           "text": "Does operating the key generate the intended signaling output from the telegraph circuit?",
           "evidencePages": [
+            24,
             25
           ],
           "sourcePdfSha256": "4998a0fac5c0000e7df03130040b6d628956c28bcf022c39ddcefa78ee51727c",

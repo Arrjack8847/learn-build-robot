@@ -16,7 +16,8 @@
   "notes": [
     "Prior original repository Git blob hashes are SHA-1 Git object IDs, NOT hosted Wix PDF SHA-256 digests.",
     "Prior page counts describe repository originals (or separately listed repaired English PDFs); hosted Wix PDF counts remain unverified in this pass.",
-    "No images were generated, reconstructed, extracted or approved by this audit."
+    "No images were generated, reconstructed, extracted or approved by this audit.",
+    "Five PDF-based WebP repairs after semantic crop screening on 2026-11-23; zero student approvals."
   ],
   "records": [
     {
@@ -173,18 +174,20 @@
         "path": "public/final-build/level-4/level-4-architectural-design.webp",
         "sourcePage": 24,
         "cropNormalized": {
-          "x": 0.16,
-          "y": 0.121111,
-          "width": 0.84,
-          "height": 0.783333
+          "x": 0.57,
+          "y": 0.01,
+          "width": 0.43,
+          "height": 0.9
         },
-        "width": 600,
-        "height": 315,
-        "webpSha256": "ac21c6efcc218cb4d0a1eb9d9d017386c19fd047b8631a70df0dc1bca8ede083",
-        "byteLength": 10898,
+        "width": 807,
+        "height": 950,
+        "webpSha256": "2e10d8029bf1fc96444452f0b43ba9571e39bab51451541972a646ba25b5bf70",
+        "byteLength": 54308,
         "individuallyDecoded": true,
         "independentlyReviewed": false,
-        "method": "crop of the last page of the actual hosted PDF; no synthesis"
+        "method": "Faithful PDF source-page image extraction and WebP optimization; no reconstruction",
+        "recoveryStatus": "repaired-awaiting-independent-signoff",
+        "recoveryNote": "Remove duplicate step 32, isolating finished assembly step 33."
       },
       "approval": {
         "status": "blocked",
@@ -193,7 +196,8 @@
         "reasonCodes": [
           "RASTER_TEXT_SIGNOFF_PENDING",
           "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
-          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING",
+          "PDF_CROP_REPAIRED_BUT_SEMANTIC_APPROVAL_PENDING"
         ]
       }
     },
@@ -646,18 +650,20 @@
         "path": "public/final-build/level-4/level-4-drop-proof-robot.webp",
         "sourcePage": 7,
         "cropNormalized": {
-          "x": 0.16,
-          "y": 0.155556,
-          "width": 0.700625,
-          "height": 0.687778
+          "x": 0.58,
+          "y": 0.12,
+          "width": 0.4,
+          "height": 0.72
         },
-        "width": 780,
-        "height": 430,
-        "webpSha256": "065d838f0b98eefb9a8a4dbf28b9b8ff92a9342b523ee69b5d3d27421daba8cc",
-        "byteLength": 11200,
+        "width": 938,
+        "height": 950,
+        "webpSha256": "3d72312f32593d358d136ecb47796582eb7387a5fe907d6dfd3663e0bb08b522",
+        "byteLength": 27698,
         "individuallyDecoded": true,
         "independentlyReviewed": false,
-        "method": "crop of the last page of the actual hosted PDF; no synthesis"
+        "method": "Faithful PDF source-page image extraction and WebP optimization; no reconstruction",
+        "recoveryStatus": "repaired-awaiting-independent-signoff",
+        "recoveryNote": "Remove steps 26 and 27, isolating finished step 28."
       },
       "approval": {
         "status": "blocked",
@@ -666,7 +672,8 @@
         "reasonCodes": [
           "RASTER_TEXT_SIGNOFF_PENDING",
           "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
-          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING",
+          "PDF_CROP_REPAIRED_BUT_SEMANTIC_APPROVAL_PENDING"
         ]
       }
     },
@@ -961,7 +968,8 @@
         "reasonCodes": [
           "RASTER_TEXT_SIGNOFF_PENDING",
           "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
-          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING",
+          "MANUAL_FINAL_IMAGE_BOTTOM_IS_CLIPPED"
         ]
       }
     },
@@ -1299,18 +1307,20 @@
         "path": "public/final-build/level-4/level-4-nocturnal-beetle.webp",
         "sourcePage": 19,
         "cropNormalized": {
-          "x": 0.196875,
-          "y": 0.055556,
-          "width": 0.803125,
-          "height": 0.867778
+          "x": 0.44,
+          "y": 0.49,
+          "width": 0.54,
+          "height": 0.46
         },
-        "width": 720,
-        "height": 438,
-        "webpSha256": "fc74f46e52c8def009799ee5018255299f5a8cfa50a2d0fb54c87cd6f45b21ca",
-        "byteLength": 11202,
+        "width": 950,
+        "height": 455,
+        "webpSha256": "de193772b61ddf791ed7bc366cd343d7f14c308d2dd06afe9e65054be012574b",
+        "byteLength": 30448,
         "individuallyDecoded": true,
         "independentlyReviewed": false,
-        "method": "crop of the last page of the actual hosted PDF; no synthesis"
+        "method": "Faithful PDF source-page image extraction and WebP optimization; no reconstruction",
+        "recoveryStatus": "repaired-awaiting-independent-signoff",
+        "recoveryNote": "Remove step 41, isolating completed step 42."
       },
       "approval": {
         "status": "blocked",
@@ -1319,7 +1329,8 @@
         "reasonCodes": [
           "RASTER_TEXT_SIGNOFF_PENDING",
           "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
-          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING",
+          "PDF_CROP_REPAIRED_BUT_SEMANTIC_APPROVAL_PENDING"
         ]
       }
     },
@@ -2008,20 +2019,22 @@
       "reference": {
         "status": "candidate",
         "path": "public/final-build/level-4/level-4-remote-control-car.webp",
-        "sourcePage": 24,
+        "sourcePage": 23,
         "cropNormalized": {
-          "x": 0.16,
-          "y": 0.248014,
-          "width": 0.80125,
-          "height": 0.574581
+          "x": 0.26,
+          "y": 0.13,
+          "width": 0.48,
+          "height": 0.82
         },
-        "width": 600,
-        "height": 305,
-        "webpSha256": "132fb007788af44cf2811b0acf36b769c9617d648d2ee10cad7a0185eca658a5",
-        "byteLength": 11232,
+        "width": 786,
+        "height": 950,
+        "webpSha256": "f9e0c012ff0e3682d8e612592be50a330ee40c31886a0fe851f9fb01c1d2e11b",
+        "byteLength": 50780,
         "individuallyDecoded": true,
         "independentlyReviewed": false,
-        "method": "crop of the last page of the actual hosted PDF; no synthesis"
+        "method": "Faithful PDF source-page image extraction and WebP optimization; no reconstruction",
+        "recoveryStatus": "repaired-awaiting-independent-signoff",
+        "recoveryNote": "Use page 23 complete car rather than page 24 car plus separate controller."
       },
       "approval": {
         "status": "blocked",
@@ -2030,7 +2043,8 @@
         "reasonCodes": [
           "RASTER_TEXT_SIGNOFF_PENDING",
           "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
-          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING",
+          "PDF_CROP_REPAIRED_BUT_SEMANTIC_APPROVAL_PENDING"
         ]
       }
     },
@@ -2608,20 +2622,22 @@
       "reference": {
         "status": "candidate",
         "path": "public/final-build/level-4/level-4-telegraph.webp",
-        "sourcePage": 25,
+        "sourcePage": 24,
         "cropNormalized": {
-          "x": 0.16,
-          "y": 0,
-          "width": 0.69875,
-          "height": 0.975287
+          "x": 0.2,
+          "y": 0.03,
+          "width": 0.68,
+          "height": 0.96
         },
-        "width": 490,
-        "height": 484,
-        "webpSha256": "b41dd0975911e08e28593bfba7448b936665ddfa72294384b42defd76d021e9b",
-        "byteLength": 14672,
+        "width": 950,
+        "height": 949,
+        "webpSha256": "6a91c2aa97005048fcf806d92d55a4863444372ae9358bd3528716705930a901",
+        "byteLength": 73084,
         "individuallyDecoded": true,
         "independentlyReviewed": false,
-        "method": "crop of the last page of the actual hosted PDF; no synthesis"
+        "method": "Faithful PDF source-page image extraction and WebP optimization; no reconstruction",
+        "recoveryStatus": "repaired-awaiting-independent-signoff",
+        "recoveryNote": "Use page 24 clean assembled robot without page 25 red instructional arrows."
       },
       "approval": {
         "status": "blocked",
@@ -2630,7 +2646,8 @@
         "reasonCodes": [
           "RASTER_TEXT_SIGNOFF_PENDING",
           "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
-          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING",
+          "PDF_CROP_REPAIRED_BUT_SEMANTIC_APPROVAL_PENDING"
         ]
       }
     },

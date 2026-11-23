@@ -1,0 +1,3446 @@
+{
+  "date": "2026-11-23",
+  "sourceCommit": "87cdff68999c738871f4ff9b449e696dea72496c",
+  "scope": {
+    "buildingPdfSha256IndependentlyRechecked": 50,
+    "sourcePdfPages": 1029,
+    "webpCandidatesVisuallyScreened": 50,
+    "webpCandidatesRepaired": 5,
+    "webpApproved": 0,
+    "questionsDraftsStructurallyTriaged": 250,
+    "questionsIndependentlyApproved": 0,
+    "wixUploaded": 0
+  },
+  "limitations": [
+    "Machine triage is not independent mechanical question verification.",
+    "Questions about actual movement/operation require appropriate manual stages or real robot checks.",
+    "The Horizontal Bar Building PDF crops the bottom of the model.",
+    "All repaired artwork remains in candidate status pending source-mechanism signoff."
+  ],
+  "repairs": [
+    {
+      "variantId": "level-4-architectural-design",
+      "pdfPage": 24,
+      "pdfSha256": "f72353f118c8a89d7b430ed3b3c8f71f0111883070296b3f59c802d69aaf75fc",
+      "cropNormalized": {
+        "x": 0.57,
+        "y": 0.01,
+        "width": 0.43,
+        "height": 0.9
+      },
+      "webpSha256": "2e10d8029bf1fc96444452f0b43ba9571e39bab51451541972a646ba25b5bf70",
+      "width": 807,
+      "height": 950,
+      "bytes": 54308,
+      "sourceRenderMAE": 0.826,
+      "reason": "Remove duplicate step 32, isolating finished assembly step 33.",
+      "approved": false
+    },
+    {
+      "variantId": "level-4-drop-proof-robot",
+      "pdfPage": 7,
+      "pdfSha256": "4d03563a0b23ea3f180998ba172888b0f8b60b4aeab2f74d6f24ed87cea280d2",
+      "cropNormalized": {
+        "x": 0.58,
+        "y": 0.12,
+        "width": 0.4,
+        "height": 0.72
+      },
+      "webpSha256": "3d72312f32593d358d136ecb47796582eb7387a5fe907d6dfd3663e0bb08b522",
+      "width": 938,
+      "height": 950,
+      "bytes": 27698,
+      "sourceRenderMAE": 0.409,
+      "reason": "Remove steps 26 and 27, isolating finished step 28.",
+      "approved": false
+    },
+    {
+      "variantId": "level-4-nocturnal-beetle",
+      "pdfPage": 19,
+      "pdfSha256": "69dc6b1cf324becd513b65ab1bfdfbc747b2ca6b2682d1931705161c31d7c842",
+      "cropNormalized": {
+        "x": 0.44,
+        "y": 0.49,
+        "width": 0.54,
+        "height": 0.46
+      },
+      "webpSha256": "de193772b61ddf791ed7bc366cd343d7f14c308d2dd06afe9e65054be012574b",
+      "width": 950,
+      "height": 455,
+      "bytes": 30448,
+      "sourceRenderMAE": 0.833,
+      "reason": "Remove step 41, isolating completed step 42.",
+      "approved": false
+    },
+    {
+      "variantId": "level-4-telegraph",
+      "pdfPage": 24,
+      "pdfSha256": "4998a0fac5c0000e7df03130040b6d628956c28bcf022c39ddcefa78ee51727c",
+      "cropNormalized": {
+        "x": 0.2,
+        "y": 0.03,
+        "width": 0.68,
+        "height": 0.96
+      },
+      "webpSha256": "6a91c2aa97005048fcf806d92d55a4863444372ae9358bd3528716705930a901",
+      "width": 950,
+      "height": 949,
+      "bytes": 73084,
+      "sourceRenderMAE": 0.83,
+      "reason": "Use page 24 clean assembled robot without page 25 red instructional arrows.",
+      "approved": false
+    },
+    {
+      "variantId": "level-4-remote-control-car",
+      "pdfPage": 23,
+      "pdfSha256": "404225c14b061adcbba07b930fdd2923c4bc08ebf93f643db92f0c60aadb705a",
+      "cropNormalized": {
+        "x": 0.26,
+        "y": 0.13,
+        "width": 0.48,
+        "height": 0.82
+      },
+      "webpSha256": "f9e0c012ff0e3682d8e612592be50a330ee40c31886a0fe851f9fb01c1d2e11b",
+      "width": 786,
+      "height": 950,
+      "bytes": 50780,
+      "sourceRenderMAE": 1.047,
+      "reason": "Use page 23 complete car rather than page 24 car plus separate controller.",
+      "approved": false
+    }
+  ],
+  "questionSets": [
+    {
+      "variantId": "level-4-a-timid-mouse",
+      "questions": [
+        {
+          "id": "level-4-a-timid-mouse-q1",
+          "text": "Does the mouse's rounded controller body sit squarely above the wheel chassis shown in the finished model?",
+          "pdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
+          "evidencePages": [
+            19
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-a-timid-mouse-q2",
+          "text": "Are the two prominent front-facing eye-like circular elements mounted at matching height and angle?",
+          "pdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
+          "evidencePages": [
+            19
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-a-timid-mouse-q3",
+          "text": "Are the left and right driving wheels securely seated without rubbing the mouse-shaped body?",
+          "pdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
+          "evidencePages": [
+            19
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-a-timid-mouse-q4",
+          "text": "Is the front sensor/face assembly held firmly by its connecting beams rather than hanging loose?",
+          "pdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
+          "evidencePages": [
+            19
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-a-timid-mouse-q5",
+          "text": "When the model drives, can it roll without the eye assembly, cables, or underbody striking the floor?",
+          "pdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
+          "evidencePages": [
+            19
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-acoustic-control-lamp",
+      "questions": [
+        {
+          "id": "level-4-acoustic-control-lamp-q1",
+          "text": "Is the lamp assembled as an upright articulated structure with its long arm rising from the controller base?",
+          "pdfSha256": "45920a00abe7dd604035db5d94f4487656561750244d4567cacc9f32939120f9",
+          "evidencePages": [
+            8
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-acoustic-control-lamp-q2",
+          "text": "Are both main arm joints connected in the orientation shown by the final lamp illustrations?",
+          "pdfSha256": "45920a00abe7dd604035db5d94f4487656561750244d4567cacc9f32939120f9",
+          "evidencePages": [
+            8
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-acoustic-control-lamp-q3",
+          "text": "Are the lamp head and its light/sound-sensing parts secured to the upper arm without loose cables?",
+          "pdfSha256": "45920a00abe7dd604035db5d94f4487656561750244d4567cacc9f32939120f9",
+          "evidencePages": [
+            8
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-acoustic-control-lamp-q4",
+          "text": "Can the lamp arm hold its intended elevated position while the lower base remains stable?",
+          "pdfSha256": "45920a00abe7dd604035db5d94f4487656561750244d4567cacc9f32939120f9",
+          "evidencePages": [
+            8
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-acoustic-control-lamp-q5",
+          "text": "Does the completed lamp respond to its intended sound-control input without the arm collapsing?",
+          "pdfSha256": "45920a00abe7dd604035db5d94f4487656561750244d4567cacc9f32939120f9",
+          "evidencePages": [
+            8
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-architectural-design",
+      "questions": [
+        {
+          "id": "level-4-architectural-design-q1",
+          "text": "Do the repeated upright architectural frames stand in the same arrangement as the completed structure?",
+          "pdfSha256": "f72353f118c8a89d7b430ed3b3c8f71f0111883070296b3f59c802d69aaf75fc",
+          "evidencePages": [
+            24
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-architectural-design-q2",
+          "text": "Are the horizontal cross-members connected to the intended vertical support beams at both sides?",
+          "pdfSha256": "f72353f118c8a89d7b430ed3b3c8f71f0111883070296b3f59c802d69aaf75fc",
+          "evidencePages": [
+            24
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-architectural-design-q3",
+          "text": "Are the small repeated frame units aligned parallel rather than twisted at their connecting joints?",
+          "pdfSha256": "f72353f118c8a89d7b430ed3b3c8f71f0111883070296b3f59c802d69aaf75fc",
+          "evidencePages": [
+            24
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-architectural-design-q4",
+          "text": "Does each upright section stay stable when the whole assembly is moved gently on its base?",
+          "pdfSha256": "f72353f118c8a89d7b430ed3b3c8f71f0111883070296b3f59c802d69aaf75fc",
+          "evidencePages": [
+            24
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-architectural-design-q5",
+          "text": "Can the completed architectural model display its intended coordinated frame layout without loose subassemblies?",
+          "pdfSha256": "f72353f118c8a89d7b430ed3b3c8f71f0111883070296b3f59c802d69aaf75fc",
+          "evidencePages": [
+            24
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-basketball-shooting-machine",
+      "questions": [
+        {
+          "id": "level-4-basketball-shooting-machine-q1",
+          "text": "Does the shooter have a stable base supporting the long ball-launching arm and the upright target assembly?",
+          "pdfSha256": "93bf7707b2272d698cf62b281f7812e2efd9e3892c6d1a9bc0f0bf60fdfae763",
+          "evidencePages": [
+            28
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-basketball-shooting-machine-q2",
+          "text": "Is the moving throwing lever connected in line with the launcher pivot instead of skewed sideways?",
+          "pdfSha256": "93bf7707b2272d698cf62b281f7812e2efd9e3892c6d1a9bc0f0bf60fdfae763",
+          "evidencePages": [
+            28
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-basketball-shooting-machine-q3",
+          "text": "Are the target/hoop support and the central controller attached at the positions shown on the last page?",
+          "pdfSha256": "93bf7707b2272d698cf62b281f7812e2efd9e3892c6d1a9bc0f0bf60fdfae763",
+          "evidencePages": [
+            28
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-basketball-shooting-machine-q4",
+          "text": "Can the throwing arm travel through its intended range without colliding with the base or target support?",
+          "pdfSha256": "93bf7707b2272d698cf62b281f7812e2efd9e3892c6d1a9bc0f0bf60fdfae763",
+          "evidencePages": [
+            28
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-basketball-shooting-machine-q5",
+          "text": "With the model operating, does the launcher propel the ball toward the target while the base stays steady?",
+          "pdfSha256": "93bf7707b2272d698cf62b281f7812e2efd9e3892c6d1a9bc0f0bf60fdfae763",
+          "evidencePages": [
+            28
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-biped-robot",
+      "questions": [
+        {
+          "id": "level-4-biped-robot-q1",
+          "text": "Does the main controller sit above the pair of leg assemblies as in the completed biped model?",
+          "pdfSha256": "169d650bd25c5e8a742eebb45deb39dd86eddb018aadc212575c1a9413b97f8f",
+          "evidencePages": [
+            57
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-biped-robot-q2",
+          "text": "Are the left and right upper-leg linkages mirrored and connected to the intended drive points?",
+          "pdfSha256": "169d650bd25c5e8a742eebb45deb39dd86eddb018aadc212575c1a9413b97f8f",
+          "evidencePages": [
+            57
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-biped-robot-q3",
+          "text": "Are both feet mounted with their supporting beams facing the correct direction for balance?",
+          "pdfSha256": "169d650bd25c5e8a742eebb45deb39dd86eddb018aadc212575c1a9413b97f8f",
+          "evidencePages": [
+            57
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-biped-robot-q4",
+          "text": "Can the leg joints move without the two feet or motor arms binding against one another?",
+          "pdfSha256": "169d650bd25c5e8a742eebb45deb39dd86eddb018aadc212575c1a9413b97f8f",
+          "evidencePages": [
+            57
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-biped-robot-q5",
+          "text": "Does the finished robot step or alternate its legs without immediately tipping because of a loose foot?",
+          "pdfSha256": "169d650bd25c5e8a742eebb45deb39dd86eddb018aadc212575c1a9413b97f8f",
+          "evidencePages": [
+            57
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-card-machine",
+      "questions": [
+        {
+          "id": "level-4-card-machine-q1",
+          "text": "Does the completed card machine have the long low rectangular mechanism with its controller mounted at the right-hand end?",
+          "pdfSha256": "671419b9ba58823d6c901d22f05910b45440309ed8132698675db5e33cb8d186",
+          "evidencePages": [
+            9
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-card-machine-q2",
+          "text": "Is the large dark circular drive wheel with its contrasting central hub seated on the axle shown at the left end?",
+          "pdfSha256": "671419b9ba58823d6c901d22f05910b45440309ed8132698675db5e33cb8d186",
+          "evidencePages": [
+            9
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-card-machine-q3",
+          "text": "Are the side beams and linkages connecting the drive-wheel assembly to the controller frame securely pinned?",
+          "pdfSha256": "671419b9ba58823d6c901d22f05910b45440309ed8132698675db5e33cb8d186",
+          "evidencePages": [
+            9
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-card-machine-q4",
+          "text": "Can the large wheel and its linked mechanism turn without fouling the side beams or controller housing?",
+          "pdfSha256": "671419b9ba58823d6c901d22f05910b45440309ed8132698675db5e33cb8d186",
+          "evidencePages": [
+            9
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-card-machine-q5",
+          "text": "Does the machine carry out its intended card-handling movement without the axle or feed linkage slipping?",
+          "pdfSha256": "671419b9ba58823d6c901d22f05910b45440309ed8132698675db5e33cb8d186",
+          "evidencePages": [
+            9
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-card-reader",
+      "questions": [
+        {
+          "id": "level-4-card-reader-q1",
+          "text": "Does the card reader's compact sensor unit attach to the intended frame next to its controller?",
+          "pdfSha256": "775a08e70c333c3a21c205aac56bb84d16addc8d4355944ce974dd0dd2f234ca",
+          "evidencePages": [
+            12
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-card-reader-q2",
+          "text": "Is the card-detection face oriented toward the path where the card will be presented?",
+          "pdfSha256": "775a08e70c333c3a21c205aac56bb84d16addc8d4355944ce974dd0dd2f234ca",
+          "evidencePages": [
+            12
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-card-reader-q3",
+          "text": "Are the signal cable and supporting connector routed without covering the sensor's reading face?",
+          "pdfSha256": "775a08e70c333c3a21c205aac56bb84d16addc8d4355944ce974dd0dd2f234ca",
+          "evidencePages": [
+            12
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-card-reader-q4",
+          "text": "Does the reader remain stable when a card is repeatedly presented and removed?",
+          "pdfSha256": "775a08e70c333c3a21c205aac56bb84d16addc8d4355944ce974dd0dd2f234ca",
+          "evidencePages": [
+            12
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-card-reader-q5",
+          "text": "Does a correctly presented card produce the expected reader response without touching loose sensor parts?",
+          "pdfSha256": "775a08e70c333c3a21c205aac56bb84d16addc8d4355944ce974dd0dd2f234ca",
+          "evidencePages": [
+            12
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-dancing-robot",
+      "questions": [
+        {
+          "id": "level-4-dancing-robot-q1",
+          "text": "Is the dancing robot's upright body assembled on the motorized base shown in the finished view?",
+          "pdfSha256": "56fc12edd9b8bab5e9714d2fde85348e144cdbe1ce27e969ed92cc696425a83a",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-dancing-robot-q2",
+          "text": "Are the bilateral moving arms or leg links attached to matching positions on the body frame?",
+          "pdfSha256": "56fc12edd9b8bab5e9714d2fde85348e144cdbe1ce27e969ed92cc696425a83a",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-dancing-robot-q3",
+          "text": "Does the controller remain centered while the upper structure is held securely by its supports?",
+          "pdfSha256": "56fc12edd9b8bab5e9714d2fde85348e144cdbe1ce27e969ed92cc696425a83a",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-dancing-robot-q4",
+          "text": "Can each driven joint cycle through its motion without the robot's arms or feet colliding?",
+          "pdfSha256": "56fc12edd9b8bab5e9714d2fde85348e144cdbe1ce27e969ed92cc696425a83a",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-dancing-robot-q5",
+          "text": "Does the completed model execute its intended dancing movement without parts detaching or falling over?",
+          "pdfSha256": "56fc12edd9b8bab5e9714d2fde85348e144cdbe1ce27e969ed92cc696425a83a",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-dangerous-assassin",
+      "questions": [
+        {
+          "id": "level-4-dangerous-assassin-q1",
+          "text": "Does the Basic assassin model include the long low beam chassis and forward claw assembly shown in its manual?",
+          "pdfSha256": "483cf6fc93e63a7fd190ef49ddfd54faa07cbdf43a46cbe63836be01be8c5791",
+          "evidencePages": [
+            25
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-dangerous-assassin-q2",
+          "text": "Is the Basic claw linkage connected to the front drive or pivot in the shown orientation?",
+          "pdfSha256": "483cf6fc93e63a7fd190ef49ddfd54faa07cbdf43a46cbe63836be01be8c5791",
+          "evidencePages": [
+            25
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-dangerous-assassin-q3",
+          "text": "Are the rear motor/controller section and side supports fixed securely along the long frame?",
+          "pdfSha256": "483cf6fc93e63a7fd190ef49ddfd54faa07cbdf43a46cbe63836be01be8c5791",
+          "evidencePages": [
+            25
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-dangerous-assassin-q4",
+          "text": "Can the Basic claw or attack arm move across its intended travel without hitting the chassis?",
+          "pdfSha256": "483cf6fc93e63a7fd190ef49ddfd54faa07cbdf43a46cbe63836be01be8c5791",
+          "evidencePages": [
+            25
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-dangerous-assassin-q5",
+          "text": "Does the Basic model perform the intended claw motion while remaining stable on its support points?",
+          "pdfSha256": "483cf6fc93e63a7fd190ef49ddfd54faa07cbdf43a46cbe63836be01be8c5791",
+          "evidencePages": [
+            25
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-dangerous-assassin:optimized",
+      "questions": [
+        {
+          "id": "level-4-dangerous-assassin:optimized-q1",
+          "text": "Does the Optimized assassin include the longer forward linkage geometry shown in its own finished drawing?",
+          "pdfSha256": "b7124c72dfe40969d83b17e260e417f5271b525963d97fc115dc3c713eff716e",
+          "evidencePages": [
+            10
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-dangerous-assassin:optimized-q2",
+          "text": "Are the Optimized claw-side connector positions used rather than copying the shorter Basic configuration?",
+          "pdfSha256": "b7124c72dfe40969d83b17e260e417f5271b525963d97fc115dc3c713eff716e",
+          "evidencePages": [
+            10
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-dangerous-assassin:optimized-q3",
+          "text": "Is the extended Optimized front assembly supported by aligned beams and secure pins?",
+          "pdfSha256": "b7124c72dfe40969d83b17e260e417f5271b525963d97fc115dc3c713eff716e",
+          "evidencePages": [
+            10
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-dangerous-assassin:optimized-q4",
+          "text": "Can the Optimized linkage extend or retract without twisting at its longer joint positions?",
+          "pdfSha256": "b7124c72dfe40969d83b17e260e417f5271b525963d97fc115dc3c713eff716e",
+          "evidencePages": [
+            10
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-dangerous-assassin:optimized-q5",
+          "text": "Does the Optimized configuration actuate smoothly without its longer claw assembly pulling the chassis apart?",
+          "pdfSha256": "b7124c72dfe40969d83b17e260e417f5271b525963d97fc115dc3c713eff716e",
+          "evidencePages": [
+            10
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-drop-proof-robot",
+      "questions": [
+        {
+          "id": "level-4-drop-proof-robot-q1",
+          "text": "Are the wheels and controller body arranged as in the completed low-profile drop-proof vehicle?",
+          "pdfSha256": "4d03563a0b23ea3f180998ba172888b0f8b60b4aeab2f74d6f24ed87cea280d2",
+          "evidencePages": [
+            7
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-drop-proof-robot-q2",
+          "text": "Is the downward-facing edge-detection sensor correctly positioned at the front underside of the frame?",
+          "pdfSha256": "4d03563a0b23ea3f180998ba172888b0f8b60b4aeab2f74d6f24ed87cea280d2",
+          "evidencePages": [
+            7
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-drop-proof-robot-q3",
+          "text": "Are the motor-side wheel connectors aligned so the body sits level on both sides?",
+          "pdfSha256": "4d03563a0b23ea3f180998ba172888b0f8b60b4aeab2f74d6f24ed87cea280d2",
+          "evidencePages": [
+            7
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-drop-proof-robot-q4",
+          "text": "Does the sensor have unobstructed clearance to detect the surface beneath the front edge?",
+          "pdfSha256": "4d03563a0b23ea3f180998ba172888b0f8b60b4aeab2f74d6f24ed87cea280d2",
+          "evidencePages": [
+            7
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-drop-proof-robot-q5",
+          "text": "Does the vehicle react to an approaching table edge before either front wheel travels past it?",
+          "pdfSha256": "4d03563a0b23ea3f180998ba172888b0f8b60b4aeab2f74d6f24ed87cea280d2",
+          "evidencePages": [
+            7
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-electric-piano",
+      "questions": [
+        {
+          "id": "level-4-electric-piano-q1",
+          "text": "Does the finished piano have its controller resting on the base beside the key-like lever structure?",
+          "pdfSha256": "f213d33e8360803ed4a7ac8146fce320e22190028785f71ce1de411c90963126",
+          "evidencePages": [
+            24
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-electric-piano-q2",
+          "text": "Are the piano's moving key levers arranged in the correct order and height relative to the contact points?",
+          "pdfSha256": "f213d33e8360803ed4a7ac8146fce320e22190028785f71ce1de411c90963126",
+          "evidencePages": [
+            24
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-electric-piano-q3",
+          "text": "Are the input/sound components attached firmly to the frame with their cables clear of the keys?",
+          "pdfSha256": "f213d33e8360803ed4a7ac8146fce320e22190028785f71ce1de411c90963126",
+          "evidencePages": [
+            24
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-electric-piano-q4",
+          "text": "Can each key return freely after being pressed without bending the support beam?",
+          "pdfSha256": "f213d33e8360803ed4a7ac8146fce320e22190028785f71ce1de411c90963126",
+          "evidencePages": [
+            24
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-electric-piano-q5",
+          "text": "Does pressing the intended keys produce distinct expected musical tones or outputs?",
+          "pdfSha256": "f213d33e8360803ed4a7ac8146fce320e22190028785f71ce1de411c90963126",
+          "evidencePages": [
+            24
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-elf-in-the-tree",
+      "questions": [
+        {
+          "id": "level-4-elf-in-the-tree-q1",
+          "text": "Is the tree-like frame upright with its top cross-beam positioned as shown in the finished illustration?",
+          "pdfSha256": "8959eefb533d19ccd036ca0d1f702bc6324d090e4a473b3cc2fd25a3a801c3d0",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-elf-in-the-tree-q2",
+          "text": "Is the small elf or carried moving component connected to the intended support branch or linkage?",
+          "pdfSha256": "8959eefb533d19ccd036ca0d1f702bc6324d090e4a473b3cc2fd25a3a801c3d0",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-elf-in-the-tree-q3",
+          "text": "Are the two main vertical tree supports braced so they do not bow under the moving component?",
+          "pdfSha256": "8959eefb533d19ccd036ca0d1f702bc6324d090e4a473b3cc2fd25a3a801c3d0",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-elf-in-the-tree-q4",
+          "text": "Can the model's moving assembly travel without scraping against the tree frame?",
+          "pdfSha256": "8959eefb533d19ccd036ca0d1f702bc6324d090e4a473b3cc2fd25a3a801c3d0",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-elf-in-the-tree-q5",
+          "text": "Does the completed elf-in-the-tree mechanism execute its intended movement without becoming detached?",
+          "pdfSha256": "8959eefb533d19ccd036ca0d1f702bc6324d090e4a473b3cc2fd25a3a801c3d0",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-energy-detector",
+      "questions": [
+        {
+          "id": "level-4-energy-detector-q1",
+          "text": "Does the energy detector use the compact wheeled controller platform shown in the final view?",
+          "pdfSha256": "e9640dd6f2c4698347876b052159e604de3b465544f5334723be097f807b3f65",
+          "evidencePages": [
+            20
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-energy-detector-q2",
+          "text": "Is its forward-facing sensing component fixed where it can detect the intended target?",
+          "pdfSha256": "e9640dd6f2c4698347876b052159e604de3b465544f5334723be097f807b3f65",
+          "evidencePages": [
+            20
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-energy-detector-q3",
+          "text": "Are the sensing unit's connector and cable secured clear of the wheel axle?",
+          "pdfSha256": "e9640dd6f2c4698347876b052159e604de3b465544f5334723be097f807b3f65",
+          "evidencePages": [
+            20
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-energy-detector-q4",
+          "text": "Can the robot roll or be repositioned without the detector arm tipping or rubbing a wheel?",
+          "pdfSha256": "e9640dd6f2c4698347876b052159e604de3b465544f5334723be097f807b3f65",
+          "evidencePages": [
+            20
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-energy-detector-q5",
+          "text": "Does the detector produce the expected signal when the relevant source is brought into its sensing range?",
+          "pdfSha256": "e9640dd6f2c4698347876b052159e604de3b465544f5334723be097f807b3f65",
+          "evidencePages": [
+            20
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-guide-dogs",
+      "questions": [
+        {
+          "id": "level-4-guide-dogs-q1",
+          "text": "Does the guide-dog robot retain the dog-like body and front sensor/face assembly shown in the source?",
+          "pdfSha256": "9a7d464a2c40d526a0b15b03d81b09965a83f5f3243a6d8a295ad826979af753",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-guide-dogs-q2",
+          "text": "Are the two main wheels or leg-like drive units mounted symmetrically below the controller?",
+          "pdfSha256": "9a7d464a2c40d526a0b15b03d81b09965a83f5f3243a6d8a295ad826979af753",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-guide-dogs-q3",
+          "text": "Are the guide-facing sensors pointed toward the route instead of toward the controller housing?",
+          "pdfSha256": "9a7d464a2c40d526a0b15b03d81b09965a83f5f3243a6d8a295ad826979af753",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-guide-dogs-q4",
+          "text": "Can the robot turn while keeping its sensor mount and loose cables clear of the wheels?",
+          "pdfSha256": "9a7d464a2c40d526a0b15b03d81b09965a83f5f3243a6d8a295ad826979af753",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-guide-dogs-q5",
+          "text": "Does it respond to a nearby obstacle or guiding condition using the intended sensor-driven behavior?",
+          "pdfSha256": "9a7d464a2c40d526a0b15b03d81b09965a83f5f3243a6d8a295ad826979af753",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-horizontal-bar",
+      "questions": [
+        {
+          "id": "level-4-horizontal-bar-q1",
+          "text": "Are the long upright supports and the horizontal bar assembled at the heights shown in the finished model?",
+          "pdfSha256": "738d2d9f9494a41f87c3e2866e4e3a175822f6b4bfcb292515cebd1f3737ad1d",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW",
+            "MANUAL_FINAL_IMAGE_BOTTOM_IS_CLIPPED"
+          ]
+        },
+        {
+          "id": "level-4-horizontal-bar-q2",
+          "text": "Are both ends of the horizontal bar seated securely in their support brackets?",
+          "pdfSha256": "738d2d9f9494a41f87c3e2866e4e3a175822f6b4bfcb292515cebd1f3737ad1d",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW",
+            "MANUAL_FINAL_IMAGE_BOTTOM_IS_CLIPPED"
+          ]
+        },
+        {
+          "id": "level-4-horizontal-bar-q3",
+          "text": "Is the moving gymnast or rotating link attached to the correct axle and motor connection?",
+          "pdfSha256": "738d2d9f9494a41f87c3e2866e4e3a175822f6b4bfcb292515cebd1f3737ad1d",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW",
+            "MANUAL_FINAL_IMAGE_BOTTOM_IS_CLIPPED"
+          ]
+        },
+        {
+          "id": "level-4-horizontal-bar-q4",
+          "text": "Can the horizontal-bar linkage complete its intended rotation without striking either support upright?",
+          "pdfSha256": "738d2d9f9494a41f87c3e2866e4e3a175822f6b4bfcb292515cebd1f3737ad1d",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION",
+            "MANUAL_FINAL_IMAGE_BOTTOM_IS_CLIPPED"
+          ]
+        },
+        {
+          "id": "level-4-horizontal-bar-q5",
+          "text": "Does the working model move its swinging component smoothly while both supports remain stationary?",
+          "pdfSha256": "738d2d9f9494a41f87c3e2866e4e3a175822f6b4bfcb292515cebd1f3737ad1d",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "MANUAL_FINAL_IMAGE_BOTTOM_IS_CLIPPED"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-induction-desk-lamp",
+      "questions": [
+        {
+          "id": "level-4-induction-desk-lamp-q1",
+          "text": "Does the desktop lamp have a stable rectangular base supporting its tall angled lamp column?",
+          "pdfSha256": "d9e7d3f86b1478c44839ae5cc4ec048042f82e1f163d1703ec869121c9c18b78",
+          "evidencePages": [
+            32
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-induction-desk-lamp-q2",
+          "text": "Are the top lamp module and lower hinged support mounted at the intended angles?",
+          "pdfSha256": "d9e7d3f86b1478c44839ae5cc4ec048042f82e1f163d1703ec869121c9c18b78",
+          "evidencePages": [
+            32
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-induction-desk-lamp-q3",
+          "text": "Are the induction sensor, light, and controller connected so their cables do not obstruct the articulated arm?",
+          "pdfSha256": "d9e7d3f86b1478c44839ae5cc4ec048042f82e1f163d1703ec869121c9c18b78",
+          "evidencePages": [
+            32
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-induction-desk-lamp-q4",
+          "text": "Can the lamp hold its intended raised position without the base tipping forward?",
+          "pdfSha256": "d9e7d3f86b1478c44839ae5cc4ec048042f82e1f163d1703ec869121c9c18b78",
+          "evidencePages": [
+            32
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-induction-desk-lamp-q5",
+          "text": "Does the lamp activate and deactivate in response to its intended induction trigger?",
+          "pdfSha256": "d9e7d3f86b1478c44839ae5cc4ec048042f82e1f163d1703ec869121c9c18b78",
+          "evidencePages": [
+            32
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-keeping-distance",
+      "questions": [
+        {
+          "id": "level-4-keeping-distance-q1",
+          "text": "Does the distance-keeping vehicle have both drive wheels aligned under the central controller?",
+          "pdfSha256": "5eb349561cd6c7b09e124e56d0bdfb658fd898e598b19d37158ef2516deff8e5",
+          "evidencePages": [
+            21
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-keeping-distance-q2",
+          "text": "Is the forward-facing ranging sensor fixed to the front of the vehicle with an unobstructed view?",
+          "pdfSha256": "5eb349561cd6c7b09e124e56d0bdfb658fd898e598b19d37158ef2516deff8e5",
+          "evidencePages": [
+            21
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-keeping-distance-q3",
+          "text": "Are the sensor bracket and side motor mounts secured so they do not shift when the vehicle turns?",
+          "pdfSha256": "5eb349561cd6c7b09e124e56d0bdfb658fd898e598b19d37158ef2516deff8e5",
+          "evidencePages": [
+            21
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-keeping-distance-q4",
+          "text": "Does the front sensor remain pointed toward the object while the wheels drive the platform?",
+          "pdfSha256": "5eb349561cd6c7b09e124e56d0bdfb658fd898e598b19d37158ef2516deff8e5",
+          "evidencePages": [
+            21
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-keeping-distance-q5",
+          "text": "Does the vehicle adjust its movement in response to an approaching or retreating target as intended?",
+          "pdfSha256": "5eb349561cd6c7b09e124e56d0bdfb658fd898e598b19d37158ef2516deff8e5",
+          "evidencePages": [
+            21
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-laser-rangefinder",
+      "questions": [
+        {
+          "id": "level-4-laser-rangefinder-q1",
+          "text": "Is the laser-ranging sensor mounted at the end of the horizontal support assembly shown in the final model?",
+          "pdfSha256": "11a83c1c827aefc67bfe27e6f675e36666a9d00c3c933180276c73fc1cc1e9c4",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-laser-rangefinder-q2",
+          "text": "Does the controller base retain the supporting beam at the correct height and direction?",
+          "pdfSha256": "11a83c1c827aefc67bfe27e6f675e36666a9d00c3c933180276c73fc1cc1e9c4",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-laser-rangefinder-q3",
+          "text": "Is the sensor's measuring face kept unobstructed by loose cables or neighboring connectors?",
+          "pdfSha256": "11a83c1c827aefc67bfe27e6f675e36666a9d00c3c933180276c73fc1cc1e9c4",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-laser-rangefinder-q4",
+          "text": "Can the sensor be aimed or swept without twisting the supporting bracket or disconnecting its lead?",
+          "pdfSha256": "11a83c1c827aefc67bfe27e6f675e36666a9d00c3c933180276c73fc1cc1e9c4",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-laser-rangefinder-q5",
+          "text": "Does the rangefinder report a sensible change when a target is moved nearer or farther away?",
+          "pdfSha256": "11a83c1c827aefc67bfe27e6f675e36666a9d00c3c933180276c73fc1cc1e9c4",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-lucky-cat",
+      "questions": [
+        {
+          "id": "level-4-lucky-cat-q1",
+          "text": "Does the lucky-cat figure have the upright body and head/face assembly seen in the final model?",
+          "pdfSha256": "89b73dcd3a1811d328f39c7b55fbf900eddde8349a55ff93f7c08b78b98c525e",
+          "evidencePages": [
+            28
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-lucky-cat-q2",
+          "text": "Is the waving paw or raised arm attached to its intended motor-driven pivot?",
+          "pdfSha256": "89b73dcd3a1811d328f39c7b55fbf900eddde8349a55ff93f7c08b78b98c525e",
+          "evidencePages": [
+            28
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-lucky-cat-q3",
+          "text": "Are the torso support, controller and decorative front panels locked together securely?",
+          "pdfSha256": "89b73dcd3a1811d328f39c7b55fbf900eddde8349a55ff93f7c08b78b98c525e",
+          "evidencePages": [
+            28
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-lucky-cat-q4",
+          "text": "Can the paw rotate or swing without contacting the head or loosening the torso?",
+          "pdfSha256": "89b73dcd3a1811d328f39c7b55fbf900eddde8349a55ff93f7c08b78b98c525e",
+          "evidencePages": [
+            28
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-lucky-cat-q5",
+          "text": "Does the cat repeat its intended waving motion while remaining upright on its base?",
+          "pdfSha256": "89b73dcd3a1811d328f39c7b55fbf900eddde8349a55ff93f7c08b78b98c525e",
+          "evidencePages": [
+            28
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-magnetically-controlled-door",
+      "questions": [
+        {
+          "id": "level-4-magnetically-controlled-door-q1",
+          "text": "Is the door leaf mounted vertically beside the controller frame as shown in the completed model?",
+          "pdfSha256": "34a31867abac64f8b351a9b8688cdfee340b5929c1e0dde621be444e4a2f8c40",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-magnetically-controlled-door-q2",
+          "text": "Are the hinge pins correctly aligned between the door and its stationary upright supports?",
+          "pdfSha256": "34a31867abac64f8b351a9b8688cdfee340b5929c1e0dde621be444e4a2f8c40",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-magnetically-controlled-door-q3",
+          "text": "Is the magnetic sensing or latch unit mounted where it can react to the door's intended target?",
+          "pdfSha256": "34a31867abac64f8b351a9b8688cdfee340b5929c1e0dde621be444e4a2f8c40",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-magnetically-controlled-door-q4",
+          "text": "Can the door swing without the upper and lower hinge points binding or pulling the base off balance?",
+          "pdfSha256": "34a31867abac64f8b351a9b8688cdfee340b5929c1e0dde621be444e4a2f8c40",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-magnetically-controlled-door-q5",
+          "text": "Does the magnetic control condition trigger the expected door opening or closing action?",
+          "pdfSha256": "34a31867abac64f8b351a9b8688cdfee340b5929c1e0dde621be444e4a2f8c40",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-nocturnal-beetle",
+      "questions": [
+        {
+          "id": "level-4-nocturnal-beetle-q1",
+          "text": "Does the beetle-like rover have its compact low chassis and head-like front sensor assembly installed?",
+          "pdfSha256": "69dc6b1cf324becd513b65ab1bfdfbc747b2ca6b2682d1931705161c31d7c842",
+          "evidencePages": [
+            19
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-nocturnal-beetle-q2",
+          "text": "Are the paired drive wheels and front insect-shaped elements arranged symmetrically as pictured?",
+          "pdfSha256": "69dc6b1cf324becd513b65ab1bfdfbc747b2ca6b2682d1931705161c31d7c842",
+          "evidencePages": [
+            19
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-nocturnal-beetle-q3",
+          "text": "Are the controller and sensor connectors fixed securely above the motor drive assemblies?",
+          "pdfSha256": "69dc6b1cf324becd513b65ab1bfdfbc747b2ca6b2682d1931705161c31d7c842",
+          "evidencePages": [
+            19
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-nocturnal-beetle-q4",
+          "text": "Can the beetle move without its forward extensions dragging or hitting its wheels?",
+          "pdfSha256": "69dc6b1cf324becd513b65ab1bfdfbc747b2ca6b2682d1931705161c31d7c842",
+          "evidencePages": [
+            19
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-nocturnal-beetle-q5",
+          "text": "Does the robot demonstrate its intended dark/light response or nocturnal behavior when tested?",
+          "pdfSha256": "69dc6b1cf324becd513b65ab1bfdfbc747b2ca6b2682d1931705161c31d7c842",
+          "evidencePages": [
+            19
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-obstacle-avoidance-in-snow",
+      "questions": [
+        {
+          "id": "level-4-obstacle-avoidance-in-snow-q1",
+          "text": "Does the snow-avoidance model retain its two main propulsion supports and front detector assembly?",
+          "pdfSha256": "314f2b6de021e740c4a29b6f7492ffe3fd42038a22196a3b681e6c094bb34ca0",
+          "evidencePages": [
+            6
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-obstacle-avoidance-in-snow-q2",
+          "text": "Are the intended ski, track or wheel supports correctly aligned under the controller body?",
+          "pdfSha256": "314f2b6de021e740c4a29b6f7492ffe3fd42038a22196a3b681e6c094bb34ca0",
+          "evidencePages": [
+            6
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-obstacle-avoidance-in-snow-q3",
+          "text": "Is the obstacle detector mounted forward and clear of the vehicle's front supports?",
+          "pdfSha256": "314f2b6de021e740c4a29b6f7492ffe3fd42038a22196a3b681e6c094bb34ca0",
+          "evidencePages": [
+            6
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-obstacle-avoidance-in-snow-q4",
+          "text": "Can the drive assembly move without a support piece interfering with the sensor bracket?",
+          "pdfSha256": "314f2b6de021e740c4a29b6f7492ffe3fd42038a22196a3b681e6c094bb34ca0",
+          "evidencePages": [
+            6
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-obstacle-avoidance-in-snow-q5",
+          "text": "Does the model detect and steer away from an obstacle under its intended operating conditions?",
+          "pdfSha256": "314f2b6de021e740c4a29b6f7492ffe3fd42038a22196a3b681e6c094bb34ca0",
+          "evidencePages": [
+            6
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-obstacle-avoidance-robot",
+      "questions": [
+        {
+          "id": "level-4-obstacle-avoidance-robot-q1",
+          "text": "Are the twin drive wheels installed on the same axis beneath the central controller housing?",
+          "pdfSha256": "cdabe137bad9bd7b7dc4f14a40298535f1355b9dc9c21693a965e2babc0c4a6a",
+          "evidencePages": [
+            16
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-obstacle-avoidance-robot-q2",
+          "text": "Is the forward obstacle sensor attached between the side supports and aimed straight ahead?",
+          "pdfSha256": "cdabe137bad9bd7b7dc4f14a40298535f1355b9dc9c21693a965e2babc0c4a6a",
+          "evidencePages": [
+            16
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-obstacle-avoidance-robot-q3",
+          "text": "Are the side motor mountings and sensor cable kept clear of the rotating wheels?",
+          "pdfSha256": "cdabe137bad9bd7b7dc4f14a40298535f1355b9dc9c21693a965e2babc0c4a6a",
+          "evidencePages": [
+            16
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-obstacle-avoidance-robot-q4",
+          "text": "Does the vehicle roll and turn without its front sensor bracket striking the floor?",
+          "pdfSha256": "cdabe137bad9bd7b7dc4f14a40298535f1355b9dc9c21693a965e2babc0c4a6a",
+          "evidencePages": [
+            16
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-obstacle-avoidance-robot-q5",
+          "text": "Does the robot change heading before colliding with a detected object?",
+          "pdfSha256": "cdabe137bad9bd7b7dc4f14a40298535f1355b9dc9c21693a965e2babc0c4a6a",
+          "evidencePages": [
+            16
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-obstacle-avoidance-robot-2",
+      "questions": [
+        {
+          "id": "level-4-obstacle-avoidance-robot-2-q1",
+          "text": "Does the version-two model retain its broad low central controller platform and the articulated front supports shown in its own drawing?",
+          "pdfSha256": "7f8d3a590ae9863c7f4d8121b4272a9b1c634e75317a1ab5a0c9d95b98013c18",
+          "evidencePages": [
+            14
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-obstacle-avoidance-robot-2-q2",
+          "text": "Are the two projecting front linkages mounted in parallel at the documented connection points?",
+          "pdfSha256": "7f8d3a590ae9863c7f4d8121b4272a9b1c634e75317a1ab5a0c9d95b98013c18",
+          "evidencePages": [
+            14
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-obstacle-avoidance-robot-2-q3",
+          "text": "Are the detection components and their cables attached clear of the chassis's forward mechanisms?",
+          "pdfSha256": "7f8d3a590ae9863c7f4d8121b4272a9b1c634e75317a1ab5a0c9d95b98013c18",
+          "evidencePages": [
+            14
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-obstacle-avoidance-robot-2-q4",
+          "text": "Can the front mechanisms articulate without scraping one another or trapping a wire beneath the controller?",
+          "pdfSha256": "7f8d3a590ae9863c7f4d8121b4272a9b1c634e75317a1ab5a0c9d95b98013c18",
+          "evidencePages": [
+            14
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-obstacle-avoidance-robot-2-q5",
+          "text": "Does the robot respond to a detected obstacle with its intended avoidance motion while the wide base stays assembled?",
+          "pdfSha256": "7f8d3a590ae9863c7f4d8121b4272a9b1c634e75317a1ab5a0c9d95b98013c18",
+          "evidencePages": [
+            14
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-obstacle-avoiding-scorpion",
+      "questions": [
+        {
+          "id": "level-4-obstacle-avoiding-scorpion-q1",
+          "text": "Does the robot have the scorpion-like elevated tail or claw extension above the wheeled controller base?",
+          "pdfSha256": "68d46fa0e56481487dd01636533071fe54cb799d3887a916870894967f024797",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-obstacle-avoiding-scorpion-q2",
+          "text": "Are the front wheel supports and raised scorpion-tail links attached to the documented pivots?",
+          "pdfSha256": "68d46fa0e56481487dd01636533071fe54cb799d3887a916870894967f024797",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-obstacle-avoiding-scorpion-q3",
+          "text": "Is the obstacle sensor facing forward rather than hidden behind the elevated scorpion structure?",
+          "pdfSha256": "68d46fa0e56481487dd01636533071fe54cb799d3887a916870894967f024797",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-obstacle-avoiding-scorpion-q4",
+          "text": "Can the tail or claw motion run without blocking the wheels or pinching its control cable?",
+          "pdfSha256": "68d46fa0e56481487dd01636533071fe54cb799d3887a916870894967f024797",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-obstacle-avoiding-scorpion-q5",
+          "text": "Does the completed robot detect obstacles and respond while keeping the scorpion body assembled?",
+          "pdfSha256": "68d46fa0e56481487dd01636533071fe54cb799d3887a916870894967f024797",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-oscillating-fan",
+      "questions": [
+        {
+          "id": "level-4-oscillating-fan-q1",
+          "text": "Does the finished fan include the upright column with its propeller secured near the top?",
+          "pdfSha256": "66c2a1fe6d9723969b519a134090734d8434e8b9c2ccf1e958aa08c93ebc6ecb",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-oscillating-fan-q2",
+          "text": "Is the motor shaft aligned with the fan blade hub and supported by the intended bracket?",
+          "pdfSha256": "66c2a1fe6d9723969b519a134090734d8434e8b9c2ccf1e958aa08c93ebc6ecb",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-oscillating-fan-q3",
+          "text": "Are the lower oscillation linkage and gear or pivot connections locked into the base?",
+          "pdfSha256": "66c2a1fe6d9723969b519a134090734d8434e8b9c2ccf1e958aa08c93ebc6ecb",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-oscillating-fan-q4",
+          "text": "Can the blade spin freely while the fan head swings without touching its vertical support?",
+          "pdfSha256": "66c2a1fe6d9723969b519a134090734d8434e8b9c2ccf1e958aa08c93ebc6ecb",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-oscillating-fan-q5",
+          "text": "Does the powered model both rotate the blades and perform its intended side-to-side oscillation?",
+          "pdfSha256": "66c2a1fe6d9723969b519a134090734d8434e8b9c2ccf1e958aa08c93ebc6ecb",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-parts-sorter",
+      "questions": [
+        {
+          "id": "level-4-parts-sorter-q1",
+          "text": "Does the parts-sorter have its long transfer channel and sorting structure aligned beside the controller?",
+          "pdfSha256": "2d63f6103b5883f2646ff3fee3bae18c390d97ca61780e57d78938495d629723",
+          "evidencePages": [
+            18
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-parts-sorter-q2",
+          "text": "Are the entrance guide, sensor position and exit mechanism connected along the intended parts path?",
+          "pdfSha256": "2d63f6103b5883f2646ff3fee3bae18c390d97ca61780e57d78938495d629723",
+          "evidencePages": [
+            18
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-parts-sorter-q3",
+          "text": "Are the drive linkage and sorting arm secured so they cannot drop into the channel?",
+          "pdfSha256": "2d63f6103b5883f2646ff3fee3bae18c390d97ca61780e57d78938495d629723",
+          "evidencePages": [
+            18
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-parts-sorter-q4",
+          "text": "Can parts travel through the channel without snagging on brackets or the sensor housing?",
+          "pdfSha256": "2d63f6103b5883f2646ff3fee3bae18c390d97ca61780e57d78938495d629723",
+          "evidencePages": [
+            18
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-parts-sorter-q5",
+          "text": "Does the device redirect or separate the intended parts in response to its sensing condition?",
+          "pdfSha256": "2d63f6103b5883f2646ff3fee3bae18c390d97ca61780e57d78938495d629723",
+          "evidencePages": [
+            18
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-password-box",
+      "questions": [
+        {
+          "id": "level-4-password-box-q1",
+          "text": "Does the password box have its controller and locking enclosure fitted on the same compact base?",
+          "pdfSha256": "e8a7a80287ef4be92b9dba68c3e1cb5a25032a54ffcafed66a08c9c0e8bb83bc",
+          "evidencePages": [
+            18
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-password-box-q2",
+          "text": "Is the lock/door linkage secured to the correct latch and hinge connectors?",
+          "pdfSha256": "e8a7a80287ef4be92b9dba68c3e1cb5a25032a54ffcafed66a08c9c0e8bb83bc",
+          "evidencePages": [
+            18
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-password-box-q3",
+          "text": "Are the input controls accessible while the lock motor or sensor is shielded from stray cables?",
+          "pdfSha256": "e8a7a80287ef4be92b9dba68c3e1cb5a25032a54ffcafed66a08c9c0e8bb83bc",
+          "evidencePages": [
+            18
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-password-box-q4",
+          "text": "Can the locking mechanism engage and release without twisting its support frame?",
+          "pdfSha256": "e8a7a80287ef4be92b9dba68c3e1cb5a25032a54ffcafed66a08c9c0e8bb83bc",
+          "evidencePages": [
+            18
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-password-box-q5",
+          "text": "Does entering the intended password unlock the box while an incorrect input leaves it secured?",
+          "pdfSha256": "e8a7a80287ef4be92b9dba68c3e1cb5a25032a54ffcafed66a08c9c0e8bb83bc",
+          "evidencePages": [
+            18
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-personal-bodyguard",
+      "questions": [
+        {
+          "id": "level-4-personal-bodyguard-q1",
+          "text": "Does the personal-bodyguard robot use the wheeled base and upright protective sensor frame pictured?",
+          "pdfSha256": "49699fb79c9ad1b5891824bbf6b0d08bf6cad9faf148bbbdaf16bf3af3440188",
+          "evidencePages": [
+            21
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-personal-bodyguard-q2",
+          "text": "Are the wheel motors and upper support structure attached to the controller without loose joints?",
+          "pdfSha256": "49699fb79c9ad1b5891824bbf6b0d08bf6cad9faf148bbbdaf16bf3af3440188",
+          "evidencePages": [
+            21
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-personal-bodyguard-q3",
+          "text": "Is the monitoring sensor aimed outward from the top or front of the protective frame?",
+          "pdfSha256": "49699fb79c9ad1b5891824bbf6b0d08bf6cad9faf148bbbdaf16bf3af3440188",
+          "evidencePages": [
+            21
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-personal-bodyguard-q4",
+          "text": "Can the bodyguard robot turn or patrol without its upper arch colliding with the wheels?",
+          "pdfSha256": "49699fb79c9ad1b5891824bbf6b0d08bf6cad9faf148bbbdaf16bf3af3440188",
+          "evidencePages": [
+            21
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-personal-bodyguard-q5",
+          "text": "Does the robot react to the intended protective or intrusion condition using its sensor inputs?",
+          "pdfSha256": "49699fb79c9ad1b5891824bbf6b0d08bf6cad9faf148bbbdaf16bf3af3440188",
+          "evidencePages": [
+            21
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-radar-vehicle",
+      "questions": [
+        {
+          "id": "level-4-radar-vehicle-q1",
+          "text": "Does the radar vehicle have a wheeled chassis supporting a raised detector module?",
+          "pdfSha256": "547bdaf097666f90cd0128c54dea21796e55ea477becd4c6e6f323bace0bba0d",
+          "evidencePages": [
+            9
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-radar-vehicle-q2",
+          "text": "Is the scanning radar/sensor assembly mounted to its intended elevated pivot and connector?",
+          "pdfSha256": "547bdaf097666f90cd0128c54dea21796e55ea477becd4c6e6f323bace0bba0d",
+          "evidencePages": [
+            9
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-radar-vehicle-q3",
+          "text": "Are the chassis motors wired without obstructing movement of the detector mount?",
+          "pdfSha256": "547bdaf097666f90cd0128c54dea21796e55ea477becd4c6e6f323bace0bba0d",
+          "evidencePages": [
+            9
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-radar-vehicle-q4",
+          "text": "Can the detector sweep or turn while the vehicle remains stable on its wheels?",
+          "pdfSha256": "547bdaf097666f90cd0128c54dea21796e55ea477becd4c6e6f323bace0bba0d",
+          "evidencePages": [
+            9
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-radar-vehicle-q5",
+          "text": "Does the completed vehicle detect targets as the radar module scans the surrounding area?",
+          "pdfSha256": "547bdaf097666f90cd0128c54dea21796e55ea477becd4c6e6f323bace0bba0d",
+          "evidencePages": [
+            9
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-ranging-robot",
+      "questions": [
+        {
+          "id": "level-4-ranging-robot-q1",
+          "text": "Does the completed ranging robot have its low wheeled controller platform and elevated measuring sensor?",
+          "pdfSha256": "d1805410ea68c176592bf0eccbca9af331288ae6a7c2346cf057f6f50ee2f571",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-ranging-robot-q2",
+          "text": "Is the measuring sensor securely attached on the documented front-facing bracket?",
+          "pdfSha256": "d1805410ea68c176592bf0eccbca9af331288ae6a7c2346cf057f6f50ee2f571",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-ranging-robot-q3",
+          "text": "Are the motor wheels aligned and the range sensor unobstructed by loose support beams?",
+          "pdfSha256": "d1805410ea68c176592bf0eccbca9af331288ae6a7c2346cf057f6f50ee2f571",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-ranging-robot-q4",
+          "text": "Can the chassis move and turn while keeping the measuring sensor aimed into clear space?",
+          "pdfSha256": "d1805410ea68c176592bf0eccbca9af331288ae6a7c2346cf057f6f50ee2f571",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-ranging-robot-q5",
+          "text": "Does a nearby moving obstacle cause the expected change in reported distance or movement?",
+          "pdfSha256": "d1805410ea68c176592bf0eccbca9af331288ae6a7c2346cf057f6f50ee2f571",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-reaction-tester",
+      "questions": [
+        {
+          "id": "level-4-reaction-tester-q1",
+          "text": "Does the reaction tester include the upright signal/display frame standing above its controller base?",
+          "pdfSha256": "500a49778f0930b9795318726d697a30e422f1b17eb65582ff3393bd325f4eaa",
+          "evidencePages": [
+            12
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-reaction-tester-q2",
+          "text": "Are the light or push-input elements fitted in their shown sequence along the upright support?",
+          "pdfSha256": "500a49778f0930b9795318726d697a30e422f1b17eb65582ff3393bd325f4eaa",
+          "evidencePages": [
+            12
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-reaction-tester-q3",
+          "text": "Are the controller, input and display connections supported rather than hanging from the frame?",
+          "pdfSha256": "500a49778f0930b9795318726d697a30e422f1b17eb65582ff3393bd325f4eaa",
+          "evidencePages": [
+            12
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-reaction-tester-q4",
+          "text": "Can a participant activate the reaction input without the upright assembly shifting?",
+          "pdfSha256": "500a49778f0930b9795318726d697a30e422f1b17eb65582ff3393bd325f4eaa",
+          "evidencePages": [
+            12
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-reaction-tester-q5",
+          "text": "Does the device display or indicate the participant's reaction after the stimulus as intended?",
+          "pdfSha256": "500a49778f0930b9795318726d697a30e422f1b17eb65582ff3393bd325f4eaa",
+          "evidencePages": [
+            12
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-remote-control-car",
+      "questions": [
+        {
+          "id": "level-4-remote-control-car-q1",
+          "text": "Does the car retain its paired wheel sets and controller chassis shown in the complete vehicle view?",
+          "pdfSha256": "404225c14b061adcbba07b930fdd2923c4bc08ebf93f643db92f0c60aadb705a",
+          "evidencePages": [
+            23,
+            24
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-remote-control-car-q2",
+          "text": "Are the left and right motor drives installed with their wheels facing the correct direction?",
+          "pdfSha256": "404225c14b061adcbba07b930fdd2923c4bc08ebf93f643db92f0c60aadb705a",
+          "evidencePages": [
+            23,
+            24
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-remote-control-car-q3",
+          "text": "Is the receiver and its cable routed clear of the steering and wheel assemblies?",
+          "pdfSha256": "404225c14b061adcbba07b930fdd2923c4bc08ebf93f643db92f0c60aadb705a",
+          "evidencePages": [
+            23,
+            24
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-remote-control-car-q4",
+          "text": "Can the car move and steer without the chassis scraping or a wheel detaching?",
+          "pdfSha256": "404225c14b061adcbba07b930fdd2923c4bc08ebf93f643db92f0c60aadb705a",
+          "evidencePages": [
+            23,
+            24
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-remote-control-car-q5",
+          "text": "Does the car respond correctly to forward, reverse and turning commands from its controller?",
+          "pdfSha256": "404225c14b061adcbba07b930fdd2923c4bc08ebf93f643db92f0c60aadb705a",
+          "evidencePages": [
+            23,
+            24
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-scan-to-open-the-gate",
+      "questions": [
+        {
+          "id": "level-4-scan-to-open-the-gate-q1",
+          "text": "Does the scanning gate have a horizontal barrier arm mounted beside the upright sensor unit?",
+          "pdfSha256": "63e04fa217e8145fe91a46c81bee9bec739bcde32fabdedef5ac91febb836766",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-scan-to-open-the-gate-q2",
+          "text": "Is the barrier's pivot connected to the motor and upright support in the documented orientation?",
+          "pdfSha256": "63e04fa217e8145fe91a46c81bee9bec739bcde32fabdedef5ac91febb836766",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-scan-to-open-the-gate-q3",
+          "text": "Are the scanning face and barrier arm positioned so a credential can be presented safely?",
+          "pdfSha256": "63e04fa217e8145fe91a46c81bee9bec739bcde32fabdedef5ac91febb836766",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-scan-to-open-the-gate-q4",
+          "text": "Can the barrier lift or rotate without the arm scraping the base or hitting the reader bracket?",
+          "pdfSha256": "63e04fa217e8145fe91a46c81bee9bec739bcde32fabdedef5ac91febb836766",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-scan-to-open-the-gate-q5",
+          "text": "Does scanning the intended credential trigger the gate's opening motion?",
+          "pdfSha256": "63e04fa217e8145fe91a46c81bee9bec739bcde32fabdedef5ac91febb836766",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-scorpion",
+      "questions": [
+        {
+          "id": "level-4-scorpion-q1",
+          "text": "Does the completed scorpion robot have an elevated tail-like arm rising above its compact wheeled body?",
+          "pdfSha256": "720b56e9b0451468b9298a20be76901a0d0072d8e574f3f2747e2b64eccfa371",
+          "evidencePages": [
+            17
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-scorpion-q2",
+          "text": "Is the horizontal red beam at the top of the articulated upright tail firmly joined to its vertical support?",
+          "pdfSha256": "720b56e9b0451468b9298a20be76901a0d0072d8e574f3f2747e2b64eccfa371",
+          "evidencePages": [
+            17
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-scorpion-q3",
+          "text": "Are the paired drive wheels, controller and body support beams aligned beneath the raised tail structure?",
+          "pdfSha256": "720b56e9b0451468b9298a20be76901a0d0072d8e574f3f2747e2b64eccfa371",
+          "evidencePages": [
+            17
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-scorpion-q4",
+          "text": "Can the scorpion's articulated arm move without contacting either drive wheel or disturbing its cable connections?",
+          "pdfSha256": "720b56e9b0451468b9298a20be76901a0d0072d8e574f3f2747e2b64eccfa371",
+          "evidencePages": [
+            17
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-scorpion-q5",
+          "text": "Does the finished model execute its intended tail or scorpion movement without destabilizing the wheeled base?",
+          "pdfSha256": "720b56e9b0451468b9298a20be76901a0d0072d8e574f3f2747e2b64eccfa371",
+          "evidencePages": [
+            17
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-skiing-robot",
+      "questions": [
+        {
+          "id": "level-4-skiing-robot-q1",
+          "text": "Does the skiing robot stand on the pair of ski-like runners or lower supports visible in the final figure?",
+          "pdfSha256": "35b4a3f0fccd3134a62830357514cbdc0ef5fec1ea660a395c6cd7367f8da4ec",
+          "evidencePages": [
+            31
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-skiing-robot-q2",
+          "text": "Are the upright body and balancing links connected symmetrically to the ski assembly?",
+          "pdfSha256": "35b4a3f0fccd3134a62830357514cbdc0ef5fec1ea660a395c6cd7367f8da4ec",
+          "evidencePages": [
+            31
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-skiing-robot-q3",
+          "text": "Are the motor/control connections secured above the runners without dragging on the floor?",
+          "pdfSha256": "35b4a3f0fccd3134a62830357514cbdc0ef5fec1ea660a395c6cd7367f8da4ec",
+          "evidencePages": [
+            31
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-skiing-robot-q4",
+          "text": "Can the skier's mechanism shift its body or runners without the side supports colliding?",
+          "pdfSha256": "35b4a3f0fccd3134a62830357514cbdc0ef5fec1ea660a395c6cd7367f8da4ec",
+          "evidencePages": [
+            31
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-skiing-robot-q5",
+          "text": "Does the model execute its intended skiing motion while its runner assemblies stay attached?",
+          "pdfSha256": "35b4a3f0fccd3134a62830357514cbdc0ef5fec1ea660a395c6cd7367f8da4ec",
+          "evidencePages": [
+            31
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-smart-curtain",
+      "questions": [
+        {
+          "id": "level-4-smart-curtain-q1",
+          "text": "Does the curtain model have the upright movable panel mounted alongside the controller-and-motor base shown in its final illustration?",
+          "pdfSha256": "ac5df22f08deec1cfd77a3c36ffb9071a1b2025efb31001038deece9e905ec89",
+          "evidencePages": [
+            10
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-smart-curtain-q2",
+          "text": "Are the red upper linkage pivots connected securely to the vertical support that carries the movable panel?",
+          "pdfSha256": "ac5df22f08deec1cfd77a3c36ffb9071a1b2025efb31001038deece9e905ec89",
+          "evidencePages": [
+            10
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-smart-curtain-q3",
+          "text": "Is the round drive hub on the right-hand support aligned with the mechanism that moves the panel?",
+          "pdfSha256": "ac5df22f08deec1cfd77a3c36ffb9071a1b2025efb31001038deece9e905ec89",
+          "evidencePages": [
+            10
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-smart-curtain-q4",
+          "text": "Can the panel and drive linkage travel without scraping the controller or binding against the side support?",
+          "pdfSha256": "ac5df22f08deec1cfd77a3c36ffb9071a1b2025efb31001038deece9e905ec89",
+          "evidencePages": [
+            10
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-smart-curtain-q5",
+          "text": "Does the completed mechanism open and close the curtain panel when the intended control input occurs?",
+          "pdfSha256": "ac5df22f08deec1cfd77a3c36ffb9071a1b2025efb31001038deece9e905ec89",
+          "evidencePages": [
+            10
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-smart-luggage",
+      "questions": [
+        {
+          "id": "level-4-smart-luggage-q1",
+          "text": "Does the luggage robot have a stable wheeled base supporting its upright luggage-like body?",
+          "pdfSha256": "ca207ebacbf5a6945f953edf5b257cc03edd4952eae395b6cd23a17e26d1b6ff",
+          "evidencePages": [
+            26
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-smart-luggage-q2",
+          "text": "Are the drive wheels and suitcase-frame joints mounted as shown in the completed model?",
+          "pdfSha256": "ca207ebacbf5a6945f953edf5b257cc03edd4952eae395b6cd23a17e26d1b6ff",
+          "evidencePages": [
+            26
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-smart-luggage-q3",
+          "text": "Is the handle or sensor bracket secured above the base without blocking the wheel path?",
+          "pdfSha256": "ca207ebacbf5a6945f953edf5b257cc03edd4952eae395b6cd23a17e26d1b6ff",
+          "evidencePages": [
+            26
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-smart-luggage-q4",
+          "text": "Can the luggage move and turn without wobbling enough to topple the upright frame?",
+          "pdfSha256": "ca207ebacbf5a6945f953edf5b257cc03edd4952eae395b6cd23a17e26d1b6ff",
+          "evidencePages": [
+            26
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-smart-luggage-q5",
+          "text": "Does the smart-luggage model follow or respond to its intended control input while rolling?",
+          "pdfSha256": "ca207ebacbf5a6945f953edf5b257cc03edd4952eae395b6cd23a17e26d1b6ff",
+          "evidencePages": [
+            26
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-smart-speaker",
+      "questions": [
+        {
+          "id": "level-4-smart-speaker-q1",
+          "text": "Does the smart speaker have the rectangular enclosed speaker frame shown in the complete model?",
+          "pdfSha256": "1e0e24c20dd4d74865a33b30562c6165d558a00f46e85040084fe2c873535722",
+          "evidencePages": [
+            20
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-smart-speaker-q2",
+          "text": "Are the front sound-output elements and controller/display panel seated flush in the frame?",
+          "pdfSha256": "1e0e24c20dd4d74865a33b30562c6165d558a00f46e85040084fe2c873535722",
+          "evidencePages": [
+            20
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-smart-speaker-q3",
+          "text": "Are the audio and input modules connected securely behind the speaker face?",
+          "pdfSha256": "1e0e24c20dd4d74865a33b30562c6165d558a00f46e85040084fe2c873535722",
+          "evidencePages": [
+            20
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-smart-speaker-q4",
+          "text": "Can the enclosure be lifted or moved without its speaker, screen or wiring coming loose?",
+          "pdfSha256": "1e0e24c20dd4d74865a33b30562c6165d558a00f46e85040084fe2c873535722",
+          "evidencePages": [
+            20
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-smart-speaker-q5",
+          "text": "Does the speaker produce the expected sound or control response from its intended inputs?",
+          "pdfSha256": "1e0e24c20dd4d74865a33b30562c6165d558a00f46e85040084fe2c873535722",
+          "evidencePages": [
+            20
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-spinning-cups",
+      "questions": [
+        {
+          "id": "level-4-spinning-cups-q1",
+          "text": "Does the spinning-cups model include the central rotating platform with its cup-like compartments?",
+          "pdfSha256": "d5db4886f87ae52b4a70f01e684f366bf4811c3d0c06eb4ec62d432afdd8728d",
+          "evidencePages": [
+            25
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-spinning-cups-q2",
+          "text": "Are the cup supports attached at equal intervals around the main turntable structure?",
+          "pdfSha256": "d5db4886f87ae52b4a70f01e684f366bf4811c3d0c06eb4ec62d432afdd8728d",
+          "evidencePages": [
+            25
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-spinning-cups-q3",
+          "text": "Is the motor/drive connection centered below the turntable and supported on its base?",
+          "pdfSha256": "d5db4886f87ae52b4a70f01e684f366bf4811c3d0c06eb4ec62d432afdd8728d",
+          "evidencePages": [
+            25
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-spinning-cups-q4",
+          "text": "Can the full platform rotate without a cup frame scraping the fixed support beams?",
+          "pdfSha256": "d5db4886f87ae52b4a70f01e684f366bf4811c3d0c06eb4ec62d432afdd8728d",
+          "evidencePages": [
+            25
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-spinning-cups-q5",
+          "text": "Does the finished ride rotate its cups smoothly with no loose seating units or uneven wobble?",
+          "pdfSha256": "d5db4886f87ae52b4a70f01e684f366bf4811c3d0c06eb4ec62d432afdd8728d",
+          "evidencePages": [
+            25
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-swimming-plesiosaur",
+      "questions": [
+        {
+          "id": "level-4-swimming-plesiosaur-q1",
+          "text": "Does the plesiosaur have the long raised neck attached to the main body as shown in the final model?",
+          "pdfSha256": "e4ef8698645ff3bd1cc7d07f08d2d9c7016592dc5a383b2fe35a54c7c701ba7f",
+          "evidencePages": [
+            40
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-swimming-plesiosaur-q2",
+          "text": "Are the front and rear flippers or paddling linkages mounted in the intended arrangement?",
+          "pdfSha256": "e4ef8698645ff3bd1cc7d07f08d2d9c7016592dc5a383b2fe35a54c7c701ba7f",
+          "evidencePages": [
+            40
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-swimming-plesiosaur-q3",
+          "text": "Are the neck, torso and tail supports securely connected around the controller housing?",
+          "pdfSha256": "e4ef8698645ff3bd1cc7d07f08d2d9c7016592dc5a383b2fe35a54c7c701ba7f",
+          "evidencePages": [
+            40
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-swimming-plesiosaur-q4",
+          "text": "Can its flipper-driving mechanism move without a paddle colliding with the long neck?",
+          "pdfSha256": "e4ef8698645ff3bd1cc7d07f08d2d9c7016592dc5a383b2fe35a54c7c701ba7f",
+          "evidencePages": [
+            40
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-swimming-plesiosaur-q5",
+          "text": "Does the model perform its intended swimming or paddling action while the dinosaur body stays intact?",
+          "pdfSha256": "e4ef8698645ff3bd1cc7d07f08d2d9c7016592dc5a383b2fe35a54c7c701ba7f",
+          "evidencePages": [
+            40
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-tail-wagging-stegosaurus",
+      "questions": [
+        {
+          "id": "level-4-tail-wagging-stegosaurus-q1",
+          "text": "Does the stegosaurus have its plate-bearing body and tail mounted in the completed dinosaur silhouette?",
+          "pdfSha256": "f6eab78cbd9d506a98af0ad8b0ccae8b0727ba225df46ad112c69467d9d55891",
+          "evidencePages": [
+            45
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-tail-wagging-stegosaurus-q2",
+          "text": "Are the hind and foreleg linkages attached in the intended orientation under the body?",
+          "pdfSha256": "f6eab78cbd9d506a98af0ad8b0ccae8b0727ba225df46ad112c69467d9d55891",
+          "evidencePages": [
+            45
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-tail-wagging-stegosaurus-q3",
+          "text": "Is the tail pivot connected to the drive mechanism without twisting the rear support beams?",
+          "pdfSha256": "f6eab78cbd9d506a98af0ad8b0ccae8b0727ba225df46ad112c69467d9d55891",
+          "evidencePages": [
+            45
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-tail-wagging-stegosaurus-q4",
+          "text": "Can the tail swing through its intended arc without hitting the legs or detaching a spine plate?",
+          "pdfSha256": "f6eab78cbd9d506a98af0ad8b0ccae8b0727ba225df46ad112c69467d9d55891",
+          "evidencePages": [
+            45
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-tail-wagging-stegosaurus-q5",
+          "text": "Does the finished stegosaurus wag its tail while maintaining a stable stance?",
+          "pdfSha256": "f6eab78cbd9d506a98af0ad8b0ccae8b0727ba225df46ad112c69467d9d55891",
+          "evidencePages": [
+            45
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-telegraph",
+      "questions": [
+        {
+          "id": "level-4-telegraph-q1",
+          "text": "Does the telegraph have a horizontal signaling lever connected to the small controller base?",
+          "pdfSha256": "4998a0fac5c0000e7df03130040b6d628956c28bcf022c39ddcefa78ee51727c",
+          "evidencePages": [
+            24,
+            25
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-telegraph-q2",
+          "text": "Is the key or actuator pivot seated at the documented end of the lever arm?",
+          "pdfSha256": "4998a0fac5c0000e7df03130040b6d628956c28bcf022c39ddcefa78ee51727c",
+          "evidencePages": [
+            24,
+            25
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-telegraph-q3",
+          "text": "Are the signal contacts and wiring supported clear of the moving lever path?",
+          "pdfSha256": "4998a0fac5c0000e7df03130040b6d628956c28bcf022c39ddcefa78ee51727c",
+          "evidencePages": [
+            24,
+            25
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-telegraph-q4",
+          "text": "Can the lever be depressed and spring back without its support moving or binding?",
+          "pdfSha256": "4998a0fac5c0000e7df03130040b6d628956c28bcf022c39ddcefa78ee51727c",
+          "evidencePages": [
+            24,
+            25
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-telegraph-q5",
+          "text": "Does operating the key generate the intended signaling output from the telegraph circuit?",
+          "pdfSha256": "4998a0fac5c0000e7df03130040b6d628956c28bcf022c39ddcefa78ee51727c",
+          "evidencePages": [
+            24,
+            25
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-telegraph-machine",
+      "questions": [
+        {
+          "id": "level-4-telegraph-machine-q1",
+          "text": "Does the telegraph-machine model include the sender key and receiver components as depicted in its own final diagram?",
+          "pdfSha256": "b7ca205bfbc51ea827e49a4980e65e94630275b4d2b097f85344940792d4d069",
+          "evidencePages": [
+            11
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-telegraph-machine-q2",
+          "text": "Are the machine's signal input and output modules secured at their intended locations on the base?",
+          "pdfSha256": "b7ca205bfbc51ea827e49a4980e65e94630275b4d2b097f85344940792d4d069",
+          "evidencePages": [
+            11
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-telegraph-machine-q3",
+          "text": "Is the key lever mounted with enough clearance to actuate its contact repeatably?",
+          "pdfSha256": "b7ca205bfbc51ea827e49a4980e65e94630275b4d2b097f85344940792d4d069",
+          "evidencePages": [
+            11
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-telegraph-machine-q4",
+          "text": "Can the key travel and return without an axle or signal wire pulling loose?",
+          "pdfSha256": "b7ca205bfbc51ea827e49a4980e65e94630275b4d2b097f85344940792d4d069",
+          "evidencePages": [
+            11
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-telegraph-machine-q5",
+          "text": "Does the machine produce the intended receiving or sending response when the key is operated?",
+          "pdfSha256": "b7ca205bfbc51ea827e49a4980e65e94630275b4d2b097f85344940792d4d069",
+          "evidencePages": [
+            11
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-transformer-robot",
+      "questions": [
+        {
+          "id": "level-4-transformer-robot-q1",
+          "text": "Does the transformer start with its intended wheeled chassis and upper movable body pieces attached?",
+          "pdfSha256": "26b60e1daa34cecf34adfb080342f01e9846f3cb2ecf675c6c6ee5fbc36220e4",
+          "evidencePages": [
+            26
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-transformer-robot-q2",
+          "text": "Are the large body-turning hinges connected to the correct support and motor axles?",
+          "pdfSha256": "26b60e1daa34cecf34adfb080342f01e9846f3cb2ecf675c6c6ee5fbc36220e4",
+          "evidencePages": [
+            26
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-transformer-robot-q3",
+          "text": "Are the wheels, controller and extending arms secured without the arms obstructing wheel travel?",
+          "pdfSha256": "26b60e1daa34cecf34adfb080342f01e9846f3cb2ecf675c6c6ee5fbc36220e4",
+          "evidencePages": [
+            26
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-transformer-robot-q4",
+          "text": "Can the movable upper assemblies shift between the designed positions without hitting the chassis?",
+          "pdfSha256": "26b60e1daa34cecf34adfb080342f01e9846f3cb2ecf675c6c6ee5fbc36220e4",
+          "evidencePages": [
+            26
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-transformer-robot-q5",
+          "text": "Does the completed model carry out its intended transforming movement while remaining assembled?",
+          "pdfSha256": "26b60e1daa34cecf34adfb080342f01e9846f3cb2ecf675c6c6ee5fbc36220e4",
+          "evidencePages": [
+            26
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-tumbler",
+      "questions": [
+        {
+          "id": "level-4-tumbler-q1",
+          "text": "Does the tumbler have the weighted rounded lower structure beneath its upright controller body?",
+          "pdfSha256": "81374a0d4e3a4dda848300b4bb97499adb7ee7b8de6d122e7e5dd437e478f1f1",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-tumbler-q2",
+          "text": "Are the center of mass and side supports arranged symmetrically around the central base?",
+          "pdfSha256": "81374a0d4e3a4dda848300b4bb97499adb7ee7b8de6d122e7e5dd437e478f1f1",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-tumbler-q3",
+          "text": "Are the oscillating arm or top beam connected securely above the self-righting base?",
+          "pdfSha256": "81374a0d4e3a4dda848300b4bb97499adb7ee7b8de6d122e7e5dd437e478f1f1",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-tumbler-q4",
+          "text": "Can the model tilt and return without any support beam catching the ground?",
+          "pdfSha256": "81374a0d4e3a4dda848300b4bb97499adb7ee7b8de6d122e7e5dd437e478f1f1",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-tumbler-q5",
+          "text": "After a gentle push, does the tumbler right itself rather than staying on its side?",
+          "pdfSha256": "81374a0d4e3a4dda848300b4bb97499adb7ee7b8de6d122e7e5dd437e478f1f1",
+          "evidencePages": [
+            22
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-turbo-drop",
+      "questions": [
+        {
+          "id": "level-4-turbo-drop-q1",
+          "text": "Does the turbo-drop model have a tall rigid upright guide tower anchored to a stable base?",
+          "pdfSha256": "e55cd2a9e9fdc49a88a8bc9d23b2872c6f5cd8c52a0aee69da4bd720f96182f1",
+          "evidencePages": [
+            34
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-turbo-drop-q2",
+          "text": "Is the moving drop carriage fitted to the guide rails in the orientation shown in the final model?",
+          "pdfSha256": "e55cd2a9e9fdc49a88a8bc9d23b2872c6f5cd8c52a0aee69da4bd720f96182f1",
+          "evidencePages": [
+            34
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-turbo-drop-q3",
+          "text": "Are the motor-drive, gearing and upper support connections secured along the tower?",
+          "pdfSha256": "e55cd2a9e9fdc49a88a8bc9d23b2872c6f5cd8c52a0aee69da4bd720f96182f1",
+          "evidencePages": [
+            34
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-turbo-drop-q4",
+          "text": "Can the carriage travel vertically without binding against the frame or leaving its guide?",
+          "pdfSha256": "e55cd2a9e9fdc49a88a8bc9d23b2872c6f5cd8c52a0aee69da4bd720f96182f1",
+          "evidencePages": [
+            34
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        },
+        {
+          "id": "level-4-turbo-drop-q5",
+          "text": "Does the model lift and release or lower its carriage as intended while the tower remains steady?",
+          "pdfSha256": "e55cd2a9e9fdc49a88a8bc9d23b2872c6f5cd8c52a0aee69da4bd720f96182f1",
+          "evidencePages": [
+            34
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-warrior-with-claws",
+      "questions": [
+        {
+          "id": "level-4-warrior-with-claws-q1",
+          "text": "Does the Basic claw-warrior robot have the shown low body with paired leg supports and forward claws?",
+          "pdfSha256": "9f1f958c5853025269ebf26df40a7f46e5b10d9f1b8b579c3e7c4d2b62019711",
+          "evidencePages": [
+            19
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-warrior-with-claws-q2",
+          "text": "Are the Basic claw links attached to their intended left and right pivot joints?",
+          "pdfSha256": "9f1f958c5853025269ebf26df40a7f46e5b10d9f1b8b579c3e7c4d2b62019711",
+          "evidencePages": [
+            19
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-warrior-with-claws-q3",
+          "text": "Are the front grip elements and rear controller structure fixed firmly to the main frame?",
+          "pdfSha256": "9f1f958c5853025269ebf26df40a7f46e5b10d9f1b8b579c3e7c4d2b62019711",
+          "evidencePages": [
+            19
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-warrior-with-claws-q4",
+          "text": "Can the Basic claw mechanism open or close without the arms hitting the drive frame?",
+          "pdfSha256": "9f1f958c5853025269ebf26df40a7f46e5b10d9f1b8b579c3e7c4d2b62019711",
+          "evidencePages": [
+            19
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        },
+        {
+          "id": "level-4-warrior-with-claws-q5",
+          "text": "Does the Basic robot move its intended claws while its leg supports remain securely attached?",
+          "pdfSha256": "9f1f958c5853025269ebf26df40a7f46e5b10d9f1b8b579c3e7c4d2b62019711",
+          "evidencePages": [
+            19
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK"
+          ]
+        }
+      ],
+      "approved": false
+    },
+    {
+      "variantId": "level-4-warrior-with-claws:optimized",
+      "questions": [
+        {
+          "id": "level-4-warrior-with-claws:optimized-q1",
+          "text": "Does the Optimized claw-warrior match its separate final illustration, including the revised claw geometry?",
+          "pdfSha256": "a78fb82129ea301f12fb9bb1203e0a5596d6c1e6f8c0af7c5cceb93d346f8e8f",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-warrior-with-claws:optimized-q2",
+          "text": "Are the Optimized forward claw pivots and mounting beams used instead of the Basic link arrangement?",
+          "pdfSha256": "a78fb82129ea301f12fb9bb1203e0a5596d6c1e6f8c0af7c5cceb93d346f8e8f",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-warrior-with-claws:optimized-q3",
+          "text": "Are both revised claw assemblies securely attached to the motor-driven body frame?",
+          "pdfSha256": "a78fb82129ea301f12fb9bb1203e0a5596d6c1e6f8c0af7c5cceb93d346f8e8f",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-warrior-with-claws:optimized-q4",
+          "text": "Can the Optimized claws cycle without their longer or relocated links interfering with the leg joints?",
+          "pdfSha256": "a78fb82129ea301f12fb9bb1203e0a5596d6c1e6f8c0af7c5cceb93d346f8e8f",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "MODEL_SPECIFIC_MECHANICAL_DETAIL_REQUIRES_ASSEMBLY_PAGE_REVIEW"
+          ]
+        },
+        {
+          "id": "level-4-warrior-with-claws:optimized-q5",
+          "text": "Does the Optimized variant operate its claws and support its body without linkage binding?",
+          "pdfSha256": "a78fb82129ea301f12fb9bb1203e0a5596d6c1e6f8c0af7c5cceb93d346f8e8f",
+          "evidencePages": [
+            13
+          ],
+          "status": "triaged-not-approved",
+          "flags": [
+            "FUNCTION_CANNOT_BE_PROVEN_FROM_STATIC_ARTWORK",
+            "PHYSICAL_ASSEMBLY_STABILITY_REQUIRES_VERIFICATION"
+          ]
+        }
+      ],
+      "approved": false
+    }
+  ]
+}

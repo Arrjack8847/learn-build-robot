@@ -139,8 +139,8 @@ test("all 50 source-derived candidate WebP files exist with identical hashes, di
     assert.equal(c.status,"candidate");
     assert.ok(c.path.startsWith("public/final-build/level-4/"));
     assert.ok(c.path.endsWith(".webp"));
-    assert.equal(c.sourcePage,r.source.hostedPdfPageCount);
-    assert.equal(c.method.includes("no synthesis"),true);
+    assert.ok(c.sourcePage>=1 && c.sourcePage<=r.source.hostedPdfPageCount);
+    assert.ok(/no synthesis|no reconstruction/.test(c.method), "pure source artwork only");
     assert.equal(c.individuallyDecoded,true);
     const crop=c.cropNormalized;
     assert.ok(crop && [crop.x,crop.y,crop.width,crop.height].every(Number.isFinite));
@@ -177,7 +177,7 @@ test("each of the 50 checklist sets has exactly five distinct robot-specific, ev
         q.text.startsWith("Is ") || q.text.startsWith("Can ") || q.text.startsWith("When ") ||
         q.text.startsWith("With ") || q.text.startsWith("After ") || q.text.startsWith("Do "));
       assert.ok(q.text.length>=65);
-      assert.deepEqual(q.evidencePages,[r.reference.sourcePage]);
+      assert.ok(q.evidencePages.includes(r.reference.sourcePage));
       assert.equal(q.sourcePdfSha256,r.source.hostedPdfSha256);
       assert.ok(q.verificationNotes.length>=40);
       assert.equal(q.approved,false);
@@ -217,3 +217,6 @@ test("locked Level 1-style timer/scanner contracts unchanged by this worker",()=
   assert.match(registry,/crypto\.getRandomValues\(array\)/);
   assert.match(registry,/value >= limit/);
 });
+
+
+test("Level 4 repair provenance, 250 triaged drafts, and zero Wix mappings", () => {const triage=data("reports/final-build-level-4-semantic-triage-20261123.json");const wix=data("src/data/finalBuild/level-4-wix-image-urls.json");assert.equal(triage.repairs.length,5);assert.equal(triage.questionSets.length,50);assert.equal(triage.questionSets.reduce((n,r)=>n+r.questions.length,0),250);assert.deepEqual(wix.urls,{});assert.equal(wix.approvedVariants,0);for(const x of triage.repairs){const r=byId.get(x.variantId);assert.equal(r.reference.webpSha256,x.webpSha256);assert.equal(r.approval.status,"blocked");assert.equal(r.reference.sourcePage,x.pdfPage);}});

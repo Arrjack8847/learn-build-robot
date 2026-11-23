@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "level": 4,
+  "wixSiteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+  "approvalRule": "Both source-correct WebP and all five questions independently approved",
+  "urls": {},
+  "approvedVariants": 0,
+  "blockedVariants": 50,
+  "reason": "No eligible Level 4 variants; no Wix upload or student mapping authorized."
+}

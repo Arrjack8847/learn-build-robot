@@ -16,3 +16,7 @@ All images are **faithful source-derived raster crops**; no artificial illustrat
 There are exactly 250 draft questions (five per variant), but none has passed independent manual-by-manual mechanism sign-off. A file's presence or hash verification must **never** implicitly change its status to `approved`.
 
 Do not use unapproved candidates in the student random-discovery pool. Any shared scanner/UI integration change belongs to PR #108's integration owner; no shared files were modified in this Level 4 worker.
+
+## Supplemental source-based repairs, 2026-11-23
+
+Five candidate WebPs were re-extracted from the verified PDF originals: Architectural Design, Drop-proof Robot, Nocturnal Beetle, Telegraph, and Remote Control Car. All five were decoded, hashed and compared with their source renders. They remain candidate-only: student approval and Wix upload both blocked. Horizontal Bar has a source-level bottom cut-off. Details in reports/final-build-level-4-semantic-triage-20261123.json.

@@ -24,9 +24,10 @@
     "hostedPdfSha256Verified": 50,
     "hostedPdfGitBlobMatches": 50,
     "hostedPdfPageMatches": 50,
-    "refinedSourceModelCrops": 8,
+    "refinedSourceModelCrops": 13,
     "draftedChecklists": 50,
-    "draftedQuestions": 250
+    "draftedQuestions": 250,
+    "repairedCandidateWebps": 5
   },
   "gates": {
     "pdfBytesFetched": true,
@@ -143,11 +144,12 @@
       "pdfSha256": "f72353f118c8a89d7b430ed3b3c8f71f0111883070296b3f59c802d69aaf75fc",
       "sourcePage": 24,
       "image": "public/final-build/level-4/level-4-architectural-design.webp",
-      "imageSha256": "ac21c6efcc218cb4d0a1eb9d9d017386c19fd047b8631a70df0dc1bca8ede083",
+      "imageSha256": "2e10d8029bf1fc96444452f0b43ba9571e39bab51451541972a646ba25b5bf70",
       "reasonCodes": [
         "RASTER_TEXT_SIGNOFF_PENDING",
         "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
-        "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
+        "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING",
+        "PDF_CROP_REPAIRED_BUT_SEMANTIC_APPROVAL_PENDING"
       ]
     },
     {
@@ -279,11 +281,12 @@
       "pdfSha256": "4d03563a0b23ea3f180998ba172888b0f8b60b4aeab2f74d6f24ed87cea280d2",
       "sourcePage": 7,
       "image": "public/final-build/level-4/level-4-drop-proof-robot.webp",
-      "imageSha256": "065d838f0b98eefb9a8a4dbf28b9b8ff92a9342b523ee69b5d3d27421daba8cc",
+      "imageSha256": "3d72312f32593d358d136ecb47796582eb7387a5fe907d6dfd3663e0bb08b522",
       "reasonCodes": [
         "RASTER_TEXT_SIGNOFF_PENDING",
         "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
-        "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
+        "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING",
+        "PDF_CROP_REPAIRED_BUT_SEMANTIC_APPROVAL_PENDING"
       ]
     },
     {
@@ -368,7 +371,8 @@
       "reasonCodes": [
         "RASTER_TEXT_SIGNOFF_PENDING",
         "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
-        "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
+        "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING",
+        "MANUAL_FINAL_IMAGE_BOTTOM_IS_CLIPPED"
       ]
     },
     {
@@ -466,11 +470,12 @@
       "pdfSha256": "69dc6b1cf324becd513b65ab1bfdfbc747b2ca6b2682d1931705161c31d7c842",
       "sourcePage": 19,
       "image": "public/final-build/level-4/level-4-nocturnal-beetle.webp",
-      "imageSha256": "fc74f46e52c8def009799ee5018255299f5a8cfa50a2d0fb54c87cd6f45b21ca",
+      "imageSha256": "de193772b61ddf791ed7bc366cd343d7f14c308d2dd06afe9e65054be012574b",
       "reasonCodes": [
         "RASTER_TEXT_SIGNOFF_PENDING",
         "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
-        "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
+        "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING",
+        "PDF_CROP_REPAIRED_BUT_SEMANTIC_APPROVAL_PENDING"
       ]
     },
     {
@@ -668,13 +673,14 @@
       "sourcePath": "public/Level 4/Building/Vehicles & Complex Movers/Remote Control Car/04. Remote Control Car-Building Manual.pdf",
       "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_fd1e07a04995465ca76f6d5a6e284164.pdf",
       "pdfSha256": "404225c14b061adcbba07b930fdd2923c4bc08ebf93f643db92f0c60aadb705a",
-      "sourcePage": 24,
+      "sourcePage": 23,
       "image": "public/final-build/level-4/level-4-remote-control-car.webp",
-      "imageSha256": "132fb007788af44cf2811b0acf36b769c9617d648d2ee10cad7a0185eca658a5",
+      "imageSha256": "f9e0c012ff0e3682d8e612592be50a330ee40c31886a0fe851f9fb01c1d2e11b",
       "reasonCodes": [
         "RASTER_TEXT_SIGNOFF_PENDING",
         "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
-        "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
+        "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING",
+        "PDF_CROP_REPAIRED_BUT_SEMANTIC_APPROVAL_PENDING"
       ]
     },
     {
@@ -838,13 +844,14 @@
       "sourcePath": "public/Level 4/Building/Mechanisms & Simulators/Telegraph/09.Telegraph -Building Manual.pdf",
       "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_572488c57ef34acb8426a499803d90c4.pdf",
       "pdfSha256": "4998a0fac5c0000e7df03130040b6d628956c28bcf022c39ddcefa78ee51727c",
-      "sourcePage": 25,
+      "sourcePage": 24,
       "image": "public/final-build/level-4/level-4-telegraph.webp",
-      "imageSha256": "b41dd0975911e08e28593bfba7448b936665ddfa72294384b42defd76d021e9b",
+      "imageSha256": "6a91c2aa97005048fcf806d92d55a4863444372ae9358bd3528716705930a901",
       "reasonCodes": [
         "RASTER_TEXT_SIGNOFF_PENDING",
         "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
-        "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
+        "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING",
+        "PDF_CROP_REPAIRED_BUT_SEMANTIC_APPROVAL_PENDING"
       ]
     },
     {
