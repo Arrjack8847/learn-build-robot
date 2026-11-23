@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "level": 5,
   "preparedAt": "2026-11-23",
-  "purpose": "30 source-anchored Level 5 assessment prompts: 10 independently reviewed and promoted for two verified models, 20 retained as drafts for four blocked variants.",
+  "purpose": "30 exact-source Level 5 assessment prompts: 15 independently reviewed and promoted for three approved completed models; 15 draft instructional-stage prompts remain blocked.",
   "evidencePolicy": {
     "source": "canonical Level 5 official Building PDFs",
     "completeModelVsInstructionalDistinct": true,
@@ -16,8 +16,8 @@
     "draftQuestions": 30,
     "questionsWithCompletedModelVisualEvidence": 15,
     "questionsOnInstructionalIncompleteModels": 15,
-    "independentlyApprovedQuestions": 10,
-    "studentApprovedVariants": 2
+    "independentlyApprovedQuestions": 15,
+    "studentApprovedVariants": 3
   },
   "entries": [
     {
@@ -28,8 +28,8 @@
       "sourcePage": 20,
       "evidenceQuality": "completed-model-view",
       "sourceStageVerifiedByInitialVisualPass": true,
-      "independentQuestionReview": "PENDING",
-      "studentApproved": false,
+      "independentQuestionReview": "PASSED_SOURCE_VISUAL_SECOND_PASS",
+      "studentApproved": true,
       "questions": [
         {
           "id": "level-5-remote-control-car-candidate-check-1",
@@ -38,7 +38,7 @@
           "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
           "evidenceKind": "completed-model-view",
           "observable": true,
-          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+          "reviewStatus": "APPROVED_WITH_SOURCE_PAGE_EVIDENCE"
         },
         {
           "id": "level-5-remote-control-car-candidate-check-2",
@@ -47,7 +47,7 @@
           "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
           "evidenceKind": "completed-model-view",
           "observable": true,
-          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+          "reviewStatus": "APPROVED_WITH_SOURCE_PAGE_EVIDENCE"
         },
         {
           "id": "level-5-remote-control-car-candidate-check-3",
@@ -56,7 +56,7 @@
           "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
           "evidenceKind": "completed-model-view",
           "observable": true,
-          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+          "reviewStatus": "APPROVED_WITH_SOURCE_PAGE_EVIDENCE"
         },
         {
           "id": "level-5-remote-control-car-candidate-check-4",
@@ -65,7 +65,7 @@
           "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
           "evidenceKind": "completed-model-view",
           "observable": true,
-          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+          "reviewStatus": "APPROVED_WITH_SOURCE_PAGE_EVIDENCE"
         },
         {
           "id": "level-5-remote-control-car-candidate-check-5",
@@ -74,7 +74,7 @@
           "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
           "evidenceKind": "completed-model-view",
           "observable": true,
-          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+          "reviewStatus": "APPROVED_WITH_SOURCE_PAGE_EVIDENCE"
         }
       ]
     },
