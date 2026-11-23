@@ -1,0 +1,337 @@
+{
+  "date": "2026-11-23",
+  "source": "AI visual assessment of independently authenticated Building PDF finished-model artwork",
+  "manualCheck": "Original PDF complete-model final and penultimate assembly pages",
+  "staticOnly": true,
+  "features": {
+    "acoustic-control-lamp": [
+      "a white controller lying flat at the foot of the lamp structure",
+      "a tall white articulated arm rising from the controller base",
+      "dark joint connectors between the upper and lower arm sections",
+      "a horizontal lamp head above the bent upper arm",
+      "yellow connectors at the right side of the lamp head"
+    ],
+    "architectural-design": [
+      "two tall rectangular frame towers at opposite ends of the structure",
+      "a black arched beam across the top of each upright frame",
+      "two long parallel perforated white cross-beams joining the two frames",
+      "a dark horizontal controller screen near the lower middle of the structure",
+      "red and blue pins joining the cross-beams to the vertical columns"
+    ],
+    "basketball-shooting-machine": [
+      "a long low beam joining the launcher and raised basket assembly",
+      "a white controller positioned near the middle of the connecting frame",
+      "a red-and-blue throwing lever at the left end of the model",
+      "a raised rectangular target frame at the far-right end",
+      "white angular supports and yellow elements immediately below the target"
+    ],
+    "biped-robot": [
+      "a white rectangular controller above the pair of leg assemblies",
+      "two black circular forward-facing modules near the upper body",
+      "a red rotating motor hub below the controller",
+      "two articulated leg structures terminating in rectangular foot frames",
+      "perforated white support beams linking the upper body to the legs"
+    ],
+    "card-machine": [
+      "a white controller installed at the right end of the long low mechanism",
+      "a large dark circular drive ring around a colored central hub",
+      "a long gray slotted guide channel along the lower front",
+      "an angled white feed-guide bracket at the left end",
+      "red connector pieces at the ends of the paired front rails"
+    ],
+    "card-reader": [
+      "a compact white controller next to the separate card reader assembly",
+      "a gray rectangular reader head supported at the controller front",
+      "two red vertical connecting brackets holding the reader frame",
+      "blue, red and yellow sample cards shown next to the model",
+      "a visible unobstructed rectangular reading face on the sensor frame"
+    ],
+    "dancing-robot": [
+      "a flat white controller forming the lower front of the model",
+      "a tall open gray gear frame rising at the left of the controller",
+      "short jointed dark arm-like connectors near the top of the left frame",
+      "a second upright mechanism joined to the left assembly by a beam",
+      "a red motor hub and paired black cylinders by the right-hand frame"
+    ],
+    "dangerous-assassin:optimized": [
+      "a long low gray guide chassis beneath the raised white linkages",
+      "two black round sensor-like modules on the raised rear bracket",
+      "a gray rectangular actuator extended beyond one end of the chassis",
+      "a red and gray fitting at the outer end of the extended mechanism",
+      "parallel white guide beams supported by red mounting pins along the base"
+    ],
+    "drop-proof-robot": [
+      "a white flat controller positioned on top of the low chassis",
+      "a large side wheel with a dark tire and red hub",
+      "a curved white perforated bracket surrounding the wheel assembly",
+      "a gray sensor hanging downward from a red side bracket",
+      "the gray side motor housing and red connectors behind the wheel"
+    ],
+    "electric-piano": [
+      "a white controller placed directly beneath the raised key structure",
+      "a long gray upper beam spanning above the keyboard section",
+      "blue and white key-like blocks at the upper front of the controller",
+      "a black diagonal strut supporting the far end of the top beam",
+      "two white runner-shaped floor supports beneath the piano body"
+    ],
+    "elf-in-the-tree": [
+      "a horizontal controller below the arched upper frame",
+      "multiple tall white branching supports above the center of the model",
+      "two black round sensor units projecting from the lower front",
+      "a red circular motor positioned within the front tree frame",
+      "dark and blue fasteners at the ends of the upper beam supports"
+    ],
+    "energy-detector": [
+      "a long narrow probe projecting left from the central controller",
+      "a rectangular sensing block fastened at the far end of the probe",
+      "a dark controller screen within the surrounding frame structure",
+      "a white rectangular perimeter brace at the right end",
+      "blue and red connector pins at the junction between the probe and controller"
+    ],
+    "guide-dogs": [
+      "two black circular sensor modules projecting from the dog's front",
+      "two upright white ear-like frame pieces above the sensors",
+      "a white horizontal controller forming the middle of the body",
+      "two large gray drive wheels below the middle of the controller",
+      "a slender articulated rear support terminating in a small wheel"
+    ],
+    "induction-desk-lamp": [
+      "a broad angled rectangular lighting head above the base",
+      "a tall narrow perforated white column supporting the lamp head",
+      "two red hinge connectors around the lower lamp pivot",
+      "a flat white controller resting under the upright support",
+      "a row of small red fittings attached across the base front"
+    ],
+    "keeping-distance": [
+      "a white horizontal controller fixed over the wheeled chassis",
+      "an upright gray measuring sensor on the right front side",
+      "two large dark-tired wheels below opposite sides of the controller",
+      "red circular drive hubs between the controller and its wheels",
+      "a slim white side support curving upward beside the controller"
+    ],
+    "laser-rangefinder": [
+      "a rectangular gray measuring sensor at the outer end of a white arm",
+      "a flat white controller at the right of the extended sensor assembly",
+      "a bent white beam linking the sensor mount to the controller",
+      "blue connection pins along the horizontal portion of the sensor support",
+      "a dark sensor aperture aimed away from the controller housing"
+    ],
+    "lucky-cat": [
+      "a vertically mounted white controller forming the cat's middle",
+      "two round dark eye-like modules above the central controller",
+      "an upright white raised-paw linkage on the right side of the head",
+      "a red circular motor next to the raised paw assembly",
+      "two horizontal white base rails supporting the figure's lower structure"
+    ],
+    "magnetically-controlled-door": [
+      "a flat white controller to the left of the upright doorway",
+      "an open rectangular gray door frame standing beside the controller",
+      "a long gray motor assembly mounted above the door frame",
+      "a small green fitting at the bottom of the door mechanism",
+      "two white and gray base feet supporting the upright door"
+    ],
+    "nocturnal-beetle": [
+      "a low horizontal controller forming the beetle's back",
+      "two red prong-like pieces extending from the front",
+      "small black side wheels below the controller body",
+      "two thin white antenna-like arms stretching toward the rear",
+      "short dark jointed leg elements near the middle of the chassis"
+    ],
+    "obstacle-avoidance-in-snow": [
+      "two long parallel white ski-like runners below the body",
+      "two gray rectangular motor units mounted high on opposite sides",
+      "red circular drive couplings connected to dark diagonal rods",
+      "a narrow white central body between the two upper gray units",
+      "white transverse beams joining the two lower ski supports"
+    ],
+    "obstacle-avoidance-robot": [
+      "a white controller positioned horizontally above the wheel chassis",
+      "two large black-tired drive wheels below the housing",
+      "two small black circular sensing modules aimed toward the front",
+      "a gray motor housing attached to the right side of the controller",
+      "red axle connectors between the front sensor bracket and the wheels"
+    ],
+    "obstacle-avoidance-robot-2": [
+      "a broad white controller resting in the middle of the low frame",
+      "two white perforated frame structures projecting forward",
+      "dark end caps on the lower tips of the forward linkages",
+      "paired round dark detector modules mounted behind the main controller",
+      "red and blue pins securing the outer joints to the central frame"
+    ],
+    "obstacle-avoiding-scorpion": [
+      "a white horizontal controller above the two-wheel central chassis",
+      "a tall white articulated tail rising behind the controller",
+      "a small red fork-like piece at the top of the raised tail",
+      "two white front arms terminating in red fittings",
+      "dark tires joined by red wheel hubs across the lower transverse axle"
+    ],
+    "oscillating-fan": [
+      "a white controller positioned flat at the bottom of the fan",
+      "two tall white upright supports below the rotor head",
+      "a broad cross-shaped rotor with several long blades",
+      "a gray motor and yellow and red fasteners behind the rotor",
+      "a square dark control module at the lower front of the base"
+    ],
+    "parts-sorter": [
+      "a gray slotted transfer channel across the front of the assembly",
+      "a tall white actuator standing behind the middle of the channel",
+      "a white controller and dark display on the right side",
+      "a red-and-white sorting lever across the middle of the transfer path",
+      "two white upright guides bordering the sorter head"
+    ],
+    "password-box": [
+      "a wide layered white box enclosure on the left side",
+      "black horizontal bands running across the box side",
+      "a white controller fixed immediately beside the enclosure on the right",
+      "red hinge and latch brackets along the enclosure edge",
+      "a red-and-gray drive hub below the right side of the box"
+    ],
+    "personal-bodyguard": [
+      "a large upright gray controller forming the center of the body",
+      "a large dark-tired wheel at the bottom left",
+      "a high curved white protective arch across the upper frame",
+      "a small red-and-gray outward-facing sensor on the right",
+      "a small caster-like front support below the lower chassis"
+    ],
+    "radar-vehicle": [
+      "a white controller mounted horizontally on the wheeled chassis",
+      "a tall sensor mast rising above the controller",
+      "a rectangular top frame housing two round black sensors",
+      "a red-and-yellow pivot joining the mast to the controller",
+      "two large back wheels and a smaller front support wheel"
+    ],
+    "ranging-robot": [
+      "two dark-tired wheels attached to opposite sides of the controller",
+      "a long red horizontal beam raised above the top of the body",
+      "white upright arms linking the red top beam to the lower chassis",
+      "red side brackets around the upper wheel mountings",
+      "a red-gray drive hub visible between each wheel and the controller"
+    ],
+    "reaction-tester": [
+      "a controller positioned vertically with its display facing forward",
+      "an open gray rectangular signal frame above the controller",
+      "small red fasteners protruding from the side support",
+      "a gray input or sensing block at the lower left",
+      "a white rear backing that holds the signal frame upright"
+    ],
+    "remote-control-car": [
+      "a white controller mounted upright over the two-wheel chassis",
+      "two large black-tired wheels on the left and right",
+      "red-and-gray drive motor hubs on the inner sides of the wheels",
+      "a gray lower cross-member joining the two motor mountings",
+      "small yellow axle fitting pieces on the outer wheel hubs"
+    ],
+    "scan-to-open-the-gate": [
+      "a flat white controller on the left side of the barrier assembly",
+      "a black rectangular scanning unit standing at the right",
+      "a long white barrier arm projecting horizontally over the controller",
+      "a gray pivot actuator between the arm and scanner housing",
+      "red and blue pins at the lower gate-pivot bracket"
+    ],
+    "scorpion": [
+      "a flat white controller sitting above the compact wheelbase",
+      "a tall curved white tail beam behind the controller",
+      "a red horizontal fork-shaped piece on top of the tail",
+      "two projecting white side arms ending in small red pieces",
+      "large silver wheels linked through red central axle fittings"
+    ],
+    "skiing-robot": [
+      "a tall gray central body above the ski-like runners",
+      "a black circular detector or motor fixed at the top",
+      "a red-and-blue geared linkage in the middle of the upright body",
+      "a long angled white beam projecting left from the middle",
+      "two white horizontal and diagonal ski-runner supports at the bottom"
+    ],
+    "smart-curtain": [
+      "a flat white controller located behind the upright curtain panels",
+      "two tall gray rectangular panel assemblies on the front",
+      "red pivot fittings at the top of both panel uprights",
+      "a large dark gear disk beside the right-hand panel",
+      "two black round detector units fixed near the lower left front"
+    ],
+    "smart-luggage": [
+      "a broad tall gray suitcase-like rear body",
+      "a large black-tired wheel projecting from its right side",
+      "smaller wheels under the opposite end of the suitcase",
+      "a white arched frame spanning the front of the body",
+      "yellow fittings fixed above the white front frame"
+    ],
+    "smart-speaker": [
+      "a white controller panel with display on the lower front",
+      "a long arched white perforated support beam across the top",
+      "two round black speaker-like modules near the lower front right",
+      "a small gray rectangular module above the display",
+      "blue fastener pins at the four corner joints of the outer frame"
+    ],
+    "spinning-cups": [
+      "a broad gray rectangular support base",
+      "several round gray cup-shaped platform disks around a central hub",
+      "tall white support columns behind the turntable",
+      "a vertical spindle near the middle of the cup platforms",
+      "large exposed gears and motors along the left side of the base"
+    ],
+    "swimming-plesiosaur": [
+      "a long angled neck rising upward from the body to the right",
+      "a white controller positioned in the dinosaur's middle torso",
+      "a long narrow tail beam extending left behind the controller",
+      "white flipper-shaped paddle pieces below the body",
+      "gray interlocking gear components at the base of the raised neck"
+    ],
+    "tail-wagging-stegosaurus": [
+      "an elongated central body with a white controller inside",
+      "two tall white plate structures rising above the back",
+      "a raised long tail ending in red fork-like pieces",
+      "two black circular eye-like modules mounted at the head",
+      "four long white leg supports ending in short ground pieces"
+    ],
+    "telegraph": [
+      "a low white controller at the left of the signaling mechanism",
+      "a tall gray upright frame behind the controller",
+      "a gray upper motor with an exposed green gear",
+      "a dark vertical key rod pointing toward the controller screen",
+      "a separate gray actuator housing on the right with red pins"
+    ],
+    "telegraph-machine": [
+      "a white horizontal controller on the left side",
+      "a white upright telegraph-key frame on the right",
+      "a black vertical signaling key extending above the right frame",
+      "a long horizontal perforated beam between its two frame uprights",
+      "short dark side controls attached near the bottom of the key assembly"
+    ],
+    "transformer-robot": [
+      "a white controller mounted over the rear of the chassis",
+      "a large black-tired wheel positioned below the left side",
+      "a projecting articulated white claw-like front structure",
+      "a gray rectangular motor housing beside the main controller",
+      "two long diagonal white beams enclosing the front linkage"
+    ],
+    "tumbler": [
+      "a white controller positioned low in a horizontal base",
+      "a tall white column rising next to one end of the controller",
+      "a horizontal white beam extending across the top of its display",
+      "a gray motor and exposed gear fitted near the upper beam",
+      "two short white runner pieces projecting from the lower support"
+    ],
+    "turbo-drop": [
+      "a very tall narrow upright guide tower above the controller",
+      "a long dark cable descending from the top of the tower",
+      "two large exposed gray gears beside the vertical support",
+      "a red carriage bracket mounted along the lower tower",
+      "a white controller fixed at the bottom beside the drive gears"
+    ],
+    "warrior-with-claws": [
+      "a white controller near the upper middle of the mechanical body",
+      "two angular white-and-black claw frames extending to either side",
+      "two black circular sensor modules fixed above the claws",
+      "a red circular motor next to the right claw joint",
+      "long perforated gray beams connecting claws to the main frame"
+    ],
+    "warrior-with-claws:optimized": [
+      "a white controller located at the back of the extended body",
+      "two dark round sensing modules near the upper middle",
+      "an articulated left claw with angular white beams and dark grips",
+      "a revised right claw made of long gray and white jointed beams",
+      "red motor hubs at the joints of both claw mechanisms"
+    ]
+  }
+}

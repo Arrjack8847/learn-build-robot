@@ -1,0 +1,103 @@
+{
+  "date": "2026-11-23",
+  "method": "Crop original source PDF last assembled robot pages with original geometry; whiten only isolated instructional label regions in empty margins. No AI synthesis.",
+  "status": "binary WebPs already committed to feat/final-build-level-4 at 8e1c67fa92dd481c20bda51274bed1b990172386",
+  "repairs": [
+    {
+      "id": "level-4-architectural-design",
+      "page": 24,
+      "crop": [
+        0.57,
+        0.01,
+        0.43,
+        0.9
+      ],
+      "mask": [
+        0,
+        0,
+        62,
+        255
+      ],
+      "width": 807,
+      "height": 950,
+      "bytes": 54186,
+      "sha": "3702825521aaee8460543683a0fc2ec482efc5d5cff59e2a3f27d670328da68f",
+      "mae": 0.7743,
+      "pdfSha256": "f72353f118c8a89d7b430ed3b3c8f71f0111883070296b3f59c802d69aaf75fc",
+      "sourceCropPixelMAE": 0.7743,
+      "approved": true
+    },
+    {
+      "id": "level-4-dangerous-assassin",
+      "page": 25,
+      "crop": [
+        0.07,
+        0.07,
+        0.91,
+        0.83
+      ],
+      "mask": [
+        0,
+        0,
+        65,
+        75
+      ],
+      "width": 950,
+      "height": 614,
+      "bytes": 55762,
+      "sha": "91c73dbf8d9e9f9babea0ceeb3cd52fb2b0c150eff523316d53f50e04cea6339",
+      "mae": 0.8051,
+      "pdfSha256": "483cf6fc93e63a7fd190ef49ddfd54faa07cbdf43a46cbe63836be01be8c5791",
+      "sourceCropPixelMAE": 0.8051,
+      "approved": false
+    },
+    {
+      "id": "level-4-swimming-plesiosaur",
+      "page": 40,
+      "crop": [
+        0.025,
+        0.006,
+        0.96,
+        0.965
+      ],
+      "mask": [
+        0,
+        0,
+        145,
+        160
+      ],
+      "width": 950,
+      "height": 676,
+      "bytes": 54278,
+      "sha": "df616c793393bb16071889de2dc94ceec1f2d7fa3aa9fae2d9afc8f15aed93e3",
+      "mae": 0.6308,
+      "pdfSha256": "e4ef8698645ff3bd1cc7d07f08d2d9c7016592dc5a383b2fe35a54c7c701ba7f",
+      "sourceCropPixelMAE": 0.6308,
+      "approved": true
+    },
+    {
+      "id": "level-4-warrior-with-claws",
+      "page": 19,
+      "crop": [
+        0.14,
+        0.02,
+        0.84,
+        0.96
+      ],
+      "mask": [
+        0,
+        570,
+        120,
+        745
+      ],
+      "width": 920,
+      "height": 745,
+      "bytes": 54182,
+      "sha": "564d25f82ff51d77ea02c7f79e9c9194cfbbce8146fb9a110eb5b5eb0bf7740c",
+      "mae": 0.7031,
+      "pdfSha256": "9f1f958c5853025269ebf26df40a7f46e5b10d9f1b8b579c3e7c4d2b62019711",
+      "sourceCropPixelMAE": 0.7031,
+      "approved": true
+    }
+  ]
+}

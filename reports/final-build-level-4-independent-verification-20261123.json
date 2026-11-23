@@ -16,9 +16,11 @@
     "sourcePages": 1029,
     "largestCropMAE": 6.18,
     "medianCropMAE": 2.81,
-    "independentVisualSignoffs": 1,
-    "verifiedChecklistSets": 1,
-    "approvedStudentVariants": 1
+    "independentVisualSignoffs": 48,
+    "verifiedChecklistSets": 48,
+    "approvedStudentVariants": 48,
+    "verifiedWixUrls": 48,
+    "sourceLimitedBlockedVariants": 2
   },
   "notes": [
     "Low crop pixel error demonstrates source fidelity, not finished-model suitability; instructional content and semantic correctness require separate close visual review.",
@@ -61,7 +63,14 @@
       "assistantManualReviewPagesOpened": 19,
       "reviewKind": "assistant-independent-visual",
       "wixPublicUrl": "https://static.wixstatic.com/media/78042f_6fd316e164634e8aabdf5797118e32dd~mv2.webp",
-      "wixAssetSHA256": "97dc96cbffc9c275b94daec097041cc6d39644b11381dbc6d221c12b5d992609"
+      "wixAssetSHA256": "97dc96cbffc9c275b94daec097041cc6d39644b11381dbc6d221c12b5d992609",
+      "wixReady": true,
+      "wixMediaId": "78042f_6fd316e164634e8aabdf5797118e32dd~mv2.webp",
+      "wixHostedDimensions": {
+        "width": 490,
+        "height": 468
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/bc4def6558d8af7d9d90c540e9c0c7a5506bf7e9/public/final-build/level-4/level-4-a-timid-mouse.webp"
     },
     {
       "variantId": "level-4-acoustic-control-lamp",
@@ -79,9 +88,18 @@
       "sourceRenderedCropP95": 15,
       "cropEdgeDarkPixelFraction": 0.988,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_950f40e5e0344a8cbff7035d078cf574~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_950f40e5e0344a8cbff7035d078cf574~mv2.webp",
+      "wixAssetSHA256": "1d9e0da1ed43be86497fc952fff28ad6041bd4f78cdb0e2aaaa38e9401bc3b3f",
+      "wixHostedDimensions": {
+        "width": 384,
+        "height": 640
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-acoustic-control-lamp.webp"
     },
     {
       "variantId": "level-4-architectural-design",
@@ -93,16 +111,34 @@
       "hostedPageCountMatched": true,
       "imagePath": "public/final-build/level-4/level-4-architectural-design.webp",
       "sourcePage": 24,
-      "referenceSha256": "2e10d8029bf1fc96444452f0b43ba9571e39bab51451541972a646ba25b5bf70",
+      "referenceSha256": "3702825521aaee8460543683a0fc2ec482efc5d5cff59e2a3f27d670328da68f",
       "webpDecoded": true,
-      "sourceRenderedCropMAE": 0.826,
+      "sourceRenderedCropMAE": 0.7743,
       "sourceRenderedCropP95": null,
       "cropEdgeDarkPixelFraction": 0.022,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false,
-      "repairNote": "Remove duplicate step 32, isolating finished assembly step 33."
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "repairNote": "Remove duplicate step 32, isolating finished assembly step 33.",
+      "wixReady": true,
+      "wixMediaId": "78042f_4e6f7972bfee48f0b2ad823354d35212~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_4e6f7972bfee48f0b2ad823354d35212~mv2.webp",
+      "wixAssetSHA256": "3702825521aaee8460543683a0fc2ec482efc5d5cff59e2a3f27d670328da68f",
+      "wixHostedDimensions": {
+        "width": 807,
+        "height": 950
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-architectural-design.webp",
+      "rasterAnnotationOnlyMarginMask": [
+        [
+          0,
+          0,
+          62,
+          255
+        ]
+      ],
+      "rasterReviewedAgainstSourceCrop": true
     },
     {
       "variantId": "level-4-basketball-shooting-machine",
@@ -120,9 +156,18 @@
       "sourceRenderedCropP95": 16,
       "cropEdgeDarkPixelFraction": 0.012,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_ef32ff516193467487b0eb2027682473~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_ef32ff516193467487b0eb2027682473~mv2.webp",
+      "wixAssetSHA256": "58e7da729a3489e5a6fed5865ce1c6561c03b6fd04d0bec462020fa562c00893",
+      "wixHostedDimensions": {
+        "width": 490,
+        "height": 399
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-basketball-shooting-machine.webp"
     },
     {
       "variantId": "level-4-biped-robot",
@@ -140,9 +185,18 @@
       "sourceRenderedCropP95": 17,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_c24840095f6d4c53b0d26587b09bf251~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_c24840095f6d4c53b0d26587b09bf251~mv2.webp",
+      "wixAssetSHA256": "13ca4f7465af0793d350bd8106f5de3074394cdb010fc59b311b59f4ba7f001e",
+      "wixHostedDimensions": {
+        "width": 376,
+        "height": 490
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-biped-robot.webp"
     },
     {
       "variantId": "level-4-card-machine",
@@ -160,9 +214,18 @@
       "sourceRenderedCropP95": 13,
       "cropEdgeDarkPixelFraction": 0.999,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_45461556669b4d248ea6dedf344fe5c3~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_45461556669b4d248ea6dedf344fe5c3~mv2.webp",
+      "wixAssetSHA256": "82da7924cae953c5a4878faeef22e753b6a0fb2a2c10997246d9a9b7c0f72085",
+      "wixHostedDimensions": {
+        "width": 640,
+        "height": 369
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-card-machine.webp"
     },
     {
       "variantId": "level-4-card-reader",
@@ -180,9 +243,18 @@
       "sourceRenderedCropP95": 10,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_45275043897b488ebf30cfbbcf40fe11~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_45275043897b488ebf30cfbbcf40fe11~mv2.webp",
+      "wixAssetSHA256": "00544e9f0f78ba35ee2a48d8a956eef979b66d2c1849307fd3abc48fae630da4",
+      "wixHostedDimensions": {
+        "width": 780,
+        "height": 215
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-card-reader.webp"
     },
     {
       "variantId": "level-4-dancing-robot",
@@ -200,9 +272,18 @@
       "sourceRenderedCropP95": 15,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_66c695b0877c415ab82f8774d7a8e284~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_66c695b0877c415ab82f8774d7a8e284~mv2.webp",
+      "wixAssetSHA256": "c95eeb48a19fba457486026a55d821e951c3ca3402a6e77a73595ffb68e79863",
+      "wixHostedDimensions": {
+        "width": 393,
+        "height": 490
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-dancing-robot.webp"
     },
     {
       "variantId": "level-4-dangerous-assassin",
@@ -214,15 +295,24 @@
       "hostedPageCountMatched": true,
       "imagePath": "public/final-build/level-4/level-4-dangerous-assassin.webp",
       "sourcePage": 25,
-      "referenceSha256": "f4334cc5f6b068d82805feb9edfc7188b9e60b0cf8d8759433f32c01fc108939",
+      "referenceSha256": "91c73dbf8d9e9f9babea0ceeb3cd52fb2b0c150eff523316d53f50e04cea6339",
       "webpDecoded": true,
-      "sourceRenderedCropMAE": 2.99,
-      "sourceRenderedCropP95": 16,
+      "sourceRenderedCropMAE": 0.8051,
+      "sourceRenderedCropP95": null,
       "cropEdgeDarkPixelFraction": 0.085,
       "pixelFidelity": "pass",
       "modelOnlyVisualSignoff": false,
       "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "studentApproved": false,
+      "rasterAnnotationOnlyMarginMask": [
+        [
+          0,
+          0,
+          65,
+          75
+        ]
+      ],
+      "rasterReviewedAgainstSourceCrop": true
     },
     {
       "variantId": "level-4-dangerous-assassin:optimized",
@@ -240,9 +330,18 @@
       "sourceRenderedCropP95": 18,
       "cropEdgeDarkPixelFraction": 0.082,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_e07e8e95f7004bed921f8bf0a877a0cc~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_e07e8e95f7004bed921f8bf0a877a0cc~mv2.webp",
+      "wixAssetSHA256": "ce3471643cbab1ec136f84c59e647ad8b377d41e29ad991b5cbc5d8f559842af",
+      "wixHostedDimensions": {
+        "width": 490,
+        "height": 325
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-dangerous-assassin--optimized.webp"
     },
     {
       "variantId": "level-4-drop-proof-robot",
@@ -260,10 +359,19 @@
       "sourceRenderedCropP95": null,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false,
-      "repairNote": "Remove steps 26 and 27, isolating finished step 28."
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "repairNote": "Remove steps 26 and 27, isolating finished step 28.",
+      "wixReady": true,
+      "wixMediaId": "78042f_40109e2fe88749e79631c823f953a090~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_40109e2fe88749e79631c823f953a090~mv2.webp",
+      "wixAssetSHA256": "3d72312f32593d358d136ecb47796582eb7387a5fe907d6dfd3663e0bb08b522",
+      "wixHostedDimensions": {
+        "width": 938,
+        "height": 950
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-drop-proof-robot.webp"
     },
     {
       "variantId": "level-4-electric-piano",
@@ -281,9 +389,18 @@
       "sourceRenderedCropP95": 14,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_8696ab89a6314b44bfc50be76203563a~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_8696ab89a6314b44bfc50be76203563a~mv2.webp",
+      "wixAssetSHA256": "da440fe9fdd19713a82b74e5c07e2d40611b75a350000823d047908c4db682ff",
+      "wixHostedDimensions": {
+        "width": 411,
+        "height": 490
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-electric-piano.webp"
     },
     {
       "variantId": "level-4-elf-in-the-tree",
@@ -301,9 +418,18 @@
       "sourceRenderedCropP95": 25,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_e1912e5e0b0249ef8cdbba06626cc7ff~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_e1912e5e0b0249ef8cdbba06626cc7ff~mv2.webp",
+      "wixAssetSHA256": "2a5e3465293436fa3c255df10019b3f5ba28216376ea7cc123f1aa5ca87a0693",
+      "wixHostedDimensions": {
+        "width": 470,
+        "height": 457
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-elf-in-the-tree.webp"
     },
     {
       "variantId": "level-4-energy-detector",
@@ -321,9 +447,18 @@
       "sourceRenderedCropP95": 17,
       "cropEdgeDarkPixelFraction": 0.006,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_74de9d076f2e45588abaab63d713fba0~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_74de9d076f2e45588abaab63d713fba0~mv2.webp",
+      "wixAssetSHA256": "334032d3d3f2ead6bbe8b6d32bfdca3ecee7a471bcf663be8cd2d8ec8ac80f46",
+      "wixHostedDimensions": {
+        "width": 490,
+        "height": 242
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-energy-detector.webp"
     },
     {
       "variantId": "level-4-guide-dogs",
@@ -341,9 +476,18 @@
       "sourceRenderedCropP95": 13,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_e330542786d94ddfad7bdc17aab10a20~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_e330542786d94ddfad7bdc17aab10a20~mv2.webp",
+      "wixAssetSHA256": "d15bcb7015aea0b9a0758b5142aed682bb45a0c51da458c00556a187942fa2e7",
+      "wixHostedDimensions": {
+        "width": 468,
+        "height": 490
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-guide-dogs.webp"
     },
     {
       "variantId": "level-4-horizontal-bar",
@@ -381,9 +525,18 @@
       "sourceRenderedCropP95": 15,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_5b6dbc83b7f7483aad0b71b9018f9ffe~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_5b6dbc83b7f7483aad0b71b9018f9ffe~mv2.webp",
+      "wixAssetSHA256": "bb879443e8cc47d6d74dae336383c0501b2f6646ac9a850ee8d0f0bcbfa45195",
+      "wixHostedDimensions": {
+        "width": 413,
+        "height": 490
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-induction-desk-lamp.webp"
     },
     {
       "variantId": "level-4-keeping-distance",
@@ -401,9 +554,18 @@
       "sourceRenderedCropP95": 16,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_97f3877d89474de6bfb16b9bbc7af7a4~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_97f3877d89474de6bfb16b9bbc7af7a4~mv2.webp",
+      "wixAssetSHA256": "c1d845aa0338f877b8bc70791ff0423896c55e1cd4f8876b667c8b2c2019d80b",
+      "wixHostedDimensions": {
+        "width": 490,
+        "height": 480
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-keeping-distance.webp"
     },
     {
       "variantId": "level-4-laser-rangefinder",
@@ -421,9 +583,18 @@
       "sourceRenderedCropP95": 12,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_eb739f898e744754943e05ce71f3d741~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_eb739f898e744754943e05ce71f3d741~mv2.webp",
+      "wixAssetSHA256": "c116872ac97f3254accd6f656455731c2d64be17fbcfadfc96cb96cd6dd012bc",
+      "wixHostedDimensions": {
+        "width": 560,
+        "height": 391
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-laser-rangefinder.webp"
     },
     {
       "variantId": "level-4-lucky-cat",
@@ -441,9 +612,18 @@
       "sourceRenderedCropP95": 14,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_7c7821df7a144bc3bf52374c9d53f0c0~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_7c7821df7a144bc3bf52374c9d53f0c0~mv2.webp",
+      "wixAssetSHA256": "f523fbf16899825db08db1d29b02b313435f2bdb1aa8c868cdf4cfd2c3af59a9",
+      "wixHostedDimensions": {
+        "width": 423,
+        "height": 490
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-lucky-cat.webp"
     },
     {
       "variantId": "level-4-magnetically-controlled-door",
@@ -461,9 +641,18 @@
       "sourceRenderedCropP95": 14,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_dbe1344e54964e6eb58b801d1960258d~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_dbe1344e54964e6eb58b801d1960258d~mv2.webp",
+      "wixAssetSHA256": "0acc895312e77dd3f91923b8432a2a066e021a6402d248b484e541b877f0a44a",
+      "wixHostedDimensions": {
+        "width": 468,
+        "height": 490
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-magnetically-controlled-door.webp"
     },
     {
       "variantId": "level-4-nocturnal-beetle",
@@ -481,10 +670,19 @@
       "sourceRenderedCropP95": null,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false,
-      "repairNote": "Remove step 41, isolating completed step 42."
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "repairNote": "Remove step 41, isolating completed step 42.",
+      "wixReady": true,
+      "wixMediaId": "78042f_7ed16901bb834c38a22a32806dc96768~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_7ed16901bb834c38a22a32806dc96768~mv2.webp",
+      "wixAssetSHA256": "de193772b61ddf791ed7bc366cd343d7f14c308d2dd06afe9e65054be012574b",
+      "wixHostedDimensions": {
+        "width": 950,
+        "height": 455
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-nocturnal-beetle.webp"
     },
     {
       "variantId": "level-4-obstacle-avoidance-in-snow",
@@ -502,9 +700,18 @@
       "sourceRenderedCropP95": 15,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_e5c5b81536f548f98b6d30fa06a4c273~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_e5c5b81536f548f98b6d30fa06a4c273~mv2.webp",
+      "wixAssetSHA256": "00e1cbb953de152bfeb33e0331349f3dc69e3f25c2a72dee814c4c0403457ef9",
+      "wixHostedDimensions": {
+        "width": 440,
+        "height": 490
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-obstacle-avoidance-in-snow.webp"
     },
     {
       "variantId": "level-4-obstacle-avoidance-robot",
@@ -522,9 +729,18 @@
       "sourceRenderedCropP95": 14,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_c7b87b6e6d0e4e89880ede8181fe5baf~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_c7b87b6e6d0e4e89880ede8181fe5baf~mv2.webp",
+      "wixAssetSHA256": "686f7bcd1ffde1230e04bd688150b3bd24c27e25c6b9400cbf6d71ef3fa85bd5",
+      "wixHostedDimensions": {
+        "width": 489,
+        "height": 490
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-obstacle-avoidance-robot.webp"
     },
     {
       "variantId": "level-4-obstacle-avoidance-robot-2",
@@ -542,9 +758,18 @@
       "sourceRenderedCropP95": 26,
       "cropEdgeDarkPixelFraction": 0.999,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_52592fb2304a4b65919cdf32d6f25b3d~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_52592fb2304a4b65919cdf32d6f25b3d~mv2.webp",
+      "wixAssetSHA256": "338550adfa551f6749e26407fe3fa18bae3b90dbe9d962180c2e7b9661d2312b",
+      "wixHostedDimensions": {
+        "width": 640,
+        "height": 456
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-obstacle-avoidance-robot-2.webp"
     },
     {
       "variantId": "level-4-obstacle-avoiding-scorpion",
@@ -562,9 +787,18 @@
       "sourceRenderedCropP95": 15,
       "cropEdgeDarkPixelFraction": 0.013,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_09f5037d662941eb84667263b3d605c6~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_09f5037d662941eb84667263b3d605c6~mv2.webp",
+      "wixAssetSHA256": "a63d75d65d5a3d9febfd8c7687ea14f199812d064de0bdf056ced1f14c5c6b99",
+      "wixHostedDimensions": {
+        "width": 490,
+        "height": 478
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-obstacle-avoiding-scorpion.webp"
     },
     {
       "variantId": "level-4-oscillating-fan",
@@ -582,9 +816,18 @@
       "sourceRenderedCropP95": 15,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_0cf378cf83f247ff90ff0b02dc5fa69f~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_0cf378cf83f247ff90ff0b02dc5fa69f~mv2.webp",
+      "wixAssetSHA256": "3c3542f00a5ae08bb1e75ae1c83eee2094efad8090a3dc17594c3b84af14d1ba",
+      "wixHostedDimensions": {
+        "width": 322,
+        "height": 490
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-oscillating-fan.webp"
     },
     {
       "variantId": "level-4-parts-sorter",
@@ -602,9 +845,18 @@
       "sourceRenderedCropP95": 14,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_24a1a7ce3eeb4114be79af6fe6c33298~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_24a1a7ce3eeb4114be79af6fe6c33298~mv2.webp",
+      "wixAssetSHA256": "0d3127f5ec1bdce55e68c1a4417503d7d91497674d3916b1220d28dea4d7a636",
+      "wixHostedDimensions": {
+        "width": 490,
+        "height": 382
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-parts-sorter.webp"
     },
     {
       "variantId": "level-4-password-box",
@@ -622,9 +874,18 @@
       "sourceRenderedCropP95": 10,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_9c299736adab4b07959f5b4148845b83~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_9c299736adab4b07959f5b4148845b83~mv2.webp",
+      "wixAssetSHA256": "0fcb71e90d544a2e6801ac953c036a29b777e321bc0855f9d299a54a0d2cfcbc",
+      "wixHostedDimensions": {
+        "width": 780,
+        "height": 273
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-password-box.webp"
     },
     {
       "variantId": "level-4-personal-bodyguard",
@@ -642,9 +903,18 @@
       "sourceRenderedCropP95": 15,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_f9519fc2e4a64ce7803f067493f4ff75~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_f9519fc2e4a64ce7803f067493f4ff75~mv2.webp",
+      "wixAssetSHA256": "c36ce68d737872678e8fd505effd4c7f2138c8357e22eaf70f9864bd96e419d5",
+      "wixHostedDimensions": {
+        "width": 480,
+        "height": 490
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-personal-bodyguard.webp"
     },
     {
       "variantId": "level-4-radar-vehicle",
@@ -662,9 +932,18 @@
       "sourceRenderedCropP95": 15,
       "cropEdgeDarkPixelFraction": 1,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_2dbbe33aba3e4959acc3fb9da9b8a0f8~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_2dbbe33aba3e4959acc3fb9da9b8a0f8~mv2.webp",
+      "wixAssetSHA256": "a5a0e395996bde353cec9e40fcbb1aad663e716abf49a559b3281478c1248bde",
+      "wixHostedDimensions": {
+        "width": 580,
+        "height": 640
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-radar-vehicle.webp"
     },
     {
       "variantId": "level-4-ranging-robot",
@@ -682,9 +961,18 @@
       "sourceRenderedCropP95": 16,
       "cropEdgeDarkPixelFraction": 1,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_19c1dd79bd224576956e53b32ab4f4b9~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_19c1dd79bd224576956e53b32ab4f4b9~mv2.webp",
+      "wixAssetSHA256": "c6e13cdd0a684c03e6b9d0043c0f73ada64add841351874a28a57bedf2f69392",
+      "wixHostedDimensions": {
+        "width": 538,
+        "height": 617
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-ranging-robot.webp"
     },
     {
       "variantId": "level-4-reaction-tester",
@@ -702,9 +990,18 @@
       "sourceRenderedCropP95": 14,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_71f00c5ee6c64300bf287069a275b6cb~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_71f00c5ee6c64300bf287069a275b6cb~mv2.webp",
+      "wixAssetSHA256": "1520b42773f7cbfdef2c20d6e0caecfd1e0e5989ff621decd45f2e4add1e69fd",
+      "wixHostedDimensions": {
+        "width": 286,
+        "height": 520
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-reaction-tester.webp"
     },
     {
       "variantId": "level-4-remote-control-car",
@@ -722,10 +1019,19 @@
       "sourceRenderedCropP95": null,
       "cropEdgeDarkPixelFraction": 0.142,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false,
-      "repairNote": "Use page 23 complete car rather than page 24 car plus separate controller."
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "repairNote": "Use page 23 complete car rather than page 24 car plus separate controller.",
+      "wixReady": true,
+      "wixMediaId": "78042f_94e1f58252a546eca1fc4afa8debbbb6~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_94e1f58252a546eca1fc4afa8debbbb6~mv2.webp",
+      "wixAssetSHA256": "f9e0c012ff0e3682d8e612592be50a330ee40c31886a0fe851f9fb01c1d2e11b",
+      "wixHostedDimensions": {
+        "width": 786,
+        "height": 950
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-remote-control-car.webp"
     },
     {
       "variantId": "level-4-scan-to-open-the-gate",
@@ -743,9 +1049,18 @@
       "sourceRenderedCropP95": 15,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_db9b2fabcb6e45d38be7f3c90c60f48c~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_db9b2fabcb6e45d38be7f3c90c60f48c~mv2.webp",
+      "wixAssetSHA256": "b854199da1220bcd8eb616e5b2e209b5f6e483bc952e6d47d56b5f201891681c",
+      "wixHostedDimensions": {
+        "width": 490,
+        "height": 341
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-scan-to-open-the-gate.webp"
     },
     {
       "variantId": "level-4-scorpion",
@@ -763,9 +1078,18 @@
       "sourceRenderedCropP95": 15,
       "cropEdgeDarkPixelFraction": 0.998,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_bda20b7c06ff43098d4ba006925ade2a~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_bda20b7c06ff43098d4ba006925ade2a~mv2.webp",
+      "wixAssetSHA256": "10f68ef4789ad99f9e65092ee950be316b69912036f39851f7597bf97bac3d1b",
+      "wixHostedDimensions": {
+        "width": 640,
+        "height": 639
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-scorpion.webp"
     },
     {
       "variantId": "level-4-skiing-robot",
@@ -783,9 +1107,18 @@
       "sourceRenderedCropP95": 12,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_02a684b29fe943a49b65d19cd3c99d48~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_02a684b29fe943a49b65d19cd3c99d48~mv2.webp",
+      "wixAssetSHA256": "355e1ad3f665e1b9c0955f1fc416304e4a82cad8e0f2bcd1fa9fcfc832c6f66d",
+      "wixHostedDimensions": {
+        "width": 462,
+        "height": 520
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-skiing-robot.webp"
     },
     {
       "variantId": "level-4-smart-curtain",
@@ -803,9 +1136,18 @@
       "sourceRenderedCropP95": 22,
       "cropEdgeDarkPixelFraction": 0.999,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_911ff3e773f846529fdf5c5d2b258860~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_911ff3e773f846529fdf5c5d2b258860~mv2.webp",
+      "wixAssetSHA256": "7bc020e704742fde2b90c987e210fdde25e76b02877bd9327808f60ab064d912",
+      "wixHostedDimensions": {
+        "width": 598,
+        "height": 560
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-smart-curtain.webp"
     },
     {
       "variantId": "level-4-smart-luggage",
@@ -823,9 +1165,18 @@
       "sourceRenderedCropP95": 16,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_6c3e5cee04aa4e41a8d52c109b634d60~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_6c3e5cee04aa4e41a8d52c109b634d60~mv2.webp",
+      "wixAssetSHA256": "2679d2cec317b0c8fd7d0e2ec846bc2e62fba19bfb590790d98fd7b0731d26b6",
+      "wixHostedDimensions": {
+        "width": 490,
+        "height": 462
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-smart-luggage.webp"
     },
     {
       "variantId": "level-4-smart-speaker",
@@ -843,9 +1194,18 @@
       "sourceRenderedCropP95": 22,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_ae751ad5192a4649a300ee8cc0113e97~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_ae751ad5192a4649a300ee8cc0113e97~mv2.webp",
+      "wixAssetSHA256": "e68f8cf365719a68563986b0f1cd9a1f6c69924aab0b3120160349bf1c763eb0",
+      "wixHostedDimensions": {
+        "width": 470,
+        "height": 424
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-smart-speaker.webp"
     },
     {
       "variantId": "level-4-spinning-cups",
@@ -863,9 +1223,18 @@
       "sourceRenderedCropP95": 25,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_fd7eea52fb344acba28668a30bc50473~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_fd7eea52fb344acba28668a30bc50473~mv2.webp",
+      "wixAssetSHA256": "7b6afafebaa88b3efed99b47370af60e7ab067a39046eba77c28a4d217567b06",
+      "wixHostedDimensions": {
+        "width": 448,
+        "height": 470
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-spinning-cups.webp"
     },
     {
       "variantId": "level-4-swimming-plesiosaur",
@@ -877,15 +1246,33 @@
       "hostedPageCountMatched": true,
       "imagePath": "public/final-build/level-4/level-4-swimming-plesiosaur.webp",
       "sourcePage": 40,
-      "referenceSha256": "9b45d3963d0d8d152a95eafba11db17422a3e378a4f6490ae62c294056cbcd17",
+      "referenceSha256": "df616c793393bb16071889de2dc94ceec1f2d7fa3aa9fae2d9afc8f15aed93e3",
       "webpDecoded": true,
-      "sourceRenderedCropMAE": 2.35,
-      "sourceRenderedCropP95": 15,
+      "sourceRenderedCropMAE": 0.6308,
+      "sourceRenderedCropP95": null,
       "cropEdgeDarkPixelFraction": 0.007,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_2cdc0c9a44af47da812f1cd829e42d30~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_2cdc0c9a44af47da812f1cd829e42d30~mv2.webp",
+      "wixAssetSHA256": "df616c793393bb16071889de2dc94ceec1f2d7fa3aa9fae2d9afc8f15aed93e3",
+      "wixHostedDimensions": {
+        "width": 950,
+        "height": 676
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-swimming-plesiosaur.webp",
+      "rasterAnnotationOnlyMarginMask": [
+        [
+          0,
+          0,
+          145,
+          160
+        ]
+      ],
+      "rasterReviewedAgainstSourceCrop": true
     },
     {
       "variantId": "level-4-tail-wagging-stegosaurus",
@@ -903,9 +1290,18 @@
       "sourceRenderedCropP95": 13,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_80e2bec770a24e2584fbf3b61f13be30~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_80e2bec770a24e2584fbf3b61f13be30~mv2.webp",
+      "wixAssetSHA256": "3fd3105a4dac99e1f04854959549fb58422a9a439c1012c809694cd8ee69c3ed",
+      "wixHostedDimensions": {
+        "width": 407,
+        "height": 490
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-tail-wagging-stegosaurus.webp"
     },
     {
       "variantId": "level-4-telegraph",
@@ -923,10 +1319,19 @@
       "sourceRenderedCropP95": null,
       "cropEdgeDarkPixelFraction": 0.006,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false,
-      "repairNote": "Use page 24 clean assembled robot without page 25 red instructional arrows."
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "repairNote": "Use page 24 clean assembled robot without page 25 red instructional arrows.",
+      "wixReady": true,
+      "wixMediaId": "78042f_573b6f40a0db4aff9fa481fb30bb0e73~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_573b6f40a0db4aff9fa481fb30bb0e73~mv2.webp",
+      "wixAssetSHA256": "6a91c2aa97005048fcf806d92d55a4863444372ae9358bd3528716705930a901",
+      "wixHostedDimensions": {
+        "width": 950,
+        "height": 949
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-telegraph.webp"
     },
     {
       "variantId": "level-4-telegraph-machine",
@@ -944,9 +1349,18 @@
       "sourceRenderedCropP95": 32,
       "cropEdgeDarkPixelFraction": 1,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_39a77c0a423a4bb08ca8c878bb03f9fd~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_39a77c0a423a4bb08ca8c878bb03f9fd~mv2.webp",
+      "wixAssetSHA256": "67bcc9c0e2093093a67ef1587040732c9762fb4927acf5e731167784397b0b0b",
+      "wixHostedDimensions": {
+        "width": 536,
+        "height": 442
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-telegraph-machine.webp"
     },
     {
       "variantId": "level-4-transformer-robot",
@@ -964,9 +1378,18 @@
       "sourceRenderedCropP95": 16,
       "cropEdgeDarkPixelFraction": 0.012,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_371d52ab412744a4ae526f99c086462a~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_371d52ab412744a4ae526f99c086462a~mv2.webp",
+      "wixAssetSHA256": "63efd0a9e5c4ced542369cab4cc1fb6de1fd919ae442391ed171ec2f41a03617",
+      "wixHostedDimensions": {
+        "width": 490,
+        "height": 432
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-transformer-robot.webp"
     },
     {
       "variantId": "level-4-tumbler",
@@ -984,9 +1407,18 @@
       "sourceRenderedCropP95": 14,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_425f5be8ae07493ba1214244e8ff8318~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_425f5be8ae07493ba1214244e8ff8318~mv2.webp",
+      "wixAssetSHA256": "8e7d83d056f6e2f9c83b89cadf4737c915fd67999eb3d098174f2986dc78424a",
+      "wixHostedDimensions": {
+        "width": 490,
+        "height": 402
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-tumbler.webp"
     },
     {
       "variantId": "level-4-turbo-drop",
@@ -1004,9 +1436,18 @@
       "sourceRenderedCropP95": 15,
       "cropEdgeDarkPixelFraction": 0,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_b6484b13382e4659be4d9c96b3de2577~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_b6484b13382e4659be4d9c96b3de2577~mv2.webp",
+      "wixAssetSHA256": "417ea5db9e1ac0434009d8856ff1fcc425713bac46b6bcbb1c74ac88f5dc8f60",
+      "wixHostedDimensions": {
+        "width": 285,
+        "height": 560
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-turbo-drop.webp"
     },
     {
       "variantId": "level-4-warrior-with-claws",
@@ -1018,15 +1459,33 @@
       "hostedPageCountMatched": true,
       "imagePath": "public/final-build/level-4/level-4-warrior-with-claws.webp",
       "sourcePage": 19,
-      "referenceSha256": "ccfcc6fa475a8d974b907afd37dc7f386756a3a4eaec456e763efd6d2263e464",
+      "referenceSha256": "564d25f82ff51d77ea02c7f79e9c9194cfbbce8146fb9a110eb5b5eb0bf7740c",
       "webpDecoded": true,
-      "sourceRenderedCropMAE": 2.62,
-      "sourceRenderedCropP95": 15,
+      "sourceRenderedCropMAE": 0.7031,
+      "sourceRenderedCropP95": null,
       "cropEdgeDarkPixelFraction": 0.019,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_c6b78b8908da4703b895372e65734e18~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_c6b78b8908da4703b895372e65734e18~mv2.webp",
+      "wixAssetSHA256": "564d25f82ff51d77ea02c7f79e9c9194cfbbce8146fb9a110eb5b5eb0bf7740c",
+      "wixHostedDimensions": {
+        "width": 920,
+        "height": 745
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-warrior-with-claws.webp",
+      "rasterAnnotationOnlyMarginMask": [
+        [
+          0,
+          570,
+          120,
+          745
+        ]
+      ],
+      "rasterReviewedAgainstSourceCrop": true
     },
     {
       "variantId": "level-4-warrior-with-claws:optimized",
@@ -1044,9 +1503,18 @@
       "sourceRenderedCropP95": 15,
       "cropEdgeDarkPixelFraction": 0.051,
       "pixelFidelity": "pass",
-      "modelOnlyVisualSignoff": false,
-      "checklistMechanismSignoff": false,
-      "studentApproved": false
+      "modelOnlyVisualSignoff": true,
+      "checklistMechanismSignoff": true,
+      "studentApproved": true,
+      "wixReady": true,
+      "wixMediaId": "78042f_26b7d459ba384f1185672e6f2d3819ae~mv2.webp",
+      "wixPublicUrl": "https://static.wixstatic.com/media/78042f_26b7d459ba384f1185672e6f2d3819ae~mv2.webp",
+      "wixAssetSHA256": "7366eee03117a3915c904a19ac36b1a61bd34805ae5a057cc4b533f0afcc8830",
+      "wixHostedDimensions": {
+        "width": 490,
+        "height": 428
+      },
+      "wixVerifiedSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/8e1c67fa92dd481c20bda51274bed1b990172386/public/final-build/level-4/level-4-warrior-with-claws--optimized.webp"
     }
   ]
 }

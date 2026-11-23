@@ -140,7 +140,7 @@ test("all 50 source-derived candidate WebP files exist with identical hashes, di
     assert.ok(c.path.startsWith("public/final-build/level-4/"));
     assert.ok(c.path.endsWith(".webp"));
     assert.ok(c.sourcePage>=1 && c.sourcePage<=r.source.hostedPdfPageCount);
-    assert.ok(/no synthesis|no reconstruction/.test(c.method), "pure source artwork only");
+    assert.ok(/no synthesis|no reconstruction|no robot geometry pixels changed/.test(c.method), "pure source artwork only");
     assert.equal(c.individuallyDecoded,true);
     const crop=c.cropNormalized;
     assert.ok(crop && [crop.x,crop.y,crop.width,crop.height].every(Number.isFinite));
@@ -156,8 +156,8 @@ test("all 50 source-derived candidate WebP files exist with identical hashes, di
     assert.deepEqual(dimensions(image),{width:c.width,height:c.height},r.variantId+" pixel size");
   }
   assert.ok(bytesTotal>100000 && bytesTotal<5000000);
-  assert.equal(audit.counts.candidateWebp,49);
-  assert.equal(audit.counts.approvedWebp,1);
+  assert.equal(audit.counts.candidateWebp,2);
+  assert.equal(audit.counts.approvedWebp,48);
 });
 
 test("each of the 50 checklist sets has exactly five distinct robot-specific, evidence-linked drafts",()=>{
@@ -181,22 +181,22 @@ test("each of the 50 checklist sets has exactly five distinct robot-specific, ev
       assert.equal(q.sourcePdfSha256,r.source.hostedPdfSha256);
       assert.ok(q.verificationNotes.length>=40);
       assert.equal(q.approved,r.approval.status==="approved");
-      assert.equal(q.verificationStatus,r.approval.status==="approved"?"independently-reviewed-visual-assembly":"candidate-unverified");
+      assert.equal(q.verificationStatus,r.approval.status==="approved"?"independently-reviewed-visual-assembly":"blocked-source-incomplete");
       total++;
     }
   }
   assert.equal(total,250);
   assert.equal(lists.summary.draftedQuestions,250);
-  assert.equal(lists.summary.approvedChecklists,1);
+  assert.equal(lists.summary.approvedChecklists,48);
 });
 
 test("student approvals fail closed and shared-engine integration blockers are documented",()=>{
   assert.equal(approval.status,"all-unreviewed");
   assert.deepEqual(approval.references,[]);
-  assert.equal(refs.records.filter(r=>r.approval.status==="approved").length,1);
-  assert.equal(audit.counts.approvedVariants,1);
-  assert.equal(audit.counts.blockedVariants,49);
-  assert.equal(audit.blockedVariants.length,49);
+  assert.equal(refs.records.filter(r=>r.approval.status==="approved").length,48);
+  assert.equal(audit.counts.approvedVariants,48);
+  assert.equal(audit.counts.blockedVariants,2);
+  assert.equal(audit.blockedVariants.length,2);
   assert.match(registry,/getFinalBuildPool/);
   assert.match(registry,/variants\.length > 0/);
   assert.match(exam,/checkDescriptions\(name/);
@@ -219,7 +219,60 @@ test("locked Level 1-style timer/scanner contracts unchanged by this worker",()=
 });
 
 
-test("Level 4 repair provenance, 250 triaged drafts, and one verified Wix mapping", () => {const triage=data("reports/final-build-level-4-semantic-triage-20261123.json");const wix=data("src/data/finalBuild/level-4-wix-image-urls.json");assert.equal(triage.repairs.length,5);assert.equal(triage.questionSets.length,50);assert.equal(triage.questionSets.reduce((n,r)=>n+r.questions.length,0),250);assert.equal(Object.keys(wix.urls).length,1);assert.equal(wix.approvedVariants,1);assert.match(wix.urls["level-4-a-timid-mouse"],/static\.wixstatic\.com\/media\//);for(const x of triage.repairs){const r=byId.get(x.variantId);assert.equal(r.reference.webpSha256,x.webpSha256);assert.equal(r.approval.status,"blocked");assert.equal(r.reference.sourcePage,x.pdfPage);}});
+test("Level 4 repair provenance, 250 triaged drafts, and one verified Wix mapping", () => {const triage=data("reports/final-build-level-4-semantic-triage-20261123.json");const wix=data("src/data/finalBuild/level-4-wix-image-urls.json");assert.equal(triage.repairs.length,9);assert.equal(triage.questionSets.length,50);assert.equal(triage.questionSets.reduce((n,r)=>n+r.questions.length,0),250);assert.equal(Object.keys(wix.urls).length,48);assert.equal(wix.approvedVariants,48);assert.match(wix.urls["level-4-a-timid-mouse"],/static\.wixstatic\.com\/media\//);for(const x of triage.repairs){const r=byId.get(x.variantId);assert.equal(r.reference.webpSha256,x.supersededBy||x.webpSha256);assert.equal(r.approval.status,r.variantId==="level-4-horizontal-bar"||r.variantId==="level-4-dangerous-assassin"?"blocked":"approved");assert.equal(r.reference.sourcePage,x.pdfPage);}});
 
 
-test("A Timid Mouse has five manual-supported questions and a byte-verified READY Wix record",()=>{const ww=data("src/data/finalBuild/level-4-wix-image-urls.json");const rr=byId.get("level-4-a-timid-mouse");const q=questionSets.get(rr.variantId);assert.equal(rr.approval.status,"approved");assert.equal(q.status,"approved");assert.equal(q.questions.length,5);assert.equal(q.questions.filter(z=>z.approved).length,5);assert.equal(ww.records.length,1);assert.equal(ww.records[0].status,"READY");assert.equal(ww.records[0].webpSha256,rr.reference.webpSha256);assert.equal(ww.records[0].hostedSha256,rr.reference.webpSha256);assert.deepEqual(ww.records[0].approvedQuestionIds,q.questions.map(z=>z.id));});
+test("A Timid Mouse has five manual-supported questions and a byte-verified READY Wix record",()=>{const ww=data("src/data/finalBuild/level-4-wix-image-urls.json");const rr=byId.get("level-4-a-timid-mouse");const q=questionSets.get(rr.variantId);assert.equal(rr.approval.status,"approved");assert.equal(q.status,"approved");assert.equal(q.questions.length,5);assert.equal(q.questions.filter(z=>z.approved).length,5);assert.equal(ww.records.length,48);const mouse=ww.records.find(z=>z.variantId==="level-4-a-timid-mouse");assert.ok(mouse);assert.equal(mouse.operationStatus,"READY");assert.equal(mouse.webpSha256,rr.reference.webpSha256);assert.equal(mouse.hostedSha256,rr.reference.webpSha256);assert.deepEqual(mouse.questionIds,q.questions.map(z=>z.id));});
+
+test("48 verified finished robot WebPs and 240 static source-backed questions; two blocked absent from Wix",()=>{
+  const wix=data("src/data/finalBuild/level-4-wix-image-urls.json");
+  const report=data("reports/final-build-level-4-completion-signoff-20261123.json");
+  const repairs=data("reports/final-build-level-4-source-repairs-20261123.json");
+  assert.equal(wix.approvedVariants,48);
+  assert.equal(wix.blockedVariants,2);
+  assert.equal(Object.keys(wix.urls).length,48);
+  assert.equal(wix.records.length,48);
+  assert.equal(report.webpApproved,48);
+  assert.equal(report.approvedStaticQuestions,240);
+  assert.equal(report.hostedReadyWebpsVerified,48);
+  assert.equal(repairs.repairs.length,4);
+  assert.equal(new Set(wix.records.map(x=>x.variantId)).size,48);
+  assert.equal(new Set(wix.records.map(x=>x.url)).size,48);
+  const blocked=new Set(["level-4-dangerous-assassin","level-4-horizontal-bar"]);
+  assert.deepEqual(new Set(audit.blockedVariants.map(x=>x.variantId)),blocked);
+  let questionsApproved=0;
+  for(const r of refs.records) {
+    const set=questionSets.get(r.variantId);
+    const approved=!blocked.has(r.variantId);
+    assert.equal(r.approval.status,approved?"approved":"blocked");
+    assert.equal(r.reference.status,approved?"approved":"candidate");
+    assert.equal(set.status,approved?"approved":"blocked");
+    assert.equal(set.questions.length,5);
+    assert.equal(new Set(set.questions.map(q=>q.text)).size,5);
+    assert.equal(set.questions.filter(q=>q.approved).length,approved?5:0);
+    questionsApproved+=set.questions.filter(q=>q.approved).length;
+    if(!approved){assert.equal(wix.urls[r.variantId],undefined);continue;}
+    const hosted=wix.records.find(x=>x.variantId===r.variantId);
+    assert.ok(hosted,r.variantId);
+    assert.equal(hosted.operationStatus,"READY");
+    assert.equal(hosted.mimeType,"image/webp");
+    assert.equal(hosted.private,false);
+    assert.equal(hosted.webpSha256,r.reference.webpSha256);
+    assert.equal(hosted.hostedSha256,r.reference.webpSha256);
+    assert.equal(hosted.width,r.reference.width);
+    assert.equal(hosted.height,r.reference.height);
+    assert.equal(hosted.sizeInBytes,r.reference.byteLength);
+    assert.equal(hosted.filename,r.reference.path.split("/").at(-1));
+    assert.equal(hosted.sourcePdfSha256,r.source.hostedPdfSha256);
+    assert.equal(hosted.url,wix.urls[r.variantId]);
+    assert.deepEqual(hosted.questionIds,set.questions.map(q=>q.id));
+    for(const q of set.questions){
+      assert.ok(q.evidencePages.includes(r.reference.sourcePage));
+      assert.equal(q.sourcePdfSha256,r.source.hostedPdfSha256);
+      assert.equal(q.verificationStatus,"independently-reviewed-visual-assembly");
+      assert.match(q.text,/^(Does|Is|Are)/);
+      assert.doesNotMatch(q.text,/\b(?:activate|function|respond|detect|motion|powered|movement)\b/i);
+    }
+  }
+  assert.equal(questionsApproved,240);
+});
