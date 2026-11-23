@@ -276,3 +276,19 @@ test("48 verified finished robot WebPs and 240 static source-backed questions; t
   }
   assert.equal(questionsApproved,240);
 });
+
+test("isolated Level 4 content adapter admits only source-verified, five-question Wix READY records",()=>{
+  const code=text("src/data/finalBuild/level-4-approved-content.ts");
+  assert.match(code,/export function getApprovedLevel4FinalBuildContent/);
+  assert.match(code,/approval.status !== "approved"/);
+  assert.match(code,/reference.status !== "approved"/);
+  assert.match(code,/checklist.questions.length !== 5/);
+  assert.match(code,/question.approved !== true/);
+  assert.match(code,/media.operationStatus !== "READY"/);
+  assert.match(code,/media.mimeType !== "image\/webp"/);
+  assert.match(code,/media.webpSha256 !== reference.webpSha256/);
+  assert.match(code,/media.sizeInBytes !== reference.byteLength/);
+  assert.match(code,/seenVariants.add\(variantId\)/);
+  assert.match(code,/seenUrls.add\(media.url\)/);
+  assert.doesNotMatch(code,/scannerAnimation|SCAN_MS|LIMIT_MS|checkDescriptions\(/);
+});
