@@ -74,7 +74,16 @@ test("Level 5 contains 39 approved source references, 195 checks and six blocked
   assert.equal(levelFiveChecklists.items.length, 45);
   assert.equal(levelFiveReferences.renderableApprovedReferences.length, 39);
   assert.equal(levelFiveChecklists.approvedChecklists.length, 39);
-  assert.equal(Object.keys(wixImageUrls.urls).length, 0, "No Wix image upload has been claimed");
+  const wixUrls = Object.entries(wixImageUrls.urls);
+  assert.ok(wixUrls.length <= 39, "Only approved variants may have Wix images");
+  const approvedIds = new Set(levelFiveReferences.renderableApprovedReferences.map(item => item.variantId));
+  for (const [variantId, url] of wixUrls) {
+    assert.ok(approvedIds.has(variantId), "Blocked/unknown variant cannot receive a hosted image");
+    const parsed = new URL(url);
+    assert.equal(parsed.protocol, "https:");
+    assert.equal(parsed.hostname, "static.wixstatic.com");
+    assert.ok(/^\\/media\\//.test(parsed.pathname) && /\\.webp$/i.test(parsed.pathname));
+  }
   const checksByVariant = new Map(levelFiveChecklists.items.map(item => [item.variantId, item]));
   const seen = new Set();
   let approved = 0;
