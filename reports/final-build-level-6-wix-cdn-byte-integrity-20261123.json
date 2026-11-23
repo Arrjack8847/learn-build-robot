@@ -1,0 +1,324 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-23",
+  "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+  "level": 6,
+  "verification": "Public static.wixstatic.com HTTPS GET original WebP response, HTTP 200, expected byte count and independently registered SHA-256 equality",
+  "checked": 39,
+  "passed": 39,
+  "failed": 0,
+  "files": [
+    {
+      "variantId": "level-6-gorilla",
+      "url": "https://static.wixstatic.com/media/78042f_2cd75faf471a46a4bba2597ea949bda5~mv2.webp",
+      "http": 200,
+      "bytes": 16072,
+      "sha256": "d358f1d87d7e3668b60936768fe14027a1e1f52c9426437ea0f3254517811108",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-picture-projector",
+      "url": "https://static.wixstatic.com/media/78042f_2f947b53c9054e94b8a72ac4fae43828~mv2.webp",
+      "http": 200,
+      "bytes": 15952,
+      "sha256": "951be9a60ee693d16a4bf13003adaaad6b9bf74ccaf494ea51e0b48dae71f60c",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-the-flapping-pterosaur",
+      "url": "https://static.wixstatic.com/media/78042f_5fb14c4ca2bd4f5c9eb9bd5ef0a3297f~mv2.webp",
+      "http": 200,
+      "bytes": 16474,
+      "sha256": "7a3dec8bd0c6ffaa453e10dd8d01fd00b43822a00fe50c60bb3f6ce7665a74cf",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-code-scanning-gate",
+      "url": "https://static.wixstatic.com/media/78042f_eeef866d3fc645cc98bbea4a2f90fabc~mv2.webp",
+      "http": 200,
+      "bytes": 15462,
+      "sha256": "d98a2ee6584853a08e4a4a61c477a73718f79589b425321090add9745fd0e2e3",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-intelligent-passing-light",
+      "url": "https://static.wixstatic.com/media/78042f_8bcd752e61de4b91b3fd81b72fc974f3~mv2.webp",
+      "http": 200,
+      "bytes": 17146,
+      "sha256": "564cbdeb949a43279813ae8035a5aa1088ee00e04238bf0a6f36fab6f36b62c3",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-gesture-commanding-car",
+      "url": "https://static.wixstatic.com/media/78042f_d25a704901254d77b19d869d81516b78~mv2.webp",
+      "http": 200,
+      "bytes": 15626,
+      "sha256": "5faceb710695378ae742496c11d639b2f9b5e32faf49fccefca06e74b1ae5b64",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-regional-weather-station",
+      "url": "https://static.wixstatic.com/media/78042f_cc7c75c7d40c40d0bb5823a99990cbe7~mv2.webp",
+      "http": 200,
+      "bytes": 16384,
+      "sha256": "a587e07fc3bf0ba449bb0295cf436fb94d4072423a62e71763ac801a07957ed3",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-super-scorpion",
+      "url": "https://static.wixstatic.com/media/78042f_4d77cbced9b2498d8178aed49831fd55~mv2.webp",
+      "http": 200,
+      "bytes": 16160,
+      "sha256": "48124a81ac224583a85c246198b71adb2f4f6890b4a37e6a4243cfc7decec173",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-clown",
+      "url": "https://static.wixstatic.com/media/78042f_f69f5165192648f19b77f04cbbd57c3e~mv2.webp",
+      "http": 200,
+      "bytes": 16778,
+      "sha256": "9a8bbec04f67790bc0ef26b8c6fd58a585d3081582c0329d65e0cd5220cba07f",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-accurate-shooting",
+      "url": "https://static.wixstatic.com/media/78042f_5619f9513f6a41ba9ce5edfd0881b553~mv2.webp",
+      "http": 200,
+      "bytes": 15664,
+      "sha256": "9295b2151a8981fa75cf77ddc98616ec27d7011030193e037593a05eb49fc14a",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-digital-countdown",
+      "url": "https://static.wixstatic.com/media/78042f_5a5be2dab5c54abbb7f03a80225be432~mv2.webp",
+      "http": 200,
+      "bytes": 16640,
+      "sha256": "9363fedf39a0e26b1cbe78b04ede8fca7f3d3889e0bb8717cc6e262c5a5ef694",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-red-light-warning-device",
+      "url": "https://static.wixstatic.com/media/78042f_a75ea977f8f745aea7366a9afef44df7~mv2.webp",
+      "http": 200,
+      "bytes": 16730,
+      "sha256": "a0c71a56f79a1985445c6028a2fce162b7fc5e38d24aaeab951f0ddd466646b5",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-smart-flashlight",
+      "url": "https://static.wixstatic.com/media/78042f_f59ada81f1cc4e869742ce32610ca25d~mv2.webp",
+      "http": 200,
+      "bytes": 15840,
+      "sha256": "d04764cf3931ff96bfa7c42bddc5733d9258d5d9370a94f58fb7f47e407793f9",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-traffic-lights-display",
+      "url": "https://static.wixstatic.com/media/78042f_2d2520f0c86e4fb7b515349f01a02128~mv2.webp",
+      "http": 200,
+      "bytes": 16936,
+      "sha256": "573e32a71b0492470b60766c98185a32adca1a95307638b1f860ad9bf1927cf2",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-pinball-machine",
+      "url": "https://static.wixstatic.com/media/78042f_922856ea33b448bcb928138aab74619e~mv2.webp",
+      "http": 200,
+      "bytes": 15112,
+      "sha256": "18ec0ac9d20b148a0c57a19fbe2dd4086344a430786df45df4c8aea5df48cffb",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-smart-fan",
+      "url": "https://static.wixstatic.com/media/78042f_452cbcff6af74d2989385df01efc4777~mv2.webp",
+      "http": 200,
+      "bytes": 15876,
+      "sha256": "3d32288c86c8f059eeb38a5f3e88f49c4a4dc5fa876b8c5755b494a079447a20",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-the-interesting-rotor",
+      "url": "https://static.wixstatic.com/media/78042f_7a833ed8ac564d619acef484e5755213~mv2.webp",
+      "http": 200,
+      "bytes": 15654,
+      "sha256": "ae2cdf476d5f081fb872bb8c540df43fd31146acde5109a1d3839659274750e4",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-combination-lock",
+      "url": "https://static.wixstatic.com/media/78042f_d4f8d49cdb4944debb138efdef2dd921~mv2.webp",
+      "http": 200,
+      "bytes": 16850,
+      "sha256": "8183f0d78dadeb01396d99b9da3fd0e33c7dc2d273aa0c6e19f6164e5a3dccfa",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-gibbon",
+      "url": "https://static.wixstatic.com/media/78042f_5179c6752749458a80730f5cb28cee3d~mv2.webp",
+      "http": 200,
+      "bytes": 15916,
+      "sha256": "6f9656c8fce3f2bd3bf0279f7039a51364024139b754db5590db7c4f6588c6fc",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-gibbon:optimized",
+      "url": "https://static.wixstatic.com/media/78042f_a7b48ca5d8d84f4498bb02a60e595469~mv2.webp",
+      "http": 200,
+      "bytes": 15734,
+      "sha256": "c74123a8a710f93f08c732025d804f1ceab2006be92557387d9c4b90e7354020",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-pay-by-card",
+      "url": "https://static.wixstatic.com/media/78042f_90772807eeb7413d8bf3e18cdc0db731~mv2.webp",
+      "http": 200,
+      "bytes": 15382,
+      "sha256": "3f78497d4ce293d51c874971a36bc05a5998c6609a2b1d3702a42e635edc9c7e",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-product-search",
+      "url": "https://static.wixstatic.com/media/78042f_3ea174f97a794e7d87b6f61642a0dc1a~mv2.webp",
+      "http": 200,
+      "bytes": 16062,
+      "sha256": "f8bd9036466d18393a4b66ad74330ea4cdcb154269f66101aca391e5f59998f5",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-punch-hard",
+      "url": "https://static.wixstatic.com/media/78042f_8ee04a7f1c744ca494949370571f6cfa~mv2.webp",
+      "http": 200,
+      "bytes": 15738,
+      "sha256": "83b9486b625398d456133406d1efc206793dda5cd72c97e613c239c88e767be4",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-rc-airplane",
+      "url": "https://static.wixstatic.com/media/78042f_c12dc3bd86c34f10ac67439fcef8ce81~mv2.webp",
+      "http": 200,
+      "bytes": 15788,
+      "sha256": "396b7300a2d73133137c63e5c0feb557fe5674829432489e2d1cdbd8c61575a0",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-ring-toss-game",
+      "url": "https://static.wixstatic.com/media/78042f_094fb972a87049dcbcc3c946397e688a~mv2.webp",
+      "http": 200,
+      "bytes": 16158,
+      "sha256": "4df78fd594ba78e64b888c102d1ca4c1cf6984c2af0769c80576dd449bcf410a",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-robotic-arm",
+      "url": "https://static.wixstatic.com/media/78042f_73f5f6fac9454cc8b66a112a83ee1782~mv2.webp",
+      "http": 200,
+      "bytes": 14914,
+      "sha256": "52b3791dc4b2e8b0e05ea9ff2243670e78e82677e5e306215e141b12a799178a",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-vending-machine",
+      "url": "https://static.wixstatic.com/media/78042f_f81b50bed17b4e31a8bbb4a0c89e0438~mv2.webp",
+      "http": 200,
+      "bytes": 15578,
+      "sha256": "f874a72c2a2f209ae260c6cf387497b750b2753f61e163c861ee7ddb412af73b",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-autonomous-driving",
+      "url": "https://static.wixstatic.com/media/78042f_de9269cc56174e1fa38d40b4e8a42f1f~mv2.webp",
+      "http": 200,
+      "bytes": 16386,
+      "sha256": "ffba75a9f59afce3a0869475d22619edeffa022a0a2e705eebc07172f252cbc7",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-minesweeper-robot",
+      "url": "https://static.wixstatic.com/media/78042f_cd2b9a4b398b48a2aa5cc81d75eb5b20~mv2.webp",
+      "http": 200,
+      "bytes": 17170,
+      "sha256": "cb1d9da90154d3fe80b3511377279ced667221d6cb602a1849a4b1af65f5196a",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-remote-control-lift",
+      "url": "https://static.wixstatic.com/media/78042f_857ddf9d0a4b4a888ebfedba447e52f0~mv2.webp",
+      "http": 200,
+      "bytes": 16260,
+      "sha256": "19fbd5ca9694798f043d3f024d2ea42e97f2cd3f38a72d8a870b9b1004e99fc1",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-saluting-robot",
+      "url": "https://static.wixstatic.com/media/78042f_c85e2a44f8f44bf795010066a99f0d7f~mv2.webp",
+      "http": 200,
+      "bytes": 15542,
+      "sha256": "1dddb57b79211540312b7da675daee174a58c40340479db7ff5d9129a9ed99f6",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-smart-electric-drill",
+      "url": "https://static.wixstatic.com/media/78042f_3a8c1f05ff5e475bbec9fd2af3f85afd~mv2.webp",
+      "http": 200,
+      "bytes": 16716,
+      "sha256": "23c5377b5ea2891dcb091af2f510396750a489d3ade57da605161149773019c1",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-altimeter",
+      "url": "https://static.wixstatic.com/media/78042f_b2168f172186486ead0c45be4187985a~mv2.webp",
+      "http": 200,
+      "bytes": 16822,
+      "sha256": "43f9df46640e6e373fa86b5477d886b55a36e872ef32c3c6a2bb0b711cd53a0e",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-high-temperature-alarm",
+      "url": "https://static.wixstatic.com/media/78042f_b90a86edadcb4e0d9172a277b63cab4e~mv2.webp",
+      "http": 200,
+      "bytes": 15796,
+      "sha256": "940904d99d95b3f6cae53732011314103b37e9f91ed29f1f2afe8fcec3ae5cfa",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-intelligent-sorting-machine",
+      "url": "https://static.wixstatic.com/media/78042f_9d5cd5b4ba11486a874ebfba21415eae~mv2.webp",
+      "http": 200,
+      "bytes": 16638,
+      "sha256": "a78c16e031de392ef0adbcfd96b2f10d6e1afc8849fd26af00ffaafd2d9f740f",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-parcel-sorting-machine",
+      "url": "https://static.wixstatic.com/media/78042f_f7cf106c5ef34b79b6b33172b4602fd6~mv2.webp",
+      "http": 200,
+      "bytes": 16026,
+      "sha256": "f74772ae3e6961c4610055057b0f68f70a1c7b7f892346edf8ffac57138db9bb",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-colorblind-assistant-robot",
+      "url": "https://static.wixstatic.com/media/78042f_540d2b8d78854c5889afc4b1518c4385~mv2.webp",
+      "http": 200,
+      "bytes": 15434,
+      "sha256": "8aa4f308fb5bff91821f32dc0214fc547ecea44890f51bcd5a98d35a8403eed1",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-smart-camera",
+      "url": "https://static.wixstatic.com/media/78042f_935d6d51495e4f93b51024149ab5e363~mv2.webp",
+      "http": 200,
+      "bytes": 15214,
+      "sha256": "4a91d70d3aa726522b576d7863dd5701029976ed3fb6d4114b0d4d8464e5d609",
+      "passes": true
+    },
+    {
+      "variantId": "level-6-tricycle",
+      "url": "https://static.wixstatic.com/media/78042f_36d6bb1f83914d3a925c7efcd0603ee5~mv2.webp",
+      "http": 200,
+      "bytes": 16034,
+      "sha256": "3232f8898fea38ce41d84ed1eee9df552765d7c3dce5784ffe7bdde7bc7348c6",
+      "passes": true
+    }
+  ]
+}
