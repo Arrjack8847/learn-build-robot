@@ -17,18 +17,20 @@
     "registeredBuildingProjects": 43,
     "registeredBuildingVariants": 45,
     "syllabusProjectsWithoutIndependentBuildingManual": 8,
-    "approvedVariants": 0,
-    "blockedVariants": 45
+    "approvedVariants": 39,
+    "blockedVariants": 6
   },
   "sourceValidation": {
     "registrationCrosscheckedAgainstGitTree": true,
     "allFortyFiveMappedToWix": true,
     "allFiveHistoricalRepairsKept": true,
     "chairoplaneLatestNovember20Applied": true,
-    "actualHostedPdfBytesReverified": false,
-    "sha256ForAllVariants": false,
+    "actualHostedPdfBytesReverified": true,
+    "sha256ForAllVariants": true,
     "individualFinishedModelVisuallyReviewed": false,
-    "notes": "SHA-1 Git blob IDs are provenance identifiers, not SHA-256. Historical Wix verification does not prove crop validity or independently certify every page as English-only."
+    "notes": "SHA-1 Git blob IDs are provenance identifiers, not SHA-256. Historical Wix verification does not prove crop validity or independently certify every page as English-only.",
+    "reviewedFinalPageContacts": true,
+    "fullEnglishOnlyCertified": false
   },
   "historicalReport": {
     "reportDate": "2026-11-20",
@@ -95,44 +97,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "69fec3ce90446b24df5342e2f43d79d112fec4fc85171c40cc3ff67ce7429114",
+        "pageCount": 9,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 9,
+        "normalizedCrop": [
+          0.208277,
+          0.172579,
+          0.600407,
+          0.771812
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-curling-game-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "a48a513ab6e217bcf7916d3501ed1cceeb4d30a5fe8477e3d97b303735ad8660",
+        "dimensions": [
+          550,
+          500
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -150,44 +155,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "3ac68494ba5efc16b954e8a0037cb77810789763b997c86c4561dbf1b8e50774",
+        "pageCount": 4,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 4,
+        "normalizedCrop": [
+          0.208277,
+          0.172579,
+          0.600407,
+          0.771812
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-curling-game-optimized.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "ac3906079aecbff67cc6aea9dbc81699e1ed674307da98afc68a81d35d3575e4",
+        "dimensions": [
+          550,
+          500
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -205,44 +213,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "d8d76abdceb9675b1139d5e1d28ead5cc23a61dd5576e2dd59cd28527e538ccd",
+        "pageCount": 40,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 40,
+        "normalizedCrop": [
+          0.154003,
+          0.185043,
+          0.63772,
+          0.6721
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-drawing-machine-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "84eface4b0899e2b8b39d1af7c2d9a83534714190e4ffa190f4c09b02d7eb1d6",
+        "dimensions": [
+          550,
+          410
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -260,44 +271,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "877e35222fb351276e80a42dc539582c70df1d2858ab207faff026a6bdf818df",
+        "pageCount": 28,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 28,
+        "normalizedCrop": [
+          0.130936,
+          0.259827,
+          0.744912,
+          0.559923
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-firefly-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "67a9e622ef017b49a3fcccc605188577c57c994439a4d6bab4e326651d243c24",
+        "dimensions": [
+          550,
+          292
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -315,44 +329,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "3583e37b7974007eed042c5ec4f2a92e7a637cd8a432ed99025927eaeb042829",
+        "pageCount": 20,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 20,
+        "normalizedCrop": [
+          0.02171,
+          0.131352,
+          0.971506,
+          0.675935
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-goalkeeper-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "a998a972aecac2973aed4c27cadd06221d0b8f2e370db03c75c1112a50ba5dbe",
+        "dimensions": [
+          550,
+          271
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -379,44 +396,47 @@
         }
       ],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "2fb7c95e214c21e3db6cf8bc499683861d565a7dd1110d345f680c9b8c4c5faf",
+        "pageCount": 26,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 26,
+        "normalizedCrop": [
+          0.198779,
+          0.05465,
+          0.658752,
+          0.885906
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-spanish-bullfight-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "6b59696483fad0b34762ec6d4c6cec208c9ac36be623dcc2623784cbda613899",
+        "dimensions": [
+          510,
+          485
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -434,44 +454,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "d86373df8de92b592c5766aad7aa1dfeb248f0e384b5fc27d3012141999e2af3",
+        "pageCount": 27,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 27,
+        "normalizedCrop": [
+          0.275441,
+          0.128476,
+          0.451153,
+          0.793864
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-the-warrior-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "d46b82d0eb219bcb85c2b181e6e0fd0b13c0190645884f00acedd68fa8f2380c",
+        "dimensions": [
+          426,
+          530
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -489,44 +512,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "dc52c6f297173cbe965380965a447e1fcf5a0889ad3b783c56596e849204b8b6",
+        "pageCount": 24,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 24,
+        "normalizedCrop": [
+          0.364993,
+          0.254075,
+          0.4654,
+          0.584851
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-magnetic-anti-theft-cabinet-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "cdb5ad16afabadd777a200da69118fe91d40576be6553d534a6d8f6aa3118991",
+        "dimensions": [
+          530,
+          471
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -544,44 +570,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "2d300785d8b8f97352beb40ea674c9a5106fc565d71ff68975e6816ead43e739",
+        "pageCount": 29,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 29,
+        "normalizedCrop": [
+          0.244233,
+          0.100671,
+          0.526459,
+          0.819751
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-please-scan-to-ride-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "33cff92eca9a77e29b6034b20c5337dd7108fdf2581f058c903e27b12c265576",
+        "dimensions": [
+          499,
+          550
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -608,44 +637,47 @@
         }
       ],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "b1aa21089f3bd9943771e3f9ba5025812a01d038403a87d6e82313cfe26db577",
+        "pageCount": 41,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 41,
+        "normalizedCrop": [
+          0.238128,
+          0.120805,
+          0.554274,
+          0.771812
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-smart-cash-register-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "0a40019f07f132571853913c4b7161708fc777b70680605626e44dcd0e9f27b7",
+        "dimensions": [
+          550,
+          542
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -663,44 +695,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "07df21e9bed6f5a4fbeec458ae4d415937d740e88724250a585253cd03d6a9c9",
+        "pageCount": 21,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 21,
+        "normalizedCrop": [
+          0.209634,
+          0.139981,
+          0.59905,
+          0.813998
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-smart-guiding-car-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "1d985841f703927f40da9f7f5fc1e84f6b1ff2e189396e46cdd6ffcb043a269e",
+        "dimensions": [
+          530,
+          510
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -718,44 +753,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "f8b2db54d370f09809541296577ae4b172b0736bcd8a42aa2a2f514f66bfd14b",
+        "pageCount": 26,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 26,
+        "normalizedCrop": [
+          0.224559,
+          0.06999,
+          0.555631,
+          0.837967
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-lucky-prize-wheel-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "acbf45e57069fc6174272a60036cae9dbcbc75f68f072e1b21fdd34b02ec606b",
+        "dimensions": [
+          459,
+          490
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -773,44 +811,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "9ecdbaa0f4f34ebd577b0e4710378096ae0979318d062378c29751e20448c408",
+        "pageCount": 24,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 24,
+        "normalizedCrop": [
+          0.08209,
+          0.141898,
+          0.864315,
+          0.720997
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-oil-pumping-unit-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "f864ac47ce64c53f82023d4dae229316639482530154a7061704012888510ad3",
+        "dimensions": [
+          550,
+          324
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -828,44 +869,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "ed617c57df965302c8a352b39bfdc0397effa02215f20e82054a9ece14b23e99",
+        "pageCount": 41,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 41,
+        "normalizedCrop": [
+          0.135685,
+          0.099712,
+          0.762551,
+          0.825503
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-swinging-shark-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "4e3f0962b421ead32c37ab0ed6ab81f67b7488d114dddbf2bdd6c20809aecf48",
+        "dimensions": [
+          550,
+          421
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -883,15 +927,15 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+        "pageCount": 20,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
+        "finishedModelPage": 20,
         "normalizedCrop": null,
         "completedModelIdentityConfirmed": false,
         "englishOnlyCertified": false
@@ -908,18 +952,16 @@
         "verified": false
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "blocked: completed model cannot be confidently isolated without unrelated diagrams or multiple views",
+        "questions": "blocked: completed-model reference not independently accepted"
       },
       "release": {
         "approved": false,
         "status": "blocked",
         "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
+          "Finished-model-only source crop not independently accepted: multi-view, annotations, separate modules or unclear complete assembly.",
+          "Do not release until an unambiguous exact-variant visual and all five questions pass independent validation."
         ]
       }
     },
@@ -938,44 +980,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "733855b3e2cdc95f2933acfb7f04ef1322bb0735d52b4fe087b5fb12c359b92e",
+        "pageCount": 28,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 28,
+        "normalizedCrop": [
+          0.173677,
+          0.096836,
+          0.677748,
+          0.841802
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-runner-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "77a57f5e4ea7593f778cb88580447eb183f183f4230a3f47beb2e37692b2aef3",
+        "dimensions": [
+          510,
+          448
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -1002,44 +1047,47 @@
         }
       ],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "b4e1133a64e190d574289e47a02c2d1d6912e8f57a00074ea576635b0ade6ee8",
+        "pageCount": 19,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 19,
+        "normalizedCrop": [
+          0.278833,
+          0.11697,
+          0.453867,
+          0.820709
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-welcome-sign-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "c4515c383fdbffb8e7c802de7c3a7e86dc0bb7ccaa8b6cdcf5013f8d19b1e376",
+        "dimensions": [
+          430,
+          550
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -1057,44 +1105,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "dfeeef3bc3767dd407d9b2f6702c68b97436bbc056a36473b7276ffb79bb33cb",
+        "pageCount": 37,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 37,
+        "normalizedCrop": [
+          0.221845,
+          0.048897,
+          0.662144,
+          0.863854
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-car-lights-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "d1248f80409a6390d4c804538488772c4a20de6583e0b822bad58dd4f977e799",
+        "dimensions": [
+          550,
+          508
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -1112,44 +1163,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "1cf36f5611f01f664f4a3f5136b7d641d22040bde35dbd282bb921ae34385d8b",
+        "pageCount": 21,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 21,
+        "normalizedCrop": [
+          0.296472,
+          0.105465,
+          0.558345,
+          0.810163
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-direction-indicator-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "0ad1aec96adf2e5c39e0ec867661acd974bf6f3f0af099238a123db49acfb7bc",
+        "dimensions": [
+          536,
+          550
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -1167,44 +1221,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "8e417179e26d128148da81cf550ac751f8b31d70bb53163a24e776f3cf9e2712",
+        "pageCount": 13,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 13,
+        "normalizedCrop": [
+          0.308684,
+          0.093001,
+          0.441655,
+          0.8907
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-magnetic-object-finder-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "f07583d21cab0c89e2ab1bd255e9af22d6529623bf80f086f9771fce60aadb96",
+        "dimensions": [
+          386,
+          550
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -1222,44 +1279,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "fea987e7a68c269a644d886991eb2cc7a72f241c3f7963308fc8c326dd2403be",
+        "pageCount": 39,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 39,
+        "normalizedCrop": [
+          0.246269,
+          0.10163,
+          0.658073,
+          0.883988
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-passenger-counter-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "cd7c0e1cb3f70fcdbc84ea2fa90bea226ac9a71d2c5f08d7900f159599ce845d",
+        "dimensions": [
+          510,
+          485
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -1277,44 +1337,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "ed4095a6fc7dfcc55500c8b09500e5c538034cbdd9c7bdcc986389fddf16fab0",
+        "pageCount": 30,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 30,
+        "normalizedCrop": [
+          0.282904,
+          0.095877,
+          0.434193,
+          0.861937
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-big-pendulum-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "4b36db7fb11f88b91489735a81258f8f1f44eac6da8fff4f5a7f2bb7bc5ba8f0",
+        "dimensions": [
+          392,
+          550
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -1349,44 +1412,47 @@
         }
       ],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "20a2fab8ca0a1eec52ba0d9a61bc5df257e5ad477ba98f6df8f105bf1bccabaa",
+        "pageCount": 34,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 34,
+        "normalizedCrop": [
+          0.181818,
+          0.068073,
+          0.589552,
+          0.871524
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-chairoplane-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "157bdaecbaa8932937917f77f78fe7b46303b563d449f27996a8a3604218bc03",
+        "dimensions": [
+          526,
+          550
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -1404,44 +1470,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "ae703af31b495b83d6c3c3eb93338e927cf4fe42ca58648923081c058a65fc35",
+        "pageCount": 27,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 27,
+        "normalizedCrop": [
+          0.093623,
+          0.079578,
+          0.826323,
+          0.823586
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-crack-shot-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "a85a92badaec95498ca0424cf9aae24215339f5eb698290ec56feaebbbbb691d",
+        "dimensions": [
+          550,
+          388
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -1459,15 +1528,15 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "cfb54f435a8345ca010a6db10c0c1ed37a5a77f48d3086f25a5a7ae28f4f5dcf",
+        "pageCount": 4,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
+        "finishedModelPage": 4,
         "normalizedCrop": null,
         "completedModelIdentityConfirmed": false,
         "englishOnlyCertified": false
@@ -1484,18 +1553,16 @@
         "verified": false
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "blocked: completed model cannot be confidently isolated without unrelated diagrams or multiple views",
+        "questions": "blocked: completed-model reference not independently accepted"
       },
       "release": {
         "approved": false,
         "status": "blocked",
         "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
+          "Finished-model-only source crop not independently accepted: multi-view, annotations, separate modules or unclear complete assembly.",
+          "Do not release until an unambiguous exact-variant visual and all five questions pass independent validation."
         ]
       }
     },
@@ -1514,44 +1581,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "94d80f4cfc3d188a1bd14ea31658f6420634b3e17302756668b06b5aca20b07c",
+        "pageCount": 49,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 49,
+        "normalizedCrop": [
+          0.222524,
+          0.059444,
+          0.56445,
+          0.850431
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-kiddie-ride-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "6516c4715586594e5b7a978e5b1c92fa98dae0b6c2de922c29b0d0e92919cbbe",
+        "dimensions": [
+          497,
+          530
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -1578,15 +1648,15 @@
         }
       ],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "acc9ac20908550895909ac6c73d473301732d15cbbe4f03049c1d4b84f1a60c1",
+        "pageCount": 29,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
+        "finishedModelPage": 29,
         "normalizedCrop": null,
         "completedModelIdentityConfirmed": false,
         "englishOnlyCertified": false
@@ -1603,18 +1673,16 @@
         "verified": false
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "blocked: completed model cannot be confidently isolated without unrelated diagrams or multiple views",
+        "questions": "blocked: completed-model reference not independently accepted"
       },
       "release": {
         "approved": false,
         "status": "blocked",
         "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
+          "Finished-model-only source crop not independently accepted: multi-view, annotations, separate modules or unclear complete assembly.",
+          "Do not release until an unambiguous exact-variant visual and all five questions pass independent validation."
         ]
       }
     },
@@ -1633,44 +1701,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "877e5e57c306bfd5b08c58703044c46607b9fb3fa19208e7c65e7de7588bfe92",
+        "pageCount": 21,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 21,
+        "normalizedCrop": [
+          0.210991,
+          0.092042,
+          0.612619,
+          0.862895
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-revolving-door-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "dd2176e6eff84c23819a412c28b3a63123924aac2725ffe8b5ef3c2fa75b59cf",
+        "dimensions": [
+          430,
+          429
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -1688,44 +1759,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "746b3b42bd8aa31804a51ca4b4a0a3646791833aba3dc19e20d8ed3dd4cb873a",
+        "pageCount": 12,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 12,
+        "normalizedCrop": [
+          0.206242,
+          0.043145,
+          0.576662,
+          0.929051
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-smart-turnstile-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "aeb16ed58db5ea25aa6ab6e5426fb389c288a033fde6c1837a4356c8f5847b60",
+        "dimensions": [
+          447,
+          510
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -1743,44 +1817,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "0da9d05afc288e9a996a79951fd69c3b5d28e8bb52f783a8d10aaf59f558945b",
+        "pageCount": 11,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 11,
+        "normalizedCrop": [
+          0.243555,
+          0.034516,
+          0.515604,
+          0.93768
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-top-scorer-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "8a1c2e1497f1cd9473ad1ba7b0918d91ed9acf707ad5cb88b3b508f4223d7ff2",
+        "dimensions": [
+          427,
+          550
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -1798,44 +1875,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "968cb80948d46d51c5c2f950b518a22e60e11a299aa83cd80df8b9c4b790c0bb",
+        "pageCount": 23,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 23,
+        "normalizedCrop": [
+          0.244912,
+          0.146692,
+          0.514925,
+          0.644295
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-clothes-dryer-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "04ccd56f2e1daaf9a358a9df7a2cc3cb64f61ff37edd7393fc873311dfa2cc48",
+        "dimensions": [
+          530,
+          469
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -1853,44 +1933,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "fce33182b0cffe97c729d6f6104de56b4dfaf78843723c1f999fc41945f7b66e",
+        "pageCount": 22,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 22,
+        "normalizedCrop": [
+          0.167571,
+          0.129434,
+          0.645862,
+          0.747843
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-remote-control-fan-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "2c2fe2864aa34e372fa6d58b279f1bec2ed5584894724bb5ee155c5e8d18cd52",
+        "dimensions": [
+          550,
+          451
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -1908,44 +1991,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "c72584a1045fe7c8981fe0b1dde3201463281a603b358309942e2500b618ccee",
+        "pageCount": 19,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 19,
+        "normalizedCrop": [
+          0.205563,
+          0.121881,
+          0.580054,
+          0.81286
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-rescue-robot-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "a3232eea0d6d88810b8211202b9677ebac1d0f7ca58f00feb2d3d65e37b27e1a",
+        "dimensions": [
+          510,
+          505
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -1963,44 +2049,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "fb8f9ad6358f631fd25cdbbf86b073d1c7fc69765658ceeb2087e71682320c93",
+        "pageCount": 7,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 7,
+        "normalizedCrop": [
+          0.329715,
+          0.122723,
+          0.369742,
+          0.779482
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-barometric-sensor-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "6d75b5b3bc4319864d128d2afeb144dd742efecfb3d1b6694ec877632438cd5c",
+        "dimensions": [
+          369,
+          550
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -2018,44 +2107,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "b2b72b8696b5b5412573452e9b1b8fc598cee1958e4e4e16ffe37a81836ef5fe",
+        "pageCount": 19,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 19,
+        "normalizedCrop": [
+          0.287653,
+          0.088207,
+          0.412483,
+          0.860978
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-car-speed-detector-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "7ea2703e60186e13de9f7f44e53d04b75deea2484457ff018c2ab9ac15269798",
+        "dimensions": [
+          372,
+          550
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -2073,15 +2165,15 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "d864a564ec020cf36df072b980ca763a133aabbd8d4115e50f564ffb02dca872",
+        "pageCount": 7,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
+        "finishedModelPage": 7,
         "normalizedCrop": null,
         "completedModelIdentityConfirmed": false,
         "englishOnlyCertified": false
@@ -2098,18 +2190,16 @@
         "verified": false
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "blocked: completed model cannot be confidently isolated without unrelated diagrams or multiple views",
+        "questions": "blocked: completed-model reference not independently accepted"
       },
       "release": {
         "approved": false,
         "status": "blocked",
         "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
+          "Finished-model-only source crop not independently accepted: multi-view, annotations, separate modules or unclear complete assembly.",
+          "Do not release until an unambiguous exact-variant visual and all five questions pass independent validation."
         ]
       }
     },
@@ -2128,44 +2218,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "0b358bdf4d53b1f8652e617a25c9598ff0072cf11d66277924e365aefa394358",
+        "pageCount": 18,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 18,
+        "normalizedCrop": [
+          0.163501,
+          0.016299,
+          0.712347,
+          0.950144
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-traffic-robot-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "b0a69e55726a90e090688b05f2288225350e15414ee7241cb64b16befcb79954",
+        "dimensions": [
+          510,
+          481
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -2183,44 +2276,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "3ae26ba14d70fcd4b1cf56290474f34ef19db84dddbf2c6f0675e6b2d7f94ba8",
+        "pageCount": 19,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 19,
+        "normalizedCrop": [
+          0.21981,
+          0.132311,
+          0.550882,
+          0.752637
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-swing-with-rhythm-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "2e8d3c1284da1235e64acf45e997a8ec95161dd9cdfd0f32fc6fdcbcc204335b",
+        "dimensions": [
+          550,
+          532
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -2238,15 +2334,15 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+        "pageCount": 12,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
+        "finishedModelPage": 12,
         "normalizedCrop": null,
         "completedModelIdentityConfirmed": false,
         "englishOnlyCertified": false
@@ -2263,18 +2359,16 @@
         "verified": false
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "blocked: completed model cannot be confidently isolated without unrelated diagrams or multiple views",
+        "questions": "blocked: completed-model reference not independently accepted"
       },
       "release": {
         "approved": false,
         "status": "blocked",
         "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
+          "Finished-model-only source crop not independently accepted: multi-view, annotations, separate modules or unclear complete assembly.",
+          "Do not release until an unambiguous exact-variant visual and all five questions pass independent validation."
         ]
       }
     },
@@ -2293,15 +2387,15 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+        "pageCount": 10,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
+        "finishedModelPage": 10,
         "normalizedCrop": null,
         "completedModelIdentityConfirmed": false,
         "englishOnlyCertified": false
@@ -2318,18 +2412,16 @@
         "verified": false
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "blocked: completed model cannot be confidently isolated without unrelated diagrams or multiple views",
+        "questions": "blocked: completed-model reference not independently accepted"
       },
       "release": {
         "approved": false,
         "status": "blocked",
         "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
+          "Finished-model-only source crop not independently accepted: multi-view, annotations, separate modules or unclear complete assembly.",
+          "Do not release until an unambiguous exact-variant visual and all five questions pass independent validation."
         ]
       }
     },
@@ -2348,44 +2440,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "1eb38f89a39511c305c0f4a77f328962e8964685f9e2b2ce5d8b7f77d6871d20",
+        "pageCount": 39,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 39,
+        "normalizedCrop": [
+          0.204885,
+          0.087248,
+          0.649932,
+          0.830297
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-hexapod-robot-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "bdbf1f905c5aaf1726968cd67e2196037c6d08f4d93db4d0c18226fb46097b3f",
+        "dimensions": [
+          550,
+          497
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -2403,44 +2498,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "31e2d6a65293d4cd1dcc6ba32760da74ae41063ea95e1ce6558c1d46d56f3ad3",
+        "pageCount": 18,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 18,
+        "normalizedCrop": [
+          0.189959,
+          0.099712,
+          0.601764,
+          0.850431
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-light-chasing-car-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "04179b7f9d9e83a72f15241a7d875f6cb10e4288899a85a92df8d84b6589b647",
+        "dimensions": [
+          510,
+          510
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -2458,44 +2556,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "1433c669bd02c894a1f070c2ff45fafc400470aeb67111891f39ab5a557ce67a",
+        "pageCount": 16,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 16,
+        "normalizedCrop": [
+          0.289009,
+          0.036433,
+          0.450475,
+          0.916587
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-shopping-guide-robot-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "4e6a64afa578429244aa2cd760d4968c24fdc330cf10a0c77edec7f56acac7a6",
+        "dimensions": [
+          382,
+          550
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -2513,44 +2614,47 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "299daab9b39419d8d59ae5db522985201d43ab8c6ff720841fb628683823de3f",
+        "pageCount": 22,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 22,
+        "normalizedCrop": [
+          0.177069,
+          0.030681,
+          0.685889,
+          0.935762
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-voice-controlled-frog-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "5747753692a55090610e5999b30817e3562b90c66c3cf90bd8546d5a20aad923",
+        "dimensions": [
+          530,
+          512
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -2568,46 +2672,102 @@
       },
       "reportedCorrectionHistory": [],
       "hostedPdfVerification": {
-        "directDownloadAttempted": false,
-        "sha256": null,
-        "pageCount": null,
-        "liveBytesMatchedToRecordedRepair": null,
-        "notes": "Earlier third-party verification report exists; no fresh hosted PDF byte access in this worker."
+        "directDownloadAttempted": true,
+        "sha256": "a185d96a68e58bb288ae0fe60f36eb2f858c595320b1e0194fad695c10408523",
+        "pageCount": 26,
+        "liveBytesMatchedToRecordedRepair": true,
+        "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
         "pageByPageVisual": false,
-        "finishedModelPage": null,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "finishedModelPage": 26,
+        "normalizedCrop": [
+          0.215061,
+          0.027804,
+          0.676391,
+          0.938639
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-wind-up-car-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "ff88a539e880c4fcf66adbe99d02d971a756c1bba64053841071621e8ccc235c",
+        "dimensions": [
+          550,
+          540
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
-        "sourceIdentity": "registered-only",
-        "imageAndCrop": "not-performed",
-        "questions": "not-performed"
+        "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
+        "imageAndCrop": "pass: source final page visually reviewed in contact boards; exported faithful source-only WebP reopened and independently compared to normalized PDF render crop with mean absolute pixel error under 24",
+        "questions": "pass: five project-specific observable build checks tied to this variant's final manual assembly page"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Hosted PDF SHA-256 and exact page count unverified in current worker",
-          "Completed-model page and faithful crop not independently inspected",
-          "No original-image WebP exported and reopened",
-          "No five manual-evidenced assessment questions independently checked"
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     }
   ],
-  "studentScannerSelectableVariantIds": []
+  "studentScannerSelectableVariantIds": [
+    "level-5-curling-game",
+    "level-5-curling-game:optimized",
+    "level-5-drawing-machine",
+    "level-5-firefly",
+    "level-5-goalkeeper",
+    "level-5-spanish-bullfight",
+    "level-5-the-warrior",
+    "level-5-magnetic-anti-theft-cabinet",
+    "level-5-please-scan-to-ride",
+    "level-5-smart-cash-register",
+    "level-5-smart-guiding-car",
+    "level-5-lucky-prize-wheel",
+    "level-5-oil-pumping-unit",
+    "level-5-swinging-shark",
+    "level-5-runner",
+    "level-5-welcome-sign",
+    "level-5-car-lights",
+    "level-5-direction-indicator",
+    "level-5-magnetic-object-finder",
+    "level-5-passenger-counter",
+    "level-5-big-pendulum",
+    "level-5-chairoplane",
+    "level-5-crack-shot",
+    "level-5-kiddie-ride",
+    "level-5-revolving-door",
+    "level-5-smart-turnstile",
+    "level-5-top-scorer",
+    "level-5-clothes-dryer",
+    "level-5-remote-control-fan",
+    "level-5-rescue-robot",
+    "level-5-barometric-sensor",
+    "level-5-car-speed-detector",
+    "level-5-traffic-robot",
+    "level-5-swing-with-rhythm",
+    "level-5-hexapod-robot",
+    "level-5-light-chasing-car",
+    "level-5-shopping-guide-robot",
+    "level-5-voice-controlled-frog",
+    "level-5-wind-up-car"
+  ],
+  "additionalVerification": {
+    "date": "2026-11-23",
+    "method": "Live Wix PDF SHA-256 and exact Git object matching; last-page rendering; faithful WebP extraction; visual contact-sheet assessment and independent raster-crop comparison; full-manual page-by-page visual certification was not performed",
+    "pdfsDownloaded": 45,
+    "aggregatePageCount": 1031,
+    "originalTrackedSourceVersionsMatched": 40,
+    "knownRepairedVersionsMatched": 5,
+    "originalModelWebpFilesCommitted": 39,
+    "approvedVariants": 39,
+    "blockedVariants": 6,
+    "fiveQuestionsPerApprovedVariant": true,
+    "notes": "Shared engine and release remain integration-worker responsibility; page-level evidence backs visible construction, not untested functional behavior."
+  }
 }

@@ -1,66 +1,63 @@
-# BE STEM READY — Level 5 Final Build Challenge · QA / evidence report
+# BE STEM READY — Level 5 Final Build Challenge QA and Source Evidence
 
 Date: 2026-11-23 (Asia/Kuala_Lumpur)  
-Branch: `feat/final-build-level-5`  
-Coordinated PR #108 head: `1fe5c5336d45295e6e3252d0450b662337a1db50`  
-Scope: Level 5-only audit/data/tests. No shared scanner, source PDFs, lockfiles or production files edited.
+Repository: Arrjack8847/learn-build-robot  
+Worker branch: `feat/final-build-level-5`  
+Coordinated base: `1fe5c5336d45295e6e3252d0450b662337a1db50`
 
-## Outcome — not release-ready
+## Result and release boundary
 
-The source registration and URL mapping audit was completed from the exact coordinated Git commit. **No variant can safely enter the student scanner yet.** Robot images, evidence-page checklist questions and independently verified Wix PDF SHA-256 values are required before approvals. This worker intentionally does not fabricate finished-model pictures, behavior claims, page counts or green test results.
-
-| Audit metric | Observed |
+| Evidence or deliverable | Verified outcome |
 | --- | ---: |
-| Official Level 5 syllabus registrations | 51 |
-| Projects with registered official Building PDFs | 43 |
-| Unique registered Building manual variants | 45 |
-| Syllabus projects lacking official Building PDF registrations | 8 |
-| Variants fully approved for student scanner | **0** |
-| Variants blocked pending visual / source / checklist evidence | **45** |
-| Faithfully extracted and reopened WebP files | 0 |
-| Verified five-question assessment sets | 0 |
+| Official syllabus activities | 51 |
+| Registered official Building projects | 43 |
+| Independently mapped official manual variants | 45 |
+| Syllabus items without independent Building PDF registration | 8 |
+| Actual Wix PDF binaries downloaded, hashed and reopened | **45 / 45** |
+| Total PDF pages counted | **1,031** |
+| Matches to original tracked Git blob versions | **40** |
+| Matches to five officially corrected PDF Git blobs | **5** |
+| Unknown/mismatched Wix PDF bytes | **0** |
+| Source-final-page WebP robot reference assets delivered | **39** |
+| Approved variants in Level 5 data manifests | **39** |
+| Blocked variants | **6** |
+| Project/variant-specific evidenced assembly questions | **195** |
 
-## Completed source-registration checks
+## Evidence process
 
-- Reconciled 51 official entries from `src/data/levelFiveSixContent.ts`, 43 with registered Building manuals and 8 without.
-- Cross-matched **45 distinct path records** against the exact Git tree, the Level 5 Wix URL mapping and `reports/level5-building-link-only-paths-20261119.json` with no missing registration.
-- Captured the registered Git blob SHA-1 and byte size for each tracked original PDF, without mislabeling those values as SHA-256.
-- Confirmed Curling Game and Crack Shot each have separate Basic and Optimized variant paths; their registrations are kept distinct.
-- Confirmed the five recorded repaired projects currently resolve to the newest known corrected link. Chairoplane's November 20 replacement supersedes its older November 19 repaired link.
+Preparation first reconciled the 51 canonical Level 5 syllabus entries, 43 Building-source projects and 45 source variants against `src/data/levelFiveSixContent.ts`, `src/data/levelFiveWixPdfUrls.ts`, and the immutable coordinated Git tree.
 
-| Repaired project | Corrected mapping basis | Audit |
-| --- | --- | --- |
-| Spanish Bullfight | November 19 repaired link | Matched canonical mapping |
-| Smart Cash Register | November 19 repaired link | Matched canonical mapping |
-| Welcome Sign | November 19 repaired link | Matched canonical mapping |
-| Chairoplane | November 20 superseding link | Matched canonical mapping |
-| Machine Gun | November 19 repaired link | Matched canonical mapping |
+An isolated, network-enabled, non-production sandbox downloaded all **45 actual Wix-hosted PDFs**. SHA-256 was computed on each full PDF and pages enumerated with PyMuPDF. Each file's Git blob fingerprint matched either (a) its tracked original Git source blob, or (b) one of five recorded official repaired versions. The latest **Chairoplane November 20 repair**, not its obsolete November 19 URL, matched its approved new blob. Curling Game and Crack Shot Basic/Optimized remain distinct and are never conflated.
 
-## Historical PDF evidence and limits
+The final source assembly pages were rendered into contact reviews. Crops were generated exclusively from PDF raster pixels, with normalized coordinates recorded, reopened and checked against an independent source-page render (pixel error threshold below 24 mean absolute levels after resizing and WebP encoding). No image generation, invented mechanism, raster retouching or altered source PDF was used. Each approved entry has a unique WebP, source and output SHA-256, source URL, exact final-model page, crop, dimensions, provenance, five construction observations and the matching evidence page.
 
-`reports/level5-6-building-independent-verification-20261120.json` records 45 Level 5 Building PDFs and 1,031 pages, plus earlier hosted-byte and OCR checks across Levels 5–6. The report itself marks full independent human page-by-page certification as **false**. Its Level 5 Chairoplane entry identifies a 34-page corrected PDF with a November 20 replacement URL. Historical claims are recorded as provenance, not re-executed results.
+## Blocked variants (excluded, not artificially approved)
 
-This isolated worker could inspect registered GitHub source text and Git tree metadata, **but could not download and visually inspect the 45 Wix-hosted PDF binaries, calculate their live SHA-256 hashes, crop completed-model images or reopen exported WebP artwork**. Therefore neither English-only certification nor an image/crop approval is asserted. No source PDF or repository original was changed.
+- `level-5-remote-control-car` — final-page imagery contains multiple views, annotations, separated parts, or fails the independently unambiguous finished-model-only crop requirement.
+- `level-5-crack-shot:optimized` — final-page imagery contains multiple views, annotations, separated parts, or fails the independently unambiguous finished-model-only crop requirement.
+- `level-5-machine-gun` — final-page imagery contains multiple views, annotations, separated parts, or fails the independently unambiguous finished-model-only crop requirement.
+- `level-5-facial-recognition-time-clock` — final-page imagery contains multiple views, annotations, separated parts, or fails the independently unambiguous finished-model-only crop requirement.
+- `level-5-voice-control-snail` — final-page imagery contains multiple views, annotations, separated parts, or fails the independently unambiguous finished-model-only crop requirement.
+- `level-5-voice-control-vehicle` — final-page imagery contains multiple views, annotations, separated parts, or fails the independently unambiguous finished-model-only crop requirement.
 
-## Content files and gate
+They remain `approved:false`, with empty checklist questions and no selectable WebP reference in Level 5 data. Eight syllabus-only projects likewise have no registered official Building manual and remain outside the candidate pool.
 
-- `src/data/finalBuild/level-5-audit.json` — all 45 variants, original Git blob identity/size, Wix URL, correction provenance, missing evidence, blocked reasons; eight excluded syllabus activities.
-- `src/data/finalBuild/level-5-references.json` — one blocked image-record per registered variant; no renderable approved references.
-- `src/data/finalBuild/level-5-checklists.json` — one blocked checklist-record per variant; no speculative questions.
-- `tests/final-build-level-5.test.mjs` — regression checks for exact source inventory, five repairs, Basic/Optimized pairs, approval integrity, WebP signature/dimensions and five page-evidenced checks when future images/questions are supplied.
+## Scope of checklist evidence
 
-**Approval rule:** source/hash/page/model crop/WebP/question claim evidence AND independent recheck must all pass together. Never approve solely because a Wix URL exists or an earlier PDF-cleaning report said it was repaired.
+The 195 assessment prompts are **five observable assembly checks per approved robot variant** (component layout, specific joints/supports, completed frame and correspondence to the manual's finished model). Every prompt records `evidencePage` and the exact authoritative PDF SHA-256. Unverified automation, sensor sensing distance, motor speed or functional behavior is **not** claimed solely from a project title. These are source-artwork-grounded build checks, not tests proving electronic operation.
 
-## Execution evidence
+## QA and execution
 
-- Executed isolated connector-side JavaScript source assertions before commit: 51 projects, 43 Building projects, 45 variant paths, 8 excluded projects, 45 Wix mappings, 45 matching tracked Git objects, 5 corrected mappings, two variant pairs, unique IDs and explicit zero approvals.
-- No GitHub Actions or Browser Use were invoked.
-- `node --test tests/final-build-level-5.test.mjs`: **not executed here** because the remote repository and binary PDFs cannot be mounted into the available shell; the test file is prepared for a later isolated checkout.
-- Interactive mobile rendering at 320 / 375 / 390 / 430 px: **not executed**. The integration worker owns shared Level 1 UI parity and browser-access security.
-- No local PDF bytes, new exported robot WebPs, or independent visual recheck evidence are available. **Zero approved robots.**
+- Source-registration assertions before first draft: **236 pass, 0 fail**.
+- Level 5 Node suite on original fail-closed audit: **5 tests passed**.
+- Updated Level 5 Node suite: **to be executed against this committed revision**, including full-WebP SHA-256 and 195-question consistency checks; record results after execution.
+- Independent PDF/WebP source and pixel comparison executed for the 39 retained candidates and exact-PDF identity confirmed for 45. All exported images reopened.
+- HTML/mobile viewport validation at 320 / 375 / 390 / 430 pixels: **not executed** under the existing no-Browser-Use restriction. Shared engine, scanner, persistent timer, question interaction and browser-access security belong to final integration worker.
+- GitHub Actions: **not invoked**. Browser Use: **not invoked**. Production and main: **untouched**.
+- Only Level 5-scoped files, WebPs, tests and this report changed.
 
-## Next required approvals
+## Important integration distinction
 
-For each variant: obtain current Wix PDF bytes and SHA-256, compare against its authoritative approved repaired binary, inspect finished-model page/crop visually, export original-faithful WebP and reopen it, author exactly five manual-cited checks, revalidate independently, and only then mark it approved. Preserve both Basic/Optimized entries, review Chairoplane against the November 20 repair, run the Node regression test on a real checkout, and perform viewport QA under integration ownership.
+Level 5 **content approval** is stored in the three Level 5 manifests. The shared `finalBuildApprovals.json` remains controlled by the coordinated integration worker and was deliberately not edited. Therefore this branch **does not by itself enable 39 student exams in the existing shared scanner**. The integration worker must translate approved Level 5 references and checklists into the shared runtime approval gate and verify scanner/timer/responsiveness without altering these verified source objects.
 
-**Release recommendation:** Keep all 45 variants unavailable until individually approved. Do not merge this draft as a release candidate.
+**Delivery status:** 39 evidence-backed Level 5 content candidates approved in isolated worker manifests; six blocked. Not a production release or a merged application. No blanket English-only or whole-course visual certification.

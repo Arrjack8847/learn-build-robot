@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, existsSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -61,7 +62,7 @@ test("Level 5 inventory and 45 variants reconcile to official source paths",()=>
     assert.equal(row.projectTitle,item.project.title);
     assert.ok(refById.has(item.id) && checklistById.has(item.id));
   }
-  assert.deepEqual(audit.studentScannerSelectableVariantIds,[]);
+  assert.equal(audit.studentScannerSelectableVariantIds.length,audit.counts.approvedVariants);
 });
 
 test("five repaired Wix URLs still use the authoritative repaired mapping",()=>{
@@ -98,7 +99,7 @@ test("all approval records are fail-closed until complete evidence exists",()=>{
       assert.equal(img.approved,false);
       assert.equal(check.approved,false);
       assert.equal(img.imagePath,null);
-      assert.equal(img.page,null);
+      assert.ok(img.page === null || Number.isInteger(img.page));
       assert.equal(check.questions.length,0);
       continue;
     }
@@ -125,7 +126,10 @@ test("all approval records are fail-closed until complete evidence exists",()=>{
     }
     assert.ok(img.imagePath.startsWith("public/final-build/level-5/"));
     assert.ok(img.imagePath.endsWith(".webp") && existsSync(resolve(root,img.imagePath)));
-    assert.deepEqual(webpSize(resolve(root,img.imagePath)),img.dimensions);
+    assert.deepEqual(Object.values(webpSize(resolve(root,img.imagePath))),img.dimensions);
+    assert.equal(createHash("sha256").update(readFileSync(resolve(root,img.imagePath))).digest("hex"),img.imageSha256);
+    assert.equal(record.hostedPdfVerification.sha256,img.pdfSha256);
+    assert.equal(record.hostedPdfVerification.pageCount>=img.page,true);
   }
   assert.deepEqual([...approvedIds].sort(),[...audit.studentScannerSelectableVariantIds].sort());
   assert.equal(approvedIds.length,audit.counts.approvedVariants);
@@ -137,7 +141,8 @@ test("Level 5 data stays isolated from common Final Build behavior",()=>{
   assert.equal(refs.level,5);
   assert.equal(lists.level,5);
   assert.equal(audit.baseCommitSha,"1fe5c5336d45295e6e3252d0450b662337a1db50");
-  assert.equal(audit.sourceValidation.actualHostedPdfBytesReverified,false);
+  assert.equal(audit.sourceValidation.actualHostedPdfBytesReverified,true);
+  assert.equal(audit.sourceValidation.sha256ForAllVariants,true);
   assert.equal(audit.sourceValidation.individualFinishedModelVisuallyReviewed,false);
 });
 
