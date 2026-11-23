@@ -2,21 +2,852 @@
   "schema": "be-stem-ready-final-build-level-2-references-v1",
   "level": 2,
   "baseCommit": "1fe5c5336d45295e6e3252d0450b662337a1db50",
-  "status": "none-approved",
-  "references": [],
+  "status": "30-approved-30-blocked",
+  "references": [
+    {
+      "variantId": "level-2-axe-robot",
+      "projectId": "level-2-axe-robot",
+      "approved": true,
+      "sourceSha256": "8250029efc265fcc941b7ee7a02651a4f709aabc964ae0c3320477a5193961bf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9f9583daaf254686980490a8cde41384.pdf",
+      "sourceVersion": "legacy-wix-registry-2026-11-23-verified-20261123",
+      "pdfPage": 15,
+      "pdfCrop": [
+        574.9,
+        102.2,
+        860,
+        790.4
+      ],
+      "pdfImageXref": 503,
+      "imagePath": "/final-build/level-2/level-2-axe-robot.webp",
+      "imageFilename": "level-2-axe-robot.webp",
+      "imageSha256": "9f94a4d35c84fb97a78a805eb376ae34b3902a0cee7e6decc099eda7f1f05cfb",
+      "imageWidth": 331,
+      "imageHeight": 800,
+      "imageBytes": 44168,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-batting-robot",
+      "projectId": "level-2-batting-robot",
+      "approved": true,
+      "sourceSha256": "c1b73230c01786302bf7fdec6686140efcadc99e2f76fa86a358284c1c1782ab",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ba70dd634abd49cf95a1a0ad467911d2.pdf",
+      "sourceVersion": "legacy-wix-registry-2026-11-23-verified-20261123",
+      "pdfPage": 10,
+      "pdfCrop": [
+        605.6,
+        246.2,
+        978,
+        646.4
+      ],
+      "pdfImageXref": 353,
+      "imagePath": "/final-build/level-2/level-2-batting-robot.webp",
+      "imageFilename": "level-2-batting-robot.webp",
+      "imageSha256": "eb80b44c20191e4839955fdccd912a4b9e2be793a4ceca40686dde5a1e771069",
+      "imageWidth": 447,
+      "imageHeight": 480,
+      "imageBytes": 19048,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-fan-robot",
+      "projectId": "level-2-fan-robot",
+      "approved": true,
+      "sourceSha256": "293fdf655243b43f4d5ac741c5340288cd1557e6fdad645e3164400f8879e478",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0b1c8872fa7b4920a91101276c3da729.pdf",
+      "sourceVersion": "legacy-wix-registry-2026-11-23-verified-20261123",
+      "pdfPage": 8,
+      "pdfCrop": [
+        556.2,
+        227.9,
+        1027.4,
+        664.2
+      ],
+      "pdfImageXref": 235,
+      "imagePath": "/final-build/level-2/level-2-fan-robot.webp",
+      "imageFilename": "level-2-fan-robot.webp",
+      "imageSha256": "e6142c90dd068af6489a2b1c8d81638267500891fb5571c154e2c74bfc429a98",
+      "imageWidth": 480,
+      "imageHeight": 445,
+      "imageBytes": 19798,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-pirate-ship",
+      "projectId": "level-2-pirate-ship",
+      "approved": true,
+      "sourceSha256": "7dc8bb070622e8cfcb6c9041bdb1f60721295134343458746e054a52809d90ce",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_00644c98f0204033a9713840dfc58dbc.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 15,
+      "pdfCrop": [
+        396.1,
+        196,
+        610.9,
+        442
+      ],
+      "pdfImageXref": 75,
+      "imagePath": "/final-build/level-2/level-2-pirate-ship.webp",
+      "imageFilename": "level-2-pirate-ship.webp",
+      "imageSha256": "c742a66b8ebe636419fc0165ee2491443685c9bae06ef8b4db01738ef1bfc583",
+      "imageWidth": 366,
+      "imageHeight": 420,
+      "imageBytes": 19518,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-push-ups",
+      "projectId": "level-2-push-ups",
+      "approved": true,
+      "sourceSha256": "88bba93fe1cd79a112453d7f6456d15faa189208dbac9ce3026dc902b15cc323",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_af76a0de49e04957b283cc49438c5989.pdf",
+      "sourceVersion": "legacy-wix-registry-2026-11-23-verified-20261123",
+      "pdfPage": 16,
+      "pdfCrop": [
+        619.1,
+        75.8,
+        964.6,
+        816.3
+      ],
+      "pdfImageXref": 507,
+      "imagePath": "/final-build/level-2/level-2-push-ups.webp",
+      "imageFilename": "level-2-push-ups.webp",
+      "imageSha256": "76d77739ae9312af98935d68089145c0e7ab1ddae40a504bfd8ab09fbe24ac95",
+      "imageWidth": 336,
+      "imageHeight": 720,
+      "imageBytes": 33682,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-rotating-flying-chair",
+      "projectId": "level-2-rotating-flying-chair",
+      "approved": true,
+      "sourceSha256": "5a7da6074ef16a086d47cb086ad618dec4acf65b7223b9f7bb74d1ebdd1447f6",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c3b083b9ebae4025b7d68017b64dd1aa.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 11,
+      "pdfCrop": [
+        227.8,
+        67.7,
+        431.3,
+        293.9
+      ],
+      "pdfImageXref": 47,
+      "imagePath": "/final-build/level-2/level-2-rotating-flying-chair.webp",
+      "imageFilename": "level-2-rotating-flying-chair.webp",
+      "imageSha256": "072dd8a684787d5099e7a2c074fc427ca29c2d3763890494987760ea4a536a13",
+      "imageWidth": 525,
+      "imageHeight": 628,
+      "imageBytes": 22722,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-throwing-robot",
+      "projectId": "level-2-throwing-robot",
+      "approved": true,
+      "sourceSha256": "128a9eb5815e81447c29acf636f517b9f81b164162ba19f0cbd44b12c2aca9f1",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_969f1f7595fa447c9e81598fd5d5a5dd.pdf",
+      "sourceVersion": "legacy-wix-registry-2026-11-23-verified-20261123",
+      "pdfPage": 19,
+      "pdfCrop": [
+        327.8,
+        227,
+        1093.7,
+        664.6
+      ],
+      "pdfImageXref": 680,
+      "imagePath": "/final-build/level-2/level-2-throwing-robot.webp",
+      "imageFilename": "level-2-throwing-robot.webp",
+      "imageSha256": "71fd59a7de1fb8baf183d2025ba2824b21b809f66cc614ce2a0db23535909e02",
+      "imageWidth": 480,
+      "imageHeight": 275,
+      "imageBytes": 19380,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-mechanical-dog",
+      "projectId": "level-2-mechanical-dog",
+      "approved": true,
+      "sourceSha256": "127735505bfd831b348d465630bc004f53ebdeaea5519e8ac7d8b0078181b902",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_07f47f0b3c5c4a32b68f1152a8c02093.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 14,
+      "pdfCrop": [
+        397.3,
+        294.7,
+        688.2,
+        489.7
+      ],
+      "pdfImageXref": 79,
+      "imagePath": "/final-build/level-2/level-2-mechanical-dog.webp",
+      "imageFilename": "level-2-mechanical-dog.webp",
+      "imageSha256": "062c61dd6523d5ae5348f48a8169d8009036af21219bf609aad5e35a743bb106",
+      "imageWidth": 485,
+      "imageHeight": 326,
+      "imageBytes": 22712,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-scaling-ladder",
+      "projectId": "level-2-scaling-ladder",
+      "approved": true,
+      "sourceSha256": "de6b34e6ef1359051b8d292f38a95b1268848b7df4fbed828a38062e1d4f1d04",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_39cdb93334904fa18a188f9d5a2a7c96.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 22,
+      "pdfCrop": [
+        304.5,
+        77.7,
+        719.2,
+        310.9
+      ],
+      "pdfImageXref": 122,
+      "imagePath": "/final-build/level-2/level-2-scaling-ladder.webp",
+      "imageFilename": "level-2-scaling-ladder.webp",
+      "imageSha256": "15df71ad10abdf5b639d4bcdc48c186e6aa74337393ec90879ae5f7476210349",
+      "imageWidth": 682,
+      "imageHeight": 389,
+      "imageBytes": 21282,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-tower-crane",
+      "projectId": "level-2-tower-crane",
+      "approved": true,
+      "sourceSha256": "1f78414ec590aa9ce037e302d9233ec6e3488dd87a258f5c21c967672f377b1e",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_df23e113a7f7491a8a40730a0a1e5da9.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 18,
+      "pdfCrop": [
+        192.3,
+        84.6,
+        420.3,
+        436.5
+      ],
+      "pdfImageXref": 85,
+      "imagePath": "/final-build/level-2/level-2-tower-crane.webp",
+      "imageFilename": "level-2-tower-crane.webp",
+      "imageSha256": "60d1c2f7d7ccbfb8cab4ac77f20a7ccbfc786ff20fe8a118cb37f6bdb31f0850",
+      "imageWidth": 511,
+      "imageHeight": 800,
+      "imageBytes": 21724,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-manual-flashlight",
+      "projectId": "level-2-manual-flashlight",
+      "approved": true,
+      "sourceSha256": "c7734a79bca42a0cc95a94527d969b07a5bbccad8a0b6cbf1f76e82b7b567c1e",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0e2b16ec833946eaa67305b1b38fc319.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 15,
+      "pdfCrop": [
+        137.1,
+        49.1,
+        448.7,
+        356.3
+      ],
+      "pdfImageXref": 65,
+      "imagePath": "/final-build/level-2/level-2-manual-flashlight.webp",
+      "imageFilename": "level-2-manual-flashlight.webp",
+      "imageSha256": "73bd63aa29370e34e8f75248c7c57d2d7446e996659b29a23b7e4fb7a42fad3b",
+      "imageWidth": 635,
+      "imageHeight": 660,
+      "imageBytes": 22502,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-jumping-machine",
+      "projectId": "level-2-jumping-machine",
+      "approved": true,
+      "sourceSha256": "dd13ac2d24ea1960ddab8eca91a33f206973edb80fd131ec46551b67f0386176",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0d9f6f2dec834ead9e33b7c90d06e15f.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 18,
+      "pdfCrop": [
+        423.7,
+        130.1,
+        617.9,
+        512.6
+      ],
+      "pdfImageXref": 77,
+      "imagePath": "/final-build/level-2/level-2-jumping-machine.webp",
+      "imageFilename": "level-2-jumping-machine.webp",
+      "imageSha256": "5ecfa18e4cfae681ef4c63ae4ba17de415b04596950f99987b288c6dbb40bc2d",
+      "imageWidth": 335,
+      "imageHeight": 660,
+      "imageBytes": 19388,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-see-saw-v1",
+      "projectId": "level-2-see-saw-v1",
+      "approved": true,
+      "sourceSha256": "1c96a4cc6fe282faad3e5424141eb09d007a9a315e7020e01fa2f0a3a7e9ef56",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b23c014f2a3446359a14032430ea48b8.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 10,
+      "pdfCrop": [
+        318.5,
+        222.1,
+        678.2,
+        445.1
+      ],
+      "pdfImageXref": 41,
+      "imagePath": "/final-build/level-2/level-2-see-saw-v1.webp",
+      "imageFilename": "level-2-see-saw-v1.webp",
+      "imageSha256": "0dee481af3c47284d4e7c7e20d95cd079e367ffc8621c4be83d2753d1524b09b",
+      "imageWidth": 610,
+      "imageHeight": 378,
+      "imageBytes": 21050,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-see-saw-v2",
+      "projectId": "level-2-see-saw-v1",
+      "approved": true,
+      "sourceSha256": "b315e433675efca0cf50478b3d993203462f4002da0e8df8a6c76db658430aa6",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e349f1cbc2934e179872a23a815df844.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 10,
+      "pdfCrop": [
+        318.4,
+        222,
+        678.2,
+        445
+      ],
+      "pdfImageXref": 56,
+      "imagePath": "/final-build/level-2/level-2-see-saw-v2.webp",
+      "imageFilename": "level-2-see-saw-v2.webp",
+      "imageSha256": "c2a9ece12d807352f22cc8daa53122d95e55a4b93d0728325b9bbb9274de82c2",
+      "imageWidth": 600,
+      "imageHeight": 372,
+      "imageBytes": 21660,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-tongs",
+      "projectId": "level-2-tongs",
+      "approved": true,
+      "sourceSha256": "f79cccd3bf5e1e6ee5ed0004d05bf9106e9d32d0a02ea76a2c46df7c6d9a7bb0",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2865bdb79f2c48f88386b685adc5bb8f.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 13,
+      "pdfCrop": [
+        243.5,
+        88.9,
+        529.2,
+        304.4
+      ],
+      "pdfImageXref": 72,
+      "imagePath": "/final-build/level-2/level-2-tongs.webp",
+      "imageFilename": "level-2-tongs.webp",
+      "imageSha256": "e6eb06218bda234b1c42e0913a9c5cdeb279a2d1f0f0754f0198158fdf342617",
+      "imageWidth": 476,
+      "imageHeight": 360,
+      "imageBytes": 10928,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-bridge",
+      "projectId": "level-2-bridge",
+      "approved": true,
+      "sourceSha256": "55f8aa6990c0e2be9ff06974da0decf76bdb2513176a578bf3fd440267d49eb9",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_65862b24eee445128168f5de4ee80ee1.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 15,
+      "pdfCrop": [
+        362.4,
+        111.3,
+        713.5,
+        315.1
+      ],
+      "pdfImageXref": 63,
+      "imagePath": "/final-build/level-2/level-2-bridge.webp",
+      "imageFilename": "level-2-bridge.webp",
+      "imageSha256": "9bcd54a99e228ca96af4a197427c38591c6e2515f79fa34e4c41d4254a80164f",
+      "imageWidth": 610,
+      "imageHeight": 376,
+      "imageBytes": 18712,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-mechanisms-simulators-crane",
+      "projectId": "level-2-mechanisms-simulators-crane",
+      "approved": true,
+      "sourceSha256": "c004d69628ae6221a49118b976235047ed9385089e8c7a69e88ffbd37efdb9c8",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e899154e23df4b3ca5f313347744217c.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 40,
+      "pdfCrop": [
+        358.8,
+        150.6,
+        682,
+        502.8
+      ],
+      "pdfImageXref": 169,
+      "imagePath": "/final-build/level-2/level-2-mechanisms-simulators-crane.webp",
+      "imageFilename": "level-2-mechanisms-simulators-crane.webp",
+      "imageSha256": "febae98726c032324f958305f6812156f943b95efd3444a4894dcd5ab83d5557",
+      "imageWidth": 386,
+      "imageHeight": 420,
+      "imageBytes": 19426,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-door",
+      "projectId": "level-2-door",
+      "approved": true,
+      "sourceSha256": "ebf35a2cb1bb4b7b83c34d5e85244921bcd27e3347fa05b242d900f3e49408d9",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9f73091b93e9459fac2603819689b4ba.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 10,
+      "pdfCrop": [
+        182,
+        106.6,
+        469.8,
+        358.6
+      ],
+      "pdfImageXref": 47,
+      "imagePath": "/final-build/level-2/level-2-door.webp",
+      "imageFilename": "level-2-door.webp",
+      "imageSha256": "ac2787fbf6aac2f0d0a4f497c73c2c00d2bf1cd5afcbc9d3ff9a6870c79658c7",
+      "imageWidth": 610,
+      "imageHeight": 541,
+      "imageBytes": 21444,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-double-beam-crane",
+      "projectId": "level-2-double-beam-crane",
+      "approved": true,
+      "sourceSha256": "9cdfb63a9508c5485626a6654493999692835c9ec0cd2eca95669b209c0a8f94",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cf9221967f804769ad6e7d3d50c47eab.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 22,
+      "pdfCrop": [
+        79,
+        90.7,
+        400.9,
+        374.6
+      ],
+      "pdfImageXref": 94,
+      "imagePath": "/final-build/level-2/level-2-double-beam-crane.webp",
+      "imageFilename": "level-2-double-beam-crane.webp",
+      "imageSha256": "30d1ffd5596baabb1e5a4750c91646711bddfd5445c610dec03ab75e9225e59d",
+      "imageWidth": 610,
+      "imageHeight": 589,
+      "imageBytes": 19340,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-gearbox",
+      "projectId": "level-2-gearbox",
+      "approved": true,
+      "sourceSha256": "749f6cc44d3217531184bc46ec6b3d10f7ad4cc550cf2b54498375b0f4e2d76f",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_47fcd935e8894045b7b4017ab210183e.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 20,
+      "pdfCrop": [
+        148.9,
+        107.7,
+        496.9,
+        353.3
+      ],
+      "pdfImageXref": 83,
+      "imagePath": "/final-build/level-2/level-2-gearbox.webp",
+      "imageFilename": "level-2-gearbox.webp",
+      "imageSha256": "a32108ee56d4521d2cb17d8c9920b72c98ff3eaacf8edb2328d6fe84a1a79533",
+      "imageWidth": 660,
+      "imageHeight": 466,
+      "imageBytes": 19736,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-hand-crank",
+      "projectId": "level-2-hand-crank",
+      "approved": true,
+      "sourceSha256": "7c868b6c28c29f49bb9f8dff630f3d8968e142e73582e5329d8cc6ca7a50e2ea",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_088e2b77a9a746fd9508de9054bf429d.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 11,
+      "pdfCrop": [
+        426,
+        200.1,
+        657.9,
+        493.2
+      ],
+      "pdfImageXref": null,
+      "imagePath": "/final-build/level-2/level-2-hand-crank.webp",
+      "imageFilename": "level-2-hand-crank.webp",
+      "imageSha256": "25ce3d5d48938f9e89f43be664ebe2c18b2931847b54ae2f7373be8fcbea86ac",
+      "imageWidth": 478,
+      "imageHeight": 637,
+      "imageBytes": 15032,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-spinning-bike",
+      "projectId": "level-2-spinning-bike",
+      "approved": true,
+      "sourceSha256": "71e9424dcd6abadfa38976d2e742f6eabcf03f6340f27d58996c94ec0770d518",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_545ec9836f684200a380780cf94b3f6b.pdf",
+      "sourceVersion": "legacy-wix-registry-2026-11-23-verified-20261123",
+      "pdfPage": 9,
+      "pdfCrop": [
+        627.7,
+        216.4,
+        955.9,
+        676.2
+      ],
+      "pdfImageXref": 309,
+      "imagePath": "/final-build/level-2/level-2-spinning-bike.webp",
+      "imageFilename": "level-2-spinning-bike.webp",
+      "imageSha256": "252f263a77db830e2b863b41b5fb59251bc32cd7328c629a380aef3755508ecc",
+      "imageWidth": 436,
+      "imageHeight": 610,
+      "imageBytes": 38584,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-swing",
+      "projectId": "level-2-swing",
+      "approved": true,
+      "sourceSha256": "27ea63b444bdfa7b78d6837db6c1f71f15740649a8a5f77ca5699963327d36b3",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_79f268a64faf430cb97a7685c2a36780.pdf",
+      "sourceVersion": "legacy-wix-registry-2026-11-23-verified-20261123",
+      "pdfPage": 8,
+      "pdfCrop": [
+        500.5,
+        241.9,
+        1083.1,
+        650.7
+      ],
+      "pdfImageXref": 299,
+      "imagePath": "/final-build/level-2/level-2-swing.webp",
+      "imageFilename": "level-2-swing.webp",
+      "imageSha256": "ca3afce65723ab661856d3d3331396f3a8d5ffae8389487716a72cc7b0f8a8a3",
+      "imageWidth": 480,
+      "imageHeight": 337,
+      "imageBytes": 19036,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-treadmill",
+      "projectId": "level-2-treadmill",
+      "approved": true,
+      "sourceSha256": "78b5fb021bff9908e8d9e56b64143f9fba29a44b7cfc7004963b952fe1ebfae7",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7224ffa602fa4c4fbc370822909a57e0.pdf",
+      "sourceVersion": "legacy-wix-registry-2026-11-23-verified-20261123",
+      "pdfPage": 21,
+      "pdfCrop": [
+        478.9,
+        128.1,
+        1104.7,
+        764.5
+      ],
+      "pdfImageXref": 678,
+      "imagePath": "/final-build/level-2/level-2-treadmill.webp",
+      "imageFilename": "level-2-treadmill.webp",
+      "imageSha256": "e8b78f9932593366a30ce8bb15e501ef7846ce74877ea4c981a5a190fe348c66",
+      "imageWidth": 354,
+      "imageHeight": 360,
+      "imageBytes": 18778,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-battery-robot",
+      "projectId": "level-2-battery-robot",
+      "approved": true,
+      "sourceSha256": "75e1a4286f55616b1b7e31dbc8412dc3730eed77932760ea834ae35e00fb126f",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_707b4397bb0f43bcb07fc2c83735393a.pdf",
+      "sourceVersion": "legacy-wix-registry-2026-11-23-verified-20261123",
+      "pdfPage": 23,
+      "pdfCrop": [
+        1064.9,
+        150.2,
+        1569.7,
+        741.9
+      ],
+      "pdfImageXref": 985,
+      "imagePath": "/final-build/level-2/level-2-battery-robot.webp",
+      "imageFilename": "level-2-battery-robot.webp",
+      "imageSha256": "bb58e353388abcb90f28b50d72823fe53c32d53d1bfcf9bc2208dcc7dfeb066f",
+      "imageWidth": 358,
+      "imageHeight": 420,
+      "imageBytes": 19020,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-walking-robot",
+      "projectId": "level-2-walking-robot",
+      "approved": true,
+      "sourceSha256": "18411a2fcc722e290aeb33decc56cf1a13692a36ea7599b8ae121af92a4912fa",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b9e03b9e4fe64cf18c49fd214b63ef62.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 35,
+      "pdfCrop": [
+        152.9,
+        79.9,
+        443.8,
+        394
+      ],
+      "pdfImageXref": 191,
+      "imagePath": "/final-build/level-2/level-2-walking-robot.webp",
+      "imageFilename": "level-2-walking-robot.webp",
+      "imageSha256": "9401a2f9a48d09098b96cdd850b754d18201ec7925bc7641704e958d3be5a7df",
+      "imageWidth": 462,
+      "imageHeight": 510,
+      "imageBytes": 19772,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-harp",
+      "projectId": "level-2-harp",
+      "approved": true,
+      "sourceSha256": "94566ed8bea3ceaf16cd601adeed8a67ed3e7f0320999667e693211d2702765f",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_127112d924ea469091806c1c47dce36b.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 10,
+      "pdfCrop": [
+        74.5,
+        138.3,
+        431.8,
+        395.8
+      ],
+      "pdfImageXref": 44,
+      "imagePath": "/final-build/level-2/level-2-harp.webp",
+      "imageFilename": "level-2-harp.webp",
+      "imageSha256": "f61bb88fa426dceab16a159f6d2b1b644fd11ea2b9c228ef3f401ba237f9557a",
+      "imageWidth": 660,
+      "imageHeight": 512,
+      "imageBytes": 18252,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-helicopter",
+      "projectId": "level-2-helicopter",
+      "approved": true,
+      "sourceSha256": "b4fb3eafd3e7446bf6c2f4d2c39603ed428ce5b0be8b3211d50cde630d7c9871",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_84b18e894b42437bbed9e9a1aba5a761.pdf",
+      "sourceVersion": "legacy-wix-registry-2026-11-23-verified-20261123",
+      "pdfPage": 35,
+      "pdfCrop": [
+        450.6,
+        134.4,
+        1133,
+        757.7
+      ],
+      "pdfImageXref": 1041,
+      "imagePath": "/final-build/level-2/level-2-helicopter.webp",
+      "imageFilename": "level-2-helicopter.webp",
+      "imageSha256": "706c06e66179ac0f3004ce066ff7947b89317d7b0dd436eaab70490632f0be94",
+      "imageWidth": 360,
+      "imageHeight": 329,
+      "imageBytes": 19656,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-lifting-door",
+      "projectId": "level-2-lifting-door",
+      "approved": true,
+      "sourceSha256": "edf0bdb7118f2198d4f22635baa8f37628069f82bec8bca9e6e183cec8d13998",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cec9616801f946c2ae0043bc95f8a536.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 27,
+      "pdfCrop": [
+        47.8,
+        114.9,
+        267.5,
+        457.2
+      ],
+      "pdfImageXref": 115,
+      "imagePath": "/final-build/level-2/level-2-lifting-door.webp",
+      "imageFilename": "level-2-lifting-door.webp",
+      "imageSha256": "ad3668f036ca4f1b4165c53fb3ef0806670b1c3730435fbf63f7ef860c208a7d",
+      "imageWidth": 380,
+      "imageHeight": 660,
+      "imageBytes": 19210,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    },
+    {
+      "variantId": "level-2-teeterboard",
+      "projectId": "level-2-teeterboard",
+      "approved": true,
+      "sourceSha256": "d5f16824292f41f6ddff7c91dbc0badd0a1109c763b4956bdb8515df6eb8eda1",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2178e928238b40e8afd79d03ec978435.pdf",
+      "sourceVersion": "wix-repaired-record-2026-11-19-verified-20261123",
+      "pdfPage": 10,
+      "pdfCrop": [
+        318.4,
+        222,
+        678.2,
+        445
+      ],
+      "pdfImageXref": 56,
+      "imagePath": "/final-build/level-2/level-2-teeterboard.webp",
+      "imageFilename": "level-2-teeterboard.webp",
+      "imageSha256": "bca3ab4c1faebd7d9c2c451c7f22e1fc23213a67cc245658b1c00ecfdddeed90",
+      "imageWidth": 600,
+      "imageHeight": 372,
+      "imageBytes": 18708,
+      "verifiedPasses": 2,
+      "validationNotes": {
+        "pass1": "Original Wix PDF downloaded, hashed and page inspected; finished-model image cropped directly from source.",
+        "pass2": "Separate full PDF hash/page-count reopening, original image XREF or rendered-page locator verification, downloaded committed GitHub WebP reopening/dimensions/SHA-256 equality, 5 page-grounded questions rechecked.",
+        "sourceIdentityComparison": "Historical Git-object SHA-1 comparison when available; 36/36 matched."
+      }
+    }
+  ],
   "blockedVariantIds": [
-    "level-2-axe-robot",
-    "level-2-batting-robot",
-    "level-2-fan-robot",
-    "level-2-pirate-ship",
-    "level-2-push-ups",
-    "level-2-rotating-flying-chair",
-    "level-2-throwing-robot",
     "level-2-bee",
     "level-2-chimpanzees",
-    "level-2-mechanical-dog",
-    "level-2-scaling-ladder",
-    "level-2-tower-crane",
     "level-2-crane",
     "level-2-fare-gate",
     "level-2-forklift",
@@ -24,11 +855,6 @@
     "level-2-lucky-turntable",
     "level-2-the-treadmill",
     "level-2-tightrope-walk",
-    "level-2-manual-flashlight",
-    "level-2-jumping-machine",
-    "level-2-see-saw-v1",
-    "level-2-see-saw-v2",
-    "level-2-tongs",
     "level-2-automatic-window",
     "level-2-dung-beetle",
     "level-2-mobile-shot",
@@ -40,31 +866,16 @@
     "level-2-ferris-wheel",
     "level-2-round-trip-transportation",
     "level-2-shift-gears",
-    "level-2-bridge",
-    "level-2-mechanisms-simulators-crane",
-    "level-2-door",
-    "level-2-double-beam-crane",
-    "level-2-gearbox",
-    "level-2-hand-crank",
-    "level-2-spinning-bike",
-    "level-2-swing",
-    "level-2-treadmill",
     "level-2-animal-trap",
     "level-2-headlights",
-    "level-2-battery-robot",
-    "level-2-walking-robot",
     "level-2-led-scrolling-screen",
     "level-2-led-signboard",
     "level-2-reverse-parking",
     "level-2-smart-window",
     "level-2-spirograph",
-    "level-2-harp",
-    "level-2-helicopter",
-    "level-2-lifting-door",
-    "level-2-teeterboard",
     "level-2-four-wheel-drive",
     "level-2-pedal-waterwheel",
     "level-2-tank"
   ],
-  "note": "No cropped WebPs have passed both independent verification passes. Never enable student exams from this manifest."
+  "note": "30 original completed-model WebPs verified against their exact PDF source hashes and committed bytes; 30 presentation/uncertain PDF registrations blocked. Integration must filter by approved variants only."
 }
