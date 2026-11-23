@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "level": 5,
   "preparedAt": "2026-11-23",
-  "purpose": "Thirty source-anchored candidate assessment prompts only. NOT approved, selectable, or integrated into production challenge checklists.",
+  "purpose": "30 source-anchored Level 5 assessment prompts: 10 independently reviewed and promoted for two verified models, 20 retained as drafts for four blocked variants.",
   "evidencePolicy": {
     "source": "canonical Level 5 official Building PDFs",
     "completeModelVsInstructionalDistinct": true,
     "aiRobotArtwork": false,
     "studentScannerSelectable": false,
-    "allQuestionsPendingIndependentSecondPass": true,
+    "allQuestionsPendingIndependentSecondPass": false,
     "sourcePageVerifiedByPriorVisualReview": true
   },
   "counts": {
@@ -16,8 +16,8 @@
     "draftQuestions": 30,
     "questionsWithCompletedModelVisualEvidence": 15,
     "questionsOnInstructionalIncompleteModels": 15,
-    "independentlyApprovedQuestions": 0,
-    "studentApprovedVariants": 0
+    "independentlyApprovedQuestions": 10,
+    "studentApprovedVariants": 2
   },
   "entries": [
     {
@@ -260,8 +260,8 @@
       "sourcePage": 12,
       "evidenceQuality": "completed-model-view",
       "sourceStageVerifiedByInitialVisualPass": true,
-      "independentQuestionReview": "PENDING",
-      "studentApproved": false,
+      "independentQuestionReview": "PASSED_SOURCE_VISUAL_SECOND_PASS",
+      "studentApproved": true,
       "questions": [
         {
           "id": "level-5-voice-control-snail-candidate-check-1",
@@ -270,7 +270,7 @@
           "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
           "evidenceKind": "completed-model-view",
           "observable": true,
-          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+          "reviewStatus": "APPROVED_WITH_SOURCE_PAGE_EVIDENCE"
         },
         {
           "id": "level-5-voice-control-snail-candidate-check-2",
@@ -279,7 +279,7 @@
           "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
           "evidenceKind": "completed-model-view",
           "observable": true,
-          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+          "reviewStatus": "APPROVED_WITH_SOURCE_PAGE_EVIDENCE"
         },
         {
           "id": "level-5-voice-control-snail-candidate-check-3",
@@ -288,7 +288,7 @@
           "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
           "evidenceKind": "completed-model-view",
           "observable": true,
-          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+          "reviewStatus": "APPROVED_WITH_SOURCE_PAGE_EVIDENCE"
         },
         {
           "id": "level-5-voice-control-snail-candidate-check-4",
@@ -297,7 +297,7 @@
           "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
           "evidenceKind": "completed-model-view",
           "observable": true,
-          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+          "reviewStatus": "APPROVED_WITH_SOURCE_PAGE_EVIDENCE"
         },
         {
           "id": "level-5-voice-control-snail-candidate-check-5",
@@ -306,7 +306,7 @@
           "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
           "evidenceKind": "completed-model-view",
           "observable": true,
-          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+          "reviewStatus": "APPROVED_WITH_SOURCE_PAGE_EVIDENCE"
         }
       ]
     },
@@ -318,8 +318,8 @@
       "sourcePage": 10,
       "evidenceQuality": "completed-model-view",
       "sourceStageVerifiedByInitialVisualPass": true,
-      "independentQuestionReview": "PENDING",
-      "studentApproved": false,
+      "independentQuestionReview": "PASSED_SOURCE_VISUAL_SECOND_PASS",
+      "studentApproved": true,
       "questions": [
         {
           "id": "level-5-voice-control-vehicle-candidate-check-1",
@@ -328,7 +328,7 @@
           "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
           "evidenceKind": "completed-model-view",
           "observable": true,
-          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+          "reviewStatus": "APPROVED_WITH_SOURCE_PAGE_EVIDENCE"
         },
         {
           "id": "level-5-voice-control-vehicle-candidate-check-2",
@@ -337,7 +337,7 @@
           "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
           "evidenceKind": "completed-model-view",
           "observable": true,
-          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+          "reviewStatus": "APPROVED_WITH_SOURCE_PAGE_EVIDENCE"
         },
         {
           "id": "level-5-voice-control-vehicle-candidate-check-3",
@@ -346,7 +346,7 @@
           "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
           "evidenceKind": "completed-model-view",
           "observable": true,
-          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+          "reviewStatus": "APPROVED_WITH_SOURCE_PAGE_EVIDENCE"
         },
         {
           "id": "level-5-voice-control-vehicle-candidate-check-4",
@@ -355,7 +355,7 @@
           "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
           "evidenceKind": "completed-model-view",
           "observable": true,
-          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+          "reviewStatus": "APPROVED_WITH_SOURCE_PAGE_EVIDENCE"
         },
         {
           "id": "level-5-voice-control-vehicle-candidate-check-5",
@@ -364,7 +364,7 @@
           "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
           "evidenceKind": "completed-model-view",
           "observable": true,
-          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+          "reviewStatus": "APPROVED_WITH_SOURCE_PAGE_EVIDENCE"
         }
       ]
     }
