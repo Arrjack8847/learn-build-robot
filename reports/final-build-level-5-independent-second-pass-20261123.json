@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "preparedAt": "2026-11-23",
+  "purpose": "Independent second-pass review of official PDF provenance, GitHub candidate WebPs and five source-observable checklist questions. Does not itself mutate student scanner approvals.",
+  "sourceOfTruth": "reports/final-build-level-5-six-webp-recovery-evidence-20261123.json",
+  "workerHeadAtReview": "174eb93809073703805671f2793f448f7f457b1a",
+  "reviewerScope": "Separate Vercel Sandbox environment downloaded official Wix PDFs and original candidate WebPs; exact SHA and normalized rendered-source crop pixel comparison; second visual review of source-only candidate images",
+  "officialPdfsDownloadedAndExactHashesMatched": 6,
+  "allPagesRenderedForInspection": 82,
+  "newApprovedScannerVariants": 0,
+  "originalApprovedWixMappingsUntouched": true,
+  "nodeTests": {
+    "command": "node --test tests/final-build-level-5.test.mjs tests/final-build-level-5-wix-candidates.test.mjs tests/final-build-level-5-six-question-candidates.test.mjs",
+    "sourceCommit": "174eb93809073703805671f2793f448f7f457b1a",
+    "passed": 10,
+    "failed": 0
+  },
+  "reviewedCandidates": [
+    {
+      "variantId": "level-5-remote-control-car",
+      "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+      "sourcePdfPageCount": 20,
+      "sourcePdfHashReverified": true,
+      "sourcePage": 20,
+      "webpSourceSha256": "75a25bad77af8968c6ce83bf9344ccba393b44e6933ea8fb5b11985b8a30ab6d",
+      "sourceImageSha256Reverified": true,
+      "sourceCropPixelMae": 1.077,
+      "sourceRasterPixelPass": true,
+      "imageReview": {
+        "result": "image-source-pixels-pass-but-release-blocked",
+        "reason": "Source crop includes printed page number 20; requires clean complete-model crop without removing wheels or roof; checklist questions visually supported but no final clean image approval"
+      },
+      "draftQuestionCount": 5,
+      "exactPageAndHashQuestionMetadataPass": true,
+      "observableChecklistReview": "source-observations-supported-but-artwork-blocked",
+      "canonicalWixUrl": "https://static.wixstatic.com/media/78042f_0c2947266eb7486381448607a8aa7b07~mv2.webp",
+      "studentApproved": false
+    },
+    {
+      "variantId": "level-5-crack-shot:optimized",
+      "sourcePdfSha256": "cfb54f435a8345ca010a6db10c0c1ed37a5a77f48d3086f25a5a7ae28f4f5dcf",
+      "sourcePdfPageCount": 4,
+      "sourcePdfHashReverified": true,
+      "sourcePage": null,
+      "webpSourceSha256": null,
+      "sourceImageSha256Reverified": false,
+      "sourceCropPixelMae": null,
+      "sourceRasterPixelPass": false,
+      "imageReview": {
+        "result": "source-manual-incomplete-no-finished-model",
+        "reason": "Optimized manual page 4 still shows an unattached wheel and construction annotations. Pages 1–3 are earlier, incomplete stages; basic variant cannot substitute."
+      },
+      "draftQuestionCount": 5,
+      "exactPageAndHashQuestionMetadataPass": false,
+      "observableChecklistReview": "instructional-stage-not-eligible-for-student-checklist",
+      "canonicalWixUrl": null,
+      "studentApproved": false
+    },
+    {
+      "variantId": "level-5-machine-gun",
+      "sourcePdfSha256": "acc9ac20908550895909ac6c73d473301732d15cbbe4f03049c1d4b84f1a60c1",
+      "sourcePdfPageCount": 29,
+      "sourcePdfHashReverified": true,
+      "sourcePage": null,
+      "webpSourceSha256": null,
+      "sourceImageSha256Reverified": false,
+      "sourceCropPixelMae": null,
+      "sourceRasterPixelPass": false,
+      "imageReview": {
+        "result": "source-manual-incomplete-no-finished-model",
+        "reason": "Final page 29 shows arrows explaining an uninstalled rubber band and connection; preceding pages are incomplete. Crop cannot truthfully remove the unfinished instruction."
+      },
+      "draftQuestionCount": 5,
+      "exactPageAndHashQuestionMetadataPass": false,
+      "observableChecklistReview": "instructional-stage-not-eligible-for-student-checklist",
+      "canonicalWixUrl": null,
+      "studentApproved": false
+    },
+    {
+      "variantId": "level-5-facial-recognition-time-clock",
+      "sourcePdfSha256": "d864a564ec020cf36df072b980ca763a133aabbd8d4115e50f564ffb02dca872",
+      "sourcePdfPageCount": 7,
+      "sourcePdfHashReverified": true,
+      "sourcePage": null,
+      "webpSourceSha256": null,
+      "sourceImageSha256Reverified": false,
+      "sourceCropPixelMae": null,
+      "sourceRasterPixelPass": false,
+      "imageReview": {
+        "result": "source-manual-incomplete-no-finished-model",
+        "reason": "Final page 7 displays a detached camera module with red alignment guides; prior pages lack that necessary module. No completed assembled camera view."
+      },
+      "draftQuestionCount": 5,
+      "exactPageAndHashQuestionMetadataPass": false,
+      "observableChecklistReview": "instructional-stage-not-eligible-for-student-checklist",
+      "canonicalWixUrl": null,
+      "studentApproved": false
+    },
+    {
+      "variantId": "level-5-voice-control-snail",
+      "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+      "sourcePdfPageCount": 12,
+      "sourcePdfHashReverified": true,
+      "sourcePage": 12,
+      "webpSourceSha256": "268a5d6a2fbb244da5871cd080bd7f4109980b731028f6aa87d1fce440fe503d",
+      "sourceImageSha256Reverified": true,
+      "sourceCropPixelMae": 1.322,
+      "sourceRasterPixelPass": true,
+      "imageReview": {
+        "result": "independent-source-pixel-and-observable-question-review-pass",
+        "reason": "One complete model with angular controller, white frame, forward beams, upper dark module; five manual-page observations independently corroborated"
+      },
+      "draftQuestionCount": 5,
+      "exactPageAndHashQuestionMetadataPass": true,
+      "observableChecklistReview": "second-pass-visually-supported-pending-coordinated-release-gates",
+      "canonicalWixUrl": "https://static.wixstatic.com/media/78042f_72ced3ae25a54a45b1815b9590380b6f~mv2.webp",
+      "studentApproved": false
+    },
+    {
+      "variantId": "level-5-voice-control-vehicle",
+      "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+      "sourcePdfPageCount": 10,
+      "sourcePdfHashReverified": true,
+      "sourcePage": 10,
+      "webpSourceSha256": "f627ccbb70fd03647d2135f0719fbea736ad9938b3c4397a1ef472f07a84b138",
+      "sourceImageSha256Reverified": true,
+      "sourceCropPixelMae": 2.251,
+      "sourceRasterPixelPass": true,
+      "imageReview": {
+        "result": "independent-source-pixel-and-observable-question-review-pass",
+        "reason": "Finished model with top-mounted controller, left wheel, black U-frame, diagonal beams and red/blue pins; five manual-page observations independently corroborated"
+      },
+      "draftQuestionCount": 5,
+      "exactPageAndHashQuestionMetadataPass": true,
+      "observableChecklistReview": "second-pass-visually-supported-pending-coordinated-release-gates",
+      "canonicalWixUrl": "https://static.wixstatic.com/media/78042f_d36f964af5eb46b39673760192b53422~mv2.webp",
+      "studentApproved": false
+    }
+  ],
+  "quarantinedAlternateWixUploads": [
+    {
+      "id": "78042f_853e5172c00345fc959e1c80b21f50b7~mv2.webp",
+      "variantId": "level-5-remote-control-car",
+      "reason": "Duplicate lower-quality/annotated crop. Do not map."
+    },
+    {
+      "id": "78042f_6aa90c8ecc074c8b997e088e4d6d90cf~mv2.webp",
+      "variantId": "level-5-machine-gun",
+      "reason": "Uninstalled rubber band and annotation; not a complete reference. Never map to scanner."
+    },
+    {
+      "id": "78042f_1ba7238662ce45daa8c2f15281304611~mv2.webp",
+      "variantId": "level-5-voice-control-snail",
+      "reason": "Duplicate source-derived candidate; canonical GitHub-backed candidate preferred."
+    },
+    {
+      "id": "78042f_66f03fadc1e447afaa6ca648127e66eb~mv2.webp",
+      "variantId": "level-5-voice-control-vehicle",
+      "reason": "Duplicate source-derived candidate; canonical GitHub-backed candidate preferred."
+    }
+  ],
+  "releaseGates": {
+    "studentApprovedVariants": 0,
+    "imageCandidateReady": 3,
+    "remainingImageBlocked": 3,
+    "mobileFunctionalTestsExecuted": false,
+    "sharedScannerUnchanged": true,
+    "approved39Unchanged": true
+  },
+  "nextAction": "Review clean source-only crop for Remote Control Car, independently sign off 10/10 questions for Snail and Vehicle and coordinate their approval patch against current PR #114 head; require canonical official completed-model sources for the other three."
+}

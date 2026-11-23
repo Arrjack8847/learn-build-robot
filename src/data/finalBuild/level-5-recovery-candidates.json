@@ -1,0 +1,322 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified six-variant Level 5 recovery registry: three exact-PDF finished-model WebPs and 15 five-question checks approved; three incomplete-model sources remain fail-closed",
+  "preparedAt": "2026-11-23",
+  "basePr": 113,
+  "sourceAudit": "src/data/finalBuild/level-5-audit.json",
+  "currentApprovedCount": 42,
+  "candidateCount": 6,
+  "approvedFromThisRecovery": 3,
+  "policy": {
+    "studentAccess": "fail-closed for three incomplete official models; three fully source-verified candidates released",
+    "commonEngineOwnedBy": "final integration worker",
+    "allowAiRobotArtwork": false,
+    "allowUnverifiedChecklists": false,
+    "preferExternalWixReference": true,
+    "referenceModeMayBePdfPageCrop": true,
+    "productionMergeAllowed": false
+  },
+  "candidates": [
+    {
+      "variantId": "level-5-remote-control-car",
+      "projectId": "level-5-remote-control-car",
+      "projectTitle": "Remote Control Car",
+      "variant": "official",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfd708a9edbb495fa9c9e0940706928b.pdf",
+      "recordedPdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+      "pdfPageCount": 20,
+      "previousCandidatePage": 20,
+      "alternativeReferenceModes": [
+        {
+          "type": "official-wix-pdf-crop",
+          "allowed": true,
+          "requirement": "Identify a genuinely completed model in this exact manual; inspect every page; record page + verified normalized crop. No unverified full-page substitute."
+        },
+        {
+          "type": "wix-hosted-webp",
+          "allowed": true,
+          "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
+        }
+      ],
+      "visualReviewStatus": "source-authentic-completed-model-independently-verified",
+      "checklistReviewStatus": "passed: five exact-source observable checks",
+      "independentApprovalStatus": "approved",
+      "sourcePagesToInspect": "completed; see evidenceReport",
+      "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
+      "questionCount": 5,
+      "approvalMayChangeOnlyWhen": [
+        "same official source PDF SHA confirmed",
+        "completed model and variant independently identified",
+        "reference image or PDF page/crop independently visually approved",
+        "five variant-specific observable checks with source page evidence independently approved",
+        "relevant tests pass"
+      ],
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions.",
+      "sourceReviewDate": "2026-11-23",
+      "currentRunOfficialPdfHashVerified": true,
+      "everyPageVisualOverviewReviewed": true,
+      "imageCandidate": {
+        "filename": "level-5-remote-control-car-basic.webp",
+        "sourcePage": 20,
+        "normalizedCrop": [
+          0.061,
+          0.075,
+          0.669,
+          0.9
+        ],
+        "sha256": "6183ecc26f4162f548873a4d66c0df168762b4744d1d9800343cc49d8a04cf01",
+        "dimensions": [
+          550,
+          528
+        ],
+        "wixReady": true,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_852c62df18ec40ee83c9ccb7e25f7460~mv2.webp"
+      },
+      "remainingBlocker": null
+    },
+    {
+      "variantId": "level-5-crack-shot:optimized",
+      "projectId": "level-5-crack-shot",
+      "projectTitle": "Crack Shot",
+      "variant": "optimized",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_835593144e5f475e995524016c5791d4.pdf",
+      "recordedPdfSha256": "cfb54f435a8345ca010a6db10c0c1ed37a5a77f48d3086f25a5a7ae28f4f5dcf",
+      "pdfPageCount": 4,
+      "previousCandidatePage": 4,
+      "alternativeReferenceModes": [
+        {
+          "type": "official-wix-pdf-crop",
+          "allowed": true,
+          "requirement": "Identify a genuinely completed model in this exact manual; inspect every page; record page + verified normalized crop. No unverified full-page substitute."
+        },
+        {
+          "type": "wix-hosted-webp",
+          "allowed": true,
+          "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
+        }
+      ],
+      "visualReviewStatus": "image-blocked:no-unambiguous-complete-model",
+      "checklistReviewStatus": "blocked: zero independently approved questions",
+      "independentApprovalStatus": "blocked",
+      "sourcePagesToInspect": "completed; see evidenceReport",
+      "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
+      "questionCount": 0,
+      "approvalMayChangeOnlyWhen": [
+        "same official source PDF SHA confirmed",
+        "completed model and variant independently identified",
+        "reference image or PDF page/crop independently visually approved",
+        "five variant-specific observable checks with source page evidence independently approved",
+        "relevant tests pass"
+      ],
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions.",
+      "sourceReviewDate": "2026-11-23",
+      "currentRunOfficialPdfHashVerified": true,
+      "everyPageVisualOverviewReviewed": true,
+      "imageCandidate": null,
+      "remainingBlocker": "Optimized page 4 includes a detached wheel; no completed model in pages 1–4"
+    },
+    {
+      "variantId": "level-5-machine-gun",
+      "projectId": "level-5-machine-gun",
+      "projectTitle": "Machine Gun",
+      "variant": "official",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f65e51bc47304554b99de3e3a96109cb.pdf",
+      "recordedPdfSha256": "acc9ac20908550895909ac6c73d473301732d15cbbe4f03049c1d4b84f1a60c1",
+      "pdfPageCount": 29,
+      "previousCandidatePage": 29,
+      "alternativeReferenceModes": [
+        {
+          "type": "official-wix-pdf-crop",
+          "allowed": true,
+          "requirement": "Identify a genuinely completed model in this exact manual; inspect every page; record page + verified normalized crop. No unverified full-page substitute."
+        },
+        {
+          "type": "wix-hosted-webp",
+          "allowed": true,
+          "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
+        }
+      ],
+      "visualReviewStatus": "image-blocked:no-unambiguous-complete-model",
+      "checklistReviewStatus": "blocked: zero independently approved questions",
+      "independentApprovalStatus": "blocked",
+      "sourcePagesToInspect": "completed; see evidenceReport",
+      "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
+      "questionCount": 0,
+      "approvalMayChangeOnlyWhen": [
+        "same official source PDF SHA confirmed",
+        "completed model and variant independently identified",
+        "reference image or PDF page/crop independently visually approved",
+        "five variant-specific observable checks with source page evidence independently approved",
+        "relevant tests pass"
+      ],
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions.",
+      "sourceReviewDate": "2026-11-23",
+      "currentRunOfficialPdfHashVerified": true,
+      "everyPageVisualOverviewReviewed": true,
+      "imageCandidate": null,
+      "remainingBlocker": "Page 29 still instructs attaching the rubber band; no post-attachment final model"
+    },
+    {
+      "variantId": "level-5-facial-recognition-time-clock",
+      "projectId": "level-5-facial-recognition-time-clock",
+      "projectTitle": "Facial Recognition Time Clock",
+      "variant": "official",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfc2fffdf072479282e6a039a228b3e7.pdf",
+      "recordedPdfSha256": "d864a564ec020cf36df072b980ca763a133aabbd8d4115e50f564ffb02dca872",
+      "pdfPageCount": 7,
+      "previousCandidatePage": 7,
+      "alternativeReferenceModes": [
+        {
+          "type": "official-wix-pdf-crop",
+          "allowed": true,
+          "requirement": "Identify a genuinely completed model in this exact manual; inspect every page; record page + verified normalized crop. No unverified full-page substitute."
+        },
+        {
+          "type": "wix-hosted-webp",
+          "allowed": true,
+          "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
+        }
+      ],
+      "visualReviewStatus": "image-blocked:no-unambiguous-complete-model",
+      "checklistReviewStatus": "blocked: zero independently approved questions",
+      "independentApprovalStatus": "blocked",
+      "sourcePagesToInspect": "completed; see evidenceReport",
+      "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
+      "questionCount": 0,
+      "approvalMayChangeOnlyWhen": [
+        "same official source PDF SHA confirmed",
+        "completed model and variant independently identified",
+        "reference image or PDF page/crop independently visually approved",
+        "five variant-specific observable checks with source page evidence independently approved",
+        "relevant tests pass"
+      ],
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions.",
+      "sourceReviewDate": "2026-11-23",
+      "currentRunOfficialPdfHashVerified": true,
+      "everyPageVisualOverviewReviewed": true,
+      "imageCandidate": null,
+      "remainingBlocker": "Page 7 camera remains detached and annotated; earlier pages lack it"
+    },
+    {
+      "variantId": "level-5-voice-control-snail",
+      "projectId": "level-5-voice-control-snail",
+      "projectTitle": "Voice control snail",
+      "variant": "official",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f87b9b12193f4f79a103d973e8a0fc02.pdf",
+      "recordedPdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+      "pdfPageCount": 12,
+      "previousCandidatePage": 12,
+      "alternativeReferenceModes": [
+        {
+          "type": "official-wix-pdf-crop",
+          "allowed": true,
+          "requirement": "Identify a genuinely completed model in this exact manual; inspect every page; record page + verified normalized crop. No unverified full-page substitute."
+        },
+        {
+          "type": "wix-hosted-webp",
+          "allowed": true,
+          "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
+        }
+      ],
+      "visualReviewStatus": "source-authentic-completed-model-independently-verified",
+      "checklistReviewStatus": "passed: five exact-source observable checks",
+      "independentApprovalStatus": "approved",
+      "sourcePagesToInspect": "completed; see evidenceReport",
+      "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
+      "questionCount": 5,
+      "approvalMayChangeOnlyWhen": [
+        "same official source PDF SHA confirmed",
+        "completed model and variant independently identified",
+        "reference image or PDF page/crop independently visually approved",
+        "five variant-specific observable checks with source page evidence independently approved",
+        "relevant tests pass"
+      ],
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions.",
+      "sourceReviewDate": "2026-11-23",
+      "currentRunOfficialPdfHashVerified": true,
+      "everyPageVisualOverviewReviewed": true,
+      "imageCandidate": {
+        "filename": "level-5-voice-control-snail-basic.webp",
+        "sourcePage": 12,
+        "normalizedCrop": [
+          0.3,
+          0.18,
+          0.83,
+          0.86
+        ],
+        "sha256": "268a5d6a2fbb244da5871cd080bd7f4109980b731028f6aa87d1fce440fe503d",
+        "dimensions": [
+          550,
+          397
+        ],
+        "wixReady": true,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_72ced3ae25a54a45b1815b9590380b6f~mv2.webp"
+      },
+      "remainingBlocker": null
+    },
+    {
+      "variantId": "level-5-voice-control-vehicle",
+      "projectId": "level-5-voice-control-vehicle",
+      "projectTitle": "Voice Control Vehicle",
+      "variant": "official",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4ee4d1d889f84492b41e9df408633906.pdf",
+      "recordedPdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+      "pdfPageCount": 10,
+      "previousCandidatePage": 10,
+      "alternativeReferenceModes": [
+        {
+          "type": "official-wix-pdf-crop",
+          "allowed": true,
+          "requirement": "Identify a genuinely completed model in this exact manual; inspect every page; record page + verified normalized crop. No unverified full-page substitute."
+        },
+        {
+          "type": "wix-hosted-webp",
+          "allowed": true,
+          "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
+        }
+      ],
+      "visualReviewStatus": "source-authentic-completed-model-independently-verified",
+      "checklistReviewStatus": "passed: five exact-source observable checks",
+      "independentApprovalStatus": "approved",
+      "sourcePagesToInspect": "completed; see evidenceReport",
+      "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
+      "questionCount": 5,
+      "approvalMayChangeOnlyWhen": [
+        "same official source PDF SHA confirmed",
+        "completed model and variant independently identified",
+        "reference image or PDF page/crop independently visually approved",
+        "five variant-specific observable checks with source page evidence independently approved",
+        "relevant tests pass"
+      ],
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions.",
+      "sourceReviewDate": "2026-11-23",
+      "currentRunOfficialPdfHashVerified": true,
+      "everyPageVisualOverviewReviewed": true,
+      "imageCandidate": {
+        "filename": "level-5-voice-control-vehicle-basic.webp",
+        "sourcePage": 10,
+        "normalizedCrop": [
+          0.64,
+          0.52,
+          1,
+          0.94
+        ],
+        "sha256": "f627ccbb70fd03647d2135f0719fbea736ad9938b3c4397a1ef472f07a84b138",
+        "dimensions": [
+          550,
+          361
+        ],
+        "wixReady": true,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_d36f964af5eb46b39673760192b53422~mv2.webp"
+      },
+      "remainingBlocker": null
+    }
+  ],
+  "sourceAuditUpdated": true,
+  "officialSourceHashesRechecked": true,
+  "allSourcePagesVisuallyReviewed": true,
+  "candidateImagesReady": 3,
+  "candidateWixReady": 3,
+  "candidatesWithoutAuthenticFinishedImage": 3,
+  "evidenceReport": "reports/final-build-level-5-six-webp-recovery-evidence-20261123.json"
+}

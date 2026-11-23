@@ -1,0 +1,299 @@
+{
+  "schemaVersion": 1,
+  "level": 5,
+  "purpose": "Isolated six-variant candidate ledger. This registry has no authority to approve student scanner content or modify the existing 39 Wix URLs.",
+  "repository": "Arrjack8847/learn-build-robot",
+  "workerBranch": "feat/final-build-level-5",
+  "inspectedWorkerHeadSha": "245eb7b3de1814978221704ac6d93a8c6d76e337",
+  "targetWixSite": {
+    "name": "Steam",
+    "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0"
+  },
+  "recordedAt": "2026-11-23",
+  "status": "source-binaries-unavailable-no-candidates-uploaded",
+  "recordedSourceHashesAreFromPriorAudit": true,
+  "sourceHashesReverifiedDuringThisRecovery": false,
+  "existingApprovedImageCountUnaffected": 39,
+  "newWebpCandidatesCreated": 0,
+  "newWixUploads": 0,
+  "newArtworkApprovals": 0,
+  "newChecklistApprovals": 0,
+  "candidates": [
+    {
+      "variantId": "level-5-remote-control-car",
+      "projectTitle": "Remote Control Car",
+      "variant": "official",
+      "requiredFilename": "level-5-remote-control-car-basic.webp",
+      "registeredOfficialBuildingPdfPath": "public/Level 5/Building/Display & Movement/Remote Control Car/12.Remote Control Car-Building Manual.pdf",
+      "registeredOfficialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfd708a9edbb495fa9c9e0940706928b.pdf",
+      "previouslyRecordedPdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+      "previousPdfPageCount": 20,
+      "previousCandidatePageHint": 20,
+      "currentRecovery": {
+        "sourceBytesAvailable": false,
+        "currentPdfSha256Verified": false,
+        "allPagesInspected": false,
+        "finishedModelProven": false,
+        "selectedPage": null,
+        "normalizedCrop": null,
+        "webpPath": null,
+        "webpSha256": null,
+        "dimensions": null,
+        "firstPassResult": "not-run",
+        "independentReviewResult": "not-run"
+      },
+      "wix": {
+        "uploaded": false,
+        "mediaId": null,
+        "url": null,
+        "mimeType": null,
+        "readyStatus": "NOT_UPLOADED"
+      },
+      "checklist": {
+        "questions": [],
+        "pdfEvidenceVerified": false,
+        "independentlyApproved": false
+      },
+      "approval": {
+        "artwork": false,
+        "checklist": false,
+        "studentSelectable": false
+      },
+      "remainingBlockers": [
+        "Original official PDF bytes unavailable in this execution environment",
+        "All-page finished-model source inspection and independent art QA pending",
+        "Five PDF-page-evidenced questions and separate checklist approval pending"
+      ]
+    },
+    {
+      "variantId": "level-5-crack-shot:optimized",
+      "projectTitle": "Crack Shot",
+      "variant": "optimized",
+      "requiredFilename": "level-5-crack-shot-optimized.webp",
+      "registeredOfficialBuildingPdfPath": "public/Level 5/Building/Mechanisms & Simulators/Crack Shot/6. Crack Shot - Optimized Building Manual.pdf",
+      "registeredOfficialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_835593144e5f475e995524016c5791d4.pdf",
+      "previouslyRecordedPdfSha256": "cfb54f435a8345ca010a6db10c0c1ed37a5a77f48d3086f25a5a7ae28f4f5dcf",
+      "previousPdfPageCount": 4,
+      "previousCandidatePageHint": 4,
+      "currentRecovery": {
+        "sourceBytesAvailable": false,
+        "currentPdfSha256Verified": false,
+        "allPagesInspected": false,
+        "finishedModelProven": false,
+        "selectedPage": null,
+        "normalizedCrop": null,
+        "webpPath": null,
+        "webpSha256": null,
+        "dimensions": null,
+        "firstPassResult": "not-run",
+        "independentReviewResult": "not-run"
+      },
+      "wix": {
+        "uploaded": false,
+        "mediaId": null,
+        "url": null,
+        "mimeType": null,
+        "readyStatus": "NOT_UPLOADED"
+      },
+      "checklist": {
+        "questions": [],
+        "pdfEvidenceVerified": false,
+        "independentlyApproved": false
+      },
+      "approval": {
+        "artwork": false,
+        "checklist": false,
+        "studentSelectable": false
+      },
+      "remainingBlockers": [
+        "Original official PDF bytes unavailable in this execution environment",
+        "All-page finished-model source inspection and independent art QA pending",
+        "Five PDF-page-evidenced questions and separate checklist approval pending"
+      ]
+    },
+    {
+      "variantId": "level-5-machine-gun",
+      "projectTitle": "Machine Gun",
+      "variant": "official",
+      "requiredFilename": "level-5-machine-gun-basic.webp",
+      "registeredOfficialBuildingPdfPath": "public/Level 5/Building/Mechanisms & Simulators/Machine Gun/10.Machine Gun-Building Manual.pdf",
+      "registeredOfficialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f65e51bc47304554b99de3e3a96109cb.pdf",
+      "previouslyRecordedPdfSha256": "acc9ac20908550895909ac6c73d473301732d15cbbe4f03049c1d4b84f1a60c1",
+      "previousPdfPageCount": 29,
+      "previousCandidatePageHint": 29,
+      "currentRecovery": {
+        "sourceBytesAvailable": false,
+        "currentPdfSha256Verified": false,
+        "allPagesInspected": false,
+        "finishedModelProven": false,
+        "selectedPage": null,
+        "normalizedCrop": null,
+        "webpPath": null,
+        "webpSha256": null,
+        "dimensions": null,
+        "firstPassResult": "not-run",
+        "independentReviewResult": "not-run"
+      },
+      "wix": {
+        "uploaded": false,
+        "mediaId": null,
+        "url": null,
+        "mimeType": null,
+        "readyStatus": "NOT_UPLOADED"
+      },
+      "checklist": {
+        "questions": [],
+        "pdfEvidenceVerified": false,
+        "independentlyApproved": false
+      },
+      "approval": {
+        "artwork": false,
+        "checklist": false,
+        "studentSelectable": false
+      },
+      "remainingBlockers": [
+        "Original official PDF bytes unavailable in this execution environment",
+        "All-page finished-model source inspection and independent art QA pending",
+        "Five PDF-page-evidenced questions and separate checklist approval pending"
+      ]
+    },
+    {
+      "variantId": "level-5-facial-recognition-time-clock",
+      "projectTitle": "Facial Recognition Time Clock",
+      "variant": "official",
+      "requiredFilename": "level-5-facial-recognition-time-clock-basic.webp",
+      "registeredOfficialBuildingPdfPath": "public/Level 5/Building/Sensor-Focused Robots/Facial Recognition Time Clock/28.Facial Recognition Time Clock-Building Manual.pdf",
+      "registeredOfficialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfc2fffdf072479282e6a039a228b3e7.pdf",
+      "previouslyRecordedPdfSha256": "d864a564ec020cf36df072b980ca763a133aabbd8d4115e50f564ffb02dca872",
+      "previousPdfPageCount": 7,
+      "previousCandidatePageHint": 7,
+      "currentRecovery": {
+        "sourceBytesAvailable": false,
+        "currentPdfSha256Verified": false,
+        "allPagesInspected": false,
+        "finishedModelProven": false,
+        "selectedPage": null,
+        "normalizedCrop": null,
+        "webpPath": null,
+        "webpSha256": null,
+        "dimensions": null,
+        "firstPassResult": "not-run",
+        "independentReviewResult": "not-run"
+      },
+      "wix": {
+        "uploaded": false,
+        "mediaId": null,
+        "url": null,
+        "mimeType": null,
+        "readyStatus": "NOT_UPLOADED"
+      },
+      "checklist": {
+        "questions": [],
+        "pdfEvidenceVerified": false,
+        "independentlyApproved": false
+      },
+      "approval": {
+        "artwork": false,
+        "checklist": false,
+        "studentSelectable": false
+      },
+      "remainingBlockers": [
+        "Original official PDF bytes unavailable in this execution environment",
+        "All-page finished-model source inspection and independent art QA pending",
+        "Five PDF-page-evidenced questions and separate checklist approval pending"
+      ]
+    },
+    {
+      "variantId": "level-5-voice-control-snail",
+      "projectTitle": "Voice control snail",
+      "variant": "official",
+      "requiredFilename": "level-5-voice-control-snail-basic.webp",
+      "registeredOfficialBuildingPdfPath": "public/Level 5/Building/Sound & Voice Interaction/Voice control snail/08.Voice control snail-building.pdf",
+      "registeredOfficialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f87b9b12193f4f79a103d973e8a0fc02.pdf",
+      "previouslyRecordedPdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+      "previousPdfPageCount": 12,
+      "previousCandidatePageHint": 12,
+      "currentRecovery": {
+        "sourceBytesAvailable": false,
+        "currentPdfSha256Verified": false,
+        "allPagesInspected": false,
+        "finishedModelProven": false,
+        "selectedPage": null,
+        "normalizedCrop": null,
+        "webpPath": null,
+        "webpSha256": null,
+        "dimensions": null,
+        "firstPassResult": "not-run",
+        "independentReviewResult": "not-run"
+      },
+      "wix": {
+        "uploaded": false,
+        "mediaId": null,
+        "url": null,
+        "mimeType": null,
+        "readyStatus": "NOT_UPLOADED"
+      },
+      "checklist": {
+        "questions": [],
+        "pdfEvidenceVerified": false,
+        "independentlyApproved": false
+      },
+      "approval": {
+        "artwork": false,
+        "checklist": false,
+        "studentSelectable": false
+      },
+      "remainingBlockers": [
+        "Original official PDF bytes unavailable in this execution environment",
+        "All-page finished-model source inspection and independent art QA pending",
+        "Five PDF-page-evidenced questions and separate checklist approval pending"
+      ]
+    },
+    {
+      "variantId": "level-5-voice-control-vehicle",
+      "projectTitle": "Voice Control Vehicle",
+      "variant": "official",
+      "requiredFilename": "level-5-voice-control-vehicle-basic.webp",
+      "registeredOfficialBuildingPdfPath": "public/Level 5/Building/Sound & Voice Interaction/Voice Control Vehicle/Voice Control Vehicle_Building.pdf",
+      "registeredOfficialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4ee4d1d889f84492b41e9df408633906.pdf",
+      "previouslyRecordedPdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+      "previousPdfPageCount": 10,
+      "previousCandidatePageHint": 10,
+      "currentRecovery": {
+        "sourceBytesAvailable": false,
+        "currentPdfSha256Verified": false,
+        "allPagesInspected": false,
+        "finishedModelProven": false,
+        "selectedPage": null,
+        "normalizedCrop": null,
+        "webpPath": null,
+        "webpSha256": null,
+        "dimensions": null,
+        "firstPassResult": "not-run",
+        "independentReviewResult": "not-run"
+      },
+      "wix": {
+        "uploaded": false,
+        "mediaId": null,
+        "url": null,
+        "mimeType": null,
+        "readyStatus": "NOT_UPLOADED"
+      },
+      "checklist": {
+        "questions": [],
+        "pdfEvidenceVerified": false,
+        "independentlyApproved": false
+      },
+      "approval": {
+        "artwork": false,
+        "checklist": false,
+        "studentSelectable": false
+      },
+      "remainingBlockers": [
+        "Original official PDF bytes unavailable in this execution environment",
+        "All-page finished-model source inspection and independent art QA pending",
+        "Five PDF-page-evidenced questions and separate checklist approval pending"
+      ]
+    }
+  ]
+}
