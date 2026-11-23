@@ -1,0 +1,372 @@
+{
+  "schemaVersion": 1,
+  "level": 5,
+  "preparedAt": "2026-11-23",
+  "purpose": "Thirty source-anchored candidate assessment prompts only. NOT approved, selectable, or integrated into production challenge checklists.",
+  "evidencePolicy": {
+    "source": "canonical Level 5 official Building PDFs",
+    "completeModelVsInstructionalDistinct": true,
+    "aiRobotArtwork": false,
+    "studentScannerSelectable": false,
+    "allQuestionsPendingIndependentSecondPass": true,
+    "sourcePageVerifiedByPriorVisualReview": true
+  },
+  "counts": {
+    "variants": 6,
+    "draftQuestions": 30,
+    "questionsWithCompletedModelVisualEvidence": 15,
+    "questionsOnInstructionalIncompleteModels": 15,
+    "independentlyApprovedQuestions": 0,
+    "studentApprovedVariants": 0
+  },
+  "entries": [
+    {
+      "variantId": "level-5-remote-control-car",
+      "projectTitle": "Remote Control Car",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfd708a9edbb495fa9c9e0940706928b.pdf",
+      "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+      "sourcePage": 20,
+      "evidenceQuality": "completed-model-view",
+      "sourceStageVerifiedByInitialVisualPass": true,
+      "independentQuestionReview": "PENDING",
+      "studentApproved": false,
+      "questions": [
+        {
+          "id": "level-5-remote-control-car-candidate-check-1",
+          "text": "Does the vehicle show a rectangular-screen controller seated above the rear structural frame?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+          "evidenceKind": "completed-model-view",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-remote-control-car-candidate-check-2",
+          "text": "Are the two prominent dark tires mounted on opposite sides of the forward axle assembly?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+          "evidenceKind": "completed-model-view",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-remote-control-car-candidate-check-3",
+          "text": "Does the front of the vehicle have two angled light-colored structural panels separated by a red element?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+          "evidenceKind": "completed-model-view",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-remote-control-car-candidate-check-4",
+          "text": "Is the rectangular grey mechanical housing attached along the right side behind the front wheel?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+          "evidenceKind": "completed-model-view",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-remote-control-car-candidate-check-5",
+          "text": "Are the red and blue connector elements visible where the right-side housing meets the central frame?",
+          "evidencePage": 20,
+          "sourcePdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+          "evidenceKind": "completed-model-view",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        }
+      ]
+    },
+    {
+      "variantId": "level-5-crack-shot:optimized",
+      "projectTitle": "Crack Shot — Optimized",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_835593144e5f475e995524016c5791d4.pdf",
+      "sourcePdfSha256": "cfb54f435a8345ca010a6db10c0c1ed37a5a77f48d3086f25a5a7ae28f4f5dcf",
+      "sourcePage": 4,
+      "evidenceQuality": "instructional-stage-only",
+      "sourceStageVerifiedByInitialVisualPass": true,
+      "independentQuestionReview": "PENDING",
+      "studentApproved": false,
+      "questions": [
+        {
+          "id": "level-5-crack-shot-optimized-candidate-check-1",
+          "text": "Does the optimized manual depict a lower rectangular controller unit with its display facing upward?",
+          "evidencePage": 4,
+          "sourcePdfSha256": "cfb54f435a8345ca010a6db10c0c1ed37a5a77f48d3086f25a5a7ae28f4f5dcf",
+          "evidenceKind": "instructional-stage-only",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-crack-shot-optimized-candidate-check-2",
+          "text": "Does the optimized manual show a separate raised upper grey beam-and-gear assembly?",
+          "evidencePage": 4,
+          "sourcePdfSha256": "cfb54f435a8345ca010a6db10c0c1ed37a5a77f48d3086f25a5a7ae28f4f5dcf",
+          "evidenceKind": "instructional-stage-only",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-crack-shot-optimized-candidate-check-3",
+          "text": "Are red axle connectors illustrated extending outward from the lower vehicle's front wheel mounts?",
+          "evidencePage": 4,
+          "sourcePdfSha256": "cfb54f435a8345ca010a6db10c0c1ed37a5a77f48d3086f25a5a7ae28f4f5dcf",
+          "evidenceKind": "instructional-stage-only",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-crack-shot-optimized-candidate-check-4",
+          "text": "Are small dark wheels shown at the ends of the lateral wheel assemblies in the optimized instructions?",
+          "evidencePage": 4,
+          "sourcePdfSha256": "cfb54f435a8345ca010a6db10c0c1ed37a5a77f48d3086f25a5a7ae28f4f5dcf",
+          "evidenceKind": "instructional-stage-only",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-crack-shot-optimized-candidate-check-5",
+          "text": "Does the optimized manual include a red curved linkage in the raised mechanism above the controller?",
+          "evidencePage": 4,
+          "sourcePdfSha256": "cfb54f435a8345ca010a6db10c0c1ed37a5a77f48d3086f25a5a7ae28f4f5dcf",
+          "evidenceKind": "instructional-stage-only",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        }
+      ]
+    },
+    {
+      "variantId": "level-5-machine-gun",
+      "projectTitle": "Machine Gun",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f65e51bc47304554b99de3e3a96109cb.pdf",
+      "sourcePdfSha256": "acc9ac20908550895909ac6c73d473301732d15cbbe4f03049c1d4b84f1a60c1",
+      "sourcePage": 29,
+      "evidenceQuality": "instructional-stage-only",
+      "sourceStageVerifiedByInitialVisualPass": true,
+      "independentQuestionReview": "PENDING",
+      "studentApproved": false,
+      "questions": [
+        {
+          "id": "level-5-machine-gun-candidate-check-1",
+          "text": "Does the final instruction page show the long narrow barrel beam projecting ahead of the central frame?",
+          "evidencePage": 29,
+          "sourcePdfSha256": "acc9ac20908550895909ac6c73d473301732d15cbbe4f03049c1d4b84f1a60c1",
+          "evidenceKind": "instructional-stage-only",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-machine-gun-candidate-check-2",
+          "text": "Are a pair of large intermeshed grey gears visible beside the central beam framework?",
+          "evidencePage": 29,
+          "sourcePdfSha256": "acc9ac20908550895909ac6c73d473301732d15cbbe4f03049c1d4b84f1a60c1",
+          "evidenceKind": "instructional-stage-only",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-machine-gun-candidate-check-3",
+          "text": "Does a tall bent grey support lift the upper assembly above a lower controller unit?",
+          "evidencePage": 29,
+          "sourcePdfSha256": "acc9ac20908550895909ac6c73d473301732d15cbbe4f03049c1d4b84f1a60c1",
+          "evidenceKind": "instructional-stage-only",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-machine-gun-candidate-check-4",
+          "text": "Is the white rectangular controller shown underneath the support with its dark display facing upward?",
+          "evidencePage": 29,
+          "sourcePdfSha256": "acc9ac20908550895909ac6c73d473301732d15cbbe4f03049c1d4b84f1a60c1",
+          "evidenceKind": "instructional-stage-only",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-machine-gun-candidate-check-5",
+          "text": "Does the final instruction identify the two red attachment points that must be linked by the rubber band?",
+          "evidencePage": 29,
+          "sourcePdfSha256": "acc9ac20908550895909ac6c73d473301732d15cbbe4f03049c1d4b84f1a60c1",
+          "evidenceKind": "instructional-stage-only",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        }
+      ]
+    },
+    {
+      "variantId": "level-5-facial-recognition-time-clock",
+      "projectTitle": "Facial Recognition Time Clock",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfc2fffdf072479282e6a039a228b3e7.pdf",
+      "sourcePdfSha256": "d864a564ec020cf36df072b980ca763a133aabbd8d4115e50f564ffb02dca872",
+      "sourcePage": 7,
+      "evidenceQuality": "instructional-stage-only",
+      "sourceStageVerifiedByInitialVisualPass": true,
+      "independentQuestionReview": "PENDING",
+      "studentApproved": false,
+      "questions": [
+        {
+          "id": "level-5-facial-recognition-time-clock-candidate-check-1",
+          "text": "Does the manual show the tall white controller with a black rectangular front-facing display?",
+          "evidencePage": 7,
+          "sourcePdfSha256": "d864a564ec020cf36df072b980ca763a133aabbd8d4115e50f564ffb02dca872",
+          "evidenceKind": "instructional-stage-only",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-facial-recognition-time-clock-candidate-check-2",
+          "text": "Are two red support brackets mounted along the left side of the main controller?",
+          "evidencePage": 7,
+          "sourcePdfSha256": "d864a564ec020cf36df072b980ca763a133aabbd8d4115e50f564ffb02dca872",
+          "evidenceKind": "instructional-stage-only",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-facial-recognition-time-clock-candidate-check-3",
+          "text": "Does the separate black camera module have a prominent circular lens on its front face?",
+          "evidencePage": 7,
+          "sourcePdfSha256": "d864a564ec020cf36df072b980ca763a133aabbd8d4115e50f564ffb02dca872",
+          "evidenceKind": "instructional-stage-only",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-facial-recognition-time-clock-candidate-check-4",
+          "text": "Do the page-7 attachment guides show the camera fitting against the left-side bracket using colored pin connectors?",
+          "evidencePage": 7,
+          "sourcePdfSha256": "d864a564ec020cf36df072b980ca763a133aabbd8d4115e50f564ffb02dca872",
+          "evidenceKind": "instructional-stage-only",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-facial-recognition-time-clock-candidate-check-5",
+          "text": "Is the camera positioned to face outward alongside the front display rather than behind the controller?",
+          "evidencePage": 7,
+          "sourcePdfSha256": "d864a564ec020cf36df072b980ca763a133aabbd8d4115e50f564ffb02dca872",
+          "evidenceKind": "instructional-stage-only",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        }
+      ]
+    },
+    {
+      "variantId": "level-5-voice-control-snail",
+      "projectTitle": "Voice Control Snail",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f87b9b12193f4f79a103d973e8a0fc02.pdf",
+      "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+      "sourcePage": 12,
+      "evidenceQuality": "completed-model-view",
+      "sourceStageVerifiedByInitialVisualPass": true,
+      "independentQuestionReview": "PENDING",
+      "studentApproved": false,
+      "questions": [
+        {
+          "id": "level-5-voice-control-snail-candidate-check-1",
+          "text": "Is the rectangular-screen controller mounted at an angle on the left side of the snail's base?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+          "evidenceKind": "completed-model-view",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-voice-control-snail-candidate-check-2",
+          "text": "Does the dark controller display remain exposed and clearly face forward in the finished reference?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+          "evidenceKind": "completed-model-view",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-voice-control-snail-candidate-check-3",
+          "text": "Do the white curved upright beams rise from the right-hand side of the lower base?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+          "evidenceKind": "completed-model-view",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-voice-control-snail-candidate-check-4",
+          "text": "Is the small dark sensor-like module fixed to the top of the taller right-hand upright structure?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+          "evidenceKind": "completed-model-view",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-voice-control-snail-candidate-check-5",
+          "text": "Does the long low grey-and-white beam assembly extend forward from beneath the angled controller?",
+          "evidencePage": 12,
+          "sourcePdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+          "evidenceKind": "completed-model-view",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        }
+      ]
+    },
+    {
+      "variantId": "level-5-voice-control-vehicle",
+      "projectTitle": "Voice Control Vehicle",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4ee4d1d889f84492b41e9df408633906.pdf",
+      "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+      "sourcePage": 10,
+      "evidenceQuality": "completed-model-view",
+      "sourceStageVerifiedByInitialVisualPass": true,
+      "independentQuestionReview": "PENDING",
+      "studentApproved": false,
+      "questions": [
+        {
+          "id": "level-5-voice-control-vehicle-candidate-check-1",
+          "text": "Is the rectangular controller mounted high over the rear portion of the wheeled chassis?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+          "evidenceKind": "completed-model-view",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-voice-control-vehicle-candidate-check-2",
+          "text": "Is a large dark rubber tire fitted to the left side of the completed vehicle?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+          "evidenceKind": "completed-model-view",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-voice-control-vehicle-candidate-check-3",
+          "text": "Does the front show a black U-shaped bumper joined by a short red cross-piece?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+          "evidenceKind": "completed-model-view",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-voice-control-vehicle-candidate-check-4",
+          "text": "Are light-colored diagonal beams connecting the upper controller area to the lower front frame?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+          "evidenceKind": "completed-model-view",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        },
+        {
+          "id": "level-5-voice-control-vehicle-candidate-check-5",
+          "text": "Are red and blue connector pins visible along the grey lower side chassis immediately behind the front bumper?",
+          "evidencePage": 10,
+          "sourcePdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+          "evidenceKind": "completed-model-view",
+          "observable": true,
+          "reviewStatus": "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION"
+        }
+      ]
+    }
+  ]
+}
