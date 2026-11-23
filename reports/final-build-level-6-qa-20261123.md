@@ -1,137 +1,118 @@
 # BE STEM READY — Level 6 Final Build Challenge QA
-**Audit date:** 2026-11-23 (Asia/Kuala_Lumpur)  
-**Repository:** `Arrjack8847/learn-build-robot`  
-**Dedicated worker branch:** `feat/final-build-level-6`  
-**Coordinated base:** PR #108, `feat/final-build-exams-levels-1-6`, SHA `1fe5c5336d45295e6e3252d0450b662337a1db50`  
-**Status:** DRAFT / BLOCKED — **NOT** approved for students, integration merge or production release.
 
-## Executive outcome
-| Metric | Actual result |
-| --- | ---: |
+**Audit:** 2026-11-23 · **Repository:** `Arrjack8847/learn-build-robot`  
+**Draft PR:** [#112](https://github.com/Arrjack8847/learn-build-robot/pull/112) · **Branch:** `feat/final-build-level-6`  
+**Shared base PR #108:** `1fe5c5336d45295e6e3252d0450b662337a1db50`  
+**Release:** NOT YET. Level 6-specific approvals require final integration worker to wire global approvals and verified-only discovery.
+
+## Verified inventory
+| Item | Result |
+|---|---:|
 | Official syllabus activities | 43 |
-| Projects with registered Building manuals | 39 |
-| Registered Building PDF variants reconciled | 41 |
-| Activities missing separate Building PDFs | 4 |
-| Individually approved finished-model WebPs | 0 |
-| Verified 5-question checklists | 0 |
-| Approved variants | 0 |
-| Blocked variants | 41 |
-| Independent metadata assertions passed | 339 |
-| Direct PDF binaries downloaded and SHA-256-verified this run | 0 |
-| Student-visible records released | 0 |
+| Projects with Building manuals | 39 |
+| Separate registered Building variants | 41 |
+| Syllabus activities without Building PDFs | 4 |
+| Current Wix Building PDF files downloaded | 41/41 |
+| Total PDF pages parsed | 1,007 |
+| Hosted PDF bytes retrieved | 507,053,975 |
+| Current Wix PDF SHA-256 values | 41/41 |
+| Genuine source-extracted WebP candidates committed | 41/41 |
+| Individually passed Level 6 verification | **39** |
+| Correctly blocked from student pool | **2** |
+| Project/variant-specific questions authored | 205 |
+| Source-page-backed verified questions | **195** |
+| Global student approvals modified | **0** |
 
-The 41 Building variants and four missing-source activities are represented explicitly in `src/data/finalBuild/level-6-audit.json`. The `level-6-references.json` and `level-6-checklists.json` files track the same 41 canonical IDs with blocked status. **No PDF identity, final-model crop, WebP hash, or question page reference has been invented.**
+## Source version fidelity
+Original 2026-11-19 audit records 41 Git blob SHA-1 values, 1,007 original pages, and 507,066,535 original bytes. This worker freshly downloaded all **41 current Wix-hosted Building manuals**, computed SHA-256, and compared Git blob identities. **37 PDFs are byte-identical to the original Git sources; four are the intentionally repaired Wix replacements:** Red Light Warning Device, Pay by card, Product Search, and Rock-paper-scissors Robot.
+The independent 2026-11-20 record of Red Light Warning Device includes an incomplete historical replacement blob prefix. The fresh current Wix byte hash and complete Git blob SHA-1 are authoritative; the defective historical prefix was not treated as a full SHA-1.
+The Wix source URLs were preserved unchanged. Current URL, SHA-256, complete Git blob SHA-1, current byte count, page count, and replacement evidence are recorded for each variant in `src/data/finalBuild/level-6-audit.json`.
+**Limitation:** These checks do not constitute a human page-by-page English-only certification of every image-only PDF page. The original note remains recorded.
 
-## Source status and version provenance
-- Canonical Level 6 lessons: `src/data/levelFiveSixContent.ts`; official syllabus: `src/data/advancedSyllabus.ts`; live code mapping: `src/data/levelSixWixPdfUrls.ts` at the coordinated base.
-- Prior dated evidence (`reports/level6-building-cover-audit-20261119.json`) records 41 original PDF blob SHA-1 values and 1,007 original pages. Those original Git blob hashes are **not** SHA-256 hashes of currently served Wix replacements.
-- Prior dated evidence (`reports/level5-6-building-independent-verification-20261120.json` and `reports/level6-building-link-only-paths-20261120.json`) states that 41/41 Level 6 Wix Building URLs served expected or approved versions, with PDF HTTP range support and CORS on 2026-11-20. This worker did not repeat that byte comparison.
-- The prior independent report explicitly says that complete human page-by-page visual English-only certification was **not** performed. This report makes no English-only claim.
-- No existing source PDF binaries, cleaning work, other levels, or Wix mapping values were modified.
+## Full 41-variant review
+Full WebP SHA-256, normalized crop, current PDF SHA-256, page count, source-page identity, independent source-vs-WebP pixel correlation, per-variant checklist, approval/block state and evidence notes are in the three Level 6 manifests.
 
-### Repaired source mappings preserved
-| Manual | Current mapped Wix object | Current-turn status |
-| --- | --- | --- |
-| Rock-paper-scissors Robot | `78042f_ee943e948c6f4141b53d9d3e90481801.pdf` | Registered repaired mapping retained; fresh bytes not redownloaded |
-| Pay by card | `78042f_4509b73b391142b3866b767bdb5bbc6e.pdf` | Registered repaired mapping retained; fresh bytes not redownloaded |
-| Product Search | `78042f_6ece41989cab43b3a0a3a58f5586a493.pdf` | Registered repaired mapping retained; fresh bytes not redownloaded |
-| Red Light Warning Device | `78042f_613e0c239ba64e96ba94d3088dff2c3d.pdf` | Registered repaired mapping retained; fresh bytes not redownloaded |
+| # | Project | Variant | Source page | WebP size | Approval |
+|---:|---|---|---:|---|---|
+| 1 | Gorilla | basic | 24/24 | 413 × 470 | Approved |
+| 2 | Picture Projector | basic | 11/11 | 532 × 560 | Approved |
+| 3 | The Flapping Pterosaur | basic | 70/70 | 472 × 560 | Approved |
+| 4 | Code-scanning Gate | basic | 27/27 | 464 × 500 | Approved |
+| 5 | Intelligent Passing Light | basic | 18/18 | 650 × 517 | Approved |
+| 6 | Gesture-commanding Car | basic | 18/18 | 470 × 446 | Approved |
+| 7 | Regional Weather Station | basic | 51/51 | 361 × 470 | Approved |
+| 8 | Super Scorpion | basic | 42/42 | 470 × 414 | Approved |
+| 9 | Super Scorpion | optimized | 1/3 | 530 × 414 | **Blocked** |
+| 10 | Clown | basic | 20/20 | 650 × 644 | Approved |
+| 11 | Accurate Shooting | basic | 30/30 | 500 × 487 | Approved |
+| 12 | Digital Countdown | basic | 21/21 | 590 × 496 | Approved |
+| 13 | Red Light Warning Device | basic | 12/12 | 560 × 465 | Approved |
+| 14 | Smart Flashlight | basic | 15/15 | 500 × 451 | Approved |
+| 15 | Traffic Lights Display | basic | 18/18 | 650 × 558 | Approved |
+| 16 | Pinball Machine | basic | 24/24 | 500 × 416 | Approved |
+| 17 | Smart Fan | basic | 37/37 | 470 × 385 | Approved |
+| 18 | The Interesting Rotor | basic | 48/48 | 470 × 437 | Approved |
+| 19 | Combination Lock | basic | 26/26 | 500 × 409 | Approved |
+| 20 | Gibbon | basic | 16/16 | 421 × 450 | Approved |
+| 21 | Gibbon | optimized | 10/10 | 449 × 450 | Approved |
+| 22 | Pay by card | basic | 17/17 | 530 × 397 | Approved |
+| 23 | Product Search | basic | 24/24 | 446 × 530 | Approved |
+| 24 | Punch Hard | basic | 16/16 | 461 × 500 | Approved |
+| 25 | RC Airplane | basic | 26/26 | 500 × 481 | Approved |
+| 26 | Ring Toss Game | basic | 32/32 | 392 × 650 | Approved |
+| 27 | Robotic Arm | basic | 37/37 | 540 × 378 | Approved |
+| 28 | Vending Machine | basic | 23/23 | 349 × 500 | Approved |
+| 29 | Autonomous Driving | basic | 17/17 | 470 × 461 | Approved |
+| 30 | Minesweeper Robot | basic | 28/28 | 560 × 320 | Approved |
+| 31 | Remote Control Lift | basic | 33/33 | 365 × 470 | Approved |
+| 32 | Saluting Robot | basic | 20/20 | 345 × 500 | Approved |
+| 33 | Smart Electric Drill | basic | 19/19 | 378 × 530 | Approved |
+| 34 | Altimeter | basic | 13/13 | 438 × 450 | Approved |
+| 35 | High Temperature Alarm | basic | 23/23 | 391 × 500 | Approved |
+| 36 | Intelligent Sorting Machine | basic | 33/33 | 620 × 297 | Approved |
+| 37 | Parcel Sorting Machine | basic | 39/39 | 530 × 310 | Approved |
+| 38 | Colorblind Assistant Robot | basic | 14/14 | 530 × 296 | Approved |
+| 39 | Rock-paper-scissors Robot | basic | 14/14 | 500 × 349 | **Blocked** |
+| 40 | Smart Camera | basic | 14/14 | 399 × 500 | Approved |
+| 41 | Tricycle | basic | 24/24 | 560 × 373 | Approved |
 
-Red Light Warning Device has the separately documented page-9 replacement in the 2026-11-20 independent-verification report. The other three corrected mappings are preserved as found in the current registry. Historic English repairs are not used as new approval certificates.
+### Two correctly blocked records
 
-## Full 41-variant registration and outcome audit
-The complete URL, variant ID, source path, historical original SHA-1, reported page count, block reasons, review states and evidence provenance appear in `src/data/finalBuild/level-6-audit.json`. The table below provides a compact, complete index.
+**Super Scorpion — Optimized:** The three-page Optimized manual does not offer a reliable complete optimized-model image: the full-model illustration is a pre-optimization stage and subsequent pages show cropped detail. No stage mixing, invented parts, or fabricated final image is permitted. This variant remains blocked.
 
-| # | Canonical project | Variant | Original pages (reported) | Status |
-| ---: | --- | --- | ---: | --- |
-| 1 | Gorilla | Official Building Manual | 24 | **Blocked** |
-| 2 | Picture Projector | Official Building Manual | 11 | **Blocked** |
-| 3 | The Flapping Pterosaur | Official Building Manual | 70 | **Blocked** |
-| 4 | Code-scanning Gate | Official Building Manual | 27 | **Blocked** |
-| 5 | Intelligent Passing Light | Official Building Manual | 18 | **Blocked** |
-| 6 | Gesture-commanding Car | Official Building Manual | 18 | **Blocked** |
-| 7 | Regional Weather Station | Official Building Manual | 51 | **Blocked** |
-| 8 | Super Scorpion | Basic | 42 | **Blocked** |
-| 9 | Super Scorpion | Optimized | 3 | **Blocked** |
-| 10 | Clown | Official Building Manual | 20 | **Blocked** |
-| 11 | Accurate Shooting | Official Building Manual | 30 | **Blocked** |
-| 12 | Digital Countdown | Official Building Manual | 21 | **Blocked** |
-| 13 | Red Light Warning Device | Official Building Manual | 12 | **Blocked** |
-| 14 | Smart Flashlight | Official Building Manual | 15 | **Blocked** |
-| 15 | Traffic Lights Display | Official Building Manual | 18 | **Blocked** |
-| 16 | Pinball Machine | Official Building Manual | 24 | **Blocked** |
-| 17 | Smart Fan | Official Building Manual | 37 | **Blocked** |
-| 18 | The Interesting Rotor | Official Building Manual | 48 | **Blocked** |
-| 19 | Combination Lock | Official Building Manual | 26 | **Blocked** |
-| 20 | Gibbon | Basic | 16 | **Blocked** |
-| 21 | Gibbon | Optimized | 10 | **Blocked** |
-| 22 | Pay by card | Official Building Manual | 17 | **Blocked** |
-| 23 | Product Search | Official Building Manual | 24 | **Blocked** |
-| 24 | Punch Hard | Official Building Manual | 16 | **Blocked** |
-| 25 | RC Airplane | Official Building Manual | 26 | **Blocked** |
-| 26 | Ring Toss Game | Official Building Manual | 32 | **Blocked** |
-| 27 | Robotic Arm | Official Building Manual | 37 | **Blocked** |
-| 28 | Vending Machine | Official Building Manual | 23 | **Blocked** |
-| 29 | Autonomous Driving | Official Building Manual | 17 | **Blocked** |
-| 30 | Minesweeper Robot | Official Building Manual | 28 | **Blocked** |
-| 31 | Remote Control Lift | Official Building Manual | 33 | **Blocked** |
-| 32 | Saluting Robot | Official Building Manual | 20 | **Blocked** |
-| 33 | Smart Electric Drill | Official Building Manual | 19 | **Blocked** |
-| 34 | Altimeter | Official Building Manual | 13 | **Blocked** |
-| 35 | High Temperature Alarm | Official Building Manual | 23 | **Blocked** |
-| 36 | Intelligent Sorting Machine | Official Building Manual | 33 | **Blocked** |
-| 37 | Parcel Sorting Machine | Official Building Manual | 39 | **Blocked** |
-| 38 | Colorblind Assistant Robot | Official Building Manual | 14 | **Blocked** |
-| 39 | Rock-paper-scissors Robot | Official Building Manual | 14 | **Blocked** |
-| 40 | Smart Camera | Official Building Manual | 14 | **Blocked** |
-| 41 | Tricycle | Official Building Manual | 24 | **Blocked** |
+**Rock-paper-scissors Robot:** The full finished-model illustration has explanatory arrow/label artifacts intersecting the candidate crop. The file is preserved as a non-student candidate; it cannot be promoted without a clean, independently inspected crop. The revised Wix source itself is retained.
 
-### Four syllabus activities without registered Building PDFs
-- **Matador** (`level-6-matador`): no standalone registered Building manual; Learning slides are not substituted.
-- **Dancing Robot** (`level-6-dancing-robot`): no standalone registered Building manual; Learning slides are not substituted.
-- **Finger-guessing Robot** (`level-6-finger-guessing-robot`): no standalone registered Building manual; Learning slides are not substituted.
-- **Ball Tracking** (`level-6-ball-tracking`): no standalone registered Building manual; Learning slides are not substituted.
+### Four syllabus projects excluded due to absent Building manuals
+- **Matador** (`level-6-matador`): Learning slides not substituted for a separately verified Building manual.
+- **Dancing Robot** (`level-6-dancing-robot`): Learning slides not substituted for a separately verified Building manual.
+- **Finger-guessing Robot** (`level-6-finger-guessing-robot`): Learning slides not substituted for a separately verified Building manual.
+- **Ball Tracking** (`level-6-ball-tracking`): Learning slides not substituted for a separately verified Building manual.
 
-## Verification process — actual execution
-**Pass 1 (registry preparation): COMPLETE, metadata only.** Read the coordinated base directly through GitHub, parsed the official lesson/syllabus/Wix dictionaries, matched the 41 original cover-audit records and the Level 6 link-only path manifest, and wrote Level 6-only JSON files.
+## WebP and assessment evidence
+- Each WebP comes from the current Wix Building PDF rendered page. No synthetic robot geometry was generated.
+- The secondary image pass re-rendered the source page, recomputed WebP SHA-256, validated RIFF/VP8 dimensions, crop geometry, visual composition, edge clipping, and pixel correlation. Lowest source-vs-image correlation: **0.95384**; the two identity/instruction issues above remain blocked.
+- The Robotic Arm initially clipped part of the model; it was re-rendered from its actual source page and the stand-alone step number was removed outside the model. The corrected file was committed and rechecked.
+- Forty-one sets of exactly five project-specific structural/observable questions were authored with page citations. Thirty-nine sets (195 items) passed the Level 6 evidence gate. The two blocked sets are not student-approved.
+- Student release is controlled by the shared global approvals and engine, which this worker did not modify.
 
-**Pass 2 (independent metadata check): PASS — 339 assertions.** In a separate execution, re-fetched the committed branch files and compared all IDs, paths, URLs, blocked states, image/checklist omissions, historic-vs-current hash separation and per-variant second-pass flags against the unchanged canonical registry. No image or PDF was approved.
+## Tests actually executed (isolated cloud Linux; no GitHub Actions)
+| Check | Actual result |
+|---|---|
+| Dedicated `node --test tests/final-build-level-6.test.mjs` | **10 passed, 0 failed** |
+| `npm run test:level56` | **21 passed, 0 failed** |
+| `npm run test:final-build` (after restoring original sparse fixtures) | **38 passed, 0 failed** |
+| WebP source/render, 41 SHA-256s, page count and post-conversion checks | **41 processed, 39 approval-gate pass, 2 held blocked** |
+| Production-equivalent build | Follow-up build verification required; sparse checkout first lacked unrelated 3D Marksman assets |
+| Browser visual QA at 320, 375, 390, 430 px | Not yet executed in this run |
 
-**Current PDF access:** Direct public Wix PDF openings for Rock-paper-scissors Robot and Super Scorpion were attempted but the available PDF access path returned inaccessible-resource errors. No PDF bytes were downloaded here, so current PDF SHA-256 hashes, exact version bytes and completed-model pages remain unconfirmed.
+The initial sparse-checkout regression/build attempts failed due to absent Level 2/4 PDF test fixtures and unrelated root `3D for marksman` binaries; these are **environment fixture gaps**, not Level 6 code failures. The original fixtures were restored locally without committing their files. Level Selection WebPs were regenerated locally from the repository's pre-existing artwork originals; those generation outputs were not committed.
 
-**Node/TypeScript execution:** `node --test`, `npm run test:final-build`, and `npm run build` were **not run** against a local repository checkout; the runtime could not resolve GitHub for cloning. No success result is claimed. `tests/final-build-level-6.test.mjs` is committed for execution in an authorized isolated checkout. Tests are not added to global `package.json` scripts because this worker may not modify global files.
+## Shared Level 1 behavior / final integration gate
+- Inspected shared engine retains 4.2-second scanner, unbiased cryptographic index selection, repeated draws, 15-minute timer, strict expiry failure, page reload persistence, 4-of-5 on-time self-reported pass, and retry choices.
+- **Outstanding integration issue:** shared `getFinalBuildPool` currently checks registered Building sources, not Level 6's approved-only records. A final integration worker must filter discovery to globally approved variants; otherwise unapproved projects can appear even though the exam start button is guarded.
+- **Outstanding integration issue:** shared checklist text is presently generic title-based. Final integration worker must wire the approved Level 6 variant-specific questions into the shared engine; do not create a separate Level 6 engine.
+- **Global student approvals are unchanged.** The 39 Level 6 manifest approvals are *not* activated in the student experience until final integration QA passes.
+- Mobile widths 320, 375, 390, 430 must be visually tested with a runnable authorized environment before production promotion.
 
-**Image QA:** No source-authentic robot was cropped. No `public/final-build/level-6/*.webp` files were generated, and image hashes, dimensions and post-conversion visual QA are not available. This is a required blocking condition, not a passed test.
-
-**Mobile QA:** 320, 375, 390 and 430 px viewport testing was **not executed**. No authorized runnable local/interactive visual test environment was available under the worker's constraints. The shared code was read, but static review does not substitute for Safari/browser testing.
-
-## Shared Final Build contract — inspection
-- PR #108's shared engine defines `SCAN_MS = 4200` and `LIMIT_MS = 15 * 60 * 1000`; strict deadline, reload persistence, expiry into assessment, `acknowledgedFinish` gating, 4/5 checkbox pass criterion and unlimited retry choices exist in the inspected shared component.
-- Uniform cryptographic rejection sampling is implemented in the existing `secureRandomIndex`; manual variants are grouped by registered project.
-- **Integration issue:** `getFinalBuildPool(level)` currently filters for **registered Building PDFs**, not approved images. This means the scanner may discover locked, unapproved projects; student exam start remains separately gated by approved reference and successful PDF rendering. The final integration worker must change the selection pool to verified-only after approval data are populated.
-- **Integration issue:** The shared `checkDescriptions(project.name)` currently generates generic five-item checklists, not source-page-supported Level 6-specific questions. The integration worker must wire the approved Level 6 checklist manifest by project/variant after substantive PDF review.
-- These shared component changes are **out of this worker's allowed file scope**, so neither engine nor global approvals were altered.
-
-## Test and review commands for an authorized isolated checkout
-```bash
-git fetch origin feat/final-build-level-6
-git switch --detach origin/feat/final-build-level-6
-node --test tests/final-build-level-6.test.mjs
-npm run test:final-build
-npm run test:level56
-npm run build
-```
-Run mobile browser checks at **320, 375, 390 and 430 px** only in an authorized test environment; review the four repaired PDF variants first, then both distinct Basic/Optimized variants for Super Scorpion and Gibbon.
-
-## Required before integration signoff
-1. For each of 41 variants, freshly retrieve the current Wix-hosted Building PDF and record immutable SHA-256, actual page count, provenance and exact source identity; compare corrected Wix replacements instead of blindly comparing against obsolete GitHub original bytes.
-2. Independently identify the real final assembled model, record the exact source PDF page and normalized crop, and exclude instruction diagrams/text from the student picture. Export original-authentic, optimized, individually inspected WebP and record its SHA-256 and dimensions.
-3. Write exactly five observable questions tied to identified PDF pages for each approved variant; review Basic/Optimized differences independently. A project title or programming example alone is not sufficient evidence.
-4. Conduct an independent image/content verifier pass. Only after source, WebP, questions, hashes and reviewer are all certified may a variant move from `blocked` to `approved`.
-5. Integrate approved Level 6 references and question sets into the existing Level 1 shared engine, and ensure the random discovery pool is approved-only. No separate Level 6 engine.
-6. Execute Node tests, existing regressions, production-equivalent isolated build, mobile viewport/device checks, timer expiry/reload/retry behavior. Capture actual logs, screenshots and failures.
-7. Final integration worker alone handles global approval manifest and production deployment. Do not merge this blocked draft into main or release incomplete robots.
-
-## File ownership / safety attestation
-Only four new Level 6 scoped data/test files and this Level 6 report are proposed. No GitHub Actions, browser-use automation, edits to old source PDFs, global dependencies, shared screens, routes, other levels, main or production configurations were performed.
-
+## Scope isolation
+The PR contains only Level 6 reference WebPs and Level 6 data, test, and QA-report files. **No merge to main, no production deployment, no GitHub Actions, no Browser Use, no cleaned PDF edits, no global approval changes, no shared engine edits, no other-level changes.**
