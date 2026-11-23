@@ -12,6 +12,7 @@ const levelFiveReferences = JSON.parse(read("src/data/finalBuild/level-5-referen
 const levelFiveChecklists = JSON.parse(read("src/data/finalBuild/level-5-checklists.json"));
 const wixImageUrls = JSON.parse(read("src/data/finalBuild/level-5-wix-image-urls.json"));
 const levelFiveWixUpload = JSON.parse(read("reports/final-build-level-5-wix-upload-plan-20261123.json"));
+const levelFiveRecovery = JSON.parse(read("src/data/finalBuild/level-5-wix-candidates.json"));
 const levelOne = read("src/routes/practical/level-1.final-build.tsx");
 const approval = JSON.parse(read("src/data/finalBuildApprovals.json"));
 const oneApproval = JSON.parse(read("src/data/levelOnePrototypeCrops.json"));
@@ -70,29 +71,41 @@ test("approved-only scanner and source-backed Level 5 questions are mandatory", 
   assert.ok(!exam.includes("BuildingStudio"));
 });
 
-test("Level 5 contains 39 approved source references, 195 checks and six blocked variants", () => {
+test("Level 5 has 42 source-verified models, 210 checks and three fail-closed sources", () => {
   assert.equal(levelFiveReferences.items.length, 45);
   assert.equal(levelFiveChecklists.items.length, 45);
-  assert.equal(levelFiveReferences.renderableApprovedReferences.length, 39);
-  assert.equal(levelFiveChecklists.approvedChecklists.length, 39);
+  assert.equal(levelFiveReferences.renderableApprovedReferences.length, 42);
+  assert.equal(levelFiveChecklists.approvedChecklists.length, 42);
   const wixUrls = Object.entries(wixImageUrls.urls);
-  assert.equal(wixUrls.length, 39, "Exactly 39 approved variants must have Wix WebPs");
-  assert.equal(new Set(wixUrls.map(([, url]) => url)).size, 39, "Wix URLs must be unique");
+  assert.equal(wixUrls.length, 42);
+  assert.equal(new Set(wixUrls.map(([, url]) => url)).size, 42, "Wix URLs must be unique");
   assert.equal(wixImageUrls.wixSite, "Steam");
   assert.equal(wixImageUrls.wixSiteId, "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0");
+  // Original first 39 uploads remain unchanged; new 3 are separately checked in candidate evidence.
   assert.equal(levelFiveWixUpload.uploads.length, 39);
   assert.equal(levelFiveWixUpload.summary.uploadedReady, 39);
-  assert.equal(levelFiveWixUpload.summary.blockedExcluded, 6);
+  assert.equal(levelFiveRecovery.studentApproved, 3);
   const approvedIds = new Set(levelFiveReferences.renderableApprovedReferences.map(item => item.variantId));
   const uploadByVariant = new Map(levelFiveWixUpload.uploads.map(x => [x.variantId, x]));
+  const recovered = new Map(levelFiveRecovery.candidates.map(x => [x.variantId, x]));
   for (const [variantId, url] of wixUrls) {
     assert.ok(approvedIds.has(variantId), "Blocked/unknown variant cannot receive a hosted image");
-    const upload = uploadByVariant.get(variantId);
-    assert.ok(upload, "Hosted image is missing its upload audit");
-    assert.equal(upload.uploadStatus, "READY");
-    assert.equal(upload.wixUrl, url);
-    assert.ok(upload.sourceWebpUrl.includes("/feat/final-build-level-5/public/final-build/level-5/"));
-    assert.equal(upload.sourceWebpSha256, levelFiveReferences.items.find(r => r.variantId === variantId).imageSha256);
+    const ref = levelFiveReferences.items.find(r => r.variantId === variantId);
+    const historicUpload = uploadByVariant.get(variantId);
+    if (historicUpload) {
+      assert.equal(historicUpload.uploadStatus, "READY");
+      assert.equal(historicUpload.wixUrl, url);
+      assert.ok(historicUpload.sourceWebpUrl.includes("/feat/final-build-level-5/public/final-build/level-5/"));
+      assert.equal(historicUpload.sourceWebpSha256, ref.imageSha256);
+    } else {
+      const candidate = recovered.get(variantId);
+      assert.ok(candidate && candidate.assessment.studentApproved);
+      assert.equal(candidate.assessment.independentlyApprovedQuestions, 5);
+      assert.equal(candidate.image.sha256, ref.imageSha256);
+      assert.equal(candidate.wix.operationStatus, "READY");
+      assert.equal(candidate.wix.cdnByteForByteSha256Verified, true);
+      assert.equal(candidate.wix.hostedUrl, url);
+    }
     const parsed = new URL(url);
     assert.equal(parsed.protocol, "https:");
     assert.equal(parsed.hostname, "static.wixstatic.com");
@@ -100,8 +113,7 @@ test("Level 5 contains 39 approved source references, 195 checks and six blocked
   }
   const checksByVariant = new Map(levelFiveChecklists.items.map(item => [item.variantId, item]));
   const seen = new Set();
-  let approved = 0;
-  let blocked = 0;
+  let approved = 0, blocked = 0;
   for (const reference of levelFiveReferences.items) {
     assert.ok(!seen.has(reference.variantId), "Duplicate variant ID");
     seen.add(reference.variantId);
@@ -126,11 +138,12 @@ test("Level 5 contains 39 approved source references, 195 checks and six blocked
       blocked++;
       assert.equal(reference.status, "blocked");
       assert.deepEqual(checklist.questions, []);
+      assert.equal(wixImageUrls.urls[reference.variantId], undefined);
     }
   }
-  assert.equal(approved, 39);
-  assert.equal(blocked, 6);
-  assert.equal(approved * 5, 195);
+  assert.equal(approved, 42);
+  assert.equal(blocked, 3);
+  assert.equal(approved * 5, 210);
 });
 
 test("15-minute timer is deadline-based, persistent and level-isolated", () => {
