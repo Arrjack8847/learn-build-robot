@@ -102,17 +102,33 @@ Full WebP SHA-256, normalized crop, current PDF SHA-256, page count, source-page
 | `npm run test:level56` | **21 passed, 0 failed** |
 | `npm run test:final-build` (after restoring original sparse fixtures) | **38 passed, 0 failed** |
 | WebP source/render, 41 SHA-256s, page count and post-conversion checks | **41 processed, 39 approval-gate pass, 2 held blocked** |
-| Production-equivalent build | Follow-up build verification required; sparse checkout first lacked unrelated 3D Marksman assets |
-| Browser visual QA at 320, 375, 390, 430 px | Not yet executed in this run |
+| Production-equivalent build | **PASS** — `npm run build` completed with original 3D fixtures; generated WebPs and link-only PDF output pruning succeeded |
+| Browser visual QA at 320, 375, 390, 430 px | **FAIL — vertical CTA clipping at all four widths**; horizontal overflow, browser errors and scanner-to-ready checks passed |
 
-The initial sparse-checkout regression/build attempts failed due to absent Level 2/4 PDF test fixtures and unrelated root `3D for marksman` binaries; these are **environment fixture gaps**, not Level 6 code failures. The original fixtures were restored locally without committing their files. Level Selection WebPs were regenerated locally from the repository's pre-existing artwork originals; those generation outputs were not committed.
+The initial sparse-checkout tests/build failed due to missing original Level 2/4 PDF fixtures and root `3D for marksman` binaries. All required fixtures were restored **only in the isolated checkout**; the subsequent full Final Build regression (38/38) and production-equivalent `npm run build` both passed. The local build's PDF-pruning step excluded 209 copied Wix-backed PDFs from the output without altering any source PDF. The eight level-selection WebPs were regenerated locally from existing approved artwork sources; those generated outputs were not committed.
 
 ## Shared Level 1 behavior / final integration gate
 - Inspected shared engine retains 4.2-second scanner, unbiased cryptographic index selection, repeated draws, 15-minute timer, strict expiry failure, page reload persistence, 4-of-5 on-time self-reported pass, and retry choices.
 - **Outstanding integration issue:** shared `getFinalBuildPool` currently checks registered Building sources, not Level 6's approved-only records. A final integration worker must filter discovery to globally approved variants; otherwise unapproved projects can appear even though the exam start button is guarded.
 - **Outstanding integration issue:** shared checklist text is presently generic title-based. Final integration worker must wire the approved Level 6 variant-specific questions into the shared engine; do not create a separate Level 6 engine.
 - **Global student approvals are unchanged.** The 39 Level 6 manifest approvals are *not* activated in the student experience until final integration QA passes.
-- Mobile widths 320, 375, 390, 430 must be visually tested with a runnable authorized environment before production promotion.
+- **Mobile integration blocker confirmed:** Chromium headless checks at 320, 375, 390 and 430 px show the scanner Discover button partially/fully clipped by the existing shared 100dvh/overflow-hidden ancestor. Final integration worker must fix shared vertical scrolling without changing scanner appearance; re-run mobile Safari and Chromium checks before production.
+
+
+## Mobile visual QA (isolated Chromium)
+
+A real locally built Level 6 route was tested in headless Chromium using mobile viewport emulation, with the **844 px viewport height** held constant across widths. This is an actual browser check, not a static style analysis. Four screenshots were captured for each width (scanner and ready state; eight total), retained in the ephemeral sandbox rather than adding large screenshots to production assets.
+
+| Width | HTTP | Horizontal overflow | Discovery → ready | Start correctly locked | Discover CTA visible (of 64 px) | Mobile verdict |
+|---:|---:|---|---|---|---:|---|
+| 320 px | 200 | None | Pass | Yes | **0 px** | **Fail** |
+| 375 px | 200 | None | Pass | Yes | **5.25 px** | **Fail** |
+| 390 px | 200 | None | Pass | Yes | **25.25 px** | **Fail** |
+| 430 px | 200 | None | Pass | Yes | **53.25 px** | **Fail** |
+
+No JavaScript page errors occurred. However, both the app root `h-[100dvh] overflow-hidden` and parent `h-full overflow-hidden` prevent ordinary vertical scrolling when scanner content exceeds the viewport. The bottom CTA is unreachable or partly clipped. **The prior horizontal smoke success must not be interpreted as a passed mobile layout gate.**
+
+The full machine-readable evidence is in `reports/final-build-level-6-mobile-qa-20261123.json`. The correct fix belongs to the **shared final integration worker** under the existing file-ownership rule; this Level 6 worker did not modify the shared layout. Recheck actual mobile Safari and 320/375/390/430 px Chromium after the final integration fix. A production release remains blocked until this issue and global approved-only wiring are resolved.
 
 ## Scope isolation
 The PR contains only Level 6 reference WebPs and Level 6 data, test, and QA-report files. **No merge to main, no production deployment, no GitHub Actions, no Browser Use, no cleaned PDF edits, no global approval changes, no shared engine edits, no other-level changes.**
