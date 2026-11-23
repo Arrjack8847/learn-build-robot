@@ -31,7 +31,7 @@ const ORIGINAL_PDF_BY_URL = new Map(
 );
 function sourcePdfFilename(url: string | undefined): string | undefined {
   if (!url) return undefined;
-  const withoutQuery = url.split("?")[0];
+  const withoutQuery = url.split("?")[0] ?? "";
   return ORIGINAL_PDF_BY_URL.get(withoutQuery) || decodeURIComponent(withoutQuery.split("/").pop() || "");
 }
 type Stage = "spin" | "spinning" | "ready" | "building" | "assessment" | "result";

@@ -123,8 +123,8 @@ function getOwnerAuthorizedPdfEvidence(
 function validCrop(values: number[] | null): values is [number, number, number, number] {
   return Array.isArray(values) && values.length === 4 &&
     values.every(value => Number.isFinite(value)) &&
-    values[0] >= 0 && values[1] >= 0 && values[2] > 0 && values[3] > 0 &&
-    values[0] + values[2] <= 1 && values[1] + values[3] <= 1;
+    values[0]! >= 0 && values[1]! >= 0 && values[2]! > 0 && values[3]! > 0 &&
+    values[0]! + values[2]! <= 1 && values[1]! + values[3]! <= 1;
 }
 
 /** Only accept direct image URLs from Wix's static-media CDN, never local/public WebP paths. */

@@ -75,7 +75,7 @@ export function withLevelThreeOwnerAuthorizedVariants(
         id: record.variantId,
         label: record.variantLabel,
         url: record.source.url,
-        filename: record.source.url.split("?")[0].split("/").pop() ?? "",
+        filename: record.source.url.split("?")[0]?.split("/").pop() ?? "",
         hostedOnWix: true,
       })),
   }));
@@ -90,6 +90,7 @@ export function getLevelThreeEvidence(
     record.projectId === projectId && record.variantId === variant.id);
   if (matching.length !== 1) return null;
   const row = matching[0];
+  if (!row) return null;
   const { source: s, image: m } = row;
   if (!row.ownerAuthorized || row.independentImageApproval !== false ||
       row.independentQuestionApproval !== false ||

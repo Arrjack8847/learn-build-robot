@@ -100,8 +100,8 @@ export function getLevelTwoEvidence(
       !Number.isInteger(reference.pdfPage) || reference.pdfPage < 1 ||
       !Array.isArray(reference.pdfCrop) || reference.pdfCrop.length !== 4 ||
       !reference.pdfCrop.every(Number.isFinite) ||
-      reference.pdfCrop[2] <= reference.pdfCrop[0] ||
-      reference.pdfCrop[3] <= reference.pdfCrop[1]) return null;
+      reference.pdfCrop[2]! <= reference.pdfCrop[0]! ||
+      reference.pdfCrop[3]! <= reference.pdfCrop[1]!) return null;
 
   if (checklist.sourcePdfSha256 !== reference.sourceSha256 ||
       checklist.imageSha256 !== reference.imageSha256 ||
