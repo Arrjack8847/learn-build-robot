@@ -983,7 +983,7 @@
     "webpDecodes": 50,
     "draftChecklistSets": 50,
     "draftQuestions": 250,
-    "nodeTestsPassed": 20,
+    "nodeTestsPassed": 23,
     "nodeTestsFailed": 0,
     "pixelFidelityPasses": 50,
     "maxPixelMeanAbsoluteError": 6.18,
@@ -995,9 +995,10 @@
     "nodeTestFiles": [
       "tests/final-build-level-4.test.mjs",
       "tests/final-build-exams.test.mjs",
+      "tests/level-four-building.test.mjs",
       "tests/level-four-wix-urls.test.mjs",
       "tests/syllabus-levels.test.mjs"
     ],
-    "testSetup": "Headless sandbox; generated prerequisite Level Selection WebPs with existing script using isolated sharp install outside repository; no generated output committed"
+    "testSetup": "Isolated Vercel Sandbox, official original 50 local Building PDFs checked out read-only, generated Level Selection WebPs with existing repository script; Sharp and TypeScript 5.8.3 installed separately outside repository. No dependency or lockfile changes committed."
   }
 }
