@@ -10,22 +10,25 @@
 - Added `src/data/finalBuildVerified.ts`, a common verified-only eligibility helper. The app scanner now samples only approved source-backed projects, not all registered PDF titles. A second verified variant does not increase a project's random selection odds.
 - Loaded exactly five per-variant, page-evidenced Level 5 questions into the shared assessment. Removed title-derived generic `checkDescriptions` from the student exam.
 - Upgraded `FinalBuildPrototype` to render a verified Wix-hosted WebP URL when present, otherwise use the already approved official Building PDF page/crop. No level-specific image files are copied into the integration branch.
-- Added `src/data/finalBuild/level-5-wix-image-urls.json` with deliberately empty URL mapping. **No Wix image uploads are represented as completed.**
-- Prepared `reports/final-build-level-5-wix-upload-plan-20261123.json` for the 39 source-authentic, approved WebPs; includes source file URL, original hash, variant ID and dimensions.
+- Uploaded the **39 approved Level 5 WebPs** to the user-confirmed **Steam** Wix Media Manager (site ID `fe3fa828-9f74-45e8-97f7-8d00cbb7fba0`) and populated `src/data/finalBuild/level-5-wix-image-urls.json` with **39 unique READY hosted WebP URLs**, keyed by exact approved variant ID.
+- Completed `reports/final-build-level-5-wix-upload-plan-20261123.json` with all 39 source WebPs, exact source hashes, original filenames, Wix media IDs, hosted URLs, verified original source URLs, size, public state, WebP MIME and exact dimensions.
 - Restricted `?review=1` controls to `import.meta.env.DEV`. Development review retains full registered-pool access, while the student scanner uses approved-only records.
 - Rejects persisted sessions for variants that are no longer in the approved pool; uses a single finish timestamp to avoid a deadline race.
-- Updated `tests/final-build-exams.test.mjs` for approved-only scanner and 39/45 Level 5 content verification.
+- Updated `tests/final-build-exams.test.mjs` for approved-only scanner, 39/45 Level 5 content, exact 39 unique Wix URLs and consistent source SHA-256 upload-audit mapping.
 
 ## Verification completed via read-only connector checks
 - 45/45 reference/checklist manifest IDs present and aligned.
 - 39 approved references, 39 exact five-item verified checklists, 195 source-page/sha256-evidenced questions.
 - Six blocked variants retain empty approved questions and no selectable reference.
 - 39/39 approved source URLs found in the canonical `src/data/levelFiveWixPdfUrls.ts` string registration.
-- Wix URL map empty; no uploaded URL or Wix READY state fabricated.
+- Wix accepted **39/39 uploads as READY** and returned 39 unique `https://static.wixstatic.com/media/*.webp` URLs. Re-queried the connected Steam site's Media Manager and matched every image by exact original file name, not bulk-result order.
+- **312/312 metadata checks passed** across all 39 images (the imported source URL, public Wix CDN URL, expected dimensions, file name, WebP MIME/media type, public visibility, `READY`/`OK` state and valid URL structure). Wix metadata provided the imported original GitHub source URL for each.
+- No blocked Level 5 robot was uploaded or mapped. The six blocked variant IDs remain without approved checklists and are excluded from student discovery.
+- Wix Media Manager verified the hosted file records and states; a separate unauthenticated CDN HTTP GET, byte-for-byte hosted SHA-256 recheck and mobile-browser image-load test were **not performed** because the available read/HTTP paths could not fetch those binaries.
 - Inspected source diff to ensure no `public/final-build/**/*.webp` binaries were introduced into this integration branch.
 
 ## Still required — stop-ship
-1. Choose/confirm the intended Wix site for media uploads; then upload 39 WebPs and record **actual** READY `static.wixstatic.com/media/*.webp` URLs, matching exact variant IDs and reviewing the served images. Media must not be guessed from a file name.
+1. Wix upload + metadata gate is **complete**. Still verify actual image loading and visual integrity in a local/preview mobile browser; compare source images and hosted media on a handful of reference variants, and check external CDN access/CORS where relevant.
 2. Run `node --test tests/final-build-exams.test.mjs`, Level 5 worker tests and the relevant existing regression suites in an authorized full-repository checkout.
 3. Run build/TypeScript checks and real mobile-browser QA at 320/375/390/430 px, with the 4.2-s scan, strict 15-min deadline, reload/timeout, variant selection, 4/5 assessment and unlimited retries.
 4. Integrate independent approved records for Levels 1, 2, 3, 4 and 6. Until then their student pools remain empty and fail closed.
