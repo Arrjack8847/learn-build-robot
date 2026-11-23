@@ -14,7 +14,7 @@ const historical = read("src/data/finalBuild/level-5-wix-candidates.json");
 const evidence = read("reports/final-build-level-5-six-webp-recovery-evidence-20261123.json");
 
 const originallyBlocked = new Set(recovery.candidates.map(v => v.variantId));
-const newlyApproved = new Set(["level-5-voice-control-snail", "level-5-voice-control-vehicle"]);
+const newlyApproved = new Set(["level-5-remote-control-car", "level-5-voice-control-snail", "level-5-voice-control-vehicle"]);
 
 test("historical six-candidate intake remains immutable; current approval is 41 not 39", () => {
   assert.equal(historical.candidates.length, 6);
@@ -25,11 +25,11 @@ test("historical six-candidate intake remains immutable; current approval is 41 
   assert.equal(historical.newChecklistApprovals, 0);
   assert.deepEqual(new Set(historical.candidates.map(v => v.variantId)), originallyBlocked);
 
-  assert.equal(audit.counts.approvedVariants, 41);
-  assert.equal(audit.counts.blockedVariants, 4);
-  assert.equal(audit.studentScannerSelectableVariantIds.length, 41);
-  assert.equal(references.renderableApprovedReferences.length, 41);
-  assert.equal(checklists.approvedChecklists.length, 41);
+  assert.equal(audit.counts.approvedVariants, 42);
+  assert.equal(audit.counts.blockedVariants, 3);
+  assert.equal(audit.studentScannerSelectableVariantIds.length, 42);
+  assert.equal(references.renderableApprovedReferences.length, 42);
+  assert.equal(checklists.approvedChecklists.length, 42);
   assert.deepEqual(
     new Set(audit.variants.filter(v => !v.release.approved).map(v => v.variantId)),
     new Set([...originallyBlocked].filter(id => !newlyApproved.has(id)))
