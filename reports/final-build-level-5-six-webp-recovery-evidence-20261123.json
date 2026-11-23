@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "preparedAt": "2026-11-23",
-  "purpose": "Finished-model recovery source evidence, not student approvals",
+  "purpose": "Current 2026-11-23 Level 5 finished-model evidence: three newly verified source-authentic model WebPs and 15 observed-question checks promoted; three incomplete source manuals remain blocked",
   "repo": "Arrjack8847/learn-build-robot",
   "workerBranch": "feat/final-build-level-5",
   "imageCommit": "611de7f416539827d7eba93c2ac6cfd7bfec9f1b",
@@ -15,7 +15,8 @@
     "webpCandidates": 3,
     "wixReady": 3,
     "stillBlockedForImage": 3,
-    "studentApprovals": 0
+    "studentApprovals": 3,
+    "independentlyVerifiedQuestions": 15
   },
   "outputs": [
     {
@@ -28,20 +29,47 @@
         "visualOverviewOfEveryPageReviewed": true,
         "sourcePage": 20,
         "normalizedCrop": [
-          0.06,
-          0.08,
-          0.56,
-          0.94
+          0.061,
+          0.075,
+          0.669,
+          0.9
         ],
         "pageBoundingBoxPt": [
-          50.52,
-          47.68,
-          471.52,
-          560.24
+          51.362,
+          44.7,
+          563.298,
+          536.4
         ],
-        "justification": "Page 20 has the assembled vehicle on the left, visibly separate from an additional remote-control unit; crop preserves the complete vehicle."
+        "justification": "Page 20 official source: assembled car isolated and printed page label removed by tightened source crop; 292/371 ORB feature-match inliers and robot-pixel mask mean absolute error 16.471 compared to exact PDF render. Normalized page crop bounds estimated from registration; exact source image SHA and Wix-served bytes verified."
       },
       "image": {
+        "candidate": true,
+        "gitPath": "public/final-build/level-5/level-5-remote-control-car-basic.webp",
+        "width": 550,
+        "height": 528,
+        "sizeBytes": 30234,
+        "sha256": "6183ecc26f4162f548873a4d66c0df168762b4744d1d9800343cc49d8a04cf01",
+        "decoded": true,
+        "sourceRasterMAE": 16.471
+      },
+      "wix": {
+        "operationStatus": "READY",
+        "state": "OK",
+        "mediaId": "78042f_852c62df18ec40ee83c9ccb7e25f7460~mv2.webp",
+        "public": true,
+        "sourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/d0cde35909a841c8279ea2a120692a239e41ccef/public/final-build/level-5/level-5-remote-control-car-basic.webp",
+        "cdnUrl": "https://static.wixstatic.com/media/78042f_852c62df18ec40ee83c9ccb7e25f7460~mv2.webp",
+        "cdnHttpStatus": 200,
+        "cdnMimeType": "image/webp",
+        "cdnSha256MatchesSource": true
+      },
+      "studentChallenge": {
+        "approved": true,
+        "selectable": true,
+        "independentlyVerifiedQuestions": 5
+      },
+      "imageBlocker": null,
+      "previousImage": {
         "candidate": true,
         "gitPath": "public/final-build/level-5/level-5-remote-control-car-basic.webp",
         "width": 550,
@@ -49,25 +77,10 @@
         "sizeBytes": 37136,
         "sha256": "75a25bad77af8968c6ce83bf9344ccba393b44e6933ea8fb5b11985b8a30ab6d",
         "decoded": true,
-        "sourceRasterMAE": 1.077
-      },
-      "wix": {
-        "operationStatus": "READY",
-        "state": "OK",
-        "mediaId": "78042f_0c2947266eb7486381448607a8aa7b07~mv2.webp",
-        "public": true,
-        "sourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/611de7f416539827d7eba93c2ac6cfd7bfec9f1b/public/final-build/level-5/level-5-remote-control-car-basic.webp",
-        "cdnUrl": "https://static.wixstatic.com/media/78042f_0c2947266eb7486381448607a8aa7b07~mv2.webp",
-        "cdnHttpStatus": 200,
-        "cdnMimeType": "image/webp",
-        "cdnSha256MatchesSource": true
-      },
-      "studentChallenge": {
-        "approved": false,
-        "selectable": false,
-        "independentlyVerifiedQuestions": 0
-      },
-      "imageBlocker": null
+        "sourceRasterMAE": 1.077,
+        "previousWixMediaId": "78042f_0c2947266eb7486381448607a8aa7b07~mv2.webp",
+        "previousWixUrl": "https://static.wixstatic.com/media/78042f_0c2947266eb7486381448607a8aa7b07~mv2.webp"
+      }
     },
     {
       "variantId": "level-5-crack-shot:optimized",
@@ -180,9 +193,9 @@
         "cdnSha256MatchesSource": true
       },
       "studentChallenge": {
-        "approved": false,
-        "selectable": false,
-        "independentlyVerifiedQuestions": 0
+        "approved": true,
+        "selectable": true,
+        "independentlyVerifiedQuestions": 5
       },
       "imageBlocker": null
     },
@@ -231,9 +244,9 @@
         "cdnSha256MatchesSource": true
       },
       "studentChallenge": {
-        "approved": false,
-        "selectable": false,
-        "independentlyVerifiedQuestions": 0
+        "approved": true,
+        "selectable": true,
+        "independentlyVerifiedQuestions": 5
       },
       "imageBlocker": null
     }
@@ -251,6 +264,17 @@
       "http200": 3,
       "mimeImageWebp": 3,
       "byteIdenticalSha256": 3
+    },
+    "additionalCleanImageSourceRegistration": {
+      "variantId": "level-5-remote-control-car",
+      "pdfShaVerified": true,
+      "webpSourceSHA": "6183ecc26f4162f548873a4d66c0df168762b4744d1d9800343cc49d8a04cf01",
+      "robotPixelMAE": 16.471,
+      "ORBFeatureMatches": 371,
+      "ORBInliers": 292,
+      "WixGetHttpStatus": 200,
+      "WixContentByteIdentical": true,
+      "printedPageNumberRemoved": true
     }
   }
 }
