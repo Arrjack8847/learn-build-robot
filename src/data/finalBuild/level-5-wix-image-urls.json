@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "description": "39 independently approved Level 5 robot images uploaded to the user-selected Steam Wix Media Manager. URLs matched by original source filename, recorded Wix Media Manager READY status, and exact variant ID. CDN HTTP response and byte-for-byte SHA256 of the Wix-served image were not independently fetched; original source provenance is in level-5-references.json.",
+  "description": "Original 39 independently approved, original Wix URL keys and values preserved. Three additional exact-source Level 5 finished-model WebPs independently verified and hosted on Steam Wix; original maps unchanged. All three additions have current direct-CDN HTTP200 and byte-for-byte source SHA evidence, see worker evidence report.",
   "wixSite": "Steam",
   "wixSiteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
   "validatedSource": "Wix Media Manager Search Files exact displayName and operationStatus READY",
-  "approvedMapped": 39,
-  "blockedExcluded": 6,
+  "approvedMapped": 42,
+  "blockedExcluded": 3,
   "urls": {
     "level-5-curling-game": "https://static.wixstatic.com/media/78042f_e24113c5bfda443a9b94cf62d1ca8f1b~mv2.webp",
     "level-5-curling-game:optimized": "https://static.wixstatic.com/media/78042f_94e1c77557e9455eb8bb3bfc699ec225~mv2.webp",
@@ -45,6 +45,10 @@
     "level-5-light-chasing-car": "https://static.wixstatic.com/media/78042f_1fef652fd1de4735aa5523124aace493~mv2.webp",
     "level-5-shopping-guide-robot": "https://static.wixstatic.com/media/78042f_904ceeff89cc4a468f91076726c3b373~mv2.webp",
     "level-5-voice-controlled-frog": "https://static.wixstatic.com/media/78042f_c713f67e0c62440ab36cea54491f33e0~mv2.webp",
-    "level-5-wind-up-car": "https://static.wixstatic.com/media/78042f_e6ce32837a8143ee84eea65aab9246ec~mv2.webp"
-  }
+    "level-5-wind-up-car": "https://static.wixstatic.com/media/78042f_e6ce32837a8143ee84eea65aab9246ec~mv2.webp",
+    "level-5-remote-control-car": "https://static.wixstatic.com/media/78042f_852c62df18ec40ee83c9ccb7e25f7460~mv2.webp",
+    "level-5-voice-control-snail": "https://static.wixstatic.com/media/78042f_72ced3ae25a54a45b1815b9590380b6f~mv2.webp",
+    "level-5-voice-control-vehicle": "https://static.wixstatic.com/media/78042f_d36f964af5eb46b39673760192b53422~mv2.webp"
+  },
+  "original39BlobShaAtAddition": "a91003d468226e4bf29f05ebf6342cb0bc9c04f1"
 }
