@@ -57,3 +57,15 @@ Not executed in this turn:
 - CDN image HTTP body download and hosted byte-for-byte SHA-256 comparison.
 
 **Release gate:** keep PR #109 and PR #114 in DRAFT, do not merge or deploy production until full local test/build, integrated browser scanner/assessment/reload/retry QA, and source review are complete.
+
+## Additional independently executed registry reconciliation and preview checks
+
+- Reconstructed the current Level 2 eligible registry from the committed `advancedSyllabus.ts`, `practical.ts`, `pdfActivityManuals.ts` and `levelOneToThreeWixPdfUrls.ts` source: **59 syllabus projects / 60 practical registrations / 60 URL variants**; distinct See Saw V1 and V2 confirmed.
+- All **30 approved variant IDs** exist in that registry and the registered Wix PDF URL equals each approved manifest source URL. The other exact **30** registry variant IDs equal the blocked set. **0** manifest-to-registry URL mismatches.
+- Independently executed **584/584** source/data contract assertions against current integrated files (not a Node/Vite invocation). Exact source GitHub WebP checks were separately 30/30 SHA-256, dimensions, and bytes.
+- Added `tests/final-build-level-2-integration.test.mjs` to the actual `npm run test:final-build` command in `package.json` (commit `a9c5a1e966f34b77bb7adc96418b2cf8b2af7cfb`). This test is now enforced in subsequent builds, but **the updated npm command was not successfully executed in this turn**.
+- Independently inspected Vercel build events for the earlier existing preview deployment `dpl_FDWwQrR8JbeW8a9zPyUvvnnhpqkL` at commit `91e73386ac25fcb73ed0f449b8614a0294072870` (after Level 2 integration, before the new package test command): 39/39 then-configured Node tests passed, 0 failures, and the Vite production build completed. It does **not** prove the newly added Level 2 test or current-HEAD build passes.
+- Fresh non-production preview build for the current PR #114 commit could not run: Vercel returned HTTP 402 `api-deployments-free-per-day`, exceeding 100 API deployments/day, retry-after 86400 seconds. Do not describe this as a build pass or as Level 2 mobile QA.
+- Source PDF inspection: `.usrfiles.com` downloads were rejected by the connected Wix runtime (403 forbidden for that host), web PDF access also failed, and no authenticated alternate building-manual PDF/crop was visually approved. The 30 blocked remain excluded.
+
+**Current status:** uploaded artwork verified, integrated Level 2 source adapter and tests committed, draft PR maintained. Production and current-commit browser/TypeScript release gates are still unmet.
