@@ -65,6 +65,11 @@ function firstApprovedVariant(project: Project): number {
   return Array.from({ length: count }, (_, index) => index)
     .find(index => Boolean(sourceFor(project, index).approvedRef)) ?? 0;
 }
+function isApprovedSelection(index: number, variantIndex: number): boolean {
+  if (!Number.isInteger(index) || !Number.isInteger(variantIndex) || variantIndex < 0) return false;
+  const project = PROJECTS[index];
+  return Boolean(project && sourceFor(project, variantIndex).approvedRef);
+}
 
 type Stage = "spin" | "spinning" | "ready" | "building" | "assessment" | "result";
 type Session = { stage: Stage; projectIndex: number | null; spinFinishAt: number | null; spinRotation: number | null; variantIndex: number; deadline: number | null; completedAt: number | null; checks: boolean[]; completed: boolean; attempts: number; result: "pass" | "retry" | null };
@@ -73,7 +78,7 @@ function load(): Session {
   if (typeof window === "undefined") return initial;
   try {
     const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null") as Session | null;
-    if (data && ["spin","spinning","ready","building","assessment","result"].includes(data.stage) && (data.projectIndex === null || (Number.isInteger(data.projectIndex) && data.projectIndex >= 0 && data.projectIndex < PROJECTS.length && Number.isInteger(data.variantIndex) && data.variantIndex >= 0 && Boolean(sourceFor(PROJECTS[data.projectIndex], data.variantIndex).approvedRef)))) {
+    if (data && ["spin","spinning","ready","building","assessment","result"].includes(data.stage) && (data.projectIndex === null || (Number.isInteger(data.projectIndex) && data.projectIndex >= 0 && data.projectIndex < PROJECTS.length && isApprovedSelection(data.projectIndex, data.variantIndex)))) {
       return { ...initial, ...data, checks: Array.isArray(data.checks) && data.checks.length === 5 ? data.checks : initial.checks };
     }
   } catch { /* ignore corrupt saved session */ }
@@ -176,7 +181,10 @@ function FinalBuildPage() {
     const index = reviewMode
       ? (fixedIndex >= 0 ? fixedIndex : secureRandomIndex(PROJECTS.length))
       : APPROVED_PROJECT_INDEXES[secureRandomIndex(APPROVED_PROJECT_INDEXES.length)];
-    const approvedVariant = reviewMode ? 0 : firstApprovedVariant(PROJECTS[index]);
+    if (index === undefined) return;
+    const selectedProject = PROJECTS[index];
+    if (!selectedProject) return;
+    const approvedVariant = reviewMode ? 0 : firstApprovedVariant(selectedProject);
     // One uniform draw from 59 projects. Scanner silhouettes are decorative.
     // The reveal never changes the previously selected result.
     update({
