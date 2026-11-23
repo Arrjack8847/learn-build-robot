@@ -38,10 +38,10 @@
           "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
         }
       ],
-      "visualReviewStatus": "pending-full-manual-review",
-      "checklistReviewStatus": "pending-five-page-supported-questions",
+      "visualReviewStatus": "source-authentic-image-candidate-verified",
+      "checklistReviewStatus": "blocked: zero independently approved questions",
       "independentApprovalStatus": "blocked",
-      "sourcePagesToInspect": "all",
+      "sourcePagesToInspect": "completed; see evidenceReport",
       "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
       "questionCount": 0,
       "approvalMayChangeOnlyWhen": [
@@ -51,7 +51,28 @@
         "five variant-specific observable checks with source page evidence independently approved",
         "relevant tests pass"
       ],
-      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions."
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions.",
+      "sourceReviewDate": "2026-11-23",
+      "currentRunOfficialPdfHashVerified": true,
+      "everyPageVisualOverviewReviewed": true,
+      "imageCandidate": {
+        "filename": "level-5-remote-control-car-basic.webp",
+        "sourcePage": 20,
+        "normalizedCrop": [
+          0.06,
+          0.08,
+          0.56,
+          0.94
+        ],
+        "sha256": "75a25bad77af8968c6ce83bf9344ccba393b44e6933ea8fb5b11985b8a30ab6d",
+        "dimensions": [
+          550,
+          669
+        ],
+        "wixReady": true,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_0c2947266eb7486381448607a8aa7b07~mv2.webp"
+      },
+      "remainingBlocker": "No five independently verified project-specific assessment questions; image is candidate only, not student-approved"
     },
     {
       "variantId": "level-5-crack-shot:optimized",
@@ -74,10 +95,10 @@
           "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
         }
       ],
-      "visualReviewStatus": "pending-full-manual-review",
-      "checklistReviewStatus": "pending-five-page-supported-questions",
+      "visualReviewStatus": "image-blocked:no-unambiguous-complete-model",
+      "checklistReviewStatus": "blocked: zero independently approved questions",
       "independentApprovalStatus": "blocked",
-      "sourcePagesToInspect": "all",
+      "sourcePagesToInspect": "completed; see evidenceReport",
       "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
       "questionCount": 0,
       "approvalMayChangeOnlyWhen": [
@@ -87,7 +108,12 @@
         "five variant-specific observable checks with source page evidence independently approved",
         "relevant tests pass"
       ],
-      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions."
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions.",
+      "sourceReviewDate": "2026-11-23",
+      "currentRunOfficialPdfHashVerified": true,
+      "everyPageVisualOverviewReviewed": true,
+      "imageCandidate": null,
+      "remainingBlocker": "Optimized page 4 includes a detached wheel; no completed model in pages 1–4"
     },
     {
       "variantId": "level-5-machine-gun",
@@ -110,10 +136,10 @@
           "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
         }
       ],
-      "visualReviewStatus": "pending-full-manual-review",
-      "checklistReviewStatus": "pending-five-page-supported-questions",
+      "visualReviewStatus": "image-blocked:no-unambiguous-complete-model",
+      "checklistReviewStatus": "blocked: zero independently approved questions",
       "independentApprovalStatus": "blocked",
-      "sourcePagesToInspect": "all",
+      "sourcePagesToInspect": "completed; see evidenceReport",
       "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
       "questionCount": 0,
       "approvalMayChangeOnlyWhen": [
@@ -123,7 +149,12 @@
         "five variant-specific observable checks with source page evidence independently approved",
         "relevant tests pass"
       ],
-      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions."
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions.",
+      "sourceReviewDate": "2026-11-23",
+      "currentRunOfficialPdfHashVerified": true,
+      "everyPageVisualOverviewReviewed": true,
+      "imageCandidate": null,
+      "remainingBlocker": "Page 29 still instructs attaching the rubber band; no post-attachment final model"
     },
     {
       "variantId": "level-5-facial-recognition-time-clock",
@@ -146,10 +177,10 @@
           "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
         }
       ],
-      "visualReviewStatus": "pending-full-manual-review",
-      "checklistReviewStatus": "pending-five-page-supported-questions",
+      "visualReviewStatus": "image-blocked:no-unambiguous-complete-model",
+      "checklistReviewStatus": "blocked: zero independently approved questions",
       "independentApprovalStatus": "blocked",
-      "sourcePagesToInspect": "all",
+      "sourcePagesToInspect": "completed; see evidenceReport",
       "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
       "questionCount": 0,
       "approvalMayChangeOnlyWhen": [
@@ -159,7 +190,12 @@
         "five variant-specific observable checks with source page evidence independently approved",
         "relevant tests pass"
       ],
-      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions."
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions.",
+      "sourceReviewDate": "2026-11-23",
+      "currentRunOfficialPdfHashVerified": true,
+      "everyPageVisualOverviewReviewed": true,
+      "imageCandidate": null,
+      "remainingBlocker": "Page 7 camera remains detached and annotated; earlier pages lack it"
     },
     {
       "variantId": "level-5-voice-control-snail",
@@ -182,10 +218,10 @@
           "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
         }
       ],
-      "visualReviewStatus": "pending-full-manual-review",
-      "checklistReviewStatus": "pending-five-page-supported-questions",
+      "visualReviewStatus": "source-authentic-image-candidate-verified",
+      "checklistReviewStatus": "blocked: zero independently approved questions",
       "independentApprovalStatus": "blocked",
-      "sourcePagesToInspect": "all",
+      "sourcePagesToInspect": "completed; see evidenceReport",
       "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
       "questionCount": 0,
       "approvalMayChangeOnlyWhen": [
@@ -195,7 +231,28 @@
         "five variant-specific observable checks with source page evidence independently approved",
         "relevant tests pass"
       ],
-      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions."
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions.",
+      "sourceReviewDate": "2026-11-23",
+      "currentRunOfficialPdfHashVerified": true,
+      "everyPageVisualOverviewReviewed": true,
+      "imageCandidate": {
+        "filename": "level-5-voice-control-snail-basic.webp",
+        "sourcePage": 12,
+        "normalizedCrop": [
+          0.3,
+          0.18,
+          0.83,
+          0.86
+        ],
+        "sha256": "268a5d6a2fbb244da5871cd080bd7f4109980b731028f6aa87d1fce440fe503d",
+        "dimensions": [
+          550,
+          397
+        ],
+        "wixReady": true,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_72ced3ae25a54a45b1815b9590380b6f~mv2.webp"
+      },
+      "remainingBlocker": "No five independently verified project-specific assessment questions; image is candidate only, not student-approved"
     },
     {
       "variantId": "level-5-voice-control-vehicle",
@@ -218,10 +275,10 @@
           "requirement": "Only source-authentic full-model image with the same manual version and independently verified crop."
         }
       ],
-      "visualReviewStatus": "pending-full-manual-review",
-      "checklistReviewStatus": "pending-five-page-supported-questions",
+      "visualReviewStatus": "source-authentic-image-candidate-verified",
+      "checklistReviewStatus": "blocked: zero independently approved questions",
       "independentApprovalStatus": "blocked",
-      "sourcePagesToInspect": "all",
+      "sourcePagesToInspect": "completed; see evidenceReport",
       "inspectionPriority": "Inspect the candidate page and preceding assembly pages. If source has only multi-view/annotated content, assess whether a single unaltered complete-model panel can be shown without misleading users.",
       "questionCount": 0,
       "approvalMayChangeOnlyWhen": [
@@ -231,7 +288,35 @@
         "five variant-specific observable checks with source page evidence independently approved",
         "relevant tests pass"
       ],
-      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions."
+      "fallbackIfUnresolved": "Keep blocked; no alternate Learning slide, fabricated image or generic questions.",
+      "sourceReviewDate": "2026-11-23",
+      "currentRunOfficialPdfHashVerified": true,
+      "everyPageVisualOverviewReviewed": true,
+      "imageCandidate": {
+        "filename": "level-5-voice-control-vehicle-basic.webp",
+        "sourcePage": 10,
+        "normalizedCrop": [
+          0.64,
+          0.52,
+          1,
+          0.94
+        ],
+        "sha256": "f627ccbb70fd03647d2135f0719fbea736ad9938b3c4397a1ef472f07a84b138",
+        "dimensions": [
+          550,
+          361
+        ],
+        "wixReady": true,
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_d36f964af5eb46b39673760192b53422~mv2.webp"
+      },
+      "remainingBlocker": "No five independently verified project-specific assessment questions; image is candidate only, not student-approved"
     }
-  ]
+  ],
+  "sourceAuditUpdated": "2026-11-23",
+  "officialSourceHashesRechecked": 6,
+  "allSourcePagesVisuallyReviewed": 82,
+  "candidateImagesReady": 3,
+  "candidateWixReady": 3,
+  "candidatesWithoutAuthenticFinishedImage": 3,
+  "evidenceReport": "reports/final-build-level-5-six-webp-recovery-evidence-20261123.json"
 }
