@@ -1,7 +1,18 @@
-# Level 4 Final Build model references
+# Level 4 Final Build artwork — candidate set
 
-This directory is reserved for **faithful, manually verified WebP crops from the actual cleaned Wix Building PDFs**. The current audit intentionally contains **no approved model artwork**.
+**Audit date:** 2026-11-23  
+**Source:** 50 actual, downloaded Wix-hosted official Level 4 Building PDFs, **not** Learning fallback slides.  
+**Files:** 50 individually optimized `.webp` files, including two Basic/Optimized variant pairs. Eight reference images were recropped to the original PDF's completed-model image blocks, excluding neighboring intermediate construction figures.
 
-Before adding a file, record its canonical project/variant ID; hosted Wix URL; downloaded PDF SHA-256 and page count; source page; normalized crop rectangle; WebP pixel dimensions, SHA-256 and decoder result; independent visual sign-off; and five inspected, page-evidenced robot-specific checklist questions. Update the Level 4 manifests together.
+All images are **faithful source-derived raster crops**; no artificial illustration, stage compositing or reconstructed robot parts were used. Every file passed an independent Pillow decode, WebP SHA-256 check, and a pixel-fidelity comparison to its exact verified PDF source page.
 
-Never generate substitute robot images, never collage assembly steps, and never approve a filename, registration or Wix descriptor alone.
+**Student approval status: 0/50.** These are **candidates, not released references**. All source URL, source PDF SHA-256, source PDF page, crop coordinates, rendered width and height, WebP SHA-256 and review status are traceable in:
+
+- `src/data/finalBuild/level-4-references.json`
+- `src/data/finalBuild/level-4-checklists.json`
+- `src/data/finalBuild/level-4-audit.json`
+- `reports/final-build-level-4-independent-verification-20261123.json`
+
+There are exactly 250 draft questions (five per variant), but none has passed independent manual-by-manual mechanism sign-off. A file's presence or hash verification must **never** implicitly change its status to `approved`.
+
+Do not use unapproved candidates in the student random-discovery pool. Any shared scanner/UI integration change belongs to PR #108's integration owner; no shared files were modified in this Level 4 worker.
