@@ -388,6 +388,400 @@
       "reportedPageCountMatches": true,
       "pdfImageXObjects": 20,
       "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_60546b12a6db461386a9864fc146d625.pdf",
+      "filename": "04.Flashlight-Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_60546b12a6db461386a9864fc146d625.pdf",
+      "expectedPages": 12,
+      "historicalBlob": "7c3150b2641e06394d9f1c34336982e64b0733ce",
+      "status": "downloaded-valid-pdf",
+      "bytes": 3928338,
+      "sha256": "1cf47dcb9585719a750d95d7ea2be39577fee58fc9081cfeffbdaacf41c15d76",
+      "calculatedGitBlobSha1": "7c3150b2641e06394d9f1c34336982e64b0733ce",
+      "githubSourceMatches": true,
+      "pageObjectCount": 12,
+      "pdfPageTreeCounts": [
+        12
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 12,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_7a86681377184c5ea2c5b9bb96b7040d.pdf",
+      "filename": "14.Light-sensitive Curtains -Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7a86681377184c5ea2c5b9bb96b7040d.pdf",
+      "expectedPages": 28,
+      "historicalBlob": "e91d74604d885d7ac0ec02a019ffc8c48606c36a",
+      "status": "downloaded-valid-pdf",
+      "bytes": 7066042,
+      "sha256": "e07668fe94a7de00fed87c8a7bcd482f0d75b1be8eeafe99c7456ed3cb348df9",
+      "calculatedGitBlobSha1": "e91d74604d885d7ac0ec02a019ffc8c48606c36a",
+      "githubSourceMatches": true,
+      "pageObjectCount": 28,
+      "pdfPageTreeCounts": [
+        28
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 28,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_04a7868dd78a4216839d6ab3bc575381.pdf",
+      "filename": "11.Anti-fall Robot-Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_04a7868dd78a4216839d6ab3bc575381.pdf",
+      "expectedPages": 16,
+      "historicalBlob": "bf0f4db6aee851eea552fe4fcc58c13d7d62f28c",
+      "status": "downloaded-valid-pdf",
+      "bytes": 4991217,
+      "sha256": "0065cad3da26f5ccbe13e680c0a5f187de80c372e3b112548c01dfaa7b00ce7f",
+      "calculatedGitBlobSha1": "bf0f4db6aee851eea552fe4fcc58c13d7d62f28c",
+      "githubSourceMatches": true,
+      "pageObjectCount": 16,
+      "pdfPageTreeCounts": [
+        16
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 16,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_c2ff026d9c484c81b5e0f47d6c092230.pdf",
+      "filename": "17.Automatic Door -Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c2ff026d9c484c81b5e0f47d6c092230.pdf",
+      "expectedPages": 23,
+      "historicalBlob": "8a28b083039ee8d6f9805d17573e5f28ab0d70d7",
+      "status": "downloaded-valid-pdf",
+      "bytes": 7319134,
+      "sha256": "0168d11271a6646952361113c3fe7e29ee6cb099bf1bd2447f1439ce2dc68a80",
+      "calculatedGitBlobSha1": "8a28b083039ee8d6f9805d17573e5f28ab0d70d7",
+      "githubSourceMatches": true,
+      "pageObjectCount": 23,
+      "pdfPageTreeCounts": [
+        23
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 23,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_62d1352e9abe4d26b7c5c764962615dc.pdf",
+      "filename": "06..Juicer Machine-Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_62d1352e9abe4d26b7c5c764962615dc.pdf",
+      "expectedPages": 14,
+      "historicalBlob": "4f0afb1938a516c540603da9d852b4a509f17294",
+      "status": "downloaded-valid-pdf",
+      "bytes": 4569325,
+      "sha256": "225d502801598f7c50cdf702ff219454cb64e9ca884c68887664f99801eddd62",
+      "calculatedGitBlobSha1": "4f0afb1938a516c540603da9d852b4a509f17294",
+      "githubSourceMatches": true,
+      "pageObjectCount": 14,
+      "pdfPageTreeCounts": [
+        14
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 14,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_c4d4661ef7c14b3ba047ccefb7c20944.pdf",
+      "filename": "08.Washing Machine-Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c4d4661ef7c14b3ba047ccefb7c20944.pdf",
+      "expectedPages": 18,
+      "historicalBlob": "b6598180cda7dd76906d29bf2b32f609d278068c",
+      "status": "downloaded-valid-pdf",
+      "bytes": 5838232,
+      "sha256": "3b0362c124754e823d2e59eb753f48e30272a626f3721abbddd0a0aef1c74ca3",
+      "calculatedGitBlobSha1": "b6598180cda7dd76906d29bf2b32f609d278068c",
+      "githubSourceMatches": true,
+      "pageObjectCount": 18,
+      "pdfPageTreeCounts": [
+        18
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 18,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "78042f_9ea1f915116b429895c75c161797983d.pdf",
+      "filename": "Electronic scale.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9ea1f915116b429895c75c161797983d.pdf",
+      "expectedPages": 27,
+      "historicalBlob": "3afceb33862213ed99d10bfa0fb4d994c57a7184",
+      "status": "downloaded-valid-pdf",
+      "bytes": 1696344,
+      "sha256": "d8b367f8dc8ac6d1d498cd39b575d44bf606f1fe8619c79ac96373a60603d127",
+      "calculatedGitBlobSha1": "a56708e48fb4f4337ea9578823a5cbace65eab06",
+      "githubSourceMatches": false,
+      "pageObjectCount": 27,
+      "pdfPageTreeCounts": [
+        27
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 42,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+      "filename": "Gyro transmitter_Building.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+      "expectedPages": 17,
+      "historicalBlob": "82871820203830b6932c5b314ab7afa70183f215",
+      "status": "downloaded-valid-pdf",
+      "bytes": 3770940,
+      "sha256": "d5f2cbe35d9c7bb445f0ac144b305d26d72dfdd04057ee6226567cf278313bb9",
+      "calculatedGitBlobSha1": "e0c905c9b5affabddac75de96f7de0481d0a210d",
+      "githubSourceMatches": false,
+      "pageObjectCount": 17,
+      "pdfPageTreeCounts": [
+        17
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 36,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_65ab7f6608544c17a9dde9da09af12c8.pdf",
+      "filename": "Biting Monster.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_65ab7f6608544c17a9dde9da09af12c8.pdf",
+      "expectedPages": 24,
+      "historicalBlob": "12e6817e8bdc45b6e27c8738d84454c67dd7c424",
+      "status": "downloaded-valid-pdf",
+      "bytes": 19489610,
+      "sha256": "bc4fb8970464c327a463f2d36e1b756fdf6c5d96cb94acdf8511bd919a0d3051",
+      "calculatedGitBlobSha1": "12e6817e8bdc45b6e27c8738d84454c67dd7c424",
+      "githubSourceMatches": true,
+      "pageObjectCount": 47,
+      "pdfPageTreeCounts": [
+        24,
+        5,
+        5,
+        5,
+        9
+      ],
+      "reportedPageCountMatches": false,
+      "pdfImageXObjects": 8,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_9f299f0c26c74943a8d90f30edb11246.pdf",
+      "filename": "Electric Gyro Launcher.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9f299f0c26c74943a8d90f30edb11246.pdf",
+      "expectedPages": 12,
+      "historicalBlob": "3d28bbef01ceeee9749fc009efffbf07e261e6f4",
+      "status": "downloaded-valid-pdf",
+      "bytes": 6244587,
+      "sha256": "6c2837f3694b724375ca1c5b29041a07ad0175d6232c89719c5478ae9493696b",
+      "calculatedGitBlobSha1": "3d28bbef01ceeee9749fc009efffbf07e261e6f4",
+      "githubSourceMatches": true,
+      "pageObjectCount": 23,
+      "pdfPageTreeCounts": [
+        12,
+        5,
+        7
+      ],
+      "reportedPageCountMatches": false,
+      "pdfImageXObjects": 8,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_f39cdbb5cfb34248a850cdd356c1156f.pdf",
+      "filename": "Responder.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f39cdbb5cfb34248a850cdd356c1156f.pdf",
+      "expectedPages": 12,
+      "historicalBlob": "7d621e24ed155d78f1917b6de3a27b093be8b763",
+      "status": "downloaded-valid-pdf",
+      "bytes": 8584798,
+      "sha256": "3f999ea08653b91ef5c3e73b2d56cd51645ae01383e61bac6c904c1f81def151",
+      "calculatedGitBlobSha1": "7d621e24ed155d78f1917b6de3a27b093be8b763",
+      "githubSourceMatches": true,
+      "pageObjectCount": 22,
+      "pdfPageTreeCounts": [
+        12,
+        5,
+        7
+      ],
+      "reportedPageCountMatches": false,
+      "pdfImageXObjects": 11,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_40e1c1967c774d0e83916ace3220b896.pdf",
+      "filename": "10.Electric guitar_Building.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_40e1c1967c774d0e83916ace3220b896.pdf",
+      "expectedPages": 16,
+      "historicalBlob": "113c6f8587f9bb550a15c68af618fdec8760f28c",
+      "status": "downloaded-valid-pdf",
+      "bytes": 15795140,
+      "sha256": "c62cc4dc06e8ed207a84cecff6f2de2cb28da1c53ec2c32a142f2ecd340d2c2b",
+      "calculatedGitBlobSha1": "113c6f8587f9bb550a15c68af618fdec8760f28c",
+      "githubSourceMatches": true,
+      "pageObjectCount": 16,
+      "pdfPageTreeCounts": [
+        16
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 394,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_3870c6de5cc04f26984b7a2f105458f9.pdf",
+      "filename": "29.Music Box -Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3870c6de5cc04f26984b7a2f105458f9.pdf",
+      "expectedPages": 24,
+      "historicalBlob": "cf1c89ff3347fa79a8940f93de0df4281dc7dc69",
+      "status": "downloaded-valid-pdf",
+      "bytes": 5897344,
+      "sha256": "0ff2006d62314f6a37796004724de1fee11c925d0e2580a177055e4550cb64bc",
+      "calculatedGitBlobSha1": "cf1c89ff3347fa79a8940f93de0df4281dc7dc69",
+      "githubSourceMatches": true,
+      "pageObjectCount": 24,
+      "pdfPageTreeCounts": [
+        24
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 24,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_7dcf2c2fb93344f6a95b2d867dc55298.pdf",
+      "filename": "07.Music Doorbell-Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7dcf2c2fb93344f6a95b2d867dc55298.pdf",
+      "expectedPages": 12,
+      "historicalBlob": "06d759c2122e8b8853820061ab2c6c22f480beaf",
+      "status": "downloaded-valid-pdf",
+      "bytes": 3266387,
+      "sha256": "b15f0a40b38ef896be42787b2754e7da13267848948a59a1362310276f5eb060",
+      "calculatedGitBlobSha1": "06d759c2122e8b8853820061ab2c6c22f480beaf",
+      "githubSourceMatches": true,
+      "pageObjectCount": 12,
+      "pdfPageTreeCounts": [
+        12
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 12,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_41d0fbb1b727427aae680e6afa835d4d.pdf",
+      "filename": "Smart Audio_Building.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_41d0fbb1b727427aae680e6afa835d4d.pdf",
+      "expectedPages": 11,
+      "historicalBlob": "0dfd3d13fe65d021868056ef3ecdbcf104dc1ed3",
+      "status": "downloaded-valid-pdf",
+      "bytes": 8917740,
+      "sha256": "37ad32948b214a91c7bb11d7d414d33380235a2449d800f6c54fec88cc6e284b",
+      "calculatedGitBlobSha1": "0dfd3d13fe65d021868056ef3ecdbcf104dc1ed3",
+      "githubSourceMatches": true,
+      "pageObjectCount": 11,
+      "pdfPageTreeCounts": [
+        11
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 255,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_24c6b260f92a4311a3c4b8da919ace91.pdf",
+      "filename": "Sonometer_Building.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_24c6b260f92a4311a3c4b8da919ace91.pdf",
+      "expectedPages": 8,
+      "historicalBlob": "bd571b772b2ae9adfa1df0d19e6586484aae48ce",
+      "status": "downloaded-valid-pdf",
+      "bytes": 3150815,
+      "sha256": "410685232e69b2d34936a5dcd804ddf3f47e13b46f17381832f71e7179fdaaa2",
+      "calculatedGitBlobSha1": "bd571b772b2ae9adfa1df0d19e6586484aae48ce",
+      "githubSourceMatches": true,
+      "pageObjectCount": 8,
+      "pdfPageTreeCounts": [
+        8
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 126,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_a1da83b7d7044f6f818764858f06a22f.pdf",
+      "filename": "16.Sound Level Meter -Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a1da83b7d7044f6f818764858f06a22f.pdf",
+      "expectedPages": 20,
+      "historicalBlob": "b0e8a89dd29edd9a0476f35ce3000fc1faa1fc63",
+      "status": "downloaded-valid-pdf",
+      "bytes": 5394073,
+      "sha256": "052ccffc762288f559cfb3e543b1454bcc11deffdc3f47206ec39d46e3216649",
+      "calculatedGitBlobSha1": "b0e8a89dd29edd9a0476f35ce3000fc1faa1fc63",
+      "githubSourceMatches": true,
+      "pageObjectCount": 20,
+      "pdfPageTreeCounts": [
+        20
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 20,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_bc0928f33de348fba5c046bddc913815.pdf",
+      "filename": "F1 racing car_Building.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bc0928f33de348fba5c046bddc913815.pdf",
+      "expectedPages": 37,
+      "historicalBlob": "cab10741b85d7f4087628164d3a79979373b2ee4",
+      "status": "downloaded-valid-pdf",
+      "bytes": 15203452,
+      "sha256": "61cbde687bf32afefcfa7ea648588ed21d3e2d0aa92bf7d82fe7b7abdd5f9899",
+      "calculatedGitBlobSha1": "cab10741b85d7f4087628164d3a79979373b2ee4",
+      "githubSourceMatches": true,
+      "pageObjectCount": 37,
+      "pdfPageTreeCounts": [
+        37
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 537,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_ab5b83edbc3c4dcaab6df9829c6d9076.pdf",
+      "filename": "11. The Long-lived Turtle - Basic Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ab5b83edbc3c4dcaab6df9829c6d9076.pdf",
+      "expectedPages": 23,
+      "historicalBlob": "19958e694dfc2e8091d251e58e99dd7571efe6fa",
+      "status": "downloaded-valid-pdf",
+      "bytes": 25502290,
+      "sha256": "83011a8a6a502716eb900967a4d3a6f59f67bef7fd8398afe77a2cc732a4516d",
+      "calculatedGitBlobSha1": "19958e694dfc2e8091d251e58e99dd7571efe6fa",
+      "githubSourceMatches": true,
+      "pageObjectCount": 23,
+      "pdfPageTreeCounts": [
+        23
+      ],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 23,
+      "visualPageValidation": "not-completed"
+    },
+    {
+      "id": "7fc4ca_cae5df8160384c7098f08542d288b12d.pdf",
+      "filename": "Lunar Rover.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_cae5df8160384c7098f08542d288b12d.pdf",
+      "expectedPages": 24,
+      "historicalBlob": "1bdd4d89b5e8e3773753b3dcb3a9330e6c09ad1e",
+      "status": "downloaded-valid-pdf",
+      "bytes": 7810384,
+      "sha256": "b88a8f9baa1d204ef9cf671c1a0068c5e588fa149e96b12a03f30ffc5d706368",
+      "calculatedGitBlobSha1": "1bdd4d89b5e8e3773753b3dcb3a9330e6c09ad1e",
+      "githubSourceMatches": true,
+      "pageObjectCount": 24,
+      "pdfPageTreeCounts": [],
+      "reportedPageCountMatches": true,
+      "pdfImageXObjects": 5,
+      "visualPageValidation": "not-completed"
     }
-  ]
+  ],
+  "summary": {
+    "registeredDistinctPdf": 40,
+    "downloaded": 40,
+    "githubSourceHashMatched": 38,
+    "structuralPageCountMatched": 36,
+    "notVisuallyInspected": 40,
+    "approvedArtifacts": 0
+  }
 }
