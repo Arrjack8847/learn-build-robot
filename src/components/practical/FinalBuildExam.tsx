@@ -121,8 +121,8 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
   // finished-model WebP. Preserve Level 2's existing hosted-image error fallback.
   const showRegisteredPdfFallback = Boolean(
     approval && variant && approval.sourceUrl === variant.url && (
-      ((level === 2 || level === 4 || level === 5 || level === 6) && approval.referenceMode === "registered-pdf-fallback") ||
-      (level === 2 && approval.referenceMode === "hosted-webp" &&
+      ((level === 2 || level === 3 || level === 4 || level === 5 || level === 6) && approval.referenceMode === "registered-pdf-fallback") ||
+      ((level === 2 || level === 3) && approval.referenceMode === "hosted-webp" &&
         model?.filename === variant.id && model.status === "error")
     ),
   );
@@ -248,7 +248,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
                 </select>
               </label>}
               <div className="rounded-2xl border-2 border-sky-200 bg-sky-50 p-3 text-center sm:p-5">
-                <p className="mb-2 text-xs font-black uppercase tracking-widest text-sky-700">{approval?.referenceMode === "registered-pdf-fallback" ? "Official PDF assembly reference · incomplete model view" : "Your finished-model reference"}</p>
+                <p className="mb-2 text-xs font-black uppercase tracking-widest text-sky-700">{approval?.referenceMode === "registered-pdf-fallback" ? "Official PDF assembly reference · incomplete model view" : level === 3 ? "Original Building-manual artwork · owner-authorized" : "Your finished-model reference"}</p>
                 {showRegisteredPdfFallback && approval ? (
                   <div className="rounded-xl bg-white p-5 text-center" role="region" aria-label="Registered PDF reference fallback">
                     <p className="font-bold text-sky-900">Original registered PDF reference</p>
@@ -275,10 +275,11 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
                   </div>
                 ) : renderCandidate ? <FinalBuildPrototype key={variant.id + ":" + page}
                   filename={variant.id} url={variant.url} imageUrl={approval?.imageUrl ?? undefined} pageNumber={page} crop={crop}
-                  title={project.name} onStatusChange={onModelStatus}/> :
+                  title={project.name} sourceLimited={level === 3} onStatusChange={onModelStatus}/> :
                   <div className="rounded-xl bg-white p-8 text-sm font-semibold text-amber-900" role="status">
                     Robot reference unavailable. The registered PDF or verified finished-model WebP is required to begin.
                   </div>}
+                {level === 3 && approval && <p className="mt-2 text-xs text-amber-800">{approval.referenceNotice}</p>}
                 {reviewMode && <p className="mt-2 text-xs font-semibold text-amber-800">Draft source page only — may contain instructional text or other content. Never shown to students.</p>}
                 {!reviewMode && !startAllowed && <p className="mt-2 text-xs text-amber-900">The reference is not yet available. Retry or choose another model.</p>}
               </div>
@@ -294,7 +295,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
             {session.stage === "building" && <button type="button" onClick={finish} className="min-h-14 w-full rounded-2xl bg-emerald-600 font-extrabold text-white">I Finished My Robot!</button>}
             {session.stage === "assessment" && <>
               <p className="mb-2 text-lg font-extrabold">Check your robot</p>
-              <p className="mb-3 text-xs text-slate-600">{approval?.referenceMode === "registered-pdf-fallback" ? "Owner-authorized self-assessment: five classified checks, including general construction checks that are not independently source-certified." : "Self-reported checklist using five source-backed checks from the original Building reference."}</p>
+              <p className="mb-3 text-xs text-slate-600">{approval?.referenceMode === "registered-pdf-fallback" || level === 3 ? "Owner-authorized self-assessment: five construction checks from original Building references, not independently certified." : "Self-reported checklist using five source-backed checks from the original Building reference."}</p>
               {readyChecks.map((item, index) => <label key={index} className="mb-2 flex min-h-12 items-center gap-3 rounded-xl bg-sky-50 p-3 text-sm font-semibold">
                 <input type="checkbox" className="size-6 shrink-0 accent-sky-600" checked={session.checks[index]}
                   onChange={e => setSession(prev => ({ ...prev, checks: prev.checks.map((v,i) => i === index ? e.target.checked : v) }))}/>
