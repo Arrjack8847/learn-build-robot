@@ -185,7 +185,16 @@
       "currentPageCount": 30,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 30,
+      "candidateSiftInliers": 284,
+      "candidateSourceCrop": {
+        "x": 0.13349,
+        "y": 0.10442,
+        "width": 0.56589,
+        "height": 0.6779
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-cycle-sport-basic",
@@ -210,7 +219,16 @@
       "currentPageCount": 21,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 21,
+      "candidateSiftInliers": 384,
+      "candidateSourceCrop": {
+        "x": 0.29267,
+        "y": 0.11048,
+        "width": 0.41824,
+        "height": 0.80566
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-cycle-sport-basic",
@@ -235,7 +253,16 @@
       "currentPageCount": 6,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 6,
+      "candidateSiftInliers": 375,
+      "candidateSourceCrop": {
+        "x": 0.26565,
+        "y": 0.12052,
+        "width": 0.48919,
+        "height": 0.76824
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-automatic-seesaw",
@@ -260,7 +287,16 @@
       "currentPageCount": 29,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 29,
+      "candidateSiftInliers": 477,
+      "candidateSourceCrop": {
+        "x": 0.18119,
+        "y": 0.1776,
+        "width": 0.64286,
+        "height": 0.62739
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-security-door",
@@ -285,7 +321,16 @@
       "currentPageCount": 10,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 10,
+      "candidateSiftInliers": 410,
+      "candidateSourceCrop": {
+        "x": 0.3562,
+        "y": 0.27907,
+        "width": 0.28679,
+        "height": 0.44487
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-smart-door",
@@ -310,7 +355,16 @@
       "currentPageCount": 5,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 5,
+      "candidateSiftInliers": 58,
+      "candidateSourceCrop": {
+        "x": 0.39997,
+        "y": 0.19435,
+        "width": 0.44268,
+        "height": 0.70445
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-following-robot",
@@ -335,7 +389,16 @@
       "currentPageCount": 9,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 8,
+      "candidateSiftInliers": 179,
+      "candidateSourceCrop": {
+        "x": 0.23941,
+        "y": 0.11901,
+        "width": 0.57172,
+        "height": 0.81043
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-obstacle-avoidance-robot-1",
@@ -360,7 +423,16 @@
       "currentPageCount": 11,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 11,
+      "candidateSiftInliers": 198,
+      "candidateSourceCrop": {
+        "x": 0.26948,
+        "y": 0.22913,
+        "width": 0.39015,
+        "height": 0.66094
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-sunflower",
@@ -385,7 +457,16 @@
       "currentPageCount": 14,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 14,
+      "candidateSiftInliers": 305,
+      "candidateSourceCrop": {
+        "x": 0.30978,
+        "y": 0.01953,
+        "width": 0.39041,
+        "height": 0.92991
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-electric-bulldozer",
@@ -410,7 +491,16 @@
       "currentPageCount": 26,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 26,
+      "candidateSiftInliers": 376,
+      "candidateSourceCrop": {
+        "x": 0.18977,
+        "y": 0.10676,
+        "width": 0.62341,
+        "height": 0.78092
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-electric-fan-characters-structures",
@@ -435,7 +525,16 @@
       "currentPageCount": 12,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 12,
+      "candidateSiftInliers": 446,
+      "candidateSourceCrop": {
+        "x": 0.23982,
+        "y": 0.09973,
+        "width": 0.63999,
+        "height": 0.82017
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-safe",
@@ -460,7 +559,16 @@
       "currentPageCount": 24,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 24,
+      "candidateSiftInliers": 394,
+      "candidateSourceCrop": {
+        "x": 0.20392,
+        "y": 0.15138,
+        "width": 0.55516,
+        "height": 0.7639
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-smart-trash-bin",
@@ -485,7 +593,16 @@
       "currentPageCount": 22,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 22,
+      "candidateSiftInliers": 356,
+      "candidateSourceCrop": {
+        "x": 0.27081,
+        "y": 0.12391,
+        "width": 0.48901,
+        "height": 0.78437
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-lifting-maintenance-vehicle",
@@ -510,7 +627,16 @@
       "currentPageCount": 22,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 5,
+      "candidateSiftInliers": 212,
+      "candidateSourceCrop": {
+        "x": 0.43909,
+        "y": 0.16937,
+        "width": 0.49023,
+        "height": 0.78993
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-automated-guided-vehicle",
@@ -535,7 +661,16 @@
       "currentPageCount": 24,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 24,
+      "candidateSiftInliers": 338,
+      "candidateSourceCrop": {
+        "x": 0.22503,
+        "y": 0.13766,
+        "width": 0.58173,
+        "height": 0.76795
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-race-walking-basic",
@@ -560,7 +695,16 @@
       "currentPageCount": 7,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 7,
+      "candidateSiftInliers": 361,
+      "candidateSourceCrop": {
+        "x": 0.29355,
+        "y": 0.11026,
+        "width": 0.46296,
+        "height": 0.80775
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-race-walking-basic",
@@ -585,7 +729,16 @@
       "currentPageCount": 6,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 6,
+      "candidateSiftInliers": 393,
+      "candidateSourceCrop": {
+        "x": 0.28586,
+        "y": 0.11021,
+        "width": 0.46611,
+        "height": 0.82028
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-race-walking-basic",
@@ -610,7 +763,16 @@
       "currentPageCount": 2,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 2,
+      "candidateSiftInliers": 407,
+      "candidateSourceCrop": {
+        "x": 0.14908,
+        "y": 0.01941,
+        "width": 0.73029,
+        "height": 0.93081
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-bumper-car-foundational-robots",
@@ -635,7 +797,16 @@
       "currentPageCount": 13,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 13,
+      "candidateSiftInliers": 234,
+      "candidateSourceCrop": {
+        "x": 0.12866,
+        "y": 0.11835,
+        "width": 0.5526,
+        "height": 0.63818
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-disinfection-lamp",
@@ -660,7 +831,16 @@
       "currentPageCount": 20,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 20,
+      "candidateSiftInliers": 378,
+      "candidateSourceCrop": {
+        "x": 0.2603,
+        "y": 0.21109,
+        "width": 0.49878,
+        "height": 0.65838
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-flashlight-sensor",
@@ -685,7 +865,16 @@
       "currentPageCount": 12,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 12,
+      "candidateSiftInliers": 311,
+      "candidateSourceCrop": {
+        "x": 0.26646,
+        "y": 0.25318,
+        "width": 0.48035,
+        "height": 0.55693
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-light-sensitive-curtains",
@@ -710,7 +899,16 @@
       "currentPageCount": 28,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 28,
+      "candidateSiftInliers": 325,
+      "candidateSourceCrop": {
+        "x": 0.22753,
+        "y": 0.14165,
+        "width": 0.56322,
+        "height": 0.72188
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-bumper-car-interactive-mechanisms",
@@ -735,7 +933,16 @@
       "currentPageCount": 13,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 13,
+      "candidateSiftInliers": 234,
+      "candidateSourceCrop": {
+        "x": 0.12866,
+        "y": 0.11835,
+        "width": 0.5526,
+        "height": 0.63818
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-anti-fall-robot",
@@ -760,7 +967,16 @@
       "currentPageCount": 16,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 16,
+      "candidateSiftInliers": 322,
+      "candidateSourceCrop": {
+        "x": 0.21546,
+        "y": 0.15506,
+        "width": 0.53816,
+        "height": 0.72199
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-automatic-door",
@@ -785,7 +1001,16 @@
       "currentPageCount": 23,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 23,
+      "candidateSiftInliers": 299,
+      "candidateSourceCrop": {
+        "x": 0.21089,
+        "y": 0.23712,
+        "width": 0.58153,
+        "height": 0.54665
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-juicer-machine",
@@ -810,7 +1035,16 @@
       "currentPageCount": 14,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 14,
+      "candidateSiftInliers": 346,
+      "candidateSourceCrop": {
+        "x": 0.2353,
+        "y": 0.11078,
+        "width": 0.53525,
+        "height": 0.8111
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-washing-machine",
@@ -835,7 +1069,16 @@
       "currentPageCount": 18,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 18,
+      "candidateSiftInliers": 417,
+      "candidateSourceCrop": {
+        "x": 0.23869,
+        "y": 0.11423,
+        "width": 0.52407,
+        "height": 0.78703
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-electronic-scale",
@@ -860,7 +1103,16 @@
       "currentPageCount": 27,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "historical-repaired-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 22,
+      "candidateSiftInliers": 425,
+      "candidateSourceCrop": {
+        "x": 0.30946,
+        "y": 0.20437,
+        "width": 0.52737,
+        "height": 0.66075
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-gyro-transmitter",
@@ -885,7 +1137,16 @@
       "currentPageCount": 17,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "historical-repaired-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 1,
+      "candidateSiftInliers": 251,
+      "candidateSourceCrop": {
+        "x": 0,
+        "y": 0,
+        "width": 0.75117,
+        "height": 0.9784
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-electric-fan-mechanisms-and-concepts",
@@ -910,7 +1171,16 @@
       "currentPageCount": 12,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 12,
+      "candidateSiftInliers": 455,
+      "candidateSourceCrop": {
+        "x": 0.23929,
+        "y": 0.09946,
+        "width": 0.64041,
+        "height": 0.82052
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-biting-monster",
@@ -935,7 +1205,16 @@
       "currentPageCount": 24,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 5,
+      "candidateSiftInliers": 159,
+      "candidateSourceCrop": {
+        "x": 0.41942,
+        "y": 0.11951,
+        "width": 0.56043,
+        "height": 0.80013
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-electric-gyro-launcher",
@@ -960,7 +1239,16 @@
       "currentPageCount": 12,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 11,
+      "candidateSiftInliers": 175,
+      "candidateSourceCrop": {
+        "x": 0.4594,
+        "y": 0.19779,
+        "width": 0.47049,
+        "height": 0.68134
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-responder",
@@ -985,7 +1273,16 @@
       "currentPageCount": 12,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 11,
+      "candidateSiftInliers": 127,
+      "candidateSourceCrop": {
+        "x": 0.51682,
+        "y": 0.32237,
+        "width": 0.32204,
+        "height": 0.56594
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-electric-guitar",
@@ -1010,7 +1307,16 @@
       "currentPageCount": 16,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 16,
+      "candidateSiftInliers": 236,
+      "candidateSourceCrop": {
+        "x": 0.19133,
+        "y": 0.2365,
+        "width": 0.60515,
+        "height": 0.5274
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-music-box",
@@ -1035,7 +1341,16 @@
       "currentPageCount": 24,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 24,
+      "candidateSiftInliers": 397,
+      "candidateSourceCrop": {
+        "x": 0.30504,
+        "y": 0.12482,
+        "width": 0.43994,
+        "height": 0.78661
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-music-doorbell",
@@ -1060,7 +1375,16 @@
       "currentPageCount": 12,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 12,
+      "candidateSiftInliers": 459,
+      "candidateSourceCrop": {
+        "x": 0.18784,
+        "y": 0.22262,
+        "width": 0.63426,
+        "height": 0.61898
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-smart-audio",
@@ -1085,7 +1409,16 @@
       "currentPageCount": 11,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 11,
+      "candidateSiftInliers": 223,
+      "candidateSourceCrop": {
+        "x": 0.12549,
+        "y": 0.10122,
+        "width": 0.51098,
+        "height": 0.63845
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-sonometer",
@@ -1110,7 +1443,16 @@
       "currentPageCount": 8,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 7,
+      "candidateSiftInliers": 68,
+      "candidateSourceCrop": {
+        "x": 0.65928,
+        "y": 0.16917,
+        "width": 0.31059,
+        "height": 0.70711
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-sound-level-meter",
@@ -1135,7 +1477,16 @@
       "currentPageCount": 20,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 20,
+      "candidateSiftInliers": 436,
+      "candidateSourceCrop": {
+        "x": 0.20445,
+        "y": 0.32996,
+        "width": 0.68668,
+        "height": 0.49014
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-f1-racing-car",
@@ -1160,7 +1511,16 @@
       "currentPageCount": 37,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 37,
+      "candidateSiftInliers": 270,
+      "candidateSourceCrop": {
+        "x": 0.20186,
+        "y": 0.11623,
+        "width": 0.58852,
+        "height": 0.62493
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-long-lived-turtle",
@@ -1185,7 +1545,16 @@
       "currentPageCount": 23,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-tree-count"
+      "pdfStructuralPageCountMethod": "page-tree-count",
+      "candidateMatchedSourcePage": 23,
+      "candidateSiftInliers": 349,
+      "candidateSourceCrop": {
+        "x": 0.16737,
+        "y": 0.18341,
+        "width": 0.70499,
+        "height": 0.69435
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     },
     {
       "projectId": "level-3-lunar-rover",
@@ -1210,7 +1579,16 @@
       "currentPageCount": 24,
       "sourceByteStatus": "verified",
       "sourceIdentityMatch": "original-git-blob",
-      "pdfStructuralPageCountMethod": "page-object-count"
+      "pdfStructuralPageCountMethod": "page-object-count",
+      "candidateMatchedSourcePage": 24,
+      "candidateSiftInliers": 217,
+      "candidateSourceCrop": {
+        "x": 0.41908,
+        "y": 0.09992,
+        "width": 0.55048,
+        "height": 0.8288
+      },
+      "candidateSourceMatchStatus": "strong-automated-not-approved"
     }
   ]
 }
