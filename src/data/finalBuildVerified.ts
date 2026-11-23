@@ -4,6 +4,7 @@ import levelFiveReferences from "@/data/finalBuild/level-5-references.json";
 import levelFiveChecklists from "@/data/finalBuild/level-5-checklists.json";
 import levelFiveWixImages from "@/data/finalBuild/level-5-wix-image-urls.json";
 import levelFiveWixCandidates from "@/data/finalBuild/level-5-wix-candidates.json";
+import levelFiveOwnerPdfFallbacks from "@/data/finalBuild/level-5-owner-authorized-pdf-fallbacks.json";
 import { getFinalBuildPool, type FinalBuildProject, type FinalBuildVariant } from "@/data/finalBuildRegistry";
 import type { PrototypeClip } from "@/components/practical/FinalBuildPrototype";
 
@@ -61,6 +62,59 @@ const levelFiveCandidateImages = (levelFiveWixCandidates as unknown as { candida
 
 const sha256Pattern = /^[0-9a-f]{64}$/i;
 
+type OwnerPdfFallback = {
+  variantId: string;
+  projectId: string;
+  status: string;
+  ownerApprovedForStudentSelection: boolean;
+  independentlyVerifiedCompletedImage: boolean;
+  sourceUrl: string;
+  pdfSha256: string;
+  sourcePage: number;
+  sourcePageCount: number;
+  crop: number[];
+  questions: Array<{ id: string; text: string; evidenceKind: string; independentlyVerified: boolean }>;
+};
+const ownerPdfFallbacks = levelFiveOwnerPdfFallbacks.items as OwnerPdfFallback[];
+
+/** Three exactly identified owner-authorized instructional PDFs, not finished-model WebPs. */
+function getOwnerAuthorizedPdfEvidence(
+  projectId: string, variant: FinalBuildVariant,
+): VerifiedEvidence | null {
+  const matching = ownerPdfFallbacks.filter(item => item.variantId === variant.id);
+  if (matching.length !== 1) return null;
+  const item = matching[0];
+  const reference = referenceEntries.find(ref => ref.variantId === variant.id && ref.projectId === projectId);
+  const checklist = checklistEntries.find(check => check.variantId === variant.id && check.projectId === projectId);
+  if (!variant.hostedOnWix || item.projectId !== projectId ||
+      item.status !== "owner-authorized-pdf-fallback" ||
+      item.ownerApprovedForStudentSelection !== true || item.independentlyVerifiedCompletedImage !== false ||
+      !reference || reference.approved !== false || reference.status !== "blocked" ||
+      !checklist || checklist.approved !== false || checklist.questions.length !== 0 ||
+      item.sourceUrl !== variant.url || item.sourceUrl !== reference.sourceUrl ||
+      !sha256Pattern.test(item.pdfSha256) || item.pdfSha256 !== reference.pdfSha256 ||
+      !Number.isInteger(item.sourcePage) || item.sourcePage < 1 ||
+      item.sourcePage !== reference.page ||
+      !Number.isInteger(item.sourcePageCount) || item.sourcePage > item.sourcePageCount ||
+      !validCrop(item.crop) || item.crop.some((value, index) => value !== [0, 0, 1, 1][index]) ||
+      wixImages[variant.id] != null || !Array.isArray(item.questions) || item.questions.length !== 5 ||
+      new Set(item.questions.map(q => q.id)).size !== 5 ||
+      !item.questions.every(q => typeof q.id === "string" && q.id.length > 0 &&
+        typeof q.text === "string" && q.text.trim().length > 0 &&
+        q.evidenceKind === "general-construction-self-assessment" && q.independentlyVerified === false))
+    return null;
+  return {
+    reference: {
+      level: 5, projectId, variantId: variant.id,
+      sourceUrl: item.sourceUrl, pdfSha256: item.pdfSha256,
+      page: item.sourcePage, crop: { x: 0, y: 0, width: 1, height: 1 },
+      imageUrl: null, referenceMode: "registered-pdf-fallback",
+    },
+    questions: item.questions.map(question => question.text),
+  };
+}
+
+
 function validCrop(values: number[] | null): values is [number, number, number, number] {
   return Array.isArray(values) && values.length === 4 &&
     values.every(value => Number.isFinite(value)) &&
@@ -84,6 +138,10 @@ function getEvidence(level: number, projectId: string, variant: FinalBuildVarian
   if (level === 2) return getLevelTwoEvidence(projectId, variant);
   if (level === 6) return getLevelSixEvidence(projectId, variant);
   if (level !== 5 || !variant.hostedOnWix) return null;
+  // Explicit source-authorized PDF-only exception. Does not loosen 42 approved WebP gates.
+  if (ownerPdfFallbacks.some(item => item.variantId === variant.id)) {
+    return getOwnerAuthorizedPdfEvidence(projectId, variant);
+  }
   const reference = referenceEntries.find(item => item.variantId === variant.id && item.projectId === projectId);
   const checklist = checklistEntries.find(item => item.variantId === variant.id && item.projectId === projectId);
   if (!reference || !checklist || !reference.approved || reference.status !== "approved" ||
