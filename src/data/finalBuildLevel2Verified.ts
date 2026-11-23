@@ -1,6 +1,7 @@
 import levelTwoReferences from "@/data/finalBuild/level-2-references.json";
 import levelTwoChecklists from "@/data/finalBuild/level-2-checklists.json";
 import levelTwoWixImages from "@/data/finalBuild/level-2-wix-image-urls.json";
+import levelTwoOwnerFallbacks from "@/data/finalBuild/level-2-owner-approved-pdf-fallbacks.json";
 import type { FinalBuildVariant } from "@/data/finalBuildRegistry";
 import type { VerifiedFinalBuildReference } from "@/data/finalBuildVerified";
 
@@ -11,7 +12,8 @@ type LevelTwoEvidence = {
 
 const references = levelTwoReferences.references;
 const checklists = levelTwoChecklists.checklists;
-const blocked = new Set(levelTwoReferences.blockedVariantIds);
+const previousBlocks = new Set(levelTwoReferences.blockedVariantIds);
+const fallbackRecords = levelTwoOwnerFallbacks.records;
 const wixImages: Record<string, string> = levelTwoWixImages.urls;
 const sha256Pattern = /^[0-9a-f]{64}$/i;
 
@@ -27,17 +29,63 @@ function validWixWebpUrl(value: string): boolean {
 }
 
 /**
- * Level 2 is image-only: every eligible variant MUST have its independently
- * approved source WebP already hosted and verified on Steam Wix. Never expose
- * an unreviewed PDF crop or a registered-but-blocked presentation to students.
+ * Owner authorization changes Level 2 eligibility, NOT independent Building-manual
+ * or completed-model approval. Preserve every pre-verified WebP and the 150
+ * source-backed questions. Remaining registered variants expose their exact
+ * hashed original PDF and five clearly marked general-observable checks.
  */
 export function getLevelTwoEvidence(
   projectId: string,
   variant: FinalBuildVariant,
 ): LevelTwoEvidence | null {
-  if (!variant.hostedOnWix || blocked.has(variant.id) ||
-      levelTwoChecklists.blockedVariantIds.includes(variant.id)) return null;
+  if (!variant.hostedOnWix) return null;
 
+  const fallback = fallbackRecords.find(item =>
+    item.variantId === variant.id && item.projectId === projectId);
+  if (fallback) {
+    const source = fallback.reference;
+    const assessment = fallback.assessment;
+    if (!previousBlocks.has(variant.id) ||
+        !levelTwoChecklists.blockedVariantIds.includes(variant.id) ||
+        references.some(item => item.variantId === variant.id) ||
+        checklists.some(item => item.variantId === variant.id) ||
+        wixImages[variant.id] != null ||
+        fallback.ownerAuthorized !== true || fallback.independentlySourceApproved !== false ||
+        fallback.studentInclusionMode !== "registered-pdf-fallback" ||
+        source.mode !== "original-registered-pdf" ||
+        source.url !== variant.url || !/^https:\/\/[^/]+\.usrfiles\.com\/.+\.pdf(?:\?|$)/i.test(source.url) ||
+        !sha256Pattern.test(source.sha256) ||
+        !Number.isInteger(source.pageCount) || source.pageCount < 1 ||
+        source.sourcePdfBytesPreviouslyHashed !== true ||
+        source.sourceKindIndependentlyConfirmed !== false ||
+        fallback.image.approvedWebp !== false || fallback.image.webpUrl !== null ||
+        assessment.ownerAuthorized !== true || assessment.independentlyPdfVerified !== false ||
+        assessment.provenance !== "general-observable-not-pdf-page-verified" ||
+        assessment.questions.length !== 5 ||
+        !assessment.questions.every(question =>
+          question.text.trim().length > 0 &&
+          question.evidenceType === "general-observable-not-pdf-verified" &&
+          question.pdfPage === null)) return null;
+
+    return {
+      reference: {
+        level: 2,
+        projectId,
+        variantId: variant.id,
+        sourceUrl: source.url,
+        pdfSha256: source.sha256,
+        page: 1,
+        crop: { x: 0, y: 0, width: 1, height: 1 },
+        imageUrl: null,
+        referenceMode: "registered-pdf-fallback",
+      },
+      questions: assessment.questions.map(question => question.text),
+    };
+  }
+
+  // The original 30 remain under their stricter independent approval gate.
+  if (previousBlocks.has(variant.id) ||
+      levelTwoChecklists.blockedVariantIds.includes(variant.id)) return null;
   const reference = references.find(item =>
     item.variantId === variant.id && item.projectId === projectId);
   const checklist = checklists.find(item => item.variantId === variant.id);
@@ -75,10 +123,9 @@ export function getLevelTwoEvidence(
       sourceUrl: reference.sourceUrl,
       pdfSha256: reference.sourceSha256,
       page: reference.pdfPage,
-      // Unused in hosted-WebP mode. Deliberately do NOT turn an absolute
-      // PDF-coordinate crop into an unverified normalized PDF fallback.
       crop: { x: 0, y: 0, width: 1, height: 1 },
       imageUrl,
+      referenceMode: "hosted-webp",
     },
     questions: checklist.questions.map(question => question.text),
   };
