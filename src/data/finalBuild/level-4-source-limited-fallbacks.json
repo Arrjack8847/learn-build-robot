@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "level": 4,
+  "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+  "policy": "Two source-limited PDF construction-stage references are owner-authorized for inclusion; they are not verified finished models. No new hosted WebP was created. Five transparent manual/physical self-check questions per variant.",
+  "source": "official Building PDF identities previously independently downloaded and hashed in Level 4 worker PR #111",
+  "existingApprovedWebpsPreserved": 48,
+  "existingIndependentlyReviewedQuestionsPreserved": 240,
+  "sourceLimitedVariants": 2,
+  "sourceLimitedQuestions": 10,
+  "entries": [
+    {
+      "variantId": "level-4-dangerous-assassin",
+      "projectId": "level-4-dangerous-assassin",
+      "projectName": "Dangerous Assassin",
+      "variantLabel": "Basic",
+      "ownerAuthorizedForStudentInclusion": true,
+      "referenceMode": "official-pdf-construction-stage",
+      "verifiedFinishedModel": false,
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c87e929581d64541923e3ffedbdb3edc.pdf",
+      "sourcePdfSha256": "483cf6fc93e63a7fd190ef49ddfd54faa07cbdf43a46cbe63836be01be8c5791",
+      "sourcePdfPageCount": 25,
+      "sourcePdfIdentityVerified": true,
+      "sourcePage": 25,
+      "normalizedCrop": {
+        "x": 0.07,
+        "y": 0.07,
+        "width": 0.91,
+        "height": 0.83
+      },
+      "imageUrl": null,
+      "limitation": "The official final image shows a detached side mechanism; students must consult the Building manual for assembly. This is not a verified fully attached finished model.",
+      "assessmentReview": "owner-authorized-practical-self-assessment; NOT independently source-verified for finished assembly",
+      "questions": [
+        {
+          "id": "level-4-dangerous-assassin-fallback-q1",
+          "text": "Does your Basic build include the long, low main chassis beam visible in the official assembly reference?",
+          "classification": "source-visible",
+          "evidencePages": [
+            25
+          ],
+          "sourcePdfSha256": "483cf6fc93e63a7fd190ef49ddfd54faa07cbdf43a46cbe63836be01be8c5791",
+          "independentlyReviewed": false
+        },
+        {
+          "id": "level-4-dangerous-assassin-fallback-q2",
+          "text": "Have you assembled the forward claw mechanism and its pivot joint in the arrangement shown in the Basic manual?",
+          "classification": "source-visible",
+          "evidencePages": [
+            25
+          ],
+          "sourcePdfSha256": "483cf6fc93e63a7fd190ef49ddfd54faa07cbdf43a46cbe63836be01be8c5791",
+          "independentlyReviewed": false
+        },
+        {
+          "id": "level-4-dangerous-assassin-fallback-q3",
+          "text": "Have you separately assembled the long angular side mechanism depicted beside the main chassis on the final source page?",
+          "classification": "source-visible",
+          "evidencePages": [
+            25
+          ],
+          "sourcePdfSha256": "483cf6fc93e63a7fd190ef49ddfd54faa07cbdf43a46cbe63836be01be8c5791",
+          "independentlyReviewed": false
+        },
+        {
+          "id": "level-4-dangerous-assassin-fallback-q4",
+          "text": "Before attaching the side mechanism, have you checked the locations and orientations of its connectors against the official steps?",
+          "classification": "practical-self-check",
+          "evidencePages": [
+            25
+          ],
+          "sourcePdfSha256": "483cf6fc93e63a7fd190ef49ddfd54faa07cbdf43a46cbe63836be01be8c5791",
+          "independentlyReviewed": false
+        },
+        {
+          "id": "level-4-dangerous-assassin-fallback-q5",
+          "text": "Are the chassis and separately illustrated mechanism securely assembled in your physical build, without assuming the PDF shows their final attachment?",
+          "classification": "practical-self-check",
+          "evidencePages": [
+            25
+          ],
+          "sourcePdfSha256": "483cf6fc93e63a7fd190ef49ddfd54faa07cbdf43a46cbe63836be01be8c5791",
+          "independentlyReviewed": false
+        }
+      ]
+    },
+    {
+      "variantId": "level-4-horizontal-bar",
+      "projectId": "level-4-horizontal-bar",
+      "projectName": "Horizontal Bar",
+      "variantLabel": "Official Building Manual",
+      "ownerAuthorizedForStudentInclusion": true,
+      "referenceMode": "official-pdf-construction-stage",
+      "verifiedFinishedModel": false,
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_165b3ae978a54059a2987eb2f4652e7e.pdf",
+      "sourcePdfSha256": "738d2d9f9494a41f87c3e2866e4e3a175822f6b4bfcb292515cebd1f3737ad1d",
+      "sourcePdfPageCount": 13,
+      "sourcePdfIdentityVerified": true,
+      "sourcePage": 13,
+      "normalizedCrop": {
+        "x": 0.16,
+        "y": 0.00353,
+        "width": 0.764375,
+        "height": 0.99647
+      },
+      "imageUrl": null,
+      "limitation": "The official final image crops the lower support feet; students must use the Building manual to check their physical feet. This is not a verified complete-model photograph.",
+      "assessmentReview": "owner-authorized-practical-self-assessment; NOT independently source-verified for finished assembly",
+      "questions": [
+        {
+          "id": "level-4-horizontal-bar-fallback-q1",
+          "text": "Have you installed the pair of upright supports in the arrangement visible in the official final-page illustration?",
+          "classification": "source-visible",
+          "evidencePages": [
+            13
+          ],
+          "sourcePdfSha256": "738d2d9f9494a41f87c3e2866e4e3a175822f6b4bfcb292515cebd1f3737ad1d",
+          "independentlyReviewed": false
+        },
+        {
+          "id": "level-4-horizontal-bar-fallback-q2",
+          "text": "Is the horizontal crossbar installed between the uprights in the orientation shown by the official reference?",
+          "classification": "source-visible",
+          "evidencePages": [
+            13
+          ],
+          "sourcePdfSha256": "738d2d9f9494a41f87c3e2866e4e3a175822f6b4bfcb292515cebd1f3737ad1d",
+          "independentlyReviewed": false
+        },
+        {
+          "id": "level-4-horizontal-bar-fallback-q3",
+          "text": "Have you checked the upper crossbar joints and their visible attachment points against the construction sequence?",
+          "classification": "source-visible",
+          "evidencePages": [
+            13
+          ],
+          "sourcePdfSha256": "738d2d9f9494a41f87c3e2866e4e3a175822f6b4bfcb292515cebd1f3737ad1d",
+          "independentlyReviewed": false
+        },
+        {
+          "id": "level-4-horizontal-bar-fallback-q4",
+          "text": "Are both lower support feet installed in your physical build, even though the official final-page image cuts them off?",
+          "classification": "practical-self-check",
+          "evidencePages": [
+            13
+          ],
+          "sourcePdfSha256": "738d2d9f9494a41f87c3e2866e4e3a175822f6b4bfcb292515cebd1f3737ad1d",
+          "independentlyReviewed": false
+        },
+        {
+          "id": "level-4-horizontal-bar-fallback-q5",
+          "text": "When set down without power, does the complete frame rest on its support feet without loose structural connections?",
+          "classification": "practical-self-check",
+          "evidencePages": [
+            13
+          ],
+          "sourcePdfSha256": "738d2d9f9494a41f87c3e2866e4e3a175822f6b4bfcb292515cebd1f3737ad1d",
+          "independentlyReviewed": false
+        }
+      ]
+    }
+  ]
+}
