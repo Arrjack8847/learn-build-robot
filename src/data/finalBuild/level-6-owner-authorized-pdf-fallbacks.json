@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "level": 6,
+  "wixSiteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+  "ownerAuthorized": true,
+  "approvalScope": "Official Building PDF construction-page reference only; NOT a certified complete-model WebP",
+  "description": "Two source-limited, owner-authorized full-page official PDF references with five explicitly classified assessment questions each. Existing 39 approved Wix WebPs and 195 independently verified checklist questions are unchanged.",
+  "entries": [
+    {
+      "projectId": "level-6-super-scorpion",
+      "variantId": "level-6-super-scorpion:optimized",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2f7bfe9ee7224047b06209ce59a55165.pdf",
+      "sourcePdfSha256": "e0c7b137eb0ce340cb334a7a36e4ea90172ae65337d8ffba8937b2839d368600",
+      "sourcePageCount": 3,
+      "page": 3,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 1,
+        "height": 1
+      },
+      "referenceKind": "official-pdf-construction",
+      "status": "owner-authorized-source-limited-fallback",
+      "notice": "Original page 3 is a cropped final optimized step, not a verified full-model image. Page 1 predates the final front square sensor module. Consult all three pages.",
+      "questions": [
+        {
+          "text": "Have you followed all three pages of the Optimized Scorpion Building manual rather than stopping at the earlier page-1 overview?",
+          "classification": "official-page-observation",
+          "evidencePages": [
+            1,
+            3
+          ]
+        },
+        {
+          "text": "Is the front square sensor module attached in the position depicted on the official final optimized construction page?",
+          "classification": "official-page-observation",
+          "evidencePages": [
+            3
+          ]
+        },
+        {
+          "text": "Are the additional optimized attachments secured without loose connectors?",
+          "classification": "general-construction-self-assessment",
+          "evidencePages": []
+        },
+        {
+          "text": "During a gentle manual check, can the legs, claws and tail move without binding or coming loose?",
+          "classification": "general-construction-self-assessment",
+          "evidencePages": []
+        },
+        {
+          "text": "Have you compared your completed build with every original optimized-construction page and fixed any missed steps?",
+          "classification": "general-construction-self-assessment",
+          "evidencePages": []
+        }
+      ]
+    },
+    {
+      "projectId": "level-6-rock-paper-scissors-robot",
+      "variantId": "level-6-rock-paper-scissors-robot",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ee943e948c6f4141b53d9d3e90481801.pdf",
+      "sourcePdfSha256": "1009562c300be9ec9bb86ea5c9420d8117d4399e848dbb1d1705f2b02db107fd",
+      "sourcePageCount": 14,
+      "page": 14,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 1,
+        "height": 1
+      },
+      "referenceKind": "official-pdf-construction",
+      "status": "owner-authorized-source-limited-fallback",
+      "notice": "Original page 14 depicts a magnified partial assembly, not the entire completed robot. Compare all 14 original Building pages to check the full model.",
+      "questions": [
+        {
+          "text": "Have you completed all construction steps through page 14, rather than stopping at an earlier subassembly?",
+          "classification": "official-page-observation",
+          "evidencePages": [
+            12,
+            13,
+            14
+          ]
+        },
+        {
+          "text": "Are the controller, camera or sensor, and finger mechanisms securely attached to their supports?",
+          "classification": "general-construction-self-assessment",
+          "evidencePages": []
+        },
+        {
+          "text": "Can the upright finger-like mechanisms move freely without rubbing or disconnecting?",
+          "classification": "general-construction-self-assessment",
+          "evidencePages": []
+        },
+        {
+          "text": "Have you compared your complete build with all official steps instead of treating the cropped page-14 detail as a full-model photo?",
+          "classification": "general-construction-self-assessment",
+          "evidencePages": []
+        },
+        {
+          "text": "Are all electrical connections and mechanical fasteners secure before testing the assembled robot?",
+          "classification": "general-construction-self-assessment",
+          "evidencePages": []
+        }
+      ]
+    }
+  ]
+}
