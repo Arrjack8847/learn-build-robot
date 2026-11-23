@@ -3,301 +3,2529 @@
   "level": 3,
   "date": "2026-11-23",
   "baseSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
-  "policy": "Exactly five official-PDF-page-cited questions per approved variant; no speculative questions.",
+  "policy": "210 variant-specific candidate questions are drafted against source-matched PDF pages. They are not independently approved and must NOT enter the exam; entries[].questions remains [] and status blocked until two separate evidence reviews.",
   "entries": [
     {
       "projectId": "level-3-clip-robot",
       "variantId": "level-3-clip-robot",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-clip-robot-q1",
+          "variantId": "level-3-clip-robot",
+          "text": "Are both black gripping claws present at the front of the assembled clip robot?",
+          "pdfPage": 30,
+          "sourcePdfHash": "5bcac8acc6893fb9180fbf24562ef3f591642dc751440cac42701b308944f28c",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-clip-robot-q2",
+          "variantId": "level-3-clip-robot",
+          "text": "Is the claw linkage connected to the red pivot and gear mechanism?",
+          "pdfPage": 30,
+          "sourcePdfHash": "5bcac8acc6893fb9180fbf24562ef3f591642dc751440cac42701b308944f28c",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-clip-robot-q3",
+          "variantId": "level-3-clip-robot",
+          "text": "Does the gray main chassis support both gripping arms symmetrically?",
+          "pdfPage": 30,
+          "sourcePdfHash": "5bcac8acc6893fb9180fbf24562ef3f591642dc751440cac42701b308944f28c",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-clip-robot-q4",
+          "variantId": "level-3-clip-robot",
+          "text": "Is the control unit mounted behind the gripping mechanism?",
+          "pdfPage": 30,
+          "sourcePdfHash": "5bcac8acc6893fb9180fbf24562ef3f591642dc751440cac42701b308944f28c",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-clip-robot-q5",
+          "variantId": "level-3-clip-robot",
+          "text": "Are the long white connecting beams attached between the frame and claw mechanism?",
+          "pdfPage": 30,
+          "sourcePdfHash": "5bcac8acc6893fb9180fbf24562ef3f591642dc751440cac42701b308944f28c",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-cycle-sport-basic",
       "variantId": "level-3-cycle-sport-basic",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-cycle-sport-basic-q1",
+          "variantId": "level-3-cycle-sport-basic",
+          "text": "Is the prominent wheel securely supported by the lower fork assembly?",
+          "pdfPage": 21,
+          "sourcePdfHash": "4bcfdd2f69b666ec92d3aef86479785a41f31cf0707d044582b936d6b9a73d95",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-cycle-sport-basic-q2",
+          "variantId": "level-3-cycle-sport-basic",
+          "text": "Do the two long angled frame beams connect the upper drive assembly to the lower wheel area?",
+          "pdfPage": 21,
+          "sourcePdfHash": "4bcfdd2f69b666ec92d3aef86479785a41f31cf0707d044582b936d6b9a73d95",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-cycle-sport-basic-q3",
+          "variantId": "level-3-cycle-sport-basic",
+          "text": "Is the exposed upper gear train positioned across the top of the frame?",
+          "pdfPage": 21,
+          "sourcePdfHash": "4bcfdd2f69b666ec92d3aef86479785a41f31cf0707d044582b936d6b9a73d95",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-cycle-sport-basic-q4",
+          "variantId": "level-3-cycle-sport-basic",
+          "text": "Is the red drive coupling installed beside the central motor shaft?",
+          "pdfPage": 21,
+          "sourcePdfHash": "4bcfdd2f69b666ec92d3aef86479785a41f31cf0707d044582b936d6b9a73d95",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-cycle-sport-basic-q5",
+          "variantId": "level-3-cycle-sport-basic",
+          "text": "Is the lower crank linkage aligned with the wheel-support brackets?",
+          "pdfPage": 21,
+          "sourcePdfHash": "4bcfdd2f69b666ec92d3aef86479785a41f31cf0707d044582b936d6b9a73d95",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-cycle-sport-basic",
       "variantId": "level-3-cycle-sport-optimized",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-cycle-sport-optimized-q1",
+          "variantId": "level-3-cycle-sport-optimized",
+          "text": "Is the display-equipped controller positioned on the front-lower part of the optimized vehicle?",
+          "pdfPage": 6,
+          "sourcePdfHash": "9026906f2574636df80412568fa9e82134d4f9cf7f2089f685761350509f73c5",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-cycle-sport-optimized-q2",
+          "variantId": "level-3-cycle-sport-optimized",
+          "text": "Does the right-side wheel connect to the angled support structure?",
+          "pdfPage": 6,
+          "sourcePdfHash": "9026906f2574636df80412568fa9e82134d4f9cf7f2089f685761350509f73c5",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-cycle-sport-optimized-q3",
+          "variantId": "level-3-cycle-sport-optimized",
+          "text": "Is the red central motor coupling attached to the drive linkage?",
+          "pdfPage": 6,
+          "sourcePdfHash": "9026906f2574636df80412568fa9e82134d4f9cf7f2089f685761350509f73c5",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-cycle-sport-optimized-q4",
+          "variantId": "level-3-cycle-sport-optimized",
+          "text": "Are the long slanted upper frame beams joined at the top of the assembly?",
+          "pdfPage": 6,
+          "sourcePdfHash": "9026906f2574636df80412568fa9e82134d4f9cf7f2089f685761350509f73c5",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-cycle-sport-optimized-q5",
+          "variantId": "level-3-cycle-sport-optimized",
+          "text": "Is the lower multi-link structure connected between the controller mount and wheel supports?",
+          "pdfPage": 6,
+          "sourcePdfHash": "9026906f2574636df80412568fa9e82134d4f9cf7f2089f685761350509f73c5",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-automatic-seesaw",
       "variantId": "level-3-automatic-seesaw",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-automatic-seesaw-q1",
+          "variantId": "level-3-automatic-seesaw",
+          "text": "Does the seesaw beam extend to both sides of its central pivot?",
+          "pdfPage": 29,
+          "sourcePdfHash": "928ecf07c1cc39f072348fb41c72960f5498825ddd581761ab4ec3866a1c31fd",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-automatic-seesaw-q2",
+          "variantId": "level-3-automatic-seesaw",
+          "text": "Is the central controller mounted above the main balance beam?",
+          "pdfPage": 29,
+          "sourcePdfHash": "928ecf07c1cc39f072348fb41c72960f5498825ddd581761ab4ec3866a1c31fd",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-automatic-seesaw-q3",
+          "variantId": "level-3-automatic-seesaw",
+          "text": "Are the left and right end structures connected by the long horizontal beam?",
+          "pdfPage": 29,
+          "sourcePdfHash": "928ecf07c1cc39f072348fb41c72960f5498825ddd581761ab4ec3866a1c31fd",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-automatic-seesaw-q4",
+          "variantId": "level-3-automatic-seesaw",
+          "text": "Is a braced support frame positioned under the middle of the seesaw?",
+          "pdfPage": 29,
+          "sourcePdfHash": "928ecf07c1cc39f072348fb41c72960f5498825ddd581761ab4ec3866a1c31fd",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-automatic-seesaw-q5",
+          "variantId": "level-3-automatic-seesaw",
+          "text": "Are the red connectors visible where the end mechanisms attach to the beam?",
+          "pdfPage": 29,
+          "sourcePdfHash": "928ecf07c1cc39f072348fb41c72960f5498825ddd581761ab4ec3866a1c31fd",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-security-door",
       "variantId": "level-3-security-door",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-security-door-q1",
+          "variantId": "level-3-security-door",
+          "text": "Is the rectangular doorway opening formed by connected upper and side beams?",
+          "pdfPage": 10,
+          "sourcePdfHash": "b6cf5cca9dc9ca10c7b95758c2c4711e079ae66adb00ea83f13a4cacd5385def",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-security-door-q2",
+          "variantId": "level-3-security-door",
+          "text": "Are the vertical red sliding elements installed inside the door frame?",
+          "pdfPage": 10,
+          "sourcePdfHash": "b6cf5cca9dc9ca10c7b95758c2c4711e079ae66adb00ea83f13a4cacd5385def",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-security-door-q3",
+          "variantId": "level-3-security-door",
+          "text": "Is the main drive block mounted to the right of the opening?",
+          "pdfPage": 10,
+          "sourcePdfHash": "b6cf5cca9dc9ca10c7b95758c2c4711e079ae66adb00ea83f13a4cacd5385def",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-security-door-q4",
+          "variantId": "level-3-security-door",
+          "text": "Does the lower crossbeam connect the left side of the door to its moving mechanism?",
+          "pdfPage": 10,
+          "sourcePdfHash": "b6cf5cca9dc9ca10c7b95758c2c4711e079ae66adb00ea83f13a4cacd5385def",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-security-door-q5",
+          "variantId": "level-3-security-door",
+          "text": "Are the two upper parallel support beams secured above the sliding parts?",
+          "pdfPage": 10,
+          "sourcePdfHash": "b6cf5cca9dc9ca10c7b95758c2c4711e079ae66adb00ea83f13a4cacd5385def",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-smart-door",
       "variantId": "level-3-smart-door",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-smart-door-q1",
+          "variantId": "level-3-smart-door",
+          "text": "Are the two dark round sensing modules attached together above the front frame?",
+          "pdfPage": 5,
+          "sourcePdfHash": "b4840f25b998d1cd297001e951815385a58675c721ba86f1d22ba10e80ed1716",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-smart-door-q2",
+          "variantId": "level-3-smart-door",
+          "text": "Is the rectangular front frame joined to the main control assembly?",
+          "pdfPage": 5,
+          "sourcePdfHash": "b4840f25b998d1cd297001e951815385a58675c721ba86f1d22ba10e80ed1716",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-smart-door-q3",
+          "variantId": "level-3-smart-door",
+          "text": "Are the red angled connecting arms attached at the lower right of the assembly?",
+          "pdfPage": 5,
+          "sourcePdfHash": "b4840f25b998d1cd297001e951815385a58675c721ba86f1d22ba10e80ed1716",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-smart-door-q4",
+          "variantId": "level-3-smart-door",
+          "text": "Is the screen-faced control block positioned behind the front uprights?",
+          "pdfPage": 5,
+          "sourcePdfHash": "b4840f25b998d1cd297001e951815385a58675c721ba86f1d22ba10e80ed1716",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-smart-door-q5",
+          "variantId": "level-3-smart-door",
+          "text": "Are the left and right side mechanisms connected to the same central chassis?",
+          "pdfPage": 5,
+          "sourcePdfHash": "b4840f25b998d1cd297001e951815385a58675c721ba86f1d22ba10e80ed1716",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-following-robot",
       "variantId": "level-3-following-robot",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-following-robot-q1",
+          "variantId": "level-3-following-robot",
+          "text": "Is the controller mounted horizontally across the top of the walking frame?",
+          "pdfPage": 8,
+          "sourcePdfHash": "4db51e13781a6bd994b3487e85b56cc282f07594cffe962d2d8c46be59efddd0",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-following-robot-q2",
+          "variantId": "level-3-following-robot",
+          "text": "Are the angled side leg beams attached to the central axle mechanism?",
+          "pdfPage": 8,
+          "sourcePdfHash": "4db51e13781a6bd994b3487e85b56cc282f07594cffe962d2d8c46be59efddd0",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-following-robot-q3",
+          "variantId": "level-3-following-robot",
+          "text": "Do the two front walking legs terminate in red foot connectors?",
+          "pdfPage": 8,
+          "sourcePdfHash": "4db51e13781a6bd994b3487e85b56cc282f07594cffe962d2d8c46be59efddd0",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-following-robot-q4",
+          "variantId": "level-3-following-robot",
+          "text": "Is the red motor coupling located beneath the controller housing?",
+          "pdfPage": 8,
+          "sourcePdfHash": "4db51e13781a6bd994b3487e85b56cc282f07594cffe962d2d8c46be59efddd0",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-following-robot-q5",
+          "variantId": "level-3-following-robot",
+          "text": "Are the right and left support legs arranged to balance the robot body?",
+          "pdfPage": 8,
+          "sourcePdfHash": "4db51e13781a6bd994b3487e85b56cc282f07594cffe962d2d8c46be59efddd0",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-obstacle-avoidance-robot-1",
       "variantId": "level-3-obstacle-avoidance-robot-1",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-obstacle-avoidance-robot-1-q1",
+          "variantId": "level-3-obstacle-avoidance-robot-1",
+          "text": "Are the two black round distance-sensor eyes mounted at the front of the robot?",
+          "pdfPage": 11,
+          "sourcePdfHash": "67bdcdb78ae30b6bd8b59b34426c0f79258a9bdbe0f5a138b4df828a4c079ff8",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-obstacle-avoidance-robot-1-q2",
+          "variantId": "level-3-obstacle-avoidance-robot-1",
+          "text": "Is the screen-faced controller secured above the wheel chassis?",
+          "pdfPage": 11,
+          "sourcePdfHash": "67bdcdb78ae30b6bd8b59b34426c0f79258a9bdbe0f5a138b4df828a4c079ff8",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-obstacle-avoidance-robot-1-q3",
+          "variantId": "level-3-obstacle-avoidance-robot-1",
+          "text": "Do the gray beams hold the large side wheel to the drive assembly?",
+          "pdfPage": 11,
+          "sourcePdfHash": "67bdcdb78ae30b6bd8b59b34426c0f79258a9bdbe0f5a138b4df828a4c079ff8",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-obstacle-avoidance-robot-1-q4",
+          "variantId": "level-3-obstacle-avoidance-robot-1",
+          "text": "Is the red motor-and-axle structure installed near the lower front wheel?",
+          "pdfPage": 11,
+          "sourcePdfHash": "67bdcdb78ae30b6bd8b59b34426c0f79258a9bdbe0f5a138b4df828a4c079ff8",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-obstacle-avoidance-robot-1-q5",
+          "variantId": "level-3-obstacle-avoidance-robot-1",
+          "text": "Are the white side braces fastened to the central body frame?",
+          "pdfPage": 11,
+          "sourcePdfHash": "67bdcdb78ae30b6bd8b59b34426c0f79258a9bdbe0f5a138b4df828a4c079ff8",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-sunflower",
       "variantId": "level-3-sunflower",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-sunflower-q1",
+          "variantId": "level-3-sunflower",
+          "text": "Is the upper sunflower head attached to the long vertical stem?",
+          "pdfPage": 14,
+          "sourcePdfHash": "dc44b18f50b9e5d8e4f2e4074a42e2973be6b11ea34032589d34b5dda99fc7bb",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-sunflower-q2",
+          "variantId": "level-3-sunflower",
+          "text": "Are the two small green-and-white leaf structures attached on opposite sides of the stem?",
+          "pdfPage": 14,
+          "sourcePdfHash": "dc44b18f50b9e5d8e4f2e4074a42e2973be6b11ea34032589d34b5dda99fc7bb",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-sunflower-q3",
+          "variantId": "level-3-sunflower",
+          "text": "Is the stem supported by the rectangular lower base assembly?",
+          "pdfPage": 14,
+          "sourcePdfHash": "dc44b18f50b9e5d8e4f2e4074a42e2973be6b11ea34032589d34b5dda99fc7bb",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-sunflower-q4",
+          "variantId": "level-3-sunflower",
+          "text": "Are the yellow and black elements arranged around the center of the flower head?",
+          "pdfPage": 14,
+          "sourcePdfHash": "dc44b18f50b9e5d8e4f2e4074a42e2973be6b11ea34032589d34b5dda99fc7bb",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-sunflower-q5",
+          "variantId": "level-3-sunflower",
+          "text": "Is the red drive mechanism integrated into the lower base below the stem?",
+          "pdfPage": 14,
+          "sourcePdfHash": "dc44b18f50b9e5d8e4f2e4074a42e2973be6b11ea34032589d34b5dda99fc7bb",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-electric-bulldozer",
       "variantId": "level-3-electric-bulldozer",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-electric-bulldozer-q1",
+          "variantId": "level-3-electric-bulldozer",
+          "text": "Is the front bulldozer blade mounted across the width of the vehicle?",
+          "pdfPage": 26,
+          "sourcePdfHash": "5aad4a8525cb2981206ab4fa95e5dfeab221c3084a5840e13a42db993e1b5218",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-bulldozer-q2",
+          "variantId": "level-3-electric-bulldozer",
+          "text": "Are both large side wheels attached to the main drive chassis?",
+          "pdfPage": 26,
+          "sourcePdfHash": "5aad4a8525cb2981206ab4fa95e5dfeab221c3084a5840e13a42db993e1b5218",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-bulldozer-q3",
+          "variantId": "level-3-electric-bulldozer",
+          "text": "Is the screen-faced controller enclosed behind the front lifting assembly?",
+          "pdfPage": 26,
+          "sourcePdfHash": "5aad4a8525cb2981206ab4fa95e5dfeab221c3084a5840e13a42db993e1b5218",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-bulldozer-q4",
+          "variantId": "level-3-electric-bulldozer",
+          "text": "Are the curved white lift-arm beams connected to the upper chassis?",
+          "pdfPage": 26,
+          "sourcePdfHash": "5aad4a8525cb2981206ab4fa95e5dfeab221c3084a5840e13a42db993e1b5218",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-bulldozer-q5",
+          "variantId": "level-3-electric-bulldozer",
+          "text": "Does the front blade linkage attach through the colored red, blue and yellow connectors?",
+          "pdfPage": 26,
+          "sourcePdfHash": "5aad4a8525cb2981206ab4fa95e5dfeab221c3084a5840e13a42db993e1b5218",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-electric-fan-characters-structures",
       "variantId": "level-3-electric-fan-characters-structures",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-electric-fan-characters-structures-q1",
+          "variantId": "level-3-electric-fan-characters-structures",
+          "text": "Are the fan blades arranged radially around the upper gear hub?",
+          "pdfPage": 12,
+          "sourcePdfHash": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-fan-characters-structures-q2",
+          "variantId": "level-3-electric-fan-characters-structures",
+          "text": "Is the upper fan shaft supported by the tall upright frame?",
+          "pdfPage": 12,
+          "sourcePdfHash": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-fan-characters-structures-q3",
+          "variantId": "level-3-electric-fan-characters-structures",
+          "text": "Are the red lower brackets securing the upright assembly to the base?",
+          "pdfPage": 12,
+          "sourcePdfHash": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-fan-characters-structures-q4",
+          "variantId": "level-3-electric-fan-characters-structures",
+          "text": "Is the screen-faced controller mounted at the base beside the fan support?",
+          "pdfPage": 12,
+          "sourcePdfHash": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-fan-characters-structures-q5",
+          "variantId": "level-3-electric-fan-characters-structures",
+          "text": "Are the drive gears directly behind the fan-blade linkage?",
+          "pdfPage": 12,
+          "sourcePdfHash": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-safe",
       "variantId": "level-3-safe",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-safe-q1",
+          "variantId": "level-3-safe",
+          "text": "Does the safe model include an upright gear-and-lock structure beside the controller?",
+          "pdfPage": 24,
+          "sourcePdfHash": "3a0e0c3a45e024059a406f6c0d54e08e65ba5e340926f372b246bb0aa99721bf",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-safe-q2",
+          "variantId": "level-3-safe",
+          "text": "Is the screen-faced controller resting on the lower support base?",
+          "pdfPage": 24,
+          "sourcePdfHash": "3a0e0c3a45e024059a406f6c0d54e08e65ba5e340926f372b246bb0aa99721bf",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-safe-q3",
+          "variantId": "level-3-safe",
+          "text": "Are multiple interlocking gears visible in the locking mechanism?",
+          "pdfPage": 24,
+          "sourcePdfHash": "3a0e0c3a45e024059a406f6c0d54e08e65ba5e340926f372b246bb0aa99721bf",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-safe-q4",
+          "variantId": "level-3-safe",
+          "text": "Is the upper motor housing connected to the vertical gear tower?",
+          "pdfPage": 24,
+          "sourcePdfHash": "3a0e0c3a45e024059a406f6c0d54e08e65ba5e340926f372b246bb0aa99721bf",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-safe-q5",
+          "variantId": "level-3-safe",
+          "text": "Are the colored connectors holding the side latch and vertical rails in position?",
+          "pdfPage": 24,
+          "sourcePdfHash": "3a0e0c3a45e024059a406f6c0d54e08e65ba5e340926f372b246bb0aa99721bf",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-smart-trash-bin",
       "variantId": "level-3-smart-trash-bin",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-smart-trash-bin-q1",
+          "variantId": "level-3-smart-trash-bin",
+          "text": "Is the lid-lifting arm mounted above the rectangular trash-bin structure?",
+          "pdfPage": 22,
+          "sourcePdfHash": "3c63afc1068bfb132a8d0150755a87fd3975905e77839de6fd5a6ceb78458e60",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-smart-trash-bin-q2",
+          "variantId": "level-3-smart-trash-bin",
+          "text": "Are the paired round sensing modules positioned near the front edge?",
+          "pdfPage": 22,
+          "sourcePdfHash": "3c63afc1068bfb132a8d0150755a87fd3975905e77839de6fd5a6ceb78458e60",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-smart-trash-bin-q3",
+          "variantId": "level-3-smart-trash-bin",
+          "text": "Is the controller attached to the right side of the bin mechanism?",
+          "pdfPage": 22,
+          "sourcePdfHash": "3c63afc1068bfb132a8d0150755a87fd3975905e77839de6fd5a6ceb78458e60",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-smart-trash-bin-q4",
+          "variantId": "level-3-smart-trash-bin",
+          "text": "Does the red motor-and-pivot assembly connect to the tall upper arm?",
+          "pdfPage": 22,
+          "sourcePdfHash": "3c63afc1068bfb132a8d0150755a87fd3975905e77839de6fd5a6ceb78458e60",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-smart-trash-bin-q5",
+          "variantId": "level-3-smart-trash-bin",
+          "text": "Are the vertical rails secured between the lower chassis and lid support?",
+          "pdfPage": 22,
+          "sourcePdfHash": "3c63afc1068bfb132a8d0150755a87fd3975905e77839de6fd5a6ceb78458e60",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-lifting-maintenance-vehicle",
       "variantId": "level-3-lifting-maintenance-vehicle",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-lifting-maintenance-vehicle-q1",
+          "variantId": "level-3-lifting-maintenance-vehicle",
+          "text": "Does the lifting vehicle have a raised platform carried by crossed scissor arms?",
+          "pdfPage": 5,
+          "sourcePdfHash": "6e5921a4926105cdf3467ef0adff2c2ba1d215dd48d9f29327bdfa2e1f983c5f",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-lifting-maintenance-vehicle-q2",
+          "variantId": "level-3-lifting-maintenance-vehicle",
+          "text": "Are the orange diagonal beams connected at intermediate pivot points?",
+          "pdfPage": 5,
+          "sourcePdfHash": "6e5921a4926105cdf3467ef0adff2c2ba1d215dd48d9f29327bdfa2e1f983c5f",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-lifting-maintenance-vehicle-q3",
+          "variantId": "level-3-lifting-maintenance-vehicle",
+          "text": "Is the wheeled chassis wide enough to support the lifted platform?",
+          "pdfPage": 5,
+          "sourcePdfHash": "6e5921a4926105cdf3467ef0adff2c2ba1d215dd48d9f29327bdfa2e1f983c5f",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-lifting-maintenance-vehicle-q4",
+          "variantId": "level-3-lifting-maintenance-vehicle",
+          "text": "Is the blue central lifting mechanism attached to the scissor-arm linkage?",
+          "pdfPage": 5,
+          "sourcePdfHash": "6e5921a4926105cdf3467ef0adff2c2ba1d215dd48d9f29327bdfa2e1f983c5f",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-lifting-maintenance-vehicle-q5",
+          "variantId": "level-3-lifting-maintenance-vehicle",
+          "text": "Is the orange-and-white control housing mounted toward the front of the vehicle?",
+          "pdfPage": 5,
+          "sourcePdfHash": "6e5921a4926105cdf3467ef0adff2c2ba1d215dd48d9f29327bdfa2e1f983c5f",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-automated-guided-vehicle",
       "variantId": "level-3-automated-guided-vehicle",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-automated-guided-vehicle-q1",
+          "variantId": "level-3-automated-guided-vehicle",
+          "text": "Are the large drive wheels mounted on both sides of the vehicle chassis?",
+          "pdfPage": 24,
+          "sourcePdfHash": "db57e69925fbab00995f65adaf1c48248604e9aebe864ff4a0653c870e7f6b69",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-automated-guided-vehicle-q2",
+          "variantId": "level-3-automated-guided-vehicle",
+          "text": "Is the controller fastened above the rectangular base frame?",
+          "pdfPage": 24,
+          "sourcePdfHash": "db57e69925fbab00995f65adaf1c48248604e9aebe864ff4a0653c870e7f6b69",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-automated-guided-vehicle-q3",
+          "variantId": "level-3-automated-guided-vehicle",
+          "text": "Does the front carrying platform extend forward from the controller assembly?",
+          "pdfPage": 24,
+          "sourcePdfHash": "db57e69925fbab00995f65adaf1c48248604e9aebe864ff4a0653c870e7f6b69",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-automated-guided-vehicle-q4",
+          "variantId": "level-3-automated-guided-vehicle",
+          "text": "Are red axle connectors visible between the wheel supports and main frame?",
+          "pdfPage": 24,
+          "sourcePdfHash": "db57e69925fbab00995f65adaf1c48248604e9aebe864ff4a0653c870e7f6b69",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-automated-guided-vehicle-q5",
+          "variantId": "level-3-automated-guided-vehicle",
+          "text": "Is the vertical rear sensor block attached beside the upper controller?",
+          "pdfPage": 24,
+          "sourcePdfHash": "db57e69925fbab00995f65adaf1c48248604e9aebe864ff4a0653c870e7f6b69",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-race-walking-basic",
       "variantId": "level-3-race-walking-basic",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-race-walking-basic-q1",
+          "variantId": "level-3-race-walking-basic",
+          "text": "Are the long parallel walking legs attached to the robot's front crank mechanism?",
+          "pdfPage": 7,
+          "sourcePdfHash": "b1de0b9ac608240758e9173fad5fd2f66d96ebbc8164ef7df2931db0acc5c1fa",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-race-walking-basic-q2",
+          "variantId": "level-3-race-walking-basic",
+          "text": "Is the controller mounted vertically above the leg assembly?",
+          "pdfPage": 7,
+          "sourcePdfHash": "b1de0b9ac608240758e9173fad5fd2f66d96ebbc8164ef7df2931db0acc5c1fa",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-race-walking-basic-q3",
+          "variantId": "level-3-race-walking-basic",
+          "text": "Are the red crank couplings visible behind the front legs?",
+          "pdfPage": 7,
+          "sourcePdfHash": "b1de0b9ac608240758e9173fad5fd2f66d96ebbc8164ef7df2931db0acc5c1fa",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-race-walking-basic-q4",
+          "variantId": "level-3-race-walking-basic",
+          "text": "Does the rear wheel connect to the horizontal motor housing?",
+          "pdfPage": 7,
+          "sourcePdfHash": "b1de0b9ac608240758e9173fad5fd2f66d96ebbc8164ef7df2931db0acc5c1fa",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-race-walking-basic-q5",
+          "variantId": "level-3-race-walking-basic",
+          "text": "Are the white side braces installed on both sides of the walking linkage?",
+          "pdfPage": 7,
+          "sourcePdfHash": "b1de0b9ac608240758e9173fad5fd2f66d96ebbc8164ef7df2931db0acc5c1fa",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-race-walking-basic",
       "variantId": "level-3-race-walking-optimized",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-race-walking-optimized-q1",
+          "variantId": "level-3-race-walking-optimized",
+          "text": "Are the paired black sensing modules mounted above the controller?",
+          "pdfPage": 6,
+          "sourcePdfHash": "638c446ffcbdb9d63965b4aa5d85f4f2bb551d77ed7ee2301cc81575fb753825",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-race-walking-optimized-q2",
+          "variantId": "level-3-race-walking-optimized",
+          "text": "Do the front walking legs connect to the red drive cranks?",
+          "pdfPage": 6,
+          "sourcePdfHash": "638c446ffcbdb9d63965b4aa5d85f4f2bb551d77ed7ee2301cc81575fb753825",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-race-walking-optimized-q3",
+          "variantId": "level-3-race-walking-optimized",
+          "text": "Is the additional small rear wheel installed on the optimized support frame?",
+          "pdfPage": 6,
+          "sourcePdfHash": "638c446ffcbdb9d63965b4aa5d85f4f2bb551d77ed7ee2301cc81575fb753825",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-race-walking-optimized-q4",
+          "variantId": "level-3-race-walking-optimized",
+          "text": "Are the upper side arms mounted beside the controller housing?",
+          "pdfPage": 6,
+          "sourcePdfHash": "638c446ffcbdb9d63965b4aa5d85f4f2bb551d77ed7ee2301cc81575fb753825",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-race-walking-optimized-q5",
+          "variantId": "level-3-race-walking-optimized",
+          "text": "Is the motor chassis aligned behind the walking-leg assembly?",
+          "pdfPage": 6,
+          "sourcePdfHash": "638c446ffcbdb9d63965b4aa5d85f4f2bb551d77ed7ee2301cc81575fb753825",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-race-walking-basic",
       "variantId": "level-3-race-walking-optimized-ratchet",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-race-walking-optimized-ratchet-q1",
+          "variantId": "level-3-race-walking-optimized-ratchet",
+          "text": "Are the ratchet wheel elements positioned at the intended leg-linkage mounting point?",
+          "pdfPage": 2,
+          "sourcePdfHash": "0b3f192781910bd79b241951b6079ccdf8668cd6545207fd02a0ba4805580b9c",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-race-walking-optimized-ratchet-q2",
+          "variantId": "level-3-race-walking-optimized-ratchet",
+          "text": "Are the two black walking legs connected to their lower pivot joint?",
+          "pdfPage": 2,
+          "sourcePdfHash": "0b3f192781910bd79b241951b6079ccdf8668cd6545207fd02a0ba4805580b9c",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-race-walking-optimized-ratchet-q3",
+          "variantId": "level-3-race-walking-optimized-ratchet",
+          "text": "Is the added small wheel linked to the lower side bracket?",
+          "pdfPage": 2,
+          "sourcePdfHash": "0b3f192781910bd79b241951b6079ccdf8668cd6545207fd02a0ba4805580b9c",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-race-walking-optimized-ratchet-q4",
+          "variantId": "level-3-race-walking-optimized-ratchet",
+          "text": "Are the axle pins visible at the ratchet mechanism connection?",
+          "pdfPage": 2,
+          "sourcePdfHash": "0b3f192781910bd79b241951b6079ccdf8668cd6545207fd02a0ba4805580b9c",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-race-walking-optimized-ratchet-q5",
+          "variantId": "level-3-race-walking-optimized-ratchet",
+          "text": "Does the added ratchet assembly attach without blocking the existing walking legs?",
+          "pdfPage": 2,
+          "sourcePdfHash": "0b3f192781910bd79b241951b6079ccdf8668cd6545207fd02a0ba4805580b9c",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-bumper-car-foundational-robots",
       "variantId": "level-3-bumper-car-foundational-robots",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-bumper-car-foundational-robots-q1",
+          "variantId": "level-3-bumper-car-foundational-robots",
+          "text": "Are the two wheels connected to the bumper car's central drive frame?",
+          "pdfPage": 13,
+          "sourcePdfHash": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-bumper-car-foundational-robots-q2",
+          "variantId": "level-3-bumper-car-foundational-robots",
+          "text": "Is the front protective bumper built from curved and angled beams?",
+          "pdfPage": 13,
+          "sourcePdfHash": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-bumper-car-foundational-robots-q3",
+          "variantId": "level-3-bumper-car-foundational-robots",
+          "text": "Is the controller installed horizontally above the wheel assembly?",
+          "pdfPage": 13,
+          "sourcePdfHash": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-bumper-car-foundational-robots-q4",
+          "variantId": "level-3-bumper-car-foundational-robots",
+          "text": "Are the red motor couplings attached to the side drive mechanisms?",
+          "pdfPage": 13,
+          "sourcePdfHash": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-bumper-car-foundational-robots-q5",
+          "variantId": "level-3-bumper-car-foundational-robots",
+          "text": "Are the front bumper connectors aligned with the left and right support beams?",
+          "pdfPage": 13,
+          "sourcePdfHash": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-disinfection-lamp",
       "variantId": "level-3-disinfection-lamp",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-disinfection-lamp-q1",
+          "variantId": "level-3-disinfection-lamp",
+          "text": "Is the upper lamp arm mounted above the rotating gear support?",
+          "pdfPage": 20,
+          "sourcePdfHash": "82f9a3faaa571777142b944904c2c69b2c328405d6d6b24205a653b18c920970",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-disinfection-lamp-q2",
+          "variantId": "level-3-disinfection-lamp",
+          "text": "Is the exposed gear train assembled directly below the lamp bracket?",
+          "pdfPage": 20,
+          "sourcePdfHash": "82f9a3faaa571777142b944904c2c69b2c328405d6d6b24205a653b18c920970",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-disinfection-lamp-q3",
+          "variantId": "level-3-disinfection-lamp",
+          "text": "Does the lower motor connect the gear tower to the main base?",
+          "pdfPage": 20,
+          "sourcePdfHash": "82f9a3faaa571777142b944904c2c69b2c328405d6d6b24205a653b18c920970",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-disinfection-lamp-q4",
+          "variantId": "level-3-disinfection-lamp",
+          "text": "Is the controller positioned horizontally beside the lamp support?",
+          "pdfPage": 20,
+          "sourcePdfHash": "82f9a3faaa571777142b944904c2c69b2c328405d6d6b24205a653b18c920970",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-disinfection-lamp-q5",
+          "variantId": "level-3-disinfection-lamp",
+          "text": "Are the vertical frame rails secured at both ends of the rotating mechanism?",
+          "pdfPage": 20,
+          "sourcePdfHash": "82f9a3faaa571777142b944904c2c69b2c328405d6d6b24205a653b18c920970",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-flashlight-sensor",
       "variantId": "level-3-flashlight-sensor",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-flashlight-sensor-q1",
+          "variantId": "level-3-flashlight-sensor",
+          "text": "Is the front rectangular sensing block mounted outside the controller housing?",
+          "pdfPage": 12,
+          "sourcePdfHash": "1cf47dcb9585719a750d95d7ea2be39577fee58fc9081cfeffbdaacf41c15d76",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-flashlight-sensor-q2",
+          "variantId": "level-3-flashlight-sensor",
+          "text": "Do the two curved white frame beams arch above the controller?",
+          "pdfPage": 12,
+          "sourcePdfHash": "1cf47dcb9585719a750d95d7ea2be39577fee58fc9081cfeffbdaacf41c15d76",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-flashlight-sensor-q3",
+          "variantId": "level-3-flashlight-sensor",
+          "text": "Is the red sensor-mounting pivot secured to the left side support?",
+          "pdfPage": 12,
+          "sourcePdfHash": "1cf47dcb9585719a750d95d7ea2be39577fee58fc9081cfeffbdaacf41c15d76",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-flashlight-sensor-q4",
+          "variantId": "level-3-flashlight-sensor",
+          "text": "Are the crossbeams joined to the main controller base at both ends?",
+          "pdfPage": 12,
+          "sourcePdfHash": "1cf47dcb9585719a750d95d7ea2be39577fee58fc9081cfeffbdaacf41c15d76",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-flashlight-sensor-q5",
+          "variantId": "level-3-flashlight-sensor",
+          "text": "Is the raised rear attachment positioned behind the screen panel?",
+          "pdfPage": 12,
+          "sourcePdfHash": "1cf47dcb9585719a750d95d7ea2be39577fee58fc9081cfeffbdaacf41c15d76",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-light-sensitive-curtains",
       "variantId": "level-3-light-sensitive-curtains",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-light-sensitive-curtains-q1",
+          "variantId": "level-3-light-sensitive-curtains",
+          "text": "Are the vertical sliding rods mounted between the two long horizontal rails?",
+          "pdfPage": 28,
+          "sourcePdfHash": "e07668fe94a7de00fed87c8a7bcd482f0d75b1be8eeafe99c7456ed3cb348df9",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-light-sensitive-curtains-q2",
+          "variantId": "level-3-light-sensitive-curtains",
+          "text": "Do the red and blue connector blocks hold the parallel rods in place?",
+          "pdfPage": 28,
+          "sourcePdfHash": "e07668fe94a7de00fed87c8a7bcd482f0d75b1be8eeafe99c7456ed3cb348df9",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-light-sensitive-curtains-q3",
+          "variantId": "level-3-light-sensitive-curtains",
+          "text": "Is the sensing unit mounted next to the upright curtain assembly?",
+          "pdfPage": 28,
+          "sourcePdfHash": "e07668fe94a7de00fed87c8a7bcd482f0d75b1be8eeafe99c7456ed3cb348df9",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-light-sensitive-curtains-q4",
+          "variantId": "level-3-light-sensitive-curtains",
+          "text": "Does the screen-faced controller connect to the lower support frame?",
+          "pdfPage": 28,
+          "sourcePdfHash": "e07668fe94a7de00fed87c8a7bcd482f0d75b1be8eeafe99c7456ed3cb348df9",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-light-sensitive-curtains-q5",
+          "variantId": "level-3-light-sensitive-curtains",
+          "text": "Are the upper and lower rails parallel around the curtain mechanism?",
+          "pdfPage": 28,
+          "sourcePdfHash": "e07668fe94a7de00fed87c8a7bcd482f0d75b1be8eeafe99c7456ed3cb348df9",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-bumper-car-interactive-mechanisms",
       "variantId": "level-3-bumper-car-interactive-mechanisms",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-bumper-car-interactive-mechanisms-q1",
+          "variantId": "level-3-bumper-car-interactive-mechanisms",
+          "text": "Is the front impact bumper joined to the central chassis at two mounting points?",
+          "pdfPage": 13,
+          "sourcePdfHash": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-bumper-car-interactive-mechanisms-q2",
+          "variantId": "level-3-bumper-car-interactive-mechanisms",
+          "text": "Are the curved bumper support arms arranged symmetrically?",
+          "pdfPage": 13,
+          "sourcePdfHash": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-bumper-car-interactive-mechanisms-q3",
+          "variantId": "level-3-bumper-car-interactive-mechanisms",
+          "text": "Does the motor-driven axle sit between the side wheels?",
+          "pdfPage": 13,
+          "sourcePdfHash": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-bumper-car-interactive-mechanisms-q4",
+          "variantId": "level-3-bumper-car-interactive-mechanisms",
+          "text": "Is the top controller attached behind the impact-sensitive front linkage?",
+          "pdfPage": 13,
+          "sourcePdfHash": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-bumper-car-interactive-mechanisms-q5",
+          "variantId": "level-3-bumper-car-interactive-mechanisms",
+          "text": "Are the red and blue connection points visible at the front assembly?",
+          "pdfPage": 13,
+          "sourcePdfHash": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-anti-fall-robot",
       "variantId": "level-3-anti-fall-robot",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-anti-fall-robot-q1",
+          "variantId": "level-3-anti-fall-robot",
+          "text": "Are the two large driving wheels mounted on opposite sides of the chassis?",
+          "pdfPage": 16,
+          "sourcePdfHash": "0065cad3da26f5ccbe13e680c0a5f187de80c372e3b112548c01dfaa7b00ce7f",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-anti-fall-robot-q2",
+          "variantId": "level-3-anti-fall-robot",
+          "text": "Is the front pair of white support brackets attached ahead of the wheels?",
+          "pdfPage": 16,
+          "sourcePdfHash": "0065cad3da26f5ccbe13e680c0a5f187de80c372e3b112548c01dfaa7b00ce7f",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-anti-fall-robot-q3",
+          "variantId": "level-3-anti-fall-robot",
+          "text": "Are the front sensing elements directed downward toward the lower frame?",
+          "pdfPage": 16,
+          "sourcePdfHash": "0065cad3da26f5ccbe13e680c0a5f187de80c372e3b112548c01dfaa7b00ce7f",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-anti-fall-robot-q4",
+          "variantId": "level-3-anti-fall-robot",
+          "text": "Is the control unit mounted across the upper chassis?",
+          "pdfPage": 16,
+          "sourcePdfHash": "0065cad3da26f5ccbe13e680c0a5f187de80c372e3b112548c01dfaa7b00ce7f",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-anti-fall-robot-q5",
+          "variantId": "level-3-anti-fall-robot",
+          "text": "Are the rear motor and axle connectors aligned with the wheel drive?",
+          "pdfPage": 16,
+          "sourcePdfHash": "0065cad3da26f5ccbe13e680c0a5f187de80c372e3b112548c01dfaa7b00ce7f",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-automatic-door",
       "variantId": "level-3-automatic-door",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-automatic-door-q1",
+          "variantId": "level-3-automatic-door",
+          "text": "Is the rectangular doorway formed by the left and right upright beams?",
+          "pdfPage": 23,
+          "sourcePdfHash": "0168d11271a6646952361113c3fe7e29ee6cb099bf1bd2447f1439ce2dc68a80",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-automatic-door-q2",
+          "variantId": "level-3-automatic-door",
+          "text": "Is the upper black drive mechanism positioned above the door opening?",
+          "pdfPage": 23,
+          "sourcePdfHash": "0168d11271a6646952361113c3fe7e29ee6cb099bf1bd2447f1439ce2dc68a80",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-automatic-door-q3",
+          "variantId": "level-3-automatic-door",
+          "text": "Does the controller mount beside the door frame on the right?",
+          "pdfPage": 23,
+          "sourcePdfHash": "0168d11271a6646952361113c3fe7e29ee6cb099bf1bd2447f1439ce2dc68a80",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-automatic-door-q4",
+          "variantId": "level-3-automatic-door",
+          "text": "Are the middle horizontal crossbars connected to the sliding mechanism?",
+          "pdfPage": 23,
+          "sourcePdfHash": "0168d11271a6646952361113c3fe7e29ee6cb099bf1bd2447f1439ce2dc68a80",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-automatic-door-q5",
+          "variantId": "level-3-automatic-door",
+          "text": "Is the lower frame fastened to the controller side without crossing the passage?",
+          "pdfPage": 23,
+          "sourcePdfHash": "0168d11271a6646952361113c3fe7e29ee6cb099bf1bd2447f1439ce2dc68a80",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-juicer-machine",
       "variantId": "level-3-juicer-machine",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-juicer-machine-q1",
+          "variantId": "level-3-juicer-machine",
+          "text": "Is the upper gear assembly enclosed by a tall rectangular support frame?",
+          "pdfPage": 14,
+          "sourcePdfHash": "225d502801598f7c50cdf702ff219454cb64e9ca884c68887664f99801eddd62",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-juicer-machine-q2",
+          "variantId": "level-3-juicer-machine",
+          "text": "Is the vertical shaft connected to the red turning component?",
+          "pdfPage": 14,
+          "sourcePdfHash": "225d502801598f7c50cdf702ff219454cb64e9ca884c68887664f99801eddd62",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-juicer-machine-q3",
+          "variantId": "level-3-juicer-machine",
+          "text": "Does the controller sit beside the main juicer structure?",
+          "pdfPage": 14,
+          "sourcePdfHash": "225d502801598f7c50cdf702ff219454cb64e9ca884c68887664f99801eddd62",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-juicer-machine-q4",
+          "variantId": "level-3-juicer-machine",
+          "text": "Are the lower support feet attached to the upright gear housing?",
+          "pdfPage": 14,
+          "sourcePdfHash": "225d502801598f7c50cdf702ff219454cb64e9ca884c68887664f99801eddd62",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-juicer-machine-q5",
+          "variantId": "level-3-juicer-machine",
+          "text": "Are the upper crossbars secured around the central gear mechanism?",
+          "pdfPage": 14,
+          "sourcePdfHash": "225d502801598f7c50cdf702ff219454cb64e9ca884c68887664f99801eddd62",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-washing-machine",
       "variantId": "level-3-washing-machine",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-washing-machine-q1",
+          "variantId": "level-3-washing-machine",
+          "text": "Is the large round drum or wheel enclosed by the upright frame?",
+          "pdfPage": 18,
+          "sourcePdfHash": "3b0362c124754e823d2e59eb753f48e30272a626f3721abbddd0a0aef1c74ca3",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-washing-machine-q2",
+          "variantId": "level-3-washing-machine",
+          "text": "Are the top white supports connected around the circular drum?",
+          "pdfPage": 18,
+          "sourcePdfHash": "3b0362c124754e823d2e59eb753f48e30272a626f3721abbddd0a0aef1c74ca3",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-washing-machine-q3",
+          "variantId": "level-3-washing-machine",
+          "text": "Is the screen-faced controller positioned to the side of the drum?",
+          "pdfPage": 18,
+          "sourcePdfHash": "3b0362c124754e823d2e59eb753f48e30272a626f3721abbddd0a0aef1c74ca3",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-washing-machine-q4",
+          "variantId": "level-3-washing-machine",
+          "text": "Are the blue and red hinge brackets supporting the rotating assembly?",
+          "pdfPage": 18,
+          "sourcePdfHash": "3b0362c124754e823d2e59eb753f48e30272a626f3721abbddd0a0aef1c74ca3",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-washing-machine-q5",
+          "variantId": "level-3-washing-machine",
+          "text": "Is the base frame stable under both the drum and controller?",
+          "pdfPage": 18,
+          "sourcePdfHash": "3b0362c124754e823d2e59eb753f48e30272a626f3721abbddd0a0aef1c74ca3",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-electronic-scale",
       "variantId": "level-3-electronic-scale",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-electronic-scale-q1",
+          "variantId": "level-3-electronic-scale",
+          "text": "Does the balance beam extend to both sides of its central pivot?",
+          "pdfPage": 22,
+          "sourcePdfHash": "d8b367f8dc8ac6d1d498cd39b575d44bf606f1fe8619c79ac96373a60603d127",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electronic-scale-q2",
+          "variantId": "level-3-electronic-scale",
+          "text": "Is the hanging dark circular weight attached beneath the beam?",
+          "pdfPage": 22,
+          "sourcePdfHash": "d8b367f8dc8ac6d1d498cd39b575d44bf606f1fe8619c79ac96373a60603d127",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electronic-scale-q3",
+          "variantId": "level-3-electronic-scale",
+          "text": "Are the orange frame beams aligned around the weighing platform?",
+          "pdfPage": 22,
+          "sourcePdfHash": "d8b367f8dc8ac6d1d498cd39b575d44bf606f1fe8619c79ac96373a60603d127",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electronic-scale-q4",
+          "variantId": "level-3-electronic-scale",
+          "text": "Is the white-and-orange control unit mounted on the lower support base?",
+          "pdfPage": 22,
+          "sourcePdfHash": "d8b367f8dc8ac6d1d498cd39b575d44bf606f1fe8619c79ac96373a60603d127",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electronic-scale-q5",
+          "variantId": "level-3-electronic-scale",
+          "text": "Does the central vertical frame keep the beam elevated above the platform?",
+          "pdfPage": 22,
+          "sourcePdfHash": "d8b367f8dc8ac6d1d498cd39b575d44bf606f1fe8619c79ac96373a60603d127",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-gyro-transmitter",
       "variantId": "level-3-gyro-transmitter",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-gyro-transmitter-q1",
+          "variantId": "level-3-gyro-transmitter",
+          "text": "Are the large meshed gear wheels fitted beneath the long horizontal frame?",
+          "pdfPage": 1,
+          "sourcePdfHash": "d5f2cbe35d9c7bb445f0ac144b305d26d72dfdd04057ee6226567cf278313bb9",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-gyro-transmitter-q2",
+          "variantId": "level-3-gyro-transmitter",
+          "text": "Is the red upright end bracket fastened to the upper beam?",
+          "pdfPage": 1,
+          "sourcePdfHash": "d5f2cbe35d9c7bb445f0ac144b305d26d72dfdd04057ee6226567cf278313bb9",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-gyro-transmitter-q3",
+          "variantId": "level-3-gyro-transmitter",
+          "text": "Does the black gear disc align with the central transmission axle?",
+          "pdfPage": 1,
+          "sourcePdfHash": "d5f2cbe35d9c7bb445f0ac144b305d26d72dfdd04057ee6226567cf278313bb9",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-gyro-transmitter-q4",
+          "variantId": "level-3-gyro-transmitter",
+          "text": "Is the small black upright connector attached over the gear train?",
+          "pdfPage": 1,
+          "sourcePdfHash": "d5f2cbe35d9c7bb445f0ac144b305d26d72dfdd04057ee6226567cf278313bb9",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-gyro-transmitter-q5",
+          "variantId": "level-3-gyro-transmitter",
+          "text": "Are the long side rails connected to the gear housing at both ends?",
+          "pdfPage": 1,
+          "sourcePdfHash": "d5f2cbe35d9c7bb445f0ac144b305d26d72dfdd04057ee6226567cf278313bb9",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-electric-fan-mechanisms-and-concepts",
       "variantId": "level-3-electric-fan-mechanisms-and-concepts",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-electric-fan-mechanisms-and-concepts-q1",
+          "variantId": "level-3-electric-fan-mechanisms-and-concepts",
+          "text": "Is the central fan blade assembly aligned with the gear-driven shaft?",
+          "pdfPage": 12,
+          "sourcePdfHash": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-fan-mechanisms-and-concepts-q2",
+          "variantId": "level-3-electric-fan-mechanisms-and-concepts",
+          "text": "Are the outer fan blades evenly distributed around the rotating hub?",
+          "pdfPage": 12,
+          "sourcePdfHash": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-fan-mechanisms-and-concepts-q3",
+          "variantId": "level-3-electric-fan-mechanisms-and-concepts",
+          "text": "Does the motor housing attach behind the raised fan support?",
+          "pdfPage": 12,
+          "sourcePdfHash": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-fan-mechanisms-and-concepts-q4",
+          "variantId": "level-3-electric-fan-mechanisms-and-concepts",
+          "text": "Is the controller base connected to the red upright brackets?",
+          "pdfPage": 12,
+          "sourcePdfHash": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-fan-mechanisms-and-concepts-q5",
+          "variantId": "level-3-electric-fan-mechanisms-and-concepts",
+          "text": "Are the lower frame beams stable beneath the upright fan tower?",
+          "pdfPage": 12,
+          "sourcePdfHash": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-biting-monster",
       "variantId": "level-3-biting-monster",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-biting-monster-q1",
+          "variantId": "level-3-biting-monster",
+          "text": "Are the blue jaw-like arms joined around the monster's front opening?",
+          "pdfPage": 5,
+          "sourcePdfHash": "bc4fb8970464c327a463f2d36e1b756fdf6c5d96cb94acdf8511bd919a0d3051",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-biting-monster-q2",
+          "variantId": "level-3-biting-monster",
+          "text": "Is the upper white-and-blue head mechanism connected to the body?",
+          "pdfPage": 5,
+          "sourcePdfHash": "bc4fb8970464c327a463f2d36e1b756fdf6c5d96cb94acdf8511bd919a0d3051",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-biting-monster-q3",
+          "variantId": "level-3-biting-monster",
+          "text": "Does the orange-and-white controller mount vertically in the lower torso?",
+          "pdfPage": 5,
+          "sourcePdfHash": "bc4fb8970464c327a463f2d36e1b756fdf6c5d96cb94acdf8511bd919a0d3051",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-biting-monster-q4",
+          "variantId": "level-3-biting-monster",
+          "text": "Are the blue side support legs attached to the bottom of the model?",
+          "pdfPage": 5,
+          "sourcePdfHash": "bc4fb8970464c327a463f2d36e1b756fdf6c5d96cb94acdf8511bd919a0d3051",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-biting-monster-q5",
+          "variantId": "level-3-biting-monster",
+          "text": "Are the moving jaw linkages fastened at the colored pivot points?",
+          "pdfPage": 5,
+          "sourcePdfHash": "bc4fb8970464c327a463f2d36e1b756fdf6c5d96cb94acdf8511bd919a0d3051",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-electric-gyro-launcher",
       "variantId": "level-3-electric-gyro-launcher",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-electric-gyro-launcher-q1",
+          "variantId": "level-3-electric-gyro-launcher",
+          "text": "Is the gear cluster installed in line with the launcher's long frame?",
+          "pdfPage": 11,
+          "sourcePdfHash": "6c2837f3694b724375ca1c5b29041a07ad0175d6232c89719c5478ae9493696b",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-gyro-launcher-q2",
+          "variantId": "level-3-electric-gyro-launcher",
+          "text": "Is the orange-and-white control housing attached beside the gear mechanism?",
+          "pdfPage": 11,
+          "sourcePdfHash": "6c2837f3694b724375ca1c5b29041a07ad0175d6232c89719c5478ae9493696b",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-gyro-launcher-q3",
+          "variantId": "level-3-electric-gyro-launcher",
+          "text": "Are the yellow gears aligned with the central transmission shaft?",
+          "pdfPage": 11,
+          "sourcePdfHash": "6c2837f3694b724375ca1c5b29041a07ad0175d6232c89719c5478ae9493696b",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-gyro-launcher-q4",
+          "variantId": "level-3-electric-gyro-launcher",
+          "text": "Does the blue motor connect to the launcher frame near the top?",
+          "pdfPage": 11,
+          "sourcePdfHash": "6c2837f3694b724375ca1c5b29041a07ad0175d6232c89719c5478ae9493696b",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-gyro-launcher-q5",
+          "variantId": "level-3-electric-gyro-launcher",
+          "text": "Are the white structural beams secured around the gear track?",
+          "pdfPage": 11,
+          "sourcePdfHash": "6c2837f3694b724375ca1c5b29041a07ad0175d6232c89719c5478ae9493696b",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-responder",
       "variantId": "level-3-responder",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-responder-q1",
+          "variantId": "level-3-responder",
+          "text": "Is the central orange-and-white controller secured to the lower vehicle frame?",
+          "pdfPage": 11,
+          "sourcePdfHash": "3f999ea08653b91ef5c3e73b2d56cd51645ae01383e61bac6c904c1f81def151",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-responder-q2",
+          "variantId": "level-3-responder",
+          "text": "Are the blue front modules mounted along a horizontal support bar?",
+          "pdfPage": 11,
+          "sourcePdfHash": "3f999ea08653b91ef5c3e73b2d56cd51645ae01383e61bac6c904c1f81def151",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-responder-q3",
+          "variantId": "level-3-responder",
+          "text": "Are the upright orange posts attached behind the controller?",
+          "pdfPage": 11,
+          "sourcePdfHash": "3f999ea08653b91ef5c3e73b2d56cd51645ae01383e61bac6c904c1f81def151",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-responder-q4",
+          "variantId": "level-3-responder",
+          "text": "Do the side beams connect the controller to the front attachment?",
+          "pdfPage": 11,
+          "sourcePdfHash": "3f999ea08653b91ef5c3e73b2d56cd51645ae01383e61bac6c904c1f81def151",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-responder-q5",
+          "variantId": "level-3-responder",
+          "text": "Are the front sensor and support pieces aligned across the lower chassis?",
+          "pdfPage": 11,
+          "sourcePdfHash": "3f999ea08653b91ef5c3e73b2d56cd51645ae01383e61bac6c904c1f81def151",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-electric-guitar",
       "variantId": "level-3-electric-guitar",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-electric-guitar-q1",
+          "variantId": "level-3-electric-guitar",
+          "text": "Is the guitar's long neck built from connected parallel gray beams?",
+          "pdfPage": 16,
+          "sourcePdfHash": "c62cc4dc06e8ed207a84cecff6f2de2cb28da1c53ec2c32a142f2ecd340d2c2b",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-guitar-q2",
+          "variantId": "level-3-electric-guitar",
+          "text": "Does the central control housing join the long neck and short body section?",
+          "pdfPage": 16,
+          "sourcePdfHash": "c62cc4dc06e8ed207a84cecff6f2de2cb28da1c53ec2c32a142f2ecd340d2c2b",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-guitar-q3",
+          "variantId": "level-3-electric-guitar",
+          "text": "Are the red pivot connectors secured near the middle of the instrument?",
+          "pdfPage": 16,
+          "sourcePdfHash": "c62cc4dc06e8ed207a84cecff6f2de2cb28da1c53ec2c32a142f2ecd340d2c2b",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-guitar-q4",
+          "variantId": "level-3-electric-guitar",
+          "text": "Does the far end of the neck terminate in the intended white pronged assembly?",
+          "pdfPage": 16,
+          "sourcePdfHash": "c62cc4dc06e8ed207a84cecff6f2de2cb28da1c53ec2c32a142f2ecd340d2c2b",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-electric-guitar-q5",
+          "variantId": "level-3-electric-guitar",
+          "text": "Are the upper brace links attached across the body and neck junction?",
+          "pdfPage": 16,
+          "sourcePdfHash": "c62cc4dc06e8ed207a84cecff6f2de2cb28da1c53ec2c32a142f2ecd340d2c2b",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-music-box",
       "variantId": "level-3-music-box",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-music-box-q1",
+          "variantId": "level-3-music-box",
+          "text": "Is the exposed gear cluster mounted in the upright frame beside the controller?",
+          "pdfPage": 24,
+          "sourcePdfHash": "0ff2006d62314f6a37796004724de1fee11c925d0e2580a177055e4550cb64bc",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-music-box-q2",
+          "variantId": "level-3-music-box",
+          "text": "Are the red connector blocks holding the upper vertical mechanism in place?",
+          "pdfPage": 24,
+          "sourcePdfHash": "0ff2006d62314f6a37796004724de1fee11c925d0e2580a177055e4550cb64bc",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-music-box-q3",
+          "variantId": "level-3-music-box",
+          "text": "Is the controller connected to the lower horizontal support structure?",
+          "pdfPage": 24,
+          "sourcePdfHash": "0ff2006d62314f6a37796004724de1fee11c925d0e2580a177055e4550cb64bc",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-music-box-q4",
+          "variantId": "level-3-music-box",
+          "text": "Does the motor housing align with the gear-driven moving arm?",
+          "pdfPage": 24,
+          "sourcePdfHash": "0ff2006d62314f6a37796004724de1fee11c925d0e2580a177055e4550cb64bc",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-music-box-q5",
+          "variantId": "level-3-music-box",
+          "text": "Are the colored lower components secured beneath the gear assembly?",
+          "pdfPage": 24,
+          "sourcePdfHash": "0ff2006d62314f6a37796004724de1fee11c925d0e2580a177055e4550cb64bc",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-music-doorbell",
       "variantId": "level-3-music-doorbell",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-music-doorbell-q1",
+          "variantId": "level-3-music-doorbell",
+          "text": "Is the yellow bell actuator attached to the far end of the right-side arm?",
+          "pdfPage": 12,
+          "sourcePdfHash": "b15f0a40b38ef896be42787b2754e7da13267848948a59a1362310276f5eb060",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-music-doorbell-q2",
+          "variantId": "level-3-music-doorbell",
+          "text": "Is the curved outer frame connected to both sides of the controller?",
+          "pdfPage": 12,
+          "sourcePdfHash": "b15f0a40b38ef896be42787b2754e7da13267848948a59a1362310276f5eb060",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-music-doorbell-q3",
+          "variantId": "level-3-music-doorbell",
+          "text": "Does the purple upright block sit above the upper frame joint?",
+          "pdfPage": 12,
+          "sourcePdfHash": "b15f0a40b38ef896be42787b2754e7da13267848948a59a1362310276f5eb060",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-music-doorbell-q4",
+          "variantId": "level-3-music-doorbell",
+          "text": "Are the gears and red connectors visible beside the striking mechanism?",
+          "pdfPage": 12,
+          "sourcePdfHash": "b15f0a40b38ef896be42787b2754e7da13267848948a59a1362310276f5eb060",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-music-doorbell-q5",
+          "variantId": "level-3-music-doorbell",
+          "text": "Is the lower rectangular base brace secured beneath the doorbell frame?",
+          "pdfPage": 12,
+          "sourcePdfHash": "b15f0a40b38ef896be42787b2754e7da13267848948a59a1362310276f5eb060",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-smart-audio",
       "variantId": "level-3-smart-audio",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-smart-audio-q1",
+          "variantId": "level-3-smart-audio",
+          "text": "Are the two speaker-like circular elements mounted inside the wide outer frame?",
+          "pdfPage": 11,
+          "sourcePdfHash": "37ad32948b214a91c7bb11d7d414d33380235a2449d800f6c54fec88cc6e284b",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-smart-audio-q2",
+          "variantId": "level-3-smart-audio",
+          "text": "Is the screen-faced controller fixed vertically near the middle of the assembly?",
+          "pdfPage": 11,
+          "sourcePdfHash": "37ad32948b214a91c7bb11d7d414d33380235a2449d800f6c54fec88cc6e284b",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-smart-audio-q3",
+          "variantId": "level-3-smart-audio",
+          "text": "Are the long white top and bottom rails parallel around the speakers?",
+          "pdfPage": 11,
+          "sourcePdfHash": "37ad32948b214a91c7bb11d7d414d33380235a2449d800f6c54fec88cc6e284b",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-smart-audio-q4",
+          "variantId": "level-3-smart-audio",
+          "text": "Are the red support connectors installed near the left and right frame joints?",
+          "pdfPage": 11,
+          "sourcePdfHash": "37ad32948b214a91c7bb11d7d414d33380235a2449d800f6c54fec88cc6e284b",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-smart-audio-q5",
+          "variantId": "level-3-smart-audio",
+          "text": "Does the wide chassis support both audio elements behind the controller?",
+          "pdfPage": 11,
+          "sourcePdfHash": "37ad32948b214a91c7bb11d7d414d33380235a2449d800f6c54fec88cc6e284b",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-sonometer",
       "variantId": "level-3-sonometer",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-sonometer-q1",
+          "variantId": "level-3-sonometer",
+          "text": "Is the tall rectangular control housing attached to the vertical sensor frame?",
+          "pdfPage": 7,
+          "sourcePdfHash": "410685232e69b2d34936a5dcd804ddf3f47e13b46f17381832f71e7179fdaaa2",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-sonometer-q2",
+          "variantId": "level-3-sonometer",
+          "text": "Is the upper gear assembly mounted above the controller body?",
+          "pdfPage": 7,
+          "sourcePdfHash": "410685232e69b2d34936a5dcd804ddf3f47e13b46f17381832f71e7179fdaaa2",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-sonometer-q3",
+          "variantId": "level-3-sonometer",
+          "text": "Are the red brackets positioned on opposing sides of the sensor support?",
+          "pdfPage": 7,
+          "sourcePdfHash": "410685232e69b2d34936a5dcd804ddf3f47e13b46f17381832f71e7179fdaaa2",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-sonometer-q4",
+          "variantId": "level-3-sonometer",
+          "text": "Does the long white side rail run parallel to the upright controller?",
+          "pdfPage": 7,
+          "sourcePdfHash": "410685232e69b2d34936a5dcd804ddf3f47e13b46f17381832f71e7179fdaaa2",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-sonometer-q5",
+          "variantId": "level-3-sonometer",
+          "text": "Are the upper connection pins fitted to the exposed gear mechanism?",
+          "pdfPage": 7,
+          "sourcePdfHash": "410685232e69b2d34936a5dcd804ddf3f47e13b46f17381832f71e7179fdaaa2",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-sound-level-meter",
       "variantId": "level-3-sound-level-meter",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-sound-level-meter-q1",
+          "variantId": "level-3-sound-level-meter",
+          "text": "Is the exposed black gear-wheel cluster installed at the left side of the meter?",
+          "pdfPage": 20,
+          "sourcePdfHash": "052ccffc762288f559cfb3e543b1454bcc11deffdc3f47206ec39d46e3216649",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-sound-level-meter-q2",
+          "variantId": "level-3-sound-level-meter",
+          "text": "Does the screen-faced controller lie horizontally along the frame?",
+          "pdfPage": 20,
+          "sourcePdfHash": "052ccffc762288f559cfb3e543b1454bcc11deffdc3f47206ec39d46e3216649",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-sound-level-meter-q3",
+          "variantId": "level-3-sound-level-meter",
+          "text": "Are the two yellow mounting pieces secured between the gear unit and controller?",
+          "pdfPage": 20,
+          "sourcePdfHash": "052ccffc762288f559cfb3e543b1454bcc11deffdc3f47206ec39d46e3216649",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-sound-level-meter-q4",
+          "variantId": "level-3-sound-level-meter",
+          "text": "Are the white support beams fastened around the left gear assembly?",
+          "pdfPage": 20,
+          "sourcePdfHash": "052ccffc762288f559cfb3e543b1454bcc11deffdc3f47206ec39d46e3216649",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-sound-level-meter-q5",
+          "variantId": "level-3-sound-level-meter",
+          "text": "Does the lower chassis hold the sensing and control elements in line?",
+          "pdfPage": 20,
+          "sourcePdfHash": "052ccffc762288f559cfb3e543b1454bcc11deffdc3f47206ec39d46e3216649",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-f1-racing-car",
       "variantId": "level-3-f1-racing-car",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-f1-racing-car-q1",
+          "variantId": "level-3-f1-racing-car",
+          "text": "Is the low front wing attached ahead of the front wheel assembly?",
+          "pdfPage": 37,
+          "sourcePdfHash": "61cbde687bf32afefcfa7ea648588ed21d3e2d0aa92bf7d82fe7b7abdd5f9899",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-f1-racing-car-q2",
+          "variantId": "level-3-f1-racing-car",
+          "text": "Are the rear and front wheels aligned along the vehicle chassis?",
+          "pdfPage": 37,
+          "sourcePdfHash": "61cbde687bf32afefcfa7ea648588ed21d3e2d0aa92bf7d82fe7b7abdd5f9899",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-f1-racing-car-q3",
+          "variantId": "level-3-f1-racing-car",
+          "text": "Is the display-equipped controller mounted centrally inside the car frame?",
+          "pdfPage": 37,
+          "sourcePdfHash": "61cbde687bf32afefcfa7ea648588ed21d3e2d0aa92bf7d82fe7b7abdd5f9899",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-f1-racing-car-q4",
+          "variantId": "level-3-f1-racing-car",
+          "text": "Are the red and blue connection beams fixed around the wheel-support structures?",
+          "pdfPage": 37,
+          "sourcePdfHash": "61cbde687bf32afefcfa7ea648588ed21d3e2d0aa92bf7d82fe7b7abdd5f9899",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-f1-racing-car-q5",
+          "variantId": "level-3-f1-racing-car",
+          "text": "Does the rear body include the raised spoiler assembly?",
+          "pdfPage": 37,
+          "sourcePdfHash": "61cbde687bf32afefcfa7ea648588ed21d3e2d0aa92bf7d82fe7b7abdd5f9899",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-long-lived-turtle",
       "variantId": "level-3-long-lived-turtle",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-long-lived-turtle-q1",
+          "variantId": "level-3-long-lived-turtle",
+          "text": "Are all four articulated walking limbs attached around the turtle's body?",
+          "pdfPage": 23,
+          "sourcePdfHash": "83011a8a6a502716eb900967a4d3a6f59f67bef7fd8398afe77a2cc732a4516d",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-long-lived-turtle-q2",
+          "variantId": "level-3-long-lived-turtle",
+          "text": "Is the paired black sensor unit positioned at the front of the turtle?",
+          "pdfPage": 23,
+          "sourcePdfHash": "83011a8a6a502716eb900967a4d3a6f59f67bef7fd8398afe77a2cc732a4516d",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-long-lived-turtle-q3",
+          "variantId": "level-3-long-lived-turtle",
+          "text": "Does the controller rest horizontally above the central chassis?",
+          "pdfPage": 23,
+          "sourcePdfHash": "83011a8a6a502716eb900967a4d3a6f59f67bef7fd8398afe77a2cc732a4516d",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-long-lived-turtle-q4",
+          "variantId": "level-3-long-lived-turtle",
+          "text": "Are the red joint brackets aligned at the leg pivots?",
+          "pdfPage": 23,
+          "sourcePdfHash": "83011a8a6a502716eb900967a4d3a6f59f67bef7fd8398afe77a2cc732a4516d",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-long-lived-turtle-q5",
+          "variantId": "level-3-long-lived-turtle",
+          "text": "Do the rear black angled legs attach securely to the extended body frame?",
+          "pdfPage": 23,
+          "sourcePdfHash": "83011a8a6a502716eb900967a4d3a6f59f67bef7fd8398afe77a2cc732a4516d",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     },
     {
       "projectId": "level-3-lunar-rover",
       "variantId": "level-3-lunar-rover",
       "status": "blocked",
       "questions": [],
-      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF.",
+      "draftQuestions": [
+        {
+          "questionId": "level-3-lunar-rover-q1",
+          "variantId": "level-3-lunar-rover",
+          "text": "Are the two black tracked wheel assemblies installed beneath the rover's body?",
+          "pdfPage": 24,
+          "sourcePdfHash": "b88a8f9baa1d204ef9cf671c1a0068c5e588fa149e96b12a03f30ffc5d706368",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-lunar-rover-q2",
+          "variantId": "level-3-lunar-rover",
+          "text": "Is the orange-and-white controller centered above the track support?",
+          "pdfPage": 24,
+          "sourcePdfHash": "b88a8f9baa1d204ef9cf671c1a0068c5e588fa149e96b12a03f30ffc5d706368",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-lunar-rover-q3",
+          "variantId": "level-3-lunar-rover",
+          "text": "Are the orange structural beams attached around the central chassis?",
+          "pdfPage": 24,
+          "sourcePdfHash": "b88a8f9baa1d204ef9cf671c1a0068c5e588fa149e96b12a03f30ffc5d706368",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-lunar-rover-q4",
+          "variantId": "level-3-lunar-rover",
+          "text": "Is the blue upper module connected behind the controller housing?",
+          "pdfPage": 24,
+          "sourcePdfHash": "b88a8f9baa1d204ef9cf671c1a0068c5e588fa149e96b12a03f30ffc5d706368",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        },
+        {
+          "questionId": "level-3-lunar-rover-q5",
+          "variantId": "level-3-lunar-rover",
+          "text": "Are the side track frames fastened securely to the lower rover platform?",
+          "pdfPage": 24,
+          "sourcePdfHash": "b88a8f9baa1d204ef9cf671c1a0068c5e588fa149e96b12a03f30ffc5d706368",
+          "reviewEvidence": "Candidate WebP matches this registered Building PDF page using SIFT/RANSAC; exact mechanical detail and finished-model completeness require separate independent visual checking.",
+          "independentApprovalStatus": "pending",
+          "status": "draft-not-student-visible"
+        }
+      ],
+      "draftStatus": "five-unique-page-linked-review-candidates-not-approved"
     }
-  ]
+  ],
+  "draftQuestionCount": 210,
+  "approvedQuestionCount": 0
 }
