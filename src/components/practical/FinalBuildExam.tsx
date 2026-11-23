@@ -143,7 +143,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
     setModel(null);
     setSession(prev => ({
       ...emptySession(level), attempts: prev.attempts, projectId: chosen.id,
-      variantId: chosen.variants[0]?.id ?? null, stage: "scanning",
+      variantId: (level === 2 ? chosen.variants[secureRandomIndex(chosen.variants.length)] : chosen.variants[0])?.id ?? null, stage: "scanning",
       scanUntil: Date.now() + SCAN_MS,
     }));
   }
