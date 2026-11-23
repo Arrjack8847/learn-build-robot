@@ -168,4 +168,19 @@ test("provenance and source SHA-256 linkage stay one-to-one for all 30 approvals
 });
 test.todo("INTEGRATION: scanner discovery must draw only approved projects, not merely registered Building PDFs");
 test.todo("INTEGRATION: replace generic title-heuristic checklist and dynamic PDF crop with verified variant checklist and WebP");
-test.todo("DEVICE QA: verify 320/375/390/430px interactive scanner, timer and results in authorized runtime");
+test("recorded headless Chromium mobile scanner QA covers all four viewports", () => {
+  // This asserts the independently captured browser execution report; it does
+  // not pretend that node:test itself launches Chromium on each invocation.
+  const report=load("reports/final-build-level-2-responsive-qa-20261123.json");
+  assert.equal(report.pass,true);
+  assert.deepEqual(report.results.map(r=>r.width),[320,375,390,430]);
+  for(const r of report.results){
+    assert.equal(r.http,200);
+    assert.ok(r.initialOverflow<=1&&r.postScanOverflow<=1);
+    assert.ok(r.scannerDurationMs>=3900&&r.scannerDurationMs<=6000);
+    assert.equal(r.disabled,true);
+    assert.equal(r.hasReference,true);
+    assert.equal(r.hasBlockedWarning,true);
+    assert.deepEqual(r.errors,[]);
+  }
+});
