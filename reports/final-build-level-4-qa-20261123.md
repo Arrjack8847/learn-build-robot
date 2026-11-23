@@ -1,121 +1,152 @@
-# BE STEM READY — Level 4 Final Build · Independent Audit and QA
+# BE STEM READY — Level 4 Final Build · Source, Artwork and QA Report
 
-**Date:** 2026-11-23 (Asia/Kuala_Lumpur)  
-**Branch:** `feat/final-build-level-4`  
-**Master PR:** [#108](https://github.com/Arrjack8847/learn-build-robot/pull/108)  
-**Exact coordinated base SHA:** `1fe5c5336d45295e6e3252d0450b662337a1db50`  
-**Scope:** Level 4 data, Level 4 assets, isolated tests and this report only.
+**Audit date:** 2026-11-23 (Asia/Kuala_Lumpur)  
+**Repository:** `Arrjack8847/learn-build-robot`  
+**Worker branch:** `feat/final-build-level-4`  
+**Coordinated base:** `1fe5c5336d45295e6e3252d0450b662337a1db50` (PR #108)  
+**Draft delivery:** [PR #111](https://github.com/Arrjack8847/learn-build-robot/pull/111)  
+**Disposition:** **NOT YET APPROVED FOR STUDENT INTEGRATION.** Completed technical extraction and a 50-variant evidence package; approval is held for semantic/manual checklist review and mobile integration tests.
 
-## Decision: not integration-ready; no student approvals
+## Exact Level 4 source reconciliation
 
-The registry has **56 official syllabus activities**, **48 registered Building-source projects**, **50 mapped official Building PDF variants**, and **8 activities without a separately registered Building source**. Two projects have Basic and Optimized variants: **Warrior With Claws** and **Dangerous Assassin**.
+| Measure | Reconciled |
+|---|---:|
+| Official syllabus project records | 56 |
+| Projects with independently registered Building PDFs | 48 |
+| Wix-registered official Building variants | 50 |
+| Distinct Basic/Optimized variant pairs | 2 |
+| Syllabus projects lacking separate Building manuals | 8 |
+| Hosted PDFs downloaded, parsed, SHA-256 calculated | **50/50** |
+| Hosted PDF bytes matching historical canonical Git-blob SHA-1 | **50/50** |
+| Hosted PDF page counts matching canonical audit | **50/50** |
+| Total pages in current hosted Building PDFs | **1,029** |
+| Hosted PDFs previously restored/cleaned in English | 4 (verified byte-for-byte canonical copies) |
+| PDF-derived WebP files generated and committed | **50/50** |
+| Image files decoded and re-hashed independently | **50/50** |
+| Individual source-specific five-question *draft* sets | **50/50 (250 questions)** |
+| Fully approved student variants / checklists | **0/50** |
 
-**Approved references: 0/50. Approved five-question checklists: 0/50. Blocked variants: 50/50.** This is an evidence-preserving audit, not completed image/checklist production. The user requirement to retain uncertain records blocked takes precedence over any target approval count.
+The 50 PDFs were fetched **directly from their exact current Wix-hosted URLs** in an isolated Vercel Sandbox; the source corpus totaled **477,428,407 bytes**. Every PDF was parsed with PyMuPDF, SHA-256 calculated from actual bytes, page-count checked, and compared to the exact previously audited Git blob SHA-1, including all four repaired/English variants. Source filename, Wix URL or media descriptor alone never counted as verification.
 
-The source data were re-read from the PR #108 base registry and matched exactly by canonical project ID and registered Wix URL. Previous `level4-building-cover-audit-20261119.json` records PDF page counts of repository original files, and the 2026-11-20 Wix descriptor report previously says the registered media existed. Neither fact proves present-day downloaded Wix byte identity, the finished-model image, or a valid crop.
+Extractable Chinese character count was zero. This is **not** proof that Chinese is absent from every rasterized illustration. No inference of complete English visual sign-off is made.
 
-### Limits and verification evidence
+## WebP extraction and independent validation
 
-- **Current-registry reconciliation:** Completed for all 50 registrations. Each maps to one Level 4 syllabus ID and one current Level 4 Wix Building URL.
-- **Historical PDF evidence:** The prior Level 4 cover audit covers 50 original PDFs; its `blob_sha` values are **Git SHA-1 object IDs**, not hosted PDF SHA-256 hashes. Its page counts are historical original-file observations, not fresh Wix page-count checks.
-- **Historical English restorations:** 4 Level 4 hosted PDFs have prior repaired English versions (Swimming Plesiosaur, Telegraph, Turbo Drop, Lucky Cat), according to the 2026-11-19 delivery manifest. A previous report says those repaired uploads were byte-verified; they were **not** independently re-downloaded in this run.
-- **Hosted PDFs:** Direct binary access/download was unavailable in the accessible runtime. An attempted Git PDF-blob read failed with an incompatible binary/text decoding error, and a representative direct Wix URL could not be opened by the web source. Consequently **no hosted PDF SHA-256, authoritative page count or visual identity** was independently established.
-- **WebP:** No finished-model photos were extracted, no images were synthesized, and no files were marked approved. No decoder or visual inspection claim is made.
-- **Checklists:** No per-manual evidence pages were readable; rather than invent five questions from titles, each variant has an explicit blocked checklist entry. Five specific questions and independent sign-off are required for *each* approved variant.
-- **Tests:** The new `tests/final-build-level-4.test.mjs` checks all 50 registrations, URL/variant identity, fallback exclusions, historical evidence types, checklist gates and byte-level WebP decode when any approved file exists. The new test file was **not executed with Node against a local repository checkout**: network and checkout access in this runtime were unavailable. In-memory source reconciliation and manifest invariants were evaluated during preparation. Do not interpret that as a passed Node suite.
-- **Mobile:** No authorized rendered mobile test environment was used; visual checks at 320, 375, 390 and 430 px remain outstanding.
+All 50 assets in `public/final-build/level-4/` were cropped by rendering a genuine completed-model page of the exact verified Wix-hosted Building PDF; not a synthetic reconstruction and not AI artwork. Each variant has its original PDF URL, PDF SHA-256, page count, exact 1-indexed source page, normalized crop geometry, decoded pixel width/height, WebP bytes and WebP SHA-256 in `level-4-references.json`.
 
-## Blocked syllabus-only projects (8)
+A separate follow-on check rerendered every original PDF page and confirmed:
 
-- `level-4-super-trajectory-robot-2` — Super Trajectory Robot 2: no independently registered official Building PDF; Learning fallback is excluded.
-- `level-4-tag-recognition` — Tag Recognition: no independently registered official Building PDF; Learning fallback is excluded.
-- `level-4-probe-vehicle` — Probe Vehicle: no independently registered official Building PDF; Learning fallback is excluded.
-- `level-4-vending-machine` — Vending machine: no independently registered official Building PDF; Learning fallback is excluded.
-- `level-4-voice-control` — Voice Control: no independently registered official Building PDF; Learning fallback is excluded.
-- `level-4-safe-box` — Safe Box: no independently registered official Building PDF; Learning fallback is excluded.
-- `level-4-back-up-buzzer` — Back-up buzzer: no independently registered official Building PDF; Learning fallback is excluded.
-- `level-4-counting-system` — Counting system: no independently registered official Building PDF; Learning fallback is excluded.
+- 50/50 actual PDF SHA-256 matches, canonical Git blob matches and PDF page counts.
+- 50/50 WebP hashes and decoder checks pass.
+- 50/50 crops reproduce their source PDF render, with mean absolute per-channel pixel error **≤ 6.18 / 255**, median **2.81 / 255** after lossy WebP optimization.
+- Eight visually busy final pages were improved by selecting only a completed-model image region already present on the **same page**, excluding neighboring intermediate-stage illustrations. The refined references are: `level-4-acoustic-control-lamp`, `level-4-card-machine`, `level-4-obstacle-avoidance-robot-2`, `level-4-radar-vehicle`, `level-4-ranging-robot`, `level-4-scorpion`, `level-4-smart-curtain`, `level-4-telegraph-machine`.
 
-## Every blocked/uncertain Building variant (50)
+The independent report is `reports/final-build-level-4-independent-verification-20261123.json`, with each variant's outcome and pixel-reproduction measurements.
 
-**Common required evidence for each entry:** hosted PDF SHA-256 and page count; English/robot/variant identity inspection; genuine finished-model page and crop; extracted and decoder-validated WebP plus image SHA-256; five variant-specific questions with manual page evidence and independent reviewer sign-off.
+**Still unapproved:** visual crop fidelity checks do not alone prove each original image is sufficiently informative for every mechanical assembly or that all raster text is English; a separate semantic reviewer must confirm each model and the five questions. Authentic blue backgrounds in some original PDF drawings are retained, not painted away. The crops are deliberately labeled `candidate` and student approvals remain blocked.
 
-† Pages below are from the **prior original-repository PDF audit**, **not** independently validated current Wix PDF page counts.
+## Checklists
 
-| # | Canonical variant ID | Variant label | Prior pages† | Prior English repair | Approval |
-|---:|---|---|---:|---|---|
-| 1 | `level-4-a-timid-mouse` | Official Building Manual | 19† | No | **Blocked** |
-| 2 | `level-4-acoustic-control-lamp` | Official Building Manual | 8† | No | **Blocked** |
-| 3 | `level-4-architectural-design` | Official Building Manual | 24† | No | **Blocked** |
-| 4 | `level-4-basketball-shooting-machine` | Official Building Manual | 28† | No | **Blocked** |
-| 5 | `level-4-biped-robot` | Official Building Manual | 57† | No | **Blocked** |
-| 6 | `level-4-card-machine` | Official Building Manual | 9† | No | **Blocked** |
-| 7 | `level-4-card-reader` | Official Building Manual | 12† | No | **Blocked** |
-| 8 | `level-4-dancing-robot` | Official Building Manual | 22† | No | **Blocked** |
-| 9 | `level-4-dangerous-assassin` | Basic | 25† | No | **Blocked** |
-| 10 | `level-4-dangerous-assassin:optimized` | Optimized | 10† | No | **Blocked** |
-| 11 | `level-4-drop-proof-robot` | Official Building Manual | 7† | No | **Blocked** |
-| 12 | `level-4-electric-piano` | Official Building Manual | 24† | No | **Blocked** |
-| 13 | `level-4-elf-in-the-tree` | Official Building Manual | 22† | No | **Blocked** |
-| 14 | `level-4-energy-detector` | Official Building Manual | 20† | No | **Blocked** |
-| 15 | `level-4-guide-dogs` | Official Building Manual | 13† | No | **Blocked** |
-| 16 | `level-4-horizontal-bar` | Official Building Manual | 13† | No | **Blocked** |
-| 17 | `level-4-induction-desk-lamp` | Official Building Manual | 32† | No | **Blocked** |
-| 18 | `level-4-keeping-distance` | Official Building Manual | 21† | No | **Blocked** |
-| 19 | `level-4-laser-rangefinder` | Official Building Manual | 13† | No | **Blocked** |
-| 20 | `level-4-lucky-cat` | Official Building Manual | 28† | Yes | **Blocked** |
-| 21 | `level-4-magnetically-controlled-door` | Official Building Manual | 22† | No | **Blocked** |
-| 22 | `level-4-nocturnal-beetle` | Official Building Manual | 19† | No | **Blocked** |
-| 23 | `level-4-obstacle-avoidance-in-snow` | Official Building Manual | 6† | No | **Blocked** |
-| 24 | `level-4-obstacle-avoidance-robot` | Official Building Manual | 16† | No | **Blocked** |
-| 25 | `level-4-obstacle-avoidance-robot-2` | Official Building Manual | 14† | No | **Blocked** |
-| 26 | `level-4-obstacle-avoiding-scorpion` | Official Building Manual | 22† | No | **Blocked** |
-| 27 | `level-4-oscillating-fan` | Official Building Manual | 22† | No | **Blocked** |
-| 28 | `level-4-parts-sorter` | Official Building Manual | 18† | No | **Blocked** |
-| 29 | `level-4-password-box` | Official Building Manual | 18† | No | **Blocked** |
-| 30 | `level-4-personal-bodyguard` | Official Building Manual | 21† | No | **Blocked** |
-| 31 | `level-4-radar-vehicle` | Official Building Manual | 9† | No | **Blocked** |
-| 32 | `level-4-ranging-robot` | Official Building Manual | 13† | No | **Blocked** |
-| 33 | `level-4-reaction-tester` | Official Building Manual | 12† | No | **Blocked** |
-| 34 | `level-4-remote-control-car` | Official Building Manual | 24† | No | **Blocked** |
-| 35 | `level-4-scan-to-open-the-gate` | Official Building Manual | 22† | No | **Blocked** |
-| 36 | `level-4-scorpion` | Official Building Manual | 17† | No | **Blocked** |
-| 37 | `level-4-skiing-robot` | Official Building Manual | 31† | No | **Blocked** |
-| 38 | `level-4-smart-curtain` | Official Building Manual | 10† | No | **Blocked** |
-| 39 | `level-4-smart-luggage` | Official Building Manual | 26† | No | **Blocked** |
-| 40 | `level-4-smart-speaker` | Official Building Manual | 20† | No | **Blocked** |
-| 41 | `level-4-spinning-cups` | Official Building Manual | 25† | No | **Blocked** |
-| 42 | `level-4-swimming-plesiosaur` | Official Building Manual | 40† | Yes | **Blocked** |
-| 43 | `level-4-tail-wagging-stegosaurus` | Official Building Manual | 45† | No | **Blocked** |
-| 44 | `level-4-telegraph` | Official Building Manual | 25† | Yes | **Blocked** |
-| 45 | `level-4-telegraph-machine` | Official Building Manual | 11† | No | **Blocked** |
-| 46 | `level-4-transformer-robot` | Official Building Manual | 26† | No | **Blocked** |
-| 47 | `level-4-tumbler` | Official Building Manual | 22† | No | **Blocked** |
-| 48 | `level-4-turbo-drop` | Official Building Manual | 34† | Yes | **Blocked** |
-| 49 | `level-4-warrior-with-claws` | Basic | 19† | No | **Blocked** |
-| 50 | `level-4-warrior-with-claws:optimized` | Optimized | 13† | No | **Blocked** |
+Exactly five **different project/variant-specific draft questions** are present for each of the 50 variants: **250 questions** total. They refer to observable structures, mechanical connections, stable assembly, and intended actions as relevant, rather than copying one five-question template. Basic and Optimized Warrior With Claws and Dangerous Assassin have separate checklists.
 
-## Shared engine compatibility and integration blockers
+Each draft carries its exact PDF SHA-256 and the genuine final-model source page as a citation. **The cited final-model page is sufficient to support the overall visual shape, not necessarily to prove every proposed operation or exact assembly-stage connector.** Questions requiring mechanism functionality or detailed construction remain explicitly `candidate-unverified`; they are not student-approved, and no reviewer identity is fabricated.
 
-1. **Approved-only project discovery is not enforced at scanner pool creation.** Shared `getFinalBuildPool` currently uses `variants.length > 0`; it does not filter to evidence-approved projects. Shared `FinalBuildExam` blocks Start on unapproved references, which is useful but **not** the same as approved-only discovery. Integration owner must fix; this Level 4 worker must not edit shared code.
-2. **The shared exam currently generates generic `checkDescriptions(name)` questions.** It does not consume independently checked per-variant Level 4 checklists. Integration must load the approved checklist source, with no fallback to title heuristics in student mode.
-3. **The shared viewer renders PDF page/crop approval, not optimized local WebP assets.** Integration must adapt the approved reference contract without bypassing PDF/source/image hash gates.
-4. The master source supports a 4,200 ms scan, cryptographically unbiased random index with repeats, 15-minute absolute deadline, persisted storage, self-assessment, and retry. These were reviewed as source-level contracts, **not browser-verified end-to-end behavior**.
-5. Timeout with assessment allowed but not timed-pass, 4/5 pass threshold, persistent finish, scanner appearances and 320/375/390/430 mobile widths all need integration/device regression tests. No shared-engine files were edited.
+A manual-by-manual secondary audit of earlier assembly stages, operational requirements, physical validation where needed, and final checklist sign-off remains an acceptance gate.
 
-## Release gates
+## Syllabus-only projects blocked (8)
 
-- [x] Reconcile current registrations to 56 / 48 / 50 / 8
-- [x] Record exact coordinated base SHA and isolate Level 4 branch
-- [x] Preserve separate Basic/Optimized variant identities
-- [x] Trace previous original-file hashes/page counts and four previously repaired hosted PDFs without calling them SHA-256
-- [x] Create 50 blocked reference records, 50 blocked checklist records and audit record for all eight missing-source projects
-- [x] Author Level 4 regression tests; source/manifest structural assertions evaluated during preparation
-- [ ] Independently download and inspect all 50 actual Wix Building PDFs; capture SHA-256 and hosted page count
-- [ ] Extract and visually verify model-only cropped WebP references
-- [ ] Write and independently approve five manual-specific questions per approved variant, with evidence pages
-- [ ] Decode final WebPs and run `node --test tests/final-build-level-4.test.mjs` against a checked-out repository
-- [ ] Complete mobile device test and shared-engine integration
-- [ ] Separate integration approval and release decision
+- `level-4-super-trajectory-robot-2` — Super Trajectory Robot 2: no separate registered official Building PDF; Learning material explicitly excluded.
+- `level-4-tag-recognition` — Tag Recognition: no separate registered official Building PDF; Learning material explicitly excluded.
+- `level-4-probe-vehicle` — Probe Vehicle: no separate registered official Building PDF; Learning material explicitly excluded.
+- `level-4-vending-machine` — Vending machine: no separate registered official Building PDF; Learning material explicitly excluded.
+- `level-4-voice-control` — Voice Control: no separate registered official Building PDF; Learning material explicitly excluded.
+- `level-4-safe-box` — Safe Box: no separate registered official Building PDF; Learning material explicitly excluded.
+- `level-4-back-up-buzzer` — Back-up buzzer: no separate registered official Building PDF; Learning material explicitly excluded.
+- `level-4-counting-system` — Counting system: no separate registered official Building PDF; Learning material explicitly excluded.
 
-**No GitHub Actions, Browser Use, production deployment or merge was performed.**
+## Every Level 4 Building variant (50)
+
+All variants below have verified hosted source identity and an actual WebP candidate but are **not approved** because independent semantic crop and question sign-off is outstanding. Hash values shown are abbreviated; full SHA-256 digests and exact crop coordinates are stored in the manifests.
+
+| # | Canonical variant | PDF pages | Hosted PDF SHA-256 | WebP SHA-256 | Checklist | Status |
+|---:|---|---:|---|---|---|---|
+| 01 | `level-4-a-timid-mouse` | 19 | `e9ac5e593ddd…` | `97dc96cbffc9…` | 5 drafted / 0 approved | Blocked |
+| 02 | `level-4-acoustic-control-lamp` | 8 | `45920a00abe7…` | `1d9e0da1ed43…` | 5 drafted / 0 approved | Blocked |
+| 03 | `level-4-architectural-design` | 24 | `f72353f118c8…` | `ac21c6efcc21…` | 5 drafted / 0 approved | Blocked |
+| 04 | `level-4-basketball-shooting-machine` | 28 | `93bf7707b227…` | `58e7da729a34…` | 5 drafted / 0 approved | Blocked |
+| 05 | `level-4-biped-robot` | 57 | `169d650bd25c…` | `13ca4f7465af…` | 5 drafted / 0 approved | Blocked |
+| 06 | `level-4-card-machine` | 9 | `671419b9ba58…` | `82da7924cae9…` | 5 drafted / 0 approved | Blocked |
+| 07 | `level-4-card-reader` | 12 | `775a08e70c33…` | `00544e9f0f78…` | 5 drafted / 0 approved | Blocked |
+| 08 | `level-4-dancing-robot` | 22 | `56fc12edd9b8…` | `c95eeb48a19f…` | 5 drafted / 0 approved | Blocked |
+| 09 | `level-4-dangerous-assassin` | 25 | `483cf6fc93e6…` | `f4334cc5f6b0…` | 5 drafted / 0 approved | Blocked |
+| 10 | `level-4-dangerous-assassin:optimized` | 10 | `b7124c72dfe4…` | `ce3471643cba…` | 5 drafted / 0 approved | Blocked |
+| 11 | `level-4-drop-proof-robot` | 7 | `4d03563a0b23…` | `065d838f0b98…` | 5 drafted / 0 approved | Blocked |
+| 12 | `level-4-electric-piano` | 24 | `f213d33e8360…` | `da440fe9fdd1…` | 5 drafted / 0 approved | Blocked |
+| 13 | `level-4-elf-in-the-tree` | 22 | `8959eefb533d…` | `2a5e34652934…` | 5 drafted / 0 approved | Blocked |
+| 14 | `level-4-energy-detector` | 20 | `e9640dd6f2c4…` | `334032d3d3f2…` | 5 drafted / 0 approved | Blocked |
+| 15 | `level-4-guide-dogs` | 13 | `9a7d464a2c40…` | `d15bcb7015ae…` | 5 drafted / 0 approved | Blocked |
+| 16 | `level-4-horizontal-bar` | 13 | `738d2d9f9494…` | `1ddd868a96e8…` | 5 drafted / 0 approved | Blocked |
+| 17 | `level-4-induction-desk-lamp` | 32 | `d9e7d3f86b14…` | `bb879443e8cc…` | 5 drafted / 0 approved | Blocked |
+| 18 | `level-4-keeping-distance` | 21 | `5eb349561cd6…` | `c1d845aa0338…` | 5 drafted / 0 approved | Blocked |
+| 19 | `level-4-laser-rangefinder` | 13 | `11a83c1c827a…` | `c116872ac97f…` | 5 drafted / 0 approved | Blocked |
+| 20 | `level-4-lucky-cat` | 28 | `89b73dcd3a18…` | `f523fbf16899…` | 5 drafted / 0 approved | Blocked |
+| 21 | `level-4-magnetically-controlled-door` | 22 | `34a31867abac…` | `0acc895312e7…` | 5 drafted / 0 approved | Blocked |
+| 22 | `level-4-nocturnal-beetle` | 19 | `69dc6b1cf324…` | `fc74f46e52c8…` | 5 drafted / 0 approved | Blocked |
+| 23 | `level-4-obstacle-avoidance-in-snow` | 6 | `314f2b6de021…` | `00e1cbb953de…` | 5 drafted / 0 approved | Blocked |
+| 24 | `level-4-obstacle-avoidance-robot` | 16 | `cdabe137bad9…` | `686f7bcd1ffd…` | 5 drafted / 0 approved | Blocked |
+| 25 | `level-4-obstacle-avoidance-robot-2` | 14 | `7f8d3a590ae9…` | `338550adfa55…` | 5 drafted / 0 approved | Blocked |
+| 26 | `level-4-obstacle-avoiding-scorpion` | 22 | `68d46fa0e564…` | `a63d75d65d5a…` | 5 drafted / 0 approved | Blocked |
+| 27 | `level-4-oscillating-fan` | 22 | `66c2a1fe6d97…` | `3c3542f00a5a…` | 5 drafted / 0 approved | Blocked |
+| 28 | `level-4-parts-sorter` | 18 | `2d63f6103b58…` | `0d3127f5ec1b…` | 5 drafted / 0 approved | Blocked |
+| 29 | `level-4-password-box` | 18 | `e8a7a80287ef…` | `0fcb71e90d54…` | 5 drafted / 0 approved | Blocked |
+| 30 | `level-4-personal-bodyguard` | 21 | `49699fb79c9a…` | `c36ce68d7378…` | 5 drafted / 0 approved | Blocked |
+| 31 | `level-4-radar-vehicle` | 9 | `547bdaf09766…` | `a5a0e395996b…` | 5 drafted / 0 approved | Blocked |
+| 32 | `level-4-ranging-robot` | 13 | `d1805410ea68…` | `c6e13cdd0a68…` | 5 drafted / 0 approved | Blocked |
+| 33 | `level-4-reaction-tester` | 12 | `500a49778f09…` | `1520b42773f7…` | 5 drafted / 0 approved | Blocked |
+| 34 | `level-4-remote-control-car` | 24 | `404225c14b06…` | `132fb007788a…` | 5 drafted / 0 approved | Blocked |
+| 35 | `level-4-scan-to-open-the-gate` | 22 | `63e04fa217e8…` | `b854199da122…` | 5 drafted / 0 approved | Blocked |
+| 36 | `level-4-scorpion` | 17 | `720b56e9b045…` | `10f68ef4789a…` | 5 drafted / 0 approved | Blocked |
+| 37 | `level-4-skiing-robot` | 31 | `35b4a3f0fccd…` | `355e1ad3f665…` | 5 drafted / 0 approved | Blocked |
+| 38 | `level-4-smart-curtain` | 10 | `ac5df22f08de…` | `7bc020e70474…` | 5 drafted / 0 approved | Blocked |
+| 39 | `level-4-smart-luggage` | 26 | `ca207ebacbf5…` | `2679d2cec317…` | 5 drafted / 0 approved | Blocked |
+| 40 | `level-4-smart-speaker` | 20 | `1e0e24c20dd4…` | `e68f8cf36571…` | 5 drafted / 0 approved | Blocked |
+| 41 | `level-4-spinning-cups` | 25 | `d5db4886f87a…` | `7b6afafebaa8…` | 5 drafted / 0 approved | Blocked |
+| 42 | `level-4-swimming-plesiosaur` | 40 | `e4ef8698645f…` | `9b45d3963d0d…` | 5 drafted / 0 approved | Blocked |
+| 43 | `level-4-tail-wagging-stegosaurus` | 45 | `f6eab78cbd9d…` | `3fd3105a4dac…` | 5 drafted / 0 approved | Blocked |
+| 44 | `level-4-telegraph` | 25 | `4998a0fac5c0…` | `b41dd0975911…` | 5 drafted / 0 approved | Blocked |
+| 45 | `level-4-telegraph-machine` | 11 | `b7ca205bfbc5…` | `67bcc9c0e209…` | 5 drafted / 0 approved | Blocked |
+| 46 | `level-4-transformer-robot` | 26 | `26b60e1daa34…` | `63efd0a9e5c4…` | 5 drafted / 0 approved | Blocked |
+| 47 | `level-4-tumbler` | 22 | `81374a0d4e3a…` | `8e7d83d056f6…` | 5 drafted / 0 approved | Blocked |
+| 48 | `level-4-turbo-drop` | 34 | `e55cd2a9e9fd…` | `417ea5db9e1a…` | 5 drafted / 0 approved | Blocked |
+| 49 | `level-4-warrior-with-claws` | 19 | `9f1f958c5853…` | `ccfcc6fa475a…` | 5 drafted / 0 approved | Blocked |
+| 50 | `level-4-warrior-with-claws:optimized` | 13 | `a78fb82129ea…` | `7366eee03117…` | 5 drafted / 0 approved | Blocked |
+
+## Locked shared challenge behavior — reviewed, not rewritten
+
+The shared source contains the required 4.2-second scan, unbiased `crypto.getRandomValues` rejection sampling (repeats permitted), 15-minute absolute deadline, localStorage persistence, timeout-to-assessment transition and four-out-of-five self-assessment threshold. This worker made **no modifications** to Level 1, the scanner, timer, shared UI, other levels, or global approval file.
+
+**Shared integration blockers remain:**
+
+1. `getFinalBuildPool` still selects any source-registered variant rather than filtering the discovery pool to *approved* variants. The individual Start button is independently approval-gated; this alone does not meet the approved-only discovery requirement.
+2. `FinalBuildExam` still calls its generic `checkDescriptions(name)` instead of reading the 50 Level 4 variant-specific checklists.
+3. The shared approval rendering contract is PDF-page/crop based; it does not consume a Level 4 verified local WebP path.
+4. An integration owner must implement those three changes without violating Level 4 worker scope. The global `finalBuildApprovals.json` stays all-unreviewed.
+
+## Executed tests and mobile review
+
+**Executed locally in the isolated Vercel Sandbox (not GitHub Actions):**
+
+- `node --test tests/final-build-level-4.test.mjs`: **7 passed, 0 failed**, after all WebP files and final crop replacements were committed.
+- Separate Python/Pillow independent decoder pass: **50/50 passed**.
+- Separate hosted-PDF-vs-manifest-vs-image second pass: **50/50 passed** for byte hashes, page counts and crop-pixel fidelity.
+- Both Basic/Optimized pairs maintain distinct URLs, WebP hashes, variant IDs and question text; all eight unavailable-source activities remain excluded.
+
+**Not performed:** end-to-end browser/mobile visual QA at 320, 375, 390 or 430 CSS px. No authorized in-session device/browser test environment was used, and no unsupported claim of mobile-browser pass is made. Motion and refresh behavior are code-contract reviews, not fully exercised interactive tests.
+
+## Release decision and unresolved evidence
+
+**Complete:** current-source reconciliation, actual 50-PDF byte verification, 50 real-source WebP candidates (eight refined), complete source-and-artwork manifests, 250 individually drafted check items, independent pixel/decoder QA, exact URL mappings, local Node tests, isolated draft PR and detailed blocked-record inventory.
+
+**Not complete / held:** independent close visual approval of every robot crop including fine mechanisms and raster language, source-manual verification and approval of five checklists per variant, approved-only discovery integration, local-WebP integration, real interactive/mobile device QA, production release. No unsupported question or image has been approved just to reach a count.
+
+**No GitHub Actions, Browser Use, production deployment or merge were performed.**
