@@ -23,7 +23,10 @@
     "candidateWebp": 50,
     "hostedPdfSha256Verified": 50,
     "hostedPdfGitBlobMatches": 50,
-    "hostedPdfPageMatches": 50
+    "hostedPdfPageMatches": 50,
+    "refinedSourceModelCrops": 8,
+    "draftedChecklists": 50,
+    "draftedQuestions": 250
   },
   "gates": {
     "pdfBytesFetched": true,
@@ -33,7 +36,9 @@
     "webpDecoded": true,
     "checklistEvidenceVerified": false,
     "independentSignoff": false,
-    "mobileDeviceQa": false
+    "mobileDeviceQa": false,
+    "independentPixelFidelityVerified": true,
+    "draftChecklistsComplete": true
   },
   "fallbackProjects": [
     {
@@ -968,14 +973,24 @@
   "latestPass": {
     "date": "2026-11-23",
     "pdfDownloads": 50,
+    "pdfSourceBytes": 477428407,
     "sha256Recorded": 50,
     "gitBlobSha1CanonicalMatches": 50,
     "hostedPageCountsValidated": 50,
     "totalPdfPages": 1029,
     "candidateWebps": 50,
+    "refinedImageBlockCrops": 8,
     "webpDecodes": 50,
+    "draftChecklistSets": 50,
+    "draftQuestions": 250,
+    "nodeTestsPassed": 7,
+    "nodeTestsFailed": 0,
+    "pixelFidelityPasses": 50,
+    "maxPixelMeanAbsoluteError": 6.18,
+    "medianPixelMeanAbsoluteError": 2.81,
     "approvedReferences": 0,
     "approvedChecklists": 0,
-    "caveat": "All cropped WebPs are candidates; 50 were extracted from last pages and decoded using Pillow. Crop correctness and English raster text require human/independent visual review."
+    "secondPassReport": "reports/final-build-level-4-independent-verification-20261123.json",
+    "caveat": "Pixel similarity and source hashes verified; image semantic correctness and the five questionnaire items per variant require independent manual sign-off."
   }
 }
