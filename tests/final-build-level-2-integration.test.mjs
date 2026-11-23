@@ -211,7 +211,7 @@ test("fallback scanner/UI retains five checks, 4-of-5 pass, 15 minute timer and 
   assert.match(exam, /approval\.sourceUrl === variant\.url/);
   assert.match(exam, /pictureReady \|\| showRegisteredPdfFallback/);
   assert.match(exam, /target="_blank" rel="noopener noreferrer"/);
-  assert.match(exam, /general observable checks, not independently verified/);
+  assert.match(exam, /Owner-authorized self-assessment: five construction checks from original Building references, not independently certified/);
   assert.match(exam, /Retry Same Robot/);
   assert.match(exam, /Discover Another Robot/);
   assert.match(helper, /getVerifiedFinalBuildPool/);
