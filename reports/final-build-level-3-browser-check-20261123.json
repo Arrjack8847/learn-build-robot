@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-23",
+  "browser": "Playwright local Chromium (not Safari)",
+  "route": "/practical/level-3/final-build?review=1",
+  "checks": [
+    {
+      "viewport": 320,
+      "http": 200,
+      "title": "BE STEM READY | Learn Robotics by Building",
+      "width": 320,
+      "scrollWidth": 320,
+      "bodyWidth": 320,
+      "images": 0,
+      "buttons": 3,
+      "bodyText": "Skip to content\nLevel 3\n\nBE STEM READY\n\nFinal Build Exam\n\n🔬 LEVEL 3 · FINAL BUILD CHALLENGE\n\nRobot Discovery Scanner\n\nDiscover → Build independently → Check your robot\n\nLEVEL 3 · ROBOT CHALLENGE\n\nClip robot\n\nAction-Orie",
+      "actualWidth": 320,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "viewport": 375,
+      "http": 200,
+      "title": "BE STEM READY | Learn Robotics by Building",
+      "width": 375,
+      "scrollWidth": 375,
+      "bodyWidth": 375,
+      "images": 0,
+      "buttons": 3,
+      "bodyText": "Skip to content\nLevel 3\n\nBE STEM READY\n\nFinal Build Exam\n\n🔬 LEVEL 3 · FINAL BUILD CHALLENGE\n\nRobot Discovery Scanner\n\nDiscover → Build independently → Check your robot\n\nLEVEL 3 · ROBOT CHALLENGE\n\nClip robot\n\nAction-Orie",
+      "actualWidth": 375,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "viewport": 390,
+      "http": 200,
+      "title": "BE STEM READY | Learn Robotics by Building",
+      "width": 390,
+      "scrollWidth": 390,
+      "bodyWidth": 390,
+      "images": 0,
+      "buttons": 3,
+      "bodyText": "Skip to content\nLevel 3\n\nBE STEM READY\n\nFinal Build Exam\n\n🔬 LEVEL 3 · FINAL BUILD CHALLENGE\n\nRobot Discovery Scanner\n\nDiscover → Build independently → Check your robot\n\nLEVEL 3 · ROBOT CHALLENGE\n\nClip robot\n\nAction-Orie",
+      "actualWidth": 390,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "viewport": 430,
+      "http": 200,
+      "title": "BE STEM READY | Learn Robotics by Building",
+      "width": 430,
+      "scrollWidth": 430,
+      "bodyWidth": 430,
+      "images": 0,
+      "buttons": 3,
+      "bodyText": "Skip to content\nLevel 3\n\nBE STEM READY\n\nFinal Build Exam\n\n🔬 LEVEL 3 · FINAL BUILD CHALLENGE\n\nRobot Discovery Scanner\n\nDiscover → Build independently → Check your robot\n\nLEVEL 3 · ROBOT CHALLENGE\n\nClip robot\n\nAction-Orie",
+      "actualWidth": 430,
+      "overflow": false,
+      "errors": []
+    }
+  ]
+}
