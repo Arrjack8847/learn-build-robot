@@ -78,3 +78,13 @@ Not executed in this turn:
 - A new independent, read-only connector-side audit of the **current branch files** executed **947/947 manifest/source-contract assertions** with zero failures: 30 approved references, 150 source-evidenced questions, 30 READY mappings, 30 blocked exclusions, unique hosted URL/media IDs, Level 2 eligible dispatch, 15-minute / 4-of-5 source contracts, and preservation of all 39 Level 5 Wix URLs.
 - This is **not** a full Node test, TypeScript compilation, Vite build, native mobile/Safari functional run or CDN-body SHA-256 comparison. Those release gates remain open.
 - Continue to keep PR #109 and PR #114 **DRAFT**, retain all 30 blocked variants outside student discovery, and do not merge or deploy production.
+
+
+## 2026-11-23 independent live Wix CDN byte-verification
+
+- Independently fetched all **30/30 approved Level 2 hosted WebPs** directly from their actual `static.wixstatic.com` URLs. Every GET returned HTTP 200. The response bodies were decoded and hashed using WebCrypto SHA-256; an `abc` known-answer digest test also passed.
+- **30/30 exact hosted-vs-original SHA-256 matches**; **30/30 exact byte-length matches**; **30/30 RIFF/WEBP signatures and header dimensions matched**. **Zero failures.** This resolves the previously open live-CDN byte-integrity gate for approved Level 2 media.
+- Machine-readable evidence: `reports/final-build-level-2-wix-cdn-sha256-20261123.json`, added to both worker and integration branches.
+- Preserve the original Wix upload report as its historical snapshot; its old `cdnhostedSha256Verified=false` describes evidence at upload time only, not the later verification outcome.
+- The two additional Level 2-labelled PDF candidates for Hammer Robot and Robot War remain **unapproved**: independent PDF-body access/visual Building-manual classification was unavailable, and direct download via the Wix API returned a URL access restriction. Do not promote based on filename or metadata.
+- **30 approved / 30 blocked** still applies. The remaining release gates are a full isolated Node/TypeScript/Vite run, integrated mobile/browser functional and image-render QA, and source-authentic recovery for the blocked variants. No merging or production deployment.
