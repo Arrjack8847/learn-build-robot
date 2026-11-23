@@ -117,19 +117,17 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
   const variant = project?.variants.find(v => v.id === session.variantId) ?? project?.variants[0] ?? null;
   const approval = project && variant ? getVerifiedFinalBuildReference(level, project.id, variant) : null;
   const pictureReady = Boolean(variant && model?.filename === variant.id && model.status === "ready");
-  // An owner-authorized registered PDF is an explicit playable fallback, not
-  // an independently approved completed-model image. A failed Level 2 Wix
-  // image also exposes the canonical PDF rather than stranding the student.
-  const showLevelTwoPdfFallback = Boolean(
-    level === 2 && approval && variant &&
-    approval.sourceUrl === variant.url && (
-      approval.referenceMode === "registered-pdf-fallback" ||
-      (approval.referenceMode === "hosted-webp" &&
+  // Owner-authorized PDF-only variants remain accessible without claiming a
+  // finished-model WebP. Preserve Level 2's existing hosted-image error fallback.
+  const showRegisteredPdfFallback = Boolean(
+    approval && variant && approval.sourceUrl === variant.url && (
+      ((level === 2 || level === 5) && approval.referenceMode === "registered-pdf-fallback") ||
+      (level === 2 && approval.referenceMode === "hosted-webp" &&
         model?.filename === variant.id && model.status === "error")
     ),
   );
   const startAllowed = Boolean(approval && variant?.hostedOnWix &&
-    (pictureReady || showLevelTwoPdfFallback));
+    (pictureReady || showRegisteredPdfFallback));
   const testAllowed = Boolean(import.meta.env.DEV && reviewMode && variant && pictureReady);
   const remaining = session.deadline === null ? LIMIT_MS : Math.max(0, session.deadline - now);
   const elapsed = session.startedAt != null && session.completedAt != null ? Math.max(0, session.completedAt - session.startedAt) : null;
@@ -250,13 +248,15 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
                 </select>
               </label>}
               <div className="rounded-2xl border-2 border-sky-200 bg-sky-50 p-3 text-center sm:p-5">
-                <p className="mb-2 text-xs font-black uppercase tracking-widest text-sky-700">Your finished-model reference</p>
-                {showLevelTwoPdfFallback && approval ? (
+                <p className="mb-2 text-xs font-black uppercase tracking-widest text-sky-700">{approval?.referenceMode === "registered-pdf-fallback" ? "Official PDF assembly reference · incomplete model view" : "Your finished-model reference"}</p>
+                {showRegisteredPdfFallback && approval ? (
                   <div className="rounded-xl bg-white p-5 text-center" role="region" aria-label="Registered PDF reference fallback">
                     <p className="font-bold text-sky-900">Original registered PDF reference</p>
                     <p className="mt-2 text-xs text-slate-600">
                       {approval.referenceMode === "registered-pdf-fallback"
-                        ? "Owner-authorized PDF fallback. A separately approved completed-model WebP is not available; this PDF may be a presentation or incomplete Building reference."
+                        ? (level === 5
+                          ? "Owner-authorized Level 5 Building PDF instruction reference. The last page shows an unfinished assembly step, not an independently verified completed model. Follow the full PDF instructions and use general self-assessment checks."
+                          : "Owner-authorized PDF fallback. A separately approved completed-model WebP is not available; this PDF may be a presentation or incomplete Building reference.")
                         : "The verified hosted WebP did not load. Use its original registered PDF instead."}
                     </p>
                     <a href={approval.sourceUrl} target="_blank" rel="noopener noreferrer"
@@ -305,7 +305,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
             <a href={back} className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-violet-700"><ArrowLeft className="size-4"/> Back to Level {level}</a>
           </section>
         )}
-        <p className="mt-4 text-center text-xs text-slate-500">{level === 2 ? "Level 2: independently verified finished-model WebPs and owner-authorized registered PDF fallbacks are both selectable; their evidence statuses remain distinct." : `${inventory.length - pool.length} syllabus activities do not currently have an approved playable reference and are excluded from the draw.`}</p>
+        <p className="mt-4 text-center text-xs text-slate-500">{level === 2 ? "Level 2: independently verified finished-model WebPs and owner-authorized registered PDF fallbacks are both selectable; their evidence statuses remain distinct." : level === 5 ? "Level 5: 42 independently source-verified WebP references and 3 owner-authorized incomplete-view official Building PDF references are selectable. Their evidence statuses remain distinct." : `${inventory.length - pool.length} syllabus activities do not currently have an approved playable reference and are excluded from the draw.`}</p>
       </main>
     </div>
   );
