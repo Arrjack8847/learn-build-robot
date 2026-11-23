@@ -91,12 +91,6 @@ def inspect(pdf: Path, output: Path, name: str, profile: dict, max_per_page: int
             ext = extracted.get("ext", "bin")
             raw_path = folder / f"page-{i+1:02}-image-{rank:02}-xref-{xref}.{ext}"
             raw_path.write_bytes(extracted["image"])
-            webp_path = folder / f"page-{i+1:02}-image-{rank:02}-xref-{xref}.webp"
-            decoded.convert("RGBA").save(webp_path, "WEBP", lossless=True, method=6)
-            with Image.open(webp_path) as check:
-                check.load()
-                if check.size != decoded.size:
-                    raise ValueError("Converted WebP dimensions differ from embedded source")
             positions = [
                 [round(r.x0 / page.rect.width, 6),
                  round(r.y0 / page.rect.height, 6),
@@ -104,9 +98,13 @@ def inspect(pdf: Path, output: Path, name: str, profile: dict, max_per_page: int
                  round(r.y1 / page.rect.height, 6)]
                 for r in placements
             ]
-            candidates.append({
+            # The two current manuals are mostly full-page JPEG rasters.
+            # A full slide is NEVER an isolated, approved finished-model image.
+            full_page = any(r.width >= 0.95 * page.rect.width and
+                            r.height >= 0.95 * page.rect.height for r in placements)
+            record = {
                 "variantId": profile["variantId"],
-                "status": "candidate-unapproved",
+                "status": "full-page-raster-unapproved" if full_page else "candidate-unapproved",
                 "pdfPage": i + 1,
                 "xref": xref,
                 "originalEmbeddedImage": str(raw_path.relative_to(output)),
@@ -114,10 +112,19 @@ def inspect(pdf: Path, output: Path, name: str, profile: dict, max_per_page: int
                 "width": decoded.width,
                 "height": decoded.height,
                 "normalizedPlacements": positions,
-                "candidateWebp": str(webp_path.relative_to(output)),
-                "candidateWebpSha256": sha(webp_path.read_bytes()),
+                "fullPageOnly": full_page,
                 "reviewRequired": "Validate complete finished-model identity and all essential mechanical details against official PDF construction pages",
-            })
+            }
+            if not full_page:
+                webp_path = folder / f"page-{i+1:02}-image-{rank:02}-xref-{xref}.webp"
+                decoded.convert("RGBA").save(webp_path, "WEBP", lossless=True, method=6)
+                with Image.open(webp_path) as check:
+                    check.load()
+                    if check.size != decoded.size:
+                        raise ValueError("Converted WebP dimensions differ from embedded source")
+                record["candidateWebp"] = str(webp_path.relative_to(output))
+                record["candidateWebpSha256"] = sha(webp_path.read_bytes())
+            candidates.append(record)
         pages.append({"page": i + 1, "preview": str(preview.relative_to(output)),
                       "imageObjectsSeen": len(seen), "exportedCandidates": min(len(found), max_per_page)})
     document.close()
@@ -126,6 +133,8 @@ def inspect(pdf: Path, output: Path, name: str, profile: dict, max_per_page: int
         "sourceGitBlobSha1": git_blob_sha1(data), "sourcePdf": pdf.name, "sourceProfile": name,
         "pages": pages, "candidateCount": len(candidates), "candidates": candidates,
         "approved": False, "verifiedQuestions": 0,
+        "fullPageRasters": sum(c["fullPageOnly"] for c in candidates),
+        "isolatedImageCandidates": sum(not c["fullPageOnly"] for c in candidates),
         "note": "Embedded image streams omit separately overlaid PDF text/vector marks. No model completeness or optimized identity is inferred.",
     }
 
