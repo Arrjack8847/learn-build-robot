@@ -5,6 +5,7 @@
 - Reference PR: [#108](https://github.com/Arrjack8847/learn-build-robot/pull/108), branch `feat/final-build-exams-levels-1-6`
 - **Exact reference base SHA**: `1fe5c5336d45295e6e3252d0450b662337a1db50` (read from PR metadata immediately before the isolated branch was created)
 - Worker branch: `feat/final-build-level-2`
+- Draft PR: [#109](https://github.com/Arrjack8847/learn-build-robot/pull/109), targeting PR #108's integration branch (not `main`)
 - No main merge; no GitHub Actions; no Browser Use; no shared scanner, timer, CSS, Level 1 or Levels 3–6 edits.
 
 ## Registry reconciliation
@@ -51,7 +52,7 @@ All 60 variants are **blocked pending independent PDF-byte and visual inspection
 4. **Parity checks from source review only:** 4,200 ms scanner constant, 15-minute deadline, persistent storage, five-checkbox threshold 4/5, retry and simple result are present. These are **static source observations**, not interactive QA.
 
 ## Tests and QA
-- **PASS (connector-side code-data reconciliation):** 59 syllabus identities; 60 Level 2 project/manual registrations; 60 resolvable distinct Wix links; 36 historical remediated links; 24 other registered links; See Saw V1/V2 correctly grouped.
+- **PASS (6/6 independent connector-side static/data checks; 0 failures):** (1) 59/60 syllabus-to-variant reconciliation; (2) 60 exact project/manual/Wix URL registrations; (3) 36 historical repaired SHA-1 mappings plus 24 other mappings; (4) two See Saw versions correctly grouped; (5) all 60 blocked and no unverified image/checklist approval leakage; (6) Level 2 route and scanner/timer constants checked from code. These checks executed against files fetched from `feat/final-build-level-2`, not a local Node checkout.
 - **Not run:** local `node --test tests/final-build-level-2.test.mjs` against the complete repository (checkout unavailable in this execution environment); pending integration runner or authorized local workspace.
 - **Not run:** actual source PDF hashing and page counts, screenshot checks, visual WebP double-pass QA, and client-rendered viewport tests at 320, 375, 390 and 430 px.
 - **Not run:** interactive browser/device QA; not inferred from source inspection.
