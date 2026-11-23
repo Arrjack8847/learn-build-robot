@@ -17,8 +17,8 @@
     "registeredBuildingProjects": 43,
     "registeredBuildingVariants": 45,
     "syllabusProjectsWithoutIndependentBuildingManual": 8,
-    "approvedVariants": 39,
-    "blockedVariants": 6
+    "approvedVariants": 42,
+    "blockedVariants": 3
   },
   "sourceValidation": {
     "registrationCrosscheckedAgainstGitTree": true,
@@ -934,35 +934,40 @@
         "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
-        "pageByPageVisual": false,
+        "pageByPageVisual": true,
         "finishedModelPage": 20,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "normalizedCrop": [
+          0.065,
+          0.08,
+          0.605,
+          0.82
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-remote-control-car-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "6183ecc26f4162f548873a4d66c0df168762b4744d1d9800343cc49d8a04cf01",
+        "dimensions": [
+          550,
+          528
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
         "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
-        "imageAndCrop": "blocked: completed model cannot be confidently isolated without unrelated diagrams or multiple views",
-        "questions": "blocked: completed-model reference not independently accepted"
+        "imageAndCrop": "PASS (independent sandbox): official Building PDF SHA-256 matched; page 20 clean complete vehicle extracted at exact normalized crop [0.065,0.08,0.605,0.82]; background-only page numeral and separate remote panel excluded without editing the vehicle. Unchanged pixels outside both masks, decoded Wix WebP 550×528, exact CDN/GitHub SHA-256 equality, source raster MAE 0.929. Preserve remote unit as separate accessory in original PDF.",
+        "questions": "pass: five independent source-page visible model features reviewed (display, two wheels, front angled panels, side housing, red/blue connectors)"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Finished-model-only source crop not independently accepted: multi-view, annotations, separate modules or unclear complete assembly.",
-          "Do not release until an unambiguous exact-variant visual and all five questions pass independent validation."
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -2341,35 +2346,40 @@
         "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
-        "pageByPageVisual": false,
+        "pageByPageVisual": true,
         "finishedModelPage": 12,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "normalizedCrop": [
+          0.3,
+          0.18,
+          0.53,
+          0.68
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-voice-control-snail-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "268a5d6a2fbb244da5871cd080bd7f4109980b731028f6aa87d1fce440fe503d",
+        "dimensions": [
+          550,
+          397
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
         "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
-        "imageAndCrop": "blocked: completed model cannot be confidently isolated without unrelated diagrams or multiple views",
-        "questions": "blocked: completed-model reference not independently accepted"
+        "imageAndCrop": "pass: PDF hash and page verified; WebP source raster diff MAE 1.322; normalized official complete-model crop rechecked in isolated independent run",
+        "questions": "pass: five source-page-specific finished-model observations independently matched to actual original illustration"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Finished-model-only source crop not independently accepted: multi-view, annotations, separate modules or unclear complete assembly.",
-          "Do not release until an unambiguous exact-variant visual and all five questions pass independent validation."
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -2394,35 +2404,40 @@
         "notes": "Live Wix PDF downloaded in isolated QA workspace 2026-11-23; exact SHA-256 computed and Git object fingerprint matched tracked source or latest officially repaired revision. No English-only certification asserted."
       },
       "sourceInspection": {
-        "pageByPageVisual": false,
+        "pageByPageVisual": true,
         "finishedModelPage": 10,
-        "normalizedCrop": null,
-        "completedModelIdentityConfirmed": false,
+        "normalizedCrop": [
+          0.64,
+          0.52,
+          0.36,
+          0.42
+        ],
+        "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
       },
       "image": {
         "plannedPath": "public/final-build/level-5/level-5-voice-control-vehicle-basic.webp",
-        "generated": false,
-        "sha256": null,
-        "dimensions": null,
-        "reopenedAndValidated": false
+        "generated": true,
+        "sha256": "f627ccbb70fd03647d2135f0719fbea736ad9938b3c4397a1ef472f07a84b138",
+        "dimensions": [
+          550,
+          361
+        ],
+        "reopenedAndValidated": true
       },
       "checklist": {
-        "questionsWithEvidence": 0,
-        "verified": false
+        "questionsWithEvidence": 5,
+        "verified": true
       },
       "independentValidation": {
         "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
-        "imageAndCrop": "blocked: completed model cannot be confidently isolated without unrelated diagrams or multiple views",
-        "questions": "blocked: completed-model reference not independently accepted"
+        "imageAndCrop": "pass: PDF hash and page verified; WebP source raster diff MAE 2.251; normalized official complete-model crop rechecked in isolated independent run",
+        "questions": "pass: five source-page-specific finished-model observations independently matched to actual original illustration"
       },
       "release": {
-        "approved": false,
-        "status": "blocked",
-        "blockedReasons": [
-          "Finished-model-only source crop not independently accepted: multi-view, annotations, separate modules or unclear complete assembly.",
-          "Do not release until an unambiguous exact-variant visual and all five questions pass independent validation."
-        ]
+        "approved": true,
+        "status": "approved",
+        "blockedReasons": []
       }
     },
     {
@@ -2755,7 +2770,10 @@
     "level-5-light-chasing-car",
     "level-5-shopping-guide-robot",
     "level-5-voice-controlled-frog",
-    "level-5-wind-up-car"
+    "level-5-wind-up-car",
+    "level-5-voice-control-snail",
+    "level-5-voice-control-vehicle",
+    "level-5-remote-control-car"
   ],
   "additionalVerification": {
     "date": "2026-11-23",
@@ -2764,10 +2782,10 @@
     "aggregatePageCount": 1031,
     "originalTrackedSourceVersionsMatched": 40,
     "knownRepairedVersionsMatched": 5,
-    "originalModelWebpFilesCommitted": 39,
-    "approvedVariants": 39,
-    "blockedVariants": 6,
+    "originalModelWebpFilesCommitted": 42,
+    "approvedVariants": 42,
+    "blockedVariants": 3,
     "fiveQuestionsPerApprovedVariant": true,
-    "notes": "Shared engine and release remain integration-worker responsibility; page-level evidence backs visible construction, not untested functional behavior."
+    "notes": "Original 39 references preserved; Voice Control Snail, Voice Control Vehicle and Remote Control Car independently verified and added for 42/45 Level 5. Three remaining exact official PDFs lack completed final assembly images; blocked."
   }
 }
