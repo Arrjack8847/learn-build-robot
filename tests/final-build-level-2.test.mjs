@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, existsSync } from "node:fs";
+import { createHash } from "node:crypto";
 
 const root = new URL("../", import.meta.url);
 const read = path => readFileSync(new URL(path, root), "utf8");
@@ -8,6 +9,7 @@ const load = path => JSON.parse(read(path));
 const audit = load("src/data/finalBuild/level-2-audit.json");
 const refs = load("src/data/finalBuild/level-2-references.json");
 const checks = load("src/data/finalBuild/level-2-checklists.json");
+const provenance = load("src/data/finalBuild/level-2-image-provenance.json");
 const syllabus = read("src/data/advancedSyllabus.ts");
 const projects = read("src/data/practical.ts");
 const manualSource = read("src/data/pdfActivityManuals.ts");
@@ -68,7 +70,10 @@ test("blocked records have explicit reasons and never appear in approval lists",
   const approved = variants.filter(v => v.status === "approved");
   const blocked = variants.filter(v => v.status === "blocked");
   assert.equal(audit.counts.approved, approved.length);
+  assert.equal(approved.length, 30);
+  assert.equal(provenance.variants.length, 30);
   assert.equal(audit.counts.blocked, blocked.length);
+  assert.equal(blocked.length, 30);
   assert.equal(audit.counts.unresolved, variants.length-approved.length-blocked.length);
   const refIds = new Set(refs.references.map(x=>x.variantId));
   const checklistIds = new Set(checks.checklists.map(x=>x.variantId));
@@ -99,12 +104,27 @@ test("every future approval requires image bytes, dimensions, SHA-256, two passe
     assert.ok(Number.isInteger(v.source.pageCount)&&v.source.pageCount>0);
     assert.equal(v.validation.pass1,true);
     assert.equal(v.validation.pass2,true);
+    assert.equal(v.validation.actualPdfByteInspection,true);
+    assert.equal(v.validation.pdfPageVisualInspection,true);
+    assert.equal(v.validation.webpReopened,true);
+    assert.equal(v.source.englishCleanedConfirmed,true);
     const ref=byRef.get(v.variantId);
     assert.ok(ref&&ref.approved===true);
     assert.equal(ref.sourceSha256,v.source.sha256);
     const path="public/final-build/level-2/"+v.image.filename;
     assert.ok(existsSync(new URL(path,root)),"Missing "+path);
-    const [width,height]=webpDimensions(readFileSync(new URL(path,root)));
+    const imageBytes=readFileSync(new URL(path,root));
+    const webpSha256=createHash("sha256").update(imageBytes).digest("hex");
+    assert.equal(webpSha256,v.image.sha256);
+    assert.equal(webpSha256,ref.imageSha256);
+    assert.equal(v.image.path,ref.imagePath);
+    assert.equal(ref.imagePath,"/final-build/level-2/"+v.image.filename);
+    const prov=provenance.variants.find(x=>x.id===v.variantId);
+    assert.ok(prov);
+    assert.equal(prov.sha256,webpSha256);
+    assert.equal(prov.pageCount,undefined);
+    assert.equal(prov.page,v.image.pdfPage);
+    const [width,height]=webpDimensions(imageBytes);
     assert.equal(width,v.image.width);
     assert.equal(height,v.image.height);
     assert.ok(width>=320&&height>=200);
@@ -113,6 +133,8 @@ test("every future approval requires image bytes, dimensions, SHA-256, two passe
     assert.equal(new Set(items.map(q=>q.text)).size,5);
     for(const q of items) {
       assert.ok(q.text.length>12&&q.evidenceNote.length>15);
+      assert.ok(q.text.endsWith("?"));
+      assert.ok(q.evidenceNote.includes("page "+q.pdfPage));
       assert.ok(Number.isInteger(q.pdfPage)&&q.pdfPage>=1&&q.pdfPage<=v.source.pageCount);
     }
   }
@@ -129,6 +151,21 @@ test("Level 2 reuses shared exam source; static 4.2-second/15-minute constants s
   assert.match(exam,/Retry Same Robot/);
 });
 
+test("provenance and source SHA-256 linkage stay one-to-one for all 30 approvals", () => {
+  const approved=variants.filter(v=>v.status==="approved");
+  const entries=new Map(provenance.variants.map(v=>[v.id,v]));
+  assert.equal(entries.size,30);
+  for(const v of approved){
+    const p=entries.get(v.variantId);
+    assert.ok(p);
+    assert.equal(v.source.sha256,refs.references.find(r=>r.variantId===v.variantId).sourceSha256);
+    assert.equal(v.image.sha256,p.sha256);
+    assert.equal(v.image.width,p.width);
+    assert.equal(v.image.height,p.height);
+    assert.equal(v.image.pdfPage,p.page);
+    assert.equal(checks.checklists.find(c=>c.variantId===v.variantId).questions.length,5);
+  }
+});
 test.todo("INTEGRATION: scanner discovery must draw only approved projects, not merely registered Building PDFs");
 test.todo("INTEGRATION: replace generic title-heuristic checklist and dynamic PDF crop with verified variant checklist and WebP");
 test.todo("DEVICE QA: verify 320/375/390/430px interactive scanner, timer and results in authorized runtime");
