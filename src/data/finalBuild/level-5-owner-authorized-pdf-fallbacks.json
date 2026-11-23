@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "level": 5,
+  "recordedAt": "2026-11-23",
+  "purpose": "Allow the three source-incomplete Level 5 registered variants to use their exact official PDF instruction pages, with clear incompleteness disclosure. This is owner authorization for inclusion, NOT artwork verification.",
+  "wixSite": "Steam",
+  "wixSiteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+  "coverage": {
+    "previousVerifiedWixWebpReferences": 42,
+    "ownerAuthorizedPdfFallbackReferences": 3,
+    "totalStudentSelectableVariants": 45,
+    "independentlyVerifiedWebpQuestions": 210,
+    "ownerAuthorizedGeneralAssessmentQuestions": 15,
+    "totalAvailableQuestions": 225
+  },
+  "items": [
+    {
+      "variantId": "level-5-crack-shot:optimized",
+      "projectId": "level-5-crack-shot",
+      "variant": "optimized",
+      "referenceKind": "pdf-instructional",
+      "status": "owner-authorized-pdf-fallback",
+      "ownerApprovedForStudentSelection": true,
+      "independentlyVerifiedCompletedImage": false,
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_835593144e5f475e995524016c5791d4.pdf",
+      "pdfSha256": "cfb54f435a8345ca010a6db10c0c1ed37a5a77f48d3086f25a5a7ae28f4f5dcf",
+      "sourcePage": 4,
+      "sourcePageCount": 4,
+      "crop": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "limitation": "Detached wheel on the final optimized instruction page",
+      "questionPolicy": "Owner-authorized general construction self-assessment; not independent certification of source-specific features or model completion",
+      "questions": [
+        {
+          "id": "level-5-crack-shot-optimized-owner-check-1",
+          "text": "Did you build Crack Shot using the Optimized manual rather than the separate Basic version?",
+          "evidenceKind": "general-construction-self-assessment",
+          "independentlyVerified": false
+        },
+        {
+          "id": "level-5-crack-shot-optimized-owner-check-2",
+          "text": "Have you completed every attachment shown in the Optimized manual, including its final wheel-assembly instructions?",
+          "evidenceKind": "general-construction-self-assessment",
+          "independentlyVerified": false
+        },
+        {
+          "id": "level-5-crack-shot-optimized-owner-check-3",
+          "text": "Are all parts shown separately in the final instruction stage now attached as directed?",
+          "evidenceKind": "general-construction-self-assessment",
+          "independentlyVerified": false
+        },
+        {
+          "id": "level-5-crack-shot-optimized-owner-check-4",
+          "text": "Are the assembled frame, wheel supports and connectors securely fitted, according to the Optimized manual?",
+          "evidenceKind": "general-construction-self-assessment",
+          "independentlyVerified": false
+        },
+        {
+          "id": "level-5-crack-shot-optimized-owner-check-5",
+          "text": "Have you checked your assembled Optimized model against each official construction step and corrected anything missing?",
+          "evidenceKind": "general-construction-self-assessment",
+          "independentlyVerified": false
+        }
+      ]
+    },
+    {
+      "variantId": "level-5-machine-gun",
+      "projectId": "level-5-machine-gun",
+      "variant": "official",
+      "referenceKind": "pdf-instructional",
+      "status": "owner-authorized-pdf-fallback",
+      "ownerApprovedForStudentSelection": true,
+      "independentlyVerifiedCompletedImage": false,
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f65e51bc47304554b99de3e3a96109cb.pdf",
+      "pdfSha256": "acc9ac20908550895909ac6c73d473301732d15cbbe4f03049c1d4b84f1a60c1",
+      "sourcePage": 29,
+      "sourcePageCount": 29,
+      "crop": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "limitation": "The final manual page shows a rubber-band/connector attachment step, not a fully assembled model",
+      "questionPolicy": "Owner-authorized general construction self-assessment; not independent certification of source-specific features or model completion",
+      "questions": [
+        {
+          "id": "level-5-machine-gun-owner-check-1",
+          "text": "Have you followed all assembly steps in the official Machine Gun Building manual?",
+          "evidenceKind": "general-construction-self-assessment",
+          "independentlyVerified": false
+        },
+        {
+          "id": "level-5-machine-gun-owner-check-2",
+          "text": "Have you completed the final rubber-band and connector attachment described on page 29?",
+          "evidenceKind": "general-construction-self-assessment",
+          "independentlyVerified": false
+        },
+        {
+          "id": "level-5-machine-gun-owner-check-3",
+          "text": "Are the parts shown separately during the last attachment step now installed as directed?",
+          "evidenceKind": "general-construction-self-assessment",
+          "independentlyVerified": false
+        },
+        {
+          "id": "level-5-machine-gun-owner-check-4",
+          "text": "Are the model's mechanical and structural connections securely fitted according to the manual?",
+          "evidenceKind": "general-construction-self-assessment",
+          "independentlyVerified": false
+        },
+        {
+          "id": "level-5-machine-gun-owner-check-5",
+          "text": "Have you checked the finished construction against the official instructions and corrected missing or loose parts?",
+          "evidenceKind": "general-construction-self-assessment",
+          "independentlyVerified": false
+        }
+      ]
+    },
+    {
+      "variantId": "level-5-facial-recognition-time-clock",
+      "projectId": "level-5-facial-recognition-time-clock",
+      "variant": "official",
+      "referenceKind": "pdf-instructional",
+      "status": "owner-authorized-pdf-fallback",
+      "ownerApprovedForStudentSelection": true,
+      "independentlyVerifiedCompletedImage": false,
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfc2fffdf072479282e6a039a228b3e7.pdf",
+      "pdfSha256": "d864a564ec020cf36df072b980ca763a133aabbd8d4115e50f564ffb02dca872",
+      "sourcePage": 7,
+      "sourcePageCount": 7,
+      "crop": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "limitation": "The final instruction page shows a camera module detached beside the clock",
+      "questionPolicy": "Owner-authorized general construction self-assessment; not independent certification of source-specific features or model completion",
+      "questions": [
+        {
+          "id": "level-5-facial-recognition-time-clock-owner-check-1",
+          "text": "Have you followed every step of the official Facial Recognition Time Clock Building manual?",
+          "evidenceKind": "general-construction-self-assessment",
+          "independentlyVerified": false
+        },
+        {
+          "id": "level-5-facial-recognition-time-clock-owner-check-2",
+          "text": "Have you completed the camera-module attachment instructed on page 7?",
+          "evidenceKind": "general-construction-self-assessment",
+          "independentlyVerified": false
+        },
+        {
+          "id": "level-5-facial-recognition-time-clock-owner-check-3",
+          "text": "Is the camera module securely mounted rather than still detached as in the instruction illustration?",
+          "evidenceKind": "general-construction-self-assessment",
+          "independentlyVerified": false
+        },
+        {
+          "id": "level-5-facial-recognition-time-clock-owner-check-4",
+          "text": "Have you checked the camera orientation, supports and connectors against the official instructions?",
+          "evidenceKind": "general-construction-self-assessment",
+          "independentlyVerified": false
+        },
+        {
+          "id": "level-5-facial-recognition-time-clock-owner-check-5",
+          "text": "Have you compared the assembled clock with all manual construction steps and corrected missing or loose parts?",
+          "evidenceKind": "general-construction-self-assessment",
+          "independentlyVerified": false
+        }
+      ]
+    }
+  ]
+}
