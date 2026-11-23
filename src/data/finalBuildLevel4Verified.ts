@@ -45,7 +45,7 @@ export function getLevelFourEvidence(projectId: string, variant: FinalBuildVaria
         pdfSha256: original.source.hostedPdfSha256,
         page: approved.sourcePage, crop: { ...original.reference.cropNormalized },
         imageUrl: approved.finishedModelWebpUrl,
-        referenceKind: "verified-complete-webp",
+        referenceMode: "hosted-webp",
       },
       questions: approved.questions.map(q => q.text),
     };
@@ -79,7 +79,7 @@ export function getLevelFourEvidence(projectId: string, variant: FinalBuildVaria
       level: 4, projectId, variantId: variant.id, sourceUrl: variant.url,
       pdfSha256: original.source.hostedPdfSha256,
       page: fallback.sourcePage, crop: { ...fallback.normalizedCrop },
-      imageUrl: null, referenceKind: "official-pdf-construction-stage",
+      imageUrl: null, referenceMode: "registered-pdf-fallback",
       referenceNotice: fallback.limitation,
     },
     questions: fallback.questions.map(q => q.text),
