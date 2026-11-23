@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "date": "2026-11-23",
-  "status": "uploaded-and-metadata-verified-39-ready",
+  "status": "uploaded-39-ready-image-metadata-verified",
   "candidateSource": "PR #113 / feat/final-build-level-5",
   "targetWixSiteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
   "constraint": "Choose Wix site before calling media upload. Never use files from six blocked variants.",
@@ -29,7 +29,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_e24113c5bfda443a9b94cf62d1ca8f1b~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_e24113c5bfda443a9b94cf62d1ca8f1b~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_e24113c5bfda443a9b94cf62d1ca8f1b~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-curling-game-basic.webp",
+        "originalFilename": "level-5-curling-game-basic.webp",
+        "mimeType": "image/webp",
+        "width": 550,
+        "height": 500,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "cd8fa8d728bb5de9e97ccabd226f0dce",
+        "sizeInBytes": "12982"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-curling-game:optimized",
@@ -44,7 +59,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_94e1c77557e9455eb8bb3bfc699ec225~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_94e1c77557e9455eb8bb3bfc699ec225~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_94e1c77557e9455eb8bb3bfc699ec225~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-curling-game-optimized.webp",
+        "originalFilename": "level-5-curling-game-optimized.webp",
+        "mimeType": "image/webp",
+        "width": 550,
+        "height": 500,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "28d0a289f758cb11b80c2a2d8245bc48",
+        "sizeInBytes": "12222"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-drawing-machine",
@@ -59,7 +89,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_36ed80a994434d6891381215cd3bfe06~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_36ed80a994434d6891381215cd3bfe06~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_36ed80a994434d6891381215cd3bfe06~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-drawing-machine-basic.webp",
+        "originalFilename": "level-5-drawing-machine-basic.webp",
+        "mimeType": "image/webp",
+        "width": 550,
+        "height": 410,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "cc7502e478435660d9cf8559ce0baa56",
+        "sizeInBytes": "12640"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-firefly",
@@ -74,7 +119,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_ed8d4d3addeb49f1ac628ab64e96ae05~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_ed8d4d3addeb49f1ac628ab64e96ae05~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_ed8d4d3addeb49f1ac628ab64e96ae05~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-firefly-basic.webp",
+        "originalFilename": "level-5-firefly-basic.webp",
+        "mimeType": "image/webp",
+        "width": 550,
+        "height": 292,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "b02316e7fce2f53baaf0d1ffb0ebe628",
+        "sizeInBytes": "12700"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-goalkeeper",
@@ -89,7 +149,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_e8cd1be466f04d209e3293eccd662f0d~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_e8cd1be466f04d209e3293eccd662f0d~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_e8cd1be466f04d209e3293eccd662f0d~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-goalkeeper-basic.webp",
+        "originalFilename": "level-5-goalkeeper-basic.webp",
+        "mimeType": "image/webp",
+        "width": 550,
+        "height": 271,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "350e7f1c21bbc930f47f973327ca72d0",
+        "sizeInBytes": "11952"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-spanish-bullfight",
@@ -104,7 +179,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_551642956d70493ca120386e4012a369~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_551642956d70493ca120386e4012a369~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_551642956d70493ca120386e4012a369~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-spanish-bullfight-basic.webp",
+        "originalFilename": "level-5-spanish-bullfight-basic.webp",
+        "mimeType": "image/webp",
+        "width": 510,
+        "height": 485,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "67798872a9be8fba8d8878b25889dfaf",
+        "sizeInBytes": "12266"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-the-warrior",
@@ -119,7 +209,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_7456cf1890e9405086c8ad6cfdf7609a~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_7456cf1890e9405086c8ad6cfdf7609a~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_7456cf1890e9405086c8ad6cfdf7609a~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-the-warrior-basic.webp",
+        "originalFilename": "level-5-the-warrior-basic.webp",
+        "mimeType": "image/webp",
+        "width": 426,
+        "height": 530,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "b868f1bd93b782b1eb5fa20fac5b2117",
+        "sizeInBytes": "12446"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-magnetic-anti-theft-cabinet",
@@ -134,7 +239,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_49df27dad03643f0936a423fb96661c7~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_49df27dad03643f0936a423fb96661c7~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_49df27dad03643f0936a423fb96661c7~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-magnetic-anti-theft-cabinet-basic.webp",
+        "originalFilename": "level-5-magnetic-anti-theft-cabinet-basic.webp",
+        "mimeType": "image/webp",
+        "width": 530,
+        "height": 471,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "e9b8eb0cbeff74ebc23aba472b5325b3",
+        "sizeInBytes": "12544"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-please-scan-to-ride",
@@ -149,7 +269,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_9975fd4b097b448e8807d7dc5e9391a8~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_9975fd4b097b448e8807d7dc5e9391a8~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_9975fd4b097b448e8807d7dc5e9391a8~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-please-scan-to-ride-basic.webp",
+        "originalFilename": "level-5-please-scan-to-ride-basic.webp",
+        "mimeType": "image/webp",
+        "width": 499,
+        "height": 550,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "0b9ea8cfc29765a065c4db6634944d92",
+        "sizeInBytes": "11922"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-smart-cash-register",
@@ -164,7 +299,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_bf3426b7c88b4736afe9e2711200af94~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_bf3426b7c88b4736afe9e2711200af94~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_bf3426b7c88b4736afe9e2711200af94~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-smart-cash-register-basic.webp",
+        "originalFilename": "level-5-smart-cash-register-basic.webp",
+        "mimeType": "image/webp",
+        "width": 550,
+        "height": 542,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "414a0103a3a16e2662aa934d0f8c8902",
+        "sizeInBytes": "12238"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-smart-guiding-car",
@@ -179,7 +329,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_d6e126af73a3461db0bff7c8f80bfb87~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_d6e126af73a3461db0bff7c8f80bfb87~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_d6e126af73a3461db0bff7c8f80bfb87~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-smart-guiding-car-basic.webp",
+        "originalFilename": "level-5-smart-guiding-car-basic.webp",
+        "mimeType": "image/webp",
+        "width": 530,
+        "height": 510,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "845b1cce21cbe5c781d1908db53b259d",
+        "sizeInBytes": "12214"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-lucky-prize-wheel",
@@ -194,7 +359,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_218c126c701e41c09af20adf03186387~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_218c126c701e41c09af20adf03186387~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_218c126c701e41c09af20adf03186387~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-lucky-prize-wheel-basic.webp",
+        "originalFilename": "level-5-lucky-prize-wheel-basic.webp",
+        "mimeType": "image/webp",
+        "width": 459,
+        "height": 490,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "83df636060871516e688821d63d459b2",
+        "sizeInBytes": "12310"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-oil-pumping-unit",
@@ -209,7 +389,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_8de3f5ce74b54c21a32ec7885bf5ba18~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_8de3f5ce74b54c21a32ec7885bf5ba18~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_8de3f5ce74b54c21a32ec7885bf5ba18~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-oil-pumping-unit-basic.webp",
+        "originalFilename": "level-5-oil-pumping-unit-basic.webp",
+        "mimeType": "image/webp",
+        "width": 550,
+        "height": 324,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "72a3a9b93f9a2687abbd9b690c9a5f95",
+        "sizeInBytes": "12128"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-swinging-shark",
@@ -224,7 +419,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_b51df103bd8c41b68929d62c9676cbe9~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_b51df103bd8c41b68929d62c9676cbe9~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_b51df103bd8c41b68929d62c9676cbe9~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-swinging-shark-basic.webp",
+        "originalFilename": "level-5-swinging-shark-basic.webp",
+        "mimeType": "image/webp",
+        "width": 550,
+        "height": 421,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "ee5ec6b4a622a419579993e18f2eb9af",
+        "sizeInBytes": "11906"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-runner",
@@ -239,7 +449,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_aab5afda845f44f692041f5591fd5230~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_aab5afda845f44f692041f5591fd5230~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_aab5afda845f44f692041f5591fd5230~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-runner-basic.webp",
+        "originalFilename": "level-5-runner-basic.webp",
+        "mimeType": "image/webp",
+        "width": 510,
+        "height": 448,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "6d3ab9db201f18e1c0a207de33500940",
+        "sizeInBytes": "12658"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-welcome-sign",
@@ -254,7 +479,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_5672764d041d4df8ba9693d285ccd265~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_5672764d041d4df8ba9693d285ccd265~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_5672764d041d4df8ba9693d285ccd265~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-welcome-sign-basic.webp",
+        "originalFilename": "level-5-welcome-sign-basic.webp",
+        "mimeType": "image/webp",
+        "width": 430,
+        "height": 550,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "acdd4028a73321b705090f9bc80b911b",
+        "sizeInBytes": "12552"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-car-lights",
@@ -269,7 +509,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_49536cc4dd6c401a90b677fd1fae2878~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_49536cc4dd6c401a90b677fd1fae2878~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_49536cc4dd6c401a90b677fd1fae2878~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-car-lights-basic.webp",
+        "originalFilename": "level-5-car-lights-basic.webp",
+        "mimeType": "image/webp",
+        "width": 550,
+        "height": 508,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "ef08aac0e0f4b161be94b005d9ec40cc",
+        "sizeInBytes": "12370"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-direction-indicator",
@@ -284,7 +539,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_8ffff24a37f249b5857bf419b40b5e7a~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_8ffff24a37f249b5857bf419b40b5e7a~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_8ffff24a37f249b5857bf419b40b5e7a~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-direction-indicator-basic.webp",
+        "originalFilename": "level-5-direction-indicator-basic.webp",
+        "mimeType": "image/webp",
+        "width": 536,
+        "height": 550,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "00395375a89fbcb860513e98ca4facfa",
+        "sizeInBytes": "12600"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-magnetic-object-finder",
@@ -299,7 +569,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_4547d9dbe48a411393aa366dda1168b7~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_4547d9dbe48a411393aa366dda1168b7~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_4547d9dbe48a411393aa366dda1168b7~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-magnetic-object-finder-basic.webp",
+        "originalFilename": "level-5-magnetic-object-finder-basic.webp",
+        "mimeType": "image/webp",
+        "width": 386,
+        "height": 550,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "efb8ec5efce3451973075bc445ee5f1f",
+        "sizeInBytes": "12100"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-passenger-counter",
@@ -314,7 +599,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_8c02a5ea7450486fa829e856b286c765~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_8c02a5ea7450486fa829e856b286c765~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_8c02a5ea7450486fa829e856b286c765~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-passenger-counter-basic.webp",
+        "originalFilename": "level-5-passenger-counter-basic.webp",
+        "mimeType": "image/webp",
+        "width": 510,
+        "height": 485,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "839c895c6357954bfc4e7d511c381e74",
+        "sizeInBytes": "12440"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-big-pendulum",
@@ -329,7 +629,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_abfc617aaa18400482f2384090f64b51~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_abfc617aaa18400482f2384090f64b51~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_abfc617aaa18400482f2384090f64b51~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-big-pendulum-basic.webp",
+        "originalFilename": "level-5-big-pendulum-basic.webp",
+        "mimeType": "image/webp",
+        "width": 392,
+        "height": 550,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "8990c463f9818befb41014358d7225ec",
+        "sizeInBytes": "12326"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-chairoplane",
@@ -344,7 +659,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_cf167070f5a1466186fe2e3f882aa148~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_cf167070f5a1466186fe2e3f882aa148~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_cf167070f5a1466186fe2e3f882aa148~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-chairoplane-basic.webp",
+        "originalFilename": "level-5-chairoplane-basic.webp",
+        "mimeType": "image/webp",
+        "width": 526,
+        "height": 550,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "bfcb20d95f4cb4e859ea45416836e76c",
+        "sizeInBytes": "12430"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-crack-shot",
@@ -359,7 +689,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_51ffb03cdc3346f8b575a67ebae6f35e~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_51ffb03cdc3346f8b575a67ebae6f35e~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_51ffb03cdc3346f8b575a67ebae6f35e~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-crack-shot-basic.webp",
+        "originalFilename": "level-5-crack-shot-basic.webp",
+        "mimeType": "image/webp",
+        "width": 550,
+        "height": 388,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "75d29d1b0d61356c89d2e20720580e9f",
+        "sizeInBytes": "12318"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-kiddie-ride",
@@ -374,7 +719,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_8ce05720af564c74bb8233863b79f44a~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_8ce05720af564c74bb8233863b79f44a~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_8ce05720af564c74bb8233863b79f44a~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-kiddie-ride-basic.webp",
+        "originalFilename": "level-5-kiddie-ride-basic.webp",
+        "mimeType": "image/webp",
+        "width": 497,
+        "height": 530,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "b735edf85722e2beb33bcae16666e7db",
+        "sizeInBytes": "12536"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-revolving-door",
@@ -389,7 +749,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_e38da8fcd7b84535b7fd37177e8a3ee5~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_e38da8fcd7b84535b7fd37177e8a3ee5~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_e38da8fcd7b84535b7fd37177e8a3ee5~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-revolving-door-basic.webp",
+        "originalFilename": "level-5-revolving-door-basic.webp",
+        "mimeType": "image/webp",
+        "width": 430,
+        "height": 429,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "af0731953cd7785d0b149eebfc813db4",
+        "sizeInBytes": "12020"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-smart-turnstile",
@@ -404,7 +779,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_5415400a6c5a45ddadfe67d6c250b4a1~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_5415400a6c5a45ddadfe67d6c250b4a1~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_5415400a6c5a45ddadfe67d6c250b4a1~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-smart-turnstile-basic.webp",
+        "originalFilename": "level-5-smart-turnstile-basic.webp",
+        "mimeType": "image/webp",
+        "width": 447,
+        "height": 510,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "400a26619b1574d7ae53c1b8d95c1ba7",
+        "sizeInBytes": "12010"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-top-scorer",
@@ -419,7 +809,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_63b13f422fae468194c7ecc408c74b25~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_63b13f422fae468194c7ecc408c74b25~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_63b13f422fae468194c7ecc408c74b25~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-top-scorer-basic.webp",
+        "originalFilename": "level-5-top-scorer-basic.webp",
+        "mimeType": "image/webp",
+        "width": 427,
+        "height": 550,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "9f88efd62c7833d8c82d226de99e32ff",
+        "sizeInBytes": "12636"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-clothes-dryer",
@@ -434,7 +839,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_c273183a4b5a4c2d9c3dfdb4000b5eb8~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_c273183a4b5a4c2d9c3dfdb4000b5eb8~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_c273183a4b5a4c2d9c3dfdb4000b5eb8~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-clothes-dryer-basic.webp",
+        "originalFilename": "level-5-clothes-dryer-basic.webp",
+        "mimeType": "image/webp",
+        "width": 530,
+        "height": 469,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "f60535b54afbb19f62ab8ae1555b9dba",
+        "sizeInBytes": "12132"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-remote-control-fan",
@@ -449,7 +869,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_3dcb0a18b65040dfba8821c9683c8adb~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_3dcb0a18b65040dfba8821c9683c8adb~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_3dcb0a18b65040dfba8821c9683c8adb~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-remote-control-fan-basic.webp",
+        "originalFilename": "level-5-remote-control-fan-basic.webp",
+        "mimeType": "image/webp",
+        "width": 550,
+        "height": 451,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "4a5af2cd8cfdfb8080f26cef2bc5d7d5",
+        "sizeInBytes": "11842"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-rescue-robot",
@@ -464,7 +899,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_9b17a2c7fd55448b8de730c56012f8d3~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_9b17a2c7fd55448b8de730c56012f8d3~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_9b17a2c7fd55448b8de730c56012f8d3~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-rescue-robot-basic.webp",
+        "originalFilename": "level-5-rescue-robot-basic.webp",
+        "mimeType": "image/webp",
+        "width": 510,
+        "height": 505,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "af82417e2c2b17a016571c59f09df8b9",
+        "sizeInBytes": "12740"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-barometric-sensor",
@@ -479,7 +929,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_545f8036d43a4c47995489c711cb3432~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_545f8036d43a4c47995489c711cb3432~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_545f8036d43a4c47995489c711cb3432~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-barometric-sensor-basic.webp",
+        "originalFilename": "level-5-barometric-sensor-basic.webp",
+        "mimeType": "image/webp",
+        "width": 369,
+        "height": 550,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "51ec40b3ddf9dfc92ef72c0e98299c3f",
+        "sizeInBytes": "12466"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-car-speed-detector",
@@ -494,7 +959,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_030520f2f7a2422fb17c21fe153fc8f6~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_030520f2f7a2422fb17c21fe153fc8f6~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_030520f2f7a2422fb17c21fe153fc8f6~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-car-speed-detector-basic.webp",
+        "originalFilename": "level-5-car-speed-detector-basic.webp",
+        "mimeType": "image/webp",
+        "width": 372,
+        "height": 550,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "67782d0d5d708269444085c8ea6941af",
+        "sizeInBytes": "12242"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-traffic-robot",
@@ -509,7 +989,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_9b221d3b2d0e404ca5fd2a63586cc09c~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_9b221d3b2d0e404ca5fd2a63586cc09c~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_9b221d3b2d0e404ca5fd2a63586cc09c~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-traffic-robot-basic.webp",
+        "originalFilename": "level-5-traffic-robot-basic.webp",
+        "mimeType": "image/webp",
+        "width": 510,
+        "height": 481,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "88459157e49fa200550907e4260f8866",
+        "sizeInBytes": "12026"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-swing-with-rhythm",
@@ -524,7 +1019,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_352fd6dcb839427d989290feb7556831~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_352fd6dcb839427d989290feb7556831~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_352fd6dcb839427d989290feb7556831~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-swing-with-rhythm-basic.webp",
+        "originalFilename": "level-5-swing-with-rhythm-basic.webp",
+        "mimeType": "image/webp",
+        "width": 550,
+        "height": 532,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "8764cac3280fcc114547a58e06bc508a",
+        "sizeInBytes": "12248"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-hexapod-robot",
@@ -539,7 +1049,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_9579c314d0f349e284058cebdadae3af~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_9579c314d0f349e284058cebdadae3af~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_9579c314d0f349e284058cebdadae3af~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-hexapod-robot-basic.webp",
+        "originalFilename": "level-5-hexapod-robot-basic.webp",
+        "mimeType": "image/webp",
+        "width": 550,
+        "height": 497,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "a24d353d355e1be57773e00e49ee11c1",
+        "sizeInBytes": "11796"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-light-chasing-car",
@@ -554,7 +1079,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_1fef652fd1de4735aa5523124aace493~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_1fef652fd1de4735aa5523124aace493~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_1fef652fd1de4735aa5523124aace493~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-light-chasing-car-basic.webp",
+        "originalFilename": "level-5-light-chasing-car-basic.webp",
+        "mimeType": "image/webp",
+        "width": 510,
+        "height": 510,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "97254ca26d566e4f193f330154c70660",
+        "sizeInBytes": "12176"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-shopping-guide-robot",
@@ -569,7 +1109,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_904ceeff89cc4a468f91076726c3b373~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_904ceeff89cc4a468f91076726c3b373~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_904ceeff89cc4a468f91076726c3b373~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-shopping-guide-robot-basic.webp",
+        "originalFilename": "level-5-shopping-guide-robot-basic.webp",
+        "mimeType": "image/webp",
+        "width": 382,
+        "height": 550,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "e7d4801cc55a2e9387425623b16e3248",
+        "sizeInBytes": "12732"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-voice-controlled-frog",
@@ -584,7 +1139,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_c713f67e0c62440ab36cea54491f33e0~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_c713f67e0c62440ab36cea54491f33e0~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_c713f67e0c62440ab36cea54491f33e0~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-voice-controlled-frog-basic.webp",
+        "originalFilename": "level-5-voice-controlled-frog-basic.webp",
+        "mimeType": "image/webp",
+        "width": 530,
+        "height": 512,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "8b21bb195376bb0ef761738a4379b703",
+        "sizeInBytes": "12426"
+      },
+      "imageMetadataVerified": true
     },
     {
       "variantId": "level-5-wind-up-car",
@@ -599,7 +1169,22 @@
       "wixUrl": "https://static.wixstatic.com/media/78042f_e6ce32837a8143ee84eea65aab9246ec~mv2.webp",
       "uploadStatus": "READY",
       "wixMediaId": "78042f_e6ce32837a8143ee84eea65aab9246ec~mv2.webp",
-      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY",
+      "wixMetadata": {
+        "id": "78042f_e6ce32837a8143ee84eea65aab9246ec~mv2.webp",
+        "originalSourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/feat/final-build-level-5/public/final-build/level-5/level-5-wind-up-car-basic.webp",
+        "originalFilename": "level-5-wind-up-car-basic.webp",
+        "mimeType": "image/webp",
+        "width": 550,
+        "height": 540,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+        "mediaManagerStatus": "READY",
+        "mediaManagerState": "OK",
+        "private": false,
+        "contentHashMd5": "f59553ac21717fff12934dd1ede85b69",
+        "sizeInBytes": "12278"
+      },
+      "imageMetadataVerified": true
     }
   ],
   "targetWixSiteName": "Steam",
@@ -611,6 +1196,12 @@
     "failed": 0,
     "blockedExcluded": 6,
     "staticAssetFilesAddedToIntegrationBranch": 0,
-    "cdnHttpByteVerification": "not independently performed; Media Manager READY metadata verified"
+    "cdnHttpByteVerification": "not independently performed; Media Manager READY metadata verified",
+    "exactOriginalSourceUrlsVerified": 39,
+    "expectedDimensionsVerified": 39,
+    "mimeWebpVerified": 39,
+    "publicMediaVerified": 39,
+    "mediaManagerStateOk": 39,
+    "totalMetadataAssertions": 312
   }
 }
