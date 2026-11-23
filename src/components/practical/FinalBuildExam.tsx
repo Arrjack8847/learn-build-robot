@@ -68,6 +68,8 @@ function formatTime(ms: number): string {
 export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
   const inventory = useMemo(() => getFinalBuildInventory(level), [level]);
   const pool = useMemo(() => getVerifiedFinalBuildPool(level), [level]);
+  // DEV-only source inspection can browse the whole registered pool; students see verified-only.
+  const reviewerPool = useMemo(() => getFinalBuildPool(level), [level]);
   const ids = useMemo(() => new Set(pool.map(p => p.id)), [pool]);
   const permittedVariants = useMemo(() => new Map(pool.map(project =>
     [project.id, new Set(project.variants.map(variant => variant.id))])), [pool]);
@@ -87,16 +89,16 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
     setReviewMode(reviewing);
     if (reviewing) {
       const named = query.get("project");
-      const idx = named ? pool.findIndex(p => p.id === named || p.name.toLowerCase() === named.toLowerCase()) : 0;
+      const idx = named ? reviewerPool.findIndex(p => p.id === named || p.name.toLowerCase() === named.toLowerCase()) : 0;
       setReviewIndex(Math.max(0, idx));
       const page = Number(query.get("page"));
       if (Number.isInteger(page) && page > 0) setReviewPage(page);
-      setSession({ ...emptySession(level), stage: "ready", projectId: pool[Math.max(0, idx)]?.id ?? null,
-        variantId: pool[Math.max(0, idx)]?.variants[0]?.id ?? null });
+      setSession({ ...emptySession(level), stage: "ready", projectId: reviewerPool[Math.max(0, idx)]?.id ?? null,
+        variantId: reviewerPool[Math.max(0, idx)]?.variants[0]?.id ?? null });
     } else setSession(restore(level, ids, permittedVariants));
     setHydrated(true);
     setNow(Date.now());
-  }, [level, ids, pool, permittedVariants]);
+  }, [level, ids, pool, reviewerPool, permittedVariants]);
   useEffect(() => {
     if (hydrated && !reviewMode) window.localStorage.setItem(storageKey(level), JSON.stringify(session));
   }, [level, hydrated, reviewMode, session]);
@@ -110,7 +112,8 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
     if (session.stage === "building" && session.deadline !== null && now >= session.deadline)
       setSession(prev => prev.stage === "building" ? { ...prev, stage: "assessment", acknowledgedFinish: false } : prev);
   }, [now, session.stage, session.scanUntil, session.deadline]);
-  const project = pool.find(p => p.id === session.projectId) ?? null;
+  const activePool = reviewMode ? reviewerPool : pool;
+  const project = activePool.find(p => p.id === session.projectId) ?? null;
   const variant = project?.variants.find(v => v.id === session.variantId) ?? project?.variants[0] ?? null;
   const approval = project && variant ? getVerifiedFinalBuildReference(level, project.id, variant) : null;
   const pictureReady = Boolean(variant && model?.filename === variant.id && model.status === "ready");
@@ -160,7 +163,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
       stage: same ? "ready" : "discover" }));
   }
   function selectReviewer(index: number) {
-    const next = pool[index];
+    const next = reviewerPool[index];
     if (!next || !reviewMode) return;
     setModel(null);
     setReviewIndex(index);
@@ -214,11 +217,11 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
               <p className="mt-1 text-sm font-semibold text-slate-500">{project?.category}</p>
             </div>
             {reviewMode && <div className="mb-4 rounded-xl border border-violet-200 bg-violet-50 p-3">
-              <p className="mb-2 text-xs font-bold text-violet-800">Reviewer-only draft · {reviewIndex + 1} / {pool.length} · Not approved for students</p>
+              <p className="mb-2 text-xs font-bold text-violet-800">Development-only source review · {reviewIndex + 1} / {reviewerPool.length} · Not approved for students</p>
               <select aria-label="Review project" value={reviewIndex}
                 onChange={e => selectReviewer(Number(e.target.value))}
                 className="min-h-11 w-full rounded-lg border border-violet-300 bg-white p-2 text-sm">
-                {pool.map((item, index) => <option value={index} key={item.id}>{item.name}</option>)}
+                {reviewerPool.map((item, index) => <option value={index} key={item.id}>{item.name}</option>)}
               </select>
               <div className="mt-3 flex flex-wrap items-center gap-3">
                 <label className="text-xs font-semibold">Source page <input type="number" min={1} value={reviewPage}
