@@ -73,7 +73,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_b48d0f629fe1421bb4fc4c488a0dce95.pdf",
+        "sourcePage": 30,
+        "matchedSiftInliers": 284,
+        "matchedFeaturePairs": 297,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.13349,
+          "y": 0.10442,
+          "width": 0.56589,
+          "height": 0.6779
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -131,7 +147,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_6a2df8f4cfff475897c187a70755bff6.pdf",
+        "sourcePage": 21,
+        "matchedSiftInliers": 384,
+        "matchedFeaturePairs": 412,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.29267,
+          "y": 0.11048,
+          "width": 0.41824,
+          "height": 0.80566
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -189,7 +221,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_dd97e54e02f64fa6990e8db4d18354ca.pdf",
+        "sourcePage": 6,
+        "matchedSiftInliers": 375,
+        "matchedFeaturePairs": 391,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.26565,
+          "y": 0.12052,
+          "width": 0.48919,
+          "height": 0.76824
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -247,7 +295,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_d49106300f224a3986bf25c552b894df.pdf",
+        "sourcePage": 29,
+        "matchedSiftInliers": 477,
+        "matchedFeaturePairs": 511,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.18119,
+          "y": 0.1776,
+          "width": 0.64286,
+          "height": 0.62739
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -305,7 +369,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_8fabbeea8d3e434bbb7ff95d65f9e750.pdf",
+        "sourcePage": 10,
+        "matchedSiftInliers": 410,
+        "matchedFeaturePairs": 446,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.3562,
+          "y": 0.27907,
+          "width": 0.28679,
+          "height": 0.44487
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -363,7 +443,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_4a51e35447664f778c21a960401809dc.pdf",
+        "sourcePage": 5,
+        "matchedSiftInliers": 58,
+        "matchedFeaturePairs": 80,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.39997,
+          "y": 0.19435,
+          "width": 0.44268,
+          "height": 0.70445
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -421,7 +517,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_dad2e2f73571417590aa81a368936a4e.pdf",
+        "sourcePage": 8,
+        "matchedSiftInliers": 179,
+        "matchedFeaturePairs": 188,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.23941,
+          "y": 0.11901,
+          "width": 0.57172,
+          "height": 0.81043
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -479,7 +591,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_49d85ca5d7d24f42b9b349775f8704aa.pdf",
+        "sourcePage": 11,
+        "matchedSiftInliers": 198,
+        "matchedFeaturePairs": 228,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.26948,
+          "y": 0.22913,
+          "width": 0.39015,
+          "height": 0.66094
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -537,7 +665,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_3b60569142624d218cdbd6d6ecc4a3b1.pdf",
+        "sourcePage": 14,
+        "matchedSiftInliers": 305,
+        "matchedFeaturePairs": 319,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.30978,
+          "y": 0.01953,
+          "width": 0.39041,
+          "height": 0.92991
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -595,7 +739,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_c4cdf5cb69614575b6efb595355beb86.pdf",
+        "sourcePage": 26,
+        "matchedSiftInliers": 376,
+        "matchedFeaturePairs": 423,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.18977,
+          "y": 0.10676,
+          "width": 0.62341,
+          "height": 0.78092
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -653,7 +813,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+        "sourcePage": 12,
+        "matchedSiftInliers": 446,
+        "matchedFeaturePairs": 481,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.23982,
+          "y": 0.09973,
+          "width": 0.63999,
+          "height": 0.82017
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -711,7 +887,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_d09f63c7e6a44cd1bb5fdafe9e11efb1.pdf",
+        "sourcePage": 24,
+        "matchedSiftInliers": 394,
+        "matchedFeaturePairs": 421,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.20392,
+          "y": 0.15138,
+          "width": 0.55516,
+          "height": 0.7639
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -769,7 +961,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_70455707868643188c4e310a6eda9940.pdf",
+        "sourcePage": 22,
+        "matchedSiftInliers": 356,
+        "matchedFeaturePairs": 388,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.27081,
+          "y": 0.12391,
+          "width": 0.48901,
+          "height": 0.78437
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -827,7 +1035,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_62b3ca692f6f47b79433f9e2b43b1106.pdf",
+        "sourcePage": 5,
+        "matchedSiftInliers": 212,
+        "matchedFeaturePairs": 246,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.43909,
+          "y": 0.16937,
+          "width": 0.49023,
+          "height": 0.78993
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -885,7 +1109,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_819b76017e764fcbba4d8d00ef18949f.pdf",
+        "sourcePage": 24,
+        "matchedSiftInliers": 338,
+        "matchedFeaturePairs": 382,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.22503,
+          "y": 0.13766,
+          "width": 0.58173,
+          "height": 0.76795
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -943,7 +1183,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_40ddc7964dab4006b0b855b7aeb59406.pdf",
+        "sourcePage": 7,
+        "matchedSiftInliers": 361,
+        "matchedFeaturePairs": 412,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.29355,
+          "y": 0.11026,
+          "width": 0.46296,
+          "height": 0.80775
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1001,7 +1257,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_605e48fe69f641e29f7aeb53056a9d1c.pdf",
+        "sourcePage": 6,
+        "matchedSiftInliers": 393,
+        "matchedFeaturePairs": 426,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.28586,
+          "y": 0.11021,
+          "width": 0.46611,
+          "height": 0.82028
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1059,7 +1331,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_d7fd406eeee64108b91a20b812e3a521.pdf",
+        "sourcePage": 2,
+        "matchedSiftInliers": 407,
+        "matchedFeaturePairs": 433,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.14908,
+          "y": 0.01941,
+          "width": 0.73029,
+          "height": 0.93081
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1117,7 +1405,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+        "sourcePage": 13,
+        "matchedSiftInliers": 234,
+        "matchedFeaturePairs": 261,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.12866,
+          "y": 0.11835,
+          "width": 0.5526,
+          "height": 0.63818
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1175,7 +1479,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_554500219aa24df9b769c8bc8b37513f.pdf",
+        "sourcePage": 20,
+        "matchedSiftInliers": 378,
+        "matchedFeaturePairs": 415,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.2603,
+          "y": 0.21109,
+          "width": 0.49878,
+          "height": 0.65838
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1233,7 +1553,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_60546b12a6db461386a9864fc146d625.pdf",
+        "sourcePage": 12,
+        "matchedSiftInliers": 311,
+        "matchedFeaturePairs": 351,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.26646,
+          "y": 0.25318,
+          "width": 0.48035,
+          "height": 0.55693
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1291,7 +1627,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_7a86681377184c5ea2c5b9bb96b7040d.pdf",
+        "sourcePage": 28,
+        "matchedSiftInliers": 325,
+        "matchedFeaturePairs": 354,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.22753,
+          "y": 0.14165,
+          "width": 0.56322,
+          "height": 0.72188
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1349,7 +1701,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+        "sourcePage": 13,
+        "matchedSiftInliers": 234,
+        "matchedFeaturePairs": 261,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.12866,
+          "y": 0.11835,
+          "width": 0.5526,
+          "height": 0.63818
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1407,7 +1775,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_04a7868dd78a4216839d6ab3bc575381.pdf",
+        "sourcePage": 16,
+        "matchedSiftInliers": 322,
+        "matchedFeaturePairs": 360,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.21546,
+          "y": 0.15506,
+          "width": 0.53816,
+          "height": 0.72199
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1465,7 +1849,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_c2ff026d9c484c81b5e0f47d6c092230.pdf",
+        "sourcePage": 23,
+        "matchedSiftInliers": 299,
+        "matchedFeaturePairs": 363,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.21089,
+          "y": 0.23712,
+          "width": 0.58153,
+          "height": 0.54665
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1523,7 +1923,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_62d1352e9abe4d26b7c5c764962615dc.pdf",
+        "sourcePage": 14,
+        "matchedSiftInliers": 346,
+        "matchedFeaturePairs": 383,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.2353,
+          "y": 0.11078,
+          "width": 0.53525,
+          "height": 0.8111
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1581,7 +1997,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_c4d4661ef7c14b3ba047ccefb7c20944.pdf",
+        "sourcePage": 18,
+        "matchedSiftInliers": 417,
+        "matchedFeaturePairs": 452,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.23869,
+          "y": 0.11423,
+          "width": 0.52407,
+          "height": 0.78703
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1643,7 +2075,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "78042f_9ea1f915116b429895c75c161797983d.pdf",
+        "sourcePage": 22,
+        "matchedSiftInliers": 425,
+        "matchedFeaturePairs": 474,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.30946,
+          "y": 0.20437,
+          "width": 0.52737,
+          "height": 0.66075
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1705,7 +2153,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+        "sourcePage": 1,
+        "matchedSiftInliers": 251,
+        "matchedFeaturePairs": 500,
+        "sourceCropEstimatedNormalized": {
+          "x": 0,
+          "y": 0,
+          "width": 0.75117,
+          "height": 0.9784
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1763,7 +2227,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+        "sourcePage": 12,
+        "matchedSiftInliers": 455,
+        "matchedFeaturePairs": 506,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.23929,
+          "y": 0.09946,
+          "width": 0.64041,
+          "height": 0.82052
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1821,7 +2301,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_65ab7f6608544c17a9dde9da09af12c8.pdf",
+        "sourcePage": 5,
+        "matchedSiftInliers": 159,
+        "matchedFeaturePairs": 195,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.41942,
+          "y": 0.11951,
+          "width": 0.56043,
+          "height": 0.80013
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1879,7 +2375,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_9f299f0c26c74943a8d90f30edb11246.pdf",
+        "sourcePage": 11,
+        "matchedSiftInliers": 175,
+        "matchedFeaturePairs": 200,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.4594,
+          "y": 0.19779,
+          "width": 0.47049,
+          "height": 0.68134
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1937,7 +2449,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_f39cdbb5cfb34248a850cdd356c1156f.pdf",
+        "sourcePage": 11,
+        "matchedSiftInliers": 127,
+        "matchedFeaturePairs": 160,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.51682,
+          "y": 0.32237,
+          "width": 0.32204,
+          "height": 0.56594
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -1995,7 +2523,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_40e1c1967c774d0e83916ace3220b896.pdf",
+        "sourcePage": 16,
+        "matchedSiftInliers": 236,
+        "matchedFeaturePairs": 253,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.19133,
+          "y": 0.2365,
+          "width": 0.60515,
+          "height": 0.5274
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -2053,7 +2597,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_3870c6de5cc04f26984b7a2f105458f9.pdf",
+        "sourcePage": 24,
+        "matchedSiftInliers": 397,
+        "matchedFeaturePairs": 421,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.30504,
+          "y": 0.12482,
+          "width": 0.43994,
+          "height": 0.78661
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -2111,7 +2671,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_7dcf2c2fb93344f6a95b2d867dc55298.pdf",
+        "sourcePage": 12,
+        "matchedSiftInliers": 459,
+        "matchedFeaturePairs": 520,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.18784,
+          "y": 0.22262,
+          "width": 0.63426,
+          "height": 0.61898
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -2169,7 +2745,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_41d0fbb1b727427aae680e6afa835d4d.pdf",
+        "sourcePage": 11,
+        "matchedSiftInliers": 223,
+        "matchedFeaturePairs": 240,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.12549,
+          "y": 0.10122,
+          "width": 0.51098,
+          "height": 0.63845
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -2227,7 +2819,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_24c6b260f92a4311a3c4b8da919ace91.pdf",
+        "sourcePage": 7,
+        "matchedSiftInliers": 68,
+        "matchedFeaturePairs": 87,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.65928,
+          "y": 0.16917,
+          "width": 0.31059,
+          "height": 0.70711
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -2285,7 +2893,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_a1da83b7d7044f6f818764858f06a22f.pdf",
+        "sourcePage": 20,
+        "matchedSiftInliers": 436,
+        "matchedFeaturePairs": 462,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.20445,
+          "y": 0.32996,
+          "width": 0.68668,
+          "height": 0.49014
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -2343,7 +2967,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_bc0928f33de348fba5c046bddc913815.pdf",
+        "sourcePage": 37,
+        "matchedSiftInliers": 270,
+        "matchedFeaturePairs": 290,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.20186,
+          "y": 0.11623,
+          "width": 0.58852,
+          "height": 0.62493
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -2401,7 +3041,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_ab5b83edbc3c4dcaab6df9829c6d9076.pdf",
+        "sourcePage": 23,
+        "matchedSiftInliers": 349,
+        "matchedFeaturePairs": 379,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.16737,
+          "y": 0.18341,
+          "width": 0.70499,
+          "height": 0.69435
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     },
     {
       "level": 3,
@@ -2459,7 +3115,23 @@
         "reviewer": null
       },
       "approved": false,
-      "status": "blocked-unverified-pdf-image-and-checklist"
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_cae5df8160384c7098f08542d288b12d.pdf",
+        "sourcePage": 24,
+        "matchedSiftInliers": 217,
+        "matchedFeaturePairs": 264,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.41908,
+          "y": 0.09992,
+          "width": 0.55048,
+          "height": 0.8288
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
     }
   ]
 }
