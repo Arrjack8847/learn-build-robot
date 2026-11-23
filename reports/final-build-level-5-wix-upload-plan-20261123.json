@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "date": "2026-11-23",
-  "status": "planned-not-uploaded",
+  "status": "uploaded-and-metadata-verified-39-ready",
   "candidateSource": "PR #113 / feat/final-build-level-5",
-  "targetWixSiteId": null,
+  "targetWixSiteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
   "constraint": "Choose Wix site before calling media upload. Never use files from six blocked variants.",
-  "uploadInstructions": "Upload all 39 sourceWebpUrl files to confirmed Wix Media Manager site as one batch. Record only READY static.wixstatic.com/media/*.webp URLs into src/data/finalBuild/level-5-wix-image-urls.json keyed by variantId. Independently check each hosted URL matches its source robot and variant.",
+  "uploadInstructions": "Completed: 39 approved source WebPs imported to Steam Wix Media Manager, exact original source filenames matched with unique READY static.wixstatic.com/media/*.webp URLs, and published in src/data/finalBuild/level-5-wix-image-urls.json. Do not upload the six blocked variants.",
   "totalApproved": 39,
   "blocked": [
     "level-5-remote-control-car",
@@ -26,8 +26,10 @@
         550,
         500
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_e24113c5bfda443a9b94cf62d1ca8f1b~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_e24113c5bfda443a9b94cf62d1ca8f1b~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-curling-game:optimized",
@@ -39,8 +41,10 @@
         550,
         500
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_94e1c77557e9455eb8bb3bfc699ec225~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_94e1c77557e9455eb8bb3bfc699ec225~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-drawing-machine",
@@ -52,8 +56,10 @@
         550,
         410
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_36ed80a994434d6891381215cd3bfe06~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_36ed80a994434d6891381215cd3bfe06~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-firefly",
@@ -65,8 +71,10 @@
         550,
         292
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_ed8d4d3addeb49f1ac628ab64e96ae05~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_ed8d4d3addeb49f1ac628ab64e96ae05~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-goalkeeper",
@@ -78,8 +86,10 @@
         550,
         271
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_e8cd1be466f04d209e3293eccd662f0d~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_e8cd1be466f04d209e3293eccd662f0d~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-spanish-bullfight",
@@ -91,8 +101,10 @@
         510,
         485
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_551642956d70493ca120386e4012a369~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_551642956d70493ca120386e4012a369~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-the-warrior",
@@ -104,8 +116,10 @@
         426,
         530
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_7456cf1890e9405086c8ad6cfdf7609a~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_7456cf1890e9405086c8ad6cfdf7609a~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-magnetic-anti-theft-cabinet",
@@ -117,8 +131,10 @@
         530,
         471
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_49df27dad03643f0936a423fb96661c7~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_49df27dad03643f0936a423fb96661c7~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-please-scan-to-ride",
@@ -130,8 +146,10 @@
         499,
         550
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_9975fd4b097b448e8807d7dc5e9391a8~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_9975fd4b097b448e8807d7dc5e9391a8~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-smart-cash-register",
@@ -143,8 +161,10 @@
         550,
         542
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_bf3426b7c88b4736afe9e2711200af94~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_bf3426b7c88b4736afe9e2711200af94~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-smart-guiding-car",
@@ -156,8 +176,10 @@
         530,
         510
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_d6e126af73a3461db0bff7c8f80bfb87~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_d6e126af73a3461db0bff7c8f80bfb87~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-lucky-prize-wheel",
@@ -169,8 +191,10 @@
         459,
         490
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_218c126c701e41c09af20adf03186387~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_218c126c701e41c09af20adf03186387~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-oil-pumping-unit",
@@ -182,8 +206,10 @@
         550,
         324
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_8de3f5ce74b54c21a32ec7885bf5ba18~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_8de3f5ce74b54c21a32ec7885bf5ba18~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-swinging-shark",
@@ -195,8 +221,10 @@
         550,
         421
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_b51df103bd8c41b68929d62c9676cbe9~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_b51df103bd8c41b68929d62c9676cbe9~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-runner",
@@ -208,8 +236,10 @@
         510,
         448
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_aab5afda845f44f692041f5591fd5230~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_aab5afda845f44f692041f5591fd5230~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-welcome-sign",
@@ -221,8 +251,10 @@
         430,
         550
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_5672764d041d4df8ba9693d285ccd265~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_5672764d041d4df8ba9693d285ccd265~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-car-lights",
@@ -234,8 +266,10 @@
         550,
         508
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_49536cc4dd6c401a90b677fd1fae2878~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_49536cc4dd6c401a90b677fd1fae2878~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-direction-indicator",
@@ -247,8 +281,10 @@
         536,
         550
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_8ffff24a37f249b5857bf419b40b5e7a~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_8ffff24a37f249b5857bf419b40b5e7a~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-magnetic-object-finder",
@@ -260,8 +296,10 @@
         386,
         550
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_4547d9dbe48a411393aa366dda1168b7~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_4547d9dbe48a411393aa366dda1168b7~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-passenger-counter",
@@ -273,8 +311,10 @@
         510,
         485
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_8c02a5ea7450486fa829e856b286c765~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_8c02a5ea7450486fa829e856b286c765~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-big-pendulum",
@@ -286,8 +326,10 @@
         392,
         550
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_abfc617aaa18400482f2384090f64b51~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_abfc617aaa18400482f2384090f64b51~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-chairoplane",
@@ -299,8 +341,10 @@
         526,
         550
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_cf167070f5a1466186fe2e3f882aa148~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_cf167070f5a1466186fe2e3f882aa148~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-crack-shot",
@@ -312,8 +356,10 @@
         550,
         388
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_51ffb03cdc3346f8b575a67ebae6f35e~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_51ffb03cdc3346f8b575a67ebae6f35e~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-kiddie-ride",
@@ -325,8 +371,10 @@
         497,
         530
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_8ce05720af564c74bb8233863b79f44a~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_8ce05720af564c74bb8233863b79f44a~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-revolving-door",
@@ -338,8 +386,10 @@
         430,
         429
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_e38da8fcd7b84535b7fd37177e8a3ee5~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_e38da8fcd7b84535b7fd37177e8a3ee5~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-smart-turnstile",
@@ -351,8 +401,10 @@
         447,
         510
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_5415400a6c5a45ddadfe67d6c250b4a1~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_5415400a6c5a45ddadfe67d6c250b4a1~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-top-scorer",
@@ -364,8 +416,10 @@
         427,
         550
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_63b13f422fae468194c7ecc408c74b25~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_63b13f422fae468194c7ecc408c74b25~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-clothes-dryer",
@@ -377,8 +431,10 @@
         530,
         469
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_c273183a4b5a4c2d9c3dfdb4000b5eb8~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_c273183a4b5a4c2d9c3dfdb4000b5eb8~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-remote-control-fan",
@@ -390,8 +446,10 @@
         550,
         451
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_3dcb0a18b65040dfba8821c9683c8adb~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_3dcb0a18b65040dfba8821c9683c8adb~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-rescue-robot",
@@ -403,8 +461,10 @@
         510,
         505
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_9b17a2c7fd55448b8de730c56012f8d3~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_9b17a2c7fd55448b8de730c56012f8d3~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-barometric-sensor",
@@ -416,8 +476,10 @@
         369,
         550
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_545f8036d43a4c47995489c711cb3432~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_545f8036d43a4c47995489c711cb3432~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-car-speed-detector",
@@ -429,8 +491,10 @@
         372,
         550
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_030520f2f7a2422fb17c21fe153fc8f6~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_030520f2f7a2422fb17c21fe153fc8f6~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-traffic-robot",
@@ -442,8 +506,10 @@
         510,
         481
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_9b221d3b2d0e404ca5fd2a63586cc09c~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_9b221d3b2d0e404ca5fd2a63586cc09c~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-swing-with-rhythm",
@@ -455,8 +521,10 @@
         550,
         532
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_352fd6dcb839427d989290feb7556831~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_352fd6dcb839427d989290feb7556831~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-hexapod-robot",
@@ -468,8 +536,10 @@
         550,
         497
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_9579c314d0f349e284058cebdadae3af~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_9579c314d0f349e284058cebdadae3af~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-light-chasing-car",
@@ -481,8 +551,10 @@
         510,
         510
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_1fef652fd1de4735aa5523124aace493~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_1fef652fd1de4735aa5523124aace493~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-shopping-guide-robot",
@@ -494,8 +566,10 @@
         382,
         550
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_904ceeff89cc4a468f91076726c3b373~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_904ceeff89cc4a468f91076726c3b373~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-voice-controlled-frog",
@@ -507,8 +581,10 @@
         530,
         512
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_c713f67e0c62440ab36cea54491f33e0~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_c713f67e0c62440ab36cea54491f33e0~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     },
     {
       "variantId": "level-5-wind-up-car",
@@ -520,8 +596,21 @@
         550,
         540
       ],
-      "wixUrl": null,
-      "uploadStatus": "not-uploaded"
+      "wixUrl": "https://static.wixstatic.com/media/78042f_e6ce32837a8143ee84eea65aab9246ec~mv2.webp",
+      "uploadStatus": "READY",
+      "wixMediaId": "78042f_e6ce32837a8143ee84eea65aab9246ec~mv2.webp",
+      "wixVerifiedBy": "Media Manager exact source displayName, IMAGE mediaType, operationStatus READY"
     }
-  ]
+  ],
+  "targetWixSiteName": "Steam",
+  "uploadedAt": "2026-11-23",
+  "summary": {
+    "uploadedReady": 39,
+    "sourceFilenamesMatched": 39,
+    "uniqueWixUrls": 39,
+    "failed": 0,
+    "blockedExcluded": 6,
+    "staticAssetFilesAddedToIntegrationBranch": 0,
+    "cdnHttpByteVerification": "not independently performed; Media Manager READY metadata verified"
+  }
 }
