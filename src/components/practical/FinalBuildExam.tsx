@@ -121,7 +121,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
   // finished-model WebP. Preserve Level 2's existing hosted-image error fallback.
   const showRegisteredPdfFallback = Boolean(
     approval && variant && approval.sourceUrl === variant.url && (
-      ((level === 2 || level === 5) && approval.referenceMode === "registered-pdf-fallback") ||
+      ((level === 2 || level === 5 || level === 6) && approval.referenceMode === "registered-pdf-fallback") ||
       (level === 2 && approval.referenceMode === "hosted-webp" &&
         model?.filename === variant.id && model.status === "error")
     ),
@@ -254,11 +254,20 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
                     <p className="font-bold text-sky-900">Original registered PDF reference</p>
                     <p className="mt-2 text-xs text-slate-600">
                       {approval.referenceMode === "registered-pdf-fallback"
-                        ? (level === 5
+                        ? (level === 6
+                          ? approval.referenceNotice
+                          : level === 5
                           ? "Owner-authorized Level 5 Building PDF instruction reference. The last page shows an unfinished assembly step, not an independently verified completed model. Follow the full PDF instructions and use general self-assessment checks."
                           : "Owner-authorized PDF fallback. A separately approved completed-model WebP is not available; this PDF may be a presentation or incomplete Building reference.")
                         : "The verified hosted WebP did not load. Use its original registered PDF instead."}
                     </p>
+                    {level === 6 && approval.referenceMode === "registered-pdf-fallback" && variant && project && (
+                      <div className="mt-3" aria-label="Source-limited original PDF page">
+                        <FinalBuildPrototype key={variant.id + ":" + approval.page}
+                          filename={variant.id} url={approval.sourceUrl} pageNumber={approval.page}
+                          crop={approval.crop} title={project.name} sourceLimited onStatusChange={onModelStatus}/>
+                      </div>
+                    )}
                     <a href={approval.sourceUrl} target="_blank" rel="noopener noreferrer"
                       className="mt-4 inline-flex min-h-12 items-center justify-center rounded-xl bg-sky-700 px-5 py-3 text-sm font-bold text-white underline underline-offset-2">
                       Open original PDF reference
@@ -285,7 +294,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
             {session.stage === "building" && <button type="button" onClick={finish} className="min-h-14 w-full rounded-2xl bg-emerald-600 font-extrabold text-white">I Finished My Robot!</button>}
             {session.stage === "assessment" && <>
               <p className="mb-2 text-lg font-extrabold">Check your robot</p>
-              <p className="mb-3 text-xs text-slate-600">{approval?.referenceMode === "registered-pdf-fallback" ? "Owner-authorized self-assessment: five general observable checks, not independently verified against Building-manual pages." : "Self-reported checklist using five source-backed checks from the original Building reference."}</p>
+              <p className="mb-3 text-xs text-slate-600">{approval?.referenceMode === "registered-pdf-fallback" ? "Owner-authorized self-assessment: five classified checks, including general construction checks that are not independently source-certified." : "Self-reported checklist using five source-backed checks from the original Building reference."}</p>
               {readyChecks.map((item, index) => <label key={index} className="mb-2 flex min-h-12 items-center gap-3 rounded-xl bg-sky-50 p-3 text-sm font-semibold">
                 <input type="checkbox" className="size-6 shrink-0 accent-sky-600" checked={session.checks[index]}
                   onChange={e => setSession(prev => ({ ...prev, checks: prev.checks.map((v,i) => i === index ? e.target.checked : v) }))}/>
@@ -305,7 +314,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
             <a href={back} className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-violet-700"><ArrowLeft className="size-4"/> Back to Level {level}</a>
           </section>
         )}
-        <p className="mt-4 text-center text-xs text-slate-500">{level === 2 ? "Level 2: independently verified finished-model WebPs and owner-authorized registered PDF fallbacks are both selectable; their evidence statuses remain distinct." : level === 5 ? "Level 5: 42 independently source-verified WebP references and 3 owner-authorized incomplete-view official Building PDF references are selectable. Their evidence statuses remain distinct." : `${inventory.length - pool.length} syllabus activities do not currently have an approved playable reference and are excluded from the draw.`}</p>
+        <p className="mt-4 text-center text-xs text-slate-500">{level === 2 ? "Level 2: independently verified finished-model WebPs and owner-authorized registered PDF fallbacks are both selectable; their evidence statuses remain distinct." : level === 5 ? "Level 5: 42 independently source-verified WebP references and 3 owner-authorized incomplete-view official Building PDF references are selectable. Their evidence statuses remain distinct." : level === 6 ? "Level 6: 39 verified Wix WebPs and two owner-authorized original Building PDF construction references. PDF pages are not certified full-model photos." : `${inventory.length - pool.length} syllabus activities do not currently have an approved playable reference and are excluded from the draw.`}</p>
       </main>
     </div>
   );
