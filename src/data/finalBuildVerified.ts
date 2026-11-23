@@ -39,6 +39,8 @@ export type VerifiedFinalBuildReference = {
   crop: PrototypeClip;
   imageUrl: string | null;
   referenceMode?: "hosted-webp" | "registered-pdf-fallback";
+  /** For source-limited original pages, expressly disclaims a full model image. */
+  referenceNotice?: string;
 };
 type VerifiedEvidence = {
   reference: VerifiedFinalBuildReference;
