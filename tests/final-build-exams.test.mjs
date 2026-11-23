@@ -59,7 +59,9 @@ test("approved-only scanner and source-backed Level 5 questions are mandatory", 
   assert.match(exam, /getVerifiedFinalBuildPool\(level\)/);
   assert.match(exam, /getVerifiedFinalBuildReference\(level, project\.id, variant\)/);
   assert.match(exam, /getVerifiedFinalBuildQuestions\(level, project\.id, variant\)/);
-  assert.match(exam, /Boolean\(approval && pictureReady && variant\?\.hostedOnWix\)/);
+  assert.match(exam, /const startAllowed = Boolean\(approval && variant\?\.hostedOnWix &&/);
+  assert.match(exam, /pictureReady \|\| showRegisteredPdfFallback/);
+  assert.match(exam, /approval\.referenceMode === "registered-pdf-fallback"/);
   assert.match(exam, /disabled=\{!startAllowed\}/);
   assert.match(verified, /reference\.sourceUrl !== variant\.url/);
   assert.match(verified, /checklist\.questions\.length !== 5/);
