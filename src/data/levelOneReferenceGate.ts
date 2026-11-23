@@ -42,9 +42,21 @@ type ExpectedReference = {
   candidate: LevelOneCandidate | undefined;
 };
 
-function record(value: unknown): Record<string, unknown> | null {
+// TS strict/noPropertyAccessFromIndexSignature: list every evidence field explicitly.
+type EvidenceObject = Record<string, unknown> & {
+  projectId?: unknown; variantId?: unknown; filename?: unknown;
+  officialPdfUrl?: unknown; pdfSha256?: unknown; sourcePage?: unknown;
+  crop?: unknown; approvedWebpPath?: unknown; approvedWebpUrl?: unknown;
+  webpSha256?: unknown; webpWidth?: unknown; webpHeight?: unknown;
+  independentValidationStatus?: unknown; reviewer?: unknown;
+  reviewedAt?: unknown; reviewEvidence?: unknown;
+  approvalDecision?: unknown; assessmentQuestions?: unknown;
+  x?: unknown; y?: unknown; width?: unknown; height?: unknown;
+  prompt?: unknown; observedFeature?: unknown;
+};
+function record(value: unknown): EvidenceObject | null {
   return value && typeof value === "object" && !Array.isArray(value)
-    ? value as Record<string, unknown> : null;
+    ? value as EvidenceObject : null;
 }
 function sha256(value: unknown): value is string {
   return typeof value === "string" && /^[a-f0-9]{64}$/i.test(value);
