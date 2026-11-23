@@ -978,6 +978,56 @@
       "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
       "approved": true,
       "status": "approved"
+    },
+    {
+      "variantId": "level-5-voice-control-snail",
+      "projectId": "level-5-voice-control-snail",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f87b9b12193f4f79a103d973e8a0fc02.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-voice-control-snail-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-voice-control-snail-basic.webp",
+      "imageSha256": "268a5d6a2fbb244da5871cd080bd7f4109980b731028f6aa87d1fce440fe503d",
+      "pdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+      "page": 12,
+      "normalizedCrop": [
+        0.3,
+        0.18,
+        0.53,
+        0.68
+      ],
+      "dimensions": [
+        550,
+        397
+      ],
+      "reviewer": "Original Level 5 official Building PDF model-page artwork review, 2026-11-23",
+      "independentValidator": "Independent separate PDF download SHA256 + exact source raster WebP crop recheck and 5 visible checklist feature review, 2026-11-23 (MAE 1.322)",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-voice-control-vehicle",
+      "projectId": "level-5-voice-control-vehicle",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4ee4d1d889f84492b41e9df408633906.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-voice-control-vehicle-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-voice-control-vehicle-basic.webp",
+      "imageSha256": "f627ccbb70fd03647d2135f0719fbea736ad9938b3c4397a1ef472f07a84b138",
+      "pdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+      "page": 10,
+      "normalizedCrop": [
+        0.64,
+        0.52,
+        0.36,
+        0.42
+      ],
+      "dimensions": [
+        550,
+        361
+      ],
+      "reviewer": "Original Level 5 official Building PDF model-page artwork review, 2026-11-23",
+      "independentValidator": "Independent separate PDF download SHA256 + exact source raster WebP crop recheck and 5 visible checklist feature review, 2026-11-23 (MAE 2.251)",
+      "approved": true,
+      "status": "approved"
     }
   ],
   "items": [
@@ -1905,16 +1955,24 @@
       "variant": "official",
       "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f87b9b12193f4f79a103d973e8a0fc02.pdf",
       "plannedWebpPath": "public/final-build/level-5/level-5-voice-control-snail-basic.webp",
-      "imagePath": null,
-      "imageSha256": null,
+      "imagePath": "public/final-build/level-5/level-5-voice-control-snail-basic.webp",
+      "imageSha256": "268a5d6a2fbb244da5871cd080bd7f4109980b731028f6aa87d1fce440fe503d",
       "pdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
       "page": 12,
-      "normalizedCrop": null,
-      "dimensions": null,
-      "reviewer": null,
-      "independentValidator": null,
-      "approved": false,
-      "status": "blocked"
+      "normalizedCrop": [
+        0.3,
+        0.18,
+        0.53,
+        0.68
+      ],
+      "dimensions": [
+        550,
+        397
+      ],
+      "reviewer": "Original Level 5 official Building PDF model-page artwork review, 2026-11-23",
+      "independentValidator": "Independent separate PDF download SHA256 + exact source raster WebP crop recheck and 5 visible checklist feature review, 2026-11-23 (MAE 1.322)",
+      "approved": true,
+      "status": "approved"
     },
     {
       "variantId": "level-5-voice-control-vehicle",
@@ -1922,16 +1980,24 @@
       "variant": "official",
       "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4ee4d1d889f84492b41e9df408633906.pdf",
       "plannedWebpPath": "public/final-build/level-5/level-5-voice-control-vehicle-basic.webp",
-      "imagePath": null,
-      "imageSha256": null,
+      "imagePath": "public/final-build/level-5/level-5-voice-control-vehicle-basic.webp",
+      "imageSha256": "f627ccbb70fd03647d2135f0719fbea736ad9938b3c4397a1ef472f07a84b138",
       "pdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
       "page": 10,
-      "normalizedCrop": null,
-      "dimensions": null,
-      "reviewer": null,
-      "independentValidator": null,
-      "approved": false,
-      "status": "blocked"
+      "normalizedCrop": [
+        0.64,
+        0.52,
+        0.36,
+        0.42
+      ],
+      "dimensions": [
+        550,
+        361
+      ],
+      "reviewer": "Original Level 5 official Building PDF model-page artwork review, 2026-11-23",
+      "independentValidator": "Independent separate PDF download SHA256 + exact source raster WebP crop recheck and 5 visible checklist feature review, 2026-11-23 (MAE 2.251)",
+      "approved": true,
+      "status": "approved"
     },
     {
       "variantId": "level-5-hexapod-robot",
