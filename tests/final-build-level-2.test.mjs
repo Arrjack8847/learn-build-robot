@@ -184,3 +184,31 @@ test("recorded headless Chromium mobile scanner QA covers all four viewports", (
     assert.deepEqual(r.errors,[]);
   }
 });
+
+
+test("cdn-hosted source image integrity evidence covers 30 approved Level 2 WebPs", () => {
+  const report = load("reports/final-build-level-2-wix-cdn-sha256-20261123.json");
+  const urls = load("src/data/finalBuild/level-2-wix-image-urls.json").urls;
+  assert.equal(report.testVectorSha256, "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad");
+  assert.equal(report.count, 30);
+  assert.equal(report.passed, 30);
+  assert.equal(report.failed, 0);
+  const seen = new Set();
+  for (const row of report.results) {
+    const reference = refs.references.find(item => item.variantId === row.id);
+    assert.ok(reference);
+    assert.ok(!seen.has(row.id));
+    seen.add(row.id);
+    assert.equal(row.url, urls[row.id]);
+    assert.equal(row.httpStatus, 200);
+    assert.equal(row.passed, true);
+    assert.ok(Object.values(row.checks).every(Boolean));
+    assert.equal(row.expectedSha256, reference.imageSha256);
+    assert.equal(row.actualSha256, reference.imageSha256);
+    assert.equal(row.actualBytes, reference.imageBytes);
+    assert.equal(row.actualWidth, reference.imageWidth);
+    assert.equal(row.actualHeight, reference.imageHeight);
+  }
+  assert.equal(seen.size, 30);
+  for (const blockedId of refs.blockedVariantIds) assert.ok(!seen.has(blockedId));
+});
