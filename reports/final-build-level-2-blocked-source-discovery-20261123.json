@@ -184,34 +184,6 @@
           "mediaId": "78042f_4c35ee502ae441b481f4da1109d50245.pdf",
           "bytes": 1145079,
           "sourceUrl": null
-        },
-        {
-          "filename": "Robot war.pdf",
-          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_565442dd664f4d839b23319a3cf693c2.pdf",
-          "mediaId": "78042f_565442dd664f4d839b23319a3cf693c2.pdf",
-          "bytes": 1864707,
-          "sourceUrl": "https://sb-7erkdqx2jvyf.vercel.run/Robot%20war.pdf"
-        },
-        {
-          "filename": "Robot war.pdf",
-          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_870ea4b342b6416aba7c0cd82de84333.pdf",
-          "mediaId": "7fc4ca_870ea4b342b6416aba7c0cd82de84333.pdf",
-          "bytes": 1869071,
-          "sourceUrl": null
-        },
-        {
-          "filename": "Robot war.pdf",
-          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d51adeb278944aa9ade49bef46bce810.pdf",
-          "mediaId": "7fc4ca_d51adeb278944aa9ade49bef46bce810.pdf",
-          "bytes": 1629195,
-          "sourceUrl": null
-        },
-        {
-          "filename": "BSR-L2--Machines-Mechanisms--Robot war.pdf",
-          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_99d0422d28ed434f95f9c49892c7d5e9.pdf",
-          "mediaId": "78042f_99d0422d28ed434f95f9c49892c7d5e9.pdf",
-          "bytes": 1647984,
-          "sourceUrl": null
         }
       ],
       "paginationIncomplete": false,
@@ -225,7 +197,7 @@
         "pagesFetched": 2,
         "totalSearchResults": 142,
         "exhaustedCursor": true,
-        "newAlternativeRegistrations": 5,
+        "newAlternativeRegistrations": 1,
         "caution": "Search result filenames and metadata do not establish official standalone Building manual identity, page-level visual validation, approved finished-model crop, or five validated checks."
       }
     },
@@ -403,34 +375,6 @@
           "mediaId": "78042f_99d0422d28ed434f95f9c49892c7d5e9.pdf",
           "bytes": 1647984,
           "sourceUrl": null
-        },
-        {
-          "filename": "BSR-L2--Foundational-Robots--Hammer robot.pdf",
-          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_4c35ee502ae441b481f4da1109d50245.pdf",
-          "mediaId": "78042f_4c35ee502ae441b481f4da1109d50245.pdf",
-          "bytes": 1145079,
-          "sourceUrl": null
-        },
-        {
-          "filename": "Hammer robot.pdf",
-          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_976489b6546f4ab5a8f1723f2eadad2d.pdf",
-          "mediaId": "78042f_976489b6546f4ab5a8f1723f2eadad2d.pdf",
-          "bytes": 1123020,
-          "sourceUrl": "https://sb-7erkdqx2jvyf.vercel.run/Hammer%20robot.pdf"
-        },
-        {
-          "filename": "Hammer robot.pdf",
-          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b3dcd4058b20437a828e62c37cb3020b.pdf",
-          "mediaId": "7fc4ca_b3dcd4058b20437a828e62c37cb3020b.pdf",
-          "bytes": 1129444,
-          "sourceUrl": null
-        },
-        {
-          "filename": "Hammer robot.pdf",
-          "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_09a4cf01602840b9bd6cc41b71dc5b10.pdf",
-          "mediaId": "7fc4ca_09a4cf01602840b9bd6cc41b71dc5b10.pdf",
-          "bytes": 1125874,
-          "sourceUrl": null
         }
       ],
       "paginationIncomplete": false,
@@ -444,7 +388,7 @@
         "pagesFetched": 2,
         "totalSearchResults": 152,
         "exhaustedCursor": true,
-        "newAlternativeRegistrations": 5,
+        "newAlternativeRegistrations": 1,
         "caution": "Search result filenames and metadata do not establish official standalone Building manual identity, page-level visual validation, approved finished-model crop, or five validated checks."
       }
     },
@@ -806,29 +750,19 @@
     "searches": [
       {
         "variantId": "level-2-hammer-robot",
-        "pages": 2,
-        "total": 142,
+        "countBefore": 7,
+        "countAfter": 3,
         "added": [
-          "BSR-L2--Foundational-Robots--Hammer robot.pdf",
-          "Robot war.pdf",
-          "Robot war.pdf",
-          "Robot war.pdf",
-          "BSR-L2--Machines-Mechanisms--Robot war.pdf"
-        ],
-        "oldMissing": 2
+          "BSR-L2--Foundational-Robots--Hammer robot.pdf"
+        ]
       },
       {
         "variantId": "level-2-robot-war",
-        "pages": 2,
-        "total": 152,
+        "countBefore": 7,
+        "countAfter": 3,
         "added": [
-          "BSR-L2--Machines-Mechanisms--Robot war.pdf",
-          "BSR-L2--Foundational-Robots--Hammer robot.pdf",
-          "Hammer robot.pdf",
-          "Hammer robot.pdf",
-          "Hammer robot.pdf"
-        ],
-        "oldMissing": 2
+          "BSR-L2--Machines-Mechanisms--Robot war.pdf"
+        ]
       }
     ],
     "newApprovedVariants": 0,
