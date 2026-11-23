@@ -113,18 +113,19 @@
         "path": "public/final-build/level-4/level-4-acoustic-control-lamp.webp",
         "sourcePage": 8,
         "cropNormalized": {
-          "x": 0.16,
-          "y": 0.005549,
-          "width": 0.84,
-          "height": 0.986681
+          "x": 0.660396,
+          "y": 0.071445,
+          "width": 0.289731,
+          "height": 0.856659
         },
-        "width": 780,
-        "height": 516,
-        "webpSha256": "9aa2b55e59cd4cd505d5653302a7e811389714d1655482a34bccc0d1347c5923",
-        "byteLength": 10816,
+        "width": 384,
+        "height": 640,
+        "webpSha256": "1d9e0da1ed43be86497fc952fff28ad6041bd4f78cdb0e2aaaa38e9401bc3b3f",
+        "byteLength": 13336,
         "individuallyDecoded": true,
         "independentlyReviewed": false,
-        "method": "crop of the last page of the actual hosted PDF; no synthesis"
+        "method": "crop of the last page of the actual hosted PDF; no synthesis",
+        "refinement": "Cropped precisely around the original PDF's completed-model image block; excluded separate instructional or intermediate-stage images."
       },
       "approval": {
         "status": "blocked",
@@ -349,18 +350,19 @@
         "path": "public/final-build/level-4/level-4-card-machine.webp",
         "sourcePage": 9,
         "cropNormalized": {
-          "x": 0.16,
-          "y": 0.078889,
-          "width": 0.84,
-          "height": 0.841111
+          "x": 0.608749,
+          "y": 0.501262,
+          "width": 0.356357,
+          "height": 0.36627
         },
-        "width": 520,
-        "height": 293,
-        "webpSha256": "27d8b1b6c2895ed0f7377528c0d89d5a5e5f04a0ee60d547853298216c66662c",
-        "byteLength": 11150,
+        "width": 640,
+        "height": 369,
+        "webpSha256": "82da7924cae953c5a4878faeef22e753b6a0fb2a2c10997246d9a9b7c0f72085",
+        "byteLength": 16574,
         "individuallyDecoded": true,
         "independentlyReviewed": false,
-        "method": "crop of the last page of the actual hosted PDF; no synthesis"
+        "method": "crop of the last page of the actual hosted PDF; no synthesis",
+        "refinement": "Cropped precisely around the original PDF's completed-model image block; excluded separate instructional or intermediate-stage images."
       },
       "approval": {
         "status": "blocked",
@@ -1474,18 +1476,19 @@
         "path": "public/final-build/level-4/level-4-obstacle-avoidance-robot-2.webp",
         "sourcePage": 14,
         "cropNormalized": {
-          "x": 0.16,
-          "y": 0.18313,
-          "width": 0.84,
-          "height": 0.81687
+          "x": 0.589335,
+          "y": 0.240186,
+          "width": 0.410665,
+          "height": 0.518639
         },
-        "width": 720,
-        "height": 394,
-        "webpSha256": "8c3184db43ab14f5754731be764b767ca854228af0a00432f71d33a83874cbef",
-        "byteLength": 10900,
+        "width": 640,
+        "height": 456,
+        "webpSha256": "338550adfa551f6749e26407fe3fa18bae3b90dbe9d962180c2e7b9661d2312b",
+        "byteLength": 17282,
         "individuallyDecoded": true,
         "independentlyReviewed": false,
-        "method": "crop of the last page of the actual hosted PDF; no synthesis"
+        "method": "crop of the last page of the actual hosted PDF; no synthesis",
+        "refinement": "Cropped precisely around the original PDF's completed-model image block; excluded separate instructional or intermediate-stage images."
       },
       "approval": {
         "status": "blocked",
@@ -1828,18 +1831,19 @@
         "path": "public/final-build/level-4/level-4-radar-vehicle.webp",
         "sourcePage": 9,
         "cropNormalized": {
-          "x": 0.2575,
-          "y": 0.07,
-          "width": 0.7425,
-          "height": 0.861111
+          "x": 0.306353,
+          "y": 0.121225,
+          "width": 0.385666,
+          "height": 0.757472
         },
-        "width": 780,
-        "height": 509,
-        "webpSha256": "38622f4fa99c36a841b8d209c9530b9f138b04ff9994eea44c77627fb592726f",
-        "byteLength": 9896,
+        "width": 580,
+        "height": 640,
+        "webpSha256": "a5a0e395996bde353cec9e40fcbb1aad663e716abf49a559b3281478c1248bde",
+        "byteLength": 17316,
         "individuallyDecoded": true,
         "independentlyReviewed": false,
-        "method": "crop of the last page of the actual hosted PDF; no synthesis"
+        "method": "crop of the last page of the actual hosted PDF; no synthesis",
+        "refinement": "Cropped precisely around the original PDF's completed-model image block; excluded separate instructional or intermediate-stage images."
       },
       "approval": {
         "status": "blocked",
@@ -1887,18 +1891,19 @@
         "path": "public/final-build/level-4/level-4-ranging-robot.webp",
         "sourcePage": 13,
         "cropNormalized": {
-          "x": 0.16,
-          "y": 0,
-          "width": 0.84,
-          "height": 1
+          "x": 0.34954,
+          "y": 0.195045,
+          "width": 0.298803,
+          "height": 0.609458
         },
-        "width": 780,
-        "height": 523,
-        "webpSha256": "bdf112d831a07afe00440f332b39acbcceafa2bb93d5c06352fc01ce844a0daa",
-        "byteLength": 9302,
+        "width": 538,
+        "height": 617,
+        "webpSha256": "c6e13cdd0a684c03e6b9d0043c0f73ada64add841351874a28a57bedf2f69392",
+        "byteLength": 17728,
         "individuallyDecoded": true,
         "independentlyReviewed": false,
-        "method": "crop of the last page of the actual hosted PDF; no synthesis"
+        "method": "crop of the last page of the actual hosted PDF; no synthesis",
+        "refinement": "Cropped precisely around the original PDF's completed-model image block; excluded separate instructional or intermediate-stage images."
       },
       "approval": {
         "status": "blocked",
@@ -2123,18 +2128,19 @@
         "path": "public/final-build/level-4/level-4-scorpion.webp",
         "sourcePage": 17,
         "cropNormalized": {
-          "x": 0.181875,
-          "y": 0,
-          "width": 0.818125,
-          "height": 1
+          "x": 0.403668,
+          "y": 0.242336,
+          "width": 0.356861,
+          "height": 0.632566
         },
-        "width": 780,
-        "height": 537,
-        "webpSha256": "387323e861101fc2a7b106e9656f6adb27583066a25972af08832f4edd88b56e",
-        "byteLength": 10568,
+        "width": 640,
+        "height": 639,
+        "webpSha256": "10f68ef4789ad99f9e65092ee950be316b69912036f39851f7597bf97bac3d1b",
+        "byteLength": 17322,
         "individuallyDecoded": true,
         "independentlyReviewed": false,
-        "method": "crop of the last page of the actual hosted PDF; no synthesis"
+        "method": "crop of the last page of the actual hosted PDF; no synthesis",
+        "refinement": "Cropped precisely around the original PDF's completed-model image block; excluded separate instructional or intermediate-stage images."
       },
       "approval": {
         "status": "blocked",
@@ -2241,18 +2247,19 @@
         "path": "public/final-build/level-4/level-4-smart-curtain.webp",
         "sourcePage": 10,
         "cropNormalized": {
-          "x": 0.285625,
-          "y": 0.165372,
-          "width": 0.714375,
-          "height": 0.834628
+          "x": 0.332607,
+          "y": 0.22299,
+          "width": 0.33267,
+          "height": 0.553032
         },
-        "width": 780,
-        "height": 513,
-        "webpSha256": "130db128ae40730c694c240dac3cbb4cb23e8087ee0b42678b6eee56c7e12a73",
-        "byteLength": 10098,
+        "width": 598,
+        "height": 560,
+        "webpSha256": "7bc020e704742fde2b90c987e210fdde25e76b02877bd9327808f60ab064d912",
+        "byteLength": 17194,
         "individuallyDecoded": true,
         "independentlyReviewed": false,
-        "method": "crop of the last page of the actual hosted PDF; no synthesis"
+        "method": "crop of the last page of the actual hosted PDF; no synthesis",
+        "refinement": "Cropped precisely around the original PDF's completed-model image block; excluded separate instructional or intermediate-stage images."
       },
       "approval": {
         "status": "blocked",
@@ -2662,18 +2669,19 @@
         "path": "public/final-build/level-4/level-4-telegraph-machine.webp",
         "sourcePage": 11,
         "cropNormalized": {
-          "x": 0.16,
-          "y": 0.228635,
-          "width": 0.84,
-          "height": 0.771365
+          "x": 0.685494,
+          "y": 0.281566,
+          "width": 0.297593,
+          "height": 0.436418
         },
-        "width": 780,
-        "height": 404,
-        "webpSha256": "009c71b43ffdc604d26735037af123d34754ccf08a98a89297f195f6e6acf78c",
-        "byteLength": 11156,
+        "width": 536,
+        "height": 442,
+        "webpSha256": "67bcc9c0e2093093a67ef1587040732c9762fb4927acf5e731167784397b0b0b",
+        "byteLength": 15674,
         "individuallyDecoded": true,
         "independentlyReviewed": false,
-        "method": "crop of the last page of the actual hosted PDF; no synthesis"
+        "method": "crop of the last page of the actual hosted PDF; no synthesis",
+        "refinement": "Cropped precisely around the original PDF's completed-model image block; excluded separate instructional or intermediate-stage images."
       },
       "approval": {
         "status": "blocked",
