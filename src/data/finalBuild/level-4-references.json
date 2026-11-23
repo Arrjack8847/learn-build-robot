@@ -30,37 +30,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Characters & Structures/A Timid Mouse/Lesson 25. A Timid Mouse-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1a7ea6c1066a4a5faffc677981b568de.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "e9ac5e593ddd1b9d56c9e88c9c131f86eb642ce2680a289550143d978a82dcae",
+        "hostedPdfPageCount": 19,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "30e167ec98f268265b6e987bb48b9ed04bed92b7",
           "pageCount": 19,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 6060124,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-a-timid-mouse.webp",
+        "sourcePage": 19,
+        "cropNormalized": {
+          "x": 0.215,
+          "y": 0.109444,
+          "width": 0.63375,
+          "height": 0.854369
+        },
+        "width": 490,
+        "height": 468,
+        "webpSha256": "97dc96cbffc9c275b94daec097041cc6d39644b11381dbc6d221c12b5d992609",
+        "byteLength": 14072,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -75,37 +89,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Sound & Voice Interaction/Acoustic control lamp/Acoustic control lamp_Building.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_215f0a067e274ac1aa302fc5cacf906b.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "45920a00abe7dd604035db5d94f4487656561750244d4567cacc9f32939120f9",
+        "hostedPdfPageCount": 8,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "e71adbb1661ce5ddaf88bcb6763f19e794325d85",
           "pageCount": 8,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 3674513,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-acoustic-control-lamp.webp",
+        "sourcePage": 8,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0.005549,
+          "width": 0.84,
+          "height": 0.986681
+        },
+        "width": 780,
+        "height": 516,
+        "webpSha256": "9aa2b55e59cd4cd505d5653302a7e811389714d1655482a34bccc0d1347c5923",
+        "byteLength": 10816,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -120,37 +148,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Complex Mechanisms & Coordinated Motion/Architectural design/Architectural design.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_459ed5d1ef8e493c8aae5b3ba2eac621.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "f72353f118c8a89d7b430ed3b3c8f71f0111883070296b3f59c802d69aaf75fc",
+        "hostedPdfPageCount": 24,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "c95320c064bfff7d7757990377fdc43baec55af5",
           "pageCount": 24,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 11660939,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-architectural-design.webp",
+        "sourcePage": 24,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0.121111,
+          "width": 0.84,
+          "height": 0.783333
+        },
+        "width": 600,
+        "height": 315,
+        "webpSha256": "ac21c6efcc218cb4d0a1eb9d9d017386c19fd047b8631a70df0dc1bca8ede083",
+        "byteLength": 10898,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -165,37 +207,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Interactive Systems/Basketball Shooting Machine/27.Basketball Shooting Machine-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c68928f39f754b49916d839d989569dd.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "93bf7707b2272d698cf62b281f7812e2efd9e3892c6d1a9bc0f0bf60fdfae763",
+        "hostedPdfPageCount": 28,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "270f432abb9183c2d507ba99a5da77bd80356160",
           "pageCount": 28,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 9512549,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-basketball-shooting-machine.webp",
+        "sourcePage": 28,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0.120035,
+          "width": 0.75875,
+          "height": 0.872021
+        },
+        "width": 490,
+        "height": 399,
+        "webpSha256": "58e7da729a3489e5a6fed5865ce1c6561c03b6fd04d0bec462020fa562c00893",
+        "byteLength": 14114,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -210,37 +266,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Mechanisms & Simulators/Biped Robot/20. Biped Robot-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d750c0c3714d4b68a72576f1e2c30f99.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "169d650bd25c5e8a742eebb45deb39dd86eddb018aadc212575c1a9413b97f8f",
+        "hostedPdfPageCount": 57,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "ad0339df13a460e329c92223489f60b3f2491a3e",
           "pageCount": 57,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 18606180,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-biped-robot.webp",
+        "sourcePage": 57,
+        "cropNormalized": {
+          "x": 0.2475,
+          "y": 0.099735,
+          "width": 0.470625,
+          "height": 0.865843
+        },
+        "width": 376,
+        "height": 490,
+        "webpSha256": "13ca4f7465af0793d350bd8106f5de3074394cdb010fc59b311b59f4ba7f001e",
+        "byteLength": 15660,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -255,37 +325,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Complex Mechanisms & Coordinated Motion/Card Machine/Card Machine.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d63c4cf912594a0d85952a97632ab842.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "671419b9ba58823d6c901d22f05910b45440309ed8132698675db5e33cb8d186",
+        "hostedPdfPageCount": 9,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "f063338187fe40f0291b3c62eff0d60bb2a725a4",
           "pageCount": 9,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 7983266,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-card-machine.webp",
+        "sourcePage": 9,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0.078889,
+          "width": 0.84,
+          "height": 0.841111
+        },
+        "width": 520,
+        "height": 293,
+        "webpSha256": "27d8b1b6c2895ed0f7377528c0d89d5a5e5f04a0ee60d547853298216c66662c",
+        "byteLength": 11150,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -300,37 +384,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Sensor Automation/Card reader/Card reader.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_808f6f08e55046cbb902337587a1b8ac.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "775a08e70c333c3a21c205aac56bb84d16addc8d4355944ce974dd0dd2f234ca",
+        "hostedPdfPageCount": 12,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "773494e6a82765fb7b5811fde836bd21e65c912c",
           "pageCount": 12,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 2881636,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-card-reader.webp",
+        "sourcePage": 12,
+        "cropNormalized": {
+          "x": 0.315625,
+          "y": 0.336667,
+          "width": 0.684375,
+          "height": 0.334444
+        },
+        "width": 780,
+        "height": 215,
+        "webpSha256": "00544e9f0f78ba35ee2a48d8a956eef979b66d2c1849307fd3abc48fae630da4",
+        "byteLength": 5816,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -345,37 +443,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Display & Movement/Dancing Robot/31.Dancing Robot-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1180aa3508c846a5a48a064fb329ae4c.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "56fc12edd9b8bab5e9714d2fde85348e144cdbe1ce27e969ed92cc696425a83a",
+        "hostedPdfPageCount": 22,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "0175df1dfd067cafebbfae1f1a4a29a5ca473ada",
           "pageCount": 22,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 6913446,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-dancing-robot.webp",
+        "sourcePage": 22,
+        "cropNormalized": {
+          "x": 0.270625,
+          "y": 0.011474,
+          "width": 0.56125,
+          "height": 0.988526
+        },
+        "width": 393,
+        "height": 490,
+        "webpSha256": "c95eeb48a19fba457486026a55d821e951c3ca3402a6e77a73595ffb68e79863",
+        "byteLength": 13800,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -390,37 +502,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin - Basic Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c87e929581d64541923e3ffedbdb3edc.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "483cf6fc93e63a7fd190ef49ddfd54faa07cbdf43a46cbe63836be01be8c5791",
+        "hostedPdfPageCount": 25,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "1e66e2590d334b9c6baee8ca8294c56d1f130edc",
           "pageCount": 25,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 24123813,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-dangerous-assassin.webp",
+        "sourcePage": 25,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0.127979,
+          "width": 0.8025,
+          "height": 0.720212
+        },
+        "width": 490,
+        "height": 311,
+        "webpSha256": "f4334cc5f6b068d82805feb9edfc7188b9e60b0cf8d8759433f32c01fc108939",
+        "byteLength": 11312,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -435,37 +561,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin - Optimized Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_11414e5634c94a43ac7e0dfbd5f1282f.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "b7124c72dfe40969d83b17e260e417f5271b525963d97fc115dc3c713eff716e",
+        "hostedPdfPageCount": 10,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "aeebbfbd31a2d6a5709065da1b9fa1a244e35e08",
           "pageCount": 10,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 15348734,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-dangerous-assassin--optimized.webp",
+        "sourcePage": 10,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0.125331,
+          "width": 0.8025,
+          "height": 0.751986
+        },
+        "width": 490,
+        "height": 325,
+        "webpSha256": "ce3471643cbab1ec136f84c59e647ad8b377d41e29ad991b5cbc5d8f559842af",
+        "byteLength": 12064,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -480,37 +620,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Advanced Navigation & Control/Drop-proof Robot/Drop-proof Robot.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bfc9117c992d4441ae7416f29101297e.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "4d03563a0b23ea3f180998ba172888b0f8b60b4aeab2f74d6f24ed87cea280d2",
+        "hostedPdfPageCount": 7,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "740e06789ab28723ec20601638f847a100cbe1ee",
           "pageCount": 7,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 4233666,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-drop-proof-robot.webp",
+        "sourcePage": 7,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0.155556,
+          "width": 0.700625,
+          "height": 0.687778
+        },
+        "width": 780,
+        "height": 430,
+        "webpSha256": "065d838f0b98eefb9a8a4dbf28b9b8ff92a9342b523ee69b5d3d27421daba8cc",
+        "byteLength": 11200,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -525,37 +679,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Sound & Voice Interaction/Electric Piano/32.Electric Piano-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_481a0b5b0cb04cb483e9d3a4c3e30f68.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "f213d33e8360803ed4a7ac8146fce320e22190028785f71ce1de411c90963126",
+        "hostedPdfPageCount": 24,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "bba143f29f5acfddcbe3638521240e04e2b5c3e8",
           "pageCount": 24,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 7588116,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-electric-piano.webp",
+        "sourcePage": 24,
+        "cropNormalized": {
+          "x": 0.211875,
+          "y": 0.03707,
+          "width": 0.57125,
+          "height": 0.961165
+        },
+        "width": 411,
+        "height": 490,
+        "webpSha256": "da440fe9fdd19713a82b74e5c07e2d40611b75a350000823d047908c4db682ff",
+        "byteLength": 14098,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -570,37 +738,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Characters & Structures/Elf in the Tree/12. Elf in the Tree - Basic Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_48433fd24b67423d923129bf6187a873.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "8959eefb533d19ccd036ca0d1f702bc6324d090e4a473b3cc2fd25a3a801c3d0",
+        "hostedPdfPageCount": 22,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "6d5c6bb51f9e82610c6a8926e4fafd6c7c10e2ec",
           "pageCount": 22,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 22844617,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-elf-in-the-tree.webp",
+        "sourcePage": 22,
+        "cropNormalized": {
+          "x": 0.18875,
+          "y": 0.074139,
+          "width": 0.61875,
+          "height": 0.849073
+        },
+        "width": 470,
+        "height": 457,
+        "webpSha256": "2a5e3465293436fa3c255df10019b3f5ba28216376ea7cc123f1aa5ca87a0693",
+        "byteLength": 14692,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -615,37 +797,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Sensor-Focused Robots/Energy Detector/05. Energy Detector--Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_217b72e59bb2489c90d8a9fe39f77038.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "e9640dd6f2c4698347876b052159e604de3b465544f5334723be097f807b3f65",
+        "hostedPdfPageCount": 20,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "dc0b133a972b1fd1287cfaeed52e22ad29294d8f",
           "pageCount": 20,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 7082627,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-energy-detector.webp",
+        "sourcePage": 20,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0.316858,
+          "width": 0.74,
+          "height": 0.514563
+        },
+        "width": 490,
+        "height": 242,
+        "webpSha256": "334032d3d3f2ead6bbe8b6d32bfdca3ecee7a471bcf663be8cd2d8ec8ac80f46",
+        "byteLength": 10786,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -660,37 +856,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Autonomous Navigation & Ranging/Guide Dogs/10. Guide Dogs - Basic Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2b25803a2615468990aa682ff5e60e40.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "9a7d464a2c40d526a0b15b03d81b09965a83f5f3243a6d8a295ad826979af753",
+        "hostedPdfPageCount": 13,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "4cbb0db73ab4f37e3fe2440eca8f675a37c80227",
           "pageCount": 13,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 13318011,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-guide-dogs.webp",
+        "sourcePage": 13,
+        "cropNormalized": {
+          "x": 0.188125,
+          "y": 0.052074,
+          "width": 0.61875,
+          "height": 0.915269
+        },
+        "width": 468,
+        "height": 490,
+        "webpSha256": "d15bcb7015aea0b9a0758b5142aed682bb45a0c51da458c00556a187942fa2e7",
+        "byteLength": 12688,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -705,37 +915,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Mechanisms & Simulators/Horizontal Bar/5. Horizontal Bar-Basic Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_165b3ae978a54059a2987eb2f4652e7e.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "738d2d9f9494a41f87c3e2866e4e3a175822f6b4bfcb292515cebd1f3737ad1d",
+        "hostedPdfPageCount": 13,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "0405b88beb5ecd30d17278557cad22419fffdce9",
           "pageCount": 13,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 13600460,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-horizontal-bar.webp",
+        "sourcePage": 13,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0.00353,
+          "width": 0.764375,
+          "height": 0.99647
+        },
+        "width": 490,
+        "height": 453,
+        "webpSha256": "1ddd868a96e838f64928a27c71e21bec7a5d93802d859525d0ca4adac473a842",
+        "byteLength": 11162,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -750,37 +974,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Illumination & Signals/Induction Desk Lamp/13. Induction Desk Lamp-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_791b7c00b5a247ad8047bb8fae56e041.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "d9e7d3f86b1478c44839ae5cc4ec048042f82e1f163d1703ec869121c9c18b78",
+        "hostedPdfPageCount": 32,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "b56fc14de734b56d0d252cc9435f3d8da7ece472",
           "pageCount": 32,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 8852353,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-induction-desk-lamp.webp",
+        "sourcePage": 32,
+        "cropNormalized": {
+          "x": 0.235,
+          "y": 0.015887,
+          "width": 0.578125,
+          "height": 0.969109
+        },
+        "width": 413,
+        "height": 490,
+        "webpSha256": "bb879443e8cc47d6d74dae336383c0501b2f6646ac9a850ee8d0f0bcbfa45195",
+        "byteLength": 12514,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -795,37 +1033,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Autonomous Navigation & Ranging/Keeping Distance/12. Keeping Distance-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7cb85be969fd4c479ef008c2a10280ca.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "5eb349561cd6c7b09e124e56d0bdfb658fd898e598b19d37158ef2516deff8e5",
+        "hostedPdfPageCount": 21,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "47444ce46ab6611754a9cd960684741cb2b21717",
           "pageCount": 21,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 6536716,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-keeping-distance.webp",
+        "sourcePage": 21,
+        "cropNormalized": {
+          "x": 0.185625,
+          "y": 0.05305,
+          "width": 0.645,
+          "height": 0.893899
+        },
+        "width": 490,
+        "height": 480,
+        "webpSha256": "c1d845aa0338f877b8bc70791ff0423896c55e1cd4f8876b667c8b2c2019d80b",
+        "byteLength": 15576,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -840,37 +1092,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Autonomous Navigation & Ranging/Laser Rangefinder/10. Laser Rangefinder - Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6a85b43940c84715accf6b57b79b1159.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "11a83c1c827aefc67bfe27e6f675e36666a9d00c3c933180276c73fc1cc1e9c4",
+        "hostedPdfPageCount": 13,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "4aabb9a91adbd8eb890528483d9578a0e6dd35c1",
           "pageCount": 13,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 2929882,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-laser-rangefinder.webp",
+        "sourcePage": 13,
+        "cropNormalized": {
+          "x": 0.19,
+          "y": 0.197705,
+          "width": 0.62375,
+          "height": 0.614298
+        },
+        "width": 560,
+        "height": 391,
+        "webpSha256": "c116872ac97f3254accd6f656455731c2d64be17fbcfadfc96cb96cd6dd012bc",
+        "byteLength": 11206,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -885,9 +1151,9 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Vehicles & Complex Movers/Lucky Cat/13.Lucky Cat-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_91015c8c0eac4c149be0bd82586169bd.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "89b73dcd3a1811d328f39c7b55fbf900eddde8349a55ff93f7c08b78b98c525e",
+        "hostedPdfPageCount": 28,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "6915639b79eb8fb6acd980bf2752ad24b4ed5d5f",
@@ -898,28 +1164,42 @@
           "gitBlobSha1": "9fcd3d4ff56b602719b0a301dc0cedbc09a6f77f",
           "pageCount": 28,
           "report": "reports/level1-4-english-building-binary-delivery-manifest-20261119.json"
+        },
+        "hostedPdfBytes": 8419833,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
         }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-lucky-cat.webp",
+        "sourcePage": 28,
+        "cropNormalized": {
+          "x": 0.1775,
+          "y": 0,
+          "width": 0.606875,
+          "height": 0.993822
+        },
+        "width": 423,
+        "height": 490,
+        "webpSha256": "f523fbf16899825db08db1d29b02b313435f2bdb1aa8c868cdf4cfd2c3af59a9",
+        "byteLength": 13884,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -934,37 +1214,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Autonomous Navigation & Ranging/Magnetically Controlled Door/06. Magnetically controlled door-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b42dacb9a2364c90b3d1e84e8eda948a.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "34a31867abac64f8b351a9b8688cdfee340b5929c1e0dde621be444e4a2f8c40",
+        "hostedPdfPageCount": 22,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "c6b9c61b01d1ff30ea0de14e5fc11193c17deb1c",
           "pageCount": 22,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 6571640,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-magnetically-controlled-door.webp",
+        "sourcePage": 22,
+        "cropNormalized": {
+          "x": 0.223125,
+          "y": 0.086496,
+          "width": 0.559375,
+          "height": 0.827891
+        },
+        "width": 468,
+        "height": 490,
+        "webpSha256": "0acc895312e77dd3f91923b8432a2a066e021a6402d248b484e541b877f0a44a",
+        "byteLength": 14588,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -979,37 +1273,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Biomimicry & Stimulus Response/Nocturnal beetle/Nocturnal beetle.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_02da39094fb8479f9812cb77754440d8.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "69dc6b1cf324becd513b65ab1bfdfbc747b2ca6b2682d1931705161c31d7c842",
+        "hostedPdfPageCount": 19,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "d0af4ddd01984b93e5cb03b48906518493c3081d",
           "pageCount": 19,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 10343712,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-nocturnal-beetle.webp",
+        "sourcePage": 19,
+        "cropNormalized": {
+          "x": 0.196875,
+          "y": 0.055556,
+          "width": 0.803125,
+          "height": 0.867778
+        },
+        "width": 720,
+        "height": 438,
+        "webpSha256": "fc74f46e52c8def009799ee5018255299f5a8cfa50a2d0fb54c87cd6f45b21ca",
+        "byteLength": 11202,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1024,37 +1332,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Autonomous Navigation & Ranging/Obstacle Avoidance In Snow/4. Obstacle Avoidance In Snow-Basic Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_88198dfb6f834a80a9b06c33f28876b3.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "314f2b6de021e740c4a29b6f7492ffe3fd42038a22196a3b681e6c094bb34ca0",
+        "hostedPdfPageCount": 6,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "e5a122e0513b23d1beb2390e266f0e16e9952175",
           "pageCount": 6,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 6947629,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-obstacle-avoidance-in-snow.webp",
+        "sourcePage": 6,
+        "cropNormalized": {
+          "x": 0.236875,
+          "y": 0.054722,
+          "width": 0.555625,
+          "height": 0.873786
+        },
+        "width": 440,
+        "height": 490,
+        "webpSha256": "00e1cbb953de152bfeb33e0331349f3dc69e3f25c2a72dee814c4c0403457ef9",
+        "byteLength": 14064,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1069,37 +1391,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Interactive Systems/Obstacle Avoidance Robot/18.Obstacle Avoidance Robot-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_eeef4a0d0e7e4302b10447d8fef63204.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "cdabe137bad9bd7b7dc4f14a40298535f1355b9dc9c21693a965e2babc0c4a6a",
+        "hostedPdfPageCount": 16,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "dc706e7674d2ad9a96fb667eddc73d17854ca196",
           "pageCount": 16,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 5538978,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-obstacle-avoidance-robot.webp",
+        "sourcePage": 16,
+        "cropNormalized": {
+          "x": 0.1625,
+          "y": 0.088261,
+          "width": 0.599375,
+          "height": 0.848191
+        },
+        "width": 489,
+        "height": 490,
+        "webpSha256": "686f7bcd1ffde1230e04bd688150b3bd24c27e25c6b9400cbf6d71ef3fa85bd5",
+        "byteLength": 14694,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1114,37 +1450,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Autonomous Navigation & Ranging/Obstacle Avoidance Robot 2/Obstacle Avoidance Robot 2_Building.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ed14fc9a39e24f22b49445f47443e0da.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "7f8d3a590ae9863c7f4d8121b4272a9b1c634e75317a1ab5a0c9d95b98013c18",
+        "hostedPdfPageCount": 14,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "85326b1504e1c5f7211800abcc22d655d0110c01",
           "pageCount": 14,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 8694115,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-obstacle-avoidance-robot-2.webp",
+        "sourcePage": 14,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0.18313,
+          "width": 0.84,
+          "height": 0.81687
+        },
+        "width": 720,
+        "height": 394,
+        "webpSha256": "8c3184db43ab14f5754731be764b767ca854228af0a00432f71d33a83874cbef",
+        "byteLength": 10900,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1159,37 +1509,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Programming & Precise Control/Obstacle-avoiding Scorpion/01.Obstacle-avoiding Scorpion_Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ee33e7eb628f401b90edb165818635ff.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "68d46fa0e56481487dd01636533071fe54cb799d3887a916870894967f024797",
+        "hostedPdfPageCount": 22,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "8e0936d27819a7b84bf00533b6cfe9906f225e43",
           "pageCount": 22,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 6873645,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-obstacle-avoiding-scorpion.webp",
+        "sourcePage": 22,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0,
+          "width": 0.725625,
+          "height": 1
+        },
+        "width": 490,
+        "height": 478,
+        "webpSha256": "a63d75d65d5a3d9febfd8c7687ea14f199812d064de0bdf056ced1f14c5c6b99",
+        "byteLength": 11674,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1204,37 +1568,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Mechanisms & Simulators/Oscillating Fan/19.Oscillating Fan -Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9e62d299207d45a9b18191fd0f32a361.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "66c2a1fe6d9723969b519a134090734d8434e8b9c2ccf1e958aa08c93ebc6ecb",
+        "hostedPdfPageCount": 22,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "49b9e72fe57300974e88b39e342dd963d6083056",
           "pageCount": 22,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 23694522,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-oscillating-fan.webp",
+        "sourcePage": 22,
+        "cropNormalized": {
+          "x": 0.265625,
+          "y": 0.032657,
+          "width": 0.4425,
+          "height": 0.950574
+        },
+        "width": 322,
+        "height": 490,
+        "webpSha256": "3c3542f00a5ae08bb1e75ae1c83eee2094efad8090a3dc17594c3b84af14d1ba",
+        "byteLength": 11542,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1249,37 +1627,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Characters & Structures/Parts Sorter/22.Parts Sorter-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e3bfc1a1adac4ff2b639c260492632ef.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "2d63f6103b5883f2646ff3fee3bae18c390d97ca61780e57d78938495d629723",
+        "hostedPdfPageCount": 18,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "ab27b6bf252041055c5c634351f4765fb754b21e",
           "pageCount": 18,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 5254820,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-parts-sorter.webp",
+        "sourcePage": 18,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0.126214,
+          "width": 0.74125,
+          "height": 0.815534
+        },
+        "width": 490,
+        "height": 382,
+        "webpSha256": "0d3127f5ec1bdce55e68c1a4417503d7d91497674d3916b1220d28dea4d7a636",
+        "byteLength": 11624,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1294,37 +1686,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Sensor Automation/Password box/Password box.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6c3876b88b1d4e6d9e93cfc9c8c2631a.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "e8a7a80287ef4be92b9dba68c3e1cb5a25032a54ffcafed66a08c9c0e8bb83bc",
+        "hostedPdfPageCount": 18,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "96c5f48a497334b3303afc21a079283fd6093106",
           "pageCount": 18,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 14362754,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-password-box.webp",
+        "sourcePage": 18,
+        "cropNormalized": {
+          "x": 0.27,
+          "y": 0.271111,
+          "width": 0.73,
+          "height": 0.455556
+        },
+        "width": 780,
+        "height": 273,
+        "webpSha256": "0fcb71e90d544a2e6801ac953c036a29b777e321bc0855f9d299a54a0d2cfcbc",
+        "byteLength": 8440,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1339,37 +1745,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Automation & Security/Personal Bodyguard/09. Personal Bodyguard-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_55045d2da9ae488999a7c3f5256e7b97.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "49699fb79c9ad1b5891824bbf6b0d08bf6cad9faf148bbbdaf16bf3af3440188",
+        "hostedPdfPageCount": 21,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "c8f9d3e43bd7d6627be43d3b3e961e50dc402813",
           "pageCount": 21,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 7044855,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-personal-bodyguard.webp",
+        "sourcePage": 21,
+        "cropNormalized": {
+          "x": 0.194375,
+          "y": 0.022065,
+          "width": 0.643125,
+          "height": 0.926743
+        },
+        "width": 480,
+        "height": 490,
+        "webpSha256": "c36ce68d737872678e8fd505effd4c7f2138c8357e22eaf70f9864bd96e419d5",
+        "byteLength": 15524,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1384,37 +1804,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Autonomous Navigation & Ranging/Radar vehicle/Radar vehicle_Building.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_686f982fc3874f8f8872fa86145b0f78.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "547bdaf097666f90cd0128c54dea21796e55ea477becd4c6e6f323bace0bba0d",
+        "hostedPdfPageCount": 9,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "8925f5672303a55b8caaf1c73434acd2a9aa88ef",
           "pageCount": 9,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 6861249,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-radar-vehicle.webp",
+        "sourcePage": 9,
+        "cropNormalized": {
+          "x": 0.2575,
+          "y": 0.07,
+          "width": 0.7425,
+          "height": 0.861111
+        },
+        "width": 780,
+        "height": 509,
+        "webpSha256": "38622f4fa99c36a841b8d209c9530b9f138b04ff9994eea44c77627fb592726f",
+        "byteLength": 9896,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1429,37 +1863,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Sensor-Focused Robots/Ranging robot/Ranging robot_Building.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e5cd74cd78ff4829a689a16b3891b2a9.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "d1805410ea68c176592bf0eccbca9af331288ae6a7c2346cf057f6f50ee2f571",
+        "hostedPdfPageCount": 13,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "8bcb40b365b818ea4d73f7447bfca9d9224455d9",
           "pageCount": 13,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 5002524,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-ranging-robot.webp",
+        "sourcePage": 13,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0,
+          "width": 0.84,
+          "height": 1
+        },
+        "width": 780,
+        "height": 523,
+        "webpSha256": "bdf112d831a07afe00440f332b39acbcceafa2bb93d5c06352fc01ce844a0daa",
+        "byteLength": 9302,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1474,37 +1922,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Interactive Systems/Reaction Tester/19.Reaction Tester-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_10ef38bb4b39427e80a0a0d34d72e5f2.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "500a49778f0930b9795318726d697a30e422f1b17eb65582ff3393bd325f4eaa",
+        "hostedPdfPageCount": 12,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "f266912c72d25c620bb7649ed63137e2bd2a4199",
           "pageCount": 12,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 3433955,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-reaction-tester.webp",
+        "sourcePage": 12,
+        "cropNormalized": {
+          "x": 0.281875,
+          "y": 0.059135,
+          "width": 0.355,
+          "height": 0.911739
+        },
+        "width": 286,
+        "height": 520,
+        "webpSha256": "1520b42773f7cbfdef2c20d6e0caecfd1e0e5989ff621decd45f2e4add1e69fd",
+        "byteLength": 10938,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1519,37 +1981,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Vehicles & Complex Movers/Remote Control Car/04. Remote Control Car-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_fd1e07a04995465ca76f6d5a6e284164.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "404225c14b061adcbba07b930fdd2923c4bc08ebf93f643db92f0c60aadb705a",
+        "hostedPdfPageCount": 24,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "67232e791e7ab74c07af17f05eca661b89f4edd7",
           "pageCount": 24,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 7405990,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-remote-control-car.webp",
+        "sourcePage": 24,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0.248014,
+          "width": 0.80125,
+          "height": 0.574581
+        },
+        "width": 600,
+        "height": 305,
+        "webpSha256": "132fb007788af44cf2811b0acf36b769c9617d648d2ee10cad7a0185eca658a5",
+        "byteLength": 11232,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1564,37 +2040,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Automation & Security/Scan to Open the Gate/01. Scan to Open the Gate- Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_da9a09f1a366473cbdbb00561d83a451.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "63e04fa217e8145fe91a46c81bee9bec739bcde32fabdedef5ac91febb836766",
+        "hostedPdfPageCount": 22,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "36c81dc372e35b1e2fa3e90c354dff47a0bcc773",
           "pageCount": 22,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 7633037,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-scan-to-open-the-gate.webp",
+        "sourcePage": 22,
+        "cropNormalized": {
+          "x": 0.194375,
+          "y": 0.197705,
+          "width": 0.61625,
+          "height": 0.606355
+        },
+        "width": 490,
+        "height": 341,
+        "webpSha256": "b854199da1220bcd8eb616e5b2e209b5f6e483bc952e6d47d56b5f201891681c",
+        "byteLength": 11382,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1609,37 +2099,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Interactive Mechanisms/Scorpion/Scorpion_Building.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ab959215cace4244bb5f77ce52376f9b.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "720b56e9b0451468b9298a20be76901a0d0072d8e574f3f2747e2b64eccfa371",
+        "hostedPdfPageCount": 17,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "ec6535e60e9cd67de8b5f1c81cfcac3a5fdb3531",
           "pageCount": 17,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 7044005,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-scorpion.webp",
+        "sourcePage": 17,
+        "cropNormalized": {
+          "x": 0.181875,
+          "y": 0,
+          "width": 0.818125,
+          "height": 1
+        },
+        "width": 780,
+        "height": 537,
+        "webpSha256": "387323e861101fc2a7b106e9656f6adb27583066a25972af08832f4edd88b56e",
+        "byteLength": 10568,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1654,37 +2158,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Display & Movement/Skiing Robot/28.Skiing Robot -Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_21e59555c0a7404fa93c7f24128823ce.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "35b4a3f0fccd3134a62830357514cbdc0ef5fec1ea660a395c6cd7367f8da4ec",
+        "hostedPdfPageCount": 31,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "3a3e207efba57b4f6b39cad689c475d84b43ea17",
           "pageCount": 31,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 11798338,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-skiing-robot.webp",
+        "sourcePage": 31,
+        "cropNormalized": {
+          "x": 0.2525,
+          "y": 0.030891,
+          "width": 0.59125,
+          "height": 0.9391
+        },
+        "width": 462,
+        "height": 520,
+        "webpSha256": "355e1ad3f665e1b9c0955f1fc416304e4a82cad8e0f2bcd1fa9fcfc832c6f66d",
+        "byteLength": 11054,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1699,37 +2217,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Automation & Security/Smart curtain/Smart curtain_Building.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e057685f05584ca9badf5ca590b9910e.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "ac5df22f08deec1cfd77a3c36ffb9071a1b2025efb31001038deece9e905ec89",
+        "hostedPdfPageCount": 10,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "8ff7c35d34a9a91549fcecccae16a473fa8ae631",
           "pageCount": 10,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 5133607,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-smart-curtain.webp",
+        "sourcePage": 10,
+        "cropNormalized": {
+          "x": 0.285625,
+          "y": 0.165372,
+          "width": 0.714375,
+          "height": 0.834628
+        },
+        "width": 780,
+        "height": 513,
+        "webpSha256": "130db128ae40730c694c240dac3cbb4cb23e8087ee0b42678b6eee56c7e12a73",
+        "byteLength": 10098,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1744,37 +2276,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Interactive Mechanisms/Smart Luggage/16. Smart Luggage-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3e72ce30b721485b97a6b9b515563717.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "ca207ebacbf5a6945f953edf5b257cc03edd4952eae395b6cd23a17e26d1b6ff",
+        "hostedPdfPageCount": 26,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "7cd9a427b0e99735ff5861f87675d373e9856e8b",
           "pageCount": 26,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 8036639,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-smart-luggage.webp",
+        "sourcePage": 26,
+        "cropNormalized": {
+          "x": 0.170625,
+          "y": 0.049426,
+          "width": 0.676875,
+          "height": 0.90203
+        },
+        "width": 490,
+        "height": 462,
+        "webpSha256": "2679d2cec317b0c8fd7d0e2ec846bc2e62fba19bfb590790d98fd7b0731d26b6",
+        "byteLength": 14412,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1789,37 +2335,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Sound & Voice Interaction/Smart Speaker/30.Smart Speaker-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_94371a22a9e449cd806b67df5cd78f12.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "1e0e24c20dd4d74865a33b30562c6165d558a00f46e85040084fe2c873535722",
+        "hostedPdfPageCount": 20,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "b4820e408f852a1357c7ec8e91c6262d94507045",
           "pageCount": 20,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 6829696,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-smart-speaker.webp",
+        "sourcePage": 20,
+        "cropNormalized": {
+          "x": 0.219375,
+          "y": 0.151809,
+          "width": 0.60875,
+          "height": 0.775816
+        },
+        "width": 470,
+        "height": 424,
+        "webpSha256": "e68f8cf365719a68563986b0f1cd9a1f6c69924aab0b3120160349bf1c763eb0",
+        "byteLength": 15244,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1834,37 +2394,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Mechanisms & Simulators/Spinning Cups/14. Spinning Cups-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_16a55b4f00074a0ea9c09bd0a0c92f32.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "d5db4886f87ae52b4a70f01e684f366bf4811c3d0c06eb4ec62d432afdd8728d",
+        "hostedPdfPageCount": 25,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "21117de94a3b2540b27604bdb76dcb8bd1218035",
           "pageCount": 25,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 8196276,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-spinning-cups.webp",
+        "sourcePage": 25,
+        "cropNormalized": {
+          "x": 0.336875,
+          "y": 0,
+          "width": 0.579375,
+          "height": 0.858782
+        },
+        "width": 448,
+        "height": 470,
+        "webpSha256": "7b6afafebaa88b3efed99b47370af60e7ab067a39046eba77c28a4d217567b06",
+        "byteLength": 14758,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1879,9 +2453,9 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Characters & Structures/Swimming Plesiosaur/19. Swimming Plesiosaur-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e1d762a64ef24a5897241782a262a6a0.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "e4ef8698645ff3bd1cc7d07f08d2d9c7016592dc5a383b2fe35a54c7c701ba7f",
+        "hostedPdfPageCount": 40,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "73217eadc98fe48e164237db8db12f64668445cf",
@@ -1892,28 +2466,42 @@
           "gitBlobSha1": "61fdc1a5eebd57f349fbd7eb10de4dc35ccd3f2d",
           "pageCount": 40,
           "report": "reports/level1-4-english-building-binary-delivery-manifest-20261119.json"
+        },
+        "hostedPdfBytes": 18004385,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
         }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-swimming-plesiosaur.webp",
+        "sourcePage": 40,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0.015004,
+          "width": 0.84,
+          "height": 0.937335
+        },
+        "width": 490,
+        "height": 387,
+        "webpSha256": "9b45d3963d0d8d152a95eafba11db17422a3e378a4f6490ae62c294056cbcd17",
+        "byteLength": 11680,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1928,37 +2516,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Characters & Structures/Tail-Wagging Stegosaurus/18. Tail-Wagging Stegosaurus-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4cc78a4be44e47639876b8c036124249.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "f6eab78cbd9d506a98af0ad8b0ccae8b0727ba225df46ad112c69467d9d55891",
+        "hostedPdfPageCount": 45,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "4e718c78c1c53115260d22b1420206633b2e22c2",
           "pageCount": 45,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 13592864,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-tail-wagging-stegosaurus.webp",
+        "sourcePage": 45,
+        "cropNormalized": {
+          "x": 0.255625,
+          "y": 0.082083,
+          "width": 0.519375,
+          "height": 0.883495
+        },
+        "width": 407,
+        "height": 490,
+        "webpSha256": "3fd3105a4dac99e1f04854959549fb58422a9a439c1012c809694cd8ee69c3ed",
+        "byteLength": 11106,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -1973,9 +2575,9 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Mechanisms & Simulators/Telegraph/09.Telegraph -Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_572488c57ef34acb8426a499803d90c4.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "4998a0fac5c0000e7df03130040b6d628956c28bcf022c39ddcefa78ee51727c",
+        "hostedPdfPageCount": 25,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "afb49aca75e0bd166af3114a981d46ebb26933f7",
@@ -1986,28 +2588,42 @@
           "gitBlobSha1": "f4a54eca331ed4c296d175b9d8d59041dc5fe201",
           "pageCount": 25,
           "report": "reports/level1-4-english-building-binary-delivery-manifest-20261119.json"
+        },
+        "hostedPdfBytes": 8682436,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
         }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-telegraph.webp",
+        "sourcePage": 25,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0,
+          "width": 0.69875,
+          "height": 0.975287
+        },
+        "width": 490,
+        "height": 484,
+        "webpSha256": "b41dd0975911e08e28593bfba7448b936665ddfa72294384b42defd76d021e9b",
+        "byteLength": 14672,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -2022,37 +2638,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Interactive Mechanisms/Telegraph machine/Telegraph machine_Building.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dafc21fa89384f18a970ca182587080f.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "b7ca205bfbc51ea827e49a4980e65e94630275b4d2b097f85344940792d4d069",
+        "hostedPdfPageCount": 11,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "085306b3bb116a006d3c7dad7e10fb3174a9f871",
           "pageCount": 11,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 4013078,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-telegraph-machine.webp",
+        "sourcePage": 11,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0.228635,
+          "width": 0.84,
+          "height": 0.771365
+        },
+        "width": 780,
+        "height": 404,
+        "webpSha256": "009c71b43ffdc604d26735037af123d34754ccf08a98a89297f195f6e6acf78c",
+        "byteLength": 11156,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -2067,37 +2697,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Vehicles & Complex Movers/Transformer Robot/06.Transformer Robot-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3134e27ecb424dabb32b1e7376209287.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "26b60e1daa34cecf34adfb080342f01e9846f3cb2ecf675c6c6ee5fbc36220e4",
+        "hostedPdfPageCount": 26,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "992ab3f7d5aff463f4230170b158061c7935f0b1",
           "pageCount": 26,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 8943816,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-transformer-robot.webp",
+        "sourcePage": 26,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0.028244,
+          "width": 0.778125,
+          "height": 0.968226
+        },
+        "width": 490,
+        "height": 432,
+        "webpSha256": "63efd0a9e5c4ced542369cab4cc1fb6de1fd919ae442391ed171ec2f41a03617",
+        "byteLength": 15082,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -2112,37 +2756,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Interactive Systems/Tumbler/01. Tumbler - Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b6e44635e9fe4ffeb39a9a8a68997c02.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "81374a0d4e3a4dda848300b4bb97499adb7ee7b8de6d122e7e5dd437e478f1f1",
+        "hostedPdfPageCount": 22,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "0b6ccd4de7404bdaa661cf0407ae368c9a6d22a2",
           "pageCount": 22,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 6455197,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-tumbler.webp",
+        "sourcePage": 22,
+        "cropNormalized": {
+          "x": 0.205,
+          "y": 0.178288,
+          "width": 0.66375,
+          "height": 0.769638
+        },
+        "width": 490,
+        "height": 402,
+        "webpSha256": "8e7d83d056f6e2f9c83b89cadf4737c915fd67999eb3d098174f2986dc78424a",
+        "byteLength": 12798,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -2157,9 +2815,9 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Mechanisms & Simulators/Turbo Drop/28. Turbo Drop-Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_269c5a865bd4412c821edde18123cb41.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "e55cd2a9e9fdc49a88a8bc9d23b2872c6f5cd8c52a0aee69da4bd720f96182f1",
+        "hostedPdfPageCount": 34,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "3b7bad44e4c92a4f56c7281ca6f34424e469a87f",
@@ -2170,28 +2828,42 @@
           "gitBlobSha1": "f3eb20ac66892bbd7b3e920d3c12a1af86dacf54",
           "pageCount": 34,
           "report": "reports/level1-4-english-building-binary-delivery-manifest-20261119.json"
+        },
+        "hostedPdfBytes": 12571168,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
         }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-turbo-drop.webp",
+        "sourcePage": 34,
+        "cropNormalized": {
+          "x": 0.396875,
+          "y": 0.143866,
+          "width": 0.27375,
+          "height": 0.758164
+        },
+        "width": 285,
+        "height": 560,
+        "webpSha256": "417ea5db9e1ac0434009d8856ff1fcc425713bac46b6bcbb1c74ac88f5dc8f60",
+        "byteLength": 11216,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -2206,37 +2878,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Basic Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b4b91bf84fde495b84f9b4abde0d3277.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "9f1f958c5853025269ebf26df40a7f46e5b10d9f1b8b579c3e7c4d2b62019711",
+        "hostedPdfPageCount": 19,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "d1358a0c96d6c48022803df79634c7f34627105f",
           "pageCount": 19,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 18045566,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-warrior-with-claws.webp",
+        "sourcePage": 19,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0.059135,
+          "width": 0.72375,
+          "height": 0.924978
+        },
+        "width": 490,
+        "height": 443,
+        "webpSha256": "ccfcc6fa475a8d974b907afd37dc7f386756a3a4eaec456e763efd6d2263e464",
+        "byteLength": 13292,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     },
@@ -2251,37 +2937,51 @@
         "kind": "official-building-registration",
         "repositoryPath": "public/Level 4/Building/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Optimized Building Manual.pdf",
         "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_36b8b1568b9e4225879cb6695f626294.pdf",
-        "hostedPdfSha256": null,
-        "hostedPdfPageCount": null,
-        "hostedPdfIdentityVerified": false,
+        "hostedPdfSha256": "a78fb82129ea301f12fb9bb1203e0a5596d6c1e6f8c0af7c5cceb93d346f8e8f",
+        "hostedPdfPageCount": 13,
+        "hostedPdfIdentityVerified": true,
         "hostedPdfEnglishVerified": false,
         "priorRepositoryOriginal": {
           "gitBlobSha1": "b083ef6fa3d617c1f34a9baab4bf683f26ec83db",
           "pageCount": 13,
           "report": "reports/level4-building-cover-audit-20261119.json"
         },
-        "priorRepairedEnglishWix": null
+        "priorRepairedEnglishWix": null,
+        "hostedPdfBytes": 12246430,
+        "hostedPdfVerification": {
+          "downloadedFromWix": true,
+          "gitBlobMatchesCanonical": true,
+          "pageCountMatchesCanonical": true,
+          "extractableChineseCharacters": 0,
+          "verifyMethod": "Wix PDF download, SHA-256 and Git blob SHA-1 byte equality with previously audited canonical version"
+        }
       },
       "reference": {
-        "status": "blocked",
-        "path": null,
-        "sourcePage": null,
-        "cropNormalized": null,
-        "width": null,
-        "height": null,
-        "webpSha256": null,
-        "independentlyReviewed": false
+        "status": "candidate",
+        "path": "public/final-build/level-4/level-4-warrior-with-claws--optimized.webp",
+        "sourcePage": 13,
+        "cropNormalized": {
+          "x": 0.16,
+          "y": 0.015004,
+          "width": 0.779375,
+          "height": 0.961165
+        },
+        "width": 490,
+        "height": 428,
+        "webpSha256": "7366eee03117a3915c904a19ac36b1a61bd34805ae5a057cc4b533f0afcc8830",
+        "byteLength": 12532,
+        "individuallyDecoded": true,
+        "independentlyReviewed": false,
+        "method": "crop of the last page of the actual hosted PDF; no synthesis"
       },
       "approval": {
         "status": "blocked",
         "reviewer": null,
         "reviewedAt": null,
         "reasonCodes": [
-          "HOSTED_PDF_SHA256_NOT_INDEPENDENTLY_CALCULATED",
-          "HOSTED_PDF_IDENTITY_AND_ENGLISH_NOT_VISUALLY_VERIFIED",
-          "COMPLETED_MODEL_PAGE_AND_CROP_NOT_VERIFIED",
-          "WEBP_NOT_EXTRACTED_OR_DECODED",
-          "FIVE_MANUAL_SPECIFIC_QUESTIONS_NOT_VERIFIED"
+          "RASTER_TEXT_SIGNOFF_PENDING",
+          "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+          "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
         ]
       }
     }
