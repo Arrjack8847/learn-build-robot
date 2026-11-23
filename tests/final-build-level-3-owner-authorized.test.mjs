@@ -44,6 +44,9 @@ test("42 Wix-hosted WebP records have exact source, source-match page, media and
     assert.equal(m.sourceFromOfficialPdfPage, true);
     assert.equal(m.completedAssemblyIndependentlyConfirmed, false);
     assert.match(m.hostedSha256, sha);
+    assert.equal(m.originalGitWebpSha256, m.hostedSha256);
+    assert.equal(m.sourceGitByteLength, m.hostedBytes);
+    assert.equal(m.sourceGitCdnByteEqualityVerified, true);
     assert.ok(m.hostedBytes > 0 && m.width >= 160 && m.height >= 160);
     assert.equal(m.hostedUrl, "https://static.wixstatic.com/media/" + m.mediaId);
     assert.equal(m.sourceGitUrl,
