@@ -1,0 +1,303 @@
+{
+  "schemaVersion": 1,
+  "level": 3,
+  "date": "2026-11-23",
+  "baseSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+  "policy": "Exactly five official-PDF-page-cited questions per approved variant; no speculative questions.",
+  "entries": [
+    {
+      "projectId": "level-3-clip-robot",
+      "variantId": "level-3-clip-robot",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-cycle-sport-basic",
+      "variantId": "level-3-cycle-sport-basic",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-cycle-sport-basic",
+      "variantId": "level-3-cycle-sport-optimized",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-automatic-seesaw",
+      "variantId": "level-3-automatic-seesaw",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-security-door",
+      "variantId": "level-3-security-door",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-smart-door",
+      "variantId": "level-3-smart-door",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-following-robot",
+      "variantId": "level-3-following-robot",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-obstacle-avoidance-robot-1",
+      "variantId": "level-3-obstacle-avoidance-robot-1",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-sunflower",
+      "variantId": "level-3-sunflower",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-electric-bulldozer",
+      "variantId": "level-3-electric-bulldozer",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-electric-fan-characters-structures",
+      "variantId": "level-3-electric-fan-characters-structures",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-safe",
+      "variantId": "level-3-safe",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-smart-trash-bin",
+      "variantId": "level-3-smart-trash-bin",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-lifting-maintenance-vehicle",
+      "variantId": "level-3-lifting-maintenance-vehicle",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-automated-guided-vehicle",
+      "variantId": "level-3-automated-guided-vehicle",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-race-walking-basic",
+      "variantId": "level-3-race-walking-basic",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-race-walking-basic",
+      "variantId": "level-3-race-walking-optimized",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-race-walking-basic",
+      "variantId": "level-3-race-walking-optimized-ratchet",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-bumper-car-foundational-robots",
+      "variantId": "level-3-bumper-car-foundational-robots",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-disinfection-lamp",
+      "variantId": "level-3-disinfection-lamp",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-flashlight-sensor",
+      "variantId": "level-3-flashlight-sensor",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-light-sensitive-curtains",
+      "variantId": "level-3-light-sensitive-curtains",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-bumper-car-interactive-mechanisms",
+      "variantId": "level-3-bumper-car-interactive-mechanisms",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-anti-fall-robot",
+      "variantId": "level-3-anti-fall-robot",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-automatic-door",
+      "variantId": "level-3-automatic-door",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-juicer-machine",
+      "variantId": "level-3-juicer-machine",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-washing-machine",
+      "variantId": "level-3-washing-machine",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-electronic-scale",
+      "variantId": "level-3-electronic-scale",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-gyro-transmitter",
+      "variantId": "level-3-gyro-transmitter",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-electric-fan-mechanisms-and-concepts",
+      "variantId": "level-3-electric-fan-mechanisms-and-concepts",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-biting-monster",
+      "variantId": "level-3-biting-monster",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-electric-gyro-launcher",
+      "variantId": "level-3-electric-gyro-launcher",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-responder",
+      "variantId": "level-3-responder",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-electric-guitar",
+      "variantId": "level-3-electric-guitar",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-music-box",
+      "variantId": "level-3-music-box",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-music-doorbell",
+      "variantId": "level-3-music-doorbell",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-smart-audio",
+      "variantId": "level-3-smart-audio",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-sonometer",
+      "variantId": "level-3-sonometer",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-sound-level-meter",
+      "variantId": "level-3-sound-level-meter",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-f1-racing-car",
+      "variantId": "level-3-f1-racing-car",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-long-lived-turtle",
+      "variantId": "level-3-long-lived-turtle",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    },
+    {
+      "projectId": "level-3-lunar-rover",
+      "variantId": "level-3-lunar-rover",
+      "status": "blocked",
+      "questions": [],
+      "reason": "Cannot verify actual model mechanics or five page-cited checkpoints without reading source PDF."
+    }
+  ]
+}
