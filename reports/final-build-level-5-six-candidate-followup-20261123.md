@@ -41,3 +41,12 @@ The PDF SHA-256 column is **a prior-audit value**, not a fresh download hash. A 
 ## Release accounting
 
 Previously approved: **39/45**. New recovered: **0/6**. Independently approved additional questions: **0/30**. Uploaded new Wix WebPs: **0/6**. PR #113 remains draft, PR #114 remains draft, and production remains untouched.
+
+
+## Additional isolated component smoke check
+
+A standalone local **synthetic one-page PDF** (simple geometric shapes and explicit NON-ROBOT text) was rendered with PyMuPDF, cropped, encoded as a 550 × 654 WebP with Pillow and reopened/decoded successfully (3,352 WebP bytes). This verifies only the installed PDF raster/WebP encoder component path. **It does not prove the committed extraction script has passed end-to-end tests, does not involve any official robot manual, and does not approve an asset.**
+
+A direct connector-side comparison of all six new registry rows against the GitHub audit, references and checklist manifests found **0 metadata/approval-gate inconsistencies**. No complete repository checkout was available for running the new Node suite or mobile scanner tests.
+
+Current PR #114 integration head may advance independently; the integration branch itself was not modified in this work.
