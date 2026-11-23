@@ -1417,17 +1417,17 @@
       "pdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
       "page": 20,
       "normalizedCrop": [
-        0.061,
-        0.075,
-        0.608,
-        0.825
+        0.065,
+        0.08,
+        0.605,
+        0.82
       ],
       "dimensions": [
         550,
         528
       ],
       "reviewer": "Original Level 5 official Building PDF assembled-car visual review, annotation-free 2026-11-23",
-      "independentValidator": "Independent exact-source PDF SHA and feature-matched new WebP, 292/371 ORB inliers, robot-mask MAE 16.471 (<24), 2026-11-23",
+      "independentValidator": "Independent separate official Wix PDF re-download, page 20 source-mask/crop side-by-side, no modifications outside text/accessory mask, WebP and CDN SHA-256 identical; source MAE 0.929, 2026-11-23",
       "approved": true,
       "status": "approved"
     },

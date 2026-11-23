@@ -937,10 +937,10 @@
         "pageByPageVisual": true,
         "finishedModelPage": 20,
         "normalizedCrop": [
-          0.061,
-          0.075,
-          0.608,
-          0.825
+          0.065,
+          0.08,
+          0.605,
+          0.82
         ],
         "completedModelIdentityConfirmed": true,
         "englishOnlyCertified": false
@@ -961,7 +961,7 @@
       },
       "independentValidation": {
         "sourceIdentity": "pass: 45/45 real Wix PDFs SHA-256 computed; Git blob fingerprint matched known original or corrected revision",
-        "imageAndCrop": "pass: official PDF SHA exact, completed vehicle on page 20, zero printed numeral in latest 550x528 WebP; independent ORB registration 292/371 matches, robot-mask MAE 16.471",
+        "imageAndCrop": "PASS (independent sandbox): official Building PDF SHA-256 matched; page 20 clean complete vehicle extracted at exact normalized crop [0.065,0.08,0.605,0.82]; background-only page numeral and separate remote panel excluded without editing the vehicle. Unchanged pixels outside both masks, decoded Wix WebP 550×528, exact CDN/GitHub SHA-256 equality, source raster MAE 0.929. Preserve remote unit as separate accessory in original PDF.",
         "questions": "pass: five independent source-page visible model features reviewed (display, two wheels, front angled panels, side housing, red/blue connectors)"
       },
       "release": {
