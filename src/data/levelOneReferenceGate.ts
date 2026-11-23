@@ -1,4 +1,5 @@
 import approvals from "./finalBuild/level-1-verified-references.json";
+import wixImages from "./finalBuild/level-1-wix-image-urls.json";
 
 export type LevelOneCrop = { x: number; y: number; width: number; height: number };
 export type LevelOneCandidate = {
@@ -96,6 +97,7 @@ export function validateLevelOneApproval(value: unknown, expected: ExpectedRefer
     || !/^\/[^?#]+\.webp$/i.test(item.approvedWebpPath)
     || typeof item.approvedWebpUrl !== "string"
     || !/^https:\/\/static\.wixstatic\.com\/media\/[^?#]+\.webp(?:\?.*)?$/i.test(item.approvedWebpUrl)
+    || (wixImages.images as Record<string, string>)[item.approvedWebpPath] !== item.approvedWebpUrl
     || !sha256(item.webpSha256)
     || !Number.isSafeInteger(item.webpWidth) || (item.webpWidth as number) < 1
     || !Number.isSafeInteger(item.webpHeight) || (item.webpHeight as number) < 1)) return false;
