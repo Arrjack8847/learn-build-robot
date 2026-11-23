@@ -7,6 +7,7 @@ const refs = JSON.parse(read("src/data/finalBuild/level-2-references.json"));
 const checks = JSON.parse(read("src/data/finalBuild/level-2-checklists.json"));
 const images = JSON.parse(read("src/data/finalBuild/level-2-wix-image-urls.json"));
 const upload = JSON.parse(read("reports/final-build-level-2-wix-upload-20261123.json"));
+const cdn = JSON.parse(read("reports/final-build-level-2-wix-cdn-sha256-20261123.json"));
 const helper = read("src/data/finalBuildVerified.ts");
 const levelTwoAdapter = read("src/data/finalBuildLevel2Verified.ts");
 const exam = read("src/components/practical/FinalBuildExam.tsx");
@@ -111,4 +112,39 @@ test("shared scanner uses Level 2 fail-closed adapter without replacing Level 5"
   assert.match(exam, /getVerifiedFinalBuildPool\(level\)/);
   assert.match(exam, /const LIMIT_MS = 15 \* 60 \* 1000/);
   assert.match(exam, /prev\.checks\.filter\(Boolean\)\.length >= 4/);
+});
+
+
+test("30 independently downloaded Wix CDN bodies match source SHA-256, exact bytes and WebP dimensions", () => {
+  assert.equal(cdn.testVectorSha256, "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad");
+  assert.equal(cdn.count, 30);
+  assert.equal(cdn.passed, 30);
+  assert.equal(cdn.failed, 0);
+  assert.equal(cdn.results.length, 30);
+
+  const unique = new Set();
+  for (const result of cdn.results) {
+    const reference = refs.references.find(item => item.variantId === result.id);
+    assert.ok(reference, "CDN audit includes an unknown variant: " + result.id);
+    assert.ok(!unique.has(result.id), "CDN audit contains duplicate variant: " + result.id);
+    unique.add(result.id);
+    assert.equal(result.url, images.urls[result.id]);
+    assert.equal(result.httpStatus, 200);
+    assert.equal(result.passed, true);
+    assert.deepEqual(result.checks, {
+      http200: true,
+      webpRiff: true,
+      sha256Matches: true,
+      sizeMatches: true,
+      dimensionsMatch: true,
+    });
+    assert.equal(result.expectedSha256, reference.imageSha256);
+    assert.equal(result.actualSha256, reference.imageSha256);
+    assert.equal(result.actualBytes, reference.imageBytes);
+    assert.equal(result.actualWidth, reference.imageWidth);
+    assert.equal(result.actualHeight, reference.imageHeight);
+  }
+
+  assert.equal(unique.size, 30);
+  for (const blockedId of refs.blockedVariantIds) assert.ok(!unique.has(blockedId));
 });
