@@ -12,7 +12,8 @@
     "approved": 0,
     "blocked": 42,
     "verifiedWebps": 0,
-    "verifiedChecklists": 0
+    "verifiedChecklists": 0,
+    "verifiedSourcePdfs": 40
   },
   "canonicalSources": [
     "src/data/advancedSyllabus.ts",
@@ -38,7 +39,7 @@
     ],
     "verifiedWith": "Wix Media Manager Get File Descriptor API"
   },
-  "qualification": "2026-11-20 Wix descriptor and repaired SHA-1 reports are historical; no current PDF bytes were downloaded in this worker session.",
+  "qualification": "2026-11-23 authenticated Wix PDF bytes fetched for 40 unique sources; SHA-256 and source blob identities verified. Current page-specific finished model inspection, crop approval and five-question independent review remain pending.",
   "excluded": [
     {
       "name": "Super Trajectory Robot 1",
@@ -153,6 +154,11 @@
       "name": "Node-regression-suite",
       "status": "not-run",
       "details": "No full repository checkout in local container; test file authored but not executed"
+    },
+    {
+      "name": "signed-original-pdf-byte-integrity-40-sources",
+      "status": "pass",
+      "details": "40/40 signed Wix PDF downloads SHA-256 and historical original/repaired Git blob identity match. 39 page trees directly counted; Lunar Rover corroborated via 24 Page objects. Not a page-by-page visual audit."
     }
   ],
   "variants": [
@@ -167,7 +173,7 @@
       "reportedPages": 30,
       "priorGitBlobSha1": "a5b7ceb46d32842808328d9d0b613d0ea9130157",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "5bcac8acc6893fb9180fbf24562ef3f591642dc751440cac42701b308944f28c",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -175,7 +181,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 30,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-cycle-sport-basic",
@@ -188,7 +198,7 @@
       "reportedPages": 21,
       "priorGitBlobSha1": "6f6c9ea0b49892055b550782b01d8e791b1ce6a1",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "4bcfdd2f69b666ec92d3aef86479785a41f31cf0707d044582b936d6b9a73d95",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -196,7 +206,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 21,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-cycle-sport-basic",
@@ -209,7 +223,7 @@
       "reportedPages": 6,
       "priorGitBlobSha1": "58370ce13bd4492ce57424b712a889ae476db9ec",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "9026906f2574636df80412568fa9e82134d4f9cf7f2089f685761350509f73c5",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -217,7 +231,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 6,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-automatic-seesaw",
@@ -230,7 +248,7 @@
       "reportedPages": 29,
       "priorGitBlobSha1": "3b58f8f73766eafed4b619c7a1a1f2152be73e1e",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "928ecf07c1cc39f072348fb41c72960f5498825ddd581761ab4ec3866a1c31fd",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -238,7 +256,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 29,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-security-door",
@@ -251,7 +273,7 @@
       "reportedPages": 10,
       "priorGitBlobSha1": "03d7becdd7b35c4ec87ff0e3fe32a00b91919906",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "b6cf5cca9dc9ca10c7b95758c2c4711e079ae66adb00ea83f13a4cacd5385def",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -259,7 +281,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 10,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-smart-door",
@@ -272,7 +298,7 @@
       "reportedPages": 5,
       "priorGitBlobSha1": "99db02e958996e1ec0d66d0f7303deb077934de5",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "b4840f25b998d1cd297001e951815385a58675c721ba86f1d22ba10e80ed1716",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -280,7 +306,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 5,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-following-robot",
@@ -293,7 +323,7 @@
       "reportedPages": 9,
       "priorGitBlobSha1": "ac69d581c188c7569669246a2eadbce94257ed59",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "4db51e13781a6bd994b3487e85b56cc282f07594cffe962d2d8c46be59efddd0",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -301,7 +331,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 9,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-obstacle-avoidance-robot-1",
@@ -314,7 +348,7 @@
       "reportedPages": 11,
       "priorGitBlobSha1": "e61505dcb3e4c0f19123408449c93c2253d3e283",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "67bdcdb78ae30b6bd8b59b34426c0f79258a9bdbe0f5a138b4df828a4c079ff8",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -322,7 +356,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 11,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-sunflower",
@@ -335,7 +373,7 @@
       "reportedPages": 14,
       "priorGitBlobSha1": "84c4ee8db080d4f2ca2991a03c7ed5c8d5307461",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "dc44b18f50b9e5d8e4f2e4074a42e2973be6b11ea34032589d34b5dda99fc7bb",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -343,7 +381,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 14,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-electric-bulldozer",
@@ -356,7 +398,7 @@
       "reportedPages": 26,
       "priorGitBlobSha1": "6af098a5a9ea6bde37a01a5549187f0b37026c14",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "5aad4a8525cb2981206ab4fa95e5dfeab221c3084a5840e13a42db993e1b5218",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -364,7 +406,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 26,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-electric-fan-characters-structures",
@@ -377,7 +423,7 @@
       "reportedPages": 12,
       "priorGitBlobSha1": "5526dcd1f86e025a7c016363f1d81647255543f1",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -385,7 +431,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 12,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-safe",
@@ -398,7 +448,7 @@
       "reportedPages": 24,
       "priorGitBlobSha1": "eb59936b933ffca57769e24093959de5278f7e9c",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "3a0e0c3a45e024059a406f6c0d54e08e65ba5e340926f372b246bb0aa99721bf",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -406,7 +456,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 24,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-smart-trash-bin",
@@ -419,7 +473,7 @@
       "reportedPages": 22,
       "priorGitBlobSha1": "7fe5fb43232b10dfb335d96cc6c43df75c71c537",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "3c63afc1068bfb132a8d0150755a87fd3975905e77839de6fd5a6ceb78458e60",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -427,7 +481,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 22,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-lifting-maintenance-vehicle",
@@ -440,7 +498,7 @@
       "reportedPages": 22,
       "priorGitBlobSha1": "6b7da9e2496b02780b96b229b0e068abf8fd5f95",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "6e5921a4926105cdf3467ef0adff2c2ba1d215dd48d9f29327bdfa2e1f983c5f",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -448,7 +506,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 22,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-automated-guided-vehicle",
@@ -461,7 +523,7 @@
       "reportedPages": 24,
       "priorGitBlobSha1": "ab64321405422d0b89dcb9a45772a450e060d5ce",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "db57e69925fbab00995f65adaf1c48248604e9aebe864ff4a0653c870e7f6b69",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -469,7 +531,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 24,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-race-walking-basic",
@@ -482,7 +548,7 @@
       "reportedPages": 7,
       "priorGitBlobSha1": "b6e2a731e486b8ddf1402df179e966795f204781",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "b1de0b9ac608240758e9173fad5fd2f66d96ebbc8164ef7df2931db0acc5c1fa",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -490,7 +556,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 7,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-race-walking-basic",
@@ -503,7 +573,7 @@
       "reportedPages": 6,
       "priorGitBlobSha1": "68535fb14b515e980237b3f969466facbcd98060",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "638c446ffcbdb9d63965b4aa5d85f4f2bb551d77ed7ee2301cc81575fb753825",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -511,7 +581,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 6,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-race-walking-basic",
@@ -524,7 +598,7 @@
       "reportedPages": 2,
       "priorGitBlobSha1": "4cb49db89cf60b8810d7d3d10138324541d317c8",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "0b3f192781910bd79b241951b6079ccdf8668cd6545207fd02a0ba4805580b9c",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -532,7 +606,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 2,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-bumper-car-foundational-robots",
@@ -545,7 +623,7 @@
       "reportedPages": 13,
       "priorGitBlobSha1": "ea125a179e492944bdbf1d02753bca32e7716bfc",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -553,7 +631,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 13,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-disinfection-lamp",
@@ -566,7 +648,7 @@
       "reportedPages": 20,
       "priorGitBlobSha1": "40e3072459b2597e4eb29771a3af4ac78ad9c236",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "82f9a3faaa571777142b944904c2c69b2c328405d6d6b24205a653b18c920970",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -574,7 +656,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 20,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-flashlight-sensor",
@@ -587,7 +673,7 @@
       "reportedPages": 12,
       "priorGitBlobSha1": "7c3150b2641e06394d9f1c34336982e64b0733ce",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "1cf47dcb9585719a750d95d7ea2be39577fee58fc9081cfeffbdaacf41c15d76",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -595,7 +681,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 12,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-light-sensitive-curtains",
@@ -608,7 +698,7 @@
       "reportedPages": 28,
       "priorGitBlobSha1": "e91d74604d885d7ac0ec02a019ffc8c48606c36a",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "e07668fe94a7de00fed87c8a7bcd482f0d75b1be8eeafe99c7456ed3cb348df9",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -616,7 +706,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 28,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-bumper-car-interactive-mechanisms",
@@ -629,7 +723,7 @@
       "reportedPages": 13,
       "priorGitBlobSha1": "ea125a179e492944bdbf1d02753bca32e7716bfc",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -637,7 +731,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 13,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-anti-fall-robot",
@@ -650,7 +748,7 @@
       "reportedPages": 16,
       "priorGitBlobSha1": "bf0f4db6aee851eea552fe4fcc58c13d7d62f28c",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "0065cad3da26f5ccbe13e680c0a5f187de80c372e3b112548c01dfaa7b00ce7f",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -658,7 +756,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 16,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-automatic-door",
@@ -671,7 +773,7 @@
       "reportedPages": 23,
       "priorGitBlobSha1": "8a28b083039ee8d6f9805d17573e5f28ab0d70d7",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "0168d11271a6646952361113c3fe7e29ee6cb099bf1bd2447f1439ce2dc68a80",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -679,7 +781,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 23,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-juicer-machine",
@@ -692,7 +798,7 @@
       "reportedPages": 14,
       "priorGitBlobSha1": "4f0afb1938a516c540603da9d852b4a509f17294",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "225d502801598f7c50cdf702ff219454cb64e9ca884c68887664f99801eddd62",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -700,7 +806,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 14,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-washing-machine",
@@ -713,7 +823,7 @@
       "reportedPages": 18,
       "priorGitBlobSha1": "b6598180cda7dd76906d29bf2b32f609d278068c",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "3b0362c124754e823d2e59eb753f48e30272a626f3721abbddd0a0aef1c74ca3",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -721,7 +831,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 18,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-electronic-scale",
@@ -734,7 +848,7 @@
       "reportedPages": 27,
       "priorGitBlobSha1": "3afceb33862213ed99d10bfa0fb4d994c57a7184",
       "priorRepairSha1": "a56708e48fb4f4337ea9578823a5cbace65eab06",
-      "sourceSha256": null,
+      "sourceSha256": "d8b367f8dc8ac6d1d498cd39b575d44bf606f1fe8619c79ac96373a60603d127",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -742,7 +856,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 27,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "historical-repaired-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-gyro-transmitter",
@@ -755,7 +873,7 @@
       "reportedPages": 17,
       "priorGitBlobSha1": "82871820203830b6932c5b314ab7afa70183f215",
       "priorRepairSha1": "e0c905c9b5affabddac75de96f7de0481d0a210d",
-      "sourceSha256": null,
+      "sourceSha256": "d5f2cbe35d9c7bb445f0ac144b305d26d72dfdd04057ee6226567cf278313bb9",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -763,7 +881,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 17,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "historical-repaired-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-electric-fan-mechanisms-and-concepts",
@@ -776,7 +898,7 @@
       "reportedPages": 12,
       "priorGitBlobSha1": "5526dcd1f86e025a7c016363f1d81647255543f1",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -784,7 +906,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 12,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-biting-monster",
@@ -797,7 +923,7 @@
       "reportedPages": 24,
       "priorGitBlobSha1": "12e6817e8bdc45b6e27c8738d84454c67dd7c424",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "bc4fb8970464c327a463f2d36e1b756fdf6c5d96cb94acdf8511bd919a0d3051",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -805,7 +931,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 24,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-electric-gyro-launcher",
@@ -818,7 +948,7 @@
       "reportedPages": 12,
       "priorGitBlobSha1": "3d28bbef01ceeee9749fc009efffbf07e261e6f4",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "6c2837f3694b724375ca1c5b29041a07ad0175d6232c89719c5478ae9493696b",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -826,7 +956,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 12,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-responder",
@@ -839,7 +973,7 @@
       "reportedPages": 12,
       "priorGitBlobSha1": "7d621e24ed155d78f1917b6de3a27b093be8b763",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "3f999ea08653b91ef5c3e73b2d56cd51645ae01383e61bac6c904c1f81def151",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -847,7 +981,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 12,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-electric-guitar",
@@ -860,7 +998,7 @@
       "reportedPages": 16,
       "priorGitBlobSha1": "113c6f8587f9bb550a15c68af618fdec8760f28c",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "c62cc4dc06e8ed207a84cecff6f2de2cb28da1c53ec2c32a142f2ecd340d2c2b",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -868,7 +1006,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 16,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-music-box",
@@ -881,7 +1023,7 @@
       "reportedPages": 24,
       "priorGitBlobSha1": "cf1c89ff3347fa79a8940f93de0df4281dc7dc69",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "0ff2006d62314f6a37796004724de1fee11c925d0e2580a177055e4550cb64bc",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -889,7 +1031,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 24,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-music-doorbell",
@@ -902,7 +1048,7 @@
       "reportedPages": 12,
       "priorGitBlobSha1": "06d759c2122e8b8853820061ab2c6c22f480beaf",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "b15f0a40b38ef896be42787b2754e7da13267848948a59a1362310276f5eb060",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -910,7 +1056,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 12,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-smart-audio",
@@ -923,7 +1073,7 @@
       "reportedPages": 11,
       "priorGitBlobSha1": "0dfd3d13fe65d021868056ef3ecdbcf104dc1ed3",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "37ad32948b214a91c7bb11d7d414d33380235a2449d800f6c54fec88cc6e284b",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -931,7 +1081,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 11,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-sonometer",
@@ -944,7 +1098,7 @@
       "reportedPages": 8,
       "priorGitBlobSha1": "bd571b772b2ae9adfa1df0d19e6586484aae48ce",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "410685232e69b2d34936a5dcd804ddf3f47e13b46f17381832f71e7179fdaaa2",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -952,7 +1106,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 8,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-sound-level-meter",
@@ -965,7 +1123,7 @@
       "reportedPages": 20,
       "priorGitBlobSha1": "b0e8a89dd29edd9a0476f35ce3000fc1faa1fc63",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "052ccffc762288f559cfb3e543b1454bcc11deffdc3f47206ec39d46e3216649",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -973,7 +1131,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 20,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-f1-racing-car",
@@ -986,7 +1148,7 @@
       "reportedPages": 37,
       "priorGitBlobSha1": "cab10741b85d7f4087628164d3a79979373b2ee4",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "61cbde687bf32afefcfa7ea648588ed21d3e2d0aa92bf7d82fe7b7abdd5f9899",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -994,7 +1156,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 37,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-long-lived-turtle",
@@ -1007,7 +1173,7 @@
       "reportedPages": 23,
       "priorGitBlobSha1": "19958e694dfc2e8091d251e58e99dd7571efe6fa",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "83011a8a6a502716eb900967a4d3a6f59f67bef7fd8398afe77a2cc732a4516d",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -1015,7 +1181,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 23,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-tree-count"
     },
     {
       "projectId": "level-3-lunar-rover",
@@ -1028,7 +1198,7 @@
       "reportedPages": 24,
       "priorGitBlobSha1": "1bdd4d89b5e8e3773753b3dcb3a9330e6c09ad1e",
       "priorRepairSha1": null,
-      "sourceSha256": null,
+      "sourceSha256": "b88a8f9baa1d204ef9cf671c1a0068c5e588fa149e96b12a03f30ffc5d706368",
       "englishOnly": "unverified",
       "finishedModelPage": null,
       "normalizedCrop": null,
@@ -1036,7 +1206,11 @@
       "webpSha256": null,
       "fiveQuestionEvidence": "unverified",
       "reviewPass1": "blocked",
-      "reviewPass2": "blocked"
+      "reviewPass2": "blocked",
+      "currentPageCount": 24,
+      "sourceByteStatus": "verified",
+      "sourceIdentityMatch": "original-git-blob",
+      "pdfStructuralPageCountMethod": "page-object-count"
     }
   ]
 }
