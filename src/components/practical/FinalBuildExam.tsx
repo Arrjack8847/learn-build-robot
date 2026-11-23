@@ -117,7 +117,19 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
   const variant = project?.variants.find(v => v.id === session.variantId) ?? project?.variants[0] ?? null;
   const approval = project && variant ? getVerifiedFinalBuildReference(level, project.id, variant) : null;
   const pictureReady = Boolean(variant && model?.filename === variant.id && model.status === "ready");
-  const startAllowed = Boolean(approval && pictureReady && variant?.hostedOnWix);
+  // An owner-authorized registered PDF is an explicit playable fallback, not
+  // an independently approved completed-model image. A failed Level 2 Wix
+  // image also exposes the canonical PDF rather than stranding the student.
+  const showLevelTwoPdfFallback = Boolean(
+    level === 2 && approval && variant &&
+    approval.sourceUrl === variant.url && (
+      approval.referenceMode === "registered-pdf-fallback" ||
+      (approval.referenceMode === "hosted-webp" &&
+        model?.filename === variant.id && model.status === "error")
+    ),
+  );
+  const startAllowed = Boolean(approval && variant?.hostedOnWix &&
+    (pictureReady || showLevelTwoPdfFallback));
   const testAllowed = Boolean(import.meta.env.DEV && reviewMode && variant && pictureReady);
   const remaining = session.deadline === null ? LIMIT_MS : Math.max(0, session.deadline - now);
   const elapsed = session.startedAt != null && session.completedAt != null ? Math.max(0, session.completedAt - session.startedAt) : null;
@@ -196,7 +208,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
             <div className="flex flex-col justify-center gap-4 bg-gradient-to-br from-white via-[#f0f9ff] to-[#f1edff] p-5 sm:p-9">
               <h2 className="text-center text-xl font-black text-[#19428f] sm:text-3xl">{session.stage === "scanning" ? "Scanning for your robot!" : "Which robot will you discover?"}</h2>
               <div className="flex flex-wrap justify-center gap-2">
-                <span className="rounded-full bg-sky-100 px-4 py-2 text-sm font-bold text-sky-800">🤖 {pool.length} verified robots</span>
+                <span className="rounded-full bg-sky-100 px-4 py-2 text-sm font-bold text-sky-800">🤖 {level === 2 ? `${pool.length} projects · ${pool.reduce((count, item) => count + item.variants.length, 0)} variants` : `${pool.length} verified robots`}</span>
                 <span className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-bold text-emerald-800">⏱ 15-minute challenge</span>
               </div>
               <button type="button" disabled={session.stage === "scanning" || !pool.length} onClick={discover}
@@ -239,14 +251,27 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
               </label>}
               <div className="rounded-2xl border-2 border-sky-200 bg-sky-50 p-3 text-center sm:p-5">
                 <p className="mb-2 text-xs font-black uppercase tracking-widest text-sky-700">Your finished-model reference</p>
-                {renderCandidate ? <FinalBuildPrototype key={variant.id + ":" + page}
+                {showLevelTwoPdfFallback && approval ? (
+                  <div className="rounded-xl bg-white p-5 text-center" role="region" aria-label="Registered PDF reference fallback">
+                    <p className="font-bold text-sky-900">Original registered PDF reference</p>
+                    <p className="mt-2 text-xs text-slate-600">
+                      {approval.referenceMode === "registered-pdf-fallback"
+                        ? "Owner-authorized PDF fallback. A separately approved completed-model WebP is not available; this PDF may be a presentation or incomplete Building reference."
+                        : "The verified hosted WebP did not load. Use its original registered PDF instead."}
+                    </p>
+                    <a href={approval.sourceUrl} target="_blank" rel="noopener noreferrer"
+                      className="mt-4 inline-flex min-h-12 items-center justify-center rounded-xl bg-sky-700 px-5 py-3 text-sm font-bold text-white underline underline-offset-2">
+                      Open original PDF reference
+                    </a>
+                  </div>
+                ) : renderCandidate ? <FinalBuildPrototype key={variant.id + ":" + page}
                   filename={variant.id} url={variant.url} imageUrl={approval?.imageUrl ?? undefined} pageNumber={page} crop={crop}
                   title={project.name} onStatusChange={onModelStatus}/> :
                   <div className="rounded-xl bg-white p-8 text-sm font-semibold text-amber-900" role="status">
-                    Verified robot image unavailable. This project remains locked until its actual completed-model crop and cleaned PDF are approved.
+                    Robot reference unavailable. The registered PDF or verified finished-model WebP is required to begin.
                   </div>}
                 {reviewMode && <p className="mt-2 text-xs font-semibold text-amber-800">Draft source page only — may contain instructional text or other content. Never shown to students.</p>}
-                {!reviewMode && !startAllowed && <p className="mt-2 text-xs text-amber-900">No unapproved image will be used as an official exam reference.</p>}
+                {!reviewMode && !startAllowed && <p className="mt-2 text-xs text-amber-900">The reference is not yet available. Retry or choose another model.</p>}
               </div>
               <p className="my-4 flex items-center justify-center gap-2 text-4xl font-black tabular-nums text-sky-800"><Timer className="size-7"/>{formatTime(remaining)}</p>
             </>}
@@ -260,7 +285,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
             {session.stage === "building" && <button type="button" onClick={finish} className="min-h-14 w-full rounded-2xl bg-emerald-600 font-extrabold text-white">I Finished My Robot!</button>}
             {session.stage === "assessment" && <>
               <p className="mb-2 text-lg font-extrabold">Check your robot</p>
-              <p className="mb-3 text-xs text-slate-600">Self-reported checklist using five source-backed checks from the official Building manual.</p>
+              <p className="mb-3 text-xs text-slate-600">{approval?.referenceMode === "registered-pdf-fallback" ? "Owner-authorized self-assessment: five general observable checks, not independently verified against Building-manual pages." : "Self-reported checklist using five source-backed checks from the original Building reference."}</p>
               {readyChecks.map((item, index) => <label key={index} className="mb-2 flex min-h-12 items-center gap-3 rounded-xl bg-sky-50 p-3 text-sm font-semibold">
                 <input type="checkbox" className="size-6 shrink-0 accent-sky-600" checked={session.checks[index]}
                   onChange={e => setSession(prev => ({ ...prev, checks: prev.checks.map((v,i) => i === index ? e.target.checked : v) }))}/>
@@ -280,7 +305,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
             <a href={back} className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-violet-700"><ArrowLeft className="size-4"/> Back to Level {level}</a>
           </section>
         )}
-        <p className="mt-4 text-center text-xs text-slate-500">{inventory.length - pool.length} syllabus activities do not currently have an approved playable reference and are excluded from the draw.</p>
+        <p className="mt-4 text-center text-xs text-slate-500">{level === 2 ? "Level 2: independently verified finished-model WebPs and owner-authorized registered PDF fallbacks are both selectable; their evidence statuses remain distinct." : `${inventory.length - pool.length} syllabus activities do not currently have an approved playable reference and are excluded from the draw.`}</p>
       </main>
     </div>
   );
