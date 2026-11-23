@@ -136,9 +136,10 @@ The shared source contains the required 4.2-second scan, unbiased `crypto.getRan
 
 **Executed locally in the isolated Vercel Sandbox (not GitHub Actions):**
 
-- `node --test tests/final-build-level-4.test.mjs`: **7 passed, 0 failed**, after all WebP files and final crop replacements were committed.
+- `node --test tests/final-build-level-4.test.mjs`: **20 passed, 0 failed**, after all WebP files and final crop replacements were committed.
 - Separate Python/Pillow independent decoder pass: **50/50 passed**.
 - Separate hosted-PDF-vs-manifest-vs-image second pass: **50/50 passed** for byte hashes, page counts and crop-pixel fidelity.
+- Broader source-level regression files were also executed: `tests/final-build-exams.test.mjs`, `tests/level-four-wix-urls.test.mjs`, and `tests/syllabus-levels.test.mjs`. The existing Level Selection WebPs were generated only in the sandbox using the repository's own artwork conversion script and an isolated Sharp installation. No generated other-level files were committed.
 - Both Basic/Optimized pairs maintain distinct URLs, WebP hashes, variant IDs and question text; all eight unavailable-source activities remain excluded.
 
 **Not performed:** end-to-end browser/mobile visual QA at 320, 375, 390 or 430 CSS px. No authorized in-session device/browser test environment was used, and no unsupported claim of mobile-browser pass is made. Motion and refresh behavior are code-contract reviews, not fully exercised interactive tests.
