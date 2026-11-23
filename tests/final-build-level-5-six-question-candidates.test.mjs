@@ -50,19 +50,38 @@ test("question evidence distinguishes complete-model crops from incomplete manua
   assert.ok(draft.entries.every((v) => v.questions.every((q) => q.text.endsWith("?") && q.text.length > 55)));
 });
 
-test("candidate draft data never grants student approval or changes the original 39 approved checklists", () => {
-  assert.equal(draft.counts.independentlyApprovedQuestions, 0);
-  assert.equal(draft.counts.studentApprovedVariants, 0);
-  const approvedIds = new Set(approved.approvedChecklists.map((c) => c.variantId));
+test("two completed-model checklists passed independent source-page verification; four remain blocked", () => {
+  assert.equal(draft.counts.independentlyApprovedQuestions, 10);
+  assert.equal(draft.counts.studentApprovedVariants, 2);
+  const releasedIds = new Set(approved.approvedChecklists.map(c => c.variantId));
   const selectable = new Set(audit.studentScannerSelectableVariantIds);
-  assert.equal(approvedIds.size, 39);
-  for (const entry of draft.entries) {
-    assert.equal(entry.studentApproved, false);
-    assert.equal(entry.independentQuestionReview, "PENDING");
-    assert.ok(!approvedIds.has(entry.variantId));
-    assert.ok(!selectable.has(entry.variantId));
-    for (const q of entry.questions) {
-      assert.equal(q.reviewStatus, "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION");
+  assert.equal(releasedIds.size, 41);
+  assert.deepEqual(releasedIds, selectable);
+  const newlyApproved = new Set(["level-5-voice-control-snail", "level-5-voice-control-vehicle"]);
+  for(const entry of draft.entries) {
+    if(newlyApproved.has(entry.variantId)) {
+      assert.equal(entry.studentApproved, true);
+      assert.equal(entry.independentQuestionReview, "PASSED_SOURCE_VISUAL_SECOND_PASS");
+      assert.ok(releasedIds.has(entry.variantId));
+      assert.ok(selectable.has(entry.variantId));
+      const live = approved.items.find(v => v.variantId === entry.variantId);
+      assert.ok(live?.approved);
+      assert.equal(live.questions.length, 5);
+      for(let i=0;i<5;i++) {
+        const question=entry.questions[i], finalQuestion=live.questions[i];
+        assert.equal(question.reviewStatus,"APPROVED_WITH_SOURCE_PAGE_EVIDENCE");
+        assert.equal(finalQuestion.text, question.text);
+        assert.equal(finalQuestion.evidencePage, question.evidencePage);
+        assert.equal(finalQuestion.sourcePdfSha256, question.sourcePdfSha256);
+      }
+    } else {
+      assert.equal(entry.studentApproved, false);
+      assert.equal(entry.independentQuestionReview, "PENDING");
+      assert.ok(!releasedIds.has(entry.variantId));
+      assert.ok(!selectable.has(entry.variantId));
+      for(const question of entry.questions) {
+        assert.equal(question.reviewStatus, "DRAFT_REQUIRES_INDEPENDENT_VISUAL_CONFIRMATION");
+      }
     }
   }
 });
