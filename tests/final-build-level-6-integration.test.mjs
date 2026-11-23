@@ -7,6 +7,8 @@ const references = JSON.parse(read("src/data/finalBuild/level-6-references.json"
 const checklists = JSON.parse(read("src/data/finalBuild/level-6-checklists.json"));
 const wix = JSON.parse(read("src/data/finalBuild/level-6-wix-image-urls.json"));
 const upload = JSON.parse(read("reports/final-build-level-6-wix-upload-20261123.json"));
+const mediaIntegrity = JSON.parse(read("reports/final-build-level-6-wix-byte-integrity-20261123.json"));
+const cdnIntegrity = JSON.parse(read("reports/final-build-level-6-wix-cdn-byte-integrity-20261123.json"));
 const verified = read("src/data/finalBuildLevel6Verified.ts");
 const router = read("src/data/finalBuildVerified.ts");
 const exam = read("src/components/practical/FinalBuildExam.tsx");
@@ -101,4 +103,37 @@ test("Level 6 uses existing verified-only scanner, WebP renderer, and unchanged 
   assert.match(exam, /const SCAN_MS = 4200/);
   assert.match(exam, /prev\.checks\.filter\(Boolean\)\.length >= 4/);
   assert.match(exam, /overflow-y-auto/);
+});
+
+test("39 approved Wix WebPs retain source SHA-256 through original storage and public CDN", () => {
+  const approved = references.entries.filter(x => x.approved && x.status === "approved");
+  assert.equal(approved.length, 39);
+  assert.equal(mediaIntegrity.checked, 39);
+  assert.equal(mediaIntegrity.identical, 39);
+  assert.equal(mediaIntegrity.different, 0);
+  assert.equal(cdnIntegrity.checked, 39);
+  assert.equal(cdnIntegrity.passed, 39);
+  assert.equal(cdnIntegrity.failed, 0);
+  const original = new Map(mediaIntegrity.files.map(x => [x.variantId, x]));
+  const publicCdn = new Map(cdnIntegrity.files.map(x => [x.variantId, x]));
+  assert.equal(original.size, 39);
+  assert.equal(publicCdn.size, 39);
+  for (const ref of approved) {
+    const file = original.get(ref.variantId);
+    const cdn = publicCdn.get(ref.variantId);
+    assert.ok(file && cdn, "Missing independent byte verification: " + ref.variantId);
+    assert.equal(file.verified, true);
+    assert.equal(file.http, 200);
+    assert.equal(file.actualSha256, ref.imageWebpSha256);
+    assert.equal(cdn.passes, true);
+    assert.equal(cdn.http, 200);
+    assert.equal(cdn.sha256, ref.imageWebpSha256);
+    assert.equal(cdn.url, wix.urls[ref.variantId]);
+    assert.equal(file.bytes, cdn.bytes);
+  }
+  for (const ref of references.entries.filter(x => !x.approved)) {
+    assert.equal(original.has(ref.variantId), false);
+    assert.equal(publicCdn.has(ref.variantId), false);
+    assert.equal(Object.hasOwn(wix.urls, ref.variantId), false);
+  }
 });
