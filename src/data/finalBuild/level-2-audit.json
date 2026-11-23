@@ -13,7 +13,13 @@
     "legacyMappings": 24,
     "approved": 0,
     "blocked": 60,
-    "unresolved": 0
+    "unresolved": 0,
+    "downloadedPdfVariants": 60,
+    "verifiedPdfSha256": 60,
+    "totalPages": 1056,
+    "historicShaMatches": 36,
+    "dedicatedBuildingCandidates": 30,
+    "presentationOrUncertainSources": 30
   },
   "definitions": {
     "blocked": "Missing required independent PDF-byte/visual verification or question/image approval; never eligible for student draw",
@@ -25,7 +31,8 @@
     "59 syllabus projects, 60 registered variants: See Saw has two source manuals (Balance.pdf and Balance_v2.pdf).",
     "43 Level 2 cleaned Learning PDFs are separate from the 60 Building candidates. The Double Beam Crane learning fallback is not a substitute Building reference.",
     "No SHA-256, page count, PDF screenshot, WebP, or manual-specific checklist is claimed without actual source inspection.",
-    "Do not change global FinalBuildApprovals.json; integration worker owns the student gate."
+    "Do not change global FinalBuildApprovals.json; integration worker owns the student gate.",
+    "2026-11-23 second-run: 60 actual Wix PDF byte streams acquired and SHA-256 computed; all 36 historical Git-blob SHA-1 records matched. Thirty PDF sources visually screened as dedicated Building manual candidates; 30 presentation/uncertain sources remain blocked."
   ],
   "variants": [
     {
@@ -43,11 +50,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9f9583daaf254686980490a8cde41384.pdf",
         "mediaId": "7fc4ca_9f9583daaf254686980490a8cde41384",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "8250029efc265fcc941b7ee7a02651a4f709aabc964ae0c3320477a5193961bf",
+        "pageCount": 15,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 5448487,
+        "gitBlobSha1": "7773d60c3031e041fb6d590d2c3c79080c988477",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-axe-robot--standard.webp",
@@ -68,7 +80,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -85,11 +97,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ba70dd634abd49cf95a1a0ad467911d2.pdf",
         "mediaId": "7fc4ca_ba70dd634abd49cf95a1a0ad467911d2",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "c1b73230c01786302bf7fdec6686140efcadc99e2f76fa86a358284c1c1782ab",
+        "pageCount": 10,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 3062311,
+        "gitBlobSha1": "ecc67766a5b2b146e76712bb80b5bd0cae602649",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-batting-robot--standard.webp",
@@ -110,7 +127,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -127,11 +144,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0b1c8872fa7b4920a91101276c3da729.pdf",
         "mediaId": "7fc4ca_0b1c8872fa7b4920a91101276c3da729",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "293fdf655243b43f4d5ac741c5340288cd1557e6fdad645e3164400f8879e478",
+        "pageCount": 8,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 2484454,
+        "gitBlobSha1": "9131a51ad4893541d91be8c1a07f3adacd00da0d",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-fan-robot--standard.webp",
@@ -152,7 +174,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -169,9 +191,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_00644c98f0204033a9713840dfc58dbc.pdf",
         "mediaId": "78042f_00644c98f0204033a9713840dfc58dbc",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "7dc8bb070622e8cfcb6c9041bdb1f60721295134343458746e054a52809d90ce",
+        "pageCount": 15,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -180,7 +202,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_00644c98f0204033a9713840dfc58dbc.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 3945745,
+        "gitBlobSha1": "742622419638d99be016e612ba5ba1eae4d76416",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-pirate-ship--standard.webp",
@@ -201,7 +228,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -218,11 +245,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_af76a0de49e04957b283cc49438c5989.pdf",
         "mediaId": "7fc4ca_af76a0de49e04957b283cc49438c5989",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "88bba93fe1cd79a112453d7f6456d15faa189208dbac9ce3026dc902b15cc323",
+        "pageCount": 16,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 5701825,
+        "gitBlobSha1": "ea79f05e632be704113fb449b0e08ec70c2e1eee",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-push-ups--standard.webp",
@@ -243,7 +275,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -260,9 +292,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c3b083b9ebae4025b7d68017b64dd1aa.pdf",
         "mediaId": "78042f_c3b083b9ebae4025b7d68017b64dd1aa",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "5a7da6074ef16a086d47cb086ad618dec4acf65b7223b9f7bb74d1ebdd1447f6",
+        "pageCount": 11,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -271,7 +303,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c3b083b9ebae4025b7d68017b64dd1aa.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 2390009,
+        "gitBlobSha1": "0eda57ae2bc959aca61c49703fc3373d131b7395",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-rotating-flying-chair--standard.webp",
@@ -292,7 +329,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -309,11 +346,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_969f1f7595fa447c9e81598fd5d5a5dd.pdf",
         "mediaId": "7fc4ca_969f1f7595fa447c9e81598fd5d5a5dd",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "128a9eb5815e81447c29acf636f517b9f81b164162ba19f0cbd44b12c2aca9f1",
+        "pageCount": 19,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 9178952,
+        "gitBlobSha1": "c6003825dc39d30193501ee58d6d97ce13836d4d",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-throwing-robot--standard.webp",
@@ -334,7 +376,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -351,9 +393,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f2257130ccc54df8a8ea61f70e87fb91.pdf",
         "mediaId": "78042f_f2257130ccc54df8a8ea61f70e87fb91",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "2ebdc81b17279ab9cc7457324909fd8e4a28da7a3b0bb77c41542ae5ef60a9d6",
+        "pageCount": 20,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -362,7 +404,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f2257130ccc54df8a8ea61f70e87fb91.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 922132,
+        "gitBlobSha1": "1abea2a1902ff6a704a56aa0d5968bd9b406d7e8",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-bee--standard.webp",
@@ -383,7 +430,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -400,9 +447,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_faf03246048040b692f555249b32ad15.pdf",
         "mediaId": "78042f_faf03246048040b692f555249b32ad15",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "49e6960ad79bdeb4e8a4d0fa39def0b222b5422081626af07f3b65bfc97b6609",
+        "pageCount": 14,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -411,7 +458,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_faf03246048040b692f555249b32ad15.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 818142,
+        "gitBlobSha1": "74b5b054951fac6bbb3c8fd96ce74237074a74a3",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-chimpanzees--standard.webp",
@@ -432,7 +484,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -449,9 +501,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_07f47f0b3c5c4a32b68f1152a8c02093.pdf",
         "mediaId": "78042f_07f47f0b3c5c4a32b68f1152a8c02093",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "127735505bfd831b348d465630bc004f53ebdeaea5519e8ac7d8b0078181b902",
+        "pageCount": 14,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -460,7 +512,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_07f47f0b3c5c4a32b68f1152a8c02093.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 2488960,
+        "gitBlobSha1": "8dd115c7bdbc0dfd27a0d79244f7ec5db43e6b0b",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-mechanical-dog--standard.webp",
@@ -481,7 +538,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -498,9 +555,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_39cdb93334904fa18a188f9d5a2a7c96.pdf",
         "mediaId": "78042f_39cdb93334904fa18a188f9d5a2a7c96",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "de6b34e6ef1359051b8d292f38a95b1268848b7df4fbed828a38062e1d4f1d04",
+        "pageCount": 22,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -509,7 +566,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_39cdb93334904fa18a188f9d5a2a7c96.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 3973604,
+        "gitBlobSha1": "b519581c67658ca7ed5943a038708ec06674211a",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-scaling-ladder--standard.webp",
@@ -530,7 +592,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -547,9 +609,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_df23e113a7f7491a8a40730a0a1e5da9.pdf",
         "mediaId": "78042f_df23e113a7f7491a8a40730a0a1e5da9",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "1f78414ec590aa9ce037e302d9233ec6e3488dd87a258f5c21c967672f377b1e",
+        "pageCount": 18,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -558,7 +620,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_df23e113a7f7491a8a40730a0a1e5da9.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 4930007,
+        "gitBlobSha1": "929597f5dffba314146eb44862df26fad317dcb5",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-tower-crane--standard.webp",
@@ -579,7 +646,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -596,11 +663,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e184994e3de4492485f3f6941b264a34.pdf",
         "mediaId": "7fc4ca_e184994e3de4492485f3f6941b264a34",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "145ac5a81795a54d64ee895bb6f1e76e9da4cd741bab320da1dcec8338fdaaa1",
+        "pageCount": 20,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 21905917,
+        "gitBlobSha1": "9d4ae2829532e9712e04be0d08215abd34f79fbd",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-crane--standard.webp",
@@ -621,7 +693,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -638,11 +710,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1010df902c5e4391a1e4c4af9281e8cb.pdf",
         "mediaId": "7fc4ca_1010df902c5e4391a1e4c4af9281e8cb",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "71d5c5c47e08fa603f66c00d0a5050a01304a7888cbd11686d48c0149933b485",
+        "pageCount": 14,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 8937816,
+        "gitBlobSha1": "602d2dec9f2da62856ec9216c992a06314d5c857",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-fare-gate--standard.webp",
@@ -663,7 +740,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -680,11 +757,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_72dd4dd12363460e91f259cfd012322c.pdf",
         "mediaId": "7fc4ca_72dd4dd12363460e91f259cfd012322c",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "c3b8d3e79e29494be57dcc232d10f0f5bf694b411246b0bcd712b9b38d883230",
+        "pageCount": 24,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 22046970,
+        "gitBlobSha1": "87f3e0fd9875afc9603614a159d3a4ac0143686e",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-forklift--standard.webp",
@@ -705,7 +787,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -722,9 +804,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_976489b6546f4ab5a8f1723f2eadad2d.pdf",
         "mediaId": "78042f_976489b6546f4ab5a8f1723f2eadad2d",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "3119a370cdc0a1e280f2b66647922f65ff43130781e33726953783f794780622",
+        "pageCount": 22,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -733,7 +815,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_976489b6546f4ab5a8f1723f2eadad2d.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 1123020,
+        "gitBlobSha1": "d88e7aeef7235812336128d83a6120f66dc83039",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-hammer-robot--standard.webp",
@@ -754,7 +841,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -771,9 +858,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_80611a94450b4d62a6a2ea78e409db6e.pdf",
         "mediaId": "78042f_80611a94450b4d62a6a2ea78e409db6e",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "50107e9622c1837747c766b05cc3e5b6e7b258d795e677eb065c01a588ca3680",
+        "pageCount": 22,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -782,7 +869,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_80611a94450b4d62a6a2ea78e409db6e.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 1076189,
+        "gitBlobSha1": "90ecdd468a6e75504b37099ca6696d181382a12c",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-lucky-turntable--standard.webp",
@@ -803,7 +895,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -820,9 +912,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6c374dba007d41649bcb36c9cc9b168f.pdf",
         "mediaId": "78042f_6c374dba007d41649bcb36c9cc9b168f",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "65c1da169137883128bf204f49f926cef89c9cbb45f4567c414986342059aa11",
+        "pageCount": 18,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -831,7 +923,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6c374dba007d41649bcb36c9cc9b168f.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 944042,
+        "gitBlobSha1": "e9dba3aa4add16ae6a32a77e6d6ff17bc423705e",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-the-treadmill--standard.webp",
@@ -852,7 +949,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -869,9 +966,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9d342a952cad44c0a67abeb185a9870c.pdf",
         "mediaId": "78042f_9d342a952cad44c0a67abeb185a9870c",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "0e1454f6ffaeb0d8993f17a421df9b9649aa1dbf071464992267366e2f8efade",
+        "pageCount": 14,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -880,7 +977,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9d342a952cad44c0a67abeb185a9870c.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 812622,
+        "gitBlobSha1": "65c3e1c4d4f529e45f7cf6721682f1318664b79b",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-tightrope-walk--standard.webp",
@@ -901,7 +1003,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -918,9 +1020,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0e2b16ec833946eaa67305b1b38fc319.pdf",
         "mediaId": "78042f_0e2b16ec833946eaa67305b1b38fc319",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "c7734a79bca42a0cc95a94527d969b07a5bbccad8a0b6cbf1f76e82b7b567c1e",
+        "pageCount": 15,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -929,7 +1031,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0e2b16ec833946eaa67305b1b38fc319.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 3748738,
+        "gitBlobSha1": "3868875e6339b4e6713e7b074e98f713779dd629",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-manual-flashlight--standard.webp",
@@ -950,7 +1057,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -967,9 +1074,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0d9f6f2dec834ead9e33b7c90d06e15f.pdf",
         "mediaId": "78042f_0d9f6f2dec834ead9e33b7c90d06e15f",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "dd13ac2d24ea1960ddab8eca91a33f206973edb80fd131ec46551b67f0386176",
+        "pageCount": 18,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -978,7 +1085,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0d9f6f2dec834ead9e33b7c90d06e15f.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 3376853,
+        "gitBlobSha1": "59f644717ed7455240e0eacaabeb73ed0098a3d8",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-jumping-machine--standard.webp",
@@ -999,7 +1111,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -1016,9 +1128,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b23c014f2a3446359a14032430ea48b8.pdf",
         "mediaId": "78042f_b23c014f2a3446359a14032430ea48b8",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "1c96a4cc6fe282faad3e5424141eb09d007a9a315e7020e01fa2f0a3a7e9ef56",
+        "pageCount": 10,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -1027,7 +1139,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b23c014f2a3446359a14032430ea48b8.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 2479587,
+        "gitBlobSha1": "fc3fa184708687887055bed12497c3f9be9cd515",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-see-saw-v1--v1.webp",
@@ -1048,7 +1165,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -1065,9 +1182,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e349f1cbc2934e179872a23a815df844.pdf",
         "mediaId": "78042f_e349f1cbc2934e179872a23a815df844",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "b315e433675efca0cf50478b3d993203462f4002da0e8df8a6c76db658430aa6",
+        "pageCount": 10,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -1076,7 +1193,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e349f1cbc2934e179872a23a815df844.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 2679955,
+        "gitBlobSha1": "a94fc8f028b6936405f124b93e6b1fd8796a9164",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-see-saw-v1--v2.webp",
@@ -1097,7 +1219,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -1114,9 +1236,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2865bdb79f2c48f88386b685adc5bb8f.pdf",
         "mediaId": "78042f_2865bdb79f2c48f88386b685adc5bb8f",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "f79cccd3bf5e1e6ee5ed0004d05bf9106e9d32d0a02ea76a2c46df7c6d9a7bb0",
+        "pageCount": 13,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -1125,7 +1247,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2865bdb79f2c48f88386b685adc5bb8f.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 2866743,
+        "gitBlobSha1": "fb30842584028de64cf628cc0ccc3eebb12d0636",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-tongs--standard.webp",
@@ -1146,7 +1273,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -1163,9 +1290,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ab01dd19b27c4795a341e0ab8a5d80f1.pdf",
         "mediaId": "78042f_ab01dd19b27c4795a341e0ab8a5d80f1",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "6a1d48f4e86d79a72761aca63501ab0847a685cb9f0bd2919ae6e8b55bf25199",
+        "pageCount": 19,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -1174,7 +1301,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ab01dd19b27c4795a341e0ab8a5d80f1.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 1316199,
+        "gitBlobSha1": "3a3995703be1fa8f6cc66c580f6dbe56c8c27244",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-automatic-window--standard.webp",
@@ -1195,7 +1327,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -1212,11 +1344,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_261fe72a555d48bb98887bc3b82aad10.pdf",
         "mediaId": "7fc4ca_261fe72a555d48bb98887bc3b82aad10",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "6d356f3bcde8a5e57ea011964865bcc19a352c091f7ff74741213149d2eaabec",
+        "pageCount": 26,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 20134131,
+        "gitBlobSha1": "c4bb864ddefa921ef5932938fd82abd959dbc8d0",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-dung-beetle--standard.webp",
@@ -1237,7 +1374,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -1254,11 +1391,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0333ba1c98af459d9eed14b149fe83d5.pdf",
         "mediaId": "7fc4ca_0333ba1c98af459d9eed14b149fe83d5",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "39cf59febae7c02b3a69749278550a26de419f11e08f4d9928c652a042fb05d2",
+        "pageCount": 20,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 13987029,
+        "gitBlobSha1": "542ef439142804b41b71871dc9127650f7a6625b",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-mobile-shot--standard.webp",
@@ -1279,7 +1421,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -1296,9 +1438,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_565442dd664f4d839b23319a3cf693c2.pdf",
         "mediaId": "78042f_565442dd664f4d839b23319a3cf693c2",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "05c840802a4b7e2cdaf89063818ff69a85feb665f14879d26b222a27ebbe7b72",
+        "pageCount": 25,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -1307,7 +1449,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_565442dd664f4d839b23319a3cf693c2.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 1864707,
+        "gitBlobSha1": "79333498bf300bc3a3a452d7728296f83ecc842d",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-robot-war--standard.webp",
@@ -1328,7 +1475,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -1345,11 +1492,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7d057cae078745938728560908990a5f.pdf",
         "mediaId": "7fc4ca_7d057cae078745938728560908990a5f",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "4f290b057f636e84af730df984d3a773f01b752a43b8704d33e0435d5a37c05a",
+        "pageCount": 16,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 14661539,
+        "gitBlobSha1": "cbaf3dda9daaa021a88238276dce24a4c2304d4f",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-rolling-shutter--standard.webp",
@@ -1370,7 +1522,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -1387,11 +1539,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b6f90ccb25a34d1e8a6f67565fb2115a.pdf",
         "mediaId": "7fc4ca_b6f90ccb25a34d1e8a6f67565fb2115a",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "c102ef8cd1fbc06091cd48caf69bc8821ed3dd266ab873a813ad25510148e50f",
+        "pageCount": 18,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 14889044,
+        "gitBlobSha1": "ee0fc85a36ec91eba42afab71e38e97e0504c50e",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-track-rickshaw--standard.webp",
@@ -1412,7 +1569,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -1429,9 +1586,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c8fe4c3cc3f147f3871f79cc6646bb3e.pdf",
         "mediaId": "78042f_c8fe4c3cc3f147f3871f79cc6646bb3e",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "7802134fbb5cc7caf8eef2541cc06c980df2c19d09ee33ec92c7984e28bf22a4",
+        "pageCount": 22,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -1440,7 +1597,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c8fe4c3cc3f147f3871f79cc6646bb3e.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 1738702,
+        "gitBlobSha1": "cd9b60ba4d0d80e8160192fbe8ae7abc1a28c7cf",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-car-steering--standard.webp",
@@ -1461,7 +1623,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -1478,9 +1640,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0506a47611384efc957ca1d9120301e7.pdf",
         "mediaId": "78042f_0506a47611384efc957ca1d9120301e7",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "5c17ec40a85f3784da5dfc89be1cf2d9bc9d2289d28321f021de3a0252536045",
+        "pageCount": 12,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -1489,7 +1651,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_0506a47611384efc957ca1d9120301e7.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 1054107,
+        "gitBlobSha1": "997b01642531a48355a2abe5d1320a50b5a6c10b",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-cliff-walk--standard.webp",
@@ -1510,7 +1677,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -1527,9 +1694,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e19ce390112d4687ba0f3e7c9ece89aa.pdf",
         "mediaId": "78042f_e19ce390112d4687ba0f3e7c9ece89aa",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "ff9692aebe943797c03ccdda408589f0fa27345d67bc533c23bc702b524b0779",
+        "pageCount": 22,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -1538,7 +1705,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e19ce390112d4687ba0f3e7c9ece89aa.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 1384156,
+        "gitBlobSha1": "75bec5b05105a9b87d3339ba10c4cd46b3110fa7",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-ferris-wheel--standard.webp",
@@ -1559,7 +1731,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -1576,9 +1748,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_7b55e529ac684005bbbcca7dc25da110.pdf",
         "mediaId": "78042f_7b55e529ac684005bbbcca7dc25da110",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "18fbac4a1217c841c42b72b1170d1a96880f34ab344899d531f4433573babfd9",
+        "pageCount": 15,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -1587,7 +1759,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_7b55e529ac684005bbbcca7dc25da110.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 923105,
+        "gitBlobSha1": "443a39cbb547a8a9b491f1d532c4d69ecdb4231e",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-round-trip-transportation--standard.webp",
@@ -1608,7 +1785,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -1625,9 +1802,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_08aeb18334204c7fb65fcede60af5012.pdf",
         "mediaId": "78042f_08aeb18334204c7fb65fcede60af5012",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "0e640b29b17234bd8a16c9534f25aa25b820c28c18524478fec51a39da73a0c8",
+        "pageCount": 19,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -1636,7 +1813,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_08aeb18334204c7fb65fcede60af5012.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 1224182,
+        "gitBlobSha1": "ec4a4e8428450ca2fd7db6a5ca5fc9fd8ee396b9",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-shift-gears--standard.webp",
@@ -1657,7 +1839,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -1674,9 +1856,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_65862b24eee445128168f5de4ee80ee1.pdf",
         "mediaId": "78042f_65862b24eee445128168f5de4ee80ee1",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "55f8aa6990c0e2be9ff06974da0decf76bdb2513176a578bf3fd440267d49eb9",
+        "pageCount": 15,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -1685,7 +1867,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_65862b24eee445128168f5de4ee80ee1.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 4113033,
+        "gitBlobSha1": "823fab22170a2243a6593601350a7a5baedc2480",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-bridge--standard.webp",
@@ -1706,7 +1893,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -1723,9 +1910,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e899154e23df4b3ca5f313347744217c.pdf",
         "mediaId": "78042f_e899154e23df4b3ca5f313347744217c",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "c004d69628ae6221a49118b976235047ed9385089e8c7a69e88ffbd37efdb9c8",
+        "pageCount": 40,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -1734,7 +1921,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e899154e23df4b3ca5f313347744217c.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 20918760,
+        "gitBlobSha1": "6df91bf8dd41076ed1026ee74be7070b3122f3f6",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-mechanisms-simulators-crane--standard.webp",
@@ -1755,7 +1947,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -1772,9 +1964,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9f73091b93e9459fac2603819689b4ba.pdf",
         "mediaId": "78042f_9f73091b93e9459fac2603819689b4ba",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "ebf35a2cb1bb4b7b83c34d5e85244921bcd27e3347fa05b242d900f3e49408d9",
+        "pageCount": 10,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -1783,7 +1975,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9f73091b93e9459fac2603819689b4ba.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 2882179,
+        "gitBlobSha1": "b784dbfd94d07c3142820d0e5d384370fd4fe159",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-door--standard.webp",
@@ -1804,7 +2001,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -1821,9 +2018,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cf9221967f804769ad6e7d3d50c47eab.pdf",
         "mediaId": "78042f_cf9221967f804769ad6e7d3d50c47eab",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "9cdfb63a9508c5485626a6654493999692835c9ec0cd2eca95669b209c0a8f94",
+        "pageCount": 22,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -1832,7 +2029,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cf9221967f804769ad6e7d3d50c47eab.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 5415444,
+        "gitBlobSha1": "08499d01d01ad8181ff70509175d0fabf8f7954d",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-double-beam-crane--standard.webp",
@@ -1853,7 +2055,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -1870,9 +2072,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_47fcd935e8894045b7b4017ab210183e.pdf",
         "mediaId": "78042f_47fcd935e8894045b7b4017ab210183e",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "749f6cc44d3217531184bc46ec6b3d10f7ad4cc550cf2b54498375b0f4e2d76f",
+        "pageCount": 20,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -1881,7 +2083,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_47fcd935e8894045b7b4017ab210183e.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 6290530,
+        "gitBlobSha1": "d36685c96cdddcb74ac98ea3f1751b9f55116faa",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-gearbox--standard.webp",
@@ -1902,7 +2109,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -1919,9 +2126,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_088e2b77a9a746fd9508de9054bf429d.pdf",
         "mediaId": "78042f_088e2b77a9a746fd9508de9054bf429d",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "7c868b6c28c29f49bb9f8dff630f3d8968e142e73582e5329d8cc6ca7a50e2ea",
+        "pageCount": 11,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -1930,7 +2137,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_088e2b77a9a746fd9508de9054bf429d.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 3175187,
+        "gitBlobSha1": "42ffa3111761e2de0fe0024ff7345c95291ec08b",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-hand-crank--standard.webp",
@@ -1951,7 +2163,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -1968,11 +2180,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_545ec9836f684200a380780cf94b3f6b.pdf",
         "mediaId": "7fc4ca_545ec9836f684200a380780cf94b3f6b",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "71e9424dcd6abadfa38976d2e742f6eabcf03f6340f27d58996c94ec0770d518",
+        "pageCount": 9,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 3125916,
+        "gitBlobSha1": "74a7f32abb7a93532c464e0f04a4ab0430fdf091",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-spinning-bike--standard.webp",
@@ -1993,7 +2210,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -2010,11 +2227,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_79f268a64faf430cb97a7685c2a36780.pdf",
         "mediaId": "7fc4ca_79f268a64faf430cb97a7685c2a36780",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "27ea63b444bdfa7b78d6837db6c1f71f15740649a8a5f77ca5699963327d36b3",
+        "pageCount": 8,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 3263219,
+        "gitBlobSha1": "d7d3c926d6c880c73df4de9fe6565761c5133ebd",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-swing--standard.webp",
@@ -2035,7 +2257,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -2052,11 +2274,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7224ffa602fa4c4fbc370822909a57e0.pdf",
         "mediaId": "7fc4ca_7224ffa602fa4c4fbc370822909a57e0",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "78b5fb021bff9908e8d9e56b64143f9fba29a44b7cfc7004963b952fe1ebfae7",
+        "pageCount": 21,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 8151844,
+        "gitBlobSha1": "a0a26bdfea53b51d433bffbf895b7d9c0ba2c8f5",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-treadmill--standard.webp",
@@ -2077,7 +2304,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -2094,9 +2321,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c031b42bbda14028bf8a654778ceaa45.pdf",
         "mediaId": "78042f_c031b42bbda14028bf8a654778ceaa45",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "a46e7c9d132603d2e210bb87e29140f44ef5966ede154e959983931aeb9047e4",
+        "pageCount": 18,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -2105,7 +2332,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_c031b42bbda14028bf8a654778ceaa45.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 3990003,
+        "gitBlobSha1": "d3817c2e738575e30efa8646640aeab17b499de9",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-animal-trap--standard.webp",
@@ -2126,7 +2358,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -2143,9 +2375,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_a5ed1f1e93d543a886c753f87c0b6330.pdf",
         "mediaId": "78042f_a5ed1f1e93d543a886c753f87c0b6330",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "a67d05ec8d653b644a6ad213d60bdd74688e5b9ca69687c3f5e0464294f4134d",
+        "pageCount": 14,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -2154,7 +2386,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_a5ed1f1e93d543a886c753f87c0b6330.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 1127744,
+        "gitBlobSha1": "b881202ec518483feab50e6968e9dc3691a0d399",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-headlights--standard.webp",
@@ -2175,7 +2412,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -2192,11 +2429,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_707b4397bb0f43bcb07fc2c83735393a.pdf",
         "mediaId": "7fc4ca_707b4397bb0f43bcb07fc2c83735393a",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "75e1a4286f55616b1b7e31dbc8412dc3730eed77932760ea834ae35e00fb126f",
+        "pageCount": 23,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 11222221,
+        "gitBlobSha1": "ed758e45369c3d3c67ecb7e4018749bfb10dcf31",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-battery-robot--standard.webp",
@@ -2217,7 +2459,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -2234,9 +2476,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b9e03b9e4fe64cf18c49fd214b63ef62.pdf",
         "mediaId": "78042f_b9e03b9e4fe64cf18c49fd214b63ef62",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "18411a2fcc722e290aeb33decc56cf1a13692a36ea7599b8ae121af92a4912fa",
+        "pageCount": 35,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -2245,7 +2487,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b9e03b9e4fe64cf18c49fd214b63ef62.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 5825077,
+        "gitBlobSha1": "0b9ade90acc26a3f8039a88def478349eff19683",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-walking-robot--standard.webp",
@@ -2266,7 +2513,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -2283,11 +2530,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a2fff3a4801a47be8a23e3b9f5f0639b.pdf",
         "mediaId": "7fc4ca_a2fff3a4801a47be8a23e3b9f5f0639b",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "00ef8962f3ff496c1d7b34ba3589c30ae44facd76ec244c17c493ced7e402b8b",
+        "pageCount": 10,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 6014952,
+        "gitBlobSha1": "caecd4ddb7c02e6c315252e960a9e53c6d9f6280",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-led-scrolling-screen--standard.webp",
@@ -2308,7 +2560,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -2325,11 +2577,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_aa9fb0b2f7da43ddaa2abe9cf4a6f930.pdf",
         "mediaId": "7fc4ca_aa9fb0b2f7da43ddaa2abe9cf4a6f930",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "d0cc5f6549b63fc94555403441bf95ab2c74ddc4148aba4849ec1c78d8b2c632",
+        "pageCount": 12,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 19974368,
+        "gitBlobSha1": "30771acaeda6a6fe9fe0ebd470578f3b197b8aa6",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-led-signboard--standard.webp",
@@ -2350,7 +2607,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -2367,11 +2624,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_49c37ce0afb34f458a1cf2d85d2420f3.pdf",
         "mediaId": "7fc4ca_49c37ce0afb34f458a1cf2d85d2420f3",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "25bb429bec66e53a94622808c061fb70ecff343a2a6ce751fb21b9e7e143eac9",
+        "pageCount": 12,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 7218409,
+        "gitBlobSha1": "18cf6c2c0651abacc04114de6e631176a292b994",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-reverse-parking--standard.webp",
@@ -2392,7 +2654,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -2409,11 +2671,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a4b25d7ec56f46bf962394caff6e0b24.pdf",
         "mediaId": "7fc4ca_a4b25d7ec56f46bf962394caff6e0b24",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "b52d20afccc3905883ddc7388a4a1ce0867559eec3ca13fe8e76a92a2ea6faeb",
+        "pageCount": 18,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 15495399,
+        "gitBlobSha1": "8944d7239b3d078676879a7ecbb6b4a1c35c7444",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-smart-window--standard.webp",
@@ -2434,7 +2701,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -2451,11 +2718,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e8fcba505eba4c02900703d1dfa30ea1.pdf",
         "mediaId": "7fc4ca_e8fcba505eba4c02900703d1dfa30ea1",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "59c76e37ae12fbdf1db46c182df4fb0c42e830b8375bee87a3b26348d8827df0",
+        "pageCount": 20,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 17952758,
+        "gitBlobSha1": "e2dd8f8cda4179dc117acf7548e7fdd49aba7361",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-spirograph--standard.webp",
@@ -2476,7 +2748,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -2493,9 +2765,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_127112d924ea469091806c1c47dce36b.pdf",
         "mediaId": "78042f_127112d924ea469091806c1c47dce36b",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "94566ed8bea3ceaf16cd601adeed8a67ed3e7f0320999667e693211d2702765f",
+        "pageCount": 10,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -2504,7 +2776,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_127112d924ea469091806c1c47dce36b.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 2930188,
+        "gitBlobSha1": "06e478e8223ad72672f696d169af5fd401d405c9",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-harp--standard.webp",
@@ -2525,7 +2802,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -2542,11 +2819,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_84b18e894b42437bbed9e9a1aba5a761.pdf",
         "mediaId": "7fc4ca_84b18e894b42437bbed9e9a1aba5a761",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "b4fb3eafd3e7446bf6c2f4d2c39603ed428ce5b0be8b3211d50cde630d7c9871",
+        "pageCount": 35,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 15527588,
+        "gitBlobSha1": "7f6f3c37f213ffd954216fcc6e42fab93d3ec52a",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-helicopter--standard.webp",
@@ -2567,7 +2849,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -2584,9 +2866,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cec9616801f946c2ae0043bc95f8a536.pdf",
         "mediaId": "78042f_cec9616801f946c2ae0043bc95f8a536",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "edf0bdb7118f2198d4f22635baa8f37628069f82bec8bca9e6e183cec8d13998",
+        "pageCount": 27,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -2595,7 +2877,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cec9616801f946c2ae0043bc95f8a536.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 7645327,
+        "gitBlobSha1": "bcacb16aaa15caf58dbfcbce704dc7eb56f95c5d",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-lifting-door--standard.webp",
@@ -2616,7 +2903,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -2633,9 +2920,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2178e928238b40e8afd79d03ec978435.pdf",
         "mediaId": "78042f_2178e928238b40e8afd79d03ec978435",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "d5f16824292f41f6ddff7c91dbc0badd0a1109c763b4956bdb8515df6eb8eda1",
+        "pageCount": 10,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -2644,7 +2931,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2178e928238b40e8afd79d03ec978435.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 2679955,
+        "gitBlobSha1": "66845acdc2468e72600bbd096ea1cc7ca69f3966",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "dedicated-Building-manual-candidate"
       },
       "image": {
         "filename": "level-2-teeterboard--standard.webp",
@@ -2665,7 +2957,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "Actual Wix Building PDF downloaded, hashed and page-scanned. Final approval requires committed WebP, page-cited five-question checklist, and second-pass metadata confirmation."
     },
     {
       "level": 2,
@@ -2682,11 +2974,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d0538e2fcd3e4f3f993382e30c0459af.pdf",
         "mediaId": "7fc4ca_d0538e2fcd3e4f3f993382e30c0459af",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "e3a551c87cc5e008d1b38062e62ae70cf4a6012e869b473f79c9b5b6d7555b44",
+        "pageCount": 16,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 11127299,
+        "gitBlobSha1": "84b7453b8e1d0d4b0e30d4c043617b9b81d95547",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-four-wheel-drive--standard.webp",
@@ -2707,7 +3004,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -2724,11 +3021,16 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_962a8bba8fcd4c419a5f4764781d4445.pdf",
         "mediaId": "7fc4ca_962a8bba8fcd4c419a5f4764781d4445",
         "sourceVersion": "legacy-wix-registry-2026-11-23",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "28195e267f57cfeb242db013a0ce9c072b0f5a0d187d201e475328f3a794c053",
+        "pageCount": 12,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
-        "priorEvidence": null
+        "priorEvidence": null,
+        "byteCount": 22002457,
+        "gitBlobSha1": "fe3f2245a7c5edf2ff2445b34e665879e2b3079b",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-pedal-waterwheel--standard.webp",
@@ -2749,7 +3051,7 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     },
     {
       "level": 2,
@@ -2766,9 +3068,9 @@
         "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e9bdb4f105704dbe8e61d9025882d4b2.pdf",
         "mediaId": "78042f_e9bdb4f105704dbe8e61d9025882d4b2",
         "sourceVersion": "wix-repaired-record-2026-11-19",
-        "sha256": null,
-        "pageCount": null,
-        "actualFileAccessible": null,
+        "sha256": "705f39620b4d47afc4855b924c0d88d056cb59a2b850df77cfa7709808001655",
+        "pageCount": 32,
+        "actualFileAccessible": true,
         "englishCleanedConfirmed": false,
         "priorEvidence": {
           "type": "historical-Wix-repaired-file-match",
@@ -2777,7 +3079,12 @@
           "newUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e9bdb4f105704dbe8e61d9025882d4b2.pdf",
           "historicalReport": "reports/building-english-levels1-4-wix-links-20261119.json",
           "note": "Git object SHA-1 from earlier report; NOT PDF SHA-256 or a new byte-level verification."
-        }
+        },
+        "byteCount": 16536868,
+        "gitBlobSha1": "f086f4ffe0a71fb23e3b10b82981e3a1fac1b025",
+        "textLayerCjkPages": 0,
+        "downloadVerifiedAt": "2026-11-23",
+        "sourceKindVisuallyScreened": "presentation-or-inadequate-Building-source"
       },
       "image": {
         "filename": "level-2-tank--standard.webp",
@@ -2798,7 +3105,18 @@
         "checklistIndependentlyValidated": false
       },
       "status": "blocked",
-      "blockedReason": "Wix PDF bytes and finished-model page could not be independently retrieved and visually inspected in this run; document SHA-256/page count, genuine robot crop, five page-supported checklist claims and second-pass review remain unverified."
+      "blockedReason": "The Wix PDF is a presentation or insufficiently isolated Building source; dedicated Building manual/source identity and complete-model picture are not independently established."
     }
-  ]
+  ],
+  "sourceByteVerification": {
+    "date": "2026-11-23",
+    "executionEnvironment": "Isolated Vercel Python 3.13; independent direct Wix downloads",
+    "downloaded": 60,
+    "pdfTotalPages": 1056,
+    "downloadedBytes": 415126706,
+    "sha256Computed": 60,
+    "historicalGitBlobSha1Matched": 36,
+    "extractedCjkPages": 0,
+    "limitations": "CJK detection covers extractable text, not raster/outlined glyphs. Separate visual page audit required for final clean-English assurance."
+  }
 }
