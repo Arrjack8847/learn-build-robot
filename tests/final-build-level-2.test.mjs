@@ -19,6 +19,7 @@ const wixMatch = wixSource.match(/export const levelOneToThreeWixPdfUrls: Readon
 assert.ok(wixMatch, "Wix registry must be parseable");
 const wix = JSON.parse(wixMatch[1]);
 const variants = audit.variants;
+const ownerFallbacks = load("src/data/finalBuild/level-2-owner-approved-pdf-fallbacks.json");
 
 test("59 official Level 2 syllabus projects reconcile with 60 registered variants", () => {
   const m = syllabus.match(/export const ADVANCED_SYLLABUS = (\{[\s\S]*?\}) as const;/);
@@ -211,4 +212,42 @@ test("cdn-hosted source image integrity evidence covers 30 approved Level 2 WebP
   }
   assert.equal(seen.size, 30);
   for (const blockedId of refs.blockedVariantIds) assert.ok(!seen.has(blockedId));
+});
+
+test("owner-approved 60-variant inclusion preserves provenance and 30 source-backed WebPs", () => {
+  assert.equal(ownerFallbacks.level, 2);
+  assert.equal(ownerFallbacks.records.length, 30);
+  assert.equal(refs.references.length, 30);
+  assert.equal(checks.checklists.length, 30);
+  assert.equal(ownerFallbacks.verifiedSourceWebpsPreserved, 30);
+  const legacyBlocks = new Set(variants.filter(v=>v.status==="blocked").map(v=>v.variantId));
+  assert.deepEqual(new Set(ownerFallbacks.records.map(v=>v.variantId)), legacyBlocks);
+  const approvedIds = new Set(refs.references.map(v=>v.variantId));
+  const variantIds = new Set(approvedIds);
+  let generalCount = 0;
+  for (const fallback of ownerFallbacks.records) {
+    const original = variants.find(v=>v.variantId===fallback.variantId);
+    assert.ok(original);
+    assert.ok(!variantIds.has(fallback.variantId));
+    variantIds.add(fallback.variantId);
+    assert.equal(fallback.ownerAuthorized, true);
+    assert.equal(fallback.independentlySourceApproved, false);
+    assert.equal(fallback.reference.url, original.source.url);
+    assert.equal(fallback.reference.sha256, original.source.sha256);
+    assert.equal(fallback.reference.pageCount, original.source.pageCount);
+    assert.equal(fallback.reference.sourceKindIndependentlyConfirmed, false);
+    assert.equal(fallback.image.approvedWebp, false);
+    assert.equal(fallback.image.webpUrl, null);
+    assert.equal(fallback.assessment.independentlyPdfVerified, false);
+    assert.equal(fallback.assessment.questions.length, 5);
+    for (const question of fallback.assessment.questions) {
+      assert.ok(question.text.includes(original.officialName));
+      assert.equal(question.evidenceType, "general-observable-not-pdf-verified");
+      assert.equal(question.pdfPage, null);
+      generalCount++;
+    }
+  }
+  assert.equal(variantIds.size, 60);
+  assert.equal(generalCount, 150);
+  assert.equal(checks.checklists.reduce((count, row)=>count+row.questions.length, 0)+generalCount, 300);
 });
