@@ -1,0 +1,2348 @@
+{
+  "schemaVersion": 1,
+  "level": 6,
+  "baseCommit": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+  "description": "205 project/variant-specific questions with source evidence pages. Five each independently verified for 39 image-approved variants; 2 sets held blocked.",
+  "approvedCount": 39,
+  "blockedCount": 2,
+  "entries": [
+    {
+      "projectId": "level-6-gorilla",
+      "variantId": "level-6-gorilla",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Action-Oriented/Gorilla/04.Gorilla-Building Manual.pdf",
+      "sourcePdfSha256": "f5c992e6445f7e4058035cc243ce1a5dc778a0451c63d8a994fbd09552cd3098",
+      "sourceEvidencePage": 24,
+      "questions": [
+        {
+          "id": "level-6-gorilla-q1",
+          "text": "Are the Gorilla’s two long front limb assemblies attached at the upper joints?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-gorilla-q2",
+          "text": "Do both lower foot assemblies sit beneath their matching grey limb linkages?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-gorilla-q3",
+          "text": "Are the red joint connectors fitted on both sides of the upper frame?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-gorilla-q4",
+          "text": "Is the dark upper cross-link secured between the two shoulder areas?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-gorilla-q5",
+          "text": "Are the left and right limb mechanisms spaced so they can move without colliding?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-picture-projector",
+      "variantId": "level-6-picture-projector",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Action-Oriented/Picture Projector/28. Picture Projector-Building Manual.pdf",
+      "sourcePdfSha256": "7d97885e50142d2b99741fe51d77a56276c60fae19f743556333cf2f7fbd7001",
+      "sourceEvidencePage": 11,
+      "questions": [
+        {
+          "id": "level-6-picture-projector-q1",
+          "text": "Is the projector’s upright screen housing secured above its lower support?",
+          "evidencePages": [
+            11
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-picture-projector-q2",
+          "text": "Is the small round pivot or wheel aligned underneath the raised housing?",
+          "evidencePages": [
+            11
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-picture-projector-q3",
+          "text": "Does the connecting beam reach from the upright projector to the control base?",
+          "evidencePages": [
+            11
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-picture-projector-q4",
+          "text": "Is the controller block mounted flat at the opposite end of the assembly?",
+          "evidencePages": [
+            11
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-picture-projector-q5",
+          "text": "Are the angled supports holding the elevated projector housing firmly?",
+          "evidencePages": [
+            11
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-the-flapping-pterosaur",
+      "variantId": "level-6-the-flapping-pterosaur",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Action-Oriented/The Flapping Pterosaur/17. The Flapping Pterosaur-Building Manual.pdf",
+      "sourcePdfSha256": "d44b28539712c5169e9b8685b530298ecc9d9a97815d88a7b9fcc289cf5ef6cb",
+      "sourceEvidencePage": 70,
+      "questions": [
+        {
+          "id": "level-6-the-flapping-pterosaur-q1",
+          "text": "Are the left and right wing beams mounted on opposite sides of the central body?",
+          "evidencePages": [
+            70
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-the-flapping-pterosaur-q2",
+          "text": "Is the tall body linkage secured above the lower base?",
+          "evidencePages": [
+            70
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-the-flapping-pterosaur-q3",
+          "text": "Are the sloping braces connected to the wing hinge joints?",
+          "evidencePages": [
+            70
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-the-flapping-pterosaur-q4",
+          "text": "Does the wing span extend outward in the same directions as the completed model?",
+          "evidencePages": [
+            70
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-the-flapping-pterosaur-q5",
+          "text": "Is the controller and base support connected beneath the wing mechanism?",
+          "evidencePages": [
+            70
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-code-scanning-gate",
+      "variantId": "level-6-code-scanning-gate",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Automation & Security/Code-scanning Gate/04.Code-scanning Gate-Building Manual.pdf",
+      "sourcePdfSha256": "2fe9c262ac5cd112e803a25ca50a03e019afaef8dc020385058f162db85be620",
+      "sourceEvidencePage": 27,
+      "questions": [
+        {
+          "id": "level-6-code-scanning-gate-q1",
+          "text": "Is the Code-scanning Gate’s upright rectangular frame securely assembled?",
+          "evidencePages": [
+            27
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-code-scanning-gate-q2",
+          "text": "Does the dark square reader panel sit on the indicated side of the gate?",
+          "evidencePages": [
+            27
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-code-scanning-gate-q3",
+          "text": "Are the top and bottom horizontal frame beams connected to the side posts?",
+          "evidencePages": [
+            27
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-code-scanning-gate-q4",
+          "text": "Is the control module fixed to the lower gate framework?",
+          "evidencePages": [
+            27
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-code-scanning-gate-q5",
+          "text": "Are the side braces and visible motor connectors positioned as shown in the finished gate?",
+          "evidencePages": [
+            27
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-intelligent-passing-light",
+      "variantId": "level-6-intelligent-passing-light",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Automation & Security/Intelligent Passing Light/09. Intelligent Passing Light -Building Manual.pdf",
+      "sourcePdfSha256": "ecd2a6066593597cc463c6fef47879f6c1d683cb43dfd6deddd7ba764dcb3a58",
+      "sourceEvidencePage": 18,
+      "questions": [
+        {
+          "id": "level-6-intelligent-passing-light-q1",
+          "text": "Are the two round lens-like modules mounted together on the front-left side?",
+          "evidencePages": [
+            18
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-intelligent-passing-light-q2",
+          "text": "Is the rectangular display module set upright above the lower support?",
+          "evidencePages": [
+            18
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-intelligent-passing-light-q3",
+          "text": "Is the dark lower mounting base connected to the light assembly?",
+          "evidencePages": [
+            18
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-intelligent-passing-light-q4",
+          "text": "Does the long rear beam extend behind the main light housing?",
+          "evidencePages": [
+            18
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-intelligent-passing-light-q5",
+          "text": "Are the upright and angled connectors keeping the light modules in alignment?",
+          "evidencePages": [
+            18
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-gesture-commanding-car",
+      "variantId": "level-6-gesture-commanding-car",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Autonomous Navigation & Ranging/Gesture-commanding Car/23. Gesture-commanding Car-Building Manual.pdf",
+      "sourcePdfSha256": "b6ad35e94206666ba5576b17da7c17a490683b31a6436288d171a1fa1793e9a1",
+      "sourceEvidencePage": 18,
+      "questions": [
+        {
+          "id": "level-6-gesture-commanding-car-q1",
+          "text": "Are both large drive wheels fastened to the sides of the car chassis?",
+          "evidencePages": [
+            18
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-gesture-commanding-car-q2",
+          "text": "Is the controller block mounted centrally above the wheel assembly?",
+          "evidencePages": [
+            18
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-gesture-commanding-car-q3",
+          "text": "Are the visible red wheel connectors seated fully on their axles?",
+          "evidencePages": [
+            18
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-gesture-commanding-car-q4",
+          "text": "Are the left and right wheel supports aligned at the same height?",
+          "evidencePages": [
+            18
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-gesture-commanding-car-q5",
+          "text": "Is the small front-mounted sensor or attachment secured below the controller body?",
+          "evidencePages": [
+            18
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-regional-weather-station",
+      "variantId": "level-6-regional-weather-station",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Biomimicry & Stimulus Response/Regional Weather Station/32.Regional Weather Station-Building Manual.pdf",
+      "sourcePdfSha256": "02e7ff59e85a74d3f312e8bcce037165022835fb60c28033b53c26fb8c7a6c65",
+      "sourceEvidencePage": 51,
+      "questions": [
+        {
+          "id": "level-6-regional-weather-station-q1",
+          "text": "Is the weather station’s tall upright sensor frame attached to the base?",
+          "evidencePages": [
+            51
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-regional-weather-station-q2",
+          "text": "Are the upper colored sensor components supported by the top framework?",
+          "evidencePages": [
+            51
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-regional-weather-station-q3",
+          "text": "Are the diagonal support beams bracing the vertical station?",
+          "evidencePages": [
+            51
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-regional-weather-station-q4",
+          "text": "Does the bottom rectangular framework stand firmly under the tower?",
+          "evidencePages": [
+            51
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-regional-weather-station-q5",
+          "text": "Are the hanging side links and connectors fitted in their shown positions?",
+          "evidencePages": [
+            51
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-super-scorpion",
+      "variantId": "level-6-super-scorpion",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Biomimicry & Stimulus Response/Super Scorpion/16. Super Scorpion - Basic Building Manual.pdf",
+      "sourcePdfSha256": "a6a1ef2225ce2325ab24b6d09fae70a315018491d97e276f71f85e22482753b6",
+      "sourceEvidencePage": 42,
+      "questions": [
+        {
+          "id": "level-6-super-scorpion-q1",
+          "text": "Are the scorpion’s articulated walking legs attached on both sides of the body?",
+          "evidencePages": [
+            42
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-super-scorpion-q2",
+          "text": "Are the two front claw-like arms connected ahead of the central chassis?",
+          "evidencePages": [
+            42
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-super-scorpion-q3",
+          "text": "Is the raised tail linkage assembled behind and above the body?",
+          "evidencePages": [
+            42
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-super-scorpion-q4",
+          "text": "Does the central controller remain firmly seated in the upper chassis?",
+          "evidencePages": [
+            42
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-super-scorpion-q5",
+          "text": "Are the long side leg axles and linkages clear of one another?",
+          "evidencePages": [
+            42
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-super-scorpion",
+      "variantId": "level-6-super-scorpion:optimized",
+      "status": "blocked",
+      "approved": false,
+      "sourcePath": "public/Level 6/Building/Biomimicry & Stimulus Response/Super Scorpion/16. Super Scorpion - Optimized Building Manual.pdf",
+      "sourcePdfSha256": "e0c7b137eb0ce340cb334a7a36e4ea90172ae65337d8ffba8937b2839d368600",
+      "sourceEvidencePage": 1,
+      "questions": [
+        {
+          "id": "level-6-super-scorpion:optimized-q1",
+          "text": "Are all of the Optimized Scorpion’s articulated legs attached on both sides of the chassis?",
+          "evidencePages": [
+            1
+          ],
+          "verificationNotes": "The optimized manual shows incomplete/close-up views after the initial full-model page; final optimized full-model identity remains uncertain.",
+          "verified": false
+        },
+        {
+          "id": "level-6-super-scorpion:optimized-q2",
+          "text": "Are the two front claw-like grippers connected to the same body frame?",
+          "evidencePages": [
+            1
+          ],
+          "verificationNotes": "The optimized manual shows incomplete/close-up views after the initial full-model page; final optimized full-model identity remains uncertain.",
+          "verified": false
+        },
+        {
+          "id": "level-6-super-scorpion:optimized-q3",
+          "text": "Is the raised tail section secured behind the scorpion's central controller?",
+          "evidencePages": [
+            1
+          ],
+          "verificationNotes": "The optimized manual shows incomplete/close-up views after the initial full-model page; final optimized full-model identity remains uncertain.",
+          "verified": false
+        },
+        {
+          "id": "level-6-super-scorpion:optimized-q4",
+          "text": "Are the optimized front joint attachments mounted in the positions shown in the separate optimized manual?",
+          "evidencePages": [
+            1
+          ],
+          "verificationNotes": "The optimized manual shows incomplete/close-up views after the initial full-model page; final optimized full-model identity remains uncertain.",
+          "verified": false
+        },
+        {
+          "id": "level-6-super-scorpion:optimized-q5",
+          "text": "Do the extra optimized linkages stay clear of the legs when the joints move?",
+          "evidencePages": [
+            1
+          ],
+          "verificationNotes": "The optimized manual shows incomplete/close-up views after the initial full-model page; final optimized full-model identity remains uncertain.",
+          "verified": false
+        }
+      ],
+      "independentReviewer": null
+    },
+    {
+      "projectId": "level-6-clown",
+      "variantId": "level-6-clown",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Characters & Structures/Clown/05.Clown-Building Manual.pdf",
+      "sourcePdfSha256": "f311eb9f58da907c32d5d286be4cb39fbdd17c63e4a2f5d870303689cebd489f",
+      "sourceEvidencePage": 20,
+      "questions": [
+        {
+          "id": "level-6-clown-q1",
+          "text": "Are both dark square clown panels mounted at equal height on the upper frame?",
+          "evidencePages": [
+            20
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-clown-q2",
+          "text": "Is the red central upright firmly supported on the lower base?",
+          "evidencePages": [
+            20
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-clown-q3",
+          "text": "Are the curved left and right upper arm pieces attached symmetrically?",
+          "evidencePages": [
+            20
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-clown-q4",
+          "text": "Is the narrow bridge between the upper panels and central body secure?",
+          "evidencePages": [
+            20
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-clown-q5",
+          "text": "Does the lower support hold the two raised panels without tilting?",
+          "evidencePages": [
+            20
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-accurate-shooting",
+      "variantId": "level-6-accurate-shooting",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Complex Mechanisms & Coordinated Motion/Accurate Shooting/13. Accurate Shooting-Building Manual.pdf",
+      "sourcePdfSha256": "67e844151ca4d2b6d512f766460a262d938dae09b7cc657ac0d9a584c0e2f6a3",
+      "sourceEvidencePage": 30,
+      "questions": [
+        {
+          "id": "level-6-accurate-shooting-q1",
+          "text": "Are the two tall target or sensor uprights secured to the common frame?",
+          "evidencePages": [
+            30
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-accurate-shooting-q2",
+          "text": "Is the small dark central display mounted between the upright supports?",
+          "evidencePages": [
+            30
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-accurate-shooting-q3",
+          "text": "Are the circular upper attachments positioned on their correct posts?",
+          "evidencePages": [
+            30
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-accurate-shooting-q4",
+          "text": "Is the lower controller module connected to the base mechanism?",
+          "evidencePages": [
+            30
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-accurate-shooting-q5",
+          "text": "Are the colored joints and crossbars aligned between the base and uprights?",
+          "evidencePages": [
+            30
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-digital-countdown",
+      "variantId": "level-6-digital-countdown",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Display & Movement/Digital Countdown/07.Digital Countdown-Building Manual.pdf",
+      "sourcePdfSha256": "d1888381853fd15f4389332fbe08322edec5ad0b2595584647786918848e2dd4",
+      "sourceEvidencePage": 21,
+      "questions": [
+        {
+          "id": "level-6-digital-countdown-q1",
+          "text": "Is the large dark countdown display secured horizontally above the controller?",
+          "evidencePages": [
+            21
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-digital-countdown-q2",
+          "text": "Is the smaller controller screen mounted directly below the upper display?",
+          "evidencePages": [
+            21
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-digital-countdown-q3",
+          "text": "Are the red side fittings attached to the display support frame?",
+          "evidencePages": [
+            21
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-digital-countdown-q4",
+          "text": "Are the two main display housings aligned and supported together?",
+          "evidencePages": [
+            21
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-digital-countdown-q5",
+          "text": "Is the rear wheel-like or motor attachment connected beside the display assembly?",
+          "evidencePages": [
+            21
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-red-light-warning-device",
+      "variantId": "level-6-red-light-warning-device",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Illumination & Signals/Red Light Warning Device/12. Red Light Warning Device-Building Manual.pdf",
+      "sourcePdfSha256": "0cf220287b8c406189eb400ca6bc37ff9dd1b297510591ae5ecc674fb971b5c5",
+      "sourceEvidencePage": 12,
+      "questions": [
+        {
+          "id": "level-6-red-light-warning-device-q1",
+          "text": "Is the long warning arm fitted horizontally to its upright frame?",
+          "evidencePages": [
+            12
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-red-light-warning-device-q2",
+          "text": "Is the dark warning display fixed above the controller unit?",
+          "evidencePages": [
+            12
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-red-light-warning-device-q3",
+          "text": "Are the angled braces holding the overhead warning arm securely?",
+          "evidencePages": [
+            12
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-red-light-warning-device-q4",
+          "text": "Is the controller placed underneath the raised warning mechanism?",
+          "evidencePages": [
+            12
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-red-light-warning-device-q5",
+          "text": "Are the colored shaft joints on the lower mounting frame attached firmly?",
+          "evidencePages": [
+            12
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-smart-flashlight",
+      "variantId": "level-6-smart-flashlight",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Illumination & Signals/Smart Flashlight/27.Smart Flashlight-Building Manual.pdf",
+      "sourcePdfSha256": "17164a041f56414d3a9db0a4c32294564cce2cd4f3cf25c26347faa9a0c2dfd2",
+      "sourceEvidencePage": 15,
+      "questions": [
+        {
+          "id": "level-6-smart-flashlight-q1",
+          "text": "Is the upper cylindrical light assembly supported on its paired beams?",
+          "evidencePages": [
+            15
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-smart-flashlight-q2",
+          "text": "Are the two round rear wheel-like pieces aligned on the flashlight structure?",
+          "evidencePages": [
+            15
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-smart-flashlight-q3",
+          "text": "Is the red upright support fastened beneath the elevated mechanism?",
+          "evidencePages": [
+            15
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-smart-flashlight-q4",
+          "text": "Does the long lower rectangular base support the full flashlight assembly?",
+          "evidencePages": [
+            15
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-smart-flashlight-q5",
+          "text": "Are the top shaft, rear supports and base connectors all seated tightly?",
+          "evidencePages": [
+            15
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-traffic-lights-display",
+      "variantId": "level-6-traffic-lights-display",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Illumination & Signals/Traffic Lights Display/10. Traffic Lights-Building Manual.pdf",
+      "sourcePdfSha256": "1460cd3a187acca6a6de16fab504fe6cb1997cd7952757f551a23c5276cd8fdf",
+      "sourceEvidencePage": 18,
+      "questions": [
+        {
+          "id": "level-6-traffic-lights-display-q1",
+          "text": "Is the dark traffic-light display mounted upright at one end of the model?",
+          "evidencePages": [
+            18
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-traffic-lights-display-q2",
+          "text": "Is the small module on the long horizontal rail attached at the opposite end?",
+          "evidencePages": [
+            18
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-traffic-lights-display-q3",
+          "text": "Are the vertical supports connecting the raised display to the lower rail?",
+          "evidencePages": [
+            18
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-traffic-lights-display-q4",
+          "text": "Is the controller screen housing fixed beneath the upright display?",
+          "evidencePages": [
+            18
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-traffic-lights-display-q5",
+          "text": "Are the connectors holding the long rail straight and level?",
+          "evidencePages": [
+            18
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-pinball-machine",
+      "variantId": "level-6-pinball-machine",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Interactive Mechanisms/Pinball Machine/30. Pinball Machine-Building Manual.pdf",
+      "sourcePdfSha256": "e3fc4291f71388ae87a8a3e478aa2b49c0b78a27e6a09c853a6550adbec6189d",
+      "sourceEvidencePage": 24,
+      "questions": [
+        {
+          "id": "level-6-pinball-machine-q1",
+          "text": "Is the pinball playing surface mounted inside its sloped supporting frame?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-pinball-machine-q2",
+          "text": "Is the tall rear display panel firmly connected at the far end?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-pinball-machine-q3",
+          "text": "Are all visible short support legs attached beneath the playing surface?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-pinball-machine-q4",
+          "text": "Are the side rails fitted along the left and right edges of the playfield?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-pinball-machine-q5",
+          "text": "Are the lower lever and red connectors seated below the playfield?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-smart-fan",
+      "variantId": "level-6-smart-fan",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Interactive Systems/Smart Fan/31.Smart Fan-Building Manual.pdf",
+      "sourcePdfSha256": "449d9351c2633f85d3d77df076fd089f21f0e65537612565da2988943a878fd5",
+      "sourceEvidencePage": 37,
+      "questions": [
+        {
+          "id": "level-6-smart-fan-q1",
+          "text": "Is the green fan rotor mounted at the top of the support frame?",
+          "evidencePages": [
+            37
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-smart-fan-q2",
+          "text": "Does the central pivot connect the rotor to the tilted fan stand?",
+          "evidencePages": [
+            37
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-smart-fan-q3",
+          "text": "Is the red lower joint securely attached to the fan's upright mechanism?",
+          "evidencePages": [
+            37
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-smart-fan-q4",
+          "text": "Are the left and right braces connected to the wide rectangular base?",
+          "evidencePages": [
+            37
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-smart-fan-q5",
+          "text": "Do the blades have clearance from the surrounding frame when turned by hand?",
+          "evidencePages": [
+            37
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-the-interesting-rotor",
+      "variantId": "level-6-the-interesting-rotor",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Interactive Systems/The Interesting Rotor/19. The Interesting Rotor-Building Manual.pdf",
+      "sourcePdfSha256": "647442732bd5b6f5782a010596646018704f88e8b91723ba39c71c05c396e969",
+      "sourceEvidencePage": 48,
+      "questions": [
+        {
+          "id": "level-6-the-interesting-rotor-q1",
+          "text": "Are the long crossing rotor arms fixed to a single central hub?",
+          "evidencePages": [
+            48
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-the-interesting-rotor-q2",
+          "text": "Does the rotor hub sit on the raised vertical support?",
+          "evidencePages": [
+            48
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-the-interesting-rotor-q3",
+          "text": "Are the opposing rotor arms aligned at the intended crossing angle?",
+          "evidencePages": [
+            48
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-the-interesting-rotor-q4",
+          "text": "Is the upright support braced to the lower rectangular base?",
+          "evidencePages": [
+            48
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-the-interesting-rotor-q5",
+          "text": "Does the rotor clear the base structure when moved carefully by hand?",
+          "evidencePages": [
+            48
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-combination-lock",
+      "variantId": "level-6-combination-lock",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Combination Lock/29.Combination Lock -Building Manual.pdf",
+      "sourcePdfSha256": "6ce046ce542f81a97d5fd85f2589a78799bd765db6672eab2726924791567c45",
+      "sourceEvidencePage": 26,
+      "questions": [
+        {
+          "id": "level-6-combination-lock-q1",
+          "text": "Is the dark combination wheel or lock module mounted in its raised cradle?",
+          "evidencePages": [
+            26
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-combination-lock-q2",
+          "text": "Is the controller screen unit secured alongside the lock mechanism?",
+          "evidencePages": [
+            26
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-combination-lock-q3",
+          "text": "Are the blue and red linkage pieces attached at the lock housing?",
+          "evidencePages": [
+            26
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-combination-lock-q4",
+          "text": "Is the horizontal frame connecting the controller and lock assembly firmly fixed?",
+          "evidencePages": [
+            26
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-combination-lock-q5",
+          "text": "Are the exposed moving links free from loose brackets or displaced connectors?",
+          "evidencePages": [
+            26
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-gibbon",
+      "variantId": "level-6-gibbon",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Gibbon/14. Gibbon - Basic Building Manual.pdf",
+      "sourcePdfSha256": "7288406e293a80696a4f6ac9e2cf5994461b16ae47ed50f36b9c89d3a0d60a43",
+      "sourceEvidencePage": 16,
+      "questions": [
+        {
+          "id": "level-6-gibbon-q1",
+          "text": "Are the Gibbon’s two long front arm or leg linkages attached to the top body?",
+          "evidencePages": [
+            16
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-gibbon-q2",
+          "text": "Are both upper round shoulder units mounted across the torso frame?",
+          "evidencePages": [
+            16
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-gibbon-q3",
+          "text": "Do the lower ends of the paired limbs reach their intended support points?",
+          "evidencePages": [
+            16
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-gibbon-q4",
+          "text": "Are the red upper joints connected to the matching grey beams?",
+          "evidencePages": [
+            16
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-gibbon-q5",
+          "text": "Are the limb assemblies aligned so they can move without striking the base?",
+          "evidencePages": [
+            16
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-gibbon",
+      "variantId": "level-6-gibbon:optimized",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Gibbon/14. Gibbon - Optimized Building Manual.pdf",
+      "sourcePdfSha256": "6db21a20196893247ea41becd552773fa36fb8e9a6dfea4df2d3e31af9e54510",
+      "sourceEvidencePage": 10,
+      "questions": [
+        {
+          "id": "level-6-gibbon:optimized-q1",
+          "text": "Are both optimized Gibbon arm linkages connected to the pair of top shoulder joints?",
+          "evidencePages": [
+            10
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-gibbon:optimized-q2",
+          "text": "Are the optimized lower feet seated at the ends of the long front limbs?",
+          "evidencePages": [
+            10
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-gibbon:optimized-q3",
+          "text": "Are the red shoulder connectors secured between the torso and arms?",
+          "evidencePages": [
+            10
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-gibbon:optimized-q4",
+          "text": "Are the upper mounted rounded units aligned across the body?",
+          "evidencePages": [
+            10
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-gibbon:optimized-q5",
+          "text": "Do the optimized arms move without crossing into the central support frame?",
+          "evidencePages": [
+            10
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-pay-by-card",
+      "variantId": "level-6-pay-by-card",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Pay by card/16.Pay by card -Building Manual.pdf",
+      "sourcePdfSha256": "2236078504868241b43dd29949f53ae8b7efca8c713d114ac1bd92dfa6b0e593",
+      "sourceEvidencePage": 17,
+      "questions": [
+        {
+          "id": "level-6-pay-by-card-q1",
+          "text": "Is the payment reader screen attached to the slanted main housing?",
+          "evidencePages": [
+            17
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-pay-by-card-q2",
+          "text": "Does the raised display unit sit firmly on its supporting base frame?",
+          "evidencePages": [
+            17
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-pay-by-card-q3",
+          "text": "Are the two differently colored payment cards present beside the reader?",
+          "evidencePages": [
+            17
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-pay-by-card-q4",
+          "text": "Are the visible side braces connected to the lower card-reader stand?",
+          "evidencePages": [
+            17
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-pay-by-card-q5",
+          "text": "Is the payment module aligned with its front-facing screen and lower support?",
+          "evidencePages": [
+            17
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-product-search",
+      "variantId": "level-6-product-search",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Product Search/15.Product Search -Building Manual.pdf",
+      "sourcePdfSha256": "8e2f3483d3bdd02a1fa6de3eefe67439ebde40a5fe70528fcf0079985d338b8c",
+      "sourceEvidencePage": 24,
+      "questions": [
+        {
+          "id": "level-6-product-search-q1",
+          "text": "Is the long upper product-search bar secured across the supporting frame?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-product-search-q2",
+          "text": "Are the angled side legs attached below the raised top structure?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-product-search-q3",
+          "text": "Are the central crossbars connected between the left and right supports?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-product-search-q4",
+          "text": "Does the lower forward support extend in the same direction as the reference?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-product-search-q5",
+          "text": "Is the raised panel or upper beam supported without loose connectors?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-punch-hard",
+      "variantId": "level-6-punch-hard",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Punch Hard/7. Punch Hard - Basic Building Manual.pdf",
+      "sourcePdfSha256": "7796cda7dd0f0197532310f0b7454a2d7444709bc332ee4f46474096378b30e8",
+      "sourceEvidencePage": 16,
+      "questions": [
+        {
+          "id": "level-6-punch-hard-q1",
+          "text": "Is the upper punch arm attached to the pivot on the raised frame?",
+          "evidencePages": [
+            16
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-punch-hard-q2",
+          "text": "Are the three visible wheel or foot assemblies secured to the lower chassis?",
+          "evidencePages": [
+            16
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-punch-hard-q3",
+          "text": "Are the angled side supports joined to the central top mount?",
+          "evidencePages": [
+            16
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-punch-hard-q4",
+          "text": "Is the motor or joint module fixed beneath the upper striking arm?",
+          "evidencePages": [
+            16
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-punch-hard-q5",
+          "text": "Is the raised frame stable when the punch arm is moved gently?",
+          "evidencePages": [
+            16
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-rc-airplane",
+      "variantId": "level-6-rc-airplane",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/RC Airplane/11.RC Airplane -Building Manual.pdf",
+      "sourcePdfSha256": "63a4d25a887aef71ea9e8294a1f2c07aa9df045dbce3f4b62d9b9dbc0d4c3f4a",
+      "sourceEvidencePage": 26,
+      "questions": [
+        {
+          "id": "level-6-rc-airplane-q1",
+          "text": "Are the long propeller or wing pieces attached to the upper rotating shaft?",
+          "evidencePages": [
+            26
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-rc-airplane-q2",
+          "text": "Is the upright airplane framework connected to the control-base platform?",
+          "evidencePages": [
+            26
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-rc-airplane-q3",
+          "text": "Is the red upright drive connector mounted between the raised pieces?",
+          "evidencePages": [
+            26
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-rc-airplane-q4",
+          "text": "Is the controller block fixed beneath the wing or propeller mechanism?",
+          "evidencePages": [
+            26
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-rc-airplane-q5",
+          "text": "Are the side braces and upper axle aligned with the finished airplane model?",
+          "evidencePages": [
+            26
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-ring-toss-game",
+      "variantId": "level-6-ring-toss-game",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Ring Toss Game/15. Ring Toss Game-Building Manual.pdf",
+      "sourcePdfSha256": "fdb939577ff1db20854a747f69978cd4d280fc42f15e55163757a78c2067f18b",
+      "sourceEvidencePage": 32,
+      "questions": [
+        {
+          "id": "level-6-ring-toss-game-q1",
+          "text": "Is the ring-toss target post secured vertically above the base?",
+          "evidencePages": [
+            32
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-ring-toss-game-q2",
+          "text": "Is the circular ring available beside the completed target assembly?",
+          "evidencePages": [
+            32
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-ring-toss-game-q3",
+          "text": "Are the upper target arms fixed to the top of the upright post?",
+          "evidencePages": [
+            32
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-ring-toss-game-q4",
+          "text": "Is the controller housing attached directly to the lower support frame?",
+          "evidencePages": [
+            32
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-ring-toss-game-q5",
+          "text": "Are the central bracing beams holding the target post firmly upright?",
+          "evidencePages": [
+            32
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-robotic-arm",
+      "variantId": "level-6-robotic-arm",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Robotic Arm/32. The Robotic Arm-Building Manual.pdf",
+      "sourcePdfSha256": "e4569807fde6777f0f0d9a2c49eae0e8f3902f6726b962b50d12796d0c2f1390",
+      "sourceEvidencePage": 37,
+      "questions": [
+        {
+          "id": "level-6-robotic-arm-q1",
+          "text": "Is the robotic claw attached to the end of the long articulated arm?",
+          "evidencePages": [
+            37
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-robotic-arm-q2",
+          "text": "Are the shoulder and elbow joints linked by the curved arm beams?",
+          "evidencePages": [
+            37
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-robotic-arm-q3",
+          "text": "Is the upright arm base anchored to the horizontal platform?",
+          "evidencePages": [
+            37
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-robotic-arm-q4",
+          "text": "Is the controller unit mounted on the right-hand side of the arm base?",
+          "evidencePages": [
+            37
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-robotic-arm-q5",
+          "text": "Can the claw move clear of the controller and the base frame?",
+          "evidencePages": [
+            37
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-vending-machine",
+      "variantId": "level-6-vending-machine",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Vending Machine/27.Vending Machine-Building Manual.pdf",
+      "sourcePdfSha256": "5521034c6f3bbc60a3b9e42a12725c251eb599b9e8adc51f0da044fa7d1f2da2",
+      "sourceEvidencePage": 23,
+      "questions": [
+        {
+          "id": "level-6-vending-machine-q1",
+          "text": "Is the tall vending-machine front housing mounted upright on its base?",
+          "evidencePages": [
+            23
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-vending-machine-q2",
+          "text": "Is the small dark top unit secured above the larger lower display?",
+          "evidencePages": [
+            23
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-vending-machine-q3",
+          "text": "Are the front screen and lower control fittings aligned on the same frame?",
+          "evidencePages": [
+            23
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-vending-machine-q4",
+          "text": "Are the side wall beams and rear supports fastened to the machine body?",
+          "evidencePages": [
+            23
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-vending-machine-q5",
+          "text": "Does the bottom platform support the assembled machine without tipping?",
+          "evidencePages": [
+            23
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-autonomous-driving",
+      "variantId": "level-6-autonomous-driving",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Autonomous Driving/18.Autonomous Driving -Building Manual.pdf",
+      "sourcePdfSha256": "30bef7297b1c9afc180d70cff44d777bfcbf2fd428a6aaf2498dbbda057b5265",
+      "sourceEvidencePage": 17,
+      "questions": [
+        {
+          "id": "level-6-autonomous-driving-q1",
+          "text": "Are the two large wheels mounted on opposite sides of the chassis?",
+          "evidencePages": [
+            17
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-autonomous-driving-q2",
+          "text": "Is the controller block firmly fixed above the wheel axles?",
+          "evidencePages": [
+            17
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-autonomous-driving-q3",
+          "text": "Is the forward-facing sensor or small attachment secured ahead of the main body?",
+          "evidencePages": [
+            17
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-autonomous-driving-q4",
+          "text": "Are the visible red axle couplers seated against both wheel supports?",
+          "evidencePages": [
+            17
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-autonomous-driving-q5",
+          "text": "Do both drive wheels turn freely without rubbing against the controller housing?",
+          "evidencePages": [
+            17
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-minesweeper-robot",
+      "variantId": "level-6-minesweeper-robot",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Minesweeper Robot/12.Minesweeper Robot - Building Manual.pdf",
+      "sourcePdfSha256": "a5da2c7b2ec162dbeab043f52856365dd9141b4d66a76c65ea73d2962ff7b164",
+      "sourceEvidencePage": 28,
+      "questions": [
+        {
+          "id": "level-6-minesweeper-robot-q1",
+          "text": "Is the long front probing or detector beam attached to the chassis?",
+          "evidencePages": [
+            28
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-minesweeper-robot-q2",
+          "text": "Are all four small ground wheels fixed underneath the robot?",
+          "evidencePages": [
+            28
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-minesweeper-robot-q3",
+          "text": "Is the control block mounted flat above the wheeled frame?",
+          "evidencePages": [
+            28
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-minesweeper-robot-q4",
+          "text": "Are the sensor or front bracket connectors positioned at the end of the forward arm?",
+          "evidencePages": [
+            28
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-minesweeper-robot-q5",
+          "text": "Does the forward detector arm clear the front wheels while the robot moves?",
+          "evidencePages": [
+            28
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-remote-control-lift",
+      "variantId": "level-6-remote-control-lift",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Remote Control Lift/22. Remote Control Lift -Building Manual.pdf",
+      "sourcePdfSha256": "0fd106afcf783485d6fc4b58f6291138f7e66bc3f310000036cf1b4cdec03eba",
+      "sourceEvidencePage": 33,
+      "questions": [
+        {
+          "id": "level-6-remote-control-lift-q1",
+          "text": "Are the criss-cross lift arms connected at their central pivot joints?",
+          "evidencePages": [
+            33
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-remote-control-lift-q2",
+          "text": "Is the upper lifting platform fixed to the top of the scissor mechanism?",
+          "evidencePages": [
+            33
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-remote-control-lift-q3",
+          "text": "Is the lower controller unit securely connected beneath the lifting linkage?",
+          "evidencePages": [
+            33
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-remote-control-lift-q4",
+          "text": "Are the side supports holding the lift platform level?",
+          "evidencePages": [
+            33
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-remote-control-lift-q5",
+          "text": "Does the lift move without crossed arms contacting loose wires or brackets?",
+          "evidencePages": [
+            33
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-saluting-robot",
+      "variantId": "level-6-saluting-robot",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Saluting Robot/26.Saluting Robot -Building Manual.pdf",
+      "sourcePdfSha256": "50bc3bc39df37fef70d99f14f8aee906bcfe38d4b0c971202fb6dcdf99f4a653",
+      "sourceEvidencePage": 20,
+      "questions": [
+        {
+          "id": "level-6-saluting-robot-q1",
+          "text": "Is the robot’s upright torso mounted securely over its lower leg assembly?",
+          "evidencePages": [
+            20
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-saluting-robot-q2",
+          "text": "Is the dark upper panel fixed to the raised body?",
+          "evidencePages": [
+            20
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-saluting-robot-q3",
+          "text": "Is the saluting arm hinged to the side of the torso?",
+          "evidencePages": [
+            20
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-saluting-robot-q4",
+          "text": "Is the controller block supported alongside the main standing frame?",
+          "evidencePages": [
+            20
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-saluting-robot-q5",
+          "text": "Are the lower foot and side support pieces correctly aligned to hold the robot upright?",
+          "evidencePages": [
+            20
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-smart-electric-drill",
+      "variantId": "level-6-smart-electric-drill",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Smart Electric Drill/20. Smart Electric Drill-Building Manual.pdf",
+      "sourcePdfSha256": "bc8862d8c10b74433c7054cd88495c549766dbbd12d5b2017d0a4f2d74d88556",
+      "sourceEvidencePage": 19,
+      "questions": [
+        {
+          "id": "level-6-smart-electric-drill-q1",
+          "text": "Is the dark drill bit assembly fastened at the top of the angled drill body?",
+          "evidencePages": [
+            19
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-smart-electric-drill-q2",
+          "text": "Is the cylindrical motor housing connected beneath the drill bit?",
+          "evidencePages": [
+            19
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-smart-electric-drill-q3",
+          "text": "Does the controller or handle module sit below the upper drill shaft?",
+          "evidencePages": [
+            19
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-smart-electric-drill-q4",
+          "text": "Are the red side connectors attached to the drill's support linkage?",
+          "evidencePages": [
+            19
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-smart-electric-drill-q5",
+          "text": "Is the bit positioned clear of the surrounding beams when turned gently?",
+          "evidencePages": [
+            19
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-altimeter",
+      "variantId": "level-6-altimeter",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Sensor Automation/Altimeter/18. Altimeter-Building Manual.pdf",
+      "sourcePdfSha256": "3d8b0be1dc3221d3527c67e1751ba46367a2b2bae6d7694202c56820568200de",
+      "sourceEvidencePage": 13,
+      "questions": [
+        {
+          "id": "level-6-altimeter-q1",
+          "text": "Are the two curved side supports fixed around the Altimeter’s central body?",
+          "evidencePages": [
+            13
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-altimeter-q2",
+          "text": "Is the front measurement/display unit mounted within the upright frame?",
+          "evidencePages": [
+            13
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-altimeter-q3",
+          "text": "Are the upper sensor fittings attached to the top of the frame?",
+          "evidencePages": [
+            13
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-altimeter-q4",
+          "text": "Are the left and right base supports aligned beneath the display?",
+          "evidencePages": [
+            13
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-altimeter-q5",
+          "text": "Is the inner diagonal support secured between the top and lower frame?",
+          "evidencePages": [
+            13
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-high-temperature-alarm",
+      "variantId": "level-6-high-temperature-alarm",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Sensor Automation/High Temperature Alarm/29. High Temperature Alarm-Building Manual.pdf",
+      "sourcePdfSha256": "78ad8359763fb5631a17c453dc2dd592e25f6746432df79f34411c97e71de92c",
+      "sourceEvidencePage": 23,
+      "questions": [
+        {
+          "id": "level-6-high-temperature-alarm-q1",
+          "text": "Is the temperature-alarm controller attached near the upper section of the slanted frame?",
+          "evidencePages": [
+            23
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-high-temperature-alarm-q2",
+          "text": "Are the long paired lower rails secured beneath the alarm body?",
+          "evidencePages": [
+            23
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-high-temperature-alarm-q3",
+          "text": "Is the sensor attachment mounted at the indicated upper end of the assembly?",
+          "evidencePages": [
+            23
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-high-temperature-alarm-q4",
+          "text": "Are the rear support beams holding the tilted housing firmly?",
+          "evidencePages": [
+            23
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-high-temperature-alarm-q5",
+          "text": "Are the visible red clips and lower brackets correctly seated?",
+          "evidencePages": [
+            23
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-intelligent-sorting-machine",
+      "variantId": "level-6-intelligent-sorting-machine",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Sensor Automation/Intelligent Sorting Machine/24.Intelligent Sorting Machine-Building Manual.pdf",
+      "sourcePdfSha256": "bd073964cb38dd67b17ab11f76878a5c2d9da9c0f9509befdb8d65834dbdcbc4",
+      "sourceEvidencePage": 33,
+      "questions": [
+        {
+          "id": "level-6-intelligent-sorting-machine-q1",
+          "text": "Is the long left-hand sorting arm connected to the central tower framework?",
+          "evidencePages": [
+            33
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-intelligent-sorting-machine-q2",
+          "text": "Is the controller unit fixed at the far right of the sorting assembly?",
+          "evidencePages": [
+            33
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-intelligent-sorting-machine-q3",
+          "text": "Are the sloping and horizontal rails securely joined across the machine?",
+          "evidencePages": [
+            33
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-intelligent-sorting-machine-q4",
+          "text": "Is the raised central sorting structure braced to the base?",
+          "evidencePages": [
+            33
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-intelligent-sorting-machine-q5",
+          "text": "Are the red joint fittings attached beneath the extended sorting path?",
+          "evidencePages": [
+            33
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-parcel-sorting-machine",
+      "variantId": "level-6-parcel-sorting-machine",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Sensor Automation/Parcel Sorting Machine/31. Parcel Sorting Machine-Building Manual.pdf",
+      "sourcePdfSha256": "5b858bb1085b7f2838f15f747efd9a1accc8460da36a05c24b0d11a2e665a7e1",
+      "sourceEvidencePage": 39,
+      "questions": [
+        {
+          "id": "level-6-parcel-sorting-machine-q1",
+          "text": "Is the long upper parcel guide or conveyor frame mounted over its lower supports?",
+          "evidencePages": [
+            39
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-parcel-sorting-machine-q2",
+          "text": "Is the large controller unit secured at the right-hand end of the machine?",
+          "evidencePages": [
+            39
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-parcel-sorting-machine-q3",
+          "text": "Are the visible colored motor joints attached under the long rail?",
+          "evidencePages": [
+            39
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-parcel-sorting-machine-q4",
+          "text": "Are the left and right rail supports aligned with the reference layout?",
+          "evidencePages": [
+            39
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-parcel-sorting-machine-q5",
+          "text": "Does the sorting path remain straight and unobstructed between the ends?",
+          "evidencePages": [
+            39
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-colorblind-assistant-robot",
+      "variantId": "level-6-colorblind-assistant-robot",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Sensor-Focused Robots/Colorblind Assistant Robot/25.Colorblind Assistant Robot-Building Manual.pdf",
+      "sourcePdfSha256": "075c01d21d83a959f304298da6fb2788bfdc44633912e132c3a29d66e35dea05",
+      "sourceEvidencePage": 14,
+      "questions": [
+        {
+          "id": "level-6-colorblind-assistant-robot-q1",
+          "text": "Is the dark upper sensor or reader unit mounted at the front of the frame?",
+          "evidencePages": [
+            14
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-colorblind-assistant-robot-q2",
+          "text": "Is the controller module secured to the right side of the assembly?",
+          "evidencePages": [
+            14
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-colorblind-assistant-robot-q3",
+          "text": "Are the side bracing beams connected between the sensor and controller?",
+          "evidencePages": [
+            14
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-colorblind-assistant-robot-q4",
+          "text": "Is the lower motor module attached beneath the central framework?",
+          "evidencePages": [
+            14
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-colorblind-assistant-robot-q5",
+          "text": "Is the sensor-facing assembly aligned with its lower supporting rails?",
+          "evidencePages": [
+            14
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-rock-paper-scissors-robot",
+      "variantId": "level-6-rock-paper-scissors-robot",
+      "status": "blocked",
+      "approved": false,
+      "sourcePath": "public/Level 6/Building/Sensor-Focused Robots/Rock-paper-scissors Robot/30.Rock-paper-scissors Robot-Building Manual.pdf",
+      "sourcePdfSha256": "1009562c300be9ec9bb86ea5c9420d8117d4399e848dbb1d1705f2b02db107fd",
+      "sourceEvidencePage": 14,
+      "questions": [
+        {
+          "id": "level-6-rock-paper-scissors-robot-q1",
+          "text": "Are the three upright finger-like levers installed in a row above the base?",
+          "evidencePages": [
+            14
+          ],
+          "verificationNotes": "Candidate PDF final illustration retains explanatory callout markings and intersects the crop boundary; not student-safe.",
+          "verified": false
+        },
+        {
+          "id": "level-6-rock-paper-scissors-robot-q2",
+          "text": "Are the red joints attached to each of the three finger mechanisms?",
+          "evidencePages": [
+            14
+          ],
+          "verificationNotes": "Candidate PDF final illustration retains explanatory callout markings and intersects the crop boundary; not student-safe.",
+          "verified": false
+        },
+        {
+          "id": "level-6-rock-paper-scissors-robot-q3",
+          "text": "Is the black camera or sensor housing mounted at the left of the raised levers?",
+          "evidencePages": [
+            14
+          ],
+          "verificationNotes": "Candidate PDF final illustration retains explanatory callout markings and intersects the crop boundary; not student-safe.",
+          "verified": false
+        },
+        {
+          "id": "level-6-rock-paper-scissors-robot-q4",
+          "text": "Is the separate right-hand arm connected across the mechanism as illustrated?",
+          "evidencePages": [
+            14
+          ],
+          "verificationNotes": "Candidate PDF final illustration retains explanatory callout markings and intersects the crop boundary; not student-safe.",
+          "verified": false
+        },
+        {
+          "id": "level-6-rock-paper-scissors-robot-q5",
+          "text": "Is the controller screen mounted flat under the finger and sensor assembly?",
+          "evidencePages": [
+            14
+          ],
+          "verificationNotes": "Candidate PDF final illustration retains explanatory callout markings and intersects the crop boundary; not student-safe.",
+          "verified": false
+        }
+      ],
+      "independentReviewer": null
+    },
+    {
+      "projectId": "level-6-smart-camera",
+      "variantId": "level-6-smart-camera",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Sensor-Focused Robots/Smart Camera/22.Smart Camera-Building Manual.pdf",
+      "sourcePdfSha256": "c296b863d14e6ee0e24c7e5ad708118e460e00d295fdf86ee84056314535dba8",
+      "sourceEvidencePage": 14,
+      "questions": [
+        {
+          "id": "level-6-smart-camera-q1",
+          "text": "Is the dark smart-camera unit mounted at the top of the upright mast?",
+          "evidencePages": [
+            14
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-smart-camera-q2",
+          "text": "Is the controller block secured beside the lower support frame?",
+          "evidencePages": [
+            14
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-smart-camera-q3",
+          "text": "Are the paired grey upright beams connected between camera and base?",
+          "evidencePages": [
+            14
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-smart-camera-q4",
+          "text": "Are the red connectors fixed near the bottom sensor support?",
+          "evidencePages": [
+            14
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-smart-camera-q5",
+          "text": "Is the camera aimed clear of the surrounding supports and cables?",
+          "evidencePages": [
+            14
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    },
+    {
+      "projectId": "level-6-tricycle",
+      "variantId": "level-6-tricycle",
+      "status": "approved",
+      "approved": true,
+      "sourcePath": "public/Level 6/Building/Vehicles & Complex Movers/Tricycle/29. Tricycle-Building Manual.pdf",
+      "sourcePdfSha256": "e95663af6b28442ebd932e3db0d7b3476dabebe4f7b1505d826fcf1cffcd3731",
+      "sourceEvidencePage": 24,
+      "questions": [
+        {
+          "id": "level-6-tricycle-q1",
+          "text": "Is the single front wheel attached beneath the sloping front fork?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-tricycle-q2",
+          "text": "Are the handlebars or steering linkages secured above the front wheel?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-tricycle-q3",
+          "text": "Are the rear wheel mounts connected at the opposite end of the long chassis?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-tricycle-q4",
+          "text": "Is the controller or rear support assembly attached over the back frame?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        },
+        {
+          "id": "level-6-tricycle-q5",
+          "text": "Are the front steering beam and rear chassis connected with no loose joints?",
+          "evidencePages": [
+            24
+          ],
+          "verificationNotes": "Final-model structural detail checked against the exact current Wix Building PDF page; observable by a student.",
+          "verified": true
+        }
+      ],
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)"
+    }
+  ],
+  "candidateQuestionSets": 41
+}

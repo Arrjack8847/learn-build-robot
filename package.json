@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "node --test tests/level-two-cleaned-wix-routing.test.mjs && vite build",
+    "build": "npm run test:final-build && vite build",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
@@ -26,7 +26,8 @@
     "prebuild:dev": "npm run assets:webp",
     "pretest:ui": "npm run assets:webp",
     "test:level2:release": "node --test tests/level-two-cleaned-wix-routing.test.mjs",
-    "postbuild": "node scripts/pdf/prune-wix-building-from-output.mjs"
+    "postbuild": "node scripts/pdf/prune-wix-building-from-output.mjs",
+    "test:final-build": "node --test tests/final-build-exams.test.mjs tests/level-one-categories.test.mjs tests/level-one-to-three-wix-urls.test.mjs tests/level-two-cleaned-wix-routing.test.mjs tests/level-four-building.test.mjs tests/level-four-wix-urls.test.mjs tests/level-five-six-assets.test.mjs tests/level-five-wix-urls.test.mjs tests/level-six-wix-urls.test.mjs tests/syllabus-levels.test.mjs tests/final-build-level-2-integration.test.mjs tests/final-build-level-5-wix-candidates.test.mjs tests/final-build-level-5-candidate-gate.test.mjs tests/final-build-level-5-owner-pdf-fallbacks.test.mjs tests/final-build-level-6-integration.test.mjs tests/final-build-level-6-owner-fallbacks.test.mjs tests/final-build-level-4-source-fallbacks.test.mjs tests/final-build-level-4-integration.test.mjs tests/final-build-level-3-owner-authorized.test.mjs tests/final-build-level-3-integration.test.mjs"
   },
   "overrides": {
     "rolldown": "1.2.1"
