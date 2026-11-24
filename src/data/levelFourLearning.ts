@@ -1,10 +1,11 @@
 /** Level 4 Learning presentations, aligned to the official category and lesson names. */
 import type { PdfActivityManual } from "./pdfActivityManuals";
 import { levelFourWixPdfUrls } from "./levelFourWixPdfUrls";
+import { requireWixPdfUrl } from "./requireWixPdfUrl";
 
-/** Level 4 cleaned Learning PDFs use verified Wix URLs; local source paths remain as fallback. */
+/** Level 4 Learning PDFs load only from verified Wix URLs. */
 function publicPdfUrl(path: string): string {
-  return levelFourWixPdfUrls[path] ?? "/" + path.split("/").map(encodeURIComponent).join("/");
+  return requireWixPdfUrl(path, levelFourWixPdfUrls[path]);
 }
 
 

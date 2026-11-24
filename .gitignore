@@ -30,3 +30,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Published lesson/Building manuals are hosted on Wix; keep new PDFs out of Git.
+# Note: ignore rules do not untrack PDFs committed before this change.
+*.[Pp][Dd][Ff]

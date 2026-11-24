@@ -12,6 +12,7 @@ import { FinalBuildPrototype, type PrototypeStatus } from "@/components/practica
 import prototypeCrops from "@/data/levelOnePrototypeCrops.json";
 import { LEVEL_ONE_CLEANED_BUILDING_WIX_URLS } from "@/data/levelOneBuildingCleanStatus";
 import { secureRandomIndex } from "@/data/finalBuildRegistry";
+import { canStartLevelOneBuild } from "@/data/levelOneFinalBuildStartPolicy";
 
 export const Route = createFileRoute("/practical/level-1/final-build")({ component: FinalBuildPage });
 
@@ -128,10 +129,10 @@ function FinalBuildPage() {
   // the selected completed-model reference, with no slides or navigation.
   // The image is rendered from a single crop of the Wix-hosted source PDF.
   const modelReady = Boolean(manualFilename && modelStatus?.filename === manualFilename && modelStatus.status === "ready");
-  // Do not start a build without a verified completed-model crop and
-  // successful PDF render; reviewer mode can test provisional candidates.
-  const canStart = Boolean(candidate?.approved && modelReady && manualUrl);
-  const canTest = Boolean(reviewMode && candidate && modelReady && manualUrl);
+  // The owner approves registered Level 1 robots to start with their Wix PDF
+  // reference once it has rendered. The legacy crop.approved flag records
+  // independent artwork review, not permission to begin the challenge.
+  const canStart = canStartLevelOneBuild(candidate, modelReady, manualUrl);
   const checks = useMemo(() => project ? checksFor(project.name, project.category) : [], [project]);
   const remaining = session.deadline ? Math.max(0, session.deadline - now) : LIMIT_MS;
   const time = `${String(Math.floor(remaining / 60000)).padStart(2, "0")}:${String(Math.floor((remaining % 60000) / 1000)).padStart(2, "0")}`;
@@ -242,7 +243,7 @@ function FinalBuildPage() {
             {reviewMode && project && (
               <div className="mb-4 rounded-2xl border-2 border-[#d9c8fa] bg-[#f7f1ff] p-3">
                 <p className="mb-2 text-center text-xs font-black text-[#6946a5]">
-                  🔎 Candidate Review · {Number(session.projectIndex) + 1} / {PROJECTS.length} projects · Not approved
+                  🔎 Candidate Review · {Number(session.projectIndex) + 1} / {PROJECTS.length} projects · Owner authorized
                 </p>
                 <div className="flex items-center gap-2">
                   <button type="button" aria-label="Previous project" onClick={() => selectReviewProject((Number(session.projectIndex) - 1 + PROJECTS.length) % PROJECTS.length)}
@@ -297,19 +298,19 @@ function FinalBuildPage() {
                           onStatusChange={onModelStatus}
                         />
                         <p className="mt-2 text-xs font-semibold text-[#59748c]">
-                          Completed-model image only · From the Wix-hosted Building PDF
+                          Robot reference · From the Wix-hosted Building PDF
                         </p>
                         {!candidate.approved && (
                           <p className="mt-2 text-xs font-semibold text-amber-800" role="note">
-                            Preview candidate: the robot crop still needs visual approval before the student challenge can begin.
+                            Owner-authorized reference · This original PDF illustration has not been independently certified as a complete assembled model.
                           </p>
                         )}
                       </div>
                     ) : (
                       <div className="rounded-xl bg-white px-3 py-6">
-                        <p className="text-sm font-bold text-[#745397]">Finished-model picture not identified</p>
+                        <p className="text-sm font-bold text-[#745397]">Robot reference unavailable</p>
                         <p className="mt-2 text-xs font-medium text-slate-500">
-                          This challenge remains locked until its actual robot reference is verified.
+                          The challenge can start once the official Wix PDF reference loads successfully.
                         </p>
                       </div>
                     )}
@@ -324,13 +325,7 @@ function FinalBuildPage() {
                   Start My 15-Minute Build
                 </button>
               )}
-              {session.stage === "ready" && canTest && (
-                <button type="button"
-                  onClick={() => update({ stage: "building", deadline: Date.now() + LIMIT_MS, completedAt: null })}
-                  className="mt-3 min-h-12 w-full rounded-2xl border-2 border-[#b6a0ed] bg-[#efe6ff] px-4 font-extrabold text-[#6740a2] hover:bg-[#e2d2ff]">
-                  Test 15-Minute Timer (review only)
-                </button>
-              )}
+
               {session.stage === "ready" && !canStart && (
                 <button type="button" onClick={() => retry(false)}
                   className="mt-3 min-h-12 w-full rounded-2xl border-2 border-[#f0c878] bg-[#fff5d8] px-4 font-extrabold text-[#8857aa] hover:bg-[#ffeab0]">
