@@ -217,3 +217,31 @@ test("fallback scanner/UI retains five checks, 4-of-5 pass, 15 minute timer and 
   assert.match(helper, /getVerifiedFinalBuildPool/);
   assert.match(levelTwoAdapter, /assessment\.questions\.length !== 5/);
 });
+
+
+test("All 30 former Level 2 PDF-only variants now have source-matched Wix model illustrations", () => {
+  const recovered = JSON.parse(read("src/data/finalBuild/level-2-recovered-model-images.json"));
+  assert.equal(recovered.records.length, 30);
+  assert.equal(recovered.siteId, images.wixSiteId);
+  assert.deepEqual(new Set(recovered.records.map(x => x.variantId)), new Set(ownerFallbacks.records.map(x => x.variantId)));
+  const used = new Set(Object.values(images.urls));
+  for (const row of recovered.records) {
+    const original = ownerFallbacks.records.find(x => x.variantId === row.variantId);
+    assert.equal(row.projectId, original.projectId);
+    assert.equal(row.sourceUrl, original.reference.url);
+    assert.equal(row.pdfSha256, original.reference.sha256);
+    assert.ok(Number.isInteger(row.page) && row.page >= 1 && row.page <= original.reference.pageCount);
+    assert.ok(row.pdfCrop.length === 4 && row.pdfCrop.every(Number.isFinite) && row.pdfCrop[2] > row.pdfCrop[0] && row.pdfCrop[3] > row.pdfCrop[1]);
+    assert.match(row.imageSha256, /^[0-9a-f]{64}$/);
+    assert.ok(row.imageBytes > 0 && row.dimensions.length === 2 && row.dimensions.every(n => Number.isInteger(n) && n > 0));
+    assert.equal(row.sourceKind, "original-registered-pdf-illustration");
+    assert.equal(row.independentFinishedModelCertification, false);
+    assert.ok(row.sourcePdfHashVerified && row.visuallyInspected && row.wixReady && row.cdnBytesVerified);
+    assert.equal(row.wixUrl, "https://static.wixstatic.com/media/" + row.mediaId);
+    assert.ok(!used.has(row.wixUrl));
+    used.add(row.wixUrl);
+  }
+  assert.equal(used.size, 60);
+  assert.match(levelTwoAdapter, /imageUrl: hasRecoveredImage \? recovered\.wixUrl : null/);
+  assert.match(levelTwoAdapter, /referenceMode: hasRecoveredImage \? "hosted-webp" : "registered-pdf-fallback"/);
+});
