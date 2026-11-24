@@ -1,0 +1,5 @@
+# Level 2 robot reference recovery — 2026-11-24
+
+All 29 remaining original registered PDF files were downloaded and checked against their existing SHA-256. Source photographs/illustrations were visually selected; 14 vector-page crops had surrounding source text masked (not generated model components). Each WebP was reopened, visually screened, uploaded to Steam Wix, then independently downloaded from the CDN and matched to its exact source export SHA-256, byte count, format and dimensions. The original 30 independently approved references and previously recovered Dung Beetle remain unchanged. All 60 registered variants now have image URLs. The 150 general self-assessment questions remain owner-authorized, not independently PDF-certified; the recovered images are original source illustrations, not a new independent completed-assembly certification. The PDF error fallback remains available. No source PDF binaries added.
+
+Manifest: `src/data/finalBuild/level-2-recovered-model-images.json`.
