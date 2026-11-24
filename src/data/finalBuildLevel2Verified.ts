@@ -2,6 +2,7 @@ import levelTwoReferences from "@/data/finalBuild/level-2-references.json";
 import levelTwoChecklists from "@/data/finalBuild/level-2-checklists.json";
 import levelTwoWixImages from "@/data/finalBuild/level-2-wix-image-urls.json";
 import levelTwoOwnerFallbacks from "@/data/finalBuild/level-2-owner-approved-pdf-fallbacks.json";
+import recoveredLevelTwoImages from "@/data/finalBuild/level-2-recovered-model-images.json";
 import type { FinalBuildVariant } from "@/data/finalBuildRegistry";
 import type { VerifiedFinalBuildReference } from "@/data/finalBuildVerified";
 
@@ -67,6 +68,14 @@ export function getLevelTwoEvidence(
           question.evidenceType === "general-observable-not-pdf-verified" &&
           question.pdfPage === null)) return null;
 
+    const recovered = recoveredLevelTwoImages.records.find(item => item.variantId === variant.id && item.projectId === projectId);
+    const hasRecoveredImage = recovered && recovered.sourceUrl === source.url && recovered.pdfSha256 === source.sha256 &&
+      recovered.sourcePdfHashVerified && recovered.visuallyInspected && recovered.wixReady && recovered.cdnBytesVerified &&
+      recovered.sourceKind === "original-registered-pdf-illustration" && recovered.independentFinishedModelCertification === false &&
+      Number.isInteger(recovered.page) && recovered.page > 0 && recovered.page <= source.pageCount &&
+      sha256Pattern.test(recovered.imageSha256) && recovered.imageBytes > 0 && recovered.dimensions.length === 2 && recovered.dimensions.every(n => Number.isInteger(n) && n > 0) &&
+      recovered.pdfCrop.length === 4 && recovered.pdfCrop.every(Number.isFinite) && recovered.pdfCrop[2]! > recovered.pdfCrop[0]! && recovered.pdfCrop[3]! > recovered.pdfCrop[1]! &&
+      validWixWebpUrl(recovered.wixUrl) && recovered.wixUrl === "https://static.wixstatic.com/media/" + recovered.mediaId;
     return {
       reference: {
         level: 2,
@@ -74,10 +83,11 @@ export function getLevelTwoEvidence(
         variantId: variant.id,
         sourceUrl: source.url,
         pdfSha256: source.sha256,
-        page: 1,
+        page: hasRecoveredImage ? recovered.page : 1,
         crop: { x: 0, y: 0, width: 1, height: 1 },
-        imageUrl: null,
-        referenceMode: "registered-pdf-fallback",
+        imageUrl: hasRecoveredImage ? recovered.wixUrl : null,
+        referenceMode: hasRecoveredImage ? "hosted-webp" : "registered-pdf-fallback",
+        ...(hasRecoveredImage ? { referenceNotice: "Original robot illustration from the registered PDF; use the five construction self-checks." } : {}),
       },
       questions: assessment.questions.map(question => question.text),
     };

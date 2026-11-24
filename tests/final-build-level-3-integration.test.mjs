@@ -38,7 +38,7 @@ test("No independent approval is fabricated by Level 3's explicitly separate own
   assert.match(adapter, /m\.operationStatus !== "READY"/);
   assert.match(adapter, /new Set\(row\.questions\.map\(q => q\.text\)\)\.size !== 5/);
   assert.match(exam, /Owner-authorized self-assessment/);
-  assert.match(exam, /sourceLimited=\{level === 3\}/);
+  assert.match(exam, /sourceLimited=\{level === 3 \|\| \(level === 2 && Boolean\(approval\?\.referenceNotice\)\)\}/);
   assert.match(prototype, /Owner-authorized original Building-manual illustration/);
 });
 
