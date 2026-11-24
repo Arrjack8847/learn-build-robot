@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "level": 1,
+  "status": "awaiting-independent-source-review",
+  "sourceAuditCommit": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+  "description": "Only independently validated entries with source PDF SHA-256, manual-specific questions, page/crop evidence, and reviewer signoff may be added. The existing 60 candidates remain in levelOnePrototypeCrops.json. No references are currently approved.",
+  "references": []
+}

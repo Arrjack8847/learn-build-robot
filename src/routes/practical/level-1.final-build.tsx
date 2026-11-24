@@ -9,9 +9,11 @@ import { ACCELERATION_MANUAL_URL } from "@/data/accelerationCarManual";
 import { LevelOneBackdrop, LevelOneHeader } from "@/components/practical/LevelOneHeader";
 import { FinalBuildScanner } from "@/components/practical/FinalBuildScanner";
 import { FinalBuildPrototype, type PrototypeStatus } from "@/components/practical/FinalBuildPrototype";
+import { LevelOneVerifiedWebp } from "@/components/practical/LevelOneVerifiedWebp";
 import prototypeCrops from "@/data/levelOnePrototypeCrops.json";
 import { LEVEL_ONE_CLEANED_BUILDING_WIX_URLS } from "@/data/levelOneBuildingCleanStatus";
 import { secureRandomIndex } from "@/data/finalBuildRegistry";
+import { getApprovedLevelOneReference } from "@/data/levelOneReferenceGate";
 
 export const Route = createFileRoute("/practical/level-1/final-build")({ component: FinalBuildPage });
 
@@ -34,6 +36,41 @@ function sourcePdfFilename(url: string | undefined): string | undefined {
   const withoutQuery = url.split("?")[0] ?? "";
   return ORIGINAL_PDF_BY_URL.get(withoutQuery) || decodeURIComponent(withoutQuery.split("/").pop() || "");
 }
+type Project = (typeof PROJECTS)[number];
+function sourceFor(project: Project, variantIndex: number) {
+  const variantId = project.availableProjectId
+    ?? project.availableProjectVariants?.[variantIndex]?.projectId
+    ?? project.availableProjectVariants?.[0]?.projectId;
+  const sourceUrl = project.name === "Acceleration car"
+    ? ACCELERATION_MANUAL_URL
+    : variantId ? pdfActivityManuals[variantId]?.url : undefined;
+  const filename = project.name === "Acceleration car"
+    ? "Acceleration car_Building.pdf" : sourcePdfFilename(sourceUrl);
+  const officialPdfUrl = (filename ? LEVEL_ONE_CLEANED_BUILDING_WIX_URLS[filename] : undefined) ?? sourceUrl;
+  const candidate = filename ? PROTOTYPE_BY_FILENAME.get(filename) : undefined;
+  const approvedRef = filename && variantId
+    ? getApprovedLevelOneReference({
+        projectId: project.id, variantId, filename, officialPdfUrl, candidate,
+      })
+    : null;
+  return { variantId, filename, officialPdfUrl, candidate, approvedRef };
+}
+const APPROVED_PROJECT_INDEXES = PROJECTS.flatMap((project, index) => {
+  const variants = project.availableProjectVariants?.length ?? 1;
+  return Array.from({ length: variants }, (_, variantIndex) => sourceFor(project, variantIndex))
+    .some(source => source.approvedRef) ? [index] : [];
+});
+function firstApprovedVariant(project: Project): number {
+  const count = project.availableProjectVariants?.length ?? 1;
+  return Array.from({ length: count }, (_, index) => index)
+    .find(index => Boolean(sourceFor(project, index).approvedRef)) ?? 0;
+}
+function isApprovedSelection(index: number, variantIndex: number): boolean {
+  if (!Number.isInteger(index) || !Number.isInteger(variantIndex) || variantIndex < 0) return false;
+  const project = PROJECTS[index];
+  return Boolean(project && sourceFor(project, variantIndex).approvedRef);
+}
+
 type Stage = "spin" | "spinning" | "ready" | "building" | "assessment" | "result";
 type Session = { stage: Stage; projectIndex: number | null; spinFinishAt: number | null; spinRotation: number | null; variantIndex: number; deadline: number | null; completedAt: number | null; checks: boolean[]; completed: boolean; attempts: number; result: "pass" | "retry" | null };
 const initial: Session = { stage: "spin", projectIndex: null, spinFinishAt: null, spinRotation: null, variantIndex: 0, deadline: null, completedAt: null, checks: [false,false,false,false,false], completed: false, attempts: 0, result: null };
@@ -41,7 +78,7 @@ function load(): Session {
   if (typeof window === "undefined") return initial;
   try {
     const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null") as Session | null;
-    if (data && ["spin","spinning","ready","building","assessment","result"].includes(data.stage) && (data.projectIndex === null || (Number.isInteger(data.projectIndex) && data.projectIndex >= 0 && data.projectIndex < PROJECTS.length))) {
+    if (data && ["spin","spinning","ready","building","assessment","result"].includes(data.stage) && (data.projectIndex === null || (Number.isInteger(data.projectIndex) && data.projectIndex >= 0 && data.projectIndex < PROJECTS.length && isApprovedSelection(data.projectIndex, data.variantIndex)))) {
       return { ...initial, ...data, checks: Array.isArray(data.checks) && data.checks.length === 5 ? data.checks : initial.checks };
     }
   } catch { /* ignore corrupt saved session */ }
@@ -78,7 +115,7 @@ function FinalBuildPage() {
   const [storageReady, setStorageReady] = useState(false);
   const [now, setNow] = useState(() => Date.now());
   const [modelStatus, setModelStatus] = useState<{ filename: string; status: PrototypeStatus } | null>(null);
-  const reviewMode = typeof window !== "undefined" &&
+  const reviewMode = import.meta.env.DEV && typeof window !== "undefined" &&
     new URLSearchParams(window.location.search).get("review") === "1";
   const onModelStatus = useCallback((filename: string, status: PrototypeStatus) => {
     setModelStatus(old => old?.filename === filename && old.status === status ? old : { filename, status });
@@ -87,10 +124,10 @@ function FinalBuildPage() {
     // Reviewer-only deep link: ?review=1&project=Clock. No reroll is changed
     // for normal students. Allows inspection of all 59 candidate slides.
     const query = new URLSearchParams(window.location.search);
-    const requestedName = query.get("review") === "1" ? query.get("project") : null;
+    const requestedName = import.meta.env.DEV && query.get("review") === "1" ? query.get("project") : null;
     const reviewIndex = requestedName
       ? PROJECTS.findIndex(item => item.name.toLowerCase() === requestedName.toLowerCase())
-      : (query.get("review") === "1" ? 0 : -1);
+      : (import.meta.env.DEV && query.get("review") === "1" ? 0 : -1);
     setSession(reviewIndex >= 0
       ? { ...initial, checks: [...initial.checks], stage: "ready", projectIndex: reviewIndex }
       : load());
@@ -113,26 +150,20 @@ function FinalBuildPage() {
     }
   }, [now, session.stage, session.deadline, session.spinFinishAt]);
   const project = session.projectIndex === null ? null : PROJECTS[session.projectIndex];
-  const manualProjectId = project?.availableProjectId ?? project?.availableProjectVariants?.[session.variantIndex]?.projectId ?? project?.availableProjectVariants?.[0]?.projectId;
-  const sourceManualUrl = project?.name === "Acceleration car"
-    ? ACCELERATION_MANUAL_URL
-    : manualProjectId ? pdfActivityManuals[manualProjectId]?.url : undefined;
-  const manualFilename = project?.name === "Acceleration car"
-    ? "Acceleration car_Building.pdf"
-    : sourcePdfFilename(sourceManualUrl);
-  // Level 1 cleaned PDFs are already published on Wix and indexed in GitHub
-  // main; prefer those exact verified URLs instead of the older source links.
-  const manualUrl = (manualFilename ? LEVEL_ONE_CLEANED_BUILDING_WIX_URLS[manualFilename] : undefined) ?? sourceManualUrl;
-  const candidate = manualFilename ? PROTOTYPE_BY_FILENAME.get(manualFilename) : undefined;
+  const source = project ? sourceFor(project, session.variantIndex) : null;
+  const manualFilename = source?.filename;
+  const manualUrl = source?.officialPdfUrl;
+  const candidate = source?.candidate;
+  const approvedRef = source?.approvedRef;
   // Final Build is deliberately independent of Building Studio: show just
   // the selected completed-model reference, with no slides or navigation.
   // The image is rendered from a single crop of the Wix-hosted source PDF.
   const modelReady = Boolean(manualFilename && modelStatus?.filename === manualFilename && modelStatus.status === "ready");
   // Do not start a build without a verified completed-model crop and
   // successful PDF render; reviewer mode can test provisional candidates.
-  const canStart = Boolean(candidate?.approved && modelReady && manualUrl);
+  const canStart = Boolean(candidate?.approved && modelReady && approvedRef && manualUrl);
   const canTest = Boolean(reviewMode && candidate && modelReady && manualUrl);
-  const checks = useMemo(() => project ? checksFor(project.name, project.category) : [], [project]);
+  const checks = useMemo(() => project ? (approvedRef?.assessmentQuestions.map(q => q.prompt) ?? (reviewMode ? checksFor(project.name, project.category) : [])) : [], [project, approvedRef, reviewMode]);
   const remaining = session.deadline ? Math.max(0, session.deadline - now) : LIMIT_MS;
   const time = `${String(Math.floor(remaining / 60000)).padStart(2, "0")}:${String(Math.floor((remaining % 60000) / 1000)).padStart(2, "0")}`;
   const update = (change: Partial<Session>) => setSession(old => ({ ...old, ...change }));
@@ -140,18 +171,24 @@ function FinalBuildPage() {
     setSession(old => old.stage === "spinning" ? { ...old, stage: "ready" } : old);
   }, []);
   function discover() {
-    if (session.stage !== "spin") return;
+    if (session.stage !== "spin" || (!reviewMode && APPROVED_PROJECT_INDEXES.length === 0)) return;
     setModelStatus(null);
     // Local development only: ?project=Clock allows verifying one model without rerolling.
     const testProject = import.meta.env.DEV && typeof window !== "undefined"
       ? new URLSearchParams(window.location.search).get("project") : null;
     const fixedIndex = testProject
       ? PROJECTS.findIndex(item => item.name.toLowerCase() === testProject.toLowerCase()) : -1;
-    const index = fixedIndex >= 0 ? fixedIndex : secureRandomIndex(PROJECTS.length);
+    const index = reviewMode
+      ? (fixedIndex >= 0 ? fixedIndex : secureRandomIndex(PROJECTS.length))
+      : APPROVED_PROJECT_INDEXES[secureRandomIndex(APPROVED_PROJECT_INDEXES.length)];
+    if (index === undefined) return;
+    const selectedProject = PROJECTS[index];
+    if (!selectedProject) return;
+    const approvedVariant = reviewMode ? 0 : firstApprovedVariant(selectedProject);
     // One uniform draw from 59 projects. Scanner silhouettes are decorative.
     // The reveal never changes the previously selected result.
     update({
-      stage: "spinning", projectIndex: index, variantIndex: 0,
+      stage: "spinning", projectIndex: index, variantIndex: approvedVariant,
       spinFinishAt: Date.now() + SPIN_DURATION_MS, spinRotation: null,
       checks: [false,false,false,false,false], completed: false,
       deadline: null, completedAt: null, result: null,
@@ -192,7 +229,7 @@ function FinalBuildPage() {
             </header>
             <section aria-label="Discover a randomly selected robot" className="grid min-h-0 flex-1 grid-rows-[minmax(0,1fr)_auto] overflow-hidden rounded-[26px] border-[3px] border-[#47c8fc] bg-white shadow-[0_12px_45px_rgba(42,111,192,.18)] sm:rounded-[34px] lg:grid-cols-[1.12fr_.88fr] lg:grid-rows-1 lg:border-[5px]">
               <div className="relative flex min-h-0 items-center justify-center overflow-hidden bg-[#0B1B4E]">
-                <FinalBuildScanner scanning={session.stage === "spinning"} onSkip={finishSpin}/>
+                <FinalBuildScanner scanning={session.stage === "spinning"} onSkip={finishSpin} projectCount={reviewMode ? PROJECTS.length : APPROVED_PROJECT_INDEXES.length}/>
               </div>
               <div className="flex shrink-0 flex-col justify-center gap-2 bg-gradient-to-br from-white via-[#f0f9ff] to-[#f1edff] px-3 pb-3 pt-2 sm:px-6 lg:min-h-0 lg:gap-5 lg:border-l-4 lg:border-[#9eeaff] lg:px-8 lg:py-6 xl:px-12">
                 <p className="hidden w-fit rounded-full bg-[#d7f7ff] px-4 py-2 text-xs font-black tracking-wide text-[#1478bd] lg:block">🚀 WELCOME TO THE DISCOVERY LAB</p>
@@ -203,16 +240,16 @@ function FinalBuildPage() {
                   Activate the scanner! Watch it search through the STEM lab, then reveal one surprise robot for your Final Build Challenge.
                 </p>
                 <div className="flex items-center justify-center gap-2 lg:justify-start lg:gap-3">
-                  <span className="rounded-full bg-[#e0efff] px-3 py-1.5 text-[11px] font-black text-[#275bb3] sm:text-sm">🤖 59 robots</span>
+                  <span className="rounded-full bg-[#e0efff] px-3 py-1.5 text-[11px] font-black text-[#275bb3] sm:text-sm">🤖 {reviewMode ? PROJECTS.length : APPROVED_PROJECT_INDEXES.length} verified robots</span>
                   <span className="rounded-full bg-[#def8e9] px-3 py-1.5 text-[11px] font-black text-[#267d56] sm:text-sm">⏱️ 15-minute build</span>
                 </div>
-                <button type="button" onClick={discover} disabled={session.stage === "spinning"}
+                <button type="button" onClick={discover} disabled={session.stage === "spinning" || (!reviewMode && APPROVED_PROJECT_INDEXES.length === 0)}
                   className="min-h-14 w-full shrink-0 rounded-[20px] border-2 border-[#d28b23] border-b-[6px] bg-gradient-to-b from-[#ffe67a] to-[#ffc341] px-5 py-2 text-lg font-black tracking-wide text-[#193875] shadow-[0_7px_0_#dce6ff] transition hover:from-[#fff1ab] hover:to-[#ffd263] active:translate-y-1 active:border-b-2 active:shadow-none focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#2187e1] disabled:cursor-wait disabled:opacity-80 sm:min-h-16 sm:text-xl lg:min-h-20 lg:text-2xl">
                   {session.stage === "spinning" ? "🔬 SCANNING ROBOTS..." : "🔎 DISCOVER MY ROBOT!"}
                 </button>
                 <p className="text-center text-[10px] font-bold leading-tight text-[#6c81a4] sm:text-xs lg:text-left" role="status" aria-live="polite">
                   {session.stage === "spinning" ? "Searching the lab… one surprise robot is coming!"
-                    : "Every robot has the same chance. Discover → Build → Check!"}
+                    : (!reviewMode && APPROVED_PROJECT_INDEXES.length === 0 ? "Model pictures are being verified before student challenges open." : "Every approved robot has the same chance. Discover → Build → Check!") }
                 </p>
                 {session.stage === "spinning" && (
                   <button type="button" onClick={finishSpin} className="min-h-9 text-center text-xs font-bold text-[#356aa9] underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2187e1]">
@@ -274,9 +311,9 @@ function FinalBuildPage() {
                     disabled={session.stage !== "ready"}
                     onChange={event => { setModelStatus(null); update({ variantIndex: Number(event.target.value) }); }}
                     className="min-h-11 rounded-xl border border-[#d4b7f2] bg-white px-3 text-sm font-bold text-[#65438a]">
-                    {project.availableProjectVariants.map((option,index) => (
+                    {project.availableProjectVariants.map((option,index) => (reviewMode || sourceFor(project, index).approvedRef) ? (
                       <option value={index} key={option.projectId}>{option.label}</option>
-                    ))}
+                    ) : null)}
                   </select>
                 </div>
               )}
@@ -286,22 +323,36 @@ function FinalBuildPage() {
                     <p className="mb-2 text-xs font-black uppercase tracking-wider text-[#2d72b7]">
                       🤖 Your robot reference
                     </p>
-                    {candidate && manualFilename && manualUrl ? (
+                    {(reviewMode || approvedRef) && candidate && manualFilename && manualUrl ? (
                       <div>
-                        <FinalBuildPrototype
-                          filename={manualFilename}
-                          url={manualUrl}
-                          pageNumber={candidate.page}
-                          crop={candidate.crop}
-                          title={project.name}
-                          onStatusChange={onModelStatus}
-                        />
+                        {approvedRef?.approvedWebpUrl && approvedRef.webpWidth && approvedRef.webpHeight ? (
+                          <LevelOneVerifiedWebp
+                            filename={manualFilename}
+                            title={project.name}
+                            url={approvedRef.approvedWebpUrl}
+                            expectedWidth={approvedRef.webpWidth}
+                            expectedHeight={approvedRef.webpHeight}
+                            pdfUrl={manualUrl}
+                            pdfPage={candidate.page}
+                            crop={candidate.crop}
+                            onStatusChange={onModelStatus}
+                          />
+                        ) : (
+                          <FinalBuildPrototype
+                            filename={manualFilename}
+                            url={manualUrl}
+                            pageNumber={candidate.page}
+                            crop={candidate.crop}
+                            title={project.name}
+                            onStatusChange={onModelStatus}
+                          />
+                        )}
                         <p className="mt-2 text-xs font-semibold text-[#59748c]">
-                          Completed-model image only · From the Wix-hosted Building PDF
+                          Completed-model reference only · Source: official Wix-hosted Building PDF
                         </p>
                         {!candidate.approved && (
                           <p className="mt-2 text-xs font-semibold text-amber-800" role="note">
-                            Preview candidate: the robot crop still needs visual approval before the student challenge can begin.
+                            Preview candidate: the robot crop still needs independent source and checklist approval before the student challenge can begin.
                           </p>
                         )}
                       </div>
