@@ -70,3 +70,14 @@ test("Existing robot lessons remain accessible; missing lessons are not clickabl
   assert.match(detail, /to="\/projects\/\$projectId"/);
   assert.doesNotMatch(detail, /href=\{entry\.sourceEntry\}/);
 });
+
+ test("Shared category cards protect full labels and counts on short mobile screens", () => {
+  const card = sharedCategories.split("export function CategoryCard")[1];
+  assert.ok(card);
+  assert.doesNotMatch(card, /line-clamp-|truncate/);
+  assert.match(card, /w-full shrink-0 break-words/);
+  assert.match(card, /shrink-0 text-\[clamp\(10px/);
+  assert.match(sharedCategories, /min-h-\[100dvh\]/);
+  assert.match(sharedCategories, /min-h-\[408px\]/);
+  assert.match(sharedCategories, /Robot Discovery Scanner<\/span>/);
+});
