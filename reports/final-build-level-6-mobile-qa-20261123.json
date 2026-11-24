@@ -1,0 +1,103 @@
+{
+  "project": "BE STEM READY",
+  "level": 6,
+  "date": "2026-11-23",
+  "environment": "Isolated Vercel Ubuntu 26.04 Linux, local production-equivalent build, Playwright Chromium headless 143, mobile viewport emulation; no Browser Use, no public deployment.",
+  "route": "/practical/level-6/final-build",
+  "viewportHeight": 844,
+  "results": [
+    {
+      "width": 320,
+      "httpStatus": 200,
+      "scannerHeadingVisible": true,
+      "scannerNoHorizontalOverflow": true,
+      "readyNoHorizontalOverflow": true,
+      "discoveryToReadyTransitionVisible": true,
+      "startButtonCorrectlyDisabledBeforeGlobalApproval": true,
+      "pageErrorCount": 0,
+      "scannerDiscoverButton": {
+        "topPx": 887,
+        "bottomPx": 951,
+        "heightPx": 64,
+        "visibleHeightPx": 0,
+        "fullyVisible": false
+      },
+      "verticalReachability": "FAIL — Discover button below clipped fixed-height ancestor",
+      "snapshotFilesLocalOnly": [
+        "level6-320-scanner.png",
+        "level6-320-ready.png"
+      ]
+    },
+    {
+      "width": 375,
+      "httpStatus": 200,
+      "scannerHeadingVisible": true,
+      "scannerNoHorizontalOverflow": true,
+      "readyNoHorizontalOverflow": true,
+      "discoveryToReadyTransitionVisible": true,
+      "startButtonCorrectlyDisabledBeforeGlobalApproval": true,
+      "pageErrorCount": 0,
+      "scannerDiscoverButton": {
+        "topPx": 839,
+        "bottomPx": 903,
+        "heightPx": 64,
+        "visibleHeightPx": 5.25,
+        "fullyVisible": false
+      },
+      "verticalReachability": "FAIL — Discover button below clipped fixed-height ancestor",
+      "snapshotFilesLocalOnly": [
+        "level6-375-scanner.png",
+        "level6-375-ready.png"
+      ]
+    },
+    {
+      "width": 390,
+      "httpStatus": 200,
+      "scannerHeadingVisible": true,
+      "scannerNoHorizontalOverflow": true,
+      "readyNoHorizontalOverflow": true,
+      "discoveryToReadyTransitionVisible": true,
+      "startButtonCorrectlyDisabledBeforeGlobalApproval": true,
+      "pageErrorCount": 0,
+      "scannerDiscoverButton": {
+        "topPx": 819,
+        "bottomPx": 883,
+        "heightPx": 64,
+        "visibleHeightPx": 25.25,
+        "fullyVisible": false
+      },
+      "verticalReachability": "FAIL — Discover button below clipped fixed-height ancestor",
+      "snapshotFilesLocalOnly": [
+        "level6-390-scanner.png",
+        "level6-390-ready.png"
+      ]
+    },
+    {
+      "width": 430,
+      "httpStatus": 200,
+      "scannerHeadingVisible": true,
+      "scannerNoHorizontalOverflow": true,
+      "readyNoHorizontalOverflow": true,
+      "discoveryToReadyTransitionVisible": true,
+      "startButtonCorrectlyDisabledBeforeGlobalApproval": true,
+      "pageErrorCount": 0,
+      "scannerDiscoverButton": {
+        "topPx": 791,
+        "bottomPx": 855,
+        "heightPx": 64,
+        "visibleHeightPx": 53.25,
+        "fullyVisible": false
+      },
+      "verticalReachability": "FAIL — Discover button below clipped fixed-height ancestor",
+      "snapshotFilesLocalOnly": [
+        "level6-430-scanner.png",
+        "level6-430-ready.png"
+      ]
+    }
+  ],
+  "cause": "Ancestor <div class='h-[100dvh] overflow-hidden'> and <main class='h-full overflow-hidden'> have an 844px viewport while the descendant scanner content exceeds it. The button cannot be fully reached through normal viewport scrolling.",
+  "verdict": "NOT MOBILE RELEASE-APPROVED. Horizontal/browser smoke checks pass, but vertical CTA reachability fails all four widths.",
+  "requiredFixOwner": "Final shared-engine integration worker, not isolated Level 6 content worker.",
+  "recommendedIntegrationFix": "Keep Level 1 scanner visuals but allow vertical scrolling of the shared outer/main layout at small widths; retain 4.2s scanner, 15-minute deadline and original engine transitions. Repeat actual mobile Safari and Chromium visual checks.",
+  "studentReleaseGate": "Global approvals remain unchanged; no production deployment."
+}

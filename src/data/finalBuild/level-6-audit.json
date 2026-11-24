@@ -1,0 +1,3610 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-23",
+  "project": "BE STEM READY",
+  "level": 6,
+  "repository": "Arrjack8847/learn-build-robot",
+  "coordinatedBase": {
+    "pr": 108,
+    "branch": "feat/final-build-exams-levels-1-6",
+    "sha": "1fe5c5336d45295e6e3252d0450b662337a1db50"
+  },
+  "workerBranch": "feat/final-build-level-6",
+  "scope": "Full 41-document current Wix byte verification, completed-model source preview and 41 candidate WebPs. 39 passed two-stage autonomous QA; 2 remain blocked pending reliable visual reference.",
+  "counts": {
+    "officialSyllabusProjects": 43,
+    "buildingRegisteredProjects": 39,
+    "registeredBuildingVariants": 41,
+    "missingBuildingSourceActivities": 4,
+    "approvedVariants": 39,
+    "blockedVariants": 2,
+    "publishedWebps": 41,
+    "approvedChecklists": 39,
+    "authoredChecklistQuestions": 205,
+    "verifiedChecklistQuestions": 195,
+    "currentHostedPdfSha256Count": 41
+  },
+  "evidenceProvenance": {
+    "canonical": "src/data/levelFiveSixContent.ts",
+    "syllabus": "src/data/advancedSyllabus.ts",
+    "currentWixMap": "src/data/levelSixWixPdfUrls.ts",
+    "historicalOriginalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+    "priorWixByteVerification": "reports/level5-6-building-independent-verification-20261120.json",
+    "priorPruneAndRouting": "reports/level6-building-link-only-paths-20261120.json",
+    "provenanceNote": "Historical Git blob SHA-1 is NOT a current Wix PDF SHA-256. Previous audit findings are not a substitute for fresh visual verification."
+  },
+  "knownCurrentWixRepairPaths": [
+    {
+      "project": "Red Light Warning Device",
+      "path": "public/Level 6/Building/Illumination & Signals/Red Light Warning Device/12. Red Light Warning Device-Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_613e0c239ba64e96ba94d3088dff2c3d.pdf",
+      "verification": "fresh current Wix PDF byte download and SHA-256 verified this run",
+      "currentPdfSha256": "0cf220287b8c406189eb400ca6bc37ff9dd1b297510591ae5ecc674fb971b5c5"
+    },
+    {
+      "project": "Pay by card",
+      "path": "public/Level 6/Building/Mechanisms & Simulators/Pay by card/16.Pay by card -Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_4509b73b391142b3866b767bdb5bbc6e.pdf",
+      "verification": "fresh current Wix PDF byte download and SHA-256 verified this run",
+      "currentPdfSha256": "2236078504868241b43dd29949f53ae8b7efca8c713d114ac1bd92dfa6b0e593"
+    },
+    {
+      "project": "Product Search",
+      "path": "public/Level 6/Building/Mechanisms & Simulators/Product Search/15.Product Search -Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6ece41989cab43b3a0a3a58f5586a493.pdf",
+      "verification": "fresh current Wix PDF byte download and SHA-256 verified this run",
+      "currentPdfSha256": "8e2f3483d3bdd02a1fa6de3eefe67439ebde40a5fe70528fcf0079985d338b8c"
+    },
+    {
+      "project": "Rock-paper-scissors Robot",
+      "path": "public/Level 6/Building/Sensor-Focused Robots/Rock-paper-scissors Robot/30.Rock-paper-scissors Robot-Building Manual.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ee943e948c6f4141b53d9d3e90481801.pdf",
+      "verification": "fresh current Wix PDF byte download and SHA-256 verified this run",
+      "currentPdfSha256": "1009562c300be9ec9bb86ea5c9420d8117d4399e848dbb1d1705f2b02db107fd"
+    }
+  ],
+  "variants": [
+    {
+      "projectId": "level-6-gorilla",
+      "projectTitle": "Gorilla",
+      "categoryId": "action-oriented",
+      "variantId": "level-6-gorilla",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Action-Oriented/Gorilla/04.Gorilla-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_57169e1c5d0849d597949e1bced8dd94.pdf",
+      "historicalOriginalGitBlobSha1": "0c1dae235396f3ad2816c2d51b06166eb124c481",
+      "reportedOriginalPdfBytes": 8153918,
+      "reportedOriginalPageCount": 24,
+      "currentWixPdfSha256": "f5c992e6445f7e4058035cc243ce1a5dc778a0451c63d8a994fbd09552cd3098",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 24,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "0c1dae235396f3ad2816c2d51b06166eb124c481",
+        "currentDownloadedPdfSha256": "f5c992e6445f7e4058035cc243ce1a5dc778a0451c63d8a994fbd09552cd3098",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 24,
+        "cropNormalized": {
+          "x": 0.209524,
+          "y": 0.07,
+          "width": 0.55,
+          "height": 0.883333
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-gorilla.webp",
+        "sha256": "d358f1d87d7e3668b60936768fe14027a1e1f52c9426437ea0f3254517811108",
+        "width": 413,
+        "height": 470,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.97475,
+        "sourceRenderMeanAbsoluteError": 7.44,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          24
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 24
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.97475,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "0c1dae235396f3ad2816c2d51b06166eb124c481",
+      "currentWixPdfByteCount": 8153918
+    },
+    {
+      "projectId": "level-6-picture-projector",
+      "projectTitle": "Picture Projector",
+      "categoryId": "action-oriented",
+      "variantId": "level-6-picture-projector",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Action-Oriented/Picture Projector/28. Picture Projector-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b01fa85ecda24a128ec2aa8edb59731f.pdf",
+      "historicalOriginalGitBlobSha1": "ec65a8c0a381cb8f92eadda3bc28024eaf5b01ea",
+      "reportedOriginalPdfBytes": 3136157,
+      "reportedOriginalPageCount": 11,
+      "currentWixPdfSha256": "7d97885e50142d2b99741fe51d77a56276c60fae19f743556333cf2f7fbd7001",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 11,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "ec65a8c0a381cb8f92eadda3bc28024eaf5b01ea",
+        "currentDownloadedPdfSha256": "7d97885e50142d2b99741fe51d77a56276c60fae19f743556333cf2f7fbd7001",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 11,
+        "cropNormalized": {
+          "x": 0.219048,
+          "y": 0.1,
+          "width": 0.52381,
+          "height": 0.78
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-picture-projector.webp",
+        "sha256": "951be9a60ee693d16a4bf13003adaaad6b9bf74ccaf494ea51e0b48dae71f60c",
+        "width": 532,
+        "height": 560,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98283,
+        "sourceRenderMeanAbsoluteError": 4.59,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          11
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 11
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98283,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "ec65a8c0a381cb8f92eadda3bc28024eaf5b01ea",
+      "currentWixPdfByteCount": 3136157
+    },
+    {
+      "projectId": "level-6-the-flapping-pterosaur",
+      "projectTitle": "The Flapping Pterosaur",
+      "categoryId": "action-oriented",
+      "variantId": "level-6-the-flapping-pterosaur",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Action-Oriented/The Flapping Pterosaur/17. The Flapping Pterosaur-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_72d2043635fb4f4fa387e9bdcb88973d.pdf",
+      "historicalOriginalGitBlobSha1": "3e474b0a4aaa26035baf7203f28879a1403d6fc2",
+      "reportedOriginalPdfBytes": 20131061,
+      "reportedOriginalPageCount": 70,
+      "currentWixPdfSha256": "d44b28539712c5169e9b8685b530298ecc9d9a97815d88a7b9fcc289cf5ef6cb",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 70,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "3e474b0a4aaa26035baf7203f28879a1403d6fc2",
+        "currentDownloadedPdfSha256": "d44b28539712c5169e9b8685b530298ecc9d9a97815d88a7b9fcc289cf5ef6cb",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 70,
+        "cropNormalized": {
+          "x": 0.271429,
+          "y": 0.103333,
+          "width": 0.47381,
+          "height": 0.793333
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-the-flapping-pterosaur.webp",
+        "sha256": "7a3dec8bd0c6ffaa453e10dd8d01fd00b43822a00fe50c60bb3f6ce7665a74cf",
+        "width": 472,
+        "height": 560,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.97756,
+        "sourceRenderMeanAbsoluteError": 4.79,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          70
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 70
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.97756,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "3e474b0a4aaa26035baf7203f28879a1403d6fc2",
+      "currentWixPdfByteCount": 20131061
+    },
+    {
+      "projectId": "level-6-code-scanning-gate",
+      "projectTitle": "Code-scanning Gate",
+      "categoryId": "automation-security",
+      "variantId": "level-6-code-scanning-gate",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Automation & Security/Code-scanning Gate/04.Code-scanning Gate-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_47e81d3a58624e97a23e81e31d8d9b65.pdf",
+      "historicalOriginalGitBlobSha1": "cedd874e3b00dd8dca94a6d696bc15dcc33e194d",
+      "reportedOriginalPdfBytes": 9973061,
+      "reportedOriginalPageCount": 27,
+      "currentWixPdfSha256": "2fe9c262ac5cd112e803a25ca50a03e019afaef8dc020385058f162db85be620",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 27,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "cedd874e3b00dd8dca94a6d696bc15dcc33e194d",
+        "currentDownloadedPdfSha256": "2fe9c262ac5cd112e803a25ca50a03e019afaef8dc020385058f162db85be620",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 27,
+        "cropNormalized": {
+          "x": 0.292857,
+          "y": 0.1,
+          "width": 0.5,
+          "height": 0.76
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-code-scanning-gate.webp",
+        "sha256": "d98a2ee6584853a08e4a4a61c477a73718f79589b425321090add9745fd0e2e3",
+        "width": 464,
+        "height": 500,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98546,
+        "sourceRenderMeanAbsoluteError": 5.58,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          27
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 27
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98546,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "cedd874e3b00dd8dca94a6d696bc15dcc33e194d",
+      "currentWixPdfByteCount": 9973061
+    },
+    {
+      "projectId": "level-6-intelligent-passing-light",
+      "projectTitle": "Intelligent Passing Light",
+      "categoryId": "automation-security",
+      "variantId": "level-6-intelligent-passing-light",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Automation & Security/Intelligent Passing Light/09. Intelligent Passing Light -Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f161c212e69c4abfacc10d6b4087d6e9.pdf",
+      "historicalOriginalGitBlobSha1": "5631d95c4d702902643127ce707cccbd40317e92",
+      "reportedOriginalPdfBytes": 4058127,
+      "reportedOriginalPageCount": 18,
+      "currentWixPdfSha256": "ecd2a6066593597cc463c6fef47879f6c1d683cb43dfd6deddd7ba764dcb3a58",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 18,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "5631d95c4d702902643127ce707cccbd40317e92",
+        "currentDownloadedPdfSha256": "ecd2a6066593597cc463c6fef47879f6c1d683cb43dfd6deddd7ba764dcb3a58",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 18,
+        "cropNormalized": {
+          "x": 0.207143,
+          "y": 0.22,
+          "width": 0.569048,
+          "height": 0.64
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-intelligent-passing-light.webp",
+        "sha256": "564cbdeb949a43279813ae8035a5aa1088ee00e04238bf0a6f36fab6f36b62c3",
+        "width": 650,
+        "height": 517,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.99088,
+        "sourceRenderMeanAbsoluteError": 4.66,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          18
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 18
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.99088,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "5631d95c4d702902643127ce707cccbd40317e92",
+      "currentWixPdfByteCount": 4058127
+    },
+    {
+      "projectId": "level-6-gesture-commanding-car",
+      "projectTitle": "Gesture-commanding Car",
+      "categoryId": "autonomous-navigation-ranging",
+      "variantId": "level-6-gesture-commanding-car",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Autonomous Navigation & Ranging/Gesture-commanding Car/23. Gesture-commanding Car-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2f7e30144fca4cd2b116433f83bafe0e.pdf",
+      "historicalOriginalGitBlobSha1": "b01eee7153ffe54f3947d2d616a649ba007cffa7",
+      "reportedOriginalPdfBytes": 5442297,
+      "reportedOriginalPageCount": 18,
+      "currentWixPdfSha256": "b6ad35e94206666ba5576b17da7c17a490683b31a6436288d171a1fa1793e9a1",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 18,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "b01eee7153ffe54f3947d2d616a649ba007cffa7",
+        "currentDownloadedPdfSha256": "b6ad35e94206666ba5576b17da7c17a490683b31a6436288d171a1fa1793e9a1",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 18,
+        "cropNormalized": {
+          "x": 0.209524,
+          "y": 0.166667,
+          "width": 0.57381,
+          "height": 0.77
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-gesture-commanding-car.webp",
+        "sha256": "5faceb710695378ae742496c11d639b2f9b5e32faf49fccefca06e74b1ae5b64",
+        "width": 470,
+        "height": 446,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98806,
+        "sourceRenderMeanAbsoluteError": 5.81,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          18
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 18
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98806,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "b01eee7153ffe54f3947d2d616a649ba007cffa7",
+      "currentWixPdfByteCount": 5442297
+    },
+    {
+      "projectId": "level-6-regional-weather-station",
+      "projectTitle": "Regional Weather Station",
+      "categoryId": "biomimicry-stimulus-response",
+      "variantId": "level-6-regional-weather-station",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Biomimicry & Stimulus Response/Regional Weather Station/32.Regional Weather Station-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ea276a20b2a34ae4b42338c9ec375ad4.pdf",
+      "historicalOriginalGitBlobSha1": "2da1221e39233623740ded9b35ac3e43dae5f8e1",
+      "reportedOriginalPdfBytes": 12605820,
+      "reportedOriginalPageCount": 51,
+      "currentWixPdfSha256": "02e7ff59e85a74d3f312e8bcce037165022835fb60c28033b53c26fb8c7a6c65",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 51,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "2da1221e39233623740ded9b35ac3e43dae5f8e1",
+        "currentDownloadedPdfSha256": "02e7ff59e85a74d3f312e8bcce037165022835fb60c28033b53c26fb8c7a6c65",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 51,
+        "cropNormalized": {
+          "x": 0.314286,
+          "y": 0.123333,
+          "width": 0.438095,
+          "height": 0.806667
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-regional-weather-station.webp",
+        "sha256": "a587e07fc3bf0ba449bb0295cf436fb94d4072423a62e71763ac801a07957ed3",
+        "width": 361,
+        "height": 470,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.97964,
+        "sourceRenderMeanAbsoluteError": 7.27,
+        "maxEdgeNonwhiteFraction": 0.0057
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          51
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 51
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.97964,
+        "maxBorderForegroundFraction": 0.0057,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "2da1221e39233623740ded9b35ac3e43dae5f8e1",
+      "currentWixPdfByteCount": 12605820
+    },
+    {
+      "projectId": "level-6-super-scorpion",
+      "projectTitle": "Super Scorpion",
+      "categoryId": "biomimicry-stimulus-response",
+      "variantId": "level-6-super-scorpion",
+      "variant": "Basic",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Biomimicry & Stimulus Response/Super Scorpion/16. Super Scorpion - Basic Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ce34d4b7ad3b4f078531aa5db01841e7.pdf",
+      "historicalOriginalGitBlobSha1": "23004ccd4b873878afbbbd73f16739637a7389b7",
+      "reportedOriginalPdfBytes": 43780193,
+      "reportedOriginalPageCount": 42,
+      "currentWixPdfSha256": "a6a1ef2225ce2325ab24b6d09fae70a315018491d97e276f71f85e22482753b6",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 42,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "23004ccd4b873878afbbbd73f16739637a7389b7",
+        "currentDownloadedPdfSha256": "a6a1ef2225ce2325ab24b6d09fae70a315018491d97e276f71f85e22482753b6",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 42,
+        "cropNormalized": {
+          "x": 0.15,
+          "y": 0.05,
+          "width": 0.690476,
+          "height": 0.86
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-super-scorpion.webp",
+        "sha256": "48124a81ac224583a85c246198b71adb2f4f6890b4a37e6a4243cfc7decec173",
+        "width": 470,
+        "height": 414,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98273,
+        "sourceRenderMeanAbsoluteError": 5.77,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          42
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 42
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98273,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "23004ccd4b873878afbbbd73f16739637a7389b7",
+      "currentWixPdfByteCount": 43780193
+    },
+    {
+      "projectId": "level-6-super-scorpion",
+      "projectTitle": "Super Scorpion",
+      "categoryId": "biomimicry-stimulus-response",
+      "variantId": "level-6-super-scorpion:optimized",
+      "variant": "Optimized",
+      "variantKey": "optimized",
+      "sourcePath": "public/Level 6/Building/Biomimicry & Stimulus Response/Super Scorpion/16. Super Scorpion - Optimized Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2f7bfe9ee7224047b06209ce59a55165.pdf",
+      "historicalOriginalGitBlobSha1": "f1bfb447511de5a6529f60e43e432fa488450af8",
+      "reportedOriginalPdfBytes": 4871492,
+      "reportedOriginalPageCount": 3,
+      "currentWixPdfSha256": "e0c7b137eb0ce340cb334a7a36e4ea90172ae65337d8ffba8937b2839d368600",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 3,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "f1bfb447511de5a6529f60e43e432fa488450af8",
+        "currentDownloadedPdfSha256": "e0c7b137eb0ce340cb334a7a36e4ea90172ae65337d8ffba8937b2839d368600",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 1,
+        "cropNormalized": {
+          "x": 0.13,
+          "y": 0.1,
+          "width": 0.77,
+          "height": 0.85
+        },
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": "The optimized manual shows incomplete/close-up views after the initial full-model page; final optimized full-model identity remains uncertain.",
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-super-scorpion-optimized.webp",
+        "sha256": "7b9327616f92c5654540e294cf1366af4ebb1510c78887765677751ee4dec8ce",
+        "width": 530,
+        "height": 414,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.99624,
+        "sourceRenderMeanAbsoluteError": 2.4,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": [
+          1
+        ],
+        "verificationNotes": "The optimized manual shows incomplete/close-up views after the initial full-model page; final optimized full-model identity remains uncertain."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 1
+      },
+      "independentSecondPass": {
+        "status": "blocked",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.99624,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "The optimized manual shows incomplete/close-up views after the initial full-model page; final optimized full-model identity remains uncertain."
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "The optimized manual shows incomplete/close-up views after the initial full-model page; final optimized full-model identity remains uncertain."
+      ],
+      "currentWixGitBlobSha1": "f1bfb447511de5a6529f60e43e432fa488450af8",
+      "currentWixPdfByteCount": 4871492
+    },
+    {
+      "projectId": "level-6-clown",
+      "projectTitle": "Clown",
+      "categoryId": "characters-structures",
+      "variantId": "level-6-clown",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Characters & Structures/Clown/05.Clown-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2d5b5d0c29444bbab32566713eee166c.pdf",
+      "historicalOriginalGitBlobSha1": "7da2056de8dfecb0f9182cc66f9db07476ace2ac",
+      "reportedOriginalPdfBytes": 4432620,
+      "reportedOriginalPageCount": 20,
+      "currentWixPdfSha256": "f311eb9f58da907c32d5d286be4cb39fbdd17c63e4a2f5d870303689cebd489f",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 20,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "7da2056de8dfecb0f9182cc66f9db07476ace2ac",
+        "currentDownloadedPdfSha256": "f311eb9f58da907c32d5d286be4cb39fbdd17c63e4a2f5d870303689cebd489f",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 20,
+        "cropNormalized": {
+          "x": 0.280952,
+          "y": 0.116667,
+          "width": 0.519048,
+          "height": 0.726667
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-clown.webp",
+        "sha256": "9a8bbec04f67790bc0ef26b8c6fd58a585d3081582c0329d65e0cd5220cba07f",
+        "width": 650,
+        "height": 644,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98785,
+        "sourceRenderMeanAbsoluteError": 4.87,
+        "maxEdgeNonwhiteFraction": 0.0269
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          20
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 20
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98785,
+        "maxBorderForegroundFraction": 0.0269,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "7da2056de8dfecb0f9182cc66f9db07476ace2ac",
+      "currentWixPdfByteCount": 4432620
+    },
+    {
+      "projectId": "level-6-accurate-shooting",
+      "projectTitle": "Accurate Shooting",
+      "categoryId": "complex-mechanisms-coordinated-motion",
+      "variantId": "level-6-accurate-shooting",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Complex Mechanisms & Coordinated Motion/Accurate Shooting/13. Accurate Shooting-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_fca7084f7fbf431ea62333e3393441fb.pdf",
+      "historicalOriginalGitBlobSha1": "9e5ec84bacf6de00da52fe4326c425f37e829397",
+      "reportedOriginalPdfBytes": 8353875,
+      "reportedOriginalPageCount": 30,
+      "currentWixPdfSha256": "67e844151ca4d2b6d512f766460a262d938dae09b7cc657ac0d9a584c0e2f6a3",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 30,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "9e5ec84bacf6de00da52fe4326c425f37e829397",
+        "currentDownloadedPdfSha256": "67e844151ca4d2b6d512f766460a262d938dae09b7cc657ac0d9a584c0e2f6a3",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 30,
+        "cropNormalized": {
+          "x": 0.214286,
+          "y": 0.103333,
+          "width": 0.6,
+          "height": 0.826667
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-accurate-shooting.webp",
+        "sha256": "9295b2151a8981fa75cf77ddc98616ec27d7011030193e037593a05eb49fc14a",
+        "width": 500,
+        "height": 487,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98339,
+        "sourceRenderMeanAbsoluteError": 5.51,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          30
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 30
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98339,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "9e5ec84bacf6de00da52fe4326c425f37e829397",
+      "currentWixPdfByteCount": 8353875
+    },
+    {
+      "projectId": "level-6-digital-countdown",
+      "projectTitle": "Digital Countdown",
+      "categoryId": "display-movement",
+      "variantId": "level-6-digital-countdown",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Display & Movement/Digital Countdown/07.Digital Countdown-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_47e8b4aaa4d84052a62791fe0c21e959.pdf",
+      "historicalOriginalGitBlobSha1": "34dc7c6d04818d190f1b5e440a4eb9aeb4238a3b",
+      "reportedOriginalPdfBytes": 5318800,
+      "reportedOriginalPageCount": 21,
+      "currentWixPdfSha256": "d1888381853fd15f4389332fbe08322edec5ad0b2595584647786918848e2dd4",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 21,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "34dc7c6d04818d190f1b5e440a4eb9aeb4238a3b",
+        "currentDownloadedPdfSha256": "d1888381853fd15f4389332fbe08322edec5ad0b2595584647786918848e2dd4",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 21,
+        "cropNormalized": {
+          "x": 0.257143,
+          "y": 0.233333,
+          "width": 0.504762,
+          "height": 0.6
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-digital-countdown.webp",
+        "sha256": "9363fedf39a0e26b1cbe78b04ede8fca7f3d3889e0bb8717cc6e262c5a5ef694",
+        "width": 590,
+        "height": 496,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98094,
+        "sourceRenderMeanAbsoluteError": 7.08,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          21
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 21
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98094,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "34dc7c6d04818d190f1b5e440a4eb9aeb4238a3b",
+      "currentWixPdfByteCount": 5318800
+    },
+    {
+      "projectId": "level-6-red-light-warning-device",
+      "projectTitle": "Red Light Warning Device",
+      "categoryId": "illumination-signals",
+      "variantId": "level-6-red-light-warning-device",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Illumination & Signals/Red Light Warning Device/12. Red Light Warning Device-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_613e0c239ba64e96ba94d3088dff2c3d.pdf",
+      "historicalOriginalGitBlobSha1": "199c00c6ab9e983220528b8d11c4ee4b77b42ac8",
+      "reportedOriginalPdfBytes": 3645910,
+      "reportedOriginalPageCount": 12,
+      "currentWixPdfSha256": "0cf220287b8c406189eb400ca6bc37ff9dd1b297510591ae5ecc674fb971b5c5",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 12,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": "2026-11-20 page 9 translated; approved newer Wix object recorded in independent verification report",
+        "currentDownloadedPdfGitBlobSha1": "e977a1a1473d8ccc9c69eabc3a809cd3a53fa96f",
+        "currentDownloadedPdfSha256": "0cf220287b8c406189eb400ca6bc37ff9dd1b297510591ae5ecc674fb971b5c5",
+        "originalSha1Comparison": "verified replacement current Wix bytes (not historical Git original)",
+        "changedRepairPreserved": true
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 12,
+        "cropNormalized": {
+          "x": 0.154762,
+          "y": 0.253333,
+          "width": 0.52619,
+          "height": 0.616667
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-red-light-warning-device.webp",
+        "sha256": "a0c71a56f79a1985445c6028a2fce162b7fc5e38d24aaeab951f0ddd466646b5",
+        "width": 560,
+        "height": 465,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98013,
+        "sourceRenderMeanAbsoluteError": 6.06,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          12
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 12
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98013,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "e977a1a1473d8ccc9c69eabc3a809cd3a53fa96f",
+      "currentWixPdfByteCount": 3645642
+    },
+    {
+      "projectId": "level-6-smart-flashlight",
+      "projectTitle": "Smart Flashlight",
+      "categoryId": "illumination-signals",
+      "variantId": "level-6-smart-flashlight",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Illumination & Signals/Smart Flashlight/27.Smart Flashlight-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_667a054435b0463792c70a604615fbf1.pdf",
+      "historicalOriginalGitBlobSha1": "fe6dcf11f5392c81fea146830564625c4c0dc73b",
+      "reportedOriginalPdfBytes": 4566573,
+      "reportedOriginalPageCount": 15,
+      "currentWixPdfSha256": "17164a041f56414d3a9db0a4c32294564cce2cd4f3cf25c26347faa9a0c2dfd2",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 15,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "fe6dcf11f5392c81fea146830564625c4c0dc73b",
+        "currentDownloadedPdfSha256": "17164a041f56414d3a9db0a4c32294564cce2cd4f3cf25c26347faa9a0c2dfd2",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 15,
+        "cropNormalized": {
+          "x": 0.295238,
+          "y": 0.036667,
+          "width": 0.521429,
+          "height": 0.663333
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-smart-flashlight.webp",
+        "sha256": "d04764cf3931ff96bfa7c42bddc5733d9258d5d9370a94f58fb7f47e407793f9",
+        "width": 500,
+        "height": 451,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.97924,
+        "sourceRenderMeanAbsoluteError": 6.32,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          15
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 15
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.97924,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "fe6dcf11f5392c81fea146830564625c4c0dc73b",
+      "currentWixPdfByteCount": 4566573
+    },
+    {
+      "projectId": "level-6-traffic-lights-display",
+      "projectTitle": "Traffic Lights Display",
+      "categoryId": "illumination-signals",
+      "variantId": "level-6-traffic-lights-display",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Illumination & Signals/Traffic Lights Display/10. Traffic Lights-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2a44c4a367dd436b8500ffd515bab99d.pdf",
+      "historicalOriginalGitBlobSha1": "aa7617b0d68897f432e558068006ad99d446a330",
+      "reportedOriginalPdfBytes": 4301323,
+      "reportedOriginalPageCount": 18,
+      "currentWixPdfSha256": "1460cd3a187acca6a6de16fab504fe6cb1997cd7952757f551a23c5276cd8fdf",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 18,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "aa7617b0d68897f432e558068006ad99d446a330",
+        "currentDownloadedPdfSha256": "1460cd3a187acca6a6de16fab504fe6cb1997cd7952757f551a23c5276cd8fdf",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 18,
+        "cropNormalized": {
+          "x": 0.171429,
+          "y": 0.196667,
+          "width": 0.607143,
+          "height": 0.736667
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-traffic-lights-display.webp",
+        "sha256": "573e32a71b0492470b60766c98185a32adca1a95307638b1f860ad9bf1927cf2",
+        "width": 650,
+        "height": 558,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98531,
+        "sourceRenderMeanAbsoluteError": 4.76,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          18
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 18
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98531,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "aa7617b0d68897f432e558068006ad99d446a330",
+      "currentWixPdfByteCount": 4301323
+    },
+    {
+      "projectId": "level-6-pinball-machine",
+      "projectTitle": "Pinball Machine",
+      "categoryId": "interactive-mechanisms",
+      "variantId": "level-6-pinball-machine",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Interactive Mechanisms/Pinball Machine/30. Pinball Machine-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_319046fbc69148b3adb1c5ca9964940e.pdf",
+      "historicalOriginalGitBlobSha1": "4d2b2fa6deea6b351b49661efbbf17eb03f39e26",
+      "reportedOriginalPdfBytes": 10371886,
+      "reportedOriginalPageCount": 24,
+      "currentWixPdfSha256": "e3fc4291f71388ae87a8a3e478aa2b49c0b78a27e6a09c853a6550adbec6189d",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 24,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "4d2b2fa6deea6b351b49661efbbf17eb03f39e26",
+        "currentDownloadedPdfSha256": "e3fc4291f71388ae87a8a3e478aa2b49c0b78a27e6a09c853a6550adbec6189d",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 24,
+        "cropNormalized": {
+          "x": 0.142857,
+          "y": 0.056667,
+          "width": 0.757143,
+          "height": 0.89
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-pinball-machine.webp",
+        "sha256": "18ec0ac9d20b148a0c57a19fbe2dd4086344a430786df45df4c8aea5df48cffb",
+        "width": 500,
+        "height": 416,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98517,
+        "sourceRenderMeanAbsoluteError": 4.85,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          24
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 24
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98517,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "4d2b2fa6deea6b351b49661efbbf17eb03f39e26",
+      "currentWixPdfByteCount": 10371886
+    },
+    {
+      "projectId": "level-6-smart-fan",
+      "projectTitle": "Smart Fan",
+      "categoryId": "interactive-systems",
+      "variantId": "level-6-smart-fan",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Interactive Systems/Smart Fan/31.Smart Fan-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_74b32047c75a4ddaa8674e9d31ceee6f.pdf",
+      "historicalOriginalGitBlobSha1": "423439593933dd60a9be8c952767ceb426088e39",
+      "reportedOriginalPdfBytes": 10498788,
+      "reportedOriginalPageCount": 37,
+      "currentWixPdfSha256": "449d9351c2633f85d3d77df076fd089f21f0e65537612565da2988943a878fd5",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 37,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "423439593933dd60a9be8c952767ceb426088e39",
+        "currentDownloadedPdfSha256": "449d9351c2633f85d3d77df076fd089f21f0e65537612565da2988943a878fd5",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 37,
+        "cropNormalized": {
+          "x": 0.238095,
+          "y": 0.24,
+          "width": 0.52381,
+          "height": 0.606667
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-smart-fan.webp",
+        "sha256": "3d32288c86c8f059eeb38a5f3e88f49c4a4dc5fa876b8c5755b494a079447a20",
+        "width": 470,
+        "height": 385,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.9793,
+        "sourceRenderMeanAbsoluteError": 7.06,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          37
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 37
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.9793,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "423439593933dd60a9be8c952767ceb426088e39",
+      "currentWixPdfByteCount": 10498788
+    },
+    {
+      "projectId": "level-6-the-interesting-rotor",
+      "projectTitle": "The Interesting Rotor",
+      "categoryId": "interactive-systems",
+      "variantId": "level-6-the-interesting-rotor",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Interactive Systems/The Interesting Rotor/19. The Interesting Rotor-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5b9a2e421b7b45a4abb2c7b69b017229.pdf",
+      "historicalOriginalGitBlobSha1": "856b23820ab6a2e21185f8a281276bf397fe3666",
+      "reportedOriginalPdfBytes": 15230879,
+      "reportedOriginalPageCount": 48,
+      "currentWixPdfSha256": "647442732bd5b6f5782a010596646018704f88e8b91723ba39c71c05c396e969",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 48,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "856b23820ab6a2e21185f8a281276bf397fe3666",
+        "currentDownloadedPdfSha256": "647442732bd5b6f5782a010596646018704f88e8b91723ba39c71c05c396e969",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 48,
+        "cropNormalized": {
+          "x": 0.197619,
+          "y": 0.123333,
+          "width": 0.607143,
+          "height": 0.8
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-the-interesting-rotor.webp",
+        "sha256": "ae2cdf476d5f081fb872bb8c540df43fd31146acde5109a1d3839659274750e4",
+        "width": 470,
+        "height": 437,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.97519,
+        "sourceRenderMeanAbsoluteError": 5.79,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          48
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 48
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.97519,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "856b23820ab6a2e21185f8a281276bf397fe3666",
+      "currentWixPdfByteCount": 15230879
+    },
+    {
+      "projectId": "level-6-combination-lock",
+      "projectTitle": "Combination Lock",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-combination-lock",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Combination Lock/29.Combination Lock -Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1ad9706a8fe14752b5977b0b73a275e3.pdf",
+      "historicalOriginalGitBlobSha1": "ab167ad965967e295352eac94b951b4bd98eb7a5",
+      "reportedOriginalPdfBytes": 30818655,
+      "reportedOriginalPageCount": 26,
+      "currentWixPdfSha256": "6ce046ce542f81a97d5fd85f2589a78799bd765db6672eab2726924791567c45",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 26,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "ab167ad965967e295352eac94b951b4bd98eb7a5",
+        "currentDownloadedPdfSha256": "6ce046ce542f81a97d5fd85f2589a78799bd765db6672eab2726924791567c45",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 26,
+        "cropNormalized": {
+          "x": 0.135714,
+          "y": 0.056667,
+          "width": 0.752381,
+          "height": 0.87
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-combination-lock.webp",
+        "sha256": "8183f0d78dadeb01396d99b9da3fd0e33c7dc2d273aa0c6e19f6164e5a3dccfa",
+        "width": 500,
+        "height": 409,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98855,
+        "sourceRenderMeanAbsoluteError": 5.62,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          26
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 26
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98855,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "ab167ad965967e295352eac94b951b4bd98eb7a5",
+      "currentWixPdfByteCount": 30818655
+    },
+    {
+      "projectId": "level-6-gibbon",
+      "projectTitle": "Gibbon",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-gibbon",
+      "variant": "Basic",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Gibbon/14. Gibbon - Basic Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9205950c0e4f44d1aa5a777ad14570cf.pdf",
+      "historicalOriginalGitBlobSha1": "aafb4cc726907006acbeb36f3d24c92cac2410ce",
+      "reportedOriginalPdfBytes": 14533894,
+      "reportedOriginalPageCount": 16,
+      "currentWixPdfSha256": "7288406e293a80696a4f6ac9e2cf5994461b16ae47ed50f36b9c89d3a0d60a43",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 16,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "aafb4cc726907006acbeb36f3d24c92cac2410ce",
+        "currentDownloadedPdfSha256": "7288406e293a80696a4f6ac9e2cf5994461b16ae47ed50f36b9c89d3a0d60a43",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 16,
+        "cropNormalized": {
+          "x": 0.209524,
+          "y": 0.056667,
+          "width": 0.569048,
+          "height": 0.86
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-gibbon.webp",
+        "sha256": "6f9656c8fce3f2bd3bf0279f7039a51364024139b754db5590db7c4f6588c6fc",
+        "width": 421,
+        "height": 450,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.97732,
+        "sourceRenderMeanAbsoluteError": 6.43,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          16
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 16
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.97732,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "aafb4cc726907006acbeb36f3d24c92cac2410ce",
+      "currentWixPdfByteCount": 14533894
+    },
+    {
+      "projectId": "level-6-gibbon",
+      "projectTitle": "Gibbon",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-gibbon:optimized",
+      "variant": "Optimized",
+      "variantKey": "optimized",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Gibbon/14. Gibbon - Optimized Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_11b0bbf05ffc48f385d9c3fc9104e203.pdf",
+      "historicalOriginalGitBlobSha1": "c3027d3d9380f7aba708ee1dd73fa2343be8ea09",
+      "reportedOriginalPdfBytes": 10631909,
+      "reportedOriginalPageCount": 10,
+      "currentWixPdfSha256": "6db21a20196893247ea41becd552773fa36fb8e9a6dfea4df2d3e31af9e54510",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 10,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "c3027d3d9380f7aba708ee1dd73fa2343be8ea09",
+        "currentDownloadedPdfSha256": "6db21a20196893247ea41becd552773fa36fb8e9a6dfea4df2d3e31af9e54510",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 10,
+        "cropNormalized": {
+          "x": 0.202381,
+          "y": 0.043333,
+          "width": 0.638095,
+          "height": 0.903333
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-gibbon-optimized.webp",
+        "sha256": "c74123a8a710f93f08c732025d804f1ceab2006be92557387d9c4b90e7354020",
+        "width": 449,
+        "height": 450,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98203,
+        "sourceRenderMeanAbsoluteError": 5.76,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          10
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 10
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98203,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "c3027d3d9380f7aba708ee1dd73fa2343be8ea09",
+      "currentWixPdfByteCount": 10631909
+    },
+    {
+      "projectId": "level-6-pay-by-card",
+      "projectTitle": "Pay by card",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-pay-by-card",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Pay by card/16.Pay by card -Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_4509b73b391142b3866b767bdb5bbc6e.pdf",
+      "historicalOriginalGitBlobSha1": "da2a96757c2b6c0a8e67882b74488d678287d7d0",
+      "reportedOriginalPdfBytes": 5864225,
+      "reportedOriginalPageCount": 17,
+      "currentWixPdfSha256": "2236078504868241b43dd29949f53ae8b7efca8c713d114ac1bd92dfa6b0e593",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 17,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": "Prior Level 6 English repair; newer 78042f Wix object in current source registry",
+        "currentDownloadedPdfGitBlobSha1": "2416aab788ac2d9422b8cc206b4cd8af509e29d4",
+        "currentDownloadedPdfSha256": "2236078504868241b43dd29949f53ae8b7efca8c713d114ac1bd92dfa6b0e593",
+        "originalSha1Comparison": "verified replacement current Wix bytes (not historical Git original)",
+        "changedRepairPreserved": true
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 17,
+        "cropNormalized": {
+          "x": 0.140476,
+          "y": 0.103333,
+          "width": 0.761905,
+          "height": 0.806667
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-pay-by-card.webp",
+        "sha256": "3f78497d4ce293d51c874971a36bc05a5998c6609a2b1d3702a42e635edc9c7e",
+        "width": 530,
+        "height": 397,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.97997,
+        "sourceRenderMeanAbsoluteError": 4.85,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          17
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 17
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.97997,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "2416aab788ac2d9422b8cc206b4cd8af509e29d4",
+      "currentWixPdfByteCount": 5863427
+    },
+    {
+      "projectId": "level-6-product-search",
+      "projectTitle": "Product Search",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-product-search",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Product Search/15.Product Search -Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6ece41989cab43b3a0a3a58f5586a493.pdf",
+      "historicalOriginalGitBlobSha1": "540334dcedb3a2ab538fbf8e097c4c47ab83a41b",
+      "reportedOriginalPdfBytes": 6891422,
+      "reportedOriginalPageCount": 24,
+      "currentWixPdfSha256": "8e2f3483d3bdd02a1fa6de3eefe67439ebde40a5fe70528fcf0079985d338b8c",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 24,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": "Prior Level 6 English repair; newer 78042f Wix object in current source registry",
+        "currentDownloadedPdfGitBlobSha1": "5ce9ee299c102bf43387426ff13b049549a17606",
+        "currentDownloadedPdfSha256": "8e2f3483d3bdd02a1fa6de3eefe67439ebde40a5fe70528fcf0079985d338b8c",
+        "originalSha1Comparison": "verified replacement current Wix bytes (not historical Git original)",
+        "changedRepairPreserved": true
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 24,
+        "cropNormalized": {
+          "x": 0.228571,
+          "y": 0.063333,
+          "width": 0.528571,
+          "height": 0.89
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-product-search.webp",
+        "sha256": "f8bd9036466d18393a4b66ad74330ea4cdcb154269f66101aca391e5f59998f5",
+        "width": 446,
+        "height": 530,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.9774,
+        "sourceRenderMeanAbsoluteError": 4.87,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          24
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 24
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.9774,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "5ce9ee299c102bf43387426ff13b049549a17606",
+      "currentWixPdfByteCount": 6890180
+    },
+    {
+      "projectId": "level-6-punch-hard",
+      "projectTitle": "Punch Hard",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-punch-hard",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Punch Hard/7. Punch Hard - Basic Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5d81d7f258ae4db1b679b0c1d350c80a.pdf",
+      "historicalOriginalGitBlobSha1": "c82af90fa9c3f597a04cab1b62761f83c7739113",
+      "reportedOriginalPdfBytes": 15535258,
+      "reportedOriginalPageCount": 16,
+      "currentWixPdfSha256": "7796cda7dd0f0197532310f0b7454a2d7444709bc332ee4f46474096378b30e8",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 16,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "c82af90fa9c3f597a04cab1b62761f83c7739113",
+        "currentDownloadedPdfSha256": "7796cda7dd0f0197532310f0b7454a2d7444709bc332ee4f46474096378b30e8",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 16,
+        "cropNormalized": {
+          "x": 0.235714,
+          "y": 0.066667,
+          "width": 0.552381,
+          "height": 0.846667
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-punch-hard.webp",
+        "sha256": "83b9486b625398d456133406d1efc206793dda5cd72c97e613c239c88e767be4",
+        "width": 461,
+        "height": 500,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98739,
+        "sourceRenderMeanAbsoluteError": 4.83,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          16
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 16
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98739,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "c82af90fa9c3f597a04cab1b62761f83c7739113",
+      "currentWixPdfByteCount": 15535258
+    },
+    {
+      "projectId": "level-6-rc-airplane",
+      "projectTitle": "RC Airplane",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-rc-airplane",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/RC Airplane/11.RC Airplane -Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_082792eb6fae4bb7939e4e34b85d3bd5.pdf",
+      "historicalOriginalGitBlobSha1": "6b75d94b31a73e86ae5551bdba733e0601fbb361",
+      "reportedOriginalPdfBytes": 7763009,
+      "reportedOriginalPageCount": 26,
+      "currentWixPdfSha256": "63a4d25a887aef71ea9e8294a1f2c07aa9df045dbce3f4b62d9b9dbc0d4c3f4a",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 26,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "6b75d94b31a73e86ae5551bdba733e0601fbb361",
+        "currentDownloadedPdfSha256": "63a4d25a887aef71ea9e8294a1f2c07aa9df045dbce3f4b62d9b9dbc0d4c3f4a",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 26,
+        "cropNormalized": {
+          "x": 0.188095,
+          "y": 0.046667,
+          "width": 0.669048,
+          "height": 0.91
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-rc-airplane.webp",
+        "sha256": "396b7300a2d73133137c63e5c0feb557fe5674829432489e2d1cdbd8c61575a0",
+        "width": 500,
+        "height": 481,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98491,
+        "sourceRenderMeanAbsoluteError": 4.74,
+        "maxEdgeNonwhiteFraction": 0.0111
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          26
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 26
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98491,
+        "maxBorderForegroundFraction": 0.0111,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "6b75d94b31a73e86ae5551bdba733e0601fbb361",
+      "currentWixPdfByteCount": 7763009
+    },
+    {
+      "projectId": "level-6-ring-toss-game",
+      "projectTitle": "Ring Toss Game",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-ring-toss-game",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Ring Toss Game/15. Ring Toss Game-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f7630973bd8c4142a3166879effd0763.pdf",
+      "historicalOriginalGitBlobSha1": "28dde7a08b9d2905c3ef7eae0e088ed01a92764a",
+      "reportedOriginalPdfBytes": 8025938,
+      "reportedOriginalPageCount": 32,
+      "currentWixPdfSha256": "fdb939577ff1db20854a747f69978cd4d280fc42f15e55163757a78c2067f18b",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 32,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "28dde7a08b9d2905c3ef7eae0e088ed01a92764a",
+        "currentDownloadedPdfSha256": "fdb939577ff1db20854a747f69978cd4d280fc42f15e55163757a78c2067f18b",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 32,
+        "cropNormalized": {
+          "x": 0.307143,
+          "y": 0.086667,
+          "width": 0.359524,
+          "height": 0.843333
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-ring-toss-game.webp",
+        "sha256": "4df78fd594ba78e64b888c102d1ca4c1cf6984c2af0769c80576dd449bcf410a",
+        "width": 392,
+        "height": 650,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98325,
+        "sourceRenderMeanAbsoluteError": 4.91,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          32
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 32
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98325,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "28dde7a08b9d2905c3ef7eae0e088ed01a92764a",
+      "currentWixPdfByteCount": 8025938
+    },
+    {
+      "projectId": "level-6-robotic-arm",
+      "projectTitle": "Robotic Arm",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-robotic-arm",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Robotic Arm/32. The Robotic Arm-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_44d1ce2260fe49df9afcc6569a874a50.pdf",
+      "historicalOriginalGitBlobSha1": "d72dd2caf322b328a98ef0d259134d63867aae19",
+      "reportedOriginalPdfBytes": 12886761,
+      "reportedOriginalPageCount": 37,
+      "currentWixPdfSha256": "e4569807fde6777f0f0d9a2c49eae0e8f3902f6726b962b50d12796d0c2f1390",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 37,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "d72dd2caf322b328a98ef0d259134d63867aae19",
+        "currentDownloadedPdfSha256": "e4569807fde6777f0f0d9a2c49eae0e8f3902f6726b962b50d12796d0c2f1390",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 37,
+        "cropNormalized": {
+          "x": 0.045,
+          "y": 0.055,
+          "width": 0.92,
+          "height": 0.91
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": "Standalone PDF step number removed outside the model before conversion."
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-robotic-arm.webp",
+        "sha256": "52b3791dc4b2e8b0e05ea9ff2243670e78e82677e5e306215e141b12a799178a",
+        "width": 540,
+        "height": 378,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.99433,
+        "sourceRenderMeanAbsoluteError": 3.21,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          37
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 37
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.99433,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "d72dd2caf322b328a98ef0d259134d63867aae19",
+      "currentWixPdfByteCount": 12886761
+    },
+    {
+      "projectId": "level-6-vending-machine",
+      "projectTitle": "Vending Machine",
+      "categoryId": "mechanisms-simulators",
+      "variantId": "level-6-vending-machine",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Vending Machine/27.Vending Machine-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_95af5defe47a48ccadb87ec8a414590e.pdf",
+      "historicalOriginalGitBlobSha1": "a32685279c3e23f824ce3ae3abe27e7963e6580c",
+      "reportedOriginalPdfBytes": 24636482,
+      "reportedOriginalPageCount": 23,
+      "currentWixPdfSha256": "5521034c6f3bbc60a3b9e42a12725c251eb599b9e8adc51f0da044fa7d1f2da2",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 23,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "a32685279c3e23f824ce3ae3abe27e7963e6580c",
+        "currentDownloadedPdfSha256": "5521034c6f3bbc60a3b9e42a12725c251eb599b9e8adc51f0da044fa7d1f2da2",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 23,
+        "cropNormalized": {
+          "x": 0.309524,
+          "y": 0.056667,
+          "width": 0.430952,
+          "height": 0.873333
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-vending-machine.webp",
+        "sha256": "f874a72c2a2f209ae260c6cf387497b750b2753f61e163c861ee7ddb412af73b",
+        "width": 349,
+        "height": 500,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98363,
+        "sourceRenderMeanAbsoluteError": 6.92,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          23
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 23
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98363,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "a32685279c3e23f824ce3ae3abe27e7963e6580c",
+      "currentWixPdfByteCount": 24636482
+    },
+    {
+      "projectId": "level-6-autonomous-driving",
+      "projectTitle": "Autonomous Driving",
+      "categoryId": "programming-precise-control",
+      "variantId": "level-6-autonomous-driving",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Autonomous Driving/18.Autonomous Driving -Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_26d1688cb2994bceb9c8a2a7b23aff6c.pdf",
+      "historicalOriginalGitBlobSha1": "8ff6d0790bb8d7baf616473e3fef9b0df6a70885",
+      "reportedOriginalPdfBytes": 20226771,
+      "reportedOriginalPageCount": 17,
+      "currentWixPdfSha256": "30bef7297b1c9afc180d70cff44d777bfcbf2fd428a6aaf2498dbbda057b5265",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 17,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "8ff6d0790bb8d7baf616473e3fef9b0df6a70885",
+        "currentDownloadedPdfSha256": "30bef7297b1c9afc180d70cff44d777bfcbf2fd428a6aaf2498dbbda057b5265",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 17,
+        "cropNormalized": {
+          "x": 0.178571,
+          "y": 0.053333,
+          "width": 0.633333,
+          "height": 0.88
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-autonomous-driving.webp",
+        "sha256": "ffba75a9f59afce3a0869475d22619edeffa022a0a2e705eebc07172f252cbc7",
+        "width": 470,
+        "height": 461,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98849,
+        "sourceRenderMeanAbsoluteError": 5.96,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          17
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 17
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98849,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "8ff6d0790bb8d7baf616473e3fef9b0df6a70885",
+      "currentWixPdfByteCount": 20226771
+    },
+    {
+      "projectId": "level-6-minesweeper-robot",
+      "projectTitle": "Minesweeper Robot",
+      "categoryId": "programming-precise-control",
+      "variantId": "level-6-minesweeper-robot",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Minesweeper Robot/12.Minesweeper Robot - Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0f9e228b1dac4694b871c14717dc05f9.pdf",
+      "historicalOriginalGitBlobSha1": "14c63e8beb0a6cae97c17704a839809f51ae908b",
+      "reportedOriginalPdfBytes": 8850967,
+      "reportedOriginalPageCount": 28,
+      "currentWixPdfSha256": "a5da2c7b2ec162dbeab043f52856365dd9141b4d66a76c65ea73d2962ff7b164",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 28,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "14c63e8beb0a6cae97c17704a839809f51ae908b",
+        "currentDownloadedPdfSha256": "a5da2c7b2ec162dbeab043f52856365dd9141b4d66a76c65ea73d2962ff7b164",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 28,
+        "cropNormalized": {
+          "x": 0.095238,
+          "y": 0.236667,
+          "width": 0.764286,
+          "height": 0.616667
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-minesweeper-robot.webp",
+        "sha256": "cb1d9da90154d3fe80b3511377279ced667221d6cb602a1849a4b1af65f5196a",
+        "width": 560,
+        "height": 320,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98129,
+        "sourceRenderMeanAbsoluteError": 6.6,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          28
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 28
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98129,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "14c63e8beb0a6cae97c17704a839809f51ae908b",
+      "currentWixPdfByteCount": 8850967
+    },
+    {
+      "projectId": "level-6-remote-control-lift",
+      "projectTitle": "Remote Control Lift",
+      "categoryId": "programming-precise-control",
+      "variantId": "level-6-remote-control-lift",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Remote Control Lift/22. Remote Control Lift -Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b0697e2872d541b39fb934ec6914b8f5.pdf",
+      "historicalOriginalGitBlobSha1": "37aa39b130091b0a1bd17d28cb14c4edb332fad9",
+      "reportedOriginalPdfBytes": 11188381,
+      "reportedOriginalPageCount": 33,
+      "currentWixPdfSha256": "0fd106afcf783485d6fc4b58f6291138f7e66bc3f310000036cf1b4cdec03eba",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 33,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "37aa39b130091b0a1bd17d28cb14c4edb332fad9",
+        "currentDownloadedPdfSha256": "0fd106afcf783485d6fc4b58f6291138f7e66bc3f310000036cf1b4cdec03eba",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 33,
+        "cropNormalized": {
+          "x": 0.295238,
+          "y": 0.11,
+          "width": 0.430952,
+          "height": 0.783333
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-remote-control-lift.webp",
+        "sha256": "19fbd5ca9694798f043d3f024d2ea42e97f2cd3f38a72d8a870b9b1004e99fc1",
+        "width": 365,
+        "height": 470,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.9752,
+        "sourceRenderMeanAbsoluteError": 7.47,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          33
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 33
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.9752,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "37aa39b130091b0a1bd17d28cb14c4edb332fad9",
+      "currentWixPdfByteCount": 11188381
+    },
+    {
+      "projectId": "level-6-saluting-robot",
+      "projectTitle": "Saluting Robot",
+      "categoryId": "programming-precise-control",
+      "variantId": "level-6-saluting-robot",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Saluting Robot/26.Saluting Robot -Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8ad9c7d2cec44ac2994985d336c8d9d8.pdf",
+      "historicalOriginalGitBlobSha1": "045dad4e51de524ad2515b4f64b154cd1ae32431",
+      "reportedOriginalPdfBytes": 23111340,
+      "reportedOriginalPageCount": 20,
+      "currentWixPdfSha256": "50bc3bc39df37fef70d99f14f8aee906bcfe38d4b0c971202fb6dcdf99f4a653",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 20,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "045dad4e51de524ad2515b4f64b154cd1ae32431",
+        "currentDownloadedPdfSha256": "50bc3bc39df37fef70d99f14f8aee906bcfe38d4b0c971202fb6dcdf99f4a653",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 20,
+        "cropNormalized": {
+          "x": 0.366667,
+          "y": 0.083333,
+          "width": 0.438095,
+          "height": 0.896667
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-saluting-robot.webp",
+        "sha256": "1dddb57b79211540312b7da675daee174a58c40340479db7ff5d9129a9ed99f6",
+        "width": 345,
+        "height": 500,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98063,
+        "sourceRenderMeanAbsoluteError": 7.01,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          20
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 20
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98063,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "045dad4e51de524ad2515b4f64b154cd1ae32431",
+      "currentWixPdfByteCount": 23111340
+    },
+    {
+      "projectId": "level-6-smart-electric-drill",
+      "projectTitle": "Smart Electric Drill",
+      "categoryId": "programming-precise-control",
+      "variantId": "level-6-smart-electric-drill",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Smart Electric Drill/20. Smart Electric Drill-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b2314aef68dc46e088fcca58040cb655.pdf",
+      "historicalOriginalGitBlobSha1": "5e4561c21e9e4e836e52f4857c0f6db9f2143c36",
+      "reportedOriginalPdfBytes": 5288078,
+      "reportedOriginalPageCount": 19,
+      "currentWixPdfSha256": "bc8862d8c10b74433c7054cd88495c549766dbbd12d5b2017d0a4f2d74d88556",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 19,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "5e4561c21e9e4e836e52f4857c0f6db9f2143c36",
+        "currentDownloadedPdfSha256": "bc8862d8c10b74433c7054cd88495c549766dbbd12d5b2017d0a4f2d74d88556",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 19,
+        "cropNormalized": {
+          "x": 0.295238,
+          "y": 0.156667,
+          "width": 0.366667,
+          "height": 0.726667
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-smart-electric-drill.webp",
+        "sha256": "23c5377b5ea2891dcb091af2f510396750a489d3ade57da605161149773019c1",
+        "width": 378,
+        "height": 530,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.9763,
+        "sourceRenderMeanAbsoluteError": 6.86,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          19
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 19
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.9763,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "5e4561c21e9e4e836e52f4857c0f6db9f2143c36",
+      "currentWixPdfByteCount": 5288078
+    },
+    {
+      "projectId": "level-6-altimeter",
+      "projectTitle": "Altimeter",
+      "categoryId": "sensor-automation",
+      "variantId": "level-6-altimeter",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Sensor Automation/Altimeter/18. Altimeter-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e05642b6d03940c6b4936d7bd1a6b6a0.pdf",
+      "historicalOriginalGitBlobSha1": "e4c521ae5296db33c87be5fc8f5f6ca9a79c0d88",
+      "reportedOriginalPdfBytes": 3610602,
+      "reportedOriginalPageCount": 13,
+      "currentWixPdfSha256": "3d8b0be1dc3221d3527c67e1751ba46367a2b2bae6d7694202c56820568200de",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 13,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "e4c521ae5296db33c87be5fc8f5f6ca9a79c0d88",
+        "currentDownloadedPdfSha256": "3d8b0be1dc3221d3527c67e1751ba46367a2b2bae6d7694202c56820568200de",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 13,
+        "cropNormalized": {
+          "x": 0.311905,
+          "y": 0.233333,
+          "width": 0.397619,
+          "height": 0.576667
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-altimeter.webp",
+        "sha256": "43f9df46640e6e373fa86b5477d886b55a36e872ef32c3c6a2bb0b711cd53a0e",
+        "width": 438,
+        "height": 450,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.97031,
+        "sourceRenderMeanAbsoluteError": 8.9,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          13
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 13
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.97031,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "e4c521ae5296db33c87be5fc8f5f6ca9a79c0d88",
+      "currentWixPdfByteCount": 3610602
+    },
+    {
+      "projectId": "level-6-high-temperature-alarm",
+      "projectTitle": "High Temperature Alarm",
+      "categoryId": "sensor-automation",
+      "variantId": "level-6-high-temperature-alarm",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Sensor Automation/High Temperature Alarm/29. High Temperature Alarm-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2104018fc87d4651aaf3af617a55b78f.pdf",
+      "historicalOriginalGitBlobSha1": "6719221a2ea67bc7cc2b35e7f33a431c165d6549",
+      "reportedOriginalPdfBytes": 7372543,
+      "reportedOriginalPageCount": 23,
+      "currentWixPdfSha256": "78ad8359763fb5631a17c453dc2dd592e25f6746432df79f34411c97e71de92c",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 23,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "6719221a2ea67bc7cc2b35e7f33a431c165d6549",
+        "currentDownloadedPdfSha256": "78ad8359763fb5631a17c453dc2dd592e25f6746432df79f34411c97e71de92c",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 23,
+        "cropNormalized": {
+          "x": 0.269048,
+          "y": 0.116667,
+          "width": 0.435714,
+          "height": 0.786667
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-high-temperature-alarm.webp",
+        "sha256": "940904d99d95b3f6cae53732011314103b37e9f91ed29f1f2afe8fcec3ae5cfa",
+        "width": 391,
+        "height": 500,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.97054,
+        "sourceRenderMeanAbsoluteError": 7.04,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          23
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 23
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.97054,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "6719221a2ea67bc7cc2b35e7f33a431c165d6549",
+      "currentWixPdfByteCount": 7372543
+    },
+    {
+      "projectId": "level-6-intelligent-sorting-machine",
+      "projectTitle": "Intelligent Sorting Machine",
+      "categoryId": "sensor-automation",
+      "variantId": "level-6-intelligent-sorting-machine",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Sensor Automation/Intelligent Sorting Machine/24.Intelligent Sorting Machine-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2c1b3936f4044835bea28cec6c04c10d.pdf",
+      "historicalOriginalGitBlobSha1": "1801ad212494d2c3d6040f37889728405f6c2a5d",
+      "reportedOriginalPdfBytes": 42462004,
+      "reportedOriginalPageCount": 33,
+      "currentWixPdfSha256": "bd073964cb38dd67b17ab11f76878a5c2d9da9c0f9509befdb8d65834dbdcbc4",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 33,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "1801ad212494d2c3d6040f37889728405f6c2a5d",
+        "currentDownloadedPdfSha256": "bd073964cb38dd67b17ab11f76878a5c2d9da9c0f9509befdb8d65834dbdcbc4",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 33,
+        "cropNormalized": {
+          "x": 0.040476,
+          "y": 0.193333,
+          "width": 0.9,
+          "height": 0.606667
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-intelligent-sorting-machine.webp",
+        "sha256": "a78c16e031de392ef0adbcfd96b2f10d6e1afc8849fd26af00ffaafd2d9f740f",
+        "width": 620,
+        "height": 297,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.9777,
+        "sourceRenderMeanAbsoluteError": 6.35,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          33
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 33
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.9777,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "1801ad212494d2c3d6040f37889728405f6c2a5d",
+      "currentWixPdfByteCount": 42462004
+    },
+    {
+      "projectId": "level-6-parcel-sorting-machine",
+      "projectTitle": "Parcel Sorting Machine",
+      "categoryId": "sensor-automation",
+      "variantId": "level-6-parcel-sorting-machine",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Sensor Automation/Parcel Sorting Machine/31. Parcel Sorting Machine-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_95133caeaf2f48d99baa85de2ae47455.pdf",
+      "historicalOriginalGitBlobSha1": "6e579ce687f1e9fdaff0ebc3478482b9e4516e03",
+      "reportedOriginalPdfBytes": 12205505,
+      "reportedOriginalPageCount": 39,
+      "currentWixPdfSha256": "5b858bb1085b7f2838f15f747efd9a1accc8460da36a05c24b0d11a2e665a7e1",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 39,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "6e579ce687f1e9fdaff0ebc3478482b9e4516e03",
+        "currentDownloadedPdfSha256": "5b858bb1085b7f2838f15f747efd9a1accc8460da36a05c24b0d11a2e665a7e1",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 39,
+        "cropNormalized": {
+          "x": 0.1,
+          "y": 0.22,
+          "width": 0.828571,
+          "height": 0.683333
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-parcel-sorting-machine.webp",
+        "sha256": "f74772ae3e6961c4610055057b0f68f70a1c7b7f892346edf8ffac57138db9bb",
+        "width": 530,
+        "height": 310,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98546,
+        "sourceRenderMeanAbsoluteError": 5.5,
+        "maxEdgeNonwhiteFraction": 0.0063
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          39
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 39
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98546,
+        "maxBorderForegroundFraction": 0.0063,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "6e579ce687f1e9fdaff0ebc3478482b9e4516e03",
+      "currentWixPdfByteCount": 12205505
+    },
+    {
+      "projectId": "level-6-colorblind-assistant-robot",
+      "projectTitle": "Colorblind Assistant Robot",
+      "categoryId": "sensor-focused-robots",
+      "variantId": "level-6-colorblind-assistant-robot",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Sensor-Focused Robots/Colorblind Assistant Robot/25.Colorblind Assistant Robot-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0e5596981caa481588e8b7c2d2531ef5.pdf",
+      "historicalOriginalGitBlobSha1": "052324f6524cbf01626cfb5e6b8782aabb4f075a",
+      "reportedOriginalPdfBytes": 17663837,
+      "reportedOriginalPageCount": 14,
+      "currentWixPdfSha256": "075c01d21d83a959f304298da6fb2788bfdc44633912e132c3a29d66e35dea05",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 14,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "052324f6524cbf01626cfb5e6b8782aabb4f075a",
+        "currentDownloadedPdfSha256": "075c01d21d83a959f304298da6fb2788bfdc44633912e132c3a29d66e35dea05",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 14,
+        "cropNormalized": {
+          "x": 0.095238,
+          "y": 0.246667,
+          "width": 0.811905,
+          "height": 0.64
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-colorblind-assistant-robot.webp",
+        "sha256": "8aa4f308fb5bff91821f32dc0214fc547ecea44890f51bcd5a98d35a8403eed1",
+        "width": 530,
+        "height": 296,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.98865,
+        "sourceRenderMeanAbsoluteError": 5.71,
+        "maxEdgeNonwhiteFraction": 0.0333
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          14
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 14
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.98865,
+        "maxBorderForegroundFraction": 0.0333,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "052324f6524cbf01626cfb5e6b8782aabb4f075a",
+      "currentWixPdfByteCount": 17663837
+    },
+    {
+      "projectId": "level-6-rock-paper-scissors-robot",
+      "projectTitle": "Rock-paper-scissors Robot",
+      "categoryId": "sensor-focused-robots",
+      "variantId": "level-6-rock-paper-scissors-robot",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Sensor-Focused Robots/Rock-paper-scissors Robot/30.Rock-paper-scissors Robot-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ee943e948c6f4141b53d9d3e90481801.pdf",
+      "historicalOriginalGitBlobSha1": "af9423f2a5191ca8577b18cd3fa827da09fd829b",
+      "reportedOriginalPdfBytes": 16315903,
+      "reportedOriginalPageCount": 14,
+      "currentWixPdfSha256": "1009562c300be9ec9bb86ea5c9420d8117d4399e848dbb1d1705f2b02db107fd",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 14,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": "Prior Level 6 English repair; newer 78042f Wix object in current source registry",
+        "currentDownloadedPdfGitBlobSha1": "6ec85674cd6503ad402d7206d518b38d1668bb03",
+        "currentDownloadedPdfSha256": "1009562c300be9ec9bb86ea5c9420d8117d4399e848dbb1d1705f2b02db107fd",
+        "originalSha1Comparison": "verified replacement current Wix bytes (not historical Git original)",
+        "changedRepairPreserved": true
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 14,
+        "cropNormalized": {
+          "x": 0.24,
+          "y": 0.28,
+          "width": 0.66,
+          "height": 0.65
+        },
+        "visualIdentityVerified": false,
+        "variantIdentityVerified": false,
+        "studentImageFreeOfInstructionsVerified": false,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": "Candidate PDF final illustration retains explanatory callout markings and intersects the crop boundary; not student-safe.",
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-rock-paper-scissors-robot.webp",
+        "sha256": "580dad96839b36de5369a2005c596b5b26986472528247284a78bdadb739be3e",
+        "width": 500,
+        "height": 349,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.99611,
+        "sourceRenderMeanAbsoluteError": 3.41,
+        "maxEdgeNonwhiteFraction": 0.3467
+      },
+      "checklist": {
+        "status": "blocked",
+        "verifiedQuestionCount": 0,
+        "evidencePages": [
+          14
+        ],
+        "verificationNotes": "Candidate PDF final illustration retains explanatory callout markings and intersects the crop boundary; not student-safe."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 14
+      },
+      "independentSecondPass": {
+        "status": "blocked",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.99611,
+        "maxBorderForegroundFraction": 0.3467,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Candidate PDF final illustration retains explanatory callout markings and intersects the crop boundary; not student-safe."
+      },
+      "status": "blocked",
+      "approved": false,
+      "studentSelectable": false,
+      "blockers": [
+        "Candidate PDF final illustration retains explanatory callout markings and intersects the crop boundary; not student-safe."
+      ],
+      "currentWixGitBlobSha1": "6ec85674cd6503ad402d7206d518b38d1668bb03",
+      "currentWixPdfByteCount": 16305651
+    },
+    {
+      "projectId": "level-6-smart-camera",
+      "projectTitle": "Smart Camera",
+      "categoryId": "sensor-focused-robots",
+      "variantId": "level-6-smart-camera",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Sensor-Focused Robots/Smart Camera/22.Smart Camera-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a27d70dd879d4ea1bf7db0e92f0a0cb9.pdf",
+      "historicalOriginalGitBlobSha1": "b73adbc3d2994f09c737ca144fb30d942db16fc5",
+      "reportedOriginalPdfBytes": 14510955,
+      "reportedOriginalPageCount": 14,
+      "currentWixPdfSha256": "c296b863d14e6ee0e24c7e5ad708118e460e00d295fdf86ee84056314535dba8",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 14,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "b73adbc3d2994f09c737ca144fb30d942db16fc5",
+        "currentDownloadedPdfSha256": "c296b863d14e6ee0e24c7e5ad708118e460e00d295fdf86ee84056314535dba8",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 14,
+        "cropNormalized": {
+          "x": 0.290476,
+          "y": 0.07,
+          "width": 0.483333,
+          "height": 0.856667
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-smart-camera.webp",
+        "sha256": "4a91d70d3aa726522b576d7863dd5701029976ed3fb6d4114b0d4d8464e5d609",
+        "width": 399,
+        "height": 500,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.97908,
+        "sourceRenderMeanAbsoluteError": 6.85,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          14
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 14
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.97908,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "b73adbc3d2994f09c737ca144fb30d942db16fc5",
+      "currentWixPdfByteCount": 14510955
+    },
+    {
+      "projectId": "level-6-tricycle",
+      "projectTitle": "Tricycle",
+      "categoryId": "vehicles-complex-movers",
+      "variantId": "level-6-tricycle",
+      "variant": "Official Building Manual",
+      "variantKey": "basic",
+      "sourcePath": "public/Level 6/Building/Vehicles & Complex Movers/Tricycle/29. Tricycle-Building Manual.pdf",
+      "currentWixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9299ee18abed465ab1c44f0a7548fc00.pdf",
+      "historicalOriginalGitBlobSha1": "6442758fb141eddfed084dca4d36df0afc6f1cac",
+      "reportedOriginalPdfBytes": 7799316,
+      "reportedOriginalPageCount": 24,
+      "currentWixPdfSha256": "e95663af6b28442ebd932e3db0d7b3476dabebe4f7b1505d826fcf1cffcd3731",
+      "currentWixBytesVerifiedThisRun": true,
+      "currentWixPdfPageCountVerifiedThisRun": 24,
+      "sourceVersionEvidence": {
+        "historicalCoverAudit": "reports/level6-building-cover-audit-20261119.json",
+        "previousWixIndependentVerification": "reports/level5-6-building-independent-verification-20261120.json",
+        "currentMappedWixLink": "src/data/levelSixWixPdfUrls.ts",
+        "previousLinkOnlyVerification": "reports/level6-building-link-only-paths-20261120.json",
+        "repairNote": null,
+        "currentDownloadedPdfGitBlobSha1": "6442758fb141eddfed084dca4d36df0afc6f1cac",
+        "currentDownloadedPdfSha256": "e95663af6b28442ebd932e3db0d7b3476dabebe4f7b1505d826fcf1cffcd3731",
+        "originalSha1Comparison": "byte-identical to historical original Git blob",
+        "changedRepairPreserved": false
+      },
+      "chineseReview": {
+        "historicalCoverFirstPageInspected": true,
+        "allPagesEnglishOnlyVisuallyCertified": false,
+        "uncertainty": "English-only human certification has not been completed for every hosted page"
+      },
+      "finishedModel": {
+        "pdfPage": 24,
+        "cropNormalized": {
+          "x": 0.257143,
+          "y": 0.256667,
+          "width": 0.538095,
+          "height": 0.506667
+        },
+        "visualIdentityVerified": true,
+        "variantIdentityVerified": true,
+        "studentImageFreeOfInstructionsVerified": true,
+        "sourceImageKind": "rendered current Wix PDF assembly-page illustration",
+        "uncertainty": null,
+        "notes": null
+      },
+      "webp": {
+        "path": "public/final-build/level-6/level-6-tricycle.webp",
+        "sha256": "3232f8898fea38ce41d84ed1eee9df552765d7c3dce5784ffe7bdde7bc7348c6",
+        "width": 560,
+        "height": 373,
+        "inspectedAfterConversion": true,
+        "artifactSourceCorrelation": 0.95384,
+        "sourceRenderMeanAbsoluteError": 8.19,
+        "maxEdgeNonwhiteFraction": 0
+      },
+      "checklist": {
+        "status": "approved",
+        "verifiedQuestionCount": 5,
+        "evidencePages": [
+          24
+        ],
+        "verificationNotes": "Five project-specific visual/structural checks reviewed against final-model source page. No unverified function claim required."
+      },
+      "firstPass": {
+        "status": "current_source_downloaded_sha256_and_candidate_extracted",
+        "date": "2026-11-23",
+        "sourcePage": 24
+      },
+      "independentSecondPass": {
+        "status": "approved",
+        "reviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+        "date": "2026-11-23",
+        "pixelCorrelation": 0.95384,
+        "maxBorderForegroundFraction": 0,
+        "manualVisualInspection": "source finale and exported candidate montage",
+        "notes": "Source checksum, page identity, crop integrity and five structural question pages cross-checked; does not certify all PDF page text."
+      },
+      "status": "approved",
+      "approved": true,
+      "studentSelectable": true,
+      "blockers": [],
+      "currentWixGitBlobSha1": "6442758fb141eddfed084dca4d36df0afc6f1cac",
+      "currentWixPdfByteCount": 7799316
+    }
+  ],
+  "missingActivities": [
+    {
+      "projectId": "level-6-matador",
+      "projectTitle": "Matador",
+      "categoryId": "biomimicry-stimulus-response",
+      "status": "missing_registered_building_source",
+      "buildingSource": null,
+      "excludedFromStudentDraw": true,
+      "reason": "Official syllabus entry has no independently registered Building PDF. A Learning PDF cannot be substituted."
+    },
+    {
+      "projectId": "level-6-dancing-robot",
+      "projectTitle": "Dancing Robot",
+      "categoryId": "complex-mechanisms-coordinated-motion",
+      "status": "missing_registered_building_source",
+      "buildingSource": null,
+      "excludedFromStudentDraw": true,
+      "reason": "Official syllabus entry has no independently registered Building PDF. A Learning PDF cannot be substituted."
+    },
+    {
+      "projectId": "level-6-finger-guessing-robot",
+      "projectTitle": "Finger-guessing Robot",
+      "categoryId": "interactive-mechanisms",
+      "status": "missing_registered_building_source",
+      "buildingSource": null,
+      "excludedFromStudentDraw": true,
+      "reason": "Official syllabus entry has no independently registered Building PDF. A Learning PDF cannot be substituted."
+    },
+    {
+      "projectId": "level-6-ball-tracking",
+      "projectTitle": "Ball Tracking",
+      "categoryId": "sensor-focused-robots",
+      "status": "missing_registered_building_source",
+      "buildingSource": null,
+      "excludedFromStudentDraw": true,
+      "reason": "Official syllabus entry has no independently registered Building PDF. A Learning PDF cannot be substituted."
+    }
+  ],
+  "sourceCertifications": {
+    "priorReportsWixCount": 41,
+    "priorReportsPageCount": 1007,
+    "priorFullPageHumanSignoff": false,
+    "currentPdfBytesDownloaded": 41,
+    "currentPdfHashesSha256Computed": 41,
+    "currentCompletedModelImagesInspected": 41,
+    "currentPageCount": 1007,
+    "currentPdfBytes": 507053975,
+    "changedApprovedWixPdfVersions": 4
+  },
+  "releaseGate": {
+    "approved": false,
+    "reason": "39 candidate variants individually approved in isolated Level 6 records, but global shared Final Build approval manifest and approved-only pool are owned by final integration worker; 2 uncertain image candidates stay blocked. No production deployment authorized."
+  }
+}
