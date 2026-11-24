@@ -51,5 +51,5 @@ export const LEVEL_ONE_CLEANED_BUILDING_WIX_URLS: Readonly<Record<string, string
   "The lawn mower.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_758a67da5f494919902be22388e6db65.pdf",
   "The windmill kingdom.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ff09b2a4b37648cc9427ed9ab29fbbb8.pdf",
   "Traffic light_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_56b3ad6a55d542d5b2232d6867c01ba9.pdf",
-  "Wali robot.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_85c681b4c46f402eada7b8d9ccdf1477.pdf",
+  "Wali robot.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_85c681b4c46f402eada7b8d9ccdf1477.pdf"
 };

@@ -308,5 +308,5 @@ export const levelOneToThreeWixPdfUrls: Readonly<Record<string, string>> = {
   "Treadmill_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7224ffa602fa4c4fbc370822909a57e0.pdf",
   "Wali robot.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_85c681b4c46f402eada7b8d9ccdf1477.pdf",
   "Walking Robot.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b9e03b9e4fe64cf18c49fd214b63ef62.pdf",
-  "Wiper.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_62558d3b08a14845b70edc161151609a.pdf",
+  "Wiper.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_62558d3b08a14845b70edc161151609a.pdf"
 };
