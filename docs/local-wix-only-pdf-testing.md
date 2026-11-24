@@ -71,13 +71,13 @@ copies. To test a completely PDF-free checkout, use Option A.
 
 ## Important distinctions
 
-- \`.gitignore\` prevents **new, untracked** PDF files being committed by default.
+- `.gitignore` prevents **new, untracked** PDF files being committed by default.
   It cannot untrack old PDF files already present in Git history.
 - At the time of this setup, Git tracked 598 PDFs: 590 source paths covered by
   the Learning/Building Wix registries and 8 supplementary Level 5–6 PDFs under
-  \`curriculum-source/\`. These historical blobs are deliberately unchanged.
-- The PDF-free build command is \`npm run build:wix\`. The existing
-  \`npm run build\` runs a larger 80-test suite including older tests that read
+  `curriculum-source/`. These historical blobs are deliberately unchanged.
+- The PDF-free build command is `npm run build:wix`. The existing
+  `npm run build` runs a larger 80-test suite including older tests that read
   original PDF binaries. Continue running that larger suite in a full source
   checkout when needed; do not describe the 7 metadata tests as 80 tests.
 - If an official Wix mapping is missing, the PDF resolver now throws an
@@ -90,12 +90,12 @@ copies. To test a completely PDF-free checkout, use Option A.
 
 ## Troubleshooting
 
-If \`bun\` is unavailable, install Bun before running \`bun install
---frozen-lockfile\`. If a Windows Git credential prompt appears when cloning
+If `bun` is unavailable, install Bun before running `bun install
+--frozen-lockfile`. If a Windows Git credential prompt appears when cloning
 a private repository, authenticate with the account that owns the project.
 
 If a lesson fails to load, check its request in the browser's Network tab:
 PDF URLs should start with
-\`https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/\`.
-Do not replace missing links with \`/Level .../*.pdf\` paths. Fix the
+`https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/`.
+Do not replace missing links with `/Level .../*.pdf` paths. Fix the
 canonical Wix registry instead.
