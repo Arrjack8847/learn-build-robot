@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "level": 4,
+  "asOf": "2026-11-23",
+  "baseCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+  "previousAudits": [
+    "reports/final-build-levels-1-6-audit-20261120.md",
+    "reports/level4-building-cover-audit-20261119.json",
+    "reports/level1-4-building-wix-final-verification-20261120.json",
+    "reports/level1-4-english-building-binary-delivery-manifest-20261119.json"
+  ],
+  "counts": {
+    "syllabus": 56,
+    "buildingSourceProjects": 48,
+    "buildingSourceVariants": 50,
+    "optimizedVariants": 2,
+    "learningOnlyActivities": 8,
+    "previouslyRepairedEnglishVariants": 4,
+    "approvedVariants": 48,
+    "blockedVariants": 2,
+    "approvedWebp": 48,
+    "independentlyVerifiedChecklistSets": 48,
+    "candidateWebp": 2,
+    "hostedPdfSha256Verified": 50,
+    "hostedPdfGitBlobMatches": 50,
+    "hostedPdfPageMatches": 50,
+    "refinedSourceModelCrops": 17,
+    "draftedChecklists": 50,
+    "draftedQuestions": 250,
+    "repairedCandidateWebps": 9,
+    "independentlyApprovedQuestions": 240,
+    "verifiedWixReadyUploads": 48
+  },
+  "gates": {
+    "pdfBytesFetched": true,
+    "pdfSha256Calculated": true,
+    "hostedPageCountsValidated": true,
+    "finishedModelPagesVisuallyVerified": false,
+    "webpDecoded": true,
+    "checklistEvidenceVerified": false,
+    "independentSignoff": false,
+    "mobileDeviceQa": false,
+    "independentPixelFidelityVerified": true,
+    "draftChecklistsComplete": true
+  },
+  "fallbackProjects": [
+    {
+      "projectId": "level-4-super-trajectory-robot-2",
+      "projectName": "Super Trajectory Robot 2",
+      "category": "Advanced Navigation & Control",
+      "status": "blocked-no-separate-building-source",
+      "reason": "Canonical Level 4 resolver marks this activity as Learning fallback; no independently registered official Building manual. Never substitute Learning PDF."
+    },
+    {
+      "projectId": "level-4-tag-recognition",
+      "projectName": "Tag Recognition",
+      "category": "Automation & Security",
+      "status": "blocked-no-separate-building-source",
+      "reason": "Canonical Level 4 resolver marks this activity as Learning fallback; no independently registered official Building manual. Never substitute Learning PDF."
+    },
+    {
+      "projectId": "level-4-probe-vehicle",
+      "projectName": "Probe Vehicle",
+      "category": "Autonomous Navigation & Ranging",
+      "status": "blocked-no-separate-building-source",
+      "reason": "Canonical Level 4 resolver marks this activity as Learning fallback; no independently registered official Building manual. Never substitute Learning PDF."
+    },
+    {
+      "projectId": "level-4-vending-machine",
+      "projectName": "Vending machine",
+      "category": "Foundational Robots",
+      "status": "blocked-no-separate-building-source",
+      "reason": "Canonical Level 4 resolver marks this activity as Learning fallback; no independently registered official Building manual. Never substitute Learning PDF."
+    },
+    {
+      "projectId": "level-4-voice-control",
+      "projectName": "Voice Control",
+      "category": "Interactive Mechanisms",
+      "status": "blocked-no-separate-building-source",
+      "reason": "Canonical Level 4 resolver marks this activity as Learning fallback; no independently registered official Building manual. Never substitute Learning PDF."
+    },
+    {
+      "projectId": "level-4-safe-box",
+      "projectName": "Safe Box",
+      "category": "Machines & Mechanisms",
+      "status": "blocked-no-separate-building-source",
+      "reason": "Canonical Level 4 resolver marks this activity as Learning fallback; no independently registered official Building manual. Never substitute Learning PDF."
+    },
+    {
+      "projectId": "level-4-back-up-buzzer",
+      "projectName": "Back-up buzzer",
+      "category": "Sensors",
+      "status": "blocked-no-separate-building-source",
+      "reason": "Canonical Level 4 resolver marks this activity as Learning fallback; no independently registered official Building manual. Never substitute Learning PDF."
+    },
+    {
+      "projectId": "level-4-counting-system",
+      "projectName": "Counting system",
+      "category": "Sensors",
+      "status": "blocked-no-separate-building-source",
+      "reason": "Canonical Level 4 resolver marks this activity as Learning fallback; no independently registered official Building manual. Never substitute Learning PDF."
+    }
+  ],
+  "blockedVariants": [
+    {
+      "variantId": "level-4-dangerous-assassin",
+      "projectId": "level-4-dangerous-assassin",
+      "variant": "basic",
+      "status": "blocked",
+      "sourcePath": "public/Level 4/Building/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin - Basic Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c87e929581d64541923e3ffedbdb3edc.pdf",
+      "pdfSha256": "483cf6fc93e63a7fd190ef49ddfd54faa07cbdf43a46cbe63836be01be8c5791",
+      "sourcePage": 25,
+      "image": "public/final-build/level-4/level-4-dangerous-assassin.webp",
+      "imageSha256": "91c73dbf8d9e9f9babea0ceeb3cd52fb2b0c150eff523316d53f50e04cea6339",
+      "reasonCodes": [
+        "RASTER_TEXT_SIGNOFF_PENDING",
+        "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+        "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING"
+      ]
+    },
+    {
+      "variantId": "level-4-horizontal-bar",
+      "projectId": "level-4-horizontal-bar",
+      "variant": "basic",
+      "status": "blocked",
+      "sourcePath": "public/Level 4/Building/Mechanisms & Simulators/Horizontal Bar/5. Horizontal Bar-Basic Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_165b3ae978a54059a2987eb2f4652e7e.pdf",
+      "pdfSha256": "738d2d9f9494a41f87c3e2866e4e3a175822f6b4bfcb292515cebd1f3737ad1d",
+      "sourcePage": 13,
+      "image": "public/final-build/level-4/level-4-horizontal-bar.webp",
+      "imageSha256": "1ddd868a96e838f64928a27c71e21bec7a5d93802d859525d0ca4adac473a842",
+      "reasonCodes": [
+        "RASTER_TEXT_SIGNOFF_PENDING",
+        "MODEL_ONLY_CROP_VISUAL_REVIEW_PENDING",
+        "CHECKLIST_QUESTION_EVIDENCE_REVIEW_PENDING",
+        "MANUAL_FINAL_IMAGE_BOTTOM_IS_CLIPPED"
+      ]
+    }
+  ],
+  "integrationFindings": [
+    {
+      "id": "LEVEL_4_SHARED_POOL_PREAPPROVAL",
+      "severity": "blocker",
+      "owner": "integration",
+      "detail": "The shared getFinalBuildPool filters only variants.length > 0, not approved variants. Discovery must not expose unapproved projects in student mode; do not modify shared engine in this worker."
+    },
+    {
+      "id": "LEVEL_4_GENERIC_CHECKLIST",
+      "severity": "blocker",
+      "owner": "integration",
+      "detail": "The shared FinalBuildExam still uses checkDescriptions(name), a generic title-heuristic checklist, rather than variant-specific evidence-backed Level 4 questions."
+    },
+    {
+      "id": "LEVEL_4_WEBP_RENDERER",
+      "severity": "needs-integration-review",
+      "owner": "integration",
+      "detail": "Shared approval currently expects a Wix PDF page + normalized PDF crop, not a locally optimized WebP asset reference. Integration must explicitly support verified WebP files without bypassing approval gates."
+    }
+  ],
+  "latestPass": {
+    "date": "2026-11-23",
+    "pdfDownloads": 50,
+    "pdfSourceBytes": 477428407,
+    "sha256Recorded": 50,
+    "gitBlobSha1CanonicalMatches": 50,
+    "hostedPageCountsValidated": 50,
+    "totalPdfPages": 1029,
+    "candidateWebps": 50,
+    "refinedImageBlockCrops": 8,
+    "webpDecodes": 50,
+    "draftChecklistSets": 50,
+    "draftQuestions": 250,
+    "nodeTestsPassed": 23,
+    "nodeTestsFailed": 0,
+    "pixelFidelityPasses": 50,
+    "maxPixelMeanAbsoluteError": 6.18,
+    "medianPixelMeanAbsoluteError": 2.81,
+    "approvedReferences": 0,
+    "approvedChecklists": 0,
+    "secondPassReport": "reports/final-build-level-4-independent-verification-20261123.json",
+    "caveat": "Pixel similarity and source hashes verified; image semantic correctness and the five questionnaire items per variant require independent manual sign-off.",
+    "nodeTestFiles": [
+      "tests/final-build-level-4.test.mjs",
+      "tests/final-build-exams.test.mjs",
+      "tests/level-four-building.test.mjs",
+      "tests/level-four-wix-urls.test.mjs",
+      "tests/syllabus-levels.test.mjs"
+    ],
+    "testSetup": "Isolated Vercel Sandbox, official original 50 local Building PDFs checked out read-only, generated Level Selection WebPs with existing repository script; Sharp and TypeScript 5.8.3 installed separately outside repository. No dependency or lockfile changes committed.",
+    "assistantManualSourceReviews": 1,
+    "readyWixLevel4References": 1,
+    "reviewedCandidates": 50,
+    "approvedWebpAndChecklists": 48,
+    "blockedDueToMissingCompleteSource": 2,
+    "verifiedWixReadyHostedUrls": 48,
+    "reviewedQuestions": 250,
+    "approvedQuestions": 240,
+    "sourceDerivedRepairsAcrossPasses": 9
+  }
+}
