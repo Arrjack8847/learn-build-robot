@@ -1,0 +1,488 @@
+{
+  "schema": "level-2-finished-robot-image-provenance-v1",
+  "date": "2026-11-23",
+  "mode": "direct-Wix-PDF-embedded-image-or-original-rendered-page-crop",
+  "independentGitHubWebpReopen": true,
+  "variants": [
+    {
+      "id": "level-2-axe-robot",
+      "page": 15,
+      "xref": 503,
+      "bbox": [
+        574.9,
+        102.2,
+        860,
+        790.4
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 331,
+      "height": 800,
+      "sha256": "9f94a4d35c84fb97a78a805eb376ae34b3902a0cee7e6decc099eda7f1f05cfb",
+      "bytes": 44168
+    },
+    {
+      "id": "level-2-batting-robot",
+      "page": 10,
+      "xref": 353,
+      "bbox": [
+        605.6,
+        246.2,
+        978,
+        646.4
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 447,
+      "height": 480,
+      "sha256": "eb80b44c20191e4839955fdccd912a4b9e2be793a4ceca40686dde5a1e771069",
+      "bytes": 19048
+    },
+    {
+      "id": "level-2-fan-robot",
+      "page": 8,
+      "xref": 235,
+      "bbox": [
+        556.2,
+        227.9,
+        1027.4,
+        664.2
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 480,
+      "height": 445,
+      "sha256": "e6142c90dd068af6489a2b1c8d81638267500891fb5571c154e2c74bfc429a98",
+      "bytes": 19798
+    },
+    {
+      "id": "level-2-pirate-ship",
+      "page": 15,
+      "xref": 75,
+      "bbox": [
+        396.1,
+        196,
+        610.9,
+        442
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 366,
+      "height": 420,
+      "sha256": "c742a66b8ebe636419fc0165ee2491443685c9bae06ef8b4db01738ef1bfc583",
+      "bytes": 19518
+    },
+    {
+      "id": "level-2-push-ups",
+      "page": 16,
+      "xref": 507,
+      "bbox": [
+        619.1,
+        75.8,
+        964.6,
+        816.3
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 336,
+      "height": 720,
+      "sha256": "76d77739ae9312af98935d68089145c0e7ab1ddae40a504bfd8ab09fbe24ac95",
+      "bytes": 33682
+    },
+    {
+      "id": "level-2-rotating-flying-chair",
+      "page": 11,
+      "xref": 47,
+      "bbox": [
+        227.8,
+        67.7,
+        431.3,
+        293.9
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 525,
+      "height": 628,
+      "sha256": "072dd8a684787d5099e7a2c074fc427ca29c2d3763890494987760ea4a536a13",
+      "bytes": 22722
+    },
+    {
+      "id": "level-2-throwing-robot",
+      "page": 19,
+      "xref": 680,
+      "bbox": [
+        327.8,
+        227,
+        1093.7,
+        664.6
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 480,
+      "height": 275,
+      "sha256": "71fd59a7de1fb8baf183d2025ba2824b21b809f66cc614ce2a0db23535909e02",
+      "bytes": 19380
+    },
+    {
+      "id": "level-2-mechanical-dog",
+      "page": 14,
+      "xref": 79,
+      "bbox": [
+        397.3,
+        294.7,
+        688.2,
+        489.7
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 485,
+      "height": 326,
+      "sha256": "062c61dd6523d5ae5348f48a8169d8009036af21219bf609aad5e35a743bb106",
+      "bytes": 22712
+    },
+    {
+      "id": "level-2-scaling-ladder",
+      "page": 22,
+      "xref": 122,
+      "bbox": [
+        304.5,
+        77.7,
+        719.2,
+        310.9
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 682,
+      "height": 389,
+      "sha256": "15df71ad10abdf5b639d4bcdc48c186e6aa74337393ec90879ae5f7476210349",
+      "bytes": 21282
+    },
+    {
+      "id": "level-2-tower-crane",
+      "page": 18,
+      "xref": 85,
+      "bbox": [
+        192.3,
+        84.6,
+        420.3,
+        436.5
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 511,
+      "height": 800,
+      "sha256": "60d1c2f7d7ccbfb8cab4ac77f20a7ccbfc786ff20fe8a118cb37f6bdb31f0850",
+      "bytes": 21724
+    },
+    {
+      "id": "level-2-manual-flashlight",
+      "page": 15,
+      "xref": 65,
+      "bbox": [
+        137.1,
+        49.1,
+        448.7,
+        356.3
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 635,
+      "height": 660,
+      "sha256": "73bd63aa29370e34e8f75248c7c57d2d7446e996659b29a23b7e4fb7a42fad3b",
+      "bytes": 22502
+    },
+    {
+      "id": "level-2-jumping-machine",
+      "page": 18,
+      "xref": 77,
+      "bbox": [
+        423.7,
+        130.1,
+        617.9,
+        512.6
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 335,
+      "height": 660,
+      "sha256": "5ecfa18e4cfae681ef4c63ae4ba17de415b04596950f99987b288c6dbb40bc2d",
+      "bytes": 19388
+    },
+    {
+      "id": "level-2-see-saw-v1",
+      "page": 10,
+      "xref": 41,
+      "bbox": [
+        318.5,
+        222.1,
+        678.2,
+        445.1
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 610,
+      "height": 378,
+      "sha256": "0dee481af3c47284d4e7c7e20d95cd079e367ffc8621c4be83d2753d1524b09b",
+      "bytes": 21050
+    },
+    {
+      "id": "level-2-see-saw-v2",
+      "page": 10,
+      "xref": 56,
+      "bbox": [
+        318.4,
+        222,
+        678.2,
+        445
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 600,
+      "height": 372,
+      "sha256": "c2a9ece12d807352f22cc8daa53122d95e55a4b93d0728325b9bbb9274de82c2",
+      "bytes": 21660
+    },
+    {
+      "id": "level-2-tongs",
+      "page": 13,
+      "xref": 72,
+      "bbox": [
+        243.5,
+        88.9,
+        529.2,
+        304.4
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 476,
+      "height": 360,
+      "sha256": "e6eb06218bda234b1c42e0913a9c5cdeb279a2d1f0f0754f0198158fdf342617",
+      "bytes": 10928
+    },
+    {
+      "id": "level-2-bridge",
+      "page": 15,
+      "xref": 63,
+      "bbox": [
+        362.4,
+        111.3,
+        713.5,
+        315.1
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 610,
+      "height": 376,
+      "sha256": "9bcd54a99e228ca96af4a197427c38591c6e2515f79fa34e4c41d4254a80164f",
+      "bytes": 18712
+    },
+    {
+      "id": "level-2-mechanisms-simulators-crane",
+      "page": 40,
+      "xref": 169,
+      "bbox": [
+        358.8,
+        150.6,
+        682,
+        502.8
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 386,
+      "height": 420,
+      "sha256": "febae98726c032324f958305f6812156f943b95efd3444a4894dcd5ab83d5557",
+      "bytes": 19426
+    },
+    {
+      "id": "level-2-door",
+      "page": 10,
+      "xref": 47,
+      "bbox": [
+        182,
+        106.6,
+        469.8,
+        358.6
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 610,
+      "height": 541,
+      "sha256": "ac2787fbf6aac2f0d0a4f497c73c2c00d2bf1cd5afcbc9d3ff9a6870c79658c7",
+      "bytes": 21444
+    },
+    {
+      "id": "level-2-double-beam-crane",
+      "page": 22,
+      "xref": 94,
+      "bbox": [
+        79,
+        90.7,
+        400.9,
+        374.6
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 610,
+      "height": 589,
+      "sha256": "30d1ffd5596baabb1e5a4750c91646711bddfd5445c610dec03ab75e9225e59d",
+      "bytes": 19340
+    },
+    {
+      "id": "level-2-gearbox",
+      "page": 20,
+      "xref": 83,
+      "bbox": [
+        148.9,
+        107.7,
+        496.9,
+        353.3
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 660,
+      "height": 466,
+      "sha256": "a32108ee56d4521d2cb17d8c9920b72c98ff3eaacf8edb2328d6fe84a1a79533",
+      "bytes": 19736
+    },
+    {
+      "id": "level-2-hand-crank",
+      "page": 11,
+      "xref": null,
+      "bbox": [
+        426,
+        200.1,
+        657.9,
+        493.2
+      ],
+      "method": "pixel-crop-from-original-rendered-PDF-page",
+      "width": 478,
+      "height": 637,
+      "sha256": "25ce3d5d48938f9e89f43be664ebe2c18b2931847b54ae2f7373be8fcbea86ac",
+      "bytes": 15032
+    },
+    {
+      "id": "level-2-spinning-bike",
+      "page": 9,
+      "xref": 309,
+      "bbox": [
+        627.7,
+        216.4,
+        955.9,
+        676.2
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 436,
+      "height": 610,
+      "sha256": "252f263a77db830e2b863b41b5fb59251bc32cd7328c629a380aef3755508ecc",
+      "bytes": 38584
+    },
+    {
+      "id": "level-2-swing",
+      "page": 8,
+      "xref": 299,
+      "bbox": [
+        500.5,
+        241.9,
+        1083.1,
+        650.7
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 480,
+      "height": 337,
+      "sha256": "ca3afce65723ab661856d3d3331396f3a8d5ffae8389487716a72cc7b0f8a8a3",
+      "bytes": 19036
+    },
+    {
+      "id": "level-2-treadmill",
+      "page": 21,
+      "xref": 678,
+      "bbox": [
+        478.9,
+        128.1,
+        1104.7,
+        764.5
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 354,
+      "height": 360,
+      "sha256": "e8b78f9932593366a30ce8bb15e501ef7846ce74877ea4c981a5a190fe348c66",
+      "bytes": 18778
+    },
+    {
+      "id": "level-2-battery-robot",
+      "page": 23,
+      "xref": 985,
+      "bbox": [
+        1064.9,
+        150.2,
+        1569.7,
+        741.9
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 358,
+      "height": 420,
+      "sha256": "bb58e353388abcb90f28b50d72823fe53c32d53d1bfcf9bc2208dcc7dfeb066f",
+      "bytes": 19020
+    },
+    {
+      "id": "level-2-walking-robot",
+      "page": 35,
+      "xref": 191,
+      "bbox": [
+        152.9,
+        79.9,
+        443.8,
+        394
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 462,
+      "height": 510,
+      "sha256": "9401a2f9a48d09098b96cdd850b754d18201ec7925bc7641704e958d3be5a7df",
+      "bytes": 19772
+    },
+    {
+      "id": "level-2-harp",
+      "page": 10,
+      "xref": 44,
+      "bbox": [
+        74.5,
+        138.3,
+        431.8,
+        395.8
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 660,
+      "height": 512,
+      "sha256": "f61bb88fa426dceab16a159f6d2b1b644fd11ea2b9c228ef3f401ba237f9557a",
+      "bytes": 18252
+    },
+    {
+      "id": "level-2-helicopter",
+      "page": 35,
+      "xref": 1041,
+      "bbox": [
+        450.6,
+        134.4,
+        1133,
+        757.7
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 360,
+      "height": 329,
+      "sha256": "706c06e66179ac0f3004ce066ff7947b89317d7b0dd436eaab70490632f0be94",
+      "bytes": 19656
+    },
+    {
+      "id": "level-2-lifting-door",
+      "page": 27,
+      "xref": 115,
+      "bbox": [
+        47.8,
+        114.9,
+        267.5,
+        457.2
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 380,
+      "height": 660,
+      "sha256": "ad3668f036ca4f1b4165c53fb3ef0806670b1c3730435fbf63f7ef860c208a7d",
+      "bytes": 19210
+    },
+    {
+      "id": "level-2-teeterboard",
+      "page": 10,
+      "xref": 56,
+      "bbox": [
+        318.4,
+        222,
+        678.2,
+        445
+      ],
+      "method": "original-embedded-PDF-image",
+      "width": 600,
+      "height": 372,
+      "sha256": "bca3ab4c1faebd7d9c2c451c7f22e1fc23213a67cc245658b1c00ecfdddeed90",
+      "bytes": 18708
+    }
+  ]
+}
