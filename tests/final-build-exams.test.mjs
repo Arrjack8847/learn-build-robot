@@ -24,7 +24,10 @@ test("all six level-specific final-build route modules are registered", () => {
     assert.ok(route.includes('createFileRoute("/practical/level-'+level+'/final-build")'));
     assert.ok(route.includes("FinalBuildExam level={"+level+"}"));
   }
-  assert.match(read("src/components/practical/ResponsiveCategories.tsx"), /Robot Discovery Scanner<\/a>/);
+  const categories = read("src/components/practical/ResponsiveCategories.tsx");
+  assert.ok(categories.includes('href={"/practical/level-" + level + "/final-build"}'));
+  assert.match(categories, /aria-label=\{`Level \$\{level\} Final Build Exam · Robot Discovery Scanner`\}/);
+  assert.match(categories, /Final Build Challenge<\/span>/);
 });
 
 test("registries use actual syllabus and registered Building manuals instead of Learning slides", () => {
