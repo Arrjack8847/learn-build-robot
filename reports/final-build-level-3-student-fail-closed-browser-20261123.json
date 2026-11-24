@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-23",
+  "route": "/practical/level-3/final-build",
+  "browser": "Local Chromium Playwright (not Safari)",
+  "notes": "Scannable 39 registered projects despite 0 approvals, but actual assessment is correctly disabled after scanner. Revisit wording/selection to avoid unapproved robot discovery.",
+  "rows": [
+    {
+      "width": 320,
+      "http": 200,
+      "scanElapsedMs": 4875,
+      "initialReadyMessage": true,
+      "blockedReferenceVisible": true,
+      "startDisabled": true,
+      "visualOverflow": false,
+      "actualWidth": 320,
+      "errors": []
+    },
+    {
+      "width": 375,
+      "http": 200,
+      "scanElapsedMs": 4343,
+      "initialReadyMessage": true,
+      "blockedReferenceVisible": true,
+      "startDisabled": true,
+      "visualOverflow": false,
+      "actualWidth": 375,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "http": 200,
+      "scanElapsedMs": 4353,
+      "initialReadyMessage": true,
+      "blockedReferenceVisible": true,
+      "startDisabled": true,
+      "visualOverflow": false,
+      "actualWidth": 390,
+      "errors": []
+    },
+    {
+      "width": 430,
+      "http": 200,
+      "scanElapsedMs": 4340,
+      "initialReadyMessage": true,
+      "blockedReferenceVisible": true,
+      "startDisabled": true,
+      "visualOverflow": false,
+      "actualWidth": 430,
+      "errors": []
+    }
+  ]
+}

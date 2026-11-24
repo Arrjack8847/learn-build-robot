@@ -1,0 +1,1069 @@
+{
+  "date": "2026-11-23",
+  "purpose": "Authentic source-extracted robot artwork proposals; candidate crops are not independently approved",
+  "sourceGate": "40/40 verified",
+  "count": 42,
+  "approved": 0,
+  "sourcePagesNotFinalCount": 8,
+  "flags": "Do not upload or put in student-visible mapping",
+  "records": [
+    {
+      "variantId": "level-3-clip-robot",
+      "sourcePdfId": "7fc4ca_b48d0f629fe1421bb4fc4c488a0dce95.pdf",
+      "sourcePdfSha256": "5bcac8acc6893fb9180fbf24562ef3f591642dc751440cac42701b308944f28c",
+      "sourcePage": 30,
+      "candidateMatchedPage": 30,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.275677,
+        "y": 0.207727,
+        "width": 0.44707,
+        "height": 0.584546
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-clip-robot-source-proposal.webp",
+      "width": 1419,
+      "height": 1044,
+      "sha256": "709939bf22d935b7e68c159da5f0bd0c939020ea3e01294820618fa093e8cb3b",
+      "bytes": 159820,
+      "componentCount": 2,
+      "priorVisualFlags": [
+        "Adjacent page illustration fragment at top left"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-cycle-sport-basic",
+      "sourcePdfId": "7fc4ca_6a2df8f4cfff475897c187a70755bff6.pdf",
+      "sourcePdfSha256": "4bcfdd2f69b666ec92d3aef86479785a41f31cf0707d044582b936d6b9a73d95",
+      "sourcePage": 21,
+      "candidateMatchedPage": 21,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.281473,
+        "y": 0.036074,
+        "width": 0.445368,
+        "height": 0.912752
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-cycle-sport-basic-source-proposal.webp",
+      "width": 750,
+      "height": 1088,
+      "sha256": "031058cbcf5eac50d134b6fa8e0c4a10bc5cfaf87da96279d44d40b0fdb1d193",
+      "bytes": 120942,
+      "componentCount": 1,
+      "priorVisualFlags": [
+        "Upper gear assembly appears clipped at canvas boundary"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-cycle-sport-optimized",
+      "sourcePdfId": "7fc4ca_dd97e54e02f64fa6990e8db4d18354ca.pdf",
+      "sourcePdfSha256": "9026906f2574636df80412568fa9e82134d4f9cf7f2089f685761350509f73c5",
+      "sourcePage": 6,
+      "candidateMatchedPage": 6,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.238124,
+        "y": 0.069631,
+        "width": 0.530285,
+        "height": 0.853188
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-cycle-sport-optimized-source-proposal.webp",
+      "width": 893,
+      "height": 1017,
+      "sha256": "3bd15381c0261f74aa01cf458d035e01e9a7e09ef49452c72f2b5ab03619c2b9",
+      "bytes": 112634,
+      "componentCount": 1,
+      "priorVisualFlags": [
+        "Upper mechanism reaches crop edge"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-automatic-seesaw",
+      "sourcePdfId": "7fc4ca_d49106300f224a3986bf25c552b894df.pdf",
+      "sourcePdfSha256": "928ecf07c1cc39f072348fb41c72960f5498825ddd581761ab4ec3866a1c31fd",
+      "sourcePage": 29,
+      "candidateMatchedPage": 29,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.146675,
+        "y": 0.155201,
+        "width": 0.707245,
+        "height": 0.660235
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-automatic-seesaw-source-proposal.webp",
+      "width": 1191,
+      "height": 787,
+      "sha256": "d5b218b596f241d8d0c4478ada906a3773ca9605f0ac8a4428576932924f57ed",
+      "bytes": 118302,
+      "componentCount": 1,
+      "priorVisualFlags": [
+        "Leftmost hardware touches image edge"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-security-door",
+      "sourcePdfId": "7fc4ca_8fabbeea8d3e434bbb7ff95d65f9e750.pdf",
+      "sourcePdfSha256": "b6cf5cca9dc9ca10c7b95758c2c4711e079ae66adb00ea83f13a4cacd5385def",
+      "sourcePage": 10,
+      "candidateMatchedPage": 10,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.358538,
+        "y": 0.283875,
+        "width": 0.281033,
+        "height": 0.432811
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-security-door-source-proposal.webp",
+      "width": 892,
+      "height": 773,
+      "sha256": "6fae39c56bb360cdc8b4ddb3fe20daadfaaebc993b6c9e37e7f7dc97f21951d4",
+      "bytes": 81470,
+      "componentCount": 1,
+      "priorVisualFlags": [],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-smart-door",
+      "sourcePdfId": "7fc4ca_4a51e35447664f778c21a960401809dc.pdf",
+      "sourcePdfSha256": "b4840f25b998d1cd297001e951815385a58675c721ba86f1d22ba10e80ed1716",
+      "sourcePage": 5,
+      "candidateMatchedPage": 5,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.5453,
+        "y": 0.307494,
+        "width": 0.249516,
+        "height": 0.385444
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-smart-door-source-proposal.webp",
+      "width": 1030,
+      "height": 895,
+      "sha256": "876c4d54754fc5cde3bc783ffe37a6542999aeed39f17967f2a8e8ba3238b49a",
+      "bytes": 93834,
+      "componentCount": 2,
+      "priorVisualFlags": [
+        "Assembly-step number, parts callout and neighboring illustration"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-following-robot",
+      "sourcePdfId": "7fc4ca_dad2e2f73571417590aa81a368936a4e.pdf",
+      "sourcePdfSha256": "4db51e13781a6bd994b3487e85b56cc282f07594cffe962d2d8c46be59efddd0",
+      "sourcePage": 9,
+      "candidateMatchedPage": 8,
+      "useLastPageFallback": true,
+      "sourcePageCropNormalized": {
+        "x": 0.235707,
+        "y": 0.060724,
+        "width": 0.375242,
+        "height": 0.878984
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-following-robot-source-proposal.webp",
+      "width": 1549,
+      "height": 2041,
+      "sha256": "aa551b1eef11420e91aff280b58b72a709ec644a2c33cd027c5c902cebe660bf",
+      "bytes": 251022,
+      "componentCount": 5,
+      "priorVisualFlags": [],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-obstacle-avoidance-robot-1",
+      "sourcePdfId": "7fc4ca_49d85ca5d7d24f42b9b349775f8704aa.pdf",
+      "sourcePdfSha256": "67bdcdb78ae30b6bd8b59b34426c0f79258a9bdbe0f5a138b4df828a4c079ff8",
+      "sourcePage": 11,
+      "candidateMatchedPage": 11,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.230862,
+        "y": 0.26615,
+        "width": 0.421996,
+        "height": 0.468562
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-obstacle-avoidance-robot-1-source-proposal.webp",
+      "width": 1742,
+      "height": 1088,
+      "sha256": "f670ab6c5514b3e6d10bfb7a93787b4089610abfc5bd74dada4bfa7302afc644",
+      "bytes": 163524,
+      "componentCount": 3,
+      "priorVisualFlags": [
+        "Assembly-step number/parts callout and neighboring illustration fragments"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-sunflower",
+      "sourcePdfId": "7fc4ca_3b60569142624d218cdbd6d6ecc4a3b1.pdf",
+      "sourcePdfSha256": "dc44b18f50b9e5d8e4f2e4074a42e2973be6b11ea34032589d34b5dda99fc7bb",
+      "sourcePage": 14,
+      "candidateMatchedPage": 14,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.387355,
+        "y": 0.146425,
+        "width": 0.223353,
+        "height": 0.706718
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-sunflower-source-proposal.webp",
+      "width": 922,
+      "height": 1641,
+      "sha256": "ba633ae032dbabff22af1c3b2329ac334e459941d50ffffdb93afa0c3377d929",
+      "bytes": 181852,
+      "componentCount": 1,
+      "priorVisualFlags": [
+        "Top of upper assembly reaches image edge"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-electric-bulldozer",
+      "sourcePdfId": "7fc4ca_c4cdf5cb69614575b6efb595355beb86.pdf",
+      "sourcePdfSha256": "5aad4a8525cb2981206ab4fa95e5dfeab221c3084a5840e13a42db993e1b5218",
+      "sourcePage": 26,
+      "candidateMatchedPage": 26,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.165083,
+        "y": 0.035235,
+        "width": 0.673397,
+        "height": 0.917785
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-electric-bulldozer-source-proposal.webp",
+      "width": 1134,
+      "height": 1094,
+      "sha256": "bcd0ba570c725fcdeecacf50049df4782b366ed685d32e178825cfb7d436b372",
+      "bytes": 132300,
+      "componentCount": 1,
+      "priorVisualFlags": [
+        "Upper crossbeam appears clipped"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-electric-fan-characters-structures",
+      "sourcePdfId": "7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+      "sourcePdfSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+      "sourcePage": 12,
+      "candidateMatchedPage": 12,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.250594,
+        "y": 0.069631,
+        "width": 0.50772,
+        "height": 0.868289
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-electric-fan-characters-structures-source-proposal.webp",
+      "width": 855,
+      "height": 1035,
+      "sha256": "88dbb5b5001b4d04cfa7e0f79e23e2c6f261b767d9ca26396abb76d174207dcd",
+      "bytes": 112432,
+      "componentCount": 1,
+      "priorVisualFlags": [],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-safe",
+      "sourcePdfId": "7fc4ca_d09f63c7e6a44cd1bb5fdafe9e11efb1.pdf",
+      "sourcePdfSha256": "3a0e0c3a45e024059a406f6c0d54e08e65ba5e340926f372b246bb0aa99721bf",
+      "sourcePage": 24,
+      "candidateMatchedPage": 24,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.185273,
+        "y": 0.097315,
+        "width": 0.610451,
+        "height": 0.845638
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-safe-source-proposal.webp",
+      "width": 1028,
+      "height": 1008,
+      "sha256": "0c063a02f3835d3b951c27629ed3f90f1d809121abf5f1113f0a36ae3599d878",
+      "bytes": 118642,
+      "componentCount": 1,
+      "priorVisualFlags": [],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-smart-trash-bin",
+      "sourcePdfId": "7fc4ca_70455707868643188c4e310a6eda9940.pdf",
+      "sourcePdfSha256": "3c63afc1068bfb132a8d0150755a87fd3975905e77839de6fd5a6ceb78458e60",
+      "sourcePage": 22,
+      "candidateMatchedPage": 22,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.247625,
+        "y": 0.086409,
+        "width": 0.522565,
+        "height": 0.861577
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-smart-trash-bin-source-proposal.webp",
+      "width": 880,
+      "height": 1027,
+      "sha256": "463912c96c1d6587235d12a8a34cf22f579b2ac3f4d51e9fba11bb0ca3dc4eda",
+      "bytes": 95718,
+      "componentCount": 1,
+      "priorVisualFlags": [],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-lifting-maintenance-vehicle",
+      "sourcePdfId": "7fc4ca_62b3ca692f6f47b79433f9e2b43b1106.pdf",
+      "sourcePdfSha256": "6e5921a4926105cdf3467ef0adff2c2ba1d215dd48d9f29327bdfa2e1f983c5f",
+      "sourcePage": 22,
+      "candidateMatchedPage": 5,
+      "useLastPageFallback": true,
+      "sourcePageCropNormalized": {
+        "x": 0,
+        "y": 0,
+        "width": 1,
+        "height": 1
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-lifting-maintenance-vehicle-source-proposal.webp",
+      "width": 1684,
+      "height": 1191,
+      "sha256": "581f43ba239ee503d202e9c2a5552ef121133199366b579be28f5adfa8dd9517",
+      "bytes": 3708,
+      "componentCount": 0,
+      "priorVisualFlags": [
+        "Partial instructional text remains along left edge"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-automated-guided-vehicle",
+      "sourcePdfId": "7fc4ca_819b76017e764fcbba4d8d00ef18949f.pdf",
+      "sourcePdfSha256": "db57e69925fbab00995f65adaf1c48248604e9aebe864ff4a0653c870e7f6b69",
+      "sourcePage": 24,
+      "candidateMatchedPage": 24,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.204869,
+        "y": 0.098993,
+        "width": 0.625297,
+        "height": 0.829698
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-automated-guided-vehicle-source-proposal.webp",
+      "width": 1053,
+      "height": 989,
+      "sha256": "4770037c4eaff15b1fe9e37a4460e2d7ff8ed3f50094804eba15a20536a0e7c9",
+      "bytes": 122294,
+      "componentCount": 1,
+      "priorVisualFlags": [],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-race-walking-basic",
+      "sourcePdfId": "7fc4ca_40ddc7964dab4006b0b855b7aeb59406.pdf",
+      "sourcePdfSha256": "b1de0b9ac608240758e9173fad5fd2f66d96ebbc8164ef7df2931db0acc5c1fa",
+      "sourcePage": 7,
+      "candidateMatchedPage": 7,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.281473,
+        "y": 0.041107,
+        "width": 0.489311,
+        "height": 0.921141
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-race-walking-basic-source-proposal.webp",
+      "width": 824,
+      "height": 1098,
+      "sha256": "2c93dfb01eb2d16ece96d770eaa29d8829caf98b77f185eeedce8c57cf5a255a",
+      "bytes": 97564,
+      "componentCount": 1,
+      "priorVisualFlags": [],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-race-walking-optimized",
+      "sourcePdfId": "7fc4ca_605e48fe69f641e29f7aeb53056a9d1c.pdf",
+      "sourcePdfSha256": "638c446ffcbdb9d63965b4aa5d85f4f2bb551d77ed7ee2301cc81575fb753825",
+      "sourcePage": 6,
+      "candidateMatchedPage": 6,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.252375,
+        "y": 0.055369,
+        "width": 0.514846,
+        "height": 0.921141
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-race-walking-optimized-source-proposal.webp",
+      "width": 867,
+      "height": 1098,
+      "sha256": "c47688bc53cc84b20db2039148fb02e325a8dfd487420331853ca7a96a02b6f7",
+      "bytes": 113920,
+      "componentCount": 1,
+      "priorVisualFlags": [],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-race-walking-optimized-ratchet",
+      "sourcePdfId": "7fc4ca_d7fd406eeee64108b91a20b812e3a521.pdf",
+      "sourcePdfSha256": "0b3f192781910bd79b241951b6079ccdf8668cd6545207fd02a0ba4805580b9c",
+      "sourcePage": 2,
+      "candidateMatchedPage": 2,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.074822,
+        "y": 0.02349,
+        "width": 0.755344,
+        "height": 0.870805
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-race-walking-optimized-ratchet-source-proposal.webp",
+      "width": 1272,
+      "height": 1038,
+      "sha256": "7e7c5cbf3b39838eb2999e55273b50a8d44b080554d2f6be170fc45d4c3f250b",
+      "bytes": 133102,
+      "componentCount": 1,
+      "priorVisualFlags": [
+        "Parts legend, assembly annotations and upper crop"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-bumper-car-foundational-robots",
+      "sourcePdfId": "7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+      "sourcePdfSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+      "sourcePage": 13,
+      "candidateMatchedPage": 13,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.310334,
+        "y": 0.241881,
+        "width": 0.377442,
+        "height": 0.515677
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-bumper-car-foundational-robots-source-proposal.webp",
+      "width": 1198,
+      "height": 921,
+      "sha256": "7530b278b2cd16564b9be04d709118549e32911bef51f4276f96c60595f32573",
+      "bytes": 119612,
+      "componentCount": 2,
+      "priorVisualFlags": [
+        "Parts legend fragment at top left"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-disinfection-lamp",
+      "sourcePdfId": "7fc4ca_554500219aa24df9b769c8bc8b37513f.pdf",
+      "sourcePdfSha256": "82f9a3faaa571777142b944904c2c69b2c328405d6d6b24205a653b18c920970",
+      "sourcePage": 20,
+      "candidateMatchedPage": 20,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.229216,
+        "y": 0.147651,
+        "width": 0.55285,
+        "height": 0.747483
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-disinfection-lamp-source-proposal.webp",
+      "width": 931,
+      "height": 891,
+      "sha256": "4377f6f47a49477380a9380e3e8e7aedc19ceeea00327dec42345a281ae16700",
+      "bytes": 104230,
+      "componentCount": 1,
+      "priorVisualFlags": [
+        "Upper model beam extends beyond crop"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-flashlight-sensor",
+      "sourcePdfId": "7fc4ca_60546b12a6db461386a9864fc146d625.pdf",
+      "sourcePdfSha256": "1cf47dcb9585719a750d95d7ea2be39577fee58fc9081cfeffbdaacf41c15d76",
+      "sourcePage": 12,
+      "candidateMatchedPage": 12,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.246437,
+        "y": 0.21057,
+        "width": 0.50772,
+        "height": 0.608221
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-flashlight-sensor-source-proposal.webp",
+      "width": 855,
+      "height": 725,
+      "sha256": "c47346ebea7f622a3ae424b341efbdef2b69b96923b9ea53d689cf822601855a",
+      "bytes": 87854,
+      "componentCount": 1,
+      "priorVisualFlags": [],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-light-sensitive-curtains",
+      "sourcePdfId": "7fc4ca_7a86681377184c5ea2c5b9bb96b7040d.pdf",
+      "sourcePdfSha256": "e07668fe94a7de00fed87c8a7bcd482f0d75b1be8eeafe99c7456ed3cb348df9",
+      "sourcePage": 28,
+      "candidateMatchedPage": 28,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.208432,
+        "y": 0.115772,
+        "width": 0.601544,
+        "height": 0.769295
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-light-sensitive-curtains-source-proposal.webp",
+      "width": 1013,
+      "height": 917,
+      "sha256": "6b68237c3adbfd2342902184743b4bfef829e93eaf564952dbcf0fe60f92b08d",
+      "bytes": 112386,
+      "componentCount": 1,
+      "priorVisualFlags": [],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-bumper-car-interactive-mechanisms",
+      "sourcePdfId": "7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+      "sourcePdfSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+      "sourcePage": 13,
+      "candidateMatchedPage": 13,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.310334,
+        "y": 0.241881,
+        "width": 0.377442,
+        "height": 0.515677
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-bumper-car-interactive-mechanisms-source-proposal.webp",
+      "width": 1198,
+      "height": 921,
+      "sha256": "7530b278b2cd16564b9be04d709118549e32911bef51f4276f96c60595f32573",
+      "bytes": 119612,
+      "componentCount": 2,
+      "priorVisualFlags": [
+        "Parts legend fragment at top left"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-anti-fall-robot",
+      "sourcePdfId": "7fc4ca_04a7868dd78a4216839d6ab3bc575381.pdf",
+      "sourcePdfSha256": "0065cad3da26f5ccbe13e680c0a5f187de80c372e3b112548c01dfaa7b00ce7f",
+      "sourcePage": 16,
+      "candidateMatchedPage": 16,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.195962,
+        "y": 0.104027,
+        "width": 0.570665,
+        "height": 0.795302
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-anti-fall-robot-source-proposal.webp",
+      "width": 961,
+      "height": 948,
+      "sha256": "85c42b33ccfca55553361ad0dc7143602c28aad04139f9de3649691e5996d36c",
+      "bytes": 100430,
+      "componentCount": 1,
+      "priorVisualFlags": [],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-automatic-door",
+      "sourcePdfId": "7fc4ca_c2ff026d9c484c81b5e0f47d6c092230.pdf",
+      "sourcePdfSha256": "0168d11271a6646952361113c3fe7e29ee6cb099bf1bd2447f1439ce2dc68a80",
+      "sourcePage": 23,
+      "candidateMatchedPage": 23,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.192993,
+        "y": 0.17953,
+        "width": 0.614608,
+        "height": 0.643456
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-automatic-door-source-proposal.webp",
+      "width": 1035,
+      "height": 767,
+      "sha256": "51cefc6252292226693e88e535d7b6b46988edbffecb6d7a7895d25a4d184852",
+      "bytes": 43334,
+      "componentCount": 2,
+      "priorVisualFlags": [
+        "Robot model cropped at top and bottom"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-juicer-machine",
+      "sourcePdfId": "7fc4ca_62d1352e9abe4d26b7c5c764962615dc.pdf",
+      "sourcePdfSha256": "225d502801598f7c50cdf702ff219454cb64e9ca884c68887664f99801eddd62",
+      "sourcePage": 14,
+      "candidateMatchedPage": 14,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.216152,
+        "y": 0.056208,
+        "width": 0.567102,
+        "height": 0.894295
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-juicer-machine-source-proposal.webp",
+      "width": 955,
+      "height": 1066,
+      "sha256": "fe5fde40b7fcf271741d3e79c394d8aecbe22082472dbf8030e35c8071d4d14e",
+      "bytes": 120838,
+      "componentCount": 1,
+      "priorVisualFlags": [],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-washing-machine",
+      "sourcePdfId": "7fc4ca_c4d4661ef7c14b3ba047ccefb7c20944.pdf",
+      "sourcePdfSha256": "3b0362c124754e823d2e59eb753f48e30272a626f3721abbddd0a0aef1c74ca3",
+      "sourcePage": 18,
+      "candidateMatchedPage": 18,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.223872,
+        "y": 0.064597,
+        "width": 0.549287,
+        "height": 0.868289
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-washing-machine-source-proposal.webp",
+      "width": 925,
+      "height": 1035,
+      "sha256": "92918b0828c1e1e60f2c4184923bceece5e52ae24505eb2e4bf2e53d09d0266c",
+      "bytes": 123930,
+      "componentCount": 1,
+      "priorVisualFlags": [],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-electronic-scale",
+      "sourcePdfId": "78042f_9ea1f915116b429895c75c161797983d.pdf",
+      "sourcePdfSha256": "d8b367f8dc8ac6d1d498cd39b575d44bf606f1fe8619c79ac96373a60603d127",
+      "sourcePage": 27,
+      "candidateMatchedPage": 22,
+      "useLastPageFallback": true,
+      "sourcePageCropNormalized": {
+        "x": 0,
+        "y": 0.096405,
+        "width": 1,
+        "height": 0.808824
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-electronic-scale-source-proposal.webp",
+      "width": 1584,
+      "height": 990,
+      "sha256": "8bd50b1c4b8834290b266a4d25bbc9465ab52c145d71aa7f1e32b1945b4bde7c",
+      "bytes": 73844,
+      "componentCount": 3,
+      "priorVisualFlags": [
+        "Page header/footer and neighboring page content included"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-gyro-transmitter",
+      "sourcePdfId": "78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+      "sourcePdfSha256": "d5f2cbe35d9c7bb445f0ac144b305d26d72dfdd04057ee6226567cf278313bb9",
+      "sourcePage": 17,
+      "candidateMatchedPage": 1,
+      "useLastPageFallback": true,
+      "sourcePageCropNormalized": {
+        "x": 0.395421,
+        "y": 0.453401,
+        "width": 0.472153,
+        "height": 0.300588
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-gyro-transmitter-source-proposal.webp",
+      "width": 763,
+      "height": 358,
+      "sha256": "46f564c72157fec8007dd5d7663bec9c4a9cecff23e89ef98c445095da19637a",
+      "bytes": 35048,
+      "componentCount": 4,
+      "priorVisualFlags": [
+        "Two assembly-step illustrations, not one isolated completed model"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-electric-fan-mechanisms-and-concepts",
+      "sourcePdfId": "7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+      "sourcePdfSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+      "sourcePage": 12,
+      "candidateMatchedPage": 12,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.250594,
+        "y": 0.069631,
+        "width": 0.50772,
+        "height": 0.868289
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-electric-fan-mechanisms-and-concepts-source-proposal.webp",
+      "width": 855,
+      "height": 1035,
+      "sha256": "88dbb5b5001b4d04cfa7e0f79e23e2c6f261b767d9ca26396abb76d174207dcd",
+      "bytes": 112432,
+      "componentCount": 1,
+      "priorVisualFlags": [],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-biting-monster",
+      "sourcePdfId": "7fc4ca_65ab7f6608544c17a9dde9da09af12c8.pdf",
+      "sourcePdfSha256": "bc4fb8970464c327a463f2d36e1b756fdf6c5d96cb94acdf8511bd919a0d3051",
+      "sourcePage": 24,
+      "candidateMatchedPage": 5,
+      "useLastPageFallback": true,
+      "sourcePageCropNormalized": {
+        "x": 0,
+        "y": 0.184719,
+        "width": 0.985154,
+        "height": 0.815281
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-biting-monster-source-proposal.webp",
+      "width": 1659,
+      "height": 971,
+      "sha256": "fc0991503bdac3822d1968aa9710feb280c09b64a1bce3351ca4e163ba37be03",
+      "bytes": 151882,
+      "componentCount": 3,
+      "priorVisualFlags": [
+        "Partial instruction text included"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-electric-gyro-launcher",
+      "sourcePdfId": "7fc4ca_9f299f0c26c74943a8d90f30edb11246.pdf",
+      "sourcePdfSha256": "6c2837f3694b724375ca1c5b29041a07ad0175d6232c89719c5478ae9493696b",
+      "sourcePage": 12,
+      "candidateMatchedPage": 11,
+      "useLastPageFallback": true,
+      "sourcePageCropNormalized": {
+        "x": 0,
+        "y": 0.185558,
+        "width": 0.985154,
+        "height": 0.814442
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-electric-gyro-launcher-source-proposal.webp",
+      "width": 1659,
+      "height": 970,
+      "sha256": "11b72a1b4cee5f97efa1d09b588313b1badc40690db7fcd32592537c22ddec5c",
+      "bytes": 51956,
+      "componentCount": 5,
+      "priorVisualFlags": [
+        "Part inventory and page border included"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-responder",
+      "sourcePdfId": "7fc4ca_f39cdbb5cfb34248a850cdd356c1156f.pdf",
+      "sourcePdfSha256": "3f999ea08653b91ef5c3e73b2d56cd51645ae01383e61bac6c904c1f81def151",
+      "sourcePage": 12,
+      "candidateMatchedPage": 11,
+      "useLastPageFallback": true,
+      "sourcePageCropNormalized": {
+        "x": 0,
+        "y": 0,
+        "width": 1,
+        "height": 1
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-responder-source-proposal.webp",
+      "width": 1684,
+      "height": 1191,
+      "sha256": "581f43ba239ee503d202e9c2a5552ef121133199366b579be28f5adfa8dd9517",
+      "bytes": 3708,
+      "componentCount": 0,
+      "priorVisualFlags": [
+        "Partial instructional text and right-edge model clipping"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-electric-guitar",
+      "sourcePdfId": "7fc4ca_40e1c1967c774d0e83916ace3220b896.pdf",
+      "sourcePdfSha256": "c62cc4dc06e8ed207a84cecff6f2de2cb28da1c53ec2c32a142f2ecd340d2c2b",
+      "sourcePage": 16,
+      "candidateMatchedPage": 16,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.162548,
+        "y": 0.239449,
+        "width": 0.67345,
+        "height": 0.521964
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-electric-guitar-source-proposal.webp",
+      "width": 2780,
+      "height": 1212,
+      "sha256": "6bcb2ff0503785af7d7a5d5a0b6e7550d3c9b406bee7153c2f4daad6a48eaf62",
+      "bytes": 201966,
+      "componentCount": 1,
+      "priorVisualFlags": [
+        "Rightmost structural end clipped by image edge"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-music-box",
+      "sourcePdfId": "7fc4ca_3870c6de5cc04f26984b7a2f105458f9.pdf",
+      "sourcePdfSha256": "0ff2006d62314f6a37796004724de1fee11c925d0e2580a177055e4550cb64bc",
+      "sourcePage": 24,
+      "candidateMatchedPage": 24,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.280285,
+        "y": 0.092282,
+        "width": 0.500594,
+        "height": 0.848993
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-music-box-source-proposal.webp",
+      "width": 843,
+      "height": 1012,
+      "sha256": "9dcbd7f9f947353993d9fdc47870a6bf2ce5621cffd3dc170eea286286f95f06",
+      "bytes": 89178,
+      "componentCount": 1,
+      "priorVisualFlags": [
+        "Upper-right structural bar cropped by image edge"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-music-doorbell",
+      "sourcePdfId": "7fc4ca_7dcf2c2fb93344f6a95b2d867dc55298.pdf",
+      "sourcePdfSha256": "b15f0a40b38ef896be42787b2754e7da13267848948a59a1362310276f5eb060",
+      "sourcePage": 12,
+      "candidateMatchedPage": 12,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.163302,
+        "y": 0.21057,
+        "width": 0.678741,
+        "height": 0.645134
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-music-doorbell-source-proposal.webp",
+      "width": 1143,
+      "height": 769,
+      "sha256": "b83d11f18b68ffd31ead5cf8ab62eff19c54b806e2c64b7edc7aad62f113095f",
+      "bytes": 97096,
+      "componentCount": 1,
+      "priorVisualFlags": [],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-smart-audio",
+      "sourcePdfId": "7fc4ca_41d0fbb1b727427aae680e6afa835d4d.pdf",
+      "sourcePdfSha256": "37ad32948b214a91c7bb11d7d414d33380235a2449d800f6c54fec88cc6e284b",
+      "sourcePage": 11,
+      "candidateMatchedPage": 11,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.360707,
+        "y": 0.264858,
+        "width": 0.277374,
+        "height": 0.470715
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-smart-audio-source-proposal.webp",
+      "width": 1145,
+      "height": 1093,
+      "sha256": "375db629deb03fd22fedabdb7391e93ac3352cf42bb973a25242e938c4286503",
+      "bytes": 150230,
+      "componentCount": 2,
+      "priorVisualFlags": [
+        "Adjacent assembly thumbnail fragment at top left"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-sonometer",
+      "sourcePdfId": "7fc4ca_24c6b260f92a4311a3c4b8da919ace91.pdf",
+      "sourcePdfSha256": "410685232e69b2d34936a5dcd804ddf3f47e13b46f17381832f71e7179fdaaa2",
+      "sourcePage": 8,
+      "candidateMatchedPage": 7,
+      "useLastPageFallback": true,
+      "sourcePageCropNormalized": {
+        "x": 0.726528,
+        "y": 0.142777,
+        "width": 0.121613,
+        "height": 0.713886
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-sonometer-source-proposal.webp",
+      "width": 386,
+      "height": 1275,
+      "sha256": "7dac9c53b2878d8c235cdb4ba5b6885a15b463dc3cc9aa70e22974ff17e75010",
+      "bytes": 71700,
+      "componentCount": 4,
+      "priorVisualFlags": [
+        "Part inventory and gear cropping"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-sound-level-meter",
+      "sourcePdfId": "7fc4ca_a1da83b7d7044f6f818764858f06a22f.pdf",
+      "sourcePdfSha256": "052ccffc762288f559cfb3e543b1454bcc11deffdc3f47206ec39d46e3216649",
+      "sourcePage": 20,
+      "candidateMatchedPage": 20,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.164489,
+        "y": 0.326342,
+        "width": 0.753563,
+        "height": 0.524329
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-sound-level-meter-source-proposal.webp",
+      "width": 1269,
+      "height": 625,
+      "sha256": "eb08b10f7d4eeeb7a734f92b08ec3eb471b5988ca5684c094162ea4a5b6f3fe1",
+      "bytes": 108062,
+      "componentCount": 1,
+      "priorVisualFlags": [
+        "Left gear train clipped; page line remains"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-f1-racing-car",
+      "sourcePdfId": "7fc4ca_bc0928f33de348fba5c046bddc913815.pdf",
+      "sourcePdfSha256": "61cbde687bf32afefcfa7ea648588ed21d3e2d0aa92bf7d82fe7b7abdd5f9899",
+      "sourcePage": 37,
+      "candidateMatchedPage": 37,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.18431,
+        "y": 0.266517,
+        "width": 0.629805,
+        "height": 0.467525
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-f1-racing-car-source-proposal.webp",
+      "width": 1999,
+      "height": 835,
+      "sha256": "88e0799cffa396b50438fba687467230353e82181743e43695b8ef2a9760e199",
+      "bytes": 169288,
+      "componentCount": 2,
+      "priorVisualFlags": [],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-long-lived-turtle",
+      "sourcePdfId": "7fc4ca_ab5b83edbc3c4dcaab6df9829c6d9076.pdf",
+      "sourcePdfSha256": "83011a8a6a502716eb900967a4d3a6f59f67bef7fd8398afe77a2cc732a4516d",
+      "sourcePage": 23,
+      "candidateMatchedPage": 23,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.089667,
+        "y": 0.153523,
+        "width": 0.821259,
+        "height": 0.772651
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-long-lived-turtle-source-proposal.webp",
+      "width": 1383,
+      "height": 921,
+      "sha256": "749ff4ee0371e0be90876f3730d9524441dc9e94308fc64f045d49480874ed8d",
+      "bytes": 145098,
+      "componentCount": 1,
+      "priorVisualFlags": [],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    },
+    {
+      "variantId": "level-3-lunar-rover",
+      "sourcePdfId": "7fc4ca_cae5df8160384c7098f08542d288b12d.pdf",
+      "sourcePdfSha256": "b88a8f9baa1d204ef9cf671c1a0068c5e588fa149e96b12a03f30ffc5d706368",
+      "sourcePage": 24,
+      "candidateMatchedPage": 24,
+      "useLastPageFallback": false,
+      "sourcePageCropNormalized": {
+        "x": 0.523159,
+        "y": 0.36272,
+        "width": 0.373515,
+        "height": 0.524769
+      },
+      "proposalPath": ".cache/level3-review/proposals/level-3-lunar-rover-source-proposal.webp",
+      "width": 629,
+      "height": 625,
+      "sha256": "8e4e8d7469bd77f3f48afe198d9da0ba0957525b6c2fc33eade2d7e87c20beae",
+      "bytes": 81002,
+      "componentCount": 4,
+      "priorVisualFlags": [
+        "Document frame/borders and adjacent illustration fragment"
+      ],
+      "sourceAuthentic": true,
+      "completedModelAndCropApproval": false,
+      "status": "staging-review-required"
+    }
+  ]
+}

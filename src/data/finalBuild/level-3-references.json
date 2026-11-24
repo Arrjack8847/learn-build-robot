@@ -1,0 +1,3137 @@
+{
+  "schemaVersion": 1,
+  "level": 3,
+  "date": "2026-11-23",
+  "baseSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+  "counts": {
+    "syllabusProjects": 48,
+    "registeredBuildingProjects": 39,
+    "mappedManualVariants": 42,
+    "distinctWixPdfs": 40,
+    "excludedProjects": 9,
+    "approved": 0,
+    "blocked": 42,
+    "verifiedWebps": 0,
+    "verifiedChecklists": 0,
+    "verifiedSourcePdfs": 40
+  },
+  "approvalPolicy": "40 registered PDFs have authenticated byte-level source checks and PDF structural page counts, but image/page visual verification, independent review and source-backed checklists are still required. All references fail closed.",
+  "references": [
+    {
+      "level": 3,
+      "projectId": "level-3-clip-robot",
+      "projectName": "Clip robot",
+      "categoryId": "action-oriented",
+      "category": "Action-Oriented",
+      "variantId": "level-3-clip-robot",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "Clip robot_Building.pdf",
+        "repositoryPath": "public/Clip robot_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b48d0f629fe1421bb4fc4c488a0dce95.pdf",
+        "wixMediaId": "7fc4ca_b48d0f629fe1421bb4fc4c488a0dce95.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_b48d0f629fe1421bb4fc4c488a0dce95.pdf",
+        "historicalPageCount": 30,
+        "historicalGitBlobSha1": "a5b7ceb46d32842808328d9d0b613d0ea9130157",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "5bcac8acc6893fb9180fbf24562ef3f591642dc751440cac42701b308944f28c",
+        "currentPageCount": 30,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_b48d0f629fe1421bb4fc4c488a0dce95.pdf",
+          "bytes": 11186721,
+          "gitBlobSha1": "a5b7ceb46d32842808328d9d0b613d0ea9130157",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "5bcac8acc6893fb9180fbf24562ef3f591642dc751440cac42701b308944f28c"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_b48d0f629fe1421bb4fc4c488a0dce95.pdf",
+        "sourcePage": 30,
+        "matchedSiftInliers": 284,
+        "matchedFeaturePairs": 297,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.13349,
+          "y": 0.10442,
+          "width": 0.56589,
+          "height": 0.6779
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-cycle-sport-basic",
+      "projectName": "Cycle Sport",
+      "categoryId": "action-oriented",
+      "category": "Action-Oriented",
+      "variantId": "level-3-cycle-sport-basic",
+      "variantLabel": "Basic",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "3. Cycle Sport-Basic Building Manual.pdf",
+        "repositoryPath": "public/3. Cycle Sport-Basic Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_6a2df8f4cfff475897c187a70755bff6.pdf",
+        "wixMediaId": "7fc4ca_6a2df8f4cfff475897c187a70755bff6.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_6a2df8f4cfff475897c187a70755bff6.pdf",
+        "historicalPageCount": 21,
+        "historicalGitBlobSha1": "6f6c9ea0b49892055b550782b01d8e791b1ce6a1",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "4bcfdd2f69b666ec92d3aef86479785a41f31cf0707d044582b936d6b9a73d95",
+        "currentPageCount": 21,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_6a2df8f4cfff475897c187a70755bff6.pdf",
+          "bytes": 23318422,
+          "gitBlobSha1": "6f6c9ea0b49892055b550782b01d8e791b1ce6a1",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "4bcfdd2f69b666ec92d3aef86479785a41f31cf0707d044582b936d6b9a73d95"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_6a2df8f4cfff475897c187a70755bff6.pdf",
+        "sourcePage": 21,
+        "matchedSiftInliers": 384,
+        "matchedFeaturePairs": 412,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.29267,
+          "y": 0.11048,
+          "width": 0.41824,
+          "height": 0.80566
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-cycle-sport-basic",
+      "projectName": "Cycle Sport",
+      "categoryId": "action-oriented",
+      "category": "Action-Oriented",
+      "variantId": "level-3-cycle-sport-optimized",
+      "variantLabel": "Optimized",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "3. Cycle Sport-Optimized Building Manual.pdf",
+        "repositoryPath": "public/3. Cycle Sport-Optimized Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dd97e54e02f64fa6990e8db4d18354ca.pdf",
+        "wixMediaId": "7fc4ca_dd97e54e02f64fa6990e8db4d18354ca.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_dd97e54e02f64fa6990e8db4d18354ca.pdf",
+        "historicalPageCount": 6,
+        "historicalGitBlobSha1": "58370ce13bd4492ce57424b712a889ae476db9ec",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "9026906f2574636df80412568fa9e82134d4f9cf7f2089f685761350509f73c5",
+        "currentPageCount": 6,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_dd97e54e02f64fa6990e8db4d18354ca.pdf",
+          "bytes": 7994296,
+          "gitBlobSha1": "58370ce13bd4492ce57424b712a889ae476db9ec",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "9026906f2574636df80412568fa9e82134d4f9cf7f2089f685761350509f73c5"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_dd97e54e02f64fa6990e8db4d18354ca.pdf",
+        "sourcePage": 6,
+        "matchedSiftInliers": 375,
+        "matchedFeaturePairs": 391,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.26565,
+          "y": 0.12052,
+          "width": 0.48919,
+          "height": 0.76824
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-automatic-seesaw",
+      "projectName": "Automatic Seesaw",
+      "categoryId": "automation-security",
+      "category": "Automation & Security",
+      "variantId": "level-3-automatic-seesaw",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "24. Automatic Seesaw -Building Manual.pdf",
+        "repositoryPath": "public/24. Automatic Seesaw -Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d49106300f224a3986bf25c552b894df.pdf",
+        "wixMediaId": "7fc4ca_d49106300f224a3986bf25c552b894df.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_d49106300f224a3986bf25c552b894df.pdf",
+        "historicalPageCount": 29,
+        "historicalGitBlobSha1": "3b58f8f73766eafed4b619c7a1a1f2152be73e1e",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "928ecf07c1cc39f072348fb41c72960f5498825ddd581761ab4ec3866a1c31fd",
+        "currentPageCount": 29,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_d49106300f224a3986bf25c552b894df.pdf",
+          "bytes": 10796425,
+          "gitBlobSha1": "3b58f8f73766eafed4b619c7a1a1f2152be73e1e",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "928ecf07c1cc39f072348fb41c72960f5498825ddd581761ab4ec3866a1c31fd"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_d49106300f224a3986bf25c552b894df.pdf",
+        "sourcePage": 29,
+        "matchedSiftInliers": 477,
+        "matchedFeaturePairs": 511,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.18119,
+          "y": 0.1776,
+          "width": 0.64286,
+          "height": 0.62739
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-security-door",
+      "projectName": "Security door",
+      "categoryId": "automation-security",
+      "category": "Automation & Security",
+      "variantId": "level-3-security-door",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "Security door_Building.pdf",
+        "repositoryPath": "public/Security door_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8fabbeea8d3e434bbb7ff95d65f9e750.pdf",
+        "wixMediaId": "7fc4ca_8fabbeea8d3e434bbb7ff95d65f9e750.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_8fabbeea8d3e434bbb7ff95d65f9e750.pdf",
+        "historicalPageCount": 10,
+        "historicalGitBlobSha1": "03d7becdd7b35c4ec87ff0e3fe32a00b91919906",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "b6cf5cca9dc9ca10c7b95758c2c4711e079ae66adb00ea83f13a4cacd5385def",
+        "currentPageCount": 10,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_8fabbeea8d3e434bbb7ff95d65f9e750.pdf",
+          "bytes": 4868092,
+          "gitBlobSha1": "03d7becdd7b35c4ec87ff0e3fe32a00b91919906",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "b6cf5cca9dc9ca10c7b95758c2c4711e079ae66adb00ea83f13a4cacd5385def"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_8fabbeea8d3e434bbb7ff95d65f9e750.pdf",
+        "sourcePage": 10,
+        "matchedSiftInliers": 410,
+        "matchedFeaturePairs": 446,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.3562,
+          "y": 0.27907,
+          "width": 0.28679,
+          "height": 0.44487
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-smart-door",
+      "projectName": "Smart door",
+      "categoryId": "automation-security",
+      "category": "Automation & Security",
+      "variantId": "level-3-smart-door",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "Smart door_Building.pdf",
+        "repositoryPath": "public/Smart door_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4a51e35447664f778c21a960401809dc.pdf",
+        "wixMediaId": "7fc4ca_4a51e35447664f778c21a960401809dc.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_4a51e35447664f778c21a960401809dc.pdf",
+        "historicalPageCount": 5,
+        "historicalGitBlobSha1": "99db02e958996e1ec0d66d0f7303deb077934de5",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "b4840f25b998d1cd297001e951815385a58675c721ba86f1d22ba10e80ed1716",
+        "currentPageCount": 5,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_4a51e35447664f778c21a960401809dc.pdf",
+          "bytes": 3883470,
+          "gitBlobSha1": "99db02e958996e1ec0d66d0f7303deb077934de5",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "b4840f25b998d1cd297001e951815385a58675c721ba86f1d22ba10e80ed1716"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_4a51e35447664f778c21a960401809dc.pdf",
+        "sourcePage": 5,
+        "matchedSiftInliers": 58,
+        "matchedFeaturePairs": 80,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.39997,
+          "y": 0.19435,
+          "width": 0.44268,
+          "height": 0.70445
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-following-robot",
+      "projectName": "Following Robot",
+      "categoryId": "autonomous-navigation-ranging",
+      "category": "Autonomous Navigation & Ranging",
+      "variantId": "level-3-following-robot",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "Following Robot_Building.pdf",
+        "repositoryPath": "public/Following Robot_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dad2e2f73571417590aa81a368936a4e.pdf",
+        "wixMediaId": "7fc4ca_dad2e2f73571417590aa81a368936a4e.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_dad2e2f73571417590aa81a368936a4e.pdf",
+        "historicalPageCount": 9,
+        "historicalGitBlobSha1": "ac69d581c188c7569669246a2eadbce94257ed59",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "4db51e13781a6bd994b3487e85b56cc282f07594cffe962d2d8c46be59efddd0",
+        "currentPageCount": 9,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_dad2e2f73571417590aa81a368936a4e.pdf",
+          "bytes": 6655951,
+          "gitBlobSha1": "ac69d581c188c7569669246a2eadbce94257ed59",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "4db51e13781a6bd994b3487e85b56cc282f07594cffe962d2d8c46be59efddd0"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_dad2e2f73571417590aa81a368936a4e.pdf",
+        "sourcePage": 8,
+        "matchedSiftInliers": 179,
+        "matchedFeaturePairs": 188,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.23941,
+          "y": 0.11901,
+          "width": 0.57172,
+          "height": 0.81043
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-obstacle-avoidance-robot-1",
+      "projectName": "Obstacle Avoidance Robot 1",
+      "categoryId": "autonomous-navigation-ranging",
+      "category": "Autonomous Navigation & Ranging",
+      "variantId": "level-3-obstacle-avoidance-robot-1",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "Obstacle Avoidance Robot 1_Building.pdf",
+        "repositoryPath": "public/Obstacle Avoidance Robot 1_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_49d85ca5d7d24f42b9b349775f8704aa.pdf",
+        "wixMediaId": "7fc4ca_49d85ca5d7d24f42b9b349775f8704aa.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_49d85ca5d7d24f42b9b349775f8704aa.pdf",
+        "historicalPageCount": 11,
+        "historicalGitBlobSha1": "e61505dcb3e4c0f19123408449c93c2253d3e283",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "67bdcdb78ae30b6bd8b59b34426c0f79258a9bdbe0f5a138b4df828a4c079ff8",
+        "currentPageCount": 11,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_49d85ca5d7d24f42b9b349775f8704aa.pdf",
+          "bytes": 9637658,
+          "gitBlobSha1": "e61505dcb3e4c0f19123408449c93c2253d3e283",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "67bdcdb78ae30b6bd8b59b34426c0f79258a9bdbe0f5a138b4df828a4c079ff8"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_49d85ca5d7d24f42b9b349775f8704aa.pdf",
+        "sourcePage": 11,
+        "matchedSiftInliers": 198,
+        "matchedFeaturePairs": 228,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.26948,
+          "y": 0.22913,
+          "width": 0.39015,
+          "height": 0.66094
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-sunflower",
+      "projectName": "Sunflower",
+      "categoryId": "biomimicry-stimulus-response",
+      "category": "Biomimicry & Stimulus Response",
+      "variantId": "level-3-sunflower",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "Sunflower.pdf",
+        "repositoryPath": "public/Sunflower.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3b60569142624d218cdbd6d6ecc4a3b1.pdf",
+        "wixMediaId": "7fc4ca_3b60569142624d218cdbd6d6ecc4a3b1.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_3b60569142624d218cdbd6d6ecc4a3b1.pdf",
+        "historicalPageCount": 14,
+        "historicalGitBlobSha1": "84c4ee8db080d4f2ca2991a03c7ed5c8d5307461",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "dc44b18f50b9e5d8e4f2e4074a42e2973be6b11ea34032589d34b5dda99fc7bb",
+        "currentPageCount": 14,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_3b60569142624d218cdbd6d6ecc4a3b1.pdf",
+          "bytes": 9345616,
+          "gitBlobSha1": "84c4ee8db080d4f2ca2991a03c7ed5c8d5307461",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "dc44b18f50b9e5d8e4f2e4074a42e2973be6b11ea34032589d34b5dda99fc7bb"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_3b60569142624d218cdbd6d6ecc4a3b1.pdf",
+        "sourcePage": 14,
+        "matchedSiftInliers": 305,
+        "matchedFeaturePairs": 319,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.30978,
+          "y": 0.01953,
+          "width": 0.39041,
+          "height": 0.92991
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-electric-bulldozer",
+      "projectName": "Electric Bulldozer",
+      "categoryId": "characters-structures",
+      "category": "Characters & Structures",
+      "variantId": "level-3-electric-bulldozer",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "23.Electric Bulldozer -Building Manual.pdf",
+        "repositoryPath": "public/23.Electric Bulldozer -Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c4cdf5cb69614575b6efb595355beb86.pdf",
+        "wixMediaId": "7fc4ca_c4cdf5cb69614575b6efb595355beb86.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_c4cdf5cb69614575b6efb595355beb86.pdf",
+        "historicalPageCount": 26,
+        "historicalGitBlobSha1": "6af098a5a9ea6bde37a01a5549187f0b37026c14",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "5aad4a8525cb2981206ab4fa95e5dfeab221c3084a5840e13a42db993e1b5218",
+        "currentPageCount": 26,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_c4cdf5cb69614575b6efb595355beb86.pdf",
+          "bytes": 9513897,
+          "gitBlobSha1": "6af098a5a9ea6bde37a01a5549187f0b37026c14",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "5aad4a8525cb2981206ab4fa95e5dfeab221c3084a5840e13a42db993e1b5218"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_c4cdf5cb69614575b6efb595355beb86.pdf",
+        "sourcePage": 26,
+        "matchedSiftInliers": 376,
+        "matchedFeaturePairs": 423,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.18977,
+          "y": 0.10676,
+          "width": 0.62341,
+          "height": 0.78092
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-electric-fan-characters-structures",
+      "projectName": "Electric Fan",
+      "categoryId": "characters-structures",
+      "category": "Characters & Structures",
+      "variantId": "level-3-electric-fan-characters-structures",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "05.Electric Fan-Building Manual.pdf",
+        "repositoryPath": "public/05.Electric Fan-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+        "wixMediaId": "7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+        "historicalPageCount": 12,
+        "historicalGitBlobSha1": "5526dcd1f86e025a7c016363f1d81647255543f1",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+        "currentPageCount": 12,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+          "bytes": 3692066,
+          "gitBlobSha1": "5526dcd1f86e025a7c016363f1d81647255543f1",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+        "sourcePage": 12,
+        "matchedSiftInliers": 446,
+        "matchedFeaturePairs": 481,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.23982,
+          "y": 0.09973,
+          "width": 0.63999,
+          "height": 0.82017
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-safe",
+      "projectName": "Safe",
+      "categoryId": "characters-structures",
+      "category": "Characters & Structures",
+      "variantId": "level-3-safe",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "15.Safe -Building Manual.pdf",
+        "repositoryPath": "public/15.Safe -Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d09f63c7e6a44cd1bb5fdafe9e11efb1.pdf",
+        "wixMediaId": "7fc4ca_d09f63c7e6a44cd1bb5fdafe9e11efb1.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_d09f63c7e6a44cd1bb5fdafe9e11efb1.pdf",
+        "historicalPageCount": 24,
+        "historicalGitBlobSha1": "eb59936b933ffca57769e24093959de5278f7e9c",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "3a0e0c3a45e024059a406f6c0d54e08e65ba5e340926f372b246bb0aa99721bf",
+        "currentPageCount": 24,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_d09f63c7e6a44cd1bb5fdafe9e11efb1.pdf",
+          "bytes": 6942434,
+          "gitBlobSha1": "eb59936b933ffca57769e24093959de5278f7e9c",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "3a0e0c3a45e024059a406f6c0d54e08e65ba5e340926f372b246bb0aa99721bf"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_d09f63c7e6a44cd1bb5fdafe9e11efb1.pdf",
+        "sourcePage": 24,
+        "matchedSiftInliers": 394,
+        "matchedFeaturePairs": 421,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.20392,
+          "y": 0.15138,
+          "width": 0.55516,
+          "height": 0.7639
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-smart-trash-bin",
+      "projectName": "Smart Trash Bin",
+      "categoryId": "characters-structures",
+      "category": "Characters & Structures",
+      "variantId": "level-3-smart-trash-bin",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "20.Smart Trash Bin-Building Manual.pdf",
+        "repositoryPath": "public/20.Smart Trash Bin-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_70455707868643188c4e310a6eda9940.pdf",
+        "wixMediaId": "7fc4ca_70455707868643188c4e310a6eda9940.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_70455707868643188c4e310a6eda9940.pdf",
+        "historicalPageCount": 22,
+        "historicalGitBlobSha1": "7fe5fb43232b10dfb335d96cc6c43df75c71c537",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "3c63afc1068bfb132a8d0150755a87fd3975905e77839de6fd5a6ceb78458e60",
+        "currentPageCount": 22,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_70455707868643188c4e310a6eda9940.pdf",
+          "bytes": 6521735,
+          "gitBlobSha1": "7fe5fb43232b10dfb335d96cc6c43df75c71c537",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "3c63afc1068bfb132a8d0150755a87fd3975905e77839de6fd5a6ceb78458e60"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_70455707868643188c4e310a6eda9940.pdf",
+        "sourcePage": 22,
+        "matchedSiftInliers": 356,
+        "matchedFeaturePairs": 388,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.27081,
+          "y": 0.12391,
+          "width": 0.48901,
+          "height": 0.78437
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-lifting-maintenance-vehicle",
+      "projectName": "Lifting Maintenance Vehicle",
+      "categoryId": "construction-industry",
+      "category": "Construction & Industry",
+      "variantId": "level-3-lifting-maintenance-vehicle",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "Lifting Maintenance Vehicle.pdf",
+        "repositoryPath": "public/Lifting Maintenance Vehicle.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_62b3ca692f6f47b79433f9e2b43b1106.pdf",
+        "wixMediaId": "7fc4ca_62b3ca692f6f47b79433f9e2b43b1106.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_62b3ca692f6f47b79433f9e2b43b1106.pdf",
+        "historicalPageCount": 22,
+        "historicalGitBlobSha1": "6b7da9e2496b02780b96b229b0e068abf8fd5f95",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "6e5921a4926105cdf3467ef0adff2c2ba1d215dd48d9f29327bdfa2e1f983c5f",
+        "currentPageCount": 22,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_62b3ca692f6f47b79433f9e2b43b1106.pdf",
+          "bytes": 23827851,
+          "gitBlobSha1": "6b7da9e2496b02780b96b229b0e068abf8fd5f95",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "6e5921a4926105cdf3467ef0adff2c2ba1d215dd48d9f29327bdfa2e1f983c5f"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_62b3ca692f6f47b79433f9e2b43b1106.pdf",
+        "sourcePage": 5,
+        "matchedSiftInliers": 212,
+        "matchedFeaturePairs": 246,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.43909,
+          "y": 0.16937,
+          "width": 0.49023,
+          "height": 0.78993
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-automated-guided-vehicle",
+      "projectName": "Automated Guided Vehicle",
+      "categoryId": "display-movement",
+      "category": "Display & Movement",
+      "variantId": "level-3-automated-guided-vehicle",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "24.Automated Guided Vehicle-Building Manual.pdf",
+        "repositoryPath": "public/24.Automated Guided Vehicle-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_819b76017e764fcbba4d8d00ef18949f.pdf",
+        "wixMediaId": "7fc4ca_819b76017e764fcbba4d8d00ef18949f.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_819b76017e764fcbba4d8d00ef18949f.pdf",
+        "historicalPageCount": 24,
+        "historicalGitBlobSha1": "ab64321405422d0b89dcb9a45772a450e060d5ce",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "db57e69925fbab00995f65adaf1c48248604e9aebe864ff4a0653c870e7f6b69",
+        "currentPageCount": 24,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_819b76017e764fcbba4d8d00ef18949f.pdf",
+          "bytes": 7824597,
+          "gitBlobSha1": "ab64321405422d0b89dcb9a45772a450e060d5ce",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "db57e69925fbab00995f65adaf1c48248604e9aebe864ff4a0653c870e7f6b69"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_819b76017e764fcbba4d8d00ef18949f.pdf",
+        "sourcePage": 24,
+        "matchedSiftInliers": 338,
+        "matchedFeaturePairs": 382,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.22503,
+          "y": 0.13766,
+          "width": 0.58173,
+          "height": 0.76795
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-race-walking-basic",
+      "projectName": "Race Walking",
+      "categoryId": "display-movement",
+      "category": "Display & Movement",
+      "variantId": "level-3-race-walking-basic",
+      "variantLabel": "Basic",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "1. Race Walking - Basic Building Manual.pdf",
+        "repositoryPath": "public/1. Race Walking - Basic Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_40ddc7964dab4006b0b855b7aeb59406.pdf",
+        "wixMediaId": "7fc4ca_40ddc7964dab4006b0b855b7aeb59406.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_40ddc7964dab4006b0b855b7aeb59406.pdf",
+        "historicalPageCount": 7,
+        "historicalGitBlobSha1": "b6e2a731e486b8ddf1402df179e966795f204781",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "b1de0b9ac608240758e9173fad5fd2f66d96ebbc8164ef7df2931db0acc5c1fa",
+        "currentPageCount": 7,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_40ddc7964dab4006b0b855b7aeb59406.pdf",
+          "bytes": 7658532,
+          "gitBlobSha1": "b6e2a731e486b8ddf1402df179e966795f204781",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "b1de0b9ac608240758e9173fad5fd2f66d96ebbc8164ef7df2931db0acc5c1fa"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_40ddc7964dab4006b0b855b7aeb59406.pdf",
+        "sourcePage": 7,
+        "matchedSiftInliers": 361,
+        "matchedFeaturePairs": 412,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.29355,
+          "y": 0.11026,
+          "width": 0.46296,
+          "height": 0.80775
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-race-walking-basic",
+      "projectName": "Race Walking",
+      "categoryId": "display-movement",
+      "category": "Display & Movement",
+      "variantId": "level-3-race-walking-optimized",
+      "variantLabel": "Optimized",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "1. Race Walking - Optimized Building Manual.pdf",
+        "repositoryPath": "public/1. Race Walking - Optimized Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_605e48fe69f641e29f7aeb53056a9d1c.pdf",
+        "wixMediaId": "7fc4ca_605e48fe69f641e29f7aeb53056a9d1c.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_605e48fe69f641e29f7aeb53056a9d1c.pdf",
+        "historicalPageCount": 6,
+        "historicalGitBlobSha1": "68535fb14b515e980237b3f969466facbcd98060",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "638c446ffcbdb9d63965b4aa5d85f4f2bb551d77ed7ee2301cc81575fb753825",
+        "currentPageCount": 6,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_605e48fe69f641e29f7aeb53056a9d1c.pdf",
+          "bytes": 7353583,
+          "gitBlobSha1": "68535fb14b515e980237b3f969466facbcd98060",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "638c446ffcbdb9d63965b4aa5d85f4f2bb551d77ed7ee2301cc81575fb753825"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_605e48fe69f641e29f7aeb53056a9d1c.pdf",
+        "sourcePage": 6,
+        "matchedSiftInliers": 393,
+        "matchedFeaturePairs": 426,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.28586,
+          "y": 0.11021,
+          "width": 0.46611,
+          "height": 0.82028
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-race-walking-basic",
+      "projectName": "Race Walking",
+      "categoryId": "display-movement",
+      "category": "Display & Movement",
+      "variantId": "level-3-race-walking-optimized-ratchet",
+      "variantLabel": "Optimized + Ratchet",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "1. Race Walking - Optimized Building Manual - Added Ratchet.pdf",
+        "repositoryPath": "public/1. Race Walking - Optimized Building Manual - Added Ratchet.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d7fd406eeee64108b91a20b812e3a521.pdf",
+        "wixMediaId": "7fc4ca_d7fd406eeee64108b91a20b812e3a521.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_d7fd406eeee64108b91a20b812e3a521.pdf",
+        "historicalPageCount": 2,
+        "historicalGitBlobSha1": "4cb49db89cf60b8810d7d3d10138324541d317c8",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "0b3f192781910bd79b241951b6079ccdf8668cd6545207fd02a0ba4805580b9c",
+        "currentPageCount": 2,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_d7fd406eeee64108b91a20b812e3a521.pdf",
+          "bytes": 2480952,
+          "gitBlobSha1": "4cb49db89cf60b8810d7d3d10138324541d317c8",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "0b3f192781910bd79b241951b6079ccdf8668cd6545207fd02a0ba4805580b9c"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_d7fd406eeee64108b91a20b812e3a521.pdf",
+        "sourcePage": 2,
+        "matchedSiftInliers": 407,
+        "matchedFeaturePairs": 433,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.14908,
+          "y": 0.01941,
+          "width": 0.73029,
+          "height": 0.93081
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-bumper-car-foundational-robots",
+      "projectName": "Bumper car",
+      "categoryId": "foundational-robots",
+      "category": "Foundational Robots",
+      "variantId": "level-3-bumper-car-foundational-robots",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "Bumper car_Building.pdf",
+        "repositoryPath": "public/Bumper car_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+        "wixMediaId": "7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+        "historicalPageCount": 13,
+        "historicalGitBlobSha1": "ea125a179e492944bdbf1d02753bca32e7716bfc",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+        "currentPageCount": 13,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+          "bytes": 6118026,
+          "gitBlobSha1": "ea125a179e492944bdbf1d02753bca32e7716bfc",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+        "sourcePage": 13,
+        "matchedSiftInliers": 234,
+        "matchedFeaturePairs": 261,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.12866,
+          "y": 0.11835,
+          "width": 0.5526,
+          "height": 0.63818
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-disinfection-lamp",
+      "projectName": "Disinfection Lamp",
+      "categoryId": "illumination-signals",
+      "category": "Illumination & Signals",
+      "variantId": "level-3-disinfection-lamp",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "13.Disinfection Lamp-Building Manual.pdf",
+        "repositoryPath": "public/13.Disinfection Lamp-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_554500219aa24df9b769c8bc8b37513f.pdf",
+        "wixMediaId": "7fc4ca_554500219aa24df9b769c8bc8b37513f.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_554500219aa24df9b769c8bc8b37513f.pdf",
+        "historicalPageCount": 20,
+        "historicalGitBlobSha1": "40e3072459b2597e4eb29771a3af4ac78ad9c236",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "82f9a3faaa571777142b944904c2c69b2c328405d6d6b24205a653b18c920970",
+        "currentPageCount": 20,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_554500219aa24df9b769c8bc8b37513f.pdf",
+          "bytes": 6161967,
+          "gitBlobSha1": "40e3072459b2597e4eb29771a3af4ac78ad9c236",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "82f9a3faaa571777142b944904c2c69b2c328405d6d6b24205a653b18c920970"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_554500219aa24df9b769c8bc8b37513f.pdf",
+        "sourcePage": 20,
+        "matchedSiftInliers": 378,
+        "matchedFeaturePairs": 415,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.2603,
+          "y": 0.21109,
+          "width": 0.49878,
+          "height": 0.65838
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-flashlight-sensor",
+      "projectName": "Flashlight Sensor",
+      "categoryId": "illumination-signals",
+      "category": "Illumination & Signals",
+      "variantId": "level-3-flashlight-sensor",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "04.Flashlight-Building Manual.pdf",
+        "repositoryPath": "public/04.Flashlight-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_60546b12a6db461386a9864fc146d625.pdf",
+        "wixMediaId": "7fc4ca_60546b12a6db461386a9864fc146d625.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_60546b12a6db461386a9864fc146d625.pdf",
+        "historicalPageCount": 12,
+        "historicalGitBlobSha1": "7c3150b2641e06394d9f1c34336982e64b0733ce",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "1cf47dcb9585719a750d95d7ea2be39577fee58fc9081cfeffbdaacf41c15d76",
+        "currentPageCount": 12,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_60546b12a6db461386a9864fc146d625.pdf",
+          "bytes": 3928338,
+          "gitBlobSha1": "7c3150b2641e06394d9f1c34336982e64b0733ce",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "1cf47dcb9585719a750d95d7ea2be39577fee58fc9081cfeffbdaacf41c15d76"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_60546b12a6db461386a9864fc146d625.pdf",
+        "sourcePage": 12,
+        "matchedSiftInliers": 311,
+        "matchedFeaturePairs": 351,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.26646,
+          "y": 0.25318,
+          "width": 0.48035,
+          "height": 0.55693
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-light-sensitive-curtains",
+      "projectName": "Light-sensitive Curtains",
+      "categoryId": "illumination-signals",
+      "category": "Illumination & Signals",
+      "variantId": "level-3-light-sensitive-curtains",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "14.Light-sensitive Curtains -Building Manual.pdf",
+        "repositoryPath": "public/14.Light-sensitive Curtains -Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7a86681377184c5ea2c5b9bb96b7040d.pdf",
+        "wixMediaId": "7fc4ca_7a86681377184c5ea2c5b9bb96b7040d.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_7a86681377184c5ea2c5b9bb96b7040d.pdf",
+        "historicalPageCount": 28,
+        "historicalGitBlobSha1": "e91d74604d885d7ac0ec02a019ffc8c48606c36a",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "e07668fe94a7de00fed87c8a7bcd482f0d75b1be8eeafe99c7456ed3cb348df9",
+        "currentPageCount": 28,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_7a86681377184c5ea2c5b9bb96b7040d.pdf",
+          "bytes": 7066042,
+          "gitBlobSha1": "e91d74604d885d7ac0ec02a019ffc8c48606c36a",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "e07668fe94a7de00fed87c8a7bcd482f0d75b1be8eeafe99c7456ed3cb348df9"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_7a86681377184c5ea2c5b9bb96b7040d.pdf",
+        "sourcePage": 28,
+        "matchedSiftInliers": 325,
+        "matchedFeaturePairs": 354,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.22753,
+          "y": 0.14165,
+          "width": 0.56322,
+          "height": 0.72188
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-bumper-car-interactive-mechanisms",
+      "projectName": "Bumper car",
+      "categoryId": "interactive-mechanisms",
+      "category": "Interactive Mechanisms",
+      "variantId": "level-3-bumper-car-interactive-mechanisms",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "Bumper car_Building.pdf",
+        "repositoryPath": "public/Bumper car_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+        "wixMediaId": "7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+        "historicalPageCount": 13,
+        "historicalGitBlobSha1": "ea125a179e492944bdbf1d02753bca32e7716bfc",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5",
+        "currentPageCount": 13,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+          "bytes": 6118026,
+          "gitBlobSha1": "ea125a179e492944bdbf1d02753bca32e7716bfc",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "49c2022dc8cc838de6545f420022cbd71bace617deb524ca3122f694364b96a5"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_0d7ee49737b743e9beada84376a0edf3.pdf",
+        "sourcePage": 13,
+        "matchedSiftInliers": 234,
+        "matchedFeaturePairs": 261,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.12866,
+          "y": 0.11835,
+          "width": 0.5526,
+          "height": 0.63818
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-anti-fall-robot",
+      "projectName": "Anti-fall Robot",
+      "categoryId": "interactive-systems",
+      "category": "Interactive Systems",
+      "variantId": "level-3-anti-fall-robot",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "11.Anti-fall Robot-Building Manual.pdf",
+        "repositoryPath": "public/11.Anti-fall Robot-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_04a7868dd78a4216839d6ab3bc575381.pdf",
+        "wixMediaId": "7fc4ca_04a7868dd78a4216839d6ab3bc575381.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_04a7868dd78a4216839d6ab3bc575381.pdf",
+        "historicalPageCount": 16,
+        "historicalGitBlobSha1": "bf0f4db6aee851eea552fe4fcc58c13d7d62f28c",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "0065cad3da26f5ccbe13e680c0a5f187de80c372e3b112548c01dfaa7b00ce7f",
+        "currentPageCount": 16,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_04a7868dd78a4216839d6ab3bc575381.pdf",
+          "bytes": 4991217,
+          "gitBlobSha1": "bf0f4db6aee851eea552fe4fcc58c13d7d62f28c",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "0065cad3da26f5ccbe13e680c0a5f187de80c372e3b112548c01dfaa7b00ce7f"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_04a7868dd78a4216839d6ab3bc575381.pdf",
+        "sourcePage": 16,
+        "matchedSiftInliers": 322,
+        "matchedFeaturePairs": 360,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.21546,
+          "y": 0.15506,
+          "width": 0.53816,
+          "height": 0.72199
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-automatic-door",
+      "projectName": "Automatic Door",
+      "categoryId": "interactive-systems",
+      "category": "Interactive Systems",
+      "variantId": "level-3-automatic-door",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "17.Automatic Door -Building Manual.pdf",
+        "repositoryPath": "public/17.Automatic Door -Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c2ff026d9c484c81b5e0f47d6c092230.pdf",
+        "wixMediaId": "7fc4ca_c2ff026d9c484c81b5e0f47d6c092230.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_c2ff026d9c484c81b5e0f47d6c092230.pdf",
+        "historicalPageCount": 23,
+        "historicalGitBlobSha1": "8a28b083039ee8d6f9805d17573e5f28ab0d70d7",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "0168d11271a6646952361113c3fe7e29ee6cb099bf1bd2447f1439ce2dc68a80",
+        "currentPageCount": 23,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_c2ff026d9c484c81b5e0f47d6c092230.pdf",
+          "bytes": 7319134,
+          "gitBlobSha1": "8a28b083039ee8d6f9805d17573e5f28ab0d70d7",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "0168d11271a6646952361113c3fe7e29ee6cb099bf1bd2447f1439ce2dc68a80"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_c2ff026d9c484c81b5e0f47d6c092230.pdf",
+        "sourcePage": 23,
+        "matchedSiftInliers": 299,
+        "matchedFeaturePairs": 363,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.21089,
+          "y": 0.23712,
+          "width": 0.58153,
+          "height": 0.54665
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-juicer-machine",
+      "projectName": "Juicer Machine",
+      "categoryId": "interactive-systems",
+      "category": "Interactive Systems",
+      "variantId": "level-3-juicer-machine",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "06..Juicer Machine-Building Manual.pdf",
+        "repositoryPath": "public/06..Juicer Machine-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_62d1352e9abe4d26b7c5c764962615dc.pdf",
+        "wixMediaId": "7fc4ca_62d1352e9abe4d26b7c5c764962615dc.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_62d1352e9abe4d26b7c5c764962615dc.pdf",
+        "historicalPageCount": 14,
+        "historicalGitBlobSha1": "4f0afb1938a516c540603da9d852b4a509f17294",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "225d502801598f7c50cdf702ff219454cb64e9ca884c68887664f99801eddd62",
+        "currentPageCount": 14,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_62d1352e9abe4d26b7c5c764962615dc.pdf",
+          "bytes": 4569325,
+          "gitBlobSha1": "4f0afb1938a516c540603da9d852b4a509f17294",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "225d502801598f7c50cdf702ff219454cb64e9ca884c68887664f99801eddd62"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_62d1352e9abe4d26b7c5c764962615dc.pdf",
+        "sourcePage": 14,
+        "matchedSiftInliers": 346,
+        "matchedFeaturePairs": 383,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.2353,
+          "y": 0.11078,
+          "width": 0.53525,
+          "height": 0.8111
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-washing-machine",
+      "projectName": "Washing Machine",
+      "categoryId": "interactive-systems",
+      "category": "Interactive Systems",
+      "variantId": "level-3-washing-machine",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "08.Washing Machine-Building Manual.pdf",
+        "repositoryPath": "public/08.Washing Machine-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c4d4661ef7c14b3ba047ccefb7c20944.pdf",
+        "wixMediaId": "7fc4ca_c4d4661ef7c14b3ba047ccefb7c20944.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_c4d4661ef7c14b3ba047ccefb7c20944.pdf",
+        "historicalPageCount": 18,
+        "historicalGitBlobSha1": "b6598180cda7dd76906d29bf2b32f609d278068c",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "3b0362c124754e823d2e59eb753f48e30272a626f3721abbddd0a0aef1c74ca3",
+        "currentPageCount": 18,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_c4d4661ef7c14b3ba047ccefb7c20944.pdf",
+          "bytes": 5838232,
+          "gitBlobSha1": "b6598180cda7dd76906d29bf2b32f609d278068c",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "3b0362c124754e823d2e59eb753f48e30272a626f3721abbddd0a0aef1c74ca3"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_c4d4661ef7c14b3ba047ccefb7c20944.pdf",
+        "sourcePage": 18,
+        "matchedSiftInliers": 417,
+        "matchedFeaturePairs": 452,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.23869,
+          "y": 0.11423,
+          "width": 0.52407,
+          "height": 0.78703
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-electronic-scale",
+      "projectName": "Electronic scale",
+      "categoryId": "manipulators",
+      "category": "Manipulators",
+      "variantId": "level-3-electronic-scale",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "Electronic scale.pdf",
+        "repositoryPath": "public/Electronic scale.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9ea1f915116b429895c75c161797983d.pdf",
+        "wixMediaId": "78042f_9ea1f915116b429895c75c161797983d.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 78042f_9ea1f915116b429895c75c161797983d.pdf",
+        "historicalPageCount": 27,
+        "historicalGitBlobSha1": "3afceb33862213ed99d10bfa0fb4d994c57a7184",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": {
+          "gitBlobSha1": "a56708e48fb4f4337ea9578823a5cbace65eab06",
+          "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9ea1f915116b429895c75c161797983d.pdf",
+          "reportedPageCount": 27
+        },
+        "pdfSha256": "d8b367f8dc8ac6d1d498cd39b575d44bf606f1fe8619c79ac96373a60603d127",
+        "currentPageCount": 27,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "78042f_9ea1f915116b429895c75c161797983d.pdf",
+          "bytes": 1696344,
+          "gitBlobSha1": "a56708e48fb4f4337ea9578823a5cbace65eab06",
+          "identityMatched": "historical-repaired-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "d8b367f8dc8ac6d1d498cd39b575d44bf606f1fe8619c79ac96373a60603d127"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "78042f_9ea1f915116b429895c75c161797983d.pdf",
+        "sourcePage": 22,
+        "matchedSiftInliers": 425,
+        "matchedFeaturePairs": 474,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.30946,
+          "y": 0.20437,
+          "width": 0.52737,
+          "height": 0.66075
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-gyro-transmitter",
+      "projectName": "Gyro transmitter",
+      "categoryId": "manipulators",
+      "category": "Manipulators",
+      "variantId": "level-3-gyro-transmitter",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "Gyro transmitter_Building.pdf",
+        "repositoryPath": "public/Gyro transmitter_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+        "wixMediaId": "78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+        "historicalPageCount": 17,
+        "historicalGitBlobSha1": "82871820203830b6932c5b314ab7afa70183f215",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": {
+          "gitBlobSha1": "e0c905c9b5affabddac75de96f7de0481d0a210d",
+          "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+          "reportedPageCount": 17
+        },
+        "pdfSha256": "d5f2cbe35d9c7bb445f0ac144b305d26d72dfdd04057ee6226567cf278313bb9",
+        "currentPageCount": 17,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+          "bytes": 3770940,
+          "gitBlobSha1": "e0c905c9b5affabddac75de96f7de0481d0a210d",
+          "identityMatched": "historical-repaired-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "d5f2cbe35d9c7bb445f0ac144b305d26d72dfdd04057ee6226567cf278313bb9"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "78042f_dc7bf8e56efd48aea4287a32059f0012.pdf",
+        "sourcePage": 1,
+        "matchedSiftInliers": 251,
+        "matchedFeaturePairs": 500,
+        "sourceCropEstimatedNormalized": {
+          "x": 0,
+          "y": 0,
+          "width": 0.75117,
+          "height": 0.9784
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-electric-fan-mechanisms-and-concepts",
+      "projectName": "Electric fan",
+      "categoryId": "mechanisms-and-concepts",
+      "category": "Mechanisms and Concepts",
+      "variantId": "level-3-electric-fan-mechanisms-and-concepts",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "05.Electric Fan-Building Manual.pdf",
+        "repositoryPath": "public/05.Electric Fan-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+        "wixMediaId": "7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+        "historicalPageCount": 12,
+        "historicalGitBlobSha1": "5526dcd1f86e025a7c016363f1d81647255543f1",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2",
+        "currentPageCount": 12,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+          "bytes": 3692066,
+          "gitBlobSha1": "5526dcd1f86e025a7c016363f1d81647255543f1",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "76c23bdd8b2a565697ef18dcc5aa79166212935796cd1f4c26ab6be96cfe25d2"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_d235dca4f87b454bb92158b09a6bbc51.pdf",
+        "sourcePage": 12,
+        "matchedSiftInliers": 455,
+        "matchedFeaturePairs": 506,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.23929,
+          "y": 0.09946,
+          "width": 0.64041,
+          "height": 0.82052
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-biting-monster",
+      "projectName": "Biting Monster",
+      "categoryId": "sensors",
+      "category": "Sensors",
+      "variantId": "level-3-biting-monster",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "Biting Monster.pdf",
+        "repositoryPath": "public/Biting Monster.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_65ab7f6608544c17a9dde9da09af12c8.pdf",
+        "wixMediaId": "7fc4ca_65ab7f6608544c17a9dde9da09af12c8.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_65ab7f6608544c17a9dde9da09af12c8.pdf",
+        "historicalPageCount": 24,
+        "historicalGitBlobSha1": "12e6817e8bdc45b6e27c8738d84454c67dd7c424",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "bc4fb8970464c327a463f2d36e1b756fdf6c5d96cb94acdf8511bd919a0d3051",
+        "currentPageCount": 24,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_65ab7f6608544c17a9dde9da09af12c8.pdf",
+          "bytes": 19489610,
+          "gitBlobSha1": "12e6817e8bdc45b6e27c8738d84454c67dd7c424",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "bc4fb8970464c327a463f2d36e1b756fdf6c5d96cb94acdf8511bd919a0d3051"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_65ab7f6608544c17a9dde9da09af12c8.pdf",
+        "sourcePage": 5,
+        "matchedSiftInliers": 159,
+        "matchedFeaturePairs": 195,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.41942,
+          "y": 0.11951,
+          "width": 0.56043,
+          "height": 0.80013
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-electric-gyro-launcher",
+      "projectName": "Electric Gyro Launcher",
+      "categoryId": "sensors",
+      "category": "Sensors",
+      "variantId": "level-3-electric-gyro-launcher",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "Electric Gyro Launcher.pdf",
+        "repositoryPath": "public/Electric Gyro Launcher.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9f299f0c26c74943a8d90f30edb11246.pdf",
+        "wixMediaId": "7fc4ca_9f299f0c26c74943a8d90f30edb11246.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_9f299f0c26c74943a8d90f30edb11246.pdf",
+        "historicalPageCount": 12,
+        "historicalGitBlobSha1": "3d28bbef01ceeee9749fc009efffbf07e261e6f4",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "6c2837f3694b724375ca1c5b29041a07ad0175d6232c89719c5478ae9493696b",
+        "currentPageCount": 12,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_9f299f0c26c74943a8d90f30edb11246.pdf",
+          "bytes": 6244587,
+          "gitBlobSha1": "3d28bbef01ceeee9749fc009efffbf07e261e6f4",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "6c2837f3694b724375ca1c5b29041a07ad0175d6232c89719c5478ae9493696b"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_9f299f0c26c74943a8d90f30edb11246.pdf",
+        "sourcePage": 11,
+        "matchedSiftInliers": 175,
+        "matchedFeaturePairs": 200,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.4594,
+          "y": 0.19779,
+          "width": 0.47049,
+          "height": 0.68134
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-responder",
+      "projectName": "Responder",
+      "categoryId": "sensors",
+      "category": "Sensors",
+      "variantId": "level-3-responder",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "Responder.pdf",
+        "repositoryPath": "public/Responder.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f39cdbb5cfb34248a850cdd356c1156f.pdf",
+        "wixMediaId": "7fc4ca_f39cdbb5cfb34248a850cdd356c1156f.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_f39cdbb5cfb34248a850cdd356c1156f.pdf",
+        "historicalPageCount": 12,
+        "historicalGitBlobSha1": "7d621e24ed155d78f1917b6de3a27b093be8b763",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "3f999ea08653b91ef5c3e73b2d56cd51645ae01383e61bac6c904c1f81def151",
+        "currentPageCount": 12,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_f39cdbb5cfb34248a850cdd356c1156f.pdf",
+          "bytes": 8584798,
+          "gitBlobSha1": "7d621e24ed155d78f1917b6de3a27b093be8b763",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "3f999ea08653b91ef5c3e73b2d56cd51645ae01383e61bac6c904c1f81def151"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_f39cdbb5cfb34248a850cdd356c1156f.pdf",
+        "sourcePage": 11,
+        "matchedSiftInliers": 127,
+        "matchedFeaturePairs": 160,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.51682,
+          "y": 0.32237,
+          "width": 0.32204,
+          "height": 0.56594
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-electric-guitar",
+      "projectName": "Electric guitar",
+      "categoryId": "sound-voice-interaction",
+      "category": "Sound & Voice Interaction",
+      "variantId": "level-3-electric-guitar",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "10.Electric guitar_Building.pdf",
+        "repositoryPath": "public/10.Electric guitar_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_40e1c1967c774d0e83916ace3220b896.pdf",
+        "wixMediaId": "7fc4ca_40e1c1967c774d0e83916ace3220b896.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_40e1c1967c774d0e83916ace3220b896.pdf",
+        "historicalPageCount": 16,
+        "historicalGitBlobSha1": "113c6f8587f9bb550a15c68af618fdec8760f28c",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "c62cc4dc06e8ed207a84cecff6f2de2cb28da1c53ec2c32a142f2ecd340d2c2b",
+        "currentPageCount": 16,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_40e1c1967c774d0e83916ace3220b896.pdf",
+          "bytes": 15795140,
+          "gitBlobSha1": "113c6f8587f9bb550a15c68af618fdec8760f28c",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "c62cc4dc06e8ed207a84cecff6f2de2cb28da1c53ec2c32a142f2ecd340d2c2b"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_40e1c1967c774d0e83916ace3220b896.pdf",
+        "sourcePage": 16,
+        "matchedSiftInliers": 236,
+        "matchedFeaturePairs": 253,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.19133,
+          "y": 0.2365,
+          "width": 0.60515,
+          "height": 0.5274
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-music-box",
+      "projectName": "Music Box",
+      "categoryId": "sound-voice-interaction",
+      "category": "Sound & Voice Interaction",
+      "variantId": "level-3-music-box",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "29.Music Box -Building Manual.pdf",
+        "repositoryPath": "public/29.Music Box -Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3870c6de5cc04f26984b7a2f105458f9.pdf",
+        "wixMediaId": "7fc4ca_3870c6de5cc04f26984b7a2f105458f9.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_3870c6de5cc04f26984b7a2f105458f9.pdf",
+        "historicalPageCount": 24,
+        "historicalGitBlobSha1": "cf1c89ff3347fa79a8940f93de0df4281dc7dc69",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "0ff2006d62314f6a37796004724de1fee11c925d0e2580a177055e4550cb64bc",
+        "currentPageCount": 24,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_3870c6de5cc04f26984b7a2f105458f9.pdf",
+          "bytes": 5897344,
+          "gitBlobSha1": "cf1c89ff3347fa79a8940f93de0df4281dc7dc69",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "0ff2006d62314f6a37796004724de1fee11c925d0e2580a177055e4550cb64bc"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_3870c6de5cc04f26984b7a2f105458f9.pdf",
+        "sourcePage": 24,
+        "matchedSiftInliers": 397,
+        "matchedFeaturePairs": 421,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.30504,
+          "y": 0.12482,
+          "width": 0.43994,
+          "height": 0.78661
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-music-doorbell",
+      "projectName": "Music Doorbell",
+      "categoryId": "sound-voice-interaction",
+      "category": "Sound & Voice Interaction",
+      "variantId": "level-3-music-doorbell",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "07.Music Doorbell-Building Manual.pdf",
+        "repositoryPath": "public/07.Music Doorbell-Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7dcf2c2fb93344f6a95b2d867dc55298.pdf",
+        "wixMediaId": "7fc4ca_7dcf2c2fb93344f6a95b2d867dc55298.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_7dcf2c2fb93344f6a95b2d867dc55298.pdf",
+        "historicalPageCount": 12,
+        "historicalGitBlobSha1": "06d759c2122e8b8853820061ab2c6c22f480beaf",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "b15f0a40b38ef896be42787b2754e7da13267848948a59a1362310276f5eb060",
+        "currentPageCount": 12,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_7dcf2c2fb93344f6a95b2d867dc55298.pdf",
+          "bytes": 3266387,
+          "gitBlobSha1": "06d759c2122e8b8853820061ab2c6c22f480beaf",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "b15f0a40b38ef896be42787b2754e7da13267848948a59a1362310276f5eb060"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_7dcf2c2fb93344f6a95b2d867dc55298.pdf",
+        "sourcePage": 12,
+        "matchedSiftInliers": 459,
+        "matchedFeaturePairs": 520,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.18784,
+          "y": 0.22262,
+          "width": 0.63426,
+          "height": 0.61898
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-smart-audio",
+      "projectName": "Smart Audio",
+      "categoryId": "sound-voice-interaction",
+      "category": "Sound & Voice Interaction",
+      "variantId": "level-3-smart-audio",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "Smart Audio_Building.pdf",
+        "repositoryPath": "public/Smart Audio_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_41d0fbb1b727427aae680e6afa835d4d.pdf",
+        "wixMediaId": "7fc4ca_41d0fbb1b727427aae680e6afa835d4d.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_41d0fbb1b727427aae680e6afa835d4d.pdf",
+        "historicalPageCount": 11,
+        "historicalGitBlobSha1": "0dfd3d13fe65d021868056ef3ecdbcf104dc1ed3",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "37ad32948b214a91c7bb11d7d414d33380235a2449d800f6c54fec88cc6e284b",
+        "currentPageCount": 11,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_41d0fbb1b727427aae680e6afa835d4d.pdf",
+          "bytes": 8917740,
+          "gitBlobSha1": "0dfd3d13fe65d021868056ef3ecdbcf104dc1ed3",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "37ad32948b214a91c7bb11d7d414d33380235a2449d800f6c54fec88cc6e284b"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_41d0fbb1b727427aae680e6afa835d4d.pdf",
+        "sourcePage": 11,
+        "matchedSiftInliers": 223,
+        "matchedFeaturePairs": 240,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.12549,
+          "y": 0.10122,
+          "width": 0.51098,
+          "height": 0.63845
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-sonometer",
+      "projectName": "Sonometer",
+      "categoryId": "sound-voice-interaction",
+      "category": "Sound & Voice Interaction",
+      "variantId": "level-3-sonometer",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "Sonometer_Building.pdf",
+        "repositoryPath": "public/Sonometer_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_24c6b260f92a4311a3c4b8da919ace91.pdf",
+        "wixMediaId": "7fc4ca_24c6b260f92a4311a3c4b8da919ace91.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_24c6b260f92a4311a3c4b8da919ace91.pdf",
+        "historicalPageCount": 8,
+        "historicalGitBlobSha1": "bd571b772b2ae9adfa1df0d19e6586484aae48ce",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "410685232e69b2d34936a5dcd804ddf3f47e13b46f17381832f71e7179fdaaa2",
+        "currentPageCount": 8,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_24c6b260f92a4311a3c4b8da919ace91.pdf",
+          "bytes": 3150815,
+          "gitBlobSha1": "bd571b772b2ae9adfa1df0d19e6586484aae48ce",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "410685232e69b2d34936a5dcd804ddf3f47e13b46f17381832f71e7179fdaaa2"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_24c6b260f92a4311a3c4b8da919ace91.pdf",
+        "sourcePage": 7,
+        "matchedSiftInliers": 68,
+        "matchedFeaturePairs": 87,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.65928,
+          "y": 0.16917,
+          "width": 0.31059,
+          "height": 0.70711
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-sound-level-meter",
+      "projectName": "Sound Level Meter",
+      "categoryId": "sound-voice-interaction",
+      "category": "Sound & Voice Interaction",
+      "variantId": "level-3-sound-level-meter",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "16.Sound Level Meter -Building Manual.pdf",
+        "repositoryPath": "public/16.Sound Level Meter -Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a1da83b7d7044f6f818764858f06a22f.pdf",
+        "wixMediaId": "7fc4ca_a1da83b7d7044f6f818764858f06a22f.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_a1da83b7d7044f6f818764858f06a22f.pdf",
+        "historicalPageCount": 20,
+        "historicalGitBlobSha1": "b0e8a89dd29edd9a0476f35ce3000fc1faa1fc63",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "052ccffc762288f559cfb3e543b1454bcc11deffdc3f47206ec39d46e3216649",
+        "currentPageCount": 20,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_a1da83b7d7044f6f818764858f06a22f.pdf",
+          "bytes": 5394073,
+          "gitBlobSha1": "b0e8a89dd29edd9a0476f35ce3000fc1faa1fc63",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "052ccffc762288f559cfb3e543b1454bcc11deffdc3f47206ec39d46e3216649"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_a1da83b7d7044f6f818764858f06a22f.pdf",
+        "sourcePage": 20,
+        "matchedSiftInliers": 436,
+        "matchedFeaturePairs": 462,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.20445,
+          "y": 0.32996,
+          "width": 0.68668,
+          "height": 0.49014
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-f1-racing-car",
+      "projectName": "F1 racing car",
+      "categoryId": "vehicles-complex-movers",
+      "category": "Vehicles & Complex Movers",
+      "variantId": "level-3-f1-racing-car",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "F1 racing car_Building.pdf",
+        "repositoryPath": "public/F1 racing car_Building.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bc0928f33de348fba5c046bddc913815.pdf",
+        "wixMediaId": "7fc4ca_bc0928f33de348fba5c046bddc913815.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_bc0928f33de348fba5c046bddc913815.pdf",
+        "historicalPageCount": 37,
+        "historicalGitBlobSha1": "cab10741b85d7f4087628164d3a79979373b2ee4",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "61cbde687bf32afefcfa7ea648588ed21d3e2d0aa92bf7d82fe7b7abdd5f9899",
+        "currentPageCount": 37,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_bc0928f33de348fba5c046bddc913815.pdf",
+          "bytes": 15203452,
+          "gitBlobSha1": "cab10741b85d7f4087628164d3a79979373b2ee4",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "61cbde687bf32afefcfa7ea648588ed21d3e2d0aa92bf7d82fe7b7abdd5f9899"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_bc0928f33de348fba5c046bddc913815.pdf",
+        "sourcePage": 37,
+        "matchedSiftInliers": 270,
+        "matchedFeaturePairs": 290,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.20186,
+          "y": 0.11623,
+          "width": 0.58852,
+          "height": 0.62493
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-long-lived-turtle",
+      "projectName": "Long-Lived Turtle",
+      "categoryId": "vehicles-complex-movers",
+      "category": "Vehicles & Complex Movers",
+      "variantId": "level-3-long-lived-turtle",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "11. The Long-lived Turtle - Basic Building Manual.pdf",
+        "repositoryPath": "public/11. The Long-lived Turtle - Basic Building Manual.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ab5b83edbc3c4dcaab6df9829c6d9076.pdf",
+        "wixMediaId": "7fc4ca_ab5b83edbc3c4dcaab6df9829c6d9076.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_ab5b83edbc3c4dcaab6df9829c6d9076.pdf",
+        "historicalPageCount": 23,
+        "historicalGitBlobSha1": "19958e694dfc2e8091d251e58e99dd7571efe6fa",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "83011a8a6a502716eb900967a4d3a6f59f67bef7fd8398afe77a2cc732a4516d",
+        "currentPageCount": 23,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_ab5b83edbc3c4dcaab6df9829c6d9076.pdf",
+          "bytes": 25502290,
+          "gitBlobSha1": "19958e694dfc2e8091d251e58e99dd7571efe6fa",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-tree-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "83011a8a6a502716eb900967a4d3a6f59f67bef7fd8398afe77a2cc732a4516d"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_ab5b83edbc3c4dcaab6df9829c6d9076.pdf",
+        "sourcePage": 23,
+        "matchedSiftInliers": 349,
+        "matchedFeaturePairs": 379,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.16737,
+          "y": 0.18341,
+          "width": 0.70499,
+          "height": 0.69435
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    },
+    {
+      "level": 3,
+      "projectId": "level-3-lunar-rover",
+      "projectName": "Lunar Rover",
+      "categoryId": "vehicles-motion",
+      "category": "Vehicles & Motion",
+      "variantId": "level-3-lunar-rover",
+      "variantLabel": "Official Building Manual",
+      "source": {
+        "kind": "registered-official-building-pdf",
+        "filename": "Lunar Rover.pdf",
+        "repositoryPath": "public/Lunar Rover.pdf",
+        "wixUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_cae5df8160384c7098f08542d288b12d.pdf",
+        "wixMediaId": "7fc4ca_cae5df8160384c7098f08542d288b12d.pdf",
+        "registryCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+        "registeredSourceVersion": "Wix media ID 7fc4ca_cae5df8160384c7098f08542d288b12d.pdf",
+        "historicalPageCount": 24,
+        "historicalGitBlobSha1": "1bdd4d89b5e8e3773753b3dcb3a9330e6c09ad1e",
+        "historicalCoverAudit": "reports/level3-building-cover-audit-20261119.json",
+        "historicalWixDescriptor": "READY in 2026-11-20 report; not rechecked",
+        "historicalEnglishRepair": null,
+        "pdfSha256": "b88a8f9baa1d204ef9cf671c1a0068c5e588fa149e96b12a03f30ffc5d706368",
+        "currentPageCount": 24,
+        "englishOnlyStatus": "unverified-current-source",
+        "currentPdfByteStatus": "verified",
+        "completedModelSourcePage": null,
+        "sourceByteVerification": {
+          "downloadMethod": "Wix signed original file URL",
+          "verifiedDate": "2026-11-23",
+          "mediaId": "7fc4ca_cae5df8160384c7098f08542d288b12d.pdf",
+          "bytes": 7810384,
+          "gitBlobSha1": "1bdd4d89b5e8e3773753b3dcb3a9330e6c09ad1e",
+          "identityMatched": "original-git-blob",
+          "pdfStructuralPageCountMethod": "page-object-count",
+          "visualPageReview": "pending",
+          "originalFileSha256": "b88a8f9baa1d204ef9cf671c1a0068c5e588fa149e96b12a03f30ffc5d706368"
+        }
+      },
+      "image": {
+        "status": "blocked",
+        "path": null,
+        "sourcePage": null,
+        "normalizedCrop": null,
+        "width": null,
+        "height": null,
+        "sha256": null
+      },
+      "reviewerPass1": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "reviewerPass2": {
+        "status": "blocked",
+        "reviewer": null
+      },
+      "approved": false,
+      "status": "blocked-unverified-pdf-image-and-checklist",
+      "candidateSourcePageEvidence": {
+        "sourcePdfMediaId": "7fc4ca_cae5df8160384c7098f08542d288b12d.pdf",
+        "sourcePage": 24,
+        "matchedSiftInliers": 217,
+        "matchedFeaturePairs": 264,
+        "sourceCropEstimatedNormalized": {
+          "x": 0.41908,
+          "y": 0.09992,
+          "width": 0.55048,
+          "height": 0.8288
+        },
+        "status": "strong-automated-match-not-independent-artwork-approval",
+        "visualProof": "pending",
+        "independentReviewer": "pending",
+        "approved": false
+      }
+    }
+  ]
+}
