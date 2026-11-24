@@ -60,7 +60,7 @@ export function ResponsiveCategories({ level, categories, extras }: { level: num
   </main>;
 }
 export function CategoryCard({ name, count, icon: Icon, index }: { name:string; count:number; icon:LucideIcon; index:number }) {
-  return <div className="flex h-full min-h-0 flex-col items-center justify-center gap-[clamp(2px,.4dvh,5px)] rounded-[inherit] px-2 py-1 text-center" style={{backgroundColor:shades[index%8]}}>
+  return <div className="flex h-full min-h-0 flex-col items-center justify-center gap-[clamp(2px,.4dvh,5px)] rounded-[clamp(14px,2vw,24px)] px-2 py-1 text-center" style={{backgroundColor:shades[index%8]}}>
     <Icon aria-hidden="true" className="size-[clamp(20px,3.4dvh,34px)] shrink-0" strokeWidth={1.9} style={{color:inks[index%8]}}/>
     <span className="w-full shrink-0 break-words text-[clamp(11px,1.55dvh,15px)] font-extrabold leading-[1.15] text-[#2c4d68]">{name}</span>
     <span className="shrink-0 text-[clamp(10px,1.35dvh,12px)] font-medium leading-tight text-[#607b91]">{count} {count === 1 ? "project" : "projects"}</span>
