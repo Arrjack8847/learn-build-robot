@@ -4,6 +4,7 @@
  */
 import type { PdfActivityManual } from "./pdfActivityManuals";
 import { levelSixWixPdfUrls } from "./levelSixWixPdfUrls";
+import { requireWixPdfUrl } from "./requireWixPdfUrl";
 import { levelFiveWixPdfUrls } from "./levelFiveWixPdfUrls";
 import type { LevelOneLecture } from "./levelOneLectures";
 
@@ -1439,6 +1440,8 @@ function publicUrl(path: string): string {
   // Use the individually uploaded Wix document for Level 6 PDF lessons.
   // Keep Level 5 and non-PDF asset hosting behavior unchanged.
   const wixUrl = levelFiveWixPdfUrls[path] ?? levelSixWixPdfUrls[path];
+  // PDF links must never fall back to local public/ or raw GitHub assets.
+  if (path.toLowerCase().endsWith(".pdf")) return requireWixPdfUrl(path, wixUrl);
   if (wixUrl) return wixUrl;
   const base = assetBase();
   return base ? base + "/" + encodePath("public/" + path) : "/" + encodePath(path);
