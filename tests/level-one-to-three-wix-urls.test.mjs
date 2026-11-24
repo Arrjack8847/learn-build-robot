@@ -25,10 +25,10 @@ test("All 304 Level 1–3 PDFs (172 legacy root + 132 Learning) are mapped", () 
 });
 test("Level 1 Learning resolves to cleaned Wix files; Building and Levels 2–3 retain Wix", () => {
   const resolver=read("../src/data/staticPdfUrl.ts");
-  assert.match(resolver, /levelOneToThreeWixPdfUrls\[filename\] \?\? "\/" \+ encodeURIComponent\(filename\)/);
-  assert.match(resolver, /const localUrl = "\/" \+ path.split/);
+  assert.match(resolver, /return requireWixPdfUrl\(filename, levelOneToThreeWixPdfUrls\[filename\]\);/);
+  assert.doesNotMatch(resolver, /const localUrl =/);
   assert.doesNotMatch(resolver, /if \(level === 1\) return localUrl/);
-  assert.match(resolver, /return levelOneToThreeWixPdfUrls\[path\] \?\? localUrl/);
+  assert.match(resolver, /return requireWixPdfUrl\(path, levelOneToThreeWixPdfUrls\[path\]\);/);
   for (const [level, file] of [[1,"levelOneLectures.ts"],[2,"levelTwoLectures.ts"],[3,"levelThreeLectures.ts"]]) {
     const content=read("../src/data/"+file);
     assert.ok(content.includes("levelOneToThreeLearningPdfUrl("+level+", relativePath)"));
