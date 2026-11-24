@@ -14,8 +14,7 @@ export function ResponsiveCategories({ level, categories, extras }: { level: num
   const swipe = useRef<{ x: number; y: number } | null>(null);
   useEffect(() => {
     const update = () => {
-      const w = window.innerWidth, h = window.innerHeight;
-      setPageSize(w >= 1500 ? 14 : w >= 1024 && w > h ? 8 : w >= 768 ? 9 : 6);
+      setPageSize(window.matchMedia('(min-width: 1500px)').matches ? 14 : window.matchMedia('(min-width: 1024px) and (orientation: landscape)').matches ? 8 : window.matchMedia('(min-width: 768px)').matches ? 9 : 6);
     };
     update();
     window.addEventListener("resize",update);
@@ -41,7 +40,7 @@ export function ResponsiveCategories({ level, categories, extras }: { level: num
       </div>
       {searchOpen && <div className="absolute inset-x-4 top-[clamp(52px,8dvh,72px)] z-20 mx-auto flex max-w-md items-center gap-2 rounded-2xl border border-sky-200 bg-white p-2 shadow-xl"><Search className="ml-2 size-5 text-sky-500"/><input autoFocus type="search" aria-label="Search category names" placeholder="Search categories" value={query} onChange={e=>{setQuery(e.target.value);setPage(0)}} className="min-w-0 flex-1 bg-transparent p-2 text-base outline-none"/><button type="button" aria-label="Close search" onClick={()=>{setSearchOpen(false);setQuery("");setPage(0)}} className="grid size-11 place-items-center"><X className="size-5"/></button></div>}
       <div className="flex flex-1 flex-col py-[clamp(8px,1.5dvh,16px)]" onTouchStart={e=>{const t=e.touches[0];swipe.current=t?{x:t.clientX,y:t.clientY}:null}} onTouchCancel={()=>{swipe.current=null}} onTouchEnd={e=>{const start=swipe.current;swipe.current=null;const t=e.changedTouches[0];if(!start||!t)return;const dx=t.clientX-start.x,dy=t.clientY-start.y;if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.5)changePage(dx<0?1:-1)}}>
-        <ul aria-label={`Level ${level} categories`} className="grid flex-1 grid-cols-2 grid-rows-[repeat(3,minmax(104px,1fr))] gap-[clamp(8px,1.5dvh,14px)] md:grid-cols-3 lg:landscape:grid-cols-4 lg:landscape:grid-rows-[repeat(2,minmax(104px,1fr))] min-[1500px]:grid-cols-7 min-[1500px]:grid-rows-[repeat(2,minmax(104px,1fr))]">
+        <ul aria-label={`Level ${level} categories`} className="grid flex-1 grid-cols-2 grid-rows-[repeat(3,minmax(min-content,1fr))] gap-[clamp(8px,1.5dvh,14px)] md:grid-cols-3 lg:landscape:grid-cols-4 lg:landscape:grid-rows-[repeat(2,minmax(min-content,1fr))] min-[1500px]:grid-cols-7 min-[1500px]:grid-rows-[repeat(2,minmax(min-content,1fr))]">
           {visible.map(c=><li key={c.id} className="min-w-0 rounded-2xl border border-white bg-white/85 shadow-[0_4px_15px_rgba(31,95,138,.08)]">{c.href}</li>)}
         </ul>
         {!visible.length && <p className="py-8 text-center text-sm">No matching categories.</p>}
