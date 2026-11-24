@@ -27,9 +27,9 @@ test("All 106 Level 4 PDFs have exact Wix URLs", () => {
 });
 
 test("Level 4 Learning uses cleaned Wix URLs while Building keeps its current URLs", () => {
-  assert.match(learning, /return levelFourWixPdfUrls\[path\] \?\?/);
+  assert.match(learning, /return requireWixPdfUrl\(path, levelFourWixPdfUrls\[path\]\);/);
   assert.match(learning, /import \{ levelFourWixPdfUrls \} from "\.\/levelFourWixPdfUrls";/);
-  assert.match(building, /return levelFourWixPdfUrls\[originalPath\] \?\? "\/Level%204\/Building\/"/);
+  assert.match(building, /return requireWixPdfUrl\(originalPath, levelFourWixPdfUrls\[originalPath\]\);/);
   assert.match(learning, /originalPowerPointFile: lesson\.originalPowerPointFile/);
   assert.match(building, /hasLevelFourOptimizedManual/);
 });
