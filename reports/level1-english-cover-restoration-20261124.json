@@ -1,0 +1,106 @@
+{
+  "date": "2026-11-24",
+  "project": "BE STEM READY",
+  "scope": "Level 1 eight Chinese-cover replacements to English",
+  "branch": "chore/local-wix-pdf-only-20261124",
+  "sourceBinariesInGitHub": 0,
+  "sourceBinariesInVercelOutput": 0,
+  "sourceVerification": {
+    "reviewedImageOnlyManuals": 12,
+    "unchangedEnglishPictorialManuals": [
+      "01.Hello World-Building Manual.pdf",
+      "02.Color- changing  Light -Building Manual.pdf",
+      "9. Crawl Slowly - Basic Building Manual.pdf",
+      "9. Crawl Slowly - Optimized Building Manual.pdf"
+    ],
+    "englishRestoredCovers": 8,
+    "originalAssemblyPagesPixelIdentical": 147
+  },
+  "wixVerification": {
+    "ready": 8,
+    "byteForByteSha256Matches": 8
+  },
+  "manuals": [
+    {
+      "filename": "Bird.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_3bf3d2873e354fd487f3a383abc41e33.pdf",
+      "sha256": "fd41a6873e1f3151485d2cef9eafa1ede0609761fe6cf521dcdd964cf0a88afe",
+      "pages": 19,
+      "unchangedInteriorPages": 18,
+      "bytes": 2660733,
+      "wixReady": true,
+      "sha256Verified": true
+    },
+    {
+      "filename": "Dart.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_548026c821be4c9e8a72d476e656954d.pdf",
+      "sha256": "5b84188210693bf5809375901e2e6465e3e80d112df535e76522df748e6ff995",
+      "pages": 11,
+      "unchangedInteriorPages": 10,
+      "bytes": 2347142,
+      "wixReady": true,
+      "sha256Verified": true
+    },
+    {
+      "filename": "Mechanical arm.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_32f5bd630ad34a94b28e9afe90356f11.pdf",
+      "sha256": "dd7c209b1e45da452ddad1b664c4206ea93ab4d2185ef22e3ae89042af668e9d",
+      "pages": 17,
+      "unchangedInteriorPages": 16,
+      "bytes": 2944015,
+      "wixReady": true,
+      "sha256Verified": true
+    },
+    {
+      "filename": "Mechanical masks.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_1635bf29bce34dddbf05a15aa2415e73.pdf",
+      "sha256": "259b4e59a1eec57c2c158d66798725f5385cd53755536b0fdfbe98d784837a5",
+      "pages": 34,
+      "unchangedInteriorPages": 33,
+      "bytes": 6046940,
+      "wixReady": true,
+      "sha256Verified": true
+    },
+    {
+      "filename": "Primitive robot_Building.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e6d1efbb445c4182a529936a0f3a06e8.pdf",
+      "sha256": "8c0d6959324cf9d7d8db0e5d1e467844b45bee43414954b133854f79e0d5e36f",
+      "pages": 9,
+      "unchangedInteriorPages": 8,
+      "bytes": 1953262,
+      "wixReady": true,
+      "sha256Verified": true
+    },
+    {
+      "filename": "REX robot_Building.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_5fdadf1f5fc14e98aef290bfd4d64786.pdf",
+      "sha256": "92301cdc4cdecd68df3facf1955b1a06d1a6625efa487fbbdb4315240f638149",
+      "pages": 24,
+      "unchangedInteriorPages": 23,
+      "bytes": 3794724,
+      "wixReady": true,
+      "sha256Verified": true
+    },
+    {
+      "filename": "Spider.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_dfb74dfc3edb46339b17b4fe882a294a.pdf",
+      "sha256": "22448433fd1400fb5e32767c0e33826665afcade60c315d324b28f87c702877c",
+      "pages": 22,
+      "unchangedInteriorPages": 21,
+      "bytes": 3020604,
+      "wixReady": true,
+      "sha256Verified": true
+    },
+    {
+      "filename": "Wali robot.pdf",
+      "url": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_85c681b4c46f402eada7b8d9ccdf1477.pdf",
+      "sha256": "33ff694157dbac8a58c9e5efeb013707907ebe579a78b15982e32ec3ad077667",
+      "pages": 19,
+      "unchangedInteriorPages": 18,
+      "bytes": 4393655,
+      "wixReady": true,
+      "sha256Verified": true
+    }
+  ],
+  "limitation": "The four already pictorial original manuals have no extractable Chinese; their first/middle/last pages were visually inspected. No full-page Chinese OCR was performed."
+}

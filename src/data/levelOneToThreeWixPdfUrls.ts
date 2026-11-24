@@ -2,7 +2,7 @@
  * Verified Wix Media Manager PDF URLs for Levels 1–3.
  * Keys are exact public/ paths without the public/ prefix, including legacy root PDFs.
  * 299 URLs came from the upload log; 5 failed-manifest entries were recovered
- * from Wix by exact filename, bytes and READY status. No files are uploaded here.
+ * from Wix by exact filename, bytes and READY status. Eight legacy Level 1 links were replaced with English-restored Wix PDFs on Nov 24, 2026; no PDF binaries are in GitHub.
  */
 export const levelOneToThreeWixPdfUrls: Readonly<Record<string, string>> = {
   "01.Hello World-Building Manual.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_98554e0e63f840738591fd137cde109f.pdf",
@@ -47,7 +47,7 @@ export const levelOneToThreeWixPdfUrls: Readonly<Record<string, string>> = {
   "Batting robot_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ba70dd634abd49cf95a1a0ad467911d2.pdf",
   "BEE.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f2257130ccc54df8a8ea61f70e87fb91.pdf",
   "Big head robot_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_4a06e63507c34d0a9653786ac61b5135.pdf",
-  "Bird.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_28d4c2bfff354ef7b56b7dd50c1ba73f.pdf",
+  "Bird.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_3bf3d2873e354fd487f3a383abc41e33.pdf",
   "Biting Monster.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_65ab7f6608544c17a9dde9da09af12c8.pdf",
   "Blinking robot_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_40cb5c9dc47f484ca486051177f6fd7b.pdf",
   "Blood bank Centrifuge.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9f46cd7fa3c84680aa063d56dc3a4f81.pdf",
@@ -65,7 +65,7 @@ export const levelOneToThreeWixPdfUrls: Readonly<Record<string, string>> = {
   "Crane_.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e899154e23df4b3ca5f313347744217c.pdf",
   "Crane.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e184994e3de4492485f3f6941b264a34.pdf",
   "Dancing Music Box.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8887adaa8b014f24bd51c38f6a811832.pdf",
-  "Dart.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_32dbf61442624b8b87a94862441e103e.pdf",
+  "Dart.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_548026c821be4c9e8a72d476e656954d.pdf",
   "Door_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_9f73091b93e9459fac2603819689b4ba.pdf",
   "Double beam crane_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_cf9221967f804769ad6e7d3d50c47eab.pdf",
   "Drawbridge.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bdf333c510de4827a64c1ad0412d1c2e.pdf",
@@ -244,9 +244,9 @@ export const levelOneToThreeWixPdfUrls: Readonly<Record<string, string>> = {
   "Little stars_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_aace3c23f40844a796268ca64c280033.pdf",
   "Lucky turntable.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_80611a94450b4d62a6a2ea78e409db6e.pdf",
   "Lunar Rover.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_cae5df8160384c7098f08542d288b12d.pdf",
-  "Mechanical arm.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2293626e8d684c6192a41af3e2761407.pdf",
+  "Mechanical arm.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_32f5bd630ad34a94b28e9afe90356f11.pdf",
   "Mechanical dog.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_07f47f0b3c5c4a32b68f1152a8c02093.pdf",
-  "Mechanical masks.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_db8db4bb033c498d8a3a8d6f8fc011a5.pdf",
+  "Mechanical masks.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_1635bf29bce34dddbf05a15aa2415e73.pdf",
   "Mobile Shot.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0333ba1c98af459d9eed14b149fe83d5.pdf",
   "Money detector.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bf38f507c9564d37ac309ecfacc149d6.pdf",
   "Motorcycle_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e9cf0a2786e944f094444c3e7a31cded.pdf",
@@ -259,7 +259,7 @@ export const levelOneToThreeWixPdfUrls: Readonly<Record<string, string>> = {
   "Pirate ship_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_00644c98f0204033a9713840dfc58dbc.pdf",
   "Pliers.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_2865bdb79f2c48f88386b685adc5bb8f.pdf",
   "Pocket Pistol.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f11f27194c0944cab2c3819971c88c96.pdf",
-  "Primitive robot_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_747a9b4b1ae841088a6cfb694162a888.pdf",
+  "Primitive robot_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_e6d1efbb445c4182a529936a0f3a06e8.pdf",
   "Propeller Aircraft.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_fb102f9c0ce3456f84f999dec29e1762.pdf",
   "Pull back car_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_1ca5caf3ad2f4a7c9d64be4b7f4f82b9.pdf",
   "Pullback Bicycle.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_da1d7fe2963b44ce9c122a1be9d42972.pdf",
@@ -267,7 +267,7 @@ export const levelOneToThreeWixPdfUrls: Readonly<Record<string, string>> = {
   "Responder_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6e35900c7e384c67bbf3213ed06b73a6.pdf",
   "Responder.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f39cdbb5cfb34248a850cdd356c1156f.pdf",
   "Reverse Parking.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_49c37ce0afb34f458a1cf2d85d2420f3.pdf",
-  "REX robot_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_678d48e3b6854742b81b07e06a87e7fd.pdf",
+  "REX robot_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_5fdadf1f5fc14e98aef290bfd4d64786.pdf",
   "Robot war.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_565442dd664f4d839b23319a3cf693c2.pdf",
   "Rolling Shutter.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7d057cae078745938728560908990a5f.pdf",
   "Rotating Coffee Cup.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_98409811f3ef47ada90acf608856e47b.pdf",
@@ -288,7 +288,7 @@ export const levelOneToThreeWixPdfUrls: Readonly<Record<string, string>> = {
   "Smart door_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4a51e35447664f778c21a960401809dc.pdf",
   "Smart Window.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a4b25d7ec56f46bf962394caff6e0b24.pdf",
   "Sonometer_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_24c6b260f92a4311a3c4b8da919ace91.pdf",
-  "Spider.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3fe9ed9f07924cf6b0563c5d28f2f75c.pdf",
+  "Spider.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_dfb74dfc3edb46339b17b4fe882a294a.pdf",
   "Spinning bike_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_545ec9836f684200a380780cf94b3f6b.pdf",
   "Spirograph.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e8fcba505eba4c02900703d1dfa30ea1.pdf",
   "SpongeBob_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_7c8b26ad8ce74600a3000d03b0977970.pdf",
@@ -306,7 +306,7 @@ export const levelOneToThreeWixPdfUrls: Readonly<Record<string, string>> = {
   "Track Rickshaw.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b6f90ccb25a34d1e8a6f67565fb2115a.pdf",
   "Traffic light_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_56b3ad6a55d542d5b2232d6867c01ba9.pdf",
   "Treadmill_Building.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7224ffa602fa4c4fbc370822909a57e0.pdf",
-  "Wali robot.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_66acfc70bac141f59dad9c9f8aa4b4ab.pdf",
+  "Wali robot.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_85c681b4c46f402eada7b8d9ccdf1477.pdf",
   "Walking Robot.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_b9e03b9e4fe64cf18c49fd214b63ef62.pdf",
-  "Wiper.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_62558d3b08a14845b70edc161151609a.pdf"
+  "Wiper.pdf": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_62558d3b08a14845b70edc161151609a.pdf",
 };
