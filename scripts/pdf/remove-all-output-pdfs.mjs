@@ -20,12 +20,12 @@ const outputDirs = [
 ];
 const removed = [];
 
-function visit(entry, outputRoot) {
+function visit(entry) {
   const stat = lstatSync(entry);
   if (stat.isSymbolicLink()) return; // Never traverse links outside the build.
   if (stat.isDirectory()) {
     for (const child of readdirSync(entry)) {
-      visit(resolve(entry, child), outputRoot);
+      visit(resolve(entry, child));
     }
     return;
   }
@@ -40,7 +40,7 @@ for (const dir of outputDirs) {
   if (!absolute.startsWith(root + sep)) {
     throw new Error("Unsafe PDF output directory: " + dir);
   }
-  if (existsSync(absolute)) visit(absolute, absolute);
+  if (existsSync(absolute)) visit(absolute);
 }
 
 // Detect any accidentally retained PDF after pruning, without touching source.
