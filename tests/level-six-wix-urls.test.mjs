@@ -28,6 +28,7 @@ test("Level 6 Wix PDF URLs match each registered Learning and Building variant e
 test("Level 6 Wix lookup is connected to the shared PDF resolver", () => {
   assert.match(registrySource, /import \{ levelSixWixPdfUrls \} from "\.\/levelSixWixPdfUrls";/);
   assert.match(registrySource, /const wixUrl = levelFiveWixPdfUrls\[path\] \?\? levelSixWixPdfUrls\[path\];/);
+  assert.match(registrySource, /if \(path\.toLowerCase\(\)\.endsWith\("\.pdf"\)\) return requireWixPdfUrl\(path, wixUrl\);/);
   assert.match(registrySource, /if \(wixUrl\) return wixUrl;/);
   assert.match(registrySource, /return base \? base \+ "\/" \+ encodePath\("public\/" \+ path\) : "\/" \+ encodePath\(path\);/);
 });
