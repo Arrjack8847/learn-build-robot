@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "level": 2,
+  "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0",
+  "records": [
+    {
+      "variantId": "level-2-dung-beetle",
+      "projectId": "level-2-dung-beetle",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_261fe72a555d48bb98887bc3b82aad10.pdf",
+      "pdfSha256": "6d356f3bcde8a5e57ea011964865bcc19a352c091f7ff74741213149d2eaabec",
+      "page": 5,
+      "pdfCrop": [
+        524,
+        162,
+        800.6666666666667,
+        382.3333333333333
+      ],
+      "imageSha256": "270cee6a3464e09bf3a234aed9d1f1bc9643e174be3bd02c8ed91414022bf88f",
+      "imageBytes": 129022,
+      "dimensions": [
+        866,
+        697
+      ],
+      "mediaId": "78042f_b84683b98ccd4f6f9f75556baeefff19~mv2.webp",
+      "wixUrl": "https://static.wixstatic.com/media/78042f_b84683b98ccd4f6f9f75556baeefff19~mv2.webp",
+      "sourcePdfHashVerified": true,
+      "visuallyInspected": true,
+      "wixReady": true,
+      "cdnBytesVerified": true,
+      "sourceKind": "original-registered-pdf-illustration",
+      "independentFinishedModelCertification": false
+    }
+  ]
+}
