@@ -50,7 +50,7 @@ test("Every eligible Level 2 Learning PDF routes to a distinct cleaned Wix uploa
 test("Level 2 uses shared Learning resolver; Building manual mappings remain separate", () => {
   const resolver = read("src/data/staticPdfUrl.ts");
   const levelTwo = read("src/data/levelTwoLectures.ts");
-  assert.match(resolver, /return levelOneToThreeWixPdfUrls\[path\] \?\? localUrl/);
+  assert.match(resolver, /return requireWixPdfUrl\(path, levelOneToThreeWixPdfUrls\[path\]\);/);
   assert.match(levelTwo, /levelOneToThreeLearningPdfUrl\(2, relativePath\)/);
   assert.match(levelTwo, /url: manual\.url/);
   assert.match(levelTwo, /LEVEL_TWO_BUILDING_PDF_LEARNING_FALLBACK_IDS/);
