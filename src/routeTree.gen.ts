@@ -18,6 +18,12 @@ import { Route as ProjectsProjectIdRouteImport } from './routes/projects.$projec
 import { Route as QuizProjectIdRouteImport } from './routes/quiz.$projectId'
 import { Route as PracticalLevel1IndexRouteImport } from './routes/practical/level-1.index'
 import { Route as PracticalLevel1CategoryIdRouteImport } from './routes/practical/level-1.$categoryId'
+import { Route as PracticalLevel1FinalBuildRouteImport } from './routes/practical/level-1.final-build'
+import { Route as PracticalLevel2FinalBuildRouteImport } from './routes/practical/level-2.final-build'
+import { Route as PracticalLevel3FinalBuildRouteImport } from './routes/practical/level-3.final-build'
+import { Route as PracticalLevel4FinalBuildRouteImport } from './routes/practical/level-4.final-build'
+import { Route as PracticalLevel5FinalBuildRouteImport } from './routes/practical/level-5.final-build'
+import { Route as PracticalLevel6FinalBuildRouteImport } from './routes/practical/level-6.final-build'
 import { Route as PracticalLevelsIndexRouteImport } from './routes/practical/levels.index'
 import { Route as PracticalLevelsLevelNumberRouteImport } from './routes/practical/levels.$levelNumber'
 import { Route as PracticalLevelsLevelNumberIndexRouteImport } from './routes/practical/levels.$levelNumber.index'
@@ -69,6 +75,42 @@ const PracticalLevel1CategoryIdRoute =
     path: '/$categoryId',
     getParentRoute: () => PracticalLevel1Route,
   } as any)
+const PracticalLevel1FinalBuildRoute =
+  PracticalLevel1FinalBuildRouteImport.update({
+    id: '/final-build',
+    path: '/final-build',
+    getParentRoute: () => PracticalLevel1Route,
+  } as any)
+const PracticalLevel2FinalBuildRoute =
+  PracticalLevel2FinalBuildRouteImport.update({
+    id: '/practical/level-2/final-build',
+    path: '/practical/level-2/final-build',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PracticalLevel3FinalBuildRoute =
+  PracticalLevel3FinalBuildRouteImport.update({
+    id: '/practical/level-3/final-build',
+    path: '/practical/level-3/final-build',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PracticalLevel4FinalBuildRoute =
+  PracticalLevel4FinalBuildRouteImport.update({
+    id: '/practical/level-4/final-build',
+    path: '/practical/level-4/final-build',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PracticalLevel5FinalBuildRoute =
+  PracticalLevel5FinalBuildRouteImport.update({
+    id: '/practical/level-5/final-build',
+    path: '/practical/level-5/final-build',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PracticalLevel6FinalBuildRoute =
+  PracticalLevel6FinalBuildRouteImport.update({
+    id: '/practical/level-6/final-build',
+    path: '/practical/level-6/final-build',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PracticalLevelsIndexRoute = PracticalLevelsIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -102,6 +144,12 @@ export interface FileRoutesByFullPath {
   '/quiz/$projectId': typeof QuizProjectIdRoute
   '/practical/': typeof PracticalIndexRoute
   '/practical/level-1/$categoryId': typeof PracticalLevel1CategoryIdRoute
+  '/practical/level-1/final-build': typeof PracticalLevel1FinalBuildRoute
+  '/practical/level-2/final-build': typeof PracticalLevel2FinalBuildRoute
+  '/practical/level-3/final-build': typeof PracticalLevel3FinalBuildRoute
+  '/practical/level-4/final-build': typeof PracticalLevel4FinalBuildRoute
+  '/practical/level-5/final-build': typeof PracticalLevel5FinalBuildRoute
+  '/practical/level-6/final-build': typeof PracticalLevel6FinalBuildRoute
   '/practical/levels/$levelNumber': typeof PracticalLevelsLevelNumberRouteWithChildren
   '/practical/level-1/': typeof PracticalLevel1IndexRoute
   '/practical/levels/': typeof PracticalLevelsIndexRoute
@@ -115,6 +163,12 @@ export interface FileRoutesByTo {
   '/quiz/$projectId': typeof QuizProjectIdRoute
   '/practical': typeof PracticalIndexRoute
   '/practical/level-1/$categoryId': typeof PracticalLevel1CategoryIdRoute
+  '/practical/level-1/final-build': typeof PracticalLevel1FinalBuildRoute
+  '/practical/level-2/final-build': typeof PracticalLevel2FinalBuildRoute
+  '/practical/level-3/final-build': typeof PracticalLevel3FinalBuildRoute
+  '/practical/level-4/final-build': typeof PracticalLevel4FinalBuildRoute
+  '/practical/level-5/final-build': typeof PracticalLevel5FinalBuildRoute
+  '/practical/level-6/final-build': typeof PracticalLevel6FinalBuildRoute
   '/practical/level-1': typeof PracticalLevel1IndexRoute
   '/practical/levels': typeof PracticalLevelsIndexRoute
   '/practical/levels/$levelNumber/$categoryId': typeof PracticalLevelsLevelNumberCategoryIdRoute
@@ -130,6 +184,12 @@ export interface FileRoutesById {
   '/quiz/$projectId': typeof QuizProjectIdRoute
   '/practical/': typeof PracticalIndexRoute
   '/practical/level-1/$categoryId': typeof PracticalLevel1CategoryIdRoute
+  '/practical/level-1/final-build': typeof PracticalLevel1FinalBuildRoute
+  '/practical/level-2/final-build': typeof PracticalLevel2FinalBuildRoute
+  '/practical/level-3/final-build': typeof PracticalLevel3FinalBuildRoute
+  '/practical/level-4/final-build': typeof PracticalLevel4FinalBuildRoute
+  '/practical/level-5/final-build': typeof PracticalLevel5FinalBuildRoute
+  '/practical/level-6/final-build': typeof PracticalLevel6FinalBuildRoute
   '/practical/levels/$levelNumber': typeof PracticalLevelsLevelNumberRouteWithChildren
   '/practical/level-1/': typeof PracticalLevel1IndexRoute
   '/practical/levels/': typeof PracticalLevelsIndexRoute
@@ -147,6 +207,12 @@ export interface FileRouteTypes {
     | '/quiz/$projectId'
     | '/practical/'
     | '/practical/level-1/$categoryId'
+    | '/practical/level-1/final-build'
+    | '/practical/level-2/final-build'
+    | '/practical/level-3/final-build'
+    | '/practical/level-4/final-build'
+    | '/practical/level-5/final-build'
+    | '/practical/level-6/final-build'
     | '/practical/levels/$levelNumber'
     | '/practical/level-1/'
     | '/practical/levels/'
@@ -160,6 +226,12 @@ export interface FileRouteTypes {
     | '/quiz/$projectId'
     | '/practical'
     | '/practical/level-1/$categoryId'
+    | '/practical/level-1/final-build'
+    | '/practical/level-2/final-build'
+    | '/practical/level-3/final-build'
+    | '/practical/level-4/final-build'
+    | '/practical/level-5/final-build'
+    | '/practical/level-6/final-build'
     | '/practical/level-1'
     | '/practical/levels'
     | '/practical/levels/$levelNumber/$categoryId'
@@ -174,6 +246,12 @@ export interface FileRouteTypes {
     | '/quiz/$projectId'
     | '/practical/'
     | '/practical/level-1/$categoryId'
+    | '/practical/level-1/final-build'
+    | '/practical/level-2/final-build'
+    | '/practical/level-3/final-build'
+    | '/practical/level-4/final-build'
+    | '/practical/level-5/final-build'
+    | '/practical/level-6/final-build'
     | '/practical/levels/$levelNumber'
     | '/practical/level-1/'
     | '/practical/levels/'
@@ -189,6 +267,11 @@ export interface RootRouteChildren {
   ProjectsProjectIdRoute: typeof ProjectsProjectIdRoute
   QuizProjectIdRoute: typeof QuizProjectIdRoute
   PracticalIndexRoute: typeof PracticalIndexRoute
+  PracticalLevel2FinalBuildRoute: typeof PracticalLevel2FinalBuildRoute
+  PracticalLevel3FinalBuildRoute: typeof PracticalLevel3FinalBuildRoute
+  PracticalLevel4FinalBuildRoute: typeof PracticalLevel4FinalBuildRoute
+  PracticalLevel5FinalBuildRoute: typeof PracticalLevel5FinalBuildRoute
+  PracticalLevel6FinalBuildRoute: typeof PracticalLevel6FinalBuildRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -256,6 +339,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PracticalLevel1CategoryIdRouteImport
       parentRoute: typeof PracticalLevel1Route
     }
+    '/practical/level-1/final-build': {
+      id: '/practical/level-1/final-build'
+      path: '/final-build'
+      fullPath: '/practical/level-1/final-build'
+      preLoaderRoute: typeof PracticalLevel1FinalBuildRouteImport
+      parentRoute: typeof PracticalLevel1Route
+    }
+    '/practical/level-2/final-build': {
+      id: '/practical/level-2/final-build'
+      path: '/practical/level-2/final-build'
+      fullPath: '/practical/level-2/final-build'
+      preLoaderRoute: typeof PracticalLevel2FinalBuildRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/practical/level-3/final-build': {
+      id: '/practical/level-3/final-build'
+      path: '/practical/level-3/final-build'
+      fullPath: '/practical/level-3/final-build'
+      preLoaderRoute: typeof PracticalLevel3FinalBuildRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/practical/level-4/final-build': {
+      id: '/practical/level-4/final-build'
+      path: '/practical/level-4/final-build'
+      fullPath: '/practical/level-4/final-build'
+      preLoaderRoute: typeof PracticalLevel4FinalBuildRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/practical/level-5/final-build': {
+      id: '/practical/level-5/final-build'
+      path: '/practical/level-5/final-build'
+      fullPath: '/practical/level-5/final-build'
+      preLoaderRoute: typeof PracticalLevel5FinalBuildRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/practical/level-6/final-build': {
+      id: '/practical/level-6/final-build'
+      path: '/practical/level-6/final-build'
+      fullPath: '/practical/level-6/final-build'
+      preLoaderRoute: typeof PracticalLevel6FinalBuildRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/practical/levels/': {
       id: '/practical/levels/'
       path: '/'
@@ -289,11 +414,13 @@ declare module '@tanstack/react-router' {
 
 interface PracticalLevel1RouteChildren {
   PracticalLevel1CategoryIdRoute: typeof PracticalLevel1CategoryIdRoute
+  PracticalLevel1FinalBuildRoute: typeof PracticalLevel1FinalBuildRoute
   PracticalLevel1IndexRoute: typeof PracticalLevel1IndexRoute
 }
 
 const PracticalLevel1RouteChildren: PracticalLevel1RouteChildren = {
   PracticalLevel1CategoryIdRoute: PracticalLevel1CategoryIdRoute,
+  PracticalLevel1FinalBuildRoute: PracticalLevel1FinalBuildRoute,
   PracticalLevel1IndexRoute: PracticalLevel1IndexRoute,
 }
 
@@ -340,6 +467,11 @@ const rootRouteChildren: RootRouteChildren = {
   ProjectsProjectIdRoute: ProjectsProjectIdRoute,
   QuizProjectIdRoute: QuizProjectIdRoute,
   PracticalIndexRoute: PracticalIndexRoute,
+  PracticalLevel2FinalBuildRoute: PracticalLevel2FinalBuildRoute,
+  PracticalLevel3FinalBuildRoute: PracticalLevel3FinalBuildRoute,
+  PracticalLevel4FinalBuildRoute: PracticalLevel4FinalBuildRoute,
+  PracticalLevel5FinalBuildRoute: PracticalLevel5FinalBuildRoute,
+  PracticalLevel6FinalBuildRoute: PracticalLevel6FinalBuildRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

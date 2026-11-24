@@ -1,0 +1,1158 @@
+{
+  "schemaVersion": 1,
+  "level": 6,
+  "baseCommit": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+  "description": "Authentic source-extracted 41 candidate WebPs: 39 approved after independent second-pass visual/content checks; 2 blocked.",
+  "approvedCount": 39,
+  "blockedCount": 2,
+  "entries": [
+    {
+      "projectId": "level-6-gorilla",
+      "variantId": "level-6-gorilla",
+      "sourcePath": "public/Level 6/Building/Action-Oriented/Gorilla/04.Gorilla-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_57169e1c5d0849d597949e1bced8dd94.pdf",
+      "sourcePdfSha256": "f5c992e6445f7e4058035cc243ce1a5dc778a0451c63d8a994fbd09552cd3098",
+      "sourcePage": 24,
+      "crop": {
+        "x": 0.209524,
+        "y": 0.07,
+        "width": 0.55,
+        "height": 0.883333
+      },
+      "imageWebp": "public/final-build/level-6/level-6-gorilla.webp",
+      "imageWebpSha256": "d358f1d87d7e3668b60936768fe14027a1e1f52c9426437ea0f3254517811108",
+      "imageWidth": 413,
+      "imageHeight": 470,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.97475,
+        "meanAbsoluteError": 7.44,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-picture-projector",
+      "variantId": "level-6-picture-projector",
+      "sourcePath": "public/Level 6/Building/Action-Oriented/Picture Projector/28. Picture Projector-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b01fa85ecda24a128ec2aa8edb59731f.pdf",
+      "sourcePdfSha256": "7d97885e50142d2b99741fe51d77a56276c60fae19f743556333cf2f7fbd7001",
+      "sourcePage": 11,
+      "crop": {
+        "x": 0.219048,
+        "y": 0.1,
+        "width": 0.52381,
+        "height": 0.78
+      },
+      "imageWebp": "public/final-build/level-6/level-6-picture-projector.webp",
+      "imageWebpSha256": "951be9a60ee693d16a4bf13003adaaad6b9bf74ccaf494ea51e0b48dae71f60c",
+      "imageWidth": 532,
+      "imageHeight": 560,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98283,
+        "meanAbsoluteError": 4.59,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-the-flapping-pterosaur",
+      "variantId": "level-6-the-flapping-pterosaur",
+      "sourcePath": "public/Level 6/Building/Action-Oriented/The Flapping Pterosaur/17. The Flapping Pterosaur-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_72d2043635fb4f4fa387e9bdcb88973d.pdf",
+      "sourcePdfSha256": "d44b28539712c5169e9b8685b530298ecc9d9a97815d88a7b9fcc289cf5ef6cb",
+      "sourcePage": 70,
+      "crop": {
+        "x": 0.271429,
+        "y": 0.103333,
+        "width": 0.47381,
+        "height": 0.793333
+      },
+      "imageWebp": "public/final-build/level-6/level-6-the-flapping-pterosaur.webp",
+      "imageWebpSha256": "7a3dec8bd0c6ffaa453e10dd8d01fd00b43822a00fe50c60bb3f6ce7665a74cf",
+      "imageWidth": 472,
+      "imageHeight": 560,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.97756,
+        "meanAbsoluteError": 4.79,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-code-scanning-gate",
+      "variantId": "level-6-code-scanning-gate",
+      "sourcePath": "public/Level 6/Building/Automation & Security/Code-scanning Gate/04.Code-scanning Gate-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_47e81d3a58624e97a23e81e31d8d9b65.pdf",
+      "sourcePdfSha256": "2fe9c262ac5cd112e803a25ca50a03e019afaef8dc020385058f162db85be620",
+      "sourcePage": 27,
+      "crop": {
+        "x": 0.292857,
+        "y": 0.1,
+        "width": 0.5,
+        "height": 0.76
+      },
+      "imageWebp": "public/final-build/level-6/level-6-code-scanning-gate.webp",
+      "imageWebpSha256": "d98a2ee6584853a08e4a4a61c477a73718f79589b425321090add9745fd0e2e3",
+      "imageWidth": 464,
+      "imageHeight": 500,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98546,
+        "meanAbsoluteError": 5.58,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-intelligent-passing-light",
+      "variantId": "level-6-intelligent-passing-light",
+      "sourcePath": "public/Level 6/Building/Automation & Security/Intelligent Passing Light/09. Intelligent Passing Light -Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f161c212e69c4abfacc10d6b4087d6e9.pdf",
+      "sourcePdfSha256": "ecd2a6066593597cc463c6fef47879f6c1d683cb43dfd6deddd7ba764dcb3a58",
+      "sourcePage": 18,
+      "crop": {
+        "x": 0.207143,
+        "y": 0.22,
+        "width": 0.569048,
+        "height": 0.64
+      },
+      "imageWebp": "public/final-build/level-6/level-6-intelligent-passing-light.webp",
+      "imageWebpSha256": "564cbdeb949a43279813ae8035a5aa1088ee00e04238bf0a6f36fab6f36b62c3",
+      "imageWidth": 650,
+      "imageHeight": 517,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.99088,
+        "meanAbsoluteError": 4.66,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-gesture-commanding-car",
+      "variantId": "level-6-gesture-commanding-car",
+      "sourcePath": "public/Level 6/Building/Autonomous Navigation & Ranging/Gesture-commanding Car/23. Gesture-commanding Car-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2f7e30144fca4cd2b116433f83bafe0e.pdf",
+      "sourcePdfSha256": "b6ad35e94206666ba5576b17da7c17a490683b31a6436288d171a1fa1793e9a1",
+      "sourcePage": 18,
+      "crop": {
+        "x": 0.209524,
+        "y": 0.166667,
+        "width": 0.57381,
+        "height": 0.77
+      },
+      "imageWebp": "public/final-build/level-6/level-6-gesture-commanding-car.webp",
+      "imageWebpSha256": "5faceb710695378ae742496c11d639b2f9b5e32faf49fccefca06e74b1ae5b64",
+      "imageWidth": 470,
+      "imageHeight": 446,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98806,
+        "meanAbsoluteError": 5.81,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-regional-weather-station",
+      "variantId": "level-6-regional-weather-station",
+      "sourcePath": "public/Level 6/Building/Biomimicry & Stimulus Response/Regional Weather Station/32.Regional Weather Station-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ea276a20b2a34ae4b42338c9ec375ad4.pdf",
+      "sourcePdfSha256": "02e7ff59e85a74d3f312e8bcce037165022835fb60c28033b53c26fb8c7a6c65",
+      "sourcePage": 51,
+      "crop": {
+        "x": 0.314286,
+        "y": 0.123333,
+        "width": 0.438095,
+        "height": 0.806667
+      },
+      "imageWebp": "public/final-build/level-6/level-6-regional-weather-station.webp",
+      "imageWebpSha256": "a587e07fc3bf0ba449bb0295cf436fb94d4072423a62e71763ac801a07957ed3",
+      "imageWidth": 361,
+      "imageHeight": 470,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.97964,
+        "meanAbsoluteError": 7.27,
+        "maxEdgeNonwhiteFraction": 0.0057,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-super-scorpion",
+      "variantId": "level-6-super-scorpion",
+      "sourcePath": "public/Level 6/Building/Biomimicry & Stimulus Response/Super Scorpion/16. Super Scorpion - Basic Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ce34d4b7ad3b4f078531aa5db01841e7.pdf",
+      "sourcePdfSha256": "a6a1ef2225ce2325ab24b6d09fae70a315018491d97e276f71f85e22482753b6",
+      "sourcePage": 42,
+      "crop": {
+        "x": 0.15,
+        "y": 0.05,
+        "width": 0.690476,
+        "height": 0.86
+      },
+      "imageWebp": "public/final-build/level-6/level-6-super-scorpion.webp",
+      "imageWebpSha256": "48124a81ac224583a85c246198b71adb2f4f6890b4a37e6a4243cfc7decec173",
+      "imageWidth": 470,
+      "imageHeight": 414,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98273,
+        "meanAbsoluteError": 5.77,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-super-scorpion",
+      "variantId": "level-6-super-scorpion:optimized",
+      "sourcePath": "public/Level 6/Building/Biomimicry & Stimulus Response/Super Scorpion/16. Super Scorpion - Optimized Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2f7bfe9ee7224047b06209ce59a55165.pdf",
+      "sourcePdfSha256": "e0c7b137eb0ce340cb334a7a36e4ea90172ae65337d8ffba8937b2839d368600",
+      "sourcePage": 1,
+      "crop": {
+        "x": 0.13,
+        "y": 0.1,
+        "width": 0.77,
+        "height": 0.85
+      },
+      "imageWebp": "public/final-build/level-6/level-6-super-scorpion-optimized.webp",
+      "imageWebpSha256": "7b9327616f92c5654540e294cf1366af4ebb1510c78887765677751ee4dec8ce",
+      "imageWidth": 530,
+      "imageHeight": 414,
+      "status": "blocked",
+      "approved": false,
+      "independentReviewer": null,
+      "quality": {
+        "sourceRenderCorrelation": 0.99624,
+        "meanAbsoluteError": 2.4,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": "The optimized manual shows incomplete/close-up views after the initial full-model page; final optimized full-model identity remains uncertain."
+      }
+    },
+    {
+      "projectId": "level-6-clown",
+      "variantId": "level-6-clown",
+      "sourcePath": "public/Level 6/Building/Characters & Structures/Clown/05.Clown-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2d5b5d0c29444bbab32566713eee166c.pdf",
+      "sourcePdfSha256": "f311eb9f58da907c32d5d286be4cb39fbdd17c63e4a2f5d870303689cebd489f",
+      "sourcePage": 20,
+      "crop": {
+        "x": 0.280952,
+        "y": 0.116667,
+        "width": 0.519048,
+        "height": 0.726667
+      },
+      "imageWebp": "public/final-build/level-6/level-6-clown.webp",
+      "imageWebpSha256": "9a8bbec04f67790bc0ef26b8c6fd58a585d3081582c0329d65e0cd5220cba07f",
+      "imageWidth": 650,
+      "imageHeight": 644,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98785,
+        "meanAbsoluteError": 4.87,
+        "maxEdgeNonwhiteFraction": 0.0269,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-accurate-shooting",
+      "variantId": "level-6-accurate-shooting",
+      "sourcePath": "public/Level 6/Building/Complex Mechanisms & Coordinated Motion/Accurate Shooting/13. Accurate Shooting-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_fca7084f7fbf431ea62333e3393441fb.pdf",
+      "sourcePdfSha256": "67e844151ca4d2b6d512f766460a262d938dae09b7cc657ac0d9a584c0e2f6a3",
+      "sourcePage": 30,
+      "crop": {
+        "x": 0.214286,
+        "y": 0.103333,
+        "width": 0.6,
+        "height": 0.826667
+      },
+      "imageWebp": "public/final-build/level-6/level-6-accurate-shooting.webp",
+      "imageWebpSha256": "9295b2151a8981fa75cf77ddc98616ec27d7011030193e037593a05eb49fc14a",
+      "imageWidth": 500,
+      "imageHeight": 487,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98339,
+        "meanAbsoluteError": 5.51,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-digital-countdown",
+      "variantId": "level-6-digital-countdown",
+      "sourcePath": "public/Level 6/Building/Display & Movement/Digital Countdown/07.Digital Countdown-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_47e8b4aaa4d84052a62791fe0c21e959.pdf",
+      "sourcePdfSha256": "d1888381853fd15f4389332fbe08322edec5ad0b2595584647786918848e2dd4",
+      "sourcePage": 21,
+      "crop": {
+        "x": 0.257143,
+        "y": 0.233333,
+        "width": 0.504762,
+        "height": 0.6
+      },
+      "imageWebp": "public/final-build/level-6/level-6-digital-countdown.webp",
+      "imageWebpSha256": "9363fedf39a0e26b1cbe78b04ede8fca7f3d3889e0bb8717cc6e262c5a5ef694",
+      "imageWidth": 590,
+      "imageHeight": 496,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98094,
+        "meanAbsoluteError": 7.08,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-red-light-warning-device",
+      "variantId": "level-6-red-light-warning-device",
+      "sourcePath": "public/Level 6/Building/Illumination & Signals/Red Light Warning Device/12. Red Light Warning Device-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_613e0c239ba64e96ba94d3088dff2c3d.pdf",
+      "sourcePdfSha256": "0cf220287b8c406189eb400ca6bc37ff9dd1b297510591ae5ecc674fb971b5c5",
+      "sourcePage": 12,
+      "crop": {
+        "x": 0.154762,
+        "y": 0.253333,
+        "width": 0.52619,
+        "height": 0.616667
+      },
+      "imageWebp": "public/final-build/level-6/level-6-red-light-warning-device.webp",
+      "imageWebpSha256": "a0c71a56f79a1985445c6028a2fce162b7fc5e38d24aaeab951f0ddd466646b5",
+      "imageWidth": 560,
+      "imageHeight": 465,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98013,
+        "meanAbsoluteError": 6.06,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-smart-flashlight",
+      "variantId": "level-6-smart-flashlight",
+      "sourcePath": "public/Level 6/Building/Illumination & Signals/Smart Flashlight/27.Smart Flashlight-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_667a054435b0463792c70a604615fbf1.pdf",
+      "sourcePdfSha256": "17164a041f56414d3a9db0a4c32294564cce2cd4f3cf25c26347faa9a0c2dfd2",
+      "sourcePage": 15,
+      "crop": {
+        "x": 0.295238,
+        "y": 0.036667,
+        "width": 0.521429,
+        "height": 0.663333
+      },
+      "imageWebp": "public/final-build/level-6/level-6-smart-flashlight.webp",
+      "imageWebpSha256": "d04764cf3931ff96bfa7c42bddc5733d9258d5d9370a94f58fb7f47e407793f9",
+      "imageWidth": 500,
+      "imageHeight": 451,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.97924,
+        "meanAbsoluteError": 6.32,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-traffic-lights-display",
+      "variantId": "level-6-traffic-lights-display",
+      "sourcePath": "public/Level 6/Building/Illumination & Signals/Traffic Lights Display/10. Traffic Lights-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2a44c4a367dd436b8500ffd515bab99d.pdf",
+      "sourcePdfSha256": "1460cd3a187acca6a6de16fab504fe6cb1997cd7952757f551a23c5276cd8fdf",
+      "sourcePage": 18,
+      "crop": {
+        "x": 0.171429,
+        "y": 0.196667,
+        "width": 0.607143,
+        "height": 0.736667
+      },
+      "imageWebp": "public/final-build/level-6/level-6-traffic-lights-display.webp",
+      "imageWebpSha256": "573e32a71b0492470b60766c98185a32adca1a95307638b1f860ad9bf1927cf2",
+      "imageWidth": 650,
+      "imageHeight": 558,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98531,
+        "meanAbsoluteError": 4.76,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-pinball-machine",
+      "variantId": "level-6-pinball-machine",
+      "sourcePath": "public/Level 6/Building/Interactive Mechanisms/Pinball Machine/30. Pinball Machine-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_319046fbc69148b3adb1c5ca9964940e.pdf",
+      "sourcePdfSha256": "e3fc4291f71388ae87a8a3e478aa2b49c0b78a27e6a09c853a6550adbec6189d",
+      "sourcePage": 24,
+      "crop": {
+        "x": 0.142857,
+        "y": 0.056667,
+        "width": 0.757143,
+        "height": 0.89
+      },
+      "imageWebp": "public/final-build/level-6/level-6-pinball-machine.webp",
+      "imageWebpSha256": "18ec0ac9d20b148a0c57a19fbe2dd4086344a430786df45df4c8aea5df48cffb",
+      "imageWidth": 500,
+      "imageHeight": 416,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98517,
+        "meanAbsoluteError": 4.85,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-smart-fan",
+      "variantId": "level-6-smart-fan",
+      "sourcePath": "public/Level 6/Building/Interactive Systems/Smart Fan/31.Smart Fan-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_74b32047c75a4ddaa8674e9d31ceee6f.pdf",
+      "sourcePdfSha256": "449d9351c2633f85d3d77df076fd089f21f0e65537612565da2988943a878fd5",
+      "sourcePage": 37,
+      "crop": {
+        "x": 0.238095,
+        "y": 0.24,
+        "width": 0.52381,
+        "height": 0.606667
+      },
+      "imageWebp": "public/final-build/level-6/level-6-smart-fan.webp",
+      "imageWebpSha256": "3d32288c86c8f059eeb38a5f3e88f49c4a4dc5fa876b8c5755b494a079447a20",
+      "imageWidth": 470,
+      "imageHeight": 385,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.9793,
+        "meanAbsoluteError": 7.06,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-the-interesting-rotor",
+      "variantId": "level-6-the-interesting-rotor",
+      "sourcePath": "public/Level 6/Building/Interactive Systems/The Interesting Rotor/19. The Interesting Rotor-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5b9a2e421b7b45a4abb2c7b69b017229.pdf",
+      "sourcePdfSha256": "647442732bd5b6f5782a010596646018704f88e8b91723ba39c71c05c396e969",
+      "sourcePage": 48,
+      "crop": {
+        "x": 0.197619,
+        "y": 0.123333,
+        "width": 0.607143,
+        "height": 0.8
+      },
+      "imageWebp": "public/final-build/level-6/level-6-the-interesting-rotor.webp",
+      "imageWebpSha256": "ae2cdf476d5f081fb872bb8c540df43fd31146acde5109a1d3839659274750e4",
+      "imageWidth": 470,
+      "imageHeight": 437,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.97519,
+        "meanAbsoluteError": 5.79,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-combination-lock",
+      "variantId": "level-6-combination-lock",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Combination Lock/29.Combination Lock -Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1ad9706a8fe14752b5977b0b73a275e3.pdf",
+      "sourcePdfSha256": "6ce046ce542f81a97d5fd85f2589a78799bd765db6672eab2726924791567c45",
+      "sourcePage": 26,
+      "crop": {
+        "x": 0.135714,
+        "y": 0.056667,
+        "width": 0.752381,
+        "height": 0.87
+      },
+      "imageWebp": "public/final-build/level-6/level-6-combination-lock.webp",
+      "imageWebpSha256": "8183f0d78dadeb01396d99b9da3fd0e33c7dc2d273aa0c6e19f6164e5a3dccfa",
+      "imageWidth": 500,
+      "imageHeight": 409,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98855,
+        "meanAbsoluteError": 5.62,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-gibbon",
+      "variantId": "level-6-gibbon",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Gibbon/14. Gibbon - Basic Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9205950c0e4f44d1aa5a777ad14570cf.pdf",
+      "sourcePdfSha256": "7288406e293a80696a4f6ac9e2cf5994461b16ae47ed50f36b9c89d3a0d60a43",
+      "sourcePage": 16,
+      "crop": {
+        "x": 0.209524,
+        "y": 0.056667,
+        "width": 0.569048,
+        "height": 0.86
+      },
+      "imageWebp": "public/final-build/level-6/level-6-gibbon.webp",
+      "imageWebpSha256": "6f9656c8fce3f2bd3bf0279f7039a51364024139b754db5590db7c4f6588c6fc",
+      "imageWidth": 421,
+      "imageHeight": 450,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.97732,
+        "meanAbsoluteError": 6.43,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-gibbon",
+      "variantId": "level-6-gibbon:optimized",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Gibbon/14. Gibbon - Optimized Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_11b0bbf05ffc48f385d9c3fc9104e203.pdf",
+      "sourcePdfSha256": "6db21a20196893247ea41becd552773fa36fb8e9a6dfea4df2d3e31af9e54510",
+      "sourcePage": 10,
+      "crop": {
+        "x": 0.202381,
+        "y": 0.043333,
+        "width": 0.638095,
+        "height": 0.903333
+      },
+      "imageWebp": "public/final-build/level-6/level-6-gibbon-optimized.webp",
+      "imageWebpSha256": "c74123a8a710f93f08c732025d804f1ceab2006be92557387d9c4b90e7354020",
+      "imageWidth": 449,
+      "imageHeight": 450,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98203,
+        "meanAbsoluteError": 5.76,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-pay-by-card",
+      "variantId": "level-6-pay-by-card",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Pay by card/16.Pay by card -Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_4509b73b391142b3866b767bdb5bbc6e.pdf",
+      "sourcePdfSha256": "2236078504868241b43dd29949f53ae8b7efca8c713d114ac1bd92dfa6b0e593",
+      "sourcePage": 17,
+      "crop": {
+        "x": 0.140476,
+        "y": 0.103333,
+        "width": 0.761905,
+        "height": 0.806667
+      },
+      "imageWebp": "public/final-build/level-6/level-6-pay-by-card.webp",
+      "imageWebpSha256": "3f78497d4ce293d51c874971a36bc05a5998c6609a2b1d3702a42e635edc9c7e",
+      "imageWidth": 530,
+      "imageHeight": 397,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.97997,
+        "meanAbsoluteError": 4.85,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-product-search",
+      "variantId": "level-6-product-search",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Product Search/15.Product Search -Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_6ece41989cab43b3a0a3a58f5586a493.pdf",
+      "sourcePdfSha256": "8e2f3483d3bdd02a1fa6de3eefe67439ebde40a5fe70528fcf0079985d338b8c",
+      "sourcePage": 24,
+      "crop": {
+        "x": 0.228571,
+        "y": 0.063333,
+        "width": 0.528571,
+        "height": 0.89
+      },
+      "imageWebp": "public/final-build/level-6/level-6-product-search.webp",
+      "imageWebpSha256": "f8bd9036466d18393a4b66ad74330ea4cdcb154269f66101aca391e5f59998f5",
+      "imageWidth": 446,
+      "imageHeight": 530,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.9774,
+        "meanAbsoluteError": 4.87,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-punch-hard",
+      "variantId": "level-6-punch-hard",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Punch Hard/7. Punch Hard - Basic Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5d81d7f258ae4db1b679b0c1d350c80a.pdf",
+      "sourcePdfSha256": "7796cda7dd0f0197532310f0b7454a2d7444709bc332ee4f46474096378b30e8",
+      "sourcePage": 16,
+      "crop": {
+        "x": 0.235714,
+        "y": 0.066667,
+        "width": 0.552381,
+        "height": 0.846667
+      },
+      "imageWebp": "public/final-build/level-6/level-6-punch-hard.webp",
+      "imageWebpSha256": "83b9486b625398d456133406d1efc206793dda5cd72c97e613c239c88e767be4",
+      "imageWidth": 461,
+      "imageHeight": 500,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98739,
+        "meanAbsoluteError": 4.83,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-rc-airplane",
+      "variantId": "level-6-rc-airplane",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/RC Airplane/11.RC Airplane -Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_082792eb6fae4bb7939e4e34b85d3bd5.pdf",
+      "sourcePdfSha256": "63a4d25a887aef71ea9e8294a1f2c07aa9df045dbce3f4b62d9b9dbc0d4c3f4a",
+      "sourcePage": 26,
+      "crop": {
+        "x": 0.188095,
+        "y": 0.046667,
+        "width": 0.669048,
+        "height": 0.91
+      },
+      "imageWebp": "public/final-build/level-6/level-6-rc-airplane.webp",
+      "imageWebpSha256": "396b7300a2d73133137c63e5c0feb557fe5674829432489e2d1cdbd8c61575a0",
+      "imageWidth": 500,
+      "imageHeight": 481,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98491,
+        "meanAbsoluteError": 4.74,
+        "maxEdgeNonwhiteFraction": 0.0111,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-ring-toss-game",
+      "variantId": "level-6-ring-toss-game",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Ring Toss Game/15. Ring Toss Game-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f7630973bd8c4142a3166879effd0763.pdf",
+      "sourcePdfSha256": "fdb939577ff1db20854a747f69978cd4d280fc42f15e55163757a78c2067f18b",
+      "sourcePage": 32,
+      "crop": {
+        "x": 0.307143,
+        "y": 0.086667,
+        "width": 0.359524,
+        "height": 0.843333
+      },
+      "imageWebp": "public/final-build/level-6/level-6-ring-toss-game.webp",
+      "imageWebpSha256": "4df78fd594ba78e64b888c102d1ca4c1cf6984c2af0769c80576dd449bcf410a",
+      "imageWidth": 392,
+      "imageHeight": 650,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98325,
+        "meanAbsoluteError": 4.91,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-robotic-arm",
+      "variantId": "level-6-robotic-arm",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Robotic Arm/32. The Robotic Arm-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_44d1ce2260fe49df9afcc6569a874a50.pdf",
+      "sourcePdfSha256": "e4569807fde6777f0f0d9a2c49eae0e8f3902f6726b962b50d12796d0c2f1390",
+      "sourcePage": 37,
+      "crop": {
+        "x": 0.045,
+        "y": 0.055,
+        "width": 0.92,
+        "height": 0.91
+      },
+      "imageWebp": "public/final-build/level-6/level-6-robotic-arm.webp",
+      "imageWebpSha256": "52b3791dc4b2e8b0e05ea9ff2243670e78e82677e5e306215e141b12a799178a",
+      "imageWidth": 540,
+      "imageHeight": 378,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.99433,
+        "meanAbsoluteError": 3.21,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-vending-machine",
+      "variantId": "level-6-vending-machine",
+      "sourcePath": "public/Level 6/Building/Mechanisms & Simulators/Vending Machine/27.Vending Machine-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_95af5defe47a48ccadb87ec8a414590e.pdf",
+      "sourcePdfSha256": "5521034c6f3bbc60a3b9e42a12725c251eb599b9e8adc51f0da044fa7d1f2da2",
+      "sourcePage": 23,
+      "crop": {
+        "x": 0.309524,
+        "y": 0.056667,
+        "width": 0.430952,
+        "height": 0.873333
+      },
+      "imageWebp": "public/final-build/level-6/level-6-vending-machine.webp",
+      "imageWebpSha256": "f874a72c2a2f209ae260c6cf387497b750b2753f61e163c861ee7ddb412af73b",
+      "imageWidth": 349,
+      "imageHeight": 500,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98363,
+        "meanAbsoluteError": 6.92,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-autonomous-driving",
+      "variantId": "level-6-autonomous-driving",
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Autonomous Driving/18.Autonomous Driving -Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_26d1688cb2994bceb9c8a2a7b23aff6c.pdf",
+      "sourcePdfSha256": "30bef7297b1c9afc180d70cff44d777bfcbf2fd428a6aaf2498dbbda057b5265",
+      "sourcePage": 17,
+      "crop": {
+        "x": 0.178571,
+        "y": 0.053333,
+        "width": 0.633333,
+        "height": 0.88
+      },
+      "imageWebp": "public/final-build/level-6/level-6-autonomous-driving.webp",
+      "imageWebpSha256": "ffba75a9f59afce3a0869475d22619edeffa022a0a2e705eebc07172f252cbc7",
+      "imageWidth": 470,
+      "imageHeight": 461,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98849,
+        "meanAbsoluteError": 5.96,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-minesweeper-robot",
+      "variantId": "level-6-minesweeper-robot",
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Minesweeper Robot/12.Minesweeper Robot - Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0f9e228b1dac4694b871c14717dc05f9.pdf",
+      "sourcePdfSha256": "a5da2c7b2ec162dbeab043f52856365dd9141b4d66a76c65ea73d2962ff7b164",
+      "sourcePage": 28,
+      "crop": {
+        "x": 0.095238,
+        "y": 0.236667,
+        "width": 0.764286,
+        "height": 0.616667
+      },
+      "imageWebp": "public/final-build/level-6/level-6-minesweeper-robot.webp",
+      "imageWebpSha256": "cb1d9da90154d3fe80b3511377279ced667221d6cb602a1849a4b1af65f5196a",
+      "imageWidth": 560,
+      "imageHeight": 320,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98129,
+        "meanAbsoluteError": 6.6,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-remote-control-lift",
+      "variantId": "level-6-remote-control-lift",
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Remote Control Lift/22. Remote Control Lift -Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b0697e2872d541b39fb934ec6914b8f5.pdf",
+      "sourcePdfSha256": "0fd106afcf783485d6fc4b58f6291138f7e66bc3f310000036cf1b4cdec03eba",
+      "sourcePage": 33,
+      "crop": {
+        "x": 0.295238,
+        "y": 0.11,
+        "width": 0.430952,
+        "height": 0.783333
+      },
+      "imageWebp": "public/final-build/level-6/level-6-remote-control-lift.webp",
+      "imageWebpSha256": "19fbd5ca9694798f043d3f024d2ea42e97f2cd3f38a72d8a870b9b1004e99fc1",
+      "imageWidth": 365,
+      "imageHeight": 470,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.9752,
+        "meanAbsoluteError": 7.47,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-saluting-robot",
+      "variantId": "level-6-saluting-robot",
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Saluting Robot/26.Saluting Robot -Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8ad9c7d2cec44ac2994985d336c8d9d8.pdf",
+      "sourcePdfSha256": "50bc3bc39df37fef70d99f14f8aee906bcfe38d4b0c971202fb6dcdf99f4a653",
+      "sourcePage": 20,
+      "crop": {
+        "x": 0.366667,
+        "y": 0.083333,
+        "width": 0.438095,
+        "height": 0.896667
+      },
+      "imageWebp": "public/final-build/level-6/level-6-saluting-robot.webp",
+      "imageWebpSha256": "1dddb57b79211540312b7da675daee174a58c40340479db7ff5d9129a9ed99f6",
+      "imageWidth": 345,
+      "imageHeight": 500,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98063,
+        "meanAbsoluteError": 7.01,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-smart-electric-drill",
+      "variantId": "level-6-smart-electric-drill",
+      "sourcePath": "public/Level 6/Building/Programming & Precise Control/Smart Electric Drill/20. Smart Electric Drill-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_b2314aef68dc46e088fcca58040cb655.pdf",
+      "sourcePdfSha256": "bc8862d8c10b74433c7054cd88495c549766dbbd12d5b2017d0a4f2d74d88556",
+      "sourcePage": 19,
+      "crop": {
+        "x": 0.295238,
+        "y": 0.156667,
+        "width": 0.366667,
+        "height": 0.726667
+      },
+      "imageWebp": "public/final-build/level-6/level-6-smart-electric-drill.webp",
+      "imageWebpSha256": "23c5377b5ea2891dcb091af2f510396750a489d3ade57da605161149773019c1",
+      "imageWidth": 378,
+      "imageHeight": 530,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.9763,
+        "meanAbsoluteError": 6.86,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-altimeter",
+      "variantId": "level-6-altimeter",
+      "sourcePath": "public/Level 6/Building/Sensor Automation/Altimeter/18. Altimeter-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e05642b6d03940c6b4936d7bd1a6b6a0.pdf",
+      "sourcePdfSha256": "3d8b0be1dc3221d3527c67e1751ba46367a2b2bae6d7694202c56820568200de",
+      "sourcePage": 13,
+      "crop": {
+        "x": 0.311905,
+        "y": 0.233333,
+        "width": 0.397619,
+        "height": 0.576667
+      },
+      "imageWebp": "public/final-build/level-6/level-6-altimeter.webp",
+      "imageWebpSha256": "43f9df46640e6e373fa86b5477d886b55a36e872ef32c3c6a2bb0b711cd53a0e",
+      "imageWidth": 438,
+      "imageHeight": 450,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.97031,
+        "meanAbsoluteError": 8.9,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-high-temperature-alarm",
+      "variantId": "level-6-high-temperature-alarm",
+      "sourcePath": "public/Level 6/Building/Sensor Automation/High Temperature Alarm/29. High Temperature Alarm-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2104018fc87d4651aaf3af617a55b78f.pdf",
+      "sourcePdfSha256": "78ad8359763fb5631a17c453dc2dd592e25f6746432df79f34411c97e71de92c",
+      "sourcePage": 23,
+      "crop": {
+        "x": 0.269048,
+        "y": 0.116667,
+        "width": 0.435714,
+        "height": 0.786667
+      },
+      "imageWebp": "public/final-build/level-6/level-6-high-temperature-alarm.webp",
+      "imageWebpSha256": "940904d99d95b3f6cae53732011314103b37e9f91ed29f1f2afe8fcec3ae5cfa",
+      "imageWidth": 391,
+      "imageHeight": 500,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.97054,
+        "meanAbsoluteError": 7.04,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-intelligent-sorting-machine",
+      "variantId": "level-6-intelligent-sorting-machine",
+      "sourcePath": "public/Level 6/Building/Sensor Automation/Intelligent Sorting Machine/24.Intelligent Sorting Machine-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2c1b3936f4044835bea28cec6c04c10d.pdf",
+      "sourcePdfSha256": "bd073964cb38dd67b17ab11f76878a5c2d9da9c0f9509befdb8d65834dbdcbc4",
+      "sourcePage": 33,
+      "crop": {
+        "x": 0.040476,
+        "y": 0.193333,
+        "width": 0.9,
+        "height": 0.606667
+      },
+      "imageWebp": "public/final-build/level-6/level-6-intelligent-sorting-machine.webp",
+      "imageWebpSha256": "a78c16e031de392ef0adbcfd96b2f10d6e1afc8849fd26af00ffaafd2d9f740f",
+      "imageWidth": 620,
+      "imageHeight": 297,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.9777,
+        "meanAbsoluteError": 6.35,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-parcel-sorting-machine",
+      "variantId": "level-6-parcel-sorting-machine",
+      "sourcePath": "public/Level 6/Building/Sensor Automation/Parcel Sorting Machine/31. Parcel Sorting Machine-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_95133caeaf2f48d99baa85de2ae47455.pdf",
+      "sourcePdfSha256": "5b858bb1085b7f2838f15f747efd9a1accc8460da36a05c24b0d11a2e665a7e1",
+      "sourcePage": 39,
+      "crop": {
+        "x": 0.1,
+        "y": 0.22,
+        "width": 0.828571,
+        "height": 0.683333
+      },
+      "imageWebp": "public/final-build/level-6/level-6-parcel-sorting-machine.webp",
+      "imageWebpSha256": "f74772ae3e6961c4610055057b0f68f70a1c7b7f892346edf8ffac57138db9bb",
+      "imageWidth": 530,
+      "imageHeight": 310,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98546,
+        "meanAbsoluteError": 5.5,
+        "maxEdgeNonwhiteFraction": 0.0063,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-colorblind-assistant-robot",
+      "variantId": "level-6-colorblind-assistant-robot",
+      "sourcePath": "public/Level 6/Building/Sensor-Focused Robots/Colorblind Assistant Robot/25.Colorblind Assistant Robot-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0e5596981caa481588e8b7c2d2531ef5.pdf",
+      "sourcePdfSha256": "075c01d21d83a959f304298da6fb2788bfdc44633912e132c3a29d66e35dea05",
+      "sourcePage": 14,
+      "crop": {
+        "x": 0.095238,
+        "y": 0.246667,
+        "width": 0.811905,
+        "height": 0.64
+      },
+      "imageWebp": "public/final-build/level-6/level-6-colorblind-assistant-robot.webp",
+      "imageWebpSha256": "8aa4f308fb5bff91821f32dc0214fc547ecea44890f51bcd5a98d35a8403eed1",
+      "imageWidth": 530,
+      "imageHeight": 296,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.98865,
+        "meanAbsoluteError": 5.71,
+        "maxEdgeNonwhiteFraction": 0.0333,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-rock-paper-scissors-robot",
+      "variantId": "level-6-rock-paper-scissors-robot",
+      "sourcePath": "public/Level 6/Building/Sensor-Focused Robots/Rock-paper-scissors Robot/30.Rock-paper-scissors Robot-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ee943e948c6f4141b53d9d3e90481801.pdf",
+      "sourcePdfSha256": "1009562c300be9ec9bb86ea5c9420d8117d4399e848dbb1d1705f2b02db107fd",
+      "sourcePage": 14,
+      "crop": {
+        "x": 0.24,
+        "y": 0.28,
+        "width": 0.66,
+        "height": 0.65
+      },
+      "imageWebp": "public/final-build/level-6/level-6-rock-paper-scissors-robot.webp",
+      "imageWebpSha256": "580dad96839b36de5369a2005c596b5b26986472528247284a78bdadb739be3e",
+      "imageWidth": 500,
+      "imageHeight": 349,
+      "status": "blocked",
+      "approved": false,
+      "independentReviewer": null,
+      "quality": {
+        "sourceRenderCorrelation": 0.99611,
+        "meanAbsoluteError": 3.41,
+        "maxEdgeNonwhiteFraction": 0.3467,
+        "visualReview": "reviewed",
+        "uncertainty": "Candidate PDF final illustration retains explanatory callout markings and intersects the crop boundary; not student-safe."
+      }
+    },
+    {
+      "projectId": "level-6-smart-camera",
+      "variantId": "level-6-smart-camera",
+      "sourcePath": "public/Level 6/Building/Sensor-Focused Robots/Smart Camera/22.Smart Camera-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a27d70dd879d4ea1bf7db0e92f0a0cb9.pdf",
+      "sourcePdfSha256": "c296b863d14e6ee0e24c7e5ad708118e460e00d295fdf86ee84056314535dba8",
+      "sourcePage": 14,
+      "crop": {
+        "x": 0.290476,
+        "y": 0.07,
+        "width": 0.483333,
+        "height": 0.856667
+      },
+      "imageWebp": "public/final-build/level-6/level-6-smart-camera.webp",
+      "imageWebpSha256": "4a91d70d3aa726522b576d7863dd5701029976ed3fb6d4114b0d4d8464e5d609",
+      "imageWidth": 399,
+      "imageHeight": 500,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.97908,
+        "meanAbsoluteError": 6.85,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    },
+    {
+      "projectId": "level-6-tricycle",
+      "variantId": "level-6-tricycle",
+      "sourcePath": "public/Level 6/Building/Vehicles & Complex Movers/Tricycle/29. Tricycle-Building Manual.pdf",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9299ee18abed465ab1c44f0a7548fc00.pdf",
+      "sourcePdfSha256": "e95663af6b28442ebd932e3db0d7b3476dabebe4f7b1505d826fcf1cffcd3731",
+      "sourcePage": 24,
+      "crop": {
+        "x": 0.257143,
+        "y": 0.256667,
+        "width": 0.538095,
+        "height": 0.506667
+      },
+      "imageWebp": "public/final-build/level-6/level-6-tricycle.webp",
+      "imageWebpSha256": "3232f8898fea38ce41d84ed1eee9df552765d7c3dce5784ffe7bdde7bc7348c6",
+      "imageWidth": 560,
+      "imageHeight": 373,
+      "status": "approved",
+      "approved": true,
+      "independentReviewer": "Secondary source-render/pixel-integrity and visual-model review (autonomous, 2026-11-23)",
+      "quality": {
+        "sourceRenderCorrelation": 0.95384,
+        "meanAbsoluteError": 8.19,
+        "maxEdgeNonwhiteFraction": 0,
+        "visualReview": "reviewed",
+        "uncertainty": null
+      }
+    }
+  ]
+}

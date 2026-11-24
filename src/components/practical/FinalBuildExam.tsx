@@ -5,7 +5,11 @@ import { FinalBuildScanner } from "@/components/practical/FinalBuildScanner";
 import { FinalBuildPrototype, type PrototypeClip, type PrototypeStatus } from "@/components/practical/FinalBuildPrototype";
 import { getFinalBuildInventory, getFinalBuildPool, secureRandomIndex } from "@/data/finalBuildRegistry";
 import type { FinalBuildVariant } from "@/data/finalBuildRegistry";
-import approvalData from "@/data/finalBuildApprovals.json";
+import {
+  getVerifiedFinalBuildPool,
+  getVerifiedFinalBuildReference,
+  getVerifiedFinalBuildQuestions,
+} from "@/data/finalBuildVerified";
 
 type Stage = "discover" | "scanning" | "ready" | "building" | "assessment" | "result";
 type Session = {
@@ -22,12 +26,6 @@ type Session = {
   attempts: number;
   result: "pass" | "retry" | null;
 };
-type Approval = {
-  level: number; projectId: string; variantId: string; url: string;
-  sha256: string; page: number; crop: PrototypeClip; approved: boolean;
-  reviewer: string;
-};
-const approvals: readonly Approval[] = approvalData.references as Approval[];
 const LIMIT_MS = 15 * 60 * 1000;
 const SCAN_MS = 4200;
 const stages: Stage[] = ["discover", "scanning", "ready", "building", "assessment", "result"];
@@ -39,7 +37,7 @@ function emptySession(level: number): Session {
 function storageKey(level: number): string {
   return "be-stem-ready-final-build-level-" + level + "-v1";
 }
-function restore(level: number, ids: Set<string>): Session {
+function restore(level: number, ids: Set<string>, variants: Map<string, Set<string>>): Session {
   const fresh = emptySession(level);
   try {
     const raw = window.localStorage.getItem(storageKey(level));
@@ -50,6 +48,7 @@ function restore(level: number, ids: Set<string>): Session {
     if (value.level !== level || !stages.includes(value.stage as Stage)) return fresh;
     if (value.projectId !== null && (typeof value.projectId !== "string" || !ids.has(value.projectId))) return fresh;
     if (value.stage !== "discover" && (!value.projectId || !ids.has(value.projectId))) return fresh;
+    if (value.variantId != null && (!value.projectId || !variants.get(value.projectId)?.has(value.variantId))) return fresh;
     const checks = value.checks;
     if (!Array.isArray(checks) || checks.length !== 5 || !checks.every(check => typeof check === "boolean")) return fresh;
     for (const key of ["scanUntil", "startedAt", "deadline", "completedAt"] as const) {
@@ -65,32 +64,15 @@ function formatTime(ms: number): string {
   const s = Math.ceil(Math.max(0, ms) / 1000);
   return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
 }
-function checkDescriptions(name: string): string[] {
-  const movement = /car|robot|fan|wheel|swing|crane|walking|vehicle|spinning|turntable|door|gate|motor|clock|bike|turtle|arm/i.test(name);
-  return [
-    "My finished model matches the official robot reference.",
-    "I attached the important parts in the correct positions.",
-    "All required connectors and supports are securely fitted.",
-    movement ? "The intended moving mechanism operates correctly." : "The completed structure is stable and properly aligned.",
-    "The model is complete and performs its intended task, where applicable.",
-  ];
-}
-function referenceIsApproved(level: number, projectId: string, variant: FinalBuildVariant): Approval | undefined {
-  return approvals.find(a =>
-    a.level === level && a.projectId === projectId && a.variantId === variant.id &&
-    a.url === variant.url && typeof a.sha256 === "string" && a.sha256.length >= 32 &&
-    a.approved === true && Boolean(a.reviewer) &&
-    Number.isInteger(a.page) && a.page > 0 &&
-    a.crop && [a.crop.x, a.crop.y, a.crop.width, a.crop.height].every(Number.isFinite) &&
-    a.crop.x >= 0 && a.crop.y >= 0 && a.crop.width > 0 && a.crop.height > 0 &&
-    a.crop.x + a.crop.width <= 1 && a.crop.y + a.crop.height <= 1
-  );
-}
 /** Shared Level 2–6 exam UI, with the exact Level 1 discovery chamber. */
 export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
   const inventory = useMemo(() => getFinalBuildInventory(level), [level]);
-  const pool = useMemo(() => getFinalBuildPool(level), [level]);
+  const pool = useMemo(() => getVerifiedFinalBuildPool(level), [level]);
+  // DEV-only source inspection can browse the whole registered pool; students see verified-only.
+  const reviewerPool = useMemo(() => getFinalBuildPool(level), [level]);
   const ids = useMemo(() => new Set(pool.map(p => p.id)), [pool]);
+  const permittedVariants = useMemo(() => new Map(pool.map(project =>
+    [project.id, new Set(project.variants.map(variant => variant.id))])), [pool]);
   const [session, setSession] = useState<Session>(() => emptySession(level));
   const [hydrated, setHydrated] = useState(false);
   const [now, setNow] = useState(0);
@@ -103,20 +85,20 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
     setModel(prev => prev?.filename === filename && prev.status === status ? prev : { filename, status }), []);
   useEffect(() => {
     const query = new URLSearchParams(window.location.search);
-    const reviewing = query.get("review") === "1";
+    const reviewing = import.meta.env.DEV && query.get("review") === "1";
     setReviewMode(reviewing);
     if (reviewing) {
       const named = query.get("project");
-      const idx = named ? pool.findIndex(p => p.id === named || p.name.toLowerCase() === named.toLowerCase()) : 0;
+      const idx = named ? reviewerPool.findIndex(p => p.id === named || p.name.toLowerCase() === named.toLowerCase()) : 0;
       setReviewIndex(Math.max(0, idx));
       const page = Number(query.get("page"));
       if (Number.isInteger(page) && page > 0) setReviewPage(page);
-      setSession({ ...emptySession(level), stage: "ready", projectId: pool[Math.max(0, idx)]?.id ?? null,
-        variantId: pool[Math.max(0, idx)]?.variants[0]?.id ?? null });
-    } else setSession(restore(level, ids));
+      setSession({ ...emptySession(level), stage: "ready", projectId: reviewerPool[Math.max(0, idx)]?.id ?? null,
+        variantId: reviewerPool[Math.max(0, idx)]?.variants[0]?.id ?? null });
+    } else setSession(restore(level, ids, permittedVariants));
     setHydrated(true);
     setNow(Date.now());
-  }, [level, ids, pool]);
+  }, [level, ids, pool, reviewerPool, permittedVariants]);
   useEffect(() => {
     if (hydrated && !reviewMode) window.localStorage.setItem(storageKey(level), JSON.stringify(session));
   }, [level, hydrated, reviewMode, session]);
@@ -130,12 +112,23 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
     if (session.stage === "building" && session.deadline !== null && now >= session.deadline)
       setSession(prev => prev.stage === "building" ? { ...prev, stage: "assessment", acknowledgedFinish: false } : prev);
   }, [now, session.stage, session.scanUntil, session.deadline]);
-  const project = pool.find(p => p.id === session.projectId) ?? null;
+  const activePool = reviewMode ? reviewerPool : pool;
+  const project = activePool.find(p => p.id === session.projectId) ?? null;
   const variant = project?.variants.find(v => v.id === session.variantId) ?? project?.variants[0] ?? null;
-  const approval = project && variant ? referenceIsApproved(level, project.id, variant) : undefined;
+  const approval = project && variant ? getVerifiedFinalBuildReference(level, project.id, variant) : null;
   const pictureReady = Boolean(variant && model?.filename === variant.id && model.status === "ready");
-  const startAllowed = Boolean(approval && pictureReady && variant?.hostedOnWix);
-  const testAllowed = Boolean(reviewMode && variant && pictureReady);
+  // Owner-authorized PDF-only variants remain accessible without claiming a
+  // finished-model WebP. Preserve Level 2's existing hosted-image error fallback.
+  const showRegisteredPdfFallback = Boolean(
+    approval && variant && approval.sourceUrl === variant.url && (
+      ((level === 2 || level === 3 || level === 4 || level === 5 || level === 6) && approval.referenceMode === "registered-pdf-fallback") ||
+      ((level === 2 || level === 3) && approval.referenceMode === "hosted-webp" &&
+        model?.filename === variant.id && model.status === "error")
+    ),
+  );
+  const startAllowed = Boolean(approval && variant?.hostedOnWix &&
+    (pictureReady || showRegisteredPdfFallback));
+  const testAllowed = Boolean(import.meta.env.DEV && reviewMode && variant && pictureReady);
   const remaining = session.deadline === null ? LIMIT_MS : Math.max(0, session.deadline - now);
   const elapsed = session.startedAt != null && session.completedAt != null ? Math.max(0, session.completedAt - session.startedAt) : null;
   const isScanning = session.stage === "discover" || session.stage === "scanning";
@@ -147,10 +140,11 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
   function discover() {
     if (session.stage !== "discover" || !pool.length || !hydrated) return;
     const chosen = pool[secureRandomIndex(pool.length)];
+    if (!chosen) return;
     setModel(null);
     setSession(prev => ({
       ...emptySession(level), attempts: prev.attempts, projectId: chosen.id,
-      variantId: chosen.variants[0]?.id ?? null, stage: "scanning",
+      variantId: (level === 2 ? chosen.variants[secureRandomIndex(chosen.variants.length)] : chosen.variants[0])?.id ?? null, stage: "scanning",
       scanUntil: Date.now() + SCAN_MS,
     }));
   }
@@ -161,8 +155,9 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
       deadline: startedAt + LIMIT_MS, completedAt: null, acknowledgedFinish: false, checks: [false, false, false, false, false], result: null }));
   }
   function finish() {
+    const completedAt = Date.now();
     setSession(prev => prev.stage === "building"
-      ? { ...prev, stage: "assessment", acknowledgedFinish: Date.now() <= (prev.deadline ?? 0), completedAt: Date.now() } : prev);
+      ? { ...prev, stage: "assessment", acknowledgedFinish: completedAt <= (prev.deadline ?? 0), completedAt } : prev);
   }
   function result() {
     setSession(prev => {
@@ -179,7 +174,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
       stage: same ? "ready" : "discover" }));
   }
   function selectReviewer(index: number) {
-    const next = pool[index];
+    const next = reviewerPool[index];
     if (!next || !reviewMode) return;
     setModel(null);
     setReviewIndex(index);
@@ -188,10 +183,10 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
   const crop = approval?.crop ?? reviewCrop;
   const page = approval?.page ?? reviewPage;
   const renderCandidate = Boolean(variant && (approval || reviewMode));
-  const readyChecks = project ? checkDescriptions(project.name) : [];
+  const readyChecks = project && variant ? getVerifiedFinalBuildQuestions(level, project.id, variant) : [];
   if (!hydrated) return <div className="grid min-h-dvh place-items-center bg-sky-50 text-sky-800" role="status">Preparing Final Build Exam…</div>;
   return (
-    <div className="relative min-h-dvh overflow-x-hidden bg-gradient-to-br from-[#effaff] via-[#fff9e9] to-[#f7efff] text-slate-800">
+    <div className="relative h-dvh overflow-x-hidden overflow-y-auto overscroll-y-contain bg-gradient-to-br from-[#effaff] via-[#fff9e9] to-[#f7efff] text-slate-800">
       <LevelOneBackdrop />
       <header className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:px-7">
         <a href={back} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white/90 px-3 text-sm font-bold text-sky-800 focus-visible:outline-4 focus-visible:outline-sky-500"><ArrowLeft className="size-4"/> Level {level}</a>
@@ -212,7 +207,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
             <div className="flex flex-col justify-center gap-4 bg-gradient-to-br from-white via-[#f0f9ff] to-[#f1edff] p-5 sm:p-9">
               <h2 className="text-center text-xl font-black text-[#19428f] sm:text-3xl">{session.stage === "scanning" ? "Scanning for your robot!" : "Which robot will you discover?"}</h2>
               <div className="flex flex-wrap justify-center gap-2">
-                <span className="rounded-full bg-sky-100 px-4 py-2 text-sm font-bold text-sky-800">🤖 {pool.length} registered robots</span>
+                <span className="rounded-full bg-sky-100 px-4 py-2 text-sm font-bold text-sky-800">🤖 {level === 2 ? `${pool.length} projects · ${pool.reduce((count, item) => count + item.variants.length, 0)} variants` : `${pool.length} verified robots`}</span>
                 <span className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-bold text-emerald-800">⏱ 15-minute challenge</span>
               </div>
               <button type="button" disabled={session.stage === "scanning" || !pool.length} onClick={discover}
@@ -221,7 +216,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
               </button>
               {session.stage === "scanning" && <button type="button" onClick={() => setSession(prev => prev.stage === "scanning" ? { ...prev, stage: "ready" } : prev)}
                 className="min-h-11 text-sm font-bold text-sky-700 underline">Skip animation</button>}
-              {!pool.length && <p role="alert" className="text-center text-sm text-amber-800">No registered Wix Building PDF references were found for this level.</p>}
+              {!pool.length && <p role="alert" className="text-center text-sm text-amber-800">No independently approved robot references are available for this level yet.</p>}
               <p role="status" aria-live="polite" className="text-center text-xs text-slate-600">Each project has one equal chance. Manual variants do not increase the odds.</p>
             </div>
           </section>
@@ -233,11 +228,11 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
               <p className="mt-1 text-sm font-semibold text-slate-500">{project?.category}</p>
             </div>
             {reviewMode && <div className="mb-4 rounded-xl border border-violet-200 bg-violet-50 p-3">
-              <p className="mb-2 text-xs font-bold text-violet-800">Reviewer-only draft · {reviewIndex + 1} / {pool.length} · Not approved for students</p>
+              <p className="mb-2 text-xs font-bold text-violet-800">Development-only source review · {reviewIndex + 1} / {reviewerPool.length} · Not approved for students</p>
               <select aria-label="Review project" value={reviewIndex}
                 onChange={e => selectReviewer(Number(e.target.value))}
                 className="min-h-11 w-full rounded-lg border border-violet-300 bg-white p-2 text-sm">
-                {pool.map((item, index) => <option value={index} key={item.id}>{item.name}</option>)}
+                {reviewerPool.map((item, index) => <option value={index} key={item.id}>{item.name}</option>)}
               </select>
               <div className="mt-3 flex flex-wrap items-center gap-3">
                 <label className="text-xs font-semibold">Source page <input type="number" min={1} value={reviewPage}
@@ -254,15 +249,40 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
                 </select>
               </label>}
               <div className="rounded-2xl border-2 border-sky-200 bg-sky-50 p-3 text-center sm:p-5">
-                <p className="mb-2 text-xs font-black uppercase tracking-widest text-sky-700">Your finished-model reference</p>
-                {renderCandidate ? <FinalBuildPrototype key={variant.id + ":" + page}
-                  filename={variant.id} url={variant.url} pageNumber={page} crop={crop}
-                  title={project.name} onStatusChange={onModelStatus}/> :
+                <p className="mb-2 text-xs font-black uppercase tracking-widest text-sky-700">{approval?.referenceMode === "registered-pdf-fallback" ? "Official PDF assembly reference · incomplete model view" : level === 3 ? "Original Building-manual artwork · owner-authorized" : "Your finished-model reference"}</p>
+                {showRegisteredPdfFallback && approval ? (
+                  <div className="rounded-xl bg-white p-5 text-center" role="region" aria-label="Registered PDF reference fallback">
+                    <p className="font-bold text-sky-900">Original registered PDF reference</p>
+                    <p className="mt-2 text-xs text-slate-600">
+                      {approval.referenceMode === "registered-pdf-fallback"
+                        ? ((level === 4 || level === 6)
+                          ? approval.referenceNotice
+                          : level === 5
+                          ? "Owner-authorized Level 5 Building PDF instruction reference. The last page shows an unfinished assembly step, not an independently verified completed model. Follow the full PDF instructions and use general self-assessment checks."
+                          : "Owner-authorized PDF fallback. A separately approved completed-model WebP is not available; this PDF may be a presentation or incomplete Building reference.")
+                        : "The verified hosted WebP did not load. Use its original registered PDF instead."}
+                    </p>
+                    {(level === 4 || level === 6) && approval.referenceMode === "registered-pdf-fallback" && variant && project && (
+                      <div className="mt-3" aria-label="Source-limited original PDF page">
+                        <FinalBuildPrototype key={variant.id + ":" + approval.page}
+                          filename={variant.id} url={approval.sourceUrl} pageNumber={approval.page}
+                          crop={approval.crop} title={project.name} sourceLimited onStatusChange={onModelStatus}/>
+                      </div>
+                    )}
+                    <a href={approval.sourceUrl} target="_blank" rel="noopener noreferrer"
+                      className="mt-4 inline-flex min-h-12 items-center justify-center rounded-xl bg-sky-700 px-5 py-3 text-sm font-bold text-white underline underline-offset-2">
+                      Open original PDF reference
+                    </a>
+                  </div>
+                ) : renderCandidate ? <FinalBuildPrototype key={variant.id + ":" + page}
+                  filename={variant.id} url={variant.url} {...(approval?.imageUrl ? { imageUrl: approval.imageUrl } : {})} pageNumber={page} crop={crop}
+                  title={project.name} sourceLimited={level === 3} onStatusChange={onModelStatus}/> :
                   <div className="rounded-xl bg-white p-8 text-sm font-semibold text-amber-900" role="status">
-                    Verified robot image unavailable. This project remains locked until its actual completed-model crop and cleaned PDF are approved.
+                    Robot reference unavailable. The registered PDF or verified finished-model WebP is required to begin.
                   </div>}
+                {level === 3 && approval && <p className="mt-2 text-xs text-amber-800">{approval.referenceNotice}</p>}
                 {reviewMode && <p className="mt-2 text-xs font-semibold text-amber-800">Draft source page only — may contain instructional text or other content. Never shown to students.</p>}
-                {!reviewMode && !startAllowed && <p className="mt-2 text-xs text-amber-900">No unapproved image will be used as an official exam reference.</p>}
+                {!reviewMode && !startAllowed && <p className="mt-2 text-xs text-amber-900">The reference is not yet available. Retry or choose another model.</p>}
               </div>
               <p className="my-4 flex items-center justify-center gap-2 text-4xl font-black tabular-nums text-sky-800"><Timer className="size-7"/>{formatTime(remaining)}</p>
             </>}
@@ -276,7 +296,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
             {session.stage === "building" && <button type="button" onClick={finish} className="min-h-14 w-full rounded-2xl bg-emerald-600 font-extrabold text-white">I Finished My Robot!</button>}
             {session.stage === "assessment" && <>
               <p className="mb-2 text-lg font-extrabold">Check your robot</p>
-              <p className="mb-3 text-xs text-slate-600">Self-reported checklist; project-specific wording awaits the official manual audit.</p>
+              <p className="mb-3 text-xs text-slate-600">{approval?.referenceMode === "registered-pdf-fallback" || level === 3 ? "Owner-authorized self-assessment: five construction checks from original Building references, not independently certified." : "Self-reported checklist using five source-backed checks from the original Building reference."}</p>
               {readyChecks.map((item, index) => <label key={index} className="mb-2 flex min-h-12 items-center gap-3 rounded-xl bg-sky-50 p-3 text-sm font-semibold">
                 <input type="checkbox" className="size-6 shrink-0 accent-sky-600" checked={session.checks[index]}
                   onChange={e => setSession(prev => ({ ...prev, checks: prev.checks.map((v,i) => i === index ? e.target.checked : v) }))}/>
@@ -296,7 +316,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
             <a href={back} className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-violet-700"><ArrowLeft className="size-4"/> Back to Level {level}</a>
           </section>
         )}
-        <p className="mt-4 text-center text-xs text-slate-500">{inventory.length - pool.length} syllabus activities have no registered Wix Building PDF and are excluded from the draw. Source availability does not imply finished-model approval.</p>
+        <p className="mt-4 text-center text-xs text-slate-500">{level === 2 ? "Level 2: independently verified finished-model WebPs and owner-authorized registered PDF fallbacks are both selectable; their evidence statuses remain distinct." : level === 5 ? "Level 5: 42 independently source-verified WebP references and 3 owner-authorized incomplete-view official Building PDF references are selectable. Their evidence statuses remain distinct." : level === 4 ? "Level 4: 48 independently verified complete-model Wix WebPs and two owner-authorized original Building PDF construction-stage references. The two PDF pages are not certified complete-model images." : level === 6 ? "Level 6: 39 verified Wix WebPs and two owner-authorized original Building PDF construction references. PDF pages are not certified full-model photos." : `${inventory.length - pool.length} syllabus activities do not currently have an approved playable reference and are excluded from the draw.`}</p>
       </main>
     </div>
   );

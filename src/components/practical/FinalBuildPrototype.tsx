@@ -13,6 +13,8 @@ export type PrototypeStatus = "loading" | "ready" | "error";
 type Props = {
   filename: string;
   url: string;
+  imageUrl?: string;
+  sourceLimited?: boolean;
   pageNumber: number;
   crop: PrototypeClip;
   title: string;
@@ -27,7 +29,7 @@ type Props = {
  * provisional until the original model art has been reviewed and approved.
  */
 export function FinalBuildPrototype({
-  filename, url, pageNumber, crop, title, onStatusChange,
+  filename, url, imageUrl, sourceLimited = false, pageNumber, crop, title, onStatusChange,
 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [status, setStatus] = useState<PrototypeStatus>("loading");
@@ -35,6 +37,13 @@ export function FinalBuildPrototype({
   const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
+    // Wix-hosted image mode avoids downloading/rendering a PDF when a verified WebP URL exists.
+    if (imageUrl) {
+      setStatus("loading");
+      setError("");
+      onStatusChange(filename, "loading");
+      return;
+    }
     let disposed = false;
     let loadingTask: PDFDocumentLoadingTask | null = null;
     let renderTask: RenderTask | null = null;
@@ -123,16 +132,36 @@ export function FinalBuildPrototype({
       renderTask?.cancel();
       void loadingTask?.destroy();
     };
-  }, [url, filename, pageNumber, crop.x, crop.y, crop.width, crop.height, attempt, onStatusChange]);
+  }, [url, imageUrl, filename, pageNumber, crop.x, crop.y, crop.width, crop.height, attempt, onStatusChange]);
 
   return (
     <div className="relative flex min-h-44 flex-col items-center justify-center overflow-hidden rounded-2xl bg-white p-2 sm:p-3">
-      <canvas
-        ref={canvasRef}
-        role="img"
-        aria-label={`Original completed-model candidate of ${title}`}
-        className={`mx-auto block h-auto max-h-[38dvh] max-w-full object-contain ${status === "ready" ? "" : "invisible"}`}
-      />
+      {imageUrl ? (
+        <img
+          key={imageUrl + ":" + attempt}
+          src={imageUrl}
+          alt={sourceLimited ? `Owner-authorized original Building-manual illustration of ${title}; finished assembly not independently certified` : `Verified finished-model reference of ${title}`}
+          loading="eager"
+          decoding="async"
+          className={`mx-auto block h-auto max-h-[38dvh] max-w-full object-contain ${status === "ready" ? "" : "invisible"}`}
+          onLoad={() => {
+            setStatus("ready");
+            onStatusChange(filename, "ready");
+          }}
+          onError={() => {
+            setError("The hosted robot image could not be loaded. Retry or contact the administrator.");
+            setStatus("error");
+            onStatusChange(filename, "error");
+          }}
+        />
+      ) : (
+        <canvas
+          ref={canvasRef}
+          role="img"
+          aria-label={sourceLimited ? `Original construction-page illustration, not a complete finished-model image, of ${title}` : `Original completed-model reference of ${title}`}
+          className={`mx-auto block h-auto max-h-[38dvh] max-w-full object-contain ${status === "ready" ? "" : "invisible"}`}
+        />
+      )}
       {status === "loading" && (
         <div className="absolute inset-0 flex items-center justify-center bg-white/95 p-4" role="status">
           <p className="text-sm font-bold text-[#7252a2]">Loading original robot slide…</p>

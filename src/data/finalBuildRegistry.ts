@@ -21,7 +21,7 @@ export type FinalBuildProject = {
 };
 
 function sourceFilename(url: string): string {
-  try { return decodeURIComponent(url.split("?")[0].split("/").pop() || ""); }
+  try { return decodeURIComponent(url.split("?")[0]?.split("/").pop() || ""); }
   catch { return ""; }
 }
 function makeVariant(id: string, label: string, url: string | undefined): FinalBuildVariant | null {
@@ -93,7 +93,7 @@ export function secureRandomIndex(length: number): number {
   let value: number;
   do {
     globalThis.crypto.getRandomValues(array);
-    value = array[0];
+    value = array[0]!;
   } while (value >= limit);
   return value % length;
 }

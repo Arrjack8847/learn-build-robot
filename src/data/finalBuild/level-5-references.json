@@ -1,0 +1,2161 @@
+{
+  "schemaVersion": 1,
+  "level": 5,
+  "baseCommitSha": "1fe5c5336d45295e6e3252d0450b662337a1db50",
+  "sourceAudit": "src/data/finalBuild/level-5-audit.json",
+  "renderableApprovedReferences": [
+    {
+      "variantId": "level-5-curling-game",
+      "projectId": "level-5-curling-game",
+      "variant": "basic",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0d49fe6b3d724a4db75120b0a174b491.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-curling-game-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-curling-game-basic.webp",
+      "imageSha256": "a48a513ab6e217bcf7916d3501ed1cceeb4d30a5fe8477e3d97b303735ad8660",
+      "pdfSha256": "69fec3ce90446b24df5342e2f43d79d112fec4fc85171c40cc3ff67ce7429114",
+      "page": 9,
+      "normalizedCrop": [
+        0.208277,
+        0.172579,
+        0.600407,
+        0.771812
+      ],
+      "dimensions": [
+        550,
+        500
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-curling-game:optimized",
+      "projectId": "level-5-curling-game",
+      "variant": "optimized",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f0fb68b32d8f475fae53a3683eecff6b.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-curling-game-optimized.webp",
+      "imagePath": "public/final-build/level-5/level-5-curling-game-optimized.webp",
+      "imageSha256": "ac3906079aecbff67cc6aea9dbc81699e1ed674307da98afc68a81d35d3575e4",
+      "pdfSha256": "3ac68494ba5efc16b954e8a0037cb77810789763b997c86c4561dbf1b8e50774",
+      "page": 4,
+      "normalizedCrop": [
+        0.208277,
+        0.172579,
+        0.600407,
+        0.771812
+      ],
+      "dimensions": [
+        550,
+        500
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-drawing-machine",
+      "projectId": "level-5-drawing-machine",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7dd5a7fb9df942bbaaa8bcf29bbfb756.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-drawing-machine-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-drawing-machine-basic.webp",
+      "imageSha256": "84eface4b0899e2b8b39d1af7c2d9a83534714190e4ffa190f4c09b02d7eb1d6",
+      "pdfSha256": "d8d76abdceb9675b1139d5e1d28ead5cc23a61dd5576e2dd59cd28527e538ccd",
+      "page": 40,
+      "normalizedCrop": [
+        0.154003,
+        0.185043,
+        0.63772,
+        0.6721
+      ],
+      "dimensions": [
+        550,
+        410
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-firefly",
+      "projectId": "level-5-firefly",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_07c341d91fd24f6aa77c3024019856e7.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-firefly-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-firefly-basic.webp",
+      "imageSha256": "67a9e622ef017b49a3fcccc605188577c57c994439a4d6bab4e326651d243c24",
+      "pdfSha256": "877e35222fb351276e80a42dc539582c70df1d2858ab207faff026a6bdf818df",
+      "page": 28,
+      "normalizedCrop": [
+        0.130936,
+        0.259827,
+        0.744912,
+        0.559923
+      ],
+      "dimensions": [
+        550,
+        292
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-goalkeeper",
+      "projectId": "level-5-goalkeeper",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0308c7aaf5aa4745a6e8fc0195bfcf26.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-goalkeeper-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-goalkeeper-basic.webp",
+      "imageSha256": "a998a972aecac2973aed4c27cadd06221d0b8f2e370db03c75c1112a50ba5dbe",
+      "pdfSha256": "3583e37b7974007eed042c5ec4f2a92e7a637cd8a432ed99025927eaeb042829",
+      "page": 20,
+      "normalizedCrop": [
+        0.02171,
+        0.131352,
+        0.971506,
+        0.675935
+      ],
+      "dimensions": [
+        550,
+        271
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-spanish-bullfight",
+      "projectId": "level-5-spanish-bullfight",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ebe74e45dd4c40c1b8aa9be178947e9b.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-spanish-bullfight-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-spanish-bullfight-basic.webp",
+      "imageSha256": "6b59696483fad0b34762ec6d4c6cec208c9ac36be623dcc2623784cbda613899",
+      "pdfSha256": "2fb7c95e214c21e3db6cf8bc499683861d565a7dd1110d345f680c9b8c4c5faf",
+      "page": 26,
+      "normalizedCrop": [
+        0.198779,
+        0.05465,
+        0.658752,
+        0.885906
+      ],
+      "dimensions": [
+        510,
+        485
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-the-warrior",
+      "projectId": "level-5-the-warrior",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8b9dd440103a47bc92c71803d54551bb.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-the-warrior-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-the-warrior-basic.webp",
+      "imageSha256": "d46b82d0eb219bcb85c2b181e6e0fd0b13c0190645884f00acedd68fa8f2380c",
+      "pdfSha256": "d86373df8de92b592c5766aad7aa1dfeb248f0e384b5fc27d3012141999e2af3",
+      "page": 27,
+      "normalizedCrop": [
+        0.275441,
+        0.128476,
+        0.451153,
+        0.793864
+      ],
+      "dimensions": [
+        426,
+        530
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-magnetic-anti-theft-cabinet",
+      "projectId": "level-5-magnetic-anti-theft-cabinet",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1ea3c09df5604e7999aa1d011102abaf.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-magnetic-anti-theft-cabinet-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-magnetic-anti-theft-cabinet-basic.webp",
+      "imageSha256": "cdb5ad16afabadd777a200da69118fe91d40576be6553d534a6d8f6aa3118991",
+      "pdfSha256": "dc52c6f297173cbe965380965a447e1fcf5a0889ad3b783c56596e849204b8b6",
+      "page": 24,
+      "normalizedCrop": [
+        0.364993,
+        0.254075,
+        0.4654,
+        0.584851
+      ],
+      "dimensions": [
+        530,
+        471
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-please-scan-to-ride",
+      "projectId": "level-5-please-scan-to-ride",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7ec4a85b05834973a9181981ca869388.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-please-scan-to-ride-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-please-scan-to-ride-basic.webp",
+      "imageSha256": "33cff92eca9a77e29b6034b20c5337dd7108fdf2581f058c903e27b12c265576",
+      "pdfSha256": "2d300785d8b8f97352beb40ea674c9a5106fc565d71ff68975e6816ead43e739",
+      "page": 29,
+      "normalizedCrop": [
+        0.244233,
+        0.100671,
+        0.526459,
+        0.819751
+      ],
+      "dimensions": [
+        499,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-smart-cash-register",
+      "projectId": "level-5-smart-cash-register",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_20999a71d2f74de5883dbfd3dbc68ae2.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-smart-cash-register-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-smart-cash-register-basic.webp",
+      "imageSha256": "0a40019f07f132571853913c4b7161708fc777b70680605626e44dcd0e9f27b7",
+      "pdfSha256": "b1aa21089f3bd9943771e3f9ba5025812a01d038403a87d6e82313cfe26db577",
+      "page": 41,
+      "normalizedCrop": [
+        0.238128,
+        0.120805,
+        0.554274,
+        0.771812
+      ],
+      "dimensions": [
+        550,
+        542
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-smart-guiding-car",
+      "projectId": "level-5-smart-guiding-car",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d71a85cfa8854b2d845f20b94cc2bde9.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-smart-guiding-car-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-smart-guiding-car-basic.webp",
+      "imageSha256": "1d985841f703927f40da9f7f5fc1e84f6b1ff2e189396e46cdd6ffcb043a269e",
+      "pdfSha256": "07df21e9bed6f5a4fbeec458ae4d415937d740e88724250a585253cd03d6a9c9",
+      "page": 21,
+      "normalizedCrop": [
+        0.209634,
+        0.139981,
+        0.59905,
+        0.813998
+      ],
+      "dimensions": [
+        530,
+        510
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-lucky-prize-wheel",
+      "projectId": "level-5-lucky-prize-wheel",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5880ab56288e4a79ba863ccf492736ef.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-lucky-prize-wheel-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-lucky-prize-wheel-basic.webp",
+      "imageSha256": "acbf45e57069fc6174272a60036cae9dbcbc75f68f072e1b21fdd34b02ec606b",
+      "pdfSha256": "f8b2db54d370f09809541296577ae4b172b0736bcd8a42aa2a2f514f66bfd14b",
+      "page": 26,
+      "normalizedCrop": [
+        0.224559,
+        0.06999,
+        0.555631,
+        0.837967
+      ],
+      "dimensions": [
+        459,
+        490
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-oil-pumping-unit",
+      "projectId": "level-5-oil-pumping-unit",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_da533f077fa24766a89547658c803ca5.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-oil-pumping-unit-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-oil-pumping-unit-basic.webp",
+      "imageSha256": "f864ac47ce64c53f82023d4dae229316639482530154a7061704012888510ad3",
+      "pdfSha256": "9ecdbaa0f4f34ebd577b0e4710378096ae0979318d062378c29751e20448c408",
+      "page": 24,
+      "normalizedCrop": [
+        0.08209,
+        0.141898,
+        0.864315,
+        0.720997
+      ],
+      "dimensions": [
+        550,
+        324
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-swinging-shark",
+      "projectId": "level-5-swinging-shark",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_860c1f7bc18e4a61b5ef4f840c5923a6.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-swinging-shark-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-swinging-shark-basic.webp",
+      "imageSha256": "4e3f0962b421ead32c37ab0ed6ab81f67b7488d114dddbf2bdd6c20809aecf48",
+      "pdfSha256": "ed617c57df965302c8a352b39bfdc0397effa02215f20e82054a9ece14b23e99",
+      "page": 41,
+      "normalizedCrop": [
+        0.135685,
+        0.099712,
+        0.762551,
+        0.825503
+      ],
+      "dimensions": [
+        550,
+        421
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-runner",
+      "projectId": "level-5-runner",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_52b355e05eca48c3b4f92539063e6daf.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-runner-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-runner-basic.webp",
+      "imageSha256": "77a57f5e4ea7593f778cb88580447eb183f183f4230a3f47beb2e37692b2aef3",
+      "pdfSha256": "733855b3e2cdc95f2933acfb7f04ef1322bb0735d52b4fe087b5fb12c359b92e",
+      "page": 28,
+      "normalizedCrop": [
+        0.173677,
+        0.096836,
+        0.677748,
+        0.841802
+      ],
+      "dimensions": [
+        510,
+        448
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-welcome-sign",
+      "projectId": "level-5-welcome-sign",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_96ebc23bd9694ade9e0f1acfa503a974.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-welcome-sign-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-welcome-sign-basic.webp",
+      "imageSha256": "c4515c383fdbffb8e7c802de7c3a7e86dc0bb7ccaa8b6cdcf5013f8d19b1e376",
+      "pdfSha256": "b4e1133a64e190d574289e47a02c2d1d6912e8f57a00074ea576635b0ade6ee8",
+      "page": 19,
+      "normalizedCrop": [
+        0.278833,
+        0.11697,
+        0.453867,
+        0.820709
+      ],
+      "dimensions": [
+        430,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-car-lights",
+      "projectId": "level-5-car-lights",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2f81f715f082454293694017013a6bf3.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-car-lights-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-car-lights-basic.webp",
+      "imageSha256": "d1248f80409a6390d4c804538488772c4a20de6583e0b822bad58dd4f977e799",
+      "pdfSha256": "dfeeef3bc3767dd407d9b2f6702c68b97436bbc056a36473b7276ffb79bb33cb",
+      "page": 37,
+      "normalizedCrop": [
+        0.221845,
+        0.048897,
+        0.662144,
+        0.863854
+      ],
+      "dimensions": [
+        550,
+        508
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-direction-indicator",
+      "projectId": "level-5-direction-indicator",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1ef43984ce3246c5a47a2d506462aeb3.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-direction-indicator-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-direction-indicator-basic.webp",
+      "imageSha256": "0ad1aec96adf2e5c39e0ec867661acd974bf6f3f0af099238a123db49acfb7bc",
+      "pdfSha256": "1cf36f5611f01f664f4a3f5136b7d641d22040bde35dbd282bb921ae34385d8b",
+      "page": 21,
+      "normalizedCrop": [
+        0.296472,
+        0.105465,
+        0.558345,
+        0.810163
+      ],
+      "dimensions": [
+        536,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-magnetic-object-finder",
+      "projectId": "level-5-magnetic-object-finder",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c0aaa473fd414db18171424e5c4b8132.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-magnetic-object-finder-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-magnetic-object-finder-basic.webp",
+      "imageSha256": "f07583d21cab0c89e2ab1bd255e9af22d6529623bf80f086f9771fce60aadb96",
+      "pdfSha256": "8e417179e26d128148da81cf550ac751f8b31d70bb53163a24e776f3cf9e2712",
+      "page": 13,
+      "normalizedCrop": [
+        0.308684,
+        0.093001,
+        0.441655,
+        0.8907
+      ],
+      "dimensions": [
+        386,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-passenger-counter",
+      "projectId": "level-5-passenger-counter",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4a300e3072034964b9295c2f32c87c0d.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-passenger-counter-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-passenger-counter-basic.webp",
+      "imageSha256": "cd7c0e1cb3f70fcdbc84ea2fa90bea226ac9a71d2c5f08d7900f159599ce845d",
+      "pdfSha256": "fea987e7a68c269a644d886991eb2cc7a72f241c3f7963308fc8c326dd2403be",
+      "page": 39,
+      "normalizedCrop": [
+        0.246269,
+        0.10163,
+        0.658073,
+        0.883988
+      ],
+      "dimensions": [
+        510,
+        485
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-big-pendulum",
+      "projectId": "level-5-big-pendulum",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0223c6e5d9454de7b416aede2d4a72fe.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-big-pendulum-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-big-pendulum-basic.webp",
+      "imageSha256": "4b36db7fb11f88b91489735a81258f8f1f44eac6da8fff4f5a7f2bb7bc5ba8f0",
+      "pdfSha256": "ed4095a6fc7dfcc55500c8b09500e5c538034cbdd9c7bdcc986389fddf16fab0",
+      "page": 30,
+      "normalizedCrop": [
+        0.282904,
+        0.095877,
+        0.434193,
+        0.861937
+      ],
+      "dimensions": [
+        392,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-chairoplane",
+      "projectId": "level-5-chairoplane",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f1161d0495ff427dac1089bb54520bc5.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-chairoplane-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-chairoplane-basic.webp",
+      "imageSha256": "157bdaecbaa8932937917f77f78fe7b46303b563d449f27996a8a3604218bc03",
+      "pdfSha256": "20a2fab8ca0a1eec52ba0d9a61bc5df257e5ad477ba98f6df8f105bf1bccabaa",
+      "page": 34,
+      "normalizedCrop": [
+        0.181818,
+        0.068073,
+        0.589552,
+        0.871524
+      ],
+      "dimensions": [
+        526,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-crack-shot",
+      "projectId": "level-5-crack-shot",
+      "variant": "basic",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_593d79649e204933bc8b6ccc2186a9a7.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-crack-shot-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-crack-shot-basic.webp",
+      "imageSha256": "a85a92badaec95498ca0424cf9aae24215339f5eb698290ec56feaebbbbb691d",
+      "pdfSha256": "ae703af31b495b83d6c3c3eb93338e927cf4fe42ca58648923081c058a65fc35",
+      "page": 27,
+      "normalizedCrop": [
+        0.093623,
+        0.079578,
+        0.826323,
+        0.823586
+      ],
+      "dimensions": [
+        550,
+        388
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-kiddie-ride",
+      "projectId": "level-5-kiddie-ride",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3a22ab81d3654125b47d991d87311de8.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-kiddie-ride-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-kiddie-ride-basic.webp",
+      "imageSha256": "6516c4715586594e5b7a978e5b1c92fa98dae0b6c2de922c29b0d0e92919cbbe",
+      "pdfSha256": "94d80f4cfc3d188a1bd14ea31658f6420634b3e17302756668b06b5aca20b07c",
+      "page": 49,
+      "normalizedCrop": [
+        0.222524,
+        0.059444,
+        0.56445,
+        0.850431
+      ],
+      "dimensions": [
+        497,
+        530
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-revolving-door",
+      "projectId": "level-5-revolving-door",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_58a20bb51fe04b0bb88a79c21cd39dbd.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-revolving-door-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-revolving-door-basic.webp",
+      "imageSha256": "dd2176e6eff84c23819a412c28b3a63123924aac2725ffe8b5ef3c2fa75b59cf",
+      "pdfSha256": "877e5e57c306bfd5b08c58703044c46607b9fb3fa19208e7c65e7de7588bfe92",
+      "page": 21,
+      "normalizedCrop": [
+        0.210991,
+        0.092042,
+        0.612619,
+        0.862895
+      ],
+      "dimensions": [
+        430,
+        429
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-smart-turnstile",
+      "projectId": "level-5-smart-turnstile",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ab1ad4c6e53d4d12a4511bbdf9859e59.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-smart-turnstile-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-smart-turnstile-basic.webp",
+      "imageSha256": "aeb16ed58db5ea25aa6ab6e5426fb389c288a033fde6c1837a4356c8f5847b60",
+      "pdfSha256": "746b3b42bd8aa31804a51ca4b4a0a3646791833aba3dc19e20d8ed3dd4cb873a",
+      "page": 12,
+      "normalizedCrop": [
+        0.206242,
+        0.043145,
+        0.576662,
+        0.929051
+      ],
+      "dimensions": [
+        447,
+        510
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-top-scorer",
+      "projectId": "level-5-top-scorer",
+      "variant": "basic",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_036af418ef5d43efbd1fee76ace25214.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-top-scorer-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-top-scorer-basic.webp",
+      "imageSha256": "8a1c2e1497f1cd9473ad1ba7b0918d91ed9acf707ad5cb88b3b508f4223d7ff2",
+      "pdfSha256": "0da9d05afc288e9a996a79951fd69c3b5d28e8bb52f783a8d10aaf59f558945b",
+      "page": 11,
+      "normalizedCrop": [
+        0.243555,
+        0.034516,
+        0.515604,
+        0.93768
+      ],
+      "dimensions": [
+        427,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-clothes-dryer",
+      "projectId": "level-5-clothes-dryer",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f11855087e0f499e819452ac4e1a8217.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-clothes-dryer-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-clothes-dryer-basic.webp",
+      "imageSha256": "04ccd56f2e1daaf9a358a9df7a2cc3cb64f61ff37edd7393fc873311dfa2cc48",
+      "pdfSha256": "968cb80948d46d51c5c2f950b518a22e60e11a299aa83cd80df8b9c4b790c0bb",
+      "page": 23,
+      "normalizedCrop": [
+        0.244912,
+        0.146692,
+        0.514925,
+        0.644295
+      ],
+      "dimensions": [
+        530,
+        469
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-remote-control-fan",
+      "projectId": "level-5-remote-control-fan",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_910aae7800fe4378acc4a2f438496e2d.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-remote-control-fan-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-remote-control-fan-basic.webp",
+      "imageSha256": "2c2fe2864aa34e372fa6d58b279f1bec2ed5584894724bb5ee155c5e8d18cd52",
+      "pdfSha256": "fce33182b0cffe97c729d6f6104de56b4dfaf78843723c1f999fc41945f7b66e",
+      "page": 22,
+      "normalizedCrop": [
+        0.167571,
+        0.129434,
+        0.645862,
+        0.747843
+      ],
+      "dimensions": [
+        550,
+        451
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-rescue-robot",
+      "projectId": "level-5-rescue-robot",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c1ac9b2b50a543ffa7b55c86d7526cfa.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-rescue-robot-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-rescue-robot-basic.webp",
+      "imageSha256": "a3232eea0d6d88810b8211202b9677ebac1d0f7ca58f00feb2d3d65e37b27e1a",
+      "pdfSha256": "c72584a1045fe7c8981fe0b1dde3201463281a603b358309942e2500b618ccee",
+      "page": 19,
+      "normalizedCrop": [
+        0.205563,
+        0.121881,
+        0.580054,
+        0.81286
+      ],
+      "dimensions": [
+        510,
+        505
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-barometric-sensor",
+      "projectId": "level-5-barometric-sensor",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0c52ef39ac6f46b9885901549a9a7758.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-barometric-sensor-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-barometric-sensor-basic.webp",
+      "imageSha256": "6d75b5b3bc4319864d128d2afeb144dd742efecfb3d1b6694ec877632438cd5c",
+      "pdfSha256": "fb8f9ad6358f631fd25cdbbf86b073d1c7fc69765658ceeb2087e71682320c93",
+      "page": 7,
+      "normalizedCrop": [
+        0.329715,
+        0.122723,
+        0.369742,
+        0.779482
+      ],
+      "dimensions": [
+        369,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-car-speed-detector",
+      "projectId": "level-5-car-speed-detector",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d5695c0995354831b650cc411b9e4379.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-car-speed-detector-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-car-speed-detector-basic.webp",
+      "imageSha256": "7ea2703e60186e13de9f7f44e53d04b75deea2484457ff018c2ab9ac15269798",
+      "pdfSha256": "b2b72b8696b5b5412573452e9b1b8fc598cee1958e4e4e16ffe37a81836ef5fe",
+      "page": 19,
+      "normalizedCrop": [
+        0.287653,
+        0.088207,
+        0.412483,
+        0.860978
+      ],
+      "dimensions": [
+        372,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-traffic-robot",
+      "projectId": "level-5-traffic-robot",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a2ef3a73102d4a1abb319dbde5312426.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-traffic-robot-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-traffic-robot-basic.webp",
+      "imageSha256": "b0a69e55726a90e090688b05f2288225350e15414ee7241cb64b16befcb79954",
+      "pdfSha256": "0b358bdf4d53b1f8652e617a25c9598ff0072cf11d66277924e365aefa394358",
+      "page": 18,
+      "normalizedCrop": [
+        0.163501,
+        0.016299,
+        0.712347,
+        0.950144
+      ],
+      "dimensions": [
+        510,
+        481
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-swing-with-rhythm",
+      "projectId": "level-5-swing-with-rhythm",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f60b4b38a6ec45b7bc6c433d6ed005ef.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-swing-with-rhythm-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-swing-with-rhythm-basic.webp",
+      "imageSha256": "2e8d3c1284da1235e64acf45e997a8ec95161dd9cdfd0f32fc6fdcbcc204335b",
+      "pdfSha256": "3ae26ba14d70fcd4b1cf56290474f34ef19db84dddbf2c6f0675e6b2d7f94ba8",
+      "page": 19,
+      "normalizedCrop": [
+        0.21981,
+        0.132311,
+        0.550882,
+        0.752637
+      ],
+      "dimensions": [
+        550,
+        532
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-hexapod-robot",
+      "projectId": "level-5-hexapod-robot",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9b13f62977964536baccbdb6475ab992.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-hexapod-robot-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-hexapod-robot-basic.webp",
+      "imageSha256": "bdbf1f905c5aaf1726968cd67e2196037c6d08f4d93db4d0c18226fb46097b3f",
+      "pdfSha256": "1eb38f89a39511c305c0f4a77f328962e8964685f9e2b2ce5d8b7f77d6871d20",
+      "page": 39,
+      "normalizedCrop": [
+        0.204885,
+        0.087248,
+        0.649932,
+        0.830297
+      ],
+      "dimensions": [
+        550,
+        497
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-light-chasing-car",
+      "projectId": "level-5-light-chasing-car",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_73ffdb62cb9b48fc88b6a6bffa376766.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-light-chasing-car-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-light-chasing-car-basic.webp",
+      "imageSha256": "04179b7f9d9e83a72f15241a7d875f6cb10e4288899a85a92df8d84b6589b647",
+      "pdfSha256": "31e2d6a65293d4cd1dcc6ba32760da74ae41063ea95e1ce6558c1d46d56f3ad3",
+      "page": 18,
+      "normalizedCrop": [
+        0.189959,
+        0.099712,
+        0.601764,
+        0.850431
+      ],
+      "dimensions": [
+        510,
+        510
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-shopping-guide-robot",
+      "projectId": "level-5-shopping-guide-robot",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bff71ed1ef22474ea0f594983df8f1ea.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-shopping-guide-robot-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-shopping-guide-robot-basic.webp",
+      "imageSha256": "4e6a64afa578429244aa2cd760d4968c24fdc330cf10a0c77edec7f56acac7a6",
+      "pdfSha256": "1433c669bd02c894a1f070c2ff45fafc400470aeb67111891f39ab5a557ce67a",
+      "page": 16,
+      "normalizedCrop": [
+        0.289009,
+        0.036433,
+        0.450475,
+        0.916587
+      ],
+      "dimensions": [
+        382,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-voice-controlled-frog",
+      "projectId": "level-5-voice-controlled-frog",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_27e4fc2a7b2244b99caf14fe5f64c265.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-voice-controlled-frog-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-voice-controlled-frog-basic.webp",
+      "imageSha256": "5747753692a55090610e5999b30817e3562b90c66c3cf90bd8546d5a20aad923",
+      "pdfSha256": "299daab9b39419d8d59ae5db522985201d43ab8c6ff720841fb628683823de3f",
+      "page": 22,
+      "normalizedCrop": [
+        0.177069,
+        0.030681,
+        0.685889,
+        0.935762
+      ],
+      "dimensions": [
+        530,
+        512
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-wind-up-car",
+      "projectId": "level-5-wind-up-car",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e48cd7638c15437a85ff1331e6f1ab5e.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-wind-up-car-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-wind-up-car-basic.webp",
+      "imageSha256": "ff88a539e880c4fcf66adbe99d02d971a756c1bba64053841071621e8ccc235c",
+      "pdfSha256": "a185d96a68e58bb288ae0fe60f36eb2f858c595320b1e0194fad695c10408523",
+      "page": 26,
+      "normalizedCrop": [
+        0.215061,
+        0.027804,
+        0.676391,
+        0.938639
+      ],
+      "dimensions": [
+        550,
+        540
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-voice-control-snail",
+      "projectId": "level-5-voice-control-snail",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f87b9b12193f4f79a103d973e8a0fc02.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-voice-control-snail-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-voice-control-snail-basic.webp",
+      "imageSha256": "268a5d6a2fbb244da5871cd080bd7f4109980b731028f6aa87d1fce440fe503d",
+      "pdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+      "page": 12,
+      "normalizedCrop": [
+        0.3,
+        0.18,
+        0.53,
+        0.68
+      ],
+      "dimensions": [
+        550,
+        397
+      ],
+      "reviewer": "Original Level 5 official Building PDF model-page artwork review, 2026-11-23",
+      "independentValidator": "Independent separate PDF download SHA256 + exact source raster WebP crop recheck and 5 visible checklist feature review, 2026-11-23 (MAE 1.322)",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-voice-control-vehicle",
+      "projectId": "level-5-voice-control-vehicle",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4ee4d1d889f84492b41e9df408633906.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-voice-control-vehicle-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-voice-control-vehicle-basic.webp",
+      "imageSha256": "f627ccbb70fd03647d2135f0719fbea736ad9938b3c4397a1ef472f07a84b138",
+      "pdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+      "page": 10,
+      "normalizedCrop": [
+        0.64,
+        0.52,
+        0.36,
+        0.42
+      ],
+      "dimensions": [
+        550,
+        361
+      ],
+      "reviewer": "Original Level 5 official Building PDF model-page artwork review, 2026-11-23",
+      "independentValidator": "Independent separate PDF download SHA256 + exact source raster WebP crop recheck and 5 visible checklist feature review, 2026-11-23 (MAE 2.251)",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-remote-control-car",
+      "projectId": "level-5-remote-control-car",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfd708a9edbb495fa9c9e0940706928b.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-remote-control-car-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-remote-control-car-basic.webp",
+      "imageSha256": "6183ecc26f4162f548873a4d66c0df168762b4744d1d9800343cc49d8a04cf01",
+      "pdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+      "page": 20,
+      "normalizedCrop": [
+        0.061,
+        0.075,
+        0.608,
+        0.825
+      ],
+      "dimensions": [
+        550,
+        528
+      ],
+      "reviewer": "Original Level 5 official Building PDF assembled-car visual review, annotation-free 2026-11-23",
+      "independentValidator": "Independent exact-source PDF SHA and feature-matched new WebP, 292/371 ORB inliers, robot-mask MAE 16.471 (<24), 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    }
+  ],
+  "items": [
+    {
+      "variantId": "level-5-curling-game",
+      "projectId": "level-5-curling-game",
+      "variant": "basic",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0d49fe6b3d724a4db75120b0a174b491.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-curling-game-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-curling-game-basic.webp",
+      "imageSha256": "a48a513ab6e217bcf7916d3501ed1cceeb4d30a5fe8477e3d97b303735ad8660",
+      "pdfSha256": "69fec3ce90446b24df5342e2f43d79d112fec4fc85171c40cc3ff67ce7429114",
+      "page": 9,
+      "normalizedCrop": [
+        0.208277,
+        0.172579,
+        0.600407,
+        0.771812
+      ],
+      "dimensions": [
+        550,
+        500
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-curling-game:optimized",
+      "projectId": "level-5-curling-game",
+      "variant": "optimized",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f0fb68b32d8f475fae53a3683eecff6b.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-curling-game-optimized.webp",
+      "imagePath": "public/final-build/level-5/level-5-curling-game-optimized.webp",
+      "imageSha256": "ac3906079aecbff67cc6aea9dbc81699e1ed674307da98afc68a81d35d3575e4",
+      "pdfSha256": "3ac68494ba5efc16b954e8a0037cb77810789763b997c86c4561dbf1b8e50774",
+      "page": 4,
+      "normalizedCrop": [
+        0.208277,
+        0.172579,
+        0.600407,
+        0.771812
+      ],
+      "dimensions": [
+        550,
+        500
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-drawing-machine",
+      "projectId": "level-5-drawing-machine",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7dd5a7fb9df942bbaaa8bcf29bbfb756.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-drawing-machine-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-drawing-machine-basic.webp",
+      "imageSha256": "84eface4b0899e2b8b39d1af7c2d9a83534714190e4ffa190f4c09b02d7eb1d6",
+      "pdfSha256": "d8d76abdceb9675b1139d5e1d28ead5cc23a61dd5576e2dd59cd28527e538ccd",
+      "page": 40,
+      "normalizedCrop": [
+        0.154003,
+        0.185043,
+        0.63772,
+        0.6721
+      ],
+      "dimensions": [
+        550,
+        410
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-firefly",
+      "projectId": "level-5-firefly",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_07c341d91fd24f6aa77c3024019856e7.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-firefly-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-firefly-basic.webp",
+      "imageSha256": "67a9e622ef017b49a3fcccc605188577c57c994439a4d6bab4e326651d243c24",
+      "pdfSha256": "877e35222fb351276e80a42dc539582c70df1d2858ab207faff026a6bdf818df",
+      "page": 28,
+      "normalizedCrop": [
+        0.130936,
+        0.259827,
+        0.744912,
+        0.559923
+      ],
+      "dimensions": [
+        550,
+        292
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-goalkeeper",
+      "projectId": "level-5-goalkeeper",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0308c7aaf5aa4745a6e8fc0195bfcf26.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-goalkeeper-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-goalkeeper-basic.webp",
+      "imageSha256": "a998a972aecac2973aed4c27cadd06221d0b8f2e370db03c75c1112a50ba5dbe",
+      "pdfSha256": "3583e37b7974007eed042c5ec4f2a92e7a637cd8a432ed99025927eaeb042829",
+      "page": 20,
+      "normalizedCrop": [
+        0.02171,
+        0.131352,
+        0.971506,
+        0.675935
+      ],
+      "dimensions": [
+        550,
+        271
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-spanish-bullfight",
+      "projectId": "level-5-spanish-bullfight",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_ebe74e45dd4c40c1b8aa9be178947e9b.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-spanish-bullfight-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-spanish-bullfight-basic.webp",
+      "imageSha256": "6b59696483fad0b34762ec6d4c6cec208c9ac36be623dcc2623784cbda613899",
+      "pdfSha256": "2fb7c95e214c21e3db6cf8bc499683861d565a7dd1110d345f680c9b8c4c5faf",
+      "page": 26,
+      "normalizedCrop": [
+        0.198779,
+        0.05465,
+        0.658752,
+        0.885906
+      ],
+      "dimensions": [
+        510,
+        485
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-the-warrior",
+      "projectId": "level-5-the-warrior",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_8b9dd440103a47bc92c71803d54551bb.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-the-warrior-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-the-warrior-basic.webp",
+      "imageSha256": "d46b82d0eb219bcb85c2b181e6e0fd0b13c0190645884f00acedd68fa8f2380c",
+      "pdfSha256": "d86373df8de92b592c5766aad7aa1dfeb248f0e384b5fc27d3012141999e2af3",
+      "page": 27,
+      "normalizedCrop": [
+        0.275441,
+        0.128476,
+        0.451153,
+        0.793864
+      ],
+      "dimensions": [
+        426,
+        530
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-magnetic-anti-theft-cabinet",
+      "projectId": "level-5-magnetic-anti-theft-cabinet",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1ea3c09df5604e7999aa1d011102abaf.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-magnetic-anti-theft-cabinet-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-magnetic-anti-theft-cabinet-basic.webp",
+      "imageSha256": "cdb5ad16afabadd777a200da69118fe91d40576be6553d534a6d8f6aa3118991",
+      "pdfSha256": "dc52c6f297173cbe965380965a447e1fcf5a0889ad3b783c56596e849204b8b6",
+      "page": 24,
+      "normalizedCrop": [
+        0.364993,
+        0.254075,
+        0.4654,
+        0.584851
+      ],
+      "dimensions": [
+        530,
+        471
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-please-scan-to-ride",
+      "projectId": "level-5-please-scan-to-ride",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_7ec4a85b05834973a9181981ca869388.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-please-scan-to-ride-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-please-scan-to-ride-basic.webp",
+      "imageSha256": "33cff92eca9a77e29b6034b20c5337dd7108fdf2581f058c903e27b12c265576",
+      "pdfSha256": "2d300785d8b8f97352beb40ea674c9a5106fc565d71ff68975e6816ead43e739",
+      "page": 29,
+      "normalizedCrop": [
+        0.244233,
+        0.100671,
+        0.526459,
+        0.819751
+      ],
+      "dimensions": [
+        499,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-smart-cash-register",
+      "projectId": "level-5-smart-cash-register",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_20999a71d2f74de5883dbfd3dbc68ae2.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-smart-cash-register-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-smart-cash-register-basic.webp",
+      "imageSha256": "0a40019f07f132571853913c4b7161708fc777b70680605626e44dcd0e9f27b7",
+      "pdfSha256": "b1aa21089f3bd9943771e3f9ba5025812a01d038403a87d6e82313cfe26db577",
+      "page": 41,
+      "normalizedCrop": [
+        0.238128,
+        0.120805,
+        0.554274,
+        0.771812
+      ],
+      "dimensions": [
+        550,
+        542
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-smart-guiding-car",
+      "projectId": "level-5-smart-guiding-car",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d71a85cfa8854b2d845f20b94cc2bde9.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-smart-guiding-car-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-smart-guiding-car-basic.webp",
+      "imageSha256": "1d985841f703927f40da9f7f5fc1e84f6b1ff2e189396e46cdd6ffcb043a269e",
+      "pdfSha256": "07df21e9bed6f5a4fbeec458ae4d415937d740e88724250a585253cd03d6a9c9",
+      "page": 21,
+      "normalizedCrop": [
+        0.209634,
+        0.139981,
+        0.59905,
+        0.813998
+      ],
+      "dimensions": [
+        530,
+        510
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-lucky-prize-wheel",
+      "projectId": "level-5-lucky-prize-wheel",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_5880ab56288e4a79ba863ccf492736ef.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-lucky-prize-wheel-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-lucky-prize-wheel-basic.webp",
+      "imageSha256": "acbf45e57069fc6174272a60036cae9dbcbc75f68f072e1b21fdd34b02ec606b",
+      "pdfSha256": "f8b2db54d370f09809541296577ae4b172b0736bcd8a42aa2a2f514f66bfd14b",
+      "page": 26,
+      "normalizedCrop": [
+        0.224559,
+        0.06999,
+        0.555631,
+        0.837967
+      ],
+      "dimensions": [
+        459,
+        490
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-oil-pumping-unit",
+      "projectId": "level-5-oil-pumping-unit",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_da533f077fa24766a89547658c803ca5.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-oil-pumping-unit-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-oil-pumping-unit-basic.webp",
+      "imageSha256": "f864ac47ce64c53f82023d4dae229316639482530154a7061704012888510ad3",
+      "pdfSha256": "9ecdbaa0f4f34ebd577b0e4710378096ae0979318d062378c29751e20448c408",
+      "page": 24,
+      "normalizedCrop": [
+        0.08209,
+        0.141898,
+        0.864315,
+        0.720997
+      ],
+      "dimensions": [
+        550,
+        324
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-swinging-shark",
+      "projectId": "level-5-swinging-shark",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_860c1f7bc18e4a61b5ef4f840c5923a6.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-swinging-shark-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-swinging-shark-basic.webp",
+      "imageSha256": "4e3f0962b421ead32c37ab0ed6ab81f67b7488d114dddbf2bdd6c20809aecf48",
+      "pdfSha256": "ed617c57df965302c8a352b39bfdc0397effa02215f20e82054a9ece14b23e99",
+      "page": 41,
+      "normalizedCrop": [
+        0.135685,
+        0.099712,
+        0.762551,
+        0.825503
+      ],
+      "dimensions": [
+        550,
+        421
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-remote-control-car",
+      "projectId": "level-5-remote-control-car",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfd708a9edbb495fa9c9e0940706928b.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-remote-control-car-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-remote-control-car-basic.webp",
+      "imageSha256": "6183ecc26f4162f548873a4d66c0df168762b4744d1d9800343cc49d8a04cf01",
+      "pdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+      "page": 20,
+      "normalizedCrop": [
+        0.065,
+        0.08,
+        0.605,
+        0.82
+      ],
+      "dimensions": [
+        550,
+        528
+      ],
+      "reviewer": "Original Level 5 official Building PDF assembled-car visual review, annotation-free 2026-11-23",
+      "independentValidator": "Independent separate official Wix PDF re-download, page 20 source-mask/crop side-by-side, no modifications outside text/accessory mask, WebP and CDN SHA-256 identical; source MAE 0.929, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-runner",
+      "projectId": "level-5-runner",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_52b355e05eca48c3b4f92539063e6daf.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-runner-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-runner-basic.webp",
+      "imageSha256": "77a57f5e4ea7593f778cb88580447eb183f183f4230a3f47beb2e37692b2aef3",
+      "pdfSha256": "733855b3e2cdc95f2933acfb7f04ef1322bb0735d52b4fe087b5fb12c359b92e",
+      "page": 28,
+      "normalizedCrop": [
+        0.173677,
+        0.096836,
+        0.677748,
+        0.841802
+      ],
+      "dimensions": [
+        510,
+        448
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-welcome-sign",
+      "projectId": "level-5-welcome-sign",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_96ebc23bd9694ade9e0f1acfa503a974.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-welcome-sign-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-welcome-sign-basic.webp",
+      "imageSha256": "c4515c383fdbffb8e7c802de7c3a7e86dc0bb7ccaa8b6cdcf5013f8d19b1e376",
+      "pdfSha256": "b4e1133a64e190d574289e47a02c2d1d6912e8f57a00074ea576635b0ade6ee8",
+      "page": 19,
+      "normalizedCrop": [
+        0.278833,
+        0.11697,
+        0.453867,
+        0.820709
+      ],
+      "dimensions": [
+        430,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-car-lights",
+      "projectId": "level-5-car-lights",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_2f81f715f082454293694017013a6bf3.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-car-lights-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-car-lights-basic.webp",
+      "imageSha256": "d1248f80409a6390d4c804538488772c4a20de6583e0b822bad58dd4f977e799",
+      "pdfSha256": "dfeeef3bc3767dd407d9b2f6702c68b97436bbc056a36473b7276ffb79bb33cb",
+      "page": 37,
+      "normalizedCrop": [
+        0.221845,
+        0.048897,
+        0.662144,
+        0.863854
+      ],
+      "dimensions": [
+        550,
+        508
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-direction-indicator",
+      "projectId": "level-5-direction-indicator",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_1ef43984ce3246c5a47a2d506462aeb3.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-direction-indicator-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-direction-indicator-basic.webp",
+      "imageSha256": "0ad1aec96adf2e5c39e0ec867661acd974bf6f3f0af099238a123db49acfb7bc",
+      "pdfSha256": "1cf36f5611f01f664f4a3f5136b7d641d22040bde35dbd282bb921ae34385d8b",
+      "page": 21,
+      "normalizedCrop": [
+        0.296472,
+        0.105465,
+        0.558345,
+        0.810163
+      ],
+      "dimensions": [
+        536,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-magnetic-object-finder",
+      "projectId": "level-5-magnetic-object-finder",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c0aaa473fd414db18171424e5c4b8132.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-magnetic-object-finder-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-magnetic-object-finder-basic.webp",
+      "imageSha256": "f07583d21cab0c89e2ab1bd255e9af22d6529623bf80f086f9771fce60aadb96",
+      "pdfSha256": "8e417179e26d128148da81cf550ac751f8b31d70bb53163a24e776f3cf9e2712",
+      "page": 13,
+      "normalizedCrop": [
+        0.308684,
+        0.093001,
+        0.441655,
+        0.8907
+      ],
+      "dimensions": [
+        386,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-passenger-counter",
+      "projectId": "level-5-passenger-counter",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4a300e3072034964b9295c2f32c87c0d.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-passenger-counter-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-passenger-counter-basic.webp",
+      "imageSha256": "cd7c0e1cb3f70fcdbc84ea2fa90bea226ac9a71d2c5f08d7900f159599ce845d",
+      "pdfSha256": "fea987e7a68c269a644d886991eb2cc7a72f241c3f7963308fc8c326dd2403be",
+      "page": 39,
+      "normalizedCrop": [
+        0.246269,
+        0.10163,
+        0.658073,
+        0.883988
+      ],
+      "dimensions": [
+        510,
+        485
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-big-pendulum",
+      "projectId": "level-5-big-pendulum",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0223c6e5d9454de7b416aede2d4a72fe.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-big-pendulum-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-big-pendulum-basic.webp",
+      "imageSha256": "4b36db7fb11f88b91489735a81258f8f1f44eac6da8fff4f5a7f2bb7bc5ba8f0",
+      "pdfSha256": "ed4095a6fc7dfcc55500c8b09500e5c538034cbdd9c7bdcc986389fddf16fab0",
+      "page": 30,
+      "normalizedCrop": [
+        0.282904,
+        0.095877,
+        0.434193,
+        0.861937
+      ],
+      "dimensions": [
+        392,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-chairoplane",
+      "projectId": "level-5-chairoplane",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f1161d0495ff427dac1089bb54520bc5.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-chairoplane-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-chairoplane-basic.webp",
+      "imageSha256": "157bdaecbaa8932937917f77f78fe7b46303b563d449f27996a8a3604218bc03",
+      "pdfSha256": "20a2fab8ca0a1eec52ba0d9a61bc5df257e5ad477ba98f6df8f105bf1bccabaa",
+      "page": 34,
+      "normalizedCrop": [
+        0.181818,
+        0.068073,
+        0.589552,
+        0.871524
+      ],
+      "dimensions": [
+        526,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-crack-shot",
+      "projectId": "level-5-crack-shot",
+      "variant": "basic",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_593d79649e204933bc8b6ccc2186a9a7.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-crack-shot-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-crack-shot-basic.webp",
+      "imageSha256": "a85a92badaec95498ca0424cf9aae24215339f5eb698290ec56feaebbbbb691d",
+      "pdfSha256": "ae703af31b495b83d6c3c3eb93338e927cf4fe42ca58648923081c058a65fc35",
+      "page": 27,
+      "normalizedCrop": [
+        0.093623,
+        0.079578,
+        0.826323,
+        0.823586
+      ],
+      "dimensions": [
+        550,
+        388
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-crack-shot:optimized",
+      "projectId": "level-5-crack-shot",
+      "variant": "optimized",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_835593144e5f475e995524016c5791d4.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-crack-shot-optimized.webp",
+      "imagePath": null,
+      "imageSha256": null,
+      "pdfSha256": "cfb54f435a8345ca010a6db10c0c1ed37a5a77f48d3086f25a5a7ae28f4f5dcf",
+      "page": 4,
+      "normalizedCrop": null,
+      "dimensions": null,
+      "reviewer": null,
+      "independentValidator": null,
+      "approved": false,
+      "status": "blocked"
+    },
+    {
+      "variantId": "level-5-kiddie-ride",
+      "projectId": "level-5-kiddie-ride",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_3a22ab81d3654125b47d991d87311de8.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-kiddie-ride-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-kiddie-ride-basic.webp",
+      "imageSha256": "6516c4715586594e5b7a978e5b1c92fa98dae0b6c2de922c29b0d0e92919cbbe",
+      "pdfSha256": "94d80f4cfc3d188a1bd14ea31658f6420634b3e17302756668b06b5aca20b07c",
+      "page": 49,
+      "normalizedCrop": [
+        0.222524,
+        0.059444,
+        0.56445,
+        0.850431
+      ],
+      "dimensions": [
+        497,
+        530
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-machine-gun",
+      "projectId": "level-5-machine-gun",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f65e51bc47304554b99de3e3a96109cb.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-machine-gun-basic.webp",
+      "imagePath": null,
+      "imageSha256": null,
+      "pdfSha256": "acc9ac20908550895909ac6c73d473301732d15cbbe4f03049c1d4b84f1a60c1",
+      "page": 29,
+      "normalizedCrop": null,
+      "dimensions": null,
+      "reviewer": null,
+      "independentValidator": null,
+      "approved": false,
+      "status": "blocked"
+    },
+    {
+      "variantId": "level-5-revolving-door",
+      "projectId": "level-5-revolving-door",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_58a20bb51fe04b0bb88a79c21cd39dbd.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-revolving-door-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-revolving-door-basic.webp",
+      "imageSha256": "dd2176e6eff84c23819a412c28b3a63123924aac2725ffe8b5ef3c2fa75b59cf",
+      "pdfSha256": "877e5e57c306bfd5b08c58703044c46607b9fb3fa19208e7c65e7de7588bfe92",
+      "page": 21,
+      "normalizedCrop": [
+        0.210991,
+        0.092042,
+        0.612619,
+        0.862895
+      ],
+      "dimensions": [
+        430,
+        429
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-smart-turnstile",
+      "projectId": "level-5-smart-turnstile",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_ab1ad4c6e53d4d12a4511bbdf9859e59.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-smart-turnstile-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-smart-turnstile-basic.webp",
+      "imageSha256": "aeb16ed58db5ea25aa6ab6e5426fb389c288a033fde6c1837a4356c8f5847b60",
+      "pdfSha256": "746b3b42bd8aa31804a51ca4b4a0a3646791833aba3dc19e20d8ed3dd4cb873a",
+      "page": 12,
+      "normalizedCrop": [
+        0.206242,
+        0.043145,
+        0.576662,
+        0.929051
+      ],
+      "dimensions": [
+        447,
+        510
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-top-scorer",
+      "projectId": "level-5-top-scorer",
+      "variant": "basic",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_036af418ef5d43efbd1fee76ace25214.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-top-scorer-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-top-scorer-basic.webp",
+      "imageSha256": "8a1c2e1497f1cd9473ad1ba7b0918d91ed9acf707ad5cb88b3b508f4223d7ff2",
+      "pdfSha256": "0da9d05afc288e9a996a79951fd69c3b5d28e8bb52f783a8d10aaf59f558945b",
+      "page": 11,
+      "normalizedCrop": [
+        0.243555,
+        0.034516,
+        0.515604,
+        0.93768
+      ],
+      "dimensions": [
+        427,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-clothes-dryer",
+      "projectId": "level-5-clothes-dryer",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f11855087e0f499e819452ac4e1a8217.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-clothes-dryer-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-clothes-dryer-basic.webp",
+      "imageSha256": "04ccd56f2e1daaf9a358a9df7a2cc3cb64f61ff37edd7393fc873311dfa2cc48",
+      "pdfSha256": "968cb80948d46d51c5c2f950b518a22e60e11a299aa83cd80df8b9c4b790c0bb",
+      "page": 23,
+      "normalizedCrop": [
+        0.244912,
+        0.146692,
+        0.514925,
+        0.644295
+      ],
+      "dimensions": [
+        530,
+        469
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-remote-control-fan",
+      "projectId": "level-5-remote-control-fan",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_910aae7800fe4378acc4a2f438496e2d.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-remote-control-fan-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-remote-control-fan-basic.webp",
+      "imageSha256": "2c2fe2864aa34e372fa6d58b279f1bec2ed5584894724bb5ee155c5e8d18cd52",
+      "pdfSha256": "fce33182b0cffe97c729d6f6104de56b4dfaf78843723c1f999fc41945f7b66e",
+      "page": 22,
+      "normalizedCrop": [
+        0.167571,
+        0.129434,
+        0.645862,
+        0.747843
+      ],
+      "dimensions": [
+        550,
+        451
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-rescue-robot",
+      "projectId": "level-5-rescue-robot",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_c1ac9b2b50a543ffa7b55c86d7526cfa.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-rescue-robot-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-rescue-robot-basic.webp",
+      "imageSha256": "a3232eea0d6d88810b8211202b9677ebac1d0f7ca58f00feb2d3d65e37b27e1a",
+      "pdfSha256": "c72584a1045fe7c8981fe0b1dde3201463281a603b358309942e2500b618ccee",
+      "page": 19,
+      "normalizedCrop": [
+        0.205563,
+        0.121881,
+        0.580054,
+        0.81286
+      ],
+      "dimensions": [
+        510,
+        505
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-barometric-sensor",
+      "projectId": "level-5-barometric-sensor",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_0c52ef39ac6f46b9885901549a9a7758.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-barometric-sensor-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-barometric-sensor-basic.webp",
+      "imageSha256": "6d75b5b3bc4319864d128d2afeb144dd742efecfb3d1b6694ec877632438cd5c",
+      "pdfSha256": "fb8f9ad6358f631fd25cdbbf86b073d1c7fc69765658ceeb2087e71682320c93",
+      "page": 7,
+      "normalizedCrop": [
+        0.329715,
+        0.122723,
+        0.369742,
+        0.779482
+      ],
+      "dimensions": [
+        369,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-car-speed-detector",
+      "projectId": "level-5-car-speed-detector",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_d5695c0995354831b650cc411b9e4379.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-car-speed-detector-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-car-speed-detector-basic.webp",
+      "imageSha256": "7ea2703e60186e13de9f7f44e53d04b75deea2484457ff018c2ab9ac15269798",
+      "pdfSha256": "b2b72b8696b5b5412573452e9b1b8fc598cee1958e4e4e16ffe37a81836ef5fe",
+      "page": 19,
+      "normalizedCrop": [
+        0.287653,
+        0.088207,
+        0.412483,
+        0.860978
+      ],
+      "dimensions": [
+        372,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-facial-recognition-time-clock",
+      "projectId": "level-5-facial-recognition-time-clock",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfc2fffdf072479282e6a039a228b3e7.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-facial-recognition-time-clock-basic.webp",
+      "imagePath": null,
+      "imageSha256": null,
+      "pdfSha256": "d864a564ec020cf36df072b980ca763a133aabbd8d4115e50f564ffb02dca872",
+      "page": 7,
+      "normalizedCrop": null,
+      "dimensions": null,
+      "reviewer": null,
+      "independentValidator": null,
+      "approved": false,
+      "status": "blocked"
+    },
+    {
+      "variantId": "level-5-traffic-robot",
+      "projectId": "level-5-traffic-robot",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_a2ef3a73102d4a1abb319dbde5312426.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-traffic-robot-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-traffic-robot-basic.webp",
+      "imageSha256": "b0a69e55726a90e090688b05f2288225350e15414ee7241cb64b16befcb79954",
+      "pdfSha256": "0b358bdf4d53b1f8652e617a25c9598ff0072cf11d66277924e365aefa394358",
+      "page": 18,
+      "normalizedCrop": [
+        0.163501,
+        0.016299,
+        0.712347,
+        0.950144
+      ],
+      "dimensions": [
+        510,
+        481
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-swing-with-rhythm",
+      "projectId": "level-5-swing-with-rhythm",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f60b4b38a6ec45b7bc6c433d6ed005ef.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-swing-with-rhythm-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-swing-with-rhythm-basic.webp",
+      "imageSha256": "2e8d3c1284da1235e64acf45e997a8ec95161dd9cdfd0f32fc6fdcbcc204335b",
+      "pdfSha256": "3ae26ba14d70fcd4b1cf56290474f34ef19db84dddbf2c6f0675e6b2d7f94ba8",
+      "page": 19,
+      "normalizedCrop": [
+        0.21981,
+        0.132311,
+        0.550882,
+        0.752637
+      ],
+      "dimensions": [
+        550,
+        532
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-voice-control-snail",
+      "projectId": "level-5-voice-control-snail",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f87b9b12193f4f79a103d973e8a0fc02.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-voice-control-snail-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-voice-control-snail-basic.webp",
+      "imageSha256": "268a5d6a2fbb244da5871cd080bd7f4109980b731028f6aa87d1fce440fe503d",
+      "pdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+      "page": 12,
+      "normalizedCrop": [
+        0.3,
+        0.18,
+        0.53,
+        0.68
+      ],
+      "dimensions": [
+        550,
+        397
+      ],
+      "reviewer": "Original Level 5 official Building PDF model-page artwork review, 2026-11-23",
+      "independentValidator": "Independent separate PDF download SHA256 + exact source raster WebP crop recheck and 5 visible checklist feature review, 2026-11-23 (MAE 1.322)",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-voice-control-vehicle",
+      "projectId": "level-5-voice-control-vehicle",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4ee4d1d889f84492b41e9df408633906.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-voice-control-vehicle-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-voice-control-vehicle-basic.webp",
+      "imageSha256": "f627ccbb70fd03647d2135f0719fbea736ad9938b3c4397a1ef472f07a84b138",
+      "pdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+      "page": 10,
+      "normalizedCrop": [
+        0.64,
+        0.52,
+        0.36,
+        0.42
+      ],
+      "dimensions": [
+        550,
+        361
+      ],
+      "reviewer": "Original Level 5 official Building PDF model-page artwork review, 2026-11-23",
+      "independentValidator": "Independent separate PDF download SHA256 + exact source raster WebP crop recheck and 5 visible checklist feature review, 2026-11-23 (MAE 2.251)",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-hexapod-robot",
+      "projectId": "level-5-hexapod-robot",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_9b13f62977964536baccbdb6475ab992.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-hexapod-robot-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-hexapod-robot-basic.webp",
+      "imageSha256": "bdbf1f905c5aaf1726968cd67e2196037c6d08f4d93db4d0c18226fb46097b3f",
+      "pdfSha256": "1eb38f89a39511c305c0f4a77f328962e8964685f9e2b2ce5d8b7f77d6871d20",
+      "page": 39,
+      "normalizedCrop": [
+        0.204885,
+        0.087248,
+        0.649932,
+        0.830297
+      ],
+      "dimensions": [
+        550,
+        497
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-light-chasing-car",
+      "projectId": "level-5-light-chasing-car",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_73ffdb62cb9b48fc88b6a6bffa376766.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-light-chasing-car-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-light-chasing-car-basic.webp",
+      "imageSha256": "04179b7f9d9e83a72f15241a7d875f6cb10e4288899a85a92df8d84b6589b647",
+      "pdfSha256": "31e2d6a65293d4cd1dcc6ba32760da74ae41063ea95e1ce6558c1d46d56f3ad3",
+      "page": 18,
+      "normalizedCrop": [
+        0.189959,
+        0.099712,
+        0.601764,
+        0.850431
+      ],
+      "dimensions": [
+        510,
+        510
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-shopping-guide-robot",
+      "projectId": "level-5-shopping-guide-robot",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_bff71ed1ef22474ea0f594983df8f1ea.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-shopping-guide-robot-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-shopping-guide-robot-basic.webp",
+      "imageSha256": "4e6a64afa578429244aa2cd760d4968c24fdc330cf10a0c77edec7f56acac7a6",
+      "pdfSha256": "1433c669bd02c894a1f070c2ff45fafc400470aeb67111891f39ab5a557ce67a",
+      "page": 16,
+      "normalizedCrop": [
+        0.289009,
+        0.036433,
+        0.450475,
+        0.916587
+      ],
+      "dimensions": [
+        382,
+        550
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-voice-controlled-frog",
+      "projectId": "level-5-voice-controlled-frog",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_27e4fc2a7b2244b99caf14fe5f64c265.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-voice-controlled-frog-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-voice-controlled-frog-basic.webp",
+      "imageSha256": "5747753692a55090610e5999b30817e3562b90c66c3cf90bd8546d5a20aad923",
+      "pdfSha256": "299daab9b39419d8d59ae5db522985201d43ab8c6ff720841fb628683823de3f",
+      "page": 22,
+      "normalizedCrop": [
+        0.177069,
+        0.030681,
+        0.685889,
+        0.935762
+      ],
+      "dimensions": [
+        530,
+        512
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    },
+    {
+      "variantId": "level-5-wind-up-car",
+      "projectId": "level-5-wind-up-car",
+      "variant": "official",
+      "sourceUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_e48cd7638c15437a85ff1331e6f1ab5e.pdf",
+      "plannedWebpPath": "public/final-build/level-5/level-5-wind-up-car-basic.webp",
+      "imagePath": "public/final-build/level-5/level-5-wind-up-car-basic.webp",
+      "imageSha256": "ff88a539e880c4fcf66adbe99d02d971a756c1bba64053841071621e8ccc235c",
+      "pdfSha256": "a185d96a68e58bb288ae0fe60f36eb2f858c595320b1e0194fad695c10408523",
+      "page": 26,
+      "normalizedCrop": [
+        0.215061,
+        0.027804,
+        0.676391,
+        0.938639
+      ],
+      "dimensions": [
+        550,
+        540
+      ],
+      "reviewer": "Level 5 finished-model source-page visual review, 2026-11-23",
+      "independentValidator": "Independent downloaded-PDF/normalized-crop/WebP hash and pixel-integrity recheck, 2026-11-23",
+      "approved": true,
+      "status": "approved"
+    }
+  ]
+}

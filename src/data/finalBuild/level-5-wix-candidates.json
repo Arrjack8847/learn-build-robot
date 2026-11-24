@@ -1,0 +1,418 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Level 5 verified integration: original 39 WebP URLs preserved, three new exact-source official finished-model candidates approved with 15 questions and mapped to Wix; three incomplete-source manuals still blocked",
+  "recordedAt": "2026-11-23",
+  "wixSite": {
+    "name": "Steam",
+    "id": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0"
+  },
+  "immutableApprovedMapping": {
+    "file": "src/data/finalBuild/level-5-wix-image-urls.json",
+    "blobShaAtPreparation": "a91003d468226e4bf29f05ebf6342cb0bc9c04f1",
+    "approvedCount": 39,
+    "unchanged": true,
+    "original39Urls": {
+      "level-5-curling-game": "https://static.wixstatic.com/media/78042f_e24113c5bfda443a9b94cf62d1ca8f1b~mv2.webp",
+      "level-5-curling-game:optimized": "https://static.wixstatic.com/media/78042f_94e1c77557e9455eb8bb3bfc699ec225~mv2.webp",
+      "level-5-drawing-machine": "https://static.wixstatic.com/media/78042f_36ed80a994434d6891381215cd3bfe06~mv2.webp",
+      "level-5-firefly": "https://static.wixstatic.com/media/78042f_ed8d4d3addeb49f1ac628ab64e96ae05~mv2.webp",
+      "level-5-goalkeeper": "https://static.wixstatic.com/media/78042f_e8cd1be466f04d209e3293eccd662f0d~mv2.webp",
+      "level-5-spanish-bullfight": "https://static.wixstatic.com/media/78042f_551642956d70493ca120386e4012a369~mv2.webp",
+      "level-5-the-warrior": "https://static.wixstatic.com/media/78042f_7456cf1890e9405086c8ad6cfdf7609a~mv2.webp",
+      "level-5-magnetic-anti-theft-cabinet": "https://static.wixstatic.com/media/78042f_49df27dad03643f0936a423fb96661c7~mv2.webp",
+      "level-5-please-scan-to-ride": "https://static.wixstatic.com/media/78042f_9975fd4b097b448e8807d7dc5e9391a8~mv2.webp",
+      "level-5-smart-cash-register": "https://static.wixstatic.com/media/78042f_bf3426b7c88b4736afe9e2711200af94~mv2.webp",
+      "level-5-smart-guiding-car": "https://static.wixstatic.com/media/78042f_d6e126af73a3461db0bff7c8f80bfb87~mv2.webp",
+      "level-5-lucky-prize-wheel": "https://static.wixstatic.com/media/78042f_218c126c701e41c09af20adf03186387~mv2.webp",
+      "level-5-oil-pumping-unit": "https://static.wixstatic.com/media/78042f_8de3f5ce74b54c21a32ec7885bf5ba18~mv2.webp",
+      "level-5-swinging-shark": "https://static.wixstatic.com/media/78042f_b51df103bd8c41b68929d62c9676cbe9~mv2.webp",
+      "level-5-runner": "https://static.wixstatic.com/media/78042f_aab5afda845f44f692041f5591fd5230~mv2.webp",
+      "level-5-welcome-sign": "https://static.wixstatic.com/media/78042f_5672764d041d4df8ba9693d285ccd265~mv2.webp",
+      "level-5-car-lights": "https://static.wixstatic.com/media/78042f_49536cc4dd6c401a90b677fd1fae2878~mv2.webp",
+      "level-5-direction-indicator": "https://static.wixstatic.com/media/78042f_8ffff24a37f249b5857bf419b40b5e7a~mv2.webp",
+      "level-5-magnetic-object-finder": "https://static.wixstatic.com/media/78042f_4547d9dbe48a411393aa366dda1168b7~mv2.webp",
+      "level-5-passenger-counter": "https://static.wixstatic.com/media/78042f_8c02a5ea7450486fa829e856b286c765~mv2.webp",
+      "level-5-big-pendulum": "https://static.wixstatic.com/media/78042f_abfc617aaa18400482f2384090f64b51~mv2.webp",
+      "level-5-chairoplane": "https://static.wixstatic.com/media/78042f_cf167070f5a1466186fe2e3f882aa148~mv2.webp",
+      "level-5-crack-shot": "https://static.wixstatic.com/media/78042f_51ffb03cdc3346f8b575a67ebae6f35e~mv2.webp",
+      "level-5-kiddie-ride": "https://static.wixstatic.com/media/78042f_8ce05720af564c74bb8233863b79f44a~mv2.webp",
+      "level-5-revolving-door": "https://static.wixstatic.com/media/78042f_e38da8fcd7b84535b7fd37177e8a3ee5~mv2.webp",
+      "level-5-smart-turnstile": "https://static.wixstatic.com/media/78042f_5415400a6c5a45ddadfe67d6c250b4a1~mv2.webp",
+      "level-5-top-scorer": "https://static.wixstatic.com/media/78042f_63b13f422fae468194c7ecc408c74b25~mv2.webp",
+      "level-5-clothes-dryer": "https://static.wixstatic.com/media/78042f_c273183a4b5a4c2d9c3dfdb4000b5eb8~mv2.webp",
+      "level-5-remote-control-fan": "https://static.wixstatic.com/media/78042f_3dcb0a18b65040dfba8821c9683c8adb~mv2.webp",
+      "level-5-rescue-robot": "https://static.wixstatic.com/media/78042f_9b17a2c7fd55448b8de730c56012f8d3~mv2.webp",
+      "level-5-barometric-sensor": "https://static.wixstatic.com/media/78042f_545f8036d43a4c47995489c711cb3432~mv2.webp",
+      "level-5-car-speed-detector": "https://static.wixstatic.com/media/78042f_030520f2f7a2422fb17c21fe153fc8f6~mv2.webp",
+      "level-5-traffic-robot": "https://static.wixstatic.com/media/78042f_9b221d3b2d0e404ca5fd2a63586cc09c~mv2.webp",
+      "level-5-swing-with-rhythm": "https://static.wixstatic.com/media/78042f_352fd6dcb839427d989290feb7556831~mv2.webp",
+      "level-5-hexapod-robot": "https://static.wixstatic.com/media/78042f_9579c314d0f349e284058cebdadae3af~mv2.webp",
+      "level-5-light-chasing-car": "https://static.wixstatic.com/media/78042f_1fef652fd1de4735aa5523124aace493~mv2.webp",
+      "level-5-shopping-guide-robot": "https://static.wixstatic.com/media/78042f_904ceeff89cc4a468f91076726c3b373~mv2.webp",
+      "level-5-voice-controlled-frog": "https://static.wixstatic.com/media/78042f_c713f67e0c62440ab36cea54491f33e0~mv2.webp",
+      "level-5-wind-up-car": "https://static.wixstatic.com/media/78042f_e6ce32837a8143ee84eea65aab9246ec~mv2.webp"
+    },
+    "currentApprovedCount": 42,
+    "original39EntriesPreserved": true
+  },
+  "status": "42_APPROVED_3_SOURCE_IMAGE_BLOCKED",
+  "sourceOfTruth": "src/data/finalBuild/level-5-recovery-candidates.json on feat/final-build-level-5",
+  "imageReady": 3,
+  "wixReady": 3,
+  "studentApproved": 3,
+  "candidates": [
+    {
+      "variantId": "level-5-remote-control-car",
+      "name": "Remote Control Car",
+      "requiredFileName": "level-5-remote-control-car-basic.webp",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfd708a9edbb495fa9c9e0940706928b.pdf",
+      "historicalPdfSha256": "2affa29cfe3d529eb02f37b61a4a0f7a5b308709736ed2d468b77f6fd1eb458b",
+      "historicalPageCount": 20,
+      "pageForInitialInvestigation": 20,
+      "currentRunPdfHashVerified": true,
+      "allPagesVisuallyReviewed": true,
+      "completedModelCrop": {
+        "pdfPage": 20,
+        "normalizedCoordinates": [
+          0.065,
+          0.08,
+          0.67,
+          0.9
+        ],
+        "pageBoundsPoints": [
+          54.73,
+          47.68,
+          564.14,
+          536.4
+        ],
+        "visualJustification": "Source-native complete vehicle, printer page label and a separate remote accessory removed by documented background-only masks, zero model pixels invented; exact official PDF SHA verified, MAE 0.929; see worker reports/final-build-level-5-remote-clean-second-pass-20261123.json.",
+        "sourceMasks": {
+          "pageNumberXYXY": [
+            0.038,
+            0.06,
+            0.15,
+            0.185
+          ],
+          "otherControllerXYPolygon": [
+            [
+              0.67,
+              0.445
+            ],
+            [
+              1,
+              0.445
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0.54,
+              1
+            ],
+            [
+              0.54,
+              0.73
+            ],
+            [
+              0.55,
+              0.68
+            ],
+            [
+              0.57,
+              0.64
+            ],
+            [
+              0.585,
+              0.625
+            ],
+            [
+              0.6,
+              0.58
+            ],
+            [
+              0.64,
+              0.54
+            ]
+          ]
+        }
+      },
+      "image": {
+        "webpCreated": true,
+        "filename": "level-5-remote-control-car-basic.webp",
+        "sourcePage": 20,
+        "dimensions": [
+          550,
+          528
+        ],
+        "sha256": "6183ecc26f4162f548873a4d66c0df168762b4744d1d9800343cc49d8a04cf01",
+        "sizeBytes": 30234,
+        "sourceRasterMeanAbsoluteError": 0.929,
+        "decoded": true
+      },
+      "wix": {
+        "mediaId": "78042f_852c62df18ec40ee83c9ccb7e25f7460~mv2.webp",
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_852c62df18ec40ee83c9ccb7e25f7460~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "dimensions": [
+          550,
+          528
+        ],
+        "sourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/d0cde35909a841c8279ea2a120692a239e41ccef/public/final-build/level-5/level-5-remote-control-car-basic.webp",
+        "publicVisibilityVerified": true,
+        "cdnHttpStatus": 200,
+        "cdnByteForByteSha256Verified": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0"
+      },
+      "assessment": {
+        "independentlyApprovedQuestions": 5,
+        "studentApproved": true,
+        "selectable": true
+      },
+      "blocker": null
+    },
+    {
+      "variantId": "level-5-crack-shot:optimized",
+      "name": "Crack Shot — Optimized",
+      "requiredFileName": "level-5-crack-shot-optimized.webp",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_835593144e5f475e995524016c5791d4.pdf",
+      "historicalPdfSha256": "cfb54f435a8345ca010a6db10c0c1ed37a5a77f48d3086f25a5a7ae28f4f5dcf",
+      "historicalPageCount": 4,
+      "pageForInitialInvestigation": 4,
+      "currentRunPdfHashVerified": true,
+      "allPagesVisuallyReviewed": true,
+      "completedModelCrop": null,
+      "image": {
+        "webpCreated": false,
+        "filename": null,
+        "dimensions": null,
+        "sha256": null,
+        "sourcePage": null
+      },
+      "wix": {
+        "mediaId": null,
+        "hostedUrl": null,
+        "operationStatus": "NOT_UPLOADED",
+        "mimeType": null,
+        "publicVisibilityVerified": false
+      },
+      "assessment": {
+        "independentlyApprovedQuestions": 0,
+        "studentApproved": false,
+        "selectable": false
+      },
+      "blocker": "Page 4 shows the optimized model under assembly, including a wheel not attached; other pages show earlier steps. No unambiguous complete optimized assembly."
+    },
+    {
+      "variantId": "level-5-machine-gun",
+      "name": "Machine Gun",
+      "requiredFileName": "level-5-machine-gun-basic.webp",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/78042f_f65e51bc47304554b99de3e3a96109cb.pdf",
+      "historicalPdfSha256": "acc9ac20908550895909ac6c73d473301732d15cbbe4f03049c1d4b84f1a60c1",
+      "historicalPageCount": 29,
+      "pageForInitialInvestigation": 29,
+      "currentRunPdfHashVerified": true,
+      "allPagesVisuallyReviewed": true,
+      "completedModelCrop": null,
+      "image": {
+        "webpCreated": false,
+        "filename": null,
+        "dimensions": null,
+        "sha256": null,
+        "sourcePage": null
+      },
+      "wix": {
+        "mediaId": null,
+        "hostedUrl": null,
+        "operationStatus": "NOT_UPLOADED",
+        "mimeType": null,
+        "publicVisibilityVerified": false
+      },
+      "assessment": {
+        "independentlyApprovedQuestions": 0,
+        "studentApproved": false,
+        "selectable": false
+      },
+      "blocker": "Page 29 explicitly instructs attaching an uninstalled rubber band and connector; no isolated view of the assembly after that step."
+    },
+    {
+      "variantId": "level-5-facial-recognition-time-clock",
+      "name": "Facial Recognition Time Clock",
+      "requiredFileName": "level-5-facial-recognition-time-clock-basic.webp",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_dfc2fffdf072479282e6a039a228b3e7.pdf",
+      "historicalPdfSha256": "d864a564ec020cf36df072b980ca763a133aabbd8d4115e50f564ffb02dca872",
+      "historicalPageCount": 7,
+      "pageForInitialInvestigation": 7,
+      "currentRunPdfHashVerified": true,
+      "allPagesVisuallyReviewed": true,
+      "completedModelCrop": null,
+      "image": {
+        "webpCreated": false,
+        "filename": null,
+        "dimensions": null,
+        "sha256": null,
+        "sourcePage": null
+      },
+      "wix": {
+        "mediaId": null,
+        "hostedUrl": null,
+        "operationStatus": "NOT_UPLOADED",
+        "mimeType": null,
+        "publicVisibilityVerified": false
+      },
+      "assessment": {
+        "independentlyApprovedQuestions": 0,
+        "studentApproved": false,
+        "selectable": false
+      },
+      "blocker": "Page 7 shows the required camera module detached with red attachment guides; earlier pages omit the camera."
+    },
+    {
+      "variantId": "level-5-voice-control-snail",
+      "name": "Voice Control Snail",
+      "requiredFileName": "level-5-voice-control-snail-basic.webp",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_f87b9b12193f4f79a103d973e8a0fc02.pdf",
+      "historicalPdfSha256": "68cfb4cac29244e11d009267522c09cf152c92f6804606c534794c73ab749d19",
+      "historicalPageCount": 12,
+      "pageForInitialInvestigation": 12,
+      "currentRunPdfHashVerified": true,
+      "allPagesVisuallyReviewed": true,
+      "completedModelCrop": {
+        "pdfPage": 12,
+        "normalizedCoordinates": [
+          0.3,
+          0.18,
+          0.83,
+          0.86
+        ],
+        "pageBoundsPoints": [
+          476.1,
+          160.74,
+          1317.21,
+          767.98
+        ],
+        "visualJustification": "Page 12 illustrates one fully assembled snail, on a blue background; part-list icon inset is outside crop."
+      },
+      "image": {
+        "webpCreated": true,
+        "filename": "level-5-voice-control-snail-basic.webp",
+        "sourcePage": 12,
+        "dimensions": [
+          550,
+          397
+        ],
+        "sha256": "268a5d6a2fbb244da5871cd080bd7f4109980b731028f6aa87d1fce440fe503d",
+        "sizeBytes": 16834,
+        "sourceRasterMeanAbsoluteError": 1.322,
+        "decoded": true
+      },
+      "wix": {
+        "mediaId": "78042f_72ced3ae25a54a45b1815b9590380b6f~mv2.webp",
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_72ced3ae25a54a45b1815b9590380b6f~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "dimensions": [
+          550,
+          397
+        ],
+        "sourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/611de7f416539827d7eba93c2ac6cfd7bfec9f1b/public/final-build/level-5/level-5-voice-control-snail-basic.webp",
+        "publicVisibilityVerified": true,
+        "cdnHttpStatus": 200,
+        "cdnByteForByteSha256Verified": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0"
+      },
+      "assessment": {
+        "independentlyApprovedQuestions": 5,
+        "studentApproved": true,
+        "selectable": true
+      },
+      "blocker": null
+    },
+    {
+      "variantId": "level-5-voice-control-vehicle",
+      "name": "Voice Control Vehicle",
+      "requiredFileName": "level-5-voice-control-vehicle-basic.webp",
+      "officialBuildingPdfUrl": "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/7fc4ca_4ee4d1d889f84492b41e9df408633906.pdf",
+      "historicalPdfSha256": "99735dbeeee27192956732cba7e81deea00cac2c66acdb4b025639ecb80d744e",
+      "historicalPageCount": 10,
+      "pageForInitialInvestigation": 10,
+      "currentRunPdfHashVerified": true,
+      "allPagesVisuallyReviewed": true,
+      "completedModelCrop": {
+        "pdfPage": 10,
+        "normalizedCoordinates": [
+          0.64,
+          0.52,
+          1,
+          0.94
+        ],
+        "pageBoundsPoints": [
+          1015.68,
+          464.36,
+          1587,
+          839.42
+        ],
+        "visualJustification": "Page 10 step 23 has completed wheeled vehicle; crop includes wheels, supports and display and excludes extra instruction panels and page label."
+      },
+      "image": {
+        "webpCreated": true,
+        "filename": "level-5-voice-control-vehicle-basic.webp",
+        "sourcePage": 10,
+        "dimensions": [
+          550,
+          361
+        ],
+        "sha256": "f627ccbb70fd03647d2135f0719fbea736ad9938b3c4397a1ef472f07a84b138",
+        "sizeBytes": 23852,
+        "sourceRasterMeanAbsoluteError": 2.251,
+        "decoded": true
+      },
+      "wix": {
+        "mediaId": "78042f_d36f964af5eb46b39673760192b53422~mv2.webp",
+        "hostedUrl": "https://static.wixstatic.com/media/78042f_d36f964af5eb46b39673760192b53422~mv2.webp",
+        "operationStatus": "READY",
+        "mediaState": "OK",
+        "mimeType": "image/webp",
+        "dimensions": [
+          550,
+          361
+        ],
+        "sourceUrl": "https://raw.githubusercontent.com/Arrjack8847/learn-build-robot/611de7f416539827d7eba93c2ac6cfd7bfec9f1b/public/final-build/level-5/level-5-voice-control-vehicle-basic.webp",
+        "publicVisibilityVerified": true,
+        "cdnHttpStatus": 200,
+        "cdnByteForByteSha256Verified": true,
+        "siteId": "fe3fa828-9f74-45e8-97f7-8d00cbb7fba0"
+      },
+      "assessment": {
+        "independentlyApprovedQuestions": 5,
+        "studentApproved": true,
+        "selectable": true
+      },
+      "blocker": null
+    }
+  ],
+  "imageWorkerCommit": "d0cde35909a841c8279ea2a120692a239e41ccef",
+  "qaEvidence": "reports/final-build-level-5-six-webp-recovery-evidence-20261123.json on feat/final-build-level-5",
+  "questionCandidateHandoff": {
+    "workerBranch": "feat/final-build-level-5",
+    "manifestPath": "src/data/finalBuild/level-5-six-question-candidates.json",
+    "candidateQuestionCount": 30,
+    "completedModelSourcePrompts": 15,
+    "instructionalStagePrompts": 15,
+    "independentlyApprovedQuestionCount": 15,
+    "approvedChecklistImports": 3,
+    "studentEligibilityChange": true
+  },
+  "finalRegressionNote": {
+    "date": "2026-11-23",
+    "candidateManifestTests": 3,
+    "questionCandidateTests": 4,
+    "sharedFinalBuildTests": 8,
+    "locallyExecutedTotalPassed": 15,
+    "locallyExecutedTotalFailed": 0,
+    "fullBrowserAndCurrentProductionBuildNotRun": true
+  }
+}
