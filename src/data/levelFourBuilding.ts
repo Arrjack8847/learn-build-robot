@@ -1,8 +1,9 @@
 import { levelFourLearningManuals } from "./levelFourLearning";
 import type { PdfActivityManual } from "./pdfActivityManuals";
 import { levelFourWixPdfUrls } from "./levelFourWixPdfUrls";
+import { requireWixPdfUrl } from "./requireWixPdfUrl";
 
-/** Verified static Building files under public/Level 4/Building. */
+/** Verified Level 4 Building manifest; binaries are served from Wix. */
 const uploadedBuildingFiles = [
   ["level-4-warrior-with-claws", "Action-Oriented/Warrior With Claws/13. Warrior With Claws - Basic Building Manual.pdf", "basic"],
   ["level-4-warrior-with-claws", "Action-Oriented/Warrior With Claws/13. Warrior With Claws - Optimized Building Manual.pdf", "optimized"],
@@ -72,7 +73,7 @@ export const LEVEL_FOUR_LEARNING_AS_BUILDING_IDS = [
 
 function buildingPdfUrl(relativePath: string): string {
   const originalPath = "Level 4/Building/" + relativePath;
-  return levelFourWixPdfUrls[originalPath] ?? "/Level%204/Building/" + relativePath.split("/").map(encodeURIComponent).join("/");
+  return requireWixPdfUrl(originalPath, levelFourWixPdfUrls[originalPath]);
 }
 
 function originalBuildingManual(id: string, path: string, variant: "basic" | "optimized"): PdfActivityManual {
