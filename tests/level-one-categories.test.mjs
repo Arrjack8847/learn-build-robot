@@ -42,7 +42,7 @@ test("Level 1 route is nested correctly, searchable, mobile-friendly and accessi
   assert.match(sharedCategories, /type="search"/);
   assert.match(sharedCategories, /categories\.filter/);
   assert.match(index, /aria-label=\{\x60Explore/);
-  assert.match(sharedCategories, /grid-cols-2 grid-rows-4/);
+  assert.match(sharedCategories, /grid-cols-2 grid-rows-\[repeat\(3,minmax\(min-content,1fr\)\)\]/);
   assert.match(index, /focus-visible:/);
 });
 
@@ -71,13 +71,19 @@ test("Existing robot lessons remain accessible; missing lessons are not clickabl
   assert.doesNotMatch(detail, /href=\{entry\.sourceEntry\}/);
 });
 
- test("Shared category cards protect full labels and counts on short mobile screens", () => {
+test("Shared category cards protect full labels and counts on short mobile screens", () => {
   const card = sharedCategories.split("export function CategoryCard")[1];
   assert.ok(card);
   assert.doesNotMatch(card, /line-clamp-|truncate/);
   assert.match(card, /w-full shrink-0 break-words/);
   assert.match(card, /shrink-0 text-\[clamp\(10px/);
   assert.match(sharedCategories, /min-h-\[100dvh\]/);
-  assert.match(sharedCategories, /min-h-\[408px\]/);
-  assert.match(sharedCategories, /Robot Discovery Scanner<\/span>/);
+  assert.match(sharedCategories, /useState\(6\)/);
+  assert.match(card, /min-h-\[104px\]/);
+  assert.match(sharedCategories, /minmax\(min-content,1fr\)/);
+  assert.match(sharedCategories, /Final Build Challenge<\/span>/);
+  assert.match(sharedCategories, /Discover · Build · Complete/);
+  assert.match(sharedCategories, /aria-label="Category pagination"/);
+  assert.ok(sharedCategories.indexOf('aria-label="Category pagination"') < sharedCategories.indexOf('href={"/practical/level-"'));
+  assert.match(sharedCategories, /Math.abs\(dx\)>Math.abs\(dy\)\*1.5/);
 });
