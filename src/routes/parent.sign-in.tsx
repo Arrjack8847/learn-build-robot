@@ -11,6 +11,9 @@ const field = "mt-2 min-h-12 w-full rounded-xl border border-sky-200 bg-white px
 
 function ParentSignInPreview() {
   const [step, setStep] = useState(0);
+  const [email, setEmail] = useState(example.email);
+  const [childName, setChildName] = useState(example.name);
+  const [birthYear, setBirthYear] = useState(example.birthYear);
   const [code, setCode] = useState("");
   const [accepted, setAccepted] = useState(false);
   const [complete, setComplete] = useState(false);
@@ -19,7 +22,7 @@ function ParentSignInPreview() {
   // This is an isolated fictional-data UI walkthrough, not authentication.
   // Never issue a session, make network calls or store parent/child data here.
   function reset() {
-    setStep(0); setCode(""); setAccepted(false); setComplete(false); setError(""); setResent(false);
+    setStep(0); setEmail(example.email); setChildName(example.name); setBirthYear(example.birthYear); setCode(""); setAccepted(false); setComplete(false); setError(""); setResent(false);
   }
   function back() {
     setError(""); setStep(previous => Math.max(0, previous - 1));
@@ -27,6 +30,7 @@ function ParentSignInPreview() {
   function next(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
+    if (step === 0 && !/^[a-z0-9][a-z0-9._+-]{0,63}@example\.invalid$/i.test(email.trim())) { setError("Use a fictional address ending in @example.invalid, e.g. testparent@example.invalid."); return; }
     if (step === 1 && code !== example.code) {
       setError("For this walkthrough, enter the example code shown below.");
       return;
@@ -35,7 +39,11 @@ function ParentSignInPreview() {
       setError("Tick the example checkbox to continue.");
       return;
     }
-    if (step === 3) { setComplete(true); return; }
+    if (step === 3) {
+      if (!/^(?:Test|Sample|Demo)(?: [A-Za-z0-9 -]{1,40})?$/i.test(childName.trim())) { setError("Use a fictional name beginning with Test, Sample or Demo."); return; }
+      if (!/^\d{4}$/.test(birthYear) || Number(birthYear)<1900 || Number(birthYear)>new Date().getFullYear()) { setError("Enter a valid four-digit birth year."); return; }
+      setComplete(true); return;
+    }
     setStep(previous => previous + 1);
   }
   return (
@@ -64,7 +72,7 @@ function ParentSignInPreview() {
               <CheckCircle2 className="mx-auto size-14 text-emerald-600" aria-hidden="true"/>
               <h2 id="parent-heading" className="mt-4 text-2xl font-black">Walkthrough complete</h2>
               <p className="mt-3 text-sm leading-6 text-slate-600">In the connected system, your verified parent account would now have a child profile. This preview has not created one.</p>
-              <div className="my-5 flex items-center gap-3 rounded-2xl bg-sky-50 p-4 text-left"><UserRound className="size-7 text-sky-700"/><div><p className="font-bold">{example.name}</p><p className="text-xs text-slate-600">Birth year: {example.birthYear} · Example only</p></div></div>
+              <div className="my-5 flex items-center gap-3 rounded-2xl bg-sky-50 p-4 text-left"><UserRound className="size-7 text-sky-700"/><div><p className="font-bold">{childName.trim()}</p><p className="text-xs text-slate-600">Birth year: {birthYear} · Example only</p></div></div>
               <a href="/parent/dashboard" className={button}>Open example parent dashboard <ArrowRight className="size-4" aria-hidden="true"/></a>
               <button className="mt-3 min-h-11 w-full text-sm font-bold text-sky-700" type="button" onClick={reset}>Restart walkthrough</button>
             </div> : <form onSubmit={next} className="space-y-5">
@@ -75,7 +83,7 @@ function ParentSignInPreview() {
                 <h2 id="parent-heading" className="mt-4 text-2xl font-black sm:text-3xl">{["Welcome, parents","Verify your email","Privacy notice","Add your child"][step]}</h2>
                 <p className="mt-2 text-sm leading-6 text-slate-600">{["Sign in or create one account using your email.","Enter the six-digit code in the example below.","Review the approved privacy notice before registering.","Only the child's name and birth year are needed."][step]}</p>
               </div>
-              {step===0 && <div><label htmlFor="parent-email" className="text-sm font-bold">Email address</label><input id="parent-email" type="email" value={example.email} readOnly className={field}/><p className="mt-2 text-xs text-slate-500">A fictional address is fixed for this preview.</p></div>}
+              {step===0 && <div><label htmlFor="parent-email" className="text-sm font-bold">Email address</label><input id="parent-email" type="email" value={email} onChange={e=>{setEmail(e.target.value);setError("");}} required maxLength={80} autoComplete="off" className={field}/><p className="mt-2 text-xs text-slate-500">Type any fictional address ending in @example.invalid. Do not enter your actual email in this preview.</p></div>}
               {step===1 && <div>
                 <label htmlFor="parent-code" className="text-sm font-bold">Verification code</label>
                 <input id="parent-code" value={code} onChange={e=>{setCode(e.target.value.replace(/[^0-9]/g,"").slice(0,6));setError("");}} inputMode="numeric" maxLength={6} autoComplete="off" aria-describedby="demo-code" className={field+" text-center text-2xl font-black tracking-[0.35em]"} placeholder="000000"/>
@@ -87,7 +95,7 @@ function ParentSignInPreview() {
                 <div className="rounded-2xl border border-sky-100 bg-sky-50 p-4 text-sm leading-6 text-slate-700"><p className="font-bold">Privacy notice placeholder</p><p className="mt-2">The company-approved notice must explain information collected, where it is stored and its retention period. This text is not an approved notice and cannot be used to collect real consent.</p></div>
                 <label className="flex items-start gap-3 rounded-xl border border-sky-100 p-3 text-sm font-semibold"><input type="checkbox" checked={accepted} onChange={e=>setAccepted(e.target.checked)} className="mt-1 size-5 shrink-0 accent-sky-600"/> I understand this is an example consent step.</label>
               </div>}
-              {step===3 && <div className="space-y-4"><div><label htmlFor="child-name" className="text-sm font-bold">Child's name</label><input id="child-name" value={example.name} readOnly className={field}/></div><div><label htmlFor="birth-year" className="text-sm font-bold">Birth year</label><input id="birth-year" value={example.birthYear} readOnly className={field}/></div><p className="text-xs text-slate-500">Example information only. No additional child details are requested.</p></div>}
+              {step===3 && <div className="space-y-4"><div><label htmlFor="child-name" className="text-sm font-bold">Child's name</label><input id="child-name" value={childName} onChange={e=>{setChildName(e.target.value);setError("");}} required maxLength={48} autoComplete="off" className={field}/></div><div><label htmlFor="birth-year" className="text-sm font-bold">Birth year</label><input id="birth-year" value={birthYear} onChange={e=>{setBirthYear(e.target.value.replace(/[^0-9]/g,"").slice(0,4));setError("");}} required inputMode="numeric" maxLength={4} autoComplete="off" className={field}/></div><p className="text-xs text-slate-500">Use a fictional name such as Test Child 1. Do not enter a real child’s details. Nothing is stored or sent.</p></div>}
               {error&&<p role="alert" className="rounded-xl bg-rose-50 p-3 text-sm font-semibold text-rose-800">{error}</p>}
               <button type="submit" className={button} disabled={(step===1&&code.length!==6)||(step===2&&!accepted)}>{["Preview send code","Preview verify email","Continue walkthrough","Preview create child"][step]} <ArrowRight className="size-4" aria-hidden="true"/></button>
               {step>0&&<button type="button" onClick={back} className="min-h-11 w-full text-center text-sm font-bold text-sky-700">Previous step</button>}
