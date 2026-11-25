@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import {
   ArrowLeft, BookOpen, CheckCircle2, ChevronLeft, ChevronRight, ClipboardCheck,
   DoorOpen, Lightbulb, Play, RefreshCw, Trophy, XCircle,
 } from "lucide-react";
+import { quizSyncEnabled, startServerQuiz, submitServerQuiz, LmsError, type ServerQuizQuestion, type ServerQuizResult } from "@/lib/wix-lms";
 import { getProject } from "@/data/practical";
 import { LEVEL_ONE_BUILDING_PDF_LEARNING_FALLBACK_IDS } from "@/data/levelOneLectures";
 import {
@@ -25,6 +26,10 @@ const secondaryButton = "inline-flex min-h-11 items-center justify-center gap-2 
 
 function QuizStudioPage() {
   const { projectId } = Route.useParams();
+  return <QuizSession key={projectId} projectId={projectId}/>;
+}
+
+function QuizSession({projectId}:{projectId:string}) {
   const project = getProject(projectId);
   const bank = getQuizBank(projectId);
   const [stage, setStage] = useState<Stage>("loading");
@@ -34,9 +39,32 @@ function QuizStudioPage() {
   const [modal, setModal] = useState<Modal>(null);
   const [hintQuestion, setHintQuestion] = useState<string | null>(null);
   const [saveFailed, setSaveFailed] = useState(false);
+  const [serverQuestions,setServerQuestions]=useState<ServerQuizQuestion[]>([]);
+  const [busy,setBusy]=useState(false);
+  const [serverError,setServerError]=useState("");
+  const running=useRef(false);
+  const attemptId=useRef<string|null>(null);
+  const pendingStart=useRef<string|null>(null);
+  const submittedAnswers=useRef<Record<string,number>|null>(null);
+  const mounted=useRef(false);
+  useEffect(()=>{mounted.current=true;return()=>{mounted.current=false;};},[]);
+  function errorMessage(e:unknown){
+    if(e instanceof LmsError){
+      if(e.status===401)return "Sign in to take a saved quiz.";
+      if(e.code==="LEVEL_LOCKED")return "This level is locked.";
+      if(e.code==="STUDENT_NOT_INITIALIZED")return "Open your student dashboard to initialize your account.";
+      if(e.code==="QUIZ_NOT_AVAILABLE")return "This quiz is not imported into Wix yet.";
+    }
+    return "Could not confirm the quiz with Wix. Retry the same action.";
+  }
+  function showServerResult(r:ServerQuizResult){
+    setResult({score:r.correctCount,questions:r.review,answers:Object.fromEntries(r.review.map(q=>[q.id,q.selectedIndex]))});
+    setDraft(null);setModal(null);setStage("results");
+    submittedAnswers.current=null;
+  }
 
   useEffect(() => {
-    const stored = readQuizSavedState(projectId);
+    const stored = quizSyncEnabled ? blankQuizState() : readQuizSavedState(projectId);
     setRecord(stored);
     setDraft(stored.draft);
     setResult(null);
@@ -59,10 +87,26 @@ function QuizStudioPage() {
   function persist(next: QuizSavedState) {
     setRecord(next);
     setDraft(next.draft);
-    setSaveFailed(!writeQuizSavedState(projectId, next));
+    if(!quizSyncEnabled)setSaveFailed(!writeQuizSavedState(projectId, next));
   }
 
-  function startNewAttempt() {
+  async function startNewAttempt() {
+    if(quizSyncEnabled){
+      if(running.current)return;
+      running.current=true;setBusy(true);setServerError("");
+      try{
+        const id=pendingStart.current ?? crypto.randomUUID();pendingStart.current=id;
+        const r=await startServerQuiz(projectId,id);
+        if(!mounted.current)return;
+        pendingStart.current=null;attemptId.current=id;submittedAnswers.current=null;
+        if(r.state==="submitted"){showServerResult(r.result);return;}
+        setServerQuestions(r.questions);
+        persist({...blankQuizState(),draft:{questionIds:r.questions.map(q=>q.id),answers:{},currentIndex:0}});
+        setResult(null);setHintQuestion(null);setModal(null);setStage("question");
+      }catch(e){if(mounted.current)setServerError(errorMessage(e));}
+      finally{running.current=false;if(mounted.current)setBusy(false);}
+      return;
+    }
     const selection = selectQuizQuestions(bank!, record.lastQuestionIds);
     const nextDraft: QuizDraft = {
       questionIds: selection.map(item => item.id),
@@ -83,7 +127,7 @@ function QuizStudioPage() {
   }
 
   function changeAnswer(questionId: string, answer: number) {
-    if (!draft || answer < 0 || answer > 3) return;
+    if (!draft || answer < 0 || answer > 3 || (quizSyncEnabled && (running.current || submittedAnswers.current))) return;
     persist({ ...record, draft: { ...draft, answers: { ...draft.answers, [questionId]: answer } } });
   }
 
@@ -94,8 +138,19 @@ function QuizStudioPage() {
     setStage("question");
   }
 
-  function submitAttempt() {
+  async function submitAttempt() {
     if (!draft) return;
+    if(quizSyncEnabled){
+      if(running.current||!attemptId.current||draft.questionIds.some(id=>!Object.prototype.hasOwnProperty.call(draft.answers,id)))return;
+      running.current=true;setBusy(true);setServerError("");
+      try{
+        const answers=submittedAnswers.current??{...draft.answers};submittedAnswers.current=answers;
+        const r=await submitServerQuiz(projectId,attemptId.current,answers);
+        if(mounted.current)showServerResult(r);
+      }catch(e){if(mounted.current)setServerError(errorMessage(e));}
+      finally{running.current=false;if(mounted.current)setBusy(false);}
+      return;
+    }
     const questions = draft.questionIds.map(id => bank!.questions.find(item => item.id === id));
     if (questions.some(question => !question) || draft.questionIds.some(id => !Object.prototype.hasOwnProperty.call(draft.answers, id))) return;
     const selected = questions as QuizQuestion[];
@@ -110,7 +165,7 @@ function QuizStudioPage() {
   }
 
   const currentId = draft?.questionIds[draft.currentIndex];
-  const currentQuestion = bank.questions.find(item => item.id === currentId);
+  const currentQuestion = (quizSyncEnabled ? serverQuestions : bank.questions).find(item => item.id === currentId);
   const answeredCount = draft ? draft.questionIds.filter(id => Object.prototype.hasOwnProperty.call(draft.answers, id)).length : 0;
   const allAnswered = Boolean(draft && answeredCount === QUIZ_QUESTION_COUNT);
   const incorrect = result?.questions.filter(q => result.answers[q.id] !== q.correctIndex) ?? [];
@@ -120,7 +175,7 @@ function QuizStudioPage() {
     <div className="flex h-[100dvh] min-h-0 flex-col overflow-hidden bg-[#f3faff] text-[#132654]">
       <header className="z-10 flex shrink-0 items-center justify-between gap-2 border-b border-sky-100 bg-white px-3 py-2 sm:px-6">
         {stage === "question" || stage === "review" ? (
-          <button type="button" onClick={() => setModal("leave")} aria-label="Leave quiz" className={secondaryButton + " !px-3"}>
+          <button type="button" onClick={() => setModal("leave")} disabled={busy} aria-label="Leave quiz" className={secondaryButton + " !px-3"}>
             <ArrowLeft className="size-4" aria-hidden="true"/> <span className="hidden sm:inline">Exit</span>
           </button>
         ) : (
@@ -135,6 +190,8 @@ function QuizStudioPage() {
         <span className="rounded-full bg-[#eaf5ff] px-3 py-1 text-xs font-extrabold text-[#168eea]">5 Questions</span>
       </header>
 
+      {quizSyncEnabled && <p className="shrink-0 bg-sky-50 px-3 py-1 text-center text-xs text-slate-700">Wix quiz preview · Results saved on submission. Unfinished answers stay in this open page only.</p>}
+      {serverError && <p role="alert" className="shrink-0 bg-rose-50 px-3 py-2 text-center text-xs font-bold text-rose-800">{serverError} <a className="underline" href="/student/dashboard">Student dashboard</a></p>}
       {saveFailed ? (
         <p role="alert" className="shrink-0 bg-amber-50 px-4 py-2 text-center text-xs font-bold text-amber-900">
           This browser blocked saving. Your quiz may not resume after closing the page.
@@ -160,7 +217,7 @@ function QuizStudioPage() {
                 <InfoTile value="No" label="Time limit"/>
               </div>
               <p className="text-sm font-medium leading-6 text-slate-600">Choose one answer each time. You can skip, go back, and use hints. We'll show your answers after you finish.</p>
-              <button type="button" className={primaryButton + " w-full"} onClick={startNewAttempt}><Play className="size-4"/> Start Quiz</button>
+              <button type="button" className={primaryButton + " w-full"} disabled={busy} onClick={()=>void startNewAttempt()}><Play className="size-4"/> Start Quiz</button>
             </section>
           ) : null}
 
@@ -199,7 +256,7 @@ function QuizStudioPage() {
                       return (
                         <label key={index} className={`flex min-h-12 cursor-pointer items-center gap-3 rounded-2xl border-2 p-3 text-left text-sm font-semibold transition sm:p-4 ${isSelected ? "border-[#168eea] bg-sky-50 text-[#132654]" : "border-sky-100 bg-white hover:border-sky-300"}`}>
                           <input className="size-4 shrink-0 accent-[#168eea]" name={currentQuestion.id} type="radio" value={index}
-                            checked={isSelected} onChange={() => changeAnswer(currentQuestion.id, index)}/>
+                            checked={isSelected} disabled={busy || (quizSyncEnabled && Boolean(submittedAnswers.current))} onChange={() => changeAnswer(currentQuestion.id, index)}/>
                           <span className="shrink-0 font-black text-[#168eea]">{String.fromCharCode(65 + index)}.</span>
                           <span>{choice}</span>
                         </label>
@@ -245,9 +302,9 @@ function QuizStudioPage() {
               </div>
               {!allAnswered ? <p role="status" className="rounded-xl bg-amber-50 p-3 text-center text-sm font-semibold text-amber-900">{5 - answeredCount} question(s) still need an answer.</p> : null}
               <p className="text-center text-xs text-slate-500">You can change your answers now. After submission, they are locked.</p>
-              <button type="button" onClick={submitAttempt} disabled={!allAnswered}
+              <button type="button" onClick={()=>void submitAttempt()} disabled={!allAnswered || busy}
                 className={primaryButton + " w-full disabled:cursor-not-allowed disabled:opacity-40"}>
-                Submit Quiz
+                {busy ? "Submitting…" : "Submit Quiz"}
               </button>
               <button type="button" className={secondaryButton + " w-full"} onClick={() => goToQuestion(draft.currentIndex)}>Back to Questions</button>
             </section>
@@ -279,7 +336,7 @@ function QuizStudioPage() {
                 </details>
               ) : null}
               <div className="grid gap-2 sm:grid-cols-2">
-                <button type="button" className={primaryButton} onClick={startNewAttempt}><RefreshCw className="size-4"/> Try Again</button>
+                <button type="button" className={primaryButton} disabled={busy} onClick={()=>void startNewAttempt()}><RefreshCw className="size-4"/> Try Again</button>
                 <Link to="/projects/$projectId" params={{projectId}} className={secondaryButton}>Back to Project</Link>
               </div>
             </section>
@@ -310,7 +367,7 @@ function QuizStudioPage() {
             <h2 id="quiz-dialog-title" className="mt-3 text-xl font-black">{modal === "leave" ? "Leave Quiz?" : "Start a New Quiz?"}</h2>
             <p className="mt-3 text-sm leading-6 text-slate-600">
               {modal === "leave"
-                ? saveFailed ? "Your browser blocked saving, so your answers may be lost." : "Don't worry! Your answers are saved. You can continue anytime."
+                ? quizSyncEnabled ? "Unfinished answers are not saved after leaving this page." : saveFailed ? "Your browser blocked saving, so your answers may be lost." : "Don't worry! Your answers are saved. You can continue anytime."
                 : "Your unfinished answers will be cleared. Your best score will stay saved."}
             </p>
             <div className="mt-5 grid grid-cols-2 gap-2">
@@ -318,7 +375,7 @@ function QuizStudioPage() {
               {modal === "leave" ? (
                 <Link to="/projects/$projectId" params={{ projectId }} className={primaryButton}>Leave Quiz</Link>
               ) : (
-                <button type="button" onClick={startNewAttempt} className={primaryButton}>Start Over</button>
+                <button type="button" disabled={busy} onClick={()=>void startNewAttempt()} className={primaryButton}>Start Over</button>
               )}
             </div>
           </section>
