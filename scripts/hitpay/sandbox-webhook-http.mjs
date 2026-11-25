@@ -25,6 +25,8 @@ export function createSandboxWebhook({resolveInbox,clock={now:()=>Date.now()}}){
       const raw=new Uint8Array(n);let offset=0;for(const chunk of chunks){raw.set(chunk,offset);offset+=chunk.byteLength;}
       // Verify signature before even resolving the database adapter.
       if(!signatures.verify(raw,sig,env.HITPAY_WEBHOOK_SALT))return reply(401,{ok:false});
+      // A valid signature on a truncated JSON body is a payload error, not an auth error.
+      if(n<2)return reply(400,{ok:false});
       const store=await resolveInbox(env);
       const core=createBillingCore({env,store,clock,signatures});
       const result=await core.receive(raw,sig,request.headers.get("hitpay-event-object"),request.headers.get("hitpay-event-type"));
