@@ -23,7 +23,7 @@ export function createStaffAdmin({identity,store,clock}){
     const fields={
       bookings:["bookingId","childId","childName","startAt","endAt","membershipStatus","bookingStatus","attendedAt","checkedOutAt"],
       visits:["bookingId","childName","attendedAt","checkedOutAt","attendanceSource","staffName"],
-      memberships:["membershipId","childName","paidThroughMonth","nextChargeAt","paymentStatus","subscriptionStatus"],
+      memberships:["membershipId","childId","childName","paidThroughMonth","nextChargeAt","paymentStatus","subscriptionStatus"],
       payments:["paymentId","childName","amountMinor","currency","coveredMonth","status","source","providerPaymentId","receiptId"]
     };
     const dataView=Object.fromEntries(Object.entries(fields).map(([k,keys])=>[k,data[k].map(row=>{
@@ -34,11 +34,11 @@ export function createStaffAdmin({identity,store,clock}){
         return [field,value];
       }));
     })]));
-    return {ok:true,status:"READY",data:dataView};
+    return {ok:true,status:"READY",actor,data:dataView};
   }
   async function correct(context,input){
     const actor=await staff(context);
-    if(!actor||!input||!actions.has(input.action)||!id(input.targetId)||!id(input.requestId)||typeof input.reason!=="string")return deny();
+    if(!actor||!input||input.action==="mark-paid-at-desk"||!actions.has(input.action)||!id(input.targetId)||!id(input.requestId)||typeof input.reason!=="string")return deny();
     const reason=input.reason.trim();if(reason.length<3||reason.length>500)return deny();
     // The adapter must atomically check target eligibility and current state, dedupe
     // requestId, apply the change, append audit history, and return a durable receipt.
