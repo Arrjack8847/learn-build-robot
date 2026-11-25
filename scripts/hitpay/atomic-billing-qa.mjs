@@ -189,7 +189,7 @@ if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_CO
 }
 
 // Read-only monthly trial audit. Saved wallet charges do not establish monthly entitlement.
-if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_COMMIT_REF==="feat/wix-lms-integration-20261125"&&e.VERCEL_GIT_COMMIT_MESSAGE==="J3: audit existing monthly subscription and billing period evidence"){
+if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_COMMIT_REF==="feat/wix-lms-integration-20261125"&&e.VERCEL_GIT_COMMIT_MESSAGE==="J3: repair monthly charge lookup and fail closed on incomplete history"){
  const tag="[J3 monthly audit]";
  try{
   const sandbox="https://api.sandbox.hit-pay.com";
@@ -210,11 +210,11 @@ if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_CO
   if(Number(d.amount)!==360||String(d.currency).toUpperCase()!=="MYR")throw Error("SUBSCRIPTION_AMOUNT_MISMATCH");
   const date=v=>typeof v==="string"&&/^\d{4}-\d{2}-\d{2}(?:[ T][0-9:.+Z-]+)?$/.test(v)&&Number.isFinite(Date.parse(v))?v:null;
   console.log(tag+" SUBSCRIPTION "+JSON.stringify({verifiedPlan:true,status,reportedStatus:typeof d.status==="string"&&["scheduled","active","retrying","inactive","canceled"].includes(d.status)?d.status:null,cycle:d.cycle==="monthly"?"monthly":null,startDate:date(d.start_date),nextChargeDate:date(d.next_charge_date),lastChargeDate:date(d.last_charge_date),timesCharged:Number.isInteger(d.times_charged)?d.times_charged:null,timesToBeCharged:Number.isInteger(d.times_to_be_charged)?d.times_to_be_charged:null,savedMethod:typeof d.save_payment_method==="boolean"?d.save_payment_method:null,dateFields:Object.keys(d).filter(k=>/^(start_date|next_charge_date|last_charge_date|end_date|cycle|times_charged|times_to_be_charged|payment_methods|save_payment_method|status|next_billing_date|last_billing_date)$/.test(k))}));
-  const q=new URLSearchParams({date_from:"2026-11-25",amount_from:"360",amount_to:"360",per_page:"100"});
+  const q=new URLSearchParams({date_from:"2026-11-25",amount_from:"360",amount_to:"360",per_page:"25"});
   const p=await get("/v1/charges?"+q);
   if(!Array.isArray(p.data))throw Error("CHARGE_LIST_UNCONFIRMED");
   const candidates=p.data.filter(x=>/^[a-f0-9-]{36}$/i.test(x.id)&&Number(x.amount)===360&&String(x.currency).toUpperCase()==="MYR");
-  if(candidates.length>100)throw Error("AUDIT_LIMIT");
+  if(candidates.length>25||p.meta?.next_cursor||p.links?.next||Number(p.meta?.last_page??p.last_page??1)>1)throw Error("AUDIT_HISTORY_INCOMPLETE");
   let matched=0,successful=0,failed=0;
   for(const x of candidates){const v=await get("/v1/charges/"+encodeURIComponent(x.id));if(v.id!==x.id)throw Error("CHARGE_ID_MISMATCH");if(v.target_id===trial.providerSubscriptionId&&v.target_type==="business_recurring_plan"){matched++;if(v.status==="succeeded"&&Number(v.refunded_amount)===0)successful++;if(v.status==="failed")failed++;}}
   console.log(tag+" CHARGES "+JSON.stringify({matched,successful,failed,candidates:candidates.length,hasMore:!!p.meta?.next_cursor,entitlementChanged:false,monthlyPeriodVerified:false}));
