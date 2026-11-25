@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { challengeSyncEnabled, challengeRequest, LmsError, type ServerChallenge } from "@/lib/wix-lms";
 import { ArrowLeft, CheckCircle2, RotateCcw, Timer, Trophy } from "lucide-react";
 import { LevelOneBackdrop } from "@/components/practical/LevelOneHeader";
 import { FinalBuildScanner } from "@/components/practical/FinalBuildScanner";
@@ -81,6 +82,56 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
   const [reviewPage, setReviewPage] = useState(1);
   const [reviewCrop, setReviewCrop] = useState<PrototypeClip>({ x: 0.2, y: 0.1, width: 0.6, height: 0.75 });
   const [reviewMode, setReviewMode] = useState(false);
+  const serverMode = challengeSyncEnabled && !reviewMode;
+  const [serverRecord,setServerRecord]=useState<ServerChallenge|null>(null);
+  const [serverError,setServerError]=useState("");
+  const [busy,setBusy]=useState(false);
+  const running=useRef(false);
+  const requestId=useRef<string|null>(null);
+  const pendingDiscovery=useRef<{id:string;retryId?:string}|null>(null);
+  const pendingFinish=useRef<boolean|null>(null);
+  const pendingChecks=useRef<boolean[]|null>(null);
+  const mounted=useRef(false);
+  useEffect(()=>{mounted.current=true;return()=>{mounted.current=false;};},[]);
+  function failureMessage(e:unknown){
+    if(e instanceof LmsError){
+      if(e.status===401)return "Sign in to save a Final Build.";
+      if(e.code==="LEVEL_LOCKED")return "This level is locked.";
+      if(e.code==="CHALLENGE_POOL_NOT_READY")return "This level’s Wix candidate pool is not ready.";
+      if(e.code==="STUDENT_NOT_INITIALIZED")return "Open your student dashboard to initialize your account.";
+    }
+    return "Could not confirm the challenge with Wix. Retry the same action.";
+  }
+  function applyServer(r:ServerChallenge,stage?:Stage){
+    const p=pool.find(p=>p.id===r.projectId);
+    const v=p?.variants.find(v=>v.id===r.variantId);
+    const evidence=p&&v?getVerifiedFinalBuildReference(level,p.id,v):null;
+    const questions=p&&v?getVerifiedFinalBuildQuestions(level,p.id,v):[];
+    if(!evidence||!v||evidence.sourceUrl!==r.sourceUrl||evidence.imageUrl!==r.imageUrl||questions.length!==5||questions.some((q,i)=>q!==r.checks[i]))throw new Error("Candidate evidence mismatch");
+    setServerRecord(r);
+    setSession(prev=>({...prev,projectId:r.projectId,variantId:r.variantId,
+      stage:stage??(r.status==="Selected"?"ready":r.status==="Building"?"building":r.status==="Assessment"?"assessment":"result"),
+      startedAt:r.startedAt?Date.parse(r.startedAt):null,deadline:r.deadline?Date.parse(r.deadline):null,
+      completedAt:r.finishedAt?Date.parse(r.finishedAt):null,
+      result:r.status==="Submitted"?(r.passed?"pass":"retry"):null,
+      ...(stage==="scanning"?{scanUntil:Date.now()+SCAN_MS,checks:[false,false,false,false,false]}:{})}));
+  }
+  async function serverAction(action:()=>Promise<void>){
+    if(running.current)return;
+    running.current=true;setBusy(true);setServerError("");
+    try{await action();}catch(e){if(mounted.current)setServerError(failureMessage(e));}
+    finally{running.current=false;if(mounted.current)setBusy(false);}
+  }
+  async function discoverServer(same=false){
+    await serverAction(async()=>{
+      const pending=pendingDiscovery.current??{id:crypto.randomUUID(),...(same&&requestId.current?{retryId:requestId.current}:{})};
+      pendingDiscovery.current=pending;
+      const r=await challengeRequest("Discover",level,pending.id,pending.retryId?{retryRequestId:pending.retryId}:{});
+      if(!mounted.current)return;
+      if(r.status!=="Selected")throw new Error("Invalid selection");
+      applyServer(r,"scanning");setModel(null);requestId.current=pending.id;pendingDiscovery.current=null;pendingFinish.current=null;pendingChecks.current=null;
+    });
+  }
   const onModelStatus = useCallback((filename: string, status: PrototypeStatus) =>
     setModel(prev => prev?.filename === filename && prev.status === status ? prev : { filename, status }), []);
   useEffect(() => {
@@ -95,12 +146,12 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
       if (Number.isInteger(page) && page > 0) setReviewPage(page);
       setSession({ ...emptySession(level), stage: "ready", projectId: reviewerPool[Math.max(0, idx)]?.id ?? null,
         variantId: reviewerPool[Math.max(0, idx)]?.variants[0]?.id ?? null });
-    } else setSession(restore(level, ids, permittedVariants));
+    } else setSession(challengeSyncEnabled ? emptySession(level) : restore(level, ids, permittedVariants));
     setHydrated(true);
     setNow(Date.now());
   }, [level, ids, pool, reviewerPool, permittedVariants]);
   useEffect(() => {
-    if (hydrated && !reviewMode) window.localStorage.setItem(storageKey(level), JSON.stringify(session));
+    if (hydrated && !reviewMode && !challengeSyncEnabled) window.localStorage.setItem(storageKey(level), JSON.stringify(session));
   }, [level, hydrated, reviewMode, session]);
   useEffect(() => {
     const timer = window.setInterval(() => setNow(Date.now()), 250);
@@ -109,9 +160,9 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
   useEffect(() => {
     if (session.stage === "scanning" && session.scanUntil !== null && now >= session.scanUntil)
       setSession(prev => prev.stage === "scanning" ? { ...prev, stage: "ready" } : prev);
-    if (session.stage === "building" && session.deadline !== null && now >= session.deadline)
+    if (!serverMode && session.stage === "building" && session.deadline !== null && now >= session.deadline)
       setSession(prev => prev.stage === "building" ? { ...prev, stage: "assessment", acknowledgedFinish: false } : prev);
-  }, [now, session.stage, session.scanUntil, session.deadline]);
+  }, [now, session.stage, session.scanUntil, session.deadline, serverMode]);
   const activePool = reviewMode ? reviewerPool : pool;
   const project = activePool.find(p => p.id === session.projectId) ?? null;
   const variant = project?.variants.find(v => v.id === session.variantId) ?? project?.variants[0] ?? null;
@@ -134,10 +185,12 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
   const isScanning = session.stage === "discover" || session.stage === "scanning";
   const back = "/practical/levels/" + level;
   function setVariant(id: string) {
+    if(serverMode)return;
     setModel(null);
     setSession(prev => ({ ...prev, variantId: id }));
   }
   function discover() {
+    if(serverMode){if(level===2&&session.stage==="discover")void discoverServer();return;}
     if (session.stage !== "discover" || !pool.length || !hydrated) return;
     const chosen = pool[secureRandomIndex(pool.length)];
     if (!chosen) return;
@@ -150,16 +203,19 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
   }
   function start() {
     if (!startAllowed && !testAllowed) return;
+    if(serverMode){if(!requestId.current)return;const id=requestId.current;void serverAction(async()=>{const r=await challengeRequest("Start",level,id);if(mounted.current)applyServer(r);});return;}
     const startedAt = Date.now();
     setSession(prev => ({ ...prev, stage: "building", startedAt,
       deadline: startedAt + LIMIT_MS, completedAt: null, acknowledgedFinish: false, checks: [false, false, false, false, false], result: null }));
   }
   function finish() {
+    if(serverMode){if(!requestId.current)return;const id=requestId.current;const ack=pendingFinish.current??(session.deadline!==null&&Date.now()<=session.deadline);pendingFinish.current=ack;void serverAction(async()=>{const r=await challengeRequest("Finish",level,id,{acknowledgedFinish:ack});if(mounted.current)applyServer(r);});return;}
     const completedAt = Date.now();
     setSession(prev => prev.stage === "building"
       ? { ...prev, stage: "assessment", acknowledgedFinish: completedAt <= (prev.deadline ?? 0), completedAt } : prev);
   }
   function result() {
+    if(serverMode){if(!requestId.current)return;const id=requestId.current;const checks=pendingChecks.current??[...session.checks];pendingChecks.current=checks;void serverAction(async()=>{const r=await challengeRequest("Submit",level,id,{checks});if(mounted.current)applyServer(r);});return;}
     setSession(prev => {
       if (prev.stage !== "assessment") return prev;
       const pass = prev.acknowledgedFinish && prev.checks.filter(Boolean).length >= 4 &&
@@ -168,6 +224,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
     });
   }
   function retry(same: boolean) {
+    if(serverMode){if(level===2)void discoverServer(same);return;}
     setModel(null);
     setSession(prev => ({ ...emptySession(level), attempts: prev.attempts + 1,
       projectId: same ? prev.projectId : null, variantId: same ? prev.variantId : null,
@@ -198,19 +255,21 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
           <h1 className="mt-1 text-2xl font-black tracking-tight text-[#18418a] sm:text-4xl">Robot Discovery Scanner</h1>
           <p className="mt-2 text-sm font-medium text-[#607c9f]">Discover → Build independently → Check your robot</p>
         </div>
+        {serverMode && <p className="mb-3 rounded-xl bg-sky-100 p-3 text-center text-xs font-bold text-sky-900">{level===2?"Wix pilot: 29 projects, 30 approved variants. Results are saved after submission. Refresh recovery is not enabled.":"This level’s Wix candidate pool has not been imported yet."}</p>}
+        {serverError&&<p role="alert" className="mb-3 rounded-xl bg-rose-50 p-3 text-center text-sm font-bold text-rose-800">{serverError} <a href="/student/dashboard" className="underline">Student dashboard</a></p>}
         {isScanning ? (
           <section aria-label="Robot discovery scanner" className="grid overflow-hidden rounded-[28px] border-[3px] border-[#47c8fc] bg-white shadow-xl lg:min-h-[520px] lg:grid-cols-2">
             <div className="flex h-[min(54dvh,470px)] min-h-[265px] items-center justify-center overflow-hidden bg-[#0B1B4E] lg:h-auto">
               <FinalBuildScanner scanning={session.stage === "scanning"}
-                projectCount={pool.length} onSkip={() => setSession(prev => prev.stage === "scanning" ? { ...prev, stage: "ready" } : prev)}/>
+                projectCount={serverMode ? (level===2?29:0) : pool.length} onSkip={() => setSession(prev => prev.stage === "scanning" ? { ...prev, stage: "ready" } : prev)}/>
             </div>
             <div className="flex flex-col justify-center gap-4 bg-gradient-to-br from-white via-[#f0f9ff] to-[#f1edff] p-5 sm:p-9">
               <h2 className="text-center text-xl font-black text-[#19428f] sm:text-3xl">{session.stage === "scanning" ? "Scanning for your robot!" : "Which robot will you discover?"}</h2>
               <div className="flex flex-wrap justify-center gap-2">
-                <span className="rounded-full bg-sky-100 px-4 py-2 text-sm font-bold text-sky-800">🤖 {level === 2 ? `${pool.length} projects · ${pool.reduce((count, item) => count + item.variants.length, 0)} variants` : `${pool.length} verified robots`}</span>
+                <span className="rounded-full bg-sky-100 px-4 py-2 text-sm font-bold text-sky-800">🤖 {serverMode ? (level===2?"29 projects · 30 variants":"Pool unavailable") : level === 2 ? `${pool.length} projects · ${pool.reduce((count, item) => count + item.variants.length, 0)} variants` : `${pool.length} verified robots`}</span>
                 <span className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-bold text-emerald-800">⏱ 15-minute challenge</span>
               </div>
-              <button type="button" disabled={session.stage === "scanning" || !pool.length} onClick={discover}
+              <button type="button" disabled={busy || session.stage === "scanning" || !pool.length || (serverMode && level!==2)} onClick={discover}
                 className="min-h-16 w-full rounded-2xl border-b-4 border-amber-500 bg-[#ffcf52] px-4 text-lg font-black text-[#213f80] shadow-md hover:bg-[#ffe17f] focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-sky-500 disabled:opacity-60">
                 {session.stage === "scanning" ? "🔬 SCANNING ROBOTS…" : "🔎 DISCOVER MY ROBOT!"}
               </button>
@@ -243,7 +302,7 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
             </div>}
             {project && variant && (session.stage === "ready" || session.stage === "building") && <>
               {project.variants.length > 1 && <label className="mb-4 block text-sm font-bold text-[#65438a]">Official manual version
-                <select value={variant.id} disabled={session.stage !== "ready"}
+                <select value={variant.id} disabled={serverMode || session.stage !== "ready"}
                   onChange={e => setVariant(e.target.value)} className="mt-2 min-h-11 w-full rounded-xl border border-violet-300 bg-white p-2">
                   {project.variants.map(v => <option key={v.id} value={v.id}>{v.label}</option>)}
                 </select>
@@ -287,36 +346,36 @@ export function FinalBuildExam({ level }: { level: 2 | 3 | 4 | 5 | 6 }) {
               <p className="my-4 flex items-center justify-center gap-2 text-4xl font-black tabular-nums text-sky-800"><Timer className="size-7"/>{formatTime(remaining)}</p>
             </>}
             {session.stage === "ready" && <>
-              <button type="button" disabled={!startAllowed} onClick={start} className="min-h-14 w-full rounded-2xl bg-rose-500 px-5 font-extrabold text-white disabled:cursor-not-allowed disabled:opacity-40">
+              <button type="button" disabled={!startAllowed || busy} onClick={start} className="min-h-14 w-full rounded-2xl bg-rose-500 px-5 font-extrabold text-white disabled:cursor-not-allowed disabled:opacity-40">
                 Start My 15-Minute Build
               </button>
               {testAllowed && <button type="button" onClick={start} className="mt-3 min-h-12 w-full rounded-2xl bg-violet-100 font-bold text-violet-800">Test flow in review mode (not student-approved)</button>}
-              <button type="button" onClick={() => retry(false)} className="mt-3 min-h-12 w-full rounded-2xl border border-sky-200 bg-sky-50 px-4 font-bold text-sky-800"><RotateCcw className="mr-2 inline size-4"/> Discover Another Robot</button>
+              <button type="button" disabled={busy} onClick={() => retry(false)} className="mt-3 min-h-12 w-full rounded-2xl border border-sky-200 bg-sky-50 px-4 font-bold text-sky-800"><RotateCcw className="mr-2 inline size-4"/> Discover Another Robot</button>
             </>}
-            {session.stage === "building" && <button type="button" onClick={finish} className="min-h-14 w-full rounded-2xl bg-emerald-600 font-extrabold text-white">I Finished My Robot!</button>}
+            {session.stage === "building" && <button type="button" disabled={busy} onClick={finish} className="min-h-14 w-full rounded-2xl bg-emerald-600 font-extrabold text-white">{serverMode && remaining===0 ? "Time is up — continue to assessment" : "I Finished My Robot!"}</button>}
             {session.stage === "assessment" && <>
               <p className="mb-2 text-lg font-extrabold">Check your robot</p>
               <p className="mb-3 text-xs text-slate-600">{approval?.referenceMode === "registered-pdf-fallback" || level === 3 || (level === 2 && Boolean(approval?.referenceNotice)) ? "Owner-authorized self-assessment: five construction checks from original Building references, not independently certified." : "Self-reported checklist using five source-backed checks from the original Building reference."}</p>
               {readyChecks.map((item, index) => <label key={index} className="mb-2 flex min-h-12 items-center gap-3 rounded-xl bg-sky-50 p-3 text-sm font-semibold">
-                <input type="checkbox" className="size-6 shrink-0 accent-sky-600" checked={session.checks[index]}
+                <input type="checkbox" className="size-6 shrink-0 accent-sky-600" checked={session.checks[index]} disabled={busy || (serverMode && pendingChecks.current!==null)}
                   onChange={e => setSession(prev => ({ ...prev, checks: prev.checks.map((v,i) => i === index ? e.target.checked : v) }))}/>
                 {item}
               </label>)}
-              <button type="button" onClick={result} className="mt-4 min-h-12 w-full rounded-2xl bg-sky-600 font-extrabold text-white">See My Result</button>
+              <button type="button" disabled={busy} onClick={result} className="mt-4 min-h-12 w-full rounded-2xl bg-sky-600 font-extrabold text-white">See My Result</button>
             </>}
             {session.stage === "result" && <div className="text-center">
               <CheckCircle2 className="mx-auto size-12 text-sky-600"/><h3 className="mt-2 text-2xl font-black">{session.result === "pass" ? "Great Building!" : "Keep Practising!"}</h3>
-              <p className="my-3 text-sm text-slate-600">Level {level} · {project?.name} · {session.checks.filter(Boolean).length}/5 checks · {elapsed === null ? "Time unavailable" : formatTime(elapsed)} used</p>
+              <p className="my-3 text-sm text-slate-600">Level {level} · {project?.name} · {serverMode ? serverRecord?.criteriaMet ?? 0 : session.checks.filter(Boolean).length}/5 checks · {serverMode && serverRecord?.elapsedSeconds!==undefined ? formatTime(serverRecord.elapsedSeconds*1000) : elapsed === null ? "Time unavailable" : formatTime(elapsed)} used{serverMode && serverRecord?.overtimeSeconds ? " · "+serverRecord.overtimeSeconds+"s overtime" : ""}</p>
               <p className="mb-4 text-xs text-slate-500">Self-reported practical completion. This is not a verified skills certification.</p>
               <div className="grid gap-2 sm:grid-cols-2">
-                <button type="button" onClick={() => retry(true)} className="min-h-12 rounded-xl bg-sky-100 font-bold text-sky-800">Retry Same Robot</button>
-                <button type="button" onClick={() => retry(false)} className="min-h-12 rounded-xl bg-sky-600 font-bold text-white">Discover Another Robot</button>
+                <button type="button" disabled={busy} onClick={() => retry(true)} className="min-h-12 rounded-xl bg-sky-100 font-bold text-sky-800">Retry Same Robot</button>
+                <button type="button" disabled={busy} onClick={() => retry(false)} className="min-h-12 rounded-xl bg-sky-600 font-bold text-white">Discover Another Robot</button>
               </div>
             </div>}
             <a href={back} className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-violet-700"><ArrowLeft className="size-4"/> Back to Level {level}</a>
           </section>
         )}
-        <p className="mt-4 text-center text-xs text-slate-500">{level === 2 ? "Level 2: independently verified finished-model WebPs and owner-authorized registered PDF fallbacks are both selectable; their evidence statuses remain distinct." : level === 5 ? "Level 5: 42 independently source-verified WebP references and 3 owner-authorized incomplete-view official Building PDF references are selectable. Their evidence statuses remain distinct." : level === 4 ? "Level 4: 48 independently verified complete-model Wix WebPs and two owner-authorized original Building PDF construction-stage references. The two PDF pages are not certified complete-model images." : level === 6 ? "Level 6: 39 verified Wix WebPs and two owner-authorized original Building PDF construction references. PDF pages are not certified full-model photos." : `${inventory.length - pool.length} syllabus activities do not currently have an approved playable reference and are excluded from the draw.`}</p>
+        <p className="mt-4 text-center text-xs text-slate-500">{serverMode ? "Wix pilot uses only imported, independently approved evidence." : level === 2 ? "Level 2: independently verified finished-model WebPs and owner-authorized registered PDF fallbacks are both selectable; their evidence statuses remain distinct." : level === 5 ? "Level 5: 42 independently source-verified WebP references and 3 owner-authorized incomplete-view official Building PDF references are selectable. Their evidence statuses remain distinct." : level === 4 ? "Level 4: 48 independently verified complete-model Wix WebPs and two owner-authorized original Building PDF construction-stage references. The two PDF pages are not certified complete-model images." : level === 6 ? "Level 6: 39 verified Wix WebPs and two owner-authorized original Building PDF construction references. PDF pages are not certified full-model photos." : `${inventory.length - pool.length} syllabus activities do not currently have an approved playable reference and are excluded from the draw.`}</p>
       </main>
     </div>
   );
