@@ -65,7 +65,8 @@ function ParentSignInPreview() {
               <h2 id="parent-heading" className="mt-4 text-2xl font-black">Walkthrough complete</h2>
               <p className="mt-3 text-sm leading-6 text-slate-600">In the connected system, your verified parent account would now have a child profile. This preview has not created one.</p>
               <div className="my-5 flex items-center gap-3 rounded-2xl bg-sky-50 p-4 text-left"><UserRound className="size-7 text-sky-700"/><div><p className="font-bold">{example.name}</p><p className="text-xs text-slate-600">Birth year: {example.birthYear} · Example only</p></div></div>
-              <button className={button} type="button" onClick={reset}>Restart walkthrough</button>
+              <a href="/parent/dashboard" className={button}>Open example parent dashboard <ArrowRight className="size-4" aria-hidden="true"/></a>
+              <button className="mt-3 min-h-11 w-full text-sm font-bold text-sky-700" type="button" onClick={reset}>Restart walkthrough</button>
             </div> : <form onSubmit={next} className="space-y-5">
               <div className="text-center">
                 <div className="mx-auto grid size-16 place-items-center rounded-3xl bg-sky-50 text-[#168eea]">
