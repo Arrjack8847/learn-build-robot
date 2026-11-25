@@ -26,7 +26,7 @@ export class LmsError extends Error {
 }
 // Wix's documented OAuth-authenticated HTTP function gateway.
 // Fixed endpoint and operation allowlist: no arbitrary URL or admin credential.
-async function call<T>(name:"lmsInitialize"|"lmsDashboard"|"lmsLevelReadiness"|"lmsLearning"|"lmsBuilding"|"lmsProgress"|"lmsQuizStart"|"lmsQuizSubmit",schema:z.ZodType<T>,body?:object,signal?:AbortSignal):Promise<T>{
+async function call<T>(name:"lmsInitialize"|"lmsDashboard"|"lmsLevelReadiness"|"lmsLearning"|"lmsBuilding"|"lmsProgress"|"lmsQuizStart"|"lmsQuizSubmit"|"lmsChallengeDiscover"|"lmsChallengeStart"|"lmsChallengeFinish"|"lmsChallengeSubmit"|"lmsChallengeResume",schema:z.ZodType<T>,body?:object,signal?:AbortSignal):Promise<T>{
   const token=await getWixMemberToken();
   if(!token)throw new LmsError(401,"MEMBER_AUTH_REQUIRED");
   const response=await fetch("https://www.wixapis.com/velo/v1/http/invoke/"+name,{
@@ -106,4 +106,28 @@ export async function submitServerQuiz(projectId:string,requestId:string,answers
   const r=await call("lmsQuizSubmit",quizResultSchema,{projectId,requestId,answers},signal);
   if(r.projectId!==projectId)throw new LmsError(502,"QUIZ_MISMATCH");
   return r;
+}
+
+export const challengeSyncEnabled=import.meta.env.VITE_WIX_CHALLENGE_SYNC==="true";
+const challengeSchema=z.object({
+  level:z.number().int().min(1).max(6),projectId:z.string(),variantId:z.string(),
+  sourceUrl:z.string().url(),imageUrl:z.string().url().nullable(),checks:z.array(z.string()).length(5),
+  status:z.enum(["Selected","Building","Assessment","Submitted"]),timeLimitSeconds:z.literal(900),
+  startedAt:date.optional(),deadline:date.optional(),finishedAt:date.optional(),
+  passed:z.boolean().optional(),criteriaMet:z.number().int().min(0).max(5).optional(),
+  elapsedSeconds:count.optional(),overtimeSeconds:count.optional(),submittedAt:date.optional(),
+  selfReported:z.literal(true).optional()
+}).superRefine((r,ctx)=>{
+  const issue=()=>ctx.addIssue({code:"custom",message:"Incomplete challenge state"});
+  if(r.status!=="Selected"&&(!r.startedAt||!r.deadline||Date.parse(r.deadline)-Date.parse(r.startedAt)!==900000))issue();
+  if((r.status==="Assessment"||r.status==="Submitted")&&!r.finishedAt)issue();
+  if(r.status==="Submitted"&&(r.passed===undefined||r.criteriaMet===undefined||r.elapsedSeconds===undefined||r.overtimeSeconds===undefined||!r.submittedAt||r.selfReported!==true))issue();
+});
+export type ServerChallenge=z.infer<typeof challengeSchema>;
+type ChallengeAction="Discover"|"Start"|"Finish"|"Submit"|"Resume";
+export async function challengeRequest(action:ChallengeAction,level:number,requestId:string,extra:{retryRequestId?:string;acknowledgedFinish?:boolean;checks?:boolean[]}={},signal?:AbortSignal){
+  const names={Discover:"lmsChallengeDiscover",Start:"lmsChallengeStart",Finish:"lmsChallengeFinish",Submit:"lmsChallengeSubmit",Resume:"lmsChallengeResume"} as const;
+  const result=await call(names[action],challengeSchema,{level,requestId,...extra},signal);
+  if(result.level!==level)throw new LmsError(502,"CHALLENGE_MISMATCH");
+  return result;
 }
