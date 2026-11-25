@@ -1,49 +1,40 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { ArrowLeft, CreditCard, ShieldCheck, CheckCircle2, Clock, XCircle } from "lucide-react";
-export const Route = createFileRoute("/parent/payment-preview")({
-  component: PaymentPreview,
-  head: () => ({ meta: [{ title: "Membership walkthrough | BE STEM READY" }, { name: "robots", content: "noindex, nofollow" }] }),
-});
-type State = "unpaid" | "pending" | "paid" | "failed" | "cancelled";
-const button = "min-h-12 rounded-xl border border-sky-200 bg-white px-4 py-3 text-sm font-bold text-sky-800 focus-visible:outline-2 focus-visible:outline-sky-600";
-const card = "rounded-3xl border border-sky-100 bg-white p-5 sm:p-7";
+import {createFileRoute} from "@tanstack/react-router";
+import {useEffect,useState} from "react";
+import {ArrowLeft,CreditCard,ShieldCheck,CheckCircle2,Clock,XCircle,Mail} from "lucide-react";
+import {readTestFamily,updateTestChild,testPayment,type TestFamily,type TestEvent} from "../lib/parent-test-flow";
+export const Route=createFileRoute("/parent/payment-preview")({component:PaymentPreview,head:()=>({meta:[{title:"Membership test | BE STEM READY"},{name:"robots",content:"noindex, nofollow"}]})});
+const button="min-h-12 rounded-xl border border-sky-200 bg-white px-4 py-3 text-sm font-bold text-sky-800";
+const primary="inline-flex min-h-12 items-center justify-center rounded-xl bg-[#168eea] px-4 py-3 text-sm font-bold text-white";
+const card="rounded-3xl border border-sky-100 bg-white p-5 sm:p-7";
 function PaymentPreview(){
-  const [state,setState]=useState<State>("unpaid");
-  const [cycle,setCycle]=useState(1);
-  const [history,setHistory]=useState<string[]>([]);
+  const [family,setFamily]=useState<TestFamily|null>(null);
+  const [loaded,setLoaded]=useState(false);
   const [message,setMessage]=useState("");
-  const paid=state==="paid";
-  function reset(){setState("unpaid");setCycle(1);setHistory([]);setMessage("");}
-  function success(){
-    if(state!=="pending"&&state!=="failed")return;
-    const key="Example charge "+cycle;
-    if(history.includes(key)){setMessage("Duplicate example notification ignored.");return;}
-    setHistory(previous=>[...previous,key]);setState("paid");setMessage("Example verified notification received. Example confirmation email queued.");
+  useEffect(()=>{setFamily(readTestFamily());setLoaded(true);},[]);
+  const child=family?.children.find(c=>c.id===family.selectedId);
+  function apply(event:TestEvent,message:string){
+    if(!family||!child)return;
+    try{setFamily(updateTestChild(family,testPayment(child,event)));setMessage(message);}catch{setMessage("Could not save the example payment state.");}
   }
-  return <div className="h-full overflow-y-auto bg-[#f3faff] text-[#132654]">
-    <div className="mx-auto max-w-3xl space-y-5 px-4 py-5 sm:px-8">
-      <header className="flex flex-wrap items-center justify-between gap-3"><a href="/parent/dashboard" className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-sky-700"><ArrowLeft className="size-4"/> Parent dashboard</a><img src="/home/be-stem-ready-logo.svg" alt="BE STEM READY" className="h-12 max-w-[48%] object-contain"/></header>
-      <p className="rounded-xl bg-amber-50 p-3 text-xs font-bold leading-5 text-amber-900">Fictional payment walkthrough. No HitPay requests, card collection, account changes, emails or bookings occur here.</p>
-      <section className={card}>
-        <div className="flex items-center gap-3"><CreditCard className="size-7 text-sky-600"/><div><p className="text-xs font-black uppercase tracking-widest text-sky-700">STEM Makers Lab</p><h1 className="text-2xl font-black">Monthly membership</h1></div></div>
-        <p className="mt-5 text-4xl font-black">RM360<span className="text-sm font-semibold text-slate-600"> / child / month</span></p>
-        <p className="mt-2 text-sm text-slate-600">Sample Child · Two-cycle sandbox fixture</p>
-        <div className="mt-5 rounded-2xl bg-sky-50 p-4"><p className="flex items-center gap-2 font-bold" role="status">{paid?<CheckCircle2 className="size-5 text-emerald-700"/>:state==="pending"?<Clock className="size-5"/>:<XCircle className="size-5 text-slate-600"/>} Example status: {state}</p><p className="mt-2 text-xs leading-5 text-slate-600">A checkout return never confirms payment. Only a verified and reconciled provider notification can update membership in the future connected system.</p></div>
-        <button disabled type="button" className="mt-5 min-h-12 w-full rounded-xl bg-slate-100 font-bold text-slate-600">Real Pay Now — not connected</button>
-        <p className="mt-3 flex items-center gap-2 text-xs text-slate-600"><ShieldCheck className="size-4"/> Card details will be entered on HitPay's hosted checkout only.</p>
-      </section>
-      <section className={card}><h2 className="text-lg font-black">Explore example outcomes</h2><p className="mt-2 text-sm text-slate-600">These controls change only this preview. They are not actual webhook events.</p>
-        <div className="mt-4 grid gap-2 sm:grid-cols-2">
-          {state==="unpaid"&&<button className={button} onClick={()=>{setState("pending");setMessage("Example hosted checkout opened. Membership is not paid.");}}>Preview checkout</button>}
-          {state==="pending"&&<><button className={button} onClick={()=>{setState("unpaid");setMessage("Example checkout closed; membership remains unpaid.");}}>Close without paying</button><button className={button} onClick={()=>setMessage("Example return received; still awaiting verified payment.")}>Preview checkout return</button></>}
-          {(state==="pending"||state==="failed")&&<button className={button} onClick={success}>Simulate verified success</button>}
-          {state==="paid"&&<><button className={button} onClick={()=>setMessage("Duplicate example notification ignored.")}>Simulate duplicate notice</button>{cycle===1&&<button className={button} onClick={()=>{setCycle(2);setState("failed");setMessage("Example renewal failed; membership unpaid and failure notification queued.");}}>Simulate failed renewal</button>}</>}
-          {state!=="cancelled"&&state!=="unpaid"&&<button className={button} onClick={()=>{setState("cancelled");setMessage("Example subscription cancelled. Eligibility disabled in this fixture.");}}>Simulate cancellation</button>}
-          <button className={button} onClick={reset}>Reset example</button>
-        </div>{message&&<p className="mt-4 rounded-xl bg-sky-50 p-3 text-sm" role="status">{message}</p>}
-      </section>
-      <section className={card}><h2 className="font-black">Example payment history</h2>{history.length===0?<p className="mt-3 text-sm text-slate-600">No example successful payments.</p>:<ul className="mt-3 divide-y divide-sky-100">{history.map(h=><li key={h} className="flex justify-between py-3 text-sm"><span>{h}</span><span className="font-bold">RM360.00</span></li>)}</ul>}</section>
-    </div>
-  </div>;
+  if(!loaded||!family||!child)return <main className="grid h-full place-items-center overflow-y-auto bg-[#f3faff] p-4 text-[#132654]"><section className={card+" text-center"}><h1 className="font-black">{loaded?"Register a test family first":"Loading walkthrough…"}</h1>{loaded&&<a href="/parent/sign-in" className={primary+" mt-4"}>Start registration</a>}</section></main>;
+  const state=child.status;
+  return <main className="h-full overflow-y-auto bg-[#f3faff] text-[#132654]"><div className="mx-auto max-w-3xl space-y-5 p-4 sm:p-8">
+    <header className="flex flex-wrap items-center justify-between gap-3"><a href="/parent/dashboard" className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-sky-700"><ArrowLeft className="size-4"/> Parent dashboard</a><img src="/home/be-stem-ready-logo.svg" alt="BE STEM READY" className="h-12 max-w-[48%] object-contain"/></header>
+    <p className="rounded-xl bg-amber-50 p-3 text-xs font-bold leading-5 text-amber-900">Connected fictional payment test. No actual HitPay requests, card details, email delivery or real membership authorization. Changes apply only to the selected test child in this tab.</p>
+    <section className={card}><div className="flex items-center gap-3"><CreditCard className="size-7 text-sky-600"/><div><p className="text-xs font-black uppercase tracking-widest text-sky-700">STEM Makers Lab</p><h1 className="text-2xl font-black">Monthly membership</h1></div></div>
+    <p className="mt-5 text-4xl font-black">RM360<span className="text-sm font-semibold text-slate-600"> / child / month</span></p><p className="mt-2 text-sm text-slate-600">{child.name} · {family.email}</p>
+    <div className="mt-5 rounded-2xl bg-sky-50 p-4"><p className="flex items-center gap-2 font-bold" role="status">{state==="paid"?<CheckCircle2 className="size-5 text-emerald-700"/>:state==="pending"?<Clock className="size-5"/>:<XCircle className="size-5 text-slate-600"/>} Test status: {state}</p><p className="mt-2 text-xs leading-5 text-slate-600">A checkout return alone never confirms payment.</p></div>
+    {state==="unpaid"&&<button className={primary+" mt-5 w-full"} onClick={()=>apply("open","Example checkout opened; payment is pending.")}>Test Pay Now</button>}
+    <p className="mt-3 flex items-center gap-2 text-xs text-slate-600"><ShieldCheck className="size-4"/> Actual hosted checkout remains disabled until the server integration is ready.</p></section>
+    <section className={card}><h2 className="text-lg font-black">Test payment outcomes</h2><div className="mt-4 grid gap-2 sm:grid-cols-2">
+      {state==="pending"&&<><button className={button} onClick={()=>apply("abandon","Checkout closed. This child remains unpaid.")}>Close without paying</button><button className={button} onClick={()=>apply("return","Returned from checkout. Payment still pending.")}>Test checkout return</button></>}
+      {(state==="pending"||state==="failed")&&<button className={button} onClick={()=>apply("success","Example verified payment received. Confirmation generated below.")}>Simulate verified payment</button>}
+      {state==="paid"&&<><button className={button} onClick={()=>apply("duplicate","Duplicate example notice ignored. No extra payment recorded.")}>Simulate duplicate notice</button>{child.cycle===1&&<button className={button} onClick={()=>apply("fail-renewal","Example renewal failed. Membership is unpaid for access purposes.")}>Simulate failed renewal</button>}</>}
+      {state!=="unpaid"&&state!=="cancelled"&&<button className={button} onClick={()=>apply("cancel","Example subscription cancelled.")}>Simulate cancellation</button>}
+      <button className={button} onClick={()=>apply("reset","Example payment reset for this child only.")}>Reset this child's payment</button>
+    </div>{message&&<p role="status" className="mt-4 rounded-xl bg-sky-50 p-3 text-sm">{message}</p>}</section>
+    <section className={card}><h2 className="font-black">Example payment history</h2>{child.history.length?<ul className="mt-3 divide-y divide-sky-100">{child.history.map(c=><li key={c} className="flex justify-between py-3 text-sm"><span>Example charge {c}</span><strong>RM360.00</strong></li>)}</ul>:<p className="mt-3 text-sm text-slate-600">No successful example payments.</p>}</section>
+    {child.history.length>0&&<section className={card}><h2 className="flex items-center gap-2 font-black"><Mail className="size-5 text-sky-600"/> Example confirmation</h2><p className="mt-3 text-sm leading-6">To: {family.email}<br/>Child: {child.name}<br/>Amount: RM360.00<br/>Billing cycle: {child.history.at(-1)}<br/>This is a preview, not an email or payment receipt.</p></section>}
+    <a href="/parent/dashboard" className={primary+" w-full"}>Return to dashboard</a>
+  </div></main>;
 }
