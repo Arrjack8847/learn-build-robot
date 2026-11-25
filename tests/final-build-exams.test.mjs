@@ -62,7 +62,8 @@ test("approved-only scanner and source-backed Level 5 questions are mandatory", 
   assert.match(exam, /const startAllowed = Boolean\(approval && variant\?\.hostedOnWix &&/);
   assert.match(exam, /pictureReady \|\| showRegisteredPdfFallback/);
   assert.match(exam, /approval\.referenceMode === "registered-pdf-fallback"/);
-  assert.match(exam, /disabled=\{!startAllowed\}/);
+  // Preserve the approval gate and prevent duplicate starts during a Wix request.
+  assert.match(exam, /disabled=\{!startAllowed \|\| busy\} onClick=\{start\}/);
   assert.match(verified, /reference\.sourceUrl !== variant\.url/);
   assert.match(verified, /checklist\.questions\.length !== 5/);
   assert.match(verified, /project\.variants\.filter\(variant => getEvidence\(/);
