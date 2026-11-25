@@ -1,0 +1,11 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {validateSandboxCheckoutRequest as validate} from "../scripts/hitpay/checkout-request-guard.mjs";
+const host="checkout-preview.vercel.app",origin="https://"+host,env={VERCEL_URL:host};
+const request=(overrides={},body=undefined,path="/api/dev/sandbox-checkout/status")=>new Request(origin+path,{method:"POST",headers:{Origin:origin,"Sec-Fetch-Site":"same-origin","X-STEM-Sandbox-Checkout":"1",...overrides},...(body===undefined?{}:{body,duplex:"half"})});
+test("exact same-origin empty request allowed",async()=>assert.equal((await validate(request(),env)).ok,true));
+test("empty stream allowed",async()=>assert.equal((await validate(request({},new ReadableStream({start(c){c.close()}})),env)).ok,true));
+test("nonempty stream rejected",async()=>assert.equal((await validate(request({},"unexpected"),env)).status,400));
+test("declared body rejected",async()=>assert.equal((await validate(request({"Content-Length":"1"}),env)).status,400));
+test("null origin and cross-site origin refused",async()=>{assert.equal((await validate(request({Origin:"null"}),env)).status,403);assert.equal((await validate(request({Origin:"https://evil.invalid"}),env)).status,403);assert.equal((await validate(request({"Sec-Fetch-Site":"cross-site"}),env)).status,403)});
+test("unexpected endpoint action and query refused",async()=>{assert.equal((await validate(request({},undefined,"/api/dev/sandbox-checkout/other"),env)).status,404);assert.equal((await validate(request({},undefined,"/api/dev/sandbox-checkout/status?x=1"),env)).status,403)});
