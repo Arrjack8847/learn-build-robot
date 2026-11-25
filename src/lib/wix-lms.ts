@@ -26,7 +26,7 @@ export class LmsError extends Error {
 }
 // Wix's documented OAuth-authenticated HTTP function gateway.
 // Fixed endpoint and operation allowlist: no arbitrary URL or admin credential.
-async function call<T>(name:"lmsInitialize"|"lmsDashboard"|"lmsLevelReadiness",schema:z.ZodType<T>,body?:object,signal?:AbortSignal):Promise<T>{
+async function call<T>(name:"lmsInitialize"|"lmsDashboard"|"lmsLevelReadiness"|"lmsLearning"|"lmsBuilding"|"lmsProgress",schema:z.ZodType<T>,body?:object,signal?:AbortSignal):Promise<T>{
   const token=await getWixMemberToken();
   if(!token)throw new LmsError(401,"MEMBER_AUTH_REQUIRED");
   const response=await fetch("https://www.wixapis.com/velo/v1/http/invoke/"+name,{
@@ -52,4 +52,23 @@ export async function loadStudentDashboard(signal?:AbortSignal){
 }
 export function loadLevelReadiness(level:number,signal?:AbortSignal){
   return call("lmsLevelReadiness",readinessSchema,{level},signal);
+}
+
+const activitySchema=z.object({
+  projectId:z.string(),level:z.number().int().min(1).max(6),
+  mode:z.enum(["learning","building"]),
+  status:z.enum(["In progress","Completed","ReferenceReviewed"]),
+  progressPercent:z.number().min(0).max(100),
+  startedAt:date,completedAt:date.nullable()
+});
+export type ActivityProgress=z.infer<typeof activitySchema>;
+export type ActivityMode=ActivityProgress["mode"];
+export const activitySyncEnabled=import.meta.env.VITE_WIX_ACTIVITY_SYNC==="true";
+export async function recordActivity(projectId:string,mode:ActivityMode,action:"start"|"complete",signal?:AbortSignal){
+  const result=await call(mode==="learning"?"lmsLearning":"lmsBuilding",z.object({activity:activitySchema}),{projectId,action},signal);
+  if(result.activity.projectId!==projectId||result.activity.mode!==mode)throw new LmsError(502,"ACTIVITY_MISMATCH");
+  return result.activity;
+}
+export function loadActivityProgress(signal?:AbortSignal){
+  return call("lmsProgress",z.object({curriculumVersion:z.string(),activities:z.array(activitySchema)}),undefined,signal);
 }
