@@ -1,5 +1,6 @@
 // J4 server-only application boundary. Adapters must use the shared authoritative
 // booking, visit, membership and payment stores. Do not wire to a browser fixture.
+import {formatMonthlySales} from "./sales-export.mjs";
 const actions=new Set(["mark-present","mark-paid-at-desk","excuse-no-show","check-out"]);
 const id=x=>typeof x==="string"&&/^[a-zA-Z0-9_-]{1,128}$/.test(x);
 const month=x=>typeof x==="string"&&/^\d{4}-(0[1-9]|1[0-2])$/.test(x);
@@ -17,7 +18,23 @@ export function createStaffAdmin({identity,store,clock}){
     // Adapter returns only approved minimal projections, never codes or pass secrets.
     const data=await store.readDeskOverview({day,actor});
     if(!data||!["bookings","visits","memberships","payments"].every(k=>Array.isArray(data[k])))throw Error("DESK_READ_UNCONFIRMED");
-    return {ok:true,status:"READY",data};
+    // Explicit allowlists avoid returning parent emails, birth years, auth data,
+    // code digests or provider payloads if an adapter selects too many columns.
+    const fields={
+      bookings:["bookingId","childId","childName","startAt","endAt","membershipStatus","bookingStatus","attendedAt","checkedOutAt"],
+      visits:["bookingId","childName","attendedAt","checkedOutAt","attendanceSource","staffName"],
+      memberships:["membershipId","childName","paidThroughMonth","nextChargeAt","paymentStatus","subscriptionStatus"],
+      payments:["paymentId","childName","amountMinor","currency","coveredMonth","status","source","providerPaymentId","receiptId"]
+    };
+    const dataView=Object.fromEntries(Object.entries(fields).map(([k,keys])=>[k,data[k].map(row=>{
+      if(!row||typeof row!=="object"||Array.isArray(row))throw Error("INVALID_DESK_ROW");
+      return Object.fromEntries(keys.filter(field=>Object.hasOwn(row,field)).map(field=>{
+        const value=row[field];
+        if(value!==null&&typeof value!=="string"&&typeof value!=="number"&&typeof value!=="boolean")throw Error("INVALID_DESK_FIELD");
+        return [field,value];
+      }));
+    })]));
+    return {ok:true,status:"READY",data:dataView};
   }
   async function correct(context,input){
     const actor=await staff(context);
@@ -38,7 +55,7 @@ export function createStaffAdmin({identity,store,clock}){
     // explicit; unique receipts). Do not infer sales from booking or membership counts.
     const ledger=await store.readReconciledSales({period,actor});
     if(!ledger||!Array.isArray(ledger.rows)||ledger.currency!=="MYR")throw Error("SALES_NOT_RECONCILED");
-    return {ok:true,status:"READY",ledger};
+    return {ok:true,status:"READY",export:formatMonthlySales(ledger,period)};
   }
   return {overview,correct,monthlySales};
 }
