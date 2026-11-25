@@ -1,3 +1,4 @@
+import { useActivitySync } from "@/lib/use-activity-sync";
 import { useEffect, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
 import type { PDFDocumentProxy, PDFDocumentLoadingTask } from "pdfjs-dist";
@@ -39,6 +40,7 @@ export function AccelerationCarPdfViewer() {
   const [zoom, setZoom] = useState(1);
   const [dimensions, setDimensions] = useState<PdfViewportSize>({ width: 760, height: 540 });
   const [ready, setReady] = useState(false);
+  const sync = useActivitySync("acceleration-car", "building", ready);
   const viewportRef = useRef<HTMLDivElement>(null);
   const pointers = useRef(new Map<number, { x: number; y: number }>());
   const pinch = useRef<{ distance: number; zoom: number } | null>(null);
@@ -166,8 +168,9 @@ export function AccelerationCarPdfViewer() {
   const step = stepForPage(page);
   const percent = step === null ? 0 : Math.round(step / ACCELERATION_STEP_COUNT * 100);
 
-  function finishCurrentStep() {
+  async function finishCurrentStep() {
     if (step === null) { openPage(2); return; }
+    if (page === ACCELERATION_EXPECTED_PAGES && !(await sync.complete())) return;
     toggleStepCompleted(`acceleration-car-pdf-s${step}`, true);
     if (page === ACCELERATION_EXPECTED_PAGES) setFinished(true);
     else openPage(page + 1);
@@ -179,6 +182,7 @@ export function AccelerationCarPdfViewer() {
 
   return (
     <div className="flex h-[100dvh] min-h-[420px] flex-col overflow-hidden bg-[#f3faff] text-slate-800">
+      {sync.error && <p role="alert" className="shrink-0 px-3 py-2 text-center text-xs font-bold text-rose-700">{sync.error} <a href="/auth/" className="underline">Account</a></p>}
       <BuildingStudioHeader title="Acceleration Car" projectId="acceleration-car" step={step ?? 0} total={ACCELERATION_STEP_COUNT}
         onOpenSteps={() => setStepsOpen(true)}/>
       <BuildingStepDrawer open={stepsOpen} onOpenChange={setStepsOpen}
@@ -229,7 +233,7 @@ export function AccelerationCarPdfViewer() {
           instruction={ACCELERATION_ILLUSTRATION_NOTE}
           expanded={dockExpanded} onExpandedChange={setDockExpanded}
           onPrevious={() => openPage(page - 1)} previousDisabled={page === 1}
-          onNext={finishCurrentStep} nextDisabled={!ready || Boolean(pdfError)}
+          onNext={finishCurrentStep} nextDisabled={!ready || Boolean(pdfError) || sync.busy}
           nextLabel={step === null ? "Start Building" : page === ACCELERATION_EXPECTED_PAGES ? "Finish Robot" : "Done & Next"}
           details={<p className="mt-1 text-xs text-slate-500">Original PDF page {page} of {ACCELERATION_EXPECTED_PAGES}. Zoom or drag the page to inspect details.</p>}
         />
