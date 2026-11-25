@@ -1,5 +1,6 @@
 import "./lib/error-capture";
 import { handleEmailTest } from "./lib/resend-test.server";
+import { handleParentOtpTest } from "./lib/parent-otp-test.server";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
@@ -49,6 +50,7 @@ export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       if (new URL(request.url).pathname === "/api/dev/email-test") return await handleEmailTest(request, process.env);
+      if (new URL(request.url).pathname.startsWith("/api/dev/parent-otp/")) return await handleParentOtpTest(request, process.env);
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);
