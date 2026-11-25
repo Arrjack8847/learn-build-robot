@@ -26,7 +26,7 @@ export class LmsError extends Error {
 }
 // Wix's documented OAuth-authenticated HTTP function gateway.
 // Fixed endpoint and operation allowlist: no arbitrary URL or admin credential.
-async function call<T>(name:"lmsInitialize"|"lmsDashboard"|"lmsLevelReadiness"|"lmsLearning"|"lmsBuilding"|"lmsProgress",schema:z.ZodType<T>,body?:object,signal?:AbortSignal):Promise<T>{
+async function call<T>(name:"lmsInitialize"|"lmsDashboard"|"lmsLevelReadiness"|"lmsLearning"|"lmsBuilding"|"lmsProgress"|"lmsQuizStart"|"lmsQuizSubmit",schema:z.ZodType<T>,body?:object,signal?:AbortSignal):Promise<T>{
   const token=await getWixMemberToken();
   if(!token)throw new LmsError(401,"MEMBER_AUTH_REQUIRED");
   const response=await fetch("https://www.wixapis.com/velo/v1/http/invoke/"+name,{
@@ -71,4 +71,39 @@ export async function recordActivity(projectId:string,mode:ActivityMode,action:"
 }
 export function loadActivityProgress(signal?:AbortSignal){
   return call("lmsProgress",z.object({curriculumVersion:z.string(),activities:z.array(activitySchema)}),undefined,signal);
+}
+
+export const quizSyncEnabled=import.meta.env.VITE_WIX_QUIZ_SYNC==="true";
+const question=z.object({
+  id:z.string(),topic:z.string(),prompt:z.string(),
+  choices:z.tuple([z.string(),z.string(),z.string(),z.string()]),
+  hint:z.string(),learningSlide:z.number().int().positive(),
+  diagram:z.enum(["large-to-small","small-to-large"]).optional()
+});
+const reviewQuestion=question.extend({correctIndex:z.number().int().min(0).max(3),
+  explanation:z.string(),selectedIndex:z.number().int().min(0).max(3)});
+const quizResultSchema=z.object({
+  projectId:z.string(),correctCount:z.number().int().min(0).max(5),
+  questionCount:z.literal(5),scorePercent:z.number().min(0).max(100),
+  passed:z.boolean(),submittedAt:date,review:z.array(reviewQuestion).length(5)
+}).refine(r=>new Set(r.review.map(q=>q.id)).size===5 &&
+  r.review.filter(q=>q.selectedIndex===q.correctIndex).length===r.correctCount &&
+  r.scorePercent===r.correctCount*20 && r.passed===(r.correctCount>=4));
+const startSchema=z.discriminatedUnion("state",[
+  z.object({state:z.literal("started"),requestId:z.string(),projectId:z.string(),
+    startedAt:date,questions:z.array(question).length(5).refine(q=>new Set(q.map(x=>x.id)).size===5)}),
+  z.object({state:z.literal("submitted"),result:quizResultSchema})
+]);
+export type ServerQuizQuestion=z.infer<typeof question>;
+export type ServerQuizResult=z.infer<typeof quizResultSchema>;
+export async function startServerQuiz(projectId:string,requestId:string,signal?:AbortSignal){
+  const r=await call("lmsQuizStart",startSchema,{projectId,requestId},signal);
+  if(r.state==="started"?(r.projectId!==projectId||r.requestId!==requestId):r.result.projectId!==projectId)
+    throw new LmsError(502,"QUIZ_MISMATCH");
+  return r;
+}
+export async function submitServerQuiz(projectId:string,requestId:string,answers:Record<string,number>,signal?:AbortSignal){
+  const r=await call("lmsQuizSubmit",quizResultSchema,{projectId,requestId,answers},signal);
+  if(r.projectId!==projectId)throw new LmsError(502,"QUIZ_MISMATCH");
+  return r;
 }
