@@ -22,7 +22,7 @@
     "test:level123": "node --test tests/level-one-to-three-wix-urls.test.mjs",
     "assets:webp": "node scripts/convert-level-artwork-to-webp.mjs",
     "predev": "npm run assets:webp",
-    "prebuild": "npm run assets:webp && npm run test:pdf:wix-only",
+    "prebuild": "node scripts/hitpay/preview-readiness.mjs --build-hook && npm run assets:webp && npm run test:pdf:wix-only",
     "prebuild:dev": "npm run assets:webp",
     "pretest:ui": "npm run assets:webp",
     "test:level2:release": "node --test tests/level-two-cleaned-wix-routing.test.mjs",
