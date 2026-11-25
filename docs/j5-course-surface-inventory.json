@@ -1,0 +1,56 @@
+{
+  "status": "inventory-only-not-security-design",
+  "sourceCommit": "becabe663798079cb736c11b4063209925804a64",
+  "courseRouteFiles": [
+    "src/routes/practical/$projectId.tsx",
+    "src/routes/practical/index.tsx",
+    "src/routes/practical/level-1.$categoryId.tsx",
+    "src/routes/practical/level-1.final-build.tsx",
+    "src/routes/practical/level-1.index.tsx",
+    "src/routes/practical/level-1.tsx",
+    "src/routes/practical/level-2.final-build.tsx",
+    "src/routes/practical/level-3.final-build.tsx",
+    "src/routes/practical/level-4.final-build.tsx",
+    "src/routes/practical/level-5.final-build.tsx",
+    "src/routes/practical/level-6.final-build.tsx",
+    "src/routes/practical/levels.$levelNumber.$categoryId.tsx",
+    "src/routes/practical/levels.$levelNumber.index.tsx",
+    "src/routes/practical/levels.$levelNumber.tsx",
+    "src/routes/practical/levels.index.tsx",
+    "src/routes/practical/levels.tsx",
+    "src/routes/projects.$projectId.tsx",
+    "src/routes/quiz.$projectId.tsx"
+  ],
+  "otherRouteFilesRequiringReview": [
+    "src/routes/__root.tsx",
+    "src/routes/auth.callback.tsx",
+    "src/routes/auth.index.tsx",
+    "src/routes/index.tsx",
+    "src/routes/parent.dashboard.tsx",
+    "src/routes/parent.email-test.tsx",
+    "src/routes/parent.otp-test.tsx",
+    "src/routes/parent.payment-preview.tsx",
+    "src/routes/parent.payment-return.tsx",
+    "src/routes/parent.sign-in.tsx",
+    "src/routes/staff.admin.tsx",
+    "src/routes/student.check-in.tsx",
+    "src/routes/student.dashboard.tsx"
+  ],
+  "trackedPdfCounts": {
+    "public": 590,
+    "curriculumSource": 8
+  },
+  "deliveryFiles": [
+    "src/data/requireWixPdfUrl.ts",
+    "src/data/staticPdfUrl.ts",
+    "src/data/levelOneToThreeWixPdfUrls.ts",
+    "src/data/levelFourWixPdfUrls.ts",
+    "src/data/levelFiveWixPdfUrls.ts",
+    "src/data/levelSixWixPdfUrls.ts",
+    "src/components/practical/PdfActivityViewer.tsx",
+    "src/components/practical/PdfManualPage.tsx",
+    "src/components/practical/AccelerationCarPdfViewer.tsx",
+    "scripts/pdf/remove-all-output-pdfs.mjs"
+  ],
+  "releaseStatus": "BLOCKED: reviewed 24 Nov design and trial notes, N3 shared booking contract, approved private PDF delivery and live acceptance pending"
+}
