@@ -76,14 +76,14 @@ if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_CO
 
 // Read-only provider reconciliation audit for the exact fictional wallet and received events.
 // Never grant membership, send email, initiate charges, or print credentials/customer data.
-if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_COMMIT_REF==="feat/wix-lms-integration-20261125"&&e.VERCEL_GIT_COMMIT_MESSAGE==="J3: verify genuine sandbox wallet charge evidence"){
+if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_COMMIT_REF==="feat/wix-lms-integration-20261125"&&e.VERCEL_GIT_COMMIT_MESSAGE==="J3: reconcile charges against stored provider subscription ID"){
  const tag="[J3 genuine charge audit]";
  try{
   const sandbox="https://api.sandbox.hit-pay.com";
   if(e.HITPAY_API_BASE_URL!==sandbox||!e.HITPAY_API_KEY?.trim())throw Error("SANDBOX_REQUIRED");
   const db=createWixStore(e);
   const row=await db.get("SandboxBillingState","qa-j3-wallet-setup-v1"), fixture=JSON.parse(row.stateJson);
-  if(row.environment!=="sandbox-qa"||fixture.fixture!==true||fixture.reference!=="stem-lab-wallet-qa-v1"||fixture.providerSubscriptionId!=="a34f7a45-5563-4f1f-8586-62d830c38250")throw Error("FIXTURE_MISMATCH");
+  if(row.environment!=="sandbox-qa"||fixture.fixture!==true||fixture.reference!=="stem-lab-wallet-qa-v1"||fixture.providerSubscriptionId!=="a34f7a45-392b-4c53-85b5-9286e07912a0")throw Error("FIXTURE_MISMATCH");
   const ids=["a34f7d35-6173-4f40-b69f-68058a491f96","a34f7d2c-d6cc-4b36-b950-9d00ce853e6a","a34f7d29-752f-4206-a847-6aa67bac69e3","a34f7d23-74f7-4d6b-b79d-6156ada6dea5","a34f7d1e-4b8b-49bb-9c3d-797d481ce4d0"];
   const counts={verifiedTarget:0,successful:0,failed:0,other:0,unconfirmed:0};
   for(const id of ids){
@@ -91,12 +91,12 @@ if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_CO
    if(!r.ok){counts.unconfirmed++;console.log(tag+" LOOKUP_HTTP "+r.status);continue;}
    const d=await r.json();
    const match=d.id===id&&d.target_id===fixture.providerSubscriptionId&&d.target_type==="business_recurring_plan"&&Number(d.amount)===360&&String(d.currency).toUpperCase()==="MYR";
-   if(!match){counts.unconfirmed++;continue;}
+   if(!match){counts.unconfirmed++;console.log(tag+" MISMATCH "+JSON.stringify({id:d.id===id,target:d.target_id===fixture.providerSubscriptionId,targetType:d.target_type==="business_recurring_plan",amount:Number(d.amount)===360,currency:String(d.currency).toUpperCase()==="MYR"}));continue;}
    counts.verifiedTarget++;
    if(d.status==="succeeded"&&Number(d.refunded_amount)===0)counts.successful++;
    else if(d.status==="failed")counts.failed++;
    else counts.other++;
   }
   console.log(tag+" "+JSON.stringify({...counts,eligibilityChanged:false,emailSent:false}));
- }catch{console.log(tag+" UNCONFIRMED");}
+ }catch(err){console.log(tag+" UNCONFIRMED "+(typeof err?.message==="string"&&/^[A-Z0-9_]{1,80}$/.test(err.message)?err.message:"UNCLASSIFIED"));}
 }
