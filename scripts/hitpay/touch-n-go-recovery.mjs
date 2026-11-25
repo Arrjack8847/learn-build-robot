@@ -1,7 +1,7 @@
 // Read-only sandbox reconciliation. Never logs the full checkout URL, credentials or customer data.
 const env=process.env;
 const tag="[J3 Touch n Go recovery]";
-if(env.VERCEL_ENV==="preview"&&env.VERCEL_TARGET_ENV!=="production"&&env.VERCEL_GIT_COMMIT_REF==="feat/wix-lms-integration-20261125"&&env.VERCEL_GIT_COMMIT_MESSAGE==="J3: recover existing Touch n Go subscription metadata without creating another"&&env.HITPAY_API_BASE_URL==="https://api.sandbox.hit-pay.com"&&env.HITPAY_API_KEY?.trim()){
+if(env.VERCEL_ENV==="preview"&&env.VERCEL_TARGET_ENV!=="production"&&env.VERCEL_GIT_COMMIT_REF==="feat/wix-lms-integration-20261125"&&env.VERCEL_GIT_COMMIT_MESSAGE==="J3: identify actual recurring checkout origin from existing sandbox subscription"&&env.HITPAY_API_BASE_URL==="https://api.sandbox.hit-pay.com"&&env.HITPAY_API_KEY?.trim()){
  const ref="stem-lab-checkout-v1",planId="a34f0707-c529-4c64-9f1f-e969c0d3de16";
  try{
   const results=await Promise.all(["active","scheduled","retrying","inactive","canceled"].map(async status=>{
@@ -17,7 +17,7 @@ if(env.VERCEL_ENV==="preview"&&env.VERCEL_TARGET_ENV!=="production"&&env.VERCEL_
     const urls={};
     for(const key of ["url","checkout_url","payment_url"]){
      if(typeof r[key]!=="string")continue;
-     try{const u=new URL(r[key]);urls[key]={https:u.protocol==="https:",host:/^[a-z0-9.-]+\.hit-pay\.com$/i.test(u.hostname)?u.hostname:"UNRECOGNIZED_HOST",credentials:!!(u.username||u.password),port:!!u.port};}catch{urls[key]={invalid:true}}
+     try{const u=new URL(r[key]);urls[key]={https:u.protocol==="https:",host:/^[a-z0-9.-]{1,160}$/i.test(u.hostname)?u.hostname:"INVALID_HOST",credentials:!!(u.username||u.password),port:!!u.port};}catch{urls[key]={invalid:true}}
     }
     return {idValid:typeof r.id==="string"&&/^[a-f0-9-]{36}$/i.test(r.id),planMatches:r.business_recurring_plans_id===planId||r.plan_id===planId,amountMatches:Number(r.amount)===360,currencyMatches:String(r.currency).toUpperCase()==="MYR",urls,fields:Object.keys(r).filter(k=>["id","url","checkout_url","payment_url","reference","status","business_recurring_plans_id","plan_id","amount","currency","cycle","times_to_be_charged"].includes(k))};
    });
