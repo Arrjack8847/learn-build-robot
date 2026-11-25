@@ -85,8 +85,7 @@ export function createBillingCore({env,identity,store,provider,clock,ids,signatu
       // Older events cannot change a newer membership projection. Same timestamp
       // conflicting events fail closed for review. Refund only revokes matching cycle.
       if(o.cycleNumber<(m.lastCycle??0)||o.occurredAt<(m.lastProviderOccurredAt??0)){
-        await tx.completeEvent(eventKey,"stale");
-        return {ok:true,status:"stale"};
+        return fail("STALE_EVENT_REVIEW_REQUIRED");
       }
       if(o.cycleNumber===(m.lastCycle??0)&&o.occurredAt===(m.lastProviderOccurredAt??0)&&m.lastKind!==o.kind)return fail("ORDER_CONFLICT");
       const key=o.kind==="cancelled"?"cancel:"+o.subscriptionId+":"+o.occurredAt:o.paymentId;
