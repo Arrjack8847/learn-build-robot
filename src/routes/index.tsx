@@ -190,13 +190,13 @@ function MobileCompetitionHome() {
           src="/home/be-stem-ready-logo.svg"
         />
 
-        <Link
-          aria-label="Explore all levels"
+        <a
+          aria-label="Student account"
           className="grid size-10 place-items-center rounded-full border border-slate-200 bg-white text-[#1598ea] shadow-[0_5px_14px_rgba(18,50,93,0.09)] transition active:scale-95 [@media(max-height:700px)]:size-9 [@media(min-height:850px)]:size-11"
-          to="/practical/levels"
+          href="/auth/"
         >
           <UserRound className="size-[18px]" strokeWidth={2.2} />
-        </Link>
+        </a>
       </header>
 
       <section className="relative z-10 shrink-0 text-center">
@@ -351,13 +351,13 @@ function DesktopCompetitionHome() {
           src="/home/be-stem-ready-logo.svg"
         />
 
-        <Link
-          aria-label="Explore all levels"
+        <a
+          aria-label="Student account"
           className="grid size-12 place-items-center rounded-full border border-[#d5e9f7] bg-[#f0f9ff] text-[#1598ea] shadow-[0_5px_15px_rgba(23,104,163,0.07)] transition hover:scale-105 hover:bg-[#e1f3ff] active:scale-95"
-          to="/practical/levels"
+          href="/auth/"
         >
           <UserRound className="size-6" strokeWidth={2.2} />
-        </Link>
+        </a>
       </header>
 
       <main className="relative z-10 mx-auto flex w-full max-w-[1500px] flex-col px-6 pb-10 pt-3 lg:px-12 xl:px-20">
