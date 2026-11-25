@@ -29,7 +29,8 @@ function StudentAccount() {
       {!wixConfigured&&<p role="status" className="mt-5 rounded-xl bg-amber-50 p-3 text-sm text-amber-900">Student sign-in is not configured for this preview.</p>}
       {error&&<p role="alert" className="mt-5 rounded-xl bg-rose-50 p-3 text-sm text-rose-800">{error}</p>}
       {status==="loading"?<p role="status" className="mt-6 text-center">Checking session…</p>:status==="member"?<>
-        <p className="mt-5 text-center text-sm text-slate-600">A Wix member session is available in this tab. Learning progress synchronization is not connected yet.</p>
+        <p className="mt-5 text-center text-sm text-slate-600">Open your dashboard to view your saved Wix student records. Activity synchronization is still being developed.</p>
+        <a href="/student/dashboard" className="mt-5 flex min-h-12 w-full items-center justify-center rounded-2xl bg-emerald-600 px-4 font-bold text-white">Open student dashboard</a>
         <button type="button" disabled={busy} onClick={()=>void act(logoutWix)} className="mt-5 min-h-12 w-full rounded-2xl bg-sky-600 px-4 font-bold text-white disabled:opacity-50">Sign out</button>
       </>:<>
         <button type="button" disabled={!wixConfigured||busy} onClick={()=>void act(beginWixLogin)} className="mt-6 min-h-12 w-full rounded-2xl bg-sky-600 px-4 font-bold text-white disabled:opacity-50">{busy?"Connecting…":"Sign in / Register"}</button>
