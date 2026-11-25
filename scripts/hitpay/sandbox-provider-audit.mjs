@@ -7,7 +7,7 @@ const oldUrl="https://learn-build-robot-56gua6wcj-soe-min-khants-projects.vercel
 const merchant="a34ebd5e-6bd2-4c62-a13d-b19f58f68fd7";
 const uuid=s=>typeof s==="string"&&/^[a-f0-9-]{36}$/i.test(s);
 const fixedEvents=["charge.created","charge.updated","charge.failed","recurring_billing.method_attached","recurring_billing.method_detached","recurring_billing.subscription_updated"];
-if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_COMMIT_REF==="feat/wix-lms-integration-20261125"&&e.VERCEL_GIT_COMMIT_MESSAGE==="J3: read-only audit of sandbox webhook configuration and provider charges"&&e.HITPAY_API_BASE_URL==="https://api.sandbox.hit-pay.com"&&e.HITPAY_API_KEY?.trim()){
+if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_COMMIT_REF==="feat/wix-lms-integration-20261125"&&e.VERCEL_GIT_COMMIT_MESSAGE==="J3: validate configured Wix webhook and sandbox payment status"&&e.HITPAY_API_BASE_URL==="https://api.sandbox.hit-pay.com"&&e.HITPAY_API_KEY?.trim()){
  async function get(path){
   const res=await fetch("https://api.sandbox.hit-pay.com"+path,{method:"GET",headers:{"X-BUSINESS-API-KEY":e.HITPAY_API_KEY,"X-Requested-With":"XMLHttpRequest",Accept:"application/json"},redirect:"error",cache:"no-store",signal:AbortSignal.timeout(15000)});
   if(!res.ok)return {http:res.status};
