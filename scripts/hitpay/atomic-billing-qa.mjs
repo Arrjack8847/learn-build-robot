@@ -187,3 +187,36 @@ if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_CO
   console.log(tag+" PASS provider accepted one fictional confirmation; Wix readback verified; inbox delivery not yet confirmed");
  }catch(err){console.log(tag+" FAILED stage="+stage+" "+(typeof err?.message==="string"&&/^[A-Z0-9_]{1,100}$/.test(err.message)?err.message:"UNCONFIRMED"));process.exitCode=1;}
 }
+
+// Read-only monthly trial audit. Saved wallet charges do not establish monthly entitlement.
+if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_COMMIT_REF==="feat/wix-lms-integration-20261125"&&e.VERCEL_GIT_COMMIT_MESSAGE==="J3: audit existing monthly subscription and billing period evidence"){
+ const tag="[J3 monthly audit]";
+ try{
+  const sandbox="https://api.sandbox.hit-pay.com";
+  if(e.HITPAY_API_BASE_URL!==sandbox||!e.HITPAY_API_KEY?.trim())throw Error("SANDBOX_REQUIRED");
+  const db=createWixStore(e),trial=await db.get("SandboxCheckoutTrials","stem-lab-checkout-v1");
+  if(trial?.status!=="hosted"||trial.providerReference!=="stem-lab-checkout-v1"||trial.providerSubscriptionId!=="a34f1623-3fe7-49ad-b217-bfeccfd41709"||trial.planId!=="a34f0707-c529-4c64-9f1f-e969c0d3de16"||trial.planId!==e.HITPAY_SANDBOX_PLAN_ID)throw Error("TRIAL_MISMATCH");
+  async function get(path){const r=await fetch(sandbox+path,{method:"GET",headers:{"X-BUSINESS-API-KEY":e.HITPAY_API_KEY,"X-Requested-With":"XMLHttpRequest",Accept:"application/json"},redirect:"error",cache:"no-store",signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error("LOOKUP_HTTP_"+r.status);return r.json();}
+  const plan=await get("/v1/subscription-plan/"+encodeURIComponent(trial.planId));
+  if(plan.id!==trial.planId||plan.reference!=="stem-lab-monthly-myr360-sandbox-v1"||Number(plan.amount)!==360||String(plan.currency).toUpperCase()!=="MYR"||plan.cycle!=="monthly")throw Error("PLAN_MISMATCH");
+  const rows=[];
+  for(const status of ["scheduled","active","retrying","inactive","canceled"]){
+   const p=await get("/v1/recurring-billing?"+new URLSearchParams({reference:trial.providerReference,status}));
+   if(!Array.isArray(p.data))throw Error("LIST_SHAPE_UNCONFIRMED");
+   for(const d of p.data)if(d.id===trial.providerSubscriptionId&&d.reference===trial.providerReference&&d.business_recurring_plans_id===trial.planId)rows.push({status,d});
+  }
+  if(rows.length!==1)throw Error("SUBSCRIPTION_STATE_UNCONFIRMED");
+  const {status,d}=rows[0];
+  if(Number(d.amount)!==360||String(d.currency).toUpperCase()!=="MYR")throw Error("SUBSCRIPTION_AMOUNT_MISMATCH");
+  const date=v=>typeof v==="string"&&/^\d{4}-\d{2}-\d{2}(?:[ T][0-9:.+Z-]+)?$/.test(v)&&Number.isFinite(Date.parse(v))?v:null;
+  console.log(tag+" SUBSCRIPTION "+JSON.stringify({verifiedPlan:true,status,reportedStatus:typeof d.status==="string"&&["scheduled","active","retrying","inactive","canceled"].includes(d.status)?d.status:null,cycle:d.cycle==="monthly"?"monthly":null,startDate:date(d.start_date),nextChargeDate:date(d.next_charge_date),lastChargeDate:date(d.last_charge_date),timesCharged:Number.isInteger(d.times_charged)?d.times_charged:null,timesToBeCharged:Number.isInteger(d.times_to_be_charged)?d.times_to_be_charged:null,savedMethod:typeof d.save_payment_method==="boolean"?d.save_payment_method:null,dateFields:Object.keys(d).filter(k=>/^(start_date|next_charge_date|last_charge_date|end_date|cycle|times_charged|times_to_be_charged|payment_methods|save_payment_method|status|next_billing_date|last_billing_date)$/.test(k))}));
+  const q=new URLSearchParams({date_from:"2026-11-25",amount_from:"360",amount_to:"360",per_page:"100"});
+  const p=await get("/v1/charges?"+q);
+  if(!Array.isArray(p.data))throw Error("CHARGE_LIST_UNCONFIRMED");
+  const candidates=p.data.filter(x=>/^[a-f0-9-]{36}$/i.test(x.id)&&Number(x.amount)===360&&String(x.currency).toUpperCase()==="MYR");
+  if(candidates.length>100)throw Error("AUDIT_LIMIT");
+  let matched=0,successful=0,failed=0;
+  for(const x of candidates){const v=await get("/v1/charges/"+encodeURIComponent(x.id));if(v.id!==x.id)throw Error("CHARGE_ID_MISMATCH");if(v.target_id===trial.providerSubscriptionId&&v.target_type==="business_recurring_plan"){matched++;if(v.status==="succeeded"&&Number(v.refunded_amount)===0)successful++;if(v.status==="failed")failed++;}}
+  console.log(tag+" CHARGES "+JSON.stringify({matched,successful,failed,candidates:candidates.length,hasMore:!!p.meta?.next_cursor,entitlementChanged:false,monthlyPeriodVerified:false}));
+ }catch(err){console.log(tag+" UNCONFIRMED "+(typeof err?.message==="string"&&/^[A-Z0-9_]{1,100}$/.test(err.message)?err.message:"UNCLASSIFIED"));process.exitCode=1;}
+}
