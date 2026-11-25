@@ -99,6 +99,7 @@ function ParentDashboardPreview() {
                 <div className="flex items-center gap-2"><Icon className="size-5 text-sky-600" aria-hidden="true"/><h3 className="text-sm font-black">{title}</h3></div>
                 <p className="mt-4 text-xs font-semibold text-slate-500">{label}</p><p className="mt-1 text-lg font-black">{amount}</p><p className="mt-2 flex-1 text-xs leading-5 text-slate-600">{description}</p>
                 <button type="button" disabled className="mt-4 min-h-11 rounded-xl bg-slate-100 px-3 text-xs font-semibold text-slate-600">{action}</button>
+                {title==="Membership"&&<a href="/parent/payment-preview" className={secondary+" mt-2 text-xs"}>Payment walkthrough</a>}
               </div>)}
             </section>
             <section className={card}><div className="flex items-center gap-2"><Wallet className="size-5 text-sky-600" aria-hidden="true"/><h2 className="font-black">Payment history</h2></div><p className="mt-3 text-sm leading-6 text-slate-600">No live payment data is available in this preview. Confirmed HitPay transactions and receipts will appear after integration.</p></section>
