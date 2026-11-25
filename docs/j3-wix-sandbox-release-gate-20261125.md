@@ -1,0 +1,12 @@
+# J3 release gate: Wix receiver and HitPay sandbox — 25 November 2026
+- Wix development site 09d613aa-3a95-42ff-9ee3-2aa0c706c447 published, verified public endpoint https://designerbestemread.wixstudio.com/my-site-1/_functions/hitpaySandbox.
+- Published receiver POST unsigned returns 401; fabricated signature returns 503 while endpoint secret is absent. GET returns 404 (POST only).
+- Wix collection PaymentWebhookEvents exists, admin-only, exact ten custom fields. No real payment or membership activation.
+- Vercel preview commit b21f344567bf6eb2402c2ecc184119b8c9ab2d8b: 36/36 node tests passed (includes underlying billing-core and transport fixture assertions).
+- Existing hosted subscription remains bound in SandboxCheckoutTrials; no additional subscription or charge created.
+- Wix secret metadata check confirmed HITPAY_SANDBOX_WEBHOOK_SALT absent. Do not reuse screenshot-exposed old salt or substitute API-key salt.
+- HitPay API reference documents webhook list/detail/create/update but does not document a salt field in returned schemas. Dashboard detail is documented source of per-endpoint salt. Do not register another webhook without a secure path to its signing salt.
+- Official sandbox guide explicitly supports mock recurring Touch 'n Go, ShopeePay and GrabPay wallet attachment via save_payment_method=true and generate_direct_link=true; direct mock charge only after verified method attachment and authorized test. This is distinct from standard hosted recurring subscription. Do not duplicate existing trial automatically.
+- Charge detail exposes target_id and target_type; require authenticated exact subscription binding (not just shared plan ID) and authoritative billing cycle evidence. Do not derive payment month from unverified metadata. No actual payment is established by a scheduled subscription.
+- Membership ledger and notification outbox require durable replay-safe transaction, correct child ownership and authoritative provider reconciliation; no release until verified payment, failure, refund/cancel, duplicate and renewal tests pass.
+- Official sources: https://docs.hitpayapp.com/apis/guide/events ; https://docs.hitpayapp.com/apis/guide/sandbox ; https://docs.hitpayapp.com/apis/webhook-events/get-webhook-event-details ; https://docs.hitpayapp.com/apis/charges/get-charge-detail .
