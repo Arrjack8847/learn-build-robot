@@ -33,3 +33,28 @@ node tests/hitpay-j3.test.mjs
 node tests/hitpay-j3-transport.test.mjs
 
 J3 status: prototype code and database ready for adapter integration; actual sandbox acceptance NOT PASSED. J4/J5 may be developed against fixtures but never activate real booking/course access until J2/J3/J5 acceptance and company approval.
+
+## Evidence update — sandbox acceptance (2026-11-25, MYT)
+
+This section supersedes earlier test-status statements above; all unresolved security and release gates remain in effect.
+
+| Acceptance evidence | Result | Preview commit |
+| --- | --- | --- |
+| Signed webhook inbox rejects unsigned/forged requests; genuine signed sandbox charge delivery | Five signed charge.created records received | 0c522838 |
+| Authenticated saved-wallet charge lookup | Five distinct successful MYR 360 charges, matched to exact sandbox subscription, no unconfirmed records | 0c522838 |
+| Wix evidence ledger | Five charges and signed inbox keys, total 180000 minor units; readback confirmed; no eligibility changes | 0c390ddd |
+| Atomic synthetic payment/membership/outbox, concurrency and rollback | 11 fixture scenarios and 5 conditional conflict checks passed | a4e3ba4d |
+| Confirmation email, fictional successful payment | One provider acceptance recorded, matching message found in designated Gmail inbox | 258cae8a |
+| Failure email and unpaid membership projection | Fictional renewal marks unpaid, preserves previous paid-through month, one provider acceptance and Gmail receipt | 350c51e8 |
+| Actual monthly plan and subscription | RM360 MYR monthly, two configured cycles, scheduled, zero charges, no verified period; charge-history audit complete for returned query | 753e3968 |
+
+The five successful wallet charges belong to a save_card fixture, NOT five monthly renewals. Never infer coverage periods from them. Original signed inbox entries remain pending; the evidence ledger is a separate QA record, not the production membership store. Both email sends used fictional membership observations, not a real HitPay monthly charge. No genuine charge.failed event has been verified yet.
+
+### Remaining mandatory release gates
+- Credential incident: project metadata still shows HITPAY_API_KEY, HITPAY_SALT_KEY and HITPAY_API_BASE_URL targeted to both Preview and Production. Rotation/revocation of exposed credentials is not independently confirmed. Project owner must rotate sandbox credentials in HitPay and update preview-only variables privately, preserving unrelated production configuration. Do not request keys in chat. No live launch or further provider mutations until resolved.
+- Obtain verified first monthly charge and exact coverage period, including provider subscription and approved parent/child binding. Scheduled trial currently has zero charges. Verify wallet attachment and authorization separately.
+- Verify genuine failure and recovery events from provider, renewal/cancellation/refund and entitlement expiry. Fictional tests alone are insufficient.
+- Implement authorized J2/J3 runtime adapters, durable processing and notification dispatch for real eligible membership records; secure routes, session/consent/ownership and production approval remain mandatory. No build-time fixture may be used as a production worker.
+- Verify recipient/sender approval, monitoring, retry policy and delivery status for the operational mailer.
+
+Status: partial sandbox acceptance passed; production release BLOCKED. No production settings modified by this audit.
