@@ -220,3 +220,50 @@ if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_CO
   console.log(tag+" CHARGES "+JSON.stringify({matched,successful,failed,candidates:candidates.length,hasMore:!!p.meta?.next_cursor,entitlementChanged:false,monthlyPeriodVerified:false}));
  }catch(err){console.log(tag+" UNCONFIRMED "+(typeof err?.message==="string"&&/^[A-Z0-9_]{1,100}$/.test(err.message)?err.message:"UNCLASSIFIED"));process.exitCode=1;}
 }
+
+// A single opt-in development QA send to the configured test inbox only.
+// This fixture uses synthetic membership data, not the five actual wallet charges.
+if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_COMMIT_REF==="feat/wix-lms-integration-20261125"&&e.VERCEL_GIT_COMMIT_MESSAGE==="J3: verify failed renewal notification and unpaid fixture"){
+ const tag="[J3 failed renewal QA]";
+ let stage="configuration";
+ try{
+  const {createSandboxPaymentMailer}=await import("./sandbox-payment-mailer.mjs");
+  const {createBillingCore}=await import("./j3-core.mjs");
+  const {signatures}=await import("./j3-node-transport.mjs");
+  const {createHmac,randomUUID}=await import("node:crypto");
+  const mailer=createSandboxPaymentMailer(e);
+  const db=createWixStore(e),collection="SandboxBillingState",rowId="qa-j3-failed-email-v1";
+  stage="reservation";
+  if(await db.get(collection,rowId))throw Error("EXISTING_EMAIL_FIXTURE_NO_RETRY");
+  // Atomically reserve the one permitted fixture before creating a payment.
+  const initial={schema:1,fixture:true,membership:{id:"qa-membership",environment:"sandbox",parentId:"qa-parent",childId:"qa-child",providerSubscriptionId:"qa-subscription",paymentStatus:"paid",subscriptionStatus:"active",lastCycle:1,lastKind:"paid",paidThroughMonth:"2026-10",paidThroughAt:Date.UTC(2026,10,1)},events:{},payments:{},outbox:{}};
+  if(!await db.insert(collection,rowId,{environment:"sandbox-qa",stateVersion:randomUUID(),stateJson:JSON.stringify(initial)}))throw Error("EXISTING_EMAIL_FIXTURE_NO_RETRY");
+  const store=createFixtureBillingStore({env:e,db,rowId});
+  const clock={now:()=>Date.now()},now=clock.now(),salt="qa-email-fixture-only";
+  const raw=Buffer.from(JSON.stringify({id:"qa-event-2",business_id:"qa-business"}));
+  const key=signatures.digest(raw);
+  const core=createBillingCore({env:{VERCEL_ENV:"preview",HITPAY_API_BASE_URL:"https://api.sandbox.hit-pay.com",HITPAY_WEBHOOK_SALT:salt,HITPAY_BUSINESS_ID:"qa-business"},identity:{},store,provider:{reconcileVerifiedEvent:async event=>event.providerEventKey===key?{environment:"sandbox",businessId:"qa-business",eventKey:key,subscriptionId:"qa-subscription",paymentId:"qa-failed-charge-v1",amountMinor:36000,currency:"MYR",coveredMonth:"2026-11",periodEndAt:now+86400000,occurredAt:now,cycleNumber:2,kind:"failed"}:null},clock,ids:{},signatures});
+  stage="fixture-payment";
+  const received=await core.receive(raw,createHmac("sha256",salt).update(raw).digest("hex"),"charge","failed");
+  if(!received.ok||(await core.reconcile(key)).status!=="failed")throw Error("SYNTHETIC_PAYMENT_NOT_COMMITTED");
+  stage="claim";
+  const job=await store.claimPendingEmail();
+  if(!job||job.notificationType!=="payment_failed"||job.status!=="claimed"||job.paymentId!=="qa-failed-charge-v1"||job.parentId!=="qa-parent"||job.childId!=="qa-child")throw Error("EMAIL_JOB_NOT_CLAIMED");
+  const state=await store.read(),payment=state.payments[job.paymentId];
+  if(state.membership.paymentStatus!=="unpaid"||state.membership.lastCycle!==2||state.membership.paidThroughMonth!=="2026-10"||state.events[key]?.processingStatus!=="processed")throw Error("PAYMENT_NOT_COMMITTED");
+  stage="send";
+  // A crash or ambiguous provider response leaves a claimed job, never auto-retried.
+  const result=await mailer.sendCommitted({job:{...job,status:"sending"},payment,parent:{id:"qa-parent",email:"qa-parent@example.invalid"},child:{id:"qa-child",parentId:"qa-parent",name:"Fictional QA child"}});
+  if(!result.accepted||typeof result.providerMessageId!=="string"||!/^[a-zA-Z0-9_-]{1,128}$/.test(result.providerMessageId))throw Error("EMAIL_ACCEPTANCE_UNCONFIRMED");
+  stage="persist";
+  const saved=await db.get(collection,rowId),draft=JSON.parse(saved.stateJson);
+  const entry=draft.outbox[job.deduplicationKey];
+  if(saved.environment!=="sandbox-qa"||draft.fixture!==true||entry?.status!=="claimed"||entry.attemptCount!==1)throw Error("EMAIL_STATE_CONFLICT");
+  Object.assign(entry,{status:"accepted",providerMessageId:result.providerMessageId});
+  if(!await db.replaceIfVersion(collection,rowId,saved.stateVersion,{environment:"sandbox-qa",stateVersion:randomUUID(),stateJson:JSON.stringify(draft)}))throw Error("EMAIL_STATE_CONFLICT");
+  const verified=await store.read();
+  if(verified.outbox[job.deduplicationKey]?.status!=="accepted"||verified.outbox[job.deduplicationKey]?.providerMessageId!==result.providerMessageId)throw Error("EMAIL_READBACK_UNCONFIRMED");
+  console.log(tag+" PASS provider accepted one fictional failed-renewal notice; Wix readback verified; inbox delivery not yet confirmed");
+ }catch(err){console.log(tag+" FAILED stage="+stage+" "+(typeof err?.message==="string"&&/^[A-Z0-9_]{1,100}$/.test(err.message)?err.message:"UNCONFIRMED"));process.exitCode=1;}
+}
+
