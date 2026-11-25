@@ -35,5 +35,17 @@ export function createSandboxTransport(env,request=fetch){
     if(typeof data.id!=="string"||!isAllowedCheckoutUrl(data.url))throw Error("UNCONFIRMED_SUBSCRIPTION");
     return {subscriptionId:data.id,url:data.url};
   }
-  return {createHostedSubscription,isAllowedCheckoutUrl};
+  async function getVerifiedFixturePlan(){
+    guard();
+    const planId=env.HITPAY_SANDBOX_PLAN_ID;
+    if(typeof planId!=="string"||!/^[a-f0-9-]{36}$/i.test(planId))return null;
+    const res=await request(sandbox+"/v1/subscription-plan/"+encodeURIComponent(planId),{method:"GET",headers:{"X-BUSINESS-API-KEY":env.HITPAY_API_KEY,"X-Requested-With":"XMLHttpRequest",Accept:"application/json"},redirect:"error",cache:"no-store",signal:AbortSignal.timeout(15000)});
+    if(!res.ok)return null;
+    const data=await res.json();
+    if(data.id!==planId||data.reference!=="stem-lab-monthly-myr360-sandbox-v1"||Number(data.amount)!==360||String(data.currency).toUpperCase()!=="MYR"||data.cycle!=="monthly")return null;
+    // Charge count is explicitly set on the subsequent subscription POST;
+    // the published plan detail response does not expose its charge count.
+    return {planId,amountMinor:36000,currency:"MYR",cycle:"monthly",chargeCount:2};
+  }
+  return {createHostedSubscription,isAllowedCheckoutUrl,getVerifiedFixturePlan};
 }
