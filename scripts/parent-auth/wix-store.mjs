@@ -37,7 +37,8 @@ export function createWixStore(env,request=fetch){
     validate(collection,id);
     if(typeof expectedVersion!=="string"||!expectedVersion||typeof data.stateVersion!=="string"||data.stateVersion===expectedVersion)throw Error("INVALID_VERSION");
     const r=await call(ROOT+"/"+encodeURIComponent(id),"PUT",{dataCollectionId:collection,dataItem:{data},condition:{filter:{stateVersion:{$eq:expectedVersion}}}});
-    if(!r.ok){if(r.status===409||r.status===412)return false;throw Error("WIX_UPDATE_UNCONFIRMED");}
+    // Wix returns 428 WDE0193 for an unmet update condition (verified on the QA collection).
+    if(!r.ok){if(r.status===409||r.status===412||r.status===428)return false;throw Error("WIX_UPDATE_UNCONFIRMED");}
     const row=validateResponse(r,collection,id);
     if(row.stateVersion!==data.stateVersion)throw Error("WIX_UPDATE_UNCONFIRMED");
     return true;
