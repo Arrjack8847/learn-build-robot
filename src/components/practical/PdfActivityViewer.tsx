@@ -1,3 +1,4 @@
+import { useActivitySync } from "@/lib/use-activity-sync";
 import { useEffect, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
 import type { PDFDocumentProxy, PDFDocumentLoadingTask } from "pdfjs-dist";
@@ -30,6 +31,7 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
   const [zoom, setZoom] = useState(1);
   const [dimensions, setDimensions] = useState<PdfViewportSize>({ width: 0, height: 0 });
   const [ready, setReady] = useState(false);
+  const sync = useActivitySync(manual.id, isPresentation ? "learning" : "building", ready);
   const viewportRef = useRef<HTMLDivElement>(null);
   const pointers = useRef(new Map<number, { x: number; y: number }>());
   const pinch = useRef<{ distance: number; zoom: number } | null>(null);
@@ -178,9 +180,10 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
     id: "page-" + (index + 1), label: (showsSlides ? "Slide " : "Page ") + (index + 1),
   }));
 
-  function finishCurrentPage() {
+  async function finishCurrentPage() {
     if (!ready || !pdfDocument) return;
     if (page === pdfDocument.numPages) {
+      if (!(await sync.complete())) return;
       toggleStepCompleted(manual.completionStepId, true);
       setFinished(true);
     } else {
@@ -197,6 +200,7 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
       <BuildingStudioHeader title={manual.title} projectId={manual.id} step={page} total={totalPages}
         positionLabel={totalPages ? (showsSlides ? "Slide " : "Page ") + page + " of " + totalPages : (showsSlides ? "Loading slides" : "Loading manual")}
         onOpenSteps={() => setStepsOpen(true)}/>
+      {sync.error && <p role="alert" className="shrink-0 px-3 py-2 text-center text-xs font-bold text-rose-700">{sync.error} <a href="/auth/" className="underline">Account</a></p>}
       {demoVideos.length ? (
         <div className="flex shrink-0 items-center justify-end border-b border-sky-100 bg-white px-3 py-1 sm:px-6">
           <button type="button" onClick={() => setDemoOpen(true)}
@@ -271,7 +275,7 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
           instruction={isLearningFallback ? "Use these Learning slides as a reference; no Building manual was supplied." : isPresentation ? "Review the original PowerPoint slides before using the building instructions." : "Follow the original PDF illustrations and instructions."}
           expanded={dockExpanded} onExpandedChange={setDockExpanded}
           onPrevious={() => openPage(page - 1)} previousDisabled={page === 1}
-          onNext={finishCurrentPage} nextDisabled={!ready || Boolean(pdfError)}
+          onNext={finishCurrentPage} nextDisabled={!ready || Boolean(pdfError) || sync.busy}
           nextLabel={totalPages && page === totalPages ? (isLearningFallback ? "Finish Review" : isPresentation ? "Finish Slides" : "Finish Building") : (showsSlides ? "Next Slide" : "Next Page")}
           details={<p className="mt-1 text-xs text-slate-500">Original {showsSlides ? "Learning slide" : "PDF page"} {page} of {totalPages || "…"}. Zoom or drag to inspect details.</p>}
         />
