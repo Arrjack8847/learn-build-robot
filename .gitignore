@@ -34,3 +34,8 @@ dist-ssr
 # Published lesson/Building manuals are hosted on Wix; keep new PDFs out of Git.
 # Note: ignore rules do not untrack PDFs committed before this change.
 *.[Pp][Dd][Ff]
+
+# Environment secrets: commit only the empty configuration template.
+.env
+.env.*
+!.env.example
