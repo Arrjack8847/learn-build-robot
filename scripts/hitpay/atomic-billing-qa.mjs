@@ -100,3 +100,44 @@ if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_CO
   console.log(tag+" "+JSON.stringify({...counts,eligibilityChanged:false,emailSent:false}));
  }catch(err){console.log(tag+" UNCONFIRMED "+(typeof err?.message==="string"&&/^[A-Z0-9_]{1,80}$/.test(err.message)?err.message:"UNCLASSIFIED"));}
 }
+
+// Real sandbox evidence, isolated from student eligibility and monthly billing.
+// The saved-wallet fixture is not a monthly plan; five charges cannot prove five periods.
+if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_COMMIT_REF==="feat/wix-lms-integration-20261125"&&e.VERCEL_GIT_COMMIT_MESSAGE==="J3: persist verified mock charge evidence without granting membership"){
+ const tag="[J3 evidence ledger]";
+ try{
+  const sandbox="https://api.sandbox.hit-pay.com";
+  if(e.HITPAY_API_BASE_URL!==sandbox||!e.HITPAY_API_KEY?.trim())throw Error("SANDBOX_REQUIRED");
+  const db=createWixStore(e),collection="SandboxBillingState",id="qa-j3-wallet-evidence-v1";
+  const row=await db.get(collection,"qa-j3-wallet-setup-v1"),fixture=JSON.parse(row.stateJson);
+  if(row.environment!=="sandbox-qa"||fixture.fixture!==true||fixture.reference!=="stem-lab-wallet-qa-v1"||fixture.providerSubscriptionId!=="a34f7a45-392b-4c53-85b5-9286e07912a0")throw Error("FIXTURE_MISMATCH");
+  const pairs=[
+   ["a34f7d35-6173-4f40-b69f-68058a491f96","e76b5fa3a7e515917d63fa05d1d739afde088ce6bb00340c0d5f7077e081ea4d"],
+   ["a34f7d2c-d6cc-4b36-b950-9d00ce853e6a","32e2c8879c762801aa1e681d37163febd8193ae13eb27228f6e9030c85775559"],
+   ["a34f7d29-752f-4206-a847-6aa67bac69e3","c5fb8727b7ab9f7dbf4f1c5cf07e01678a6a357c14c5e0d8006e41e1a9eb27a8"],
+   ["a34f7d23-74f7-4d6b-b79d-6156ada6dea5","f7cdea3b68194214173fb4c77d0d1174d82d53f334b3de872f32dacc2ea61d6b"],
+   ["a34f7d1e-4b8b-49bb-9c3d-797d481ce4d0","5cdc9110237d8e242a422441c851ee22dc6e28a7e1652490e721ee6ae3edeacd"]
+  ];
+  const payments=[];
+  for(const [chargeId,eventKey] of pairs){
+   const event=await db.get("PaymentWebhookEvents",eventKey);
+   const verifiedAt=Date.parse(typeof event?.signatureVerifiedAt==="string"?event.signatureVerifiedAt:event?.signatureVerifiedAt?.$date);
+   if(event?.environment!=="sandbox"||event.providerEventKey!==eventKey||event.payloadDigest!==eventKey||event.providerObjectId!==chargeId||event.eventType!=="charge.created"||event.processingStatus!=="pending"||!Number.isFinite(verifiedAt))throw Error("INBOX_EVIDENCE_MISMATCH");
+   const r=await fetch(sandbox+"/v1/charges/"+encodeURIComponent(chargeId),{method:"GET",headers:{"X-BUSINESS-API-KEY":e.HITPAY_API_KEY,"X-Requested-With":"XMLHttpRequest",Accept:"application/json"},redirect:"error",cache:"no-store",signal:AbortSignal.timeout(15000)});
+   if(!r.ok)throw Error("PROVIDER_LOOKUP_HTTP_"+r.status);
+   const d=await r.json();
+   if(d.id!==chargeId||d.target_id!==fixture.providerSubscriptionId||d.target_type!=="business_recurring_plan"||Number(d.amount)!==360||String(d.currency).toUpperCase()!=="MYR"||d.status!=="succeeded"||Number(d.refunded_amount)!==0)throw Error("PROVIDER_EVIDENCE_MISMATCH");
+   payments.push({chargeId,eventKey,amountMinor:36000,currency:"MYR",status:"succeeded",refundedMinor:0});
+  }
+  if(new Set(payments.map(p=>p.chargeId)).size!==5||new Set(payments.map(p=>p.eventKey)).size!==5)throw Error("DUPLICATE_EVIDENCE");
+  const state={schema:1,fixture:true,reference:fixture.reference,providerSubscriptionId:fixture.providerSubscriptionId,payments,verifiedTotalMinor:payments.reduce((n,p)=>n+p.amountMinor,0),membershipDecision:"hold_no_monthly_period_evidence",eligibilityChanged:false,emailSent:false,originalInboxUnchanged:true};
+  const stateJson=JSON.stringify(state);
+  const version="evidence-"+createHash("sha256").update(stateJson).digest("hex");
+  const data={environment:"sandbox-qa",stateVersion:version,stateJson};
+  const existing=await db.get(collection,id);
+  if(!existing)await db.insert(collection,id,data);
+  const saved=await db.get(collection,id);
+  if(saved?.environment!=="sandbox-qa"||saved.stateVersion!==version||saved.stateJson!==stateJson)throw Error("EVIDENCE_PERSISTENCE_CONFLICT");
+  console.log(tag+" PASS "+JSON.stringify({verifiedPayments:payments.length,verifiedTotalMinor:state.verifiedTotalMinor,readbackVerified:true,replaySafe:true,membershipDecision:state.membershipDecision,eligibilityChanged:false,emailSent:false}));
+ }catch(err){console.log(tag+" FAILED "+(typeof err?.message==="string"&&/^[A-Z0-9_]{1,100}$/.test(err.message)?err.message:"UNCONFIRMED"));process.exitCode=1;}
+}
