@@ -1,3 +1,4 @@
+import { useActivitySync } from "@/lib/use-activity-sync";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, AlertCircle, ChevronLeft, ChevronRight, Download, Expand, Shrink } from "lucide-react";
@@ -29,6 +30,7 @@ export function LevelOneLearningStudio({
   const workspaceRef = useRef<HTMLDivElement>(null);
   const slideRef = useRef<HTMLDivElement>(null);
   const total = document?.numPages ?? 0;
+  const sync = useActivitySync(projectId, "learning", Boolean(document));
   const programmingFiles = level === 2 ? getLevelTwoProgrammingFiles(projectId) :
     level === 5 || level === 6 ? getLevelFiveSixProgrammingFiles(projectId) :
     getLegacyProgrammingFiles({ level, categoryId, title });
@@ -184,6 +186,7 @@ export function LevelOneLearningStudio({
         </div>
       </main>
       <footer className="shrink-0 border-t border-sky-100 bg-white px-3 pb-[max(.65rem,env(safe-area-inset-bottom))] pt-2 sm:px-6">
+        {sync.error && <p role="alert" className="pb-2 text-center text-xs font-bold text-rose-700">{sync.error} <a href="/auth/" className="underline">Account</a></p>}
         <nav className="mx-auto flex max-w-3xl items-center justify-between gap-2" aria-label="Slide controls">
           <button type="button" disabled={!document || page === 1}
             onClick={() => setPage(current => Math.max(1, current - 1))}
@@ -200,10 +203,10 @@ export function LevelOneLearningStudio({
             </select>
           </label>
           {document && page === total ? (
-            <Link to="/projects/$projectId" params={{ projectId }}
-              className="inline-flex min-h-11 items-center gap-1 rounded-xl bg-[#168eea] px-3 text-sm font-bold text-white">
-              Finish <ChevronRight className="size-4"/>
-            </Link>
+            <button type="button" disabled={sync.busy} onClick={async () => { if (await sync.complete()) window.location.assign("/projects/" + encodeURIComponent(projectId)); }}
+              className="inline-flex min-h-11 items-center gap-1 rounded-xl bg-[#168eea] px-3 text-sm font-bold text-white disabled:opacity-50">
+              {sync.busy ? "Saving…" : "Finish"} <ChevronRight className="size-4"/>
+            </button>
           ) : (
             <button type="button" disabled={!document} onClick={() => setPage(current => Math.min(total, current + 1))}
               className="inline-flex min-h-11 items-center gap-1 rounded-xl bg-[#168eea] px-3 text-sm font-bold text-white disabled:opacity-40">
