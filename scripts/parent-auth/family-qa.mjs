@@ -24,18 +24,20 @@ async function run(db,crypto,namespace){
  assert.equal((await call(at,"family-status")).status,"CONSENT_REQUIRED");
  assert.equal((await call(at,"family-child-create",{name:"Test Child",birthYear:2018,requestKey:randomUUID()})).status,"CONSENT_REQUIRED");
  for(const t of [at,bt]){assert.equal((await call(t,"family-consent",{accepted:false,noticeVersion:NOTICE_VERSION})).ok,false);assert.equal((await call(t,"family-consent",{accepted:true,noticeVersion:NOTICE_VERSION})).status,"CONSENT_RECORDED");}
- const input={name:"Test Child A",birthYear:2018,requestKey:randomUUID()};
- const ca=await call(at,"family-child-create",input);assert.equal(ca.status,"CHILD_SAVED");
+ const input={name:"Jack",birthYear:2007,requestKey:randomUUID()};
+ for(const name of ["", "   ", "<script>", "12345", "a".repeat(49), "Jack\nDoe"]){assert.equal((await call(at,"family-child-create",{...input,name,requestKey:randomUUID()})).status,"INVALID_NAME");}
+ assert.equal((await call(at,"family-child-create",{...input,birthYear:1800,requestKey:randomUUID()})).status,"INVALID_BIRTH_YEAR");
+ const ca=await call(at,"family-child-create",input);assert.equal(ca.status,"CHILD_SAVED");assert.equal(ca.child.name,"Jack");assert.equal(ca.child.birthYear,2007);
  assert.equal((await call(at,"family-child-create",input)).child.id,ca.child.id);
- const cb=await call(bt,"family-child-create",{name:"Test Child B",birthYear:2019,requestKey:randomUUID()});assert.equal(cb.status,"CHILD_SAVED");
+ const cb=await call(bt,"family-child-create",{name:"မောင်မောင်",birthYear:2019,requestKey:randomUUID()});assert.equal(cb.status,"CHILD_SAVED");
  assert.deepEqual((await call(at,"family-status")).children.map(c=>c.id),[ca.child.id]);
  assert.deepEqual((await call(bt,"family-status")).children.map(c=>c.id),[cb.child.id]);
  assert.equal((await call(at,"family-child-get",{childId:cb.child.id})).status,"NOT_FOUND");
  assert.equal((await call(at,"family-child-edit",{childId:cb.child.id,name:"Test Stolen",birthYear:2019,version:cb.child.version})).status,"NOT_FOUND");
- const edited=await call(at,"family-child-edit",{childId:ca.child.id,name:"Test Updated",birthYear:2020,version:ca.child.version});
- assert.equal(edited.child.name,"Test Updated");
+ const edited=await call(at,"family-child-edit",{childId:ca.child.id,name:"Aung Min",birthYear:2020,version:ca.child.version});
+ assert.equal(edited.child.name,"Aung Min");
  assert.equal((await call(at,"family-child-edit",{childId:ca.child.id,name:"Test Stale",birthYear:2020,version:ca.child.version})).status,"EDIT_CONFLICT");
- assert.equal((await call(bt,"family-child-get",{childId:cb.child.id})).child.name,"Test Child B");
+ assert.equal((await call(bt,"family-child-get",{childId:cb.child.id})).child.name,"မောင်မောင်");
  console.log("[J2 QA] PASS consent, persistent profiles, retry, isolation and conditional edit");
  const originalIdentity=await a.resolveIdentity(at),parentId="qa-j2-"+originalIdentity.accountId;
  const beforeParent=await db.get("Parents",parentId),beforeConsent=await db.get("PrivacyConsents",parentId+"-consent");
