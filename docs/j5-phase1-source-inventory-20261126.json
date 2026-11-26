@@ -1,0 +1,3318 @@
+{
+  "schema": 1,
+  "auditedCommit": "a53a630285ad704fa8ae09f36295e4bab1d179ca",
+  "auditedTree": "59c71d45005f2dfa52854fb9f107e085c3fed5b2",
+  "scope": "source snapshot only; not live acceptance",
+  "treeComplete": true,
+  "trackedBlobs": 1966,
+  "routeInventory": [
+    {
+      "path": "src/routes/__root.tsx",
+      "sha": "8bb144b8b1763bec3656716db35c3c292b3d4ae2",
+      "generated": true,
+      "scope": "student-or-shared"
+    },
+    {
+      "path": "src/routes/auth.callback.tsx",
+      "sha": "cfeb19e7413e42a09f57d7f48528f13c32095e6b",
+      "generated": false,
+      "scope": "student-or-shared"
+    },
+    {
+      "path": "src/routes/auth.index.tsx",
+      "sha": "16d985356f639b123d667438278657bc45af296e",
+      "generated": false,
+      "scope": "student-or-shared"
+    },
+    {
+      "path": "src/routes/index.tsx",
+      "sha": "db53b499b7c9072d9eeca1bd871e0221e85b18b0",
+      "generated": true,
+      "scope": "student-or-shared"
+    },
+    {
+      "path": "src/routes/parent.checkout-test.tsx",
+      "sha": "2b1ba93c6cba5f6f2e1a0bb1b66d9328547c2c84",
+      "generated": false,
+      "scope": "other-journey-read-only"
+    },
+    {
+      "path": "src/routes/parent.dashboard.tsx",
+      "sha": "f2405701500ce23c134380dd308df9a135308ef6",
+      "generated": false,
+      "scope": "other-journey-read-only"
+    },
+    {
+      "path": "src/routes/parent.email-test.tsx",
+      "sha": "83eaa5a259b9d59c39a4f64cdf5d45976c3702f4",
+      "generated": false,
+      "scope": "other-journey-read-only"
+    },
+    {
+      "path": "src/routes/parent.otp-test.tsx",
+      "sha": "e8e0b778d88df8aa692db8381a40026b961c801e",
+      "generated": false,
+      "scope": "other-journey-read-only"
+    },
+    {
+      "path": "src/routes/parent.payment-preview.tsx",
+      "sha": "9489da54895248e3178dd78505c5c56c3a766984",
+      "generated": false,
+      "scope": "other-journey-read-only"
+    },
+    {
+      "path": "src/routes/parent.payment-return.tsx",
+      "sha": "02e144227566287819a20a992b3269bcee018926",
+      "generated": false,
+      "scope": "other-journey-read-only"
+    },
+    {
+      "path": "src/routes/parent.sign-in.tsx",
+      "sha": "07f5fea8d923925f8de2b1c97a22997053cfad04",
+      "generated": false,
+      "scope": "other-journey-read-only"
+    },
+    {
+      "path": "src/routes/practical/$projectId.tsx",
+      "sha": "51744a508c31d8d342b31a190a82bfb3b52312dc",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/practical/index.tsx",
+      "sha": "80eb7d9b0332653dae3b5720c501a30d9faaadad",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/practical/level-1.$categoryId.tsx",
+      "sha": "09bd126ef654ab1083e387e1e3be6d95ca95f333",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/practical/level-1.final-build.tsx",
+      "sha": "57f1583323f71dd2c3129c6879f89b8753b5f6a2",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/practical/level-1.index.tsx",
+      "sha": "0eb80caf0b80c6e669b873dc51e7ade735bf6d3a",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/practical/level-1.tsx",
+      "sha": "e0099162319c9187880a3d0a02f2e109ef7a7bf7",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/practical/level-2.final-build.tsx",
+      "sha": "8728118621dc9f85c6d3d579fdfe450c5f9645e1",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/practical/level-3.final-build.tsx",
+      "sha": "793075987d609cd6978e5d9f3c6ac40ca8abc79e",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/practical/level-4.final-build.tsx",
+      "sha": "98a242cb1544db073156409c283bef396500f5ad",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/practical/level-5.final-build.tsx",
+      "sha": "63c562761e832323bae292352f6901d281859344",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/practical/level-6.final-build.tsx",
+      "sha": "eea9cd87ed18fdbd5f33e11e7254df8654c5004b",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/practical/levels.$levelNumber.$categoryId.tsx",
+      "sha": "f485e9103741c41a8af517bc0f35e8974dd7383c",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/practical/levels.$levelNumber.index.tsx",
+      "sha": "de06d0c1ae3a0387cf18a936a6d14191bd599913",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/practical/levels.$levelNumber.tsx",
+      "sha": "1af26a5f66c9979764f90e409c77a71e865fc3a4",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/practical/levels.index.tsx",
+      "sha": "7ef1fc328c351b35b9e255a7c6ab9750cd7341bb",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/practical/levels.tsx",
+      "sha": "fac5d378a46b90d21c1e3ea96c4bdbe14b7e70bb",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/projects.$projectId.tsx",
+      "sha": "c948a343c3b69ec8cfa9e96d05fe3f55a998174e",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/quiz.$projectId.tsx",
+      "sha": "1eedcf6f640a682a7fe4800da88dd01e35d43975",
+      "generated": true,
+      "scope": "course"
+    },
+    {
+      "path": "src/routes/staff.admin.tsx",
+      "sha": "b3f3947d90efef72647098b8599a4b324ca8e33a",
+      "generated": false,
+      "scope": "other-journey-read-only"
+    },
+    {
+      "path": "src/routes/student.check-in.tsx",
+      "sha": "b2573aa6e66f900ff926e908afa26da836402dd8",
+      "generated": false,
+      "scope": "student-or-shared"
+    },
+    {
+      "path": "src/routes/student.dashboard.tsx",
+      "sha": "f76e1d387dc7f29fa959d6c2e839b44d7ba1c05e",
+      "generated": false,
+      "scope": "student-or-shared"
+    }
+  ],
+  "generatedRoutes": 20,
+  "missingGeneratedRoutes": [
+    "src/routes/auth.callback.tsx",
+    "src/routes/auth.index.tsx",
+    "src/routes/parent.checkout-test.tsx",
+    "src/routes/parent.dashboard.tsx",
+    "src/routes/parent.email-test.tsx",
+    "src/routes/parent.otp-test.tsx",
+    "src/routes/parent.payment-preview.tsx",
+    "src/routes/parent.payment-return.tsx",
+    "src/routes/parent.sign-in.tsx",
+    "src/routes/staff.admin.tsx",
+    "src/routes/student.check-in.tsx",
+    "src/routes/student.dashboard.tsx"
+  ],
+  "courseRouteCount": 18,
+  "levels": [
+    {
+      "level": 1,
+      "categories": 14,
+      "projects": 59
+    },
+    {
+      "level": 2,
+      "categories": 18,
+      "projects": 59
+    },
+    {
+      "level": 3,
+      "categories": 20,
+      "projects": 48
+    },
+    {
+      "level": 4,
+      "categories": 20,
+      "projects": 56
+    },
+    {
+      "level": 5,
+      "categories": 16,
+      "projects": 51
+    },
+    {
+      "level": 6,
+      "categories": 15,
+      "projects": 43
+    }
+  ],
+  "pdf": {
+    "publicCount": 590,
+    "nonPublicCount": 8,
+    "mappingStats": [
+      {
+        "file": "src/data/levelOneToThreeWixPdfUrls.ts",
+        "entries": 304,
+        "sha": "c727c549a9c856a8288ee96d50b8886c0f4e02c1"
+      },
+      {
+        "file": "src/data/levelFourWixPdfUrls.ts",
+        "entries": 106,
+        "sha": "6648a257634fcd50aae889bfaccca7397fb8d6c9"
+      },
+      {
+        "file": "src/data/levelFiveWixPdfUrls.ts",
+        "entries": 96,
+        "sha": "bd1776e8dd2e318f671826b74f652dbaafe74d81"
+      },
+      {
+        "file": "src/data/levelSixWixPdfUrls.ts",
+        "entries": 84,
+        "sha": "12874376a127843535600bcd47589585a278f937"
+      }
+    ],
+    "mappedCount": 590,
+    "uniquePaths": 590,
+    "uniqueUrls": 590,
+    "missingMappings": [],
+    "orphanMappings": [],
+    "invalidUrlFormatCount": 0,
+    "liveAvailabilityVerified": false,
+    "publicPdfFiles": [
+      {
+        "path": "public/01.Hello World-Building Manual.pdf",
+        "sha": "272120111a0443f174bd3d1d772125c84b6c5f27",
+        "size": 4150681
+      },
+      {
+        "path": "public/02.Color- changing  Light -Building Manual.pdf",
+        "sha": "a77da52b8ba44ac72ac15cba2e82a1879665dc4a",
+        "size": 3126725
+      },
+      {
+        "path": "public/04.Flashlight-Building Manual.pdf",
+        "sha": "7c3150b2641e06394d9f1c34336982e64b0733ce",
+        "size": 3928338
+      },
+      {
+        "path": "public/05.Electric Fan-Building Manual.pdf",
+        "sha": "5526dcd1f86e025a7c016363f1d81647255543f1",
+        "size": 3692066
+      },
+      {
+        "path": "public/06..Juicer Machine-Building Manual.pdf",
+        "sha": "4f0afb1938a516c540603da9d852b4a509f17294",
+        "size": 4569325
+      },
+      {
+        "path": "public/07.Music Doorbell-Building Manual.pdf",
+        "sha": "06d759c2122e8b8853820061ab2c6c22f480beaf",
+        "size": 3266387
+      },
+      {
+        "path": "public/08.Washing Machine-Building Manual.pdf",
+        "sha": "b6598180cda7dd76906d29bf2b32f609d278068c",
+        "size": 5838232
+      },
+      {
+        "path": "public/1. Race Walking - Basic Building Manual.pdf",
+        "sha": "b6e2a731e486b8ddf1402df179e966795f204781",
+        "size": 7658532
+      },
+      {
+        "path": "public/1. Race Walking - Optimized Building Manual - Added Ratchet.pdf",
+        "sha": "4cb49db89cf60b8810d7d3d10138324541d317c8",
+        "size": 2480952
+      },
+      {
+        "path": "public/1. Race Walking - Optimized Building Manual.pdf",
+        "sha": "68535fb14b515e980237b3f969466facbcd98060",
+        "size": 7353583
+      },
+      {
+        "path": "public/10.Electric guitar_Building.pdf",
+        "sha": "113c6f8587f9bb550a15c68af618fdec8760f28c",
+        "size": 15795140
+      },
+      {
+        "path": "public/11. The Long-lived Turtle - Basic Building Manual.pdf",
+        "sha": "19958e694dfc2e8091d251e58e99dd7571efe6fa",
+        "size": 25502290
+      },
+      {
+        "path": "public/11.Anti-fall Robot-Building Manual.pdf",
+        "sha": "bf0f4db6aee851eea552fe4fcc58c13d7d62f28c",
+        "size": 4991217
+      },
+      {
+        "path": "public/13.Disinfection Lamp-Building Manual.pdf",
+        "sha": "40e3072459b2597e4eb29771a3af4ac78ad9c236",
+        "size": 6161967
+      },
+      {
+        "path": "public/13.Super Trajectory Robot 1-update.pdf",
+        "sha": "79af250206160dd8d6b555c395975f26b0b43f50",
+        "size": 1043400
+      },
+      {
+        "path": "public/14.Light-sensitive Curtains -Building Manual.pdf",
+        "sha": "e91d74604d885d7ac0ec02a019ffc8c48606c36a",
+        "size": 7066042
+      },
+      {
+        "path": "public/15.Safe -Building Manual.pdf",
+        "sha": "eb59936b933ffca57769e24093959de5278f7e9c",
+        "size": 6942434
+      },
+      {
+        "path": "public/16.Sound Level Meter -Building Manual.pdf",
+        "sha": "b0e8a89dd29edd9a0476f35ce3000fc1faa1fc63",
+        "size": 5394073
+      },
+      {
+        "path": "public/17.Automatic Door -Building Manual.pdf",
+        "sha": "8a28b083039ee8d6f9805d17573e5f28ab0d70d7",
+        "size": 7319134
+      },
+      {
+        "path": "public/20.Smart Trash Bin-Building Manual.pdf",
+        "sha": "7fe5fb43232b10dfb335d96cc6c43df75c71c537",
+        "size": 6521735
+      },
+      {
+        "path": "public/23.Electric Bulldozer -Building Manual.pdf",
+        "sha": "6af098a5a9ea6bde37a01a5549187f0b37026c14",
+        "size": 9513897
+      },
+      {
+        "path": "public/24. Automatic Seesaw -Building Manual.pdf",
+        "sha": "3b58f8f73766eafed4b619c7a1a1f2152be73e1e",
+        "size": 10796425
+      },
+      {
+        "path": "public/24.Automated Guided Vehicle-Building Manual.pdf",
+        "sha": "ab64321405422d0b89dcb9a45772a450e060d5ce",
+        "size": 7824597
+      },
+      {
+        "path": "public/29.Music Box -Building Manual.pdf",
+        "sha": "cf1c89ff3347fa79a8940f93de0df4281dc7dc69",
+        "size": 5897344
+      },
+      {
+        "path": "public/3. Cycle Sport-Basic Building Manual.pdf",
+        "sha": "6f6c9ea0b49892055b550782b01d8e791b1ce6a1",
+        "size": 23318422
+      },
+      {
+        "path": "public/3. Cycle Sport-Optimized Building Manual.pdf",
+        "sha": "58370ce13bd4492ce57424b712a889ae476db9ec",
+        "size": 7994296
+      },
+      {
+        "path": "public/9. Crawl Slowly - Basic Building Manual.pdf",
+        "sha": "7dc9781d1ca7c46db46fee642f2b113b5263a71f",
+        "size": 15010341
+      },
+      {
+        "path": "public/9. Crawl Slowly - Optimized Building Manual.pdf",
+        "sha": "b334f5f19b22ee98d2932901224ff22f1cb0fda8",
+        "size": 15003863
+      },
+      {
+        "path": "public/Acceleration car_Building.pdf",
+        "sha": "e0398a0137390754ac7f14b3bf64e7b180a2aa76",
+        "size": 5265502
+      },
+      {
+        "path": "public/Acceleration car_Powerpoint.pdf",
+        "sha": "90a55fca153f1c125c51e90642a1db2c16ed7df4",
+        "size": 951961
+      },
+      {
+        "path": "public/Animal trap.pdf",
+        "sha": "3c1bfe3b2ebaa836dc54d581ed267fb4b57564cc",
+        "size": 3993849
+      },
+      {
+        "path": "public/Athlete.pdf",
+        "sha": "f9fb100fcb27cdbca66d555343162db60d40b323",
+        "size": 1375393
+      },
+      {
+        "path": "public/Automatic window.pdf",
+        "sha": "436e8bdaadc0f85d0101662efcf5c64d43cf99ef",
+        "size": 1319130
+      },
+      {
+        "path": "public/Axe robot_Building.pdf",
+        "sha": "7773d60c3031e041fb6d590d2c3c79080c988477",
+        "size": 5448487
+      },
+      {
+        "path": "public/BEE.pdf",
+        "sha": "14f650e83617d5aa17d5c5ebe3ed15a549bc17da",
+        "size": 925321
+      },
+      {
+        "path": "public/Balance.pdf",
+        "sha": "953286e4ef78a9c375a054fb39a9d27bde3cbbf5",
+        "size": 2443571
+      },
+      {
+        "path": "public/Balance_v2.pdf",
+        "sha": "21df7860ba63c17acc720bc69381d4cf41d34e76",
+        "size": 3235199
+      },
+      {
+        "path": "public/Balanced Bird.pdf",
+        "sha": "3836dc042262d5d40660dd8f395736b3e3cc6559",
+        "size": 5100255
+      },
+      {
+        "path": "public/Basic programming.pdf",
+        "sha": "d8ecb1661d930160e04d03cdd9825f49fa76c8b8",
+        "size": 1551977
+      },
+      {
+        "path": "public/Battery robot_Building.pdf",
+        "sha": "ed758e45369c3d3c67ecb7e4018749bfb10dcf31",
+        "size": 11222221
+      },
+      {
+        "path": "public/Batting robot_Building.pdf",
+        "sha": "ecc67766a5b2b146e76712bb80b5bd0cae602649",
+        "size": 3062311
+      },
+      {
+        "path": "public/Big head robot_Building.pdf",
+        "sha": "c6007ca350e10e7a4a992eed822a7c0d54f5ed16",
+        "size": 3685027
+      },
+      {
+        "path": "public/Bird.pdf",
+        "sha": "db10d12e3ae20c27523ed66af54b33ba3aa3bccd",
+        "size": 4426143
+      },
+      {
+        "path": "public/Biting Monster.pdf",
+        "sha": "12e6817e8bdc45b6e27c8738d84454c67dd7c424",
+        "size": 19489610
+      },
+      {
+        "path": "public/Blinking robot_Building.pdf",
+        "sha": "ef3fe63c9490932b7a566343cb7d05fc4124929c",
+        "size": 2228613
+      },
+      {
+        "path": "public/Blood bank Centrifuge.pdf",
+        "sha": "ac10e2e7c9a1ce94c7fe5533029246d19e235ebe",
+        "size": 1247577
+      },
+      {
+        "path": "public/Bridge_Building.pdf",
+        "sha": "8798795f26e5ce13efd4fff8b96fa21f6aebc33c",
+        "size": 4625800
+      },
+      {
+        "path": "public/Bumper car.pdf",
+        "sha": "786bc7617c2b3c33afc653824c469ce4958c538e",
+        "size": 922753
+      },
+      {
+        "path": "public/Bumper car_Building.pdf",
+        "sha": "ea125a179e492944bdbf1d02753bca32e7716bfc",
+        "size": 6118026
+      },
+      {
+        "path": "public/Caged Bird.pdf",
+        "sha": "7f245b1e3a0b9eb740c56c3bc0fc9bf778165077",
+        "size": 5018776
+      },
+      {
+        "path": "public/Car Steering.pdf",
+        "sha": "71d6652607982fe78dae04fad75dc482ae4f7be7",
+        "size": 1741578
+      },
+      {
+        "path": "public/Car.pdf",
+        "sha": "1cc1f1d9e95f02e8b793135f3e87a3b082158347",
+        "size": 998620
+      },
+      {
+        "path": "public/Chimpanzees.pdf",
+        "sha": "1c6f7bc66a50a5d6289f30d5f2f016dae2c89d01",
+        "size": 820955
+      },
+      {
+        "path": "public/Cliff walk.pdf",
+        "sha": "d4fc4797753b387dd6b0bf40b713ca8e706c37c7",
+        "size": 1056085
+      },
+      {
+        "path": "public/Clip robot_Building.pdf",
+        "sha": "a5b7ceb46d32842808328d9d0b613d0ea9130157",
+        "size": 11186721
+      },
+      {
+        "path": "public/Clock_Building.pdf",
+        "sha": "3995134bbc521707fcf7d16af6bfc341f6e13fba",
+        "size": 7323572
+      },
+      {
+        "path": "public/Corridor lamp_Building.pdf",
+        "sha": "c9f6512d2b9b18b09826418a8b4c412c777a7866",
+        "size": 5109868
+      },
+      {
+        "path": "public/Crane.pdf",
+        "sha": "9d4ae2829532e9712e04be0d08215abd34f79fbd",
+        "size": 21905917
+      },
+      {
+        "path": "public/Crane_.pdf",
+        "sha": "6d67b0f8c9895428b9b7a38e6c90cddd1a396977",
+        "size": 20909075
+      },
+      {
+        "path": "public/Dancing Music Box.pdf",
+        "sha": "e41af6525cce937461cf43a5d9a82a5da2583b93",
+        "size": 12216203
+      },
+      {
+        "path": "public/Dart.pdf",
+        "sha": "e11b3a2ffd14e43f4a8af487a55518151a0ad679",
+        "size": 3356347
+      },
+      {
+        "path": "public/Door_Building.pdf",
+        "sha": "67668a7e64bc00f196cb7ff009a328d77bdb3090",
+        "size": 3138338
+      },
+      {
+        "path": "public/Double beam crane_Building.pdf",
+        "sha": "d48c08a547336a19d3765d8c7ccb24da13e15ecf",
+        "size": 5341143
+      },
+      {
+        "path": "public/Drawbridge.pdf",
+        "sha": "3bd9074c6de3461f16201dc8fee921e12e79aa80",
+        "size": 1518257
+      },
+      {
+        "path": "public/Drawing board_Building.pdf",
+        "sha": "06711ddc484baa38f286c793bb2fd6689374fb4f",
+        "size": 3328977
+      },
+      {
+        "path": "public/Drummer robot.pdf",
+        "sha": "f8c622f5d2143372ffe508c251f1610381d87ecc",
+        "size": 1542596
+      },
+      {
+        "path": "public/Dung Beetle.pdf",
+        "sha": "c4bb864ddefa921ef5932938fd82abd959dbc8d0",
+        "size": 20134131
+      },
+      {
+        "path": "public/Dynamic screen.pdf",
+        "sha": "0c26fb3c17f375aa272ba7f90b0688cd675f4a5d",
+        "size": 1269976
+      },
+      {
+        "path": "public/Electric Gyro Launcher.pdf",
+        "sha": "3d28bbef01ceeee9749fc009efffbf07e261e6f4",
+        "size": 6244587
+      },
+      {
+        "path": "public/Electric fan.pdf",
+        "sha": "0e8e77039724ebb9bf345bf96e161a7cf7f37e96",
+        "size": 3773828
+      },
+      {
+        "path": "public/Electronic scale.pdf",
+        "sha": "3afceb33862213ed99d10bfa0fb4d994c57a7184",
+        "size": 1734649
+      },
+      {
+        "path": "public/F1 racing car_Building.pdf",
+        "sha": "cab10741b85d7f4087628164d3a79979373b2ee4",
+        "size": 15203452
+      },
+      {
+        "path": "public/FUNNY CAT.pdf",
+        "sha": "0ae397b461df78897d34b73a0e5c6c82729e1314",
+        "size": 1417946
+      },
+      {
+        "path": "public/Fan robot_Building.pdf",
+        "sha": "9131a51ad4893541d91be8c1a07f3adacd00da0d",
+        "size": 2484454
+      },
+      {
+        "path": "public/Fare Gate.pdf",
+        "sha": "602d2dec9f2da62856ec9216c992a06314d5c857",
+        "size": 8937816
+      },
+      {
+        "path": "public/Ferocious snake.pdf",
+        "sha": "ac2441e1d6309b44a4c486ec7404ecd3fa3f4732",
+        "size": 1758773
+      },
+      {
+        "path": "public/Ferris wheel.pdf",
+        "sha": "92a8ffdac55fe538042e20ba7cda47dbce50f834",
+        "size": 1390068
+      },
+      {
+        "path": "public/Fire ladder.pdf",
+        "sha": "8bb7ea018a59754d3e8875222284941d41df4e6a",
+        "size": 1793324
+      },
+      {
+        "path": "public/First Robot Model.pdf",
+        "sha": "73c12dc37b41ed6a78b8786672ef1d19c3b8d781",
+        "size": 3560757
+      },
+      {
+        "path": "public/Flashlight_Building.pdf",
+        "sha": "e14747c661a5eb3b8264d4f63ac1b8c270e0c89f",
+        "size": 3632102
+      },
+      {
+        "path": "public/Following Robot_Building.pdf",
+        "sha": "ac69d581c188c7569669246a2eadbce94257ed59",
+        "size": 6655951
+      },
+      {
+        "path": "public/Forklift.pdf",
+        "sha": "87f3e0fd9875afc9603614a159d3a4ac0143686e",
+        "size": 22046970
+      },
+      {
+        "path": "public/Four-wheel Drive.pdf",
+        "sha": "84b7453b8e1d0d4b0e30d4c043617b9b81d95547",
+        "size": 11127299
+      },
+      {
+        "path": "public/Gearbox_Building.pdf",
+        "sha": "152fdae6b1a305dbd7b8eb1b1dca97ab8d522cf3",
+        "size": 6562579
+      },
+      {
+        "path": "public/Gyro transmitter.pdf",
+        "sha": "7dc67bc96c6dd3e96cdeb4812be8c08f1fb2730d",
+        "size": 1352645
+      },
+      {
+        "path": "public/Gyro transmitter_Building.pdf",
+        "sha": "82871820203830b6932c5b314ab7afa70183f215",
+        "size": 3810920
+      },
+      {
+        "path": "public/Hammer robot.pdf",
+        "sha": "3289cba0dc5f248ee4ea637e5dc2bbae5fe4dfbe",
+        "size": 1125874
+      },
+      {
+        "path": "public/Hand crank_Building.pdf",
+        "sha": "aac537c905dafec17ce41d94a53450a866e212a1",
+        "size": 3037978
+      },
+      {
+        "path": "public/Hand-cranking Fan.pdf",
+        "sha": "760146f07926a0a5f045077bdb5c18f41f54b5ea",
+        "size": 5857548
+      },
+      {
+        "path": "public/Hand-cranking Giant Stride.pdf",
+        "sha": "2781f8affd685f236a6939f1ea6d8d0f6741698c",
+        "size": 21673503
+      },
+      {
+        "path": "public/Harp_Building.pdf",
+        "sha": "8fdc6663611b7aeb684afe9a756cfca658b58106",
+        "size": 2852241
+      },
+      {
+        "path": "public/Headlights.pdf",
+        "sha": "961ea85e1cd52a18318791b874a8229cad743c23",
+        "size": 1129690
+      },
+      {
+        "path": "public/Helicopter_Building.pdf",
+        "sha": "7f6f3c37f213ffd954216fcc6e42fab93d3ec52a",
+        "size": 15527588
+      },
+      {
+        "path": "public/Help light_Building.pdf",
+        "sha": "b6eff27ab0217fded465c3d0c0ea6a55a1e659c5",
+        "size": 1729854
+      },
+      {
+        "path": "public/Hermit Crab.pdf",
+        "sha": "076c7fb6ddf66e08df811c55c4835dff3b16dda3",
+        "size": 11383655
+      },
+      {
+        "path": "public/House_Building.pdf",
+        "sha": "647eb4c3b0e4a9d6818dbb340224fa974a8bc435",
+        "size": 13324647
+      },
+      {
+        "path": "public/Jumping machine_Building.pdf",
+        "sha": "fdef944d28b23099fb20fd92139eaf2fd57c6608",
+        "size": 3184655
+      },
+      {
+        "path": "public/LED Scrolling Screen.pdf",
+        "sha": "caecd4ddb7c02e6c315252e960a9e53c6d9f6280",
+        "size": 6014952
+      },
+      {
+        "path": "public/LED Signboard.pdf",
+        "sha": "30771acaeda6a6fe9fe0ebd470578f3b197b8aa6",
+        "size": 19974368
+      },
+      {
+        "path": "public/Level 1/Learning/Autonomous Navigation & Ranging/Acceleration car/Acceleration car_Powerpoint.pdf",
+        "sha": "0201d0bdff40bd01cff341bbdba0c63c28229580",
+        "size": 862188
+      },
+      {
+        "path": "public/Level 1/Learning/Biomimicry/Ferocious snake.pdf",
+        "sha": "a43b15d5d0dc014edf443c19a09d92e056a918ac",
+        "size": 2189722
+      },
+      {
+        "path": "public/Level 1/Learning/Biomimicry/Funny cat.pdf",
+        "sha": "121e86ec4b3d4a97b0eb2ed873ee95cd11894962",
+        "size": 1005207
+      },
+      {
+        "path": "public/Level 1/Learning/Biomimicry/Shy penguin.pdf",
+        "sha": "381360f4d127adf3a84a82e734063095c6fbabf5",
+        "size": 1289407
+      },
+      {
+        "path": "public/Level 1/Learning/Biomimicry/Sled dog.pdf",
+        "sha": "9c3eadde715654d9fc938908f27d530ed78169aa",
+        "size": 989408
+      },
+      {
+        "path": "public/Level 1/Learning/Characters & Structures/Big head robot/Big head robot_Powerpoint.pdf",
+        "sha": "0f920acccb15110fca6274401001489641687eea",
+        "size": 828094
+      },
+      {
+        "path": "public/Level 1/Learning/Characters & Structures/Bird/Bird_PowerPoint-R.pdf",
+        "sha": "132842d8ab0a124cf7fd11362d8d1a048cf3e770",
+        "size": 1025353
+      },
+      {
+        "path": "public/Level 1/Learning/Characters & Structures/First Robot Model/First Robot Model.pdf",
+        "sha": "c51c7c6ab830cbfb339a8233fc14efc6af729f6d",
+        "size": 1150722
+      },
+      {
+        "path": "public/Level 1/Learning/Characters & Structures/House/House_Powerpoint.pdf",
+        "sha": "8f49c8640e808303885152533af81b00847af388",
+        "size": 875012
+      },
+      {
+        "path": "public/Level 1/Learning/Characters & Structures/REX robot/REX robot_PowerPoint-R.pdf",
+        "sha": "ec8eaec01770721a07c2d7a15aaa804d240cbd74",
+        "size": 1261976
+      },
+      {
+        "path": "public/Level 1/Learning/Characters & Structures/Sled/Sled_Powerpoint.pdf",
+        "sha": "e44131d44d5f903920cdf1cd890df1905e8d2754",
+        "size": 874617
+      },
+      {
+        "path": "public/Level 1/Learning/Characters & Structures/Spider/Spider_PowerPoint- R.pdf",
+        "sha": "93837638ad237bf595fecf0f2c37579371a9fd38",
+        "size": 1151166
+      },
+      {
+        "path": "public/Level 1/Learning/Characters & Structures/SpongeBob/SpongeBob_Powerpoint.pdf",
+        "sha": "2875b671684980bc069dd198a6b64964e19a9f1e",
+        "size": 894333
+      },
+      {
+        "path": "public/Level 1/Learning/Characters & Structures/Wali robot/Wali robot_PowerPoint-R.pdf",
+        "sha": "abe8e56b744582c7621e8cc0455c1133fe3fe914",
+        "size": 869865
+      },
+      {
+        "path": "public/Level 1/Learning/Display & Movement/Clock/Clock_Powerpoint.pdf",
+        "sha": "47ad745753638c43848ae03979a2278559e2b045",
+        "size": 669132
+      },
+      {
+        "path": "public/Level 1/Learning/Display & Movement/Drawing board/Drawing board_Powerpoint.pdf",
+        "sha": "db3426ae8b6b84203984d0d7a3f48fca4c745f14",
+        "size": 1117209
+      },
+      {
+        "path": "public/Level 1/Learning/Display & Movement/Hello World/01.Hello World-Slides.pdf",
+        "sha": "2377ea1691a26718e0a088cf70f719e9bb86673b",
+        "size": 2764868
+      },
+      {
+        "path": "public/Level 1/Learning/Display & Movement/Mechanical masks/Mechanical masks_PowerPoint-R.pdf",
+        "sha": "7b075235ee9d64179c7b5648e1742f21b8b6dd08",
+        "size": 1126561
+      },
+      {
+        "path": "public/Level 1/Learning/Display & Movement/Primitive robot/Primitive robot_PowerPoint-.pdf",
+        "sha": "3cce4fb16cb4585e36f8125174c1a471d077001f",
+        "size": 943463
+      },
+      {
+        "path": "public/Level 1/Learning/Foundational Robots/Athlete.pdf",
+        "sha": "fd4c0f80391807b31f09eabd833271fe78921cf8",
+        "size": 1385976
+      },
+      {
+        "path": "public/Level 1/Learning/Foundational Robots/Basic programming.pdf",
+        "sha": "c1adb4912e9131fa8da210665f2db8115a9b4a52",
+        "size": 1322305
+      },
+      {
+        "path": "public/Level 1/Learning/Foundational Robots/Drummer robot.pdf",
+        "sha": "33a9d3f614219b5018cca55672ae27fa967a59e5",
+        "size": 1655879
+      },
+      {
+        "path": "public/Level 1/Learning/Foundational Robots/Sailboat.pdf",
+        "sha": "d392f335dda3c6437b68b5f4f101fe8c5c49c36c",
+        "size": 2159887
+      },
+      {
+        "path": "public/Level 1/Learning/Foundational Robots/The lawn mower.pdf",
+        "sha": "d67c12d897511844fac68fac18eb13033b787e80",
+        "size": 875900
+      },
+      {
+        "path": "public/Level 1/Learning/Illumination & Signals/Blinking robot/Blinking robot_Powerpoint.pdf",
+        "sha": "f6a46bf984b53380b57b6f5c8279b33621a9552b",
+        "size": 973571
+      },
+      {
+        "path": "public/Level 1/Learning/Illumination & Signals/Color-changing Light/02.Color- changing Light -Slides.pdf",
+        "sha": "ea252a0bcf831a8d3ab84590c73028b220246541",
+        "size": 1595336
+      },
+      {
+        "path": "public/Level 1/Learning/Illumination & Signals/Corridor lamp/Corridor lamp_Powerpoint.pdf",
+        "sha": "53ffb33cae42e343c17cc3b5809417f8eb6c6e17",
+        "size": 1007288
+      },
+      {
+        "path": "public/Level 1/Learning/Illumination & Signals/Help light/Help light_Powerpoint.pdf",
+        "sha": "a6ea92b6b128b5761e4147f31cfe6caeea3f7657",
+        "size": 849510
+      },
+      {
+        "path": "public/Level 1/Learning/Illumination & Signals/Lighthouse/Lighthouse_Powerpoint.pdf",
+        "sha": "14318e6925c3e78e3b74d490fabcb0211c57871b",
+        "size": 820067
+      },
+      {
+        "path": "public/Level 1/Learning/Illumination & Signals/Little stars/Little stars_Powerpoint.pdf",
+        "sha": "0563c8ed740b8e1c1e99123762b1a1f93d8b866d",
+        "size": 821187
+      },
+      {
+        "path": "public/Level 1/Learning/Illumination & Signals/Traffic light Signal/Traffic light_Powerpoint.pdf",
+        "sha": "e859bc695a4c474062ce7dc3d2e05e1219667c32",
+        "size": 924350
+      },
+      {
+        "path": "public/Level 1/Learning/Interactive Systems/Dart/Dart_PowerPoint-R.pdf",
+        "sha": "7a1880d22a9bc257f74d6a748827cd082666f666",
+        "size": 970998
+      },
+      {
+        "path": "public/Level 1/Learning/Interactive Systems/Responder/Responder_Powerpoint.pdf",
+        "sha": "7f5677e91659d34c74773f327b6d166fe7a4c968",
+        "size": 845382
+      },
+      {
+        "path": "public/Level 1/Learning/Manipulators/Car.pdf",
+        "sha": "545d7d8c543969648406b0cb31f26f10c68f30fc",
+        "size": 911309
+      },
+      {
+        "path": "public/Level 1/Learning/Manipulators/Dynamic screen.pdf",
+        "sha": "f484a80704eb7eb20363262ccdac8c2d68f476ef",
+        "size": 1178261
+      },
+      {
+        "path": "public/Level 1/Learning/Manipulators/Pendulum ride.pdf",
+        "sha": "666b9c5c7041009aaeb51d045e5001ec7d584223",
+        "size": 1291994
+      },
+      {
+        "path": "public/Level 1/Learning/Manipulators/Rotating flying chair.pdf",
+        "sha": "bd307b1167a43af1af79afea09cc4d9d72b00ac4",
+        "size": 880192
+      },
+      {
+        "path": "public/Level 1/Learning/Manipulators/Skating.pdf",
+        "sha": "02749e3d6d5b989e14559ab1e27bd50aeacbf365",
+        "size": 856821
+      },
+      {
+        "path": "public/Level 1/Learning/Manipulators/The windmill kingdom.pdf",
+        "sha": "6224115a9c0e652b80ca953697175983492d543a",
+        "size": 1866001
+      },
+      {
+        "path": "public/Level 1/Learning/Mechanisms & Simulators/Crawl Slowly/9. Crawl Slowly - Slides.pdf",
+        "sha": "2b9833f998b9d22cfa95b441ba67c021cf1d5ce1",
+        "size": 1038118
+      },
+      {
+        "path": "public/Level 1/Learning/Mechanisms & Simulators/Mechanical arm/Mechanical arm_PowerPoint-R.pdf",
+        "sha": "f256dc84329234be43ab07ca5a4dcb5bdf23fe76",
+        "size": 1103729
+      },
+      {
+        "path": "public/Level 1/Learning/Mechanisms & Simulators/Shock absorber/Shock absorber_Powerpoint.pdf",
+        "sha": "94d672fdfe711e353dc9ae8e12288d0931c54500",
+        "size": 628801
+      },
+      {
+        "path": "public/Level 1/Learning/Sensor-Focused Robots/Gyro transmitter/Gyro transmitter_Powerpoint.pdf",
+        "sha": "1dd6daa8779655245cc754b7d3c72221bdf878a2",
+        "size": 881118
+      },
+      {
+        "path": "public/Level 1/Learning/Vehicles & Complex Movers/Motorcycle/Motorcycle_Powerpoint.pdf",
+        "sha": "e9df8d992603836aa441967f2b62dd65ab818876",
+        "size": 883422
+      },
+      {
+        "path": "public/Level 1/Learning/Vehicles & Complex Movers/Pull back car/Pull back car_Powerpoint.pdf",
+        "sha": "f3ffc8d60f79006efa013c7e0843c0e09517d757",
+        "size": 850686
+      },
+      {
+        "path": "public/Level 2/Learning/Action-Oriented/Axe robot/Axe robot_Powerpoint.pdf",
+        "sha": "6d1fcab0ad5c328560d5ccac2ee107bea7791f6f",
+        "size": 725323
+      },
+      {
+        "path": "public/Level 2/Learning/Action-Oriented/Batting robot/Batting robot_Powerpoint.pdf",
+        "sha": "74da7952e3091b43ed8cb79d12d716c50819e8ce",
+        "size": 771740
+      },
+      {
+        "path": "public/Level 2/Learning/Action-Oriented/Fan robot/Fan robot_Powerpoint.pdf",
+        "sha": "7ed3501074c2ff99ece0cd2f29b66dc6c11041a4",
+        "size": 590392
+      },
+      {
+        "path": "public/Level 2/Learning/Action-Oriented/Pirate ship/Pirate ship__Powerpoint.pdf",
+        "sha": "cef1bfd9d3195abd6eca7835e8256f925835c4df",
+        "size": 869666
+      },
+      {
+        "path": "public/Level 2/Learning/Action-Oriented/Push ups/Push ups_Powerpoint.pdf",
+        "sha": "b5888a6a2e6f6ecfb3c12f29a2140f9fe416e1ca",
+        "size": 686703
+      },
+      {
+        "path": "public/Level 2/Learning/Action-Oriented/Rotating flying chair/Rotating flying chair_Powerpoint.pdf",
+        "sha": "6eceb78ddf98c576eeed3a445fcd4b72c78253c7",
+        "size": 747994
+      },
+      {
+        "path": "public/Level 2/Learning/Action-Oriented/Throwing robot/Throwing robot_Powerpoint.pdf",
+        "sha": "612038a2a2e2bfd3367c9dd896243bc4555d99a7",
+        "size": 661804
+      },
+      {
+        "path": "public/Level 2/Learning/Biomimicry/Bee.pdf",
+        "sha": "d2fd32d2294f977199becc5e241e4eac9cce1c38",
+        "size": 913828
+      },
+      {
+        "path": "public/Level 2/Learning/Biomimicry/Chimpanzees.pdf",
+        "sha": "59350dc39812536db47c6d6f617cbf08a1f01eb2",
+        "size": 876104
+      },
+      {
+        "path": "public/Level 2/Learning/Characters & Structures/Mechanical dog/Mechanical dog_PowerPoint-R.pdf",
+        "sha": "a09dad4867b5a8d9b2c062b870c020a978159f9d",
+        "size": 2033947
+      },
+      {
+        "path": "public/Level 2/Learning/Characters & Structures/Scaling ladder/Scaling ladder_PowerPoint -R.pdf",
+        "sha": "b9b1fd33aa8fb5326cced37b8209a16e4a76cb99",
+        "size": 811368
+      },
+      {
+        "path": "public/Level 2/Learning/Characters & Structures/Tower crane/Tower crane_Powerpoint.pdf",
+        "sha": "c63555cbbb2c7e97e05686b5216652aa7600b3eb",
+        "size": 1048074
+      },
+      {
+        "path": "public/Level 2/Learning/Foundational Robots/Hammer robot.pdf",
+        "sha": "94a10e82844a8e4fc7d73050442c66ce26aa5aa7",
+        "size": 1129444
+      },
+      {
+        "path": "public/Level 2/Learning/Foundational Robots/Lucky turntable.pdf",
+        "sha": "dd5bf5b40336a3b6ee5415f3ec2a69206a274502",
+        "size": 1248463
+      },
+      {
+        "path": "public/Level 2/Learning/Foundational Robots/The treadmill.pdf",
+        "sha": "363b7087550c1cc03f2a10a2538bda4c4280266c",
+        "size": 884807
+      },
+      {
+        "path": "public/Level 2/Learning/Foundational Robots/Tightrope walk.pdf",
+        "sha": "b35c97174f751611d585f7a1259c43ae3a8b10c1",
+        "size": 895949
+      },
+      {
+        "path": "public/Level 2/Learning/Illumination & Signals/Manual Flashlight/Flashlight_Powerpoint.pdf",
+        "sha": "5b03c6cd1bfd9936fe51915c3b8af9cd3caef68e",
+        "size": 917011
+      },
+      {
+        "path": "public/Level 2/Learning/Interactive Mechanisms/Jumping machine/Jumping machine_Powerpoint.pdf",
+        "sha": "9f479643be2a5b31301060137fb2970974c0eb5f",
+        "size": 1097247
+      },
+      {
+        "path": "public/Level 2/Learning/Interactive Systems/See Saw/Balance_PowerPoint-R.pdf",
+        "sha": "63a57fa4d38868257dd92cedee3af66adec61b8a",
+        "size": 1087700
+      },
+      {
+        "path": "public/Level 2/Learning/Interactive Systems/Tongs/Pliers_PowerPoint -R .pdf",
+        "sha": "226d39cb0678abf43dc032ebb48a6502bac60682",
+        "size": 1042917
+      },
+      {
+        "path": "public/Level 2/Learning/Machines & Mechanisms/Automatic window.pdf",
+        "sha": "75db29438554b03d21b99d599aa5de7ff5da2bbb",
+        "size": 1654656
+      },
+      {
+        "path": "public/Level 2/Learning/Machines & Mechanisms/Robot war.pdf",
+        "sha": "916cbdc41e6757bb16eafcb223a5c49d4226aec3",
+        "size": 1629195
+      },
+      {
+        "path": "public/Level 2/Learning/Manipulators/Car Steering.pdf",
+        "sha": "a9681922bad299e76161f8f563ca202983281342",
+        "size": 1600202
+      },
+      {
+        "path": "public/Level 2/Learning/Manipulators/Cliff walk.pdf",
+        "sha": "73721b23a1e8cefacc1080ae8fca30c4759ec630",
+        "size": 901554
+      },
+      {
+        "path": "public/Level 2/Learning/Manipulators/Ferris wheel.pdf",
+        "sha": "6180f870a03e295e3934fae4ad37abf46c26a74b",
+        "size": 2041612
+      },
+      {
+        "path": "public/Level 2/Learning/Manipulators/Round-trip transportation.pdf",
+        "sha": "15058b069680f375270ed0731000b96dc1d38866",
+        "size": 953061
+      },
+      {
+        "path": "public/Level 2/Learning/Manipulators/Shift gears.pdf",
+        "sha": "e78748595223787215ea3cd67dfd29b95a7cc34f",
+        "size": 1305875
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Bridge/Bridge_Powerpoint.pdf",
+        "sha": "dece04a3d55ba36be0817b641122fa13852f1b96",
+        "size": 1013834
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Crane/Crane_Powerpoint.pdf",
+        "sha": "7104484f551325ce5bd9dca78424d7bf1d75b98d",
+        "size": 728331
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Door/Door_Powerpoint.pdf",
+        "sha": "8cc6dda2f22b1c27f986abbae243147e251b7f37",
+        "size": 951118
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Double Beam Crane/Double beam crane_Building_Powerpoint.pdf",
+        "sha": "5c621de2afb0ff425a3a0ba27d467f084895ef6d",
+        "size": 808924
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Gearbox/Gearbox_Powerpoint.pdf",
+        "sha": "05bf534363ca8f176d00c3d250656cc9f508b167",
+        "size": 1015125
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Hand crank/Hand crank_Powerpoint.pdf",
+        "sha": "d08c240ab896b1fee7f0d1c008a5b5ded0fa8dca",
+        "size": 990391
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Spinning bike/Spinning bike_Powerpoint.pdf",
+        "sha": "6990dba9fd738e2769557849cb0f613b20395352",
+        "size": 711540
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Swing/Swing_powerpoint.pdf",
+        "sha": "2cac6b3a3620f4a9e16613280fa0dc29a9516540",
+        "size": 724983
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms & Simulators/Treadmill/Treadmill_Powerpoint.pdf",
+        "sha": "c398ae01eb88f9ec2da04087d1b58dcc6a73d8c9",
+        "size": 895514
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms and Concepts/Animal trap.pdf",
+        "sha": "a1ad330c7776dbd5a0c7f60fed0c05bd852e0a68",
+        "size": 1220161
+      },
+      {
+        "path": "public/Level 2/Learning/Mechanisms and Concepts/Headlights.pdf",
+        "sha": "cbdac8aae51af8ce1c2dd07357c2a8902f1d128b",
+        "size": 1048932
+      },
+      {
+        "path": "public/Level 2/Learning/Programming & Precise Control/Battery robot/Battery robot_Powerpoint.pdf",
+        "sha": "6786d2c886a6d457e47695905b8ffd90da26b6fe",
+        "size": 1053648
+      },
+      {
+        "path": "public/Level 2/Learning/Sensor-Focused Robots/Walking robot/Walking robot_PowerPoint -R.pdf",
+        "sha": "fa3f28181e5f4cad807a2dcd2b2ceabad8caf658",
+        "size": 2864823
+      },
+      {
+        "path": "public/Level 2/Learning/Sound & Voice Interaction/Harp/Harp_Powerpoint.pdf",
+        "sha": "6cfe40dba130ea2afa28ec46bc56bb705001e6a3",
+        "size": 754568
+      },
+      {
+        "path": "public/Level 2/Learning/Vehicles & Complex Movers/Helicopter/Helicopter_Powerpoint.pdf",
+        "sha": "c2b26f7ff6a3b78975dc4b18eea4b9cf3dc9a9d0",
+        "size": 678938
+      },
+      {
+        "path": "public/Level 2/Learning/Vehicles & Complex Movers/Lifting door/Lifting door_Powerpoint.pdf",
+        "sha": "37cc743ede3d1cdabbb0304e2b40add8d58ff694",
+        "size": 927805
+      },
+      {
+        "path": "public/Level 2/Learning/Vehicles & Complex Movers/Teeterboard/13.Teeterboard_PowerPoint.pdf",
+        "sha": "27cab4794d18003c90f99aa1fd3b591c025902c1",
+        "size": 1633987
+      },
+      {
+        "path": "public/Level 3/Learning/Action-Oriented/Clip robot/Clip robot_Powerpoint.pdf",
+        "sha": "872843eb046a3748f018ab0087ed84fe057542bd",
+        "size": 601525
+      },
+      {
+        "path": "public/Level 3/Learning/Action-Oriented/Cycle Sport/3. Cycle Sport - Slides.pdf",
+        "sha": "0ce0fcc842a4b8a39ded676f4149eb2d580a242b",
+        "size": 1081520
+      },
+      {
+        "path": "public/Level 3/Learning/Advanced Navigation & Control/Super Trajectory Robot 1/13.Super Trajectory Robot 1-update.pdf",
+        "sha": "ac598ea64185c9bf3659d5f01d815b009db50fbb",
+        "size": 919598
+      },
+      {
+        "path": "public/Level 3/Learning/Automation & Security/Automatic Seesaw/24. Automatic Seesaw.pdf",
+        "sha": "0180dfef8c2a5234c219cdd6441a752a92dc2d5f",
+        "size": 752252
+      },
+      {
+        "path": "public/Level 3/Learning/Automation & Security/Security door/Security door_Powerpoint-update.pdf",
+        "sha": "11a2cfd8dc2938bcb6eb2d4fa53de6b777b361dc",
+        "size": 881348
+      },
+      {
+        "path": "public/Level 3/Learning/Automation & Security/Smart door/Smart door_Powerpoint.pdf",
+        "sha": "8badc372b233bfa68808c70c98c370f6691b4b2b",
+        "size": 912160
+      },
+      {
+        "path": "public/Level 3/Learning/Autonomous Navigation & Ranging/Following Robot/Following Robot_Powerpoint.pdf",
+        "sha": "4a06fc6ddd5551a02720089d434dd7a6b3d751ff",
+        "size": 961913
+      },
+      {
+        "path": "public/Level 3/Learning/Autonomous Navigation & Ranging/Obstacle Avoidance Robot 1/Obstacle Avoidance Robot 1_Powerpoint.pdf",
+        "sha": "0e9a87b135c050abc0f2c2a927d7943a74cc3af4",
+        "size": 675407
+      },
+      {
+        "path": "public/Level 3/Learning/Biomimicry & Stimulus Response/Sunflower/09.Sunflower.pdf",
+        "sha": "2ae0847c7baee1431c3a78b1c15d3643ac88ec9a",
+        "size": 935756
+      },
+      {
+        "path": "public/Level 3/Learning/Biomimicry/Stag beetle.pdf",
+        "sha": "21dc3fa41a594e09822a0cbea790f5d9dfcd6474",
+        "size": 2263356
+      },
+      {
+        "path": "public/Level 3/Learning/Characters & Structures/Electric Bulldozer/23.Electric Bulldozer -Slides.pdf",
+        "sha": "dbc16af9af95b09cad75b37c15a38b7ad4d2ec19",
+        "size": 3015747
+      },
+      {
+        "path": "public/Level 3/Learning/Characters & Structures/Electric Fan/05.Electric Fan-Slides.pdf",
+        "sha": "b20f9e2786bf733fc75d00666dd7fb2cd0d8ae09",
+        "size": 2219652
+      },
+      {
+        "path": "public/Level 3/Learning/Characters & Structures/Safe/15.Safe -Slides.pdf",
+        "sha": "94a94154818d39361a2a0bee4cd222449d8fa7a3",
+        "size": 2329795
+      },
+      {
+        "path": "public/Level 3/Learning/Characters & Structures/Smart Trash Bin/20.Smart Trash Bin-Slides.pdf",
+        "sha": "180ba3005d6aeeb64fdeb0d8d28b18f489949e24",
+        "size": 2234437
+      },
+      {
+        "path": "public/Level 3/Learning/Display & Movement/Automated Guided Vehicle/24.Automated Guided Vehicle-Slides.pdf",
+        "sha": "11044e8caaa919a253469b5c6c2afcfd21fb46c7",
+        "size": 2742283
+      },
+      {
+        "path": "public/Level 3/Learning/Display & Movement/Race Walking/1. Race Walking - Slides.pdf",
+        "sha": "5ff79eecc1908e8074c026ed436495587ac03354",
+        "size": 1051599
+      },
+      {
+        "path": "public/Level 3/Learning/Foundational Robots/Bumper car.pdf",
+        "sha": "f43c5798a687a70f3aec42f6008ee187eca4780f",
+        "size": 1087056
+      },
+      {
+        "path": "public/Level 3/Learning/Foundational Robots/Line patrol car.pdf",
+        "sha": "294eb95a5cefdea38a5bff0e76280e40c41e6ac2",
+        "size": 903345
+      },
+      {
+        "path": "public/Level 3/Learning/Illumination & Signals/Disinfection Lamp/13.Disinfection Lamp-Slides.pdf",
+        "sha": "a52a8ad3843f7be50dc6742606d67fce44c7de90",
+        "size": 2095169
+      },
+      {
+        "path": "public/Level 3/Learning/Illumination & Signals/Flashlight Sensor/04.Flashlight -Slides.pdf",
+        "sha": "e55e03a1d87f1898439c393605080d9327b49532",
+        "size": 2137746
+      },
+      {
+        "path": "public/Level 3/Learning/Illumination & Signals/Light-sensitive Curtains/14.Light-sensitive Curtains -Slides.pdf",
+        "sha": "52a150b0bd2f1185d668859a40e59fb4c4efa9b4",
+        "size": 2551646
+      },
+      {
+        "path": "public/Level 3/Learning/Interactive Mechanisms/Bumper car/Bumper car_Powerpoint-update.pdf",
+        "sha": "5f0c3c6dffef431d59eabc4606313e1b36d1d054",
+        "size": 665746
+      },
+      {
+        "path": "public/Level 3/Learning/Interactive Systems/Anti-fall Robot/11.Anti-fall Robot-Slides.pdf",
+        "sha": "2d020ff4287fcb818ca1bbc5fe821d082e3b19ef",
+        "size": 2115728
+      },
+      {
+        "path": "public/Level 3/Learning/Interactive Systems/Automatic Door/17.Automatic Door -Slides.pdf",
+        "sha": "c031cdb556b8a6e1ff3d6ecfa68b3c01d14c848f",
+        "size": 2301304
+      },
+      {
+        "path": "public/Level 3/Learning/Interactive Systems/Juicer Machine/06.Juicer Machine-Slides.pdf",
+        "sha": "3ae9be728ae77950b8c60d2e194ab0bf27031bd6",
+        "size": 2049527
+      },
+      {
+        "path": "public/Level 3/Learning/Interactive Systems/Washing Machine/08.Washing Machine-Slides.pdf",
+        "sha": "80749f2584c720ad84a76aace350279bb6edd841",
+        "size": 2483910
+      },
+      {
+        "path": "public/Level 3/Learning/Machines & Mechanisms/Money detector.pdf",
+        "sha": "c82c31c62aa61d622d1ffe0e48baf6c397631664",
+        "size": 1102908
+      },
+      {
+        "path": "public/Level 3/Learning/Machines & Mechanisms/Parking gate.pdf",
+        "sha": "1ddc7d3dbc1f31ca9add3afb78de15315664719e",
+        "size": 810529
+      },
+      {
+        "path": "public/Level 3/Learning/Manipulators/Blood bank Centrifuge.pdf",
+        "sha": "a210bbcb094ec6713cfd4519aae496f3eb62d59d",
+        "size": 1709317
+      },
+      {
+        "path": "public/Level 3/Learning/Manipulators/Electronic scale.pdf",
+        "sha": "a470c130ca2e4793e1e151d5f3912fed95bbe668",
+        "size": 2112187
+      },
+      {
+        "path": "public/Level 3/Learning/Manipulators/Gyro transmitter.pdf",
+        "sha": "b76a41b451b32791f799f5b4a6daf102abc73fd4",
+        "size": 1433360
+      },
+      {
+        "path": "public/Level 3/Learning/Mechanisms and Concepts/Drawbridge.pdf",
+        "sha": "cc298541963ef8e60f7a6a7974632ecb17588aef",
+        "size": 1804998
+      },
+      {
+        "path": "public/Level 3/Learning/Mechanisms and Concepts/Electric fan.pdf",
+        "sha": "84819eb7c652af7db56fc7c6f1a6240d26360205",
+        "size": 1084691
+      },
+      {
+        "path": "public/Level 3/Learning/Mechanisms and Concepts/Fire ladder.pdf",
+        "sha": "ded9a137c4ee658c04050659a85ef9e77e0145f0",
+        "size": 2174658
+      },
+      {
+        "path": "public/Level 3/Learning/Mechanisms and Concepts/Sign.pdf",
+        "sha": "51b5a90344eac900157887af4e3bc8e1635d6f7b",
+        "size": 1720326
+      },
+      {
+        "path": "public/Level 3/Learning/Sound & Voice Interaction/Electric guitar/10.Electric guitar_Powerpoint.pdf",
+        "sha": "b8d4f565052f55550372220b748af71c82fe176e",
+        "size": 945988
+      },
+      {
+        "path": "public/Level 3/Learning/Sound & Voice Interaction/Music Box/29.Music Box -Slides.pdf",
+        "sha": "1b2acbc37d55233e0c26a2140333a44976837899",
+        "size": 2132486
+      },
+      {
+        "path": "public/Level 3/Learning/Sound & Voice Interaction/Music Doorbell/07.Music Doorbell- Slides.pdf",
+        "sha": "925715efe52a1b4b55328f0c4b2c47722ef85fe4",
+        "size": 1912209
+      },
+      {
+        "path": "public/Level 3/Learning/Sound & Voice Interaction/Smart Audio/Smart Audio_Powerpoint.pdf",
+        "sha": "b66068f2d102b0630041098084c8bf3fc304265c",
+        "size": 879716
+      },
+      {
+        "path": "public/Level 3/Learning/Sound & Voice Interaction/Sonometer/Sonometer_Powerpoint-update.pdf",
+        "sha": "f383ec92b5652c6e50f5f6891a6bd1c3908fae6f",
+        "size": 731050
+      },
+      {
+        "path": "public/Level 3/Learning/Sound & Voice Interaction/Sound Level Meter/16.Sound Level Meter -Slides.pdf",
+        "sha": "750286a8ec0a482cdcf755d83a322245d60f16ac",
+        "size": 2163035
+      },
+      {
+        "path": "public/Level 3/Learning/Vehicles & Complex Movers/F1 racing car/F1 racing car_Powerpoint.pdf",
+        "sha": "8d2f7cdd5d584249106f0d7c7a476a077c451c95",
+        "size": 926317
+      },
+      {
+        "path": "public/Level 3/Learning/Vehicles & Complex Movers/Long-Lived Turtle/11. The Long-lived Turtle - Slides.pdf",
+        "sha": "9914a1bc0d43e64553ca4766354afb201e95551f",
+        "size": 1201516
+      },
+      {
+        "path": "public/Level 4/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Slides.pdf",
+        "sha": "8b90b3ac7ab1549411d1f9a1dd4ce7abd2faf50f",
+        "size": 1464405
+      },
+      {
+        "path": "public/Level 4/Advanced Navigation & Control/Drop-proof Robot/12.Drop-proof Robot-update.pdf",
+        "sha": "471990b7c9f9b52df772fa66e9fbec9b0fd54aaf",
+        "size": 709011
+      },
+      {
+        "path": "public/Level 4/Advanced Navigation & Control/Super Trajectory Robot 2/14. Super Trajectory Robot 2-update.pdf",
+        "sha": "4b009ee3410c3d0bba05e4189ce4563380d5fc4d",
+        "size": 746694
+      },
+      {
+        "path": "public/Level 4/Automation & Security/Personal Bodyguard/09. Personal Bodyguard-Teaching Slides.pdf",
+        "sha": "9e17a54f8a55c54925a639f3a5acc723b36ed76b",
+        "size": 918211
+      },
+      {
+        "path": "public/Level 4/Automation & Security/Scan to Open the Gate/01. Scan to Open the Gate-Slides.pdf",
+        "sha": "f4aa8a0fef6a4c57a3852de4abfe8d1d50086a89",
+        "size": 1128990
+      },
+      {
+        "path": "public/Level 4/Automation & Security/Smart curtain/Smart curtain_Powerpoint.pdf",
+        "sha": "c21dd47a091ee8fc6f793fe83a6a7ebf889fef1e",
+        "size": 703958
+      },
+      {
+        "path": "public/Level 4/Automation & Security/Tag Recognition/06. Tag Recognition.pdf",
+        "sha": "6539eb864fd49f808ecec7d99b045738ff43a8fb",
+        "size": 751306
+      },
+      {
+        "path": "public/Level 4/Autonomous Navigation & Ranging/Guide Dogs/10. Guide Dogs - Slides.pdf",
+        "sha": "a9f4f4ef54864a2b2ce449d3e5b4bbf657500f8b",
+        "size": 1015212
+      },
+      {
+        "path": "public/Level 4/Autonomous Navigation & Ranging/Keeping Distance/12. Keeping Distance-Teaching Slides.pdf",
+        "sha": "1dd214d6a505d1ff4e39d2d3edf4864cfcd84306",
+        "size": 840790
+      },
+      {
+        "path": "public/Level 4/Autonomous Navigation & Ranging/Laser Rangefinder/10. Laser Rangefinder - Teaching Slides.pdf",
+        "sha": "ac8d079659877156f045701a921869dd8f43527b",
+        "size": 871388
+      },
+      {
+        "path": "public/Level 4/Autonomous Navigation & Ranging/Magnetically Controlled Door/06. Magnetically controlled door-Teaching Slides.pdf",
+        "sha": "1a1559c899a66755c68e642b547a2b1855e8c716",
+        "size": 830650
+      },
+      {
+        "path": "public/Level 4/Autonomous Navigation & Ranging/Obstacle Avoidance In Snow/4. Obstacle Avoidance In Snow - Slides.pdf",
+        "sha": "7fd1b034d5eed438d03f746a84b7a0d128eb9093",
+        "size": 1061897
+      },
+      {
+        "path": "public/Level 4/Autonomous Navigation & Ranging/Obstacle Avoidance Robot 2/Obstacle Avoidance Robot 2_Powerpoint.pdf",
+        "sha": "e5f781229a83527fb6954ff315de84b923e4e63f",
+        "size": 778791
+      },
+      {
+        "path": "public/Level 4/Autonomous Navigation & Ranging/Probe Vehicle/02.Probe Vehicle.pdf",
+        "sha": "e3ffd56ee1cd76ef58469299288ed8852150b16c",
+        "size": 836433
+      },
+      {
+        "path": "public/Level 4/Autonomous Navigation & Ranging/Radar vehicle/Radar vehicle_Powerpoint.pdf",
+        "sha": "67167b8d6e36596a103a220335f6ecb66dc8bc07",
+        "size": 943019
+      },
+      {
+        "path": "public/Level 4/Biomimicry & Stimulus Response/Nocturnal beetle/10.Nocturnal beetle-update.pdf",
+        "sha": "6d801eb0999acb42d401ceb5ac8312442fc73d45",
+        "size": 919600
+      },
+      {
+        "path": "public/Level 4/Building/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Basic Building Manual.pdf",
+        "sha": "d1358a0c96d6c48022803df79634c7f34627105f",
+        "size": 18045566
+      },
+      {
+        "path": "public/Level 4/Building/Action-Oriented/Warrior With Claws/13. Warrior With Claws - Optimized Building Manual.pdf",
+        "sha": "b083ef6fa3d617c1f34a9baab4bf683f26ec83db",
+        "size": 12246430
+      },
+      {
+        "path": "public/Level 4/Building/Advanced Navigation & Control/Drop-proof Robot/Drop-proof Robot.pdf",
+        "sha": "740e06789ab28723ec20601638f847a100cbe1ee",
+        "size": 4233666
+      },
+      {
+        "path": "public/Level 4/Building/Automation & Security/Personal Bodyguard/09. Personal Bodyguard-Building Manual.pdf",
+        "sha": "c8f9d3e43bd7d6627be43d3b3e961e50dc402813",
+        "size": 7044855
+      },
+      {
+        "path": "public/Level 4/Building/Automation & Security/Scan to Open the Gate/01. Scan to Open the Gate- Building Manual.pdf",
+        "sha": "36c81dc372e35b1e2fa3e90c354dff47a0bcc773",
+        "size": 7633037
+      },
+      {
+        "path": "public/Level 4/Building/Automation & Security/Smart curtain/Smart curtain_Building.pdf",
+        "sha": "8ff7c35d34a9a91549fcecccae16a473fa8ae631",
+        "size": 5133607
+      },
+      {
+        "path": "public/Level 4/Building/Autonomous Navigation & Ranging/Guide Dogs/10. Guide Dogs - Basic Building Manual.pdf",
+        "sha": "4cbb0db73ab4f37e3fe2440eca8f675a37c80227",
+        "size": 13318011
+      },
+      {
+        "path": "public/Level 4/Building/Autonomous Navigation & Ranging/Keeping Distance/12. Keeping Distance-Building Manual.pdf",
+        "sha": "47444ce46ab6611754a9cd960684741cb2b21717",
+        "size": 6536716
+      },
+      {
+        "path": "public/Level 4/Building/Autonomous Navigation & Ranging/Laser Rangefinder/10. Laser Rangefinder - Building Manual.pdf",
+        "sha": "4aabb9a91adbd8eb890528483d9578a0e6dd35c1",
+        "size": 2929882
+      },
+      {
+        "path": "public/Level 4/Building/Autonomous Navigation & Ranging/Magnetically Controlled Door/06. Magnetically controlled door-Building Manual.pdf",
+        "sha": "c6b9c61b01d1ff30ea0de14e5fc11193c17deb1c",
+        "size": 6571640
+      },
+      {
+        "path": "public/Level 4/Building/Autonomous Navigation & Ranging/Obstacle Avoidance In Snow/4. Obstacle Avoidance In Snow-Basic Building Manual.pdf",
+        "sha": "e5a122e0513b23d1beb2390e266f0e16e9952175",
+        "size": 6947629
+      },
+      {
+        "path": "public/Level 4/Building/Autonomous Navigation & Ranging/Obstacle Avoidance Robot 2/Obstacle Avoidance Robot 2_Building.pdf",
+        "sha": "85326b1504e1c5f7211800abcc22d655d0110c01",
+        "size": 8694115
+      },
+      {
+        "path": "public/Level 4/Building/Autonomous Navigation & Ranging/Radar vehicle/Radar vehicle_Building.pdf",
+        "sha": "8925f5672303a55b8caaf1c73434acd2a9aa88ef",
+        "size": 6861249
+      },
+      {
+        "path": "public/Level 4/Building/Biomimicry & Stimulus Response/Nocturnal beetle/Nocturnal beetle.pdf",
+        "sha": "d0af4ddd01984b93e5cb03b48906518493c3081d",
+        "size": 10343712
+      },
+      {
+        "path": "public/Level 4/Building/Characters & Structures/A Timid Mouse/Lesson 25. A Timid Mouse-Building Manual.pdf",
+        "sha": "30e167ec98f268265b6e987bb48b9ed04bed92b7",
+        "size": 6060124
+      },
+      {
+        "path": "public/Level 4/Building/Characters & Structures/Elf in the Tree/12. Elf in the Tree - Basic Building Manual.pdf",
+        "sha": "6d5c6bb51f9e82610c6a8926e4fafd6c7c10e2ec",
+        "size": 22844617
+      },
+      {
+        "path": "public/Level 4/Building/Characters & Structures/Parts Sorter/22.Parts Sorter-Building Manual.pdf",
+        "sha": "ab27b6bf252041055c5c634351f4765fb754b21e",
+        "size": 5254820
+      },
+      {
+        "path": "public/Level 4/Building/Characters & Structures/Swimming Plesiosaur/19. Swimming Plesiosaur-Building Manual.pdf",
+        "sha": "73217eadc98fe48e164237db8db12f64668445cf",
+        "size": 18007313
+      },
+      {
+        "path": "public/Level 4/Building/Characters & Structures/Tail-Wagging Stegosaurus/18. Tail-Wagging Stegosaurus-Building Manual.pdf",
+        "sha": "4e718c78c1c53115260d22b1420206633b2e22c2",
+        "size": 13592864
+      },
+      {
+        "path": "public/Level 4/Building/Complex Mechanisms & Coordinated Motion/Architectural design/Architectural design.pdf",
+        "sha": "c95320c064bfff7d7757990377fdc43baec55af5",
+        "size": 11660939
+      },
+      {
+        "path": "public/Level 4/Building/Complex Mechanisms & Coordinated Motion/Card Machine/Card Machine.pdf",
+        "sha": "f063338187fe40f0291b3c62eff0d60bb2a725a4",
+        "size": 7983266
+      },
+      {
+        "path": "public/Level 4/Building/Display & Movement/Dancing Robot/31.Dancing Robot-Building Manual.pdf",
+        "sha": "0175df1dfd067cafebbfae1f1a4a29a5ca473ada",
+        "size": 6913446
+      },
+      {
+        "path": "public/Level 4/Building/Display & Movement/Skiing Robot/28.Skiing Robot -Building Manual.pdf",
+        "sha": "3a3e207efba57b4f6b39cad689c475d84b43ea17",
+        "size": 11798338
+      },
+      {
+        "path": "public/Level 4/Building/Illumination & Signals/Induction Desk Lamp/13. Induction Desk Lamp-Building Manual.pdf",
+        "sha": "b56fc14de734b56d0d252cc9435f3d8da7ece472",
+        "size": 8852353
+      },
+      {
+        "path": "public/Level 4/Building/Interactive Mechanisms/Scorpion/Scorpion_Building.pdf",
+        "sha": "ec6535e60e9cd67de8b5f1c81cfcac3a5fdb3531",
+        "size": 7044005
+      },
+      {
+        "path": "public/Level 4/Building/Interactive Mechanisms/Smart Luggage/16. Smart Luggage-Building Manual.pdf",
+        "sha": "7cd9a427b0e99735ff5861f87675d373e9856e8b",
+        "size": 8036639
+      },
+      {
+        "path": "public/Level 4/Building/Interactive Mechanisms/Telegraph machine/Telegraph machine_Building.pdf",
+        "sha": "085306b3bb116a006d3c7dad7e10fb3174a9f871",
+        "size": 4013078
+      },
+      {
+        "path": "public/Level 4/Building/Interactive Systems/Basketball Shooting Machine/27.Basketball Shooting Machine-Building Manual.pdf",
+        "sha": "270f432abb9183c2d507ba99a5da77bd80356160",
+        "size": 9512549
+      },
+      {
+        "path": "public/Level 4/Building/Interactive Systems/Obstacle Avoidance Robot/18.Obstacle Avoidance Robot-Building Manual.pdf",
+        "sha": "dc706e7674d2ad9a96fb667eddc73d17854ca196",
+        "size": 5538978
+      },
+      {
+        "path": "public/Level 4/Building/Interactive Systems/Reaction Tester/19.Reaction Tester-Building Manual.pdf",
+        "sha": "f266912c72d25c620bb7649ed63137e2bd2a4199",
+        "size": 3433955
+      },
+      {
+        "path": "public/Level 4/Building/Interactive Systems/Tumbler/01. Tumbler - Building Manual.pdf",
+        "sha": "0b6ccd4de7404bdaa661cf0407ae368c9a6d22a2",
+        "size": 6455197
+      },
+      {
+        "path": "public/Level 4/Building/Mechanisms & Simulators/Biped Robot/20. Biped Robot-Building Manual.pdf",
+        "sha": "ad0339df13a460e329c92223489f60b3f2491a3e",
+        "size": 18606180
+      },
+      {
+        "path": "public/Level 4/Building/Mechanisms & Simulators/Horizontal Bar/5. Horizontal Bar-Basic Building Manual.pdf",
+        "sha": "0405b88beb5ecd30d17278557cad22419fffdce9",
+        "size": 13600460
+      },
+      {
+        "path": "public/Level 4/Building/Mechanisms & Simulators/Oscillating Fan/19.Oscillating Fan -Building Manual.pdf",
+        "sha": "49b9e72fe57300974e88b39e342dd963d6083056",
+        "size": 23694522
+      },
+      {
+        "path": "public/Level 4/Building/Mechanisms & Simulators/Spinning Cups/14. Spinning Cups-Building Manual.pdf",
+        "sha": "21117de94a3b2540b27604bdb76dcb8bd1218035",
+        "size": 8196276
+      },
+      {
+        "path": "public/Level 4/Building/Mechanisms & Simulators/Telegraph/09.Telegraph -Building Manual.pdf",
+        "sha": "afb49aca75e0bd166af3114a981d46ebb26933f7",
+        "size": 8682674
+      },
+      {
+        "path": "public/Level 4/Building/Mechanisms & Simulators/Turbo Drop/28. Turbo Drop-Building Manual.pdf",
+        "sha": "3b7bad44e4c92a4f56c7281ca6f34424e469a87f",
+        "size": 12573557
+      },
+      {
+        "path": "public/Level 4/Building/Programming & Precise Control/Obstacle-avoiding Scorpion/01.Obstacle-avoiding Scorpion_Building Manual.pdf",
+        "sha": "8e0936d27819a7b84bf00533b6cfe9906f225e43",
+        "size": 6873645
+      },
+      {
+        "path": "public/Level 4/Building/Sensor Automation/Card reader/Card reader.pdf",
+        "sha": "773494e6a82765fb7b5811fde836bd21e65c912c",
+        "size": 2881636
+      },
+      {
+        "path": "public/Level 4/Building/Sensor Automation/Password box/Password box.pdf",
+        "sha": "96c5f48a497334b3303afc21a079283fd6093106",
+        "size": 14362754
+      },
+      {
+        "path": "public/Level 4/Building/Sensor-Focused Robots/Energy Detector/05. Energy Detector--Building Manual.pdf",
+        "sha": "dc0b133a972b1fd1287cfaeed52e22ad29294d8f",
+        "size": 7082627
+      },
+      {
+        "path": "public/Level 4/Building/Sensor-Focused Robots/Ranging robot/Ranging robot_Building.pdf",
+        "sha": "8bcb40b365b818ea4d73f7447bfca9d9224455d9",
+        "size": 5002524
+      },
+      {
+        "path": "public/Level 4/Building/Sound & Voice Interaction/Acoustic control lamp/Acoustic control lamp_Building.pdf",
+        "sha": "e71adbb1661ce5ddaf88bcb6763f19e794325d85",
+        "size": 3674513
+      },
+      {
+        "path": "public/Level 4/Building/Sound & Voice Interaction/Electric Piano/32.Electric Piano-Building Manual.pdf",
+        "sha": "bba143f29f5acfddcbe3638521240e04e2b5c3e8",
+        "size": 7588116
+      },
+      {
+        "path": "public/Level 4/Building/Sound & Voice Interaction/Smart Speaker/30.Smart Speaker-Building Manual.pdf",
+        "sha": "b4820e408f852a1357c7ec8e91c6262d94507045",
+        "size": 6829696
+      },
+      {
+        "path": "public/Level 4/Building/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin - Basic Building Manual.pdf",
+        "sha": "1e66e2590d334b9c6baee8ca8294c56d1f130edc",
+        "size": 24123813
+      },
+      {
+        "path": "public/Level 4/Building/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin - Optimized Building Manual.pdf",
+        "sha": "aeebbfbd31a2d6a5709065da1b9fa1a244e35e08",
+        "size": 15348734
+      },
+      {
+        "path": "public/Level 4/Building/Vehicles & Complex Movers/Lucky Cat/13.Lucky Cat-Building Manual.pdf",
+        "sha": "6915639b79eb8fb6acd980bf2752ad24b4ed5d5f",
+        "size": 8421760
+      },
+      {
+        "path": "public/Level 4/Building/Vehicles & Complex Movers/Remote Control Car/04. Remote Control Car-Building Manual.pdf",
+        "sha": "67232e791e7ab74c07af17f05eca661b89f4edd7",
+        "size": 7405990
+      },
+      {
+        "path": "public/Level 4/Building/Vehicles & Complex Movers/Transformer Robot/06.Transformer Robot-Building Manual.pdf",
+        "sha": "992ab3f7d5aff463f4230170b158061c7935f0b1",
+        "size": 8943816
+      },
+      {
+        "path": "public/Level 4/Characters & Structures/A Timid Mouse/Lesson 25. A Timid Mouse-Teaching Slides.pdf",
+        "sha": "bc7df2b0e4c0c83a86b5943faf05a8ef9f8991d5",
+        "size": 1011769
+      },
+      {
+        "path": "public/Level 4/Characters & Structures/Elf in the Tree/12. Elf in the Tree - Slides.pdf",
+        "sha": "7279137b2a2b3f582589214a5dc243071979f59a",
+        "size": 1144752
+      },
+      {
+        "path": "public/Level 4/Characters & Structures/Parts Sorter/22.Parts Sorter- Slides.pdf",
+        "sha": "e369261440d15b2f74aa25dc811ae766bf29065d",
+        "size": 2376545
+      },
+      {
+        "path": "public/Level 4/Characters & Structures/Swimming Plesiosaur/19. Swimming Plesiosaur-Teaching Slides.pdf",
+        "sha": "e816b1c4a1d33edd1f758bb30ba71946e6a16b81",
+        "size": 887941
+      },
+      {
+        "path": "public/Level 4/Characters & Structures/Tail-Wagging Stegosaurus/18. Tail-Wagging Stegosaurus-Slides.pdf",
+        "sha": "e74376514734ea14095561a75b4590ef13601e45",
+        "size": 1271821
+      },
+      {
+        "path": "public/Level 4/Complex Mechanisms & Coordinated Motion/Architectural design/Architectural design.pdf",
+        "sha": "6f348e6b7225e35d8da8d52f87f9fa1f16c2025d",
+        "size": 740285
+      },
+      {
+        "path": "public/Level 4/Complex Mechanisms & Coordinated Motion/Card Machine/05.Card Machine-update.pdf",
+        "sha": "44f4e2ff8ff771c97d8c4bfe451a295009ee1a6c",
+        "size": 758961
+      },
+      {
+        "path": "public/Level 4/Display & Movement/Dancing Robot/31.Dancing Robot-Slides.pdf",
+        "sha": "fed2e1c386492d0347bfb2c5abeb40fc3557ecfc",
+        "size": 2415272
+      },
+      {
+        "path": "public/Level 4/Display & Movement/Skiing Robot/28.Skiing Robot -Slides.pdf",
+        "sha": "ee75264a97cd174aa86474b8c67b7253e93ed86b",
+        "size": 3433646
+      },
+      {
+        "path": "public/Level 4/Foundational Robots/Vending machine.pdf",
+        "sha": "d8fa4604cec7b16f6edeab6631b8a2b814b1d02c",
+        "size": 2142246
+      },
+      {
+        "path": "public/Level 4/Illumination & Signals/Induction Desk Lamp/13. Induction Desk Lamp-Teaching Slides.pdf",
+        "sha": "478422720b90d864c5299325589e8885fbd3aed7",
+        "size": 850030
+      },
+      {
+        "path": "public/Level 4/Interactive Mechanisms/Scorpion/Scorpion_Powerpoint-update.pdf",
+        "sha": "63043a383b41c808e17bd6b4afe1fbf16469752b",
+        "size": 726891
+      },
+      {
+        "path": "public/Level 4/Interactive Mechanisms/Smart Luggage/16. Smart Luggage-Teaching Slides.pdf",
+        "sha": "453ce695d7fe68f8c1deb838e87c7ba989f6c8dd",
+        "size": 805126
+      },
+      {
+        "path": "public/Level 4/Interactive Mechanisms/Telegraph machine/Telegraph machine_Powerpoint-update.pdf",
+        "sha": "3d537fbe85e0e9761f230ddd58ab362bd2fa0831",
+        "size": 708724
+      },
+      {
+        "path": "public/Level 4/Interactive Mechanisms/Voice Control/01.Voice Control.pdf",
+        "sha": "08e71b502f1a83391d0e531f8048c584f883a0c8",
+        "size": 661418
+      },
+      {
+        "path": "public/Level 4/Interactive Systems/Basketball Shooting Machine/27.Basketball Shooting Machine -Slides.pdf",
+        "sha": "f7149bb51fb60d6b29bb347206201f8c01bf3317",
+        "size": 2864524
+      },
+      {
+        "path": "public/Level 4/Interactive Systems/Obstacle Avoidance Robot/18.Obstacle Avoidance Robot-Slides.pdf",
+        "sha": "0cd7cca458c9ed13635f5065e2665fca1e13ac00",
+        "size": 1929452
+      },
+      {
+        "path": "public/Level 4/Interactive Systems/Reaction Tester/19.Reaction Tester-Slides.pdf",
+        "sha": "7d618a6846f3fec77c2a7e1ce4937e64efa8b9b4",
+        "size": 1833613
+      },
+      {
+        "path": "public/Level 4/Interactive Systems/Tumbler/01. Tumbler - Teaching Slides.pdf",
+        "sha": "9bb54bd97b5f3bc19539ac9ae66f9744be869412",
+        "size": 997124
+      },
+      {
+        "path": "public/Level 4/Machines & Mechanisms/Safe Box.pdf",
+        "sha": "db8f2b4b4e19b2ab64d3f2d545f69b817cc7e054",
+        "size": 971972
+      },
+      {
+        "path": "public/Level 4/Mechanisms & Simulators/Biped Robot/20. Biped Robot-Teaching Slides.pdf",
+        "sha": "84902b58447e0f0d20b22d2f1cea05182e1cf767",
+        "size": 930694
+      },
+      {
+        "path": "public/Level 4/Mechanisms & Simulators/Horizontal Bar/5. Horizontal Bar- Slides.pdf",
+        "sha": "9ca7bd017e429e72f4f94fbadb923482d56c3602",
+        "size": 1236909
+      },
+      {
+        "path": "public/Level 4/Mechanisms & Simulators/Oscillating Fan/19.Oscillating Fan -Slides.pdf",
+        "sha": "effd6d747d17612c6ad4afb57892fadc2e05cec2",
+        "size": 1064073
+      },
+      {
+        "path": "public/Level 4/Mechanisms & Simulators/Spinning Cups/14. Spinning Cups-Teaching Slides.pdf",
+        "sha": "83128addb21f9836025c2c8f8363a951a1c3fb21",
+        "size": 969030
+      },
+      {
+        "path": "public/Level 4/Mechanisms & Simulators/Telegraph/09.Telegraph -Slides.pdf",
+        "sha": "9909fc130685f7ebe8a0c12ad89f112ad4cc3b8b",
+        "size": 2584577
+      },
+      {
+        "path": "public/Level 4/Mechanisms & Simulators/Turbo Drop/28. Turbo Drop-Teaching Slides.pdf",
+        "sha": "52b8d603933c329471a8411ca2c5fd37a961dc0c",
+        "size": 870882
+      },
+      {
+        "path": "public/Level 4/Programming & Precise Control/Obstacle-avoiding Scorpion/01.Obstacle-avoiding Scorpion_Slides.pdf",
+        "sha": "16129dff1a0c2b7dd1173b1dbf9b1a1b3be02d43",
+        "size": 2256394
+      },
+      {
+        "path": "public/Level 4/Sensor Automation/Card reader/08.Card reader-update.pdf",
+        "sha": "0e8936af6c0e09bc674cbdf446614ed4bd65a783",
+        "size": 752337
+      },
+      {
+        "path": "public/Level 4/Sensor Automation/Password box/06.Password box-update.pdf",
+        "sha": "04a48b139030ba3215eeb2dcb889619526020c7f",
+        "size": 801016
+      },
+      {
+        "path": "public/Level 4/Sensor-Focused Robots/Energy Detector/05. Energy Detector-Teaching Slides.pdf",
+        "sha": "8e20df5186fd25195952045e819a6d849eccfa07",
+        "size": 891074
+      },
+      {
+        "path": "public/Level 4/Sensor-Focused Robots/Ranging robot/Ranging robot_Powerpoint.pdf",
+        "sha": "7153f4ecddf93db7d40c1fc8dac9aca9e579e5c0",
+        "size": 792216
+      },
+      {
+        "path": "public/Level 4/Sensors/Back-up buzzer.pdf",
+        "sha": "a6ffeb938d39aaa3810ec7c6c68b3b587b7a6683",
+        "size": 1499342
+      },
+      {
+        "path": "public/Level 4/Sensors/Counting system.pdf",
+        "sha": "9b39186b7339cda503c0047abf7f2b5cac2f1dee",
+        "size": 900036
+      },
+      {
+        "path": "public/Level 4/Sound & Voice Interaction/Acoustic control lamp/Acoustic control lamp_Powerpoint-update.pdf",
+        "sha": "03b1edcae8be32771ae713bf97bfaa7fc1ea02c4",
+        "size": 921792
+      },
+      {
+        "path": "public/Level 4/Sound & Voice Interaction/Electric Piano/32.Electric Piano-Slides.pdf",
+        "sha": "4fc4767a82e4427b58ecb5dc1b752aa0ae04275e",
+        "size": 2516066
+      },
+      {
+        "path": "public/Level 4/Sound & Voice Interaction/Smart Speaker/30.Smart Speaker-Slides.pdf",
+        "sha": "5c321d037ed44da8630fd8c9cfec8fce742f3079",
+        "size": 2155120
+      },
+      {
+        "path": "public/Level 4/Vehicles & Complex Movers/Dangerous Assassin/15. Dangerous Assassin.pdf",
+        "sha": "ac8f4e5eba088027d3b2871f655304dd0fc540b1",
+        "size": 1092234
+      },
+      {
+        "path": "public/Level 4/Vehicles & Complex Movers/Lucky Cat/13.Lucky Cat-Slides.pdf",
+        "sha": "81b1102fad29085576e4912974b207514e3fb106",
+        "size": 2678521
+      },
+      {
+        "path": "public/Level 4/Vehicles & Complex Movers/Remote Control Car/04. Remote Control Car-Teaching Slides.pdf",
+        "sha": "8cd028e6cfaccebe7003ca7b52c1ac4615deaeb1",
+        "size": 1040776
+      },
+      {
+        "path": "public/Level 4/Vehicles & Complex Movers/Transformer Robot/06.Transformer Robot-Slides.pdf",
+        "sha": "db86170140a95b5465ee832c435067bc458a921a",
+        "size": 2888879
+      },
+      {
+        "path": "public/Level 5/Building/Action-Oriented/Curling Game/2. Curling Game-Basic Building Manual.pdf",
+        "sha": "a1c9ae03d2cd0c2a138b1dc4b91f4169aa25351e",
+        "size": 9844939
+      },
+      {
+        "path": "public/Level 5/Building/Action-Oriented/Curling Game/2. Curling Game-Optimized Building Manual.pdf",
+        "sha": "a352f25d1f818f6ad250eaa0f89a11bf86d14a10",
+        "size": 4950824
+      },
+      {
+        "path": "public/Level 5/Building/Action-Oriented/Drawing Machine/23. Drawing Machine-Building Manual.pdf",
+        "sha": "9e5caf7bc1ce290aa1af2df1c32713295edb85f5",
+        "size": 12464758
+      },
+      {
+        "path": "public/Level 5/Building/Action-Oriented/Firefly/02.Firefly-Building Manual.pdf",
+        "sha": "6f45403af6a30a2963f3447143d49ae580651077",
+        "size": 7957757
+      },
+      {
+        "path": "public/Level 5/Building/Action-Oriented/Goalkeeper/23.Goalkeeper-Building Manual（with rubber band）.pdf",
+        "sha": "2060acf57f87221187ed33a976948175b0048a1c",
+        "size": 30642421
+      },
+      {
+        "path": "public/Level 5/Building/Action-Oriented/Spanish Bullfight/03.Spanish Bullfight-Building Manual.pdf",
+        "sha": "cba54570389c192fbaf13d9bb1ba0fe8cae5ea52",
+        "size": 9498239
+      },
+      {
+        "path": "public/Level 5/Building/Action-Oriented/The Warrior/22. The Warrior-Building Manual.pdf",
+        "sha": "aae0dc26dcbb6f99dd8d43ad63d483bca4bde8ae",
+        "size": 8968942
+      },
+      {
+        "path": "public/Level 5/Building/Automation & Security/Magnetic Anti-theft Cabinet/08. Magnetic Anti-theft Cabinet_Building Manual.pdf",
+        "sha": "5b08eaf615aabcc1b4d6767c6ac4ed31acc48d32",
+        "size": 5824019
+      },
+      {
+        "path": "public/Level 5/Building/Automation & Security/Please Scan to Ride/03.Please Scan to Ride-Building Manual.pdf",
+        "sha": "3ec354a5564bc2ec666173da87d98c53de02163b",
+        "size": 10140591
+      },
+      {
+        "path": "public/Level 5/Building/Automation & Security/Smart Cash Register/02.Smart Cash Register-Building Manual.pdf",
+        "sha": "2838117dc5e3b62b074c5bd5d8e3f224396c3e70",
+        "size": 14496472
+      },
+      {
+        "path": "public/Level 5/Building/Autonomous Navigation & Ranging/Smart Guiding Car/02. Smart Guiding Car -Building Manual.pdf",
+        "sha": "f950cc895c7288b9255863c46c1dfae4492fb680",
+        "size": 5917225
+      },
+      {
+        "path": "public/Level 5/Building/Characters & Structures/Lucky Prize Wheel/21. Lucky Prize Wheel-Building Manual.pdf",
+        "sha": "997f2bfda55627fa33aff7c289e2199430083e53",
+        "size": 7648447
+      },
+      {
+        "path": "public/Level 5/Building/Characters & Structures/Oil Pumping Unit/21.Oil Pumping Unit-Building Manual.pdf",
+        "sha": "c04e9a7f4a1c322fa30e3dfbbc48cb984269388c",
+        "size": 9148708
+      },
+      {
+        "path": "public/Level 5/Building/Characters & Structures/Swinging Shark/03. Swinging Shark - Building Manual.pdf",
+        "sha": "0a9e0cfbecc7c11775357fc0c679fdf22cfc96d1",
+        "size": 14247572
+      },
+      {
+        "path": "public/Level 5/Building/Display & Movement/Remote Control Car/12.Remote Control Car-Building Manual.pdf",
+        "sha": "6bfbf17f1e1a3e0d0701b2a55d81820a8e98dc24",
+        "size": 6771525
+      },
+      {
+        "path": "public/Level 5/Building/Display & Movement/Runner/25.Runner -Building Manual.pdf",
+        "sha": "1259a49a971fc5ccc9651b1c5c1f7af9ca36eda2",
+        "size": 8716884
+      },
+      {
+        "path": "public/Level 5/Building/Display & Movement/Welcome Sign/08. Welcome Sign-Building Manual.pdf",
+        "sha": "6bb08061338f5dbca693b4de3ac55074cdc276cb",
+        "size": 5221625
+      },
+      {
+        "path": "public/Level 5/Building/Illumination & Signals/Car Lights/11. Car Lights-Building Manual.pdf",
+        "sha": "64313e15f8126f3c3919bfd59170e13311548f78",
+        "size": 12676515
+      },
+      {
+        "path": "public/Level 5/Building/Illumination & Signals/Direction Indicator/06.Direction Indicator-Building Manual.pdf",
+        "sha": "7d9c4d21c283368825483ffbdb54269090468480",
+        "size": 5723164
+      },
+      {
+        "path": "public/Level 5/Building/Interactive Mechanisms/Magnetic Object Finder/07. Magnetic Object Finder-Building Manual.pdf",
+        "sha": "94148e14d60dce992de6207dae62c7f094be4cd4",
+        "size": 3437837
+      },
+      {
+        "path": "public/Level 5/Building/Interactive Mechanisms/Passenger Counter/14.Passenger Counter-Building Manual.pdf",
+        "sha": "201209e3fd39dff576888ca0f3125939139673c1",
+        "size": 12174035
+      },
+      {
+        "path": "public/Level 5/Building/Mechanisms & Simulators/Big Pendulum/26. The Big Pendulum-Building Manual.pdf",
+        "sha": "9e9b88336217a4f6cecd67adb87d0906819e2832",
+        "size": 8276004
+      },
+      {
+        "path": "public/Level 5/Building/Mechanisms & Simulators/Chairoplane/27. Chairoplane-Building Manual.pdf",
+        "sha": "08c7fcfadc98f5b149268fc26c8926e182ec6ada",
+        "size": 11579128
+      },
+      {
+        "path": "public/Level 5/Building/Mechanisms & Simulators/Crack Shot/6. Crack Shot - Basic Building Manual.pdf",
+        "sha": "0d7b05b81e933bbbf6614c01602e73b87a403bcf",
+        "size": 27984913
+      },
+      {
+        "path": "public/Level 5/Building/Mechanisms & Simulators/Crack Shot/6. Crack Shot - Optimized Building Manual.pdf",
+        "sha": "69ab2fb45921fc89ba70a4223e7ce60e7d4492c0",
+        "size": 5685574
+      },
+      {
+        "path": "public/Level 5/Building/Mechanisms & Simulators/Kiddie Ride/16. Kiddie Ride-Building Manual.pdf",
+        "sha": "e6dfcc9365a33d41b6abf0d5abc65b2b7652ced6",
+        "size": 13479892
+      },
+      {
+        "path": "public/Level 5/Building/Mechanisms & Simulators/Machine Gun/10.Machine Gun-Building Manual.pdf",
+        "sha": "5cf32ac3e629f6878c778a9fe5a5f77661c2ffff",
+        "size": 9608087
+      },
+      {
+        "path": "public/Level 5/Building/Mechanisms & Simulators/Revolving Door/15. Revolving Door-Building Manual.pdf",
+        "sha": "de6cbe202aa71f35eac7d80a70454101ae31bbf4",
+        "size": 7442633
+      },
+      {
+        "path": "public/Level 5/Building/Mechanisms & Simulators/Smart Turnstile/21.Smart Turnstile-Building Manual.pdf",
+        "sha": "fff9477200442c25129207415d3d05a979542703",
+        "size": 15196248
+      },
+      {
+        "path": "public/Level 5/Building/Mechanisms & Simulators/Top Scorer/8. Top Scorer - Basic Building Manual.pdf",
+        "sha": "c47316c22140b78cc851527ccff6a2ff2152e6fc",
+        "size": 10898760
+      },
+      {
+        "path": "public/Level 5/Building/Programming & Precise Control/Clothes Dryer/30. Clothes Dryer-Building Manual.pdf",
+        "sha": "14f76a4acd17fec9081debd33c035357bae17e5e",
+        "size": 5625683
+      },
+      {
+        "path": "public/Level 5/Building/Programming & Precise Control/Remote Control Fan/26. Remote Control Fan -Building Manual.pdf",
+        "sha": "6bceca1faca4cbbddc5e908180aa7c586a2290d8",
+        "size": 6725482
+      },
+      {
+        "path": "public/Level 5/Building/Programming & Precise Control/Rescue Robot/17.Rescue Robot -Building Manual.pdf",
+        "sha": "ec119a9932c85f2f83751b19ceae61300c9f970b",
+        "size": 22713644
+      },
+      {
+        "path": "public/Level 5/Building/Sensor Automation/Barometric Sensor/17.Barometric Pressure Meter-Building Manual.pdf",
+        "sha": "40e0f0fed1c3a699297d2028602a4a263f9e92bd",
+        "size": 1783219
+      },
+      {
+        "path": "public/Level 5/Building/Sensor-Focused Robots/Car Speed Detector/11. Car Speed Detector-Building Manual.pdf",
+        "sha": "f9f62ff49e40279e599b2864e9b6ddf4f2ca5886",
+        "size": 4882541
+      },
+      {
+        "path": "public/Level 5/Building/Sensor-Focused Robots/Facial Recognition Time Clock/28.Facial Recognition Time Clock-Building Manual.pdf",
+        "sha": "41d5560082aff7764d34ff8b7bdc34ce33851d3a",
+        "size": 7378340
+      },
+      {
+        "path": "public/Level 5/Building/Sensor-Focused Robots/Traffic Robot/20.Traffic Robot-Building Manual.pdf",
+        "sha": "f364815f6ea7d3206a03388bebe8320983736d09",
+        "size": 20450981
+      },
+      {
+        "path": "public/Level 5/Building/Sound & Voice Interaction/Swing With Rhythm/24. Swing With Rhythm-Building Manual.pdf",
+        "sha": "5c9f3aaba4d533912b0ec22239d1edc2e5df1a12",
+        "size": 6413671
+      },
+      {
+        "path": "public/Level 5/Building/Sound & Voice Interaction/Voice Control Vehicle/Voice Control Vehicle_Building.pdf",
+        "sha": "2c0adb3bb7b022d36d20aed30fbc04997d4d647d",
+        "size": 5255100
+      },
+      {
+        "path": "public/Level 5/Building/Sound & Voice Interaction/Voice control snail/08.Voice control snail-building.pdf",
+        "sha": "af36928a9d005d5ec52f7c7cf9c628e80c075aad",
+        "size": 8455258
+      },
+      {
+        "path": "public/Level 5/Building/Vehicles & Complex Movers/Hexapod Robot/21. Hexapod Robot-Building Manual.pdf",
+        "sha": "6a45d0e9aba0c11e45ee2ae867b485740fe3c5c5",
+        "size": 18287080
+      },
+      {
+        "path": "public/Level 5/Building/Vehicles & Complex Movers/Light Chasing Car/08.Light Chasing Car -Building Manual.pdf",
+        "sha": "cae14adbf589a14c2c263e0caa1eb536ae46eeea",
+        "size": 5896213
+      },
+      {
+        "path": "public/Level 5/Building/Vehicles & Complex Movers/Shopping Guide Robot/14.Shopping Guide Robot-Building Manual.pdf",
+        "sha": "451fdcfc670fbfab58967e0957bf0d8b2eba747b",
+        "size": 5442250
+      },
+      {
+        "path": "public/Level 5/Building/Vehicles & Complex Movers/Voice-controlled Frog/07.Voice-controlled Frog_Building Manual.pdf",
+        "sha": "55486489a6570ac5464fe1575cca09a53ad54408",
+        "size": 7297185
+      },
+      {
+        "path": "public/Level 5/Building/Vehicles & Complex Movers/Wind-up Car/05.Wind-up Car_Building Manual.pdf",
+        "sha": "e135c6d8456a61ff41d4518b8490af3d6c600c42",
+        "size": 8572239
+      },
+      {
+        "path": "public/Level 5/Learning/Action-Oriented/Curling Game/2. Curling Game - Slides.pdf",
+        "sha": "38c12f09851dc1d073af95a17ed805e58ca9ac50",
+        "size": 1329141
+      },
+      {
+        "path": "public/Level 5/Learning/Action-Oriented/Drawing Machine/23. Drawing Machine-Teaching Slides.pdf",
+        "sha": "b5ed190e69df3bc4f28373eeb2b9cae5dd7107f3",
+        "size": 1161103
+      },
+      {
+        "path": "public/Level 5/Learning/Action-Oriented/Firefly/02.Firefly-Slides.pdf",
+        "sha": "a4d549df861fe246d2c323222cbe22abd2462c94",
+        "size": 2808533
+      },
+      {
+        "path": "public/Level 5/Learning/Action-Oriented/Goalkeeper/23.Goalkeeper-Slides.pdf",
+        "sha": "a5d1ee04cba655399affaf8d03cc25f73c3f38b1",
+        "size": 975570
+      },
+      {
+        "path": "public/Level 5/Learning/Action-Oriented/Spanish Bullfight/03.Spanish Bullfight-Slides.pdf",
+        "sha": "60b239fa708fb7d27469e1d6f63d12beb63f0024",
+        "size": 3060495
+      },
+      {
+        "path": "public/Level 5/Learning/Action-Oriented/The Warrior/22. The Warrior-Teaching Slides.pdf",
+        "sha": "474ed6c9ea1298babfd8e39d3f2f2c741e3b8c05",
+        "size": 954759
+      },
+      {
+        "path": "public/Level 5/Learning/Advanced Navigation & Control/Super Trajectory Robot 3/15.Super Trajectory Robot 3.pdf",
+        "sha": "51ba52fa4664309c76f3ee8956cb13d2797d500e",
+        "size": 570500
+      },
+      {
+        "path": "public/Level 5/Learning/Advanced Navigation & Control/Super Trajectory Robot 4/16. Super Trajectory Robot 4.pdf",
+        "sha": "c2dd683081cf39aef58c28d2a9abf1fe7d7033e5",
+        "size": 713639
+      },
+      {
+        "path": "public/Level 5/Learning/Advanced Navigation & Control/Tracking car/11.Tracking car-update.pdf",
+        "sha": "b945b5e27e4e503e57159bebc5bd05b0c14b2bf7",
+        "size": 929101
+      },
+      {
+        "path": "public/Level 5/Learning/Automation & Security/Face tracking/07. Face tracking.pdf",
+        "sha": "e1ffc26b04538bd84ff88098a79a0838d12c9adb",
+        "size": 929361
+      },
+      {
+        "path": "public/Level 5/Learning/Automation & Security/Magnetic Anti-theft Cabinet/08. Magnetic Anti-theft Cabinet_Teaching Slides.pdf",
+        "sha": "6b44b0c0198132b30720df6163712fc9c24f3fee",
+        "size": 1006339
+      },
+      {
+        "path": "public/Level 5/Learning/Automation & Security/Please Scan to Ride/03.Please Scan to Ride-Teaching Slides.pdf",
+        "sha": "3c0cb2b361b9fce030190b12768b04d9c42314ff",
+        "size": 1106576
+      },
+      {
+        "path": "public/Level 5/Learning/Automation & Security/Smart Cash Register/02.Smart Cash Register-Teaching Slides.pdf",
+        "sha": "bd908fe84b67c9abaddd233cbff59d30e73e8a42",
+        "size": 1170839
+      },
+      {
+        "path": "public/Level 5/Learning/Autonomous Navigation & Ranging/Autonomous driving/03. Autonomous Driving.pdf",
+        "sha": "dfb44a5193288185e450fd7e5fe4148fc4dee9c7",
+        "size": 936148
+      },
+      {
+        "path": "public/Level 5/Learning/Autonomous Navigation & Ranging/Smart Guiding Car/02. Smart Guiding Car - Teaching Slides.pdf",
+        "sha": "8faf4b64a4fb19af55d2a51d6937d46c0a9f46aa",
+        "size": 1062378
+      },
+      {
+        "path": "public/Level 5/Learning/Characters & Structures/Lucky Prize Wheel/21. Lucky Prize Wheel -Teaching Slides.pdf",
+        "sha": "3c331dc5adf0a88253b319b1b3c99287a602f866",
+        "size": 978640
+      },
+      {
+        "path": "public/Level 5/Learning/Characters & Structures/Oil Pumping Unit/21. Oil Pumping Unit -Slides.pdf",
+        "sha": "7a8331f90e032e47617b802d7ad452f461b43fe4",
+        "size": 2800844
+      },
+      {
+        "path": "public/Level 5/Learning/Characters & Structures/Swinging Shark/03. Swinging Shark - Teaching Slides.pdf",
+        "sha": "c7806b97159f9628602e2020b06c56e1021bd5ad",
+        "size": 1117246
+      },
+      {
+        "path": "public/Level 5/Learning/Complex Mechanisms & Coordinated Motion/Music box/Music box-update.pdf",
+        "sha": "3e0d14bc801c07799932782134e6d0fec26dcd72",
+        "size": 967075
+      },
+      {
+        "path": "public/Level 5/Learning/Display & Movement/Remote Control Car/12.Remote Control Car-Slides.pdf",
+        "sha": "8f425f3c25ee38a2e779c8a7777b2defcf166121",
+        "size": 2611630
+      },
+      {
+        "path": "public/Level 5/Learning/Display & Movement/Runner/25.Runner -Slides.pdf",
+        "sha": "68e594bff06c1ba005fa87a051c0d92aa4a3a9e0",
+        "size": 2785956
+      },
+      {
+        "path": "public/Level 5/Learning/Display & Movement/Welcome Sign/08. Welcome Sign-Teaching Slides.pdf",
+        "sha": "ce36183c1481bd77263bbe2d133dbcccf65c65ad",
+        "size": 1008432
+      },
+      {
+        "path": "public/Level 5/Learning/Illumination & Signals/Car Lights/11. Car Lights-Teaching Slides.pdf",
+        "sha": "db4b561ec2501a8feaf50b6b1858abd94eaa4151",
+        "size": 1223350
+      },
+      {
+        "path": "public/Level 5/Learning/Illumination & Signals/Direction Indicator/06.Direction Indicator-Teaching Slides.pdf",
+        "sha": "98703019118d1c954b0d3e151e297cb5b1c5a5d2",
+        "size": 1274231
+      },
+      {
+        "path": "public/Level 5/Learning/Interactive Mechanisms/Magnetic Object Finder/07. Magnetic Object Finder-Teaching Slides.pdf",
+        "sha": "cd584030b301f0d3ea945f851fee53a5c2f2aa92",
+        "size": 850018
+      },
+      {
+        "path": "public/Level 5/Learning/Interactive Mechanisms/Passenger Counter/14.Passenger Counter-Teaching Slides.pdf",
+        "sha": "6983b29de3362caa121d923125d7cabdcbdde5a7",
+        "size": 792081
+      },
+      {
+        "path": "public/Level 5/Learning/Mechanisms & Simulators/Big Pendulum/26. The Big Pendulum-Teaching Slides.pdf",
+        "sha": "934a9e5b1e4629eef229076479dac24125fe8645",
+        "size": 916283
+      },
+      {
+        "path": "public/Level 5/Learning/Mechanisms & Simulators/Chairoplane/27. Chairoplane-Teaching Slides.pdf",
+        "sha": "13ed8e29ea1c551940a14ec98c0bbe66eee5d7b1",
+        "size": 1343787
+      },
+      {
+        "path": "public/Level 5/Learning/Mechanisms & Simulators/Crack Shot/6. Crack Shot -Slides.pdf",
+        "sha": "bca947ee1a6ddf355e2ecb49ebdb94b2c62d5246",
+        "size": 1248473
+      },
+      {
+        "path": "public/Level 5/Learning/Mechanisms & Simulators/Kiddie Ride/16. Kiddie Ride-Teaching Slides.pdf",
+        "sha": "072916af0fcc79bb4508e96db339f1968bd1956e",
+        "size": 1158264
+      },
+      {
+        "path": "public/Level 5/Learning/Mechanisms & Simulators/Machine Gun/10.Machine Gun-Slides.pdf",
+        "sha": "9e53ab8b6cebb4090ca0f1a06b862da060893444",
+        "size": 2841010
+      },
+      {
+        "path": "public/Level 5/Learning/Mechanisms & Simulators/Revolving Door/15. Revolving Door-Teaching Slides.pdf",
+        "sha": "44afd5200668763a5635440b336ca0ed12814794",
+        "size": 915589
+      },
+      {
+        "path": "public/Level 5/Learning/Mechanisms & Simulators/Smart Turnstile/21.Smart Turnstile-Slides.pdf",
+        "sha": "e1aebb425c8d0dbd219d82d8825cb2ab6b9f3c9c",
+        "size": 1045483
+      },
+      {
+        "path": "public/Level 5/Learning/Mechanisms & Simulators/Top Scorer/8. Top Scorer -Slides.pdf",
+        "sha": "bba9cd5c053b7256401a96db7f49c386dc157372",
+        "size": 1150122
+      },
+      {
+        "path": "public/Level 5/Learning/Programming & Precise Control/Clothes Dryer/30. Clothes Dryer-Teaching Slides.pdf",
+        "sha": "516df5206e6f5a02c73a3732415e9556d3b63e6d",
+        "size": 959361
+      },
+      {
+        "path": "public/Level 5/Learning/Programming & Precise Control/Remote Control Fan/26. Remote Control Fan-Teaching Slides.pdf",
+        "sha": "790060a423989b758ef00ebe7499d6580c1a0da2",
+        "size": 1090633
+      },
+      {
+        "path": "public/Level 5/Learning/Programming & Precise Control/Rescue Robot/17.Rescue Robot -Slides.pdf",
+        "sha": "e763397312f6fd88df9c296e4d5936ac4720bf67",
+        "size": 1292312
+      },
+      {
+        "path": "public/Level 5/Learning/Programming & Precise Control/Traffic signs/05.traffic signs.pdf",
+        "sha": "6947c3f7b47a087a2ec883dde29bc2f842380c64",
+        "size": 1011930
+      },
+      {
+        "path": "public/Level 5/Learning/Sensor Automation/Barometric Sensor/17.Barometric Pressure Meter-Teaching Slides.pdf",
+        "sha": "f26ec6e7dedb4d51d4c23b2aa4c775395782db32",
+        "size": 980797
+      },
+      {
+        "path": "public/Level 5/Learning/Sensor-Focused Robots/Car Speed Detector/11. Car Speed Detector-Teaching Slides.pdf",
+        "sha": "506fcf4cf75747765bcbf19038a4c878c74f7645",
+        "size": 1014475
+      },
+      {
+        "path": "public/Level 5/Learning/Sensor-Focused Robots/Facial Recognition Time Clock/28.Facial Recognition Time Clock-Slides.pdf",
+        "sha": "1bcef82c9ba0d7610772ef579385ef23e2924560",
+        "size": 983909
+      },
+      {
+        "path": "public/Level 5/Learning/Sensor-Focused Robots/Traffic Robot/20.Traffic Robot-Slides.pdf",
+        "sha": "82b9021fd4da83a4b5fa187bed3659a007728b43",
+        "size": 1102497
+      },
+      {
+        "path": "public/Level 5/Learning/Sound & Voice Interaction/Swing With Rhythm/24. Swing With Rhythm-Teaching Slides.pdf",
+        "sha": "30c4258d9e131d76e3c5e503f73fed9fd9bd4644",
+        "size": 804156
+      },
+      {
+        "path": "public/Level 5/Learning/Sound & Voice Interaction/Voice Control Vehicle/Voice Control Vehicle_Powerpoint-update.pdf",
+        "sha": "d786df71fbd952aa73aee5b57627838ca845a67b",
+        "size": 962853
+      },
+      {
+        "path": "public/Level 5/Learning/Sound & Voice Interaction/Voice control snail/Voice control snail_Powerpoint.pdf",
+        "sha": "ebfbc1ce3248f7ceaea4221e43f29eb0dd35d6ad",
+        "size": 686035
+      },
+      {
+        "path": "public/Level 5/Learning/Vehicles & Complex Movers/Hexapod Robot/21. Hexapod Robot-Teaching Slides.pdf",
+        "sha": "bfb054465dddadd030d1de98d5fdcddf76b7c523",
+        "size": 1009717
+      },
+      {
+        "path": "public/Level 5/Learning/Vehicles & Complex Movers/Light Chasing Car/08.Light Chasing Car -Slides.pdf",
+        "sha": "7263192eed18c0a93a3dfd018c4938cde8dd9b29",
+        "size": 2276085
+      },
+      {
+        "path": "public/Level 5/Learning/Vehicles & Complex Movers/Shopping Guide Robot/14.Shopping Guide Robot-Slides.pdf",
+        "sha": "0abc27f86b3033e16400c6db4152c2b652524f77",
+        "size": 2393619
+      },
+      {
+        "path": "public/Level 5/Learning/Vehicles & Complex Movers/Voice-controlled Frog/07.Voice-controlled Frog_Slides.pdf",
+        "sha": "e749311e61fb942860a5aebd3f516ee3e92b8187",
+        "size": 2430523
+      },
+      {
+        "path": "public/Level 5/Learning/Vehicles & Complex Movers/Wind-up Car/05.Wind-up Car_Slides.pdf",
+        "sha": "a649b8665d9212ffae21afb4874e20c08c317d8b",
+        "size": 2696918
+      },
+      {
+        "path": "public/Level 5/Learning/Vehicles & Motion/Super patrol car.pdf",
+        "sha": "86d23f9f4b298a75fee8ee47888d78c5e2fd7095",
+        "size": 957576
+      },
+      {
+        "path": "public/Level 6/Building/Action-Oriented/Gorilla/04.Gorilla-Building Manual.pdf",
+        "sha": "0c1dae235396f3ad2816c2d51b06166eb124c481",
+        "size": 8153918
+      },
+      {
+        "path": "public/Level 6/Building/Action-Oriented/Picture Projector/28. Picture Projector-Building Manual.pdf",
+        "sha": "ec65a8c0a381cb8f92eadda3bc28024eaf5b01ea",
+        "size": 3136157
+      },
+      {
+        "path": "public/Level 6/Building/Action-Oriented/The Flapping Pterosaur/17. The Flapping Pterosaur-Building Manual.pdf",
+        "sha": "3e474b0a4aaa26035baf7203f28879a1403d6fc2",
+        "size": 20131061
+      },
+      {
+        "path": "public/Level 6/Building/Automation & Security/Code-scanning Gate/04.Code-scanning Gate-Building Manual.pdf",
+        "sha": "cedd874e3b00dd8dca94a6d696bc15dcc33e194d",
+        "size": 9973061
+      },
+      {
+        "path": "public/Level 6/Building/Automation & Security/Intelligent Passing Light/09. Intelligent Passing Light -Building Manual.pdf",
+        "sha": "5631d95c4d702902643127ce707cccbd40317e92",
+        "size": 4058127
+      },
+      {
+        "path": "public/Level 6/Building/Autonomous Navigation & Ranging/Gesture-commanding Car/23. Gesture-commanding Car-Building Manual.pdf",
+        "sha": "b01eee7153ffe54f3947d2d616a649ba007cffa7",
+        "size": 5442297
+      },
+      {
+        "path": "public/Level 6/Building/Biomimicry & Stimulus Response/Regional Weather Station/32.Regional Weather Station-Building Manual.pdf",
+        "sha": "2da1221e39233623740ded9b35ac3e43dae5f8e1",
+        "size": 12605820
+      },
+      {
+        "path": "public/Level 6/Building/Biomimicry & Stimulus Response/Super Scorpion/16. Super Scorpion - Basic Building Manual.pdf",
+        "sha": "23004ccd4b873878afbbbd73f16739637a7389b7",
+        "size": 43780193
+      },
+      {
+        "path": "public/Level 6/Building/Biomimicry & Stimulus Response/Super Scorpion/16. Super Scorpion - Optimized Building Manual.pdf",
+        "sha": "f1bfb447511de5a6529f60e43e432fa488450af8",
+        "size": 4871492
+      },
+      {
+        "path": "public/Level 6/Building/Characters & Structures/Clown/05.Clown-Building Manual.pdf",
+        "sha": "7da2056de8dfecb0f9182cc66f9db07476ace2ac",
+        "size": 4432620
+      },
+      {
+        "path": "public/Level 6/Building/Complex Mechanisms & Coordinated Motion/Accurate Shooting/13. Accurate Shooting-Building Manual.pdf",
+        "sha": "9e5ec84bacf6de00da52fe4326c425f37e829397",
+        "size": 8353875
+      },
+      {
+        "path": "public/Level 6/Building/Display & Movement/Digital Countdown/07.Digital Countdown-Building Manual.pdf",
+        "sha": "34dc7c6d04818d190f1b5e440a4eb9aeb4238a3b",
+        "size": 5318800
+      },
+      {
+        "path": "public/Level 6/Building/Illumination & Signals/Red Light Warning Device/12. Red Light Warning Device-Building Manual.pdf",
+        "sha": "199c00c6ab9e983220528b8d11c4ee4b77b42ac8",
+        "size": 3645910
+      },
+      {
+        "path": "public/Level 6/Building/Illumination & Signals/Smart Flashlight/27.Smart Flashlight-Building Manual.pdf",
+        "sha": "fe6dcf11f5392c81fea146830564625c4c0dc73b",
+        "size": 4566573
+      },
+      {
+        "path": "public/Level 6/Building/Illumination & Signals/Traffic Lights Display/10. Traffic Lights-Building Manual.pdf",
+        "sha": "aa7617b0d68897f432e558068006ad99d446a330",
+        "size": 4301323
+      },
+      {
+        "path": "public/Level 6/Building/Interactive Mechanisms/Pinball Machine/30. Pinball Machine-Building Manual.pdf",
+        "sha": "4d2b2fa6deea6b351b49661efbbf17eb03f39e26",
+        "size": 10371886
+      },
+      {
+        "path": "public/Level 6/Building/Interactive Systems/Smart Fan/31.Smart Fan-Building Manual.pdf",
+        "sha": "423439593933dd60a9be8c952767ceb426088e39",
+        "size": 10498788
+      },
+      {
+        "path": "public/Level 6/Building/Interactive Systems/The Interesting Rotor/19. The Interesting Rotor-Building Manual.pdf",
+        "sha": "856b23820ab6a2e21185f8a281276bf397fe3666",
+        "size": 15230879
+      },
+      {
+        "path": "public/Level 6/Building/Mechanisms & Simulators/Combination Lock/29.Combination Lock -Building Manual.pdf",
+        "sha": "ab167ad965967e295352eac94b951b4bd98eb7a5",
+        "size": 30818655
+      },
+      {
+        "path": "public/Level 6/Building/Mechanisms & Simulators/Gibbon/14. Gibbon - Basic Building Manual.pdf",
+        "sha": "aafb4cc726907006acbeb36f3d24c92cac2410ce",
+        "size": 14533894
+      },
+      {
+        "path": "public/Level 6/Building/Mechanisms & Simulators/Gibbon/14. Gibbon - Optimized Building Manual.pdf",
+        "sha": "c3027d3d9380f7aba708ee1dd73fa2343be8ea09",
+        "size": 10631909
+      },
+      {
+        "path": "public/Level 6/Building/Mechanisms & Simulators/Pay by card/16.Pay by card -Building Manual.pdf",
+        "sha": "da2a96757c2b6c0a8e67882b74488d678287d7d0",
+        "size": 5864225
+      },
+      {
+        "path": "public/Level 6/Building/Mechanisms & Simulators/Product Search/15.Product Search -Building Manual.pdf",
+        "sha": "540334dcedb3a2ab538fbf8e097c4c47ab83a41b",
+        "size": 6891422
+      },
+      {
+        "path": "public/Level 6/Building/Mechanisms & Simulators/Punch Hard/7. Punch Hard - Basic Building Manual.pdf",
+        "sha": "c82af90fa9c3f597a04cab1b62761f83c7739113",
+        "size": 15535258
+      },
+      {
+        "path": "public/Level 6/Building/Mechanisms & Simulators/RC Airplane/11.RC Airplane -Building Manual.pdf",
+        "sha": "6b75d94b31a73e86ae5551bdba733e0601fbb361",
+        "size": 7763009
+      },
+      {
+        "path": "public/Level 6/Building/Mechanisms & Simulators/Ring Toss Game/15. Ring Toss Game-Building Manual.pdf",
+        "sha": "28dde7a08b9d2905c3ef7eae0e088ed01a92764a",
+        "size": 8025938
+      },
+      {
+        "path": "public/Level 6/Building/Mechanisms & Simulators/Robotic Arm/32. The Robotic Arm-Building Manual.pdf",
+        "sha": "d72dd2caf322b328a98ef0d259134d63867aae19",
+        "size": 12886761
+      },
+      {
+        "path": "public/Level 6/Building/Mechanisms & Simulators/Vending Machine/27.Vending Machine-Building Manual.pdf",
+        "sha": "a32685279c3e23f824ce3ae3abe27e7963e6580c",
+        "size": 24636482
+      },
+      {
+        "path": "public/Level 6/Building/Programming & Precise Control/Autonomous Driving/18.Autonomous Driving -Building Manual.pdf",
+        "sha": "8ff6d0790bb8d7baf616473e3fef9b0df6a70885",
+        "size": 20226771
+      },
+      {
+        "path": "public/Level 6/Building/Programming & Precise Control/Minesweeper Robot/12.Minesweeper Robot - Building Manual.pdf",
+        "sha": "14c63e8beb0a6cae97c17704a839809f51ae908b",
+        "size": 8850967
+      },
+      {
+        "path": "public/Level 6/Building/Programming & Precise Control/Remote Control Lift/22. Remote Control Lift -Building Manual.pdf",
+        "sha": "37aa39b130091b0a1bd17d28cb14c4edb332fad9",
+        "size": 11188381
+      },
+      {
+        "path": "public/Level 6/Building/Programming & Precise Control/Saluting Robot/26.Saluting Robot -Building Manual.pdf",
+        "sha": "045dad4e51de524ad2515b4f64b154cd1ae32431",
+        "size": 23111340
+      },
+      {
+        "path": "public/Level 6/Building/Programming & Precise Control/Smart Electric Drill/20. Smart Electric Drill-Building Manual.pdf",
+        "sha": "5e4561c21e9e4e836e52f4857c0f6db9f2143c36",
+        "size": 5288078
+      },
+      {
+        "path": "public/Level 6/Building/Sensor Automation/Altimeter/18. Altimeter-Building Manual.pdf",
+        "sha": "e4c521ae5296db33c87be5fc8f5f6ca9a79c0d88",
+        "size": 3610602
+      },
+      {
+        "path": "public/Level 6/Building/Sensor Automation/High Temperature Alarm/29. High Temperature Alarm-Building Manual.pdf",
+        "sha": "6719221a2ea67bc7cc2b35e7f33a431c165d6549",
+        "size": 7372543
+      },
+      {
+        "path": "public/Level 6/Building/Sensor Automation/Intelligent Sorting Machine/24.Intelligent Sorting Machine-Building Manual.pdf",
+        "sha": "1801ad212494d2c3d6040f37889728405f6c2a5d",
+        "size": 42462004
+      },
+      {
+        "path": "public/Level 6/Building/Sensor Automation/Parcel Sorting Machine/31. Parcel Sorting Machine-Building Manual.pdf",
+        "sha": "6e579ce687f1e9fdaff0ebc3478482b9e4516e03",
+        "size": 12205505
+      },
+      {
+        "path": "public/Level 6/Building/Sensor-Focused Robots/Colorblind Assistant Robot/25.Colorblind Assistant Robot-Building Manual.pdf",
+        "sha": "052324f6524cbf01626cfb5e6b8782aabb4f075a",
+        "size": 17663837
+      },
+      {
+        "path": "public/Level 6/Building/Sensor-Focused Robots/Rock-paper-scissors Robot/30.Rock-paper-scissors Robot-Building Manual.pdf",
+        "sha": "af9423f2a5191ca8577b18cd3fa827da09fd829b",
+        "size": 16315903
+      },
+      {
+        "path": "public/Level 6/Building/Sensor-Focused Robots/Smart Camera/22.Smart Camera-Building Manual.pdf",
+        "sha": "b73adbc3d2994f09c737ca144fb30d942db16fc5",
+        "size": 14510955
+      },
+      {
+        "path": "public/Level 6/Building/Vehicles & Complex Movers/Tricycle/29. Tricycle-Building Manual.pdf",
+        "sha": "6442758fb141eddfed084dca4d36df0afc6f1cac",
+        "size": 7799316
+      },
+      {
+        "path": "public/Level 6/Learning/Action-Oriented/Gorilla/04.Gorilla - Slides.pdf",
+        "sha": "c2926bf329acda34b37069ec735947d4a74b2535",
+        "size": 2707906
+      },
+      {
+        "path": "public/Level 6/Learning/Action-Oriented/Picture Projector/28. Picture Projector-Teaching Slides.pdf",
+        "sha": "73ab52370dc0639739f53f3dc91790e755db1569",
+        "size": 1102107
+      },
+      {
+        "path": "public/Level 6/Learning/Action-Oriented/The Flapping Pterosaur/17. The Flapping Pterosaur-Teaching Slides.pdf",
+        "sha": "677c6492cde329c28e972f886063498587430c04",
+        "size": 1323747
+      },
+      {
+        "path": "public/Level 6/Learning/Automation & Security/Code-scanning Gate/04.Code-scanning Gate-Teaching Slides.pdf",
+        "sha": "711d9032ddaa82e1d33124db265289f02cf58c15",
+        "size": 1227800
+      },
+      {
+        "path": "public/Level 6/Learning/Automation & Security/Intelligent Passing Light/09. Intelligent Passing Light-Teaching Slides.pdf",
+        "sha": "a26ff329b731f6407c4158e9d1b5d6d2435ff4e9",
+        "size": 1052564
+      },
+      {
+        "path": "public/Level 6/Learning/Autonomous Navigation & Ranging/Gesture-commanding Car/23. Gesture-commanding Car-Teaching Slides.pdf",
+        "sha": "9b80af55a490701b2b7c1dbc1d9708885527f374",
+        "size": 806846
+      },
+      {
+        "path": "public/Level 6/Learning/Biomimicry & Stimulus Response/Matador/02.Matador-update.pdf",
+        "sha": "6b9008054606d5c77b5e60d4149136278d11fe4d",
+        "size": 895553
+      },
+      {
+        "path": "public/Level 6/Learning/Biomimicry & Stimulus Response/Regional Weather Station/32.Regional Weather Station-Teaching Slides.pdf",
+        "sha": "0377664785dddf053d80259c82a941a8a0de86ff",
+        "size": 1030600
+      },
+      {
+        "path": "public/Level 6/Learning/Biomimicry & Stimulus Response/Super Scorpion/16. Super Scorpion - Slides.pdf",
+        "sha": "2c1368bba148a4f68ab7976bf94a54151b18a82e",
+        "size": 1302229
+      },
+      {
+        "path": "public/Level 6/Learning/Characters & Structures/Clown/05.Clown-Teaching slides.pdf",
+        "sha": "b9eb29b7661c3dd2ce221fb63df9e35043f21f3b",
+        "size": 1176881
+      },
+      {
+        "path": "public/Level 6/Learning/Complex Mechanisms & Coordinated Motion/Accurate Shooting/13. Accurate Shooting-Teaching Slides.pdf",
+        "sha": "a79eb3ccf6d0a06e53bf223c57e1d536fa993672",
+        "size": 1584202
+      },
+      {
+        "path": "public/Level 6/Learning/Complex Mechanisms & Coordinated Motion/Dancing Robot/0.3Dancing Robot-update.pdf",
+        "sha": "1ff54eb098ce239b4dcc67be28f9dfcffb0819c1",
+        "size": 815447
+      },
+      {
+        "path": "public/Level 6/Learning/Display & Movement/Digital Countdown/07.Digital Countdown-Teaching Slides.pdf",
+        "sha": "703cd7f8aca57d6227e241513daee3e8aba312fa",
+        "size": 1130637
+      },
+      {
+        "path": "public/Level 6/Learning/Illumination & Signals/Red Light Warning Device/12. Red Light Warning Device-Teaching Slides.pdf",
+        "sha": "8015119db32726e498b2624c23f06031aa2c6d8e",
+        "size": 1442001
+      },
+      {
+        "path": "public/Level 6/Learning/Illumination & Signals/Smart Flashlight/27.Lesson 27 Smart Flashlight-Teaching Slides.pdf",
+        "sha": "862108ab03a55e06fc296227635a17693c9386e8",
+        "size": 879817
+      },
+      {
+        "path": "public/Level 6/Learning/Illumination & Signals/Traffic Lights Display/10. Traffic Lights-Teaching Slides.pdf",
+        "sha": "5bb53f04317a955d1bd5e182a5138fff7b002c4a",
+        "size": 1305645
+      },
+      {
+        "path": "public/Level 6/Learning/Interactive Mechanisms/Finger-guessing Robot/04.Finger-guessing Robot.pdf",
+        "sha": "1100150b8497af1be01dea0a51b685ae52099b9a",
+        "size": 749644
+      },
+      {
+        "path": "public/Level 6/Learning/Interactive Mechanisms/Pinball Machine/30. Pinball Machine-Teaching Slides.pdf",
+        "sha": "e04ee704f7c0a5694f138f537bda947f35763998",
+        "size": 1278747
+      },
+      {
+        "path": "public/Level 6/Learning/Interactive Systems/Smart Fan/31.Smart Fan-Teaching Slides.pdf",
+        "sha": "3443c436660daae41cfbf22f8ca2519a41d4b47f",
+        "size": 1253499
+      },
+      {
+        "path": "public/Level 6/Learning/Interactive Systems/The Interesting Rotor/19. The Interesting Rotor-Teaching Slides.pdf",
+        "sha": "6f624e315a63b0bcb88ccb61f8a0494fb9171cd7",
+        "size": 938396
+      },
+      {
+        "path": "public/Level 6/Learning/Mechanisms & Simulators/Combination Lock/29.Combination Lock -Slides.pdf",
+        "sha": "deba56f115e3421643eb07fdadef3075b40c405e",
+        "size": 1289549
+      },
+      {
+        "path": "public/Level 6/Learning/Mechanisms & Simulators/Gibbon/14. Gibbon - Slides.pdf",
+        "sha": "179e6a2e18effbd88a18ceddec3df66999563f02",
+        "size": 1378375
+      },
+      {
+        "path": "public/Level 6/Learning/Mechanisms & Simulators/Pay by card/16.Pay by card -Slides.pdf",
+        "sha": "f2ddb5a45c8812a34f696644e4c56837444e6930",
+        "size": 2030918
+      },
+      {
+        "path": "public/Level 6/Learning/Mechanisms & Simulators/Product Search/15.Product Search -Slides.pdf",
+        "sha": "a943db5112d5e5c29874cf15684a47478aab0014",
+        "size": 2555447
+      },
+      {
+        "path": "public/Level 6/Learning/Mechanisms & Simulators/Punch Hard/7. Punch Hard - Slides.pdf",
+        "sha": "4c7bc1e92d0f80d8094b00e710e177d203f30ed1",
+        "size": 1204526
+      },
+      {
+        "path": "public/Level 6/Learning/Mechanisms & Simulators/RC Airplane/11.RC Airplane - Slides.pdf",
+        "sha": "559d1f6874b2bea7b089bec322c1065d6e12ad19",
+        "size": 2494636
+      },
+      {
+        "path": "public/Level 6/Learning/Mechanisms & Simulators/Ring Toss Game/15. Ring Toss Game-Teaching Slides.pdf",
+        "sha": "d258a0547d68cf79679977f6c16a57484221fc26",
+        "size": 1353418
+      },
+      {
+        "path": "public/Level 6/Learning/Mechanisms & Simulators/Robotic Arm/32. The Robotic Arm-Teaching Slides.pdf",
+        "sha": "222e11ad30c24ed70b12a37e3f1205b059c62b5f",
+        "size": 1098316
+      },
+      {
+        "path": "public/Level 6/Learning/Mechanisms & Simulators/Vending Machine/27.Vending Machine-Slides.pdf",
+        "sha": "bf550c2b901c8cdfe2eabd7dd260613b2ace7c2c",
+        "size": 1223981
+      },
+      {
+        "path": "public/Level 6/Learning/Programming & Precise Control/Autonomous Driving/18.Autonomous Driving -Slides.pdf",
+        "sha": "59b7ad8fc10446a4e511685a20f8a9a3a6f69800",
+        "size": 1175800
+      },
+      {
+        "path": "public/Level 6/Learning/Programming & Precise Control/Minesweeper Robot/12.Minesweeper Robot -Slides.pdf",
+        "sha": "c14964353a9c5e4e09feb614bc17d261ae6c310e",
+        "size": 2801187
+      },
+      {
+        "path": "public/Level 6/Learning/Programming & Precise Control/Remote Control Lift/22. Remote Control Lift-Teaching Slides.pdf",
+        "sha": "66120938cf01fe092e03e98db1e7791800c91039",
+        "size": 945805
+      },
+      {
+        "path": "public/Level 6/Learning/Programming & Precise Control/Saluting Robot/26.Saluting Robot -Slides.pdf",
+        "sha": "cba2da86cb86565ddcdb2b4e78d2e1ad2e8caff1",
+        "size": 1183644
+      },
+      {
+        "path": "public/Level 6/Learning/Programming & Precise Control/Smart Electric Drill/20. Smart Electric Drill-Teaching Slides.pdf",
+        "sha": "959dd945fc0682a349b42fddfee8e049b567fb37",
+        "size": 1158882
+      },
+      {
+        "path": "public/Level 6/Learning/Sensor Automation/Altimeter/18. Altimeter-Teaching Slides.pdf",
+        "sha": "a97da49839c21a9235514d581b0a7ba5e3436185",
+        "size": 982925
+      },
+      {
+        "path": "public/Level 6/Learning/Sensor Automation/High Temperature Alarm/29. High Temperature Alarm-Teaching Slides.pdf",
+        "sha": "bc8e18b6acd224f5ecfacca71dac51e3c4d75d60",
+        "size": 926817
+      },
+      {
+        "path": "public/Level 6/Learning/Sensor Automation/Intelligent Sorting Machine/24.Intelligent Sorting Machine-Slides.pdf",
+        "sha": "52ae5dc7c0f44b005ddfef32bf42e7cade045dba",
+        "size": 1400190
+      },
+      {
+        "path": "public/Level 6/Learning/Sensor Automation/Parcel Sorting Machine/31. Parcel Sorting Machine-Teaching Slides.pdf",
+        "sha": "967de2c4381337635ba45c1dfec140a8427227d2",
+        "size": 1288796
+      },
+      {
+        "path": "public/Level 6/Learning/Sensor-Focused Robots/Ball Tracking/08.Ball Tracking.pdf",
+        "sha": "0a693d5288f960298a25d17f7650d9b8fde9f67b",
+        "size": 794881
+      },
+      {
+        "path": "public/Level 6/Learning/Sensor-Focused Robots/Colorblind Assistant Robot/25.Colorblind Assistant Robot-Slides.pdf",
+        "sha": "73454f281dd515da5cccbe3a7d3116923efc63ea",
+        "size": 1193435
+      },
+      {
+        "path": "public/Level 6/Learning/Sensor-Focused Robots/Rock-paper-scissors Robot/30.Rock-paper-scissors Robot-Slides.pdf",
+        "sha": "d57ed72042de706d005b1fcd7b0ee4aa77464e44",
+        "size": 1371312
+      },
+      {
+        "path": "public/Level 6/Learning/Sensor-Focused Robots/Smart Camera/22.Smart Camera-Slides.pdf",
+        "sha": "70bb835cc07e0649e1a670fed83e9b96e81fe476",
+        "size": 1326655
+      },
+      {
+        "path": "public/Level 6/Learning/Vehicles & Complex Movers/Tricycle/29. Tricycle-Teaching Slides.pdf",
+        "sha": "2749502db85322344929264205056c0ba05cc658",
+        "size": 1292939
+      },
+      {
+        "path": "public/Lifting Maintenance Vehicle.pdf",
+        "sha": "6b7da9e2496b02780b96b229b0e068abf8fd5f95",
+        "size": 23827851
+      },
+      {
+        "path": "public/Lifting door_Building.pdf",
+        "sha": "c9462f702c7602c40e1e53001500c2d107f87b7f",
+        "size": 7494567
+      },
+      {
+        "path": "public/Lighthouse_Building.pdf",
+        "sha": "29df31ff6222be819c34f42add05a594076d1b52",
+        "size": 5460123
+      },
+      {
+        "path": "public/Line patrol car.pdf",
+        "sha": "a84cca3db03f68978679373b6bc78ce45f0988a9",
+        "size": 850700
+      },
+      {
+        "path": "public/Little Owl.pdf",
+        "sha": "73329b0e9e67e1ea5147d17c68228da68dc893e4",
+        "size": 12411013
+      },
+      {
+        "path": "public/Little stars_Building.pdf",
+        "sha": "96a51712e440ef64b34622744a1c8ef5402a08c4",
+        "size": 2913299
+      },
+      {
+        "path": "public/Lucky turntable.pdf",
+        "sha": "049c3292d095ae3eb9cc8d31d246b93934a007d8",
+        "size": 1078746
+      },
+      {
+        "path": "public/Lunar Rover.pdf",
+        "sha": "1bdd4d89b5e8e3773753b3dcb3a9330e6c09ad1e",
+        "size": 7810384
+      },
+      {
+        "path": "public/Mechanical arm.pdf",
+        "sha": "cbd52e30499fc636e5a5abcf055b074d7a6349a3",
+        "size": 3841519
+      },
+      {
+        "path": "public/Mechanical dog.pdf",
+        "sha": "0b40358a925639d5ffac13f551ac69c1aebc0f96",
+        "size": 3518255
+      },
+      {
+        "path": "public/Mechanical masks.pdf",
+        "sha": "86974e366a70b08aa371ef7391d5a9d5dd3ab326",
+        "size": 8923106
+      },
+      {
+        "path": "public/Mobile Shot.pdf",
+        "sha": "542ef439142804b41b71871dc9127650f7a6625b",
+        "size": 13987029
+      },
+      {
+        "path": "public/Money detector.pdf",
+        "sha": "9d9e7a637fc49cd0ab7b364e76193af474bb256a",
+        "size": 927474
+      },
+      {
+        "path": "public/Motorcycle_Building.pdf",
+        "sha": "65cad44adc8585d75e68f9fb9e14f82bd84c703a",
+        "size": 4850666
+      },
+      {
+        "path": "public/Obstacle Avoidance Robot 1_Building.pdf",
+        "sha": "e61505dcb3e4c0f19123408449c93c2253d3e283",
+        "size": 9637658
+      },
+      {
+        "path": "public/Old-fashioned Telephone.pdf",
+        "sha": "81812f1e845fef00a02fb7819a6dfb6cf2f1e757",
+        "size": 12139152
+      },
+      {
+        "path": "public/Oscillating Fan.pdf",
+        "sha": "fd4be72ff27de80a2e96cc7066eb1cad54c14e8e",
+        "size": 10790384
+      },
+      {
+        "path": "public/Parking gate.pdf",
+        "sha": "9edac6d5a42c0df48b9efd076adbbd21e5b67281",
+        "size": 766116
+      },
+      {
+        "path": "public/Pedal Waterwheel.pdf",
+        "sha": "fe3f2245a7c5edf2ff2445b34e665879e2b3079b",
+        "size": 22002457
+      },
+      {
+        "path": "public/Pendulum ride.pdf",
+        "sha": "ad8bca01f8d9badfefb39d1914fa615cbf4df3ac",
+        "size": 4302389
+      },
+      {
+        "path": "public/Pirate ship_Building.pdf",
+        "sha": "cae6cbbfa3b330627394b7b10e879b8dfc609313",
+        "size": 3891910
+      },
+      {
+        "path": "public/Pliers.pdf",
+        "sha": "b87354730e587b2f22920041c60e61f960703463",
+        "size": 3708413
+      },
+      {
+        "path": "public/Pocket Pistol.pdf",
+        "sha": "f34c3fd01cc7406163299e8abea21883de04418f",
+        "size": 9572266
+      },
+      {
+        "path": "public/Primitive robot_Building.pdf",
+        "sha": "1f5a9ec9a72b7c0bed88ae72512ed7dca507843b",
+        "size": 2446093
+      },
+      {
+        "path": "public/Propeller Aircraft.pdf",
+        "sha": "bd5a99b4c205dacc2162fa34d9ae5b6309813512",
+        "size": 8527183
+      },
+      {
+        "path": "public/Pull back car_Building.pdf",
+        "sha": "abd0734123d08e22a289f15aced283814f1930fa",
+        "size": 5902834
+      },
+      {
+        "path": "public/Pullback Bicycle.pdf",
+        "sha": "b0270f0070ecf9ed0545442e8626f2ab8631bdb2",
+        "size": 9327706
+      },
+      {
+        "path": "public/Push ups_building.pdf",
+        "sha": "ea79f05e632be704113fb449b0e08ec70c2e1eee",
+        "size": 5701825
+      },
+      {
+        "path": "public/REX robot_Building.pdf",
+        "sha": "a1e4c53849982b52dc1ec8106ed26fa2eb84850d",
+        "size": 5995887
+      },
+      {
+        "path": "public/Responder.pdf",
+        "sha": "7d621e24ed155d78f1917b6de3a27b093be8b763",
+        "size": 8584798
+      },
+      {
+        "path": "public/Responder_Building.pdf",
+        "sha": "4ca98ac8f0aed59432de2cc10142dc5f1781154f",
+        "size": 2012410
+      },
+      {
+        "path": "public/Reverse Parking.pdf",
+        "sha": "18cf6c2c0651abacc04114de6e631176a292b994",
+        "size": 7218409
+      },
+      {
+        "path": "public/Robot war.pdf",
+        "sha": "8a7f1760c9623ffa6e089c90701648c6e1aecbe3",
+        "size": 1869071
+      },
+      {
+        "path": "public/Rolling Shutter.pdf",
+        "sha": "cbaf3dda9daaa021a88238276dce24a4c2304d4f",
+        "size": 14661539
+      },
+      {
+        "path": "public/Rotating Coffee Cup.pdf",
+        "sha": "c8cb0cf219a39ce8cd4cb71ab19d7a954d5d6093",
+        "size": 17211309
+      },
+      {
+        "path": "public/Rotating flying chair.pdf",
+        "sha": "541ca580fb782bcdc3998e0daa88946b61ca9065",
+        "size": 1218010
+      },
+      {
+        "path": "public/Rotating flying chair_Building.pdf",
+        "sha": "4291b8dd08df9c651e270e1f855d76b304ecb8d3",
+        "size": 2269253
+      },
+      {
+        "path": "public/Round-trip transportation.pdf",
+        "sha": "4302e1cc92b1474f5abdef57a2de9736f42a5e0a",
+        "size": 925499
+      },
+      {
+        "path": "public/Sailboat.pdf",
+        "sha": "be89c789802af585db97d1cbb39ecfc24877a1c3",
+        "size": 1804806
+      },
+      {
+        "path": "public/Scaling ladder.pdf",
+        "sha": "f001a8447b56b90a639b2b923b4a33774fa1e76c",
+        "size": 5694282
+      },
+      {
+        "path": "public/Security door_Building.pdf",
+        "sha": "03d7becdd7b35c4ec87ff0e3fe32a00b91919906",
+        "size": 4868092
+      },
+      {
+        "path": "public/Shift gears.pdf",
+        "sha": "3041120a52e8b7091c8796580670e2f5ae47dc8f",
+        "size": 1226699
+      },
+      {
+        "path": "public/Shock absorber_Building.pdf",
+        "sha": "7141d8dd2760fbdb5d7e2886ee255af94971cb7f",
+        "size": 5772895
+      },
+      {
+        "path": "public/Shy penguin.pdf",
+        "sha": "79149a28054b2fa4a9b088a5761fe5669f063835",
+        "size": 1155757
+      },
+      {
+        "path": "public/Sign.pdf",
+        "sha": "a815c71bef86aa3821e17ad6b649d9bde2a418a1",
+        "size": 1546232
+      },
+      {
+        "path": "public/Skating.pdf",
+        "sha": "4259c59548bd06eb9126b51e7b93773ec55cce33",
+        "size": 799345
+      },
+      {
+        "path": "public/Sled dog.pdf",
+        "sha": "e6b2bc12f65930446ff1522ad29960a31eb23568",
+        "size": 910299
+      },
+      {
+        "path": "public/Sled_Building.pdf",
+        "sha": "d0b6aa886a7d29d5ee877b3bab528624d3ef99f8",
+        "size": 2942222
+      },
+      {
+        "path": "public/Smart Audio_Building.pdf",
+        "sha": "0dfd3d13fe65d021868056ef3ecdbcf104dc1ed3",
+        "size": 8917740
+      },
+      {
+        "path": "public/Smart Window.pdf",
+        "sha": "8944d7239b3d078676879a7ecbb6b4a1c35c7444",
+        "size": 15495399
+      },
+      {
+        "path": "public/Smart door_Building.pdf",
+        "sha": "99db02e958996e1ec0d66d0f7303deb077934de5",
+        "size": 3883470
+      },
+      {
+        "path": "public/Sonometer_Building.pdf",
+        "sha": "bd571b772b2ae9adfa1df0d19e6586484aae48ce",
+        "size": 3150815
+      },
+      {
+        "path": "public/Spider.pdf",
+        "sha": "8871cc723c24dd2719d29ec75d7ad6befbc23b7b",
+        "size": 5097014
+      },
+      {
+        "path": "public/Spinning bike_Building.pdf",
+        "sha": "74a7f32abb7a93532c464e0f04a4ab0430fdf091",
+        "size": 3125916
+      },
+      {
+        "path": "public/Spirograph.pdf",
+        "sha": "e2dd8f8cda4179dc117acf7548e7fdd49aba7361",
+        "size": 17952758
+      },
+      {
+        "path": "public/SpongeBob_Building.pdf",
+        "sha": "5107d61e9ab4e4847df37bd427db6d7600342228",
+        "size": 2807427
+      },
+      {
+        "path": "public/Stag beetle.pdf",
+        "sha": "5805d0fb0b075fdbbc2ba06c0826266928311f21",
+        "size": 1898084
+      },
+      {
+        "path": "public/Sunflower.pdf",
+        "sha": "84c4ee8db080d4f2ca2991a03c7ed5c8d5307461",
+        "size": 9345616
+      },
+      {
+        "path": "public/Swing_Building.pdf",
+        "sha": "d7d3c926d6c880c73df4de9fe6565761c5133ebd",
+        "size": 3263219
+      },
+      {
+        "path": "public/Tank.pdf",
+        "sha": "529bccadbde1fc83b5f994d69e412e72e46410da",
+        "size": 22811133
+      },
+      {
+        "path": "public/Teeterboard.pdf",
+        "sha": "21df7860ba63c17acc720bc69381d4cf41d34e76",
+        "size": 3235199
+      },
+      {
+        "path": "public/The lawn mower.pdf",
+        "sha": "13c474d454b47282cbfcd3a1f84cbe4ab1132983",
+        "size": 899856
+      },
+      {
+        "path": "public/The treadmill.pdf",
+        "sha": "30f93ed7184c756294d27c60c6e71c7e88329285",
+        "size": 946879
+      },
+      {
+        "path": "public/The windmill kingdom.pdf",
+        "sha": "e881cb11620ff153479f45d749ba2b2d5d146bc7",
+        "size": 1663431
+      },
+      {
+        "path": "public/Throwing robot_Building.pdf",
+        "sha": "c6003825dc39d30193501ee58d6d97ce13836d4d",
+        "size": 9178952
+      },
+      {
+        "path": "public/Tightrope walk.pdf",
+        "sha": "fc2a37c7bcfac70c0f1b2afb6ff68f7f21ce02a3",
+        "size": 815384
+      },
+      {
+        "path": "public/Tower crane_Building.pdf",
+        "sha": "1a92c09b5a21f26a51b9868677eb283cd2e3605e",
+        "size": 4832886
+      },
+      {
+        "path": "public/Track Rickshaw.pdf",
+        "sha": "ee0fc85a36ec91eba42afab71e38e97e0504c50e",
+        "size": 14889044
+      },
+      {
+        "path": "public/Traffic light_Building.pdf",
+        "sha": "66eb7ebd399a556668d6f8b3a15665437eb6eab4",
+        "size": 2154140
+      },
+      {
+        "path": "public/Treadmill_Building.pdf",
+        "sha": "a0a26bdfea53b51d433bffbf895b7d9c0ba2c8f5",
+        "size": 8151844
+      },
+      {
+        "path": "public/Wali robot.pdf",
+        "sha": "b80036bef43374411ac29cf51e2959c4530d5e3d",
+        "size": 4803113
+      },
+      {
+        "path": "public/Walking Robot.pdf",
+        "sha": "a12735eb2559ce9044880d77771eb99970216f09",
+        "size": 8898498
+      },
+      {
+        "path": "public/Wiper.pdf",
+        "sha": "12bc1c003253ac964d8aaa391c92faa37055a051",
+        "size": 10691520
+      }
+    ]
+  },
+  "artwork": [
+    {
+      "source": "level-1-bulb.jpg",
+      "output": "level-1.webp",
+      "sourceSha": "56fa7c57112623cb465c72772dbb397e804cc507",
+      "outputTracked": false
+    },
+    {
+      "source": "level-2-gears.jpeg",
+      "output": "level-2.webp",
+      "sourceSha": "b48f92e4f3b68dc6baf75ddd5303afc4e4a9904c",
+      "outputTracked": false
+    },
+    {
+      "source": "level-3-rocket-repaired.svg",
+      "output": "level-3.webp",
+      "sourceSha": "bd007378c50231c3fd979952584191f4c6467024",
+      "outputTracked": false
+    },
+    {
+      "source": "level-4-laptop.jpeg",
+      "output": "level-4.webp",
+      "sourceSha": "9a42b83768bd197db000c273cae950f2efff66a1",
+      "outputTracked": false
+    },
+    {
+      "source": "level-5-globe.jpeg",
+      "output": "level-5.webp",
+      "sourceSha": "0beb82c976358277a1bfca31499b53f508b3f7b2",
+      "outputTracked": false
+    },
+    {
+      "source": "level-6-robot.jpeg",
+      "output": "level-6.webp",
+      "sourceSha": "1d93cb2eb3b47b9dd0f55667b3b555c5b34a3b64",
+      "outputTracked": false
+    },
+    {
+      "source": "blue-wave-header.jpeg",
+      "output": "header-wave.webp",
+      "sourceSha": "4edbb0d1b9f1b1fc732d1ce3f9ac9f9c67549a53",
+      "outputTracked": false
+    },
+    {
+      "source": "level-landscape-repaired.svg",
+      "output": "landscape.webp",
+      "sourceSha": "05ffe51a521f7d0c53577ab4a0f7058419c8c4e0",
+      "outputTracked": false
+    }
+  ],
+  "publicOtherExtensions": {
+    "sb2": 10,
+    "md": 1,
+    "jpeg": 10,
+    "png": 34,
+    "jpg": 1,
+    "svg": 3,
+    "mp4": 1,
+    "stl": 13,
+    "txt": 1
+  },
+  "quizBankTsFiles": 319,
+  "testFiles": 78,
+  "j5TestFiles": [
+    "tests/j5-check-in-boundary.test.mjs",
+    "tests/j5-http.test.mjs",
+    "tests/j5-level-one-final-build.test.mjs",
+    "tests/j5-student-access.test.mjs",
+    "tests/j5-student-overview.test.mjs"
+  ],
+  "backendReference": {
+    "repository": "Arrjack8847/bestemready-wix-backend",
+    "branch": "feat/lms-backend-foundation",
+    "commit": "6783c1e8a57df0e4f033885e6f9c59a05ca9eb82",
+    "readOnly": true
+  },
+  "runtimeVerification": {
+    "build": false,
+    "browser": false,
+    "wixDownload": false,
+    "actualDatabase": false,
+    "publicArtifact": false
+  }
+}

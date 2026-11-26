@@ -49,3 +49,6 @@ Read the private Wix backend at 6783c1e8a57df0e4f033885e6f9c59a05ca9eb82: src/ba
 - UI refreshes on page visibility and expiry; no localStorage authorization. No fabricated progress or payment states. No payment action is exposed from student session. Sign-out navigation delegates to account owner J2 rather than creating competing authentication. Resume/individual activity records and real provider wiring remain pending. Source changes only; full compilation and browser testing have not run.
 
 TypeScript 5.8.3 isolated discriminated-union reproduction exposed a narrowing error in the new profile state type. Changed to individually discriminated variants and bounded date timestamps to the JavaScript Date range. Full application compilation is still unverified.
+
+## Phase 1 source audit
+See [Phase 1 platform audit](j5-phase1-platform-audit-20261126.md) and [source inventory](j5-phase1-source-inventory-20261126.json). Source audit reviewed 18 course route files, inventoried 32 routes, checked all 590 PDF path/URL mappings and eight artwork sources, and identified 14 findings. Repository-source audit complete; runtime/browser/database/link verification remains open. No implementation changes in this audit commit.
