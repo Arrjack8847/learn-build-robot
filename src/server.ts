@@ -1,4 +1,5 @@
 import "./lib/error-capture";
+import { handleJ5PdfRequest } from "../scripts/j5/pdf-http.mjs";
 import { handleJ5CourseRequest } from "../scripts/j5/course-http.mjs";
 import { handleJ5Http } from "../scripts/j5/http.mjs";
 import { handleJ1Readiness } from "../scripts/j1/readiness.mjs";
@@ -62,6 +63,7 @@ export default {
       if (new URL(request.url).pathname.startsWith("/api/dev/sandbox-checkout/")) return await handleSandboxCheckout(request, process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/staff/")) return await handleStaffDesk(request, process.env);
       if (new URL(request.url).pathname === "/api/dev/j5/course-access") return await handleJ5CourseRequest(request, process.env, async()=>new Response(null,{status:404}));
+      if (new URL(request.url).pathname.startsWith("/api/dev/j5/pdf/")) return await handleJ5PdfRequest(request, process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/j5/")) return await handleJ5Http(request, process.env, new URL(request.url).pathname);
       return await handleJ5CourseRequest(request, process.env, async()=>{
         const handler = await getServerEntry();
