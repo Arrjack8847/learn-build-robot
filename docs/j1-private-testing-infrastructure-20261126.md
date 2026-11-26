@@ -26,3 +26,10 @@ Audit and incremental configuration documentation/test additions only. J1 remain
 
 ## Updated recipient policy — 26 Nov 2026
 User requested all valid email addresses work without allowlisting. Protected preview only: PARENT_PREVIEW_OPEN_EMAIL=1, verified Resend sender, durable global 25 request/hour and 60 request/day budgets plus existing per-email cooldown, five-attempt lockout and expiry. Sessions resolve by hashed token and verified parent identity, without enumerating emails. Legacy restricted mode remains default. Never disable deployment protection; use only inboxes the tester controls. Actual delivery still requires live testing.
+
+## Follow-up acceptance evidence — 26 Nov 2026
+- Resend domain mail.bestemready.edu.my verified at 12:32 MYT according to the user-supplied provider screenshot. Sender and four additional test aliases are configured as branch-specific preview settings; no recipient addresses or credentials recorded here.
+- Preview deployment dpl_12CfYfusXq5L5reh7P8piibqM6SM at source commit 0dcd90cd53e08658d7f9f26f3119d95387ac731d is READY. Build logs show completion; no claim that every test suite ran from these logs.
+- One real test verification email from the verified sender was observed in the connected test inbox at 14:23 MYT. User screenshot shows verified parent session. No OTP, session token or recipient address retained here.
+- Four additional aliases are configured but not yet individually delivery-tested; live cross-account authorization still requires acceptance. Browser automation unavailable due to exhausted credits. No public share link created.
+- User confirmed no parent dashboard; replace the old family dashboard with Create Your Account and individual student authentication in the J2 workstream, not J1. No production changes.
