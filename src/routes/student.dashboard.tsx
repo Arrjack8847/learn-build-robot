@@ -28,7 +28,7 @@ function Dashboard(){
     }).catch(e=>{
       if(ctrl.signal.aborted)return;
       setLoading(false);
-      setError(e instanceof LmsError&&e.status===401?"Please sign in to view your dashboard.":e instanceof LmsError&&e.status===403?"Your student account is not currently authorized.":"Your student records could not be loaded. Please retry.");
+      setError(e instanceof LmsError&&e.status===401?"Please sign in to view your profile.":e instanceof LmsError&&e.status===403?"Your student account is not currently authorized.":"Your student records could not be loaded. Please retry.");
     });
     return()=>ctrl.abort();
   },[reload]);
@@ -40,19 +40,19 @@ function Dashboard(){
       .catch(()=>{if(!ctrl.signal.aborted)setReadinessError(true);});
     return()=>ctrl.abort();
   },[selected]);
-  return <main className="min-h-[100dvh] bg-[#f3faff] px-4 py-5 text-[#132654] sm:px-8">
+  return <main className="h-full overflow-y-auto overscroll-contain bg-[#f3faff] px-4 py-5 text-[#132654] sm:px-8">
     <div className="mx-auto max-w-5xl space-y-5">
       <header className="flex flex-wrap items-center justify-between gap-3">
         <a href="/" className="flex items-center gap-2 text-sm font-bold text-sky-700"><img src="/home/be-stem-ready-logo.svg" className="h-10 w-auto" alt="BE STEM READY"/></a>
-        <a href="/auth/" className="rounded-xl border border-sky-200 bg-white px-4 py-2 text-sm font-bold">Account</a>
+        <a href="/auth/" className="rounded-xl border border-sky-200 bg-white px-4 py-2 text-sm font-bold">Account</a><a href="/practical/levels" className="rounded-xl border border-sky-200 bg-white px-4 py-2 text-sm font-bold">Learning levels</a><a href="/student/check-in" className="rounded-xl border border-sky-200 bg-white px-4 py-2 text-sm font-bold">Check in</a>
       </header>
       {loading?<p role="status" className={card}>Loading your student records…</p>:error?<section className={card}>
-        <h1 className="text-xl font-black">Student dashboard</h1><p role="alert" className="mt-3 text-sm">{error}</p>
+        <h1 className="text-xl font-black">My profile</h1><p role="alert" className="mt-3 text-sm">{error}</p>
         <div className="mt-4 flex gap-3"><a href="/auth/" className="rounded-xl bg-sky-600 px-4 py-3 text-sm font-bold text-white">Student account</a>
           <button type="button" onClick={()=>setReload(n=>n+1)} className="rounded-xl border px-4 py-3 text-sm font-bold">Retry</button></div>
       </section>:data&&<>
         <section className={card}>
-          <div className="flex flex-wrap items-center justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-wider text-sky-600">Student dashboard</p>
+          <div className="flex flex-wrap items-center justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-wider text-sky-600">My profile</p>
           <h1 className="mt-1 text-2xl font-black sm:text-3xl">Welcome, {data.profile.displayName}</h1>
           <p className="mt-1 text-xs text-slate-500">{data.profile.accountStatus} · Curriculum {data.curriculumVersion}</p></div>
           <button type="button" onClick={()=>setReload(n=>n+1)} className="flex items-center gap-2 rounded-xl border border-sky-200 px-3 py-2 text-sm font-bold"><RefreshCw className="size-4"/> Refresh</button></div>

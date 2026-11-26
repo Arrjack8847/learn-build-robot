@@ -1,5 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, UserRound } from "lucide-react";
 import { getLevelTotals } from "@/data/advancedSyllabus";
 
 export const Route = createFileRoute("/practical/levels/")({
@@ -52,14 +52,14 @@ function SyllabusLevelsPage() {
           <ArrowLeft className="size-5" />
         </Link>
         <img alt="BE STEM READY" src="/home/be-stem-ready-logo.svg" className="h-[clamp(32px,6svh,56px)] max-w-[58%] object-contain" />
-        <span aria-hidden="true" className="size-10" />
+        <a href="/student/dashboard" aria-label="My profile" className="grid size-10 place-items-center rounded-full border border-sky-100 bg-white/90 text-sky-700 shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"><UserRound className="size-5" /></a>
       </header>
       <section className="mx-auto flex min-h-0 w-full max-w-[1040px] flex-1 flex-col px-3 pb-[max(8px,env(safe-area-inset-bottom))] sm:px-8">
         <div className="shrink-0 text-center">
           <p className="mx-auto w-fit rounded-full border border-[#c8e7f9] bg-[#e9f7ff]/90 px-5 py-1 text-[clamp(10px,1.65svh,14px)] font-bold text-[#388cbd]">Explore Categories</p>
           <h1 className="mt-[clamp(4px,1dvh,14px)] text-[clamp(22px,3.8svh,40px)] font-black leading-tight tracking-tight text-[#21476c]">Choose Your Level</h1>
         </div>
-        <ul aria-label="Choose your syllabus level" className="mx-auto my-auto grid min-h-0 w-full max-w-[900px] flex-1 grid-cols-2 grid-rows-3 gap-[clamp(7px,1.2svh,16px)] py-[clamp(7px,1.2svh,14px)] md:landscape:grid-cols-3 md:landscape:grid-rows-2">
+        <ul aria-label="Choose your syllabus level" className="mx-auto my-auto grid min-h-0 w-full max-w-[900px] flex-1 grid-cols-2 grid-rows-3 gap-[clamp(7px,1.2svh,16px)] py-[clamp(7px,1.2svh,14px)] landscape:grid-cols-3 landscape:grid-rows-2">
           {levels.map((level) => {
             const totals = level.number === 1 ? { categories: 14, entries: 59 } : getLevelTotals(level.number);
             const card = (
