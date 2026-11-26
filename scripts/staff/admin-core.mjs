@@ -54,7 +54,7 @@ export function createStaffAdmin({identity,store,clock}){
     // Adapter must supply a reconciled ledger (no pending/failed charges; refunds
     // explicit; unique receipts). Do not infer sales from booking or membership counts.
     const ledger=await store.readReconciledSales({period,actor});
-    if(!ledger||!Array.isArray(ledger.rows)||ledger.currency!=="MYR")throw Error("SALES_NOT_RECONCILED");
+    if(!ledger||!Array.isArray(ledger.rows)||typeof ledger.currency!=="string"||!/^[A-Z]{3}$/.test(ledger.currency))throw Error("SALES_NOT_RECONCILED");
     return {ok:true,status:"READY",export:formatMonthlySales(ledger,period)};
   }
   return {overview,correct,monthlySales};

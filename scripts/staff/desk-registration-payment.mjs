@@ -28,12 +28,12 @@ export function createDeskRegistrationPayment({identity,store,clock,policy}){
     if(!a||!input||!id(input.membershipId)||!id(input.requestId)||!period(input.coveredMonth)||!note(input.reason)||typeof input.evidenceRef!=="string"||input.evidenceRef.trim().length<3||input.evidenceRef.trim().length>128||typeof input.method!=="string")return refuse();
     // No default payment methods, covered-month or receipt policy until approved.
     // Never accept card details, an amount override, a HitPay ID or proof from client.
-    if(policy?.deskPaymentsApproved!==true||typeof policy.version!=="string"||!policy.version||!Array.isArray(policy.allowedDeskMethods)||!policy.allowedDeskMethods.includes(input.method))return unavailable();
+    if(policy?.deskPaymentsApproved!==true||!Number.isSafeInteger(policy.amountMinor)||policy.amountMinor<=0||typeof policy.currency!=="string"||!/^[A-Z]{3}$/.test(policy.currency)||typeof policy.version!=="string"||!policy.version||!Array.isArray(policy.allowedDeskMethods)||!policy.allowedDeskMethods.includes(input.method))return unavailable();
     // Atomic durable adapter must verify payment evidence, membership eligibility,
     // period, duplicate payments (including HitPay), and receipt sequence under
     // approved policy. Write desk ledger + membership + receipt + audit once.
     // No forged HitPay webhook, provider ID or mutation of provider evidence.
-    const r=await store.recordAuditedDeskPayment({actor:a,membershipId:input.membershipId,coveredMonth:input.coveredMonth,requestId:input.requestId,reason:input.reason.trim(),evidenceRef:input.evidenceRef.trim(),method:input.method,currency:"MYR",amountMinor:36000,source:"desk",policyVersion:policy.version,occurredAt:clock.now()});
+    const r=await store.recordAuditedDeskPayment({actor:a,membershipId:input.membershipId,coveredMonth:input.coveredMonth,requestId:input.requestId,reason:input.reason.trim(),evidenceRef:input.evidenceRef.trim(),method:input.method,currency:policy.currency,amountMinor:policy.amountMinor,source:"desk",policyVersion:policy.version,occurredAt:clock.now()});
     if(r?.committed!==true||!id(r.paymentId)||!id(r.receiptId)||!id(r.auditId))return refuse();
     return {ok:true,status:"RECORDED",paymentId:r.paymentId,receiptId:r.receiptId,auditId:r.auditId};
   }

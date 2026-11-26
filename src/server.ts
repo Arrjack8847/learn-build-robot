@@ -7,6 +7,7 @@ import { handleStudentAuth } from "./lib/student-auth.server";
 import { handleParentOtpTest } from "./lib/parent-otp-test.server";
 import { handleHitPaySandboxWebhook } from "./lib/hitpay-webhook.server";
 import { handleSandboxCheckout } from "./lib/sandbox-checkout.server";
+import { handleJ4Fixture } from "../scripts/staff/j4-fixture-http.mjs";
 import { handleStaffDesk } from "../scripts/staff/desk-http.mjs";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
@@ -64,6 +65,8 @@ export default {
       if (new URL(request.url).pathname === "/api/dev/j123/membership-worker") return await handleMembershipWorker(request,process.env);
       if (["/api/dev/j123/checkout","/api/dev/j123/checkout/status"].includes(new URL(request.url).pathname)) return await handleIntegratedCheckout(request,process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/sandbox-checkout/")) return await handleSandboxCheckout(request, process.env);
+      if (new URL(request.url).pathname.startsWith("/api/dev/j4-fixture/")) return await handleJ4Fixture(request, process.env);
+      if (new URL(request.url).pathname.startsWith("/api/dev/staff-private/") || new URL(request.url).pathname.startsWith("/api/dev/j1234/")) return new Response(JSON.stringify({ok:false,status:"NOT_FOUND"}), {status:404,headers:{"Content-Type":"application/json","Cache-Control":"no-store"}});
       if (new URL(request.url).pathname.startsWith("/api/dev/staff/")) return await handleStaffDesk(request, process.env);
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);

@@ -1,0 +1,32 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
+const route=readFileSync(new URL("../src/routes/staff.admin.tsx",import.meta.url),"utf8");
+test("J4 responsive structure: fixed-height app shell, bounded scroll, desktop navigation and mobile card alternatives",()=>{
+ assert.match(route,/flex h-full min-h-0 w-full min-w-0 flex-col overflow-hidden/);
+ assert.match(route,/min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto/);
+ assert.match(route,/lg:hidden/);assert.match(route,/lg:flex xl:w-64/);
+ assert.match(route,/aria-expanded=\{menuOpen\}/);assert.match(route,/aria-controls="j4-mobile-nav"/);
+ assert.match(route,/grid-cols-1 gap-3 md:grid-cols-2 xl:hidden/);
+ assert.match(route,/hidden max-w-full overflow-x-auto.*xl:block/);
+ assert.match(route,/aria-label="Scrollable records table"/);
+ assert.match(route,/aria-label="Responsive record cards"/);
+ assert.match(route,/aria-sort=/);
+ assert.match(route,/aria-label="Previous page"/);assert.match(route,/aria-label="Next page"/);
+ assert.match(route,/min-h-11/);assert.match(route,/focus-visible:outline-2/);
+});
+test("J4 responsive behavior contracts: accessible dialogs, no duplicate action implementations, loading and protected routes",()=>{
+ assert.match(route,/element\.showModal\(\)/);
+ assert.match(route,/previous\?\.isConnected\)previous\.focus\(\)/);
+ assert.match(route,/onCancel=\{e=>\{e\.preventDefault\(\);if\(!busy\)onClose\(\);\}\}/);
+ assert.match(route,/max-h-\[calc\(100dvh-2rem\)\]/);
+ assert.match(route,/profilePending/);assert.match(route,/Loading individual student profile/);
+ assert.match(route,/aria-label="One-time code display"/);
+ assert.equal((route.match(/\{renderActions\(row\)\}/g)||[]).length,2);
+ assert.match(route,/rowActions\(resource,row,busy,begin/);
+ for(const action of ["mark-present","check-out","mark-no-show","excuse-no-show","issue-code","revoke-code","validate-code","staff-status","staff-role"])assert.ok(route.includes(action),action);
+ assert.match(route,/fetch\("\/api\/dev\/j4-fixture\/"\+action/);
+ assert.match(route,/if\(!__J4_FIXTURE_PREVIEW__\)/);
+ assert.doesNotMatch(route,/api\("sign-in"|api\("sign-out"/);
+ assert.match(route,/No real information or provider-verified payments/);
+});

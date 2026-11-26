@@ -6,6 +6,8 @@ import { defineConfig } from "vite";
 
 /** Standard TanStack Start / Vite setup with first-party build plugins. */
 export default defineConfig({
+  // The old fixture dashboard must not be enabled in the integrated branch.
+  define: { __J4_FIXTURE_PREVIEW__: JSON.stringify(process.env.VERCEL_ENV === "preview" && process.env.VERCEL_TARGET_ENV !== "production" && process.env.VERCEL_GIT_COMMIT_REF === "feat/j4-private-staff-admin-20261126") },
   resolve: {
     tsconfigPaths: true,
   },

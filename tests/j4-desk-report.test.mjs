@@ -1,0 +1,33 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {createJ4Fixtures} from "../scripts/staff/j4-fixtures.mjs";
+import {createJ4SimulatedReport} from "../scripts/staff/j4-simulated-report.mjs";
+import {createJ4StateService} from "../scripts/staff/j4-state-service.mjs";
+test("simulated reporting separates deposits and rejects untrusted provider records",()=>{
+ const state={...createJ4Fixtures(),mode:"j4-fixture-v1"};
+ const r=createJ4SimulatedReport(state,"2026-11");
+ assert.ok(r.ok);assert.equal(r.report.count,4);
+ assert.deepEqual(r.report.totals,[{currency:"SGD",membershipMinor:12600,depositMinor:5000}]);
+ assert.match(r.report.csv,/SIMULATED_ONLY/);
+ assert.equal(createJ4SimulatedReport(state,"2026-13").ok,false);
+ state.payments[0].providerPaymentId="not-a-fixture";
+ assert.throws(()=>createJ4SimulatedReport(state,"2026-11"));
+});
+test("no-show correction is atomic, idempotent, audited and financially inert",async()=>{
+ let seq=0,state={...createJ4Fixtures(),mode:"j4-fixture-v1",stateVersion:"start"};
+ const clone=x=>JSON.parse(JSON.stringify(x));
+ const store={readStrong:async()=>clone(state),compareAndSet:async(v,n)=>{if(state.stateVersion!==v)return false;state=clone(n);return true;}};
+ const crypto={newId:()=>String(++seq),newToken:()=>String(++seq).padStart(43,"a"),staffSessionDigest:t=>t.padStart(64,"a"),verifyPassword:async()=>true};
+ const clock={now:()=>Date.parse("2026-11-26T12:00:00+08:00"),localDay:()=>"2026-11-26"};
+ const svc=createJ4StateService({store,crypto,clock});
+ const a=await svc.signIn({username:"qa-j4-staff-2",password:"fixture-only-test-password"});assert.ok(a.ok);
+ const req={headers:{get:()=>a.cookie.split(";")[0]}};
+ const before=JSON.stringify([state.payments,state.deposits,state.memberships]);
+ const cmd={bookingId:"qa-j4-booking-5",action:"mark-no-show",requestId:"request-no-show-01",reason:"fictional correction"};
+ const concurrent=await Promise.all([svc.attendance(req,cmd),svc.attendance(req,cmd)]);
+ assert.ok(concurrent.every(x=>x.ok));assert.equal(concurrent[0].auditId,concurrent[1].auditId);
+ assert.equal(state.attendance[4].status,"no-show");
+ const excused=await svc.attendance(req,{...cmd,action:"excuse-no-show",requestId:"request-excuse-01"});
+ assert.ok(excused.ok);assert.equal(state.attendance[4].status,"excused");
+ assert.equal(JSON.stringify([state.payments,state.deposits,state.memberships]),before);
+});
