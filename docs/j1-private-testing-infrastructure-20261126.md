@@ -23,3 +23,6 @@ Scope: development branch only. No live provider operations, company domain, mai
 
 ## Status
 Audit and incremental configuration documentation/test additions only. J1 remains incomplete; live OTP delivery to five inboxes, SGD sandbox verification, runtime access and full end-to-end acceptance remain unverified.
+
+## Updated recipient policy — 26 Nov 2026
+User requested all valid email addresses work without allowlisting. Protected preview only: PARENT_PREVIEW_OPEN_EMAIL=1, verified Resend sender, durable global 25 request/hour and 60 request/day budgets plus existing per-email cooldown, five-attempt lockout and expiry. Sessions resolve by hashed token and verified parent identity, without enumerating emails. Legacy restricted mode remains default. Never disable deployment protection; use only inboxes the tester controls. Actual delivery still requires live testing.

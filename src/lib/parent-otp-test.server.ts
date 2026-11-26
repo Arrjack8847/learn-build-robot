@@ -1,8 +1,9 @@
 // Vercel-protected private preview only. No real family records or payment permissions.
-import {createPreviewOtp} from "../../scripts/parent-auth/preview-otp.mjs";
+import {createPreviewOtp,createPreviewSessionAccess} from "../../scripts/parent-auth/preview-otp.mjs";
+import {reservePreviewEmailBudget} from "../../scripts/parent-auth/preview-email-budget.mjs";
 import {createFamilyPreview} from "../../scripts/parent-auth/family-preview.mjs";
 import {createWixStore} from "../../scripts/parent-auth/wix-store.mjs";
-import {createAuthCrypto,createPortalOtpMailer,previewRecipients} from "../../scripts/parent-auth/secure-auth-transport.mjs";
+import {createAuthCrypto,createPortalOtpMailer,previewRecipients,openPreviewRecipients,validPreviewEmail} from "../../scripts/parent-auth/secure-auth-transport.mjs";
 const cookie="__Host-bsr-parent-test";
 const cookieFlags="; Path=/; Secure; HttpOnly; SameSite=Strict";
 const readCookie=(r:Request)=>{
@@ -21,13 +22,17 @@ export async function handleParentOtpTest(request:Request,env:NodeJS.ProcessEnv)
   if(!recipient||!env.WIX_DEV_DATA_API_KEY?.trim()||!env.PARENT_AUTH_SECRET?.trim())return json(503,{ok:false,status:"CONFIGURATION_REQUIRED"});
   try{
     const db=createWixStore(env),crypto=createAuthCrypto(env),clock={now:()=>Date.now()};
-    const approved=previewRecipients(env);
+    const open=openPreviewRecipients(env);
+    const approved=open?[]:previewRecipients(env);
     const serviceFor=(email:string)=>createPreviewOtp({store:db,crypto,mailer:createPortalOtpMailer(env,email),clock,recipient:email});
     const service=serviceFor(recipient);
+    const allSessions=createPreviewSessionAccess({store:db,crypto,clock});
     async function sessionService(token:string){
+      if(open)return await allSessions.resolveIdentity(token)?allSessions:null;
       for(const email of approved){const candidate=serviceFor(email);if(await candidate.resolveIdentity(token))return candidate;}
       return null;
     }
+    const reserve=()=>!open?Promise.resolve(true):reservePreviewEmailBudget({store:db,crypto,clock});
     const family=createFamilyPreview({db,crypto,clock,resolveSession:async(token:string)=>{const candidate=await sessionService(token);return candidate?candidate.resolveIdentity(token):null;}});
     const verify=async(candidate:ReturnType<typeof serviceFor>,code:string)=>{
       const result=await candidate.verifyCode(code);
@@ -43,6 +48,7 @@ export async function handleParentOtpTest(request:Request,env:NodeJS.ProcessEnv)
       return json(200,result,cookie+"=; Max-Age=0"+cookieFlags);
     }
     if(action==="request"){
+      if(!await reserve())return json(429,{ok:false,status:"PREVIEW_EMAIL_BUDGET"});
       const result=await service.requestCode();
       return json(result.ok?200:["LOCKED","HOURLY_LIMIT","COOLDOWN"].includes(result.status)?429:503,result);
     }
@@ -55,9 +61,11 @@ export async function handleParentOtpTest(request:Request,env:NodeJS.ProcessEnv)
       const data=body as {email?:unknown;code?:unknown}|null;
       if(!data||typeof data!=="object"||Array.isArray(data)||Object.keys(data).length!==(action==="request-email"?1:2)||typeof data.email!=="string")return json(400,{ok:false,status:"INVALID_INPUT"});
       const email=data.email.trim().toLowerCase();
-      if(!approved.includes(email))return json(403,{ok:false,status:"PREVIEW_EMAIL_NOT_APPROVED"});
+      if(!validPreviewEmail(email))return json(400,{ok:false,status:"INVALID_EMAIL"});
+      if(!open&&!approved.includes(email))return json(403,{ok:false,status:"PREVIEW_EMAIL_NOT_APPROVED"});
       const candidate=serviceFor(email);
       if(action==="request-email"){
+        if(!await reserve())return json(429,{ok:false,status:"PREVIEW_EMAIL_BUDGET"});
         const result=await candidate.requestCode();
         return json(result.ok?200:["LOCKED","HOURLY_LIMIT","COOLDOWN"].includes(result.status)?429:503,result);
       }

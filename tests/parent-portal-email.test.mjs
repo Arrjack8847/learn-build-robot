@@ -31,3 +31,45 @@ test("provider rejection does not report successful OTP delivery",async()=>{
  const mail=createPortalOtpMailer(cfg,"two@example.invalid",async()=>new Response("fixture failure",{status:429}));
  await assert.rejects(mail.sendParentCode("two@example.invalid","123456",300000,"b".repeat(32)),/DELIVERY_UNCONFIRMED/);
 });
+
+import {openPreviewRecipients,validPreviewEmail,createAuthCrypto} from "../scripts/parent-auth/secure-auth-transport.mjs";
+import {createPreviewOtp,createPreviewSessionAccess} from "../scripts/parent-auth/preview-otp.mjs";
+import {reservePreviewEmailBudget} from "../scripts/parent-auth/preview-email-budget.mjs";
+const openEnv={...env,PARENT_PREVIEW_OPEN_EMAIL:"1",PARENT_PREVIEW_VERIFIED_SENDER:"sender@example.invalid"};
+test("protected open mode accepts arbitrary valid recipients, not malformed addresses or production",async()=>{
+ assert.equal(openPreviewRecipients(openEnv),true);
+ for(const address of ["one@gmail.com","other@outlook.com","tester+new@yahoo.com","parent@school.edu.my","six@example.invalid","seven@example.invalid"]){
+  assert.equal(validPreviewEmail(address),true);
+  const mail=createPortalOtpMailer(openEnv,address,async(url,options)=>{assert.deepEqual(JSON.parse(options.body).to,[address]);return new Response(JSON.stringify({id:"fixture"}));});
+  await mail.sendParentCode(address,"123456",300000,"a".repeat(32));
+ }
+ for(const address of ["a@@test.com","a b@test.com","a..b@test.com","x@-bad.com","x@bad..com","x@test.com\nBcc: x@test.com"])assert.throws(()=>createPortalOtpMailer(openEnv,address));
+ assert.throws(()=>createPortalOtpMailer({...openEnv,VERCEL_ENV:"production"},"one@gmail.com"));
+ assert.throws(()=>createPortalOtpMailer({...openEnv,VERCEL_TARGET_ENV:"production"},"one@gmail.com"));
+ assert.throws(()=>createPortalOtpMailer({...openEnv,PARENT_PREVIEW_VERIFIED_SENDER:"onboarding@resend.dev"},"one@gmail.com"));
+});
+function fixtureStore(){
+ const rows=new Map();return {async get(c,id){return structuredClone(rows.get(c+":"+id)??null)},async insert(c,id,row){const k=c+":"+id;if(rows.has(k))return false;rows.set(k,structuredClone(row));return true},async replaceIfVersion(c,id,v,row){const k=c+":"+id;if(rows.get(k)?.stateVersion!==v)return false;rows.set(k,structuredClone(row));return true}};
+}
+const fixtureCrypto=()=>createAuthCrypto({...openEnv,PARENT_AUTH_SECRET:"0123456789abcdef".repeat(4)});
+test("open session resolver validates hashed tokens, preserves individual identities and revocation",async()=>{
+ const store=fixtureStore(),crypto=fixtureCrypto(),clock={now:()=>1795708800000};
+ const mail=new Map();const service=recipient=>createPreviewOtp({store,crypto,clock,recipient,mailer:{async sendParentCode(email,code){mail.set(email,code)}}});
+ const a=service("first@example.invalid"),b=service("second@example.invalid");
+ assert.equal((await a.requestCode()).ok,true);assert.equal((await b.requestCode()).ok,true);
+ const ta=(await a.verifyCode(mail.get("first@example.invalid"))).token,tb=(await b.verifyCode(mail.get("second@example.invalid"))).token;
+ const access=createPreviewSessionAccess({store,crypto,clock});
+ assert.notEqual((await access.resolveIdentity(ta)).accountId,(await access.resolveIdentity(tb)).accountId);
+ assert.equal(await b.resolveIdentity(ta),null);assert.equal(await access.resolveIdentity("x".repeat(43)),null);
+ assert.equal((await access.logout(ta)).status,"SIGNED_OUT");assert.equal(await access.resolveIdentity(ta),null);assert.ok(await access.resolveIdentity(tb));
+});
+test("global durable request budget applies across identities and concurrent callers",async()=>{
+ const store=fixtureStore(),crypto=fixtureCrypto();let now=1795737600000;const clock={now:()=>now};
+ const take=()=>reservePreviewEmailBudget({store,crypto,clock});
+ const first=await Promise.all([take(),take(),take(),take(),take()]);assert.equal(first.filter(Boolean).length,5);
+ for(let i=5;i<25;i++)assert.equal(await take(),true);
+ assert.equal(await take(),false);now+=3600000;
+ for(let i=0;i<25;i++)assert.equal(await take(),true);
+ now+=3600000;for(let i=0;i<10;i++)assert.equal(await take(),true);
+ assert.equal(await take(),false);
+});

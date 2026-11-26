@@ -53,10 +53,27 @@ export function previewRecipients(env){
  if(recipients.length>1&&(!valid(env.PARENT_PREVIEW_VERIFIED_SENDER)||env.PARENT_PREVIEW_VERIFIED_SENDER==="onboarding@resend.dev"))throw Error("VERIFIED_SENDER_REQUIRED");
  return recipients;
 }
+// Open-recipient mode is opt-in on the protected development branch only.
+export function validPreviewEmail(value){
+ if(typeof value!=="string"||value.length>254||value!==normalizedEmail(value))return false;
+ const parts=value.split("@");if(parts.length!==2)return false;
+ const [local,domain]=parts;
+ return local.length>0&&local.length<=64&&/^[a-z0-9.!#$%&'*+/=?^_\x60{|}~-]+$/.test(local)&&!local.startsWith(".")&&!local.endsWith(".")&&!local.includes("..")&&domain.includes(".")&&domain.split(".").every(label=>/^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/.test(label));
+}
+export function openPreviewRecipients(env){
+ return env.VERCEL_ENV==="preview"&&env.VERCEL_TARGET_ENV!=="production"&&env.PARENT_PREVIEW_OPEN_EMAIL==="1";
+}
 export function createPortalOtpMailer(env,recipient,request=fetch){
- const approved=previewRecipients(env);
- if(!approved.includes(recipient)||env.VERCEL_ENV!=="preview"||env.VERCEL_TARGET_ENV==="production"||!env.RESEND_API_KEY?.trim())throw Error("PREVIEW_RECIPIENT_NOT_ALLOWED");
- if(approved.length===1&&!env.PARENT_PREVIEW_VERIFIED_SENDER)return createTestOtpMailer(env,request);
+ if(env.VERCEL_ENV!=="preview"||env.VERCEL_TARGET_ENV==="production"||!env.RESEND_API_KEY?.trim())throw Error("PREVIEW_RECIPIENT_NOT_ALLOWED");
+ const open=openPreviewRecipients(env);
+ if(open){
+  if(!validPreviewEmail(recipient))throw Error("INVALID_EMAIL");
+  if(!validPreviewEmail(env.PARENT_PREVIEW_VERIFIED_SENDER)||env.PARENT_PREVIEW_VERIFIED_SENDER==="onboarding@resend.dev")throw Error("VERIFIED_SENDER_REQUIRED");
+ }else{
+  const approved=previewRecipients(env);
+  if(!approved.includes(recipient))throw Error("PREVIEW_RECIPIENT_NOT_ALLOWED");
+  if(approved.length===1&&!env.PARENT_PREVIEW_VERIFIED_SENDER)return createTestOtpMailer(env,request);
+ }
  const sender=env.PARENT_PREVIEW_VERIFIED_SENDER;
  if(!sender||!/^[^\s@,;<>]+@[^\s@,;<>]+\.[^\s@,;<>]+$/.test(sender))throw Error("VERIFIED_SENDER_REQUIRED");
  return {async sendParentCode(email,code,ttlMs,challengeId){

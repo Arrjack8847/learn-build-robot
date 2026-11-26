@@ -5,7 +5,9 @@ export async function portal(action:string,body?:object):Promise<PortalResult>{
  return r.json();
 }
 export const errorMessage=(status:string)=>({
- PREVIEW_EMAIL_NOT_APPROVED:"This email is not enabled for the private preview. Use the approved test inbox.",
+ PREVIEW_EMAIL_NOT_APPROVED:"This preview is using restricted test mode. Open the latest development deployment.",
+ INVALID_EMAIL:"Enter a valid email address.",
+ PREVIEW_EMAIL_BUDGET:"The private testing email limit has been reached. Try again later.",
  COOLDOWN:"Please wait 60 seconds before requesting another code.",
  LOCKED:"Too many incorrect codes. Try again in 15 minutes.",
  HOURLY_LIMIT:"Too many code requests. Try again later.",

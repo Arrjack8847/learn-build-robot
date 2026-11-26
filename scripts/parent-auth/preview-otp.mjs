@@ -59,10 +59,18 @@ export function createPreviewOtp({store,crypto,mailer,clock,recipient}){
     if(await store.insert("AuthSessions",digest,session)!==true)throw Error("SESSION_WRITE_FAILED");
     return {ok:true,status:"VERIFIED",token};
   }
+  const {status,logout,resolveIdentity}=createPreviewSessionAccess({store,crypto,clock,accountId});
+  return {requestCode,verifyCode,status,logout,resolveIdentity};
+}
+
+// Without an expected account ID, resolve a verified parent session by its token digest, not by enumerating email addresses.
+export function createPreviewSessionAccess({store,crypto,clock,accountId=undefined}){
+  const epoch=x=>x==null?null:Date.parse(typeof x==="string"?x:x.$date);
+  const date=x=>x==null?null:{$date:new Date(x).toISOString()};
   async function resolve(token){
     if(typeof token!=="string"||!/^[a-zA-Z0-9_-]{43}$/.test(token))return null;
     const digest=crypto.sessionDigest(token),row=await store.get("AuthSessions",digest);
-    if(!row||row.accountType!=="parent-test"||row.accountId!==accountId||row.sessionDigest!==digest||row.revokedAt!=null||typeof row.stateVersion!=="string")return null;
+    if(!row||row.accountType!=="parent-test"||(accountId===undefined?!/^[a-f0-9]{64}$/.test(row.accountId??""):row.accountId!==accountId)||row.sessionDigest!==digest||row.revokedAt!=null||typeof row.stateVersion!=="string")return null;
     const expires=epoch(row.expiresAt),created=epoch(row.createdAt),now=clock.now();
     if(!Number.isFinite(expires)||!Number.isFinite(created)||created>now||expires<=now||expires-created!==43200000)return null;
     return {digest,row};
@@ -78,5 +86,5 @@ export function createPreviewOtp({store,crypto,mailer,clock,recipient}){
   }
   // Internal session identity only. Never return raw session data from a browser endpoint.
   async function resolveIdentity(token){const s=await resolve(token);return s?{accountId:s.row.accountId,accountType:s.row.accountType}:null;}
-  return {requestCode,verifyCode,status,logout,resolveIdentity};
+  return {status,logout,resolveIdentity};
 }
