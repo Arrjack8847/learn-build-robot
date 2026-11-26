@@ -13,7 +13,7 @@ export function createFamilyPreview({db,crypto,clock,resolveSession,noticeVersio
  const validName=x=>typeof x==="string"&&x===x.trim()&&/^(Test|Sample|Demo)(?: [A-Za-z0-9 -]{1,40})?$/.test(x);
  const validYear=x=>Number.isInteger(x)&&x>=1900&&x<=new Date(clock.now()).getUTCFullYear();
  const parentKey=a=>"qa-j2-"+a;
- const consentKey=p=>noticeVersion===NOTICE_VERSION?p+"-consent":crypto.identityDigest("j2-consent-"+noticeVersion,p);
+ const consentKey=p=>noticeVersion==="preview-fictional-v1"?p+"-consent":crypto.identityDigest("j2-consent-"+noticeVersion,p);
  const childView=r=>({id:r.childId,name:r.name,birthYear:r.birthYear,version:r.stateVersion});
  async function identity(token){
   const a=await resolveSession(token);

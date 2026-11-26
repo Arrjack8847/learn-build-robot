@@ -13,6 +13,8 @@ export function createStudentIdentity({db,crypto,clock,resolvePayer,resolveEmail
   if(payer?.role!=="payer"||!validId(payer.parentId)||!await getOwnedStudent(payer.parentId,studentId))return denied();
   if(await db.get(C,studentId))return {ok:false,status:"ALREADY_ENROLLED"};
   const row={studentId,parentId:payer.parentId,accountType:"student-test",pinHash:await crypto.hashPin(studentId,pin),credentialVersion:crypto.newVersion(),stateVersion:crypto.newVersion(),attempts:0,lockUntil:0};
+  const fresh=await resolvePayer(payerToken);
+  if(fresh?.role!=="payer"||fresh.parentId!==payer.parentId||!await getOwnedStudent(payer.parentId,studentId))return denied();
   if(await db.insert(C,studentId,row)!==true)return {ok:false,status:"ALREADY_ENROLLED"};
   const saved=await db.get(C,studentId);
   if(!validCredential(saved,studentId,payer.parentId)||saved.credentialVersion!==row.credentialVersion||saved.pinHash!==row.pinHash)throw Error("STUDENT_ENROLLMENT_UNCONFIRMED");
