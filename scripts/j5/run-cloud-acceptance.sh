@@ -17,6 +17,8 @@ server_pid=""
 cleanup(){
   if [[ -n "$server_pid" ]]; then kill "$server_pid" 2>/dev/null || true; wait "$server_pid" 2>/dev/null || true; fi
   if [[ -d "$work" ]]; then git -C "$root" worktree remove --force "$work" >/dev/null 2>&1 || echo "Temporary checkout retained: $work"; fi
+  # These directories were created by THIS invocation only. Keep logs/screenshots.
+  rm -rf -- "$qa/clean-home" "$qa/browser"
   echo "QA evidence retained at: $logs"
 }
 trap cleanup EXIT
@@ -43,6 +45,27 @@ step(){
   if [[ "$rc" != 0 ]]; then failed=1; return 1; fi
 }
 step regression clean node --test tests/j5-*.test.mjs || true
+# Source PDFs are needed for the inventory regression above, but must never be
+# copied to public output. Remove only disposable detached-worktree copies.
+# This also avoids copying hundreds of PDFs twice during the Vite/Nitro build.
+prune_qa_pdfs(){
+  if [[ "$work" != "$qa/checkout" || ! -f "$work/.git" || -L "$work/public" || ! -d "$work/public" ]]; then
+    echo "Refusing PDF pruning outside the disposable worktree."; return 1
+  fi
+  if [[ "$(git -C "$work" rev-parse --show-toplevel)" != "$work" ]] || git -C "$work" symbolic-ref -q HEAD >/dev/null; then
+    echo "Refusing PDF pruning in a non-detached checkout."; return 1
+  fi
+  df -h "$work" || return 1
+  df -i "$work" || return 1
+  # find defaults to not following symbolic links. Only regular PDFs are removed.
+  find "$work/public" -type f -iname '*.pdf' -print -delete || return 1
+  local remaining
+  remaining="$(find "$work/public" -type f -iname '*.pdf' -print -quit)" || return 1
+  if [[ -n "$remaining" ]]; then echo "PDF pruning incomplete."; return 1; fi
+  echo "No public source PDFs remain in the disposable checkout."
+  df -h "$work" || return 1
+}
+step prebuild-pdf-prune prune_qa_pdfs || exit 1
 if command -v bun >/dev/null 2>&1; then
   step dependencies clean bun install --frozen-lockfile
   dep=$?
