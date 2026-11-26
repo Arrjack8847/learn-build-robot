@@ -1,5 +1,7 @@
 import {useEffect,useRef,useState} from "react";
 import {studentAuth,studentAuthError,type StudentChoice} from "../lib/student-auth";
+import {StudentCheckIn} from "./j1234-attendance";
+declare const __J1234_STUDENT_PREVIEW__:boolean;
 export function StudentSignIn(){
  const [step,setStep]=useState(0),[email,setEmail]=useState(""),[code,setCode]=useState(""),[pin,setPin]=useState(""),[choices,setChoices]=useState<StudentChoice[]>([]),[selected,setSelected]=useState(""),[student,setStudent]=useState<StudentChoice|null>(null),[busy,setBusy]=useState(true),[error,setError]=useState(""),[resendAt,setResendAt]=useState(0),[remaining,setRemaining]=useState(0);
  const inFlight=useRef(false);
@@ -24,6 +26,6 @@ export function StudentSignIn(){
  {step===3&&<><button type="button" disabled={busy} onClick={()=>{setPin("");setStep(2);setError("");}} className="text-sm font-bold text-sky-700">Choose another student</button><label className="block text-sm font-bold">{choices.find(c=>c.id===selected)?.name} — private PIN<input className={field} type="password" inputMode="numeric" autoComplete="off" pattern="[0-9]{6}" maxLength={6} required disabled={busy} value={pin} onChange={e=>setPin(e.target.value.replace(/\D/g,"").slice(0,6))}/></label><p className="text-xs text-slate-600">Never share your PIN. If forgotten, ask staff for help.</p></>}
  <button className={button} disabled={busy||(step===1&&code.length!==6)||(step===2&&!selected)||(step===3&&pin.length!==6)}>{busy?"Please wait…":["Send verification code","Verify email","Continue","Sign in"][step]}</button>
  {step>0&&<button type="button" disabled={busy} className="text-sm font-bold text-sky-700" onClick={()=>void act("logout")}>{step===1?"Change email":"Start again"}</button>}
- </form>:<><p className="text-lg font-bold">Welcome, {student?.name}</p><p className="text-sm text-slate-600">Your individual identity is verified. Membership and learning profile integration are not enabled yet.</p><button className={button} disabled={busy} onClick={()=>void act("logout")}>Sign out / switch student</button></>}
+ </form>:<><p className="text-lg font-bold">Welcome, {student?.name}</p><p className="text-sm text-slate-600">Your individual identity is verified. Learning access is not enabled yet.</p>{__J1234_STUDENT_PREVIEW__&&student&&<StudentCheckIn key={student.id} studentId={student.id}/>}<button className={button} disabled={busy} onClick={()=>void act("logout")}>Sign out / switch student</button></>}
  {error&&<p role="alert" className="rounded-xl bg-rose-50 p-3 text-sm text-rose-800">{error}</p>}<a href="/parent/sign-in" className="block text-center text-sm font-bold text-sky-700">Parent registration and payment</a></section></main>;
 }
