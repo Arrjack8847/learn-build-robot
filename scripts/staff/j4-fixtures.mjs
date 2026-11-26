@@ -46,6 +46,7 @@ export function calculateFixtureOverview(snapshot,role,day){
  result.inactiveMemberships=snapshot.memberships.filter(m=>m.status==="inactive").length;
  result.expiredMemberships=snapshot.memberships.filter(m=>m.status==="expired").length;
  result.pendingMemberships=snapshot.memberships.filter(m=>m.status==="pending").length;
+ const horizon=new Date(day+"T00:00:00Z");horizon.setUTCDate(horizon.getUTCDate()+30);const last=horizon.toISOString().slice(0,10);result.upcomingRenewals=snapshot.memberships.filter(m=>m.status==="active"&&m.validUntil>=day&&m.validUntil<=last).length;
  if(role!=="staff"){
   result.failedPayments=snapshot.payments.filter(p=>p.status==="failed").length;
   result.pendingPayments=snapshot.payments.filter(p=>p.status==="pending").length;

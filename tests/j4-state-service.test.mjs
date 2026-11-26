@@ -18,8 +18,8 @@ async function checkState(create,seed){
  assert(pair.every(x=>x.ok)&&pair[0].auditId===pair[1].auditId&&state.audit.filter(x=>x.requestId===cmd.requestId).length===1,"concurrency");results.push("concurrent duplicate attendance commits once");
  assert(!(await svc.attendance(staff,{...cmd,bookingId:"qa-j4-booking-2",requestId:"request-234567"})).ok,"unpaid student");results.push("inactive membership refused");
  const checkout=await svc.attendance(staff,{...cmd,action:"check-out",requestId:"request-345678"});assert(checkout.ok&&state.students[4].checkInStatus==="not-checked-in","checkout");results.push("checkout and student status atomic");
- assert(!(await svc.manageStaff(staff,{staffId:"qa-j4-staff-3",accountStatus:"inactive"})).ok,"unauthorized account mutation");
- assert((await svc.manageStaff(admin,{staffId:"qa-j4-staff-3",accountStatus:"inactive"})).ok&&!await svc.resolve(finance),"deactivation");results.push("admin deactivation invalidates finance session");
+ assert(!(await svc.manageStaff(staff,{staffId:"qa-j4-staff-3",accountStatus:"inactive",reason:"fixture status test"})).ok,"unauthorized account mutation");
+ assert((await svc.manageStaff(admin,{staffId:"qa-j4-staff-3",accountStatus:"inactive",reason:"fixture status test"})).ok&&!await svc.resolve(finance),"deactivation");results.push("admin deactivation invalidates finance session");
  assert((await svc.logout(staff)).ok&&!await svc.resolve(staff),"logout");results.push("logout revocation");
  for(let i=0;i<6;i++)assert(!(await svc.signIn({username:"qa-j4-staff-1",password:"incorrect-password"})).ok,"bad password");
  assert(state.attempts.filter(x=>x.staffId==="qa-j4-staff-1").length===5,"rate limit");results.push("durable attempt reservation limit");

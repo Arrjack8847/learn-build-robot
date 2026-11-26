@@ -7,7 +7,7 @@ test("isolated code lifecycle",async()=>{
  const clone=x=>JSON.parse(JSON.stringify(x));
  const store={readStrong:async()=>clone(state),compareAndSet:async(v,n)=>{if(state.stateVersion!==v)return false;state=clone(n);return true;}};
  const crypto={newId:()=>`id-${++seq}`,newToken:()=>String(++seq).padStart(43,"a"),staffSessionDigest:t=>t.padStart(64,"a"),verifyPassword:async()=>true,newCheckInCode:()=>String(++nextCode),checkInDigest:(s,c)=>s+":"+c,equalDigest:(a,b)=>a===b};
- const clock={now:()=>Date.parse("2026-11-26T12:00:00+08:00"),localDay:()=>"2026-11-26"};
+ let time=Date.parse("2026-11-26T12:00:00+08:00");const clock={now:()=>time,localDay:()=>"2026-11-26"};
  const svc=createJ4StateService({store,crypto,clock});
  async function login(username){const r=await svc.signIn({username,password:"fixture-only-test-password"});assert.ok(r.ok);return {headers:{get:()=>r.cookie.split(";")[0]}};}
  const req=await login("qa-j4-staff-2"),finance=await login("qa-j4-staff-3");
@@ -21,5 +21,6 @@ test("isolated code lifecycle",async()=>{
  assert.ok((await run("issue-code","qa-j4-booking-7")).ok);
  for(let i=0;i<4;i++)assert.equal((await run("validate-code","qa-j4-booking-7","99999999")).ok,false);
  assert.equal(state.codes.at(-1).status,"locked");assert.equal(state.codes.at(-1).attempts,3);
+ const expiring=await run("issue-code","qa-j4-booking-7");assert.ok(expiring.ok);time+=5*60000;assert.equal((await run("validate-code","qa-j4-booking-7",expiring.code)).ok,false);assert.equal(state.codes.at(-1).status,"expired");
  const rows=await createFixtureReadStore(state,clock.now()).list({resource:"checkins",page:1,pageSize:25,filters:{},sort:"bookingId",direction:"asc"});assert.equal(rows.total,7);assert.equal(Object.hasOwn(rows.rows[4],"digest"),false);
 });

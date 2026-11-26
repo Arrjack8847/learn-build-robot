@@ -1,0 +1,16 @@
+# J4 independent private testing — current implementation
+
+## Scope
+Only J4. No J1/J2/J3/J5 integration, no other journey collections, no company credentials, no real student, payment, or learning records. No production deployment or GitHub Actions. The dedicated branch is feat/j4-private-staff-admin-20261126.
+
+## Database evidence
+Development Wix site My Site 1, J4PrivateState only. Collection created with admin-only requested permissions; the permissions endpoint reports CMS_EDITOR for all four operations and no special permissions. This allows CMS editors, not ordinary site visitors; platform administrators can still access it. Seeded one state item qa-j4-state-v1 with seven fictional students, five payer references, three staff identities and five simulated payment records. Insert HTTP 200, conditional update HTTP 200, stale condition rejected, strong read confirmed version qa-j4-cas-verified-v2. No real data or provider access. All mutable fixture records and audit entries share the versioned item; writes are conditional and bounded to 350KB. This is an isolated test design, not a scalable production ledger or tamper-proof administrative log.
+
+## Application
+/staff/admin is now the standalone private dashboard. Staff sign-in, session and expiry, logout, overview, students and individual detail, memberships, payments, deposits, attendance, check-in code management, learning progress, staff accounts, and activity log. Role-limited server-side reads, pagination, search, sorting, atomic fixture attendance, account status and role changes, code issuance/reissue/revocation/validation, expiry, single-use and attempt limits. Fixture policies: no provider verification, no payment changes, no access grants, no production no-show policy. Roles admin/staff/finance; admin can change only non-admin staff/finance roles and status, which invalidates sessions. Account creation and permanent company roles are not approved. Desk payment and registration are not enabled in this standalone dashboard. Settings are not shown as there is no approved settings function.
+
+## Private runtime configuration
+The HTTP handler requires exact branch, preview target and explicit J4_PRIVATE_ENABLED=1. Keep preview protection enabled. Configure J4_WIX_SITE_ID to the verified development site, J4_WIX_DATA_API_KEY to a development-only scoped API credential, J4_SESSION_SECRET as 32 random bytes in hex, J4_STAFF_PASSWORD_HASHES as a JSON map of three individual scrypt hashes (scrypt:<16-byte hex salt>:<64-byte hex derived key>). Staff IDs: qa-j4-staff-1 (admin), qa-j4-staff-2 (staff), qa-j4-staff-3 (finance). No passwords, hashes, or secret values belong in Git/chat/logs. No changes to existing project variables or other branch environments. Do not enable until reviewed credentials are configured.
+
+## Evidence and limits
+Earlier 26 regression groups from committed source passed in the JavaScript execution environment, plus five check-in fixture groups. Node HTTP, real crypto and build-gate tests added in this commit; only count them once executed. Wix connector CAS verification is not proof that the deployed Vercel runtime's API key has correct access. Responsive/keyboard/browser acceptance and full login/HTTP/database acceptance remain open. No preview approval requested. Independent completion gate remains open.

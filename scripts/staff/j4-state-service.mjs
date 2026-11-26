@@ -100,14 +100,14 @@ export function createJ4StateService({store,crypto,clock}){
  }
  async function manageStaff(request,input){
   const actor=await resolve(request);
-  if(!actor||!input||!staffId.test(input.staffId??"")||input.staffId===actor.staffId||!["active","inactive"].includes(input.accountStatus))return refused();
+  if(!actor||!input||!staffId.test(input.staffId??"")||input.staffId===actor.staffId||!["active","inactive"].includes(input.accountStatus)||typeof input.reason!=="string"||input.reason.trim().length<3||input.reason.length>200||("role" in input&&!["staff","finance"].includes(input.role)))return refused();
   return transaction(s=>{
    const a=currentActor(s,actor,now()),target=s.staff.find(x=>x.staffId===input.staffId);
    if(a?.role!=="admin"||!target||target.role==="admin")return no(refused());
-   if(target.accountStatus===input.accountStatus)return no({ok:true,status:"UNCHANGED"});
-   target.accountStatus=input.accountStatus;target.authVersion=crypto.newId();
+   if(target.accountStatus===input.accountStatus&&(!input.role||target.role===input.role))return no({ok:true,status:"UNCHANGED"});
+   const previousRole=target.role;target.accountStatus=input.accountStatus;if(input.role)target.role=input.role;target.authVersion=crypto.newId();
    for(const session of s.sessions)if(session.staffId===target.staffId&&session.revokedAt==null)session.revokedAt=now();
-   audit(s,a.staffId,"staff-status",target.staffId,"success",now());
+   audit(s,a.staffId,previousRole!==target.role?"staff-role":"staff-status",target.staffId,"success",now());s.audit[s.audit.length-1].reason=input.reason.trim();
    return yes({ok:true,status:"COMMITTED"});
   });
  }

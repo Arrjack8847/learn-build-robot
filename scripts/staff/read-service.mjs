@@ -14,7 +14,7 @@ export function createStaffReadService({identity,store,clock}){
     checkins:["bookingId","studentId","status","issuedAt","expiresAt","attempts"],
     progress:["studentId","level","completedLessons","completedBuilds","quizCompleted","quizResults","challengeResults","levelCompletion","latestActivity"],
     staff:["staffId","displayName","role","accountStatus"],
-    audit:["auditId","staffId","action","targetId","occurredAt","result"]
+    audit:["auditId","staffId","action","targetId","occurredAt","result","reason"]
   };
   const filters={
     students:["studentId","name","membershipStatus","level","checkInStatus"],
