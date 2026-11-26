@@ -1,5 +1,6 @@
 import "./lib/error-capture";
-import { handleJ5PdfRequest } from "../scripts/j5/pdf-http.mjs";
+import { createPrivatePdfHttp } from "../scripts/j5/pdf-http.mjs";
+import { lookupPrivatePdf } from "../scripts/j5/pdf-course-catalog.mjs";
 import { handleJ5CourseRequest } from "../scripts/j5/course-http.mjs";
 import { handleJ5Http } from "../scripts/j5/http.mjs";
 import { handleJ1Readiness } from "../scripts/j1/readiness.mjs";
@@ -16,6 +17,8 @@ type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
 };
 
+// Real private storage and course authority are intentionally not configured.
+const handleJ5PdfRequest=createPrivatePdfHttp({lookupDocument:lookupPrivatePdf,getServices:async()=>null});
 let serverEntryPromise: Promise<ServerEntry> | undefined;
 
 async function getServerEntry(): Promise<ServerEntry> {

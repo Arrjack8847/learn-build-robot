@@ -14,6 +14,8 @@
     "test:step4": "node --test tests/marksmanship-step4.test.mjs",
     "test:step5": "node --test tests/marksmanship-step5.test.mjs",
     "test:step6": "node --test tests/marksmanship-step6.test.mjs",
+    "test:j5:pdf": "node --test tests/j5-pdf-http.test.mjs tests/j5-pdf-inventory.test.mjs",
+    "build:j5-private": "node scripts/j5/run-private-build.mjs",
     "test:j5:course": "node --test tests/j5-course-authority.test.mjs tests/j5-course-http.test.mjs",
     "test:ui": "node --test tests/marksmanship-ui.test.mjs tests/building-studio-ui.test.mjs tests/level-one-categories.test.mjs tests/syllabus-levels.test.mjs tests/level-five-six-assets.test.mjs tests/legacy-programming-assets.test.mjs tests/level-six-wix-urls.test.mjs",
     "test:motion": "node --test tests/marksmanship-guided-motion.test.mjs",
