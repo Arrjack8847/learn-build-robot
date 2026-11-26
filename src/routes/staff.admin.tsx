@@ -1,9 +1,11 @@
 import {createFileRoute} from "@tanstack/react-router";
 import {useEffect,useRef,useState,type ReactNode} from "react";
 declare const __J4_FIXTURE_PREVIEW__:boolean;
+declare const __J1234_STUDENT_PREVIEW__:boolean;
+import {J1234StudentDirectory} from "../components/j1234-student-directory";
 import {LayoutDashboard,Users,Wallet,CalendarCheck,GraduationCap,Shield,History,Search,ChevronLeft,ChevronRight,RefreshCw,Menu,X,ArrowUpDown,AlertCircle} from "lucide-react";
 
-export const Route=createFileRoute("/staff/admin")({component:StaffAdmin,head:()=>({meta:[{title:"Staff Admin | STEM Makers Lab"},{name:"robots",content:"noindex, nofollow"}]})});
+export const Route=createFileRoute("/staff/admin")({component:StaffAdminRoute,head:()=>({meta:[{title:"Staff Admin | STEM Makers Lab"},{name:"robots",content:"noindex, nofollow"}]})});
 type Row=Record<string,string|number|boolean|null>;
 type Actor={staffId:string;displayName:string;role:"admin"|"staff"|"finance"};
 type Report={month:string;fixture:boolean;totals:{currency:string;membershipMinor:number;depositMinor:number}[];count:number;csv:string;filename:string};
@@ -49,6 +51,7 @@ function rowActions(resource:Resource,row:Row,busy:boolean,begin:(action:string,
 }
 const actionResources=new Set<Resource>(["students","attendance","checkins","staff"]);
 const rowKey=(resource:Resource,row:Row,index:number)=>String(row[({students:"studentId",memberships:"membershipId",payments:"paymentId",deposits:"paymentId",attendance:"bookingId",checkins:"bookingId",progress:"studentId",staff:"staffId",audit:"auditId"} as const)[resource]]??index);
+function StaffAdminRoute(){return __J1234_STUDENT_PREVIEW__?<J1234StudentDirectory/>:<StaffAdmin/>;}
 function StaffAdmin(){
  const selected=useRef("qa-j4-staff-1");
  async function api(action:string,input:object={},signal?:AbortSignal):Promise<Result>{if(!__J4_FIXTURE_PREVIEW__||typeof window==="undefined")return {ok:false,status:"NOT_FOUND"};const id=action==="choose-fixture-role"?(input as {staffId:string}).staffId:selected.current;const response=await fetch("/api/dev/j4-fixture/"+action,{method:"POST",credentials:"same-origin",cache:"no-store",redirect:"error",headers:{"Content-Type":"application/json","X-STEM-J4-Fixture":"1"},body:JSON.stringify({simulatedStaffId:id,input}),signal});const result=await response.json();if(action==="choose-fixture-role"&&result.ok&&result.actor)selected.current=id;return result;}

@@ -37,7 +37,7 @@
     "build:j2": "npm run verify:j2 && vite build",
     "test:j2:standalone": "node --test tests/j1-readiness.test.mjs tests/j12-provider-acceptance.test.mjs tests/j12-open-auth.test.mjs tests/parent-portal-email.test.mjs tests/j2-student-centric-route.test.mjs tests/j2-five-payer-fixture.test.mjs tests/j2-student-identity.test.mjs tests/j2-student-auth-boundary.test.mjs tests/j2-student-rate-limit.test.mjs tests/j2-student-context.test.mjs tests/j2-student-http.test.mjs tests/j2-registration-hardening.test.mjs tests/j2-parent-http.test.mjs tests/j2-runtime.test.mjs tests/j2-wix-store.test.mjs && node tests/parent-preview-otp.test.mjs",
     "test:j4": "node --test tests/j4-*.test.mjs",
-    "test:j1234:foundation": "node --test tests/j1234-foundation.test.mjs tests/j4-*.test.mjs"
+    "test:j1234:foundation": "node --test tests/j1234-*.test.mjs tests/j4-*.test.mjs"
   },
   "overrides": {
     "rolldown": "1.2.1"

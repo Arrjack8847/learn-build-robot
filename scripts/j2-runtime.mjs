@@ -9,18 +9,20 @@ import {createStudentAuthCrypto} from "./student-auth/crypto.mjs";
 
 import {J123_BRANCH,requireJ123Identity} from "./j123/infrastructure.mjs";
 import {scopeJ123StudentCredentials} from "./j123/student-credential-scope.mjs";
+import {J1234_BRANCH,createJ1234IdentityEnv,scopeJ1234StudentCredentials} from "./j1234/identity-scope.mjs";
 
 function context(env){
+ if(env.VERCEL_GIT_COMMIT_REF===J1234_BRANCH)env=createJ1234IdentityEnv(env);
  if(env.VERCEL_GIT_COMMIT_REF===J123_BRANCH)requireJ123Identity(env);
  const open=openPreviewRecipients(env);
  if(open&&(!["integration/j1-j2-20261126","integration/j1-j2-j3-20261126"].includes(env.VERCEL_GIT_COMMIT_REF)||!validPreviewEmail(env.PARENT_PREVIEW_VERIFIED_SENDER)||env.PARENT_PREVIEW_VERIFIED_SENDER==="onboarding@resend.dev"))throw Error("INTEGRATION_SCOPE_REQUIRED");
  const db=createWixStore(env),auth=createAuthCrypto(env),clock={now:()=>Date.now()},emails=open?[]:previewRecipients(env);
  const mailerFor=email=>createPortalOtpMailer(env,email);
  const reserveEmail=email=>reserveIntegratedEmail({store:db,crypto:auth,clock,email});
- return {db,auth,clock,emails,mailerFor,open,reserveEmail};
+ return {db,auth,clock,emails,mailerFor,open,reserveEmail,runtimeEnv:env};
 }
 function studentContext(env,base){
- return createStudentContext({...base,db:env.VERCEL_GIT_COMMIT_REF===J123_BRANCH?scopeJ123StudentCredentials(base.db):base.db,crypto:createStudentAuthCrypto(env)});
+ return createStudentContext({...base,db:env.VERCEL_GIT_COMMIT_REF===J1234_BRANCH?scopeJ1234StudentCredentials(base.db):env.VERCEL_GIT_COMMIT_REF===J123_BRANCH?scopeJ123StudentCredentials(base.db):base.db,crypto:createStudentAuthCrypto(base.runtimeEnv??env)});
 }
 const studentCookie="__Host-bsr-student";
 const read=(request,name)=>{const parts=(request.headers.get("cookie")??"").split(";").map(p=>p.trim()).filter(p=>p.startsWith(name+"="));return parts.length===1?parts[0].slice(name.length+1):"";};
@@ -34,8 +36,9 @@ export const handleStudentAuth=createStudentAuthHttp({resolveContext:async env=>
  return {db:base.db,emails:base.emails,open:base.open,reserveEmail:base.reserveEmail,context:studentContext(env,base)};
 }});
 export const handleParentOtpTest=createParentAuthHttp({resolveContext:async env=>{
- const recipient=env.RESEND_TEST_RECIPIENT?.trim().toLowerCase();
- if(!recipient||!validPreviewEmail(recipient)||!env.WIX_DEV_DATA_API_KEY?.trim()||!env.PARENT_AUTH_SECRET?.trim())return null;
+ const identityEnv=env.VERCEL_GIT_COMMIT_REF===J1234_BRANCH?createJ1234IdentityEnv(env):env;
+ const recipient=identityEnv.RESEND_TEST_RECIPIENT?.trim().toLowerCase();
+ if(!recipient||!validPreviewEmail(recipient)||!identityEnv.WIX_DEV_DATA_API_KEY?.trim()||!identityEnv.PARENT_AUTH_SECRET?.trim())return null;
  const base=context(env);
  const revokeStudent=async(studentToken,proofToken)=>{
   const student=studentContext(env,base);
