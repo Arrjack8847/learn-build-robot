@@ -34,7 +34,7 @@ export function createDeskOperations({identity,store,clock}){
     // Receipts are existing durable records only. Printing never creates a payment
     // or changes a membership. Final receipt numbering and fields need approval.
     const row=await store.readIssuedReceipt({actor,receiptId});
-    if(!row||row.receiptId!==receiptId||row.status!=="issued"||row.currency!=="MYR"||row.amountMinor!==36000||!id(row.paymentId)||!["desk","hitpay"].includes(row.source)||typeof row.coveredMonth!=="string"||!/^\d{4}-(0[1-9]|1[0-2])$/.test(row.coveredMonth)||typeof row.childName!=="string"||!Number.isSafeInteger(row.issuedAt))return refuse();
+    if(!row||row.receiptId!==receiptId||row.status!=="issued"||typeof row.currency!=="string"||!/^[A-Z]{3}$/.test(row.currency)||!Number.isSafeInteger(row.amountMinor)||row.amountMinor<=0||!id(row.paymentId)||!["desk","hitpay"].includes(row.source)||typeof row.coveredMonth!=="string"||!/^\d{4}-(0[1-9]|1[0-2])$/.test(row.coveredMonth)||typeof row.childName!=="string"||!Number.isSafeInteger(row.issuedAt))return refuse();
     return {ok:true,status:"READY",receipt:{receiptId:row.receiptId,paymentId:row.paymentId,source:row.source,childName:row.childName,coveredMonth:row.coveredMonth,amountMinor:row.amountMinor,currency:row.currency,issuedAt:row.issuedAt}};
   }
   return {walkInOptions,createWalkIn,receipt};

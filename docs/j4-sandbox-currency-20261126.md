@@ -1,0 +1,5 @@
+# J4 legacy sandbox currency corrections
+
+The staff read contract accepts authoritative payment currency, amount and source. The legacy desk modules now remove fixed MYR 360 from receipt retrieval, approved desk payment configuration and rendering. Desk payments still require an explicitly approved policy with server-controlled currency and amount and a durable adapter. No policy has been approved or activated. Reconciled monthly export supports MYR or SGD only, requires each row to declare the same currency and rejects mixed/unconfirmed ledgers. No exchange conversion. Existing legacy adapters must supply currency per row before export is enabled. The default HTTP handler is still unavailable, so none of these changes activates a payment or affects production.
+ 
+Tests for the formatter and receipt policy are included; they have not been run in a Node repository runner in this session. Do not count them as passed until executed. Existing J4 read-contract checks were independently executed in the tool runtime, not as an npm build.
