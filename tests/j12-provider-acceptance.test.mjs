@@ -1,0 +1,20 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {randomBytes,randomUUID} from "node:crypto";
+import {runProviderAcceptance,permitted,selectedMessage} from "../scripts/j12/provider-acceptance.mjs";
+import {createAuthCrypto} from "../scripts/parent-auth/secure-auth-transport.mjs";
+import {createStudentAuthCrypto} from "../scripts/student-auth/crypto.mjs";
+const env={VERCEL_ENV:"preview",VERCEL_TARGET_ENV:"preview",VERCEL_GIT_COMMIT_REF:"integration/j1-j2-20261126",VERCEL_GIT_COMMIT_MESSAGE:selectedMessage,VERCEL_URL:"j12-fixture.vercel.app",PARENT_PREVIEW_OPEN_EMAIL:"1",PARENT_PREVIEW_VERIFIED_SENDER:"noreply@mail.bestemready.edu.my",STUDENT_AUTH_ENABLED:"true",WIX_DEV_SITE_ID:"09d613aa-3a95-42ff-9ee3-2aa0c706c447",RESEND_TEST_RECIPIENT:"fixture@gmail.com",RESEND_API_KEY:"fixture-only",PARENT_AUTH_SECRET:randomBytes(32).toString("hex"),STUDENT_AUTH_SECRET:randomBytes(32).toString("hex")};
+test("one-shot integration provider fixture persists consent, two students and PINs; rejects foreign proof; never repeats sends",async()=>{
+ const rows=new Map(),key=(c,i)=>c+":"+i,db={get:async(c,i)=>structuredClone(rows.get(key(c,i))??null),insert:async(c,i,r)=>{if(rows.has(key(c,i)))return false;rows.set(key(c,i),structuredClone(r));return true;},replaceIfVersion:async(c,i,v,r)=>{if(rows.get(key(c,i))?.stateVersion!==v)return false;rows.set(key(c,i),structuredClone(r));return true;},listFixtureChildren:async p=>[...rows].filter(([k,r])=>k.startsWith("Children:")&&r.parentId===p).map(([,r])=>structuredClone(r))};
+ let sends=0;
+ const deps={db,baseAuth:createAuthCrypto(env),studentCrypto:createStudentAuthCrypto(env),clock:{now:()=>1795680000000},request:async(url,opts)=>{assert.equal(url,"https://api.resend.com/emails");const body=JSON.parse(opts.body);assert.ok(["fixture+stemlab-parent2@gmail.com","fixture+stemlab-parent3@gmail.com"].includes(body.to[0]));sends++;return new Response(JSON.stringify({id:randomUUID()}));}};
+ assert.equal(permitted(env),true);
+ for(const changed of [{VERCEL_ENV:"production"},{VERCEL_GIT_COMMIT_REF:"main"},{VERCEL_GIT_COMMIT_MESSAGE:"wrong"},{WIX_DEV_SITE_ID:"wrong"},{RESEND_TEST_RECIPIENT:"unapproved@example.invalid"}])assert.equal(permitted({...env,...changed}),false);
+ const result=await runProviderAcceptance(env,deps);
+ assert.equal(result.oneShot,"COMPLETE");assert.equal(result.failed,false);assert.equal(result.emailsAccepted,2);assert.equal(result.parentVerified,true);assert.equal(result.proofVerified,true);assert.equal(result.roleIsolation,true);assert.equal(result.consentVerified,true);assert.equal(result.studentRecordsVerified,2);assert.equal(result.pinsVerified,2);assert.equal(result.foreignStudentRejected,true);assert.equal(result.sessionsRevoked,2);assert.equal(result.replaysRejected,2);
+ const again=await runProviderAcceptance(env,deps);assert.equal(again.oneShot,"ALREADY_RESERVED");assert.equal(sends,2);
+ const credentials=[...rows].filter(([k])=>k.startsWith("StudentAuthCredentials:"));assert.equal(credentials.length,2);for(const [,r] of credentials)assert.match(r.pinHash,/^[a-f0-9]{32}:[a-f0-9]{64}$/);
+ assert.equal([...rows].filter(([k])=>k.startsWith("PrivacyConsents:")).length,1);
+ assert.doesNotMatch(JSON.stringify(result),/fixture@gmail|fixture-only/);
+});

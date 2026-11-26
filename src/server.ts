@@ -1,4 +1,5 @@
 import "./lib/error-capture";
+import { handleJ1Readiness } from "../scripts/j1/readiness.mjs";
 import { handleEmailTest } from "./lib/resend-test.server";
 import { handleStudentAuth } from "./lib/student-auth.server";
 import { handleParentOtpTest } from "./lib/parent-otp-test.server";
@@ -53,6 +54,7 @@ function isH3SwallowedErrorBody(body: string): boolean {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      if (["/dev/testing-centre","/api/dev/j1/readiness"].includes(new URL(request.url).pathname)) return await handleJ1Readiness(request,process.env);
       if (new URL(request.url).pathname === "/api/dev/email-test") return await handleEmailTest(request, process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/student-auth/")) return await handleStudentAuth(request, process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/parent-otp/")) return await handleParentOtpTest(request, process.env);

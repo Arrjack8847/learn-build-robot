@@ -19,7 +19,7 @@ function PaymentPreview(){
   if(!loaded||!family||!child)return <main className="grid h-full place-items-center overflow-y-auto bg-[#f3faff] p-4 text-[#132654]"><section className={card+" text-center"}><h1 className="font-black">{loaded?"Register a test family first":"Loading walkthrough…"}</h1>{loaded&&<a href="/parent/sign-in?walkthrough=1" className={primary+" mt-4"}>Start registration</a>}</section></main>;
   const state=child.status;
   return <main className="h-full overflow-y-auto bg-[#f3faff] text-[#132654]"><div className="mx-auto max-w-3xl space-y-5 p-4 sm:p-8">
-    <header className="flex flex-wrap items-center justify-between gap-3"><a href="/parent/dashboard?walkthrough=1" className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-sky-700"><ArrowLeft className="size-4"/> Parent dashboard</a><img src="/home/be-stem-ready-logo.svg" alt="BE STEM READY" className="h-12 max-w-[48%] object-contain"/></header>
+    <header className="flex flex-wrap items-center justify-between gap-3"><a href="/parent/sign-in" className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-sky-700"><ArrowLeft className="size-4"/> Student registration</a><img src="/home/be-stem-ready-logo.svg" alt="BE STEM READY" className="h-12 max-w-[48%] object-contain"/></header>
     <p className="rounded-xl bg-amber-50 p-3 text-xs font-bold leading-5 text-amber-900">Connected fictional payment test. No actual HitPay requests, card details, email delivery or real membership authorization. Changes apply only to the selected test child in this tab.</p>
     <section className={card}><div className="flex items-center gap-3"><CreditCard className="size-7 text-sky-600"/><div><p className="text-xs font-black uppercase tracking-widest text-sky-700">STEM Makers Lab</p><h1 className="text-2xl font-black">Monthly membership</h1></div></div>
     <p className="mt-5 text-4xl font-black">RM360<span className="text-sm font-semibold text-slate-600"> / child / month</span></p><p className="mt-2 text-sm text-slate-600">{child.name} · {family.email}</p>
@@ -35,6 +35,6 @@ function PaymentPreview(){
     </div>{message&&<p role="status" className="mt-4 rounded-xl bg-sky-50 p-3 text-sm">{message}</p>}</section>
     <section className={card}><h2 className="font-black">Example payment history</h2>{child.history.length?<ul className="mt-3 divide-y divide-sky-100">{child.history.map(c=><li key={c} className="flex justify-between py-3 text-sm"><span>Example charge {c}</span><strong>RM360.00</strong></li>)}</ul>:<p className="mt-3 text-sm text-slate-600">No successful example payments.</p>}</section>
     {child.history.length>0&&<section className={card}><h2 className="flex items-center gap-2 font-black"><Mail className="size-5 text-sky-600"/> Example confirmation</h2><p className="mt-3 text-sm leading-6">To: {family.email}<br/>Child: {child.name}<br/>Amount: RM360.00<br/>Billing cycle: {child.history.at(-1)}<br/>This is a preview, not an email or payment receipt.</p></section>}
-    <a href="/parent/dashboard?walkthrough=1" className={primary+" w-full"}>Return to dashboard</a>
+    <a href="/parent/sign-in" className={primary+" w-full"}>Return to student registration</a>
   </div></main>;
 }

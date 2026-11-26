@@ -1,5 +1,7 @@
 // Explicit one-shot, private integration QA. Only previously approved Gmail aliases.
-// No payment/profile creation, no secret, OTP, address or session-token logging.
+// Fictional registration only; no payment, secret, OTP, address, PIN or session-token logging.
+import {randomUUID,randomInt} from "node:crypto";
+import {NOTICE_VERSION} from "../parent-auth/family-preview.mjs";
 import {createAuthCrypto,createPortalOtpMailer,openPreviewRecipients,validPreviewEmail} from "../parent-auth/secure-auth-transport.mjs";
 import {createWixStore} from "../parent-auth/wix-store.mjs";
 import {createPreviewSessionAccess} from "../parent-auth/preview-otp.mjs";
@@ -9,12 +11,12 @@ import {createStudentAuthCrypto} from "../student-auth/crypto.mjs";
 import {createStudentContext} from "../student-auth/session-context.mjs";
 import {reserveIntegratedEmail} from "../parent-auth/preview-email-budget.mjs";
 
-export const selectedMessage="J1 J2: integrate student-centric auth and verified open email [skip ci]";
+export const selectedMessage="J1 J2: complete student registration and private testing centre [skip ci]";
 export function permitted(env){
  return env.VERCEL_ENV==="preview"&&env.VERCEL_TARGET_ENV!=="production"&&env.VERCEL_GIT_COMMIT_REF==="integration/j1-j2-20261126"&&env.VERCEL_GIT_COMMIT_MESSAGE===selectedMessage&&openPreviewRecipients(env)&&env.PARENT_PREVIEW_VERIFIED_SENDER==="noreply@mail.bestemready.edu.my"&&env.STUDENT_AUTH_ENABLED==="true"&&env.WIX_DEV_SITE_ID==="09d613aa-3a95-42ff-9ee3-2aa0c706c447"&&/^[a-z0-9.]+@gmail\.com$/.test(env.RESEND_TEST_RECIPIENT??"")&&validPreviewEmail(env.RESEND_TEST_RECIPIENT)&&/^[a-z0-9.-]+\.vercel\.app$/.test(env.VERCEL_URL??"");
 }
 export async function runProviderAcceptance(env,{db,baseAuth,studentCrypto,clock,request}){
- const out={scope:"REFUSED",oneShot:"NOT_RUN",emailsAccepted:0,parentVerified:false,proofVerified:false,roleIsolation:false,replaysRejected:0,sessionsRevoked:0,failed:false};
+ const out={scope:"REFUSED",oneShot:"NOT_RUN",emailsAccepted:0,parentVerified:false,proofVerified:false,roleIsolation:false,consentVerified:false,studentRecordsVerified:0,pinsVerified:0,foreignStudentRejected:false,replaysRejected:0,sessionsRevoked:0,failed:false};
  if(!permitted(env))return out;
  out.scope="PRIVATE_QA";
  const collection="SandboxBillingState",id="qa-j12-open-auth-provider-v1",version=baseAuth.newVersion();
@@ -50,6 +52,22 @@ export async function runProviderAcceptance(env,{db,baseAuth,studentCrypto,clock
   out.parentVerified=r.body.status==="VERIFIED"&&!!(await parentAccess.resolveIdentity(p));
   if(!out.parentVerified)throw Error("PARENT_VERIFY_FAILED");
   if((await call("parent","verify-email",{email:a,code:ac})).body.ok===false)out.replaysRejected++;
+  const payerCookie="__Host-bsr-parent-test="+p;
+  const consent=await call("parent","family-consent",{accepted:true,noticeVersion:NOTICE_VERSION},payerCookie);
+  out.consentVerified=consent.body.status==="CONSENT_RECORDED";if(!out.consentVerified)throw Error("CONSENT_UNCONFIRMED");
+  const children=[];let lastPin="";
+  for(const [name,birthYear] of [["Test J12 Alpha",2010],["Test J12 Beta",2012]]){
+   const input={name,birthYear,requestKey:randomUUID()};
+   const created=await call("parent","family-child-create",input,payerCookie),child=created.body.child;
+   if(!created.body.ok||!child?.id)throw Error("REGISTRATION_UNCONFIRMED");
+   const read=await call("parent","family-child-get",{childId:child.id},payerCookie);
+   const retry=await call("parent","family-child-create",input,payerCookie);
+   if(read.body.child?.id!==child.id||retry.body.child?.id!==child.id||children.some(c=>c.id===child.id))throw Error("REGISTRATION_READBACK_UNCONFIRMED");
+   out.studentRecordsVerified++;children.push(child);
+   let pin;do{pin=String(randomInt(0,1000000)).padStart(6,"0");}while(/^([0-9])\1{5}$/.test(pin)||["123456","654321","012345","987654","111222",lastPin].includes(pin));lastPin=pin;
+   const enrolled=await call("student","enroll",{studentId:child.id,pin},payerCookie),status=await call("student","enrollment-status",{studentId:child.id},payerCookie);
+   if(enrolled.body.status!=="ENROLLED"||status.body.status!=="PIN_ALREADY_SET")throw Error("PIN_ENROLLMENT_UNCONFIRMED");out.pinsVerified++;
+  }
   r=await call("student","request",{email:b});
   if(r.body.status!=="CODE_SENT"||!codes.has(b))throw Error("PROOF_SEND_FAILED");
   const bc=codes.get(b);codes.delete(b);
@@ -58,6 +76,8 @@ export async function runProviderAcceptance(env,{db,baseAuth,studentCrypto,clock
   const proof=await context.proof(v);
   out.proofVerified=r.body.status==="EMAIL_VERIFIED"&&proof?.parentId==="qa-j2-"+auth.identityDigest("parent-preview-session",b);
   if(!out.proofVerified)throw Error("PROOF_VERIFY_FAILED");
+  const foreign=await call("student","sign-in",{studentId:children[1].id,pin:lastPin},"__Host-bsr-student-proof="+v);
+  out.foreignStudentRejected=foreign.body.ok===false;if(!out.foreignStudentRejected)throw Error("CROSS_ACCOUNT_ACCESS");lastPin="";
   if((await call("student","verify",{email:b,code:bc})).body.ok===false)out.replaysRejected++;
   out.roleIsolation=!(await parentAccess.resolveIdentity(v))&&!(await proofAccess.resolveIdentity(p))&&await context.payer(v)===null&&await context.proof(p)===null;
   if(!out.roleIsolation)throw Error("ROLE_ISOLATION_FAILED");
