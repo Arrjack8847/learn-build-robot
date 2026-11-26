@@ -13,13 +13,14 @@ export function createJ4Fixtures(day="2026-11-26"){
  return {students,memberships,payments,deposits,attendance,progress,staff,audit:[],sessions:[],attempts:[],codes:[]};
 }
 
-export function createFixtureReadStore(snapshot){
- const keys={students:"studentId",memberships:"membershipId",payments:"paymentId",deposits:"paymentId",attendance:"bookingId",progress:"studentId",staff:"staffId",audit:"auditId"};
+export function createFixtureReadStore(snapshot,now=Date.now()){
+ const keys={students:"studentId",memberships:"membershipId",payments:"paymentId",deposits:"paymentId",attendance:"bookingId",checkins:"bookingId",progress:"studentId",staff:"staffId",audit:"auditId"};
  const dateFields={payments:"paidAt",deposits:"paidAt",attendance:"sessionDate",audit:"occurredAt"};
  return {
   async list({resource,page,pageSize,filters,sort,direction}){
    if(!Object.hasOwn(keys,resource))throw Error("UNKNOWN_RESOURCE");
-   const rows=snapshot[resource].filter(row=>Object.entries(filters).every(([key,value])=>{
+   const source=resource==="checkins"?snapshot.attendance.map(b=>{const latest=snapshot.codes.filter(c=>c.bookingId===b.bookingId).at(-1);return {bookingId:b.bookingId,studentId:b.studentId,status:latest?(latest.status==="active"&&latest.expiresAt<=now?"expired":latest.status):"not-issued",issuedAt:latest?.issuedAt??null,expiresAt:latest?.expiresAt??null,attempts:latest?.attempts??0};}):snapshot[resource];
+   const rows=source.filter(row=>Object.entries(filters).every(([key,value])=>{
     if(key==="name")return row.name.toLowerCase().includes(value.toLowerCase());
     if(key==="from"||key==="to"){const raw=row[dateFields[resource]];if(raw==null)return false;const date=typeof raw==="number"?new Date(raw+8*3600000).toISOString().slice(0,10):String(raw).slice(0,10);return key==="from"?date>=value:date<=value;}
     return row[key]===value;

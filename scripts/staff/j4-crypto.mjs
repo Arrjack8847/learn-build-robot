@@ -1,4 +1,4 @@
-import {createHmac,randomBytes,scrypt,timingSafeEqual} from "node:crypto";
+import {createHmac,randomBytes,randomInt,scrypt,timingSafeEqual} from "node:crypto";
 import {promisify} from "node:util";
 const derive=promisify(scrypt);
 export function createJ4Crypto(env){
@@ -11,6 +11,9 @@ export function createJ4Crypto(env){
  return {
   newId:()=>randomBytes(16).toString("hex"),
   newToken:()=>randomBytes(32).toString("base64url"),
+  newCheckInCode:()=>String(randomInt(0,100000000)).padStart(8,"0"),
+  checkInDigest:(scope,code)=>createHmac("sha256",key).update(JSON.stringify(["j4-checkin/v1",scope,code])).digest("hex"),
+  equalDigest:(a,b)=>typeof a==="string"&&typeof b==="string"&&/^[a-f0-9]{64}$/.test(a)&&/^[a-f0-9]{64}$/.test(b)&&timingSafeEqual(Buffer.from(a,"hex"),Buffer.from(b,"hex")),
   staffSessionDigest:token=>createHmac("sha256",key).update("j4-session/v1:"+token).digest("hex"),
   async verifyPassword(id,password){
    const row=credentials[id];

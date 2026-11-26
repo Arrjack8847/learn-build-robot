@@ -1,8 +1,8 @@
 // J4 v1 read-only service. Adapter and identity are server-owned; no fixture is mounted to HTTP.
 export function createStaffReadService({identity,store,clock}){
   const roles={
-    admin:["students","memberships","payments","deposits","attendance","progress","staff","audit"],
-    staff:["students","memberships","attendance","progress"],
+    admin:["students","memberships","payments","deposits","attendance","checkins","progress","staff","audit"],
+    staff:["students","memberships","attendance","checkins","progress"],
     finance:["memberships","payments","deposits"]
   };
   const fields={
@@ -11,6 +11,7 @@ export function createStaffReadService({identity,store,clock}){
     payments:["paymentId","providerPaymentId","studentId","purpose","amountMinor","currency","status","paidAt","billingPeriod","subscriptionRef","refundStatus","evidenceType"],
     deposits:["paymentId","studentId","bookingId","amountMinor","currency","status","refundStatus","disposition","evidenceType"],
     attendance:["bookingId","studentId","sessionDate","status","checkInAt","checkOutAt","staffId"],
+    checkins:["bookingId","studentId","status","issuedAt","expiresAt","attempts"],
     progress:["studentId","level","completedLessons","completedBuilds","quizCompleted","quizResults","challengeResults","levelCompletion","latestActivity"],
     staff:["staffId","displayName","role","accountStatus"],
     audit:["auditId","staffId","action","targetId","occurredAt","result"]
@@ -21,6 +22,7 @@ export function createStaffReadService({identity,store,clock}){
     payments:["studentId","paymentId","status","purpose","from","to"],
     deposits:["studentId","bookingId","status","from","to"],
     attendance:["studentId","status","from","to"],
+    checkins:["studentId","bookingId","status"],
     progress:["studentId","level"],
     staff:["role","accountStatus"],
     audit:["staffId","from","to"]

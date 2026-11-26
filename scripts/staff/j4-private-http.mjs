@@ -18,7 +18,7 @@ export function createJ4Http({makeStore=createJ4WixStore,makeCrypto=createJ4Cryp
   if(request.method!=="POST")return reply(405,{ok:false,status:"METHOD_NOT_ALLOWED"});
   if(!origin||new URL(request.url).origin!==origin||request.headers.get("origin")!==origin||request.headers.get("sec-fetch-site")!=="same-origin"||request.headers.get("x-stem-staff")!=="1")return reply(403,{ok:false,status:"REFUSED"});
   const action=new URL(request.url).pathname.split("/").pop();
-  if(!["sign-in","sign-out","session","overview","list","student","attendance","staff-status"].includes(action))return reply(404,{ok:false,status:"NOT_FOUND"});
+  if(!["sign-in","sign-out","session","overview","list","student","attendance","staff-status","check-in-code"].includes(action))return reply(404,{ok:false,status:"NOT_FOUND"});
   let input;try{input=await body(request);}catch{return reply(400,{ok:false,status:"INVALID_INPUT"});}
   try{
    const store=makeStore(env),crypto=makeCrypto(env),clock=makeClock();
@@ -32,6 +32,7 @@ export function createJ4Http({makeStore=createJ4WixStore,makeCrypto=createJ4Cryp
     if(action==="session")result={ok:true,status:"READY",actor:{staffId:actor.staffId,displayName:actor.displayName,role:actor.role}};
     else if(action==="attendance")result=await svc.attendance(request,input);
     else if(action==="staff-status")result=await svc.manageStaff(request,input);
+    else if(action==="check-in-code")result=await svc.checkInCode(request,input);
     else{
      const snapshot=await store.readStrong();
      // Re-resolve after taking the snapshot. Never trust browser role or record scope.
@@ -39,7 +40,7 @@ export function createJ4Http({makeStore=createJ4WixStore,makeCrypto=createJ4Cryp
      if(!fresh||fresh.staffId!==actor.staffId||fresh.role!==actor.role)return reply(401,{ok:false,status:"REFUSED"});
      if(action==="overview")result={ok:true,status:"READY",metrics:calculateFixtureOverview(snapshot,fresh.role,clock.localDay()),fixture:true};
      else{
-      const read=createStaffReadService({identity:{resolveStaff:()=>svc.resolve(request)},store:createFixtureReadStore(snapshot),clock});
+      const read=createStaffReadService({identity:{resolveStaff:()=>svc.resolve(request)},store:createFixtureReadStore(snapshot,clock.now()),clock});
       result=action==="list"?await read.list(request,input.resource,input.query??{}):await read.student(request,input.studentId);
      }
     }

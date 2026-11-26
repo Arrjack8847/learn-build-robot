@@ -88,6 +88,7 @@ export function createJ4StateService({store,crypto,clock}){
    if(input.action==="mark-present"){
     if(b.status!=="booked"||b.checkInAt!=null||student.membershipStatus!=="active")return no(refused());
     b.status="attended";b.checkInAt=new Date(at).toISOString();b.staffId=a.staffId;student.checkInStatus="checked-in";
+    for(const code of s.codes??[])if(code.bookingId===b.bookingId&&code.status==="active")code.status="revoked";
    }else{
     if(b.status!=="attended"||!b.checkInAt||b.checkOutAt)return no(refused());
     b.checkOutAt=new Date(at).toISOString();student.checkInStatus="not-checked-in";
@@ -110,5 +111,47 @@ export function createJ4StateService({store,crypto,clock}){
    return yes({ok:true,status:"COMMITTED"});
   });
  }
- return {signIn,resolve,logout,attendance,manageStaff};
+ async function checkInCode(request,input){
+  const actor=await resolve(request);
+  if(!actor||!input||!["issue-code","revoke-code","validate-code"].includes(input.action)||typeof input.bookingId!=="string"||!/^qa-j4-booking-[1-7]$/.test(input.bookingId))return refused();
+  if(input.action==="validate-code"&&(typeof input.code!=="string"||!/^\d{8}$/.test(input.code)))return refused();
+  return transaction(s=>{
+   const at=now(),a=currentActor(s,actor,at);
+   if(!a||!["admin","staff"].includes(a.role))return no(refused());
+   const b=s.attendance.find(x=>x.bookingId===input.bookingId),student=s.students.find(x=>x.studentId===b?.studentId);
+   if(!b||!student||b.sessionDate!==clock.localDay())return no(refused());
+   // Only the latest issued code can be active for one booking. No real booking or learning entitlement is changed.
+   const current=s.codes.find(x=>x.bookingId===b.bookingId&&x.status==="active");
+   if(input.action==="revoke-code"){
+    if(!current)return no(refused());
+    current.status="revoked";audit(s,a.staffId,"revoke-code",b.bookingId,"success",at);return yes({ok:true,status:"COMMITTED"});
+   }
+   if(b.status!=="booked"||b.checkInAt!=null||student.membershipStatus!=="active")return no(refused());
+   if(input.action==="issue-code"){
+    // Bound issuance, including reissues, to protect the isolated fixture service.
+    if(s.codes.filter(x=>x.bookingId===b.bookingId&&x.issuedAt>at-15*60000).length>=3)return no(refused());
+    if(current)current.status="revoked";
+    let code,unique=false;
+    for(let i=0;i<12;i++){code=crypto.newCheckInCode();if(!/^\d{8}$/.test(code))throw Error("BAD_CODE_GENERATOR");const fingerprint=crypto.checkInDigest("daily:"+clock.localDay(),code);if(!s.codes.some(x=>x.dailyFingerprint===fingerprint)){unique=true;break;}}
+    if(!unique)return no(refused());
+    const codeId=crypto.newId(),expiresAt=at+5*60000;
+    s.codes.push({codeId,bookingId:b.bookingId,studentId:b.studentId,status:"active",issuedAt:at,expiresAt,attempts:0,digest:crypto.checkInDigest(codeId,code),dailyFingerprint:crypto.checkInDigest("daily:"+clock.localDay(),code)});
+    audit(s,a.staffId,"issue-code",b.bookingId,"success",at);
+    return yes({ok:true,status:"CODE_ISSUED",code,expiresAt});
+   }
+   if(!current)return no(refused());
+   if(current.expiresAt<=at){current.status="expired";audit(s,a.staffId,"validate-code",b.bookingId,"refused",at);return yes(refused());}
+   if(current.attempts>=3)return no(refused());
+   current.attempts++;
+   if(!crypto.equalDigest(current.digest,crypto.checkInDigest(current.codeId,input.code))){
+    if(current.attempts===3)current.status="locked";
+    audit(s,a.staffId,"validate-code",b.bookingId,"refused",at);
+    return yes(refused());
+   }
+   current.status="used";b.status="attended";b.checkInAt=new Date(at).toISOString();b.staffId=a.staffId;student.checkInStatus="checked-in";
+   audit(s,a.staffId,"validate-code",b.bookingId,"success",at);
+   return yes({ok:true,status:"COMMITTED"});
+  });
+ }
+ return {signIn,resolve,logout,attendance,manageStaff,checkInCode};
 }
