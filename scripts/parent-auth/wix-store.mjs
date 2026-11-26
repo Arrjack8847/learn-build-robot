@@ -61,8 +61,27 @@ export function createWixStore(env,request=fetch){
     if(!r.ok||!Array.isArray(rows)||!Number.isInteger(meta?.total)||meta.total!==rows.length||rows.length>50)throw Error("CHILD_LIST_UNCONFIRMED");
     return rows.map(row=>{if(row.dataCollectionId!=="Children"||row.id!==row.data?.childId)throw Error("INVALID_WIX_RESPONSE");return row.data;});
   }
+  // Bounded, internal reconciliation query; never returns raw webhook payloads or browser-selected events.
+  // Limit global charge candidates to receipt times after the student's checkout reservation.
+  // If the window is too busy or incomplete, fail closed and require a dedicated worker.
+  async function listMembershipInbox({since,subscriptionId}){
+    if(!Number.isSafeInteger(since)||since<=0||typeof subscriptionId!=="string"||!/^[a-zA-Z0-9_-]{1,128}$/.test(subscriptionId))throw Error("INVALID_MEMBERSHIP_QUERY");
+    const collection="PaymentWebhookEvents",base={environment:"sandbox",signatureVerifiedAt:{$gte:{$date:new Date(since).toISOString()}}};
+    const filters=[{...base,eventType:{$in:["charge.created","charge.updated"]}},{...base,providerObjectId:subscriptionId,eventType:{$in:["recurring_billing.subscription_updated","recurring_billing.method_detached"]}}];
+    const result=await Promise.all(filters.map(async filter=>{
+      const r=await call(ROOT+"/query","POST",{dataCollectionId:collection,query:{filter,paging:{limit:12}},consistentRead:true,returnTotalCount:true});
+      const rows=r.payload?.dataItems,total=r.payload?.pagingMetadata?.total;
+      if(!r.ok||!Array.isArray(rows)||!Number.isInteger(total)||total!==rows.length||rows.length>12)throw Error("MEMBERSHIP_INBOX_INCOMPLETE");
+      return rows.map(row=>{
+        if(row.dataCollectionId!==collection||row.id!==row.data?.providerEventKey||row.id!==row.data?.payloadDigest)throw Error("INVALID_MEMBERSHIP_EVENT");
+        return row.data;
+      });
+    }));
+    if(result[0].length+result[1].length>12)throw Error("MEMBERSHIP_INBOX_INCOMPLETE");
+    return result.flat();
+  }
   return {
-    get,insert,replaceIfVersion,listFixtureChildren,
+    get,insert,replaceIfVersion,listFixtureChildren,listMembershipInbox,
     challengeStore:{
       async readStrong(key){
         const row=await get("AuthenticationChallenges",key);

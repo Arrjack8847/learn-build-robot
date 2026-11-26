@@ -6,11 +6,12 @@ import {createCompanySandboxTransport} from "../hitpay/company-sandbox-transport
 import {readCompanyHitPayConfig} from "../hitpay/company-config.mjs";
 import {isAllowedSandboxCheckoutUrl} from "../hitpay/checkout-url.mjs";
 import {createIntegratedCheckoutStore} from "./checkout-store.mjs";
+import {reconcileStudentCheckoutStatus} from "./membership-runtime.mjs";
 import {J123_BRANCH as BRANCH,J123_SITE as SITE,J123_TERMS as TERMS,j123InfrastructureStatus} from "./infrastructure.mjs";
 export {TERMS};
 const json=(s,b)=>new Response(JSON.stringify(b),{status:s,headers:{"Content-Type":"application/json","Cache-Control":"private, no-store","X-Content-Type-Options":"nosniff","Referrer-Policy":"no-referrer"}});
 const fail=(s,status)=>json(s,{ok:false,status});
-export function createIntegratedCheckoutHttp({resolvePayer=resolveJ123CheckoutPayer,storeFactory=createWixStore,requestFn=fetch}={}){
+export function createIntegratedCheckoutHttp({resolvePayer=resolveJ123CheckoutPayer,storeFactory=createWixStore,requestFn=fetch,clock=()=>Date.now()}={}){
  return async(request,env)=>{
   const origin="https://"+env.VERCEL_URL,path=new URL(request.url).pathname,statusOnly=path==="/api/dev/j123/checkout/status";
   if(path!=="/api/dev/j123/checkout"&&!statusOnly)return fail(404,"NOT_FOUND");
@@ -30,7 +31,14 @@ export function createIntegratedCheckoutHttp({resolvePayer=resolveJ123CheckoutPa
    const keys=statusOnly?["childId"]:["childId","requestKey","termsVersion"];if(Object.keys(input).length!==keys.length||!keys.every(k=>Object.hasOwn(input,k))||(!statusOnly&&(typeof input.requestKey!=="string"||!/^[-a-zA-Z0-9_]{1,128}$/.test(input.requestKey)||input.termsVersion!==TERMS)))return fail(400,"INVALID_INPUT");
    const payer=await resolvePayer(request,env,input.childId);if(!payer||payer.childId!==input.childId)return fail(401,"NOT_AUTHORIZED");
    const db=storeFactory(env,requestFn),store=createIntegratedCheckoutStore({db,resolvePayer,request,env,childId:input.childId});
-   if(statusOnly){const current=await store.getStatus(payer.parentId);return json(200,{ok:true,status:["NO_CHECKOUT","CHECKOUT_RETRYABLE"].includes(current)?(enabled?"CHECKOUT_AVAILABLE":"PAYMENT_TEST_NOT_ENABLED"):current});}
+   if(statusOnly){
+    const current=await store.getStatus(payer.parentId);
+    const membership=current==="PAYMENT_PENDING"?await reconcileStudentCheckoutStatus({env,db,studentId:input.childId,parentId:payer.parentId,requestFn,clock}):null;
+    // Recheck authorization before returning any student-specific result, including a long provider read.
+    const fresh=await resolvePayer(request,env,input.childId);
+    if(!fresh||fresh.parentId!==payer.parentId||fresh.childId!==input.childId)return fail(401,"NOT_AUTHORIZED");
+    return json(200,{ok:true,status:membership??(["NO_CHECKOUT","CHECKOUT_RETRYABLE"].includes(current)?(enabled?"CHECKOUT_AVAILABLE":"PAYMENT_TEST_NOT_ENABLED"):current)});
+   }
    // Only Wix vault values are used; never fall back to inherited Vercel values.
    async function secret(name){const r=await requestFn("https://www.wixapis.com/_api/cloud-secrets-vault-server/api/v1/secrets/name/"+name,{headers:{Authorization:env.WIX_DEV_DATA_API_KEY,"wix-site-id":SITE,Accept:"application/json"},redirect:"error",cache:"no-store",signal:AbortSignal.timeout(10000)});if(!r.ok)throw Error("VAULT_UNAVAILABLE");const v=(await r.json()).value;if(typeof v!=="string"||!v.trim())throw Error("VAULT_UNAVAILABLE");return v;}
    if(!infrastructure.checkoutReady)return fail(503,"CONFIGURATION_REQUIRED");

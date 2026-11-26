@@ -2,16 +2,15 @@
 // The provider adapter must independently authenticate charge, subscription, method and billing-period evidence.
 // A normalized observation must never be accepted from a browser or inferred from a webhook payload.
 import {randomUUID} from "node:crypto";
-import {j123InfrastructureStatus,J123_PLAN,J123_TERMS} from "./infrastructure.mjs";
+import {J123_PLAN,J123_TERMS} from "./infrastructure.mjs";
+import {membershipProcessingEnabled as enabled,J123_MERCHANT as merchantId} from "./membership-provider.mjs";
 import {validateVerifiedMembershipPayment,readStudentMembershipStatus} from "../hitpay/verified-membership-contract.mjs";
 import {BILLING_COLLECTION,validStudent,checkoutKey,decodeCheckout,encodeCheckout,checkProviderBinding} from "./billing-records.mjs";
-const merchantId="a34ebd5e-6bd2-4c62-a13d-b19f58f68fd7";
 const config=Object.freeze({environment:"sandbox",currency:"MYR",membershipMinor:36000,planId:J123_PLAN});
 const digest=x=>typeof x==="string"&&/^[a-f0-9]{64}$/.test(x);
 const epoch=x=>Number.isSafeInteger(x)?x:Date.parse(typeof x==="string"?x:x?.$date);
 const fail=error=>({ok:false,error});
 // Disabling NEW checkouts does not revoke already verified coverage. All other acceptance gates stay required.
-const enabled=env=>{const s=j123InfrastructureStatus(env);return s.authReady&&s.providerConfigured&&s.rotationConfirmed&&s.webhookAccepted&&s.termsApproved&&env.J123_MEMBERSHIP_RECONCILIATION_ENABLED==="true";};
 const signed=(e,key,now)=>e&&e.providerEventKey===key&&e.payloadDigest===key&&e.environment==="sandbox"&&["pending","processed","duplicate"].includes(e.processingStatus)&&Number.isFinite(epoch(e.signatureVerifiedAt))&&epoch(e.signatureVerifiedAt)>0&&epoch(e.signatureVerifiedAt)<=now;
 export function createMembershipReconciler({env,db,provider,clock=()=>Date.now(),newId=randomUUID}){
  return async function reconcile(studentId,eventKey){
