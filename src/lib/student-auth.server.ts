@@ -25,7 +25,7 @@ export async function handleStudentAuth(request:Request,env:NodeJS.ProcessEnv){
  try{
   const db=createWixStore(env),auth=createAuthCrypto(env),crypto=createStudentAuthCrypto(env),clock={now:()=>Date.now()},emails=previewRecipients(env);
   const scoped={...auth,identityDigest:(kind:string,email:string)=>auth.identityDigest("student-proof/"+kind,email)};
-  const svc=(email:string,student:boolean)=>createPreviewOtp({store:db,crypto:student?scoped:auth,clock,recipient:email,mailer:createPortalOtpMailer(env,email)});
+  const svc=(email:string,student:boolean)=>createPreviewOtp({store:db,crypto:student?scoped:auth,clock,recipient:email,accountType:student?"student-email-proof":"parent-test",mailer:createPortalOtpMailer(env,email)});
   async function locate(token:string,student:boolean){
    if(!tokenValid(token))return null;
    for(const email of emails){const service=svc(email,student);if(await service.resolveIdentity(token))return {email,service,parentId:"qa-j2-"+auth.identityDigest("parent-preview-session",email)};}
@@ -55,10 +55,12 @@ export async function handleStudentAuth(request:Request,env:NodeJS.ProcessEnv){
    if(action==="request"){const r=await candidate.requestCode();return json(r.ok?200:["LOCKED","COOLDOWN","HOURLY_LIMIT"].includes(r.status)?429:503,r);}
    if(typeof body.code!=="string"||!/^\d{6}$/.test(body.code))return fail(400);
    const r=await candidate.verifyCode(body.code);if(!r.ok||!tokenValid(r.token??""))return fail();
+   try{const old=await locate(v,true);if(old)await old.service.logout(v);}
+   catch{await candidate.logout(r.token);return fail(503);}
    return json(200,{ok:true,status:"EMAIL_VERIFIED"},[cookie(proofCookie,r.token,300)]);
   }
   if(!exact(body,["studentId","pin"])||typeof body.studentId!=="string"||typeof body.pin!=="string")return fail(400);
-  if(action==="enroll"){const r=await identity.enroll(p,body.studentId,body.pin);return json(r.ok?200:403,r);}
+  if(action==="enroll"){if(!await rate.reserve("global","private-preview-enroll",20,60000))return fail(429);const r=await identity.enroll(p,body.studentId,body.pin);return json(r.ok?200:403,r);}
   if(action==="sign-in"){
    if(!await rate.reserve("global","private-preview-pin",60,60000))return fail(429);
    const r=await identity.signIn(v,body.studentId,body.pin);

@@ -1,6 +1,8 @@
 // Preview OTP policy: durable single-recipient rate limits and isolated server-side sessions.
 // No real parent account, child profile, payment or authorization to production resources.
-export function createPreviewOtp({store,crypto,mailer,clock,recipient}){
+export function createPreviewOtp({store,crypto,mailer,clock,recipient,accountType="parent-test"}){
+  if(!["parent-test","student-email-proof"].includes(accountType))throw Error("INVALID_OTP_PURPOSE");
+  const ttl=accountType==="student-email-proof"?300000:43200000;
   // One configured recipient only, no real parent account, no production authorization.
   const key=crypto.identityDigest("parent-preview-otp",recipient);
   const accountId=crypto.identityDigest("parent-preview-session",recipient);
@@ -55,16 +57,16 @@ export function createPreviewOtp({store,crypto,mailer,clock,recipient}){
     });
     if(!result.ok)return result;
     const token=crypto.sessionToken(),digest=crypto.sessionDigest(token),now=clock.now();
-    const session={sessionDigest:digest,accountId,accountType:"parent-test",createdAt:date(now),expiresAt:date(now+43200000),revokedAt:null,stateVersion:crypto.newVersion()};
+    const session={sessionDigest:digest,accountId,accountType,createdAt:date(now),expiresAt:date(now+ttl),revokedAt:null,stateVersion:crypto.newVersion()};
     if(await store.insert("AuthSessions",digest,session)!==true)throw Error("SESSION_WRITE_FAILED");
     return {ok:true,status:"VERIFIED",token};
   }
   async function resolve(token){
     if(typeof token!=="string"||!/^[a-zA-Z0-9_-]{43}$/.test(token))return null;
     const digest=crypto.sessionDigest(token),row=await store.get("AuthSessions",digest);
-    if(!row||row.accountType!=="parent-test"||row.accountId!==accountId||row.sessionDigest!==digest||row.revokedAt!=null||typeof row.stateVersion!=="string")return null;
+    if(!row||row.accountType!==accountType||row.accountId!==accountId||row.sessionDigest!==digest||row.revokedAt!=null||typeof row.stateVersion!=="string")return null;
     const expires=epoch(row.expiresAt),created=epoch(row.createdAt),now=clock.now();
-    if(!Number.isFinite(expires)||!Number.isFinite(created)||created>now||expires<=now||expires-created!==43200000)return null;
+    if(!Number.isFinite(expires)||!Number.isFinite(created)||created>now||expires<=now||expires-created!==ttl)return null;
     return {digest,row};
   }
   async function status(token){return {ok:true,status:await resolve(token)?"VERIFIED":"NOT_VERIFIED"};}
