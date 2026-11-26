@@ -4,6 +4,7 @@
 import {randomUUID} from "node:crypto";
 import {J123_PLAN,J123_TERMS} from "./infrastructure.mjs";
 import {membershipProcessingEnabled as enabled,J123_MERCHANT as merchantId} from "./membership-provider.mjs";
+import {newPaymentReceipt} from "./payment-receipts.mjs";
 import {validateVerifiedMembershipPayment,readStudentMembershipStatus} from "../hitpay/verified-membership-contract.mjs";
 import {BILLING_COLLECTION,validStudent,checkoutKey,decodeCheckout,encodeCheckout,checkProviderBinding} from "./billing-records.mjs";
 const config=Object.freeze({environment:"sandbox",currency:"MYR",membershipMinor:36000,planId:J123_PLAN});
@@ -46,7 +47,9 @@ export function createMembershipReconciler({env,db,provider,clock=()=>Date.now()
     const membership={studentId,environment:"sandbox",source:"verified_membership_ledger",state:"paid",providerPaymentId:p.providerPaymentId,activatedAt:previous?s.membership.activatedAt:p.paidAt,validFrom:previous?s.membership.validFrom:p.periodStartAt,validUntil:p.periodEndAt};
     // Payment ledger and membership projection are committed together by a single conditional Wix update.
     // The inbox row is retained as immutable evidence; a replay sees the exact committed payment.
-    const next=encodeCheckout({...s,payments:[...payments,p],membership},newId);
+    const receipts=s.receipts??[];
+    if(!Array.isArray(receipts)||receipts.length>1||receipts.some(j=>j.providerPaymentId===p.providerPaymentId))return fail("RECEIPT_LEDGER_REVIEW_REQUIRED");
+    const next=encodeCheckout({...s,payments:[...payments,p],membership,receipts:[...receipts,newPaymentReceipt(p,clock())]},newId);
     if(await db.replaceIfVersion(BILLING_COLLECTION,key,current.stateVersion,next)===true){
      const saved=await db.get(BILLING_COLLECTION,key),verified=decodeCheckout(saved,studentId);
      if(!verified.payments?.some(x=>x.providerPaymentId===p.providerPaymentId)||verified.membership?.studentId!==studentId)return fail("COMMIT_UNCONFIRMED");

@@ -25,7 +25,9 @@ export function createMembershipWorkerHttp({storeFactory=createWixStore,requestF
    const result=await dispatchVerifiedMembershipEvent({env,db:storeFactory(env,requestFn),eventKey:input.eventKey,requestFn,clock});
    // Only a committed, duplicate, or explicitly unrelated event is acknowledged.
    // The caller must preserve/retry pending events; no identifiers or provider details returned.
-   return json(result.ok?200:503,{ok:result.ok,status:result.status});
+   // Payment is committed independently. Retry a pending receipt by replaying the same event key.
+   if(result.ok&&result.receiptStatus==="pending")return json(503,{ok:false,status:"receipt_pending",membershipStatus:result.status});
+   return json(result.ok?200:503,{ok:result.ok,status:result.status,...(result.receiptStatus?{receiptStatus:result.receiptStatus}:{})});
   }catch{return json(503,{ok:false});}
  };
 }

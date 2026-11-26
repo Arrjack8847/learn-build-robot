@@ -5,6 +5,7 @@ import {BILLING_COLLECTION,validStudent,validProvider,checkoutKey,decodeCheckout
 import {createMembershipProviderReader,membershipProcessingEnabled} from "./membership-provider.mjs";
 import {createMembershipReconciler,createMembershipReviewProcessor,readIntegratedMembership} from "./membership-reconciliation.mjs";
 import {J123_TERMS} from "./infrastructure.mjs";
+import {flushPaymentReceipts} from "./payment-receipts.mjs";
 const digest=x=>typeof x==="string"&&/^[a-f0-9]{64}$/.test(x);
 const epoch=x=>Number.isSafeInteger(x)?x:Date.parse(typeof x==="string"?x:x?.$date);
 const types=new Set(["charge.created","charge.updated","recurring_billing.subscription_updated","recurring_billing.method_detached"]);
@@ -52,6 +53,7 @@ export async function reconcileStudentCheckoutStatus({env,db,studentId,parentId,
   if(membership?.membershipStatus==="verification_required")return "MEMBERSHIP_REVIEW_REQUIRED";
   // Never show active while a matched adverse event or unknown charge remains unverified.
   if(unresolved)return "PAYMENT_VERIFICATION_REQUIRED";
+  if(membership)await flushPaymentReceipts({env,db,studentId,requestFn,clock});
   return display(membership);
  }catch{return "PAYMENT_VERIFICATION_REQUIRED";}
 }
@@ -76,10 +78,15 @@ export async function dispatchVerifiedMembershipEvent({env,db,eventKey,requestFn
   if(v.scope!=="j123-provider-binding-v1"||v.kind!=="subscription"||v.providerId!==subscriptionId||!validStudent(v.childId)||!validStudent(v.parentId))return {ok:false,status:"pending"};
   const state=decodeCheckout(await db.get(BILLING_COLLECTION,checkoutKey(v.childId)),v.childId),r=state.reservation;
   if(r.providerId!==subscriptionId||r.parentId!==v.parentId||r.status!=="bound"||r.termsVersion!==J123_TERMS||!Number.isSafeInteger(r.termsAcceptedAt)||r.termsAcceptedAt<=0||!validEvent(e,clock(),r.termsAcceptedAt)||!await checkProviderBinding(db,"subscription",subscriptionId,r))return {ok:false,status:"pending"};
-  if(state.payments?.some(p=>p.eventKey===eventKey)||state.reviewEvents?.some(p=>p.eventKey===eventKey))return {ok:true,status:"duplicate"};
+  async function paymentResult(status){
+   const receiptStatus=await flushPaymentReceipts({env,db,studentId:v.childId,requestFn,clock});
+   return {ok:true,status,...(receiptStatus==="disabled"?{}:{receiptStatus})};
+  }
+  if(state.payments?.some(p=>p.eventKey===eventKey))return await paymentResult("duplicate");
+  if(state.reviewEvents?.some(p=>p.eventKey===eventKey))return {ok:true,status:"duplicate"};
   const run=e.eventType==="charge.created"?createMembershipReconciler({env,db,provider,clock}):createMembershipReviewProcessor({env,db,provider,clock});
   const result=await run(v.childId,eventKey);
-  if(result.ok)return {ok:true,status:result.status};
+  if(result.ok)return e.eventType==="charge.created"?await paymentResult(result.status):{ok:true,status:result.status};
   if(e.eventType==="recurring_billing.subscription_updated"){
    const o=await provider.reconcileAdverseEvent({eventKey,eventType:e.eventType,objectId:e.providerObjectId,subscriptionId:r.providerId,reference:r.reference,planId:r.planId});
    if(o&&["active","scheduled","retrying"].includes(o.subscriptionStatus))return {ok:true,status:"ignored"};

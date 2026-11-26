@@ -4,13 +4,16 @@ import {createIntegratedCheckoutStore} from "../scripts/j123/checkout-store.mjs"
 import {createIntegratedCheckoutHttp} from "../scripts/j123/checkout-http.mjs";
 import {reconcileStudentCheckoutStatus,dispatchVerifiedMembershipEvent} from "../scripts/j123/membership-runtime.mjs";
 import {createMembershipWorkerHttp} from "../scripts/j123/membership-worker-http.mjs";
+import {createAuthCrypto} from "../scripts/parent-auth/secure-auth-transport.mjs";
+import {flushPaymentReceipts} from "../scripts/j123/payment-receipts.mjs";
 import {BILLING_COLLECTION,checkoutKey,decodeCheckout} from "../scripts/j123/billing-records.mjs";
 import {J123_BRANCH,J123_SITE,J123_ORIGIN,J123_PLAN,J123_TERMS} from "../scripts/j123/infrastructure.mjs";
 import {J123_MERCHANT,createMembershipProviderReader} from "../scripts/j123/membership-provider.mjs";
 const env={VERCEL_ENV:"preview",VERCEL_TARGET_ENV:"preview",VERCEL_GIT_COMMIT_REF:J123_BRANCH,VERCEL_URL:"fixture.vercel.app",WIX_DEV_SITE_ID:J123_SITE,WIX_DEV_DATA_API_KEY:"fixture-wix",RESEND_API_KEY:"fixture",RESEND_TEST_RECIPIENT:"fixture@gmail.com",PARENT_PREVIEW_OPEN_EMAIL:"1",PARENT_PREVIEW_VERIFIED_SENDER:"noreply@mail.bestemready.edu.my",PARENT_AUTH_SECRET:"0123456789abcdef".repeat(4),STUDENT_AUTH_SECRET:"fedcba9876543210".repeat(4),STUDENT_AUTH_ENABLED:"true",HITPAY_API_URL:J123_ORIGIN,HITPAY_PLAN_ID:J123_PLAN,HITPAY_CURRENCY:"MYR",HITPAY_MEMBERSHIP_AMOUNT:"360.00",HITPAY_SANDBOX_PAYMENT_METHOD:"touch_n_go",HITPAY_API_KEY:"DISABLED_J3_WIX_VAULT_ONLY",HITPAY_SALT_KEY:"DISABLED_J3_WIX_VAULT_ONLY",HITPAY_API_BASE_URL:"DISABLED_J3_WIX_VAULT_ONLY",J3_SANDBOX_ROTATION_CONFIRMED:"true",J123_CHECKOUT_ENABLED:"false",J123_GENUINE_WEBHOOK_ACCEPTED:"true",J123_PAYMENT_TERMS_VERSION:J123_TERMS,J123_MEMBERSHIP_RECONCILIATION_ENABLED:"true",J123_PROVIDER_PERIOD_SCHEMA:"confirmed_charge_billing_period_v1"};
 const parent="qa-j2-"+"a".repeat(64),child="qa-j2-"+"b".repeat(64),sibling="qa-j2-"+"c".repeat(64),foreign="qa-j2-"+"f".repeat(64),eventKey="d".repeat(64);
 const now=1795680000000,accepted=now-86400000,iso=n=>new Date(n).toISOString();
-async function fixture(){
+async function fixture({payerId=parent,emailHandler}={}){
+ const parent=payerId;
  const rows=new Map(),events=[],calls=[],k=(c,i)=>c+":"+i;
  let tick=now;
  const db={get:async(c,i)=>structuredClone(rows.get(k(c,i))??null),insert:async(c,i,r)=>{if(rows.has(k(c,i)))return false;rows.set(k(c,i),structuredClone(r));return true;},replaceIfVersion:async(c,i,v,r)=>{if(rows.get(k(c,i))?.stateVersion!==v)return false;rows.set(k(c,i),structuredClone(r));return true;},listMembershipInbox:async()=>structuredClone(events)};
@@ -23,6 +26,7 @@ async function fixture(){
  const providerCharges=new Map([["charge-one",providerCharge]]);
  const requestFn=async(url,opt)=>{
   calls.push({url,method:opt.method});
+  if(url==="https://api.resend.com/emails"){assert.ok(emailHandler);return emailHandler(opt);}
   assert.equal(opt.method,"GET");assert.equal(opt.redirect,"error");
   if(url.startsWith("https://www.wixapis.com/"))return Response.json({value:"vault-sandbox-key"});
   assert.ok(url.startsWith(J123_ORIGIN+"/v1/"));assert.equal(opt.headers["X-BUSINESS-API-KEY"],"vault-sandbox-key");
@@ -113,4 +117,63 @@ test("explicit unrelated one-time charge is ignored rather than blocking a verif
  f.providerCharges.set("charge-other",{...f.providerCharge,id:"charge-other",target_type:"payment_request",target_id:"other"});
  await f.add("e".repeat(64),"charge.created","charge-other");
  assert.equal(await f.run(),"MEMBERSHIP_ACTIVE");
+});
+
+const emailEnv={...env,J123_PAYMENT_EMAIL_ENABLED:"true"};
+const verifiedParent="qa-j2-"+createAuthCrypto(emailEnv).identityDigest("parent-preview-session","fixture@gmail.com");
+async function receiptFixture(emailHandler){
+ const f=await fixture({payerId:verifiedParent,emailHandler});
+ await f.db.insert("Parents",verifiedParent,{parentId:verifiedParent,email:verifiedParent+"@example.invalid",emailVerified:true,accountStatus:"preview-test"});
+ await f.db.insert("PrivacyConsents",verifiedParent+"-consent",{parentId:verifiedParent,noticeVersion:"preview-fictional-v1",acceptedAt:{$date:iso(accepted-1000)}});
+ await f.db.insert("Children",child,{childId:child,parentId:verifiedParent,accountStatus:"preview-test",name:"Test Student",birthYear:2010,stateVersion:"fixture"});
+ await f.add(eventKey);
+ return {...f,flush:(e=emailEnv)=>flushPaymentReceipts({env:e,db:f.db,studentId:child,requestFn:f.requestFn,clock:f.clock}),dispatch:(e=emailEnv)=>dispatchVerifiedMembershipEvent({env:e,db:f.db,eventKey,requestFn:f.requestFn,clock:f.clock})};
+}
+test("Phase 07 queues receipt atomically, sends only to digest-matched approved parent, and never duplicates",async()=>{
+ const sends=[],f=await receiptFixture(async opt=>{sends.push(opt);return Response.json({id:"resend-fixture-id"});});
+ assert.equal(await f.flush(),"none");
+ assert.equal(sends.length,0);
+ const first=await f.dispatch({...emailEnv,J123_PAYMENT_EMAIL_ENABLED:"false"});
+ assert.equal(first.status,"membership_committed");
+ assert.equal((await f.state()).receipts.length,1);
+ assert.equal((await f.state()).receipts[0].status,"pending");
+ assert.equal(sends.length,0);
+ await Promise.all([f.flush(),f.flush(),f.flush()]);
+ assert.equal(sends.length,1);
+ const payload=JSON.parse(sends[0].body);
+ assert.deepEqual(payload.to,["fixture@gmail.com"]);assert.match(payload.text,/Test Student/);assert.match(payload.text,/RM360.00/);assert.match(payload.text,/SANDBOX TEST/);
+ assert.equal((await f.state()).receipts[0].status,"accepted");
+ assert.equal((await f.dispatch()).receiptStatus,"accepted");
+ assert.equal(sends.length,1);
+ assert.doesNotMatch(JSON.stringify(await f.state()),/fixture@gmail.com|Test Student/);
+});
+test("Phase 07 retries exact payload/key inside retention window, and email failure never rolls back membership",async()=>{
+ const sends=[],f=await receiptFixture(async opt=>{sends.push({body:opt.body,key:opt.headers["Idempotency-Key"]});if(sends.length===1)throw Error("timeout");return Response.json({id:"resend-fixture-id"});});
+ const first=await f.dispatch();assert.equal(first.status,"membership_committed");assert.equal(first.receiptStatus,"pending");assert.equal((await f.state()).membership.state,"paid");
+ assert.equal(await f.flush(),"pending");assert.equal(sends.length,1);
+ f.advance(61000);assert.equal(await f.flush(),"accepted");
+ assert.equal(sends.length,2);assert.deepEqual(sends[0],sends[1]);
+ assert.equal((await f.state()).receipts[0].attempts,2);
+});
+test("Phase 07 refuses unknown recipient, removed consent, review hold and expired ambiguous retry",async()=>{
+ const sends=[],f=await receiptFixture(async opt=>{sends.push(opt);throw Error("timeout");});
+ await f.dispatch({...emailEnv,J123_PAYMENT_EMAIL_ENABLED:"false"});
+ assert.equal(await f.flush({...emailEnv,RESEND_TEST_RECIPIENT:"other@gmail.com"}),"pending");
+ assert.equal(sends.length,0);
+ const k="PrivacyConsents:"+verifiedParent+"-consent",prior=f.rows.get(k);f.rows.delete(k);
+ assert.equal(await f.flush(),"pending");assert.equal(sends.length,0);f.rows.set(k,prior);
+ assert.equal(await f.flush(),"pending");assert.equal(sends.length,1);
+ f.advance(23*3600000+1);
+ assert.equal(await f.flush(),"review_required");assert.equal(sends.length,1);
+ assert.equal((await f.state()).receipts[0].status,"review");
+ const g=await receiptFixture(async opt=>{sends.push(opt);return Response.json({id:"never"});});
+ await g.dispatch({...emailEnv,J123_PAYMENT_EMAIL_ENABLED:"false"});
+ const key=checkoutKey(child),row=await g.db.get(BILLING_COLLECTION,key),state=decodeCheckout(row,child);
+ await g.db.replaceIfVersion(BILLING_COLLECTION,key,row.stateVersion,{...row,stateVersion:"held",stateJson:JSON.stringify({...state,membership:{...state.membership,policyReviewRequired:true}})});
+ assert.equal(await g.flush(),"review_required");assert.equal(sends.length,1);
+});
+test("Phase 07 payload change after ambiguous send never uses a different body with same key",async()=>{
+ let sends=0;const f=await receiptFixture(async()=>{sends++;throw Error("timeout");});await f.dispatch();
+ const row=await f.db.get("Children",child);await f.db.replaceIfVersion("Children",child,row.stateVersion,{...row,name:"Changed Student",stateVersion:"new"});
+ f.advance(61000);assert.equal(await f.flush(),"review_required");assert.equal(sends,1);
 });
