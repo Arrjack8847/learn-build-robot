@@ -1,0 +1,46 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {randomBytes,randomUUID} from "node:crypto";
+import {createParentAuthHttp} from "../scripts/parent-auth/http.mjs";
+import {createStudentContext} from "../scripts/student-auth/session-context.mjs";
+import {createAuthCrypto} from "../scripts/parent-auth/secure-auth-transport.mjs";
+import {createStudentAuthCrypto} from "../scripts/student-auth/crypto.mjs";
+import {NOTICE_VERSION} from "../scripts/parent-auth/family-preview.mjs";
+test("payer HTTP: registration, privacy gate, duplicate resistance, identity switching and session revocation",async()=>{
+ const env={VERCEL_ENV:"preview",VERCEL_URL:"j2.invalid",PARENT_AUTH_SECRET:randomBytes(32).toString("hex"),STUDENT_AUTH_SECRET:randomBytes(32).toString("hex")};
+ const a="a@example.invalid",b="b@example.invalid",approved=[a,b],rows=new Map(),sent=new Map(),key=(c,id)=>c+":"+id;let now=1795660000000;
+ const db={get:async(c,id)=>structuredClone(rows.get(key(c,id))??null),insert:async(c,id,r)=>{if(rows.has(key(c,id)))return false;rows.set(key(c,id),structuredClone(r));return true;},replaceIfVersion:async(c,id,v,r)=>{if(rows.get(key(c,id))?.stateVersion!==v)return false;rows.set(key(c,id),structuredClone(r));return true;},listFixtureChildren:async p=>[...rows.entries()].filter(([k,r])=>k.startsWith("Children:")&&r.parentId===p).map(([,r])=>structuredClone(r))};
+ const auth=createAuthCrypto(env),clock={now:()=>now},mailerFor=email=>({sendParentCode:async(to,code)=>{assert.equal(to,email);sent.set(to,code);}});
+ const student=createStudentContext({db,auth,crypto:createStudentAuthCrypto(env),clock,emails:approved,mailerFor});
+ const revokeStudent=async(s,p)=>{await student.identity.logout(s);const prior=await student.locate(p,true);if(prior)await prior.service.logout(p);};
+ const handle=createParentAuthHttp({resolveContext:async()=>({db,crypto:auth,clock,approved,recipient:a,mailerFor,revokeStudent})});
+ async function call(action,body,cookies="",changes={}){
+  const headers={origin:"https://j2.invalid","sec-fetch-site":"same-origin","x-stem-otp-test":"1",...(cookies?{cookie:cookies}:{}),...(body?{"content-type":"application/json"}:{}),...changes.headers};
+  const r=await handle(new Request("https://j2.invalid/api/dev/parent-otp/"+action,{method:"POST",headers,...(body?{body:JSON.stringify(body)}:{})}),{...env,...changes.env});
+  return {status:r.status,body:await r.json(),cookies:r.headers.getSetCookie()};
+ }
+ const payerCookie=r=>r.cookies.find(x=>x.startsWith("__Host-bsr-parent-test="))?.split(";")[0];
+ assert.equal((await call("status",null,"",{env:{VERCEL_ENV:"production"}})).status,404);
+ assert.equal((await call("status",null,"",{headers:{origin:"https://other.invalid"}})).status,403);
+ assert.equal((await call("request-email",{email:"x".repeat(600)})).status,400);
+ assert.equal((await call("request-email",{email:"other@example.invalid"})).status,403);
+ assert.equal((await call("family-child-edit",{})).status,404);
+ assert.equal((await call("request-email",{email:a})).body.status,"CODE_SENT");
+ assert.equal((await call("request-email",{email:a})).status,429);
+ const code=sent.get(a);const login=await call("verify-email",{email:a,code});assert.equal(login.body.status,"VERIFIED");assert.equal(login.body.token,undefined);assert.match(login.cookies[0],/HttpOnly; SameSite=Strict/);
+ const ac=payerCookie(login),at=ac.split("=")[1];assert.equal((await call("verify-email",{email:a,code})).status,400);
+ assert.equal((await call("family-status",null,ac)).body.status,"CONSENT_REQUIRED");
+ const input={name:"Test Alpha",birthYear:2018,requestKey:randomUUID()};assert.equal((await call("family-child-create",input,ac)).status,403);
+ assert.equal((await call("family-consent",{accepted:true,noticeVersion:NOTICE_VERSION},ac)).body.status,"CONSENT_RECORDED");
+ const reg=await call("family-child-create",input,ac);assert.equal(reg.body.status,"CHILD_SAVED");const id=reg.body.child.id;
+ assert.equal((await call("family-child-create",{...input,requestKey:randomUUID()},ac)).body.child.id,id);
+ assert.equal((await student.identity.enroll(at,id,"581304")).status,"ENROLLED");
+ const proof=student.svc(a,true);await proof.requestCode();const verified=await proof.verifyCode(sent.get(a));const st=await student.identity.signIn(verified.token,id,"581304");assert.equal(st.status,"VERIFIED");
+ assert.equal((await call("family-status",null,"__Host-bsr-parent-test="+st.token)).status,401);
+ now+=61000;await call("request-email",{email:b});const second=await call("verify-email",{email:b,code:sent.get(b)},ac+"; __Host-bsr-student="+st.token);
+ assert.equal(second.body.status,"VERIFIED");const bc=payerCookie(second);assert.equal(await student.identity.resolveStudentSession(st.token),null);
+ assert.equal((await call("status",null,ac)).body.status,"NOT_VERIFIED");
+ assert.equal((await call("family-consent",{accepted:true,noticeVersion:NOTICE_VERSION},bc)).body.status,"CONSENT_RECORDED");
+ assert.equal((await call("family-child-get",{childId:id},bc)).status,404);
+ assert.equal((await call("logout",null,bc)).body.status,"SIGNED_OUT");assert.equal((await call("status",null,bc)).body.status,"NOT_VERIFIED");
+});

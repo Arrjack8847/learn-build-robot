@@ -1,8 +1,9 @@
 export type Child={id:string;name:string;birthYear:number;version:string};
 export type PortalResult={ok:boolean;status:string;noticeVersion?:string;children?:Child[];child?:Child};
 export async function portal(action:string,body?:object):Promise<PortalResult>{
- const r=await fetch("/api/dev/parent-otp/"+action,{method:"POST",credentials:"same-origin",cache:"no-store",redirect:"error",headers:{"X-STEM-OTP-Test":"1",...(body?{"Content-Type":"application/json"}:{})},...(body?{body:JSON.stringify(body)}:{})});
- return r.json();
+ try{const r=await fetch("/api/dev/parent-otp/"+action,{method:"POST",credentials:"same-origin",cache:"no-store",redirect:"error",headers:{"X-STEM-OTP-Test":"1",...(body?{"Content-Type":"application/json"}:{})},...(body?{body:JSON.stringify(body)}:{})});
+ const result=await r.json();if(!result||typeof result.ok!=="boolean"||typeof result.status!=="string")throw Error("INVALID_RESPONSE");return result;
+ }catch{throw Error("The service could not be reached. Please retry.");}
 }
 export const errorMessage=(status:string)=>({
  PREVIEW_EMAIL_NOT_APPROVED:"This email is not enabled for the private preview. Use the approved test inbox.",
@@ -15,6 +16,7 @@ export const errorMessage=(status:string)=>({
  NOT_AUTHORIZED:"Your session has ended. Please sign in again.",
  CONSENT_REQUIRED:"Please accept the test privacy notice.",
  EDIT_CONFLICT:"This profile changed. Reload and try again.",
+ DUPLICATE_REVIEW_REQUIRED:"More than one matching student record exists. Please contact support before registering again.",
  REQUEST_CONFLICT:"This request conflicts with an existing profile. Reload before trying again.",
  PREVIEW_ONLY:"Parent registration is not available outside the private preview.",
  CONFIGURATION_REQUIRED:"The private preview is not configured.",
