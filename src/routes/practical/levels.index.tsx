@@ -1,6 +1,7 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowLeft, UserRound } from "lucide-react";
+import { ArrowLeft, UserRound, Lock } from "lucide-react";
 import { getLevelTotals } from "@/data/advancedSyllabus";
+import { j5PrivateUI,useJ5Overview,levelLabel } from "@/lib/j5-overview";
 
 export const Route = createFileRoute("/practical/levels/")({
   component: SyllabusLevelsPage,
@@ -32,6 +33,7 @@ function LevelArtwork({ art, level }: { art: string; level: number }) {
 }
 
 function SyllabusLevelsPage() {
+  const {state,refresh}=useJ5Overview(j5PrivateUI);
   return (
     <main className="relative isolate flex h-[100svh] min-h-0 flex-col overflow-hidden bg-[#f4fbff] text-[#20395c]">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,#e3f4ff_0%,#f6fbff_62%,#eaf7ef_100%)]" />
@@ -59,9 +61,12 @@ function SyllabusLevelsPage() {
           <p className="mx-auto w-fit rounded-full border border-[#c8e7f9] bg-[#e9f7ff]/90 px-5 py-1 text-[clamp(10px,1.65svh,14px)] font-bold text-[#388cbd]">Explore Categories</p>
           <h1 className="mt-[clamp(4px,1dvh,14px)] text-[clamp(22px,3.8svh,40px)] font-black leading-tight tracking-tight text-[#21476c]">Choose Your Level</h1>
         </div>
+        {j5PrivateUI&&state.kind!=="ready"&&<div className="shrink-0 text-center text-xs text-slate-700" role="status">{state.kind==="loading"?"Checking your levels…":state.kind==="unauthorized"?<a className="font-bold underline" href="/auth/">Sign in to open learning levels</a>:<button className="font-bold underline" type="button" onClick={refresh}>Levels unavailable. Retry</button>}</div>}
         <ul aria-label="Choose your syllabus level" className="mx-auto my-auto grid min-h-0 w-full max-w-[900px] flex-1 grid-cols-2 grid-rows-3 gap-[clamp(7px,1.2svh,16px)] py-[clamp(7px,1.2svh,14px)] landscape:grid-cols-3 landscape:grid-rows-2">
           {levels.map((level) => {
             const totals = level.number === 1 ? { categories: 14, entries: 59 } : getLevelTotals(level.number);
+            const access=state.kind==="ready"?state.data.levels.find(l=>l.level===level.number):undefined;
+            const locked=j5PrivateUI&&access?.available!==true;
             const card = (
               <div className="group flex h-full min-h-0 flex-col items-center justify-center overflow-hidden rounded-[clamp(16px,2.6vw,28px)] border border-white/90 px-2 py-[clamp(5px,1svh,12px)] text-center shadow-[0_7px_22px_rgba(54,107,143,.12)] transition-transform duration-200 hover:-translate-y-1 motion-reduce:transform-none" style={{ backgroundColor: level.color }}>
                 <div className="flex min-h-0 w-full flex-1 items-center justify-center">
@@ -71,11 +76,12 @@ function SyllabusLevelsPage() {
                   <span className="text-[clamp(14px,2.15svh,22px)] font-black leading-tight" style={{ color: level.ink }}>Level {level.number}</span>
                   <span className="text-[clamp(10px,1.5svh,14px)] font-semibold leading-tight text-[#48637b]">{level.name}</span>
                   <span className="text-[clamp(9px,1.25svh,12px)] leading-tight text-[#5e7488]">{totals.categories} categories · {totals.entries} projects</span>
+                  {j5PrivateUI&&<span className="flex items-center gap-1 text-[clamp(9px,1.25svh,12px)] font-bold text-slate-700">{locked&&<Lock className="size-3"/>}{access?levelLabel(access):"Unavailable"}{access&&access.required>0&&` · ${access.completed}/${access.required}`}</span>}
                 </div>
               </div>
             );
             return <li key={level.number} className="min-h-0 min-w-0">
-              {level.number === 1
+              {locked?<div aria-disabled="true" className="h-full rounded-3xl">{card}</div>:level.number === 1
                 ? <Link to="/practical/level-1" aria-label="Explore Level 1 categories" className="block h-full rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">{card}</Link>
                 : <Link to="/practical/levels/$levelNumber" params={{ levelNumber: String(level.number) }} aria-label={`Explore Level ${level.number} categories`} className="block h-full rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">{card}</Link>}
             </li>;

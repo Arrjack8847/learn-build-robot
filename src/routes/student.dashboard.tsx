@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { J5PrivateProfile } from "@/components/j5/J5PrivateProfile";
+import { j5PrivateUI } from "@/lib/j5-overview";
 import { useEffect,useState } from "react";
 import { BookOpen,Wrench,Trophy,ClipboardCheck,Lock,LockOpen,RefreshCw } from "lucide-react";
 import { getProject } from "@/data/practical";
 import { loadStudentDashboard,loadLevelReadiness,LmsError,type StudentDashboard,type LevelReadiness } from "@/lib/wix-lms";
-export const Route=createFileRoute("/student/dashboard")({component:Dashboard});
+export const Route=createFileRoute("/student/dashboard")({component:j5PrivateUI?J5PrivateProfile:Dashboard});
 const names=["Little Inventors","Creative Builders","Problem Solvers","Tech Explorers","Innovators","Future Makers"];
 const active=(status:string)=>["Unlocked","In progress","Completed"].includes(status);
 const card="rounded-3xl border border-sky-100 bg-white p-5 shadow-sm";
