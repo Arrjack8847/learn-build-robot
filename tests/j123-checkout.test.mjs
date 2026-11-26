@@ -10,7 +10,7 @@ test("student-bound store reserves exactly once and refuses another request key"
 
 const enabled={...env,J123_CHECKOUT_ENABLED:"true",J123_GENUINE_WEBHOOK_ACCEPTED:"true",J123_PAYMENT_TERMS_VERSION:"j123-sandbox-membership-v1",HITPAY_API_URL:"https://api.sandbox.hit-pay.com",HITPAY_PLAN_ID:"a34f0707-c529-4c64-9f1f-e969c0d3de16",HITPAY_CURRENCY:"MYR",HITPAY_MEMBERSHIP_AMOUNT:"360.00",HITPAY_SANDBOX_PAYMENT_METHOD:"touch_n_go",WIX_DEV_DATA_API_KEY:"fixture-wix",PARENT_AUTH_SECRET:"0123456789abcdef".repeat(4),STUDENT_AUTH_SECRET:"fedcba9876543210".repeat(4),STUDENT_AUTH_ENABLED:"true",RESEND_API_KEY:"fixture-resend",RESEND_TEST_RECIPIENT:"fixture@gmail.com",PARENT_PREVIEW_OPEN_EMAIL:"1",PARENT_PREVIEW_VERIFIED_SENDER:"noreply@mail.bestemready.edu.my",HITPAY_API_KEY:"DISABLED_J3_WIX_VAULT_ONLY",HITPAY_SALT_KEY:"DISABLED_J3_WIX_VAULT_ONLY",HITPAY_API_BASE_URL:"DISABLED_J3_WIX_VAULT_ONLY",J3_SANDBOX_ROTATION_CONFIRMED:"true"};
 const childB="qa-j2-"+"d".repeat(64),foreign="qa-j2-"+"e".repeat(64);
-function fixture({planCycles=2,reusedProvider=false,expireAtPlan=false}={}){let expired=false;const rows=new Map(),calls=[];const db={get:async(_,k)=>rows.get(k),insert:async(_,k,r)=>{if(rows.has(k))return false;rows.set(k,r);return true},replaceIfVersion:async(_,k,v,r)=>{if(rows.get(k)?.stateVersion!==v)return false;rows.set(k,r);return true}};const h=createIntegratedCheckoutHttp({resolvePayer:async(_,__,id)=>!expired&&[c,childB].includes(id)?{parentId:p,childId:id,email:p+"@example.invalid"}:null,storeFactory:()=>db,requestFn:async(url,opts)=>{calls.push({url,method:opts.method,body:opts.body});if(url.startsWith("https://www.wixapis.com/"))return Response.json({value:"fixture-secret"});if(url.includes("/v1/subscription-plan/")){if(expireAtPlan)expired=true;return Response.json({id:enabled.HITPAY_PLAN_ID,currency:"MYR",amount:"360.00",cycle:"monthly",times_to_be_charged:planCycles});}if(url.endsWith("/v1/recurring-billing"))return Response.json({id:reusedProvider?"fixture-provider-shared":"fixture-provider-"+calls.length,url:"https://securecheckout.sandbox.hit-pay.com/fixture"});throw Error("unexpected network");}});return {h,rows,calls};}
+function fixture({planCycles=2,reusedProvider=false,expireAtPlan=false,failFirstPlan=false,ambiguousPost=false}={}){let expired=false,planCalls=0;const rows=new Map(),calls=[];const db={get:async(_,k)=>rows.get(k),insert:async(_,k,r)=>{if(rows.has(k))return false;rows.set(k,r);return true},replaceIfVersion:async(_,k,v,r)=>{if(rows.get(k)?.stateVersion!==v)return false;rows.set(k,r);return true}};const h=createIntegratedCheckoutHttp({resolvePayer:async(_,__,id)=>!expired&&[c,childB].includes(id)?{parentId:p,childId:id,email:p+"@example.invalid"}:null,storeFactory:()=>db,requestFn:async(url,opts)=>{calls.push({url,method:opts.method,body:opts.body});if(url.startsWith("https://www.wixapis.com/"))return Response.json({value:"fixture-secret"});if(url.includes("/v1/subscription-plan/")){planCalls++;if(failFirstPlan&&planCalls===1)return new Response(null,{status:503});if(expireAtPlan)expired=true;return Response.json({id:enabled.HITPAY_PLAN_ID,currency:"MYR",amount:"360.00",cycle:"monthly",times_to_be_charged:planCycles});}if(url.endsWith("/v1/recurring-billing")){if(ambiguousPost)throw Error("NETWORK_TIMEOUT_AFTER_POST");return Response.json({id:reusedProvider?"fixture-provider-shared":"fixture-provider-"+calls.length,url:"https://securecheckout.sandbox.hit-pay.com/fixture"});}throw Error("unexpected network");}});return {h,rows,calls};}
 const make=(body,status=false,headers={})=>new Request(origin+"/api/dev/j123/checkout"+(status?"/status":""),{method:"POST",headers:{origin,"sec-fetch-site":"same-origin","x-stem-j123":"1","content-type":"application/json",...headers},body:JSON.stringify(body)});
 const payment=id=>({childId:id,requestKey:"fixture",termsVersion:"j123-sandbox-membership-v1"});
 test("status is authenticated and gated without provider requests",async()=>{const {h,calls}=fixture();assert.equal((await (await h(make({childId:c},true),env)).json()).status,"PAYMENT_TEST_NOT_ENABLED");assert.equal((await h(make({childId:foreign},true),env)).status,401);assert.equal(calls.length,0);});
@@ -28,4 +28,26 @@ test("payer expiry during provider plan lookup blocks checkout POST",async()=>{
  assert.equal(r.status,409);
  assert.equal(calls.filter(x=>x.url.includes("/v1/subscription-plan/")).length,1);
  assert.equal(calls.filter(x=>x.url.endsWith("/v1/recurring-billing")).length,0);
+});
+
+test("known pre-POST failure allows explicit fresh attempt, with no automatic payment retry",async()=>{
+ const {h,calls,rows}=fixture({failFirstPlan:true});
+ const first=await h(make(payment(c)),enabled);
+ assert.equal(first.status,409);assert.equal((await first.json()).status,"CHECKOUT_PREFLIGHT_RETRY");
+ assert.equal(calls.filter(x=>x.url.endsWith("/v1/recurring-billing")).length,0);
+ const old=[...rows.values()].map(x=>JSON.parse(x.stateJson)).find(x=>x.scope==="j123-checkout-v1").reservation;
+ assert.equal(old.dispatchState,"retryable");
+ assert.equal((await (await h(make({childId:c},true),enabled)).json()).status,"CHECKOUT_AVAILABLE");
+ const results=await Promise.all([h(make(payment(c)),enabled),h(make(payment(c)),enabled)]);
+ assert.equal(results.every(x=>x.status===200),true);
+ const next=[...rows.values()].map(x=>JSON.parse(x.stateJson)).find(x=>x.scope==="j123-checkout-v1").reservation;
+ assert.notEqual(old.attemptId,next.attemptId);assert.notEqual(old.reference,next.reference);assert.equal(next.dispatchState,"dispatched");
+ assert.equal(calls.filter(x=>x.url.endsWith("/v1/recurring-billing")).length,1);
+});
+test("uncertain provider POST remains locked across retries and refreshes",async()=>{
+ const {h,calls}=fixture({ambiguousPost:true});
+ const first=await h(make(payment(c)),enabled);assert.equal(first.status,409);assert.equal((await first.json()).status,"RECONCILIATION_REQUIRED");
+ assert.equal((await (await h(make({childId:c},true),enabled)).json()).status,"RECONCILIATION_REQUIRED");
+ assert.equal((await h(make(payment(c)),enabled)).status,200);
+ assert.equal(calls.filter(x=>x.url.endsWith("/v1/recurring-billing")).length,1);
 });

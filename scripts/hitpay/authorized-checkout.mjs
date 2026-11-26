@@ -35,6 +35,13 @@ export function createAuthorizedCheckout({config, identity, store, transport, is
       // An uncertain create or failed binding remains locked for reconciliation.
       if (await store.bindCheckoutOnce({attemptId:r.attemptId,reference:r.reference,providerId:result.providerId,environment:"sandbox",kind})!==true) return fail("RECONCILIATION_REQUIRED");
       return {ok:true,status:"pending_verification",attemptId:r.attemptId,checkoutUrl:result.url};
-    } catch {return fail("RECONCILIATION_REQUIRED");}
+    } catch {
+      // Optional integrated store recovery: only a durable proof that the provider POST
+      // was not dispatched permits a fresh explicit attempt. Never retry automatically.
+      if(kind==="membership"&&typeof store.releaseUnsent==="function"){
+       try{if(await store.releaseUnsent(r)===true)return fail("CHECKOUT_PREFLIGHT_RETRY");}catch{}
+      }
+      return fail("RECONCILIATION_REQUIRED");
+    }
   };
 }
