@@ -27,3 +27,17 @@ test("missing atomic evidence cannot grant access",async()=>{for(const field of 
 test("invalid input, anonymous, payer and production denied before reservation",async()=>{const f=fixture();assert.equal((await f.run({...input,studentId:"qa-b"})).status,400);assert.equal((await f.run(input,{...request,sameOrigin:false})).status,403);assert.equal((await f.run(input,request,{VERCEL_ENV:"production"})).status,403);f.state.session.role="payer";assert.equal((await f.run()).status,401);f.state.session=null;assert.equal((await f.run()).status,401);assert.equal(f.state.reserved,0);});
 test("provider exception and missing authority fail closed without code disclosure",async()=>{const f=fixture();f.state.fail=true;const r=await f.run();assert.equal(r.status,503);assert.ok(!JSON.stringify(r).includes(input.code));const missing=createCheckInService({...f.adapters,authority:null});assert.equal((await missing.verify(request,env,input)).status,503);});
 test("membership revoked after commit prevents success disclosure",async()=>{const f=fixture();f.state.afterRedeem=()=>{f.state.membership.eligible=false;};assert.equal((await f.run()).status,403);});
+
+// Exercise the actual HTTP transport with native Request/Response.
+import {createJ5Http,handleJ5Http} from "../scripts/j5/http.mjs";
+const origin="https://j5.test.invalid",path="/api/dev/j5/check-in",enabled={...env,J5_PRIVATE_ENABLED:"true"};
+function httpFixture(){
+ const f=fixture();
+ f.adapters.resolveStudent=async req=>req.headers.get("cookie")==="test-only=qa-a"?f.state.session:null;
+ const handler=createJ5Http({getServices:async()=>({checkIn:createCheckInService(f.adapters)}),parseOrigin:url=>new URL(url).origin,respond:(status,body,headers)=>new Response(JSON.stringify(body),{status,headers})});
+ const makeRequest=(body=input,headers={})=>new Request(origin+path,{method:"POST",headers:{origin,"content-type":"application/json","x-stem-j5":"1",cookie:"test-only=qa-a",...headers},body:JSON.stringify(body)});
+ return {...f,makeRequest,post:(body=input,headers={},environment=enabled)=>handler(makeRequest(body,headers),environment,path)};
+}
+test("native HTTP success uses cookie identity and no-store response",async()=>{const f=httpFixture(),r=await f.post();assert.equal(r.status,200);assert.equal(r.headers.get("cache-control"),"private, no-store, max-age=0");assert.deepEqual(await r.json(),{ok:true,code:"CHECK_IN_VERIFIED",validUntil:3000});});
+test("native HTTP generic refusal and origin / forged identity / role rejection",async()=>{const f=httpFixture();assert.equal((await f.post(input,{origin:"https://other.invalid"})).status,403);assert.equal((await f.post({...input,studentId:"qa-b"})).status,400);assert.equal((await f.post(input,{cookie:"test-only=qa-b"})).status,401);assert.equal(f.state.lookups,0);const r=await f.post({code:"99999999"});assert.deepEqual(await r.json(),{ok:false,code:"CHECK_IN_REFUSED"});});
+test("native HTTP disabled and production gates; default application stays unavailable",async()=>{const f=httpFixture();assert.equal((await f.post(input,{},env)).status,404);assert.equal((await f.post(input,{},{...enabled,VERCEL_ENV:"production"})).status,404);assert.equal((await handleJ5Http(f.makeRequest(),enabled,path)).status,503);assert.equal(f.state.lookups,0);});
