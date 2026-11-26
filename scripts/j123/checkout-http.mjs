@@ -31,7 +31,7 @@ export function createIntegratedCheckoutHttp({resolvePayer=resolveJ123CheckoutPa
    if(!input||typeof input!=="object"||Array.isArray(input)||!/^qa-j2-[a-f0-9]{64}$/.test(input.childId??""))return fail(400,"INVALID_INPUT");
    const keys=statusOnly?["childId"]:["childId","requestKey","termsVersion"];if(Object.keys(input).length!==keys.length||!keys.every(k=>Object.hasOwn(input,k))||(!statusOnly&&(typeof input.requestKey!=="string"||!/^[-a-zA-Z0-9_]{1,128}$/.test(input.requestKey)||input.termsVersion!==TERMS)))return fail(400,"INVALID_INPUT");
    const payer=await resolvePayer(request,env,input.childId);if(!payer||payer.childId!==input.childId)return fail(401,"NOT_AUTHORIZED");
-   const db=scopeJ1234BillingStore(storeFactory(env,requestFn),env),store=createIntegratedCheckoutStore({db,resolvePayer,request,env,childId:input.childId});
+   const db=scopeJ1234BillingStore(storeFactory(env,requestFn),env),store=createIntegratedCheckoutStore({db,resolvePayer,request,env,childId:input.childId,clock});
    if(statusOnly){
     const current=await store.getStatus(payer.parentId);
     const membership=current==="PAYMENT_PENDING"?await reconcileStudentCheckoutStatus({env,db,studentId:input.childId,parentId:payer.parentId,requestFn,clock}):null;

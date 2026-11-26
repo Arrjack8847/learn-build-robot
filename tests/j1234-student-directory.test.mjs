@@ -9,7 +9,14 @@ import {createAuthCrypto,previewRecipients} from "../scripts/parent-auth/secure-
 import {createStudentAuthCrypto} from "../scripts/student-auth/crypto.mjs";
 import {createStudentContext} from "../scripts/student-auth/session-context.mjs";
 import {NOTICE_VERSION} from "../scripts/parent-auth/family-preview.mjs";
-import {handleParentOtpTest,handleStudentAuth} from "../scripts/j2-runtime.mjs";
+import {handleParentOtpTest,handleStudentAuth,createJ123CheckoutPayer} from "../scripts/j2-runtime.mjs";
+import {createIntegratedCheckoutHttp} from "../scripts/j123/checkout-http.mjs";
+import {createMembershipWorkerHttp} from "../scripts/j123/membership-worker-http.mjs";
+import {scopeJ1234BillingStore} from "../scripts/j1234/billing-scope.mjs";
+import {readJ1234BillingProjection} from "../scripts/j1234/billing-projection.mjs";
+import {BILLING_COLLECTION,checkoutKey,decodeCheckout,encodeCheckout,providerKey} from "../scripts/j123/billing-records.mjs";
+import {J123_ORIGIN,J123_PLAN,J123_TERMS,J123_BRANCH} from "../scripts/j123/infrastructure.mjs";
+import {J123_MERCHANT} from "../scripts/j123/membership-provider.mjs";
 const env={VERCEL_ENV:"preview",VERCEL_TARGET_ENV:"preview",VERCEL_GIT_COMMIT_REF:J1234_BRANCH,VERCEL_URL:"fixture.vercel.app",WIX_DEV_SITE_ID:J1234_SITE,WIX_DEV_DATA_API_KEY:"fixture",RESEND_API_KEY:"fixture",PARENT_PREVIEW_VERIFIED_SENDER:"noreply@mail.bestemready.edu.my",STUDENT_AUTH_ENABLED:"true",J1234_REGISTRATION_ENABLED:"1",J1234_STUDENT_READ_ENABLED:"1",J1234_AUTH_ROOT:randomBytes(32).toString("hex"),J1234_TEST_EMAILS:"alpha@example.invalid,beta@example.invalid",PARENT_PREVIEW_OPEN_EMAIL:"1",RESEND_TEST_RECIPIENT:"unrelated@example.invalid",PARENT_AUTH_SECRET:randomBytes(32).toString("hex"),STUDENT_AUTH_SECRET:randomBytes(32).toString("hex")};
 const origin="https://fixture.vercel.app";
 function fixture(){
@@ -27,7 +34,7 @@ function fixture(){
  const h=createJ1234StudentHttp({storeFactory:()=>db,clock});
  const list=async(body={},e=env)=>{const r=await h(req("/api/dev/j1234/students",body,"x-stem-j1234"),e);return {status:r.status,data:await r.json()};};
  const register=async(p,name,year=2010,requestKey=randomUUID())=>{const r=await call("p","family-child-create",{name,birthYear:year,requestKey},p);assert.equal(r.status,200);return r.data.child;};
- return {cfg,rows,db,auth,call,cookie,login,list,register,req,h};
+ return {cfg,rows,db,auth,call,cookie,login,list,register,req,h,context,clock};
 }
 test("J2 registration and isolated PIN metadata appear in J4 directory, without duplicate or cross-payer students",async()=>{
  const f=fixture();assert.equal(f.cfg.PARENT_PREVIEW_OPEN_EMAIL,"0");assert.deepEqual(previewRecipients(f.cfg),["alpha@example.invalid","beta@example.invalid"]);
@@ -71,4 +78,60 @@ test("actual server handlers reject disabled J1234 registration before provider 
  const f=fixture(),off={...env,J1234_REGISTRATION_ENABLED:"0"};
  assert.equal((await handleParentOtpTest(f.req("/api/dev/parent-otp/status",null,"x-stem-otp-test"),off)).status,503);
  assert.equal((await handleStudentAuth(f.req("/api/dev/student-auth/status",null,"x-stem-student-auth"),off)).status,503);
+});
+
+const billingEnv={...env,J1234_BILLING_ENABLED:"1",J1234_BILLING_READ_ENABLED:"1",HITPAY_API_URL:J123_ORIGIN,HITPAY_PLAN_ID:J123_PLAN,HITPAY_CURRENCY:"MYR",HITPAY_MEMBERSHIP_AMOUNT:"360.00",HITPAY_SANDBOX_PAYMENT_METHOD:"touch_n_go",HITPAY_API_KEY:"DISABLED_J3_WIX_VAULT_ONLY",HITPAY_SALT_KEY:"DISABLED_J3_WIX_VAULT_ONLY",HITPAY_API_BASE_URL:"DISABLED_J3_WIX_VAULT_ONLY",J3_SANDBOX_ROTATION_CONFIRMED:"true",J123_CHECKOUT_ENABLED:"true",J123_GENUINE_WEBHOOK_ACCEPTED:"true",J123_PAYMENT_TERMS_VERSION:J123_TERMS,J123_MEMBERSHIP_RECONCILIATION_ENABLED:"true",J123_PROVIDER_PERIOD_SCHEMA:"confirmed_charge_billing_period_v1",J123_MEMBERSHIP_WORKER_ENABLED:"true",J123_MEMBERSHIP_WORKER_SECRET:randomBytes(32).toString("hex")};
+test("J1234 registration, sandbox checkout, verified event worker and J4 ledger projection are connected end to end",async()=>{
+ const f=fixture(),payer=await f.login("p","alpha@example.invalid");await f.call("p","family-consent",{accepted:true,noticeVersion:NOTICE_VERSION},payer);
+ const one=await f.register(payer,"Test Paid"),two=await f.register(payer,"Test Sibling",2012);
+ assert.equal((await f.call("s","enroll",{studentId:one.id,pin:"274913"},payer)).data.ok,true);
+ assert.equal((await f.call("s","enroll",{studentId:two.id,pin:"815306"},payer)).data.ok,true);
+ let now=f.clock.now(),reference="",calls=[],refund="0.00";
+ const paidAt=now+2000,end=paidAt+30*86400000,iso=x=>new Date(x).toISOString(),charge="charge-j1234",subscription="sub-j1234";
+ const requestFn=async(url,opt)=>{
+  calls.push({url,method:opt.method??"GET"});
+  if(url.startsWith("https://www.wixapis.com/"))return Response.json({value:"fixture-vault-key"});
+  if(url.includes("/v1/subscription-plan/"))return Response.json({id:J123_PLAN,currency:"MYR",amount:"360.00",cycle:"monthly",times_to_be_charged:2});
+  if(url.endsWith("/v1/recurring-billing")&&opt.method==="POST"){const body=JSON.parse(opt.body);reference=body.reference;assert.deepEqual(body.payment_methods,["touch_n_go"]);assert.equal(body.times_to_be_charged,2);return Response.json({id:subscription,url:"https://securecheckout.sandbox.hit-pay.com/fixture"});}
+  if(url.endsWith("/v1/recurring-billing/"+subscription))return Response.json({id:subscription,business_id:J123_MERCHANT,business_recurring_plans_id:J123_PLAN,reference,currency:"MYR",amount:"360.00",cycle:"monthly",times_to_be_charged:2,status:"active"});
+  if(url.endsWith("/v1/charges/"+charge))return Response.json({id:charge,business_id:J123_MERCHANT,target_id:subscription,target_type:"business_recurring_plan",status:"succeeded",currency:"MYR",amount:"360.00",refunded_amount:refund,payment_method:{code:"touch_n_go",display_logo:{method:"touch_n_go"}},closed_at:iso(paidAt),billing_period:{start_at:iso(paidAt),end_at:iso(end),cycle_number:1}});
+  throw Error("UNEXPECTED_PROVIDER");
+ };
+ const h=createIntegratedCheckoutHttp({resolvePayer:createJ123CheckoutPayer({getStudentContext:()=>f.context}),storeFactory:()=>f.db,requestFn,clock:()=>now});
+ const checkout=e=>h(f.req("/api/dev/j123/checkout",{childId:one.id,requestKey:"one",termsVersion:J123_TERMS},"x-stem-j123",payer),e);
+ assert.equal((await checkout({...billingEnv,J1234_BILLING_ENABLED:"0"})).status,404);assert.equal(calls.length,0);
+ assert.equal((await checkout(billingEnv)).status,200);
+ const scoped=scopeJ1234BillingStore(f.db,billingEnv),key=checkoutKey(one.id);
+ assert.equal(await f.db.get(BILLING_COLLECTION,key),null);
+ assert.equal((await scoped.get(BILLING_COLLECTION,key)).environment,"sandbox-qa");
+ const r=decodeCheckout(await scoped.get(BILLING_COLLECTION,key),one.id).reservation;
+ assert.equal((await f.list({studentId:one.id},billingEnv)).data.rows[0].membershipStatus,"payment_pending");
+ assert.equal((await f.list({studentId:two.id},billingEnv)).data.rows[0].membershipStatus,"inactive");
+ now=paidAt+1000;
+ const add=async(id,type)=>f.db.insert("PaymentWebhookEvents",id,{environment:"sandbox",eventType:type,providerObjectId:charge,providerEventKey:id,payloadDigest:id,signatureVerifiedAt:{$date:iso(now-100)},processingStatus:"pending"});
+ const first="d".repeat(64);await add(first,"charge.created");
+ const worker=createMembershipWorkerHttp({storeFactory:()=>f.db,requestFn,clock:()=>now});
+ const dispatch=(eventKey,e=billingEnv)=>worker(new Request(origin+"/api/dev/j123/membership-worker",{method:"POST",headers:{authorization:"Bearer "+billingEnv.J123_MEMBERSHIP_WORKER_SECRET,"content-type":"application/json"},body:JSON.stringify({eventKey})}),e);
+ // The old scope resolves the shared index but cannot locate the J1234 aggregate.
+ const old={...billingEnv,VERCEL_GIT_COMMIT_REF:J123_BRANCH};
+ assert.equal((await dispatch(first,old)).status,503);
+ const activated=await dispatch(first);assert.equal(activated.status,200);assert.equal((await activated.json()).status,"membership_committed");
+ assert.equal((await dispatch(first)).status,200);
+ assert.equal(decodeCheckout(await scoped.get(BILLING_COLLECTION,key),one.id).payments.length,1);
+ const project=()=>readJ1234BillingProjection({env:billingEnv,db:f.db,studentId:one.id,parentId:r.parentId,now});
+ const count=calls.length;
+ const p=await project();assert.equal(p.membershipStatus,"active");assert.equal(p.payments.length,1);assert.equal(p.payments[0].amountMinor,36000);assert.equal(p.validUntil,end);assert.equal(calls.length,count);
+ const staff=createJ1234StudentHttp({storeFactory:()=>f.db,clock:{now:()=>now}});
+ const list=async()=>{const res=await staff(f.req("/api/dev/j1234/students",{},"x-stem-j1234"),billingEnv);assert.equal(res.status,200);return (await res.json()).rows;};
+ const all=await list();assert.equal(all.find(x=>x.studentId===one.id).membershipStatus,"active");assert.equal(all.find(x=>x.studentId===two.id).membershipStatus,"inactive");assert.doesNotMatch(JSON.stringify(all),/parentId|eventKey|pinHash|stateJson|fixture-vault-key/);
+ assert.equal((await readJ1234BillingProjection({env:{...billingEnv,J123_GENUINE_WEBHOOK_ACCEPTED:"false"},db:f.db,studentId:one.id,parentId:r.parentId,now})).membershipStatus,"unavailable");
+ assert.equal((await readJ1234BillingProjection({env:billingEnv,db:f.db,studentId:one.id,parentId:"qa-j2-"+"f".repeat(64),now})).membershipStatus,"verification_required");
+ now=end;assert.equal((await project()).membershipStatus,"expired");now=paidAt+5000;
+ const idx=providerKey("charge",charge),saved=await f.db.get(BILLING_COLLECTION,idx);f.rows.delete(BILLING_COLLECTION+":"+idx);
+ assert.equal((await project()).membershipStatus,"verification_required");f.rows.set(BILLING_COLLECTION+":"+idx,saved);
+ const second="e".repeat(64);refund="100.00";await add(second,"charge.updated");assert.equal((await dispatch(second)).status,200);
+ assert.equal((await project()).membershipStatus,"verification_required");assert.equal((await project()).paymentStatus,"review_required");
+ assert.equal((await project()).payments[0].status,"review_required");assert.equal((await dispatch(first)).status,200);
+ assert.equal((await project()).membershipStatus,"verification_required");
+ assert.equal(calls.filter(c=>c.method==="POST"&&c.url===J123_ORIGIN+"/v1/recurring-billing").length,1);
 });
