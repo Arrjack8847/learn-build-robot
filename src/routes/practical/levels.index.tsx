@@ -2,7 +2,10 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft, UserRound, Lock } from "lucide-react";
 import { getLevelTotals } from "@/data/advancedSyllabus";
 import {J5MembershipRestriction} from "@/components/j5/J5MembershipRestriction";
-import { j5PrivateUI,useJ5Overview,levelLabel } from "@/lib/j5-overview";
+import { j5PrivateUI,useJ5Overview } from "@/lib/j5-overview";
+import { levelCardState } from "@/lib/j5-level-selection.mjs";
+import { LEVEL_ONE_CATEGORIES } from "@/data/levelOneCategories";
+import { LEVEL_ONE_PROJECT_COUNT } from "@/data/levelOneProjects";
 
 export const Route = createFileRoute("/practical/levels/")({
   component: SyllabusLevelsPage,
@@ -36,7 +39,7 @@ function LevelArtwork({ art, level }: { art: string; level: number }) {
 function SyllabusLevelsPage() {
   const {state,refresh}=useJ5Overview(j5PrivateUI);
   return (
-    <main className="relative isolate flex h-[100svh] min-h-0 flex-col overflow-hidden bg-[#f4fbff] text-[#20395c]">
+    <main className="relative isolate flex h-full min-h-0 flex-col overflow-y-auto overscroll-contain bg-[#f4fbff] text-[#20395c]">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,#e3f4ff_0%,#f6fbff_62%,#eaf7ef_100%)]" />
       <img
         aria-hidden="true"
@@ -57,35 +60,36 @@ function SyllabusLevelsPage() {
         <img alt="BE STEM READY" src="/home/be-stem-ready-logo.svg" className="h-[clamp(32px,6svh,56px)] max-w-[58%] object-contain" />
         <a href="/student/dashboard" aria-label="My profile" className="grid size-10 place-items-center rounded-full border border-sky-100 bg-white/90 text-sky-700 shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"><UserRound className="size-5" /></a>
       </header>
-      <section className="mx-auto flex min-h-0 w-full max-w-[1040px] flex-1 flex-col px-3 pb-[max(8px,env(safe-area-inset-bottom))] sm:px-8">
+      <section className="mx-auto flex w-full max-w-[1040px] flex-1 flex-col px-3 pb-[max(8px,env(safe-area-inset-bottom))] sm:px-8">
         <div className="shrink-0 text-center">
           <p className="mx-auto w-fit rounded-full border border-[#c8e7f9] bg-[#e9f7ff]/90 px-5 py-1 text-[clamp(10px,1.65svh,14px)] font-bold text-[#388cbd]">Explore Categories</p>
           <h1 className="mt-[clamp(4px,1dvh,14px)] text-[clamp(22px,3.8svh,40px)] font-black leading-tight tracking-tight text-[#21476c]">Choose Your Level</h1>
         </div>
         {j5PrivateUI&&state.kind!=="ready"&&<div className="shrink-0 text-center text-xs text-slate-700" role="status">{state.kind==="loading"?"Checking your levels…":state.kind==="unauthorized"?<a className="font-bold underline" href="/auth/">Sign in to open learning levels</a>:<button className="font-bold underline" type="button" onClick={refresh}>Levels unavailable. Retry</button>}</div>}
         {j5PrivateUI&&state.kind==="ready"&&<J5MembershipRestriction compact membership={state.data.profile.membership} refresh={refresh}/>}
-        <ul aria-label="Choose your syllabus level" className="mx-auto my-auto grid min-h-0 w-full max-w-[900px] flex-1 grid-cols-2 grid-rows-3 gap-[clamp(7px,1.2svh,16px)] py-[clamp(7px,1.2svh,14px)] landscape:grid-cols-3 landscape:grid-rows-2">
+        {j5PrivateUI&&state.kind==="ready"&&state.data.profile.membership==="active"&&state.data.profile.checkIn!=="verified"&&<div className="flex shrink-0 flex-wrap items-center justify-center gap-x-2 text-center text-xs text-slate-700" role="status"><span>{state.data.profile.checkIn==="expired"?"Check-in expired":"Check in to start learning"}</span><a href="/student/check-in" className="inline-flex min-h-8 items-center font-bold text-sky-800 underline">Check in</a></div>}
+        <ul aria-label="Choose your syllabus level" className="mx-auto my-auto grid min-h-[360px] w-full max-w-[900px] flex-1 grid-cols-2 grid-rows-3 gap-[clamp(7px,1.2svh,16px)] py-[clamp(7px,1.2svh,14px)] landscape:min-h-[236px] landscape:grid-cols-3 landscape:grid-rows-2">
           {levels.map((level) => {
-            const totals = level.number === 1 ? { categories: 14, entries: 59 } : getLevelTotals(level.number);
-            const access=state.kind==="ready"?state.data.levels.find(l=>l.level===level.number):undefined;
-            const locked=j5PrivateUI&&access?.available!==true;
+            const totals = level.number === 1 ? { categories: LEVEL_ONE_CATEGORIES.length, entries: LEVEL_ONE_PROJECT_COUNT } : getLevelTotals(level.number);
+            const access=levelCardState(level.number,state,j5PrivateUI);
+            const locked=!access.open;
             const card = (
-              <div className="group flex h-full min-h-0 flex-col items-center justify-center overflow-hidden rounded-[clamp(16px,2.6vw,28px)] border border-white/90 px-2 py-[clamp(5px,1svh,12px)] text-center shadow-[0_7px_22px_rgba(54,107,143,.12)] transition-transform duration-200 hover:-translate-y-1 motion-reduce:transform-none" style={{ backgroundColor: level.color }}>
+              <div className="group flex h-full min-h-0 flex-col items-center justify-center overflow-hidden rounded-[clamp(16px,2.6vw,28px)] border border-white/90 px-2 py-[clamp(5px,1svh,12px)] text-center shadow-[0_7px_22px_rgba(54,107,143,.12)] transition-transform duration-200 motion-reduce:transform-none" style={{ backgroundColor: level.color }}>
                 <div className="flex min-h-0 w-full flex-1 items-center justify-center">
                   <LevelArtwork art={level.art} level={level.number} />
                 </div>
                 <div className="flex shrink-0 flex-col items-center gap-[clamp(1px,.3svh,4px)] pb-1 text-center">
-                  <span className="text-[clamp(14px,2.15svh,22px)] font-black leading-tight" style={{ color: level.ink }}>Level {level.number}</span>
+                  <span className="text-[clamp(14px,2.15svh,22px)] font-black leading-tight" style={{ color: level.ink }}>Level {level.number}{access.current&&<span className="ml-1 text-[9px] font-bold text-slate-700"> · Current</span>}</span>
                   <span className="text-[clamp(10px,1.5svh,14px)] font-semibold leading-tight text-[#48637b]">{level.name}</span>
                   <span className="text-[clamp(9px,1.25svh,12px)] leading-tight text-[#5e7488]">{totals.categories} categories · {totals.entries} projects</span>
-                  {j5PrivateUI&&<span className="flex items-center gap-1 text-[clamp(9px,1.25svh,12px)] font-bold text-slate-700">{locked&&<Lock className="size-3"/>}{access?levelLabel(access):"Unavailable"}{access&&access.required>0&&` · ${access.completed}/${access.required}`}</span>}
+                  {j5PrivateUI&&<><span className="flex flex-wrap items-center justify-center gap-1 text-[clamp(10px,1.25svh,12px)] font-bold leading-tight text-slate-700">{locked&&<Lock aria-hidden="true" className="size-3 shrink-0"/>}{access.label}{access.progress&&<span className="tabular-nums">· {access.progress.completed}/{access.progress.required}</span>}</span>{access.progress&&<progress aria-label={`Level ${level.number} requirements completed`} value={access.progress.completed} max={access.progress.required} className="h-1.5 w-20 max-w-full accent-sky-700"/>}</>}
                 </div>
               </div>
             );
             return <li key={level.number} className="min-h-0 min-w-0">
-              {locked?<div aria-disabled="true" className="h-full rounded-3xl">{card}</div>:level.number === 1
-                ? <Link to="/practical/level-1" aria-label="Explore Level 1 categories" className="block h-full rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">{card}</Link>
-                : <Link to="/practical/levels/$levelNumber" params={{ levelNumber: String(level.number) }} aria-label={`Explore Level ${level.number} categories`} className="block h-full rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">{card}</Link>}
+              {locked?<div role="group" aria-disabled="true" aria-label={`Level ${level.number}, ${level.name}, ${access.label??"Unavailable"}`} className="h-full rounded-3xl">{card}</div>:level.number === 1
+                ? <Link to="/practical/level-1" aria-label={`Explore Level 1 categories, ${level.name}${access.label?", "+access.label:""}`} className="block h-full rounded-3xl transition-transform hover:-translate-y-0.5 motion-reduce:transform-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">{card}</Link>
+                : <Link to="/practical/levels/$levelNumber" params={{ levelNumber: String(level.number) }} aria-label={`Explore Level ${level.number} categories, ${level.name}${access.label?", "+access.label:""}`} className="block h-full rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">{card}</Link>}
             </li>;
           })}
         </ul>

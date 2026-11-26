@@ -1,4 +1,5 @@
 import {z} from "zod";
+import {validLevelProjection} from "./j5-level-selection.mjs";
 import {useEffect,useState} from "react";
 import {attachJ5SessionSignals,j5Session} from "./j5-session";
 
@@ -7,7 +8,7 @@ const level=z.object({level:z.number().int().min(1).max(6),status:z.enum(["locke
 const count=z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const learning=z.object({currentLevel:z.number().int().min(1).max(6),overallCompleted:count,overallRequired:count,learningCompleted:count,buildingCompleted:count,quizzesPassed:count,challengesPassed:count,latest:z.object({title:z.string().trim().min(1).max(160),mode:z.enum(["learning","building","quiz","challenge"]),updatedAt:stamp}).nullable()}).refine(s=>s.overallCompleted<=s.overallRequired);
 const overview=z.object({ok:z.literal(true),profile:z.object({displayName:z.string().min(1).max(120),studentCode:z.string().min(1),accountStatus:z.literal("active"),membership:z.enum(["active","inactive","pending","failed","expired","renewal-required","verification-required"]),validUntil:stamp.nullable(),checkIn:z.enum(["required","verified","expired"]),checkInUntil:stamp.nullable(),learning:learning.optional()}),levels:z.array(level).length(6).refine(rows=>new Set(rows.map(r=>r.level)).size===6)}).superRefine((d,ctx)=>{
- if(d.levels.some(l=>l.available)&&d.profile.membership!=="active")ctx.addIssue({code:"custom",message:"Inconsistent eligibility"});
+ if(!validLevelProjection(d.levels,d.profile.membership,d.profile.checkIn))ctx.addIssue({code:"custom",message:"Inconsistent level eligibility"});
  if(d.profile.membership==="active"&&d.profile.validUntil===null)ctx.addIssue({code:"custom",message:"Missing validity"});
  if(d.profile.checkIn==="verified"&&d.profile.checkInUntil===null)ctx.addIssue({code:"custom",message:"Missing check-in validity"});
  if(d.profile.learning&&d.levels.find(l=>l.level===d.profile.learning?.currentLevel)?.status==="locked")ctx.addIssue({code:"custom",message:"Current level is locked"});

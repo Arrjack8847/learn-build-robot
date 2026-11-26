@@ -17,7 +17,7 @@ function overviewCases(){
  ["missing check-in",async()=>{let f=make();f.state.c=null;let r=await load(f);eq(r.levels[0].reason,"check-in-required")}],
  ["check-in expiry boundary",async()=>{let f=make();f.state.c.validUntil=now;let r=await load(f);eq(r.profile.checkIn,"expired");eq(r.levels[0].available,false)}],
  ["revoked check-in",async()=>{let f=make();f.state.c.revoked=true;eq((await load(f)).levels[0].available,false)}],
- ["optional check-in honors authority",async()=>{let f=make();f.state.c=null;f.state.levels[0].checkInRequired=false;eq((await load(f)).levels[0].available,true)}],
+ ["no optional check-in exemption for protected course routes",async()=>{let f=make();f.state.c=null;f.state.levels[0].checkInRequired=false;eq((await load(f)).levels[0].available,false)}],
  ["sibling membership rejected",async()=>{let f=make();f.state.m.studentId="b";eq((await load(f)).code,"MEMBERSHIP_UNAVAILABLE")}],
  ["sibling level rejected",async()=>{let f=make();f.state.levels[0].studentId="b";eq((await load(f)).code,"LEVELS_UNAVAILABLE")}],
  ["sibling check-in rejected",async()=>{let f=make();f.state.c.studentId="b";eq((await load(f)).code,"CHECK_IN_UNAVAILABLE")}],

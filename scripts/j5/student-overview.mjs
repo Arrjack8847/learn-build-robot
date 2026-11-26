@@ -1,3 +1,4 @@
+import {projectLevelRows} from "../../src/lib/j5-level-selection.mjs";
 import {evaluateMembership} from "./membership-policy.mjs";
 // J5 server-only read projection; trusted adapters are injected, no real provider integration.
 export function createStudentOverview({resolveStudent,readProfile,readMembership,readCheckIn,readLevels,clock}){
@@ -31,14 +32,9 @@ export function createStudentOverview({resolveStudent,readProfile,readMembership
      else if(now>=c.validUntil)checkIn="expired";
     }
    }
-   if(!Array.isArray(levels)||levels.length!==6||new Set(levels.map(l=>l?.level)).size!==6)return deny(503,"LEVELS_UNAVAILABLE");
-   const projected=[];
-   for(const l of levels){
-    if(!matches(l,id)||!Number.isInteger(l.level)||l.level<1||l.level>6||typeof l.allowed!=="boolean"||!["locked","unlocked","in-progress","completed"].includes(l.status)||l.allowed===(l.status==="locked")||typeof l.checkInRequired!=="boolean"||!Number.isInteger(l.completed)||!Number.isInteger(l.required)||l.required<0||l.completed<0||l.completed>l.required||(l.status==="completed"&&(l.required===0||l.completed!==l.required)))return deny(503,"LEVELS_UNAVAILABLE");
-    const reason=!l.allowed?"level-locked":membership!=="active"?"membership-required":l.checkInRequired&&checkIn!=="verified"?"check-in-required":null;
-    projected.push({level:l.level,status:l.status,completed:l.completed,required:l.required,available:reason===null,reason});
-   }
-   return {ok:true,profile:{displayName:p.displayName,studentCode:p.studentCode,accountStatus:"active",membership,validUntil,checkIn,checkInUntil},levels:projected.sort((a,b)=>a.level-b.level)};
+   const projected=projectLevelRows(levels,id,membership,checkIn);
+   if(!projected)return deny(503,"LEVELS_UNAVAILABLE");
+   return {ok:true,profile:{displayName:p.displayName,studentCode:p.studentCode,accountStatus:"active",membership,validUntil,checkIn,checkInUntil},levels:projected};
   }catch{return deny(503,"SERVICE_UNAVAILABLE");}
  }
  return {load};
