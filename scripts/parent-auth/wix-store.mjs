@@ -3,7 +3,7 @@
 // Conditional update semantics were checked with a temporary Wix QA record.
 const SITE="09d613aa-3a95-42ff-9ee3-2aa0c706c447";
 const ROOT="https://www.wixapis.com/wix-data/v2/items";
-const allowed=new Set(["AuthenticationChallenges","Parents","AuthSessions","PrivacyConsents","Children","SandboxCheckoutTrials","PaymentWebhookEvents","SandboxBillingState"]);
+const allowed=new Set(["AuthenticationChallenges","Parents","AuthSessions","PrivacyConsents","Children","SandboxCheckoutTrials","PaymentWebhookEvents","SandboxBillingState","StudentAuthCredentials","StudentAuthSessions"]);
 export function createWixStore(env,request=fetch){
   if(env.VERCEL_ENV==="production"||env.VERCEL_TARGET_ENV==="production"||env.WIX_DEV_SITE_ID!==SITE||!env.WIX_DEV_DATA_API_KEY?.trim())throw Error("DEV_DATABASE_NOT_CONFIGURED");
   const validate=(collection,id)=>{

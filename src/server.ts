@@ -1,5 +1,6 @@
 import "./lib/error-capture";
 import { handleEmailTest } from "./lib/resend-test.server";
+import { handleStudentAuth } from "./lib/student-auth.server";
 import { handleParentOtpTest } from "./lib/parent-otp-test.server";
 import { handleHitPaySandboxWebhook } from "./lib/hitpay-webhook.server";
 import { handleSandboxCheckout } from "./lib/sandbox-checkout.server";
@@ -53,6 +54,7 @@ export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       if (new URL(request.url).pathname === "/api/dev/email-test") return await handleEmailTest(request, process.env);
+      if (new URL(request.url).pathname.startsWith("/api/dev/student-auth/")) return await handleStudentAuth(request, process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/parent-otp/")) return await handleParentOtpTest(request, process.env);
       if (new URL(request.url).pathname === "/api/dev/hitpay/webhook") return await handleHitPaySandboxWebhook(request, process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/sandbox-checkout/")) return await handleSandboxCheckout(request, process.env);
