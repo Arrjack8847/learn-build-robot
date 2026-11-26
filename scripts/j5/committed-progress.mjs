@@ -7,7 +7,7 @@ const stamp=x=>Number.isSafeInteger(x)&&x>=0&&x<=8640000000000000;
 const count=x=>Number.isSafeInteger(x)&&x>=0;
 const bound=(row,studentId)=>row?.studentId===studentId&&row.environment==="private-preview";
 const key=(mode,resourceId)=>mode+":"+resourceId;
-export function projectCommittedProgress({studentId,policy,records,levelStates,now}){
+export function projectCommittedProgress({studentId,policy,records,levelStates,currentLevel,now}){
  const fail=code=>({ok:false,code});
  if(!id(studentId)||!stamp(now)||policy?.approved!==true||!id(policy.version)||!Array.isArray(policy.requirements)||!Array.isArray(records)||!Array.isArray(levelStates))return fail("PROGRESS_POLICY_UNAVAILABLE");
  if(levelStates.length!==6||new Set(levelStates.map(r=>r?.level)).size!==6||levelStates.some(r=>!bound(r,studentId)||!Number.isInteger(r.level)||r.level<1||r.level>6||!["locked","unlocked","in-progress","completed"].includes(r.status)))return fail("LEVEL_STATE_UNAVAILABLE");
@@ -18,7 +18,8 @@ export function projectCommittedProgress({studentId,policy,records,levelStates,n
  }
  if([...Array(6)].some((_,i)=>![...requirements.values()].some(r=>r.level===i+1)))return fail("INCOMPLETE_REQUIREMENTS");
  const fulfilled=new Set(),seenAttempts=new Map();
- let latest=null,resume=null;
+ let latest=null;
+ const resumable=[];
  const sorted=[...records].sort((a,b)=>(a?.updatedAt??0)-(b?.updatedAt??0));
  for(const r of sorted){
   if(!bound(r,studentId)||r.committed!==true||r.policyVersion!==policy.version||!id(r.attemptId)||!id(r.resourceId)||!modes.has(r.mode)||!stamp(r.updatedAt)||r.updatedAt>now)return fail("INVALID_PROGRESS_EVIDENCE");
@@ -33,8 +34,8 @@ export function projectCommittedProgress({studentId,policy,records,levelStates,n
   seenAttempts.set(attemptKey,true);
   if(r.status==="completed"||r.status==="passed")fulfilled.add(k);
   if(!latest||r.updatedAt>latest.updatedAt)latest={title:req.title,mode:r.mode,updatedAt:r.updatedAt};
-  if(r.status==="started"&&(r.mode==="learning"||r.mode==="building")&&count(r.position)&&r.position>0&&count(req.maxPosition)&&req.maxPosition>=r.position&&(!resume||r.updatedAt>resume.updatedAt)){
-   resume={resourceId:r.resourceId,mode:r.mode,level:r.level,position:r.position,updatedAt:r.updatedAt};
+  if(r.status==="started"&&(r.mode==="learning"||r.mode==="building")&&count(r.position)&&r.position>0&&count(req.maxPosition)&&req.maxPosition>=r.position){
+   resumable.push({resourceId:r.resourceId,mode:r.mode,level:r.level,position:r.position,updatedAt:r.updatedAt});
   }
  }
  const levels=levelStates.slice().sort((a,b)=>a.level-b.level).map(r=>{
@@ -44,10 +45,10 @@ export function projectCommittedProgress({studentId,policy,records,levelStates,n
  });
  // Never use this projection to grant a level; contradictory committed state fails.
  if(levels.some(r=>(r.status==="completed"&&r.completed!==r.required)||(r.status==="locked"&&r.completed>0)))return fail("INCONSISTENT_LEVEL_STATE");
- const current=levels.find(r=>r.allowed&&r.status!=="completed")??levels.filter(r=>r.allowed).at(-1);
+ const current=levels.find(r=>r.level===currentLevel&&r.allowed);
  if(!current)return fail("LEVEL_STATE_UNAVAILABLE");
  const totals=mode=>[...fulfilled].filter(k=>k.startsWith(mode+":")).length;
- if(resume&&(fulfilled.has(key(resume.mode,resume.resourceId))||!levels.find(r=>r.level===resume.level)?.allowed))resume=null;
+ const resume=resumable.reverse().find(r=>!fulfilled.has(key(r.mode,r.resourceId))&&levels.find(l=>l.level===r.level)?.allowed)??null;
  return {ok:true,levels,learning:{studentId,environment:"private-preview",currentLevel:current.level,overallCompleted:fulfilled.size,overallRequired:requirements.size,learningCompleted:totals("learning"),buildingCompleted:totals("building"),quizzesPassed:totals("quiz"),challengesPassed:totals("challenge"),latest},resumeCandidate:resume};
 }
 // Candidate is NOT access permission. Re-resolve canonical catalog and authorize
