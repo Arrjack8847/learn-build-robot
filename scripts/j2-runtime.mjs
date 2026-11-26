@@ -7,7 +7,10 @@ import {createStudentAuthHttp} from "./student-auth/http.mjs";
 import {reserveIntegratedEmail} from "./parent-auth/preview-email-budget.mjs";
 import {createStudentAuthCrypto} from "./student-auth/crypto.mjs";
 
+import {J123_BRANCH,requireJ123Identity} from "./j123/infrastructure.mjs";
+
 function context(env){
+ if(env.VERCEL_GIT_COMMIT_REF===J123_BRANCH)requireJ123Identity(env);
  const open=openPreviewRecipients(env);
  if(open&&(!["integration/j1-j2-20261126","integration/j1-j2-j3-20261126"].includes(env.VERCEL_GIT_COMMIT_REF)||!validPreviewEmail(env.PARENT_PREVIEW_VERIFIED_SENDER)||env.PARENT_PREVIEW_VERIFIED_SENDER==="onboarding@resend.dev"))throw Error("INTEGRATION_SCOPE_REQUIRED");
  const db=createWixStore(env),auth=createAuthCrypto(env),clock={now:()=>Date.now()},emails=open?[]:previewRecipients(env);
