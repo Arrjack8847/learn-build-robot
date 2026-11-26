@@ -12,6 +12,7 @@ export function createStudentAuthCrypto(env){
   async verifyPin(id,pin,stored){if(typeof stored!=="string"||!/^([a-f0-9]{32}):([a-f0-9]{64})$/.test(stored))return false;const [salt,digest]=stored.split(":");return timingSafeEqual(await pinKey(id,pin,Buffer.from(salt,"hex")),Buffer.from(digest,"hex"));},
   newVersion:()=>randomBytes(16).toString("hex"),
   sessionToken:()=>randomBytes(32).toString("base64url"),
-  sessionDigest:token=>mac("student-session/v1",[token]).toString("hex")
+  sessionDigest:token=>mac("student-session/v1",[token]).toString("hex"),
+  rateDigest:(kind,subject)=>mac("student-rate/v1",[kind,subject]).toString("hex")
  };
 }

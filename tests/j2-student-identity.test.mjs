@@ -9,7 +9,7 @@ function fixture(){
  const key=(c,i)=>c+":"+i,clone=x=>structuredClone(x);
  const db={get:async(c,i)=>clone(map.get(key(c,i))??null),insert:async(c,i,r)=>{if(map.has(key(c,i)))return false;map.set(key(c,i),clone(r));return true;},replaceIfVersion:async(c,i,v,r)=>{if(map.get(key(c,i))?.stateVersion!==v)return false;map.set(key(c,i),clone(r));return true;}};
  const crypto=createStudentAuthCrypto({VERCEL_ENV:"preview",STUDENT_AUTH_SECRET:randomBytes(32).toString("hex")});
- const service=createStudentIdentity({db,crypto,clock:{now:()=>now},resolvePayer:async t=>t==="payer-a"?{role:"payer",parentId:p}:t==="payer-b"?{role:"payer",parentId:q}:null,resolveEmailProof:async t=>!used.has(t)?proofs.get(t):null,consumeEmailProof:async(t,proof)=>{if(used.has(t)||proofs.get(t)!==proof)return false;used.add(t);return true;},getOwnedStudent:async(parent,student)=>parent===p&&[a,b].includes(student)||parent===q&&student===c});
+ const service=createStudentIdentity({db,crypto,clock:{now:()=>now},resolvePayer:async t=>t==="payer-a"?{role:"payer",parentId:p}:t==="payer-b"?{role:"payer",parentId:q}:null,resolveEmailProof:async t=>!used.has(t)?proofs.get(t):null,consumeEmailProof:async(t,proof)=>{if(used.has(t)||proofs.get(t)!==proof)return false;used.add(t);return true;},reservePinAttempt:async()=>true,resolveRecoveryStaff:async t=>t==="staff-verified"?{role:"staff",staffId:"qa-staff",canRecoverStudentPin:true}:null,getOwnedStudent:async(parent,student)=>parent===p&&[a,b].includes(student)||parent===q&&student===c});
  const proof=(t,parent=p)=>proofs.set(t,{role:"student-email-proof",parentId:parent});
  return {service,db,crypto,p,q,a,b,c,proof,advance:ms=>{now+=ms;}};
 }
@@ -48,4 +48,16 @@ test("student cryptography refuses production and binds PIN hash to student ID",
  const f=fixture(),hash=await f.crypto.hashPin(f.a,"581304");
  assert.equal(await f.crypto.verifyPin(f.b,"581304",hash),false);
  assert.equal(await f.crypto.verifyPin(f.a,"581304",hash),true);
+});
+
+test("staff-assisted recovery requires both roles and revokes old credentials and sessions",async()=>{
+ const f=fixture(),s=f.service;f.proof("before");f.proof("after");
+ await s.enroll("payer-a",f.a,"581304");
+ const old=await s.signIn("before",f.a,"581304");assert.equal(old.status,"VERIFIED");
+ assert.equal((await s.recoverPin("payer-a","payer-a",f.a,"846203","Fictional recovery")).ok,false);
+ assert.equal((await s.recoverPin("staff-verified","payer-b",f.a,"846203","Fictional recovery")).ok,false);
+ assert.equal((await s.recoverPin("staff-verified","payer-a",f.a,"846203","Fictional recovery")).status,"PIN_RESET");
+ assert.equal(await s.resolveStudentSession(old.token),null);
+ assert.equal((await s.signIn("after",f.a,"581304")).ok,false);
+ assert.equal((await s.signIn("after",f.a,"846203")).status,"VERIFIED");
 });

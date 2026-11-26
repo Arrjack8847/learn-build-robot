@@ -4,6 +4,7 @@ import {createFamilyPreview} from "../../scripts/parent-auth/family-preview.mjs"
 import {createWixStore} from "../../scripts/parent-auth/wix-store.mjs";
 import {createAuthCrypto,createPortalOtpMailer,previewRecipients} from "../../scripts/parent-auth/secure-auth-transport.mjs";
 import {createStudentIdentity} from "../../scripts/student-auth/identity.mjs";
+import {createStudentRateLimit} from "../../scripts/student-auth/rate-limit.mjs";
 import {createStudentAuthCrypto} from "../../scripts/student-auth/crypto.mjs";
 const payerCookie="__Host-bsr-parent-test",proofCookie="__Host-bsr-student-proof",studentCookie="__Host-bsr-student";
 const flags="; Path=/; Secure; HttpOnly; SameSite=Strict";
@@ -35,7 +36,10 @@ export async function handleStudentAuth(request:Request,env:NodeJS.ProcessEnv){
   async function consume(token:string,expected:{parentId:string;stateVersion:string}){const current=await proof(token);if(!current||current.parentId!==expected.parentId||current.stateVersion!==expected.stateVersion)return false;const digest=auth.sessionDigest(token),row=await db.get("AuthSessions",digest);if(!row||row.stateVersion!==expected.stateVersion||row.revokedAt!=null)return false;const next={sessionDigest:row.sessionDigest,accountId:row.accountId,accountType:row.accountType,createdAt:row.createdAt,expiresAt:row.expiresAt,revokedAt:{$date:new Date(clock.now()).toISOString()},stateVersion:auth.newVersion()};return await db.replaceIfVersion("AuthSessions",digest,row.stateVersion,next)===true;}
   const familyFor=(parentId:string)=>createFamilyPreview({db,crypto:auth,clock,resolveSession:async()=>({accountType:"parent-test",accountId:parentId.slice(6)})});
   async function owned(parentId:string,id:string){return (await familyFor(parentId).handle("internal","family-child-get",{childId:id})).ok===true;}
-  const identity=createStudentIdentity({db,crypto,clock,resolvePayer:payer,resolveEmailProof:proof,consumeEmailProof:consume,getOwnedStudent:owned});
+  const rate=createStudentRateLimit({db,crypto,clock});
+  const identity=createStudentIdentity({db,crypto,clock,resolvePayer:payer,resolveEmailProof:proof,consumeEmailProof:consume,getOwnedStudent:owned,
+   reservePinAttempt:async(token:string,parentId:string)=>await rate.reserve("proof",token,5,300000)&&await rate.reserve("payer",parentId,10,900000)});
+
   const p=read(request,payerCookie),v=read(request,proofCookie),s=read(request,studentCookie);
   if(action==="status"){const session=await identity.resolveStudentSession(s);if(!session)return json(200,{ok:true,status:"NOT_VERIFIED"},[cookie(studentCookie,"",0)]);const row=await db.get("Children",session.studentId);return json(200,{ok:true,status:"VERIFIED",student:{id:session.studentId,name:row.name},learningAccess:"UNAVAILABLE"});}
   if(action==="logout"){await identity.logout(s);const existing=await locate(v,true);if(existing)await existing.service.logout(v);return json(200,{ok:true,status:"SIGNED_OUT"},[cookie(studentCookie,"",0),cookie(proofCookie,"",0)]);}
@@ -56,6 +60,7 @@ export async function handleStudentAuth(request:Request,env:NodeJS.ProcessEnv){
   if(!exact(body,["studentId","pin"])||typeof body.studentId!=="string"||typeof body.pin!=="string")return fail(400);
   if(action==="enroll"){const r=await identity.enroll(p,body.studentId,body.pin);return json(r.ok?200:403,r);}
   if(action==="sign-in"){
+   if(!await rate.reserve("global","private-preview-pin",60,60000))return fail(429);
    const r=await identity.signIn(v,body.studentId,body.pin);
    if(!r.ok)return fail();
    try{const oldPayer=await locate(p,false);if(oldPayer)await oldPayer.service.logout(p);await identity.logout(s);}

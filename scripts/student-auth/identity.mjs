@@ -6,7 +6,7 @@ const validPin=pin=>typeof pin==="string"&&/^[0-9]{6}$/.test(pin)&&!/^([0-9])\1{
 const denied=()=>({ok:false,status:"SIGN_IN_REFUSED"});
 const validToken=t=>typeof t==="string"&&/^[a-zA-Z0-9_-]{43}$/.test(t);
 const validCredential=(r,id,parent)=>r&&r.studentId===id&&r.parentId===parent&&r.accountType==="student-test"&&typeof r.credentialVersion==="string"&&typeof r.stateVersion==="string"&&typeof r.pinHash==="string"&&Number.isInteger(r.attempts)&&r.attempts>=0&&r.attempts<=5&&Number.isFinite(r.lockUntil)&&r.lockUntil>=0;
-export function createStudentIdentity({db,crypto,clock,resolvePayer,resolveEmailProof,consumeEmailProof,getOwnedStudent}){
+export function createStudentIdentity({db,crypto,clock,resolvePayer,resolveEmailProof,consumeEmailProof,getOwnedStudent,reservePinAttempt=async()=>false,resolveRecoveryStaff=async()=>null}){
  async function enroll(payerToken,studentId,pin){
   if(!validId(studentId)||!validPin(pin))return {ok:false,status:"INVALID_INPUT"};
   const payer=await resolvePayer(payerToken);
@@ -22,6 +22,7 @@ export function createStudentIdentity({db,crypto,clock,resolvePayer,resolveEmail
   if(!validId(studentId)||typeof pin!=="string"||!/^\d{6}$/.test(pin))return denied();
   const proof=await resolveEmailProof(proofToken);
   if(proof?.role!=="student-email-proof"||!validId(proof.parentId)||!await getOwnedStudent(proof.parentId,studentId))return denied();
+  if(await reservePinAttempt(proofToken,proof.parentId)!==true)return denied();
   let reservation=null;
   for(let i=0;i<8;i++){
    const old=await db.get(C,studentId),now=clock.now();
@@ -59,5 +60,19 @@ export function createStudentIdentity({db,crypto,clock,resolvePayer,resolveEmail
   if(await db.replaceIfVersion(S,r.sessionDigest,r.stateVersion,next)!==true&&await readSession(token))throw Error("STUDENT_REVOCATION_UNCONFIRMED");
   return {ok:true,status:"SIGNED_OUT"};
  }
- return {enroll,signIn,resolveStudentSession,logout};
+ // Staff-assisted recovery requires both an independently verified staff actor and fresh payer authorization.
+ // This is intentionally not exposed through an HTTP endpoint until J4 provides the trusted staff resolver.
+ async function recoverPin(staffContext,payerToken,studentId,pin,reason){
+  if(!validId(studentId)||!validPin(pin)||typeof reason!=="string"||reason.trim().length<8||reason.length>160)return denied();
+  const staff=await resolveRecoveryStaff(staffContext),payer=await resolvePayer(payerToken);
+  if(staff?.role!=="staff"||staff.canRecoverStudentPin!==true||typeof staff.staffId!=="string"||!/^[-a-zA-Z0-9_]{1,128}$/.test(staff.staffId)||payer?.role!=="payer"||!validId(payer.parentId)||!await getOwnedStudent(payer.parentId,studentId))return denied();
+  const old=await db.get(C,studentId);if(!validCredential(old,studentId,payer.parentId))return denied();
+  const next={...old,pinHash:await crypto.hashPin(studentId,pin),credentialVersion:crypto.newVersion(),stateVersion:crypto.newVersion(),attempts:0,lockUntil:0,lastRecoveryStaffId:staff.staffId,lastRecoveryAt:clock.now()};
+  // A credential version change immediately invalidates all old student sessions.
+  // Durable staff audit history belongs to the J4 adapter; do not enable until available.
+  if(await db.replaceIfVersion(C,studentId,old.stateVersion,next)!==true)return denied();
+  const saved=await db.get(C,studentId);if(!validCredential(saved,studentId,payer.parentId)||saved.stateVersion!==next.stateVersion)throw Error("RECOVERY_UNCONFIRMED");
+  return {ok:true,status:"PIN_RESET"};
+ }
+ return {enroll,signIn,resolveStudentSession,logout,recoverPin};
 }

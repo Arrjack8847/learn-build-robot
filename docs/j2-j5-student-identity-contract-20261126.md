@@ -20,3 +20,6 @@ Parent registration now includes selected-student PIN enrollment with confirmati
 
 ## Development schema verification — 26 Nov 2026
 Confirmed development Wix site My Site 1 (the existing adapter's pinned site). Created StudentAuthCredentials (8 custom fields) and StudentAuthSessions (9 custom fields), then read back both definitions and independent permissions. Each has CMS_EDITOR for read/insert/update/remove and no special permissions; no student data inserted. Runtime API key scope, strong-read/CAS behavior for new collections, global/proof rate limits, recovery, and acceptance tests still require verification. The feature gate remains disabled. No new preview requested.
+
+## Security hardening
+Added durable proof (5/5 min), payer (10/15 min) and global (60/min) PIN-attempt reservations before scrypt, with dedicated StudentAuthRateLimits collection contract. Recovery core requires trusted staff permission plus fresh authorized payer; changes credential version, revoking all prior sessions. Not exposed until J4 supplies staff identity and durable audit. The rate collection, runtime CAS and actual test execution still need verification; no deploy.
