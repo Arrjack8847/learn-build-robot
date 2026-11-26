@@ -31,7 +31,7 @@ async function call<T>(name:"lmsInitialize"|"lmsDashboard"|"lmsLevelReadiness"|"
   if(!token)throw new LmsError(401,"MEMBER_AUTH_REQUIRED");
   const response=await fetch("https://www.wixapis.com/velo/v1/http/invoke/"+name,{
     method:body?"POST":"GET",headers:{Authorization:token,...(body?{"Content-Type":"application/json"}:{})},
-    ...(body?{body:JSON.stringify(body)}:{}),credentials:"omit",cache:"no-store",redirect:"error",signal
+    ...(body?{body:JSON.stringify(body)}:{}),credentials:"omit",cache:"no-store",redirect:"error",signal:signal??null
   });
   const data:unknown=await response.json().catch(()=>null);
   if(!response.ok){
@@ -63,7 +63,7 @@ const activitySchema=z.object({
 });
 export type ActivityProgress=z.infer<typeof activitySchema>;
 export type ActivityMode=ActivityProgress["mode"];
-export const activitySyncEnabled=import.meta.env.VITE_WIX_ACTIVITY_SYNC==="true";
+export const activitySyncEnabled=import.meta.env["VITE_WIX_ACTIVITY_SYNC"]==="true";
 export async function recordActivity(projectId:string,mode:ActivityMode,action:"start"|"complete",signal?:AbortSignal){
   const result=await call(mode==="learning"?"lmsLearning":"lmsBuilding",z.object({activity:activitySchema}),{projectId,action},signal);
   if(result.activity.projectId!==projectId||result.activity.mode!==mode)throw new LmsError(502,"ACTIVITY_MISMATCH");
@@ -73,7 +73,7 @@ export function loadActivityProgress(signal?:AbortSignal){
   return call("lmsProgress",z.object({curriculumVersion:z.string(),activities:z.array(activitySchema)}),undefined,signal);
 }
 
-export const quizSyncEnabled=import.meta.env.VITE_WIX_QUIZ_SYNC==="true";
+export const quizSyncEnabled=import.meta.env["VITE_WIX_QUIZ_SYNC"]==="true";
 const question=z.object({
   id:z.string(),topic:z.string(),prompt:z.string(),
   choices:z.tuple([z.string(),z.string(),z.string(),z.string()]),
@@ -108,7 +108,7 @@ export async function submitServerQuiz(projectId:string,requestId:string,answers
   return r;
 }
 
-export const challengeSyncEnabled=import.meta.env.VITE_WIX_CHALLENGE_SYNC==="true";
+export const challengeSyncEnabled=import.meta.env["VITE_WIX_CHALLENGE_SYNC"]==="true";
 const challengeSchema=z.object({
   level:z.number().int().min(1).max(6),projectId:z.string(),variantId:z.string(),
   sourceUrl:z.string().url(),imageUrl:z.string().url().nullable(),checks:z.array(z.string()).length(5),

@@ -38,3 +38,13 @@ test("J123 testing centre exposes disabled acceptance gates without claiming liv
  const c=await getJ1Readiness(integrated);for(const key of ["integratedCheckoutConfiguration","integratedMembershipGate","integratedWorkerGate","integratedReceiptGate"])assert.equal(c[key],"NOT_CONFIGURED");
  assert.equal(c.integratedPeriodMapping,"NOT_VERIFIED");assert.equal(c.integratedLiveAcceptance,"NOT_VERIFIED");
 });
+
+test("J1234 testing centre reports separate disabled readiness gates and never discloses secrets",async()=>{
+ const e={...env,VERCEL_GIT_COMMIT_REF:"integration/j1-j2-j3-j4-20261126",J1234_AUTH_ROOT:"abcdef0123456789".repeat(4),J1234_TEST_OPERATOR_SECRET:"012345abcdef6789".repeat(4),J1234_TEST_EMAILS:"fixture@example.invalid"};
+ const r=await handleJ1Readiness(req("GET",origin+"/dev/testing-centre",{}),e,noNetwork);assert.equal(r.status,200);
+ const body=await r.text();assert.match(body,/J1 \+ J2 \+ J3 \+ J4 Private Testing Centre/);assert.match(body,/Independent test operator capability/);assert.match(body,/Live acceptance is deferred/);assert.match(body,/\/staff\/admin/);
+ assert.doesNotMatch(body,/abcdef0123456789|012345abcdef6789|fixture@example.invalid/);
+ const c=await getJ1Readiness(e);for(const k of ["j1234ApprovedTestIdentity","j1234OperatorCapability","j1234DirectoryGate","j1234BillingReadGate","j1234AttendanceGate","j1234AttendanceOperatorGate"])assert.equal(c[k],"NOT_CONFIGURED");
+ assert.equal(c.j1234ActualStaffAuthorization,"NOT_VERIFIED");assert.equal(c.integratedLiveAcceptance,"NOT_VERIFIED");
+ const p=await handleJ1Readiness(req("GET",origin+"/dev/testing-centre",{}),{...e,VERCEL_ENV:"production"},noNetwork);assert.equal(p.status,404);
+});

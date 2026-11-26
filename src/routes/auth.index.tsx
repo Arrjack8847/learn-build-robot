@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { beginWixLogin, getWixMemberToken, logoutWix, wixConfigured } from "@/lib/wix-auth";
 
-export const Route = createFileRoute("/auth/")({validateSearch:(search:Record<string,unknown>)=>({legacy:search.legacy==="1"?"1":undefined}),component:Entry});
+export const Route = createFileRoute("/auth/")({validateSearch:(search:Record<string,unknown>)=>({legacy:search["legacy"]==="1"?"1":undefined}),component:Entry});
 function Entry(){return Route.useSearch().legacy==="1"?<StudentAccount/>:<StudentSignIn/>;}
 
 function StudentAccount() {

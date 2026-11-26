@@ -58,7 +58,7 @@ function QuizSession({projectId}:{projectId:string}) {
     return "Could not confirm the quiz with Wix. Retry the same action.";
   }
   function showServerResult(r:ServerQuizResult){
-    setResult({score:r.correctCount,questions:r.review,answers:Object.fromEntries(r.review.map(q=>[q.id,q.selectedIndex]))});
+    setResult({score:r.correctCount,questions:r.review.map(({diagram,...q})=>({...q,...(diagram?{diagram}:{})})),answers:Object.fromEntries(r.review.map(q=>[q.id,q.selectedIndex]))});
     setDraft(null);setModal(null);setStage("results");
     submittedAnswers.current=null;
   }

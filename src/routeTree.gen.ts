@@ -10,12 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthIndexRouteImport } from './routes/auth.index'
+import { Route as AuthCallbackRouteImport } from './routes/auth.callback'
+import { Route as ParentCheckoutTestRouteImport } from './routes/parent.checkout-test'
+import { Route as ParentDashboardRouteImport } from './routes/parent.dashboard'
+import { Route as ParentEmailTestRouteImport } from './routes/parent.email-test'
+import { Route as ParentOtpTestRouteImport } from './routes/parent.otp-test'
+import { Route as ParentPaymentPreviewRouteImport } from './routes/parent.payment-preview'
+import { Route as ParentPaymentReturnRouteImport } from './routes/parent.payment-return'
+import { Route as ParentSignInRouteImport } from './routes/parent.sign-in'
 import { Route as PracticalIndexRouteImport } from './routes/practical/index'
 import { Route as PracticalProjectIdRouteImport } from './routes/practical/$projectId'
 import { Route as PracticalLevel1RouteImport } from './routes/practical/level-1'
 import { Route as PracticalLevelsRouteImport } from './routes/practical/levels'
 import { Route as ProjectsProjectIdRouteImport } from './routes/projects.$projectId'
 import { Route as QuizProjectIdRouteImport } from './routes/quiz.$projectId'
+import { Route as StaffAdminRouteImport } from './routes/staff.admin'
+import { Route as StudentCheckInRouteImport } from './routes/student.check-in'
+import { Route as StudentDashboardRouteImport } from './routes/student.dashboard'
 import { Route as PracticalLevel1IndexRouteImport } from './routes/practical/level-1.index'
 import { Route as PracticalLevel1CategoryIdRouteImport } from './routes/practical/level-1.$categoryId'
 import { Route as PracticalLevel1FinalBuildRouteImport } from './routes/practical/level-1.final-build'
@@ -32,6 +44,51 @@ import { Route as PracticalLevelsLevelNumberCategoryIdRouteImport } from './rout
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthIndexRoute = AuthIndexRouteImport.update({
+  id: '/auth/',
+  path: '/auth/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthCallbackRoute = AuthCallbackRouteImport.update({
+  id: '/auth/callback',
+  path: '/auth/callback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentCheckoutTestRoute = ParentCheckoutTestRouteImport.update({
+  id: '/parent/checkout-test',
+  path: '/parent/checkout-test',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentDashboardRoute = ParentDashboardRouteImport.update({
+  id: '/parent/dashboard',
+  path: '/parent/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentEmailTestRoute = ParentEmailTestRouteImport.update({
+  id: '/parent/email-test',
+  path: '/parent/email-test',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentOtpTestRoute = ParentOtpTestRouteImport.update({
+  id: '/parent/otp-test',
+  path: '/parent/otp-test',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentPaymentPreviewRoute = ParentPaymentPreviewRouteImport.update({
+  id: '/parent/payment-preview',
+  path: '/parent/payment-preview',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentPaymentReturnRoute = ParentPaymentReturnRouteImport.update({
+  id: '/parent/payment-return',
+  path: '/parent/payment-return',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentSignInRoute = ParentSignInRouteImport.update({
+  id: '/parent/sign-in',
+  path: '/parent/sign-in',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PracticalIndexRoute = PracticalIndexRouteImport.update({
@@ -62,6 +119,21 @@ const ProjectsProjectIdRoute = ProjectsProjectIdRouteImport.update({
 const QuizProjectIdRoute = QuizProjectIdRouteImport.update({
   id: '/quiz/$projectId',
   path: '/quiz/$projectId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StaffAdminRoute = StaffAdminRouteImport.update({
+  id: '/staff/admin',
+  path: '/staff/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentCheckInRoute = StudentCheckInRouteImport.update({
+  id: '/student/check-in',
+  path: '/student/check-in',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentDashboardRoute = StudentDashboardRouteImport.update({
+  id: '/student/dashboard',
+  path: '/student/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PracticalLevel1IndexRoute = PracticalLevel1IndexRouteImport.update({
@@ -137,11 +209,23 @@ const PracticalLevelsLevelNumberCategoryIdRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth/callback': typeof AuthCallbackRoute
+  '/parent/checkout-test': typeof ParentCheckoutTestRoute
+  '/parent/dashboard': typeof ParentDashboardRoute
+  '/parent/email-test': typeof ParentEmailTestRoute
+  '/parent/otp-test': typeof ParentOtpTestRoute
+  '/parent/payment-preview': typeof ParentPaymentPreviewRoute
+  '/parent/payment-return': typeof ParentPaymentReturnRoute
+  '/parent/sign-in': typeof ParentSignInRoute
   '/practical/$projectId': typeof PracticalProjectIdRoute
   '/practical/level-1': typeof PracticalLevel1RouteWithChildren
   '/practical/levels': typeof PracticalLevelsRouteWithChildren
   '/projects/$projectId': typeof ProjectsProjectIdRoute
   '/quiz/$projectId': typeof QuizProjectIdRoute
+  '/staff/admin': typeof StaffAdminRoute
+  '/student/check-in': typeof StudentCheckInRoute
+  '/student/dashboard': typeof StudentDashboardRoute
+  '/auth/': typeof AuthIndexRoute
   '/practical/': typeof PracticalIndexRoute
   '/practical/level-1/$categoryId': typeof PracticalLevel1CategoryIdRoute
   '/practical/level-1/final-build': typeof PracticalLevel1FinalBuildRoute
@@ -158,9 +242,21 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth/callback': typeof AuthCallbackRoute
+  '/parent/checkout-test': typeof ParentCheckoutTestRoute
+  '/parent/dashboard': typeof ParentDashboardRoute
+  '/parent/email-test': typeof ParentEmailTestRoute
+  '/parent/otp-test': typeof ParentOtpTestRoute
+  '/parent/payment-preview': typeof ParentPaymentPreviewRoute
+  '/parent/payment-return': typeof ParentPaymentReturnRoute
+  '/parent/sign-in': typeof ParentSignInRoute
   '/practical/$projectId': typeof PracticalProjectIdRoute
   '/projects/$projectId': typeof ProjectsProjectIdRoute
   '/quiz/$projectId': typeof QuizProjectIdRoute
+  '/staff/admin': typeof StaffAdminRoute
+  '/student/check-in': typeof StudentCheckInRoute
+  '/student/dashboard': typeof StudentDashboardRoute
+  '/auth': typeof AuthIndexRoute
   '/practical': typeof PracticalIndexRoute
   '/practical/level-1/$categoryId': typeof PracticalLevel1CategoryIdRoute
   '/practical/level-1/final-build': typeof PracticalLevel1FinalBuildRoute
@@ -177,11 +273,23 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth/callback': typeof AuthCallbackRoute
+  '/parent/checkout-test': typeof ParentCheckoutTestRoute
+  '/parent/dashboard': typeof ParentDashboardRoute
+  '/parent/email-test': typeof ParentEmailTestRoute
+  '/parent/otp-test': typeof ParentOtpTestRoute
+  '/parent/payment-preview': typeof ParentPaymentPreviewRoute
+  '/parent/payment-return': typeof ParentPaymentReturnRoute
+  '/parent/sign-in': typeof ParentSignInRoute
   '/practical/$projectId': typeof PracticalProjectIdRoute
   '/practical/level-1': typeof PracticalLevel1RouteWithChildren
   '/practical/levels': typeof PracticalLevelsRouteWithChildren
   '/projects/$projectId': typeof ProjectsProjectIdRoute
   '/quiz/$projectId': typeof QuizProjectIdRoute
+  '/staff/admin': typeof StaffAdminRoute
+  '/student/check-in': typeof StudentCheckInRoute
+  '/student/dashboard': typeof StudentDashboardRoute
+  '/auth/': typeof AuthIndexRoute
   '/practical/': typeof PracticalIndexRoute
   '/practical/level-1/$categoryId': typeof PracticalLevel1CategoryIdRoute
   '/practical/level-1/final-build': typeof PracticalLevel1FinalBuildRoute
@@ -200,11 +308,23 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/auth/callback'
+    | '/parent/checkout-test'
+    | '/parent/dashboard'
+    | '/parent/email-test'
+    | '/parent/otp-test'
+    | '/parent/payment-preview'
+    | '/parent/payment-return'
+    | '/parent/sign-in'
     | '/practical/$projectId'
     | '/practical/level-1'
     | '/practical/levels'
     | '/projects/$projectId'
     | '/quiz/$projectId'
+    | '/staff/admin'
+    | '/student/check-in'
+    | '/student/dashboard'
+    | '/auth/'
     | '/practical/'
     | '/practical/level-1/$categoryId'
     | '/practical/level-1/final-build'
@@ -221,9 +341,21 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/auth/callback'
+    | '/parent/checkout-test'
+    | '/parent/dashboard'
+    | '/parent/email-test'
+    | '/parent/otp-test'
+    | '/parent/payment-preview'
+    | '/parent/payment-return'
+    | '/parent/sign-in'
     | '/practical/$projectId'
     | '/projects/$projectId'
     | '/quiz/$projectId'
+    | '/staff/admin'
+    | '/student/check-in'
+    | '/student/dashboard'
+    | '/auth'
     | '/practical'
     | '/practical/level-1/$categoryId'
     | '/practical/level-1/final-build'
@@ -239,11 +371,23 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/auth/callback'
+    | '/parent/checkout-test'
+    | '/parent/dashboard'
+    | '/parent/email-test'
+    | '/parent/otp-test'
+    | '/parent/payment-preview'
+    | '/parent/payment-return'
+    | '/parent/sign-in'
     | '/practical/$projectId'
     | '/practical/level-1'
     | '/practical/levels'
     | '/projects/$projectId'
     | '/quiz/$projectId'
+    | '/staff/admin'
+    | '/student/check-in'
+    | '/student/dashboard'
+    | '/auth/'
     | '/practical/'
     | '/practical/level-1/$categoryId'
     | '/practical/level-1/final-build'
@@ -261,11 +405,23 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthCallbackRoute: typeof AuthCallbackRoute
+  ParentCheckoutTestRoute: typeof ParentCheckoutTestRoute
+  ParentDashboardRoute: typeof ParentDashboardRoute
+  ParentEmailTestRoute: typeof ParentEmailTestRoute
+  ParentOtpTestRoute: typeof ParentOtpTestRoute
+  ParentPaymentPreviewRoute: typeof ParentPaymentPreviewRoute
+  ParentPaymentReturnRoute: typeof ParentPaymentReturnRoute
+  ParentSignInRoute: typeof ParentSignInRoute
   PracticalProjectIdRoute: typeof PracticalProjectIdRoute
   PracticalLevel1Route: typeof PracticalLevel1RouteWithChildren
   PracticalLevelsRoute: typeof PracticalLevelsRouteWithChildren
   ProjectsProjectIdRoute: typeof ProjectsProjectIdRoute
   QuizProjectIdRoute: typeof QuizProjectIdRoute
+  StaffAdminRoute: typeof StaffAdminRoute
+  StudentCheckInRoute: typeof StudentCheckInRoute
+  StudentDashboardRoute: typeof StudentDashboardRoute
+  AuthIndexRoute: typeof AuthIndexRoute
   PracticalIndexRoute: typeof PracticalIndexRoute
   PracticalLevel2FinalBuildRoute: typeof PracticalLevel2FinalBuildRoute
   PracticalLevel3FinalBuildRoute: typeof PracticalLevel3FinalBuildRoute
@@ -281,6 +437,69 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/': {
+      id: '/auth/'
+      path: '/auth'
+      fullPath: '/auth/'
+      preLoaderRoute: typeof AuthIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/callback': {
+      id: '/auth/callback'
+      path: '/auth/callback'
+      fullPath: '/auth/callback'
+      preLoaderRoute: typeof AuthCallbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parent/checkout-test': {
+      id: '/parent/checkout-test'
+      path: '/parent/checkout-test'
+      fullPath: '/parent/checkout-test'
+      preLoaderRoute: typeof ParentCheckoutTestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parent/dashboard': {
+      id: '/parent/dashboard'
+      path: '/parent/dashboard'
+      fullPath: '/parent/dashboard'
+      preLoaderRoute: typeof ParentDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parent/email-test': {
+      id: '/parent/email-test'
+      path: '/parent/email-test'
+      fullPath: '/parent/email-test'
+      preLoaderRoute: typeof ParentEmailTestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parent/otp-test': {
+      id: '/parent/otp-test'
+      path: '/parent/otp-test'
+      fullPath: '/parent/otp-test'
+      preLoaderRoute: typeof ParentOtpTestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parent/payment-preview': {
+      id: '/parent/payment-preview'
+      path: '/parent/payment-preview'
+      fullPath: '/parent/payment-preview'
+      preLoaderRoute: typeof ParentPaymentPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parent/payment-return': {
+      id: '/parent/payment-return'
+      path: '/parent/payment-return'
+      fullPath: '/parent/payment-return'
+      preLoaderRoute: typeof ParentPaymentReturnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parent/sign-in': {
+      id: '/parent/sign-in'
+      path: '/parent/sign-in'
+      fullPath: '/parent/sign-in'
+      preLoaderRoute: typeof ParentSignInRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/practical/': {
@@ -323,6 +542,27 @@ declare module '@tanstack/react-router' {
       path: '/quiz/$projectId'
       fullPath: '/quiz/$projectId'
       preLoaderRoute: typeof QuizProjectIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/staff/admin': {
+      id: '/staff/admin'
+      path: '/staff/admin'
+      fullPath: '/staff/admin'
+      preLoaderRoute: typeof StaffAdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/student/check-in': {
+      id: '/student/check-in'
+      path: '/student/check-in'
+      fullPath: '/student/check-in'
+      preLoaderRoute: typeof StudentCheckInRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/student/dashboard': {
+      id: '/student/dashboard'
+      path: '/student/dashboard'
+      fullPath: '/student/dashboard'
+      preLoaderRoute: typeof StudentDashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/practical/level-1/': {
@@ -461,11 +701,23 @@ const PracticalLevelsRouteWithChildren = PracticalLevelsRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthCallbackRoute: AuthCallbackRoute,
+  ParentCheckoutTestRoute: ParentCheckoutTestRoute,
+  ParentDashboardRoute: ParentDashboardRoute,
+  ParentEmailTestRoute: ParentEmailTestRoute,
+  ParentOtpTestRoute: ParentOtpTestRoute,
+  ParentPaymentPreviewRoute: ParentPaymentPreviewRoute,
+  ParentPaymentReturnRoute: ParentPaymentReturnRoute,
+  ParentSignInRoute: ParentSignInRoute,
   PracticalProjectIdRoute: PracticalProjectIdRoute,
   PracticalLevel1Route: PracticalLevel1RouteWithChildren,
   PracticalLevelsRoute: PracticalLevelsRouteWithChildren,
   ProjectsProjectIdRoute: ProjectsProjectIdRoute,
   QuizProjectIdRoute: QuizProjectIdRoute,
+  StaffAdminRoute: StaffAdminRoute,
+  StudentCheckInRoute: StudentCheckInRoute,
+  StudentDashboardRoute: StudentDashboardRoute,
+  AuthIndexRoute: AuthIndexRoute,
   PracticalIndexRoute: PracticalIndexRoute,
   PracticalLevel2FinalBuildRoute: PracticalLevel2FinalBuildRoute,
   PracticalLevel3FinalBuildRoute: PracticalLevel3FinalBuildRoute,
