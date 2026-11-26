@@ -3,7 +3,8 @@
   "git": {
     "deploymentEnabled": {
       "feat/responsive-selection-ui-20261118": false,
-      "main": false
+      "main": false,
+      "feat/j5-student-learning-20261126": false
     }
   }
 }
