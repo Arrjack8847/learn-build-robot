@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
+import {J5CourseGate} from "@/components/j5/J5CourseGate";
 import { AppShell } from "@/components/layout/AppShell";
 import { APP_NAME } from "@/config/app";
 import { ProgressProvider } from "@/context/ProgressContext";
@@ -127,7 +128,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <ProgressProvider>
         <AppShell>
-          <Outlet />
+          <J5CourseGate><Outlet /></J5CourseGate>
         </AppShell>
       </ProgressProvider>
     </QueryClientProvider>
