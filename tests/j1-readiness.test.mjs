@@ -29,3 +29,12 @@ test("missing credentials and provider failure never appear ready",async()=>{
  assert.equal(missing.wixRead,"NOT_CONFIGURED");assert.equal(missing.authSecret,"NOT_CONFIGURED");assert.equal(missing.resendKey,"NOT_CONFIGURED");
  const failed=await getJ1Readiness(env,{probe:true,request:async()=>new Response("sensitive upstream body",{status:403})});assert.equal(failed.wixRead,"READ_UNCONFIRMED");assert.doesNotMatch(JSON.stringify(failed),/sensitive upstream body/);
 });
+
+test("J123 testing centre exposes disabled acceptance gates without claiming live verification",async()=>{
+ const integrated={...env,VERCEL_GIT_COMMIT_REF:"integration/j1-j2-j3-20261126",J123_CHECKOUT_ENABLED:"false",J123_GENUINE_WEBHOOK_ACCEPTED:"false"};
+ const r=await handleJ1Readiness(req("GET",origin+"/dev/testing-centre",{}),integrated,noNetwork);
+ assert.equal(r.status,200);const body=await r.text();
+ assert.match(body,/J1 \+ J2 \+ J3 Private Testing Centre/);assert.match(body,/Live acceptance is deferred/);assert.match(body,/Payment confirmation email gate/);assert.match(body,/Genuine provider billing-period mapping/);assert.doesNotMatch(body,/fixture-wix-secret|fixture-resend-secret/);
+ const c=await getJ1Readiness(integrated);for(const key of ["integratedCheckoutConfiguration","integratedMembershipGate","integratedWorkerGate","integratedReceiptGate"])assert.equal(c[key],"NOT_CONFIGURED");
+ assert.equal(c.integratedPeriodMapping,"NOT_VERIFIED");assert.equal(c.integratedLiveAcceptance,"NOT_VERIFIED");
+});
