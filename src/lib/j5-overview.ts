@@ -1,5 +1,6 @@
 import {z} from "zod";
 import {useEffect,useState} from "react";
+import {attachJ5SessionSignals,j5Session} from "./j5-session";
 
 const stamp=z.number().int().nonnegative().max(8640000000000000);
 const level=z.object({level:z.number().int().min(1).max(6),status:z.enum(["locked","unlocked","in-progress","completed"]),completed:z.number().int().nonnegative(),required:z.number().int().nonnegative(),available:z.boolean(),reason:z.enum(["level-locked","membership-required","check-in-required"]).nullable()}).refine(l=>l.completed<=l.required&&l.available===(l.reason===null)&&(!l.available||l.status!=="locked"));
@@ -28,35 +29,39 @@ export function useJ5Overview(enabled:boolean){
  const [version,reload]=useState(0);
  useEffect(()=>{
   if(!enabled)return;
-  const ctrl=new AbortController();setState({kind:"loading"});
+  const detach=attachJ5SessionSignals();
+  const unsubscribe=j5Session.subscribe(({blocked})=>{setState({kind:blocked?"unauthorized":"loading"});reload(v=>v+1);});
+  const timer=window.setInterval(()=>{if(document.visibilityState==="visible"&&!j5Session.isBlocked())j5Session.invalidate();},30000);
+  return()=>{detach();unsubscribe();window.clearInterval(timer);};
+ },[enabled]);
+ useEffect(()=>{
+  if(!enabled)return;
+  if(j5Session.isBlocked()){setState({kind:"unauthorized"});return;}
+  if(document.visibilityState!=="visible"){setState({kind:"loading"});return;}
+  const ticket=j5Session.begin();setState({kind:"loading"});
   const load=async()=>{
    try{
-    const response=await fetch("/api/dev/j5/overview",{credentials:"same-origin",cache:"no-store",redirect:"error",signal:ctrl.signal});
-    if(ctrl.signal.aborted)return;
+    const response=await fetch("/api/dev/j5/overview",{credentials:"same-origin",cache:"no-store",redirect:"error",signal:ticket.signal});
+    if(!ticket.current())return;
     if(response.status===401){setState({kind:"unauthorized"});return;}
     if(!response.ok){setState({kind:"unavailable"});return;}
     const data=overview.parse(await response.json());
-    if(!ctrl.signal.aborted)setState({kind:"ready",data});
-   }catch{if(!ctrl.signal.aborted)setState({kind:"unavailable"});}
+    if(ticket.current())setState({kind:"ready",data});
+   }catch{if(ticket.current())setState({kind:"unavailable"});}
+   finally{ticket.finish();}
   };
   void load();
-  return()=>ctrl.abort();
+  return()=>ticket.cancel();
  },[enabled,version]);
  useEffect(()=>{
   if(!enabled||state.kind!=="ready")return;
   const times=[state.data.profile.membership==="active"?state.data.profile.validUntil:null,state.data.profile.checkIn==="verified"?state.data.profile.checkInUntil:null].filter((v):v is number=>v!==null);
   if(!times.length)return;
   const delay=Math.min(2147483647,Math.max(1000,Math.min(...times)-Date.now()));
-  const timer=window.setTimeout(()=>{setState({kind:"loading"});reload(v=>v+1);},delay);
+  const timer=window.setTimeout(()=>j5Session.invalidate(),delay);
   return()=>window.clearTimeout(timer);
  },[enabled,state]);
- useEffect(()=>{
-  if(!enabled)return;
-  const refresh=()=>{if(document.visibilityState==="visible"){setState({kind:"loading"});reload(v=>v+1);}};
-  window.addEventListener("pageshow",refresh);document.addEventListener("visibilitychange",refresh);
-  return()=>{window.removeEventListener("pageshow",refresh);document.removeEventListener("visibilitychange",refresh);};
- },[enabled]);
- return {state,refresh:()=>{setState({kind:"loading"});reload(v=>v+1);}};
+ return {state,refresh:()=>j5Session.invalidate()};
 }
 export function levelLabel(l:J5Level){
  return l.reason==="membership-required"?"Membership required":l.reason==="check-in-required"?"Check in first":l.reason==="level-locked"?"Locked":l.status==="completed"?"Completed":l.status==="in-progress"?"In progress":"Ready";
