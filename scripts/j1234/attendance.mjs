@@ -63,9 +63,10 @@ export function createAttendanceService({env,db,clock=()=>Date.now(),newId=rando
    if(action!=="book"&&!validRequest(input.bookingId))return no("REFUSED");
    const authorized=async()=>{
     const i=await identity(studentId);if(!i)return null;
-    if(isStudent){const s=await resolveStudent?.();if(s?.studentId!==studentId||s.parentId!==i.parentId||s.credentialVersion!==i.credentialVersion)return null;}
+    if(isStudent){const s=await resolveStudent?.();if(s?.role!=="student"||s.environment!=="private-preview"||s.studentId!==studentId)return null;}
     return i;
    };
+   if(!isStudent&&env.J1234_ATTENDANCE_OPERATOR_ENABLED!=="1")return no("REFUSED");
    const first=await authorized();if(!first)return no("REFUSED");
    const day=localDay(clock()),id=attendanceKey(studentId,day);
    const needsMembership=["book","issue","redeem"].includes(action);
