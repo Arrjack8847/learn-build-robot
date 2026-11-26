@@ -53,18 +53,24 @@ export function createMembershipProviderReader(env,{request=fetch,clock=()=>Date
   // Any explicit merchant mismatch is rejected by get(), never inferred from arbitrary input.
   return s;
  }
- async function classify(event,reservation){
+ async function resolveEventSubscription(event){
   if(event.eventType==="charge.created"||event.eventType==="charge.updated"){
    const d=await charge(event.providerObjectId);
-   if(!validProvider(d.target_id)||d.target_type!=="business_recurring_plan")return "unmatched";
-   if(d.target_id!==reservation.providerId)return "foreign";
-   return "matched";
+   if(typeof d.target_type!=="string"||!d.target_type)throw Error("CHARGE_TARGET_UNCONFIRMED");
+   // Explicit non-recurring charge: not a J123 membership event.
+   if(d.target_type!=="business_recurring_plan")return null;
+   if(!validProvider(d.target_id))throw Error("CHARGE_TARGET_UNCONFIRMED");
+   return d.target_id;
   }
   if(["recurring_billing.subscription_updated","recurring_billing.method_detached"].includes(event.eventType)){
-   if(event.providerObjectId!==reservation.providerId)return "foreign";
-   return "matched";
+   if(!validProvider(event.providerObjectId))throw Error("SUBSCRIPTION_UNCONFIRMED");
+   return event.providerObjectId;
   }
-  return "ignored";
+  return null;
+ }
+ async function classify(event,reservation){
+  const subscriptionId=await resolveEventSubscription(event);
+  return !subscriptionId?"ignored":subscriptionId===reservation.providerId?"matched":"foreign";
  }
  async function reconcileVerifiedEvent(binding){
   const d=await charge(binding.chargeId),s=await verifiedSubscription(binding);
@@ -87,5 +93,5 @@ export function createMembershipProviderReader(env,{request=fetch,clock=()=>Date
   if(binding.eventType==="recurring_billing.method_detached"&&typeof s.payment_method_attached==="boolean")return {...base,methodAttached:s.payment_method_attached};
   return null;
  }
- return {classify,reconcileVerifiedEvent,reconcileAdverseEvent};
+ return {classify,resolveEventSubscription,reconcileVerifiedEvent,reconcileAdverseEvent};
 }

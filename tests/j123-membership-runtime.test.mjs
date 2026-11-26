@@ -2,7 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {createIntegratedCheckoutStore} from "../scripts/j123/checkout-store.mjs";
 import {createIntegratedCheckoutHttp} from "../scripts/j123/checkout-http.mjs";
-import {reconcileStudentCheckoutStatus} from "../scripts/j123/membership-runtime.mjs";
+import {reconcileStudentCheckoutStatus,dispatchVerifiedMembershipEvent} from "../scripts/j123/membership-runtime.mjs";
+import {createMembershipWorkerHttp} from "../scripts/j123/membership-worker-http.mjs";
 import {BILLING_COLLECTION,checkoutKey,decodeCheckout} from "../scripts/j123/billing-records.mjs";
 import {J123_BRANCH,J123_SITE,J123_ORIGIN,J123_PLAN,J123_TERMS} from "../scripts/j123/infrastructure.mjs";
 import {J123_MERCHANT,createMembershipProviderReader} from "../scripts/j123/membership-provider.mjs";
@@ -36,7 +37,7 @@ async function fixture(){
  const run=(e=env,id=child,p=parent)=>reconcileStudentCheckoutStatus({env:e,db,studentId:id,parentId:p,requestFn,clock:()=>tick});
  const state=async()=>decodeCheckout(await db.get(BILLING_COLLECTION,checkoutKey(child)),child);
  const statusHttp=(e=env)=>createIntegratedCheckoutHttp({resolvePayer:async(_,__,id)=>id===child?{parentId:parent,childId:child,email:parent+"@example.invalid"}:null,storeFactory:()=>db,requestFn,clock:()=>tick})(new Request("https://fixture.vercel.app/api/dev/j123/checkout/status",{method:"POST",headers:{origin:"https://fixture.vercel.app","sec-fetch-site":"same-origin","x-stem-j123":"1","content-type":"application/json"},body:JSON.stringify({childId:child})}),e);
- return {db,rows,events,calls,providerCharge,providerCharges,providerSub,add,run,state,statusHttp,advance:ms=>{tick+=ms;}};
+ return {db,rows,events,calls,providerCharge,providerCharges,providerSub,add,run,state,statusHttp,requestFn,clock:()=>tick,advance:ms=>{tick+=ms;}};
 }
 test("signed Wix inbox automatically commits only the exact bound student's independently verified payment",async()=>{
  const f=await fixture();await f.add(eventKey);
@@ -78,4 +79,38 @@ test("status API consumes durable verified membership, not checkout return or br
  assert.equal(await f.run(),"MEMBERSHIP_ACTIVE");
  // The committed ledger is returned through the normal status boundary without calling provider again.
  const response=await f.statusHttp();assert.equal(response.status,200);assert.deepEqual(await response.json(),{ok:true,status:"MEMBERSHIP_ACTIVE"});
+});
+
+test("trusted event dispatcher finds student from provider subscription binding, not browser input",async()=>{
+ const f=await fixture();await f.add(eventKey);
+ const dispatch=key=>dispatchVerifiedMembershipEvent({env,db:f.db,eventKey:key,requestFn:f.requestFn,clock:f.clock});
+ const results=await Promise.all([dispatch(eventKey),dispatch(eventKey)]);
+ assert.equal(results.filter(x=>x.status==="membership_committed").length,1);
+ assert.equal(results.filter(x=>x.status==="duplicate").length,1);
+ assert.equal((await f.state()).membership.studentId,child);
+ const g=await fixture();g.providerCharge.target_id="unbound-sub";await g.add(eventKey);
+ assert.deepEqual(await dispatchVerifiedMembershipEvent({env,db:g.db,eventKey,requestFn:g.requestFn,clock:g.clock}),{ok:false,status:"pending"});
+ assert.equal((await g.state()).membership,undefined);
+});
+test("trusted worker rejects browser, bad key, foreign environment and extra fields; exact verified event commits",async()=>{
+ const f=await fixture();await f.add(eventKey);
+ const secret="ab".repeat(32),workerEnv={...env,J123_MEMBERSHIP_WORKER_ENABLED:"true",J123_MEMBERSHIP_WORKER_SECRET:secret};
+ const h=createMembershipWorkerHttp({storeFactory:()=>f.db,requestFn:f.requestFn,clock:f.clock});
+ const run=(e=workerEnv,token=secret,body={eventKey})=>h(new Request("https://fixture.vercel.app/api/dev/j123/membership-worker",{method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer "+token},body:JSON.stringify(body)}),e);
+ assert.equal((await run({...workerEnv,J123_MEMBERSHIP_WORKER_ENABLED:"false"})).status,404);
+ assert.equal((await run({...workerEnv,VERCEL_ENV:"production"})).status,404);
+ assert.equal((await run(workerEnv,"00".repeat(32))).status,401);
+ assert.equal((await run({...workerEnv,J123_MEMBERSHIP_WORKER_SECRET:workerEnv.PARENT_AUTH_SECRET},workerEnv.PARENT_AUTH_SECRET)).status,503);
+ assert.equal((await run(workerEnv,secret,{eventKey,studentId:child})).status,400);
+ assert.equal(f.calls.length,0);
+ const r=await run();assert.equal(r.status,200);assert.deepEqual(await r.json(),{ok:true,status:"membership_committed"});
+ assert.equal((await run()).status,200);
+ assert.equal((await run(workerEnv,secret,{eventKey:"a".repeat(64)})).status,503);
+ assert.equal((await f.state()).payments.length,1);
+});
+test("explicit unrelated one-time charge is ignored rather than blocking a verified student",async()=>{
+ const f=await fixture();await f.add(eventKey);
+ f.providerCharges.set("charge-other",{...f.providerCharge,id:"charge-other",target_type:"payment_request",target_id:"other"});
+ await f.add("e".repeat(64),"charge.created","charge-other");
+ assert.equal(await f.run(),"MEMBERSHIP_ACTIVE");
 });
