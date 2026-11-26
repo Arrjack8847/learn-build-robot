@@ -15,3 +15,6 @@ Node 22.16.0, executed on exact repository files corresponding to commit 29f29af
 
 ## Outstanding
 Standalone backend functionality is implemented and focused fixture tests pass. Full application build, browser/mobile checks, deployed runtime credentials and actual inbox acceptance remain necessary for 100% real-world verification. No preview deployed; STUDENT_AUTH_ENABLED remains false. No changes to other journeys.
+
+## Final focused regression
+On 8b94acc8fb95a2bd62fc14d1154f24d1bd2aec82, reran the 17 focused executable tests and the 20 OTP scenario checks: all passed, zero failures. All 18 executed source/test file Git blob hashes matched that commit. UI source changes were reviewed but not compiled or browser-tested; deployed runtime and genuine inbox acceptance remain unverified. No full completion claim.
