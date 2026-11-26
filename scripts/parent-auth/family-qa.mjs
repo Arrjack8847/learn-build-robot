@@ -48,3 +48,38 @@ if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_CO
  await run(createWixStore(e),createAuthCrypto(e),ns);
  console.log("[J2 QA] LIVE WIX PASS (fictional accounts, captured OTP only)");
 }
+
+// A single email to the designated development inbox. Consume and revoke the code/session
+// immediately; the test is not a login to the user's real account.
+if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_COMMIT_REF==="feat/wix-lms-integration-20261125"&&e.VERCEL_GIT_COMMIT_MESSAGE==="J2: verify real OTP mail transport and secure session round trip"){
+ const {createTestOtpMailer}=await import("./secure-auth-transport.mjs");
+ const db=createWixStore(e),baseCrypto=createAuthCrypto(e),mailer=createTestOtpMailer(e);
+ const recipient=e.RESEND_TEST_RECIPIENT?.trim().toLowerCase();
+ if(!recipient)throw Error("TEST_RECIPIENT_REQUIRED");
+ const marker="qa-j2-otp-email-v1",collection="SandboxBillingState";
+ if(await db.get(collection,marker))throw Error("OTP_EMAIL_QA_ALREADY_RESERVED_NO_RETRY");
+ const stateVersion=baseCrypto.newVersion();
+ if(!await db.insert(collection,marker,{environment:"sandbox-qa",stateVersion,stateJson:JSON.stringify({fixture:true,status:"reserved"})}))throw Error("OTP_EMAIL_QA_ALREADY_RESERVED_NO_RETRY");
+ // Separate namespace prevents interfering with the interactive preview account.
+ const crypto={...baseCrypto,identityDigest:(kind,email)=>baseCrypto.identityDigest("qa-j2-email-v1-"+kind,email)};
+ let code=null,token=null;
+ const service=createPreviewOtp({store:db,crypto,clock:{now:()=>Date.now()},recipient,mailer:{async sendParentCode(address,value,ttl,id){await mailer.sendParentCode(address,value,ttl,id);code=value;}}});
+ try{
+  const requested=await service.requestCode();
+  if(requested.status!=="CODE_SENT"||typeof code!=="string")throw Error("OTP_MAIL_UNCONFIRMED");
+  const verified=await service.verifyCode(code);
+  if(verified.status!=="VERIFIED")throw Error("OTP_SESSION_UNCONFIRMED");
+  token=verified.token;
+  assert.equal((await service.status(token)).status,"VERIFIED");
+  assert.equal((await service.verifyCode(code)).ok,false);
+  assert.equal((await service.logout(token)).status,"SIGNED_OUT");
+  assert.equal((await service.status(token)).status,"NOT_VERIFIED");
+  if(!await db.replaceIfVersion(collection,marker,stateVersion,{environment:"sandbox-qa",stateVersion:baseCrypto.newVersion(),stateJson:JSON.stringify({fixture:true,status:"passed",emailAccepted:true,codeConsumed:true,sessionRevoked:true})}))throw Error("OTP_QA_WRITE_UNCONFIRMED");
+  const result=JSON.parse((await db.get(collection,marker)).stateJson);
+  assert.equal(result.status,"passed");
+  console.log("[J2 OTP email QA] PASS provider accepted OTP; durable verification, replay refusal, session revocation; inbox delivery separate");
+ }finally{
+  code=null;
+  if(token)await service.logout(token);
+ }
+}
