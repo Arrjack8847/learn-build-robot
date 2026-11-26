@@ -6,8 +6,8 @@ export function normalizePaymentMethod(value){
  return name||null;
 }
 export function reconcilePaymentMethod(charge){
- const p=charge?.payment_method, candidates=[typeof p==="string"?p:null,p?.name,p?.code,p?.method,p?.type,p?.method_logo?.method,p?.display_logo?.method,charge?.payment_provider?.charge?.method,charge?.method,charge?.payment_method_type].map(normalizePaymentMethod).filter(Boolean);
- const explicit=candidates.filter(x=>!["wallet","ewallet","onlinewallet","paymentmethod","card","other","unknown"].includes(x));
+ const p=charge?.payment_method, candidates=[typeof p==="string"?p:null,p?.name,p?.code,p?.method,p?.method_logo?.method,p?.display_logo?.method,p?.method_logo?.displayName,p?.display_logo?.displayName,charge?.payment_provider?.charge?.method,charge?.method].map(normalizePaymentMethod).filter(Boolean);
+ const explicit=candidates.filter(x=>!["wallet","ewallet","onlinewallet","paymentmethod","other","unknown"].includes(x));
  return {verified:explicit.length>0&&explicit.every(x=>x==="touch_n_go"),hasExplicit:explicit.length>0,conflict:explicit.some(x=>x!=="touch_n_go")};
 }
 export function legacyIsolated(env){
