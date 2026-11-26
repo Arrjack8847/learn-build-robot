@@ -7,7 +7,7 @@ import {createStudentAuthHttp} from "./student-auth/http.mjs";
 import {reserveIntegratedEmail} from "./parent-auth/preview-email-budget.mjs";
 import {createStudentAuthCrypto} from "./student-auth/crypto.mjs";
 
-import {J123_BRANCH,requireJ123Identity} from "./j123/infrastructure.mjs";
+import {J123_BRANCH,requireJ123Identity,isIntegratedBillingPreview} from "./j123/infrastructure.mjs";
 import {scopeJ123StudentCredentials} from "./j123/student-credential-scope.mjs";
 import {J1234_BRANCH,createJ1234IdentityEnv,scopeJ1234StudentCredentials} from "./j1234/identity-scope.mjs";
 
@@ -51,7 +51,7 @@ export const handleParentOtpTest=createParentAuthHttp({resolveContext:async env=
 // Trusted payment boundary: fresh payer OTP, current consent, selected student's PIN enrollment.
 export function createJ123CheckoutPayer({getStudentContext=env=>studentContext(env,context(env))}={}){
  return async function resolveJ123CheckoutPayer(request,env,childId){
- if(env.VERCEL_ENV!=="preview"||env.VERCEL_TARGET_ENV==="production"||env.VERCEL_GIT_COMMIT_REF!=="integration/j1-j2-j3-20261126"||env.STUDENT_AUTH_ENABLED!=="true")return null;
+ if(!isIntegratedBillingPreview(env)||env.STUDENT_AUTH_ENABLED!=="true")return null;
  if(!/^qa-j2-[a-f0-9]{64}$/.test(childId??""))return null;
  const student=getStudentContext(env),token=read(request,"__Host-bsr-parent-test"),payer=await student.payer(token);
  if(payer?.role!=="payer")return null;

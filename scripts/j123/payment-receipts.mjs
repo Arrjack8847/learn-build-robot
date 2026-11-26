@@ -3,7 +3,7 @@ import {createHash,randomUUID} from "node:crypto";
 import {createAuthCrypto,previewRecipients,validPreviewEmail} from "../parent-auth/secure-auth-transport.mjs";
 import {createFamilyPreview} from "../parent-auth/family-preview.mjs";
 import {membershipProcessingEnabled} from "./membership-provider.mjs";
-import {J123_TERMS} from "./infrastructure.mjs";
+import {J123_TERMS,billingIdentityEnv} from "./infrastructure.mjs";
 import {BILLING_COLLECTION,validStudent,validProvider,checkoutKey,decodeCheckout,encodeCheckout,checkProviderBinding} from "./billing-records.mjs";
 const hash=x=>createHash("sha256").update(x).digest("hex");
 const digest=x=>typeof x==="string"&&/^[a-f0-9]{64}$/.test(x);
@@ -43,6 +43,7 @@ function validJobs(state){
 // Resend's retention is 24h; never retry an ambiguous send after our conservative 23h window.
 export async function flushPaymentReceipts({env,db,studentId,requestFn=fetch,clock=()=>Date.now(),newId=randomUUID}){
  if(!enabled(env))return "disabled";
+ try{env=billingIdentityEnv(env);}catch{return "disabled";}
  if(!validStudent(studentId))return "review_required";
  try{
   const key=checkoutKey(studentId);

@@ -1,6 +1,7 @@
 // Server-only J123 configuration contract. Never reads a provider or emits secret values.
 import {createAuthCrypto,openPreviewRecipients,validPreviewEmail} from "../parent-auth/secure-auth-transport.mjs";
 import {createStudentAuthCrypto} from "../student-auth/crypto.mjs";
+import {isJ1234Preview,createJ1234IdentityEnv} from "../j1234/identity-scope.mjs";
 export const J123_BRANCH="integration/j1-j2-j3-20261126";
 export const J123_SITE="09d613aa-3a95-42ff-9ee3-2aa0c706c447";
 export const J123_ORIGIN="https://api.sandbox.hit-pay.com";
@@ -12,14 +13,18 @@ const testInbox=env=>typeof env.RESEND_TEST_RECIPIENT==="string"&&validPreviewEm
 export function isJ123Preview(env){
  return env.VERCEL_ENV==="preview"&&env.VERCEL_TARGET_ENV!=="production"&&env.VERCEL_GIT_COMMIT_REF===J123_BRANCH;
 }
+export function isIntegratedBillingPreview(env){return isJ123Preview(env)||isJ1234Preview(env)&&env.J1234_BILLING_ENABLED==="1";}
+export function billingIdentityEnv(env){return isJ1234Preview(env)?createJ1234IdentityEnv(env):env;}
 export function j123InfrastructureStatus(env){
+ const integrated=isJ1234Preview(env);let isolatedIdentity=false;
+ if(integrated){try{env=billingIdentityEnv(env);isolatedIdentity=true;}catch{}}
  let parent=false,student=false;
  try{createAuthCrypto(env);parent=true;}catch{}
  try{createStudentAuthCrypto(env);student=true;}catch{}
  const checks={
-  preview:isJ123Preview(env),
+  preview:isIntegratedBillingPreview(env)&&(!integrated||isolatedIdentity),
   wix:env.WIX_DEV_SITE_ID===J123_SITE&&present(env.WIX_DEV_DATA_API_KEY),
-  resend:present(env.RESEND_API_KEY)&&testInbox(env)&&openPreviewRecipients(env)&&env.PARENT_PREVIEW_VERIFIED_SENDER==="noreply@mail.bestemready.edu.my",
+  resend:present(env.RESEND_API_KEY)&&testInbox(env)&&(integrated?isolatedIdentity&&env.PARENT_PREVIEW_OPEN_EMAIL==="0":openPreviewRecipients(env))&&env.PARENT_PREVIEW_VERIFIED_SENDER==="noreply@mail.bestemready.edu.my",
   parentSecret:parent,
   studentSecret:student,
   distinctSecrets:parent&&student&&env.PARENT_AUTH_SECRET.toLowerCase()!==env.STUDENT_AUTH_SECRET.toLowerCase(),

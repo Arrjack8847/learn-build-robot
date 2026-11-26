@@ -7,7 +7,8 @@ import {readCompanyHitPayConfig} from "../hitpay/company-config.mjs";
 import {isAllowedSandboxCheckoutUrl} from "../hitpay/checkout-url.mjs";
 import {createIntegratedCheckoutStore} from "./checkout-store.mjs";
 import {reconcileStudentCheckoutStatus} from "./membership-runtime.mjs";
-import {J123_BRANCH as BRANCH,J123_SITE as SITE,J123_TERMS as TERMS,j123InfrastructureStatus} from "./infrastructure.mjs";
+import {J123_SITE as SITE,J123_TERMS as TERMS,j123InfrastructureStatus,isIntegratedBillingPreview} from "./infrastructure.mjs";
+import {scopeJ1234BillingStore} from "../j1234/billing-scope.mjs";
 export {TERMS};
 const json=(s,b)=>new Response(JSON.stringify(b),{status:s,headers:{"Content-Type":"application/json","Cache-Control":"private, no-store","X-Content-Type-Options":"nosniff","Referrer-Policy":"no-referrer"}});
 const fail=(s,status)=>json(s,{ok:false,status});
@@ -15,7 +16,7 @@ export function createIntegratedCheckoutHttp({resolvePayer=resolveJ123CheckoutPa
  return async(request,env)=>{
   const origin="https://"+env.VERCEL_URL,path=new URL(request.url).pathname,statusOnly=path==="/api/dev/j123/checkout/status";
   if(path!=="/api/dev/j123/checkout"&&!statusOnly)return fail(404,"NOT_FOUND");
-  if(env.VERCEL_ENV!=="preview"||env.VERCEL_TARGET_ENV==="production"||env.VERCEL_GIT_COMMIT_REF!==BRANCH||env.WIX_DEV_SITE_ID!==SITE)return fail(404,"PREVIEW_ONLY");
+  if(!isIntegratedBillingPreview(env)||env.WIX_DEV_SITE_ID!==SITE)return fail(404,"PREVIEW_ONLY");
   if(request.method!=="POST")return fail(405,"METHOD_NOT_ALLOWED");
   if(!env.VERCEL_URL||new URL(request.url).origin!==origin||request.headers.get("origin")!==origin||request.headers.get("sec-fetch-site")!=="same-origin"||request.headers.get("x-stem-j123")!=="1")return fail(403,"INVALID_REQUEST");
   // Provider mutation stays closed until genuine delivery and approved test terms are accepted.
@@ -30,7 +31,7 @@ export function createIntegratedCheckoutHttp({resolvePayer=resolveJ123CheckoutPa
    if(!input||typeof input!=="object"||Array.isArray(input)||!/^qa-j2-[a-f0-9]{64}$/.test(input.childId??""))return fail(400,"INVALID_INPUT");
    const keys=statusOnly?["childId"]:["childId","requestKey","termsVersion"];if(Object.keys(input).length!==keys.length||!keys.every(k=>Object.hasOwn(input,k))||(!statusOnly&&(typeof input.requestKey!=="string"||!/^[-a-zA-Z0-9_]{1,128}$/.test(input.requestKey)||input.termsVersion!==TERMS)))return fail(400,"INVALID_INPUT");
    const payer=await resolvePayer(request,env,input.childId);if(!payer||payer.childId!==input.childId)return fail(401,"NOT_AUTHORIZED");
-   const db=storeFactory(env,requestFn),store=createIntegratedCheckoutStore({db,resolvePayer,request,env,childId:input.childId});
+   const db=scopeJ1234BillingStore(storeFactory(env,requestFn),env),store=createIntegratedCheckoutStore({db,resolvePayer,request,env,childId:input.childId});
    if(statusOnly){
     const current=await store.getStatus(payer.parentId);
     const membership=current==="PAYMENT_PENDING"?await reconcileStudentCheckoutStatus({env,db,studentId:input.childId,parentId:payer.parentId,requestFn,clock}):null;
