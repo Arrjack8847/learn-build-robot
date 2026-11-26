@@ -32,13 +32,14 @@ export function createStudentAccess({resolveStudent,readProfile,readMembership,r
       if(!validId(activityId))return deny(404,"ACTIVITY_UNAVAILABLE");
       const a=await resolveActivity(activityId);
       if(a?.activityId!==activityId||!Number.isInteger(a.level)||a.level<1||a.level>6||typeof a.checkInRequired!=="boolean")return deny(404,"ACTIVITY_UNAVAILABLE");
-      const now=clock.now();if(!instant(now))return deny(503,"SERVICE_UNAVAILABLE");
       const m=await readMembership(i.studentId);
+      const now=clock.now();if(!instant(now))return deny(503,"SERVICE_UNAVAILABLE");
       if(!evaluateMembership(m,i.studentId,now).eligible)return deny(403,"MEMBERSHIP_REQUIRED");
       let c=null;
       if(a.checkInRequired){
         c=await readCheckIn(i.studentId);
-        if(c?.studentId!==i.studentId||c.environment!=="private-preview"||c.status!=="verified"||!validId(c.bookingId)||!instant(c.validFrom)||!instant(c.validUntil)||c.validFrom>=c.validUntil||now<c.validFrom||now>=c.validUntil||c.revoked!==false)return deny(403,"CHECK_IN_REQUIRED");
+        const checkedAt=clock.now();
+        if(!instant(checkedAt)||c?.studentId!==i.studentId||c.environment!=="private-preview"||c.status!=="verified"||!validId(c.bookingId)||!instant(c.validFrom)||!instant(c.validUntil)||c.validFrom>=c.validUntil||checkedAt<c.validFrom||checkedAt>=c.validUntil||c.revoked!==false)return deny(403,"CHECK_IN_REQUIRED");
       }
       const l=await readLevelAccess(i.studentId,a.level);
       if(l?.studentId!==i.studentId||l.environment!=="private-preview"||l.level!==a.level||l.allowed!==true)return deny(403,"LEVEL_LOCKED");
