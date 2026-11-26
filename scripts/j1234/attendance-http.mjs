@@ -1,3 +1,4 @@
+import {operatorAccess} from "./operator-boundary.mjs";
 import {createWixStore} from "../parent-auth/wix-store.mjs";
 import {resolveJ2Student} from "../j2-runtime.mjs";
 import {attendanceEnabled,createAttendanceService,readAttendanceProjection} from "./attendance.mjs";
@@ -12,9 +13,7 @@ export function createAttendanceHttp({storeFactory=createWixStore,resolveStudent
   if(!kind||!attendanceEnabled(env)||!env.VERCEL_URL||url.origin!==origin||url.search||kind==="operator"&&env.J1234_ATTENDANCE_OPERATOR_ENABLED!=="1")return fail(404,"NOT_FOUND");
   if(request.method!=="POST")return fail(405,"METHOD_NOT_ALLOWED");
   if(request.headers.get("origin")!==origin||request.headers.get("sec-fetch-site")!=="same-origin"||request.headers.get("x-stem-j1234")!=="1")return fail(403,"REFUSED");
-  // No real operator identity is claimed. Only controlled, protected fictional preview.
-  // Explicitly reject requests bearing student or payer credentials from the operator endpoint.
-  if(kind==="operator"&&/(?:^|;\s*)__Host-bsr-(?:student|student-proof|parent-test)=/.test(request.headers.get("cookie")??""))return fail(403,"REFUSED");
+  if(kind==="operator"){const access=operatorAccess(request,env);if(access!==200)return fail(access,access===404?"NOT_FOUND":access===503?"OPERATOR_UNAVAILABLE":"REFUSED");}
   if(request.headers.get("content-type")?.split(";")[0].trim().toLowerCase()!=="application/json"||!request.body)return fail(400,"INVALID_INPUT");
   let input;
   try{

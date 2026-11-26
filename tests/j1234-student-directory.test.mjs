@@ -20,7 +20,7 @@ import {J123_MERCHANT} from "../scripts/j123/membership-provider.mjs";
 import {createAttendanceHttp} from "../scripts/j1234/attendance-http.mjs";
 import {buildDashboardStatistics} from "../scripts/j1234/dashboard-statistics.mjs";
 import {ATTENDANCE_COLLECTION,attendanceKey,localDay,createAttendanceService} from "../scripts/j1234/attendance.mjs";
-const env={VERCEL_ENV:"preview",VERCEL_TARGET_ENV:"preview",VERCEL_GIT_COMMIT_REF:J1234_BRANCH,VERCEL_URL:"fixture.vercel.app",WIX_DEV_SITE_ID:J1234_SITE,WIX_DEV_DATA_API_KEY:"fixture",RESEND_API_KEY:"fixture",PARENT_PREVIEW_VERIFIED_SENDER:"noreply@mail.bestemready.edu.my",STUDENT_AUTH_ENABLED:"true",J1234_REGISTRATION_ENABLED:"1",J1234_STUDENT_READ_ENABLED:"1",J1234_AUTH_ROOT:randomBytes(32).toString("hex"),J1234_TEST_EMAILS:"alpha@example.invalid,beta@example.invalid",PARENT_PREVIEW_OPEN_EMAIL:"1",RESEND_TEST_RECIPIENT:"unrelated@example.invalid",PARENT_AUTH_SECRET:randomBytes(32).toString("hex"),STUDENT_AUTH_SECRET:randomBytes(32).toString("hex")};
+const env={J1234_TEST_OPERATOR_ENABLED:"1",J1234_TEST_OPERATOR_SECRET:randomBytes(32).toString("hex"),VERCEL_ENV:"preview",VERCEL_TARGET_ENV:"preview",VERCEL_GIT_COMMIT_REF:J1234_BRANCH,VERCEL_URL:"fixture.vercel.app",WIX_DEV_SITE_ID:J1234_SITE,WIX_DEV_DATA_API_KEY:"fixture",RESEND_API_KEY:"fixture",PARENT_PREVIEW_VERIFIED_SENDER:"noreply@mail.bestemready.edu.my",STUDENT_AUTH_ENABLED:"true",J1234_REGISTRATION_ENABLED:"1",J1234_STUDENT_READ_ENABLED:"1",J1234_AUTH_ROOT:randomBytes(32).toString("hex"),J1234_TEST_EMAILS:"alpha@example.invalid,beta@example.invalid",PARENT_PREVIEW_OPEN_EMAIL:"1",RESEND_TEST_RECIPIENT:"unrelated@example.invalid",PARENT_AUTH_SECRET:randomBytes(32).toString("hex"),STUDENT_AUTH_SECRET:randomBytes(32).toString("hex")};
 const origin="https://fixture.vercel.app";
 function fixture(){
  const cfg=createJ1234IdentityEnv(env),rows=new Map(),sent=new Map(),auth=createAuthCrypto(cfg),crypto=createStudentAuthCrypto(cfg),clock={now:()=>1795680000000},emails=previewRecipients(cfg);
@@ -30,7 +30,7 @@ function fixture(){
  const context=createStudentContext({db:scopeJ1234StudentCredentials(db),auth,crypto,clock,emails,mailerFor,open:false});
  const parent=createParentAuthHttp({resolveContext:async()=>({db,crypto:auth,clock,approved:emails,recipient:emails[0],mailerFor,open:false,revokeStudent:async()=>{}})});
  const student=createStudentAuthHttp({resolveContext:async()=>({db,emails,context,open:false})});
- const req=(path,body,tag,cookie="")=>new Request(origin+path,{method:"POST",headers:{origin,"sec-fetch-site":"same-origin",[tag]:"1",...(cookie?{cookie}:{}),...(body==null?{}:{"content-type":"application/json"})},...(body==null?{}:{body:JSON.stringify(body)})});
+ const req=(path,body,tag,cookie="")=>new Request(origin+path,{method:"POST",headers:{origin,"sec-fetch-site":"same-origin",[tag]:"1",...(["/api/dev/j1234/students","/api/dev/j1234/attendance"].includes(path)?{"x-stem-j1234-operator":env.J1234_TEST_OPERATOR_SECRET}:{}),...(cookie?{cookie}:{}),...(body==null?{}:{"content-type":"application/json"})},...(body==null?{}:{body:JSON.stringify(body)})});
  const call=async(kind,action,body,cookie="")=>{const r=await (kind==="p"?parent:student)(req("/api/dev/"+(kind==="p"?"parent-otp":"student-auth")+"/"+action,body,kind==="p"?"x-stem-otp-test":"x-stem-student-auth",cookie),cfg);return {data:await r.json(),status:r.status,cookies:r.headers.getSetCookie()};};
  const cookie=(r,n)=>r.cookies.find(c=>c.startsWith(n+"="))?.split(";")[0];
  const login=async(kind,email)=>{assert.equal((await call(kind,kind==="p"?"request-email":"request",{email})).data.status,"CODE_SENT");const r=await call(kind,kind==="p"?"verify-email":"verify",{email,code:sent.get(email)});assert.equal(r.status,200);return cookie(r,kind==="p"?"__Host-bsr-parent-test":"__Host-bsr-student-proof");};
@@ -221,4 +221,20 @@ test("Phase 06 verified MYR amount uses MYT month boundary and refuses duplicate
  assert.throws(()=>read([{...row,payments:[{...row.payments[0],currency:"SGD"}]}]),/INVALID_DASHBOARD_PAYMENT/);
  const unavailable={...row,studentId:other,membershipStatus:"unavailable",paymentStatus:"unavailable",payments:[],attendance:{attendanceStatus:"verification_required"}},partial=read([row,unavailable]);
  assert.equal(partial.registration.total,2);assert.equal(partial.membership.activeTotal,null);assert.equal(partial.payments.totalVerifiedMinor,null);assert.equal(partial.payments.knownVerifiedMinor,72000);assert.equal(partial.attendance.totalBookings,null);assert.equal(partial.attendance.knownBookings,0);
+});
+
+test("Phase 07 requires independent operator capability on every staff read and write; no student credential or role can replace it",async()=>{
+ const f=fixture();const paths=["/api/dev/j1234/students","/api/dev/j1234/attendance"];
+ const cfg={...billingEnv,J1234_ATTENDANCE_ENABLED:"1",J1234_ATTENDANCE_OPERATOR_ENABLED:"1"};
+ let reads=0;const never=()=>{reads++;throw Error("UNEXPECTED_STORE");};
+ const handlers=[createJ1234StudentHttp({storeFactory:never}),createAttendanceHttp({storeFactory:never})];
+ for(const [i,path] of paths.entries()){
+  const req=(key,cookie="")=>new Request(origin+path,{method:"POST",headers:{origin,"sec-fetch-site":"same-origin","x-stem-j1234":"1","content-type":"application/json",...(key?{"x-stem-j1234-operator":key}:{}),...(cookie?{cookie}:{})},body:JSON.stringify(i?{action:"book",studentId:"qa-j2-"+"a".repeat(64),requestId:randomUUID()}: {})});
+  for(const key of [null,randomBytes(32).toString("hex"),cfg.J1234_AUTH_ROOT,cfg.J123_MEMBERSHIP_WORKER_SECRET])assert.equal((await handlers[i](req(key),cfg)).status,403);
+  assert.equal((await handlers[i](req(cfg.J1234_TEST_OPERATOR_SECRET,"__Host-bsr-student=fixture"),cfg)).status,403);
+  assert.equal((await handlers[i](req(cfg.J1234_TEST_OPERATOR_SECRET),{...cfg,J1234_TEST_OPERATOR_ENABLED:"0"})).status,404);
+  assert.equal((await handlers[i](req(cfg.J1234_TEST_OPERATOR_SECRET),{...cfg,J1234_TEST_OPERATOR_SECRET:cfg.J1234_AUTH_ROOT})).status,503);
+  assert.equal((await handlers[i](req(cfg.J1234_TEST_OPERATOR_SECRET),{...cfg,J1234_TEST_OPERATOR_SECRET:f.cfg.STUDENT_AUTH_SECRET})).status,503);
+ }
+ assert.equal(reads,0);
 });

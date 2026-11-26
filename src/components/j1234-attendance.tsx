@@ -3,19 +3,19 @@ export type Attendance={bookingId:string|null;day:string|null;attendanceStatus:s
 type Reply={ok:boolean;status:string;attendance?:Attendance;code?:string;expiresAt?:number};
 const btn="min-h-11 rounded-lg border border-slate-300 bg-white px-3 text-sm font-semibold disabled:opacity-40";
 const text=(s:string)=>s.toLowerCase().replaceAll("_"," ");
-async function call(path:string,body:Record<string,string>,signal?:AbortSignal):Promise<Reply>{
- const r=await fetch("/api/dev/j1234/"+path,{method:"POST",credentials:"same-origin",cache:"no-store",redirect:"error",headers:{"Content-Type":"application/json","X-STEM-J1234":"1"},body:JSON.stringify(body),signal});
+async function call(path:string,body:Record<string,string>,signal?:AbortSignal,operatorKey?:string):Promise<Reply>{
+ const r=await fetch("/api/dev/j1234/"+path,{method:"POST",credentials:"same-origin",cache:"no-store",redirect:"error",headers:{"Content-Type":"application/json","X-STEM-J1234":"1",...(operatorKey?{"X-STEM-J1234-Operator":operatorKey}:{})},body:JSON.stringify(body),signal});
  const v=await r.json();if(typeof v?.ok!=="boolean"||typeof v.status!=="string")throw Error("UNAVAILABLE");return v;
 }
 function useDeadline(until:number|null){const [left,setLeft]=useState(0);useEffect(()=>{const tick=()=>setLeft(until?Math.max(0,Math.ceil((until-Date.now())/1000)):0);tick();const t=window.setInterval(tick,500);return()=>window.clearInterval(t);},[until]);return left;}
-export function StaffAttendance({studentId,initial,membership,onSettled}:{studentId:string;initial:Attendance;membership:string;onSettled?:()=>void}){
+export function StaffAttendance({studentId,initial,membership,operatorKey,onSettled}:{studentId:string;initial:Attendance;membership:string;operatorKey:string;onSettled?:()=>void}){
  const [state,setState]=useState(initial),[busy,setBusy]=useState(false),[message,setMessage]=useState(""),[issued,setIssued]=useState<{code:string;expiresAt:number}|null>(null);
  const flight=useRef(false),alive=useRef(true);useEffect(()=>{alive.current=true;return()=>{alive.current=false;};},[]);
  useEffect(()=>{setState(initial);setIssued(old=>old&&initial.codeStatus==="active"&&initial.expiresAt===old.expiresAt?old:null);},[initial]);
  const left=useDeadline(issued?.expiresAt??null);useEffect(()=>{if(issued&&Date.now()>=issued.expiresAt)setIssued(null);},[left,issued]);
  async function act(action:string){
   if(flight.current)return;flight.current=true;setBusy(true);setMessage("");setIssued(null);
-  try{const r=await call("attendance",{action,studentId,requestId:crypto.randomUUID(),...(action==="book"?{}:{bookingId:state.bookingId??""})});if(!alive.current)return;if(r.attendance)setState(r.attendance);setMessage(text(r.status));if(r.ok&&r.code&&r.expiresAt)setIssued({code:r.code,expiresAt:r.expiresAt});}
+  try{const r=await call("attendance",{action,studentId,requestId:crypto.randomUUID(),...(action==="book"?{}:{bookingId:state.bookingId??""})},undefined,operatorKey);if(!alive.current)return;if(r.attendance)setState(r.attendance);setMessage(text(r.status));if(r.ok&&r.code&&r.expiresAt)setIssued({code:r.code,expiresAt:r.expiresAt});}
   catch{if(alive.current)setMessage("Attendance could not be confirmed. Refresh before retrying.");}
   finally{flight.current=false;if(alive.current){setBusy(false);onSettled?.();}}
  }
