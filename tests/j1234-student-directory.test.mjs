@@ -18,6 +18,7 @@ import {BILLING_COLLECTION,checkoutKey,decodeCheckout,encodeCheckout,providerKey
 import {J123_ORIGIN,J123_PLAN,J123_TERMS,J123_BRANCH} from "../scripts/j123/infrastructure.mjs";
 import {J123_MERCHANT} from "../scripts/j123/membership-provider.mjs";
 import {createAttendanceHttp} from "../scripts/j1234/attendance-http.mjs";
+import {buildDashboardStatistics} from "../scripts/j1234/dashboard-statistics.mjs";
 import {ATTENDANCE_COLLECTION,attendanceKey,localDay,createAttendanceService} from "../scripts/j1234/attendance.mjs";
 const env={VERCEL_ENV:"preview",VERCEL_TARGET_ENV:"preview",VERCEL_GIT_COMMIT_REF:J1234_BRANCH,VERCEL_URL:"fixture.vercel.app",WIX_DEV_SITE_ID:J1234_SITE,WIX_DEV_DATA_API_KEY:"fixture",RESEND_API_KEY:"fixture",PARENT_PREVIEW_VERIFIED_SENDER:"noreply@mail.bestemready.edu.my",STUDENT_AUTH_ENABLED:"true",J1234_REGISTRATION_ENABLED:"1",J1234_STUDENT_READ_ENABLED:"1",J1234_AUTH_ROOT:randomBytes(32).toString("hex"),J1234_TEST_EMAILS:"alpha@example.invalid,beta@example.invalid",PARENT_PREVIEW_OPEN_EMAIL:"1",RESEND_TEST_RECIPIENT:"unrelated@example.invalid",PARENT_AUTH_SECRET:randomBytes(32).toString("hex"),STUDENT_AUTH_SECRET:randomBytes(32).toString("hex")};
 const origin="https://fixture.vercel.app";
@@ -130,6 +131,9 @@ test("J1234 registration, sandbox checkout, verified event worker and J4 ledger 
  assert.equal((await readJ1234BillingProjection({env:billingEnv,db:f.db,studentId:one.id,parentId:"qa-j2-"+"f".repeat(64),now})).membershipStatus,"verification_required");
  // Phase 05: operate the real HTTP boundary with real student-session resolution.
  const ae={...billingEnv,J1234_ATTENDANCE_ENABLED:"1",J1234_ATTENDANCE_OPERATOR_ENABLED:"1"};
+ const overviewHttp=createJ1234StudentHttp({storeFactory:()=>f.db,clock:{now:()=>now}});
+ const overview=async(query={},e=ae)=>{const response=await overviewHttp(f.req("/api/dev/j1234/students",query,"x-stem-j1234"),e);assert.equal(response.status,200);return await response.json();};
+ const initialOverview=await overview({pageSize:1});assert.equal(initialOverview.rows.length,1);assert.equal(initialOverview.statistics.registration.total,2);assert.equal(initialOverview.statistics.registration.pinReady,2);assert.equal(initialOverview.statistics.membership.activeTotal,1);assert.equal(initialOverview.statistics.payments.totalVerifiedMinor,36000);assert.equal(initialOverview.statistics.attendance.totalBookings,0);assert.deepEqual((await overview({search:"no matches"})).statistics,initialOverview.statistics);assert.deepEqual((await overview({studentId:two.id,page:2,pageSize:1})).statistics,initialOverview.statistics);
  const proof=await f.login("s","alpha@example.invalid");
  const sign=await f.call("s","sign-in",{studentId:one.id,pin:"274913"},proof);
  const studentCookie=f.cookie(sign,"__Host-bsr-student");assert.ok(studentCookie);
@@ -177,15 +181,18 @@ test("J1234 registration, sandbox checkout, verified event worker and J4 ledger 
  const staffAttendance=createJ1234StudentHttp({storeFactory:()=>f.db,clock:{now:()=>now}});
  const res=await staffAttendance(f.req("/api/dev/j1234/students",{studentId:one.id},"x-stem-j1234"),ae),display=(await res.json()).rows[0];
  assert.equal(display.attendance.checkInStatus,"checked_in");assert.equal(display.attendance.visitStatus,"open");
+ const checked=await overview({studentId:two.id});assert.equal(checked.statistics.attendance.totalBookings,1);assert.equal(checked.statistics.attendance.totalAttended,1);assert.equal(checked.statistics.attendance.currentCheckedIn,1);assert.equal(checked.statistics.attendance.attendanceRate,1);
  assert.doesNotMatch(JSON.stringify(display),/digest|fingerprint|parentId|codeId/);
  assert.equal((await operator("check_out",one.id,booking)).ok,true);
  assert.equal((await student({action:"status"})).attendance.visitStatus,"ended");
+ const ended=(await overview()).statistics;assert.equal(ended.attendance.currentCheckedIn,0);assert.equal(ended.attendance.totalAttended,1);
  assert.equal((await operator("check_out",one.id,booking)).ok,false);
  now+=86400000;
  const next=await operator("book");assert.equal(next.ok,true);assert.notEqual(next.attendance.bookingId,booking);
  const nextCode=await operator("issue",one.id,next.attendance.bookingId);assert.equal(nextCode.ok,true);
  assert.equal((await operator("no_show",one.id,next.attendance.bookingId)).ok,true);
  assert.equal((await operator("excuse",one.id,next.attendance.bookingId)).ok,true);
+ const excused=(await overview()).statistics;assert.equal(excused.attendance.counts.excused,1);assert.equal(excused.attendance.totalAttended,0);assert.equal(excused.attendance.totalBookings,1);
  now=end;assert.equal((await project()).membershipStatus,"expired");now=paidAt+5000;
  const idx=providerKey("charge",charge),saved=await f.db.get(BILLING_COLLECTION,idx);f.rows.delete(BILLING_COLLECTION+":"+idx);
  assert.equal((await project()).membershipStatus,"verification_required");f.rows.set(BILLING_COLLECTION+":"+idx,saved);
@@ -193,6 +200,25 @@ test("J1234 registration, sandbox checkout, verified event worker and J4 ledger 
  assert.equal((await project()).membershipStatus,"verification_required");assert.equal((await project()).paymentStatus,"review_required");
  assert.equal((await project()).payments[0].status,"review_required");assert.equal((await dispatch(first)).status,200);
  now=paidAt+2*86400000;assert.equal((await operator("book")).status,"MEMBERSHIP_REQUIRED");
+ const held=(await overview()).statistics;assert.equal(held.membership.coverage,"partial");assert.equal(held.membership.activeTotal,null);assert.equal(held.membership.counts.verification_required,1);assert.equal(held.payments.coverage,"partial");assert.equal(held.payments.totalVerifiedMinor,null);assert.equal(held.payments.knownVerifiedMinor,0);assert.equal(held.payments.heldMinor,36000);assert.equal(held.learning.currentlyLearning,null);assert.equal(held.payments.netRevenue,null);assert.equal(held.payments.depositMinor,null);
  assert.equal((await project()).membershipStatus,"verification_required");
  assert.equal(calls.filter(c=>c.method==="POST"&&c.url===J123_ORIGIN+"/v1/recurring-billing").length,1);
+});
+
+test("Phase 06 disabled integration never reports financial or attendance zeros, even for empty datasets",()=>{
+ const empty=buildDashboardStatistics({env,rows:[],asOf:1795680000000});
+ assert.equal(empty.registration.total,0);assert.equal(empty.membership.coverage,"unavailable");assert.equal(empty.membership.activeTotal,null);assert.equal(empty.payments.knownVerifiedMinor,null);assert.equal(empty.attendance.totalBookings,null);assert.equal(empty.attendance.attendanceRate,null);
+ const ready=buildDashboardStatistics({env:{...billingEnv,J1234_ATTENDANCE_ENABLED:"1"},rows:[],asOf:1795680000000});
+ assert.equal(ready.membership.activeTotal,0);assert.equal(ready.payments.totalVerifiedMinor,0);assert.equal(ready.attendance.totalBookings,0);assert.equal(ready.attendance.attendanceRate,null);
+});
+test("Phase 06 verified MYR amount uses MYT month boundary and refuses duplicate charges, identities and wrong currency",()=>{
+ const e={...billingEnv,J1234_ATTENDANCE_ENABLED:"1"},asOf=Date.parse("2026-12-01T00:00:00Z"),studentId="qa-j2-"+"a".repeat(64),other="qa-j2-"+"b".repeat(64);
+ const row={studentId,registrationStatus:"ready",membershipStatus:"active",paymentStatus:"verified",payments:[{paymentId:"charge-one",studentId,currency:"MYR",amountMinor:36000,status:"verified",evidenceType:"hitpay-sandbox",paymentMethod:"touch_n_go",paidAt:Date.parse("2026-11-30T15:59:59Z")},{paymentId:"charge-two",studentId,currency:"MYR",amountMinor:36000,status:"verified",evidenceType:"hitpay-sandbox",paymentMethod:"touch_n_go",paidAt:Date.parse("2026-11-30T16:00:00Z")}],attendance:{attendanceStatus:"not_booked"}};
+ const read=rows=>buildDashboardStatistics({env:e,rows,asOf}),r=read([row]);
+ assert.equal(r.month,"2026-12");assert.equal(r.payments.totalVerifiedMinor,72000);assert.equal(r.payments.monthVerifiedMinor,36000);assert.equal(r.payments.knownMonthVerifiedCount,1);
+ assert.throws(()=>read([row,row]),/INVALID_DASHBOARD_ROW/);
+ assert.throws(()=>read([row,{...row,studentId:other,payments:row.payments.map(p=>({...p,studentId:other}))}]),/INVALID_DASHBOARD_PAYMENT/);
+ assert.throws(()=>read([{...row,payments:[{...row.payments[0],currency:"SGD"}]}]),/INVALID_DASHBOARD_PAYMENT/);
+ const unavailable={...row,studentId:other,membershipStatus:"unavailable",paymentStatus:"unavailable",payments:[],attendance:{attendanceStatus:"verification_required"}},partial=read([row,unavailable]);
+ assert.equal(partial.registration.total,2);assert.equal(partial.membership.activeTotal,null);assert.equal(partial.payments.totalVerifiedMinor,null);assert.equal(partial.payments.knownVerifiedMinor,72000);assert.equal(partial.attendance.totalBookings,null);assert.equal(partial.attendance.knownBookings,0);
 });
