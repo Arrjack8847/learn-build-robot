@@ -1,5 +1,5 @@
 // J4 private fixture state transitions. No payment writes or cross-journey operations.
-export function createJ4StateService({store,crypto,clock}){
+export function createJ4StateService({store,crypto,clock,fixtureActorId}){
  const roles=["admin","staff","finance"], staffId=/^qa-j4-staff-[1-3]$/, requestId=/^[a-zA-Z0-9_-]{12,100}$/;
  const refused=()=>({ok:false,status:"REFUSED"});
  const now=()=>clock.now();
@@ -19,10 +19,14 @@ export function createJ4StateService({store,crypto,clock}){
  const no=reply=>({write:false,reply}), yes=reply=>({write:true,reply});
  function currentActor(s,actor,at){
   const a=s.staff.find(x=>x.staffId===actor?.staffId);
+  // This is an explicitly synthetic actor, only injected by the isolated exercise dispatcher.
+  // It is never a real staff identity and may not be used by a production service.
+  if(fixtureActorId!==undefined)return a&&a.staffId===fixtureActorId&&staffId.test(fixtureActorId)&&a.accountType==="staff-test"&&a.accountStatus==="active"&&roles.includes(a.role)?a:null;
   const session=s.sessions.find(x=>x.sessionDigest===actor?.sessionDigest);
   return a&&session&&a.accountType==="staff-test"&&a.accountStatus==="active"&&roles.includes(a.role)&&a.authVersion===session.authVersion&&session.staffId===a.staffId&&session.accountType==="staff-test"&&session.revokedAt==null&&session.expiresAt>at?a:null;
  }
  async function signIn(input){
+  if(fixtureActorId!==undefined)return refused();
   if(!input||typeof input.username!=="string"||!staffId.test(input.username)||typeof input.password!=="string"||input.password.length<12||input.password.length>256)return refused();
   const at=now();
   // Reserve an attempt atomically before password verification; no reset on success.
@@ -50,6 +54,7 @@ export function createJ4StateService({store,crypto,clock}){
   });
  }
  async function resolve(request){
+  if(fixtureActorId!==undefined){const s=await store.readStrong();const a=currentActor(s,{staffId:fixtureActorId},now());return a?{subjectType:"staff",staffId:a.staffId,displayName:a.displayName,role:a.role,accountStatus:"active",expiresAt:now()+60000,revokedAt:null}:null;}
   const value=request?.headers?.get("cookie")??"";
   if(value.length>8192)return null;
   const cookies=value.split(";").map(x=>x.trim()).filter(x=>x.startsWith("__Host-stem-staff="));
@@ -63,6 +68,7 @@ export function createJ4StateService({store,crypto,clock}){
   return {subjectType:"staff",staffId:actor.staffId,displayName:actor.displayName,role:actor.role,accountStatus:"active",expiresAt:session.expiresAt,revokedAt:null,sessionDigest:digest};
  }
  async function logout(request){
+  if(fixtureActorId!==undefined)return refused();
   const actor=await resolve(request);
   const cookie="__Host-stem-staff=; Path=/; Secure; HttpOnly; SameSite=Strict; Max-Age=0";
   if(!actor)return {ok:true,status:"SIGNED_OUT",cookie};

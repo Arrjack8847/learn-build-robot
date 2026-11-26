@@ -25,6 +25,8 @@ function validateFixtureState(s){
  if(s.deposits.some(x=>!payments.has(x.paymentId)||!bookings.has(x.bookingId)||x.evidenceType!=="fixture"||x.status==="verified"||!s.payments.some(p=>p.paymentId===x.paymentId&&p.studentId===x.studentId&&p.purpose==="deposit"&&p.currency===x.currency&&p.amountMinor===x.amountMinor&&p.status===x.status)||!s.attendance.some(b=>b.bookingId===x.bookingId&&b.studentId===x.studentId)))throw Error("J4_FIXTURE_DEPOSIT");
  if(s.sessions.some(x=>!staff.has(x.staffId)||x.accountType!=="staff-test"||!/^([a-f0-9]{64})$/.test(x.sessionDigest??"")||!Number.isSafeInteger(x.expiresAt))||s.attempts.some(x=>!staff.has(x.staffId)||!Number.isSafeInteger(x.at))||s.audit.some(x=>!staff.has(x.staffId)||typeof x.auditId!=="string"||!Number.isSafeInteger(x.occurredAt)))throw Error("J4_FIXTURE_SESSION");
  if(s.codes.some(x=>!bookings.has(x.bookingId)||!s.attendance.some(b=>b.bookingId===x.bookingId&&b.studentId===x.studentId)||!["active","revoked","locked","used","expired"].includes(x.status)||!/^([a-f0-9]{64})$/.test(x.digest??"")||!/^([a-f0-9]{64})$/.test(x.dailyFingerprint??"")||!Number.isSafeInteger(x.expiresAt)||!Number.isSafeInteger(x.attempts)))throw Error("J4_FIXTURE_CODE");
+ if(s.fixtureCodeKey!==undefined&&(typeof s.fixtureCodeKey!=="string"||!/^[a-f0-9]{64}$/.test(s.fixtureCodeKey)))throw Error("J4_FIXTURE_KEY");
+ if(s.learningVisits!==undefined&&(!Array.isArray(s.learningVisits)||s.learningVisits.some(v=>!students.has(v.studentId)||!bookings.has(v.bookingId)||!["learning","ended"].includes(v.status)||!s.attendance.some(b=>b.bookingId===v.bookingId&&b.studentId===v.studentId))))throw Error("J4_FIXTURE_LEARNING");
  return s;
 }
 export function createJ4WixStore(env,request=fetch){
