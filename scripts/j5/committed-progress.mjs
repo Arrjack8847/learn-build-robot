@@ -10,7 +10,7 @@ const key=(mode,resourceId)=>mode+":"+resourceId;
 export function projectCommittedProgress({studentId,policy,records,levelStates,currentLevel,now}){
  const fail=code=>({ok:false,code});
  if(!id(studentId)||!stamp(now)||policy?.approved!==true||!id(policy.version)||!Array.isArray(policy.requirements)||!Array.isArray(records)||!Array.isArray(levelStates))return fail("PROGRESS_POLICY_UNAVAILABLE");
- if(levelStates.length!==6||new Set(levelStates.map(r=>r?.level)).size!==6||levelStates.some(r=>!bound(r,studentId)||!Number.isInteger(r.level)||r.level<1||r.level>6||!["locked","unlocked","in-progress","completed"].includes(r.status)))return fail("LEVEL_STATE_UNAVAILABLE");
+ if(levelStates.length!==6||new Set(levelStates.map(r=>r?.level)).size!==6||levelStates.some(r=>!bound(r,studentId)||!Number.isInteger(r.level)||r.level<1||r.level>6||typeof r.allowed!=="boolean"||r.allowed===(r.status==="locked")||!["locked","unlocked","in-progress","completed"].includes(r.status)))return fail("LEVEL_STATE_UNAVAILABLE");
  const requirements=new Map();
  for(const r of policy.requirements){
   if(!modes.has(r?.mode)||!id(r.resourceId)||!Number.isInteger(r.level)||r.level<1||r.level>6||typeof r.title!=="string"||!r.title.trim()||r.title.length>160||requirements.has(key(r.mode,r.resourceId)))return fail("INVALID_REQUIREMENTS");

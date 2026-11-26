@@ -1,12 +1,13 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {DatabaseSync} from "node:sqlite";
+import {createOverviewServices} from "../scripts/j5/overview-services.mjs";
 import {projectCommittedProgress,authorizeResume} from "../scripts/j5/committed-progress.mjs";
 const owner="student-a",env="private-preview",now=3000;
 const bind={studentId:owner,environment:env};
 const req=(level,mode,resourceId)=>({level,mode,resourceId,title:resourceId,maxPosition:12});
 const policy={approved:true,version:"approved-fixture-v1",requirements:[req(1,"learning","robot-a"),req(1,"building","robot-a"),req(1,"quiz","robot-a"),req(1,"challenge","challenge-1"),...[2,3,4,5,6].map(n=>req(n,"learning","robot-"+n))]};
-const levelStates=Array.from({length:6},(_,i)=>({...bind,level:i+1,status:i===0?"in-progress":"locked"}));
+const levelStates=Array.from({length:6},(_,i)=>({...bind,level:i+1,allowed:i===0,status:i===0?"in-progress":"locked"}));
 const row=(mode,status,attemptId,extra={})=>({...bind,committed:true,policyVersion:policy.version,level:1,resourceId:"robot-a",mode,status,attemptId,updatedAt:1000,...extra});
 const base={studentId:owner,policy,records:[],levelStates,currentLevel:1,now};
 const run=(records=[],overrides={})=>projectCommittedProgress({...base,records,...overrides});
@@ -22,5 +23,16 @@ test("out-of-range or locked resume never returned",()=>{assert.equal(run([row("
 test("SQLite committed row projection isolates siblings and survives separate queries",t=>{const db=new DatabaseSync(":memory:");t.after(()=>db.close());db.exec("CREATE TABLE records (student TEXT, attempt TEXT, payload TEXT, PRIMARY KEY(student,attempt))");const add=db.prepare("INSERT INTO records VALUES (?,?,?)");for(const r of [row("learning","completed","a"),row("quiz","passed","a",{studentId:"sibling"})])add.run(r.studentId,r.attemptId,JSON.stringify(r));const read=id=>db.prepare("SELECT payload FROM records WHERE student=?").all(id).map(r=>JSON.parse(r.payload));assert.equal(run(read(owner)).learning.learningCompleted,1);assert.equal(run(read(owner)).learning.quizzesPassed,0);assert.equal(run(read("sibling")).ok,false);});
 test("resume uses server catalog and fresh authorization",async()=>{const candidate=run([row("learning","started","a",{position:2})]).resumeCandidate;const options={candidate,request:{},env:{},now:()=>3000,resolveActivity:async()=>({resourceId:"robot-a",projectId:"robot-a",mode:"learning",level:1,maxPosition:12}),authorize:async()=>({ok:true,code:"COURSE_AUTHORIZED",validUntil:4000})};assert.deepEqual(await authorizeResume(options),{path:"/practical/robot-a",mode:"learning",position:2,level:1});for(const grant of [{ok:false},{ok:true,code:"COURSE_AUTHORIZED",validUntil:3000}])assert.equal(await authorizeResume({...options,authorize:async()=>grant}),null);assert.equal(await authorizeResume({...options,resolveActivity:async()=>({resourceId:"robot-a",projectId:"../staff",mode:"learning",level:1,maxPosition:12})}),null);});
 
-test("current level is an explicit committed choice, not inferred",()=>{assert.equal(run([],{currentLevel:2}).ok,false);assert.equal(run([],{currentLevel:undefined}).ok,false);const levels=levelStates.map(r=>r.level===2?{...r,status:"unlocked"}:r);assert.equal(run([],{levelStates:levels,currentLevel:2}).learning.currentLevel,2);});
+test("current level is an explicit committed choice, not inferred",()=>{assert.equal(run([],{currentLevel:2}).ok,false);assert.equal(run([],{currentLevel:undefined}).ok,false);const levels=levelStates.map(r=>r.level===2?{...r,status:"unlocked",allowed:true}:r);assert.equal(run([],{levelStates:levels,currentLevel:2}).learning.currentLevel,2);});
 test("older eligible resume is retained when newest activity has since completed",()=>{const r=run([row("building","started","a",{position:2,updatedAt:500}),row("learning","started","b",{position:3,updatedAt:1000}),row("learning","completed","c",{updatedAt:2000})]);assert.equal(r.resumeCandidate.mode,"building");assert.equal(r.resumeCandidate.position,2);});
+
+test("level entitlement contradiction fails closed",()=>assert.equal(run([],{levelStates:levelStates.map(r=>r.level===2?{...r,allowed:true}:r)}).ok,false));
+function overviewFixture({membership="active",grant=true,revoked=false,badEvidence=false}={}){
+ let calls=0;
+ const snapshot={...bind,profile:{...bind,accountStatus:"active",studentCode:"QA-A",displayName:"Fixture A"},membership:{...bind,status:membership,eligible:membership==="active",validFrom:1,validUntil:5000},checkIn:{...bind,status:"verified",revoked:false,bookingId:"booking-a",validFrom:1,validUntil:4500},levels:levelStates,progressEvidence:{policy,records:[row("learning","started","a",{position:2}),row("quiz","passed","b",badEvidence?{studentId:"sibling"}:{})],currentLevel:1}};
+ return createOverviewServices({resolveStudent:async()=>{calls++;return revoked&&calls>=3?null:{role:"student",...bind};},readSnapshot:async()=>snapshot,clock:{now:()=>now},resolveActivity:async()=>({resourceId:"robot-a",projectId:"robot-a",mode:"learning",level:1,maxPosition:12}),authorizeCourse:async()=>grant?{ok:true,code:"COURSE_AUTHORIZED",validUntil:4000}:{ok:false}}).overview;
+}
+const preview={VERCEL_ENV:"preview"};
+test("overview uses committed evidence, exact authorized resume, no private record IDs",async()=>{const result=await overviewFixture().load({},preview);assert.equal(result.ok,true);assert.equal(result.profile.learning.quizzesPassed,1);assert.equal(result.levels[0].completed,1);assert.deepEqual(result.profile.learning.resume,{path:"/practical/robot-a",mode:"learning",position:2,level:1});assert.equal(JSON.stringify(result).includes("student-a"),false);});
+test("membership or course denial suppresses resume without erasing progress",async()=>{for(const options of [{membership:"inactive"},{grant:false}]){const result=await overviewFixture(options).load({},preview);assert.equal(result.ok,true);assert.equal(result.profile.learning.quizzesPassed,1);assert.equal(result.profile.learning.resume,undefined);}});
+test("overview refuses sibling evidence and mid-resume revocation",async()=>{assert.equal((await overviewFixture({badEvidence:true}).load({},preview)).ok,false);assert.equal((await overviewFixture({revoked:true}).load({},preview)).status,401);});
