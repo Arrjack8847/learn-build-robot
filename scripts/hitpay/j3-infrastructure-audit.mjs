@@ -7,9 +7,10 @@ export async function auditSandboxInfrastructure(env,{readConfig,request,timeout
  let cfg;try{cfg=readConfig(env);}catch{return fail("CANONICAL_CONFIGURATION_INCOMPLETE");}
  if(cfg.environment!=="sandbox"||cfg.apiUrl!=="https://api.sandbox.hit-pay.com"||!["MYR","SGD"].includes(cfg.currency))return fail("SANDBOX_CONFIGURATION_REQUIRED");
  const uuid=x=>typeof x==="string"&&/^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$/i.test(x);
- if(![env.HITPAY_WEBHOOK_ID,env.HITPAY_BUSINESS_ID,cfg.planId].every(uuid))return fail("WEBHOOK_OR_MERCHANT_ID_REQUIRED");
+ if(![env.HITPAY_BUSINESS_ID,cfg.planId].every(uuid)||(env.HITPAY_WEBHOOK_ID&&!uuid(env.HITPAY_WEBHOOK_ID)))return fail("WEBHOOK_OR_MERCHANT_ID_REQUIRED");
  const endpoint="https://designerbestemread.wixstudio.com/my-site-1/_functions/hitpaySandbox";
  if(env.HITPAY_WEBHOOK_URL!==endpoint)return fail("DEVELOPMENT_ENDPOINT_REQUIRED");
+ if(cfg.currency!=="MYR"||env.HITPAY_SANDBOX_PAYMENT_METHOD!=="touch_n_go")return fail("TOUCH_N_GO_SCOPE_REQUIRED");
  r.configuration="validated";
  const required=["payment_request.completed","payment_request.failed","charge.created","charge.updated","charge.failed","recurring_billing.method_attached","recurring_billing.method_detached","recurring_billing.subscription_updated"];
  async function get(path){
@@ -21,8 +22,13 @@ export async function auditSandboxInfrastructure(env,{readConfig,request,timeout
   const exactMinor=x=>{const s=String(x);if(!/^(?:0|[1-9]\d{0,7})(?:\.\d{1,2})?$/.test(s))return null;const [w,f=""]=s.split(".");return Number(w)*100+Number(f.padEnd(2,"0"));};
   if(p?.id!==cfg.planId||p.cycle!=="monthly"||String(p.currency).toUpperCase()!==cfg.currency||exactMinor(p.amount)!==cfg.membershipMinor)return fail("PLAN_MISMATCH");
   r.plan="verified";
-  const w=await get("/v1/webhook-events/"+encodeURIComponent(env.HITPAY_WEBHOOK_ID));
-  if(w?.id!==env.HITPAY_WEBHOOK_ID||w.business_id!==env.HITPAY_BUSINESS_ID||w.url!==endpoint||!Array.isArray(w.event_types)||!required.every(x=>w.event_types.includes(x)))return fail("WEBHOOK_REGISTRATION_MISMATCH");
+  const list=await get("/v1/webhook-events");
+  if(!Array.isArray(list))return fail("WEBHOOK_LIST_UNCONFIRMED");
+  const matches=list.filter(x=>x?.url===endpoint);
+  if(matches.length!==1||!uuid(matches[0].id)||matches[0].business_id!==env.HITPAY_BUSINESS_ID||(env.HITPAY_WEBHOOK_ID&&matches[0].id!==env.HITPAY_WEBHOOK_ID))return fail("WEBHOOK_REGISTRATION_MISMATCH");
+  const webhookId=matches[0].id;
+  const w=await get("/v1/webhook-events/"+encodeURIComponent(webhookId));
+  if(w?.id!==webhookId||w.business_id!==env.HITPAY_BUSINESS_ID||w.url!==endpoint||!Array.isArray(w.event_types)||!required.every(x=>w.event_types.includes(x)))return fail("WEBHOOK_REGISTRATION_MISMATCH");
   r.webhookRegistration="verified";
   return {ok:false,status:"read_only_checks_passed",error:"SIGNED_DELIVERY_REQUIRED",...r};
  }catch{return fail("PROVIDER_READ_UNCONFIRMED");}
