@@ -1,7 +1,7 @@
 // Wix hosted OAuth authorization-code flow with PKCE.
 // This development implementation retains member tokens in tab-scoped storage,
 // never in localStorage. Production persistent sessions should use HttpOnly cookies.
-const CLIENT = import.meta.env.VITE_WIX_CLIENT_ID?.trim() || "";
+const CLIENT = import.meta.env["VITE_WIX_CLIENT_ID"]?.trim() || "";
 const TOKEN_URL = "https://www.wixapis.com/oauth2/token";
 const REDIRECT_URL = "https://www.wixapis.com/_api/redirects-api/v1/redirect-session";
 const PENDING_KEY = "bsr.wix.oauth.v1";

@@ -14,7 +14,7 @@ function CheckIn(){
  const [message,setMessage]=useState("");
  const [signedOut,setSignedOut]=useState(false);
  const pending=useRef<J5RequestTicket|null>(null);
- const enabled=import.meta.env.VITE_J5_PRIVATE_UI==="true";
+ const enabled=import.meta.env["VITE_J5_PRIVATE_UI"]==="true";
  const {state:membershipState,refresh}=useJ5Overview(enabled);
  const eligible=membershipState.kind==="ready"&&membershipState.data.profile.membership==="active";
  const verifiedUntil=membershipState.kind==="ready"&&eligible&&membershipState.data.profile.checkIn==="verified"?membershipState.data.profile.checkInUntil:null;

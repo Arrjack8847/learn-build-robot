@@ -5,7 +5,7 @@ import {attachJ5SessionSignals,j5Session} from "@/lib/j5-session";
 type GateState={kind:"loading"}|{kind:"allowed";until:number}|{kind:"denied";code:string};
 export function J5CourseGate({children}:{children:ReactNode}){
  const pathname=useRouterState({select:s=>s.location.pathname});
- if(import.meta.env.VITE_J5_PRIVATE_UI!=="true")return <>{children}</>;
+ if(import.meta.env["VITE_J5_PRIVATE_UI"]!=="true")return <>{children}</>;
  const route=classifyCoursePath(pathname);
  if(route.scope==="outside"||route.scope==="shell")return <>{children}</>;
  return <ProtectedCourse key={pathname} path={pathname}>{children}</ProtectedCourse>;

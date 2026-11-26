@@ -15,7 +15,7 @@ const overview=z.object({ok:z.literal(true),profile:z.object({displayName:z.stri
 });
 export type J5Overview=z.infer<typeof overview>;
 export type J5Level=J5Overview["levels"][number];
-export const j5PrivateUI=import.meta.env.VITE_J5_PRIVATE_UI==="true";
+export const j5PrivateUI=import.meta.env["VITE_J5_PRIVATE_UI"]==="true";
 export const membershipCopy:Record<J5Overview["profile"]["membership"],{title:string;detail:string}>={
  active:{title:"Active membership",detail:"Your membership is ready."},
  inactive:{title:"Membership required",detail:"Ask your parent or guardian to arrange your membership. Your learning progress is safe."},
