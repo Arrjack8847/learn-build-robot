@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": [
+      "node"
+    ],
+    "noEmit": true
+  },
+  "include": [
+    "src/lib/parent-otp-test.server.ts",
+    "src/lib/student-auth.server.ts",
+    "src/lib/student-auth.ts",
+    "src/lib/parent-portal.ts",
+    "scripts/j2-runtime.d.mts"
+  ]
+}
