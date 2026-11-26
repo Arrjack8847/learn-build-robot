@@ -76,7 +76,7 @@ export function createJ4StateService({store,crypto,clock}){
  }
  async function attendance(request,input){
   const actor=await resolve(request);
-  if(!actor||!input||!["mark-present","check-out"].includes(input.action)||typeof input.bookingId!=="string"||!/^qa-j4-booking-[1-7]$/.test(input.bookingId)||typeof input.requestId!=="string"||!requestId.test(input.requestId)||typeof input.reason!=="string"||input.reason.trim().length<3||input.reason.length>200)return refused();
+  if(!actor||!input||!["mark-present","check-out","mark-no-show","excuse-no-show"].includes(input.action)||typeof input.bookingId!=="string"||!/^qa-j4-booking-[1-7]$/.test(input.bookingId)||typeof input.requestId!=="string"||!requestId.test(input.requestId)||typeof input.reason!=="string"||input.reason.trim().length<3||input.reason.length>200)return refused();
   return transaction(s=>{
    const at=now(),a=currentActor(s,actor,at);
    if(!a||!["admin","staff"].includes(a.role))return no(refused());
@@ -88,6 +88,13 @@ export function createJ4StateService({store,crypto,clock}){
    if(input.action==="mark-present"){
     if(b.status!=="booked"||b.checkInAt!=null||student.membershipStatus!=="active")return no(refused());
     b.status="attended";b.checkInAt=new Date(at).toISOString();b.staffId=a.staffId;student.checkInStatus="checked-in";
+    for(const code of s.codes??[])if(code.bookingId===b.bookingId&&code.status==="active")code.status="revoked";
+   }else if(input.action==="mark-no-show"||input.action==="excuse-no-show"){
+    // Explicitly simulated staff correction, with no deposit or financial effects.
+    const expected=input.action==="mark-no-show"?"booked":"no-show";
+    if(b.status!==expected||b.checkInAt!=null||b.checkOutAt!=null)return no(refused());
+    b.status=input.action==="mark-no-show"?"no-show":"excused";
+    b.staffId=a.staffId;
     for(const code of s.codes??[])if(code.bookingId===b.bookingId&&code.status==="active")code.status="revoked";
    }else{
     if(b.status!=="attended"||!b.checkInAt||b.checkOutAt)return no(refused());

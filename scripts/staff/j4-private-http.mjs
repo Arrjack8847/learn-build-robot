@@ -2,6 +2,7 @@ import {createJ4WixStore} from "./j4-wix-store.mjs";
 import {createJ4Crypto} from "./j4-crypto.mjs";
 import {createJ4StateService} from "./j4-state-service.mjs";
 import {createFixtureReadStore,calculateFixtureOverview} from "./j4-fixtures.mjs";
+import {createJ4SimulatedReport} from "./j4-simulated-report.mjs";
 import {createStaffReadService} from "./read-service.mjs";
 const reply=(status,data,cookie)=>new Response(JSON.stringify(data),{status,headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store","X-Content-Type-Options":"nosniff",...(cookie?{"Set-Cookie":cookie}:{})}});
 async function body(request){
@@ -18,7 +19,7 @@ export function createJ4Http({makeStore=createJ4WixStore,makeCrypto=createJ4Cryp
   if(request.method!=="POST")return reply(405,{ok:false,status:"METHOD_NOT_ALLOWED"});
   if(!origin||new URL(request.url).origin!==origin||request.headers.get("origin")!==origin||request.headers.get("sec-fetch-site")!=="same-origin"||request.headers.get("x-stem-staff")!=="1")return reply(403,{ok:false,status:"REFUSED"});
   const action=new URL(request.url).pathname.split("/").pop();
-  if(!["sign-in","sign-out","session","overview","list","student","attendance","staff-status","check-in-code"].includes(action))return reply(404,{ok:false,status:"NOT_FOUND"});
+  if(!["sign-in","sign-out","session","overview","list","student","attendance","staff-status","check-in-code","simulated-report"].includes(action))return reply(404,{ok:false,status:"NOT_FOUND"});
   let input;try{input=await body(request);}catch{return reply(400,{ok:false,status:"INVALID_INPUT"});}
   try{
    const store=makeStore(env),crypto=makeCrypto(env),clock=makeClock();
@@ -39,6 +40,7 @@ export function createJ4Http({makeStore=createJ4WixStore,makeCrypto=createJ4Cryp
      const fresh=await svc.resolve(request);
      if(!fresh||fresh.staffId!==actor.staffId||fresh.role!==actor.role)return reply(401,{ok:false,status:"REFUSED"});
      if(action==="overview")result={ok:true,status:"READY",metrics:calculateFixtureOverview(snapshot,fresh.role,clock.localDay()),fixture:true};
+     else if(action==="simulated-report")result=["admin","finance"].includes(fresh.role)?createJ4SimulatedReport(snapshot,input.month):{ok:false,status:"REFUSED"};
      else{
       const read=createStaffReadService({identity:{resolveStaff:()=>svc.resolve(request)},store:createFixtureReadStore(snapshot,clock.now()),clock});
       result=action==="list"?await read.list(request,input.resource,input.query??{}):await read.student(request,input.studentId);
