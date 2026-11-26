@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {createIntegratedCheckoutStore} from "../scripts/j123/checkout-store.mjs";
-import {createMembershipReconciler,readIntegratedMembership} from "../scripts/j123/membership-reconciliation.mjs";
+import {createMembershipReconciler,readIntegratedMembership,createMembershipReviewProcessor} from "../scripts/j123/membership-reconciliation.mjs";
 import {BILLING_COLLECTION,checkoutKey,decodeCheckout} from "../scripts/j123/billing-records.mjs";
 import {J123_BRANCH,J123_SITE,J123_ORIGIN,J123_PLAN,J123_TERMS} from "../scripts/j123/infrastructure.mjs";
 const env={VERCEL_ENV:"preview",VERCEL_TARGET_ENV:"preview",VERCEL_GIT_COMMIT_REF:J123_BRANCH,VERCEL_URL:"fixture.vercel.app",WIX_DEV_SITE_ID:J123_SITE,WIX_DEV_DATA_API_KEY:"fixture",RESEND_API_KEY:"fixture",RESEND_TEST_RECIPIENT:"fixture@gmail.com",PARENT_PREVIEW_OPEN_EMAIL:"1",PARENT_PREVIEW_VERIFIED_SENDER:"noreply@mail.bestemready.edu.my",PARENT_AUTH_SECRET:"0123456789abcdef".repeat(4),STUDENT_AUTH_SECRET:"fedcba9876543210".repeat(4),STUDENT_AUTH_ENABLED:"true",HITPAY_API_URL:J123_ORIGIN,HITPAY_PLAN_ID:J123_PLAN,HITPAY_CURRENCY:"MYR",HITPAY_MEMBERSHIP_AMOUNT:"360.00",HITPAY_SANDBOX_PAYMENT_METHOD:"touch_n_go",HITPAY_API_KEY:"DISABLED_J3_WIX_VAULT_ONLY",HITPAY_SALT_KEY:"DISABLED_J3_WIX_VAULT_ONLY",HITPAY_API_BASE_URL:"DISABLED_J3_WIX_VAULT_ONLY",J3_SANDBOX_ROTATION_CONFIRMED:"true",J123_CHECKOUT_ENABLED:"true",J123_GENUINE_WEBHOOK_ACCEPTED:"true",J123_PAYMENT_TERMS_VERSION:J123_TERMS,J123_MEMBERSHIP_RECONCILIATION_ENABLED:"true"};
@@ -46,4 +46,34 @@ test("gates, unsigned event, wrong event type and sibling refuse provider reconc
  assert.equal((await f.make()(child,key)).ok,false);
  f.rows.set("PaymentWebhookEvents:"+key,{...f.event,eventType:"recurring_billing.method_attached"});
  assert.equal((await f.make()(child,key)).ok,false);assert.equal(f.calls(),0);
+});
+
+test("refund evidence places only the bound student under review; duplicate event is idempotent",async()=>{
+ const f=await fixture();assert.equal((await f.make()(child,key)).status,"membership_committed");
+ const adverseKey="e".repeat(64),event={...f.event,eventType:"charge.updated",providerEventKey:adverseKey,payloadDigest:adverseKey};
+ await f.db.insert("PaymentWebhookEvents",adverseKey,event);
+ const observation={...f.observation,eventKey:adverseKey,refundedMinor:100,observedAt:now};
+ const make=o=>createMembershipReviewProcessor({env,db:f.db,clock:()=>now,provider:{reconcileAdverseEvent:async()=>o}});
+ assert.equal((await make({...observation,subscriptionId:"foreign"})(child,adverseKey)).ok,false);
+ assert.equal((await make({...observation,refundedMinor:0})(child,adverseKey)).ok,false);
+ const result=await Promise.all([make(observation)(child,adverseKey),make(observation)(child,adverseKey)]);
+ assert.equal(result.filter(r=>r.status==="review_required").length,1);assert.equal(result.filter(r=>r.status==="duplicate").length,1);
+ assert.equal((await readIntegratedMembership({env,db:f.db,studentId:child,now})).membershipStatus,"verification_required");
+ assert.equal((await f.state()).payments.length,1);assert.equal((await f.make()(child,key)).ok,false);
+ assert.equal(await readIntegratedMembership({env,db:f.db,studentId:sibling,now}),null);
+});
+test("verified cancellation or method detachment cannot grant membership; a genuine adverse event sets a review hold",async()=>{
+ for(const [eventType,patch] of [["recurring_billing.subscription_updated",{subscriptionStatus:"cancelled"}],["recurring_billing.method_detached",{methodAttached:false}]]){
+  const f=await fixture(),k="f".repeat(64);
+  await f.db.insert("PaymentWebhookEvents",k,{...f.event,eventType,providerObjectId:"sub-one",providerEventKey:k,payloadDigest:k});
+  const run=createMembershipReviewProcessor({env,db:f.db,clock:()=>now,provider:{reconcileAdverseEvent:async()=>({...f.observation,eventKey:k,observedAt:now,...patch})}});
+  assert.equal((await run(child,k)).ok,false);
+  assert.equal((await f.make()(child,key)).status,"membership_committed");
+  assert.equal((await run(child,k)).status,"review_required");
+  assert.equal((await readIntegratedMembership({env,db:f.db,studentId:child,now})).verifiedLearningEligibility,false);
+ }
+});
+test("disabling new checkouts preserves verified membership but disabling webhook acceptance denies it",async()=>{
+ const f=await fixture();await f.make()(child,key);
+ assert.equal((await readIntegratedMembership({env:{...env,J123_CHECKOUT_ENABLED:"false"},db:f.db,studentId:child,now})).membershipStatus,"active");
 });

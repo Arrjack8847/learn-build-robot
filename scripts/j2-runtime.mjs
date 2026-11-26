@@ -8,6 +8,7 @@ import {reserveIntegratedEmail} from "./parent-auth/preview-email-budget.mjs";
 import {createStudentAuthCrypto} from "./student-auth/crypto.mjs";
 
 import {J123_BRANCH,requireJ123Identity} from "./j123/infrastructure.mjs";
+import {scopeJ123StudentCredentials} from "./j123/student-credential-scope.mjs";
 
 function context(env){
  if(env.VERCEL_GIT_COMMIT_REF===J123_BRANCH)requireJ123Identity(env);
@@ -19,7 +20,7 @@ function context(env){
  return {db,auth,clock,emails,mailerFor,open,reserveEmail};
 }
 function studentContext(env,base){
- return createStudentContext({...base,crypto:createStudentAuthCrypto(env)});
+ return createStudentContext({...base,db:env.VERCEL_GIT_COMMIT_REF===J123_BRANCH?scopeJ123StudentCredentials(base.db):base.db,crypto:createStudentAuthCrypto(env)});
 }
 const studentCookie="__Host-bsr-student";
 const read=(request,name)=>{const parts=(request.headers.get("cookie")??"").split(";").map(p=>p.trim()).filter(p=>p.startsWith(name+"="));return parts.length===1?parts[0].slice(name.length+1):"";};

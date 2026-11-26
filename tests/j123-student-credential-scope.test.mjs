@@ -1,0 +1,27 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {scopeJ123StudentCredentials} from "../scripts/j123/student-credential-scope.mjs";
+import {createStudentIdentity} from "../scripts/student-auth/identity.mjs";
+import {createStudentAuthCrypto} from "../scripts/student-auth/crypto.mjs";
+const env={VERCEL_ENV:"preview",STUDENT_AUTH_SECRET:"0123456789abcdef".repeat(4)};
+const child="qa-j2-"+"a".repeat(64),parent="qa-j2-"+"b".repeat(64);
+test("independent private test credential scope preserves logical student ID and old branch hashes",async()=>{
+ const rows=new Map(),k=(c,id)=>c+":"+id;
+ const db={get:async(c,id)=>structuredClone(rows.get(k(c,id))??null),insert:async(c,id,r)=>{if(rows.has(k(c,id)))return false;rows.set(k(c,id),structuredClone(r));return true;},replaceIfVersion:async(c,id,v,r)=>{if(rows.get(k(c,id))?.stateVersion!==v)return false;rows.set(k(c,id),structuredClone(r));return true;}};
+ const shared={clock:{now:()=>1795680000000},resolvePayer:async()=>({role:"payer",parentId:parent}),resolveEmailProof:async()=>({role:"student-email-proof",parentId:parent}),consumeEmailProof:async()=>true,getOwnedStudent:async(p,id)=>p===parent&&id===child,reservePinAttempt:async()=>true};
+ const earlier=createStudentIdentity({...shared,db,crypto:createStudentAuthCrypto(env)});
+ const integrated=createStudentIdentity({...shared,db:scopeJ123StudentCredentials(db),crypto:createStudentAuthCrypto({...env,STUDENT_AUTH_SECRET:"fedcba9876543210".repeat(4)})});
+ const token="x".repeat(43);
+ assert.equal((await earlier.enroll(token,child,"274913")).ok,true);
+ const old=await db.get("StudentAuthCredentials",child);
+ assert.equal((await integrated.enrollmentStatus(token,child)).status,"PIN_SETUP_REQUIRED");
+ assert.equal((await integrated.enroll(token,child,"815306")).ok,true);
+ assert.deepEqual(await db.get("StudentAuthCredentials",child),old);
+ assert.equal((await integrated.signIn(token,child,"274913")).ok,false);
+ const next=await integrated.signIn(token,child,"815306");assert.equal(next.ok,true);
+ assert.deepEqual(await integrated.resolveStudentSession(next.token),{role:"student",studentId:child,environment:"private-preview"});
+ assert.equal(await earlier.resolveStudentSession(next.token),null);
+ assert.equal((await earlier.signIn(token,child,"274913")).ok,true);
+ assert.equal((await db.get("StudentAuthCredentials","j123-pin-v1-"+child)).studentId,child);
+ assert.throws(()=>scopeJ123StudentCredentials(db).get("StudentAuthCredentials","bad"));
+});

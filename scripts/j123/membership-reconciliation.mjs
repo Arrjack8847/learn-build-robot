@@ -10,14 +10,16 @@ const config=Object.freeze({environment:"sandbox",currency:"MYR",membershipMinor
 const digest=x=>typeof x==="string"&&/^[a-f0-9]{64}$/.test(x);
 const epoch=x=>Number.isSafeInteger(x)?x:Date.parse(typeof x==="string"?x:x?.$date);
 const fail=error=>({ok:false,error});
-const enabled=env=>j123InfrastructureStatus(env).checkoutReady&&env.J123_MEMBERSHIP_RECONCILIATION_ENABLED==="true";
+// Disabling NEW checkouts does not revoke already verified coverage. All other acceptance gates stay required.
+const enabled=env=>{const s=j123InfrastructureStatus(env);return s.authReady&&s.providerConfigured&&s.rotationConfirmed&&s.webhookAccepted&&s.termsApproved&&env.J123_MEMBERSHIP_RECONCILIATION_ENABLED==="true";};
+const signed=(e,key,now)=>e&&e.providerEventKey===key&&e.payloadDigest===key&&e.environment==="sandbox"&&["pending","processed","duplicate"].includes(e.processingStatus)&&Number.isFinite(epoch(e.signatureVerifiedAt))&&epoch(e.signatureVerifiedAt)>0&&epoch(e.signatureVerifiedAt)<=now;
 export function createMembershipReconciler({env,db,provider,clock=()=>Date.now(),newId=randomUUID}){
  return async function reconcile(studentId,eventKey){
   if(!enabled(env))return fail("RECONCILIATION_DISABLED");
   if(!validStudent(studentId)||!digest(eventKey))return fail("INVALID_INPUT");
   try{
    const event=await db.get("PaymentWebhookEvents",eventKey);
-   if(!event||event.providerEventKey!==eventKey||event.payloadDigest!==eventKey||event.eventType!=="charge.created"||event.environment!=="sandbox"||!["pending","processed","duplicate"].includes(event.processingStatus)||!Number.isFinite(epoch(event.signatureVerifiedAt))||epoch(event.signatureVerifiedAt)<=0||epoch(event.signatureVerifiedAt)>clock())return fail("UNVERIFIED_EVENT");
+   if(!signed(event,eventKey,clock())||event.eventType!=="charge.created")return fail("UNVERIFIED_EVENT");
    const key=checkoutKey(studentId),row=await db.get(BILLING_COLLECTION,key),state=decodeCheckout(row,studentId),r=state.reservation;
    if(r.termsVersion!==J123_TERMS||!await checkProviderBinding(db,"subscription",r.providerId,r))return fail("INVALID_MEMBERSHIP_BINDING");
    // Adapter is an internal trusted dependency, and receives only exact reservation and event identifiers.
@@ -66,4 +68,50 @@ export async function readIntegratedMembership({env,db,studentId,now=Date.now()}
   if(!m||!p||r.status!=="bound"||m.studentId!==studentId||p.studentId!==studentId||p.providerSubscriptionId!==r.providerId||m.providerPaymentId!==p.providerPaymentId||m.validUntil!==p.periodEndAt||!await checkProviderBinding(db,"subscription",r.providerId,r)||!await checkProviderBinding(db,"charge",p.providerPaymentId,r))return null;
   return readStudentMembershipStatus({studentId,record:m,now});
  }catch{return null;}
+}
+
+// Confirmed adverse events are recorded as a review hold, not an invented refund or cancellation policy.
+// Both the verified inbox entry and independent provider observation must match the exact student binding.
+// Never issue a refund or cancel a subscription here.
+export function createMembershipReviewProcessor({env,db,provider,clock=()=>Date.now(),newId=randomUUID}){
+ return async function review(studentId,eventKey){
+  if(!enabled(env))return fail("RECONCILIATION_DISABLED");
+  if(!validStudent(studentId)||!digest(eventKey))return fail("INVALID_INPUT");
+  try{
+   const e=await db.get("PaymentWebhookEvents",eventKey);
+   if(!signed(e,eventKey,clock())||!["charge.updated","recurring_billing.subscription_updated","recurring_billing.method_detached"].includes(e.eventType))return fail("UNVERIFIED_EVENT");
+   const k=checkoutKey(studentId),original=decodeCheckout(await db.get(BILLING_COLLECTION,k),studentId),r=original.reservation;
+   if(r.status!=="bound"||r.termsVersion!==J123_TERMS||!await checkProviderBinding(db,"subscription",r.providerId,r))return fail("INVALID_MEMBERSHIP_BINDING");
+   const charge=e.eventType==="charge.updated";
+   if(charge?(!original.payments?.some(p=>p.providerPaymentId===e.providerObjectId)||!await checkProviderBinding(db,"charge",e.providerObjectId,r)):e.providerObjectId!==r.providerId)return fail("UNMATCHED_ADVERSE_EVENT");
+   const o=await provider.reconcileAdverseEvent({eventKey,eventType:e.eventType,objectId:e.providerObjectId,subscriptionId:r.providerId,reference:r.reference,planId:r.planId});
+   if(!o||o.environment!=="sandbox"||o.businessId!==merchantId||o.eventKey!==eventKey||o.subscriptionId!==r.providerId||o.reference!==r.reference||o.planId!==r.planId||!Number.isSafeInteger(o.observedAt)||o.observedAt<epoch(e.signatureVerifiedAt)||o.observedAt>clock())return fail("PROVIDER_EVIDENCE_REQUIRED");
+   let reason;
+   if(charge){
+    if(o.paymentId!==e.providerObjectId||o.currency!=="MYR"||o.amountMinor!==36000||!Number.isSafeInteger(o.refundedMinor)||o.refundedMinor<1||o.refundedMinor>36000)return fail("REFUND_UNVERIFIED");
+    reason="REFUND_REVIEW";
+   }else if(e.eventType==="recurring_billing.method_detached"){
+    if(o.methodAttached!==false)return fail("DETACHMENT_UNVERIFIED");reason="METHOD_DETACHED_REVIEW";
+   }else{
+    if(!["cancelled","paused","expired","inactive"].includes(o.subscriptionStatus))return fail("SUBSCRIPTION_CHANGE_UNVERIFIED");reason="SUBSCRIPTION_REVIEW";
+   }
+   for(let i=0;i<8;i++){
+    const row=await db.get(BILLING_COLLECTION,k),state=decodeCheckout(row,studentId);
+    if(!Object.entries(r).every(([key,value])=>state.reservation[key]===value)||!state.membership||state.membership.studentId!==studentId)return fail("MEMBERSHIP_UNCONFIRMED");
+    // Keep the verified payment history. Only deny membership eligibility pending policy review.
+    const reviews=state.reviewEvents??[];
+    if(!Array.isArray(reviews)||reviews.length>100)return fail("LEDGER_REVIEW_REQUIRED");
+    const existing=reviews.find(x=>x.eventKey===eventKey);
+    if(existing)return existing.reason===reason&&state.membership.policyReviewRequired===true?{ok:true,status:"duplicate"}:fail("REVIEW_CONFLICT");
+    if(reviews.length===100)return fail("LEDGER_REVIEW_REQUIRED");
+    const next=encodeCheckout({...state,reviewEvents:[...reviews,{eventKey,reason,observedAt:o.observedAt}],membership:{...state.membership,policyReviewRequired:true}},newId);
+    if(await db.replaceIfVersion(BILLING_COLLECTION,k,row.stateVersion,next)===true){
+     const saved=decodeCheckout(await db.get(BILLING_COLLECTION,k),studentId);
+     if(saved.membership?.policyReviewRequired===true&&saved.reviewEvents?.some(x=>x.eventKey===eventKey))return {ok:true,status:"review_required"};
+     return fail("COMMIT_UNCONFIRMED");
+    }
+   }
+   return fail("RECONCILIATION_CONFLICT");
+  }catch{return fail("RECONCILIATION_UNCONFIRMED");}
+ };
 }
