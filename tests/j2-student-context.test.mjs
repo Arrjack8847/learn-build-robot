@@ -33,3 +33,22 @@ test("real OTP core plus student context: parent enrollment, proof isolation, ow
  now+=300001;assert.equal(await context.proof(other),null);
  assert.equal((await context.identity.signIn(other,b.id,"723819")).ok,false);
 });
+
+test("removing a test email denies student sessions; logout remains permanent after access is restored",async()=>{
+ const email="a@example.invalid",other="b@example.invalid",env={VERCEL_ENV:"preview",PARENT_AUTH_SECRET:randomBytes(32).toString("hex"),STUDENT_AUTH_SECRET:randomBytes(32).toString("hex")};
+ const auth=createAuthCrypto(env),crypto=createStudentAuthCrypto(env),clock={now:()=>1795660000000};
+ const rows=new Map(),sent=new Map(),key=(c,id)=>c+":"+id;
+ const db={get:async(c,id)=>structuredClone(rows.get(key(c,id))??null),insert:async(c,id,r)=>{if(rows.has(key(c,id)))return false;rows.set(key(c,id),structuredClone(r));return true;},replaceIfVersion:async(c,id,v,r)=>{if(rows.get(key(c,id))?.stateVersion!==v)return false;rows.set(key(c,id),structuredClone(r));return true;},listFixtureChildren:async p=>[...rows.entries()].filter(([k,r])=>k.startsWith("Children:")&&r.parentId===p).map(([,r])=>structuredClone(r))};
+ const mailerFor=recipient=>({sendParentCode:async(to,code)=>{assert.equal(to,recipient);sent.set(to,code);}});
+ const make=emails=>createStudentContext({db,auth,crypto,clock,emails,mailerFor});
+ const allowed=make([email,other]);const payer=allowed.svc(email,false);await payer.requestCode();const login=await payer.verifyCode(sent.get(email));
+ const family=createFamilyPreview({db,crypto:auth,clock,resolveSession:t=>payer.resolveIdentity(t)});
+ await family.handle(login.token,"family-consent",{accepted:true,noticeVersion:NOTICE_VERSION});
+ const reg=await family.handle(login.token,"family-child-create",{name:"Test Student",birthYear:2018,requestKey:"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa"});
+ assert.equal((await allowed.identity.enroll(login.token,reg.child.id,"581304")).status,"ENROLLED");
+ const proof=allowed.svc(email,true);await proof.requestCode();const v=await proof.verifyCode(sent.get(email));const s=await allowed.identity.signIn(v.token,reg.child.id,"581304");
+ assert.equal(s.status,"VERIFIED");assert.equal((await allowed.identity.resolveStudentSession(s.token)).studentId,reg.child.id);
+ const excluded=make([other]);assert.equal(await excluded.identity.resolveStudentSession(s.token),null);
+ assert.equal((await excluded.identity.logout(s.token)).status,"SIGNED_OUT");
+ assert.equal(await allowed.identity.resolveStudentSession(s.token),null);
+});

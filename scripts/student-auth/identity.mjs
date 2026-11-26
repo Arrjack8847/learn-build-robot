@@ -65,10 +65,22 @@ export function createStudentIdentity({db,crypto,clock,resolvePayer,resolveEmail
  // J5 uses this server-side boundary only. No parent identity or permission in result.
  async function resolveStudentSession(token){const r=await readSession(token);return r?{role:"student",studentId:r.studentId,environment:"private-preview"}:null;}
  async function logout(token){
-  const r=await readSession(token);if(!r)return {ok:true,status:"SIGNED_OUT"};
-  const next={...r,revokedAt:clock.now(),stateVersion:crypto.newVersion()};
-  if(await db.replaceIfVersion(S,r.sessionDigest,r.stateVersion,next)!==true&&await readSession(token))throw Error("STUDENT_REVOCATION_UNCONFIRMED");
-  return {ok:true,status:"SIGNED_OUT"};
+  if(!validToken(token))return {ok:true,status:"SIGNED_OUT"};
+  const digest=crypto.sessionDigest(token);
+  // Revocation must not depend on current consent, credential status or allowlist membership.
+  // Otherwise a temporarily denied session could become valid again after logout.
+  for(let i=0;i<8;i++){
+   const r=await db.get(S,digest);
+   if(!r||r.revokedAt!=null)return {ok:true,status:"SIGNED_OUT"};
+   if(r.sessionDigest!==digest||r.accountType!=="student-test"||typeof r.stateVersion!=="string")throw Error("INVALID_STUDENT_SESSION");
+   const next={...r,revokedAt:clock.now(),stateVersion:crypto.newVersion()};
+   if(await db.replaceIfVersion(S,digest,r.stateVersion,next)===true){
+    const saved=await db.get(S,digest);
+    if(!saved||saved.revokedAt!=null)return {ok:true,status:"SIGNED_OUT"};
+    throw Error("STUDENT_REVOCATION_UNCONFIRMED");
+   }
+  }
+  throw Error("STUDENT_REVOCATION_UNCONFIRMED");
  }
  // Staff-assisted recovery requires both an independently verified staff actor and fresh payer authorization.
  // This is intentionally not exposed through an HTTP endpoint until J4 provides the trusted staff resolver.
