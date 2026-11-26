@@ -8,13 +8,13 @@ export function createStaffReadService({identity,store,clock}){
   const fields={
     students:["studentId","name","birthYear","registeredAt","membershipStatus","checkInStatus","level","latestActivity"],
     memberships:["membershipId","studentId","studentName","status","activatedAt","validUntil","renewalStatus","subscriptionStatus"],
-    payments:["paymentId","providerPaymentId","studentId","purpose","amountMinor","currency","status","paidAt","billingPeriod","subscriptionRef","refundStatus","evidenceType"],
-    deposits:["paymentId","studentId","bookingId","amountMinor","currency","status","refundStatus","disposition","evidenceType"],
-    attendance:["bookingId","studentId","sessionDate","status","checkInAt","checkOutAt","staffId"],
-    checkins:["bookingId","studentId","status","issuedAt","expiresAt","attempts"],
-    progress:["studentId","level","completedLessons","completedBuilds","quizCompleted","quizResults","challengeResults","levelCompletion","latestActivity"],
+    payments:["paymentId","providerPaymentId","studentId","studentName","purpose","amountMinor","currency","status","paidAt","billingPeriod","subscriptionRef","refundStatus","evidenceType"],
+    deposits:["paymentId","studentId","studentName","bookingId","amountMinor","currency","status","refundStatus","disposition","evidenceType"],
+    attendance:["bookingId","studentId","studentName","membershipStatus","sessionDate","status","checkInAt","checkOutAt","staffId"],
+    checkins:["bookingId","studentId","studentName","membershipStatus","bookingStatus","sessionDate","status","issuedAt","expiresAt","attempts"],
+    progress:["studentId","studentName","level","completedLessons","completedBuilds","quizCompleted","quizResults","challengeResults","levelCompletion","latestActivity"],
     staff:["staffId","displayName","role","accountStatus"],
-    audit:["auditId","staffId","action","targetId","occurredAt","result","reason"]
+    audit:["auditId","staffId","action","targetId","occurredAt","result","reason","before","after"]
   };
   const filters={
     students:["studentId","name","membershipStatus","level","checkInStatus"],
@@ -25,7 +25,7 @@ export function createStaffReadService({identity,store,clock}){
     checkins:["studentId","bookingId","status"],
     progress:["studentId","level"],
     staff:["role","accountStatus"],
-    audit:["staffId","from","to"]
+    audit:["staffId","action","targetId","result","from","to"]
   };
   const deny=()=>({ok:false,status:"REFUSED"});
   const id=v=>typeof v==="string"&&/^[A-Za-z0-9_-]{1,128}$/.test(v);

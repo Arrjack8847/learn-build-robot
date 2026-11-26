@@ -19,7 +19,8 @@ export function createFixtureReadStore(snapshot,now=Date.now()){
  return {
   async list({resource,page,pageSize,filters,sort,direction}){
    if(!Object.hasOwn(keys,resource))throw Error("UNKNOWN_RESOURCE");
-   const source=resource==="checkins"?snapshot.attendance.map(b=>{const latest=snapshot.codes.filter(c=>c.bookingId===b.bookingId).at(-1);return {bookingId:b.bookingId,studentId:b.studentId,status:latest?(latest.status==="active"&&latest.expiresAt<=now?"expired":latest.status):"not-issued",issuedAt:latest?.issuedAt??null,expiresAt:latest?.expiresAt??null,attempts:latest?.attempts??0};}):snapshot[resource];
+   const students=new Map(snapshot.students.map(s=>[s.studentId,s]));
+   const source=resource==="checkins"?snapshot.attendance.map(b=>{const latest=snapshot.codes.filter(c=>c.bookingId===b.bookingId).at(-1);return {bookingId:b.bookingId,studentId:b.studentId,studentName:students.get(b.studentId)?.name??null,membershipStatus:students.get(b.studentId)?.membershipStatus??null,bookingStatus:b.status,sessionDate:b.sessionDate,status:latest?(latest.status==="active"&&latest.expiresAt<=now?"expired":latest.status):"not-issued",issuedAt:latest?.issuedAt??null,expiresAt:latest?.expiresAt??null,attempts:latest?.attempts??0};}):snapshot[resource].map(row=>["attendance","payments","deposits","progress"].includes(resource)?{...row,studentName:students.get(row.studentId)?.name??null,...(resource==="attendance"?{membershipStatus:students.get(row.studentId)?.membershipStatus??null}:{})}:row);
    const rows=source.filter(row=>Object.entries(filters).every(([key,value])=>{
     if(key==="name")return row.name.toLowerCase().includes(value.toLowerCase());
     if(key==="from"||key==="to"){const raw=row[dateFields[resource]];if(raw==null)return false;const date=typeof raw==="number"?new Date(raw+8*3600000).toISOString().slice(0,10):String(raw).slice(0,10);return key==="from"?date>=value:date<=value;}
@@ -40,7 +41,9 @@ export function calculateFixtureOverview(snapshot,role,day){
   result.students=snapshot.students.length;
   result.todayAttendance=snapshot.attendance.filter(a=>a.sessionDate===day&&a.status==="attended").length;
   result.checkedIn=snapshot.attendance.filter(a=>a.sessionDate===day&&a.status==="attended"&&!a.checkOutAt).length;
-  result.currentlyLearning=null;
+  result.currentlyLearning=Array.isArray(snapshot.learningVisits)?snapshot.learningVisits.filter(v=>v.sessionDate===day&&v.status==="learning"&&snapshot.attendance.some(b=>b.bookingId===v.bookingId&&b.studentId===v.studentId&&b.status==="attended"&&!b.checkOutAt)).length:null;
+  result.todayBookings=snapshot.attendance.filter(a=>a.sessionDate===day&&a.status==="booked").length;
+  result.todayNoShows=snapshot.attendance.filter(a=>a.sessionDate===day&&a.status==="no-show").length;
  }
  result.activeMemberships=snapshot.memberships.filter(m=>m.status==="active").length;
  result.inactiveMemberships=snapshot.memberships.filter(m=>m.status==="inactive").length;
@@ -51,6 +54,7 @@ export function calculateFixtureOverview(snapshot,role,day){
   result.failedPayments=snapshot.payments.filter(p=>p.status==="failed").length;
   result.pendingPayments=snapshot.payments.filter(p=>p.status==="pending").length;
   result.simulatedPayments=snapshot.payments.filter(p=>p.status==="simulated-success").length;
+  result.simulatedDeposits=snapshot.deposits.filter(p=>p.status==="simulated-success").length;
  }
  return result;
 }

@@ -14,6 +14,9 @@ export function createJ4BrowserExercise({random,now=()=>Date.now()}){
  // Rebase only fictional active membership dates to the exercise date.
  const valid=new Date(localDay()+"T00:00:00Z");valid.setUTCDate(valid.getUTCDate()+25);
  for(const m of state.memberships)if(m.status==="active")m.validUntil=valid.toISOString().slice(0,10);
+ for(const p of state.payments)if(p.purpose==="membership")p.billingPeriod=localDay().slice(0,7);
+ // A fictional active lesson visit is distinct from a mere check-in.
+ state.learningVisits=[{studentId:"qa-j4-student-1",bookingId:"qa-j4-booking-1",sessionDate:localDay(),status:"learning"}];
  const store={readStrong:async()=>clone(state),compareAndSet:async(v,n)=>{if(v!==state.stateVersion)return false;state=clone(n);return true;}};
  // Opaque lookup values only for the browser exercise; never use this as real credential hashing.
  const fingerprints=new Map();
@@ -33,7 +36,8 @@ export function createJ4BrowserExercise({random,now=()=>Date.now()}){
  choose(selected);
  async function call(action,input={}){
   if(action==="choose-fixture-role")return choose(input.staffId);
-  const request={headers:{get:k=>k==="cookie"?"__Host-stem-staff="+token:""}};
+  const selectedToken=token;
+  const request={headers:{get:k=>k==="cookie"?"__Host-stem-staff="+selectedToken:""}};
   const actor=await service.resolve(request);
   if(!actor)return {ok:false,status:"FIXTURE_ROLE_UNAVAILABLE"};
   if(action==="session")return {ok:true,status:"READY",actor:{staffId:actor.staffId,displayName:actor.displayName,role:actor.role}};
@@ -46,6 +50,13 @@ export function createJ4BrowserExercise({random,now=()=>Date.now()}){
   const read=createStaffReadService({identity:{resolveStaff:()=>service.resolve(request)},store:createFixtureReadStore(snapshot,now()),clock});
   if(action==="list")return read.list(request,input.resource,input.query??{});
   if(action==="student")return read.student(request,input.studentId);
+  if(action==="student-profile"){
+   const student=await read.student(request,input.studentId);if(!student.ok)return student;
+   const resources=actor.role==="admin"?["memberships","attendance","checkins","progress","payments","deposits"]:["memberships","attendance","checkins","progress"];
+   const pairs=await Promise.all(resources.map(async resource=>[resource,await read.list(request,resource,{page:1,pageSize:50,filters:{studentId:input.studentId}})]));
+   if(pairs.some(([,p])=>!p.ok||p.total!==p.rows.length))return {ok:false,status:"PROFILE_UNCONFIRMED"};
+   return {...student,related:Object.fromEntries(pairs.map(([key,p])=>[key,p.rows]))};
+  }
   return {ok:false,status:"NOT_FOUND"};
  }
  return {call};

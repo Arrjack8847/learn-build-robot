@@ -1,0 +1,65 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {webcrypto} from "node:crypto";
+import {createJ4BrowserExercise} from "../scripts/staff/j4-browser-exercise.mjs";
+const start=Date.parse("2026-11-26T12:00:00+08:00");
+const make=()=>createJ4BrowserExercise({random:webcrypto,now:()=>start});
+test("J4 phase 2: every dashboard module, combined filters, pagination, seven complete individual profiles",async()=>{
+ const {call}=make();
+ const overview=(await call("overview")).metrics;
+ assert.equal(overview.students,7);assert.equal(overview.currentlyLearning,1);assert.equal(overview.checkedIn,1);assert.equal(overview.todayBookings,6);
+ const counts={students:7,memberships:7,payments:5,deposits:1,attendance:7,checkins:7,progress:7,staff:3,audit:0};
+ for(const [resource,total] of Object.entries(counts)){const result=await call("list",{resource});assert.ok(result.ok,resource);assert.equal(result.total,total);}
+ const a=await call("list",{resource:"students",query:{page:1,pageSize:5,filters:{name:"Demo"},sort:"name",direction:"asc"}});
+ const b=await call("list",{resource:"students",query:{page:2,pageSize:5,filters:{name:"Demo"},sort:"name",direction:"asc"}});
+ assert.equal(a.rows.length,5);assert.equal(b.rows.length,2);assert.equal(new Set([...a.rows,...b.rows].map(x=>x.studentId)).size,7);
+ const filtered=await call("list",{resource:"students",query:{filters:{name:"demo",membershipStatus:"active",level:3}}});
+ assert.equal(filtered.total,1);assert.equal(filtered.rows[0].studentId,"qa-j4-student-7");
+ const date=await call("list",{resource:"payments",query:{filters:{purpose:"membership",from:"2026-11-26",to:"2026-11-26"}}});
+ assert.equal(date.total,3);
+ const expected=["active","inactive","pending","expired","active","inactive","active"];
+ for(let i=1;i<=7;i++){
+  const id="qa-j4-student-"+i,p=await call("student-profile",{studentId:id});
+  assert.ok(p.ok);assert.equal(p.student.studentId,id);assert.equal(p.student.membershipStatus,expected[i-1]);
+  assert.equal(p.related.memberships.length,1);assert.equal(p.related.attendance.length,1);assert.equal(p.related.checkins.length,1);assert.equal(p.related.progress.length,1);
+  assert.ok(Object.values(p.related).flat().every(x=>x.studentId===id));
+  if(i===2)assert.equal(p.related.payments.length,0);
+  if(i===3)assert.equal(p.related.payments[0].status,"failed");
+  if(i===5)assert.equal(p.related.memberships[0].renewalStatus,"simulated-renewal");
+  if(i===6)assert.equal(p.related.deposits[0].amountMinor,5000);
+  if(i===7)assert.equal(p.related.progress[0].completedLessons,24);
+ }
+ assert.equal((await call("student-profile",{studentId:"unknown"})).ok,false);
+ const report=await call("simulated-report",{month:"2026-11"});
+ assert.equal(report.report.count,4);assert.deepEqual(report.report.totals,[{currency:"SGD",membershipMinor:12600,depositMinor:5000}]);
+ assert.match(report.report.csv,/SIMULATED_ONLY/);
+ await call("choose-fixture-role",{staffId:"qa-j4-staff-2"});
+ const staff=await call("student-profile",{studentId:"qa-j4-student-1"});
+ assert.ok(staff.ok);assert.equal(Object.hasOwn(staff.related,"payments"),false);
+ await call("choose-fixture-role",{staffId:"qa-j4-staff-3"});
+ assert.equal((await call("student-profile",{studentId:"qa-j4-student-1"})).ok,false);
+});
+test("J4 phase 2: operations update metrics and history without financial or learning access side effects",async()=>{
+ const {call}=make();
+ const cmd=(action,i,n)=>({action,bookingId:"qa-j4-booking-"+i,reason:"Fictional correction",requestId:"phase2-command-"+n});
+ const prior=(await call("list",{resource:"payments"})).rows;
+ assert.equal((await call("attendance",cmd("mark-present",2,1))).ok,false);
+ assert.equal((await call("check-in-code",{action:"issue-code",bookingId:"qa-j4-booking-2"})).ok,false);
+ assert.equal((await call("attendance",cmd("check-out",1,2))).ok,true);
+ assert.equal((await call("overview")).metrics.currentlyLearning,0);
+ assert.equal((await call("attendance",cmd("mark-no-show",5,3))).ok,true);
+ assert.equal((await call("overview")).metrics.todayNoShows,1);
+ assert.equal((await call("attendance",cmd("excuse-no-show",5,4))).ok,true);
+ assert.equal((await call("overview")).metrics.todayNoShows,0);
+ const code=await call("check-in-code",{action:"issue-code",bookingId:"qa-j4-booking-7"});assert.ok(code.ok);
+ assert.equal((await call("check-in-code",{action:"validate-code",bookingId:"qa-j4-booking-7",code:code.code})).ok,true);
+ assert.equal((await call("overview")).metrics.checkedIn,1);
+ assert.deepEqual((await call("list",{resource:"payments"})).rows,prior);
+ const log=await call("list",{resource:"audit",query:{filters:{action:"excuse-no-show",result:"success"}}});
+ assert.equal(log.total,1);assert.equal(log.rows[0].before,"no-show");assert.equal(log.rows[0].after,"excused");assert.equal(log.rows[0].reason,"Fictional correction");
+ assert.equal((await call("staff-status",{staffId:"qa-j4-staff-3",accountStatus:"inactive",reason:"Demo change"})).ok,true);
+ assert.equal((await call("choose-fixture-role",{staffId:"qa-j4-staff-3"})).ok,false);
+ assert.equal((await call("staff-status",{staffId:"qa-j4-staff-3",accountStatus:"active",role:"staff",reason:"Demo restore"})).ok,true);
+ assert.equal((await call("choose-fixture-role",{staffId:"qa-j4-staff-3"})).actor.role,"staff");
+ assert.equal((await call("list",{resource:"payments"})).ok,false);
+});

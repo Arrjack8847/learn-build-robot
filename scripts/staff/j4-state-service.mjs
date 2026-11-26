@@ -85,6 +85,7 @@ export function createJ4StateService({store,crypto,clock}){
    const b=s.attendance.find(x=>x.bookingId===input.bookingId);
    const student=s.students.find(x=>x.studentId===b?.studentId);
    if(!b||!student||b.sessionDate!==clock.localDay())return no(refused());
+   const before=b.status+(b.checkOutAt?" / checked out":"");
    if(input.action==="mark-present"){
     if(b.status!=="booked"||b.checkInAt!=null||student.membershipStatus!=="active")return no(refused());
     b.status="attended";b.checkInAt=new Date(at).toISOString();b.staffId=a.staffId;student.checkInStatus="checked-in";
@@ -99,9 +100,10 @@ export function createJ4StateService({store,crypto,clock}){
    }else{
     if(b.status!=="attended"||!b.checkInAt||b.checkOutAt)return no(refused());
     b.checkOutAt=new Date(at).toISOString();student.checkInStatus="not-checked-in";
+    for(const visit of s.learningVisits??[])if(visit.bookingId===b.bookingId&&visit.status==="learning")visit.status="ended";
    }
    audit(s,a.staffId,input.action,b.bookingId,"success",at);
-   const entry=s.audit[s.audit.length-1];entry.requestId=input.requestId;entry.reason=input.reason.trim();
+   const entry=s.audit[s.audit.length-1];entry.requestId=input.requestId;entry.reason=input.reason.trim();entry.before=before;entry.after=b.status+(b.checkOutAt?" / checked out":"");
    return yes({ok:true,status:"COMMITTED",auditId:entry.auditId});
   });
  }
@@ -112,9 +114,9 @@ export function createJ4StateService({store,crypto,clock}){
    const a=currentActor(s,actor,now()),target=s.staff.find(x=>x.staffId===input.staffId);
    if(a?.role!=="admin"||!target||target.role==="admin")return no(refused());
    if(target.accountStatus===input.accountStatus&&(!input.role||target.role===input.role))return no({ok:true,status:"UNCHANGED"});
-   const previousRole=target.role;target.accountStatus=input.accountStatus;if(input.role)target.role=input.role;target.authVersion=crypto.newId();
+   const previousRole=target.role,previousStatus=target.accountStatus;target.accountStatus=input.accountStatus;if(input.role)target.role=input.role;target.authVersion=crypto.newId();
    for(const session of s.sessions)if(session.staffId===target.staffId&&session.revokedAt==null)session.revokedAt=now();
-   audit(s,a.staffId,previousRole!==target.role?"staff-role":"staff-status",target.staffId,"success",now());s.audit[s.audit.length-1].reason=input.reason.trim();
+   audit(s,a.staffId,previousRole!==target.role?"staff-role":"staff-status",target.staffId,"success",now());Object.assign(s.audit[s.audit.length-1],{reason:input.reason.trim(),before:previousRole+" / "+previousStatus,after:target.role+" / "+target.accountStatus});
    return yes({ok:true,status:"COMMITTED"});
   });
  }
