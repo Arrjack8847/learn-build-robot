@@ -76,5 +76,7 @@ export function createPreviewOtp({store,crypto,mailer,clock,recipient}){
     if(await store.replaceIfVersion("AuthSessions",digest,row.stateVersion,next)!==true&&await resolve(token))throw Error("REVOCATION_UNCONFIRMED");
     return {ok:true,status:"SIGNED_OUT"};
   }
-  return {requestCode,verifyCode,status,logout};
+  // Internal session identity only. Never return raw session data from a browser endpoint.
+  async function resolveIdentity(token){const s=await resolve(token);return s?{accountId:s.row.accountId,accountType:s.row.accountType}:null;}
+  return {requestCode,verifyCode,status,logout,resolveIdentity};
 }

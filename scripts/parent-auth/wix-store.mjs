@@ -53,8 +53,16 @@ export function createWixStore(env,request=fetch){
   const dateFields=["expiresAt","lockedUntil","consumedAt","lastRequestedAt"];
   const serialize=record=>{const row={...record};for(const k of dateFields)row[k]=date(row[k]);return row;};
   const deserialize=record=>{const row={...record};for(const k of dateFields)row[k]=epoch(row[k]);return row;};
+  async function listFixtureChildren(parentId){
+    validate("Parents",parentId);
+    if(!/^qa-j2-[a-f0-9]{64}$/.test(parentId))throw Error("FIXTURE_ONLY");
+    const r=await call(ROOT+"/query","POST",{dataCollectionId:"Children",query:{filter:{parentId,accountStatus:"preview-test"},paging:{limit:50}},consistentRead:true,returnTotalCount:true});
+    const rows=r.payload?.dataItems,meta=r.payload?.pagingMetadata;
+    if(!r.ok||!Array.isArray(rows)||!Number.isInteger(meta?.total)||meta.total!==rows.length||rows.length>50)throw Error("CHILD_LIST_UNCONFIRMED");
+    return rows.map(row=>{if(row.dataCollectionId!=="Children"||row.id!==row.data?.childId)throw Error("INVALID_WIX_RESPONSE");return row.data;});
+  }
   return {
-    get,insert,replaceIfVersion,
+    get,insert,replaceIfVersion,listFixtureChildren,
     challengeStore:{
       async readStrong(key){
         const row=await get("AuthenticationChallenges",key);
