@@ -8,15 +8,16 @@ async function call(path:string,body:Record<string,string>,signal?:AbortSignal):
  const v=await r.json();if(typeof v?.ok!=="boolean"||typeof v.status!=="string")throw Error("UNAVAILABLE");return v;
 }
 function useDeadline(until:number|null){const [left,setLeft]=useState(0);useEffect(()=>{const tick=()=>setLeft(until?Math.max(0,Math.ceil((until-Date.now())/1000)):0);tick();const t=window.setInterval(tick,500);return()=>window.clearInterval(t);},[until]);return left;}
-export function StaffAttendance({studentId,initial,membership}:{studentId:string;initial:Attendance;membership:string}){
+export function StaffAttendance({studentId,initial,membership,onSettled}:{studentId:string;initial:Attendance;membership:string;onSettled?:()=>void}){
  const [state,setState]=useState(initial),[busy,setBusy]=useState(false),[message,setMessage]=useState(""),[issued,setIssued]=useState<{code:string;expiresAt:number}|null>(null);
  const flight=useRef(false),alive=useRef(true);useEffect(()=>{alive.current=true;return()=>{alive.current=false;};},[]);
+ useEffect(()=>{setState(initial);setIssued(old=>old&&initial.codeStatus==="active"&&initial.expiresAt===old.expiresAt?old:null);},[initial]);
  const left=useDeadline(issued?.expiresAt??null);useEffect(()=>{if(issued&&Date.now()>=issued.expiresAt)setIssued(null);},[left,issued]);
  async function act(action:string){
   if(flight.current)return;flight.current=true;setBusy(true);setMessage("");setIssued(null);
   try{const r=await call("attendance",{action,studentId,requestId:crypto.randomUUID(),...(action==="book"?{}:{bookingId:state.bookingId??""})});if(!alive.current)return;if(r.attendance)setState(r.attendance);setMessage(text(r.status));if(r.ok&&r.code&&r.expiresAt)setIssued({code:r.code,expiresAt:r.expiresAt});}
   catch{if(alive.current)setMessage("Attendance could not be confirmed. Refresh before retrying.");}
-  finally{flight.current=false;if(alive.current)setBusy(false);}
+  finally{flight.current=false;if(alive.current){setBusy(false);onSettled?.();}}
  }
  const eligible=membership==="active",booked=state.attendanceStatus==="booked";
  return <section className="mt-3 space-y-2 border-t pt-3 text-sm"><p className="font-semibold capitalize">Attendance: {text(state.attendanceStatus)}</p><p className="text-xs capitalize">Code: {text(state.codeStatus)}</p>{state.day&&<p className="text-xs">Session date: {state.day} MYT</p>}
