@@ -13,7 +13,7 @@ export function createIntegratedCheckoutStore({db,resolvePayer,request,env,child
   if(expected.kind!=="membership"||expected.environment!=="sandbox"||expected.currency!=="MYR"||expected.amountMinor!==36000||expected.childId!==childId||!await owned(expected.parentId,childId))throw Error("NOT_AUTHORIZED");
   let old=await db.get(collection,key);
   if(old){const r=parse(old);if(!Object.entries(expected).every(([k,v])=>r[k]===v))throw Error("UNRESOLVED_STUDENT_CHECKOUT");return {created:false,reservation:r};}
-  const r={...expected,attemptId:newId(),reference:"j123-"+newId(),status:"reserved",startDate:new Date(clock()+86400000+8*3600000).toISOString().slice(0,10)};
+  const r={...expected,attemptId:newId(),reference:"j123-"+newId(),status:"reserved",termsVersion:"j123-sandbox-membership-v1",termsAcceptedAt:clock(),startDate:new Date(clock()+86400000+8*3600000).toISOString().slice(0,10)};
   const next=encode(r),created=await db.insert(collection,key,next);old=await db.get(collection,key);const saved=parse(old);
   if(!Object.entries(expected).every(([k,v])=>saved[k]===v))throw Error("RESERVATION_CONFLICT");
   if(created===true&&old.stateVersion!==next.stateVersion)throw Error("RESERVATION_UNCONFIRMED");
@@ -24,5 +24,6 @@ export function createIntegratedCheckoutStore({db,resolvePayer,request,env,child
   const next=encode({...r,status:"bound",providerId});if(await db.replaceIfVersion(collection,key,old.stateVersion,next)!==true)return false;
   const saved=await db.get(collection,key);return saved?.stateVersion===next.stateVersion&&parse(saved).providerId===providerId;
  }
- return {getOwnedActiveChild:owned,reserveAuthorizedCheckout,bindCheckoutOnce,getAuthorizedDepositBooking:async()=>null};
+ async function getStatus(parentId){if(!await owned(parentId,childId))throw Error("NOT_AUTHORIZED");const row=await db.get(collection,key);if(!row)return "NO_CHECKOUT";const r=parse(row);if(r.parentId!==parentId||r.environment!=="sandbox"||r.kind!=="membership"||!["reserved","bound"].includes(r.status))throw Error("INVALID_BINDING");return r.status==="bound"?"PAYMENT_PENDING":"RECONCILIATION_REQUIRED";}
+ return {getOwnedActiveChild:owned,reserveAuthorizedCheckout,bindCheckoutOnce,getStatus,getAuthorizedDepositBooking:async()=>null};
 }

@@ -60,7 +60,7 @@ export default {
       if (new URL(request.url).pathname.startsWith("/api/dev/student-auth/")) return await handleStudentAuth(request, process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/parent-otp/")) return await handleParentOtpTest(request, process.env);
       if (new URL(request.url).pathname === "/api/dev/hitpay/webhook") return await handleHitPaySandboxWebhook(request, process.env);
-      if (new URL(request.url).pathname === "/api/dev/j123/checkout") return await handleIntegratedCheckout(request,process.env);
+      if (["/api/dev/j123/checkout","/api/dev/j123/checkout/status"].includes(new URL(request.url).pathname)) return await handleIntegratedCheckout(request,process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/sandbox-checkout/")) return await handleSandboxCheckout(request, process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/staff/")) return await handleStaffDesk(request, process.env);
       const handler = await getServerEntry();
