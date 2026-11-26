@@ -20,7 +20,9 @@ function boot(createCentre){
   by("notifications").replaceChildren(...history.notifications.map(r=>{const li=document.createElement("li");li.textContent="Example "+r.kind+" "+r.outcome+" confirmation — not sent";return li}));
   by("empty").hidden=history.receipts.length>0;
   by("no-notifications").hidden=history.notifications.length>0;
-  by("success").disabled=!attempt;by("failed").disabled=!attempt;by("replay").disabled=!lastEvent;by("renew").disabled=!attempt||attempt.kind!=="membership";
+  const pending=attempt?.status==="pending";
+  const canRenew=attempt?.kind==="membership"&&["paid","renewal_failed"].includes(attempt.status)&&profile.membership?.cycle===1&&profile.membership.validUntil<=time;
+  by("success").disabled=!pending;by("failed").disabled=!pending;by("return").disabled=!pending;by("replay").disabled=!lastEvent;by("renew").disabled=!canRenew;by("renew-failed").disabled=!canRenew;
  }
  function switchStudent(){
   if(student)centre.closeSession(student);
@@ -39,7 +41,7 @@ function boot(createCentre){
   if(!attempt)return;
   const e={attemptId:attempt.id,eventId:"event"+next(),paymentId:"payment"+next(),outcome,cycle};
   const r=centre.simulate(payer,e);
-  if(r.ok){lastEvent=e;attempt={...attempt,status:outcome==="paid"?"paid":"failed"}}
+  if(r.ok){lastEvent=e;attempt=r.attempt??attempt}
   msg(r.ok?"Simulated "+outcome+" outcome recorded.":r.error);show();
  }
  by("payer").addEventListener("change",switchPayer);
@@ -49,6 +51,8 @@ function boot(createCentre){
  by("success").addEventListener("click",()=>apply("paid"));
  by("failed").addEventListener("click",()=>apply("failed"));
  by("renew").addEventListener("click",()=>apply("paid",2));
+ by("renew-failed").addEventListener("click",()=>apply("failed",2));
+ by("return").addEventListener("click",()=>{if(attempt?.status==="pending"){msg("Returned from fictional checkout. Payment remains pending; no membership granted.");show()}});
  by("replay").addEventListener("click",()=>{if(lastEvent){const r=centre.simulate(payer,lastEvent);msg(r.ok&&r.duplicate?"Duplicate ignored; no extra payment or notification.":r.error??"Unexpected result");show()}});
  by("advance").addEventListener("click",()=>{const d=new Date(time);d.setUTCDate(1);d.setUTCMonth(d.getUTCMonth()+1);d.setUTCDate(Math.min(new Date(time).getUTCDate(),new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1,0)).getUTCDate()));time=d.getTime();msg("Fictional clock advanced one month.");show()});
  by("reset").addEventListener("click",()=>{if(!confirm("Reset all fictional payments in this tab?"))return;time=Date.UTC(2026,10,26,12);centre=createCentre({clock:()=>time});payer=undefined;student=undefined;attempt=null;lastEvent=null;sequence=0;options(by("payer"),centre.fixtures().payers);switchPayer()});
@@ -67,7 +71,7 @@ export function handleJ3TestingCentre(request,env){
  <div class="grid"><section class="panel"><h2>1. Select test identities</h2><label for="payer">Fictional payer</label><select id="payer"></select><label for="child">Individual student</label><select id="child"></select><p class="muted">Five payers, two students each. Payer selection is a test operator control, not a parent dashboard.</p></section>
  <section class="panel"><h2>2. Student membership profile</h2><p id="student-name"></p><p id="status" class="status"></p><p>Valid until: <strong id="coverage"></strong></p><small>Real learning access is always disabled.</small></section>
  <section class="panel"><h2>3. Open fictional checkout</h2><p class="price">RM360 <small>/ month</small></p><p>RM50 booking deposit</p><div class="actions"><button class="primary" id="membership">Membership</button><button id="deposit">Deposit</button></div><p id="attempt"></p></section>
- <section class="panel"><h2>4. Simulate outcomes</h2><div class="actions"><button id="success">Successful payment</button><button id="failed">Failed payment</button><button id="replay">Replay last event</button><button id="renew">Monthly renewal</button></div><p>Test date: <strong id="date"></strong></p><button id="advance">Advance one month</button></section>
+ <section class="panel"><h2>4. Simulate outcomes</h2><div class="actions"><button id="success">Successful payment</button><button id="failed">Failed payment</button><button id="replay">Replay last event</button><button id="return">Return without payment</button><button id="renew">Monthly renewal</button><button id="renew-failed">Failed renewal</button></div><p>Test date: <strong id="date"></strong></p><button id="advance">Advance one month</button></section>
  <div class="message full" role="status" aria-live="polite" id="message"></div>
  <section class="panel"><h2>5. Student-specific payment history</h2><p id="empty" class="muted">No simulated payments.</p><ul id="history"></ul></section>
  <section class="panel"><h2>6. Confirmation previews</h2><p id="no-notifications" class="muted">No confirmation previews.</p><ul id="notifications"></ul><small>Never sent to an email address.</small></section></div><p><button id="reset">Reset all fictional data</button></p></main>

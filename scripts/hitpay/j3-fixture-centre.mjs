@@ -16,19 +16,23 @@ export function createJ3FixtureCentre({clock=()=>Date.now()}={}){
  }
  function closeSession(token){return sessions.delete(token)}
  function listStudents(token){const s=sessions.get(token);if(!s||s.kind!=="payer")return fail("UNAUTHORIZED");return {ok:true,students:copy(students.filter(x=>x.payerId===s.id))}}
- function startCheckout(token,{studentId,kind,requestKey,bookingId}={}){
+ function startCheckout(token,input){
+  if(!input||typeof input!=="object"||Array.isArray(input)||Object.keys(input).some(k=>!["studentId","kind","requestKey","bookingId"].includes(k)))return fail("INVALID_REQUEST");
+  const {studentId,kind,requestKey,bookingId}=input;
   const p=own(token,studentId);if(!p)return fail("UNAUTHORIZED");
   if(!Object.hasOwn(amount,kind)||!safeId(requestKey)||(kind==="deposit"&&!safeId(bookingId))||(kind==="membership"&&bookingId!==undefined))return fail("INVALID_REQUEST");
   const key=[p.id,studentId,kind,requestKey].join(":");
   const scope=[p.id,studentId,kind,kind==="deposit"?bookingId:"monthly"].join(":");
   if(attempts.has(key)){const a=attempts.get(key);return a.scope===scope?{ok:true,attempt:copy(a),duplicate:true}:fail("REQUEST_CONFLICT")}
-  const previous=[...attempts.values()].find(a=>a.scope===scope&&["pending","paid"].includes(a.status));
+  const previous=[...attempts.values()].find(a=>a.scope===scope&&["pending","paid","renewal_failed"].includes(a.status));
   if(previous)return {ok:true,attempt:copy(previous),duplicate:true};
   const a={id:key,scope,payerId:p.id,studentId,kind,bookingId:bookingId??null,amountMinor:amount[kind],currency:"MYR",method:"touch_n_go",mode:"fixture_only",status:"pending",createdAt:now()};
   attempts.set(key,a);return {ok:true,attempt:copy(a),duplicate:false};
  }
  // Internal simulation only. No claim of provider verification, no real entitlement.
- function simulate(token,{attemptId,eventId,paymentId,outcome,cycle=1}={}){
+ function simulate(token,input){
+  if(!input||typeof input!=="object"||Array.isArray(input)||Object.keys(input).some(k=>!["attemptId","eventId","paymentId","outcome","cycle"].includes(k)))return fail("INVALID_FIXTURE_EVENT");
+  const {attemptId,eventId,paymentId,outcome,cycle=1}=input;
   const a=attempts.get(attemptId);
   if(!a||!own(token,a.studentId))return fail("UNAUTHORIZED");
   if(!safeId(eventId)||!safeId(paymentId)||!["paid","failed"].includes(outcome)||![1,2].includes(cycle)||(a.kind==="deposit"&&cycle!==1))return fail("INVALID_FIXTURE_EVENT");
@@ -38,15 +42,16 @@ export function createJ3FixtureCentre({clock=()=>Date.now()}={}){
   if(existing)return existing.fingerprint===fp?{ok:true,duplicate:true}:fail("PAYMENT_CONFLICT");
   const prior=[...ledger.values()].filter(x=>x.attemptId===attemptId&&x.outcome==="paid");
   if(prior.some(x=>x.cycle===cycle))return fail("DUPLICATE_CYCLE");
+  if(cycle===1&&a.status!=="pending")return fail("ATTEMPT_CLOSED");
   if(cycle===2&&(a.kind!=="membership"||!prior.some(x=>x.cycle===1)))return fail("INITIAL_PAYMENT_REQUIRED");
   const t=now(),current=memberships.get(a.studentId);
-  if(outcome==="paid"&&cycle===2&&t<(current?.validUntil??Infinity))return fail("RENEWAL_NOT_DUE");
+  if(cycle===2&&t<(current?.validUntil??Infinity))return fail("RENEWAL_NOT_DUE");
   const row={attemptId,paymentId,eventId,payerId:a.payerId,studentId:a.studentId,kind:a.kind,amountMinor:a.amountMinor,currency:"MYR",outcome,cycle,mode:"fixture_only",at:t,fingerprint:fp};
   const endDate=new Date(t);const day=endDate.getUTCDate();endDate.setUTCDate(1);endDate.setUTCMonth(endDate.getUTCMonth()+1);const limit=new Date(Date.UTC(endDate.getUTCFullYear(),endDate.getUTCMonth()+1,0)).getUTCDate();endDate.setUTCDate(Math.min(day,limit));
-  events.set(eventId,fp);ledger.set(paymentId,row);a.status=outcome==="paid"?"paid":"failed";
+  events.set(eventId,fp);ledger.set(paymentId,row);a.status=outcome==="paid"?"paid":cycle===2?"renewal_failed":"failed";
   if(a.kind==="membership"&&outcome==="paid")memberships.set(a.studentId,{studentId:a.studentId,validFrom:t,validUntil:endDate.getTime(),cycle,mode:"fixture_only"});
   outbox.set(paymentId,{paymentId,studentId:a.studentId,kind:a.kind,outcome,mode:"fixture_only",delivery:"not_sent"});
-  return {ok:true,duplicate:false};
+  return {ok:true,duplicate:false,attempt:copy(a)};
  }
  function studentProfile(token){
   const s=sessions.get(token);if(!s||s.kind!=="student")return fail("UNAUTHORIZED");
