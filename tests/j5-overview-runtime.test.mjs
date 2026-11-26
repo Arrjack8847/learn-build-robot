@@ -1,0 +1,34 @@
+import {test} from "node:test";
+import assert from "node:assert/strict";
+import {DatabaseSync} from "node:sqlite";
+import {mkdtempSync,rmSync} from "node:fs";
+import {tmpdir} from "node:os";
+import {join} from "node:path";
+import {createIndependentOverviewHttp} from "../scripts/j5/overview-services.mjs";
+import {handleJ5Http} from "../scripts/j5/http.mjs";
+
+const now=2000000,env={VERCEL_ENV:"preview",J5_PRIVATE_ENABLED:"true"},path="/api/dev/j5/overview",origin="https://j5.test.invalid";
+const row=(id,n)=>{
+ const base={studentId:id,environment:"private-preview"};
+ return {...base,profile:{...base,displayName:`Fictional ${id}`,studentCode:`QA-${id}`,accountStatus:"active",parentEmail:"never-return@example.invalid"},membership:{...base,status:"active",eligible:true,validFrom:now-1000,validUntil:now+1000},checkIn:{...base,status:"verified",bookingId:`booking-${id}`,revoked:false,validFrom:now-1000,validUntil:now+1000},levels:Array.from({length:6},(_,i)=>({...base,level:i+1,status:i===0?"in-progress":"locked",allowed:i===0,checkInRequired:true,completed:i===0?n:0,required:10})),learning:{...base,currentLevel:1,overallCompleted:n,overallRequired:60,learningCompleted:n,buildingCompleted:0,quizzesPassed:0,challengesPassed:0,latest:{title:`Activity ${id}`,mode:"learning",updatedAt:now-50,internalId:"never-return"}}};
+};
+const request=(id,query="",headers={})=>new Request(origin+path+query,{headers:{...(id?{cookie:`test-only=${id}`}:{ }),...headers}});
+function setup(t){
+ const dir=mkdtempSync(join(tmpdir(),"j5-overview-"));const filename=join(dir,"fixture.sqlite");let db=new DatabaseSync(filename);db.exec("CREATE TABLE snapshots (id TEXT PRIMARY KEY, data TEXT NOT NULL)");
+ const put=(id,data)=>db.prepare("INSERT INTO snapshots VALUES (?,?) ON CONFLICT(id) DO UPDATE SET data=excluded.data").run(id,JSON.stringify(data));
+ put("A",row("A",2));put("B",row("B",7));
+ const state={reads:0,revoked:false,fail:false};
+ const handler=createIndependentOverviewHttp({resolveStudent:async req=>{const id=req.headers.get("cookie")?.match(/^test-only=([AB])$/)?.[1];return id&&!state.revoked?{role:"student",studentId:id,environment:"private-preview"}:null;},readSnapshot:async id=>{state.reads++;if(state.fail)throw Error("private DB error");const r=db.prepare("SELECT data FROM snapshots WHERE id=?").get(id);return r?JSON.parse(r.data):null;},clock:{now:()=>now}});
+ t.after(()=>{db.close();rmSync(dir,{recursive:true,force:true});});
+ return {state,put,handler,reopen(){db.close();db=new DatabaseSync(filename);},async get(id,query="",headers={},environment=env){const response=await handler(request(id,query,headers),environment,path);return {status:response.status,headers:response.headers,body:await response.json()};}};
+}
+test("student profile, membership, summary and six levels travel through real Request/Response",async t=>{const f=setup(t),r=await f.get("A");assert.equal(r.status,200);assert.equal(r.body.profile.studentCode,"QA-A");assert.equal(r.body.profile.learning.overallCompleted,2);assert.equal(r.body.levels.length,6);assert.equal(r.body.levels[0].available,true);assert.equal(r.body.levels[1].available,false);assert.equal(r.headers.get("cache-control"),"private, no-store, max-age=0");assert.equal(f.state.reads,1);assert.doesNotMatch(JSON.stringify(r.body),/never-return|booking-A|"studentId"/);});
+test("parallel sibling requests and query tampering cannot select another snapshot",async t=>{const f=setup(t);const results=await Promise.all(Array.from({length:20},(_,i)=>f.get(i%2?"A":"B","?studentId="+(i%2?"B":"A"))));for(let i=0;i<results.length;i++){assert.equal(results[i].body.profile.studentCode,i%2?"QA-A":"QA-B");assert.equal(results[i].body.profile.learning.overallCompleted,i%2?2:7);}assert.equal(f.state.reads,20);});
+test("persistent read survives closing and reopening actual SQLite file",async t=>{const f=setup(t);f.put("A",row("A",4));f.reopen();assert.equal((await f.get("A")).body.profile.learning.overallCompleted,4);assert.equal((await f.get("B")).body.profile.learning.overallCompleted,7);});
+test("anonymous, revoked and forged identity denied before storage access",async t=>{const f=setup(t);assert.equal((await f.get(null)).status,401);assert.equal((await f.get("C")).status,401);f.state.revoked=true;assert.equal((await f.get("A")).status,401);assert.equal(f.state.reads,0);});
+test("membership state changes do not alter student progress",async t=>{const f=setup(t);for(const status of ["inactive","pending","failed","expired","renewal-required"]){const a=row("A",2);a.membership.status=status;f.put("A",a);const r=await f.get("A");assert.equal(r.body.profile.membership,status);assert.equal(r.body.profile.learning.overallCompleted,2);assert.equal(r.body.levels[0].available,false);}assert.equal((await f.get("B")).body.profile.membership,"active");});
+test("membership and check-in expiry use server clock",async t=>{const f=setup(t);const a=row("A",2);a.membership.validUntil=now;f.put("A",a);assert.equal((await f.get("A")).body.profile.membership,"expired");a.membership.validUntil=now+1000;a.checkIn.validUntil=now;f.put("A",a);const r=await f.get("A");assert.equal(r.body.profile.checkIn,"expired");assert.equal(r.body.levels[0].reason,"check-in-required");});
+test("wrong student snapshot or nested summary cannot be disclosed",async t=>{const f=setup(t);f.put("A",row("B",7));assert.equal((await f.get("A")).status,403);const a=row("A",2);a.learning.studentId="B";f.put("A",a);const r=await f.get("A");assert.equal(r.status,503);assert.equal(r.body.profile,undefined);});
+test("missing or malformed summary never invents progress",async t=>{const f=setup(t);const a=row("A",2);delete a.learning;f.put("A",a);assert.equal((await f.get("A")).body.profile.learning,undefined);a.learning=row("A",2).learning;a.learning.currentLevel=6;f.put("A",a);assert.equal((await f.get("A")).status,503);});
+test("database failure, cross-origin and disabled production fail closed",async t=>{const f=setup(t);f.state.fail=true;const r=await f.get("A");assert.equal(r.status,503);assert.doesNotMatch(JSON.stringify(r.body),/private DB error/);assert.equal((await f.get("A","",{origin:"https://other.invalid"})).status,403);assert.equal((await f.get("A","",{},{...env,VERCEL_ENV:"production"})).status,404);assert.equal((await f.get("A","",{},{VERCEL_ENV:"preview"})).status,404);});
+test("application default does not expose test adapter; check-in stays unavailable",async t=>{const f=setup(t);assert.equal((await handleJ5Http(request("A"),env,path)).status,503);const checkPath="/api/dev/j5/check-in";const r=await f.handler(new Request(origin+checkPath,{method:"POST",headers:{origin,"x-stem-j5":"1","content-type":"application/json",cookie:"test-only=A"},body:JSON.stringify({code:"00123456"})}),env,checkPath);assert.equal(r.status,503);});
