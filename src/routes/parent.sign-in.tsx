@@ -1,110 +1,37 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
-import { createTestFamily, clearTestFamily } from "../lib/parent-test-flow";
-import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, KeyRound, Mail, ShieldCheck, UsersRound, UserRound } from "lucide-react";
-
-export const Route = createFileRoute("/parent/sign-in")({ component: ParentSignInPreview });
-
-const steps = ["Email", "Verify", "Privacy", "Child"] as const;
-const example = { email: "parent@example.invalid", code: "123456", name: "Sample Child", birthYear: "2018" };
-const button = "flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 py-3 text-sm font-extrabold text-white transition hover:bg-[#0c77c8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 disabled:cursor-not-allowed disabled:opacity-40";
-const field = "mt-2 min-h-12 w-full rounded-xl border border-sky-200 bg-white px-4 text-base text-slate-800 outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-100 read-only:bg-slate-50";
-
-function ParentSignInPreview() {
-  const [step, setStep] = useState(0);
-  const [email, setEmail] = useState(example.email);
-  const [childName, setChildName] = useState(example.name);
-  const [birthYear, setBirthYear] = useState(example.birthYear);
-  const [code, setCode] = useState("");
-  const [accepted, setAccepted] = useState(false);
-  const [complete, setComplete] = useState(false);
-  const [error, setError] = useState("");
-  const [resent, setResent] = useState(false);
-  // This is an isolated fictional-data UI walkthrough, not authentication.
-  // No real account, authenticated session, or network calls. Only validated fictional tab data.
-  function reset() {
-    clearTestFamily(); setStep(0); setEmail(example.email); setChildName(example.name); setBirthYear(example.birthYear); setCode(""); setAccepted(false); setComplete(false); setError(""); setResent(false);
-  }
-  function back() {
-    setError(""); setStep(previous => Math.max(0, previous - 1));
-  }
-  function next(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setError("");
-    if (step === 0 && !/^[a-z0-9][a-z0-9._+-]{0,63}@example\.invalid$/i.test(email.trim())) { setError("Use a fictional address ending in @example.invalid, e.g. testparent@example.invalid."); return; }
-    if (step === 1 && code !== example.code) {
-      setError("For this walkthrough, enter the example code shown below.");
-      return;
-    }
-    if (step === 2 && !accepted) {
-      setError("Tick the example checkbox to continue.");
-      return;
-    }
-    if (step === 3) {
-      if (!/^(?:Test|Sample|Demo)(?: [A-Za-z0-9 -]{1,40})?$/i.test(childName.trim())) { setError("Use a fictional name beginning with Test, Sample or Demo."); return; }
-      if (!/^\d{4}$/.test(birthYear) || Number(birthYear)<1900 || Number(birthYear)>new Date().getFullYear()) { setError("Enter a valid four-digit birth year."); return; }
-      try { createTestFamily(email.trim(),childName.trim(),Number(birthYear)); setComplete(true); } catch { setError("Could not save the fictional walkthrough in this tab. Enable session storage and retry."); } return;
-    }
-    setStep(previous => previous + 1);
-  }
-  return (
-    <div className="h-full overflow-y-auto bg-gradient-to-br from-[#effaff] via-white to-[#f0f6ff] text-[#132654]">
-      <div className="mx-auto flex min-h-full max-w-6xl flex-col px-4 pb-8 pt-4 sm:px-8">
-        <header className="flex items-center justify-between gap-4">
-          <a href="/auth/" className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-sky-700"><ArrowLeft className="size-4" aria-hidden="true"/> Account</a>
-          <img src="/home/be-stem-ready-logo.svg" alt="BE STEM READY" className="h-12 max-w-[50%] object-contain"/>
-        </header>
-        <div className="my-auto grid gap-6 py-6 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-14">
-          <aside className="hidden lg:block">
-            <div className="inline-flex items-center gap-2 rounded-full bg-sky-100 px-4 py-2 text-xs font-black uppercase tracking-wider text-sky-800"><UsersRound className="size-4"/> STEM Makers Lab</div>
-            <h1 className="mt-5 text-5xl font-black leading-tight">One account.<br/>Your family's STEM journey.</h1>
-            <p className="mt-4 max-w-md text-base leading-7 text-slate-600">A parent account brings child profiles, membership and future bookings together.</p>
-            <div className="mt-7 flex items-center gap-3 text-sm font-bold text-sky-800"><ShieldCheck className="size-6"/> Passwordless sign-in design</div>
-          </aside>
-          <section className="mx-auto w-full max-w-lg rounded-[30px] border border-sky-100 bg-white p-5 shadow-sm sm:p-8" aria-labelledby="parent-heading">
-            <p className="rounded-xl bg-amber-50 px-3 py-2 text-xs font-semibold leading-5 text-amber-900" role="status">Development walkthrough · fictional data only. No real email, account, or consent is created. Fictional details are retained in this browser tab for the connected walkthrough.</p>
-            {!complete && <ol className="my-6 grid grid-cols-4 gap-2" aria-label="Registration steps">
-              {steps.map((label,index) => <li key={label} aria-current={index===step?"step":undefined} className="flex flex-col items-center gap-2 text-center">
-                <span className={"grid size-9 place-items-center rounded-full text-sm font-black "+(index<=step?"bg-[#168eea] text-white":"bg-sky-50 text-slate-500")}>{index<step?<CheckCircle2 className="size-5"/>:index+1}</span>
-                <span className="text-[11px] font-bold text-slate-600">{label}</span>
-              </li>)}
-            </ol>}
-            {complete ? <div className="mt-6 text-center">
-              <CheckCircle2 className="mx-auto size-14 text-emerald-600" aria-hidden="true"/>
-              <h2 id="parent-heading" className="mt-4 text-2xl font-black">Walkthrough complete</h2>
-              <p className="mt-3 text-sm leading-6 text-slate-600">Your fictional child profile is ready. Continue to the dashboard and test membership payment for the same child.</p>
-              <div className="my-5 flex items-center gap-3 rounded-2xl bg-sky-50 p-4 text-left"><UserRound className="size-7 text-sky-700"/><div><p className="font-bold">{childName.trim()}</p><p className="text-xs text-slate-600">Birth year: {birthYear} · Example only</p></div></div>
-              <a href="/parent/dashboard" className={button}>Open example parent dashboard <ArrowRight className="size-4" aria-hidden="true"/></a>
-              <button className="mt-3 min-h-11 w-full text-sm font-bold text-sky-700" type="button" onClick={reset}>Restart walkthrough</button>
-            </div> : <form onSubmit={next} className="space-y-5">
-              <div className="text-center">
-                <div className="mx-auto grid size-16 place-items-center rounded-3xl bg-sky-50 text-[#168eea]">
-                  {step===0?<Mail className="size-8"/>:step===1?<KeyRound className="size-8"/>:step===2?<ShieldCheck className="size-8"/>:<UserRound className="size-8"/>}
-                </div>
-                <h2 id="parent-heading" className="mt-4 text-2xl font-black sm:text-3xl">{["Welcome, parents","Verify your email","Privacy notice","Add your child"][step]}</h2>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{["Sign in or create one account using your email.","Enter the six-digit code in the example below.","Review the approved privacy notice before registering.","Only the child's name and birth year are needed."][step]}</p>
-              </div>
-              {step===0 && <div><label htmlFor="parent-email" className="text-sm font-bold">Email address</label><input id="parent-email" type="email" value={email} onChange={e=>{setEmail(e.target.value);setError("");}} required maxLength={80} autoComplete="off" className={field}/><p className="mt-2 text-xs text-slate-500">Type any fictional address ending in @example.invalid. Do not enter your actual email in this preview.</p></div>}
-              {step===1 && <div>
-                <label htmlFor="parent-code" className="text-sm font-bold">Verification code</label>
-                <input id="parent-code" value={code} onChange={e=>{setCode(e.target.value.replace(/[^0-9]/g,"").slice(0,6));setError("");}} inputMode="numeric" maxLength={6} autoComplete="off" aria-describedby="demo-code" className={field+" text-center text-2xl font-black tracking-[0.35em]"} placeholder="000000"/>
-                <p id="demo-code" className="mt-3 rounded-xl bg-sky-50 p-3 text-center text-sm">Example code: <strong>{example.code}</strong>. Not a real login code.</p>
-                <div className="mt-3 flex flex-wrap items-center justify-between gap-2"><button type="button" onClick={()=>{setCode("");setError("");setResent(true);}} className="min-h-11 text-sm font-bold text-sky-700 underline">Preview resend</button><span className="text-xs text-slate-500">Live cooldown: 60 seconds</span></div>
-                {resent&&<p role="status" className="text-xs text-slate-600">Resend screen previewed. No email was sent.</p>}
-              </div>}
-              {step===2 && <div className="space-y-3">
-                <div className="rounded-2xl border border-sky-100 bg-sky-50 p-4 text-sm leading-6 text-slate-700"><p className="font-bold">Privacy notice placeholder</p><p className="mt-2">The company-approved notice must explain information collected, where it is stored and its retention period. This text is not an approved notice and cannot be used to collect real consent.</p></div>
-                <label className="flex items-start gap-3 rounded-xl border border-sky-100 p-3 text-sm font-semibold"><input type="checkbox" checked={accepted} onChange={e=>setAccepted(e.target.checked)} className="mt-1 size-5 shrink-0 accent-sky-600"/> I understand this is an example consent step.</label>
-              </div>}
-              {step===3 && <div className="space-y-4"><div><label htmlFor="child-name" className="text-sm font-bold">Child's name</label><input id="child-name" value={childName} onChange={e=>{setChildName(e.target.value);setError("");}} required maxLength={48} autoComplete="off" className={field}/></div><div><label htmlFor="birth-year" className="text-sm font-bold">Birth year</label><input id="birth-year" value={birthYear} onChange={e=>{setBirthYear(e.target.value.replace(/[^0-9]/g,"").slice(0,4));setError("");}} required inputMode="numeric" maxLength={4} autoComplete="off" className={field}/></div><p className="text-xs text-slate-500">Use a fictional name such as Test Child 1. Do not enter a real child’s details. Fictional details stay in this tab only; nothing is sent to a server.</p></div>}
-              {error&&<p role="alert" className="rounded-xl bg-rose-50 p-3 text-sm font-semibold text-rose-800">{error}</p>}
-              <button type="submit" className={button} disabled={(step===1&&code.length!==6)||(step===2&&!accepted)}>{["Preview send code","Preview verify email","Continue walkthrough","Preview create child"][step]} <ArrowRight className="size-4" aria-hidden="true"/></button>
-              {step>0&&<button type="button" onClick={back} className="min-h-11 w-full text-center text-sm font-bold text-sky-700">Previous step</button>}
-            </form>}
-            <div className="mt-6 border-t border-sky-100 pt-4 text-center text-xs text-slate-500"><a href="/auth/" className="inline-flex min-h-11 items-center gap-1 font-bold text-sky-700">Return to existing student account <ChevronRight className="size-3"/></a></div>
-          </section>
-        </div>
-      </div>
-    </div>
-  );
+import {createFileRoute} from "@tanstack/react-router";
+import {useEffect,useRef,useState} from "react";
+import {ArrowLeft,ArrowRight,Mail,KeyRound,ShieldCheck,UserRound,CheckCircle2} from "lucide-react";
+import {portal,errorMessage} from "../lib/parent-portal";
+import {ParentSignInPreview} from "../components/parent-registration-walkthrough";
+export const Route=createFileRoute("/parent/sign-in")({validateSearch:(search:Record<string,unknown>)=>({walkthrough:search.walkthrough==="1"||search.walkthrough===1?"1":undefined}),component:Entry,head:()=>({meta:[{title:"Parent sign-in | BE STEM READY"},{name:"robots",content:"noindex, nofollow"}]})});
+const button="flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[#168eea] px-4 py-3 text-sm font-extrabold text-white disabled:opacity-40";
+const field="mt-2 min-h-12 w-full rounded-xl border border-sky-200 bg-white px-4 text-base text-slate-800 outline-none focus:ring-2 focus:ring-sky-500";
+function Entry(){return Route.useSearch().walkthrough==="1"?<ParentSignInPreview/>:<ParentPortal/>;}
+function ParentPortal(){
+ const [step,setStep]=useState(0),[busy,setBusy]=useState(true),[email,setEmail]=useState(""),[code,setCode]=useState(""),[name,setName]=useState(""),[year,setYear]=useState(""),[notice,setNotice]=useState(""),[accepted,setAccepted]=useState(false),[error,setError]=useState(""),[message,setMessage]=useState("");
+ const requestKey=useRef("");const inFlight=useRef(false);
+ async function nextAfterVerification(){const r=await portal("family-status");if(!r.ok)throw Error(errorMessage(r.status));if(r.status==="CONSENT_REQUIRED"&&r.noticeVersion){setNotice(r.noticeVersion);setStep(2);}else if(r.status==="FAMILY_READY"){if(r.children?.length){window.location.replace("/parent/dashboard");}else setStep(3);}else throw Error("Could not load your account.");}
+ useEffect(()=>{let active=true;portal("status").then(async r=>{if(!active)return;if(!r.ok)throw Error(errorMessage(r.status));if(r.status==="VERIFIED")await nextAfterVerification();}).catch(e=>{if(active)setError(e instanceof Error?e.message:"Unable to connect.");}).finally(()=>{if(active)setBusy(false);});return()=>{active=false;};},[]);
+ async function act(action:"next"|"resend"){
+  if(busy||inFlight.current)return;inFlight.current=true;setBusy(true);setError("");setMessage("");
+  try{
+   if(step===0||action==="resend"){const r=await portal("request-email",{email:email.trim()});if(!r.ok)throw Error(errorMessage(r.status));setCode("");setStep(1);setMessage("Check your inbox for your six-digit code.");}
+   else if(step===1){const r=await portal("verify-email",{email:email.trim(),code});if(!r.ok)throw Error(errorMessage(r.status));setCode("");await nextAfterVerification();}
+   else if(step===2){if(!accepted)return;const r=await portal("family-consent",{accepted:true,noticeVersion:notice});if(!r.ok)throw Error(errorMessage(r.status));await nextAfterVerification();}
+   else{if(!requestKey.current)requestKey.current=crypto.randomUUID();const r=await portal("family-child-create",{name:name.trim(),birthYear:Number(year),requestKey:requestKey.current});if(!r.ok)throw Error(errorMessage(r.status));window.location.replace("/parent/dashboard");}
+  }catch(e){setError(e instanceof Error?e.message:"Request could not be confirmed.");}finally{inFlight.current=false;setBusy(false);}
+ }
+ const headings=["Welcome, parents","Verify your email","Privacy notice","Add your child"],sub=["Sign in or create an account to start your child's STEM journey.","Enter the six-digit code sent to your email.","Read and accept the test notice before registering.","Only a name and birth year are needed."],icons=[Mail,KeyRound,ShieldCheck,UserRound],Icon=icons[step];
+ return <main className="h-full overflow-y-auto bg-[#f3faff] text-[#132654]"><div className="mx-auto flex min-h-full max-w-6xl flex-col px-4 py-5 sm:px-8"><header className="flex items-center justify-between"><a href="/" className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-sky-700"><ArrowLeft className="size-4"/> Home</a><img src="/home/be-stem-ready-logo.svg" alt="BE STEM READY" className="h-12 max-w-[50%] object-contain"/></header>
+ <div className="my-auto grid gap-8 py-6 lg:grid-cols-2 lg:items-center"><aside className="hidden lg:block"><p className="font-bold text-sky-700">STEM Makers Lab</p><h1 className="mt-4 text-5xl font-black leading-tight">One account.<br/>Your family's STEM journey.</h1><p className="mt-4 max-w-md leading-7 text-slate-600">Manage your children's profiles in one place. No password required.</p></aside>
+ <section className="mx-auto w-full max-w-lg rounded-[30px] border border-sky-100 bg-white p-5 shadow-sm sm:p-8" aria-labelledby="parent-heading"><p className="rounded-xl bg-amber-50 px-3 py-2 text-xs font-semibold text-amber-900">Private development preview · approved test inboxes and fictional child details only.</p>
+ <ol className="my-6 grid grid-cols-4 gap-2" aria-label="Registration steps">{["Email","Verify","Privacy","Child"].map((s,i)=><li key={s} aria-current={i===step?"step":undefined} className="flex flex-col items-center gap-2 text-xs font-bold"><span className={"grid size-9 place-items-center rounded-full "+(i<=step?"bg-[#168eea] text-white":"bg-sky-50 text-slate-500")}>{i<step?<CheckCircle2 className="size-5"/>:i+1}</span>{s}</li>)}</ol>
+ <form className="space-y-5" onSubmit={e=>{e.preventDefault();void act("next");}}><div className="text-center"><div className="mx-auto grid size-16 place-items-center rounded-3xl bg-sky-50 text-[#168eea]"><Icon className="size-8"/></div><h2 id="parent-heading" className="mt-4 text-2xl font-black sm:text-3xl">{headings[step]}</h2><p className="mt-2 text-sm leading-6 text-slate-600">{sub[step]}</p></div>
+ {step===0&&<label className="block text-sm font-bold">Email address<input type="email" autoComplete="email" placeholder="Enter your email address" required maxLength={254} value={email} onChange={e=>setEmail(e.target.value)} className={field}/></label>}
+ {step===1&&<><p className="break-all text-center text-sm font-bold">{email}</p><label className="block text-sm font-bold">Verification code<input inputMode="numeric" autoComplete="one-time-code" required pattern="[0-9]{6}" maxLength={6} value={code} onChange={e=>setCode(e.target.value.replace(/\D/g,"").slice(0,6))} placeholder="000000" className={field+" text-center text-2xl tracking-[0.35em]"}/></label><div className="flex justify-between text-sm font-bold text-sky-700"><button type="button" disabled={busy} onClick={()=>{setStep(0);setCode("");setMessage("");setError("");}}>Change email</button><button type="button" disabled={busy} onClick={()=>void act("resend")}>Resend code</button></div><p className="text-xs text-slate-500">Code expires in 5 minutes. Resend available after 60 seconds.</p></>}
+ {step===2&&<><div className="rounded-xl bg-sky-50 p-4 text-sm leading-6">Fictional parent and child records are stored in the private development Wix database for testing. Do not submit real children's details. This is not the company-approved privacy notice.</div><label className="flex items-start gap-3 text-sm font-bold"><input type="checkbox" className="mt-1 size-5" checked={accepted} onChange={e=>setAccepted(e.target.checked)}/> I accept the development test notice.</label></>}
+ {step===3&&<><label className="block text-sm font-bold">Child's name<input className={field} value={name} onChange={e=>setName(e.target.value)} placeholder="Test Child" maxLength={48} required/></label><label className="block text-sm font-bold">Birth year<input className={field} value={year} onChange={e=>setYear(e.target.value.replace(/\D/g,"").slice(0,4))} placeholder="2018" inputMode="numeric" pattern="[0-9]{4}" required/></label><p className="text-xs text-slate-500">Use a fictional name starting with Test, Sample or Demo.</p></>}
+ {error&&<p role="alert" className="rounded-xl bg-rose-50 p-3 text-sm text-rose-800">{error}</p>}{message&&<p role="status" className="text-sm text-sky-700">{message}</p>}
+ <button className={button} disabled={busy||(step===1&&code.length!==6)||(step===2&&!accepted)}>{busy?"Please wait…":["Send verification code","Verify code","Continue","Create profile"][step]}<ArrowRight className="size-4"/></button>
+ </form><p className="mt-5 text-center text-xs text-slate-500">No password required. This preview does not enable payments or real family registration.</p></section></div></div></main>;
 }

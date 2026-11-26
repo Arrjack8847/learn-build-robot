@@ -41,3 +41,27 @@ export function createTestOtpMailer(env,request=fetch){
     }catch{throw Error("DELIVERY_UNCONFIRMED");}
   }};
 }
+
+// Bounded, explicit development allowlist. No arbitrary customer email delivery.
+export function previewRecipients(env){
+ const primary=normalizedEmail(env.RESEND_TEST_RECIPIENT);
+ const valid=x=>typeof x==="string"&&x.length<=254&&/^[^\s@,;<>]+@[^\s@,;<>]+\.[^\s@,;<>]+$/.test(x);
+ if(!valid(primary))throw Error("TEST_RECIPIENT_REQUIRED");
+ const extra=(env.PARENT_PREVIEW_RECIPIENTS??"").split(",").map(normalizedEmail).filter(Boolean);
+ const recipients=[...new Set([primary,...extra])];
+ if(recipients.length>5||!recipients.every(valid))throw Error("INVALID_PREVIEW_ALLOWLIST");
+ if(recipients.length>1&&(!valid(env.PARENT_PREVIEW_VERIFIED_SENDER)||env.PARENT_PREVIEW_VERIFIED_SENDER==="onboarding@resend.dev"))throw Error("VERIFIED_SENDER_REQUIRED");
+ return recipients;
+}
+export function createPortalOtpMailer(env,recipient,request=fetch){
+ const approved=previewRecipients(env);
+ if(!approved.includes(recipient)||env.VERCEL_ENV!=="preview"||env.VERCEL_TARGET_ENV==="production"||!env.RESEND_API_KEY?.trim())throw Error("PREVIEW_RECIPIENT_NOT_ALLOWED");
+ if(approved.length===1&&!env.PARENT_PREVIEW_VERIFIED_SENDER)return createTestOtpMailer(env,request);
+ const sender=env.PARENT_PREVIEW_VERIFIED_SENDER;
+ if(!sender||!/^[^\s@,;<>]+@[^\s@,;<>]+\.[^\s@,;<>]+$/.test(sender))throw Error("VERIFIED_SENDER_REQUIRED");
+ return {async sendParentCode(email,code,ttlMs,challengeId){
+  if(email!==recipient||!/^\d{6}$/.test(code)||ttlMs!==300000||!/^[a-f0-9]{32}$/.test(challengeId))throw Error("TEST_OTP_NOT_ALLOWED");
+  const response=await request("https://api.resend.com/emails",{method:"POST",headers:{Authorization:"Bearer "+env.RESEND_API_KEY,"Content-Type":"application/json","Idempotency-Key":"stem-parent-otp-"+challengeId},body:JSON.stringify({from:"BE STEM READY <"+sender+">",to:[recipient],subject:"Your STEM Makers Lab test verification code",text:"Your development verification code is "+code+". It expires in five minutes. Do not share it. Private test only."}),redirect:"error",cache:"no-store",signal:AbortSignal.timeout(10000)});
+  if(!response.ok||typeof (await response.json())?.id!=="string")throw Error("DELIVERY_UNCONFIRMED");
+ }};
+}
