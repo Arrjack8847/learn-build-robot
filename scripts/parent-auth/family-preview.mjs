@@ -7,7 +7,11 @@ const ref=x=>typeof x==="string"?x:x?._id??x?.id;
 const fail=status=>({ok:false,status});
 export function createFamilyPreview({db,crypto,clock,resolveSession}){
  const date=()=>({$date:new Date(clock.now()).toISOString()});
- const validName=x=>typeof x==="string"&&x===x.trim()&&/^(Test|Sample|Demo)(?: [A-Za-z0-9 -]{1,40})?$/.test(x);
+ // Names need not advertise their fixture status; the protected environment and qa IDs enforce isolation.
+ const validName=x=>typeof x==="string"&&x===x.trim()&&x.length>0&&x.length<=48&&(
+  (/[\p{L}]/u.test(x)&&/^[\p{L}\p{M} .'\u2019-]+$/u.test(x))||
+  /^(Test|Sample|Demo)(?: [A-Za-z0-9 -]{1,40})?$/.test(x)
+ );
  const validYear=x=>Number.isInteger(x)&&x>=1900&&x<=new Date(clock.now()).getUTCFullYear();
  const parentKey=a=>"qa-j2-"+a;
  const consentKey=p=>p+"-consent";
@@ -54,7 +58,9 @@ export function createFamilyPreview({db,crypto,clock,resolveSession}){
    const r=await owned(p,input.childId);return r?{ok:true,status:"CHILD_READY",child:childView(r)}:fail("NOT_FOUND");
   }
   if(action==="family-child-create"){
-   if(!exact(input,["name","birthYear","requestKey"])||!validName(input.name)||!validYear(input.birthYear)||typeof input.requestKey!=="string"||!/^[a-f0-9-]{36}$/.test(input.requestKey))return fail("INVALID_INPUT");
+   if(!exact(input,["name","birthYear","requestKey"])||typeof input.requestKey!=="string"||!/^[a-f0-9-]{36}$/.test(input.requestKey))return fail("INVALID_INPUT");
+   if(!validName(input.name))return fail("INVALID_NAME");
+   if(!validYear(input.birthYear))return fail("INVALID_BIRTH_YEAR");
    const id="qa-j2-"+crypto.identityDigest("j2-child-"+p,input.requestKey);
    if(!isChild(id))throw Error("INVALID_CHILD_ID");
    const existing=await owned(p,id);
@@ -65,7 +71,9 @@ export function createFamilyPreview({db,crypto,clock,resolveSession}){
    return {ok:true,status:"CHILD_SAVED",child:childView(r)};
   }
   if(action==="family-child-edit"){
-   if(!exact(input,["childId","name","birthYear","version"])||!validName(input.name)||!validYear(input.birthYear)||typeof input.version!=="string")return fail("INVALID_INPUT");
+   if(!exact(input,["childId","name","birthYear","version"])||typeof input.version!=="string")return fail("INVALID_INPUT");
+   if(!validName(input.name))return fail("INVALID_NAME");
+   if(!validYear(input.birthYear))return fail("INVALID_BIRTH_YEAR");
    const r=await owned(p,input.childId);
    if(!r)return fail("NOT_FOUND");
    if(r.stateVersion!==input.version)return fail("EDIT_CONFLICT");
