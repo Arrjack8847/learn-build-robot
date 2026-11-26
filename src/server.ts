@@ -1,4 +1,5 @@
 import "./lib/error-capture";
+import {handleJ3TestingCentre} from "../scripts/hitpay/j3-testing-page.mjs";
 import { handleEmailTest } from "./lib/resend-test.server";
 import { handleParentOtpTest } from "./lib/parent-otp-test.server";
 import { handleHitPaySandboxWebhook } from "./lib/hitpay-webhook.server";
@@ -52,6 +53,7 @@ function isH3SwallowedErrorBody(body: string): boolean {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      if (new URL(request.url).pathname === "/dev/j3-testing-centre") return handleJ3TestingCentre(request, process.env);
       if (new URL(request.url).pathname === "/api/dev/email-test") return await handleEmailTest(request, process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/parent-otp/")) return await handleParentOtpTest(request, process.env);
       if (new URL(request.url).pathname === "/api/dev/hitpay/webhook") return await handleHitPaySandboxWebhook(request, process.env);
