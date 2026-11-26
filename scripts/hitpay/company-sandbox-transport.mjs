@@ -3,7 +3,7 @@ import {readCompanyHitPayConfig,decimal,minorUnits} from "./company-config.mjs";
 import {isAllowedSandboxCheckoutUrl} from "./checkout-url.mjs";
 const id=x=>typeof x==="string"&&/^[a-zA-Z0-9_-]{1,128}$/.test(x);
 const fixtureEmail=x=>typeof x==="string"&&/^[a-z0-9._+-]+@example\.invalid$/i.test(x);
-export function createCompanySandboxTransport(env,{request=fetch,returnOrigin}={}){
+export function createCompanySandboxTransport(env,{request=fetch,returnOrigin,requiredChargeCount}={}){
  const cfg=readCompanyHitPayConfig(env);
  if(cfg.environment!=="sandbox"||env.VERCEL_ENV!=="preview"||env.VERCEL_TARGET_ENV==="production")throw Error("PREVIEW_ONLY");
  if(env.J3_SANDBOX_ROTATION_CONFIRMED!=="true")throw Error("ROTATION_CONFIRMATION_REQUIRED");
@@ -21,7 +21,7 @@ export function createCompanySandboxTransport(env,{request=fetch,returnOrigin}={
  }
  async function verifyPlan(){
   const p=await call("/v1/subscription-plan/"+encodeURIComponent(cfg.planId));
-  if(p?.id!==cfg.planId||String(p.currency).toUpperCase()!==cfg.currency||minorUnits(String(p.amount))!==cfg.membershipMinor||p.cycle!=="monthly")throw Error("PLAN_MISMATCH");
+  if(p?.id!==cfg.planId||String(p.currency).toUpperCase()!==cfg.currency||minorUnits(String(p.amount))!==cfg.membershipMinor||p.cycle!=="monthly"||(requiredChargeCount!==undefined&&(![2,"2"].includes(p.times_to_be_charged)||requiredChargeCount!==2)))throw Error("PLAN_MISMATCH");
   return true;
  }
  function verifyReservation(r,kind){

@@ -8,6 +8,7 @@ import {createAuthCrypto,createPortalOtpMailer} from "../scripts/parent-auth/sec
 import {createStudentAuthCrypto} from "../scripts/student-auth/crypto.mjs";
 import {createPreviewSessionAccess} from "../scripts/parent-auth/preview-otp.mjs";
 import {reserveIntegratedEmail,reserveIntegratedRecipient} from "../scripts/parent-auth/preview-email-budget.mjs";
+import {createJ123CheckoutPayer} from "../scripts/j2-runtime.mjs";
 import {NOTICE_VERSION} from "../scripts/parent-auth/family-preview.mjs";
 
 const cfg={VERCEL_ENV:"preview",VERCEL_TARGET_ENV:"preview",VERCEL_URL:"j12.invalid",VERCEL_GIT_COMMIT_REF:"integration/j1-j2-20261126",PARENT_PREVIEW_OPEN_EMAIL:"1",PARENT_PREVIEW_VERIFIED_SENDER:"sender@example.invalid",RESEND_API_KEY:"fixture",RESEND_TEST_RECIPIENT:"original@example.invalid",STUDENT_AUTH_ENABLED:"true",PARENT_AUTH_SECRET:randomBytes(32).toString("hex"),STUDENT_AUTH_SECRET:randomBytes(32).toString("hex")};
@@ -76,4 +77,27 @@ test("combined durable address throttle across both purposes and shared global c
  f.advance(3600000);assert.equal(await take(),null);
  for(let i=0;i<25;i++){assert.equal(await reserveIntegratedEmail({store:f.db,crypto:f.auth,clock:f.clock,email:"fresh"+i+"@example.invalid"}),null);}
  assert.equal(await reserveIntegratedEmail({store:f.db,crypto:f.auth,clock:f.clock,email:"fresh25@example.invalid"}),"PREVIEW_EMAIL_BUDGET");
+});
+
+test("actual payer OTP and consent/PIN context binds checkout to selected student only, not student proof or stale payer",async()=>{
+ const f=fixture(),env={...cfg,VERCEL_GIT_COMMIT_REF:"integration/j1-j2-j3-20261126"};
+ const resolve=createJ123CheckoutPayer({getStudentContext:()=>f.context});
+ const req=cookie=>new Request("https://j12.invalid/api/dev/j123/checkout",{headers:{cookie}});
+ const a=await f.login("parent","payer-a@example.invalid");
+ await f.call("parent","family-consent",{accepted:true,noticeVersion:NOTICE_VERSION},a);
+ const child=(await f.call("parent","family-child-create",{name:"Test Child",birthYear:2010,requestKey:randomUUID()},a)).data.child;
+ assert.equal(await resolve(req(a),env,child.id),null);
+ assert.equal((await f.call("student","enroll",{studentId:child.id,pin:"274913"},a)).data.ok,true);
+ const binding=await resolve(req(a),env,child.id);
+ assert.equal(binding.childId,child.id);assert.match(binding.email,/@example\.invalid$/);
+ const b=await f.login("parent","payer-b@example.invalid");
+ await f.call("parent","family-consent",{accepted:true,noticeVersion:NOTICE_VERSION},b);
+ assert.equal(await resolve(req(b),env,child.id),null);
+ f.advance(61000);
+ const proof=await f.login("student","payer-a@example.invalid");
+ assert.equal(await resolve(req(proof.replace("__Host-bsr-student-proof","__Host-bsr-parent-test")),env,child.id),null);
+ assert.equal(await resolve(req(a+"; "+b),env,child.id),null);
+ f.advance(600001);
+ assert.equal(await resolve(req(a),env,child.id),null);
+ assert.equal(await resolve(req(a),{...env,VERCEL_ENV:"production"},child.id),null);
 });

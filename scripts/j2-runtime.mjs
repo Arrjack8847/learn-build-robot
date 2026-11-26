@@ -45,13 +45,17 @@ export const handleParentOtpTest=createParentAuthHttp({resolveContext:async env=
 }});
 
 // Trusted payment boundary: fresh payer OTP, current consent, selected student's PIN enrollment.
-export async function resolveJ123CheckoutPayer(request,env,childId){
+export function createJ123CheckoutPayer({getStudentContext=env=>studentContext(env,context(env))}={}){
+ return async function resolveJ123CheckoutPayer(request,env,childId){
  if(env.VERCEL_ENV!=="preview"||env.VERCEL_TARGET_ENV==="production"||env.VERCEL_GIT_COMMIT_REF!=="integration/j1-j2-j3-20261126"||env.STUDENT_AUTH_ENABLED!=="true")return null;
- const base=context(env),student=studentContext(env,base),token=read(request,"__Host-bsr-parent-test"),payer=await student.payer(token);
+ if(!/^qa-j2-[a-f0-9]{64}$/.test(childId??""))return null;
+ const student=getStudentContext(env),token=read(request,"__Host-bsr-parent-test"),payer=await student.payer(token);
  if(payer?.role!=="payer")return null;
  const child=await student.familyFor(payer.parentId).handle("internal","family-child-get",{childId});
  if(!child.ok||child.child?.id!==childId)return null;
  const enrollment=await student.identity.enrollmentStatus(token,childId);
  if(!enrollment.ok||enrollment.status!=="PIN_ALREADY_SET")return null;
  return {parentId:payer.parentId,childId,email:payer.parentId+"@example.invalid"};
+ };
 }
+export const resolveJ123CheckoutPayer=createJ123CheckoutPayer();

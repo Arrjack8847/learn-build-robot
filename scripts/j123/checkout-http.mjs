@@ -37,7 +37,7 @@ export function createIntegratedCheckoutHttp({resolvePayer=resolveJ123CheckoutPa
    const providerEnv={...env,HITPAY_API_KEY:await secret("HITPAY_SANDBOX_API_KEY"),HITPAY_SALT:await secret("HITPAY_SANDBOX_WEBHOOK_SALT"),HITPAY_DEPOSIT_AMOUNT:"50.00"};
    const config=readCompanyHitPayConfig(providerEnv);
    const identity={resolveParent:async()=>{const fresh=await resolvePayer(request,env,input.childId);return fresh?{accountType:"parent",emailVerified:true,parentId:fresh.parentId,email:fresh.email}:null;},hasCurrentConsentAndTerms:async(p,c)=>p===payer.parentId&&c===input.childId&&input.termsVersion===TERMS&&!!await resolvePayer(request,env,c)};
-   const provider=createCompanySandboxTransport(providerEnv,{request:requestFn,returnOrigin:origin});
+   const provider=createCompanySandboxTransport(providerEnv,{request:requestFn,returnOrigin:origin,requiredChargeCount:2});
    const transport={...provider,createMembership:async r=>{const fresh=await resolvePayer(request,env,r.childId);if(!fresh||fresh.parentId!==r.parentId||fresh.childId!==r.childId)throw Error("AUTH_EXPIRED");return provider.createMembership(r);}};
    const checkout=createAuthorizedCheckout({config,identity,store,transport,isAllowedCheckoutUrl:isAllowedSandboxCheckoutUrl});
    const result=await checkout(request,{kind:"membership",childId:input.childId,requestKey:"j123-membership-v1"});
