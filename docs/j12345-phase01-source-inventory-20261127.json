@@ -1,0 +1,1519 @@
+{
+  "schema": 1,
+  "scope": "Phase 01 static source audit and reconciliation decisions, not implementation",
+  "sources": {
+    "commonAncestor": "0dcd90cd53e08658d7f9f26f3119d95387ac731d",
+    "j1234": "00d7e25ac8ab857e38a543ec6775e536bfd84ff0",
+    "j5": "19636d581d6d6b1ce2be0b676c8db9e7a1a1344e",
+    "integrationBase": "52d5e72cdf97d179b0f82133facd2fefb7eb402b"
+  },
+  "counts": {
+    "j1234": 172,
+    "j5": 90,
+    "shared": 19,
+    "j1234Only": 153,
+    "j5Only": 71
+  },
+  "shared": [
+    {
+      "path": ".env.example",
+      "ancestor": "7521f32c4178464ffa19789617f36b3feb4e3b66",
+      "j1234": "543655ec6bab42a602d6526adde63c472870757b",
+      "j5": "7838790a7bb400f3f6f63b4b1887d3f96b573afa",
+      "decision": "retain",
+      "reason": "Keep student secret/enable placeholders; J5 open-email comments are not authorization. Add separate disabled J12345/J5 placeholders only; no values."
+    },
+    {
+      "path": "docs/j1-private-testing-infrastructure-20261126.md",
+      "ancestor": "5e4f35057be5004b25305bfc09cd31b5c8825277",
+      "j1234": "2fb98dea1a288dae5dc0cb9dd4ed0325032701ba",
+      "j5": "a03a859301d2a888fb5cbdf4043b114edeb462c1",
+      "decision": "retain",
+      "reason": "Preserve rotated credential revalidation and unresolved genuine event/browser acceptance; append J5 gates separately."
+    },
+    {
+      "path": "package.json",
+      "ancestor": "47c4563cef5cc2d3c5271ea0263bf8b14cf68556",
+      "j1234": "309ba8f6ac6984d82291d08612a7a4e704da4115",
+      "j5": "eae0a79a6fb12f13969286574a7703eddb343e66",
+      "decision": "combine",
+      "reason": "Dependencies and devDependencies identical; no upgrade. Preserve J1234 prebuild/typecheck and add J5 all/PDF/level/course/private-build checks. Explicitly include j1234 tests in final verification; verify script alone omits glob. Private build runner must not bypass prebuild tests."
+    },
+    {
+      "path": "scripts/j1/readiness.mjs",
+      "ancestor": null,
+      "j1234": "930bffbb3f2d671355b9e49610c0c39ce9589c2b",
+      "j5": "0a351810bb62670f458415c1467d06beea2ed35c",
+      "decision": "combine",
+      "reason": "Keep J1234 identity/operator/directory/billing/attendance checks. Extend exact new branch; add J5 provider, curriculum, PDF, progress, assessment and live acceptance gates, no secrets or false pass."
+    },
+    {
+      "path": "scripts/parent-auth/family-preview.mjs",
+      "ancestor": "fb7539e5ab336aaa9ba4bb29c4787aa4b2a509c8",
+      "j1234": "e7e6c9ae6fbc9a6c4e51bd6265bdd7e79ff5a574",
+      "j5": "0c88b84926c82511930f1d1e4841d2ea50b1a1df",
+      "decision": "retain",
+      "reason": "Keep notice version and consent timestamp checks, canonical child ID, UUID request validation, registration intent deduplication, CAS and sibling ownership. Do not restore older request-key-only creation."
+    },
+    {
+      "path": "scripts/parent-auth/preview-email-budget.mjs",
+      "ancestor": null,
+      "j1234": "5ba1aa1ce573d08d394dbbd32bdad4713b05c78b",
+      "j5": "22bd994563c1c5f16647413840e7673b886db8f4",
+      "decision": "retain",
+      "reason": "Keep global quota plus cross-purpose recipient CAS cooldown and hourly limit. J5 version lacks integrated recipient guard."
+    },
+    {
+      "path": "scripts/parent-auth/preview-otp.mjs",
+      "ancestor": "4d4102c0b8e421365c1126af40a65daa7eb5b373",
+      "j1234": "f66feef43ca3480f6d00dff9c31c78c705980ce9",
+      "j5": "0c8ec8a547a7b15186d320d2283e9371464d9ffc",
+      "decision": "retain",
+      "reason": "Keep separate parent/test and student proof v2 roles, namespaces, five-minute proof TTL, twelve-hour parent TTL, confirmed session and CAS revocation. No parent-only rollback."
+    },
+    {
+      "path": "scripts/parent-auth/secure-auth-transport.mjs",
+      "ancestor": "6ac99c7eb8290f0cef5abc01b08f3c0b066a521e",
+      "j1234": "68fe862a72d574dffadbc24a48633806c6cf9bac",
+      "j5": "68fe862a72d574dffadbc24a48633806c6cf9bac",
+      "decision": "identical",
+      "reason": "Same blob; preserve. Exact integration authorization remains in callers."
+    },
+    {
+      "path": "src/lib/parent-otp-test.server.ts",
+      "ancestor": "3e84a8248721bd21c3da38e3418909e5066b8932",
+      "j1234": "5042dbc6db67105eeb229257e0303e2564560b3c",
+      "j5": "3a00a4402bf65f1eabd47f7cd5266f8bdf28c860",
+      "decision": "retain",
+      "reason": "Keep export to shared j2-runtime; older J5 inline handler would omit integrated proof/identity logic. No duplicate OTP service."
+    },
+    {
+      "path": "src/lib/parent-portal.ts",
+      "ancestor": "ffe99cdf2e1b2c7aa345e53db3773c07a34f7f88",
+      "j1234": "e82ce2b41ee9a77b56a79ad215f1ea7f2589024f",
+      "j5": "b2da6461f21f04d4b62c9f0cac7e042c560b580b",
+      "decision": "retain",
+      "reason": "Keep response validation, retry/error handling, approved inbox and duplicate-review messages. Only add compatible error text if necessary."
+    },
+    {
+      "path": "src/lib/wix-auth.ts",
+      "ancestor": "82990afda45592dcbc023f36b57a5d66e8c375a6",
+      "j1234": "fc70c70e496d3350ba76800b0e26409c9dace841",
+      "j5": "fc70c70e496d3350ba76800b0e26409c9dace841",
+      "decision": "identical",
+      "reason": "Keep existing type fix; legacy Wix browser OAuth is not J2 student authentication."
+    },
+    {
+      "path": "src/lib/wix-lms.ts",
+      "ancestor": "2e8ba37336e0d302524e3c60da7b6f69f8c9620d",
+      "j1234": "6378de17b5c15a13a2df5b7e9bf9c240eb621a93",
+      "j5": "bc3685aef1de55a563a3c8564fe00fdebc1322c6",
+      "decision": "retain",
+      "reason": "Keep signal:signal??null strict type fix; J5 conditional spread equivalent when absent. Private routes must use J2-authorized server APIs, not legacy member token."
+    },
+    {
+      "path": "src/routes/parent.sign-in.tsx",
+      "ancestor": "26c7acd8e1452ba565bd2d964929d4e11a23ff83",
+      "j1234": "1831883aac47b6146d62262008b0a1fff7b7a893",
+      "j5": "07f5fea8d923925f8de2b1c97a22997053cfad04",
+      "decision": "retain",
+      "reason": "Keep student selection, individual PIN enrollment, integrated checkout, resend timer, request fingerprint and logout. Reject old parent dashboard redirect/walkthrough restoration."
+    },
+    {
+      "path": "src/routes/quiz.$projectId.tsx",
+      "ancestor": "1eedcf6f640a682a7fe4800da88dd01e35d43975",
+      "j1234": "9e805b5efc7215eca459000e6c3ccd7da8f8b919",
+      "j5": "70590159818dd0dbaa38d80c30165aa22e0196ea",
+      "decision": "retain",
+      "reason": "Keep J1234 exact optional diagram type fix; neither variant proves grading authority. Private execution requires server question/grade/attempt APIs, no answer keys in public bundle."
+    },
+    {
+      "path": "src/server.ts",
+      "ancestor": "7a9a84385840db6638b8cf8b0adffb2185c788b7",
+      "j1234": "4f90499c3c458ded29eca3908fe6a1308d7b92a4",
+      "j5": "410115e8912f18896388bd0e1b87792b5dfce732",
+      "decision": "combine",
+      "reason": "Keep J1234 auth, checkout, worker, staff and attendance mounts/denials; introduce J5 overview/course/PDF dispatch with exact branch and explicit gates. Wire same authoritative provider or refuse, wrap SSR course path, preserve fallback and production behavior."
+    },
+    {
+      "path": "tests/j1-readiness.test.mjs",
+      "ancestor": null,
+      "j1234": "793b1f23608b9bab9d15d11b651a0caa93c20aa2",
+      "j5": "f0703ab182f59712fb93c11515c5165e05ba54f7",
+      "decision": "combine",
+      "reason": "Keep J1/J12/J123/J1234 assertions, add J12345 disabled/unknown branch/production/secret-redaction/gate tests. J5 old branch-only heading assertions cannot replace them."
+    },
+    {
+      "path": "tests/parent-portal-email.test.mjs",
+      "ancestor": "e3bad546e47c0b4059f283d30628557d8c0ae774",
+      "j1234": "b597267c2ec0985c590b205b05c05685b0aaa092",
+      "j5": "b597267c2ec0985c590b205b05c05685b0aaa092",
+      "decision": "identical",
+      "reason": "Same blob; preserve and rerun in full suite."
+    },
+    {
+      "path": "vercel.json",
+      "ancestor": "3eab2110bd80427540a2343d9a21a8a03ece047d",
+      "j1234": "429c9dbf67fb7de4befacc1f2bcd8cc950c61605",
+      "j5": "a4e310a6d01c3a7915a7931f6d603be1a90b8c7e",
+      "decision": "combine",
+      "reason": "Existing integration foundation disables new branch. Union standalone J2/J5 disabled entries later; keep main disabled and no automatic/manual deployment."
+    },
+    {
+      "path": "vite.config.ts",
+      "ancestor": "e64b58ff2212eec6f869906eaff9a9ed986ef266",
+      "j1234": "2d4abab3ca7bb0c1274305717b6b0009f930b7f6",
+      "j5": "2c399adcaaa66da2dd07644c21d959e833086d7f",
+      "decision": "combine",
+      "reason": "Keep TanStack Start/Nitro setup and exact preview flags, add private-build mode/plugin/env safeguards without dev-server leakage. Do not enable standalone J4 fixture on combined branch."
+    }
+  ],
+  "j1234Only": [
+    {
+      "path": "docs/j123-integration-20261126.md",
+      "status": "added",
+      "changes": 40,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j123-phase09-integration-readiness-20261126.md",
+      "status": "added",
+      "changes": 21,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j1234-phase01-contract-audit-20261126.md",
+      "status": "added",
+      "changes": 34,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j1234-phase02-branch-foundation-20261126.md",
+      "status": "added",
+      "changes": 2,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j1234-phase03-student-directory-20261126.md",
+      "status": "added",
+      "changes": 2,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j1234-phase04-billing-integration-20261126.md",
+      "status": "added",
+      "changes": 3,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j1234-phase05-attendance-20261126.md",
+      "status": "added",
+      "changes": 2,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j1234-phase06-dashboard-statistics-20261126.md",
+      "status": "added",
+      "changes": 2,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j1234-phase07-security-20261126.md",
+      "status": "added",
+      "changes": 3,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j1234-phase08-release-verification-20261126.md",
+      "status": "added",
+      "changes": 19,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j2-build-verification-20261126.md",
+      "status": "added",
+      "changes": 14,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j2-cloud-build-browser-verification-20261126.md",
+      "status": "added",
+      "changes": 33,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j2-focus-verification-20261126.md",
+      "status": "added",
+      "changes": 20,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j2-j5-student-identity-contract-20261126.md",
+      "status": "added",
+      "changes": 38,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j2-student-centric-registration-20261126.md",
+      "status": "added",
+      "changes": 11,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j2-verification-20261126.md",
+      "status": "added",
+      "changes": 28,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j3-sandbox-infrastructure-20261126.md",
+      "status": "added",
+      "changes": 38,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j4-independent-acceptance-20261126.md",
+      "status": "added",
+      "changes": 50,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j4-private-read-contract-v1-20261126.md",
+      "status": "added",
+      "changes": 27,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j4-private-session-boundary-20261126.md",
+      "status": "added",
+      "changes": 7,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "docs/j4-sandbox-currency-20261126.md",
+      "status": "added",
+      "changes": 5,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/hitpay/authorized-checkout.mjs",
+      "status": "added",
+      "changes": 47,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/hitpay/checkout-request-guard.d.mts",
+      "status": "added",
+      "changes": 1,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/hitpay/checkout-url.d.mts",
+      "status": "added",
+      "changes": 1,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/hitpay/company-config.mjs",
+      "status": "modified",
+      "changes": 2,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/hitpay/company-sandbox-transport.mjs",
+      "status": "modified",
+      "changes": 13,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/hitpay/j3-node-transport.d.mts",
+      "status": "added",
+      "changes": 9,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/hitpay/j3-payment-method.mjs",
+      "status": "added",
+      "changes": 15,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/hitpay/qa/wix-webhook-core-snapshot.js",
+      "status": "modified",
+      "changes": 16,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/hitpay/sandbox-trial.d.mts",
+      "status": "added",
+      "changes": 4,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/hitpay/sandbox-webhook-http.d.mts",
+      "status": "added",
+      "changes": 3,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/hitpay/verified-membership-contract.mjs",
+      "status": "added",
+      "changes": 36,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/hitpay/wix-webhook-inbox.d.mts",
+      "status": "added",
+      "changes": 4,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j1/readiness.d.mts",
+      "status": "added",
+      "changes": 1,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j12/provider-acceptance.mjs",
+      "status": "added",
+      "changes": 106,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j123/billing-records.mjs",
+      "status": "added",
+      "changes": 29,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j123/checkout-http.d.mts",
+      "status": "added",
+      "changes": 1,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j123/checkout-http.mjs",
+      "status": "added",
+      "changes": 57,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j123/checkout-store.mjs",
+      "status": "added",
+      "changes": 47,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j123/infrastructure.mjs",
+      "status": "added",
+      "changes": 46,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j123/membership-provider.mjs",
+      "status": "added",
+      "changes": 97,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j123/membership-reconciliation.mjs",
+      "status": "added",
+      "changes": 119,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j123/membership-runtime.mjs",
+      "status": "added",
+      "changes": 96,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j123/membership-worker-http.d.mts",
+      "status": "added",
+      "changes": 1,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j123/membership-worker-http.mjs",
+      "status": "added",
+      "changes": 36,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j123/payment-receipts.mjs",
+      "status": "added",
+      "changes": 106,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j123/student-credential-scope.mjs",
+      "status": "added",
+      "changes": 13,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j1234/attendance-http.d.mts",
+      "status": "added",
+      "changes": 1,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j1234/attendance-http.mjs",
+      "status": "added",
+      "changes": 45,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j1234/attendance.mjs",
+      "status": "added",
+      "changes": 151,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j1234/billing-projection.mjs",
+      "status": "added",
+      "changes": 51,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j1234/billing-scope.mjs",
+      "status": "added",
+      "changes": 9,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j1234/dashboard-statistics.mjs",
+      "status": "added",
+      "changes": 45,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j1234/identity-scope.mjs",
+      "status": "added",
+      "changes": 20,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j1234/operator-boundary.mjs",
+      "status": "added",
+      "changes": 18,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j1234/student-directory.mjs",
+      "status": "added",
+      "changes": 51,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j1234/student-http.d.mts",
+      "status": "added",
+      "changes": 1,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j1234/student-http.mjs",
+      "status": "added",
+      "changes": 23,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j2-runtime.d.mts",
+      "status": "added",
+      "changes": 6,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/j2-runtime.mjs",
+      "status": "added",
+      "changes": 67,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/parent-auth/http.mjs",
+      "status": "added",
+      "changes": 62,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/parent-auth/j2-checkout-identity.mjs",
+      "status": "added",
+      "changes": 25,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/parent-auth/preview-otp.d.mts",
+      "status": "added",
+      "changes": 7,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/parent-auth/secure-auth-transport.d.mts",
+      "status": "added",
+      "changes": 9,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/parent-auth/wix-store.d.mts",
+      "status": "added",
+      "changes": 10,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/parent-auth/wix-store.mjs",
+      "status": "modified",
+      "changes": 23,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/admin-core.mjs",
+      "status": "modified",
+      "changes": 2,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/desk-http.d.mts",
+      "status": "added",
+      "changes": 1,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/desk-operations.mjs",
+      "status": "modified",
+      "changes": 2,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/desk-registration-payment.mjs",
+      "status": "modified",
+      "changes": 4,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/j4-acceptance.mjs",
+      "status": "added",
+      "changes": 70,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/j4-browser-exercise.mjs",
+      "status": "added",
+      "changes": 63,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/j4-crypto.mjs",
+      "status": "added",
+      "changes": 26,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/j4-fixture-http.d.mts",
+      "status": "added",
+      "changes": 1,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/j4-fixture-http.mjs",
+      "status": "added",
+      "changes": 33,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/j4-fixtures.mjs",
+      "status": "added",
+      "changes": 60,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/j4-preview-build-gate.mjs",
+      "status": "added",
+      "changes": 7,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/j4-private-http.mjs",
+      "status": "added",
+      "changes": 57,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/j4-simulated-report.mjs",
+      "status": "added",
+      "changes": 21,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/j4-state-service.mjs",
+      "status": "added",
+      "changes": 180,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/j4-wix-exercise.mjs",
+      "status": "added",
+      "changes": 63,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/j4-wix-live-smoke.mjs",
+      "status": "added",
+      "changes": 29,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/j4-wix-store.mjs",
+      "status": "added",
+      "changes": 82,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/read-service.mjs",
+      "status": "added",
+      "changes": 91,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/sales-export.mjs",
+      "status": "modified",
+      "changes": 10,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/staff/session-boundary.mjs",
+      "status": "added",
+      "changes": 44,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/student-auth/crypto.mjs",
+      "status": "added",
+      "changes": 18,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/student-auth/http.mjs",
+      "status": "added",
+      "changes": 62,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/student-auth/identity.mjs",
+      "status": "added",
+      "changes": 100,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/student-auth/rate-limit.mjs",
+      "status": "added",
+      "changes": 20,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "scripts/student-auth/session-context.mjs",
+      "status": "added",
+      "changes": 27,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "src/components/j123-checkout.tsx",
+      "status": "added",
+      "changes": 19,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "src/components/j1234-attendance.tsx",
+      "status": "added",
+      "changes": 38,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "src/components/j1234-dashboard-statistics.tsx",
+      "status": "added",
+      "changes": 27,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "src/components/j1234-student-directory.tsx",
+      "status": "added",
+      "changes": 33,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "src/components/parent-dashboard-walkthrough.tsx",
+      "status": "removed",
+      "changes": 42,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "src/components/parent-registration-walkthrough.tsx",
+      "status": "removed",
+      "changes": 108,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "src/components/student-sign-in.tsx",
+      "status": "added",
+      "changes": 31,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "src/lib/sandbox-checkout.server.ts",
+      "status": "modified",
+      "changes": 8,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "src/lib/student-auth.server.ts",
+      "status": "added",
+      "changes": 2,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "src/lib/student-auth.ts",
+      "status": "added",
+      "changes": 7,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "src/routeTree.gen.ts",
+      "status": "modified",
+      "changes": 252,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "src/routes/auth.index.tsx",
+      "status": "modified",
+      "changes": 4,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "src/routes/parent.dashboard.tsx",
+      "status": "modified",
+      "changes": 28,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "src/routes/parent.payment-preview.tsx",
+      "status": "modified",
+      "changes": 4,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "src/routes/parent.payment-return.tsx",
+      "status": "modified",
+      "changes": 2,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "src/routes/staff.admin.tsx",
+      "status": "modified",
+      "changes": 207,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/hitpay-authorized-checkout.test.mjs",
+      "status": "added",
+      "changes": 38,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/hitpay-company-contract.test.mjs",
+      "status": "modified",
+      "changes": 12,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/hitpay-j3-payment-method.test.mjs",
+      "status": "added",
+      "changes": 11,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/hitpay-verified-membership-contract.test.mjs",
+      "status": "added",
+      "changes": 34,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/hitpay-wix-webhook-snapshot.test.mjs",
+      "status": "modified",
+      "changes": 12,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j12-open-auth.test.mjs",
+      "status": "added",
+      "changes": 150,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j12-provider-acceptance.test.mjs",
+      "status": "added",
+      "changes": 23,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j123-checkout.test.mjs",
+      "status": "added",
+      "changes": 53,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j123-infrastructure.test.mjs",
+      "status": "added",
+      "changes": 23,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j123-membership-reconciliation.test.mjs",
+      "status": "added",
+      "changes": 79,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j123-membership-runtime.test.mjs",
+      "status": "added",
+      "changes": 179,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j123-release-boundary.test.mjs",
+      "status": "added",
+      "changes": 39,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j123-student-credential-scope.test.mjs",
+      "status": "added",
+      "changes": 27,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j1234-foundation.test.mjs",
+      "status": "added",
+      "changes": 24,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j1234-student-directory.test.mjs",
+      "status": "added",
+      "changes": 264,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j2-checkout-identity.test.mjs",
+      "status": "added",
+      "changes": 13,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j2-five-payer-fixture.test.mjs",
+      "status": "added",
+      "changes": 40,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j2-parent-http.test.mjs",
+      "status": "added",
+      "changes": 46,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j2-registration-hardening.test.mjs",
+      "status": "added",
+      "changes": 67,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j2-runtime.test.mjs",
+      "status": "added",
+      "changes": 14,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j2-student-auth-boundary.test.mjs",
+      "status": "added",
+      "changes": 10,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j2-student-centric-route.test.mjs",
+      "status": "added",
+      "changes": 25,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j2-student-context.test.mjs",
+      "status": "added",
+      "changes": 54,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j2-student-http.test.mjs",
+      "status": "added",
+      "changes": 56,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j2-student-identity.test.mjs",
+      "status": "added",
+      "changes": 66,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j2-student-rate-limit.test.mjs",
+      "status": "added",
+      "changes": 14,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j2-wix-store.test.mjs",
+      "status": "added",
+      "changes": 28,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-acceptance-phase8.test.mjs",
+      "status": "added",
+      "changes": 38,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-browser-exercise.test.mjs",
+      "status": "added",
+      "changes": 36,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-checkin-fixture.test.mjs",
+      "status": "added",
+      "changes": 26,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-dashboard-phase2.test.mjs",
+      "status": "added",
+      "changes": 65,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-desk-report.test.mjs",
+      "status": "added",
+      "changes": 33,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-final-cleanup.test.mjs",
+      "status": "added",
+      "changes": 19,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-fixtures.test.mjs",
+      "status": "added",
+      "changes": 16,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-http.test.mjs",
+      "status": "added",
+      "changes": 31,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-operations-phase5.test.mjs",
+      "status": "added",
+      "changes": 81,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-responsive-ui.test.mjs",
+      "status": "added",
+      "changes": 32,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-security-phase7.test.mjs",
+      "status": "added",
+      "changes": 73,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-staff-currency.test.mjs",
+      "status": "added",
+      "changes": 25,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-staff-read-contract.test.mjs",
+      "status": "added",
+      "changes": 22,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-staff-session.test.mjs",
+      "status": "added",
+      "changes": 24,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-state-service.test.mjs",
+      "status": "added",
+      "changes": 28,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-student-scenarios.test.mjs",
+      "status": "added",
+      "changes": 60,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-wix-boundary.test.mjs",
+      "status": "added",
+      "changes": 57,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tests/j4-wix-exercise.test.mjs",
+      "status": "added",
+      "changes": 37,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    },
+    {
+      "path": "tsconfig.j2.json",
+      "status": "added",
+      "changes": 16,
+      "decision": "preserve J1234 baseline; extend only under later phase"
+    }
+  ],
+  "j5Only": [
+    {
+      "path": "docs/j5-cloud-acceptance.md",
+      "status": "added",
+      "changes": 15,
+      "decision": "retain as historical evidence"
+    },
+    {
+      "path": "docs/j5-independent-readiness-20261126.md",
+      "status": "added",
+      "changes": 118,
+      "decision": "retain as historical evidence"
+    },
+    {
+      "path": "docs/j5-phase1-platform-audit-20261126.md",
+      "status": "added",
+      "changes": 69,
+      "decision": "retain as historical evidence"
+    },
+    {
+      "path": "docs/j5-phase1-source-inventory-20261126.json",
+      "status": "added",
+      "changes": 3318,
+      "decision": "retain as historical evidence"
+    },
+    {
+      "path": "docs/j5-phase10-acceptance-20261126.md",
+      "status": "added",
+      "changes": 21,
+      "decision": "retain as historical evidence"
+    },
+    {
+      "path": "docs/j5-phase9-regression-20261126.md",
+      "status": "added",
+      "changes": 39,
+      "decision": "retain as historical evidence"
+    },
+    {
+      "path": "scripts/j1/build-audit.mjs",
+      "status": "added",
+      "changes": 15,
+      "decision": "reconcile readiness/acceptance without weakening guards"
+    },
+    {
+      "path": "scripts/j1/provider-acceptance.mjs",
+      "status": "added",
+      "changes": 63,
+      "decision": "reconcile readiness/acceptance without weakening guards"
+    },
+    {
+      "path": "scripts/j5/check-in-boundary.mjs",
+      "status": "added",
+      "changes": 28,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/check-in-service.mjs",
+      "status": "added",
+      "changes": 49,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/cloud-browser-smoke.mjs",
+      "status": "added",
+      "changes": 96,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/committed-progress.mjs",
+      "status": "added",
+      "changes": 66,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/course-authority.d.mts",
+      "status": "added",
+      "changes": 2,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/course-authority.mjs",
+      "status": "added",
+      "changes": 42,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/course-http.d.mts",
+      "status": "added",
+      "changes": 1,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/course-http.mjs",
+      "status": "added",
+      "changes": 38,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/http.d.mts",
+      "status": "added",
+      "changes": 1,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/http.mjs",
+      "status": "added",
+      "changes": 47,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/level-one-final-build.mjs",
+      "status": "added",
+      "changes": 8,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/membership-policy.mjs",
+      "status": "added",
+      "changes": 34,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/overview-services.mjs",
+      "status": "added",
+      "changes": 49,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/pdf-course-catalog.d.mts",
+      "status": "added",
+      "changes": 2,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/pdf-course-catalog.mjs",
+      "status": "added",
+      "changes": 5,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/pdf-http.d.mts",
+      "status": "added",
+      "changes": 2,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/pdf-http.mjs",
+      "status": "added",
+      "changes": 72,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/pdf-migration-inventory.json",
+      "status": "added",
+      "changes": 7780,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/private-pdf-build.d.mts",
+      "status": "added",
+      "changes": 2,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/private-pdf-build.mjs",
+      "status": "added",
+      "changes": 51,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/run-cloud-acceptance.sh",
+      "status": "added",
+      "changes": 113,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/run-private-build.mjs",
+      "status": "added",
+      "changes": 19,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/student-access.mjs",
+      "status": "added",
+      "changes": 57,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/j5/student-overview.mjs",
+      "status": "added",
+      "changes": 41,
+      "decision": "review/import J5 core; provider boundaries remain closed"
+    },
+    {
+      "path": "scripts/parent-auth/family-qa.mjs",
+      "status": "modified",
+      "changes": 14,
+      "decision": "reconcile with J2 authentication fixtures"
+    },
+    {
+      "path": "src/components/j5/J5CourseGate.tsx",
+      "status": "added",
+      "changes": 48,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/components/j5/J5MembershipRestriction.tsx",
+      "status": "added",
+      "changes": 7,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/components/j5/J5PrivateProfile.tsx",
+      "status": "added",
+      "changes": 21,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/components/j5/J5SignOut.tsx",
+      "status": "added",
+      "changes": 14,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/context/ProgressContext.tsx",
+      "status": "modified",
+      "changes": 17,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/lib/j5-course-catalog.server.ts",
+      "status": "added",
+      "changes": 10,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/lib/j5-course-path.d.mts",
+      "status": "added",
+      "changes": 2,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/lib/j5-course-path.mjs",
+      "status": "added",
+      "changes": 32,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/lib/j5-level-selection.d.mts",
+      "status": "added",
+      "changes": 4,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/lib/j5-level-selection.mjs",
+      "status": "added",
+      "changes": 36,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/lib/j5-overview.ts",
+      "status": "added",
+      "changes": 75,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/lib/j5-session-lifecycle.d.mts",
+      "status": "added",
+      "changes": 3,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/lib/j5-session-lifecycle.mjs",
+      "status": "added",
+      "changes": 32,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/lib/j5-session.ts",
+      "status": "added",
+      "changes": 16,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/lib/use-activity-sync.ts",
+      "status": "modified",
+      "changes": 6,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/routes/__root.tsx",
+      "status": "modified",
+      "changes": 3,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/routes/practical/levels.index.tsx",
+      "status": "modified",
+      "changes": 32,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/routes/student.check-in.tsx",
+      "status": "modified",
+      "changes": 51,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "src/routes/student.dashboard.tsx",
+      "status": "modified",
+      "changes": 14,
+      "decision": "selectively integrate UI and course services; no legacy-authority fallback"
+    },
+    {
+      "path": "tests/j1-provider-acceptance.test.mjs",
+      "status": "added",
+      "changes": 19,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-acceptance.test.mjs",
+      "status": "added",
+      "changes": 48,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-check-in-boundary.test.mjs",
+      "status": "added",
+      "changes": 30,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-check-in-service.test.mjs",
+      "status": "added",
+      "changes": 43,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-committed-progress.test.mjs",
+      "status": "added",
+      "changes": 38,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-course-authority.test.mjs",
+      "status": "added",
+      "changes": 31,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-course-http.test.mjs",
+      "status": "added",
+      "changes": 24,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-http.test.mjs",
+      "status": "added",
+      "changes": 33,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-level-one-final-build.test.mjs",
+      "status": "added",
+      "changes": 20,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-level-selection.test.mjs",
+      "status": "added",
+      "changes": 26,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-membership-integration.test.mjs",
+      "status": "added",
+      "changes": 24,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-membership-policy.test.mjs",
+      "status": "added",
+      "changes": 31,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-overview-runtime.test.mjs",
+      "status": "added",
+      "changes": 34,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-pdf-artifact-audit.test.mjs",
+      "status": "added",
+      "changes": 13,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-pdf-http.test.mjs",
+      "status": "added",
+      "changes": 26,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-pdf-inventory.test.mjs",
+      "status": "added",
+      "changes": 70,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-session-lifecycle.test.mjs",
+      "status": "added",
+      "changes": 22,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-student-access.test.mjs",
+      "status": "added",
+      "changes": 36,
+      "decision": "import/reconcile native regression"
+    },
+    {
+      "path": "tests/j5-student-overview.test.mjs",
+      "status": "added",
+      "changes": 33,
+      "decision": "import/reconcile native regression"
+    }
+  ]
+}
