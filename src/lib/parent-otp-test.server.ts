@@ -32,7 +32,11 @@ export async function handleParentOtpTest(request:Request,env:NodeJS.ProcessEnv)
     const verify=async(candidate:ReturnType<typeof serviceFor>,code:string)=>{
       const result=await candidate.verifyCode(code);
       if(!result.ok)return json(result.status==="LOCKED"?429:400,{ok:false,status:result.status});
-      if(!/^[a-zA-Z0-9_-]{43}$/.test(result.token))return json(503,{ok:false,status:"SESSION_UNCONFIRMED"});
+      if(typeof result.token!=="string"||!/^[a-zA-Z0-9_-]{43}$/.test(result.token))return json(503,{ok:false,status:"SESSION_UNCONFIRMED"});
+      // Replacing an existing payer session must revoke the previous token, even when changing email.
+      const old=readCookie(request);
+      try{const previous=await sessionService(old);if(previous)await previous.logout(old);}
+      catch{await candidate.logout(result.token);return json(503,{ok:false,status:"SESSION_UNCONFIRMED"});}
       return json(200,{ok:true,status:"VERIFIED"},cookie+"="+result.token+"; Max-Age=43200"+cookieFlags);
     };
     if(action==="family-status"){const result=await family.handle(readCookie(request),action);return json(result.ok?200:401,result);}

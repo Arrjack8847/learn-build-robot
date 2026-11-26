@@ -1,10 +1,7 @@
 // Private-preview student sign-in. No paid learning access or Wix member token issuance.
-import {createPreviewOtp} from "../../scripts/parent-auth/preview-otp.mjs";
-import {createFamilyPreview} from "../../scripts/parent-auth/family-preview.mjs";
 import {createWixStore} from "../../scripts/parent-auth/wix-store.mjs";
 import {createAuthCrypto,createPortalOtpMailer,previewRecipients} from "../../scripts/parent-auth/secure-auth-transport.mjs";
-import {createStudentIdentity} from "../../scripts/student-auth/identity.mjs";
-import {createStudentRateLimit} from "../../scripts/student-auth/rate-limit.mjs";
+import {createStudentContext} from "../../scripts/student-auth/session-context.mjs";
 import {createStudentAuthCrypto} from "../../scripts/student-auth/crypto.mjs";
 const payerCookie="__Host-bsr-parent-test",proofCookie="__Host-bsr-student-proof",studentCookie="__Host-bsr-student";
 const flags="; Path=/; Secure; HttpOnly; SameSite=Strict";
@@ -12,6 +9,15 @@ const cookie=(name:string,value:string,age:number)=>name+"="+value+"; Max-Age="+
 const read=(request:Request,name:string)=>{const parts=(request.headers.get("cookie")??"").split(";").map(p=>p.trim()).filter(p=>p.startsWith(name+"="));return parts.length===1?parts[0].slice(name.length+1):"";};
 const exact=(v:unknown,keys:string[]):v is Record<string,unknown>=>!!v&&typeof v==="object"&&!Array.isArray(v)&&Object.keys(v).length===keys.length&&keys.every(k=>Object.hasOwn(v,k));
 const tokenValid=(t:string)=>/^[a-zA-Z0-9_-]{43}$/.test(t);
+// J5 server handlers call this with the incoming request. Never return the raw token.
+export async function resolveJ2Student(request:Request,env:NodeJS.ProcessEnv){
+ if(env.VERCEL_ENV!=="preview"||env.VERCEL_TARGET_ENV==="production"||env.STUDENT_AUTH_ENABLED!=="true")return null;
+ try{
+  const db=createWixStore(env),auth=createAuthCrypto(env),crypto=createStudentAuthCrypto(env),clock={now:()=>Date.now()},emails=previewRecipients(env);
+  const {identity}=createStudentContext({db,auth,crypto,clock,emails,mailerFor:(email:string)=>createPortalOtpMailer(env,email)});
+  return await identity.resolveStudentSession(read(request,studentCookie));
+ }catch{return null;}
+}
 export async function handleStudentAuth(request:Request,env:NodeJS.ProcessEnv){
  const json=(status:number,data:object,cookies:string[]=[])=>{const headers=new Headers({"Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store","X-Content-Type-Options":"nosniff"});for(const c of cookies)headers.append("Set-Cookie",c);return new Response(JSON.stringify(data),{status,headers});};
  const fail=(status=401)=>json(status,{ok:false,status:"SIGN_IN_REFUSED"});
@@ -24,22 +30,7 @@ export async function handleStudentAuth(request:Request,env:NodeJS.ProcessEnv){
  if(env.STUDENT_AUTH_ENABLED!=="true")return json(503,{ok:false,status:"CONFIGURATION_REQUIRED"});
  try{
   const db=createWixStore(env),auth=createAuthCrypto(env),crypto=createStudentAuthCrypto(env),clock={now:()=>Date.now()},emails=previewRecipients(env);
-  const scoped={...auth,identityDigest:(kind:string,email:string)=>auth.identityDigest("student-proof/"+kind,email)};
-  const svc=(email:string,student:boolean)=>createPreviewOtp({store:db,crypto:student?scoped:auth,clock,recipient:email,accountType:student?"student-email-proof":"parent-test",mailer:createPortalOtpMailer(env,email)});
-  async function locate(token:string,student:boolean){
-   if(!tokenValid(token))return null;
-   for(const email of emails){const service=svc(email,student);if(await service.resolveIdentity(token))return {email,service,parentId:"qa-j2-"+auth.identityDigest("parent-preview-session",email)};}
-   return null;
-  }
-  async function payer(token:string){const found=await locate(token,false);if(!found)return null;const row=await db.get("AuthSessions",auth.sessionDigest(token));const created=Date.parse(typeof row?.createdAt==="string"?row.createdAt:row?.createdAt?.$date);if(!Number.isFinite(created)||created>clock.now()||clock.now()-created>600000)return null;return {role:"payer",parentId:found.parentId};}
-  async function proof(token:string){const found=await locate(token,true);if(!found)return null;const row=await db.get("AuthSessions",auth.sessionDigest(token));const created=Date.parse(typeof row?.createdAt==="string"?row.createdAt:row?.createdAt?.$date);if(!Number.isFinite(created)||created>clock.now()||clock.now()-created>300000||row.revokedAt!=null)return null;return {role:"student-email-proof",parentId:found.parentId,stateVersion:row.stateVersion};}
-  async function consume(token:string,expected:{parentId:string;stateVersion:string}){const current=await proof(token);if(!current||current.parentId!==expected.parentId||current.stateVersion!==expected.stateVersion)return false;const digest=auth.sessionDigest(token),row=await db.get("AuthSessions",digest);if(!row||row.stateVersion!==expected.stateVersion||row.revokedAt!=null)return false;const next={sessionDigest:row.sessionDigest,accountId:row.accountId,accountType:row.accountType,createdAt:row.createdAt,expiresAt:row.expiresAt,revokedAt:{$date:new Date(clock.now()).toISOString()},stateVersion:auth.newVersion()};return await db.replaceIfVersion("AuthSessions",digest,row.stateVersion,next)===true;}
-  const familyFor=(parentId:string)=>createFamilyPreview({db,crypto:auth,clock,resolveSession:async()=>({accountType:"parent-test",accountId:parentId.slice(6)})});
-  async function owned(parentId:string,id:string){return (await familyFor(parentId).handle("internal","family-child-get",{childId:id})).ok===true;}
-  const rate=createStudentRateLimit({db,crypto,clock});
-  const identity=createStudentIdentity({db,crypto,clock,resolvePayer:payer,resolveEmailProof:proof,consumeEmailProof:consume,getOwnedStudent:owned,
-   reservePinAttempt:async(token:string,parentId:string)=>await rate.reserve("proof",token,5,300000)&&await rate.reserve("payer",parentId,10,900000)});
-
+  const {identity,svc,locate,proof,familyFor,rate}=createStudentContext({db,auth,crypto,clock,emails,mailerFor:(email:string)=>createPortalOtpMailer(env,email)});
   const p=read(request,payerCookie),v=read(request,proofCookie),s=read(request,studentCookie);
   if(action==="status"){const session=await identity.resolveStudentSession(s);if(!session)return json(200,{ok:true,status:"NOT_VERIFIED"},[cookie(studentCookie,"",0)]);const row=await db.get("Children",session.studentId);return json(200,{ok:true,status:"VERIFIED",student:{id:session.studentId,name:row.name},learningAccess:"UNAVAILABLE"});}
   if(action==="logout"){await identity.logout(s);const existing=await locate(v,true);if(existing)await existing.service.logout(v);return json(200,{ok:true,status:"SIGNED_OUT"},[cookie(studentCookie,"",0),cookie(proofCookie,"",0)]);}
@@ -54,7 +45,7 @@ export async function handleStudentAuth(request:Request,env:NodeJS.ProcessEnv){
    const candidate=svc(email,true);
    if(action==="request"){const r=await candidate.requestCode();return json(r.ok?200:["LOCKED","COOLDOWN","HOURLY_LIMIT"].includes(r.status)?429:503,r);}
    if(typeof body.code!=="string"||!/^\d{6}$/.test(body.code))return fail(400);
-   const r=await candidate.verifyCode(body.code);if(!r.ok||!tokenValid(r.token??""))return fail();
+   const r=await candidate.verifyCode(body.code);if(!r.ok||typeof r.token!=="string"||!tokenValid(r.token))return fail();
    try{const old=await locate(v,true);if(old)await old.service.logout(v);}
    catch{await candidate.logout(r.token);return fail(503);}
    return json(200,{ok:true,status:"EMAIL_VERIFIED"},[cookie(proofCookie,r.token,300)]);
@@ -64,7 +55,7 @@ export async function handleStudentAuth(request:Request,env:NodeJS.ProcessEnv){
   if(action==="sign-in"){
    if(!await rate.reserve("global","private-preview-pin",60,60000))return fail(429);
    const r=await identity.signIn(v,body.studentId,body.pin);
-   if(!r.ok)return fail();
+   if(!r.ok||typeof r.token!=="string"||!tokenValid(r.token))return fail();
    try{const oldPayer=await locate(p,false);if(oldPayer)await oldPayer.service.logout(p);await identity.logout(s);}
    catch{await identity.logout(r.token);return fail(503);}
    return json(200,{ok:true,status:"VERIFIED"},[cookie(studentCookie,r.token,14400),cookie(proofCookie,"",0),cookie(payerCookie,"",0)]);
