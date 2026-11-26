@@ -11,10 +11,13 @@ import {createStudentAuthCrypto} from "../student-auth/crypto.mjs";
 import {createStudentContext} from "../student-auth/session-context.mjs";
 import {reserveIntegratedEmail} from "../parent-auth/preview-email-budget.mjs";
 
-export const selectedMessage="J1 J2: complete student registration and private testing centre [skip ci]";
-export function permitted(env){
- return env.VERCEL_ENV==="preview"&&env.VERCEL_TARGET_ENV!=="production"&&env.VERCEL_GIT_COMMIT_REF==="integration/j1-j2-20261126"&&env.VERCEL_GIT_COMMIT_MESSAGE===selectedMessage&&openPreviewRecipients(env)&&env.PARENT_PREVIEW_VERIFIED_SENDER==="noreply@mail.bestemready.edu.my"&&env.STUDENT_AUTH_ENABLED==="true"&&env.WIX_DEV_SITE_ID==="09d613aa-3a95-42ff-9ee3-2aa0c706c447"&&/^[a-z0-9.]+@gmail\.com$/.test(env.RESEND_TEST_RECIPIENT??"")&&validPreviewEmail(env.RESEND_TEST_RECIPIENT)&&/^[a-z0-9.-]+\.vercel\.app$/.test(env.VERCEL_URL??"");
+export const selectedMessage="J1 J2: verify live provider acceptance with redacted guard diagnostics [skip ci]";
+const normalizedPrimary=env=>typeof env.RESEND_TEST_RECIPIENT==="string"?env.RESEND_TEST_RECIPIENT.trim().toLowerCase():"";
+export function acceptanceGuards(env){
+ const recipient=normalizedPrimary(env);
+ return {preview:env.VERCEL_ENV==="preview",notProduction:env.VERCEL_TARGET_ENV!=="production",branch:env.VERCEL_GIT_COMMIT_REF==="integration/j1-j2-20261126",message:typeof env.VERCEL_GIT_COMMIT_MESSAGE==="string"&&env.VERCEL_GIT_COMMIT_MESSAGE.trim()===selectedMessage,openEmail:openPreviewRecipients(env),sender:env.PARENT_PREVIEW_VERIFIED_SENDER==="noreply@mail.bestemready.edu.my",student:env.STUDENT_AUTH_ENABLED==="true",wixSite:env.WIX_DEV_SITE_ID==="09d613aa-3a95-42ff-9ee3-2aa0c706c447",testInbox:/^[a-z0-9.]+@gmail\.com$/.test(recipient)&&validPreviewEmail(recipient),host:/^[a-z0-9.-]+\.vercel\.app$/.test(env.VERCEL_URL??"")};
 }
+export function permitted(env){return Object.values(acceptanceGuards(env)).every(Boolean);}
 export async function runProviderAcceptance(env,{db,baseAuth,studentCrypto,clock,request}){
  const out={scope:"REFUSED",oneShot:"NOT_RUN",emailsAccepted:0,parentVerified:false,proofVerified:false,roleIsolation:false,consentVerified:false,studentRecordsVerified:0,pinsVerified:0,foreignStudentRejected:false,replaysRejected:0,sessionsRevoked:0,failed:false};
  if(!permitted(env))return out;
@@ -24,7 +27,7 @@ export async function runProviderAcceptance(env,{db,baseAuth,studentCrypto,clock
  if(await db.get(collection,id)||await db.insert(collection,id,state(version,"reserved"))!==true){out.oneShot="ALREADY_RESERVED";return out;}
  out.oneShot="RESERVED";
  const auth={...baseAuth,identityDigest:(kind,value)=>baseAuth.identityDigest("j12-provider-qa:"+kind,value)};
- const primary=env.RESEND_TEST_RECIPIENT;
+ const primary=normalizedPrimary(env);
  const aliases=[2,3].map(n=>primary.replace("@gmail.com","+stemlab-parent"+n+"@gmail.com"));
  const mailerFor=recipient=>{if(!aliases.includes(recipient))throw Error("UNAPPROVED_TEST_RECIPIENT");const transport=createPortalOtpMailer(env,recipient,request);return {async sendParentCode(email,code,ttl,id){await transport.sendParentCode(email,code,ttl,id);codes.set(recipient,code);out.emailsAccepted++;}};};
  const codes=new Map(),emails=[],open=true;
@@ -92,6 +95,8 @@ export async function runProviderAcceptance(env,{db,baseAuth,studentCrypto,clock
  if(await db.replaceIfVersion(collection,id,version,state(next,"complete"))!==true||(await db.get(collection,id))?.stateVersion!==next){out.failed=true;out.oneShot="WRITE_UNCONFIRMED";}
  return out;
 }
+// Only booleans: never print environment values or credentials. The marker prevents repeat sends.
+if(process.env.VERCEL_ENV!=="production"&&process.env.VERCEL_TARGET_ENV!=="production"&&process.env.VERCEL_GIT_COMMIT_REF==="integration/j1-j2-20261126")console.log("[J12 acceptance guards] "+JSON.stringify(acceptanceGuards(process.env)));
 if(permitted(process.env)){
  try{
   const env=process.env;
