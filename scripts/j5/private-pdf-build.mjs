@@ -22,6 +22,8 @@ const legacyChecks=[
  String.raw`/^https:\/\/[^/]+\.usrfiles\.com\/.+\.pdf$/i`,
  String.raw`/^https:\/\/[^/]+\.usrfiles\.com\/ugd\/.+\.pdf$/i`
 ];
+const levelOneStartPolicy="/src/data/levelOneFinalBuildStartPolicy.ts";
+const levelOneLegacyCheck=String.raw`/^https:\/\/fe3fa828-9f74-45e8-97f7-8d00cbb7fba0\.usrfiles\.com\/ugd\/[a-z0-9_]+\.pdf(?:[?#].*)?$/i`;
 const finalBuildCode=/\/src\/data\/finalBuild(?:Registry|Verified|Level[236]Verified)\.ts$/;
 const finalBuildJson=/\/src\/data\/finalBuild\/[^/]+\.json$/;
 const pdfViewer=/\/src\/components\/practical\/(?:PdfActivityViewer|LevelOneLearningStudio|FinalBuildPrototype)\.tsx$/;
@@ -32,6 +34,7 @@ export function transformPrivatePdfModule(code,id,rewrite){
  if(path.endsWith("/src/data/requireWixPdfUrl.ts"))return {code:'export function requireWixPdfUrl(path: string, value: string | undefined): string { if (typeof value !== "string" || !/^\\/api\\/dev\\/j5\\/pdf\\/pdf-\\d{4}$/.test(value)) throw new Error("Missing private PDF mapping: " + path); return value; }',map:null};
  let next=rewrite(code);
  if(path.endsWith("/src/routes/__root.tsx"))next=next.replace(/^\s*\{\s*rel:\s*"preconnect",\s*href:\s*"https:\/\/fe3fa828-9f74-45e8-97f7-8d00cbb7fba0\.usrfiles\.com",\s*crossOrigin:\s*"anonymous"\s*\},\s*$/m,"");
+ if(path.endsWith(levelOneStartPolicy))next=next.replaceAll(levelOneLegacyCheck,privatePathPattern);
  if(finalBuildCode.test(path)){
   for(const legacy of legacyChecks)next=next.replaceAll(legacy,privatePathPattern);
  }

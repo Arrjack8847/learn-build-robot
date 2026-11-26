@@ -55,3 +55,16 @@ test("unknown JSON and residual origin fail closed",()=>{
  assert.throws(()=>plugin.transform('const url="https://other.usrfiles.com/a.pdf"','/repo/src/data/unknown.ts'),/Unresolved/);
  assert.equal(plugin.transform('const value=1','/repo/src/data/normal.ts'),null);
 });
+
+test("actual Level 1 start policy is transformed and keeps model/reference checks",()=>{
+ const source=readFileSync(new URL("../src/data/levelOneFinalBuildStartPolicy.ts",import.meta.url),"utf8");
+ const result=j5PrivatePdfPlugin().transform(source,"/repo/src/data/levelOneFinalBuildStartPolicy.ts");
+ assert.ok(result);
+ assert.doesNotMatch(result.code,/usrfiles|fe3fa828/i);
+ assert.ok(result.code.includes(String.raw`/^\/api\/dev\/j5\/pdf\/pdf-\d{4}$/`));
+ assert.match(result.code,/reference\?\.filename\s*&&\s*modelReady/);
+ assert.match(result.code,/WIX_PDF_URL\.test\(manualUrl\)/);
+ const check=/^\/api\/dev\/j5\/pdf\/pdf-\d{4}$/;
+ for(const id of ["pdf-0001","pdf-0598"])assert.equal(check.test("/api/dev/j5/pdf/"+id),true);
+ for(const path of ["/api/dev/j5/pdf/pdf-01","/api/dev/j5/pdf/pdf-0001?x=1","/api/dev/j5/pdf/pdf-0001/extra","https://example.invalid/a.pdf"])assert.equal(check.test(path),false);
+});
