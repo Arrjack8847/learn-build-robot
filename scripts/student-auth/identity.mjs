@@ -18,6 +18,14 @@ export function createStudentIdentity({db,crypto,clock,resolvePayer,resolveEmail
   if(!validCredential(saved,studentId,payer.parentId)||saved.credentialVersion!==row.credentialVersion||saved.pinHash!==row.pinHash)throw Error("STUDENT_ENROLLMENT_UNCONFIRMED");
   return {ok:true,status:"ENROLLED"};
  }
+ async function enrollmentStatus(payerToken,studentId){
+  if(!validId(studentId))return denied();
+  const payer=await resolvePayer(payerToken);
+  if(payer?.role!=="payer"||!validId(payer.parentId)||!await getOwnedStudent(payer.parentId,studentId))return denied();
+  const old=await db.get(C,studentId);
+  if(old&&!validCredential(old,studentId,payer.parentId))throw Error("INVALID_STUDENT_CREDENTIAL");
+  return {ok:true,status:old?"PIN_ALREADY_SET":"PIN_SETUP_REQUIRED"};
+ }
  async function signIn(proofToken,studentId,pin){
   if(!validId(studentId)||typeof pin!=="string"||!/^\d{6}$/.test(pin))return denied();
   const proof=await resolveEmailProof(proofToken);
@@ -74,5 +82,5 @@ export function createStudentIdentity({db,crypto,clock,resolvePayer,resolveEmail
   const saved=await db.get(C,studentId);if(!validCredential(saved,studentId,payer.parentId)||saved.stateVersion!==next.stateVersion)throw Error("RECOVERY_UNCONFIRMED");
   return {ok:true,status:"PIN_RESET"};
  }
- return {enroll,signIn,resolveStudentSession,logout,recoverPin};
+ return {enroll,enrollmentStatus,signIn,resolveStudentSession,logout,recoverPin};
 }

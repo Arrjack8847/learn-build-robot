@@ -25,7 +25,7 @@ export async function handleStudentAuth(request:Request,env:NodeJS.ProcessEnv){
  const origin=env.VERCEL_URL?"https://"+env.VERCEL_URL:"";
  if(request.method!=="POST"||!origin||new URL(request.url).origin!==origin||request.headers.get("origin")!==origin||request.headers.get("sec-fetch-site")!=="same-origin"||request.headers.get("x-stem-student-auth")!=="1")return fail(403);
  const action=new URL(request.url).pathname.split("/").at(-1);
- if(!["request","verify","list","enroll","sign-in","status","logout"].includes(action??""))return fail(404);
+ if(!["request","verify","list","enroll","enrollment-status","sign-in","status","logout"].includes(action??""))return fail(404);
  // Deliberately disabled until dev schema, proof adapter and preview-only secret are verified.
  if(env.STUDENT_AUTH_ENABLED!=="true")return json(503,{ok:false,status:"CONFIGURATION_REQUIRED"});
  try{
@@ -45,10 +45,15 @@ export async function handleStudentAuth(request:Request,env:NodeJS.ProcessEnv){
    const candidate=svc(email,true);
    if(action==="request"){const r=await candidate.requestCode();return json(r.ok?200:["LOCKED","COOLDOWN","HOURLY_LIMIT"].includes(r.status)?429:503,r);}
    if(typeof body.code!=="string"||!/^\d{6}$/.test(body.code))return fail(400);
-   const r=await candidate.verifyCode(body.code);if(!r.ok||typeof r.token!=="string"||!tokenValid(r.token))return fail();
+   const r=await candidate.verifyCode(body.code);if(!r.ok)return json(r.status==="LOCKED"?429:400,{ok:false,status:r.status});
+   if(typeof r.token!=="string"||!tokenValid(r.token))return fail();
    try{const old=await locate(v,true);if(old)await old.service.logout(v);}
    catch{await candidate.logout(r.token);return fail(503);}
    return json(200,{ok:true,status:"EMAIL_VERIFIED"},[cookie(proofCookie,r.token,300)]);
+  }
+  if(action==="enrollment-status"){
+   if(!exact(body,["studentId"])||typeof body.studentId!=="string")return fail(400);
+   const r=await identity.enrollmentStatus(p,body.studentId);return json(r.ok?200:403,r);
   }
   if(!exact(body,["studentId","pin"])||typeof body.studentId!=="string"||typeof body.pin!=="string")return fail(400);
   if(action==="enroll"){if(!await rate.reserve("global","private-preview-enroll",20,60000))return fail(429);const r=await identity.enroll(p,body.studentId,body.pin);return json(r.ok?200:403,r);}

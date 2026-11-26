@@ -17,7 +17,10 @@ test("distinct sibling PINs, payer ownership, proof scope, student-only sessions
  const f=fixture(),s=f.service;f.proof("otp-a");f.proof("otp-b");
  assert.equal((await s.enroll("payer-b",f.a,"581304")).ok,false);
  assert.equal((await s.enroll("payer-a",f.a,"123456")).ok,false);
+ assert.equal((await s.enrollmentStatus("payer-b",f.a)).ok,false);
+ assert.equal((await s.enrollmentStatus("payer-a",f.a)).status,"PIN_SETUP_REQUIRED");
  assert.equal((await s.enroll("payer-a",f.a,"581304")).status,"ENROLLED");
+ assert.equal((await s.enrollmentStatus("payer-a",f.a)).status,"PIN_ALREADY_SET");
  assert.equal((await s.enroll("payer-a",f.b,"723819")).status,"ENROLLED");
  assert.equal((await s.enroll("payer-a",f.a,"982731")).status,"ALREADY_ENROLLED");
  const saved=await f.db.get("StudentAuthCredentials",f.a);assert.notEqual(saved.pinHash,"581304");assert.match(saved.pinHash,/^[a-f0-9]{32}:[a-f0-9]{64}$/);

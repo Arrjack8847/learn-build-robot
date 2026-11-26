@@ -30,3 +30,6 @@ Student email proof now uses explicit student-email-proof accountType and five-m
 
 ## Concrete server session boundary
 J2 exposes resolveJ2Student(request, env) for J5; this returns only the verified student ID, role and environment or null, not a token, parent identity, or membership grant. Extracted the shared session composition into scripts/student-auth/session-context.mjs. Added an integration fixture exercising the actual OTP core, family persistence and student PIN context across two fictional payers. Replacing a payer cookie now revokes the previous server-side payer session. No J5 route changed.
+
+## Verification increment
+Node 22: seven focused executable test cases passed, zero failures. Twelve source and test file Git blob hashes matched the tested commit cf8b28307715793ebb7c72ff99fbf1adbc46828a. These are in-memory provider fixtures, not browser or genuine email acceptance. Added a payer-authorized PIN enrollment-status endpoint (never returns the hash), returning-payer PIN feedback, OTP expiry/lock feedback and profile switching. Latest enrollment/UI changes still require regression verification.
