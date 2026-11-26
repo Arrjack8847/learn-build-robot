@@ -16,7 +16,7 @@ export async function handleParentOtpTest(request:Request,env:NodeJS.ProcessEnv)
   const expected=env.VERCEL_URL?"https://"+env.VERCEL_URL:"";
   if(!expected||new URL(request.url).origin!==expected||request.headers.get("origin")!==expected||request.headers.get("sec-fetch-site")!=="same-origin"||request.headers.get("x-stem-otp-test")!=="1")return json(403,{ok:false,status:"INVALID_REQUEST"});
   const action=new URL(request.url).pathname.split("/").at(-1);
-  if(!["request","verify","request-email","verify-email","status","logout","family-status","family-consent","family-child-get","family-child-create","family-child-edit"].includes(action??""))return json(404,{ok:false,status:"NOT_FOUND"});
+  if(!["request","verify","request-email","verify-email","status","logout","family-status","family-consent","family-child-get","family-child-create"].includes(action??""))return json(404,{ok:false,status:"NOT_FOUND"});
   const recipient=env.RESEND_TEST_RECIPIENT?.trim().toLowerCase();
   if(!recipient||!env.WIX_DEV_DATA_API_KEY?.trim()||!env.PARENT_AUTH_SECRET?.trim())return json(503,{ok:false,status:"CONFIGURATION_REQUIRED"});
   try{

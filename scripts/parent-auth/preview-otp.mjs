@@ -4,8 +4,9 @@ export function createPreviewOtp({store,crypto,mailer,clock,recipient,accountTyp
   if(!["parent-test","student-email-proof"].includes(accountType))throw Error("INVALID_OTP_PURPOSE");
   const ttl=accountType==="student-email-proof"?300000:43200000;
   // One configured recipient only, no real parent account, no production authorization.
-  const key=crypto.identityDigest("parent-preview-otp",recipient);
-  const accountId=crypto.identityDigest("parent-preview-session",recipient);
+  const prefix=accountType==="student-email-proof"?"student-proof/":"";
+  const key=crypto.identityDigest(prefix+"parent-preview-otp",recipient);
+  const accountId=crypto.identityDigest(prefix+"parent-preview-session",recipient);
   const date=x=>x==null?null:{$date:new Date(x).toISOString()};
   const epoch=x=>x==null?null:Date.parse(typeof x==="string"?x:x.$date);
   const fields=["identityKey","challengeId","codeDigest","failedAttempts","stateVersion","requestWindowCount"];
@@ -59,6 +60,7 @@ export function createPreviewOtp({store,crypto,mailer,clock,recipient,accountTyp
     const token=crypto.sessionToken(),digest=crypto.sessionDigest(token),now=clock.now();
     const session={sessionDigest:digest,accountId,accountType,createdAt:date(now),expiresAt:date(now+ttl),revokedAt:null,stateVersion:crypto.newVersion()};
     if(await store.insert("AuthSessions",digest,session)!==true)throw Error("SESSION_WRITE_FAILED");
+    if(!await resolve(token))throw Error("SESSION_WRITE_UNCONFIRMED");
     return {ok:true,status:"VERIFIED",token};
   }
   async function resolve(token){

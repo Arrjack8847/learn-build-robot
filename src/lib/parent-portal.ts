@@ -16,6 +16,7 @@ export const errorMessage=(status:string)=>({
  NOT_AUTHORIZED:"Your session has ended. Please sign in again.",
  CONSENT_REQUIRED:"Please accept the test privacy notice.",
  EDIT_CONFLICT:"This profile changed. Reload and try again.",
+ DUPLICATE_REVIEW_REQUIRED:"More than one matching student record exists. Please contact support before registering again.",
  REQUEST_CONFLICT:"This request conflicts with an existing profile. Reload before trying again.",
  PREVIEW_ONLY:"Parent registration is not available outside the private preview.",
  CONFIGURATION_REQUIRED:"The private preview is not configured.",
