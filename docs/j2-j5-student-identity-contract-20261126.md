@@ -33,3 +33,6 @@ J2 exposes resolveJ2Student(request, env) for J5; this returns only the verified
 
 ## Verification increment
 Node 22: seven focused executable test cases passed, zero failures. Twelve source and test file Git blob hashes matched the tested commit cf8b28307715793ebb7c72ff99fbf1adbc46828a. These are in-memory provider fixtures, not browser or genuine email acceptance. Added a payer-authorized PIN enrollment-status endpoint (never returns the hash), returning-payer PIN feedback, OTP expiry/lock feedback and profile switching. Latest enrollment/UI changes still require regression verification.
+
+## HTTP fixture coverage
+Extracted dependency-injected actual student HTTP handler, leaving Wix/Resend construction server-only. Added a request/response fixture for production and disabled gates, CSRF, body limits, enrollment status, OTP replay, cookies, role separation, logout and proof revocation. Separated the five-payer fixture from source-string route assertions so it can be run independently. Added npm run test:j2; no Actions or deployment. The latest tests must be executed before acceptance.
