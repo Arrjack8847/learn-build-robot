@@ -1,5 +1,6 @@
 // J2 payer-only HTTP boundary. Provider dependencies are injected by the server wrapper.
-import {createPreviewOtp} from "./preview-otp.mjs";
+import {validPreviewEmail} from "./secure-auth-transport.mjs";
+import {createPreviewOtp,createPreviewSessionAccess} from "./preview-otp.mjs";
 import {createFamilyPreview} from "./family-preview.mjs";
 const P="__Host-bsr-parent-test",S="__Host-bsr-student",V="__Host-bsr-student-proof";
 const flags="; Path=/; Secure; HttpOnly; SameSite=Strict";
@@ -26,11 +27,12 @@ export function createParentAuthHttp({resolveContext}){
   if(!["request","verify","request-email","verify-email","status","logout","family-status","family-consent","family-child-get","family-child-create"].includes(action))return fail(404,"NOT_FOUND");
   try{
    const cfg=await resolveContext(env);if(!cfg)return fail(503,"CONFIGURATION_REQUIRED");
-   const {db,crypto,clock,approved,recipient,mailerFor,revokeStudent}=cfg;
-   if(!approved.includes(recipient))return fail(503,"CONFIGURATION_REQUIRED");
+   const {db,crypto,clock,approved,recipient,mailerFor,revokeStudent,open=false,reserveEmail}=cfg;
+   if(!open&&!approved.includes(recipient))return fail(503,"CONFIGURATION_REQUIRED");
    const svc=email=>createPreviewOtp({store:db,crypto,clock,recipient:email,mailer:mailerFor(email)});
    const token=read(request,P);
-   async function session(t){if(!validToken(t))return null;for(const email of approved){const s=svc(email);if(await s.resolveIdentity(t))return s;}return null;}
+   const direct=createPreviewSessionAccess({store:db,crypto,clock});
+   async function session(t){if(!validToken(t))return null;if(open)return await direct.resolveIdentity(t)?direct:null;for(const email of approved){const s=svc(email);if(await s.resolveIdentity(t))return s;}return null;}
    const family=createFamilyPreview({db,crypto,clock,resolveSession:async t=>{const s=await session(t);return s?await s.resolveIdentity(t):null;}});
    const verify=async(s,code)=>{
     const r=await s.verifyCode(code);if(!r.ok)return fail(r.status==="LOCKED"?429:400,r.status);
@@ -39,16 +41,16 @@ export function createParentAuthHttp({resolveContext}){
     catch{await s.logout(r.token);return fail(503,"SESSION_UNCONFIRMED");}
     return json(200,{ok:true,status:"VERIFIED"},[cookie(P,r.token,43200),cookie(S,"",0),cookie(V,"",0)]);
    };
-   const send=async s=>{const r=await s.requestCode();return json(r.ok?200:["LOCKED","HOURLY_LIMIT","COOLDOWN"].includes(r.status)?429:503,r);};
+   const send=async (s,email)=>{if(open){const denied=await reserveEmail(email);if(denied)return fail(429,denied);}const r=await s.requestCode();return json(r.ok?200:["LOCKED","HOURLY_LIMIT","COOLDOWN"].includes(r.status)?429:503,r);};
    if(action==="status")return json(200,{ok:true,status:await session(token)?"VERIFIED":"NOT_VERIFIED"});
    if(action==="logout"){const s=await session(token);if(s)await s.logout(token);return json(200,{ok:true,status:"SIGNED_OUT"},[cookie(P,"",0)]);}
    if(action==="family-status"){const r=await family.handle(token,action);return json(r.ok?200:401,r);}
-   if(action==="request")return send(svc(recipient));
+   if(action==="request")return send(svc(recipient),recipient);
    let body;try{body=await readJson(request,action.startsWith("family-")?1024:512);}catch{return fail(400,"INVALID_INPUT");}
    if(action==="request-email"||action==="verify-email"){
     if(!exact(body,action==="request-email"?["email"]:["email","code"])||typeof body.email!=="string")return fail(400,"INVALID_INPUT");
-    const email=body.email.trim().toLowerCase();if(!approved.includes(email))return fail(403,"PREVIEW_EMAIL_NOT_APPROVED");
-    if(action==="request-email")return send(svc(email));
+    const email=body.email.trim().toLowerCase();if(!validPreviewEmail(email))return fail(400,"INVALID_INPUT");if(!open&&!approved.includes(email))return fail(403,"PREVIEW_EMAIL_NOT_APPROVED");
+    if(action==="request-email")return send(svc(email),email);
     if(typeof body.code!=="string"||!/^\d{6}$/.test(body.code))return fail(400,"INVALID_INPUT");
     return await verify(svc(email),body.code);
    }

@@ -1,12 +1,13 @@
 // Preview OTP policy: durable single-recipient rate limits and isolated server-side sessions.
 // No real parent account, child profile, payment or authorization to production resources.
 export function createPreviewOtp({store,crypto,mailer,clock,recipient,accountType="parent-test"}){
-  if(!["parent-test","student-email-proof"].includes(accountType))throw Error("INVALID_OTP_PURPOSE");
-  const ttl=accountType==="student-email-proof"?300000:43200000;
+  if(!["parent-test","student-email-proof","student-email-proof-v2"].includes(accountType))throw Error("INVALID_OTP_PURPOSE");
+  const ttl=accountType==="parent-test"?43200000:300000;
   // One configured recipient only, no real parent account, no production authorization.
-  const prefix=accountType==="student-email-proof"?"student-proof/":"";
+  const prefix=accountType==="student-email-proof-v2"?"student-proof/v2/":accountType==="student-email-proof"?"student-proof/":"";
   const key=crypto.identityDigest(prefix+"parent-preview-otp",recipient);
-  const accountId=crypto.identityDigest(prefix+"parent-preview-session",recipient);
+  // V2 proof rows bind the same payer digest but retain a distinct role and challenge namespace.
+  const accountId=crypto.identityDigest(accountType==="student-email-proof-v2"?"parent-preview-session":prefix+"parent-preview-session",recipient);
   const date=x=>x==null?null:{$date:new Date(x).toISOString()};
   const epoch=x=>x==null?null:Date.parse(typeof x==="string"?x:x.$date);
   const fields=["identityKey","challengeId","codeDigest","failedAttempts","stateVersion","requestWindowCount"];
@@ -83,4 +84,27 @@ export function createPreviewOtp({store,crypto,mailer,clock,recipient,accountTyp
   // Internal session identity only. Never return raw session data from a browser endpoint.
   async function resolveIdentity(token){const s=await resolve(token);return s?{accountId:s.row.accountId,accountType:s.row.accountType}:null;}
   return {requestCode,verifyCode,status,logout,resolveIdentity};
+}
+
+export function createPreviewSessionAccess({store,crypto,clock,accountType="parent-test"}){
+ if(!["parent-test","student-email-proof-v2"].includes(accountType))throw Error("INVALID_SESSION_ROLE");
+ const ttl=accountType==="parent-test"?43200000:300000;
+ const epoch=x=>x==null?null:Date.parse(typeof x==="string"?x:x.$date);
+ async function resolve(token){
+  if(typeof token!=="string"||!/^[a-zA-Z0-9_-]{43}$/.test(token))return null;
+  const digest=crypto.sessionDigest(token),row=await store.get("AuthSessions",digest);
+  if(!row||row.accountType!==accountType||!(/^[a-f0-9]{64}$/.test(row.accountId??""))||row.sessionDigest!==digest||row.revokedAt!=null||typeof row.stateVersion!=="string")return null;
+  const expires=epoch(row.expiresAt),created=epoch(row.createdAt),now=clock.now();
+  if(!Number.isFinite(expires)||!Number.isFinite(created)||created>now||expires<=now||expires-created!==ttl)return null;
+  return {row,digest};
+ }
+ async function resolveIdentity(token){const result=await resolve(token);return result?{accountId:result.row.accountId,accountType:result.row.accountType}:null;}
+ async function logout(token){
+  const result=await resolve(token);if(!result)return {ok:true,status:"SIGNED_OUT"};
+  const {row,digest}=result;
+  const next={sessionDigest:row.sessionDigest,accountId:row.accountId,accountType:row.accountType,createdAt:row.createdAt,expiresAt:row.expiresAt,revokedAt:{$date:new Date(clock.now()).toISOString()},stateVersion:crypto.newVersion()};
+  if(await store.replaceIfVersion("AuthSessions",digest,row.stateVersion,next)!==true&&await resolve(token))throw Error("REVOCATION_UNCONFIRMED");
+  return {ok:true,status:"SIGNED_OUT"};
+ }
+ return {resolveIdentity,logout,async status(token){return {ok:true,status:await resolve(token)?"VERIFIED":"NOT_VERIFIED"};}};
 }

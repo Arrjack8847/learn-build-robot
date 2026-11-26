@@ -10,7 +10,10 @@ const uuid=x=>typeof x==="string"&&/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab]
 export function createFamilyPreview({db,crypto,clock,resolveSession,noticeVersion=NOTICE_VERSION}){
  if(typeof noticeVersion!=="string"||!/^preview-fictional-v[1-9][0-9]{0,5}$/.test(noticeVersion))throw Error("INVALID_NOTICE_VERSION");
  const date=()=>({$date:new Date(clock.now()).toISOString()});
- const validName=x=>typeof x==="string"&&x===x.trim()&&/^(Test|Sample|Demo)(?: [A-Za-z0-9 -]{1,40})?$/.test(x);
+ const validName=x=>typeof x==="string"&&x===x.trim()&&x.length>0&&x.length<=48&&(
+  (/[\p{L}]/u.test(x)&&/^[\p{L}\p{M} .'\u2019-]+$/u.test(x))||
+  /^(Test|Sample|Demo)(?: [A-Za-z0-9 -]{1,40})?$/.test(x)
+ );
  const validYear=x=>Number.isInteger(x)&&x>=1900&&x<=new Date(clock.now()).getUTCFullYear();
  const parentKey=a=>"qa-j2-"+a;
  const consentKey=p=>noticeVersion==="preview-fictional-v1"?p+"-consent":crypto.identityDigest("j2-consent-"+noticeVersion,p);

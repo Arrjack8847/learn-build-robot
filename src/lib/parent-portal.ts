@@ -6,6 +6,7 @@ export async function portal(action:string,body?:object):Promise<PortalResult>{
  }catch{throw Error("The service could not be reached. Please retry.");}
 }
 export const errorMessage=(status:string)=>({
+ PREVIEW_EMAIL_BUDGET:"The shared private testing email limit has been reached. Try again later.",
  PREVIEW_EMAIL_NOT_APPROVED:"This email is not enabled for the private preview. Use the approved test inbox.",
  COOLDOWN:"Please wait 60 seconds before requesting another code.",
  LOCKED:"Too many incorrect codes. Try again in 15 minutes.",

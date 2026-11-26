@@ -1,3 +1,4 @@
+import {validPreviewEmail} from "../parent-auth/secure-auth-transport.mjs";
 // Dependency-injected private student authentication HTTP boundary.
 const payerCookie="__Host-bsr-parent-test",proofCookie="__Host-bsr-student-proof",studentCookie="__Host-bsr-student";
 const flags="; Path=/; Secure; HttpOnly; SameSite=Strict";
@@ -19,7 +20,7 @@ export function createStudentAuthHttp({resolveContext}){
  // Deliberately disabled until dev schema, proof adapter and preview-only secret are verified.
  if(env.STUDENT_AUTH_ENABLED!=="true")return json(503,{ok:false,status:"CONFIGURATION_REQUIRED"});
  try{
-  const {db,emails,context}=await resolveContext(env);
+  const {db,emails,context,open=false,reserveEmail}=await resolveContext(env);
   const {identity,svc,locate,proof,familyFor,rate}=context;
   const p=read(request,payerCookie),v=read(request,proofCookie),s=read(request,studentCookie);
   if(action==="status"){const session=await identity.resolveStudentSession(s);if(!session)return json(200,{ok:true,status:"NOT_VERIFIED"},[cookie(studentCookie,"",0)]);const row=await db.get("Children",session.studentId);return json(200,{ok:true,status:"VERIFIED",student:{id:session.studentId,name:row.name},learningAccess:"UNAVAILABLE"});}
@@ -31,9 +32,9 @@ export function createStudentAuthHttp({resolveContext}){
   let body;try{body=JSON.parse(raw);}catch{return fail(400);}
   if(action==="request"||action==="verify"){
    if(!exact(body,action==="request"?["email"]:["email","code"])||typeof body.email!=="string")return fail(400);
-   const email=body.email.trim().toLowerCase();if(!emails.includes(email))return fail(403);
+   const email=body.email.trim().toLowerCase();if(!validPreviewEmail(email))return fail(400);if(!open&&!emails.includes(email))return fail(403);
    const candidate=svc(email,true);
-   if(action==="request"){const r=await candidate.requestCode();return json(r.ok?200:["LOCKED","COOLDOWN","HOURLY_LIMIT"].includes(r.status)?429:503,r);}
+   if(action==="request"){if(open){const denied=await reserveEmail(email);if(denied)return json(429,{ok:false,status:denied});}const r=await candidate.requestCode();return json(r.ok?200:["LOCKED","COOLDOWN","HOURLY_LIMIT"].includes(r.status)?429:503,r);}
    if(typeof body.code!=="string"||!/^\d{6}$/.test(body.code))return fail(400);
    const r=await candidate.verifyCode(body.code);if(!r.ok)return json(r.status==="LOCKED"?429:400,{ok:false,status:r.status});
    if(typeof r.token!=="string"||!tokenValid(r.token))return fail();
