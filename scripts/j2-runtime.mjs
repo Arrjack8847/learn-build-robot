@@ -56,6 +56,8 @@ export function createJ123CheckoutPayer({getStudentContext=env=>studentContext(e
  if(!child.ok||child.child?.id!==childId)return null;
  const enrollment=await student.identity.enrollmentStatus(token,childId);
  if(!enrollment.ok||enrollment.status!=="PIN_ALREADY_SET")return null;
+ const fresh=await student.payer(token);
+ if(fresh?.role!=="payer"||fresh.parentId!==payer.parentId)return null;
  return {parentId:payer.parentId,childId,email:payer.parentId+"@example.invalid"};
  };
 }

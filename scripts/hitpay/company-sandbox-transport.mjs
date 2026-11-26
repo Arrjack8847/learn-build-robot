@@ -3,7 +3,7 @@ import {readCompanyHitPayConfig,decimal,minorUnits} from "./company-config.mjs";
 import {isAllowedSandboxCheckoutUrl} from "./checkout-url.mjs";
 const id=x=>typeof x==="string"&&/^[a-zA-Z0-9_-]{1,128}$/.test(x);
 const fixtureEmail=x=>typeof x==="string"&&/^[a-z0-9._+-]+@example\.invalid$/i.test(x);
-export function createCompanySandboxTransport(env,{request=fetch,returnOrigin,requiredChargeCount}={}){
+export function createCompanySandboxTransport(env,{request=fetch,returnOrigin,requiredChargeCount,beforeMembershipPost=async()=>true}={}){
  const cfg=readCompanyHitPayConfig(env);
  if(cfg.environment!=="sandbox"||env.VERCEL_ENV!=="preview"||env.VERCEL_TARGET_ENV==="production")throw Error("PREVIEW_ONLY");
  if(env.J3_SANDBOX_ROTATION_CONFIRMED!=="true")throw Error("ROTATION_CONFIRMATION_REQUIRED");
@@ -35,6 +35,7 @@ export function createCompanySandboxTransport(env,{request=fetch,returnOrigin,re
   if(typeof r.startDate!=="string"||!/^\d{4}-\d{2}-\d{2}$/.test(r.startDate)||!Number.isFinite(Date.parse(r.startDate))||new Date(r.startDate).toISOString().slice(0,10)!==r.startDate)throw Error("INVALID_START_DATE");
   // Current provider API documents JSON for recurring billing, with array methods.
   // Touch n Go only. Hosted monthly flow is distinct from the save_card mock flow; genuine renewal is unverified.
+  if(await beforeMembershipPost(r)!==true)throw Error("AUTH_EXPIRED");
   return hosted(await call("/v1/recurring-billing",{method:"POST",body:{plan_id:cfg.planId,customer_email:r.email,customer_name:"STEM Lab QA Parent",start_date:r.startDate,redirect_url:redirect,reference:r.reference,payment_methods:["touch_n_go"],save_payment_method:"false",send_email:"false",times_to_be_charged:2}}));
  }
  async function createDeposit(r){
