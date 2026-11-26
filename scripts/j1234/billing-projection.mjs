@@ -20,10 +20,10 @@ export async function readJ1234BillingProjection({env,db,studentId,parentId,now=
   const s=decodeCheckout(row,studentId),r=s.reservation;
   if(r.childId!==studentId||r.parentId!==parentId||r.environment!=="sandbox"||r.kind!=="membership"||r.currency!=="MYR"||r.amountMinor!==36000||r.planId!==J123_PLAN||r.termsVersion!==J123_TERMS||!date(r.termsAcceptedAt)||r.termsAcceptedAt>now||!validProvider(r.reference)||!validProvider(r.attemptId))return review();
   if(r.status==="reserved"){
-   if(s.membership||s.payments?.length)return review();
+   if(s.membership||s.payments!==undefined&&(!Array.isArray(s.payments)||s.payments.length))return review();
    return {...unavailable(),membershipStatus:r.dispatchState==="retryable"?"inactive":"verification_required",paymentStatus:r.dispatchState==="retryable"?"not_submitted":"verification_required"};
   }
-  if(r.status!=="bound"||!validProvider(r.providerId)||!await checkProviderBinding(store,"subscription",r.providerId,r))return review();
+  if(r.status!=="bound"||r.dispatchState!=="dispatched"||!validProvider(r.providerId)||!await checkProviderBinding(store,"subscription",r.providerId,r))return review();
   const payments=s.payments??[];
   if(!Array.isArray(payments)||payments.length>2)return review();
   if(!payments.length)return s.membership?review():{...unavailable(),membershipStatus:"payment_pending",paymentStatus:"pending"};

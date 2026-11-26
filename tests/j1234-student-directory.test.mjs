@@ -19,7 +19,7 @@ import {J123_ORIGIN,J123_PLAN,J123_TERMS,J123_BRANCH} from "../scripts/j123/infr
 import {J123_MERCHANT} from "../scripts/j123/membership-provider.mjs";
 import {createAttendanceHttp} from "../scripts/j1234/attendance-http.mjs";
 import {buildDashboardStatistics} from "../scripts/j1234/dashboard-statistics.mjs";
-import {ATTENDANCE_COLLECTION,attendanceKey,localDay,createAttendanceService} from "../scripts/j1234/attendance.mjs";
+import {ATTENDANCE_COLLECTION,attendanceKey,localDay,createAttendanceService,readAttendanceProjection} from "../scripts/j1234/attendance.mjs";
 const env={J1234_TEST_OPERATOR_ENABLED:"1",J1234_TEST_OPERATOR_SECRET:randomBytes(32).toString("hex"),VERCEL_ENV:"preview",VERCEL_TARGET_ENV:"preview",VERCEL_GIT_COMMIT_REF:J1234_BRANCH,VERCEL_URL:"fixture.vercel.app",WIX_DEV_SITE_ID:J1234_SITE,WIX_DEV_DATA_API_KEY:"fixture",RESEND_API_KEY:"fixture",PARENT_PREVIEW_VERIFIED_SENDER:"noreply@mail.bestemready.edu.my",STUDENT_AUTH_ENABLED:"true",J1234_REGISTRATION_ENABLED:"1",J1234_STUDENT_READ_ENABLED:"1",J1234_AUTH_ROOT:randomBytes(32).toString("hex"),J1234_TEST_EMAILS:"alpha@example.invalid,beta@example.invalid",PARENT_PREVIEW_OPEN_EMAIL:"1",RESEND_TEST_RECIPIENT:"unrelated@example.invalid",PARENT_AUTH_SECRET:randomBytes(32).toString("hex"),STUDENT_AUTH_SECRET:randomBytes(32).toString("hex")};
 const origin="https://fixture.vercel.app";
 function fixture(){
@@ -177,6 +177,12 @@ test("J1234 registration, sandbox checkout, verified event worker and J4 ledger 
  assert.equal(redeemed.filter(x=>x.ok).length,1);
  const savedAttendance=JSON.parse((await f.db.get(ATTENDANCE_COLLECTION,aKey)).stateJson);
  assert.equal(savedAttendance.status,"attended");assert.equal(savedAttendance.code.status,"used");assert.equal(savedAttendance.audit.filter(a=>a.result==="CHECKED_IN").length,1);
+ const originalAttendance=await f.db.get(ATTENDANCE_COLLECTION,aKey);
+ for(const corrupt of [a=>a.audit.push({...a.audit.at(-1)}),a=>{a.audit.at(-1).actor="private-preview-operator";},a=>{a.code.attempts=2;},a=>{a.audit.at(-1).at=now+1;}]){
+  const bad=structuredClone(savedAttendance);corrupt(bad);f.rows.set(ATTENDANCE_COLLECTION+":"+aKey,{...originalAttendance,stateJson:JSON.stringify(bad)});
+  assert.equal((await readAttendanceProjection({env:ae,db:f.db,studentId:one.id,parentId:r.parentId,now})).attendanceStatus,"verification_required");
+ }
+ f.rows.set(ATTENDANCE_COLLECTION+":"+aKey,originalAttendance);
  assert.equal(savedAttendance.code.digest.length,64);assert.equal(Object.hasOwn(savedAttendance.code,"code"),false);
  const staffAttendance=createJ1234StudentHttp({storeFactory:()=>f.db,clock:{now:()=>now}});
  const res=await staffAttendance(f.req("/api/dev/j1234/students",{studentId:one.id},"x-stem-j1234"),ae),display=(await res.json()).rows[0];
@@ -194,6 +200,8 @@ test("J1234 registration, sandbox checkout, verified event worker and J4 ledger 
  assert.equal((await operator("excuse",one.id,next.attendance.bookingId)).ok,true);
  const excused=(await overview()).statistics;assert.equal(excused.attendance.counts.excused,1);assert.equal(excused.attendance.totalAttended,0);assert.equal(excused.attendance.totalBookings,1);
  now=end;assert.equal((await project()).membershipStatus,"expired");now=paidAt+5000;
+ const originalBilling=await scoped.get(BILLING_COLLECTION,key),badBilling=decodeCheckout(originalBilling,one.id);badBilling.reservation.dispatchState="preflight";
+ f.rows.set(BILLING_COLLECTION+":j1234-"+key,{...originalBilling,stateJson:JSON.stringify(badBilling)});assert.equal((await project()).membershipStatus,"verification_required");f.rows.set(BILLING_COLLECTION+":j1234-"+key,originalBilling);
  const idx=providerKey("charge",charge),saved=await f.db.get(BILLING_COLLECTION,idx);f.rows.delete(BILLING_COLLECTION+":"+idx);
  assert.equal((await project()).membershipStatus,"verification_required");f.rows.set(BILLING_COLLECTION+":"+idx,saved);
  const second="e".repeat(64);refund="100.00";await add(second,"charge.updated");assert.equal((await dispatch(second)).status,200);
@@ -237,4 +245,20 @@ test("Phase 07 requires independent operator capability on every staff read and 
   assert.equal((await handlers[i](req(cfg.J1234_TEST_OPERATOR_SECRET),{...cfg,J1234_TEST_OPERATOR_SECRET:f.cfg.STUDENT_AUTH_SECRET})).status,503);
  }
  assert.equal(reads,0);
+});
+
+test("Phase 07 rejects directory snapshot if consent, student list or credential changes during read",async()=>{
+ const f=fixture(),p=await f.login("p","alpha@example.invalid");await f.call("p","family-consent",{accepted:true,noticeVersion:NOTICE_VERSION},p);const c=await f.register(p,"Test Race");
+ const parentId="qa-j2-"+f.auth.identityDigest("parent-preview-session","alpha@example.invalid"),consentKey="PrivacyConsents:"+parentId+"-consent";
+ const saved=f.rows.get(consentKey);
+ let calls=0;
+ const db={...f.db,listFixtureChildren:async id=>{const result=await f.db.listFixtureChildren(id);if(id===parentId&&++calls===1)f.rows.delete(consentKey);return result;}};
+ const h=createJ1234StudentHttp({storeFactory:()=>db,clock:f.clock});
+ assert.equal((await h(f.req("/api/dev/j1234/students",{},"x-stem-j1234"),env)).status,503);
+ f.rows.set(consentKey,saved);calls=0;
+ const db2={...f.db,listFixtureChildren:async id=>{const result=await f.db.listFixtureChildren(id);if(id===parentId&&++calls===2)return [];return result;}};
+ assert.equal((await createJ1234StudentHttp({storeFactory:()=>db2,clock:f.clock})(f.req("/api/dev/j1234/students",{},"x-stem-j1234"),env)).status,503);
+ const credential="StudentAuthCredentials:j1234-pin-v1-"+c.id;let pinReads=0;
+ const db3={...f.db,get:async(collection,id)=>{if(collection+":"+id===credential&&++pinReads===2)return {stateVersion:"concurrent-enrollment"};return f.db.get(collection,id);}};
+ assert.equal((await createJ1234StudentHttp({storeFactory:()=>db3,clock:f.clock})(f.req("/api/dev/j1234/students",{},"x-stem-j1234"),env)).status,503);
 });

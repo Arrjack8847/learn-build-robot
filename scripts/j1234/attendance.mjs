@@ -17,7 +17,32 @@ export const attendanceEnabled=e=>isJ1234Preview(e)&&e.J1234_REGISTRATION_ENABLE
 const secret=e=>createHmac("sha256",Buffer.from(e.J1234_AUTH_ROOT,"hex")).update("j1234-attendance-code-v1").digest();
 const digest=(key,s,code)=>createHmac("sha256",key).update(JSON.stringify([s.studentId,s.bookingId,s.code.codeId,code])).digest("hex");
 const equal=(a,b)=>hex(a)&&hex(b)&&timingSafeEqual(Buffer.from(a,"hex"),Buffer.from(b,"hex"));
-function decode(row,studentId,parentId,day){
+// Replay the compact audit state before trusting attendance or exposing counts.
+function verifyAudit(s,now){
+ let status=null,codeStatus=null,attempts=0,issuedAt=null,lastAt=0,checkInAt=null,checkOutAt=null;
+ const requests=new Set(),fingerprints=new Set(),issued=[];
+ for(const a of s.audit){
+  if(!a||!validRequest(a.requestId)||requests.has(a.requestId)||!stamp(a.at)||a.at<lastAt||a.at>now||localDay(a.at)!==s.day||a.actor!==(a.action==="redeem"?"student":"private-preview-operator"))throw Error("INVALID_ATTENDANCE_AUDIT");
+  requests.add(a.requestId);lastAt=a.at;
+  if(a.action!=="issue"&&Object.hasOwn(a,"fingerprint"))throw Error("INVALID_FINGERPRINT");
+  if(a.action==="book"&&status===null&&a.result==="COMMITTED"&&a.at===s.bookedAt)status="booked";
+  else if(a.action==="issue"&&status==="booked"&&a.result==="CODE_ISSUED"&&hex(a.fingerprint)&&!fingerprints.has(a.fingerprint)){
+   if(issued.filter(t=>t>a.at-900000).length>=3)throw Error("INVALID_ISSUE_LIMIT");
+   fingerprints.add(a.fingerprint);issued.push(a.at);issuedAt=a.at;codeStatus="active";attempts=0;
+  }else if(a.action==="redeem"&&status==="booked"&&codeStatus==="active"){
+   if(a.result==="CODE_EXPIRED"&&a.at>=issuedAt+300000)codeStatus="expired";
+   else if(a.result==="CODE_REFUSED"&&a.at<issuedAt+300000){attempts++;if(attempts===3)codeStatus="locked";}
+   else if(a.result==="CHECKED_IN"&&a.at<issuedAt+300000){codeStatus="used";status="attended";checkInAt=a.at;}
+   else throw Error("INVALID_REDEMPTION");
+  }else if(a.action==="revoke"&&status==="booked"&&codeStatus==="active"&&a.result==="COMMITTED")codeStatus="revoked";
+  else if(a.action==="no_show"&&status==="booked"&&a.result==="COMMITTED"){status="no_show";if(codeStatus==="active")codeStatus="revoked";}
+  else if(a.action==="excuse"&&status==="no_show"&&a.result==="COMMITTED")status="excused";
+  else if(a.action==="check_out"&&status==="attended"&&a.result==="COMMITTED"){status="checked_out";checkOutAt=a.at;}
+  else throw Error("INVALID_ATTENDANCE_TRANSITION");
+ }
+ if(status!==s.status||checkInAt!==s.checkInAt||checkOutAt!==s.checkOutAt||JSON.stringify(issued)!==JSON.stringify(s.issued)||codeStatus!==(s.code?.status??null)||s.code&&(s.code.attempts!==attempts||s.code.issuedAt!==issuedAt))throw Error("AUDIT_STATE_MISMATCH");
+}
+function decode(row,studentId,parentId,day,now){
  if(row?.environment!=="sandbox-qa"||!row.stateVersion||typeof row.stateJson!=="string")throw Error("INVALID_ATTENDANCE");
  const s=JSON.parse(row.stateJson);
  if(s.scope!==scope||s.studentId!==studentId||s.parentId!==parentId||s.day!==day||!validRequest(s.bookingId)||!stamp(s.bookedAt)||localDay(s.bookedAt)!==day||!["booked","attended","checked_out","no_show","excused"].includes(s.status)||!Array.isArray(s.audit)||s.audit.length<1||s.audit.length>80||!Array.isArray(s.issued)||s.issued.length>24||s.issued.some(t=>!stamp(t)||localDay(t)!==day))throw Error("INVALID_ATTENDANCE");
@@ -27,6 +52,7 @@ function decode(row,studentId,parentId,day){
  if(attended?(!stamp(s.checkInAt)||localDay(s.checkInAt)!==day||s.checkInAt<s.bookedAt||s.visit?.studentId!==studentId||s.visit?.bookingId!==s.bookingId||s.visit?.startedAt!==s.checkInAt||s.visit?.status!==(s.status==="attended"?"open":"ended")):(s.checkInAt!=null||s.visit!=null))throw Error("INVALID_VISIT");
  if(s.status==="checked_out"?(!stamp(s.checkOutAt)||s.checkOutAt<s.checkInAt||s.visit.endedAt!==s.checkOutAt):s.checkOutAt!=null)throw Error("INVALID_CHECKOUT");
  if(s.status!=="booked"&&c?.status==="active")throw Error("INVALID_CODE_STATE");
+ verifyAudit(s,now);
  return s;
 }
 const encode=(s,newId)=>({environment:"sandbox-qa",stateVersion:newId(),stateJson:JSON.stringify(s)});
@@ -34,7 +60,7 @@ const projection=(s,now)=>({bookingId:s.bookingId,day:s.day,attendanceStatus:s.s
 const empty=()=>({bookingId:null,day:null,attendanceStatus:"not_booked",checkInStatus:"not_checked_in",codeStatus:"not_issued",expiresAt:null,checkInAt:null,checkOutAt:null,visitStatus:"none"});
 export async function readAttendanceProjection({env,db,studentId,parentId,now=Date.now()}){
  if(!attendanceEnabled(env))return {...empty(),attendanceStatus:"unavailable",checkInStatus:"unavailable"};
- try{createJ1234IdentityEnv(env);const day=localDay(now),row=await db.get(ATTENDANCE_COLLECTION,attendanceKey(studentId,day));return row?projection(decode(row,studentId,parentId,day),now):empty();}
+ try{createJ1234IdentityEnv(env);const day=localDay(now),row=await db.get(ATTENDANCE_COLLECTION,attendanceKey(studentId,day));return row?projection(decode(row,studentId,parentId,day,now),now):empty();}
  catch{return {...empty(),attendanceStatus:"verification_required",checkInStatus:"unavailable"};}
 }
 export function createAttendanceService({env,db,clock=()=>Date.now(),newId=randomUUID,newCode=()=>String(randomInt(0,100000000)).padStart(8,"0")}){
@@ -59,7 +85,7 @@ export function createAttendanceService({env,db,clock=()=>Date.now(),newId=rando
   try{
    const studentId=input.studentId,action=input.action,isStudent=action==="redeem";
    if(!validStudent(studentId)||!validRequest(input.requestId)||!["book","issue","revoke","redeem","check_out","no_show","excuse"].includes(action))return no("REFUSED");
-   if(action==="redeem"&&! /^\d{8}$/.test(input.code??""))return no("REFUSED");
+   if(action==="redeem"&&(typeof input.code!=="string"||! /^\d{8}$/.test(input.code)))return no("REFUSED");
    if(action!=="book"&&!validRequest(input.bookingId))return no("REFUSED");
    const authorized=async()=>{
     const i=await identity(studentId);if(!i)return null;
@@ -72,10 +98,10 @@ export function createAttendanceService({env,db,clock=()=>Date.now(),newId=rando
    const needsMembership=["book","issue","redeem"].includes(action);
    for(let retry=0;retry<8;retry++){
     const at=clock();if(localDay(at)!==day)return no("REFUSED");
-    const fresh=await authorized();if(fresh?.parentId!==first.parentId)return no("REFUSED");
+    const fresh=await authorized();if(fresh?.parentId!==first.parentId||fresh.credentialVersion!==first.credentialVersion)return no("REFUSED");
     const old=await db.get(ATTENDANCE_COLLECTION,id);
     if(!old&&action!=="book")return no("REFUSED");
-    let s=old?decode(old,studentId,first.parentId,day):{scope,studentId,parentId:first.parentId,day,bookingId:newId(),bookedAt:at,status:"booked",checkInAt:null,checkOutAt:null,code:null,visit:null,issued:[],audit:[]};
+    let s=old?decode(old,studentId,first.parentId,day,at):{scope,studentId,parentId:first.parentId,day,bookingId:newId(),bookedAt:at,status:"booked",checkInAt:null,checkOutAt:null,code:null,visit:null,issued:[],audit:[]};
     if(old&&action!=="book"&&s.bookingId!==input.bookingId)return no("REFUSED");
     const prior=s.audit.find(a=>a.requestId===input.requestId);
     if(prior)return prior.action===action?no("ALREADY_PROCESSED"):no("REFUSED");
@@ -107,10 +133,12 @@ export function createAttendanceService({env,db,clock=()=>Date.now(),newId=rando
     s.audit.push({requestId:input.requestId,action,actor:isStudent?"student":"private-preview-operator",at,result:result.status,...(s.pendingFingerprint?{fingerprint:s.pendingFingerprint}:{})});delete s.pendingFingerprint;
     // Last authorization and membership read before conditional commit. Cross-collection
     // membership changes can occur after this read; future access must recheck membership.
-    if((await authorized())?.parentId!==first.parentId||localDay(clock())!==day)return no("REFUSED");
+    const finalIdentity=await authorized();
+    if(finalIdentity?.parentId!==first.parentId||finalIdentity.credentialVersion!==first.credentialVersion||localDay(clock())!==day)return no("REFUSED");
     if(needsMembership&&!await eligible(studentId,first.parentId))return no("MEMBERSHIP_REQUIRED");
     if(action==="redeem"&&result.ok&&clock()>=s.code.expiresAt)return no("CODE_EXPIRED");
     if(action==="issue"&&clock()>=s.code.expiresAt)return no("REFUSED");
+    verifyAudit(s,clock());
     const next=encode(s,newId),won=old?await db.replaceIfVersion(ATTENDANCE_COLLECTION,id,old.stateVersion,next):await db.insert(ATTENDANCE_COLLECTION,id,next);
     if(won!==true)continue;
     const saved=await db.get(ATTENDANCE_COLLECTION,id);
