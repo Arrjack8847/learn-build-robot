@@ -12,7 +12,9 @@ export function createStudentAuthHttp({resolveContext}){
  if(env.VERCEL_ENV!=="preview"||env.VERCEL_TARGET_ENV==="production")return json(404,{ok:false,status:"PREVIEW_ONLY"});
  const origin=env.VERCEL_URL?"https://"+env.VERCEL_URL:"";
  if(request.method!=="POST"||!origin||new URL(request.url).origin!==origin||request.headers.get("origin")!==origin||request.headers.get("sec-fetch-site")!=="same-origin"||request.headers.get("x-stem-student-auth")!=="1")return fail(403);
- const action=new URL(request.url).pathname.split("/").at(-1);
+ const path=new URL(request.url).pathname,prefix="/api/dev/student-auth/";
+ if(!path.startsWith(prefix))return fail(404);
+ const action=path.slice(prefix.length);
  if(!["request","verify","list","enroll","enrollment-status","sign-in","status","logout"].includes(action??""))return fail(404);
  // Deliberately disabled until dev schema, proof adapter and preview-only secret are verified.
  if(env.STUDENT_AUTH_ENABLED!=="true")return json(503,{ok:false,status:"CONFIGURATION_REQUIRED"});
@@ -25,7 +27,7 @@ export function createStudentAuthHttp({resolveContext}){
   if(action==="list"){const identity=await proof(v);if(!identity)return fail();const r=await familyFor(identity.parentId).handle("internal","family-status");if(!r.ok||r.status!=="FAMILY_READY")return fail();return json(200,{ok:true,status:"SELECT_STUDENT",students:r.children.map((x)=>({id:x.id,name:x.name}))});}
   if(!request.headers.get("content-type")?.startsWith("application/json")||!request.body)return fail(400);
   const reader=request.body.getReader(),decoder=new TextDecoder("utf-8",{fatal:true});let bytes=0,raw="";
-  try{while(true){const r=await reader.read();if(r.done)break;bytes+=r.value.byteLength;if(bytes>512){await reader.cancel();return fail(400);}raw+=decoder.decode(r.value,{stream:true});}raw+=decoder.decode();}finally{reader.releaseLock();}
+  try{while(true){const r=await reader.read();if(r.done)break;bytes+=r.value.byteLength;if(bytes>512){await reader.cancel();return fail(400);}raw+=decoder.decode(r.value,{stream:true});}raw+=decoder.decode();}catch{return fail(400);}finally{reader.releaseLock();}
   let body;try{body=JSON.parse(raw);}catch{return fail(400);}
   if(action==="request"||action==="verify"){
    if(!exact(body,action==="request"?["email"]:["email","code"])||typeof body.email!=="string")return fail(400);
