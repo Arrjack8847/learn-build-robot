@@ -1,0 +1,36 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {webcrypto} from "node:crypto";
+import {readFileSync} from "node:fs";
+import {createJ4BrowserExercise} from "../scripts/staff/j4-browser-exercise.mjs";
+test("J4 opens directly without passwords; simulated roles, check-in and audit are isolated per browser exercise",async()=>{
+ const e=createJ4BrowserExercise({random:webcrypto,now:()=>Date.parse("2026-11-26T12:00:00+08:00")});
+ const call=e.call;
+ assert.equal((await call("session")).actor.role,"admin");
+ assert.equal((await call("sign-in",{username:"x",password:"x"})).status,"NOT_FOUND");
+ assert.equal((await call("overview")).metrics.students,7);
+ assert.equal((await call("list",{resource:"payments"})).rows.length,5);
+ assert.equal((await call("choose-fixture-role",{staffId:"qa-j4-staff-3"})).actor.role,"finance");
+ assert.equal((await call("list",{resource:"students"})).ok,false);
+ assert.equal((await call("simulated-report",{month:"2026-11"})).report.fixture,true);
+ assert.equal((await call("choose-fixture-role",{staffId:"qa-j4-staff-2"})).actor.role,"staff");
+ assert.equal((await call("list",{resource:"payments"})).ok,false);
+ const code=await call("check-in-code",{action:"issue-code",bookingId:"qa-j4-booking-5"});assert.equal(code.ok,true);
+ assert.equal((await call("check-in-code",{action:"validate-code",bookingId:"qa-j4-booking-5",code:code.code})).ok,true);
+ assert.equal((await call("check-in-code",{action:"validate-code",bookingId:"qa-j4-booking-5",code:code.code})).ok,false);
+ assert.equal((await call("choose-fixture-role",{staffId:"qa-j4-staff-1"})).actor.role,"admin");
+ assert.equal((await call("list",{resource:"audit"})).rows.filter(x=>x.action==="validate-code").length,1);
+ const fresh=createJ4BrowserExercise({random:webcrypto,now:()=>Date.parse("2026-11-26T12:00:00+08:00")});
+ assert.equal((await fresh.call("list",{resource:"attendance",query:{filters:{studentId:"qa-j4-student-5"}}})).rows[0].status,"booked");
+ assert.equal((await fresh.call("list",{resource:"audit"})).rows.length,0);
+});
+test("J4 deployment boundary: no mounted password or anonymous Wix endpoint, no production exercise",()=>{
+ const server=readFileSync(new URL("../src/server.ts",import.meta.url),"utf8");
+ const route=readFileSync(new URL("../src/routes/staff.admin.tsx",import.meta.url),"utf8");
+ const config=readFileSync(new URL("../vite.config.ts",import.meta.url),"utf8");
+ assert.doesNotMatch(server,/import \{ handleJ4Private \}/);
+ assert.match(server,/staff-private\/.*status:404/);
+ assert.doesNotMatch(route,/autoComplete="current-password"|api\("sign-in"|fetch\("\/api\/dev\/staff-private/);
+ assert.match(route,/if\(!__J4_FIXTURE_PREVIEW__\)/);
+ assert.match(config,/VERCEL_ENV === "preview".*VERCEL_GIT_COMMIT_REF === "feat\/j4-private-staff-admin-20261126"/);
+});
