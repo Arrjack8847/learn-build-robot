@@ -7,7 +7,7 @@ const endpoint="https://designerbestemread.wixstudio.com/my-site-1/_functions/hi
 const required=["payment_request.completed","payment_request.failed","charge.created","charge.updated","charge.failed","recurring_billing.method_attached","recurring_billing.method_detached","recurring_billing.subscription_updated"];
 const emit=(stage,result)=>console.log(tag+" "+stage+" "+JSON.stringify(result));
 async function main(){
- if(e.VERCEL_ENV!=="preview"||e.VERCEL_TARGET_ENV==="production"||e.VERCEL_GIT_COMMIT_REF!=="feat/j3-sandbox-payment-20261126"||e.VERCEL_GIT_COMMIT_MESSAGE!=="J3: verify sandbox plan and webhook using Wix-managed credentials")return;
+ if(e.VERCEL_ENV!=="preview"||e.VERCEL_TARGET_ENV==="production"||e.VERCEL_GIT_COMMIT_REF!=="feat/j3-sandbox-payment-20261126"||e.VERCEL_GIT_COMMIT_MESSAGE!=="J3: revalidate rotated Wix managed sandbox credentials")return;
  if(e.WIX_DEV_SITE_ID!==site||!e.WIX_DEV_DATA_API_KEY?.trim()||e.HITPAY_API_URL!==origin||e.HITPAY_PLAN_ID!==planId||e.HITPAY_CURRENCY!=="MYR"||e.HITPAY_SANDBOX_PAYMENT_METHOD!=="touch_n_go"){emit("scope",{ok:false});return}
  const getSecret=async name=>{try{const r=await fetch("https://www.wixapis.com/_api/cloud-secrets-vault-server/api/v1/secrets/name/"+name,{method:"GET",headers:{Authorization:e.WIX_DEV_DATA_API_KEY,"wix-site-id":site,Accept:"application/json"},redirect:"error",cache:"no-store",signal:AbortSignal.timeout(10000)});emit("vault_"+name,{http:r.status});if(!r.ok)return null;const v=(await r.json()).value;return typeof v==="string"&&v.trim()?v:null;}catch{emit("vault_"+name,{unavailable:true});return null}};
  const key=await getSecret("HITPAY_SANDBOX_API_KEY");

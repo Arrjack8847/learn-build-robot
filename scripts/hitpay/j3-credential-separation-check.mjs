@@ -3,7 +3,7 @@ import {createHash,timingSafeEqual} from "node:crypto";
 const e=process.env,site="09d613aa-3a95-42ff-9ee3-2aa0c706c447";
 const emit=status=>console.log("[J3 credential separation] "+JSON.stringify({status}));
 async function main(){
- if(e.VERCEL_ENV!=="preview"||e.VERCEL_TARGET_ENV==="production"||e.VERCEL_GIT_COMMIT_REF!=="feat/j3-sandbox-payment-20261126"||e.VERCEL_GIT_COMMIT_MESSAGE!=="J3: privately compare Wix sandbox key with legacy preview credential")return;
+ if(e.VERCEL_ENV!=="preview"||e.VERCEL_TARGET_ENV==="production"||e.VERCEL_GIT_COMMIT_REF!=="feat/j3-sandbox-payment-20261126"||e.VERCEL_GIT_COMMIT_MESSAGE!=="J3: revalidate rotated Wix managed sandbox credentials")return;
  if(e.WIX_DEV_SITE_ID!==site||!e.WIX_DEV_DATA_API_KEY?.trim()||e.HITPAY_API_URL!=="https://api.sandbox.hit-pay.com"){emit("scope_unconfirmed");return;}
  if(!e.HITPAY_API_KEY?.trim()){emit("legacy_not_available");return;}
  try{
