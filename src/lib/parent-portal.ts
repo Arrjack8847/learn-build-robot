@@ -13,6 +13,8 @@ export const errorMessage=(status:string)=>({
  HOURLY_LIMIT:"Too many code requests. Try again later.",
  INVALID_OR_EXPIRED:"Incorrect, expired or already used code.",
  INVALID_INPUT:"Check the information you entered.",
+ INVALID_NAME:"Enter a name of 1–48 characters using letters, spaces, apostrophes, periods or hyphens.",
+ INVALID_BIRTH_YEAR:"Enter a valid birth year (1900 to the current year).",
  DELIVERY_UNCONFIRMED:"Email delivery could not be confirmed. Please wait before retrying.",
  NOT_AUTHORIZED:"Your session has ended. Please sign in again.",
  CONSENT_REQUIRED:"Please accept the test privacy notice.",
