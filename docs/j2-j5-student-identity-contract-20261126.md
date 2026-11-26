@@ -15,3 +15,5 @@ Fixture tests: sibling isolation, payer ownership, single-use proof, role bounda
 
 ## HTTP/UI increment
 Added private-preview student-auth endpoints and normal /auth/ student email/PIN UI. Original Wix sign-in remains explicitly available via legacy=1 for J5 regression compatibility. Student sign-in remains disabled unless STUDENT_AUTH_ENABLED=true after verified dev-only schema and secret. Proof uses separate OTP identity namespace and five-minute cookie; proof is consumed with CAS; student login revokes any existing payer session on the browser. Payer enrollment requires a verified session created within ten minutes. Enrollment UI, proof-specific rate limiting, staff recovery and actual Wix verification remain pending. No J5 learning access enabled.
+
+Parent registration now includes selected-student PIN enrollment with confirmation; pending security review, actual dev schema and live verification. Automatic Git deployments disabled on J2 branch only. Do not deploy until J2 implementation is ready. Other journey deployment settings unchanged.
