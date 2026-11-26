@@ -17,7 +17,7 @@ async function run(db,crypto,namespace){
  for(let i=0;i<4;i++)assert.equal((await a.verifyCode(wrong)).status,"INVALID_OR_EXPIRED");
  assert.equal((await a.verifyCode(wrong)).status,"LOCKED");assert.equal((await a.verifyCode(original)).status,"LOCKED");assert.equal((await a.requestCode()).status,"LOCKED");console.log("[J2 QA] PASS five attempts and resend lock");
  now+=900001;
- const at=await login(a,aEmail),bt=await login(b,bEmail);
+ let at=await login(a,aEmail);const bt=await login(b,bEmail);
  const family=createFamilyPreview({db,crypto,clock,resolveSession:async token=>await a.resolveIdentity(token)??await b.resolveIdentity(token)});
  const call=(token,action,input)=>family.handle(token,action,input);
  assert.equal((await call("", "family-status")).status,"NOT_AUTHORIZED");
@@ -37,12 +37,21 @@ async function run(db,crypto,namespace){
  assert.equal((await call(at,"family-child-edit",{childId:ca.child.id,name:"Test Stale",birthYear:2020,version:ca.child.version})).status,"EDIT_CONFLICT");
  assert.equal((await call(bt,"family-child-get",{childId:cb.child.id})).child.name,"Test Child B");
  console.log("[J2 QA] PASS consent, persistent profiles, retry, isolation and conditional edit");
+ const originalIdentity=await a.resolveIdentity(at),parentId="qa-j2-"+originalIdentity.accountId;
+ const beforeParent=await db.get("Parents",parentId),beforeConsent=await db.get("PrivacyConsents",parentId+"-consent");
+ await a.logout(at);const old=at;now+=61000;at=await login(a,aEmail);
+ assert.notEqual(at,old);assert.equal(await a.resolveIdentity(old),null);assert.deepEqual(await a.resolveIdentity(at),originalIdentity);
+ assert.equal((await call(at,"family-status")).children[0].id,ca.child.id);
+ assert.equal((await call(at,"family-consent",{accepted:true,noticeVersion:NOTICE_VERSION})).status,"CONSENT_RECORDED");
+ assert.deepEqual(await db.get("Parents",parentId),beforeParent);assert.deepEqual(await db.get("PrivacyConsents",parentId+"-consent"),beforeConsent);
+ assert.equal((await call(at,"family-status")).children.length,1);
+ console.log("[J2 QA] PASS returning parent, same identity, no duplicate account or consent, original child retained");
  await a.logout(at);assert.equal((await call(at,"family-status")).status,"NOT_AUTHORIZED");now+=43200001;assert.equal((await call(bt,"family-status")).status,"NOT_AUTHORIZED");console.log("[J2 QA] PASS logout and expiry");
 }
 const mem=new Map(),clone=x=>structuredClone(x),key=(c,i)=>c+":"+i;
 const db={get:async(c,i)=>clone(mem.get(key(c,i))??null),insert:async(c,i,v)=>{if(mem.has(key(c,i)))return false;mem.set(key(c,i),clone(v));return true;},replaceIfVersion:async(c,i,version,v)=>{if(mem.get(key(c,i))?.stateVersion!==version)return false;mem.set(key(c,i),clone(v));return true;},listFixtureChildren:async p=>[...mem].filter(([k,v])=>k.startsWith("Children:")&&v.parentId===p).map(([k,v])=>clone(v))};
 await run(db,createAuthCrypto({VERCEL_ENV:"preview",PARENT_AUTH_SECRET:randomBytes(32).toString("hex")}),"memory");
-if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_COMMIT_REF==="feat/wix-lms-integration-20261125"&&e.VERCEL_GIT_COMMIT_MESSAGE==="J2: connect isolated parent consent and child profiles to secure Wix sessions"){
+if(e.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_COMMIT_REF==="feat/wix-lms-integration-20261125"&&e.VERCEL_GIT_COMMIT_MESSAGE==="J2: verify returning parent identity and registration idempotency in Wix"){
  if(!e.VERCEL_URL||!e.VERCEL_GIT_COMMIT_SHA)throw Error("PREVIEW_ID_REQUIRED");
  const ns=createHash("sha256").update(e.VERCEL_URL+":"+e.VERCEL_GIT_COMMIT_SHA).digest("hex").slice(0,20);
  await run(createWixStore(e),createAuthCrypto(e),ns);
