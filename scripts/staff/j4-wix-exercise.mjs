@@ -42,11 +42,14 @@ export function createJ4WixExercise({store,clock}){
   if(action==="staff-status")return service.manageStaff(null,input);
   if(action==="check-in-code")return service.checkInCode(null,input);
   const fresh=await store.readStrong();
-  const again=await service.resolve(null);if(!again||again.role!==actor.role)return {ok:false,status:"FIXTURE_ROLE_UNAVAILABLE"};
+  const current=fresh?.staff.find(s=>s.staffId===simulatedId);
+  if(!current||current.accountStatus!=="active"||current.role!==actor.role)return {ok:false,status:"FIXTURE_ROLE_UNAVAILABLE"};
+  // All resource reads in this response use one immutable, strongly read version.
+  const fixedActor={...actor,expiresAt:clock.now()+60000};
   if(action==="overview")return {ok:true,status:"READY",metrics:calculateFixtureOverview(fresh,actor.role,clock.localDay()),fixture:true,storage:"wix-fixture"};
   if(action==="simulated-report")return ["admin","finance"].includes(actor.role)?createJ4SimulatedReport(fresh,input.month):{ok:false,status:"REFUSED"};
-  const read=createStaffReadService({identity:{resolveStaff:()=>service.resolve(null)},store:createFixtureReadStore(fresh,clock.now()),clock});
-  if(action==="list")return read.list(null,input.resource,input.query??{});
+  const read=createStaffReadService({identity:{resolveStaff:async()=>fixedActor},store:createFixtureReadStore(fresh,clock.now()),clock});
+  if(action==="list"){const result=await read.list(null,input.resource,input.query??{});return {...result};}
   if(action==="student")return read.student(null,input.studentId);
   if(action==="student-profile"){
    const student=await read.student(null,input.studentId);if(!student.ok)return student;

@@ -1,6 +1,6 @@
 import {createJ4WixStore} from "./j4-wix-store.mjs";
 import {fixtureEnabled,fixtureStoreEnv,createJ4WixExercise} from "./j4-wix-exercise.mjs";
-const actions=new Set(["session","choose-fixture-role","overview","list","student","student-profile","attendance","staff-status","check-in-code","simulated-report"]);
+const fields={session:[], "choose-fixture-role":["staffId"],overview:[],list:["resource","query"],student:["studentId"],"student-profile":["studentId"],attendance:["action","bookingId","requestId","reason"],"staff-status":["staffId","accountStatus","reason","role"],"check-in-code":["action","bookingId","code","requestId","reason"],"simulated-report":["month"]};
 const reply=(status,data)=>new Response(JSON.stringify(data),{status,headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store","X-Content-Type-Options":"nosniff","X-Robots-Tag":"noindex, nofollow"}});
 async function readBody(request){
  if(request.headers.get("content-type")?.split(";")[0].trim().toLowerCase()!=="application/json"||!request.body)throw Error("INVALID_INPUT");
@@ -20,8 +20,8 @@ export function createJ4FixtureHttp({makeStore=createJ4WixStore,makeClock=()=>({
   const url=new URL(request.url),origin="https://"+env.VERCEL_URL;
   if(!env.VERCEL_URL||url.origin!==origin||request.headers.get("origin")!==origin||request.headers.get("sec-fetch-site")!=="same-origin"||request.headers.get("x-stem-j4-fixture")!=="1")return reply(403,{ok:false,status:"REFUSED"});
   const match=/^\/api\/dev\/j4-fixture\/([a-z-]+)$/.exec(url.pathname);
-  if(!match||!actions.has(match[1]))return reply(404,{ok:false,status:"NOT_FOUND"});
-  let body;try{body=await readBody(request);}catch{return reply(400,{ok:false,status:"INVALID_INPUT"});}
+  if(!match||!Object.hasOwn(fields,match[1]))return reply(404,{ok:false,status:"NOT_FOUND"});
+  let body;try{body=await readBody(request);if(Object.keys(body.input).some(k=>!fields[match[1]].includes(k)))throw Error("INVALID_INPUT");if(match[1]==="choose-fixture-role"&&body.input.staffId!==body.simulatedStaffId)throw Error("INVALID_INPUT");}catch{return reply(400,{ok:false,status:"INVALID_INPUT"});}
   // Only simulation actor IDs are accepted; no account credentials, arbitrary collection/ID or raw writes.
   try{
    const run=createJ4WixExercise({store:makeStore(fixtureStoreEnv(env)),clock:makeClock()});
