@@ -27,3 +27,31 @@ test("private validator and root preconnect transform remove legacy origin",()=>
  const p=plugin.transform('links: [\n { rel: "preconnect", href: "https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com", crossOrigin: "anonymous" },\n]',"/repo/src/routes/__root.tsx");
  assert.doesNotMatch(p.code,/usrfiles/);
 });
+
+test("private build rewrites Final Build JSON evidence without changing hashes",()=>{
+ const plugin=j5PrivatePdfPlugin(),d=manifest.documents[0],siteId="fe3fa828-9f74-45e8-97f7-8d00cbb7fba0";
+ const original={wixSiteId:siteId,source:{url:d.legacyUrl,sha256:"a".repeat(64)},wix:{siteId}};
+ const r=plugin.transform(JSON.stringify(original),"/repo/src/data/finalBuild/level-3-owner-authorized.json");
+ const result=JSON.parse(r.code);
+ assert.equal(result.source.url,"/api/dev/j5/pdf/"+d.id);
+ assert.equal(result.source.sha256,original.source.sha256);
+ assert.equal(result.wixSiteId,"legacy-source-site-01");
+ assert.equal(result.wix.siteId,result.wixSiteId);
+ assert.doesNotMatch(r.code,/usrfiles|fe3fa828/i);
+});
+test("Final Build URL checks become exact private ID checks; viewers use same-origin ranges",()=>{
+ const plugin=j5PrivatePdfPlugin();
+ const source=String.raw`if (!/^https:\/\/[^/]+\.usrfiles\.com\/.+\.pdf(?:\?|$)/i.test(url)) return null;`;
+ const result=plugin.transform(source,"/repo/src/data/finalBuildRegistry.ts");
+ assert.equal(result.code,String.raw`if (!/^\/api\/dev\/j5\/pdf\/pdf-\d{4}$/.test(url)) return null;`);
+ for(const file of ["PdfActivityViewer","LevelOneLearningStudio","FinalBuildPrototype"]){
+  const r=plugin.transform('url.includes(".usrfiles.com/")',"/repo/src/components/practical/"+file+".tsx");
+  assert.equal(r.code,'url.startsWith("/api/dev/j5/pdf/")');
+ }
+});
+test("unknown JSON and residual origin fail closed",()=>{
+ const plugin=j5PrivatePdfPlugin();
+ assert.throws(()=>plugin.transform('{"url":"https://fe3fa828-9f74-45e8-97f7-8d00cbb7fba0.usrfiles.com/ugd/unknown.pdf"}',"/repo/src/data/finalBuild/example.json"),/Unclassified/);
+ assert.throws(()=>plugin.transform('const url="https://other.usrfiles.com/a.pdf"','/repo/src/data/unknown.ts'),/Unresolved/);
+ assert.equal(plugin.transform('const value=1','/repo/src/data/normal.ts'),null);
+});

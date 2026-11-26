@@ -12,16 +12,37 @@ export function createPdfRewriter(documents){
   return source.replace(origin,url=>{const replacement=urls.get(url);if(!replacement)throw Error("Unclassified legacy PDF origin in private build");return replacement;});
  };
 }
+// Private artifact uses a stable source-site alias for provenance equality only.
+// Never grants access or changes original source/evidence records.
+const sourceSite="fe3fa828-9f74-45e8-97f7-8d00cbb7fba0";
+const privateSourceSite="legacy-source-site-01";
+const privatePathPattern=String.raw`/^\/api\/dev\/j5\/pdf\/pdf-\d{4}$/`;
+const legacyChecks=[
+ String.raw`/^https:\/\/[^/]+\.usrfiles\.com\/.+\.pdf(?:\?|$)/i`,
+ String.raw`/^https:\/\/[^/]+\.usrfiles\.com\/.+\.pdf$/i`,
+ String.raw`/^https:\/\/[^/]+\.usrfiles\.com\/ugd\/.+\.pdf$/i`
+];
+const finalBuildCode=/\/src\/data\/finalBuild(?:Registry|Verified|Level[236]Verified)\.ts$/;
+const finalBuildJson=/\/src\/data\/finalBuild\/[^/]+\.json$/;
+const pdfViewer=/\/src\/components\/practical\/(?:PdfActivityViewer|LevelOneLearningStudio|FinalBuildPrototype)\.tsx$/;
+export function transformPrivatePdfModule(code,id,rewrite){
+ const path=id.split("?")[0].replace(/\\/g,"/");
+ const json=finalBuildJson.test(path);
+ if((!json&&!/\/src\/.*\.[cm]?[jt]sx?$/.test(path))||path.includes("/node_modules/"))return null;
+ if(path.endsWith("/src/data/requireWixPdfUrl.ts"))return {code:'export function requireWixPdfUrl(path: string, value: string | undefined): string { if (typeof value !== "string" || !/^\\/api\\/dev\\/j5\\/pdf\\/pdf-\\d{4}$/.test(value)) throw new Error("Missing private PDF mapping: " + path); return value; }',map:null};
+ let next=rewrite(code);
+ if(path.endsWith("/src/routes/__root.tsx"))next=next.replace(/^\s*\{\s*rel:\s*"preconnect",\s*href:\s*"https:\/\/fe3fa828-9f74-45e8-97f7-8d00cbb7fba0\.usrfiles\.com",\s*crossOrigin:\s*"anonymous"\s*\},\s*$/m,"");
+ if(finalBuildCode.test(path)){
+  for(const legacy of legacyChecks)next=next.replaceAll(legacy,privatePathPattern);
+ }
+ if(finalBuildCode.test(path)||json)next=next.replaceAll('"'+sourceSite+'"','"'+privateSourceSite+'"');
+ if(pdfViewer.test(path))next=next.replaceAll('.includes(".usrfiles.com/")','.startsWith("/api/dev/j5/pdf/")');
+ // Do not silently strip an unknown origin or approve an unclassified file.
+ if(/usrfiles(?:\\u002e|\\x2e|\\\.|\.)com|fe3fa828-9f74-45e8-97f7-8d00cbb7fba0/i.test(next))throw Error("Unresolved legacy source reference in private build: "+path);
+ return next===code?null:{code:next,map:null};
+}
 export function j5PrivatePdfPlugin(){
  const manifest=JSON.parse(readFileSync(new URL("./pdf-migration-inventory.json",import.meta.url),"utf8"));
  const rewrite=createPdfRewriter(manifest.documents);
- return {name:"j5-private-pdf-rewrite",enforce:"pre",transform(code,id){
-  const path=id.split("?")[0].replace(/\\/g,"/");
-  if(!/\/src\/.*\.[cm]?[jt]sx?$/.test(path)||path.includes("/node_modules/"))return null;
-  if(path.endsWith("/src/data/requireWixPdfUrl.ts"))return {code:'export function requireWixPdfUrl(path: string, value: string | undefined): string { if (typeof value !== "string" || !/^\\/api\\/dev\\/j5\\/pdf\\/pdf-\\d{4}$/.test(value)) throw new Error("Missing private PDF mapping: " + path); return value; }',map:null};
-  let next=rewrite(code);
-  if(path.endsWith("/src/routes/__root.tsx"))next=next.replace(/^\s*\{\s*rel:\s*"preconnect",\s*href:\s*"https:\/\/fe3fa828-9f74-45e8-97f7-8d00cbb7fba0\.usrfiles\.com",\s*crossOrigin:\s*"anonymous"\s*\},\s*$/m,"");
-  if(path.endsWith("/src/components/practical/PdfActivityViewer.tsx"))next=next.replaceAll('manual.url.includes(".usrfiles.com/")','false');
-  return next===code?null:{code:next,map:null};
- }};
+ return {name:"j5-private-pdf-rewrite",enforce:"pre",transform(code,id){return transformPrivatePdfModule(code,id,rewrite);}};
 }
