@@ -19,3 +19,6 @@ test('missing salt and malformed body fail closed',async()=>{const f=fixture();a
 test('unknown event ignored',async()=>{const f=fixture();assert.equal(await f.run({objectHint:'payout'}),200);assert.equal(f.inbox.size,0)});
 test('unconfirmed persistence retriable',async()=>{const f=fixture();assert.equal(await f.run({insertOnce:async()=>false}),503)});
 test('oversized request refused',async()=>{const f=fixture();assert.equal(await f.run({raw:Buffer.alloc(262145)}),413)});
+
+for(const typeHint of ['completed','failed'])test('signed payment request '+typeHint+' with exact merchant is pending only',async()=>{const f=fixture();assert.equal(await f.run({objectHint:'payment_request',typeHint}),200);assert.equal([...f.inbox.values()][0].processingStatus,'pending');});
+test('payment request without merchant remains rejected pending authenticated provider lookup support',async()=>{const f=fixture();const b=Buffer.from(JSON.stringify({id:'fixture-request'}));assert.equal(await f.run({raw:b,signature:sign(b),objectHint:'payment_request',typeHint:'completed'}),401);assert.equal(f.inbox.size,0)});

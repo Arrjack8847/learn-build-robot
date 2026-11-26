@@ -1,6 +1,6 @@
 // Sandbox inbox only. Event headers are untrusted routing hints, not payment proof.
 import crypto from 'crypto';
-const allowed = new Set(['charge.created','charge.updated','charge.failed','recurring_billing.subscription_updated','recurring_billing.method_attached','recurring_billing.method_detached']);
+const allowed = new Set(['payment_request.completed','payment_request.failed','charge.created','charge.updated','charge.failed','recurring_billing.subscription_updated','recurring_billing.method_attached','recurring_billing.method_detached']);
 const merchant = 'a34ebd5e-6bd2-4c62-a13d-b19f58f68fd7';
 const LIMIT = 262144;
 const id = v => typeof v === 'string' && /^[a-zA-Z0-9_-]{1,128}$/.test(v);

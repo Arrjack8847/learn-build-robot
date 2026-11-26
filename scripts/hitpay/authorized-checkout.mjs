@@ -1,9 +1,9 @@
-// Isolated J3 SGD authorization coordinator. No HTTP mount; no real identity or store adapter.
+// Isolated J3 sandbox authorization coordinator. No HTTP mount; no real identity or store adapter.
 export function createAuthorizedCheckout({config, identity, store, transport, isAllowedCheckoutUrl}) {
   const fail = error => ({ok:false,error});
   const id = x => typeof x === "string" && /^[A-Za-z0-9_-]{1,128}$/.test(x);
   const money = x => Number.isSafeInteger(x) && x > 0;
-  if (config?.environment !== "sandbox" || config.currency !== "SGD" || !money(config.membershipMinor) || !money(config.depositMinor) || !id(config.planId)) throw Error("SANDBOX_CONFIG_REQUIRED");
+  if (config?.environment !== "sandbox" || !["MYR","SGD"].includes(config.currency) || !money(config.membershipMinor) || !money(config.depositMinor) || !id(config.planId)) throw Error("SANDBOX_CONFIG_REQUIRED");
   return async function checkout(context,input) {
     if (!input || typeof input !== "object" || Array.isArray(input)) return fail("INVALID_INPUT");
     const kind=input.kind;

@@ -3,7 +3,7 @@ export function validateVerifiedMembershipPayment({config,merchantId,event,reser
   const fail=error=>({ok:false,error});
   const id=x=>typeof x==="string"&&/^[A-Za-z0-9_-]{1,128}$/.test(x);
   const stamp=x=>Number.isSafeInteger(x)&&x>0;
-  if(config?.environment!=="sandbox"||config.currency!=="SGD"||!Number.isSafeInteger(config.membershipMinor)||config.membershipMinor<=0||!id(config.planId)||!id(merchantId))return fail("INVALID_CONFIG");
+  if(config?.environment!=="sandbox"||!["MYR","SGD"].includes(config.currency)||!Number.isSafeInteger(config.membershipMinor)||config.membershipMinor<=0||!id(config.planId)||!id(merchantId))return fail("INVALID_CONFIG");
   const r=reservation;
   if(!r||r.environment!=="sandbox"||r.kind!=="membership"||r.status!=="bound"||r.currency!==config.currency||r.amountMinor!==config.membershipMinor||r.planId!==config.planId||![r.attemptId,r.reference,r.parentId,r.childId,r.providerId].every(id))return fail("INVALID_MEMBERSHIP_BINDING");
   const e=event;
