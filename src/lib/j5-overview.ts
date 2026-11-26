@@ -33,14 +33,16 @@ export function useJ5Overview(enabled:boolean){
   if(!enabled)return;
   const detach=attachJ5SessionSignals();
   const unsubscribe=j5Session.subscribe(({blocked})=>{setState({kind:blocked?"unauthorized":"loading"});reload(v=>v+1);});
-  const timer=window.setInterval(()=>{if(document.visibilityState==="visible"&&!j5Session.isBlocked())j5Session.invalidate();},30000);
+  // Poll only this read model; do not clear an in-progress check-in form or abort writes.
+  const timer=window.setInterval(()=>{if(document.visibilityState==="visible"&&!j5Session.isBlocked())reload(v=>v+1);},30000);
   return()=>{detach();unsubscribe();window.clearInterval(timer);};
  },[enabled]);
  useEffect(()=>{
   if(!enabled)return;
   if(j5Session.isBlocked()){setState({kind:"unauthorized"});return;}
   if(document.visibilityState!=="visible"){setState({kind:"loading"});return;}
-  const ticket=j5Session.begin();setState({kind:"loading"});
+  const ticket=j5Session.begin();
+  const timeout=window.setTimeout(()=>{if(ticket.current()){setState({kind:"unavailable"});ticket.cancel();}},5000);
   const load=async()=>{
    try{
     const response=await fetch("/api/dev/j5/overview",{credentials:"same-origin",cache:"no-store",redirect:"error",signal:ticket.signal});
@@ -50,10 +52,10 @@ export function useJ5Overview(enabled:boolean){
     const data=overview.parse(await response.json());
     if(ticket.current())setState({kind:"ready",data});
    }catch{if(ticket.current())setState({kind:"unavailable"});}
-   finally{ticket.finish();}
+   finally{window.clearTimeout(timeout);ticket.finish();}
   };
   void load();
-  return()=>ticket.cancel();
+  return()=>{window.clearTimeout(timeout);ticket.cancel();};
  },[enabled,version]);
  useEffect(()=>{
   if(!enabled||state.kind!=="ready")return;

@@ -5,6 +5,7 @@ import { allLessons, theoryModules } from "@/data/theory";
 import { practicalProjects } from "@/data/practical";
 import type { PracticalGrade, QuizAttempt, StudentProgress } from "@/types/learning";
 
+const PRIVATE_J5 = import.meta.env["VITE_J5_PRIVATE_UI"] === "true";
 const STORAGE_KEY = "robolearn.progress.v1";
 const validLessonIds = new Set(allLessons.map((lesson) => lesson.id));
 const validModuleIds = new Set(theoryModules.map((module) => module.id));
@@ -169,12 +170,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    setProgress(readStored());
+    // Legacy shared-browser data is never loaded into a private student session.
+    setProgress(PRIVATE_J5 ? emptyProgress : readStored());
     setHydrated(true);
   }, []);
 
   useEffect(() => {
-    if (!hydrated) return;
+    if (!hydrated || PRIVATE_J5) return;
     try {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
     } catch {
@@ -182,8 +184,11 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     }
   }, [progress, hydrated]);
 
+  // Private pages may retain temporary component state, but this legacy store
+  // may not be used to grant or present student completion.
   const toggleInList = useCallback(
     (key: "completedLessonIds" | "completedStepIds", id: string, value?: boolean) => {
+      if (PRIVATE_J5) return;
       setProgress((prev) => {
         const has = prev[key].includes(id);
         const next = value ?? !has;
@@ -233,11 +238,11 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       progress,
       hydrated,
       setStudentName: (name) =>
-        setProgress((prev) => ({ ...prev, studentName: name.trim().slice(0, 32) })),
+        !PRIVATE_J5 && setProgress((prev) => ({ ...prev, studentName: name.trim().slice(0, 32) })),
       isLessonCompleted: (id) => progress.completedLessonIds.includes(id),
       toggleLessonCompleted: (id, v) => toggleInList("completedLessonIds", id, v),
       setLastTheoryPage: (moduleId, pageIndex) => {
-        if (!validModuleIds.has(moduleId) || !Number.isInteger(pageIndex) || pageIndex < 0) return;
+        if (PRIVATE_J5 || !validModuleIds.has(moduleId) || !Number.isInteger(pageIndex) || pageIndex < 0) return;
         setProgress((prev) => ({
           ...prev,
           lastTheoryPageByModule: {
@@ -249,9 +254,9 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       isStepCompleted: (id) => progress.completedStepIds.includes(id),
       toggleStepCompleted: (id, v) => toggleInList("completedStepIds", id, v),
       addQuizAttempt: (attempt) =>
-        setProgress((prev) => ({ ...prev, quizAttempts: [attempt, ...prev.quizAttempts].slice(0, 20) })),
+        !PRIVATE_J5 && setProgress((prev) => ({ ...prev, quizAttempts: [attempt, ...prev.quizAttempts].slice(0, 20) })),
       addPracticalGrade: (grade) =>
-        setProgress((prev) => ({
+        !PRIVATE_J5 && setProgress((prev) => ({
           ...prev,
           practicalGrades: [grade, ...prev.practicalGrades].slice(0, 20),
         })),

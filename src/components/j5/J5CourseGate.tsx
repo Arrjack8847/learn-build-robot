@@ -15,13 +15,15 @@ function ProtectedCourse({path,children}:{path:string;children:ReactNode}){
  useEffect(()=>{
   const detach=attachJ5SessionSignals();
   const unsub=j5Session.subscribe(({blocked})=>{setState(blocked?{kind:"denied",code:"STUDENT_AUTH_REQUIRED"}:{kind:"loading"});refresh(v=>v+1);});
-  const poll=window.setInterval(()=>{if(document.visibilityState==="visible")j5Session.invalidate();},15000);
+  // Routine revalidation must not abort unrelated requests or unmount a valid lesson.
+  const poll=window.setInterval(()=>{if(document.visibilityState==="visible"&&!j5Session.isBlocked())refresh(v=>v+1);},15000);
   return()=>{detach();unsub();window.clearInterval(poll);};
  },[]);
  useEffect(()=>{
   if(j5Session.isBlocked()){setState({kind:"denied",code:"STUDENT_AUTH_REQUIRED"});return;}
   if(document.visibilityState!=="visible")return;
-  const ticket=j5Session.begin();setState({kind:"loading"});
+  const ticket=j5Session.begin();
+  const timeout=window.setTimeout(()=>{if(ticket.current()){setState({kind:"denied",code:"COURSE_UNAVAILABLE"});ticket.cancel();}},5000);
   void (async()=>{
    try{
     const response=await fetch("/api/dev/j5/course-access?path="+encodeURIComponent(path),{credentials:"same-origin",cache:"no-store",redirect:"error",headers:{"X-STEM-J5":"1"},signal:ticket.signal});
@@ -30,9 +32,9 @@ function ProtectedCourse({path,children}:{path:string;children:ReactNode}){
     if(response.ok&&data?.ok===true&&data.code==="COURSE_AUTHORIZED"&&Number.isSafeInteger(data.validUntil)&&data.validUntil>Date.now()){setState({kind:"allowed",until:data.validUntil});return;}
     setState({kind:"denied",code:response.status===401?"STUDENT_AUTH_REQUIRED":typeof data?.code==="string"?data.code:"COURSE_UNAVAILABLE"});
    }catch{if(ticket.current())setState({kind:"denied",code:"COURSE_UNAVAILABLE"});}
-   finally{ticket.finish();}
+   finally{window.clearTimeout(timeout);ticket.finish();}
   })();
-  return()=>ticket.cancel();
+  return()=>{window.clearTimeout(timeout);ticket.cancel();};
  },[path,version]);
  useEffect(()=>{
   if(state.kind!=="allowed")return;
