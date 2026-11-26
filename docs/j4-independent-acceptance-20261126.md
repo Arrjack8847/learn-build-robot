@@ -14,3 +14,6 @@ The HTTP handler requires exact branch, preview target and explicit J4_PRIVATE_E
 
 ## Evidence and limits
 Earlier 26 regression groups from committed source passed in the JavaScript execution environment, plus five check-in fixture groups. Node HTTP, real crypto and build-gate tests added in this commit; only count them once executed. Wix connector CAS verification is not proof that the deployed Vercel runtime's API key has correct access. Responsive/keyboard/browser acceptance and full login/HTTP/database acceptance remain open. No preview approval requested. Independent completion gate remains open.
+
+## Additional J4-only regression evidence
+The Vercel build for a42ac55 reached READY; its build logs show all nine J4 Node tests passed, including real scrypt hashing and HTTP authorization. Subsequent builds add financially inert simulated no-show/reporting and an HTTP-to-Wix-adapter regression using an injected transport, validating all three roles, fixture ID boundaries, session persistence, code replay, and stale writes. This injected transport is not a live deployed Wix authentication test. No shared credential or other journey has been modified. Dedicated runtime credentials remain absent; no claim of complete acceptance.
