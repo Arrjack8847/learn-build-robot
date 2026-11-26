@@ -12,7 +12,7 @@ function overviewCases(){
  const load=f=>f.svc.load({},env);
  return [
  ["six levels and private projection",async()=>{const r=await load(make());eq(r.ok,true);eq(r.levels.length,6);eq(r.levels[0].available,true);eq(r.levels[1].reason,"level-locked");eq("parentEmail" in r.profile,false);eq("studentId" in r.levels[0],false)}],
- ["membership pending preserves progress",async()=>{let f=make();f.state.m.status="pending";let r=await load(f);eq(r.profile.membership,"pending");eq(r.levels[0].completed,2);eq(r.levels[0].reason,"membership-required")}],
+ ["membership pending preserves progress",async()=>{let f=make();f.state.m.status="pending";f.state.m.eligible=false;let r=await load(f);eq(r.profile.membership,"pending");eq(r.levels[0].completed,2);eq(r.levels[0].reason,"membership-required")}],
  ["membership expiry denies learning",async()=>{let f=make();f.state.m.validUntil=now;let r=await load(f);eq(r.profile.membership,"expired");eq(r.levels[0].available,false)}],
  ["missing check-in",async()=>{let f=make();f.state.c=null;let r=await load(f);eq(r.levels[0].reason,"check-in-required")}],
  ["check-in expiry boundary",async()=>{let f=make();f.state.c.validUntil=now;let r=await load(f);eq(r.profile.checkIn,"expired");eq(r.levels[0].available,false)}],

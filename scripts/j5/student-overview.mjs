@@ -1,3 +1,4 @@
+import {evaluateMembership} from "./membership-policy.mjs";
 // J5 server-only read projection; trusted adapters are injected, no real provider integration.
 export function createStudentOverview({resolveStudent,readProfile,readMembership,readCheckIn,readLevels,clock}){
  const deny=(status,code)=>({ok:false,status,code});
@@ -17,15 +18,9 @@ export function createStudentOverview({resolveStudent,readProfile,readMembership
    const [m,c,levels]=await Promise.all([readMembership(id),readCheckIn(id),readLevels(id)]);
    const now=clock.now();
    if(!time(now))return deny(503,"SERVICE_UNAVAILABLE");
-   let membership="inactive",validUntil=null;
-   if(m!=null){
-    if(!matches(m,id))return deny(503,"MEMBERSHIP_UNAVAILABLE");
-    if(["inactive","pending","failed","expired","renewal-required"].includes(m.status))membership=m.status;
-    else if(m.status==="active"&&time(m.validFrom)&&time(m.validUntil)&&m.validFrom<m.validUntil){
-     membership=now>=m.validUntil?"expired":instant(m,now)&&m.eligible===true?"active":"inactive";
-     if(membership==="active"||membership==="expired")validUntil=m.validUntil;
-    }else return deny(503,"MEMBERSHIP_UNAVAILABLE");
-   }
+   const decision=evaluateMembership(m,id,now);
+   if(decision.status==="unavailable")return deny(503,"MEMBERSHIP_UNAVAILABLE");
+   const membership=decision.status,validUntil=decision.validUntil;
    let checkIn="required",checkInUntil=null;
    if(c!=null){
     if(!matches(c,id))return deny(503,"CHECK_IN_UNAVAILABLE");

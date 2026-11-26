@@ -1,6 +1,7 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft, UserRound, Lock } from "lucide-react";
 import { getLevelTotals } from "@/data/advancedSyllabus";
+import {J5MembershipRestriction} from "@/components/j5/J5MembershipRestriction";
 import { j5PrivateUI,useJ5Overview,levelLabel } from "@/lib/j5-overview";
 
 export const Route = createFileRoute("/practical/levels/")({
@@ -62,6 +63,7 @@ function SyllabusLevelsPage() {
           <h1 className="mt-[clamp(4px,1dvh,14px)] text-[clamp(22px,3.8svh,40px)] font-black leading-tight tracking-tight text-[#21476c]">Choose Your Level</h1>
         </div>
         {j5PrivateUI&&state.kind!=="ready"&&<div className="shrink-0 text-center text-xs text-slate-700" role="status">{state.kind==="loading"?"Checking your levels…":state.kind==="unauthorized"?<a className="font-bold underline" href="/auth/">Sign in to open learning levels</a>:<button className="font-bold underline" type="button" onClick={refresh}>Levels unavailable. Retry</button>}</div>}
+        {j5PrivateUI&&state.kind==="ready"&&<J5MembershipRestriction compact membership={state.data.profile.membership} refresh={refresh}/>}
         <ul aria-label="Choose your syllabus level" className="mx-auto my-auto grid min-h-0 w-full max-w-[900px] flex-1 grid-cols-2 grid-rows-3 gap-[clamp(7px,1.2svh,16px)] py-[clamp(7px,1.2svh,14px)] landscape:grid-cols-3 landscape:grid-rows-2">
           {levels.map((level) => {
             const totals = level.number === 1 ? { categories: 14, entries: 59 } : getLevelTotals(level.number);

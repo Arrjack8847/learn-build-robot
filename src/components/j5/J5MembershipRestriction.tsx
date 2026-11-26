@@ -1,0 +1,7 @@
+import {Lock,RefreshCw} from "lucide-react";
+import {membershipCopy,type J5Overview} from "@/lib/j5-overview";
+export function J5MembershipRestriction({membership,refresh,compact=false}:{membership:J5Overview["profile"]["membership"];refresh:()=>void;compact?:boolean}){
+ if(membership==="active")return null;
+ const copy=membershipCopy[membership];
+ return <section aria-label="Membership restriction" className={compact?"shrink-0 rounded-xl border border-amber-200 bg-white/95 px-2 py-1 text-center text-xs text-slate-800":"rounded-2xl border border-amber-200 bg-amber-50 p-4 text-slate-800"}><div className="flex flex-wrap items-center justify-center gap-2"><Lock aria-hidden="true" className="size-4 shrink-0"/><strong>{copy.title}</strong><button type="button" onClick={refresh} className={compact?"inline-flex min-h-8 items-center gap-1 font-bold underline":"inline-flex min-h-11 items-center gap-1 rounded-xl border border-amber-300 bg-white px-3 font-bold"}><RefreshCw aria-hidden="true" className="size-3"/> Check status</button>{compact&&<a href="/student/dashboard#membership" className="inline-flex min-h-8 items-center font-bold underline">Details</a>}</div>{!compact&&<><p className="mt-2 text-sm">{copy.detail}</p><p className="mt-2 text-sm font-semibold">Learning access is paused. Your existing progress remains visible. Only your parent or guardian can arrange payment.</p></>}</section>;
+}
