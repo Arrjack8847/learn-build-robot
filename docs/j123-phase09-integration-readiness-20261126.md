@@ -1,0 +1,21 @@
+# J123 follow-up — Phase 09 integration-readiness audit
+26 November 2026. The original J123 plan contained eight phases; this follow-up is an audit and handoff, not authorization to merge J4 or J5. Live acceptance was deferred by the user. No runtime changes, payment, email, real data, provider calls, or production changes.
+
+## Pinned evidence
+- J123 d959ec15a0f603c1ed1769fae68f3e084f9c7aa5: prior Phase 08 automated checks (175 integration tests, 20 OTP fixtures, four family groups, nine production endpoint denials, scoped typecheck, full build). Latest observed protected preview dpl_AwpZZ5q323QX8GPACPL4wgvTNCRr READY at earlier 1ddc6f0f6474a42288ea846c29bc955e05b6ad86. Exact latest preview and live acceptance pending.
+- J4 780e69ea383a2c2e9a9fe18730d1dcbbdcfc7660: Phase 9 cleanup committed. Independent acceptance document docs/j4-independent-acceptance-20261126.md records latest native deployed evidence 23/23 tests at 55579b3738b1e6473b48d5878823468ad85a6b3c; Vercel confirms READY at that older revision (dpl_6YvSYTv8UYJjnnYUJd245fn1zj9v). Later checks were source/injected-transport tests, not browser acceptance. Simulated actors and isolated J4PrivateState are not authoritative staff identities or genuine student/payment data.
+- J5 4236258b0dd177fb64d901ca006bc641242cf658: docs/j5-phase9-regression-20261126.md reports 226/226 native tests in supplied Codespaces terminal evidence, but the Nitro build ran out of disk. Latest runner changes not rerun; full private build, inherited type diagnostics, browser checks, private storage and 598-document migration remain pending. No observed J5 Vercel deployment. Do not infer private PDF protection from URL rewrites.
+- Source comparisons against J123 share merge base 0dcd90cd53e08658d7f9f26f3119d95387ac731d. J4 ahead 20 / behind 37, J5 ahead 39 / behind 37. These counts refer to the pinned pre-audit J123 SHA, not future branch heads.
+
+## Integration contract and boundaries
+| Boundary | Authority and future work |
+|---|---|
+| Identity | J2 verified student session and canonical childId are authoritative. Map J4 fixture IDs only via approved test mapping; never map by names, parent email or assume siblings share access. |
+| Membership | J123 verified ledger and readIntegratedMembership are authoritative. J5 normalizeJ3Membership consumes a trusted fresh server projection; map sandbox status explicitly to private-preview and retain exact student identity. Null/unavailable must deny, not become active. J4 reads membership/payment projections; simulated payment never activates membership. |
+| Staff access | Standalone J4 deliberately has no separate login; fixture role selector is not actual authorization. Retain preview protection. Real staff authorization via trusted Wix permissions must be resolved before exposing shared student records. Do not mount legacy staff login or trust a browser role. |
+| Attendance/check-in | J4 currently uses dated isolated fixture bookings. J5 createCheckInBoundary requires trusted atomic redemption, verified student, exact booking, membership recheck, expiry and revocation. Confirm authoritative booking/write contract; no direct copying of fixture codes or learning access. |
+| Shared code | Both branches modify package.json, src/server.ts, vite.config.ts. J5 also changes parent auth files, parent sign-in, shared readiness and deployment settings; selectively reconcile from exact reviewed heads, preserve J123 receipt/payment/OTP guards. Do not overwrite shared files or merge main. |
+| Learning | J5's protected course/PDF gate requires verified individual membership and check-in, authoritative progress and private asset storage. No assumption that earlier Wix URL exposure is closed. |
+
+## Decision
+Audit and dependency mapping complete. No integration approval: independent latest J4 and J5 acceptance gates are outstanding, and J123 provider acceptance remains deferred. Keep all branches independent. When the owner approves integration after readiness gates, use a new integration branch, exact pinned reviewed heads, conflict-by-conflict reconciliation, cross-role fixture tests, production denial checks, full build, private preview and eventual live acceptance. Never enable live payment/receipt flags, migrate real records or deploy production as part of this audit. No claim that full J1–J5 is complete.
