@@ -1,4 +1,5 @@
 import "./lib/error-capture";
+import { handleIntegratedCheckout } from "../scripts/j123/checkout-http.mjs";
 import { handleJ1Readiness } from "../scripts/j1/readiness.mjs";
 import { handleEmailTest } from "./lib/resend-test.server";
 import { handleStudentAuth } from "./lib/student-auth.server";
@@ -59,6 +60,7 @@ export default {
       if (new URL(request.url).pathname.startsWith("/api/dev/student-auth/")) return await handleStudentAuth(request, process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/parent-otp/")) return await handleParentOtpTest(request, process.env);
       if (new URL(request.url).pathname === "/api/dev/hitpay/webhook") return await handleHitPaySandboxWebhook(request, process.env);
+      if (new URL(request.url).pathname === "/api/dev/j123/checkout") return await handleIntegratedCheckout(request,process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/sandbox-checkout/")) return await handleSandboxCheckout(request, process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/staff/")) return await handleStaffDesk(request, process.env);
       const handler = await getServerEntry();

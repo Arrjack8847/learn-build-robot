@@ -11,7 +11,7 @@ export function readCompanyHitPayConfig(env){
  for(const key of REQUIRED_SETTINGS)if(typeof env[key]!=="string"||!env[key].trim()||env[key]!==env[key].trim())throw Error("MISSING_OR_INVALID_"+key);
  const sandbox=env.HITPAY_API_URL==="https://api.sandbox.hit-pay.com",live=env.HITPAY_API_URL==="https://api.hit-pay.com";
  if(!sandbox&&!live)throw Error("INVALID_API_ORIGIN");
- if(sandbox&&env.HITPAY_CURRENCY!=="SGD"||live&&env.HITPAY_CURRENCY!=="MYR")throw Error("CURRENCY_ENVIRONMENT_MISMATCH");
+ if(sandbox&&!["MYR","SGD"].includes(env.HITPAY_CURRENCY)||live&&env.HITPAY_CURRENCY!=="MYR")throw Error("CURRENCY_ENVIRONMENT_MISMATCH");
  if(!/^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$/i.test(env.HITPAY_PLAN_ID))throw Error("INVALID_PLAN_ID");
  return Object.freeze({environment:sandbox?"sandbox":"live",apiUrl:env.HITPAY_API_URL,apiKey:env.HITPAY_API_KEY,webhookSalt:env.HITPAY_SALT,planId:env.HITPAY_PLAN_ID,currency:env.HITPAY_CURRENCY,membershipMinor:minorUnits(env.HITPAY_MEMBERSHIP_AMOUNT),depositMinor:minorUnits(env.HITPAY_DEPOSIT_AMOUNT)});
 }

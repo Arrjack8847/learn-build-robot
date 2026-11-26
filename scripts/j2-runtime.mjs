@@ -9,7 +9,7 @@ import {createStudentAuthCrypto} from "./student-auth/crypto.mjs";
 
 function context(env){
  const open=openPreviewRecipients(env);
- if(open&&(env.VERCEL_GIT_COMMIT_REF!=="integration/j1-j2-20261126"||!validPreviewEmail(env.PARENT_PREVIEW_VERIFIED_SENDER)||env.PARENT_PREVIEW_VERIFIED_SENDER==="onboarding@resend.dev"))throw Error("INTEGRATION_SCOPE_REQUIRED");
+ if(open&&(!["integration/j1-j2-20261126","integration/j1-j2-j3-20261126"].includes(env.VERCEL_GIT_COMMIT_REF)||!validPreviewEmail(env.PARENT_PREVIEW_VERIFIED_SENDER)||env.PARENT_PREVIEW_VERIFIED_SENDER==="onboarding@resend.dev"))throw Error("INTEGRATION_SCOPE_REQUIRED");
  const db=createWixStore(env),auth=createAuthCrypto(env),clock={now:()=>Date.now()},emails=open?[]:previewRecipients(env);
  const mailerFor=email=>createPortalOtpMailer(env,email);
  const reserveEmail=email=>reserveIntegratedEmail({store:db,crypto:auth,clock,email});
@@ -40,3 +40,15 @@ export const handleParentOtpTest=createParentAuthHttp({resolveContext:async env=
  };
  return {db:base.db,crypto:base.auth,clock:base.clock,approved:base.emails,recipient,mailerFor:base.mailerFor,open:base.open,reserveEmail:base.reserveEmail,revokeStudent};
 }});
+
+// Trusted payment boundary: fresh payer OTP, current consent, selected student's PIN enrollment.
+export async function resolveJ123CheckoutPayer(request,env,childId){
+ if(env.VERCEL_ENV!=="preview"||env.VERCEL_TARGET_ENV==="production"||env.VERCEL_GIT_COMMIT_REF!=="integration/j1-j2-j3-20261126"||env.STUDENT_AUTH_ENABLED!=="true")return null;
+ const base=context(env),student=studentContext(env,base),token=read(request,"__Host-bsr-parent-test"),payer=await student.payer(token);
+ if(payer?.role!=="payer")return null;
+ const child=await student.familyFor(payer.parentId).handle("internal","family-child-get",{childId});
+ if(!child.ok||child.child?.id!==childId)return null;
+ const enrollment=await student.identity.enrollmentStatus(token,childId);
+ if(!enrollment.ok||enrollment.status!=="PIN_ALREADY_SET")return null;
+ return {parentId:payer.parentId,childId,email:payer.parentId+"@example.invalid"};
+}

@@ -5,7 +5,7 @@ import {createAuthCrypto,openPreviewRecipients} from "../parent-auth/secure-auth
 import {createStudentAuthCrypto} from "../student-auth/crypto.mjs";
 const BRANCH="integration/j1-j2-20261126";
 const PAGE="/dev/testing-centre",API="/api/dev/j1/readiness";
-export function isJ1Preview(env){return env.VERCEL_ENV==="preview"&&env.VERCEL_TARGET_ENV!=="production"&&env.VERCEL_GIT_COMMIT_REF===BRANCH;}
+export function isJ1Preview(env){return env.VERCEL_ENV==="preview"&&env.VERCEL_TARGET_ENV!=="production"&&[BRANCH,"integration/j1-j2-j3-20261126"].includes(env.VERCEL_GIT_COMMIT_REF);}
 const configured=v=>typeof v==="string"&&v.trim().length>0;
 const states=new Set(["CONFIGURED","NOT_CONFIGURED","NOT_RUN","VERIFIED_READ_ONLY","READ_UNCONFIRMED","NOT_VERIFIED"]);
 export async function getJ1Readiness(env,{probe=false,request=fetch}={}){
