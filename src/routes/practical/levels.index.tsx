@@ -60,7 +60,7 @@ function SyllabusLevelsPage() {
         <img alt="BE STEM READY" src="/home/be-stem-ready-logo.svg" className="h-[clamp(32px,6svh,56px)] max-w-[58%] object-contain" />
         <a href="/student/dashboard" aria-label="My profile" className="grid size-10 place-items-center rounded-full border border-sky-100 bg-white/90 text-sky-700 shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"><UserRound className="size-5" /></a>
       </header>
-      <section className="mx-auto flex w-full max-w-[1040px] flex-1 flex-col px-3 pb-[max(8px,env(safe-area-inset-bottom))] sm:px-8">
+      <section className="mx-auto flex min-h-0 w-full max-w-[1040px] flex-1 flex-col px-3 pb-[max(8px,env(safe-area-inset-bottom))] sm:px-8">
         <div className="shrink-0 text-center">
           <p className="mx-auto w-fit rounded-full border border-[#c8e7f9] bg-[#e9f7ff]/90 px-5 py-1 text-[clamp(10px,1.65svh,14px)] font-bold text-[#388cbd]">Explore Categories</p>
           <h1 className="mt-[clamp(4px,1dvh,14px)] text-[clamp(22px,3.8svh,40px)] font-black leading-tight tracking-tight text-[#21476c]">Choose Your Level</h1>
@@ -68,7 +68,7 @@ function SyllabusLevelsPage() {
         {j5PrivateUI&&state.kind!=="ready"&&<div className="shrink-0 text-center text-xs text-slate-700" role="status">{state.kind==="loading"?"Checking your levels…":state.kind==="unauthorized"?<a className="font-bold underline" href="/auth/">Sign in to open learning levels</a>:<button className="font-bold underline" type="button" onClick={refresh}>Levels unavailable. Retry</button>}</div>}
         {j5PrivateUI&&state.kind==="ready"&&<J5MembershipRestriction compact membership={state.data.profile.membership} refresh={refresh}/>}
         {j5PrivateUI&&state.kind==="ready"&&state.data.profile.membership==="active"&&state.data.profile.checkIn!=="verified"&&<div className="flex shrink-0 flex-wrap items-center justify-center gap-x-2 text-center text-xs text-slate-700" role="status"><span>{state.data.profile.checkIn==="expired"?"Check-in expired":"Check in to start learning"}</span><a href="/student/check-in" className="inline-flex min-h-8 items-center font-bold text-sky-800 underline">Check in</a></div>}
-        <ul aria-label="Choose your syllabus level" className="mx-auto my-auto grid min-h-[360px] w-full max-w-[900px] flex-1 grid-cols-2 grid-rows-3 gap-[clamp(7px,1.2svh,16px)] py-[clamp(7px,1.2svh,14px)] landscape:min-h-[236px] landscape:grid-cols-3 landscape:grid-rows-2">
+        <ul aria-label="Choose your syllabus level" className="mx-auto grid min-h-[360px] w-full max-w-[900px] flex-[1_1_0%] grid-cols-2 grid-rows-[repeat(3,minmax(0,1fr))] gap-[clamp(7px,1.2svh,16px)] py-[clamp(7px,1.2svh,14px)] landscape:min-h-[236px] landscape:grid-cols-3 landscape:grid-rows-[repeat(2,minmax(0,1fr))]">
           {levels.map((level) => {
             const totals = level.number === 1 ? { categories: LEVEL_ONE_CATEGORIES.length, entries: LEVEL_ONE_PROJECT_COUNT } : getLevelTotals(level.number);
             const access=levelCardState(level.number,state,j5PrivateUI);

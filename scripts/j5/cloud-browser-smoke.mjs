@@ -50,10 +50,19 @@ try{
   assert.equal(await cards.first().getByRole("link").count(),1);
   for(let i=1;i<6;i++)assert.equal(await cards.nth(i).getByRole("link").count(),0);
   await page.waitForFunction(()=>[...document.querySelectorAll('ul[aria-label="Choose your syllabus level"] img')].every(i=>i.complete&&i.naturalWidth>0));
-  const dimensions=await page.evaluate(()=>{const root=document.querySelector('ul[aria-label="Choose your syllabus level"]')?.closest("main");return {h:root?.clientHeight,scroll:root?.scrollHeight,w:root?.clientWidth,sw:root?.scrollWidth};});
+  await page.evaluate(()=>document.fonts.ready);
+  const dimensions=await page.evaluate(()=>{
+   const grid=document.querySelector('ul[aria-label="Choose your syllabus level"]');
+   const root=grid.closest("main");
+   const measure=e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);return {x:r.x,y:r.y,w:r.width,h:r.height,clientHeight:e.clientHeight,scrollHeight:e.scrollHeight,minHeight:s.minHeight,flex:s.flex,overflow:s.overflow};};
+   return {h:root.clientHeight,scroll:root.scrollHeight,w:root.clientWidth,sw:root.scrollWidth,root:measure(root),section:measure(grid.parentElement),grid:measure(grid),cards:[...grid.children].map(measure)};
+  });
+  console.log("Viewport layout",width,height,JSON.stringify(dimensions));
+  // Save the failing viewport as well as successful ones before assertions.
+  await page.screenshot({path:join(evidence,"levels-"+width+"x"+height+".png"),fullPage:true});
   assert.ok(dimensions.sw<=dimensions.w+2,"Horizontal overflow");
   if(height>=768&&width>=390)assert.ok(dimensions.scroll<=dimensions.h+2,"Normal viewport unexpectedly scrolls");
-  await page.screenshot({path:join(evidence,"levels-"+width+"x"+height+".png"),fullPage:true});
+  assert.ok(dimensions.cards.every(c=>c.h>0&&c.w>0),"A level tile collapsed");
   console.log("PASS actual levels viewport",width,height);
  }
  for(const status of ["inactive","pending","failed","expired","renewal-required","verification-required"]){
