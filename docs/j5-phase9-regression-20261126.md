@@ -12,3 +12,6 @@ Audited source commit: d3d37e02fdeaf7ffefbe4fa884c53bdae1dbeda3. No deployment o
 
 ## Reproducibility
 npm run test:j5:all (requires complete repository checkout, Node 22.13+ for node:sqlite). This command includes the PDF inventory tests that were not run in the reconstructed workspace. No CI trigger, deployment or other journey changes.
+
+## Phase 9 unblock attempt
+Five remaining PDF inventory test equivalents executed directly against the exact committed 598-record manifest, catalog, rewriter and transform function (injected manifest rather than Node fs). All five passed; previous 217 native tests remain distinct, so 222 check cases passed in total across two environments, not 222 native tests. Verified blob SHAs: inventory d0288db8eca585d7c710a042ee1dc79726eaf945; catalog edf3d67a13b153b67c15c05ed200b7f958040280; plugin b487118fa66469c7747dca8ee66efb47b2420b4c; original test 39fbaeea6350b4a08dbc769c4afff535baed9b3b. Cloud browser connection returned insufficient_credits. Added private Codespaces runner and actual Chromium smoke script; execution pending authorized cloud terminal. No deployment, Actions, public port or provider changes.
