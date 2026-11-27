@@ -8,13 +8,14 @@ Recorded in brief:
 - Operating schedule confirmed by user on 27 November 2026: Monday to Sunday, 10:00–22:00 MYT (Asia/Kuala_Lumpur); no bookable slots 12:00–13:00 (lunch) or 18:00–19:00 (dinner). Exactly ten one-hour sessions per operating day: 10, 11, 13, 14, 15, 16, 17, 19, 20, 21 local start hours. Nominal capacity 100 places/day, 700/week; exceptional closures remain an operational requirement.
 - Capacity confirmed by user on 27 November 2026: five robotics places and five drone places independently per booked hour (ten total). Do not borrow capacity between pools. One booking per child per MYT day across both pools; activity-specific availability and waiting lists. Capacity is subject to server-side atomic enforcement in N3.
 - One hour per child per day; paid membership required.
+- Advance booking confirmed by user on 27 November 2026: seven calendar days in advance (MYT business dates; today through today + 7 inclusive, proposed boundary interpretation). No bookings for elapsed hours. Maximum simultaneous upcoming reservations per child remains undecided.
 - Cancellation/move cutoff two hours before the booking.
 - No-shows counted by calendar month; first warning, after second RM50 deposit before further bookings, missed booking forfeits deposit, unused deposit returned in cash at month's end. Staff can excuse with note; no-show not counted for timely cancellation.
 - Waiting list, offer cancelled place to next eligible parent.
 - Failed monthly charge: hold upcoming bookings for a still-undecided period, then release.
 - J5 latest confirmed: fixed booked hour, zero grace. Earlier checkout or membership loss ends access. Walk-ins must use the same scheduling authority, capacity and opening-hour checks.
 
-Pending owner approval: how far ahead and how many future bookings per child; unpaid hold period; waitlist offer lifetime; whether a returned/held deposit carries across multiple bookings per existing brief (clarify per-booking wording vs retained account balance). No guessed defaults for production. N1 cannot be called complete until Shimi agrees.
+Pending owner approval: how many future bookings per child; unpaid hold period; waitlist offer lifetime; whether a returned/held deposit carries across multiple bookings per existing brief (clarify per-booking wording vs retained account balance). No guessed defaults for production. N1 cannot be called complete until Shimi agrees.
 
 ## N2 — Wix Bookings evaluation (documentation review, not a configured live trial)
 
