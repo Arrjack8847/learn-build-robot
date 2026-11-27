@@ -1,6 +1,7 @@
 // Builds locally in the existing cloud workspace only. Never deploys.
 import {spawnSync} from "node:child_process";
 import {existsSync,lstatSync} from "node:fs";
+import {reviewStaticAssets} from "../security/review-j12345-static-assets.mjs";
 import {auditPublicOutput} from "../security/audit-j5-public-output.mjs";
 import {J12345_BRANCH,isJ12345Preview} from "./identity-scope.mjs";
 const env={...process.env,J12345_PRIVATE_BUILD_PIPELINE:"1"};
@@ -17,5 +18,7 @@ try{
  const report=auditPublicOutput(roots);
  console.log(JSON.stringify(report,null,2));
  if(!report.passed)throw Error("Private output contains unreviewed artifacts or legacy PDF references");
- console.log("Private artifact check passed; storage and live acceptance remain required. Do not deploy.");
+ const assets=reviewStaticAssets(roots);
+ console.log(JSON.stringify({staticAssetReview:assets},null,2));
+ console.log("PDF artifact check passed; this is not a release approval. Static curriculum classification, storage and live acceptance remain required. Do not deploy.");
 }catch(e){console.error(e instanceof Error?e.message:"Private build unavailable");process.exitCode=1;}

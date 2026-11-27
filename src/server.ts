@@ -73,6 +73,8 @@ function isH3SwallowedErrorBody(body: string): boolean {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const path=new URL(request.url).pathname;
+      if(__J12345_STUDENT_PREVIEW__&&(process.env["VERCEL_ENV"]!=="preview"||process.env["VERCEL_TARGET_ENV"]==="production"||process.env["VERCEL_GIT_COMMIT_REF"]!=="integration/j1-j2-j3-j4-j5-20261126")&&(path.startsWith("/api/dev/")||path==="/dev/testing-centre"||path==="/staff/admin"||path==="/student/dashboard"))return new Response(null,{status:404,headers:{"Cache-Control":"private, no-store","X-Robots-Tag":"noindex, nofollow"}});
       if (["/dev/testing-centre","/api/dev/j1/readiness"].includes(new URL(request.url).pathname)) return await handleJ1Readiness(request,process.env);
       if (new URL(request.url).pathname === "/api/dev/j5/assessment") return await handleJ12345Assessment(request,process.env);
       if (new URL(request.url).pathname === "/api/dev/j5/progress") return await handleJ12345Progress(request,process.env);
@@ -97,10 +99,10 @@ export default {
         return await normalizeCatastrophicSsrResponse(response);
       });
     } catch (error) {
-      console.error(error);
+      if(__J12345_STUDENT_PREVIEW__)console.error("J12345 request failed");else console.error(error);
       return new Response(renderErrorPage(), {
         status: 500,
-        headers: { "content-type": "text/html; charset=utf-8" },
+        headers: { "content-type": "text/html; charset=utf-8", "Cache-Control":"private, no-store" },
       });
     }
   },

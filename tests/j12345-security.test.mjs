@@ -25,3 +25,9 @@ test("configuration does not imply access, even with all feature flags on",async
  const progress={status:"ready",levels:Array.from({length:6},(_,i)=>({level:i+1,status:i===0?"unlocked":"locked"}))};
  assert.equal((await createJ12345CourseAuthority({...deps,readProgress:async()=>progress})(r,e,"/projects/robot-1")).code,"LEARNING_POLICY_REQUIRED");
 });
+
+import {reviewStaticAssets} from "../scripts/security/review-j12345-static-assets.mjs";
+import {mkdtempSync,writeFileSync,rmSync} from "node:fs";
+import {tmpdir} from "node:os";
+import {join} from "node:path";
+test("static curriculum candidates flagged without deleting approved source files",t=>{const root=mkdtempSync(join(tmpdir(),"j12345-static-"));t.after(()=>rmSync(root,{recursive:true,force:true}));writeFileSync(join(root,"program.sb2"),"fixture");writeFileSync(join(root,"robot.stl"),"fixture");writeFileSync(join(root,"art.webp"),"fixture");const r=reviewStaticAssets([root]);assert.equal(r.reviewRequired,true);assert.deepEqual(r.entries.map(e=>e.kind).sort(),["sb2","stl"]);assert.match(r.scope,/separate review/);});
