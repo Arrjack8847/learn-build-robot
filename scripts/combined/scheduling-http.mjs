@@ -10,17 +10,33 @@ export function createCombinedSchedulingHttp({runtimeFactory=createCombinedRunti
   if(!input||typeof input!=="object"||Array.isArray(input))return fail(400,"INVALID_INPUT");
   try{
    const r=runtimeFactory(env);
-   if(path.endsWith("/booking"))return resultResponse(await (typeof input.action==="string"&&input.action.startsWith("waitlist-")?r.automation.waitlist(input,request):r.booking(input,request)));
+   if(path.endsWith("/booking")){
+    if(input.action==="overview"&&exact(input,["action","childId"])){
+     for(let i=0;i<3;i++){
+      const before=await r.repository.read();
+      const view=await r.booking({action:"view",childId:input.childId},request);
+      if(!view.ok)return resultResponse(view);
+      const waitlist=await r.automation.waitlist({action:"waitlist-view",childId:input.childId},request);
+      if(!waitlist.ok)return resultResponse(waitlist);
+      const fresh=await r.resolveChild(request,input.childId),after=await r.repository.read();
+      if(!fresh)return fail(403,"NOT_AUTHORIZED");
+      if(before.version===after.version)return json(200,{ok:true,status:"READY",view,waitlist});
+     }
+     return fail(503,"BOOKING_BUSY");
+    }
+    return resultResponse(await (typeof input.action==="string"&&input.action.startsWith("waitlist-")?r.automation.waitlist(input,request):r.booking(input,request)));
+   }
    if(path.endsWith("/check-in")){if(!r.checkin||!exact(input,["bookingId","code"]))return fail(404,"NOT_AVAILABLE");return resultResponse(await r.checkin.redeem(request,input));}
    const actor=await r.resolveStaff(request);if(!actor)return fail(403,"NOT_AUTHORIZED");
    if(input.action==="issue-code"&&exact(input,["action","bookingId","revision","childId"]))return r.checkin?resultResponse(await r.checkin.issue(request,input)):fail(404,"NOT_AVAILABLE");
-   if(exact(input,["action"])&&input.action==="students"){const students=await r.listStudents(request);return students?json(200,{ok:true,students}):fail(403,"NOT_AUTHORIZED");}
+   if(exact(input,["action"])&&input.action==="students"){const students=await r.listStudents(request);return students?json(200,{ok:true,students,staff:{staffId:actor.staffId,name:actor.name,permissions:actor.permissions}}):fail(403,"NOT_AUTHORIZED");}
    if(exact(input,["action","day"])&&input.action==="day")return resultResponse(await r.staff.dayView(request,input.day));
    if(input.action==="excuse"&&exact(input,["action","bookingId","revision","childId","reason","requestId"])&&validId(input.requestId)&&validId(input.revision)){
+    if(!actor.permissions.includes("schedule:excuse"))return fail(403,"NOT_AUTHORIZED");
     const snap=await r.repository.read(),b=snap.state.bookings.find(b=>b.bookingId===input.bookingId&&b.childId===input.childId);
     if(!b)return fail(409,"BOOKING_CHANGED");
     const event={kind:"excuse",eventId:input.requestId,childId:b.childId,parentId:b.parentId,bookingId:b.bookingId,revision:input.revision,staffId:actor.staffId,reason:input.reason,at:r.clock()};
-    const n4=createN4Service({...r,readAttendance:async()=>null,verifyEvent:async e=>e===event&&await r.resolveStaff(request)?event:null});
+    const n4=createN4Service({...r,readAttendance:async()=>null,verifyEvent:async e=>{const fresh=await r.resolveStaff(request);return e===event&&fresh?.staffId===actor.staffId&&fresh.version===actor.version&&fresh.permissions.includes("schedule:excuse")?event:null;}});
     return resultResponse(await n4.event(event));
    }
    if(["walk-in","manual-attendance","checkout"].includes(input.action))return resultResponse(await r.staff.mutate(input,request));

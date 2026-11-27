@@ -25,7 +25,7 @@ export function projectDay(state,day,now,closedDays=[]){
  }));
  return {day,serverNow:now,closed,slots,totals:{bookings:rows.filter(active).length,attended:rows.filter(b=>["attended","checked-out"].includes(b.bookingStatus)).length,noShows:rows.filter(b=>b.bookingStatus==="no-show").length,held:rows.filter(b=>b.bookingStatus==="held-unpaid").length,cancelled:rows.filter(b=>b.bookingStatus==="cancelled").length,excused:rows.filter(b=>b.bookingStatus==="excused").length,offered:slots.reduce((n,x)=>n+x.offered,0)}};
 }
-export function createStaffSchedulingService({repository,resolveStaff,readOwner,readEligibility,verifyCheckIn=async()=>null,clock=Date.now,newId=randomUUID,closedDays=[]}){
+export function createStaffSchedulingService({repository,resolveStaff,readOwner,readEligibility,verifyCheckIn=async()=>null,clock=Date.now,newId=randomUUID,closedDays=[],staffName=()=>null}){
  const staff=async(actor,permission)=>{const s=await resolveStaff(actor);return s&&id(s.staffId)&&typeof s.version==="string"&&s.permissions?.includes(permission)?s:null;};
  const sameStaff=(a,b)=>a&&b&&a.staffId===b.staffId&&a.version===b.version;
  async function dayView(actor,day){
@@ -33,13 +33,17 @@ export function createStaffSchedulingService({repository,resolveStaff,readOwner,
    const s=await staff(actor,"schedule:read");if(!s)return fail("NOT_AUTHORIZED");
    try{dayStart(day);}catch{return fail("INVALID_DAY");}
    const {state,version}=await repository.read(),v=projectDay(state,day,clock(),closedDays);
+   const owners=new Map();
    for(const x of v.slots)x.bookings=await Promise.all(x.bookings.map(async b=>{
     const o=await readOwner(b.childId,b.parentId);
     if(!validOwner(o,b.childId)||o.parentId!==b.parentId)throw Error("OWNER_UNCONFIRMED");
+    owners.set(b.childId,o);
     const record=staffAudit(state).find(a=>a.bookingId===b.bookingId&&attendance(a)),checkout=staffAudit(state).find(a=>a.bookingId===b.bookingId&&a.kind==="checkout"),excuse=n4(state).excuses.find(a=>a.bookingId===b.bookingId);
     const e=effectiveEligibility(state,o,await readEligibility(o),v.serverNow);
-    return {bookingId:b.bookingId,childId:b.childId,childName:typeof o.name==="string"?o.name.slice(0,120):"Student",day:b.day,activity:b.activity,startAt:b.startAt,endAt:b.endAt,revision:b.revision,status:b.bookingStatus,membership:e.membership,deposit:e.deposit,checkInAt:record?.at??null,checkOutAt:checkout?.at??null,excuse:excuse?{reason:excuse.reason,at:excuse.at}:null};
+    return {bookingId:b.bookingId,childId:b.childId,childName:typeof o.name==="string"?o.name.slice(0,120):"Student",day:b.day,activity:b.activity,startAt:b.startAt,endAt:b.endAt,revision:b.revision,status:b.bookingStatus,membership:e.membership,deposit:e.deposit,checkInAt:record?.at??null,checkOutAt:checkout?.at??null,checkedInBy:record?(record.kind==="verified-check-in"?"Verified student code":staffName(record.actorId)??record.actorId):null,checkedOutBy:checkout?staffName(checkout.actorId)??checkout.actorId:null,excuse:excuse?{reason:excuse.reason,at:excuse.at,by:staffName(excuse.staffId)??excuse.staffId}:null};
    }));
+   for(const o of owners.values())if(!sameOwner(o,await readOwner(o.childId,o.parentId)))return fail("SCHEDULING_UNAVAILABLE");
+   if((await repository.read()).version!==version)return fail("BOOKING_BUSY");
    if(!sameStaff(s,await staff(actor,"schedule:read")))return fail("NOT_AUTHORIZED");
    return {ok:true,status:"READY",snapshotVersion:version,...v};
   }catch{return fail("SCHEDULING_UNAVAILABLE");}
@@ -88,7 +92,10 @@ export function createStaffSchedulingService({repository,resolveStaff,readOwner,
     if(!sameOwner(o,current))return fail("NOT_AUTHORIZED");
     const fresh=verified?await verifyCheckIn(proof,input):await staff(actor,permission);
     if(verified?(!fresh||fresh.evidenceId!==initial.evidenceId||fresh.bookingId!==initial.bookingId||fresh.childId!==initial.childId||fresh.revision!==initial.revision||fresh.parentId!==initial.parentId):!sameStaff(initial,fresh))return fail("NOT_AUTHORIZED");
+    const finalEligibility=kind==="checkout"?null:effectiveEligibility(s,current,await readEligibility(current),clock());
+    if(finalEligibility&&(finalEligibility.membership!=="active"||walk&&!eligible(finalEligibility)))return fail(finalEligibility.membership!=="active"?"MEMBERSHIP_REQUIRED":"DEPOSIT_REQUIRED");
     const at=clock();
+    if(finalEligibility?.validUntil!==undefined&&at>=finalEligibility.validUntil)return fail("MEMBERSHIP_REQUIRED");
     if(at<now||walk&&!canBookSlot(target,at,{walkIn:true,closedDays})||!walk&&kind!=="checkout"&&(at<b.startAt||at>=b.endAt))return fail("OUTSIDE_BOOKED_HOUR");
     const revision=newId(),bookingId=b?.bookingId??newId();
     const next=walk?{...target,bookingId,childId:o.childId,parentId:o.parentId,revision,bookingStatus:status,createdAt:at,updatedAt:at}:{...b,revision,bookingStatus:status,updatedAt:at};

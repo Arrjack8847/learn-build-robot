@@ -52,7 +52,7 @@ export function createBookingService({repository,resolveChild,readEligibility,cl
     if(!same(first,owner))return fail("NOT_AUTHORIZED");
     const state=snap.state,now=clock(),eligibility=effectiveEligibility(state,owner,await readEligibility(owner),now);
     const fresh=await resolveChild(actor,input.childId);if(!same(owner,fresh))return fail("NOT_AUTHORIZED");
-    if(input.action==="view")return view(state,owner,eligibility,clock());
+    if(input.action==="view"){if((await repository.read()).version!==snap.version)continue;return view(state,owner,eligibility,clock());}
     const prior=(state.commands??[]).find(c=>c.key===key);
     if(prior)return prior.fingerprint===fp?{ok:true,status:"ALREADY_COMMITTED",bookingId:prior.bookingId}:fail("REQUEST_ID_CONFLICT");
     const old=input.action==="book"?null:state.bookings.find(b=>b.bookingId===input.bookingId&&b.childId===owner.childId&&b.parentId===owner.parentId);
@@ -68,8 +68,11 @@ export function createBookingService({repository,resolveChild,readEligibility,cl
     }
     const finalOwner=await resolveChild(actor,input.childId);
     if(!same(owner,finalOwner))return fail("NOT_AUTHORIZED");
-    if(target){const finalEligibility=effectiveEligibility(state,finalOwner,await readEligibility(finalOwner),clock());if(!eligible(finalEligibility))return fail(reason(finalEligibility));}
+    const finalEligibility=target?effectiveEligibility(state,finalOwner,await readEligibility(finalOwner),clock()):null;
+    if(finalEligibility&&!eligible(finalEligibility))return fail(reason(finalEligibility));
+    if(!same(finalOwner,await resolveChild(actor,input.childId)))return fail("NOT_AUTHORIZED");
     const at=clock();
+    if(finalEligibility?.validUntil!==undefined&&at>=finalEligibility.validUntil)return fail("MEMBERSHIP_REQUIRED");
     if(at<now||old&&!canCancel(old.startAt,at)||target&&!canBookSlot(target,at,{closedDays}))return fail("SLOT_CHANGED");
     const id=old?.bookingId??newId();
     const next=input.action==="cancel"?{...old,bookingStatus:"cancelled",revision:newId(),updatedAt:at}:{...target,bookingId:id,childId:owner.childId,parentId:owner.parentId,revision:newId(),bookingStatus:"booked",createdAt:old?.createdAt??at,updatedAt:at};
