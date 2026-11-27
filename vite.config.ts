@@ -8,7 +8,8 @@ import { defineConfig } from "vite";
 const {VERCEL_ENV,VERCEL_TARGET_ENV,VERCEL_GIT_COMMIT_REF}=process.env;
 export default defineConfig({
   // The old fixture dashboard must not be enabled in the integrated branch.
-  define: { __J1234_STUDENT_PREVIEW__: JSON.stringify(VERCEL_ENV === "preview" && VERCEL_TARGET_ENV !== "production" && VERCEL_GIT_COMMIT_REF === "integration/j1-j2-j3-j4-20261126"),
+  define: { __J12345_STUDENT_PREVIEW__: JSON.stringify(VERCEL_ENV === "preview" && VERCEL_TARGET_ENV !== "production" && VERCEL_GIT_COMMIT_REF === "integration/j1-j2-j3-j4-j5-20261126"),
+    __J1234_STUDENT_PREVIEW__: JSON.stringify(VERCEL_ENV === "preview" && VERCEL_TARGET_ENV !== "production" && VERCEL_GIT_COMMIT_REF === "integration/j1-j2-j3-j4-20261126"),
     __J4_FIXTURE_PREVIEW__: JSON.stringify(VERCEL_ENV === "preview" && VERCEL_TARGET_ENV !== "production" && VERCEL_GIT_COMMIT_REF === "feat/j4-private-staff-admin-20261126") },
   resolve: {
     tsconfigPaths: true,

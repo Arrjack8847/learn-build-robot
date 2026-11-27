@@ -1,0 +1,44 @@
+import {useEffect,useState} from "react";
+import {attachJ5SessionSignals,j5Session} from "../../lib/j5-session";
+import {J5SignOut} from "./J5SignOut";
+type Profile={studentId:string;displayName:string;identityStatus:"verified";learningAccess:"unavailable"};
+type State={kind:"loading"|"unauthorized"|"unavailable"}|{kind:"ready";profile:Profile};
+function parse(value:unknown):Profile{
+ if(!value||typeof value!=="object")throw Error("Invalid profile");
+ const data=value as {ok?:unknown;profile?:Partial<Profile>};
+ const p=data.profile;
+ if(data.ok!==true||!p||typeof p.studentId!=="string"||!/^qa-j2-[a-f0-9]{64}$/.test(p.studentId)||typeof p.displayName!=="string"||!p.displayName.trim()||p.displayName.length>48||p.identityStatus!=="verified"||p.learningAccess!=="unavailable")throw Error("Invalid profile");
+ return {studentId:p.studentId,displayName:p.displayName,identityStatus:p.identityStatus,learningAccess:p.learningAccess};
+}
+export function J12345Profile(){
+ const [state,setState]=useState<State>({kind:"loading"});
+ const [version,reload]=useState(0);
+ useEffect(()=>{
+  const detach=attachJ5SessionSignals();
+  const unsubscribe=j5Session.subscribe(({blocked})=>{setState({kind:blocked?"unauthorized":"loading"});reload(v=>v+1);});
+  const timer=window.setInterval(()=>{if(document.visibilityState==="visible"&&!j5Session.isBlocked())reload(v=>v+1);},15000);
+  return()=>{detach();unsubscribe();window.clearInterval(timer);};
+ },[]);
+ useEffect(()=>{
+  if(j5Session.isBlocked()){setState({kind:"unauthorized"});return;}
+  if(document.visibilityState!=="visible"){setState({kind:"loading"});return;}
+  const t=j5Session.begin();
+  const timeout=window.setTimeout(()=>{if(t.current()){setState({kind:"unavailable"});t.cancel();}},12000);
+  async function load(){
+   try{
+    const r=await fetch("/api/dev/j5/profile",{method:"POST",credentials:"same-origin",cache:"no-store",redirect:"error",headers:{"X-STEM-Student-Profile":"1"},signal:t.signal});
+    if(!t.current())return;
+    if(r.status===401){setState({kind:"unauthorized"});return;}
+    if(!r.ok){setState({kind:"unavailable"});return;}
+    const p=parse(await r.json());
+    if(t.current())setState({kind:"ready",profile:p});
+   }catch{if(t.current())setState({kind:"unavailable"});}
+   finally{window.clearTimeout(timeout);t.finish();}
+  }
+  void load();
+  return()=>{window.clearTimeout(timeout);t.cancel();};
+ },[version]);
+ return <main className="h-full overflow-y-auto bg-[#f3faff] p-4 text-[#132654]"><section className="mx-auto max-w-lg space-y-4 rounded-3xl border border-sky-100 bg-white p-6 shadow-sm"><img src="/home/be-stem-ready-logo.svg" alt="BE STEM READY" className="mx-auto h-14"/><h1 className="text-xl font-black">My student profile</h1><p className="text-xs text-amber-900">Private development preview · fictional students only.</p>
+ {state.kind==="loading"?<p role="status">Checking your identity…</p>:state.kind==="ready"?<><h2 className="text-2xl font-black">Welcome, {state.profile.displayName}</h2><p className="text-sm font-bold text-emerald-700">Individual student identity verified</p><p className="rounded-xl bg-sky-50 p-3 text-sm">Membership, attendance and learning access are not connected in this phase. No progress is assumed.</p></>:<p role="alert">{state.kind==="unauthorized"?"Your student session is unavailable. Sign in again.":"Your profile could not be verified. Please retry."}</p>}
+ <button type="button" onClick={()=>j5Session.invalidate()} className="rounded-xl border px-3 py-2 text-sm font-bold">Refresh profile</button><J5SignOut/></section></main>;
+}

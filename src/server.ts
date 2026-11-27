@@ -1,4 +1,7 @@
 import "./lib/error-capture";
+import { createJ12345ProfileHttp } from "../scripts/j12345/profile.mjs";
+import { resolveJ2Student, readJ12345VerifiedChild } from "../scripts/j2-runtime.mjs";
+const handleJ12345Profile=createJ12345ProfileHttp({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild});
 import { handleIntegratedCheckout } from "../scripts/j123/checkout-http.mjs";
 import { handleMembershipWorker } from "../scripts/j123/membership-worker-http.mjs";
 import { handleJ1Readiness } from "../scripts/j1/readiness.mjs";
@@ -60,6 +63,8 @@ export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       if (["/dev/testing-centre","/api/dev/j1/readiness"].includes(new URL(request.url).pathname)) return await handleJ1Readiness(request,process.env);
+      if (new URL(request.url).pathname === "/api/dev/j5/profile") return await handleJ12345Profile(request,process.env);
+      if (new URL(request.url).pathname.startsWith("/api/dev/j5/")) return new Response(null,{status:404,headers:{"Cache-Control":"no-store"}});
       if (new URL(request.url).pathname === "/api/dev/email-test") return await handleEmailTest(request, process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/student-auth/")) return await handleStudentAuth(request, process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/parent-otp/")) return await handleParentOtpTest(request, process.env);

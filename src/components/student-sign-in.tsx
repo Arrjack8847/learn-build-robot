@@ -1,7 +1,10 @@
 import {useEffect,useRef,useState} from "react";
 import {studentAuth,studentAuthError,type StudentChoice} from "../lib/student-auth";
 import {StudentCheckIn} from "./j1234-attendance";
+import {j5Session} from "../lib/j5-session";
 declare const __J1234_STUDENT_PREVIEW__:boolean;
+declare const __J12345_STUDENT_PREVIEW__:boolean;
+function announceStudentChange(){if(__J12345_STUDENT_PREVIEW__){j5Session.invalidate();try{window.localStorage.setItem("bsr.j5.session.invalidate.v1",crypto.randomUUID());}catch{}}}
 export function StudentSignIn(){
  const [step,setStep]=useState(0),[email,setEmail]=useState(""),[code,setCode]=useState(""),[pin,setPin]=useState(""),[choices,setChoices]=useState<StudentChoice[]>([]),[selected,setSelected]=useState(""),[student,setStudent]=useState<StudentChoice|null>(null),[busy,setBusy]=useState(true),[error,setError]=useState(""),[resendAt,setResendAt]=useState(0),[remaining,setRemaining]=useState(0);
  const inFlight=useRef(false);
@@ -12,11 +15,11 @@ export function StudentSignIn(){
  async function act(action:"next"|"resend"|"logout"){
   if(busy||inFlight.current||(action==="resend"&&remaining>0))return;inFlight.current=true;setBusy(true);setError("");
   try{
-   if(action==="logout"){const r=await studentAuth("logout");if(!r.ok)throw Error(studentAuthError(r.status));setStudent(null);setChoices([]);setSelected("");setCode("");setPin("");setStep(0);return;}
+   if(action==="logout"){const r=await studentAuth("logout");if(!r.ok)throw Error(studentAuthError(r.status));announceStudentChange();setStudent(null);setChoices([]);setSelected("");setCode("");setPin("");setStep(0);return;}
    if(step===0||action==="resend"){const r=await studentAuth("request",{email:email.trim()});if(!r.ok)throw Error(studentAuthError(r.status));setCode("");setResendAt(Date.now()+60000);setRemaining(60);setStep(1);}
    else if(step===1){const r=await studentAuth("verify",{email:email.trim(),code});if(!r.ok)throw Error(studentAuthError(r.status));setCode("");const list=await studentAuth("list");if(!list.ok){setStep(0);throw Error("Could not load your student profiles. Verify your email again.");}const students=list.students??[];setChoices(students);setSelected(students.length===1?(students[0]?.id??""):"");setStep(students.length===1?3:2);}
    else if(step===2&&selected){setStep(3);}
-   else if(step===3){const r=await studentAuth("sign-in",{studentId:selected,pin});setPin("");if(!r.ok)throw Error(studentAuthError(r.status));const state=await studentAuth("status");if(!state.ok||!state.student){setStep(0);throw Error("Your student session could not be confirmed. Please sign in again.");}setChoices([]);setSelected("");setStudent(state.student);setStep(4);}
+   else if(step===3){const r=await studentAuth("sign-in",{studentId:selected,pin});setPin("");if(!r.ok)throw Error(studentAuthError(r.status));const state=await studentAuth("status");if(!state.ok||!state.student){setStep(0);throw Error("Your student session could not be confirmed. Please sign in again.");}setChoices([]);setSelected("");announceStudentChange();setStudent(state.student);setStep(4);}
   }catch(e){setError(e instanceof Error?e.message:"Unable to sign in.");}finally{inFlight.current=false;setBusy(false);}
  }
  return <main className="grid min-h-[100dvh] place-items-center bg-[#f3faff] p-4 text-[#132654]"><section className="w-full max-w-md space-y-5 rounded-3xl border border-sky-100 bg-white p-6"><img src="/home/be-stem-ready-logo.svg" alt="BE STEM READY" className="mx-auto h-16"/><h1 className="text-center text-2xl font-black">{["Student sign-in","Verify parent email","Choose your profile","Enter your private PIN","Your student identity"][step]}</h1><p className="rounded-xl bg-amber-50 p-3 text-xs text-amber-900">Private testing only. Use fictional student records.</p>{step<4?<form className="space-y-4" onSubmit={e=>{e.preventDefault();void act("next");}}>
@@ -26,6 +29,6 @@ export function StudentSignIn(){
  {step===3&&<><button type="button" disabled={busy} onClick={()=>{setPin("");setStep(2);setError("");}} className="text-sm font-bold text-sky-700">Choose another student</button><label className="block text-sm font-bold">{choices.find(c=>c.id===selected)?.name} — private PIN<input className={field} type="password" inputMode="numeric" autoComplete="off" pattern="[0-9]{6}" maxLength={6} required disabled={busy} value={pin} onChange={e=>setPin(e.target.value.replace(/\D/g,"").slice(0,6))}/></label><p className="text-xs text-slate-600">Never share your PIN. If forgotten, ask staff for help.</p></>}
  <button className={button} disabled={busy||(step===1&&code.length!==6)||(step===2&&!selected)||(step===3&&pin.length!==6)}>{busy?"Please wait…":["Send verification code","Verify email","Continue","Sign in"][step]}</button>
  {step>0&&<button type="button" disabled={busy} className="text-sm font-bold text-sky-700" onClick={()=>void act("logout")}>{step===1?"Change email":"Start again"}</button>}
- </form>:<><p className="text-lg font-bold">Welcome, {student?.name}</p><p className="text-sm text-slate-600">Your individual identity is verified. Learning access is not enabled yet.</p>{__J1234_STUDENT_PREVIEW__&&student&&<StudentCheckIn key={student.id} studentId={student.id}/>}<button className={button} disabled={busy} onClick={()=>void act("logout")}>Sign out / switch student</button></>}
+ </form>:<><p className="text-lg font-bold">Welcome, {student?.name}</p><p className="text-sm text-slate-600">Your individual identity is verified. Learning access is not enabled yet.</p>{__J12345_STUDENT_PREVIEW__&&<a href="/student/dashboard" className="block rounded-xl bg-sky-600 p-3 text-center font-bold text-white">My student profile</a>}{__J1234_STUDENT_PREVIEW__&&student&&<StudentCheckIn key={student.id} studentId={student.id}/>}<button className={button} disabled={busy} onClick={()=>void act("logout")}>Sign out / switch student</button></>}
  {error&&<p role="alert" className="rounded-xl bg-rose-50 p-3 text-sm text-rose-800">{error}</p>}<a href="/parent/sign-in" className="block text-center text-sm font-bold text-sky-700">Parent registration and payment</a></section></main>;
 }

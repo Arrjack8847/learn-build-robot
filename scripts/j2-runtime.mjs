@@ -11,7 +11,10 @@ import {J123_BRANCH,requireJ123Identity,isIntegratedBillingPreview} from "./j123
 import {scopeJ123StudentCredentials} from "./j123/student-credential-scope.mjs";
 import {J1234_BRANCH,createJ1234IdentityEnv,scopeJ1234StudentCredentials} from "./j1234/identity-scope.mjs";
 
+import {J12345_BRANCH,createJ12345IdentityEnv,scopeJ12345StudentCredentials,validJ12345Student} from "./j12345/identity-scope.mjs";
+
 function context(env){
+ if(env.VERCEL_GIT_COMMIT_REF===J12345_BRANCH)env=createJ12345IdentityEnv(env);
  if(env.VERCEL_GIT_COMMIT_REF===J1234_BRANCH)env=createJ1234IdentityEnv(env);
  if(env.VERCEL_GIT_COMMIT_REF===J123_BRANCH)requireJ123Identity(env);
  const open=openPreviewRecipients(env);
@@ -22,7 +25,7 @@ function context(env){
  return {db,auth,clock,emails,mailerFor,open,reserveEmail,runtimeEnv:env};
 }
 function studentContext(env,base){
- return createStudentContext({...base,db:env.VERCEL_GIT_COMMIT_REF===J1234_BRANCH?scopeJ1234StudentCredentials(base.db):env.VERCEL_GIT_COMMIT_REF===J123_BRANCH?scopeJ123StudentCredentials(base.db):base.db,crypto:createStudentAuthCrypto(base.runtimeEnv??env)});
+ return createStudentContext({...base,db:env.VERCEL_GIT_COMMIT_REF===J12345_BRANCH?scopeJ12345StudentCredentials(base.db):env.VERCEL_GIT_COMMIT_REF===J1234_BRANCH?scopeJ1234StudentCredentials(base.db):env.VERCEL_GIT_COMMIT_REF===J123_BRANCH?scopeJ123StudentCredentials(base.db):base.db,crypto:createStudentAuthCrypto(base.runtimeEnv??env)});
 }
 const studentCookie="__Host-bsr-student";
 const read=(request,name)=>{const parts=(request.headers.get("cookie")??"").split(";").map(p=>p.trim()).filter(p=>p.startsWith(name+"="));return parts.length===1?parts[0].slice(name.length+1):"";};
@@ -36,7 +39,7 @@ export const handleStudentAuth=createStudentAuthHttp({resolveContext:async env=>
  return {db:base.db,emails:base.emails,open:base.open,reserveEmail:base.reserveEmail,context:studentContext(env,base)};
 }});
 export const handleParentOtpTest=createParentAuthHttp({resolveContext:async env=>{
- const identityEnv=env.VERCEL_GIT_COMMIT_REF===J1234_BRANCH?createJ1234IdentityEnv(env):env;
+ const identityEnv=env.VERCEL_GIT_COMMIT_REF===J12345_BRANCH?createJ12345IdentityEnv(env):env.VERCEL_GIT_COMMIT_REF===J1234_BRANCH?createJ1234IdentityEnv(env):env;
  const recipient=identityEnv.RESEND_TEST_RECIPIENT?.trim().toLowerCase();
  if(!recipient||!validPreviewEmail(recipient)||!identityEnv.WIX_DEV_DATA_API_KEY?.trim()||!identityEnv.PARENT_AUTH_SECRET?.trim())return null;
  const base=context(env);
@@ -65,3 +68,16 @@ export function createJ123CheckoutPayer({getStudentContext=env=>studentContext(e
  };
 }
 export const resolveJ123CheckoutPayer=createJ123CheckoutPayer();
+
+// Internal read-only profile adapter, never a browser-selected student ID.
+export async function readJ12345VerifiedChild(studentId,env){
+ if(!validJ12345Student(studentId))return null;
+ const cfg=createJ12345IdentityEnv(env),base=context(env),student=studentContext(env,base);
+ const row=await base.db.get("Children",studentId);
+ const parentId=typeof row?.parentId==="string"?row.parentId:row?.parentId?._id??row?.parentId?.id;
+ const allowed=new Set(previewRecipients(cfg).map(email=>"qa-j2-"+base.auth.identityDigest("parent-preview-session",email)));
+ if(row?.childId!==studentId||row.accountStatus!=="preview-test"||!allowed.has(parentId))return null;
+ const result=await student.familyFor(parentId).handle("internal","family-child-get",{childId:studentId});
+ if(!result.ok||result.child?.id!==studentId||result.child.version!==row.stateVersion||result.child.name!==row.name)return null;
+ return {childId:studentId,parentId,name:row.name,accountStatus:row.accountStatus,stateVersion:row.stateVersion};
+}

@@ -1,0 +1,1 @@
+export function createJ12345ProfileHttp(options:{resolveStudent:(request:Request,env:Record<string,string|undefined>)=>Promise<unknown>;readVerifiedChild:(studentId:string,env:Record<string,string|undefined>)=>Promise<unknown>}):(request:Request,env:Record<string,string|undefined>)=>Promise<Response>;

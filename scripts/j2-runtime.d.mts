@@ -4,3 +4,4 @@ export type J2StudentIdentity = Readonly<{ role: "student"; studentId: string; e
 export function handleParentOtpTest(request: Request, env: J2Environment): Promise<Response>;
 export function handleStudentAuth(request: Request, env: J2Environment): Promise<Response>;
 export function resolveJ2Student(request: Request, env: J2Environment): Promise<J2StudentIdentity | null>;
+export function readJ12345VerifiedChild(studentId:string,env:J2Environment):Promise<unknown>;
