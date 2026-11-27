@@ -28,7 +28,7 @@ export function createJ12345AccessReader({storeFactory=createWixStore,readMember
    }
    const reason=membership.status==="verification-required"||attendance==="unavailable"?"verification-required":!membership.eligible?"membership-required":attendance!=="checked-in"?"check-in-required":"learning-policy-required";
    // This is a visit window projection, not a course grant. Course and storage gates remain separate.
-   const access={membership:membership.status,membershipValidUntil:membership.validUntil,membershipEligible:membership.eligible,attendance,checkInAt,learningAccess:"unavailable",reason};
+   const access={membership:membership.status,membershipValidUntil:membership.validUntil,membershipEligible:membership.eligible,attendance,checkInAt,bookingId:a2?.bookingId??null,bookingStartAt:a2?.bookingStartAt??null,bookingEndAt:a2?.bookingEndAt??null,learningAccess:"unavailable",reason};
    return {...access,learningSession:evaluateLearningSession(access,fresh)};
   }catch{return unavailable();}
  };

@@ -15,16 +15,18 @@ test("encoded paths and browser identity injection refused",async()=>{const f=fi
 
 test("private artifact cannot fall back to legacy course rendering when runtime metadata is missing or wrong",async()=>{const f=fixture({privateArtifact:true});for(const e of [{},{...env,VERCEL_GIT_COMMIT_REF:"main"},{...env,VERCEL_ENV:"production"}])assert.equal((await f.run("/projects/robot",e)).status,404);assert.equal(f.counts().renders,0);});
 
-test("one-hour grant is separately gated, fixed to check-in and revoked on checkout",async()=>{
- const start=1795680000000;
- let at=start+1000;
- const a={...access,membership:"active",checkInAt:start,membershipValidUntil:start+7200000};
+test("booked-hour grant is separately gated, fixed to reservation and revoked on checkout",async()=>{
+ const start=Date.parse("2026-11-27T02:00:00Z");
+ let at=start+600000;
+ const a={...access,bookingId:"booking_fixture_1",bookingStartAt:start,bookingEndAt:start+3600000,membership:"active",checkInAt:start+600000,membershipValidUntil:start+7200000};
  const on={...env,J12345_LEARNING_SESSION_ENABLED:"1"};
  const f=fixture({clock:()=>at,readAccess:async()=>a});
  const first=await f.run(api("/projects/robot"),on);assert.equal(first.status,200);assert.equal((await first.json()).validUntil,start+3600000);
  at=start+3599999;assert.equal((await (await f.run(api("/projects/robot"),on)).json()).validUntil,start+3600000);
  at=start+3600000;assert.equal((await (await f.run(api("/projects/robot"),on)).json()).code,"LEARNING_SESSION_EXPIRED");
- let n=0;const changed=fixture({clock:()=>start+1000,readAccess:async()=>++n===1?a:{...a,attendance:"checked-out"}});
+ let n=0;const changed=fixture({clock:()=>start+600001,readAccess:async()=>++n===1?a:{...a,attendance:"checked-out"}});
  assert.equal((await (await changed.run(api("/projects/robot"),on)).json()).code,"CHECK_IN_REQUIRED");
  assert.equal((await (await f.run(api("/projects/robot"),env)).json()).code,"LEARNING_POLICY_REQUIRED");
+ const missing=fixture({clock:()=>start+600001,readAccess:async()=>({...a,bookingEndAt:null})});assert.equal((await (await missing.run(api("/projects/robot"),on)).json()).code,"COURSE_UNAVAILABLE");
+ let reads=0;const changedSlot=fixture({clock:()=>start+600001,readAccess:async()=>++reads===1?a:{...a,bookingId:"different_booking"}});assert.equal((await (await changedSlot.run(api("/projects/robot"),on)).json()).code,"COURSE_UNAVAILABLE");
 });

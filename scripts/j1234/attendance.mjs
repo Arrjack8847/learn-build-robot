@@ -9,6 +9,7 @@ import {createJ1234IdentityEnv,scopeJ1234StudentCredentials,isJ1234Preview} from
 import {readJ1234BillingProjection} from "./billing-projection.mjs";
 import {isJ12345Preview,createJ12345IdentityEnv,scopeJ12345StudentCredentials} from "../j12345/identity-scope.mjs";
 import {readJ12345MembershipObservation} from "./billing-projection.mjs";
+import {validBookedHour,currentBookedHour} from "../j12345/learning-session.mjs";
 export const ATTENDANCE_COLLECTION="SandboxBillingState";
 const scope="j1234-attendance-v1",stamp=x=>Number.isSafeInteger(x)&&x>0,hex=x=>typeof x==="string"&&/^[a-f0-9]{64}$/.test(x);
 const validRequest=x=>typeof x==="string"&&/^[a-zA-Z0-9_-]{16,128}$/.test(x);
@@ -22,6 +23,9 @@ export const scopedAttendanceKey=(e,id,day)=>(isJ12345Preview(e)?"j12345-":"")+a
 const secret=e=>createHmac("sha256",Buffer.from(isJ12345Preview(e)?e.J12345_AUTH_ROOT:e.J1234_AUTH_ROOT,"hex")).update(isJ12345Preview(e)?"j12345-attendance-code-v1":"j1234-attendance-code-v1").digest();
 const digest=(key,s,code)=>createHmac("sha256",key).update(JSON.stringify([s.studentId,s.bookingId,s.code.codeId,code])).digest("hex");
 const equal=(a,b)=>hex(a)&&hex(b)&&timingSafeEqual(Buffer.from(a,"hex"),Buffer.from(b,"hex"));
+const timed=s=>validBookedHour(s.bookingStartAt,s.bookingEndAt);
+const inHour=(s,at)=>timed(s)&&at>=s.bookingStartAt&&at<s.bookingEndAt;
+const codeDeadline=(s,at)=>timed(s)?Math.min(at+300000,s.bookingEndAt):at+300000;
 // Replay the compact audit state before trusting attendance or exposing counts.
 function verifyAudit(s,now){
  let status=null,codeStatus=null,attempts=0,issuedAt=null,lastAt=0,checkInAt=null,checkOutAt=null;
@@ -32,12 +36,13 @@ function verifyAudit(s,now){
   if(a.action!=="issue"&&Object.hasOwn(a,"fingerprint"))throw Error("INVALID_FINGERPRINT");
   if(a.action==="book"&&status===null&&a.result==="COMMITTED"&&a.at===s.bookedAt)status="booked";
   else if(a.action==="issue"&&status==="booked"&&a.result==="CODE_ISSUED"&&hex(a.fingerprint)&&!fingerprints.has(a.fingerprint)){
+   if(timed(s)&&!inHour(s,a.at))throw Error("ISSUE_OUTSIDE_BOOKED_HOUR");
    if(issued.filter(t=>t>a.at-900000).length>=3)throw Error("INVALID_ISSUE_LIMIT");
    fingerprints.add(a.fingerprint);issued.push(a.at);issuedAt=a.at;codeStatus="active";attempts=0;
   }else if(a.action==="redeem"&&status==="booked"&&codeStatus==="active"){
-   if(a.result==="CODE_EXPIRED"&&a.at>=issuedAt+300000)codeStatus="expired";
-   else if(a.result==="CODE_REFUSED"&&a.at<issuedAt+300000){attempts++;if(attempts===3)codeStatus="locked";}
-   else if(a.result==="CHECKED_IN"&&a.at<issuedAt+300000){codeStatus="used";status="attended";checkInAt=a.at;}
+   if(a.result==="CODE_EXPIRED"&&a.at>=codeDeadline(s,issuedAt))codeStatus="expired";
+   else if(a.result==="CODE_REFUSED"&&a.at<codeDeadline(s,issuedAt)){attempts++;if(attempts===3)codeStatus="locked";}
+   else if(a.result==="CHECKED_IN"&&a.at<codeDeadline(s,issuedAt)&&(!timed(s)||inHour(s,a.at))){codeStatus="used";status="attended";checkInAt=a.at;}
    else throw Error("INVALID_REDEMPTION");
   }else if(a.action==="revoke"&&status==="booked"&&codeStatus==="active"&&a.result==="COMMITTED")codeStatus="revoked";
   else if(a.action==="no_show"&&status==="booked"&&a.result==="COMMITTED"){status="no_show";if(codeStatus==="active")codeStatus="revoked";}
@@ -51,8 +56,9 @@ function decode(row,studentId,parentId,day,now){
  if(row?.environment!=="sandbox-qa"||!row.stateVersion||typeof row.stateJson!=="string")throw Error("INVALID_ATTENDANCE");
  const s=JSON.parse(row.stateJson);
  if(s.scope!==scope||s.studentId!==studentId||s.parentId!==parentId||s.day!==day||!validRequest(s.bookingId)||!stamp(s.bookedAt)||localDay(s.bookedAt)!==day||!["booked","attended","checked_out","no_show","excused"].includes(s.status)||!Array.isArray(s.audit)||s.audit.length<1||s.audit.length>80||!Array.isArray(s.issued)||s.issued.length>24||s.issued.some(t=>!stamp(t)||localDay(t)!==day))throw Error("INVALID_ATTENDANCE");
+ if((Object.hasOwn(s,"bookingStartAt")||Object.hasOwn(s,"bookingEndAt"))&&(!timed(s)||localDay(s.bookingStartAt)!==day||!inHour(s,s.bookedAt)))throw Error("INVALID_BOOKED_HOUR");
  const c=s.code;
- if(c&&(!validRequest(c.codeId)||!hex(c.digest)||!["active","revoked","expired","used","locked"].includes(c.status)||!stamp(c.issuedAt)||c.expiresAt!==c.issuedAt+300000||!Number.isInteger(c.attempts)||c.attempts<0||c.attempts>3||!s.issued.includes(c.issuedAt)))throw Error("INVALID_CODE");
+ if(c&&(!validRequest(c.codeId)||!hex(c.digest)||!["active","revoked","expired","used","locked"].includes(c.status)||!stamp(c.issuedAt)||c.expiresAt!==codeDeadline(s,c.issuedAt)||!Number.isInteger(c.attempts)||c.attempts<0||c.attempts>3||!s.issued.includes(c.issuedAt)))throw Error("INVALID_CODE");
  const attended=["attended","checked_out"].includes(s.status);
  if(attended?(!stamp(s.checkInAt)||localDay(s.checkInAt)!==day||s.checkInAt<s.bookedAt||s.visit?.studentId!==studentId||s.visit?.bookingId!==s.bookingId||s.visit?.startedAt!==s.checkInAt||s.visit?.status!==(s.status==="attended"?"open":"ended")):(s.checkInAt!=null||s.visit!=null))throw Error("INVALID_VISIT");
  if(s.status==="checked_out"?(!stamp(s.checkOutAt)||s.checkOutAt<s.checkInAt||s.visit.endedAt!==s.checkOutAt):s.checkOutAt!=null)throw Error("INVALID_CHECKOUT");
@@ -61,7 +67,7 @@ function decode(row,studentId,parentId,day,now){
  return s;
 }
 const encode=(s,newId)=>({environment:"sandbox-qa",stateVersion:newId(),stateJson:JSON.stringify(s)});
-const projection=(s,now)=>({bookingId:s.bookingId,day:s.day,attendanceStatus:s.status,checkInStatus:s.status==="attended"?"checked_in":s.status==="checked_out"?"checked_out":"not_checked_in",codeStatus:s.code?.status==="active"&&s.code.expiresAt<=now?"expired":s.code?.status??"not_issued",expiresAt:s.code?.status==="active"&&s.code.expiresAt>now?s.code.expiresAt:null,checkInAt:s.checkInAt,checkOutAt:s.checkOutAt,visitStatus:s.visit?.status??"none"});
+const projection=(s,now)=>({bookingId:s.bookingId,day:s.day,...(timed(s)?{bookingStartAt:s.bookingStartAt,bookingEndAt:s.bookingEndAt}:{}),attendanceStatus:s.status,checkInStatus:s.status==="attended"?"checked_in":s.status==="checked_out"?"checked_out":"not_checked_in",codeStatus:s.code?.status==="active"&&s.code.expiresAt<=now?"expired":s.code?.status??"not_issued",expiresAt:s.code?.status==="active"&&s.code.expiresAt>now?s.code.expiresAt:null,checkInAt:s.checkInAt,checkOutAt:s.checkOutAt,visitStatus:s.visit?.status??"none"});
 const empty=()=>({bookingId:null,day:null,attendanceStatus:"not_booked",checkInStatus:"not_checked_in",codeStatus:"not_issued",expiresAt:null,checkInAt:null,checkOutAt:null,visitStatus:"none"});
 export async function readAttendanceProjection({env,db,studentId,parentId,now=Date.now()}){
  if(!attendanceEnabled(env))return {...empty(),attendanceStatus:"unavailable",checkInStatus:"unavailable"};
@@ -106,7 +112,7 @@ export function createAttendanceService({env,db,clock=()=>Date.now(),newId=rando
     const fresh=await authorized();if(fresh?.parentId!==first.parentId||fresh.credentialVersion!==first.credentialVersion)return no("REFUSED");
     const old=await db.get(ATTENDANCE_COLLECTION,id);
     if(!old&&action!=="book")return no("REFUSED");
-    let s=old?decode(old,studentId,first.parentId,day,at):{scope,studentId,parentId:first.parentId,day,bookingId:newId(),bookedAt:at,status:"booked",checkInAt:null,checkOutAt:null,code:null,visit:null,issued:[],audit:[]};
+    let s=old?decode(old,studentId,first.parentId,day,at):{scope,studentId,parentId:first.parentId,day,bookingId:newId(),bookedAt:at,...(isJ12345Preview(env)?currentBookedHour(at):{}),status:"booked",checkInAt:null,checkOutAt:null,code:null,visit:null,issued:[],audit:[]};
     if(old&&action!=="book"&&s.bookingId!==input.bookingId)return no("REFUSED");
     const prior=s.audit.find(a=>a.requestId===input.requestId);
     if(prior)return prior.action===action?no("ALREADY_PROCESSED"):no("REFUSED");
@@ -115,17 +121,20 @@ export function createAttendanceService({env,db,clock=()=>Date.now(),newId=rando
     if(needsMembership&&!await eligible(studentId,first.parentId))return no("MEMBERSHIP_REQUIRED");
     let result=yes("COMMITTED"),plain;
     if(action==="issue"){
+     if(isJ12345Preview(env)&&!inHour(s,at))return no("REFUSED");
      if(s.status!=="booked"||s.issued.length>=24||s.issued.filter(t=>t>at-900000).length>=3)return no("REFUSED");
      plain=newCode();if(!/^\d{8}$/.test(plain))throw Error("BAD_CODE");
      // Never reissue the same numerical code in this booking, even when RNG repeats.
      const fingerprint=createHmac("sha256",key).update(s.bookingId+"/"+plain).digest("hex");
      if(s.audit.some(a=>a.fingerprint===fingerprint))return no("RETRY_ISSUE");
-     s.code={codeId:newId(),status:"active",issuedAt:at,expiresAt:at+300000,attempts:0};
+     s.code={codeId:newId(),status:"active",issuedAt:at,expiresAt:codeDeadline(s,at),attempts:0};
      s.code.digest=digest(key,s,plain);s.issued.push(at);
      result=yes("CODE_ISSUED",{expiresAt:s.code.expiresAt});s.pendingFingerprint=fingerprint;
     }else if(action==="revoke"){
      if(s.code?.status!=="active"||s.status!=="booked")return no("REFUSED");s.code.status="revoked";
     }else if(action==="redeem"){
+     if(isJ12345Preview(env)&&!timed(s))return no("REFUSED");
+     if(timed(s)&&at<s.bookingStartAt)return no("REFUSED");
      if(s.status!=="booked"||s.code?.status!=="active")return no("REFUSED");
      if(s.code.expiresAt<=at){s.code.status="expired";result=no("CODE_EXPIRED");}
      else if(!equal(s.code.digest,digest(key,s,input.code))){s.code.attempts++;if(s.code.attempts===3)s.code.status="locked";result=no("CODE_REFUSED");}
@@ -141,7 +150,7 @@ export function createAttendanceService({env,db,clock=()=>Date.now(),newId=rando
     const finalIdentity=await authorized();
     if(finalIdentity?.parentId!==first.parentId||finalIdentity.credentialVersion!==first.credentialVersion||localDay(clock())!==day)return no("REFUSED");
     if(needsMembership&&!await eligible(studentId,first.parentId))return no("MEMBERSHIP_REQUIRED");
-    if(action==="redeem"&&result.ok&&clock()>=s.code.expiresAt)return no("CODE_EXPIRED");
+    if(action==="redeem"&&result.ok&&(clock()>=s.code.expiresAt||isJ12345Preview(env)&&!inHour(s,clock())))return no("CODE_EXPIRED");
     if(action==="issue"&&clock()>=s.code.expiresAt)return no("REFUSED");
     verifyAudit(s,clock());
     const next=encode(s,newId),won=old?await db.replaceIfVersion(ATTENDANCE_COLLECTION,id,old.stateVersion,next):await db.insert(ATTENDANCE_COLLECTION,id,next);

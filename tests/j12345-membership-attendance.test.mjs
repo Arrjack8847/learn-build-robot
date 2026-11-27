@@ -104,7 +104,8 @@ test("J12345 actual J2 fixture, scoped J3 checkout/ledger and J4 attendance feed
  assert.equal((await operator("book",one.id,undefined,randomUUID(),ae,studentCookie)).http,403);
  assert.equal((await student({action:"status"},"")).http,401);
  const books=await Promise.all([operator("book"),operator("book")]);assert.equal(books.filter(x=>x.ok).length,1);
- const booking=books.find(x=>x.ok).attendance.bookingId;
+ const booked=books.find(x=>x.ok).attendance,booking=booked.bookingId;
+ assert.equal(booked.bookingStartAt,Math.floor(now/3600000)*3600000);assert.equal(booked.bookingEndAt,booked.bookingStartAt+3600000);
  assert.equal((await getProfile()).access.attendance,"booked");
  const issueId=randomUUID(),issued=await operator("issue",one.id,booking,issueId);
  assert.match(issued.code,/^[0-9]{8}$/);assert.equal(issued.expiresAt,now+300000);
@@ -125,7 +126,7 @@ test("J12345 actual J2 fixture, scoped J3 checkout/ledger and J4 attendance feed
  const savedAttendance=JSON.parse((await f.db.get(ATTENDANCE_COLLECTION,aKey)).stateJson);
  assert.equal(savedAttendance.status,"attended");assert.equal(savedAttendance.audit.filter(a=>a.result==="CHECKED_IN").length,1);
  assert.equal(await f.db.get(ATTENDANCE_COLLECTION,attendanceKey(one.id,day)),null);
- const present=await getProfile();assert.equal(present.access.membershipEligible,true);assert.equal(present.access.attendance,"checked-in");assert.equal(present.access.reason,"learning-policy-required");assert.equal(present.learningAccess,"unavailable");
+ const present=await getProfile();assert.equal(present.access.membershipEligible,true);assert.equal(present.access.attendance,"checked-in");assert.equal(present.access.reason,"learning-policy-required");assert.equal(present.access.learningSession.endsAt,booked.bookingEndAt);assert.equal(present.learningAccess,"unavailable");
  assert.doesNotMatch(JSON.stringify(present),/parentId|pinHash|eventKey|digest|providerPaymentId|codeId/);
  f.setNow(now);
  const proof2=await f.login("s","alpha@example.invalid"),sign2=await f.call("s","sign-in",{studentId:two.id,pin:"815306"},proof2);

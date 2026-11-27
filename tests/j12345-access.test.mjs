@@ -22,15 +22,14 @@ test("separate checkout and attendance namespaces, global provider ownership ind
 test("operator requires independent J12345 capability, cannot inherit old secret",()=>{const req=(key,cookie="")=>new Request("https://fixture.invalid",{headers:{"x-stem-j1234-operator":key,cookie}});assert.equal(operatorAccess(req(e.J12345_TEST_OPERATOR_SECRET),e),200);assert.equal(operatorAccess(req(e.J12345_TEST_OPERATOR_SECRET,"__Host-bsr-student=fixture"),e),403);assert.equal(operatorAccess(req(e.J12345_TEST_OPERATOR_SECRET),{...e,J12345_TEST_OPERATOR_ENABLED:"0"}),404);assert.equal(operatorAccess(req(e.J12345_TEST_OPERATOR_SECRET),{...e,J1234_TEST_OPERATOR_SECRET:e.J12345_TEST_OPERATOR_SECRET}),503);});
 
 import {evaluateLearningSession} from "../scripts/j12345/learning-session.mjs";
-test("owner-approved one-hour session expires exactly at deadline and is not extended by refresh",()=>{
- const start=Date.parse("2026-11-27T02:00:00Z"),a={membership:"active",membershipEligible:true,membershipValidUntil:start+7200000,attendance:"checked-in",checkInAt:start};
- assert.deepEqual(evaluateLearningSession(a,start),{status:"eligible",endsAt:start+3600000});
- assert.deepEqual(evaluateLearningSession(a,start+3599999),{status:"eligible",endsAt:start+3600000});
- assert.deepEqual(evaluateLearningSession(a,start+3600000),{status:"expired",endsAt:start+3600000});
- assert.equal(evaluateLearningSession({...a,attendance:"checked-out"},start+1000).status,"check-in-required");
- assert.equal(evaluateLearningSession({...a,membershipEligible:false},start+1000).status,"membership-required");
- assert.equal(evaluateLearningSession({...a,membershipValidUntil:start+30000},start).endsAt,start+30000);
- const late=Date.parse("2026-11-27T15:45:00Z");
- assert.equal(evaluateLearningSession({...a,checkInAt:late,membershipValidUntil:late+7200000},late).endsAt,Date.parse("2026-11-27T16:00:00Z"));
- assert.equal(evaluateLearningSession({...a,checkInAt:start+1},start).status,"unavailable");
+test("booked-hour deadline is fixed even with late arrival and no grace",()=>{
+ const start=Date.parse("2026-11-27T02:00:00Z"),end=start+3600000,checkIn=start+600000;
+ const a={bookingId:"booking_fixture_1",bookingStartAt:start,bookingEndAt:end,membership:"active",membershipEligible:true,membershipValidUntil:start+7200000,attendance:"checked-in",checkInAt:checkIn};
+ assert.deepEqual(evaluateLearningSession(a,checkIn),{status:"eligible",endsAt:end});
+ assert.deepEqual(evaluateLearningSession(a,end-1),{status:"eligible",endsAt:end});
+ assert.deepEqual(evaluateLearningSession(a,end),{status:"expired",endsAt:end});
+ assert.equal(evaluateLearningSession({...a,attendance:"checked-out"},checkIn).status,"check-in-required");
+ assert.equal(evaluateLearningSession({...a,membershipEligible:false},checkIn).status,"membership-required");
+ assert.equal(evaluateLearningSession({...a,membershipValidUntil:checkIn+30000},checkIn).endsAt,checkIn+30000);
+ for(const invalid of [{...a,bookingEndAt:null},{...a,bookingId:null},{...a,checkInAt:start-1},{...a,checkInAt:end},{...a,bookingEndAt:end+900000},{...a,bookingStartAt:start+1000}])assert.equal(evaluateLearningSession(invalid,checkIn).status,"unavailable");
 });

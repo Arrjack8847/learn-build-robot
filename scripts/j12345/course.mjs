@@ -1,4 +1,4 @@
-// Exact-branch course boundary with owner-approved one-hour maximum.
+// Exact-branch course boundary with approved fixed booked-hour expiry.
 import {isJ12345Preview,validJ12345Student,J12345_BRANCH} from "./identity-scope.mjs";
 import {classifyCoursePath} from "../../src/lib/j5-course-path.mjs";
 import {createCourseHttp} from "../j5/course-http.mjs";
@@ -45,7 +45,7 @@ export function createJ12345CourseAuthority({resolveStudent,readVerifiedChild,re
    if(!same(child,lastChild)||!observed||observed.reason==="verification-required")return fail(503,"COURSE_UNAVAILABLE");
    if(observed.membershipEligible!==true)return fail(403,"MEMBERSHIP_REQUIRED");
    if(observed.attendance!=="checked-in")return fail(403,"CHECK_IN_REQUIRED");
-   if(observed.checkInAt!==a.checkInAt||observed.membershipValidUntil!==a.membershipValidUntil)return fail(503,"COURSE_UNAVAILABLE");
+   if(observed.bookingId!==a.bookingId||observed.bookingStartAt!==a.bookingStartAt||observed.bookingEndAt!==a.bookingEndAt||observed.checkInAt!==a.checkInAt||observed.membershipValidUntil!==a.membershipValidUntil)return fail(503,"COURSE_UNAVAILABLE");
    const decision=evaluateLearningSession(observed,clock());
    if(decision.status==="expired")return fail(403,"LEARNING_SESSION_EXPIRED");
    if(decision.status!=="eligible")return fail(503,"COURSE_UNAVAILABLE");
