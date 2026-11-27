@@ -1,0 +1,2 @@
+# Phase 3
+Combined parent booking HTTP composes N3/N4 with J2 ownership and J3 evidence. Parent UI embedded in J2 profile; separate combined staff day view uses actual allowlisted fictional J2 records and the same aggregate. Staff test key, no individual production staff account. All endpoints require exact preview and flags; phase 6 mounts routes. Legacy attendance not mounted. Tests and real Wix runtime deferred. No deployments.

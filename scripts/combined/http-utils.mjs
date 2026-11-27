@@ -1,0 +1,14 @@
+import {timingSafeEqual} from "node:crypto";
+import {combinedPreview,combinedRepositoryEnabled} from "./scope.mjs";
+export const json=(status,data)=>new Response(JSON.stringify(data),{status,headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"private, no-store","X-Content-Type-Options":"nosniff","X-Robots-Tag":"noindex, nofollow"}});
+export const fail=(status,code)=>json(status,{ok:false,status:code});
+export const exact=(x,keys)=>x&&typeof x==="object"&&!Array.isArray(x)&&Object.keys(x).length===keys.length&&keys.every(k=>Object.hasOwn(x,k));
+export const validId=x=>typeof x==="string"&&/^[a-zA-Z0-9_-]{16,128}$/.test(x);
+export const cookie=(r,name)=>{const a=(r.headers.get("cookie")??"").split(";").map(x=>x.trim()).filter(x=>x.startsWith(name+"="));return a.length===1?a[0].slice(name.length+1):"";};
+export const mixed=r=>(r.headers.get("cookie")??"").split(";").some(x=>/^__Host-bsr-(?:parent-test|student|student-proof)\s*=\s*[^\s]/.test(x.trim()));
+export const runtimeEnabled=e=>combinedPreview(e)&&combinedRepositoryEnabled(e)&&e.COMBINED_IDENTITY_ENABLED==="1"&&e.COMBINED_RUNTIME_ENABLED==="1";
+export function browserRequest(r,e){const u=new URL(r.url),origin="https://"+e.VERCEL_URL;return r.method==="POST"&&!u.search&&!!e.VERCEL_URL&&u.origin===origin&&r.headers.get("origin")===origin&&r.headers.get("sec-fetch-site")==="same-origin"&&r.headers.get("x-stem-combined")==="1"&&r.headers.get("content-type")?.split(";")[0]==="application/json"&&!!r.body;}
+export function secret(e,name){const v=e[name];return typeof v==="string"&&/^[a-f0-9]{64}$/.test(v)&&new Set(Buffer.from(v,"hex")).size>=8&&!["COMBINED_AUTH_ROOT","COMBINED_STAFF_KEY","COMBINED_WORKER_KEY","COMBINED_CODE_SECRET","COMBINED_MEMBERSHIP_WORKER_SECRET","J12345_AUTH_ROOT","J1234_AUTH_ROOT","J12345_TEST_OPERATOR_SECRET","J1234_TEST_OPERATOR_SECRET","J12345_MEMBERSHIP_WORKER_SECRET","PARENT_AUTH_SECRET","STUDENT_AUTH_SECRET","NIZAR_FIXTURE_OPERATOR_KEY","NIZAR_STAFF_FIXTURE_KEY"].some(k=>k!==name&&typeof e[k]==="string"&&e[k].toLowerCase()===v)?v:null;}
+export function matches(a,b){return typeof a==="string"&&typeof b==="string"&&/^[a-f0-9]{64}$/.test(a)&&timingSafeEqual(Buffer.from(a,"hex"),Buffer.from(b,"hex"));}
+export async function readBody(r,limit=4096){const reader=r.body.getReader(),d=new TextDecoder("utf-8",{fatal:true});let raw="",size=0;try{for(;;){const p=await reader.read();if(p.done)break;size+=p.value.byteLength;if(size>limit){await reader.cancel();throw Error("INVALID_INPUT");}raw+=d.decode(p.value,{stream:true});}return JSON.parse(raw+d.decode());}finally{reader.releaseLock();}}
+export function resultResponse(r){return json(r.ok?200:r.status==="NOT_AUTHORIZED"?403:r.status==="INVALID_INPUT"?400:["COMMIT_UNCONFIRMED","SCHEDULING_UNAVAILABLE","BOOKING_BUSY"].includes(r.status)?503:409,r);}
