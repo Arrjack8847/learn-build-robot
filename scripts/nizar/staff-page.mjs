@@ -26,7 +26,7 @@ export function renderNizarStaffPreview(){
   for(const h of hours){
    if(h===13||h===19)$("schedule").append(el("p",h===13?"12–1 PM · Lunch break":"6–7 PM · Dinner break","notice"));
    const entries=data.slots.filter(s=>s.hour===h),row=el("div",undefined,"hour");row.append(el("strong",time(entries[0].startAt)+" – "+time(entries[0].endAt)));
-   for(const s of entries){const box=el("section",undefined,"pool");box.append(el("strong",s.activity==="robotics"?"Robotics":"Drone"),el("p",s.occupied+" / "+s.capacity+" booked · "+s.offered+" offered · "+s.queued+" waiting · "+s.remaining+" available","muted"));
+   for(const s of entries){const box=el("section",undefined,"pool");box.append(el("strong",s.activity==="robotics"?"Robotics":"Drone"),el("p",s.occupied+" / "+s.capacity+" booked · "+s.offered+" offered · "+s.queued+" waiting · "+s.remaining+" advance-bookable · "+s.walkInRemaining+" walk-in places","muted"));
     const list=s.bookings.filter(b=>filter==="all"||b.status===filter);
     for(const b of list){const item=el("div",undefined,"booking"),top=el("div",undefined,"spread");top.append(el("strong",b.childName),el("span",b.status,"tag "+b.status));item.append(top,el("p","Membership: "+b.membership+" · Deposit: "+b.deposit,"muted"));
      if(b.checkInAt)item.append(el("p","Check-in "+time(b.checkInAt),"muted"));if(b.checkOutAt)item.append(el("p","Checkout "+time(b.checkOutAt),"muted"));if(b.excuse)item.append(el("p","Excused: "+b.excuse.reason,"muted"));

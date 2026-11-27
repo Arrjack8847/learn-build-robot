@@ -156,7 +156,7 @@ export function createN4Service({repository,resolveChild,readEligibility,readOwn
    return await transact(async(s,now)=>{
     if(e.at>now)return fail("UNVERIFIED_EVENT");
     const o=await readOwner(e.childId,e.parentId);if(!validOwner(o)||!owns(e,o))return fail("NOT_AUTHORIZED");
-    const a=s.n4,id=digest([e.eventId]),fingerprint=digest(e),previous=a.events.find(x=>x.id===id);
+    const a=s.n4,id=digest([e.eventId]),fingerprint=digest(e.kind==="excuse"&&e.revision!==undefined?{kind:e.kind,eventId:e.eventId,childId:e.childId,parentId:e.parentId,bookingId:e.bookingId,revision:e.revision,staffId:e.staffId,reason:e.reason}:e),previous=a.events.find(x=>x.id===id);
     if(previous)return previous.fingerprint===fingerprint?{ok:true,noWrite:true,status:"ALREADY_COMMITTED"}:fail("EVENT_CONFLICT");
     const m=businessDay(now).slice(0,7),balance=depositBalance(s,e.childId,m);
     if(e.kind==="renewal-failed"){

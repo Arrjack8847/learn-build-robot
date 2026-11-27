@@ -19,8 +19,9 @@ export function projectDay(state,day,now,closedDays=[]){
  const slots=POLICY.openHours.flatMap(hour=>POLICY.activities.map(activity=>{
   const s=slot(day,hour,activity),bookings=rows.filter(b=>b.startAt===s.startAt&&b.activity===activity);
   const occupied=bookings.filter(active).length,offered=reservedOffers(state,s),queued=n4(state).waitlist.filter(w=>w.status==="queued"&&w.activity===activity&&w.startAt===s.startAt).length;
-  const remaining=closed||queued?0:Math.max(0,POLICY.capacityPerActivity-occupied-offered);
-  return {...s,hour,capacity:POLICY.capacityPerActivity,occupied,offered,queued,remaining,open:!closed,bookings};
+  const free=queued?0:Math.max(0,POLICY.capacityPerActivity-occupied-offered);
+  const remaining=canBookSlot(s,now,{closedDays})?free:0,walkInRemaining=canBookSlot(s,now,{closedDays,walkIn:true})?free:0;
+  return {...s,hour,capacity:POLICY.capacityPerActivity,occupied,offered,queued,remaining,walkInRemaining,open:!closed,bookings};
  }));
  return {day,serverNow:now,closed,slots,totals:{bookings:rows.filter(active).length,attended:rows.filter(b=>["attended","checked-out"].includes(b.bookingStatus)).length,noShows:rows.filter(b=>b.bookingStatus==="no-show").length,held:rows.filter(b=>b.bookingStatus==="held-unpaid").length,cancelled:rows.filter(b=>b.bookingStatus==="cancelled").length,excused:rows.filter(b=>b.bookingStatus==="excused").length,offered:slots.reduce((n,x)=>n+x.offered,0)}};
 }
@@ -109,8 +110,10 @@ export function createSharedAttendanceAdapter({repository,readOwner,readEligibil
  async function currentBooking(childId,parentId){
   if(!isChildId(childId)||!isChildId(parentId))return null;
   const o=await readOwner(childId,parentId);if(!validOwner(o,childId)||o.parentId!==parentId)return null;
-  const {state}=await repository.read(),now=clock();
+  const snap=await repository.read(),state=snap.state,now=clock();
   if(effectiveEligibility(state,o,await readEligibility(o),now).membership!=="active")return null;
+  if(!sameOwner(o,await readOwner(childId,parentId)))return null;
+  if((await repository.read()).version!==snap.version)return null;
   const b=state.bookings.find(b=>b.childId===childId&&b.parentId===parentId&&b.day===businessDay(now)&&active(b));
   const p=attendanceBooking(b,childId,parentId,clock());if(!p)return null;
   const check=staffAudit(state).find(a=>a.bookingId===b.bookingId&&attendance(a));

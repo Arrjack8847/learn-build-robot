@@ -39,10 +39,10 @@ export function createStaffFixtureHttp({repositoryFactory=env=>createSchedulingR
    if(input.action==="day"&&exact(input,["action","day"]))result=await service.dayView(actor,input.day);
    else if(input.action==="excuse"&&exact(input,["action","bookingId","revision","childId","reason","requestId"])){
     const snap=await repository.read(),b=snap.state.bookings.find(b=>b.bookingId===input.bookingId&&b.childId===input.childId);
-    if(!b||b.revision!==input.revision)return fail(409,"BOOKING_CHANGED");
+    if(!b)return fail(409,"BOOKING_CHANGED");
     const o=await readOwner(b.childId,b.parentId);if(!o)return fail(403,"NOT_AUTHORIZED");
-    if(typeof input.requestId!=="string"||! /^(?:[a-zA-Z0-9_-]{16,128})$/.test(input.requestId))return fail(400,"INVALID_INPUT");
-    const event={eventId:input.requestId,kind:"excuse",childId:b.childId,parentId:b.parentId,bookingId:b.bookingId,revision:b.revision,staffId,reason:input.reason,at:clock()};
+    if(typeof input.requestId!=="string"||! /^(?:[a-zA-Z0-9_-]{16,128})$/.test(input.requestId)||typeof input.revision!=="string"||! /^(?:[a-zA-Z0-9_-]{16,128})$/.test(input.revision))return fail(400,"INVALID_INPUT");
+    const event={eventId:input.requestId,kind:"excuse",childId:b.childId,parentId:b.parentId,bookingId:b.bookingId,revision:input.revision,staffId,reason:input.reason,at:clock()};
     const n4=createN4Service({repository,readOwner,readEligibility,clock,resolveChild:async()=>null,readAttendance:async()=>null,verifyEvent:async e=>e===event?event:null});
     result=await n4.event(event);
    }else if(["walk-in","manual-attendance","checkout"].includes(input.action))result=await service.mutate(input,actor);
