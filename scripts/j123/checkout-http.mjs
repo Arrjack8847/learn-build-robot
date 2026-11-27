@@ -9,6 +9,8 @@ import {createIntegratedCheckoutStore} from "./checkout-store.mjs";
 import {reconcileStudentCheckoutStatus} from "./membership-runtime.mjs";
 import {J123_SITE as SITE,J123_TERMS as TERMS,membershipTermsVersion,j123InfrastructureStatus,isIntegratedBillingPreview} from "./infrastructure.mjs";
 import {scopeJ1234BillingStore} from "../j1234/billing-scope.mjs";
+import {isCombinedBranch} from "../combined/scope.mjs";
+import {readJ12345MembershipObservation} from "../j1234/billing-projection.mjs";
 export {TERMS};
 const json=(s,b)=>new Response(JSON.stringify(b),{status:s,headers:{"Content-Type":"application/json","Cache-Control":"private, no-store","X-Content-Type-Options":"nosniff","Referrer-Policy":"no-referrer"}});
 const fail=(s,status)=>json(s,{ok:false,status});
@@ -31,10 +33,15 @@ export function createIntegratedCheckoutHttp({resolvePayer=resolveJ123CheckoutPa
    if(!input||typeof input!=="object"||Array.isArray(input)||!/^qa-j2-[a-f0-9]{64}$/.test(input.childId??""))return fail(400,"INVALID_INPUT");
    const keys=statusOnly?["childId"]:["childId","requestKey","termsVersion"];if(Object.keys(input).length!==keys.length||!keys.every(k=>Object.hasOwn(input,k))||(!statusOnly&&(typeof input.requestKey!=="string"||!/^[-a-zA-Z0-9_]{1,128}$/.test(input.requestKey)||input.termsVersion!==termsVersion)))return fail(400,"INVALID_INPUT");
    const payer=await resolvePayer(request,env,input.childId);if(!payer||payer.childId!==input.childId)return fail(401,"NOT_AUTHORIZED");
-   const db=scopeJ1234BillingStore(storeFactory(env,requestFn),env),store=createIntegratedCheckoutStore({db,resolvePayer,request,env,childId:input.childId,clock});
+   const rawDb=storeFactory(env,requestFn),db=scopeJ1234BillingStore(rawDb,env),store=createIntegratedCheckoutStore({db,resolvePayer,request,env,childId:input.childId,clock});
    if(statusOnly){
     const current=await store.getStatus(payer.parentId);
-    const membership=current==="PAYMENT_PENDING"?await reconcileStudentCheckoutStatus({env,db,studentId:input.childId,parentId:payer.parentId,requestFn,clock}):null;
+    let membership=current==="PAYMENT_PENDING"?await reconcileStudentCheckoutStatus({env,db,studentId:input.childId,parentId:payer.parentId,requestFn,clock}):null;
+    // The combined parent screen and scheduling must agree on the full verified ledger.
+    if(isCombinedBranch(env)&&membership==="MEMBERSHIP_ACTIVE"){
+     const verified=await readJ12345MembershipObservation({env,db:rawDb,studentId:input.childId,parentId:payer.parentId,now:clock()});
+     if(verified.membershipStatus!=="active"||verified.verifiedLearningEligibility!==true||verified.validUntil<=clock())membership="PAYMENT_VERIFICATION_REQUIRED";
+    }
     // Recheck authorization before returning any student-specific result, including a long provider read.
     const fresh=await resolvePayer(request,env,input.childId);
     if(!fresh||fresh.parentId!==payer.parentId||fresh.childId!==input.childId)return fail(401,"NOT_AUTHORIZED");

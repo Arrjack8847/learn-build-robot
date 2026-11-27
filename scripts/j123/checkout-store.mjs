@@ -14,7 +14,7 @@ export function createIntegratedCheckoutStore({db,resolvePayer,request,env,child
   if(old){const r=parse(old);if(r.termsVersion!==membershipTermsVersion(env))throw Error("TERMS_REVIEW_REQUIRED");if(!Object.entries(expected).every(([k,v])=>r[k]===v))throw Error("UNRESOLVED_STUDENT_CHECKOUT");if(r.status!=="reserved"||r.dispatchState!=="retryable")return {created:false,reservation:r};replaceRetry=true;}
   const r={...expected,attemptId:newId(),reference:"j123-"+newId(),status:"reserved",dispatchState:"preflight",termsVersion:membershipTermsVersion(env),termsAcceptedAt:clock(),startDate:new Date(clock()+86400000+8*3600000).toISOString().slice(0,10)};
   const next=encode(r),created=replaceRetry?await db.replaceIfVersion(collection,key,old.stateVersion,next):await db.insert(collection,key,next);old=await db.get(collection,key);const saved=parse(old);
-  if(!Object.entries(expected).every(([k,v])=>saved[k]===v))throw Error("RESERVATION_CONFLICT");
+  if(saved.termsVersion!==membershipTermsVersion(env)||!Object.entries(expected).every(([k,v])=>saved[k]===v))throw Error("RESERVATION_CONFLICT");
   if(created===true&&old.stateVersion!==next.stateVersion)throw Error("RESERVATION_UNCONFIRMED");
   return {created:created===true,reservation:saved};
  }
@@ -31,7 +31,7 @@ export function createIntegratedCheckoutStore({db,resolvePayer,request,env,child
  async function releaseUnsent(r){
   const old=await db.get(collection,key);if(!old)return false;
   const saved=parse(old);
-  if(saved.status!=="reserved"||saved.dispatchState!=="preflight"||saved.attemptId!==r.attemptId||saved.reference!==r.reference)return false;
+  if(saved.termsVersion!==membershipTermsVersion(env)||saved.status!=="reserved"||saved.dispatchState!=="preflight"||saved.attemptId!==r.attemptId||saved.reference!==r.reference)return false;
   const next=encodeCheckout({...decodeCheckout(old,childId),reservation:{...saved,dispatchState:"retryable"}},newId);
   if(await db.replaceIfVersion(collection,key,old.stateVersion,next)!==true)return false;
   const after=await db.get(collection,key);return after?.stateVersion===next.stateVersion&&parse(after).dispatchState==="retryable";

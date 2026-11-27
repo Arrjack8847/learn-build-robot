@@ -6,6 +6,9 @@ import {createMembershipProviderReader,membershipProcessingEnabled} from "./memb
 import {createMembershipReconciler,createMembershipReviewProcessor,readIntegratedMembership} from "./membership-reconciliation.mjs";
 import {membershipTermsVersion} from "./infrastructure.mjs";
 import {flushPaymentReceipts} from "./payment-receipts.mjs";
+import {isCombinedBranch} from "../combined/scope.mjs";
+import {createJ12345IdentityEnv} from "../j12345/identity-scope.mjs";
+import {createAuthCrypto,previewRecipients} from "../parent-auth/secure-auth-transport.mjs";
 const digest=x=>typeof x==="string"&&/^[a-f0-9]{64}$/.test(x);
 const epoch=x=>Number.isSafeInteger(x)?x:Date.parse(typeof x==="string"?x:x?.$date);
 const types=new Set(["charge.created","charge.updated","recurring_billing.subscription_updated","recurring_billing.method_detached"]);
@@ -76,6 +79,10 @@ export async function dispatchVerifiedMembershipEvent({env,db,eventKey,requestFn
   if(binding.environment!=="sandbox-qa"||typeof binding.stateVersion!=="string")return {ok:false,status:"pending"};
   const v=JSON.parse(binding.stateJson);
   if(v.scope!=="j123-provider-binding-v1"||v.kind!=="subscription"||v.providerId!==subscriptionId||!validStudent(v.childId)||!validStudent(v.parentId))return {ok:false,status:"pending"};
+  if(isCombinedBranch(env)){
+   const cfg=createJ12345IdentityEnv(env),crypto=createAuthCrypto(cfg);
+   if(!previewRecipients(cfg).some(email=>"qa-j2-"+crypto.identityDigest("parent-preview-session",email)===v.parentId))return {ok:false,status:"pending"};
+  }
   const state=decodeCheckout(await db.get(BILLING_COLLECTION,checkoutKey(v.childId)),v.childId),r=state.reservation;
   if(r.providerId!==subscriptionId||r.parentId!==v.parentId||r.status!=="bound"||r.termsVersion!==membershipTermsVersion(env)||!Number.isSafeInteger(r.termsAcceptedAt)||r.termsAcceptedAt<=0||!validEvent(e,clock(),r.termsAcceptedAt)||!await checkProviderBinding(db,"subscription",subscriptionId,r))return {ok:false,status:"pending"};
   async function paymentResult(status){

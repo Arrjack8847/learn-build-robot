@@ -18,7 +18,7 @@ export function isJ123Preview(env){
  return env.VERCEL_ENV==="preview"&&env.VERCEL_TARGET_ENV!=="production"&&env.VERCEL_GIT_COMMIT_REF===J123_BRANCH;
 }
 export function isIntegratedBillingPreview(env){return isJ123Preview(env)||isJ1234Preview(env)&&env.J1234_BILLING_ENABLED==="1"||isJ12345Preview(env)&&env.J12345_BILLING_ENABLED==="1";}
-export function billingIdentityEnv(env){return isJ12345Preview(env)?createJ12345IdentityEnv(env):isJ1234Preview(env)?createJ1234IdentityEnv(env):env;}
+export function billingIdentityEnv(env){if(isCombinedBranch(env)&&!isCombinedIdentityPreview(env))throw Error("COMBINED_IDENTITY_DISABLED");return isJ12345Preview(env)?createJ12345IdentityEnv(env):isJ1234Preview(env)?createJ1234IdentityEnv(env):env;}
 export function j123InfrastructureStatus(env){
  const integrated=isJ1234Preview(env)||isJ12345Preview(env);let isolatedIdentity=false;
  if(integrated){try{env=billingIdentityEnv(env);isolatedIdentity=true;}catch{}}
@@ -38,12 +38,13 @@ export function j123InfrastructureStatus(env){
   rotationConfirmed:env.J3_SANDBOX_ROTATION_CONFIRMED==="true",
   webhookAccepted:env.J123_GENUINE_WEBHOOK_ACCEPTED==="true"&&(isCombinedBranch(env)?isCombinedIdentityPreview(env)&&env.COMBINED_PROVIDER_ACCEPTED==="1":!isJ12345Preview(env)||env.J12345_PROVIDER_ACCEPTED==="1"),
   periodAccepted:!isCombinedBranch(env)||env.J123_PROVIDER_PERIOD_SCHEMA==="confirmed_charge_billing_period_v1",
+  ledgerReadReady:!isCombinedBranch(env)||env.J12345_BILLING_READ_ENABLED==="1"&&env.J123_MEMBERSHIP_RECONCILIATION_ENABLED==="true",
   termsApproved:isCombinedBranch(env)?env.COMBINED_PAYMENT_TERMS_VERSION===COMBINED_MEMBERSHIP_TERMS:env.J123_PAYMENT_TERMS_VERSION===J123_TERMS,
   checkoutEnabled:env.J123_CHECKOUT_ENABLED==="true"
  };
  const authReady=["preview","wix","resend","parentSecret","studentSecret","distinctSecrets","studentEnabled"].every(k=>checks[k]);
  const providerConfigured=checks.preview&&checks.wix&&checks.sandbox&&checks.legacyDisabled;
- const checkoutReady=authReady&&providerConfigured&&checks.rotationConfirmed&&checks.webhookAccepted&&checks.periodAccepted&&checks.termsApproved&&checks.checkoutEnabled;
+ const checkoutReady=authReady&&providerConfigured&&checks.rotationConfirmed&&checks.webhookAccepted&&checks.periodAccepted&&checks.ledgerReadReady&&checks.termsApproved&&checks.checkoutEnabled;
  return Object.freeze({...checks,authReady,providerConfigured,checkoutReady});
 }
 export function requireJ123Identity(env){

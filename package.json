@@ -55,7 +55,8 @@
     "test:nizar:n5": "node --test tests/nizar-n2.test.mjs tests/nizar-n3.test.mjs tests/nizar-n4.test.mjs tests/nizar-n5.test.mjs",
     "test:combined:phase1": "node --test tests/combined-phase1.test.mjs",
     "test:combined": "node --test tests/combined-*.test.mjs tests/nizar-n2.test.mjs tests/nizar-n3.test.mjs tests/nizar-n4.test.mjs tests/nizar-n5.test.mjs",
-    "build:combined-private": "node scripts/combined/run-private-build.mjs"
+    "build:combined-private": "node scripts/combined/run-private-build.mjs",
+    "test:combined:phase2": "node --test tests/combined-phase1.test.mjs tests/combined-phase2.test.mjs"
   },
   "overrides": {
     "rolldown": "1.2.1"
