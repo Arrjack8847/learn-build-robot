@@ -10,7 +10,7 @@ function fixture(permissions){
  const state={bookings:[],n4:emptyN4()},actor={staffId:"staff-fixture-reader",version:"v1",permissions};
  const runtime={clock:()=>now,repository:{read:async()=>({version,state:structuredClone(state)})},resolveStaff:async()=>actor,listStudents:async()=>[{id:childId,name}],readOwner:async()=>owner,readEligibility:async()=>({membership:"active",deposit:"clear",validUntil:now+86400000}),store:{}};
  const readBilling=async()=>{reads++;if(change&&reads>1)paymentStatus="review_required";return {membershipStatus:"active",paymentStatus,renewalStatus:"second_cycle_unverified",validUntil:now+86400000,payments:[{studentId:childId,paymentId:"charge-fixture-1",currency:"MYR",amountMinor:36000,status:paymentStatus,paidAt:now-1000}]};};
- return {run:createCombinedStaffReports({env:{},runtime,readBilling,readProgress:async()=>({status:"ready",currentLevel:1})}),actor,state,change:()=>change=true,setVersion:v=>version=v};
+ return {run:createCombinedStaffReports({env:{},runtime,readBilling,readProgress:async()=>({status:"ready",currentLevel:1})}),actor,state,change:()=>{reads=0;change=true;},review:()=>{paymentStatus="review_required";},setVersion:v=>version=v};
 }
 test("staff permission is required for finance and exports; schedule-only view omits financial records",async()=>{
  const f=fixture(["schedule:read"]);
@@ -23,7 +23,8 @@ test("sandbox ledger exports only known amounts and neutralizes spreadsheet form
  const v=await f.run(null,{action:"finance-export",month});assert.equal(v.ok,true);assert.equal(v.summary.knownVerifiedMembershipMinor,36000);assert.equal(v.summary.netRevenue,null);
  assert.match(v.csv,/"'=Fixture student"/);assert.match(v.filename,/sandbox-ledger-2026-11\.csv$/);
  assert.equal((await f.run(null,{action:"finance-export",month:"2026-12"})).ok,false);
- f.change();assert.equal((await f.run(null,{action:"finance-export",month})).ok,false);
+ f.change();const changed=await f.run(null,{action:"finance-export",month});assert.equal(changed.ok,false);assert.equal(changed.status,"BILLING_CHANGED");
+ const stable=fixture(["schedule:read","finance:read","reports:export"]);stable.review();const partial=await stable.run(null,{action:"finance-export",month});assert.equal(partial.ok,true);assert.equal(partial.summary.coverage,"partial");assert.equal(partial.summary.knownVerifiedMembershipMinor,0);assert.equal(partial.summary.netRevenue,null);assert.match(partial.csv,/review_required/);
 });
 test("combined role shell and protected dispatch source preserve isolation; deployment remains disabled",()=>{
  const source=readFileSync(new URL("../src/server.ts",import.meta.url),"utf8");
