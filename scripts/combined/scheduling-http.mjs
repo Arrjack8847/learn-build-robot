@@ -13,13 +13,14 @@ export function createCombinedSchedulingHttp({runtimeFactory=createCombinedRunti
    if(path.endsWith("/booking")){
     if(input.action==="overview"&&exact(input,["action","childId"])){
      for(let i=0;i<3;i++){
+      const owner=await r.resolveChild(request,input.childId);if(!owner)return fail(403,"NOT_AUTHORIZED");
       const before=await r.repository.read();
       const view=await r.booking({action:"view",childId:input.childId},request);
       if(!view.ok)return resultResponse(view);
       const waitlist=await r.automation.waitlist({action:"waitlist-view",childId:input.childId},request);
       if(!waitlist.ok)return resultResponse(waitlist);
       const fresh=await r.resolveChild(request,input.childId),after=await r.repository.read();
-      if(!fresh)return fail(403,"NOT_AUTHORIZED");
+      if(!fresh||fresh.parentId!==owner.parentId||fresh.childId!==owner.childId||fresh.stateVersion!==owner.stateVersion)return fail(403,"NOT_AUTHORIZED");
       if(before.version===after.version)return json(200,{ok:true,status:"READY",view,waitlist});
      }
      return fail(503,"BOOKING_BUSY");
@@ -28,7 +29,7 @@ export function createCombinedSchedulingHttp({runtimeFactory=createCombinedRunti
    }
    if(path.endsWith("/check-in")){if(!r.checkin||!exact(input,["bookingId","code"]))return fail(404,"NOT_AVAILABLE");return resultResponse(await r.checkin.redeem(request,input));}
    const actor=await r.resolveStaff(request);if(!actor)return fail(403,"NOT_AUTHORIZED");
-   if(input.action==="issue-code"&&exact(input,["action","bookingId","revision","childId"]))return r.checkin?resultResponse(await r.checkin.issue(request,input)):fail(404,"NOT_AVAILABLE");
+   if(input.action==="issue-code"&&exact(input,["action","bookingId","revision","childId"])){if(!actor.permissions.includes("schedule:attendance"))return fail(403,"NOT_AUTHORIZED");return r.checkin?resultResponse(await r.checkin.issue(request,input)):fail(404,"NOT_AVAILABLE");}
    if(exact(input,["action"])&&input.action==="students"){const students=await r.listStudents(request);return students?json(200,{ok:true,students,staff:{staffId:actor.staffId,name:actor.name,permissions:actor.permissions}}):fail(403,"NOT_AUTHORIZED");}
    if(exact(input,["action","day"])&&input.action==="day")return resultResponse(await r.staff.dayView(request,input.day));
    if(input.action==="excuse"&&exact(input,["action","bookingId","revision","childId","reason","requestId"])&&validId(input.requestId)&&validId(input.revision)){
