@@ -1,4 +1,4 @@
-import {isJ12345Preview,validJ12345Student} from "./identity-scope.mjs";
+import {isFamilyPreview as isJ12345Preview,validJ12345Student} from "./identity-scope.mjs";
 const bound=s=>s?.role==="student"&&s.environment==="private-preview"&&validJ12345Student(s.studentId);
 const same=(a,b)=>a?.childId===b?.childId&&a?.parentId===b?.parentId&&a?.stateVersion===b?.stateVersion&&a?.name===b?.name&&a?.accountStatus===b?.accountStatus;
 // Children.childId is the canonical logical profile ID. No second Wix profile is created or guessed.

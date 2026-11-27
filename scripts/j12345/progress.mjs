@@ -1,6 +1,7 @@
 // Server-only individual progress aggregate. Browser checkpoints are not completion evidence.
 import {createHash,randomUUID} from "node:crypto";
-import {isJ12345Preview,validJ12345Student,createJ12345IdentityEnv} from "./identity-scope.mjs";
+import {isCombinedBranch} from "../combined/scope.mjs";
+import {isFamilyPreview as isJ12345Preview,validJ12345Student,createJ12345IdentityEnv} from "./identity-scope.mjs";
 import {projectCommittedProgress} from "../j5/committed-progress.mjs";
 import {createWixStore} from "../parent-auth/wix-store.mjs";
 export const COLLECTION="J12345LearningProgress",POLICY_KEY="j12345-approved-curriculum-v1";
@@ -37,7 +38,7 @@ function validatePolicy(p){
 export function createProgressRepository({db,env,clock=Date.now,newId=randomUUID}){
  async function policy(){
   if(!progressEnabled(env)||!id(env.J12345_PROGRESS_POLICY_VERSION)||! /^[a-f0-9]{64}$/.test(env.J12345_PROGRESS_POLICY_SHA256??""))throw Error("POLICY_UNAVAILABLE");
-  const row=await db.get(COLLECTION,POLICY_KEY);
+  const row=await db.get(COLLECTION,isCombinedBranch(env)?"combined-approved-curriculum-v1":POLICY_KEY);
   if(row?.environment!=="private-preview"||typeof row.stateVersion!=="string"||typeof row.stateJson!=="string"||hash(row.stateJson)!==env.J12345_PROGRESS_POLICY_SHA256)throw Error("POLICY_UNAVAILABLE");
   const p=JSON.parse(row.stateJson);
   if(!validatePolicy(p)||p.version!==env.J12345_PROGRESS_POLICY_VERSION)throw Error("POLICY_UNAVAILABLE");

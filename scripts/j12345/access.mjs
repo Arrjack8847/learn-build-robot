@@ -1,5 +1,5 @@
 // Read-only bridge. The J3 ledger and J4 attendance are separate authorities.
-import {isJ12345Preview,validJ12345Student} from "./identity-scope.mjs";
+import {isFamilyPreview as isJ12345Preview,validJ12345Student} from "./identity-scope.mjs";
 import {readJ12345MembershipObservation} from "../j1234/billing-projection.mjs";
 import {readAttendanceProjection,localDay} from "../j1234/attendance.mjs";
 import {normalizeJ3Membership,evaluateMembership} from "../j5/membership-policy.mjs";

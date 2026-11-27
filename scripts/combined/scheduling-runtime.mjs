@@ -6,7 +6,9 @@ import {createBookingService} from "../nizar/booking-service.mjs";
 import {createN4Service} from "../nizar/automation-service.mjs";
 import {createStaffSchedulingService,createSharedAttendanceAdapter} from "../nizar/staff-service.mjs";
 import {createCombinedIdentityMembership} from "./identity-membership.mjs";
-import {runtimeEnabled,secret,matches,mixed} from "./http-utils.mjs";
+import {createCombinedCheckin} from "./checkin-service.mjs";
+import {resolveJ2Student} from "../j2-runtime.mjs";
+import {runtimeEnabled,secret,matches,mixed,cookie} from "./http-utils.mjs";
 export function createCombinedRuntime(env,{db,clock=Date.now}={}){
  if(!runtimeEnabled(env))throw Error("COMBINED_DISABLED");
  const cfg=createJ12345IdentityEnv(env),store=db??createWixStore(env),repository=createSchedulingRepository({env,db:store,clock});
@@ -31,5 +33,7 @@ export function createCombinedRuntime(env,{db,clock=Date.now}={}){
   }
   return await resolveStaff(request)?result:null;
  }
- return {...deps,booking,automation,staff,attendance,resolveStaff,listStudents,store};
+ const codeSecret=secret(env,"COMBINED_CODE_SECRET");
+ const checkin=env.COMBINED_CHECKIN_ENABLED==="1"&&codeSecret?createCombinedCheckin({...deps,resolveStaff,secret:codeSecret,resolveStudent:async request=>{if((request.headers.get("cookie")??"").split(";").some(x=>/^__Host-bsr-(?:parent-test|student-proof)=.+/.test(x.trim())))return null;const s=await resolveJ2Student(request,env);return s?.role==="student"?{childId:s.studentId,sessionToken:cookie(request,"__Host-bsr-student")}:null;}}):null;
+ return {...deps,booking,automation,staff,attendance,resolveStaff,listStudents,store,checkin};
 }

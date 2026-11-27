@@ -1,16 +1,17 @@
 // Exact-branch course boundary with approved fixed booked-hour expiry.
-import {isJ12345Preview,validJ12345Student,J12345_BRANCH} from "./identity-scope.mjs";
+import {isFamilyPreview as isJ12345Preview,validJ12345Student,J12345_BRANCH} from "./identity-scope.mjs";
 import {classifyCoursePath} from "../../src/lib/j5-course-path.mjs";
 import {createCourseHttp} from "../j5/course-http.mjs";
 import {createPrivatePdfHttp} from "../j5/pdf-http.mjs";
 import {lookupPrivatePdf} from "../j5/pdf-course-catalog.mjs";
 import {evaluateLearningSession} from "./learning-session.mjs";
+import {isCombinedBranch} from "../combined/scope.mjs";
 const fail=(status,code)=>({ok:false,status,code});
 const bound=s=>s?.role==="student"&&s.environment==="private-preview"&&validJ12345Student(s.studentId);
 const mixed=r=>(r.headers.get("cookie")??"").split(";").some(p=>/^__Host-bsr-(?:parent-test|student-proof)\s*=\s*[^\s]/.test(p.trim()));
 const same=(a,b)=>a?.childId===b?.childId&&a?.parentId===b?.parentId&&a?.stateVersion===b?.stateVersion&&a?.accountStatus===b?.accountStatus;
 const enabled=e=>isJ12345Preview(e)&&e.J12345_COURSE_ENABLED==="1"&&e.J12345_PROFILE_ENABLED==="1"&&e.J12345_REGISTRATION_ENABLED==="1"&&e.STUDENT_AUTH_ENABLED==="true";
-export function createJ12345CourseAuthority({resolveStudent,readVerifiedChild,readAccess,resolveResource,readProgress,clock=Date.now}){
+export function createJ12345CourseAuthority({resolveStudent,readVerifiedChild,readAccess,resolveResource,readProgress,verifyVisit,clock=Date.now}){
  return async(request,env,path)=>{
   if(!enabled(env))return fail(404,"COURSE_UNAVAILABLE");
   if(mixed(request))return fail(401,"STUDENT_AUTH_REQUIRED");
@@ -46,6 +47,7 @@ export function createJ12345CourseAuthority({resolveStudent,readVerifiedChild,re
    if(observed.membershipEligible!==true)return fail(403,"MEMBERSHIP_REQUIRED");
    if(observed.attendance!=="checked-in")return fail(403,"CHECK_IN_REQUIRED");
    if(observed.bookingId!==a.bookingId||observed.bookingStartAt!==a.bookingStartAt||observed.bookingEndAt!==a.bookingEndAt||observed.checkInAt!==a.checkInAt||observed.membershipValidUntil!==a.membershipValidUntil)return fail(503,"COURSE_UNAVAILABLE");
+   if(isCombinedBranch(env)){const grant=typeof verifyVisit==="function"?await verifyVisit(request,env):null;if(!grant||grant.bookingId!==observed.bookingId||grant.validUntil<=clock())return fail(403,"CHECK_IN_REQUIRED");}
    const decision=evaluateLearningSession(observed,clock());
    if(decision.status==="expired")return fail(403,"LEARNING_SESSION_EXPIRED");
    if(decision.status!=="eligible")return fail(503,"COURSE_UNAVAILABLE");
@@ -59,7 +61,7 @@ export function createJ12345CourseBoundary({privateArtifact=false,...deps}){
  const pdf=createPrivatePdfHttp({lookupDocument:lookupPrivatePdf,getServices:async()=>null});
  return async(request,env,next)=>{
   const u=new URL(request.url),api=u.pathname==="/api/dev/j5/course-access",document=u.pathname.startsWith("/api/dev/j5/pdf/");
-  const route=classifyCoursePath(u.pathname),branch=env?.VERCEL_GIT_COMMIT_REF===J12345_BRANCH;
+  const route=classifyCoursePath(u.pathname),branch=env?.VERCEL_GIT_COMMIT_REF===J12345_BRANCH||isCombinedBranch(env);
   if(!api&&!document&&(!(branch||privateArtifact)||route.scope==="outside"||route.scope==="shell"))return next();
   // The generic J5 transport flag is supplied only internally, without changing the real branch.
   // Keep the route locked even when the new course flag is off.
