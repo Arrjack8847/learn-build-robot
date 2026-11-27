@@ -11,7 +11,7 @@ export function createJ12345ProfileHttp({resolveStudent,readVerifiedChild,readAc
   if(request.method!=="POST")return fail(405,"METHOD_NOT_ALLOWED");
   const origin=env.VERCEL_URL?"https://"+env.VERCEL_URL:"";
   if(!origin||url.origin!==origin||url.search||request.headers.get("origin")!==origin||request.headers.get("sec-fetch-site")!=="same-origin"||request.headers.get("x-stem-student-profile")!=="1"||request.body!==null)return fail(403,"INVALID_REQUEST");
-  if((request.headers.get("cookie")??"").split(";").some(p=>/^__Host-bsr-(?:parent-test|student-proof)\s*=\s*[^\s]/.test(p.trim())))return fail(401,"STUDENT_AUTH_REQUIRED");
+  if((request.headers.get("cookie")??"").split(";").some(p=>/^__Host-bsr-(?:parent-test|student-proof)\s*=/.test(p.trim())))return fail(401,"STUDENT_AUTH_REQUIRED");
   try{
    const first=await resolveStudent(request,env);
    if(!bound(first))return fail(401,"STUDENT_AUTH_REQUIRED");

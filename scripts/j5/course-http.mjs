@@ -3,7 +3,7 @@ const api="/api/dev/j5/course-access";
 const headers={"Cache-Control":"private, no-store, max-age=0","Vary":"Cookie","X-Content-Type-Options":"nosniff","X-Robots-Tag":"noindex, nofollow"};
 const json=(status,body)=>new Response(JSON.stringify(body),{status,headers:{...headers,"Content-Type":"application/json; charset=utf-8"}});
 const page=(status,code)=>new Response(`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Learning access</title><main style="font-family:system-ui;max-width:32rem;margin:3rem auto;padding:1rem"><h1>Learning access</h1><p>${code==="STUDENT_AUTH_REQUIRED"?"Please sign in to continue.":code==="MEMBERSHIP_REQUIRED"?"An active membership is required.":code==="CHECK_IN_REQUIRED"?"Please check in at the Lab.":code==="LEVEL_LOCKED"?"This level is not available yet.":code==="LEARNING_SESSION_EXPIRED"?"Your booked hour has ended. Please speak to staff.":code==="LEARNING_POLICY_REQUIRED"?"Learning access is not activated yet.":"This learning page is not available right now."}</p><p><a href="/student/dashboard">My profile</a> · <a href="/practical/levels">Learning levels</a> · <a href="/auth/">Sign in</a></p></main></html>`,{status,headers:{...headers,"Content-Type":"text/html; charset=utf-8"}});
-export function createCourseHttp({getAuthority}){
+export function createCourseHttp({getAuthority,now=Date.now}){
  return async function handle(request,env,next){
   const url=new URL(request.url),isApi=url.pathname===api;
   const route=classifyCoursePath(url.pathname);
@@ -25,10 +25,14 @@ export function createCourseHttp({getAuthority}){
    const authorize=await getAuthority(env);
    if(typeof authorize!=="function")return refuse(503,"COURSE_UNAVAILABLE");
    const result=await authorize(request,env,path);
-   const allowed=result?.ok===true&&result.status===200&&result.code==="COURSE_AUTHORIZED"&&Number.isSafeInteger(result.validUntil)&&result.validUntil>0;
+   const allowed=result?.ok===true&&result.status===200&&result.code==="COURSE_AUTHORIZED"&&Number.isSafeInteger(result.validUntil)&&result.validUntil>now();
    if(!allowed)return refuse([401,403,404,503].includes(result?.status)?result.status:503,["STUDENT_AUTH_REQUIRED","MEMBERSHIP_REQUIRED","CHECK_IN_REQUIRED","LEVEL_LOCKED","LEARNING_POLICY_REQUIRED","LEARNING_SESSION_EXPIRED","COURSE_UNAVAILABLE"].includes(result?.code)?result.code:"COURSE_UNAVAILABLE");
    if(isApi)return json(200,{ok:true,code:"COURSE_AUTHORIZED",validUntil:result.validUntil});
    const response=await next();
+   if(env.COMBINED_RUNTIME_ENABLED==="1"){
+    const after=await authorize(request,env,path);
+    if(!after?.ok||after.code!=="COURSE_AUTHORIZED"||after.validUntil!==result.validUntil||now()>=result.validUntil){await response.body?.cancel().catch(()=>{});return refuse(403,"LEARNING_SESSION_EXPIRED");}
+   }
    const responseHeaders=new Headers(response.headers);
    for(const [key,value] of Object.entries(headers))responseHeaders.set(key,key==="Vary"&&responseHeaders.has(key)?responseHeaders.get(key)+", Cookie":value);
    return new Response(request.method==="HEAD"?null:response.body,{status:response.status,statusText:response.statusText,headers:responseHeaders});

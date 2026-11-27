@@ -32,6 +32,7 @@ function studentContext(env,base){
 const studentCookie="__Host-bsr-student";
 const read=(request,name)=>{const parts=(request.headers.get("cookie")??"").split(";").map(p=>p.trim()).filter(p=>p.startsWith(name+"="));return parts.length===1?parts[0].slice(name.length+1):"";};
 export async function resolveJ2Student(request,env){
+ if(isCombinedBranch(env)&&(request.headers.get("cookie")??"").split(";").some(x=>/^__Host-bsr-(?:parent-test|student-proof)\s*=/.test(x.trim())))return null;
  if(env.VERCEL_ENV!=="preview"||env.VERCEL_TARGET_ENV==="production"||env.STUDENT_AUTH_ENABLED!=="true")return null;
  try{return await studentContext(env,context(env)).identity.resolveStudentSession(read(request,studentCookie));}
  catch{return null;}

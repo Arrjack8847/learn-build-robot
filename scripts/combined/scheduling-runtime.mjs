@@ -37,6 +37,6 @@ export function createCombinedRuntime(env,{db,clock=Date.now}={}){
   return fresh?.staffId===actor.staffId&&fresh.version===actor.version?result:null;
  }
  const codeSecret=secret(env,"COMBINED_CODE_SECRET");
- const checkin=env.COMBINED_CHECKIN_ENABLED==="1"&&codeSecret?createCombinedCheckin({...deps,resolveStaff,secret:codeSecret,resolveStudent:async request=>{if((request.headers.get("cookie")??"").split(";").some(x=>/^__Host-bsr-(?:parent-test|student-proof)=.+/.test(x.trim())))return null;const s=await resolveJ2Student(request,env);return s?.role==="student"?{childId:s.studentId,sessionToken:cookie(request,"__Host-bsr-student")}:null;}}):null;
+ const checkin=env.COMBINED_CHECKIN_ENABLED==="1"&&codeSecret?createCombinedCheckin({...deps,resolveStaff,secret:codeSecret,resolveStudent:async request=>{if((request.headers.get("cookie")??"").split(";").some(x=>/^__Host-bsr-(?:parent-test|student-proof)\s*=/.test(x.trim())))return null;const s=await resolveJ2Student(request,env);return s?.role==="student"?{childId:s.studentId,sessionToken:cookie(request,"__Host-bsr-student")}:null;}}):null;
  return {...deps,booking,automation,staff,attendance,resolveStaff,listStudents,store,checkin};
 }

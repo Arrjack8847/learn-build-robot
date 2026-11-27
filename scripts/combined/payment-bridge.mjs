@@ -18,7 +18,7 @@ export function createCombinedPaymentBridge({env,runtime,readVerifiedEvidence}){
    for(let i=0;i<8;i++){
     const snap=await runtime.repository.read(),hold=n4(snap.state).holds.find(h=>h.childId===owner.childId&&h.cycleId===observation.cycleId);
     if(!hold||hold.status==="restored")break;
-    const rows=snap.state.checkins??[],next=rows.map(c=>c.childId===owner.childId&&c.status!=="revoked"?{...c,status:"revoked",grantRevision:null,sessionDigest:null,validUntil:null,memberUntil:null}:c);
+    const rows=snap.state.checkins??[],next=rows.map(c=>c.childId===owner.childId&&c.status!=="revoked"?{...c,status:"revoked",claimId:null,grantRevision:null,sessionDigest:null,validUntil:null,memberUntil:null}:c);
     if(JSON.stringify(rows)===JSON.stringify(next))break;
     const saved=await runtime.repository.compareAndSet(snap.version,{...snap.state,checkins:next});
     if(saved.status==="committed")break;

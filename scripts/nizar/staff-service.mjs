@@ -100,6 +100,7 @@ export function createStaffSchedulingService({repository,resolveStaff,readOwner,
     const revision=newId(),bookingId=b?.bookingId??newId();
     const next=walk?{...target,bookingId,childId:o.childId,parentId:o.parentId,revision,bookingStatus:status,createdAt:at,updatedAt:at}:{...b,revision,bookingStatus:status,updatedAt:at};
     s.bookings=[...s.bookings.filter(x=>x.bookingId!==bookingId),next];
+    if(kind==="checkout"&&Array.isArray(s.checkins))s.checkins=s.checkins.map(c=>c.bookingId===bookingId?{...c,status:"revoked",claimId:null,grantRevision:null,sessionDigest:null,validUntil:null,memberUntil:null}:c);
     s.n5=[...audit,{key,fingerprint,bookingId,childId:o.childId,actorId,kind,at,revision,reason:verified?"":input.reason}];
     const saved=await repository.compareAndSet(snap.version,s);
     if(saved.status==="conflict")continue;

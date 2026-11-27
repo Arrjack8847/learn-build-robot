@@ -21,14 +21,14 @@ export function createJ12345AccessReader({storeFactory=createWixStore,readMember
    let attendance="unavailable",checkInAt=null;
    if(a2?.attendanceStatus==="not_booked"&&a2.bookingId===null)attendance="not-booked";
    else if(a2?.day===localDay(fresh)&&typeof a2.bookingId==="string"){
-    if(a2.attendanceStatus==="booked"&&a2.checkInStatus==="not_checked_in"&&a2.visitStatus==="none")attendance="booked";
+    if(["booked","held_unpaid"].includes(a2.attendanceStatus)&&a2.checkInStatus==="not_checked_in"&&a2.visitStatus==="none")attendance="booked";
     if(a2.attendanceStatus==="attended"&&a2.checkInStatus==="checked_in"&&a2.visitStatus==="open"&&Number.isSafeInteger(a2.checkInAt)&&a2.checkInAt<=fresh&&localDay(a2.checkInAt)===localDay(fresh)){attendance="checked-in";checkInAt=a2.checkInAt;}
     if(a2.attendanceStatus==="checked_out"&&a2.checkInStatus==="checked_out"&&a2.visitStatus==="ended")attendance="checked-out";
     if(["no_show","excused"].includes(a2.attendanceStatus))attendance=a2.attendanceStatus.replace("_","-");
    }
    const reason=membership.status==="verification-required"||attendance==="unavailable"?"verification-required":!membership.eligible?"membership-required":attendance!=="checked-in"?"check-in-required":"learning-policy-required";
    // This is a visit window projection, not a course grant. Course and storage gates remain separate.
-   const access={membership:membership.status,membershipValidUntil:membership.validUntil,membershipEligible:membership.eligible,attendance,checkInAt,bookingId:a2?.bookingId??null,bookingStartAt:a2?.bookingStartAt??null,bookingEndAt:a2?.bookingEndAt??null,learningAccess:"unavailable",reason};
+   const access={membership:membership.status,membershipValidUntil:membership.validUntil,membershipEligible:membership.eligible,attendance,checkInAt,bookingId:a2?.bookingId??null,bookingRevision:a2?.revision??null,bookingStartAt:a2?.bookingStartAt??null,bookingEndAt:a2?.bookingEndAt??null,learningAccess:"unavailable",reason};
    return {...access,learningSession:evaluateLearningSession(access,fresh)};
   }catch{return unavailable();}
  };

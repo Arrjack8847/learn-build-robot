@@ -167,6 +167,7 @@ export function createN4Service({repository,resolveChild,readEligibility,readOwn
      const h={childId:e.childId,parentId:e.parentId,cycleId:e.cycleId,failedAt:e.at,deadline:e.at+POLICY.unpaidHoldMs,status:"held"};
      a.holds=a.holds.filter(x=>x.childId!==e.childId);a.holds.push(h);
      s.bookings=s.bookings.map(b=>owns(b,o)&&b.bookingStatus==="booked"&&b.endAt>e.at?updateBooking(b,"held-unpaid",now,newId):b);
+     if(Array.isArray(s.checkins))s.checkins=s.checkins.map(c=>owns(c,o)?{...c,status:"revoked",claimId:null,grantRevision:null,sessionDigest:null,validUntil:null,memberUntil:null}:c);
      for(const w of a.waitlist)if(owns(w,o)&&["queued","offered"].includes(w.status))w.status="ineligible";
      queueNotice(a,"membership-hold",o,e.cycleId,now);
     }else if(e.kind==="renewal-paid"){
