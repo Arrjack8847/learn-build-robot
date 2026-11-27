@@ -4,7 +4,7 @@ import { activitySyncEnabled,recordActivity,LmsError,type ActivityMode } from ".
 
 // Only explicit Finish actions write completion; never migrate existing browser state.
 // This feature is off by default until the Wix site and OAuth flow are verified.
-export function useActivitySync(projectId:string,mode:ActivityMode,ready:boolean){
+export function useActivitySync(projectId:string,mode:ActivityMode,ready:boolean,position?:number){
   const [busy,setBusy]=useState(false);
   const [error,setError]=useState("");
   const running=useRef(false);
@@ -22,8 +22,14 @@ export function useActivitySync(projectId:string,mode:ActivityMode,ready:boolean
     });
     return()=>ctrl.abort();
   },[projectId,mode,ready]);
+  useEffect(()=>{
+    if(!privateJ5||!ready||!position||!Number.isInteger(position))return;
+    const ctrl=new AbortController();
+    const timer=window.setTimeout(()=>{void (async()=>{try{const r=await fetch("/api/dev/j5/progress",{method:"POST",credentials:"same-origin",cache:"no-store",redirect:"error",headers:{"Content-Type":"application/json","X-STEM-J5":"1"},body:JSON.stringify({kind:"checkpoint",resourceId:projectId,mode,position}),signal:ctrl.signal});const v=await r.json();if(!ctrl.signal.aborted)setError(r.ok&&v?.ok===true?"":"Learning position not saved.");}catch{if(!ctrl.signal.aborted)setError("Learning position not saved.");}})();},350);
+    return()=>{window.clearTimeout(timer);ctrl.abort();};
+  },[projectId,mode,ready,position]);
   async function complete(){
-    if(privateJ5){setError("Verified student progress storage is not connected. Your completion has not been saved.");return false;}
+    if(privateJ5){setError("Verified completion is not available yet. Your completion has not been saved.");return false;}
     if(!activitySyncEnabled)return true;
     if(running.current)return false;
     running.current=true;setBusy(true);setError("");

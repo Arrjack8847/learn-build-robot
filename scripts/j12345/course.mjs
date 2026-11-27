@@ -9,8 +9,8 @@ const bound=s=>s?.role==="student"&&s.environment==="private-preview"&&validJ123
 const mixed=r=>(r.headers.get("cookie")??"").split(";").some(p=>/^__Host-bsr-(?:parent-test|student-proof)\s*=\s*[^\s]/.test(p.trim()));
 const same=(a,b)=>a?.childId===b?.childId&&a?.parentId===b?.parentId&&a?.stateVersion===b?.stateVersion&&a?.accountStatus===b?.accountStatus;
 const enabled=e=>isJ12345Preview(e)&&e.J12345_COURSE_ENABLED==="1"&&e.J12345_PROFILE_ENABLED==="1"&&e.J12345_REGISTRATION_ENABLED==="1"&&e.STUDENT_AUTH_ENABLED==="true";
-export function createJ12345CourseBoundary({resolveStudent,readVerifiedChild,readAccess,resolveResource,privateArtifact=false}){
- const authorize=async(request,env,path)=>{
+export function createJ12345CourseAuthority({resolveStudent,readVerifiedChild,readAccess,resolveResource}){
+ return async(request,env,path)=>{
   if(!enabled(env))return fail(404,"COURSE_UNAVAILABLE");
   if(mixed(request))return fail(401,"STUDENT_AUTH_REQUIRED");
   try{
@@ -34,6 +34,9 @@ export function createJ12345CourseBoundary({resolveStudent,readVerifiedChild,rea
    return fail(403,"LEARNING_POLICY_REQUIRED");
   }catch{return fail(503,"COURSE_UNAVAILABLE");}
  };
+}
+export function createJ12345CourseBoundary({privateArtifact=false,...deps}){
+ const authorize=createJ12345CourseAuthority(deps);
  const course=createCourseHttp({getAuthority:async()=>authorize});
  const pdf=createPrivatePdfHttp({lookupDocument:lookupPrivatePdf,getServices:async()=>null});
  return async(request,env,next)=>{

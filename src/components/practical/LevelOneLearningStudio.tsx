@@ -30,7 +30,7 @@ export function LevelOneLearningStudio({
   const workspaceRef = useRef<HTMLDivElement>(null);
   const slideRef = useRef<HTMLDivElement>(null);
   const total = document?.numPages ?? 0;
-  const sync = useActivitySync(projectId, "learning", Boolean(document));
+  const sync = useActivitySync(projectId, "learning", Boolean(document), page);
   const programmingFiles = level === 2 ? getLevelTwoProgrammingFiles(projectId) :
     level === 5 || level === 6 ? getLevelFiveSixProgrammingFiles(projectId) :
     getLegacyProgrammingFiles({ level, categoryId, title });

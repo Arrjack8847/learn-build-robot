@@ -31,7 +31,7 @@ export function PdfActivityViewer({ manual }: { manual: PdfActivityManual }) {
   const [zoom, setZoom] = useState(1);
   const [dimensions, setDimensions] = useState<PdfViewportSize>({ width: 0, height: 0 });
   const [ready, setReady] = useState(false);
-  const sync = useActivitySync(manual.id, isPresentation ? "learning" : "building", ready);
+  const sync = useActivitySync(manual.id, isPresentation ? "learning" : "building", ready, page);
   const viewportRef = useRef<HTMLDivElement>(null);
   const pointers = useRef(new Map<number, { x: number; y: number }>());
   const pinch = useRef<{ distance: number; zoom: number } | null>(null);
