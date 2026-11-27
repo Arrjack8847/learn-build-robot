@@ -13,3 +13,6 @@ Exact branch integration/j12345-n12345-20261127. Separate canonical schedule rec
 6. Combined interfaces, readiness and private build: parent/student/staff views, protected artifacts, fixture isolation, run full acceptance and regression suite in Codespaces when requested; owner/company approval before any real users.
 
 Source foundation does not establish runtime integration or acceptance. No tests run, no live Wix mutation, no deployment. Existing J1–J5/N1–N5 blockers and formal owner agreement remain. New namespace and six-phase sequencing are development choices.
+
+## Source integration implementation status — 27 Nov 2026
+Phases 2–6 have source changes on the combined branch. See combined-phase2-identity-membership.md through combined-phase6-platform.md for exact scope and unresolved provider/acceptance gates. Runtime disabled by default; actual private build and tests not run. Existing branch snapshots and deployment-disabled configuration preserved.

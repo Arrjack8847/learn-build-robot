@@ -1,12 +1,15 @@
 import "./lib/error-capture";
-import {isCombinedBranch} from "../scripts/combined/scope.mjs";
+import {isCombinedBranch,combinedRepositoryEnabled} from "../scripts/combined/scope.mjs";
+import {handleCombinedScheduling} from "../scripts/combined/scheduling-http.mjs";
+import {handleCombinedWorker} from "../scripts/combined/worker-http.mjs";
+import {readCombinedAccess,verifyCombinedVisit} from "../scripts/combined/access-runtime.mjs";
+import {classifyCoursePath} from "./lib/j5-course-path.mjs";
 import {handleNizarFixture,fixtureEnabled} from "../scripts/nizar/fixture-http.mjs";
 import {renderNizarPreview} from "../scripts/nizar/preview-page.mjs";
 import {handleStaffFixture,staffFixtureEnabled} from "../scripts/nizar/staff-http.mjs";
 import {renderNizarStaffPreview} from "../scripts/nizar/staff-page.mjs";
 import { createJ12345ProfileHttp } from "../scripts/j12345/profile.mjs";
 import { resolveJ2Student, readJ12345VerifiedChild } from "../scripts/j2-runtime.mjs";
-import { readJ12345Access } from "../scripts/j12345/access.mjs";
 import {readJ12345Progress} from "../scripts/j12345/progress.mjs";
 import {createAssessmentHttp} from "../scripts/j12345/assessment-http.mjs";
 import {resolveAssessmentQuiz,resolveAssessmentCandidates} from "./lib/j12345-assessment-catalog.server";
@@ -14,10 +17,11 @@ import {createProgressHttp} from "../scripts/j12345/progress-http.mjs";
 import {createJ12345CourseBoundary,createJ12345CourseAuthority} from "../scripts/j12345/course.mjs";
 import {resolveJ5CourseResource} from "./lib/j5-course-catalog.server";
 declare const __J12345_STUDENT_PREVIEW__:boolean;
-const handleJ12345Course=createJ12345CourseBoundary({privateArtifact:__J12345_STUDENT_PREVIEW__,resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readJ12345Access,resolveResource:resolveJ5CourseResource,readProgress:readJ12345Progress});
-const handleJ12345Profile=createJ12345ProfileHttp({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readJ12345Access,readProgress:readJ12345Progress});
-const handleJ12345Progress=createProgressHttp({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,authorizeCourse:createJ12345CourseAuthority({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readJ12345Access,resolveResource:resolveJ5CourseResource,readProgress:readJ12345Progress})});
-const handleJ12345Assessment=createAssessmentHttp({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,authorizeCourse:createJ12345CourseAuthority({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readJ12345Access,resolveResource:resolveJ5CourseResource,readProgress:readJ12345Progress}),resolveQuiz:resolveAssessmentQuiz,resolveCandidates:resolveAssessmentCandidates});
+declare const __COMBINED_PREVIEW__:boolean;
+const handleJ12345Course=createJ12345CourseBoundary({privateArtifact:__J12345_STUDENT_PREVIEW__,resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readCombinedAccess,verifyVisit:verifyCombinedVisit,resolveResource:resolveJ5CourseResource,readProgress:readJ12345Progress});
+const handleJ12345Profile=createJ12345ProfileHttp({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readCombinedAccess,readProgress:readJ12345Progress});
+const handleJ12345Progress=createProgressHttp({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,authorizeCourse:createJ12345CourseAuthority({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readCombinedAccess,verifyVisit:verifyCombinedVisit,resolveResource:resolveJ5CourseResource,readProgress:readJ12345Progress})});
+const handleJ12345Assessment=createAssessmentHttp({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,authorizeCourse:createJ12345CourseAuthority({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readCombinedAccess,verifyVisit:verifyCombinedVisit,resolveResource:resolveJ5CourseResource,readProgress:readJ12345Progress}),resolveQuiz:resolveAssessmentQuiz,resolveCandidates:resolveAssessmentCandidates});
 import { handleIntegratedCheckout } from "../scripts/j123/checkout-http.mjs";
 import { handleMembershipWorker } from "../scripts/j123/membership-worker-http.mjs";
 import { handleJ1Readiness } from "../scripts/j1/readiness.mjs";
@@ -79,8 +83,31 @@ export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       const path=new URL(request.url).pathname;
-      // Phase 1 has no mounted combined runtime: never fall through to legacy auth or course routes.
-      if(isCombinedBranch(process.env))return new Response(null,{status:404,headers:{"Cache-Control":"private, no-store","X-Robots-Tag":"noindex, nofollow"}});
+      if(__COMBINED_PREVIEW__||isCombinedBranch(process.env)){
+        const e=process.env,url=new URL(request.url);
+        const denied=()=>new Response(null,{status:404,headers:{"Cache-Control":"private, no-store","X-Robots-Tag":"noindex, nofollow"}});
+        if(!__COMBINED_PREVIEW__||!combinedRepositoryEnabled(e)||e["COMBINED_IDENTITY_ENABLED"]!=="1"||e["COMBINED_RUNTIME_ENABLED"]!=="1"||!e["VERCEL_URL"]||url.origin!=="https://"+e["VERCEL_URL"])return denied();
+        if(["/api/dev/combined/booking","/api/dev/combined/staff","/api/dev/combined/check-in"].includes(path))return handleCombinedScheduling(request,e);
+        if(path==="/api/dev/combined/worker")return handleCombinedWorker(request,e);
+        if(path==="/staff/admin"||path==="/staff/admin/")return request.method==="GET"&&!url.search&&e["COMBINED_STAFF_ENABLED"]==="1"?renderNizarStaffPreview({combined:true}):denied();
+        if(path.startsWith("/api/dev/parent-otp/"))return handleParentOtpTest(request,e);
+        if(path.startsWith("/api/dev/student-auth/"))return handleStudentAuth(request,e);
+        if(["/api/dev/j123/checkout","/api/dev/j123/checkout/status"].includes(path))return handleIntegratedCheckout(request,e);
+        if(path==="/api/dev/j123/membership-worker")return handleMembershipWorker(request,e);
+        if(path==="/api/dev/j5/profile")return handleJ12345Profile(request,e);
+        if(path==="/api/dev/j5/progress")return handleJ12345Progress(request,e);
+        if(path==="/api/dev/j5/assessment")return handleJ12345Assessment(request,e);
+        if(path==="/api/dev/j5/course-access"||path.startsWith("/api/dev/j5/pdf/"))return handleJ12345Course(request,e,async()=>denied());
+        // Never allow legacy attendance, auth, staff desk or payment routes in the combined artifact.
+        if(request.method!=="GET"&&request.method!=="HEAD")return denied();
+        const route=classifyCoursePath(path),shell=["/","/parent/sign-in","/parent/sign-in/","/parent/payment-return","/parent/payment-return/","/auth","/auth/","/student/dashboard","/student/dashboard/"].includes(path);
+        if(!shell&&route.scope!=="shell"&&route.scope!=="protected")return denied();
+        return handleJ12345Course(request,e,async()=>{
+          const handler=await getServerEntry(),response=await normalizeCatastrophicSsrResponse(await handler.fetch(request,env,ctx));
+          const headers=new Headers(response.headers);headers.set("Cache-Control","private, no-store");headers.set("X-Robots-Tag","noindex, nofollow");
+          return new Response(request.method==="HEAD"?null:response.body,{status:response.status,statusText:response.statusText,headers});
+        });
+      }
       if(path==="/api/dev/nizar/booking")return await handleNizarFixture(request,process.env);
       if(path==="/api/dev/nizar/staff")return await handleStaffFixture(request,process.env);
       if(path==="/dev/nizar-staff"){const url=new URL(request.url);if(!staffFixtureEnabled(process.env)||request.method!=="GET"||url.search||!process.env["VERCEL_URL"]||url.origin!=="https://"+process.env["VERCEL_URL"])return new Response(null,{status:404,headers:{"Cache-Control":"no-store","X-Robots-Tag":"noindex, nofollow"}});return renderNizarStaffPreview();}
