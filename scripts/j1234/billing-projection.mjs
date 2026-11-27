@@ -6,13 +6,14 @@ import {membershipProcessingEnabled} from "../j123/membership-provider.mjs";
 import {readStudentMembershipStatus} from "../hitpay/verified-membership-contract.mjs";
 import {isJ1234Preview} from "./identity-scope.mjs";
 import {scopeJ1234BillingStore} from "./billing-scope.mjs";
+import {isJ12345Preview} from "../j12345/identity-scope.mjs";
 const date=x=>Number.isSafeInteger(x)&&x>0;
 const eventTime=x=>date(x)?x:Date.parse(typeof x==="string"?x:x?.$date);
 const unavailable=()=>({membershipStatus:"unavailable",paymentStatus:"unavailable",activatedAt:null,validUntil:null,renewalStatus:"unverified",payments:[]});
 const review=()=>({...unavailable(),membershipStatus:"verification_required",paymentStatus:"verification_required"});
 const validEvent=(e,p,r,now)=>e&&e.environment==="sandbox"&&e.eventType==="charge.created"&&e.providerObjectId===p.providerPaymentId&&e.providerEventKey===p.eventKey&&e.payloadDigest===p.eventKey&&["pending","processed","duplicate"].includes(e.processingStatus)&&date(eventTime(e.signatureVerifiedAt))&&eventTime(e.signatureVerifiedAt)>=r.termsAcceptedAt&&eventTime(e.signatureVerifiedAt)<=now;
-export async function readJ1234BillingProjection({env,db,studentId,parentId,now=Date.now()}){
- if(!isJ1234Preview(env)||env.J1234_BILLING_READ_ENABLED!=="1"||!membershipProcessingEnabled(env)||!validStudent(studentId)||!validStudent(parentId)||!date(now))return unavailable();
+async function readBilling({env,db,studentId,parentId,now=Date.now(),includeEligibility=false}){
+ if(!(isJ1234Preview(env)&&env.J1234_BILLING_READ_ENABLED==="1"||isJ12345Preview(env)&&env.J12345_BILLING_READ_ENABLED==="1")||!membershipProcessingEnabled(env)||!validStudent(studentId)||!validStudent(parentId)||!date(now))return unavailable();
  const store=scopeJ1234BillingStore(db,env);
  try{
   const key=checkoutKey(studentId),row=await store.get(BILLING_COLLECTION,key);
@@ -46,6 +47,14 @@ export async function readJ1234BillingProjection({env,db,studentId,parentId,now=
   if(!current||current.stateVersion!==row.stateVersion||current.stateJson!==row.stateJson)return review();
   const status=readStudentMembershipStatus({studentId,record:m,now});
   const held=status.membershipStatus==="verification_required";
-  return {membershipStatus:status.membershipStatus,paymentStatus:held?"review_required":"verified",activatedAt:held?null:status.activatedAt,validUntil:held?null:status.validUntil,renewalStatus:held?"review_required":payments.length===2?"two_cycles_verified":"second_cycle_unverified",payments:history.map(p=>held?{...p,status:"review_required"}:p)};
+  return {...(includeEligibility?{verifiedLearningEligibility:status.verifiedLearningEligibility}:{}),membershipStatus:status.membershipStatus,paymentStatus:held?"review_required":"verified",activatedAt:held?null:status.activatedAt,validUntil:held?null:status.validUntil,renewalStatus:held?"review_required":payments.length===2?"two_cycles_verified":"second_cycle_unverified",payments:history.map(p=>held?{...p,status:"review_required"}:p)};
  }catch{return review();}
+}
+
+export async function readJ1234BillingProjection(args){return readBilling(args);}
+// Shared verified ledger reader: use the J3 eligibility bit only after the complete evidence chain passes.
+export async function readJ12345MembershipObservation(args){
+ if(!isJ12345Preview(args.env))return {studentId:args.studentId,membershipStatus:"verification_required",activatedAt:null,validUntil:null,verifiedLearningEligibility:false};
+ const p=await readBilling({...args,includeEligibility:true});
+ return {studentId:args.studentId,membershipStatus:p.membershipStatus==="unavailable"?"verification_required":p.membershipStatus,activatedAt:p.activatedAt,validUntil:p.validUntil,verifiedLearningEligibility:p.verifiedLearningEligibility===true};
 }

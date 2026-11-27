@@ -7,14 +7,19 @@ import {createFamilyPreview} from "../parent-auth/family-preview.mjs";
 import {validStudent} from "../j123/billing-records.mjs";
 import {createJ1234IdentityEnv,scopeJ1234StudentCredentials,isJ1234Preview} from "./identity-scope.mjs";
 import {readJ1234BillingProjection} from "./billing-projection.mjs";
+import {isJ12345Preview,createJ12345IdentityEnv,scopeJ12345StudentCredentials} from "../j12345/identity-scope.mjs";
+import {readJ12345MembershipObservation} from "./billing-projection.mjs";
 export const ATTENDANCE_COLLECTION="SandboxBillingState";
 const scope="j1234-attendance-v1",stamp=x=>Number.isSafeInteger(x)&&x>0,hex=x=>typeof x==="string"&&/^[a-f0-9]{64}$/.test(x);
 const validRequest=x=>typeof x==="string"&&/^[a-zA-Z0-9_-]{16,128}$/.test(x);
 export const localDay=now=>new Date(now+8*3600000).toISOString().slice(0,10);
 export const attendanceKey=(studentId,day)=>{if(!validStudent(studentId)||! /^\d{4}-\d{2}-\d{2}$/.test(day))throw Error("INVALID_ATTENDANCE_KEY");return scope+"-"+createHash("sha256").update(studentId+"/"+day).digest("hex");};
 const no=status=>({ok:false,status}),yes=(status,extra={})=>({ok:true,status,...extra});
-export const attendanceEnabled=e=>isJ1234Preview(e)&&e.J1234_REGISTRATION_ENABLED==="1"&&e.J1234_STUDENT_READ_ENABLED==="1"&&e.J1234_ATTENDANCE_ENABLED==="1";
-const secret=e=>createHmac("sha256",Buffer.from(e.J1234_AUTH_ROOT,"hex")).update("j1234-attendance-code-v1").digest();
+export const attendanceEnabled=e=>isJ1234Preview(e)&&e.J1234_REGISTRATION_ENABLED==="1"&&e.J1234_STUDENT_READ_ENABLED==="1"&&e.J1234_ATTENDANCE_ENABLED==="1"||isJ12345Preview(e)&&e.J12345_REGISTRATION_ENABLED==="1"&&e.J12345_PROFILE_ENABLED==="1"&&e.J12345_ATTENDANCE_ENABLED==="1";
+export const attendanceOperatorEnabled=e=>isJ12345Preview(e)?e.J12345_ATTENDANCE_OPERATOR_ENABLED==="1":e.J1234_ATTENDANCE_OPERATOR_ENABLED==="1";
+export const attendanceIdentityEnv=e=>isJ12345Preview(e)?createJ12345IdentityEnv(e):createJ1234IdentityEnv(e);
+export const scopedAttendanceKey=(e,id,day)=>(isJ12345Preview(e)?"j12345-":"")+attendanceKey(id,day);
+const secret=e=>createHmac("sha256",Buffer.from(isJ12345Preview(e)?e.J12345_AUTH_ROOT:e.J1234_AUTH_ROOT,"hex")).update(isJ12345Preview(e)?"j12345-attendance-code-v1":"j1234-attendance-code-v1").digest();
 const digest=(key,s,code)=>createHmac("sha256",key).update(JSON.stringify([s.studentId,s.bookingId,s.code.codeId,code])).digest("hex");
 const equal=(a,b)=>hex(a)&&hex(b)&&timingSafeEqual(Buffer.from(a,"hex"),Buffer.from(b,"hex"));
 // Replay the compact audit state before trusting attendance or exposing counts.
@@ -60,12 +65,12 @@ const projection=(s,now)=>({bookingId:s.bookingId,day:s.day,attendanceStatus:s.s
 const empty=()=>({bookingId:null,day:null,attendanceStatus:"not_booked",checkInStatus:"not_checked_in",codeStatus:"not_issued",expiresAt:null,checkInAt:null,checkOutAt:null,visitStatus:"none"});
 export async function readAttendanceProjection({env,db,studentId,parentId,now=Date.now()}){
  if(!attendanceEnabled(env))return {...empty(),attendanceStatus:"unavailable",checkInStatus:"unavailable"};
- try{createJ1234IdentityEnv(env);const day=localDay(now),row=await db.get(ATTENDANCE_COLLECTION,attendanceKey(studentId,day));return row?projection(decode(row,studentId,parentId,day,now),now):empty();}
+ try{attendanceIdentityEnv(env);const day=localDay(now),row=await db.get(ATTENDANCE_COLLECTION,scopedAttendanceKey(env,studentId,day));return row?projection(decode(row,studentId,parentId,day,now),now):empty();}
  catch{return {...empty(),attendanceStatus:"verification_required",checkInStatus:"unavailable"};}
 }
 export function createAttendanceService({env,db,clock=()=>Date.now(),newId=randomUUID,newCode=()=>String(randomInt(0,100000000)).padStart(8,"0")}){
  if(!attendanceEnabled(env))throw Error("ATTENDANCE_DISABLED");
- const cfg=createJ1234IdentityEnv(env),auth=createAuthCrypto(cfg),key=secret(env),scoped=scopeJ1234StudentCredentials(db);
+ const cfg=attendanceIdentityEnv(env),auth=createAuthCrypto(cfg),key=secret(env),scoped=isJ12345Preview(env)?scopeJ12345StudentCredentials(db):scopeJ1234StudentCredentials(db);
  const parents=new Set(previewRecipients(cfg).map(email=>"qa-j2-"+auth.identityDigest("parent-preview-session",email)));
  async function identity(studentId){
   if(!validStudent(studentId))return null;
@@ -78,7 +83,7 @@ export function createAttendanceService({env,db,clock=()=>Date.now(),newId=rando
   if(p?.studentId!==studentId||p.parentId!==parentId||p.accountType!=="student-test"||typeof p.credentialVersion!=="string"||typeof p.stateVersion!=="string"||! /^([a-f0-9]{32}):([a-f0-9]{64})$/.test(p.pinHash??""))return null;
   return {parentId,credentialVersion:p.credentialVersion};
  }
- const eligible=async(id,parentId)=>(await readJ1234BillingProjection({env,db,studentId:id,parentId,now:clock()})).membershipStatus==="active";
+ const eligible=async(id,parentId)=>isJ12345Preview(env)?(await readJ12345MembershipObservation({env,db,studentId:id,parentId,now:clock()})).verifiedLearningEligibility===true:(await readJ1234BillingProjection({env,db,studentId:id,parentId,now:clock()})).membershipStatus==="active";
  // Staff is the explicitly enabled protected preview operator, not a client-selected role.
  // Student redemption uses a fresh server-resolved student session on each CAS attempt.
  return {async execute(input,{resolveStudent}={}){
@@ -92,9 +97,9 @@ export function createAttendanceService({env,db,clock=()=>Date.now(),newId=rando
     if(isStudent){const s=await resolveStudent?.();if(s?.role!=="student"||s.environment!=="private-preview"||s.studentId!==studentId)return null;}
     return i;
    };
-   if(!isStudent&&env.J1234_ATTENDANCE_OPERATOR_ENABLED!=="1")return no("REFUSED");
+   if(!isStudent&&!attendanceOperatorEnabled(env))return no("REFUSED");
    const first=await authorized();if(!first)return no("REFUSED");
-   const day=localDay(clock()),id=attendanceKey(studentId,day);
+   const day=localDay(clock()),id=scopedAttendanceKey(env,studentId,day);
    const needsMembership=["book","issue","redeem"].includes(action);
    for(let retry=0;retry<8;retry++){
     const at=clock();if(localDay(at)!==day)return no("REFUSED");

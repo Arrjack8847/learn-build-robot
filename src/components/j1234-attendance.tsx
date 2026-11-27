@@ -25,14 +25,14 @@ export function StaffAttendance({studentId,initial,membership,operatorKey,onSett
  {issued&&left>0&&<div className="rounded-lg bg-sky-50 p-3" aria-label="One-time code display"><p className="text-xs">Give this to this student only. Expires in {left}s.</p><p className="font-mono text-xl font-bold tracking-widest">{issued.code}</p></div>}
  {message&&<p role="status" className="text-xs capitalize">{message}</p>}{!eligible&&<p className="text-xs text-slate-500">Verified active membership is required to book or issue a code.</p>}</section>;
 }
-export function StudentCheckIn({studentId}:{studentId:string}){
+export function StudentCheckIn({studentId,onSettled}:{studentId:string;onSettled?:()=>void}){
  const [state,setState]=useState<Attendance|null>(null),[code,setCode]=useState(""),[message,setMessage]=useState(""),[busy,setBusy]=useState(false);
  const flight=useRef(false),alive=useRef(true);
  useEffect(()=>{alive.current=true;const c=new AbortController();setState(null);setCode("");setMessage("");call("check-in",{action:"status"},c.signal).then(r=>{if(!c.signal.aborted){if(r.ok&&r.attendance)setState(r.attendance);else setMessage("Check-in is unavailable.");}}).catch(()=>{if(!c.signal.aborted)setMessage("Check-in is unavailable.");});return()=>{alive.current=false;c.abort();};},[studentId]);
  async function redeem(){if(flight.current||!state?.bookingId||! /^\d{8}$/.test(code))return;flight.current=true;setBusy(true);setMessage("");
   try{const r=await call("check-in",{action:"redeem",bookingId:state.bookingId,code,requestId:crypto.randomUUID()});if(alive.current){setCode("");if(r.attendance)setState(r.attendance);setMessage(r.ok?"Check-in recorded.":text(r.status));}}
   catch{if(alive.current)setMessage("Check-in could not be confirmed. Refresh before retrying.");}
-  finally{flight.current=false;if(alive.current)setBusy(false);}
+  finally{flight.current=false;if(alive.current){setBusy(false);onSettled?.();}}
  }
  return <section className="space-y-3 rounded-xl border border-sky-100 p-4"><h2 className="font-bold">Today's check-in</h2>{state?<p className="text-sm capitalize">{text(state.attendanceStatus)}</p>:<p className="text-sm">Check-in status unavailable.</p>}{state?.attendanceStatus==="booked"&&<form className="space-y-2" onSubmit={e=>{e.preventDefault();void redeem();}}><label className="block text-sm font-bold">8-digit code from staff<input className="mt-1 min-h-11 w-full rounded-lg border p-2" inputMode="numeric" autoComplete="off" maxLength={8} value={code} onChange={e=>setCode(e.target.value.replace(/\D/g,"").slice(0,8))}/></label><button className={btn} disabled={busy||code.length!==8}>Check in</button></form>}{message&&<p role="status" className="text-sm">{message}</p>}<p className="text-xs text-slate-500">Attendance only. Learning access is not connected yet.</p><button className={btn} disabled={busy} onClick={()=>window.location.reload()}>Refresh check-in</button></section>;
 }

@@ -1,8 +1,8 @@
 import {operatorAccess} from "./operator-boundary.mjs";
 import {createWixStore} from "../parent-auth/wix-store.mjs";
 import {resolveJ2Student} from "../j2-runtime.mjs";
-import {attendanceEnabled,createAttendanceService,readAttendanceProjection} from "./attendance.mjs";
-import {createJ1234IdentityEnv} from "./identity-scope.mjs";
+import {attendanceEnabled,attendanceOperatorEnabled,attendanceIdentityEnv,createAttendanceService,readAttendanceProjection} from "./attendance.mjs";
+import {isJ12345Preview} from "../j12345/identity-scope.mjs";
 import {validStudent} from "../j123/billing-records.mjs";
 const json=(status,data)=>new Response(JSON.stringify(data),{status,headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"private, no-store","X-Content-Type-Options":"nosniff","X-Robots-Tag":"noindex, nofollow"}});
 const fail=(status,reason)=>json(status,{ok:false,status:reason});
@@ -10,7 +10,7 @@ const paths={"/api/dev/j1234/attendance":"operator","/api/dev/j1234/check-in":"s
 export function createAttendanceHttp({storeFactory=createWixStore,resolveStudent=resolveJ2Student,clock=()=>Date.now()}={}){
  return async(request,env)=>{
   const url=new URL(request.url),kind=paths[url.pathname],origin="https://"+env.VERCEL_URL;
-  if(!kind||!attendanceEnabled(env)||!env.VERCEL_URL||url.origin!==origin||url.search||kind==="operator"&&env.J1234_ATTENDANCE_OPERATOR_ENABLED!=="1")return fail(404,"NOT_FOUND");
+  if(!kind||!attendanceEnabled(env)||!env.VERCEL_URL||url.origin!==origin||url.search||kind==="operator"&&!attendanceOperatorEnabled(env))return fail(404,"NOT_FOUND");
   if(request.method!=="POST")return fail(405,"METHOD_NOT_ALLOWED");
   if(request.headers.get("origin")!==origin||request.headers.get("sec-fetch-site")!=="same-origin"||request.headers.get("x-stem-j1234")!=="1")return fail(403,"REFUSED");
   if(kind==="operator"){const access=operatorAccess(request,env);if(access!==200)return fail(access,access===404?"NOT_FOUND":access===503?"OPERATOR_UNAVAILABLE":"REFUSED");}
@@ -24,8 +24,9 @@ export function createAttendanceHttp({storeFactory=createWixStore,resolveStudent
    if(!keys||Object.keys(input).length!==keys.length||!keys.every(k=>Object.hasOwn(input,k)))return fail(400,"INVALID_INPUT");
   }catch{return fail(400,"INVALID_INPUT");}
   try{
-   createJ1234IdentityEnv(env);const db=storeFactory(env);
+   attendanceIdentityEnv(env);const db=storeFactory(env);
    if(kind==="student"){
+    if(isJ12345Preview(env)&&(request.headers.get("cookie")??"").split(";").some(p=>/^__Host-bsr-(?:parent-test|student-proof)\s*=\s*[^\s]/.test(p.trim())))return fail(401,"NOT_AUTHORIZED");
     const session=await resolveStudent(request,env);
     if(session?.role!=="student"||session.environment!=="private-preview"||!validStudent(session.studentId))return fail(401,"NOT_AUTHORIZED");
     if(input.action==="status"){

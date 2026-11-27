@@ -1,7 +1,8 @@
 import "./lib/error-capture";
 import { createJ12345ProfileHttp } from "../scripts/j12345/profile.mjs";
 import { resolveJ2Student, readJ12345VerifiedChild } from "../scripts/j2-runtime.mjs";
-const handleJ12345Profile=createJ12345ProfileHttp({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild});
+import { readJ12345Access } from "../scripts/j12345/access.mjs";
+const handleJ12345Profile=createJ12345ProfileHttp({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readJ12345Access});
 import { handleIntegratedCheckout } from "../scripts/j123/checkout-http.mjs";
 import { handleMembershipWorker } from "../scripts/j123/membership-worker-http.mjs";
 import { handleJ1Readiness } from "../scripts/j1/readiness.mjs";

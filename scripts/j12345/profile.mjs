@@ -2,7 +2,7 @@ import {isJ12345Preview,validJ12345Student} from "./identity-scope.mjs";
 const bound=s=>s?.role==="student"&&s.environment==="private-preview"&&validJ12345Student(s.studentId);
 const same=(a,b)=>a?.childId===b?.childId&&a?.parentId===b?.parentId&&a?.stateVersion===b?.stateVersion&&a?.name===b?.name&&a?.accountStatus===b?.accountStatus;
 // Children.childId is the canonical logical profile ID. No second Wix profile is created or guessed.
-export function createJ12345ProfileHttp({resolveStudent,readVerifiedChild}){
+export function createJ12345ProfileHttp({resolveStudent,readVerifiedChild,readAccess}){
  return async function handle(request,env){
   const out=(status,data)=>new Response(JSON.stringify(data),{status,headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"private, no-store","X-Content-Type-Options":"nosniff","X-Robots-Tag":"noindex, nofollow"}});
   const fail=(status,code)=>out(status,{ok:false,code});
@@ -17,11 +17,12 @@ export function createJ12345ProfileHttp({resolveStudent,readVerifiedChild}){
    if(!bound(first))return fail(401,"STUDENT_AUTH_REQUIRED");
    const child=await readVerifiedChild(first.studentId,env);
    if(child?.childId!==first.studentId||!validJ12345Student(child.parentId)||child.accountStatus!=="preview-test"||typeof child.stateVersion!=="string"||!child.stateVersion||typeof child.name!=="string"||child.name!==child.name.trim()||!child.name||child.name.length>48)return fail(503,"PROFILE_UNAVAILABLE");
+   const access=typeof readAccess==="function"?await readAccess(child,env):null;
    const again=await readVerifiedChild(first.studentId,env);
    const last=await resolveStudent(request,env);
    if(!bound(last)||last.studentId!==first.studentId)return fail(401,"STUDENT_AUTH_REQUIRED");
    if(!same(child,again))return fail(503,"PROFILE_UNAVAILABLE");
-   return out(200,{ok:true,profile:{studentId:first.studentId,displayName:child.name,identityStatus:"verified",learningAccess:"unavailable"}});
+   return out(200,{ok:true,profile:{studentId:first.studentId,displayName:child.name,identityStatus:"verified",learningAccess:"unavailable",...(access?{access}: {})}});
   }catch{return fail(503,"PROFILE_UNAVAILABLE");}
  };
 }
