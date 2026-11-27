@@ -24,7 +24,8 @@ import {ATTENDANCE_COLLECTION,attendanceKey,localDay,createAttendanceService,rea
 const env={J12345_TEST_OPERATOR_ENABLED:"1",J12345_TEST_OPERATOR_SECRET:randomBytes(32).toString("hex"),VERCEL_ENV:"preview",VERCEL_TARGET_ENV:"preview",VERCEL_GIT_COMMIT_REF:J12345_BRANCH,VERCEL_URL:"fixture.vercel.app",WIX_DEV_SITE_ID:J1234_SITE,WIX_DEV_DATA_API_KEY:"fixture",RESEND_API_KEY:"fixture",PARENT_PREVIEW_VERIFIED_SENDER:"noreply@mail.bestemready.edu.my",STUDENT_AUTH_ENABLED:"true",J12345_REGISTRATION_ENABLED:"1",J12345_PROFILE_ENABLED:"1",J12345_AUTH_ROOT:randomBytes(32).toString("hex"),J12345_TEST_EMAILS:"alpha@example.invalid,beta@example.invalid",PARENT_PREVIEW_OPEN_EMAIL:"1",RESEND_TEST_RECIPIENT:"unrelated@example.invalid",PARENT_AUTH_SECRET:randomBytes(32).toString("hex"),STUDENT_AUTH_SECRET:randomBytes(32).toString("hex")};
 const origin="https://fixture.vercel.app";
 function fixture(){
- const cfg=createJ12345IdentityEnv(env),rows=new Map(),sent=new Map(),auth=createAuthCrypto(cfg),crypto=createStudentAuthCrypto(cfg),clock={now:()=>1795680000000},emails=previewRecipients(cfg);
+ let fixtureNow=1795680000000;
+ const cfg=createJ12345IdentityEnv(env),rows=new Map(),sent=new Map(),auth=createAuthCrypto(cfg),crypto=createStudentAuthCrypto(cfg),clock={now:()=>fixtureNow},emails=previewRecipients(cfg);
  const k=(c,i)=>c+":"+i;
  const db={get:async(c,i)=>structuredClone(rows.get(k(c,i))??null),insert:async(c,i,r)=>{if(rows.has(k(c,i)))return false;rows.set(k(c,i),structuredClone(r));return true;},replaceIfVersion:async(c,i,v,r)=>{if(rows.get(k(c,i))?.stateVersion!==v)return false;rows.set(k(c,i),structuredClone(r));return true;},listFixtureChildren:async p=>[...rows].filter(([k,r])=>k.startsWith("Children:")&&r.parentId===p&&r.accountStatus==="preview-test").map(([,r])=>structuredClone(r))};
  const mailerFor=email=>({sendParentCode:async(recipient,code)=>{assert.equal(recipient,email);sent.set(email,code);return true;}});
@@ -36,7 +37,7 @@ function fixture(){
  const cookie=(r,n)=>r.cookies.find(c=>c.startsWith(n+"="))?.split(";")[0];
  const login=async(kind,email)=>{assert.equal((await call(kind,kind==="p"?"request-email":"request",{email})).data.status,"CODE_SENT");const r=await call(kind,kind==="p"?"verify-email":"verify",{email,code:sent.get(email)});assert.equal(r.status,200);return cookie(r,kind==="p"?"__Host-bsr-parent-test":"__Host-bsr-student-proof");};
  const register=async(p,name,year=2010,requestKey=randomUUID())=>{const r=await call("p","family-child-create",{name,birthYear:year,requestKey},p);assert.equal(r.status,200);return r.data.child;};
- return {cfg,rows,db,auth,call,cookie,login,register,req,context,clock};
+ return {cfg,rows,db,auth,call,cookie,login,register,req,context,clock,setNow:value=>{fixtureNow=value;}};
 }
 const billingEnv={...env,J12345_BILLING_ENABLED:"1",J12345_BILLING_READ_ENABLED:"1",J12345_PROVIDER_ACCEPTED:"1",HITPAY_API_URL:J123_ORIGIN,HITPAY_PLAN_ID:J123_PLAN,HITPAY_CURRENCY:"MYR",HITPAY_MEMBERSHIP_AMOUNT:"360.00",HITPAY_SANDBOX_PAYMENT_METHOD:"touch_n_go",HITPAY_API_KEY:"DISABLED_J3_WIX_VAULT_ONLY",HITPAY_SALT_KEY:"DISABLED_J3_WIX_VAULT_ONLY",HITPAY_API_BASE_URL:"DISABLED_J3_WIX_VAULT_ONLY",J3_SANDBOX_ROTATION_CONFIRMED:"true",J123_CHECKOUT_ENABLED:"true",J123_GENUINE_WEBHOOK_ACCEPTED:"true",J123_PAYMENT_TERMS_VERSION:J123_TERMS,J123_MEMBERSHIP_RECONCILIATION_ENABLED:"true",J123_PROVIDER_PERIOD_SCHEMA:"confirmed_charge_billing_period_v1",J123_MEMBERSHIP_WORKER_ENABLED:"true",J12345_MEMBERSHIP_WORKER_SECRET:randomBytes(32).toString("hex")};
 test("J12345 actual J2 fixture, scoped J3 checkout/ledger and J4 attendance feed individual profile",async()=>{
@@ -57,7 +58,7 @@ test("J12345 actual J2 fixture, scoped J3 checkout/ledger and J4 attendance feed
  };
  const h=createIntegratedCheckoutHttp({resolvePayer:createJ123CheckoutPayer({getStudentContext:()=>f.context}),storeFactory:()=>f.db,requestFn,clock:()=>now});
  const checkout=e=>h(f.req("/api/dev/j123/checkout",{childId:one.id,requestKey:"one",termsVersion:J123_TERMS},"x-stem-j123",payer),e);
- assert.equal((await checkout({...billingEnv,J12345_BILLING_ENABLED:"0"})).status,404);assert.equal(calls.length,0);
+ assert.equal((await checkout({...billingEnv,J12345_BILLING_ENABLED:"0"})).status,404);assert.equal((await checkout({...billingEnv,J12345_PROVIDER_ACCEPTED:"0"})).status,503);assert.equal(calls.length,0);
  assert.equal((await checkout(billingEnv)).status,200);
  const scoped=scopeJ1234BillingStore(f.db,billingEnv),key=checkoutKey(one.id);
  assert.equal(await f.db.get(BILLING_COLLECTION,key),null);assert.equal(await f.db.get(BILLING_COLLECTION,"j1234-"+key),null);
@@ -70,7 +71,7 @@ test("J12345 actual J2 fixture, scoped J3 checkout/ledger and J4 attendance feed
  const first="d".repeat(64);await add(first,"charge.created");
  const worker=createMembershipWorkerHttp({storeFactory:()=>f.db,requestFn,clock:()=>now});
  const dispatch=(eventKey,e=billingEnv)=>worker(new Request(origin+"/api/dev/j123/membership-worker",{method:"POST",headers:{authorization:"Bearer "+billingEnv.J12345_MEMBERSHIP_WORKER_SECRET,"content-type":"application/json"},body:JSON.stringify({eventKey})}),e);
- // The old scope resolves the shared index but cannot locate the J1234 aggregate.
+ // The old scope cannot accept the new worker capability; even with its own key the old aggregate is isolated.
  const old={...billingEnv,VERCEL_GIT_COMMIT_REF:J123_BRANCH};
  assert.equal((await dispatch(first,old)).status,503);
  const activated=await dispatch(first);assert.equal(activated.status,200);assert.equal((await activated.json()).status,"membership_committed");
@@ -126,6 +127,7 @@ test("J12345 actual J2 fixture, scoped J3 checkout/ledger and J4 attendance feed
  assert.equal(await f.db.get(ATTENDANCE_COLLECTION,attendanceKey(one.id,day)),null);
  const present=await getProfile();assert.equal(present.access.membershipEligible,true);assert.equal(present.access.attendance,"checked-in");assert.equal(present.access.reason,"learning-policy-required");assert.equal(present.learningAccess,"unavailable");
  assert.doesNotMatch(JSON.stringify(present),/parentId|pinHash|eventKey|digest|providerPaymentId|codeId/);
+ f.setNow(now);
  const proof2=await f.login("s","alpha@example.invalid"),sign2=await f.call("s","sign-in",{studentId:two.id,pin:"815306"},proof2);
  const siblingCookie=f.cookie(sign2,"__Host-bsr-student");assert.ok(siblingCookie);
  const sibling=await getProfile(siblingCookie);assert.equal(sibling.studentId,two.id);assert.equal(sibling.access.membershipEligible,false);assert.equal(sibling.access.attendance,"not-booked");
