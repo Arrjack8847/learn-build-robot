@@ -3,6 +3,7 @@
 // Request-local verified bytes only; no process-wide cache or public artifact.
 import {createHash} from "node:crypto";
 import {runtimeEnabled} from "./http-utils.mjs";
+import {lookupPrivatePdf} from "../j5/pdf-course-catalog.mjs";
 const hash=x=>createHash("sha256").update(x).digest("hex");
 const sha=x=>typeof x==="string"&&/^[a-f0-9]{64}$/.test(x);
 const docId=x=>typeof x==="string"&&/^pdf-\d{4}$/.test(x);
@@ -32,7 +33,7 @@ export function createCombinedPrivateDocuments({env,authorize,request=fetch}){
    if(!m||Object.keys(m).length!==2||m.scope!=="combined-private-pdf-v1"||!Array.isArray(m.documents)||m.documents.length>1000)throw Error("MANIFEST_UNVERIFIED");
    const result=new Map();
    for(const d of m.documents){
-    if(!d||Object.keys(d).length!==4||!docId(d.documentId)||!ver(d.version)||!sha(d.sha256)||!Number.isSafeInteger(d.size)||d.size<5||d.size>MAX||result.has(d.documentId))throw Error("MANIFEST_UNVERIFIED");
+    if(!d||Object.keys(d).length!==4||!docId(d.documentId)||!lookupPrivatePdf(d.documentId)||!ver(d.version)||!sha(d.sha256)||!Number.isSafeInteger(d.size)||d.size<5||d.size>MAX||result.has(d.documentId))throw Error("MANIFEST_UNVERIFIED");
     result.set(d.documentId,d);
    }
    manifest=result;return manifest;

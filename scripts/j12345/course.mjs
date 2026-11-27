@@ -49,7 +49,11 @@ export function createJ12345CourseAuthority({resolveStudent,readVerifiedChild,re
    if(observed.attendance!=="checked-in")return fail(403,"CHECK_IN_REQUIRED");
    if(observed.bookingId!==a.bookingId||observed.bookingRevision!==a.bookingRevision||observed.bookingStartAt!==a.bookingStartAt||observed.bookingEndAt!==a.bookingEndAt||observed.checkInAt!==a.checkInAt||observed.membershipValidUntil!==a.membershipValidUntil)return fail(503,"COURSE_UNAVAILABLE");
    let grant=null;
-   if(isCombinedBranch(env)){grant=typeof verifyVisit==="function"?await verifyVisit(request,env):null;if(!grant||grant.bookingId!==observed.bookingId||grant.revision!==observed.bookingRevision||!Number.isSafeInteger(grant.validUntil)||grant.validUntil<=clock())return fail(403,"CHECK_IN_REQUIRED");}
+   if(isCombinedBranch(env)){
+    const currentProgress=await readProgress(child,env);
+    const currentLevel=currentProgress?.levels?.find(l=>l.level===resource.level);
+    if(currentProgress?.status!=="ready"||!progress.revision||currentProgress.revision!==progress.revision||!progress.policyHash||currentProgress.policyHash!==progress.policyHash||currentProgress.policyVersion!==progress.policyVersion||!["unlocked","in-progress","completed"].includes(currentLevel?.status))return fail(403,"LEVEL_LOCKED");
+    grant=typeof verifyVisit==="function"?await verifyVisit(request,env):null;if(!grant||grant.bookingId!==observed.bookingId||grant.revision!==observed.bookingRevision||!Number.isSafeInteger(grant.validUntil)||grant.validUntil<=clock())return fail(403,"CHECK_IN_REQUIRED");}
    const decision=evaluateLearningSession(observed,clock());
    if(decision.status==="expired")return fail(403,"LEARNING_SESSION_EXPIRED");
    if(decision.status!=="eligible")return fail(503,"COURSE_UNAVAILABLE");

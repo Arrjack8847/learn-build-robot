@@ -5,8 +5,7 @@ import {isFamilyPreview as isJ12345Preview,validJ12345Student,createJ12345Identi
 import {projectCommittedProgress} from "../j5/committed-progress.mjs";
 import {createWixStore} from "../parent-auth/wix-store.mjs";
 export const COLLECTION="J12345LearningProgress",POLICY_KEY="j12345-approved-curriculum-v1";
-const scope="j12345-progress-v1",hash=x=>createHash("sha256").update(x).digest("hex");
-const key=id=>scope+"-"+hash(id);
+const hash=x=>createHash("sha256").update(x).digest("hex");
 const id=x=>typeof x==="string"&&/^[a-zA-Z0-9_-]{1,128}$/.test(x);
 const stamp=x=>Number.isSafeInteger(x)&&x>0&&x<=8640000000000000;
 const modes=["learning","building","quiz","challenge"],learning=["learning","building"];
@@ -36,18 +35,20 @@ function validatePolicy(p){
  return Array.from({length:6},(_,i)=>i+1).every(l=>p.requirements.some(r=>r.level===l&&r.mode==="challenge")&&p.requirements.some(r=>r.level===l&&r.mode==="learning")&&p.requirements.some(r=>r.level===l&&r.mode==="building"));
 }
 export function createProgressRepository({db,env,clock=Date.now,newId=randomUUID}){
+ const combined=isCombinedBranch(env),scope=combined?"combined-progress-v1":"j12345-progress-v1",key=id=>scope+"-"+hash(id);
+ const policyVersion=combined?env.COMBINED_PROGRESS_POLICY_VERSION:env.J12345_PROGRESS_POLICY_VERSION,policyHash=combined?env.COMBINED_PROGRESS_POLICY_SHA256:env.J12345_PROGRESS_POLICY_SHA256;
  async function policy(){
-  if(!progressEnabled(env)||!id(env.J12345_PROGRESS_POLICY_VERSION)||! /^[a-f0-9]{64}$/.test(env.J12345_PROGRESS_POLICY_SHA256??""))throw Error("POLICY_UNAVAILABLE");
+  if(!progressEnabled(env)||!id(policyVersion)||! /^[a-f0-9]{64}$/.test(policyHash??""))throw Error("POLICY_UNAVAILABLE");
   const row=await db.get(COLLECTION,isCombinedBranch(env)?"combined-approved-curriculum-v1":POLICY_KEY);
-  if(row?.environment!=="private-preview"||typeof row.stateVersion!=="string"||typeof row.stateJson!=="string"||hash(row.stateJson)!==env.J12345_PROGRESS_POLICY_SHA256)throw Error("POLICY_UNAVAILABLE");
+  if(row?.environment!=="private-preview"||typeof row.stateVersion!=="string"||typeof row.stateJson!=="string"||hash(row.stateJson)!==policyHash)throw Error("POLICY_UNAVAILABLE");
   const p=JSON.parse(row.stateJson);
-  if(!validatePolicy(p)||p.version!==env.J12345_PROGRESS_POLICY_VERSION)throw Error("POLICY_UNAVAILABLE");
+  if(!validatePolicy(p)||p.version!==policyVersion||combined&&Array.from({length:6},(_,i)=>i+1).some(level=>p.requirements.filter(r=>r.level===level&&r.mode==="challenge").length!==1))throw Error("POLICY_UNAVAILABLE");
   return p;
  }
  function decode(row,c,p){
   if(row?.environment!=="private-preview"||!id(row.stateVersion)||typeof row.stateJson!=="string"||Buffer.byteLength(row.stateJson)>300000)throw Error("INVALID_PROGRESS_ROW");
   const s=JSON.parse(row.stateJson);
-  if(s.scope!==scope||s.studentId!==c.childId||s.parentId!==c.parentId||s.policyVersion!==p.version||s.policyHash!==env.J12345_PROGRESS_POLICY_SHA256||!Array.isArray(s.records)||s.records.length>2000)throw Error("INVALID_PROGRESS_ROW");
+  if(s.scope!==scope||s.studentId!==c.childId||s.parentId!==c.parentId||s.policyVersion!==p.version||s.policyHash!==policyHash||!Array.isArray(s.records)||s.records.length>2000)throw Error("INVALID_PROGRESS_ROW");
   const v=projectCommittedProgress({studentId:c.childId,policy:p,records:s.records,levelStates:s.levels,currentLevel:s.currentLevel,now:clock()});
   if(!v.ok)throw Error(v.code);
   const ordered=v.levels;
@@ -64,7 +65,7 @@ export function createProgressRepository({db,env,clock=Date.now,newId=randomUUID
  const view=v=>({status:"ready",currentLevel:v.learning.currentLevel,overallCompleted:v.learning.overallCompleted,overallRequired:v.learning.overallRequired,learningCompleted:v.learning.learningCompleted,buildingCompleted:v.learning.buildingCompleted,quizzesPassed:v.learning.quizzesPassed,challengesPassed:v.learning.challengesPassed,latest:v.learning.latest,history:v.history,levels:v.levels.map(({level,status,completed,required})=>({level,status,completed,required}))});
  async function read(c){
   if(!owner(c))return unavailable();
-  try{const p=await policy(),row=await db.get(COLLECTION,key(c.childId));if(!row)return {status:"not-initialized"};return view(decode(row,c,p).v);}catch{return unavailable();}
+  try{const p=await policy(),k=key(c.childId),row=await db.get(COLLECTION,k);if(!row)return {status:"not-initialized"};const v=view(decode(row,c,p).v);if(combined){const fresh=await db.get(COLLECTION,k);if(fresh?.stateVersion!==row.stateVersion||fresh.stateJson!==row.stateJson||JSON.stringify(await policy())!==JSON.stringify(p))return unavailable();return {...v,policyVersion:p.version,policyHash,revision:row.stateVersion};}return v;}catch{return unavailable();}
  }
  async function write(c,action,{recheck,authorize,verifyEvidence}={}){
   if(!owner(c)||!progressEnabled(env)||typeof recheck!=="function")return {ok:false,code:"PROGRESS_UNAVAILABLE"};
@@ -76,7 +77,7 @@ export function createProgressRepository({db,env,clock=Date.now,newId=randomUUID
     let s;
     if(action.kind==="initialize"){
      if(row)return {ok:true,progress:view(decode(row,c,p).v)};
-     s={scope,...binding(c),parentId:c.parentId,policyVersion:p.version,policyHash:env.J12345_PROGRESS_POLICY_SHA256,currentLevel:p.initialLevel,levels:levels(c,p.initialLevel),records:[]};
+     s={scope,...binding(c),parentId:c.parentId,policyVersion:p.version,policyHash:policyHash,currentLevel:p.initialLevel,levels:levels(c,p.initialLevel),records:[]};
     }else{
      if(!row)return {ok:false,code:"PROGRESS_NOT_INITIALIZED"};
      s=decode(row,c,p).s;
@@ -112,6 +113,7 @@ export function createProgressRepository({db,env,clock=Date.now,newId=randomUUID
      if(!await authorize(req))return {ok:false,code:"COURSE_UNAVAILABLE"};
     }
     if(!sameChild(c,await recheck())||JSON.stringify(await policy())!==JSON.stringify(p))return {ok:false,code:"PROGRESS_CHANGED"};
+    if(combined&&action.kind!=="initialize"){const req=p.requirements.find(r=>r.resourceId===action.resourceId&&r.mode===action.mode);if(!req||!await authorize(req)||!sameChild(c,await recheck()))return {ok:false,code:"COURSE_UNAVAILABLE"};}
     const next=encode(s);decode(next,c,p);
     const won=row?await db.replaceIfVersion(COLLECTION,k,row.stateVersion,next):await db.insert(COLLECTION,k,next);
     if(won!==true)continue;
@@ -129,7 +131,7 @@ export function createProgressRepository({db,env,clock=Date.now,newId=randomUUID
    const {s}=decode(row,c,p);
    const matches=p.requirements.filter(r=>r.mode===mode&&(mode==="quiz"?r.resourceId===resourceId:r.level===level));
    if(matches.length!==1||!s.levels.find(l=>l.level===matches[0].level)?.allowed)return null;
-   return {...matches[0],policyVersion:p.version,policyHash:env.J12345_PROGRESS_POLICY_SHA256};
+   return {...matches[0],policyVersion:p.version,policyHash:policyHash};
   }catch{return null;}
  }
  // Internal read-only operator projection. Only callers with verified directory ownership may use it.

@@ -3,3 +3,6 @@ const rows=[["pdf-0001",["level-5-tracking-car"]],["pdf-0003",["level-5-music-bo
 const documents=new Map(rows.map(([id,projects])=>[id,Object.freeze({id,coursePaths:Object.freeze(projects.map(p=>"/projects/"+p))})]));
 export function lookupPrivatePdf(id){return documents.get(id)??null;}
 export const assignedPdfCount=documents.size;
+
+// Read-only approved course associations for release inventory reconciliation.
+export const assignedPdfIds=()=>[...documents.keys()];
