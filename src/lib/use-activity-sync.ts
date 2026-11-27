@@ -1,4 +1,5 @@
 import { useEffect,useRef,useState } from "react";
+const privateJ5=import.meta.env["VITE_J5_PRIVATE_UI"]==="true";
 import { activitySyncEnabled,recordActivity,LmsError,type ActivityMode } from "./wix-lms";
 
 // Only explicit Finish actions write completion; never migrate existing browser state.
@@ -14,7 +15,7 @@ export function useActivitySync(projectId:string,mode:ActivityMode,ready:boolean
     return "Progress could not be saved. Please retry.";
   }
   useEffect(()=>{
-    if(!activitySyncEnabled||!ready)return;
+    if(privateJ5||!activitySyncEnabled||!ready)return;
     const ctrl=new AbortController();
     recordActivity(projectId,mode,"start",ctrl.signal).catch(cause=>{
       if(!ctrl.signal.aborted)setError(message(cause));
@@ -22,6 +23,7 @@ export function useActivitySync(projectId:string,mode:ActivityMode,ready:boolean
     return()=>ctrl.abort();
   },[projectId,mode,ready]);
   async function complete(){
+    if(privateJ5){setError("Verified student progress storage is not connected. Your completion has not been saved.");return false;}
     if(!activitySyncEnabled)return true;
     if(running.current)return false;
     running.current=true;setBusy(true);setError("");
@@ -34,5 +36,5 @@ export function useActivitySync(projectId:string,mode:ActivityMode,ready:boolean
     }catch(cause){setError(message(cause));return false;}
     finally{running.current=false;setBusy(false);}
   }
-  return {enabled:activitySyncEnabled,busy,error,complete};
+  return {enabled:privateJ5||activitySyncEnabled,busy,error,complete};
 }

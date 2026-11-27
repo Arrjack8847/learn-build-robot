@@ -1,7 +1,8 @@
 import {createFileRoute} from "@tanstack/react-router";
+declare const __J12345_STUDENT_PREVIEW__:boolean;
 import {useState} from "react";
 import {KeyRound,Clock,ShieldAlert} from "lucide-react";
-export const Route=createFileRoute("/student/check-in")({component:CheckIn,head:()=>({meta:[{title:"Lab check-in | BE STEM READY"},{name:"robots",content:"noindex, nofollow"}]})});
+export const Route=createFileRoute("/student/check-in")({component:()=>__J12345_STUDENT_PREVIEW__?<main className="p-6 text-center"><h1 className="text-xl font-bold">Lab check-in</h1><p>Open your verified student profile to enter the code from staff.</p><a className="mt-4 inline-block rounded-xl bg-sky-700 px-4 py-3 font-bold text-white" href="/student/dashboard">My student profile</a></main>:<CheckIn/>,head:()=>({meta:[{title:"Lab check-in | BE STEM READY"},{name:"robots",content:"noindex, nofollow"}]})});
 function CheckIn(){
  const [code,setCode]=useState("");
  return <main className="grid h-full place-items-center overflow-y-auto bg-[#f3faff] px-4 py-6 text-[#132654]"><section className="w-full max-w-md space-y-5 rounded-3xl border border-sky-100 bg-white p-6 shadow-sm">

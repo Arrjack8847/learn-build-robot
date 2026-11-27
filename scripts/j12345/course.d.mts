@@ -1,0 +1,2 @@
+import type {CoursePath} from "../../src/lib/j5-course-path.mjs";
+export function createJ12345CourseBoundary(options:{resolveStudent:(request:Request,env:Record<string,string|undefined>)=>Promise<unknown>;readVerifiedChild:(id:string,env:Record<string,string|undefined>)=>Promise<unknown>;readAccess:(child:unknown,env:Record<string,string|undefined>)=>Promise<unknown>;resolveResource:(route:CoursePath)=>unknown}):(request:Request,env:Record<string,string|undefined>,next:()=>Promise<Response>)=>Promise<Response>;

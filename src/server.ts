@@ -2,6 +2,9 @@ import "./lib/error-capture";
 import { createJ12345ProfileHttp } from "../scripts/j12345/profile.mjs";
 import { resolveJ2Student, readJ12345VerifiedChild } from "../scripts/j2-runtime.mjs";
 import { readJ12345Access } from "../scripts/j12345/access.mjs";
+import {createJ12345CourseBoundary} from "../scripts/j12345/course.mjs";
+import {resolveJ5CourseResource} from "./lib/j5-course-catalog.server";
+const handleJ12345Course=createJ12345CourseBoundary({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readJ12345Access,resolveResource:resolveJ5CourseResource});
 const handleJ12345Profile=createJ12345ProfileHttp({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readJ12345Access});
 import { handleIntegratedCheckout } from "../scripts/j123/checkout-http.mjs";
 import { handleMembershipWorker } from "../scripts/j123/membership-worker-http.mjs";
@@ -65,6 +68,7 @@ export default {
     try {
       if (["/dev/testing-centre","/api/dev/j1/readiness"].includes(new URL(request.url).pathname)) return await handleJ1Readiness(request,process.env);
       if (new URL(request.url).pathname === "/api/dev/j5/profile") return await handleJ12345Profile(request,process.env);
+      if (new URL(request.url).pathname === "/api/dev/j5/course-access" || new URL(request.url).pathname.startsWith("/api/dev/j5/pdf/")) return await handleJ12345Course(request,process.env,async()=>new Response(null,{status:404}));
       if (new URL(request.url).pathname.startsWith("/api/dev/j5/")) return new Response(null,{status:404,headers:{"Cache-Control":"no-store"}});
       if (new URL(request.url).pathname === "/api/dev/email-test") return await handleEmailTest(request, process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/student-auth/")) return await handleStudentAuth(request, process.env);
@@ -78,9 +82,11 @@ export default {
       if (new URL(request.url).pathname === "/api/dev/j1234/students") return await handleJ1234Students(request,process.env);
       if (new URL(request.url).pathname.startsWith("/api/dev/staff-private/") || new URL(request.url).pathname.startsWith("/api/dev/j1234/")) return new Response(JSON.stringify({ok:false,status:"NOT_FOUND"}), {status:404,headers:{"Content-Type":"application/json","Cache-Control":"no-store"}});
       if (new URL(request.url).pathname.startsWith("/api/dev/staff/")) return await handleStaffDesk(request, process.env);
-      const handler = await getServerEntry();
-      const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      return await handleJ12345Course(request,process.env,async()=>{
+        const handler = await getServerEntry();
+        const response = await handler.fetch(request, env, ctx);
+        return await normalizeCatastrophicSsrResponse(response);
+      });
     } catch (error) {
       console.error(error);
       return new Response(renderErrorPage(), {
