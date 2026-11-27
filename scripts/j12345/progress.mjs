@@ -104,7 +104,17 @@ export function createProgressRepository({db,env,clock=Date.now,newId=randomUUID
    return {ok:false,code:"PROGRESS_CONFLICT"};
   }catch{return {ok:false,code:"PROGRESS_UNAVAILABLE"};}
  }
- return {read,write};
+ async function assessmentRequirement(c,{mode,resourceId,level}){
+  if(!owner(c)||!["quiz","challenge"].includes(mode))return null;
+  try{
+   const p=await policy(),row=await db.get(COLLECTION,key(c.childId));if(!row)return null;
+   const {s}=decode(row,c,p);
+   const matches=p.requirements.filter(r=>r.mode===mode&&(mode==="quiz"?r.resourceId===resourceId:r.level===level));
+   if(matches.length!==1||!s.levels.find(l=>l.level===matches[0].level)?.allowed)return null;
+   return {...matches[0],policyVersion:p.version,policyHash:env.J12345_PROGRESS_POLICY_SHA256};
+  }catch{return null;}
+ }
+ return {read,write,assessmentRequirement};
 }
 export async function readJ12345Progress(child,env){
  if(!progressEnabled(env))return unavailable();

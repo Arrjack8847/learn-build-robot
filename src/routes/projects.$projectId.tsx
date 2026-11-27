@@ -173,7 +173,7 @@ function ProjectOverviewPage() {
           </article>
         </section>
 
-        {getQuizBank(project.id) && (
+        {(import.meta.env["VITE_J5_PRIVATE_UI"]==="true"||getQuizBank(project.id)) && (
           <section aria-label="Quiz Studio" className="mt-6 rounded-[28px] border border-amber-200 bg-white p-6 shadow-sm">
             <h2 className="text-xl font-black text-[#132654]">Quiz Studio</h2>
             <p className="mt-2 text-sm leading-6 text-slate-600">Test what you learned with five questions, hints, explanations, and saved progress.</p>

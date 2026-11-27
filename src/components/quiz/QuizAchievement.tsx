@@ -6,6 +6,7 @@ import { getQuizBank, readQuizSavedState, type QuizSavedState, QUIZ_PASS_COUNT }
 export function useQuizSavedStatus(projectId: string): QuizSavedState | null {
   const [status, setStatus] = useState<QuizSavedState | null>(null);
   useEffect(() => {
+    if(import.meta.env["VITE_J5_PRIVATE_UI"]==="true"){setStatus(null);return;}
     const update = () => setStatus(readQuizSavedState(projectId));
     const onCustomEvent = (event: Event) => {
       if ((event as CustomEvent<string>).detail === projectId) update();

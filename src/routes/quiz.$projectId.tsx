@@ -1,3 +1,4 @@
+import {J12345Assessment} from "@/components/j5/J12345Assessment";
 import { useEffect, useRef, useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import {
@@ -26,7 +27,7 @@ const secondaryButton = "inline-flex min-h-11 items-center justify-center gap-2 
 
 function QuizStudioPage() {
   const { projectId } = Route.useParams();
-  return <QuizSession key={projectId} projectId={projectId}/>;
+  return import.meta.env["VITE_J5_PRIVATE_UI"]==="true"?<J12345Assessment key={projectId} mode="quiz" projectId={projectId}/>:<QuizSession key={projectId} projectId={projectId}/>;
 }
 
 function QuizSession({projectId}:{projectId:string}) {

@@ -3,6 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import viteReact from "@vitejs/plugin-react";
 import { nitro } from "nitro/vite";
 import { defineConfig,loadEnv } from "vite";
+import {privateAssessmentBuildPlugin} from "./scripts/j12345/private-assessment-build.mjs";
 import { j5PrivatePdfPlugin } from "./scripts/j5/private-pdf-build.mjs";
 
 /** Standard TanStack Start / Vite setup with first-party build plugins. */
@@ -21,7 +22,7 @@ export default defineConfig(({mode,command})=>{
     tsconfigPaths: true,
   },
   plugins: [
-    ...(privatePreview?[j5PrivatePdfPlugin()]:[]),
+    ...(privatePreview?[privateAssessmentBuildPlugin(),j5PrivatePdfPlugin()]:[]),
     tailwindcss(),
     tanstackStart({ server: { entry: "./server.ts" } }),
     viteReact(),

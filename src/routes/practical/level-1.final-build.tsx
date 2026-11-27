@@ -1,3 +1,4 @@
+import {J12345Assessment} from "@/components/j5/J12345Assessment";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft, CheckCircle2, RotateCcw, Timer, Trophy } from "lucide-react";
@@ -14,7 +15,7 @@ import { LEVEL_ONE_CLEANED_BUILDING_WIX_URLS } from "@/data/levelOneBuildingClea
 import { secureRandomIndex } from "@/data/finalBuildRegistry";
 import { canStartLevelOneBuild } from "@/data/levelOneFinalBuildStartPolicy";
 
-export const Route = createFileRoute("/practical/level-1/final-build")({ component: FinalBuildPage });
+export const Route = createFileRoute("/practical/level-1/final-build")({ component: () => import.meta.env["VITE_J5_PRIVATE_UI"]==="true"?<J12345Assessment mode="challenge" level={1}/>:<FinalBuildPage/> });
 
 const PROJECTS = LEVEL_ONE_CATEGORIES.flatMap(category =>
   getLevelOneProjects(category.id).map(project => ({ ...project, category: category.name }))

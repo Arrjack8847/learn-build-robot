@@ -3,6 +3,8 @@ import { createJ12345ProfileHttp } from "../scripts/j12345/profile.mjs";
 import { resolveJ2Student, readJ12345VerifiedChild } from "../scripts/j2-runtime.mjs";
 import { readJ12345Access } from "../scripts/j12345/access.mjs";
 import {readJ12345Progress} from "../scripts/j12345/progress.mjs";
+import {createAssessmentHttp} from "../scripts/j12345/assessment-http.mjs";
+import {resolveAssessmentQuiz,resolveAssessmentCandidates} from "./lib/j12345-assessment-catalog.server";
 import {createProgressHttp} from "../scripts/j12345/progress-http.mjs";
 import {createJ12345CourseBoundary,createJ12345CourseAuthority} from "../scripts/j12345/course.mjs";
 import {resolveJ5CourseResource} from "./lib/j5-course-catalog.server";
@@ -10,6 +12,7 @@ declare const __J12345_STUDENT_PREVIEW__:boolean;
 const handleJ12345Course=createJ12345CourseBoundary({privateArtifact:__J12345_STUDENT_PREVIEW__,resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readJ12345Access,resolveResource:resolveJ5CourseResource,readProgress:readJ12345Progress});
 const handleJ12345Profile=createJ12345ProfileHttp({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readJ12345Access,readProgress:readJ12345Progress});
 const handleJ12345Progress=createProgressHttp({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,authorizeCourse:createJ12345CourseAuthority({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readJ12345Access,resolveResource:resolveJ5CourseResource,readProgress:readJ12345Progress})});
+const handleJ12345Assessment=createAssessmentHttp({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,authorizeCourse:createJ12345CourseAuthority({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readJ12345Access,resolveResource:resolveJ5CourseResource,readProgress:readJ12345Progress}),resolveQuiz:resolveAssessmentQuiz,resolveCandidates:resolveAssessmentCandidates});
 import { handleIntegratedCheckout } from "../scripts/j123/checkout-http.mjs";
 import { handleMembershipWorker } from "../scripts/j123/membership-worker-http.mjs";
 import { handleJ1Readiness } from "../scripts/j1/readiness.mjs";
@@ -71,6 +74,7 @@ export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       if (["/dev/testing-centre","/api/dev/j1/readiness"].includes(new URL(request.url).pathname)) return await handleJ1Readiness(request,process.env);
+      if (new URL(request.url).pathname === "/api/dev/j5/assessment") return await handleJ12345Assessment(request,process.env);
       if (new URL(request.url).pathname === "/api/dev/j5/progress") return await handleJ12345Progress(request,process.env);
       if (new URL(request.url).pathname === "/api/dev/j5/profile") return await handleJ12345Profile(request,process.env);
       if (new URL(request.url).pathname === "/api/dev/j5/course-access" || new URL(request.url).pathname.startsWith("/api/dev/j5/pdf/")) return await handleJ12345Course(request,process.env,async()=>new Response(null,{status:404}));

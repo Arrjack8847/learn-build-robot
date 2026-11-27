@@ -1,0 +1,2 @@
+type Env=Record<string,string|undefined>;
+export function createAssessmentHttp(options:{resolveStudent:(r:Request,e:Env)=>Promise<unknown>;readVerifiedChild:(id:string,e:Env)=>Promise<unknown>;authorizeCourse:(r:Request,e:Env,path:string)=>Promise<unknown>;resolveQuiz:(id:string,level:number)=>unknown;resolveCandidates:(level:number,requirement:unknown)=>unknown}):(r:Request,e:Env)=>Promise<Response>;
