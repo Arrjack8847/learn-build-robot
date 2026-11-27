@@ -12,10 +12,10 @@ Recorded in brief:
 - Cancellation/move cutoff two hours before the booking.
 - No-shows counted by calendar month; first warning, after second RM50 deposit before further bookings, missed booking forfeits deposit, unused deposit returned in cash at month's end. Staff can excuse with note; no-show not counted for timely cancellation.
 - Waiting list, offer cancelled place to next eligible parent.
-- Failed monthly charge: hold upcoming bookings for a still-undecided period, then release.
+- Failed monthly charge: user approved a 24-hour hold on 27 November 2026. Preserve upcoming reservations for 24 elapsed hours from the verified failed renewal, block new reservations and learning access while membership is unpaid, notify parent, restore eligibility on verified payment, otherwise release remaining future reservations at expiry and offer places to eligible waiting-list members. Retries/duplicate notices must not restart the original deadline. Past or elapsed bookings are never reinstated. Exact treatment of an unpaid held booking whose hour elapses during the hold requires reconciliation with the no-show policy.
 - J5 latest confirmed: fixed booked hour, zero grace. Earlier checkout or membership loss ends access. Walk-ins must use the same scheduling authority, capacity and opening-hour checks.
 
-Pending owner approval: unpaid hold period; waitlist offer lifetime; whether a returned/held deposit carries across multiple bookings per existing brief (clarify per-booking wording vs retained account balance). No guessed defaults for production. N1 cannot be called complete until Shimi agrees.
+Pending owner approval: waitlist offer lifetime; whether a returned/held deposit carries across multiple bookings per existing brief (clarify per-booking wording vs retained account balance). No guessed defaults for production. N1 cannot be called complete until Shimi agrees.
 
 ## N2 — Wix Bookings evaluation (documentation review, not a configured live trial)
 
