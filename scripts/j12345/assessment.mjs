@@ -13,7 +13,7 @@ const same=(a,b)=>a?.childId===b?.childId&&a?.parentId===b?.parentId&&a?.stateVe
 export const assessmentEnabled=e=>progressEnabled(e)&&e.J12345_ASSESSMENT_ENABLED==="1";
 const publicQuestion=q=>({id:q.id,prompt:q.prompt,choices:q.choices,hint:q.hint,...(q.diagram?{diagram:q.diagram}:{})});
 function quizQuestions(bank,previous=[],pick=randomInt){
- if(!Array.isArray(bank)||bank.length!==10||new Set(bank.map(q=>q.id)).size!==10||bank.some(q=>!id(q.id)||!text(q.topic)||!text(q.prompt)||!text(q.hint)||!text(q.explanation)||!Array.isArray(q.choices)||q.choices.length!==4||q.choices.some(c=>!text(c))||!Number.isInteger(q.correctIndex)||q.correctIndex<0||q.correctIndex>3||!Number.isInteger(q.learningSlide)||q.learningSlide<1))throw Error("QUIZ_UNAVAILABLE");
+ if(!Array.isArray(bank)||bank.length!==10||new Set(bank.map(q=>q.id)).size!==10||bank.some(q=>!id(q.id)||!text(q.topic)||!text(q.prompt)||!text(q.hint)||!text(q.explanation)||q.diagram!==undefined&&!["large-to-small","small-to-large"].includes(q.diagram)||!Array.isArray(q.choices)||q.choices.length!==4||q.choices.some(c=>!text(c))||!Number.isInteger(q.correctIndex)||q.correctIndex<0||q.correctIndex>3||!Number.isInteger(q.learningSlide)||q.learningSlide<1))throw Error("QUIZ_UNAVAILABLE");
  const groups=[...new Set(bank.map(q=>q.topic))].map(t=>bank.filter(q=>q.topic===t));
  if(groups.length!==5||groups.some(g=>g.length!==2))throw Error("QUIZ_UNAVAILABLE");
  const selected=groups.map(g=>{const fresh=g.filter(q=>!previous.includes(q.id)),choices=fresh.length?fresh:g;return choices[pick(choices.length)];});
