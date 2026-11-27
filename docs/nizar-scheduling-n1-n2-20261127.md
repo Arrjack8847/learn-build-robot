@@ -6,7 +6,7 @@ Source: STEM Makers Lab website: task briefs for the team, 25 November 2026. Use
 
 Recorded in brief:
 - Opening hours written as 10–10 with lunch 12–1 and dinner 6–7; interpreted provisionally as 10:00–22:00 MYT with 12:00–13:00 and 18:00–19:00 closed. Days of operation still require confirmation.
-- Capacity written as "5 slot drone and robot"; do not assume whether five shared places or five for each activity.
+- Capacity confirmed by user on 27 November 2026: five robotics places and five drone places independently per booked hour (ten total). Do not borrow capacity between pools. One booking per child per MYT day across both pools; activity-specific availability and waiting lists. Capacity is subject to server-side atomic enforcement in N3.
 - One hour per child per day; paid membership required.
 - Cancellation/move cutoff two hours before the booking.
 - No-shows counted by calendar month; first warning, after second RM50 deposit before further bookings, missed booking forfeits deposit, unused deposit returned in cash at month's end. Staff can excuse with note; no-show not counted for timely cancellation.
@@ -14,7 +14,7 @@ Recorded in brief:
 - Failed monthly charge: hold upcoming bookings for a still-undecided period, then release.
 - J5 latest confirmed: fixed booked hour, zero grace. Earlier checkout or membership loss ends access. Walk-ins must use the same scheduling authority, capacity and opening-hour checks.
 
-Pending owner approval: operating days; shared vs separate five-place capacity; how far ahead and how many future bookings per child; unpaid hold period; waitlist offer lifetime; whether a returned/held deposit carries across multiple bookings per existing brief (clarify per-booking wording vs retained account balance). No guessed defaults for production. N1 cannot be called complete until Shimi agrees.
+Pending owner approval: operating days; how far ahead and how many future bookings per child; unpaid hold period; waitlist offer lifetime; whether a returned/held deposit carries across multiple bookings per existing brief (clarify per-booking wording vs retained account balance). No guessed defaults for production. N1 cannot be called complete until Shimi agrees.
 
 ## N2 — Wix Bookings evaluation (documentation review, not a configured live trial)
 
