@@ -21,7 +21,7 @@ function validate(s){
  const json=JSON.stringify(s);if(Buffer.byteLength(json)>MAX_BYTES)throw Error("SCHEDULE_LIMIT");
  return json;
 }
-export function createSchedulingRepository({env,db,storeFactory=createWixStore,newId=randomUUID}){
+export function createSchedulingRepository({env,db,storeFactory=createWixStore,newId=randomUUID,clock=Date.now}){
  if(!enabled(env))throw Error("SCHEDULING_DISABLED");
  const storage=db??storeFactory(env);
  async function read(){
@@ -32,12 +32,24 @@ export function createSchedulingRepository({env,db,storeFactory=createWixStore,n
   return {version:row.stateVersion,state};
  }
  return {read,async compareAndSet(expected,state){
-  const stateJson=validate(state),stateVersion=newId();
+  const stateJson=validate(state),stateVersion=newId(),now=clock();
+  if(!Number.isSafeInteger(now)||now<=0)throw Error("INVALID_CLOCK");
+  const upcoming=new Map();
+  for(const b of state.bookings){
+   if(b.createdAt>now||b.updatedAt>now)throw Error("FUTURE_RECORD");
+   if(!["booked","held-unpaid"].includes(b.bookingStatus)||b.startAt<=now)continue;
+   const count=(upcoming.get(b.childId)??0)+1;
+   if(count>POLICY.maxUpcoming)throw Error("UPCOMING_LIMIT");
+   upcoming.set(b.childId,count);
+  }
   if(typeof stateVersion!=="string"||!stateVersion||stateVersion===expected)throw Error("INVALID_VERSION");
   const next={environment:"private-preview",stateVersion,stateJson};
-  const won=expected===null?await storage.insert(COLLECTION,RECORD_ID,next):await storage.replaceIfVersion(COLLECTION,RECORD_ID,expected,next);
-  if(won!==true)return {status:"conflict"};
-  const saved=await storage.get(COLLECTION,RECORD_ID);
+  let won,saved;
+  try{won=expected===null?await storage.insert(COLLECTION,RECORD_ID,next):await storage.replaceIfVersion(COLLECTION,RECORD_ID,expected,next);
+   if(won===false)return {status:"conflict"};
+   if(won!==true)return {status:"unconfirmed"};
+   saved=await storage.get(COLLECTION,RECORD_ID);
+  }catch{return {status:"unconfirmed"};}
   // Another writer may supersede the revision before readback. Never report an uncertain write as failure or retry it blindly.
   if(saved?.stateVersion!==stateVersion||saved.stateJson!==stateJson)return {status:"unconfirmed"};
   return {status:"committed",version:stateVersion};
