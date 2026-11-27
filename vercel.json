@@ -9,5 +9,6 @@
       "feat/nizar-scheduling-20261127": false,
       "integration/j12345-n12345-20261127": false
     }
-  }
+  },
+  "buildCommand": "npm run build:combined-private"
 }
