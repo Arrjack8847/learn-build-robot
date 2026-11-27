@@ -1,4 +1,6 @@
 import "./lib/error-capture";
+import {handleNizarFixture,fixtureEnabled} from "../scripts/nizar/fixture-http.mjs";
+import {renderNizarPreview} from "../scripts/nizar/preview-page.mjs";
 import { createJ12345ProfileHttp } from "../scripts/j12345/profile.mjs";
 import { resolveJ2Student, readJ12345VerifiedChild } from "../scripts/j2-runtime.mjs";
 import { readJ12345Access } from "../scripts/j12345/access.mjs";
@@ -74,6 +76,9 @@ export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       const path=new URL(request.url).pathname;
+      if(path==="/api/dev/nizar/booking")return await handleNizarFixture(request,process.env);
+      if(path==="/dev/nizar-booking"){const url=new URL(request.url);if(!fixtureEnabled(process.env)||request.method!=="GET"||url.search||!process.env["VERCEL_URL"]||url.origin!=="https://"+process.env["VERCEL_URL"])return new Response(null,{status:404,headers:{"Cache-Control":"no-store","X-Robots-Tag":"noindex, nofollow"}});return renderNizarPreview();}
+      if(path.startsWith("/api/dev/nizar/"))return new Response(null,{status:404,headers:{"Cache-Control":"no-store"}});
       if(__J12345_STUDENT_PREVIEW__&&(process.env["VERCEL_ENV"]!=="preview"||process.env["VERCEL_TARGET_ENV"]==="production"||process.env["VERCEL_GIT_COMMIT_REF"]!=="integration/j1-j2-j3-j4-j5-20261126")&&(path.startsWith("/api/dev/")||path==="/dev/testing-centre"||path==="/staff/admin"||path==="/student/dashboard"))return new Response(null,{status:404,headers:{"Cache-Control":"private, no-store","X-Robots-Tag":"noindex, nofollow"}});
       if (["/dev/testing-centre","/api/dev/j1/readiness"].includes(new URL(request.url).pathname)) return await handleJ1Readiness(request,process.env);
       if (new URL(request.url).pathname === "/api/dev/j5/assessment") return await handleJ12345Assessment(request,process.env);

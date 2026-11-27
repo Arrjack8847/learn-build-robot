@@ -49,7 +49,8 @@
     "test:j1234:foundation": "node --test tests/j1234-*.test.mjs tests/j4-*.test.mjs",
     "typecheck": "tsc --noEmit",
     "verify:j1234": "npm run typecheck && node --test tests/j1-readiness.test.mjs tests/j12*.test.mjs tests/j2-*.test.mjs tests/parent-portal-email.test.mjs tests/hitpay-*.test.mjs tests/j4-*.test.mjs && node tests/parent-preview-otp.test.mjs && node scripts/parent-auth/family-qa.mjs",
-    "test:nizar:n2": "node --test tests/nizar-n2.test.mjs"
+    "test:nizar:n2": "node --test tests/nizar-n2.test.mjs",
+    "test:nizar:n3": "node --test tests/nizar-n2.test.mjs tests/nizar-n3.test.mjs"
   },
   "overrides": {
     "rolldown": "1.2.1"
