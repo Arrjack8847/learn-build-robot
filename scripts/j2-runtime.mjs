@@ -11,9 +11,11 @@ import {J123_BRANCH,requireJ123Identity,isIntegratedBillingPreview} from "./j123
 import {scopeJ123StudentCredentials} from "./j123/student-credential-scope.mjs";
 import {J1234_BRANCH,createJ1234IdentityEnv,scopeJ1234StudentCredentials} from "./j1234/identity-scope.mjs";
 
-import {J12345_BRANCH,isFamilyPreview,createJ12345IdentityEnv,scopeJ12345StudentCredentials,validJ12345Student} from "./j12345/identity-scope.mjs";
+import {isCombinedBranch} from "./combined/scope.mjs";
+import {J12345_BRANCH,isCombinedIdentityPreview,isFamilyPreview,createJ12345IdentityEnv,scopeJ12345StudentCredentials,validJ12345Student} from "./j12345/identity-scope.mjs";
 
 function context(env){
+ if(isCombinedBranch(env)&&!isCombinedIdentityPreview(env))throw Error("COMBINED_IDENTITY_DISABLED");
  if(isFamilyPreview(env))env=createJ12345IdentityEnv(env);
  if(env.VERCEL_GIT_COMMIT_REF===J1234_BRANCH)env=createJ1234IdentityEnv(env);
  if(env.VERCEL_GIT_COMMIT_REF===J123_BRANCH)requireJ123Identity(env);
@@ -55,6 +57,7 @@ export const handleParentOtpTest=createParentAuthHttp({resolveContext:async env=
 export function createJ123CheckoutPayer({getStudentContext=env=>studentContext(env,context(env))}={}){
  return async function resolveJ123CheckoutPayer(request,env,childId){
  if(!isIntegratedBillingPreview(env)||env.STUDENT_AUTH_ENABLED!=="true")return null;
+ if(isCombinedBranch(env)&&mixedParentRequest(request))return null;
  if(!/^qa-j2-[a-f0-9]{64}$/.test(childId??""))return null;
  const student=getStudentContext(env),token=read(request,"__Host-bsr-parent-test"),payer=await student.payer(token);
  if(payer?.role!=="payer")return null;
@@ -82,16 +85,26 @@ export async function readJ12345VerifiedChild(studentId,env){
  return {childId:studentId,parentId,name:row.name,accountStatus:row.accountStatus,stateVersion:row.stateVersion};
 }
 
-// Scheduling reuses the J2 parent cookie and fresh family consent/ownership. No separate login.
-export async function resolveCombinedParentChild(request,env,childId){
- if(!isFamilyPreview(env)||!validJ12345Student(childId))return null;
- if((request.headers.get("cookie")??"").split(";").some(x=>/^__Host-bsr-(?:student|student-proof)=.+/.test(x.trim())))return null;
- try{
-  const base=context(env),student=studentContext(env,base),token=read(request,"__Host-bsr-parent-test");
-  const parent=await student.locate(token,false);if(!parent)return null;
-  const result=await student.familyFor(parent.parentId).handle("internal","family-child-get",{childId});
-  const child=await readJ12345VerifiedChild(childId,env),again=await student.locate(token,false);
-  if(!result.ok||result.child?.id!==childId||!child||child.parentId!==parent.parentId||child.stateVersion!==result.child.version||again?.parentId!==parent.parentId)return null;
-  return child;
- }catch{return null;}
+// Scheduling reuses the verified J2 parent session; no separate login.
+function mixedParentRequest(request){
+ return (request.headers.get("cookie")??"").split(";").some(x=>/^__Host-bsr-(?:student|student-proof)\s*=/.test(x.trim()));
 }
+export function createCombinedParentChildResolver({getStudentContext=env=>studentContext(env,context(env)),readChild=readJ12345VerifiedChild}={}){
+ return async function resolve(request,env,childId){
+  if(!isCombinedIdentityPreview(env)||!validJ12345Student(childId)||mixedParentRequest(request))return null;
+  try{
+   const student=getStudentContext(env),token=read(request,"__Host-bsr-parent-test");
+   if(!/^[A-Za-z0-9_-]{43}$/.test(token))return null;
+   const parent=await student.locate(token,false);if(!validJ12345Student(parent?.parentId))return null;
+   const family=student.familyFor(parent.parentId);
+   const result=await family.handle("internal","family-child-get",{childId});
+   if(!result.ok||result.child?.id!==childId)return null;
+   const child=await readChild(childId,env);
+   if(!child||child.childId!==childId||child.accountStatus!=="preview-test"||child.parentId!==parent.parentId||child.stateVersion!==result.child.version||child.name!==result.child.name)return null;
+   const fresh=await family.handle("internal","family-child-get",{childId}),again=await student.locate(token,false);
+   if(!fresh.ok||fresh.child?.id!==childId||fresh.child.version!==child.stateVersion||fresh.child.name!==child.name||again?.parentId!==parent.parentId)return null;
+   return child;
+  }catch{return null;}
+ };
+}
+export const resolveCombinedParentChild=createCombinedParentChildResolver();

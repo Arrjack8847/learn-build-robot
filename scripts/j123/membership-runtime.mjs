@@ -4,7 +4,7 @@
 import {BILLING_COLLECTION,validStudent,validProvider,checkoutKey,decodeCheckout,checkProviderBinding,providerKey} from "./billing-records.mjs";
 import {createMembershipProviderReader,membershipProcessingEnabled} from "./membership-provider.mjs";
 import {createMembershipReconciler,createMembershipReviewProcessor,readIntegratedMembership} from "./membership-reconciliation.mjs";
-import {J123_TERMS} from "./infrastructure.mjs";
+import {membershipTermsVersion} from "./infrastructure.mjs";
 import {flushPaymentReceipts} from "./payment-receipts.mjs";
 const digest=x=>typeof x==="string"&&/^[a-f0-9]{64}$/.test(x);
 const epoch=x=>Number.isSafeInteger(x)?x:Date.parse(typeof x==="string"?x:x?.$date);
@@ -17,7 +17,7 @@ export async function reconcileStudentCheckoutStatus({env,db,studentId,parentId,
  try{
   const row=await db.get(BILLING_COLLECTION,checkoutKey(studentId));if(!row)return null;
   let state=decodeCheckout(row,studentId),r=state.reservation;
-  if(r.parentId!==parentId||r.status!=="bound"||r.termsVersion!==J123_TERMS||!Number.isSafeInteger(r.termsAcceptedAt)||r.termsAcceptedAt>clock()||!await checkProviderBinding(db,"subscription",r.providerId,r))return null;
+  if(r.parentId!==parentId||r.status!=="bound"||r.termsVersion!==membershipTermsVersion(env)||!Number.isSafeInteger(r.termsAcceptedAt)||r.termsAcceptedAt>clock()||!await checkProviderBinding(db,"subscription",r.providerId,r))return null;
   // Existing verified holds must stay held, even when the provider is unavailable.
   if(state.membership?.policyReviewRequired===true)return "MEMBERSHIP_REVIEW_REQUIRED";
   const events=await db.listMembershipInbox({since:r.termsAcceptedAt,subscriptionId:r.providerId});
@@ -77,7 +77,7 @@ export async function dispatchVerifiedMembershipEvent({env,db,eventKey,requestFn
   const v=JSON.parse(binding.stateJson);
   if(v.scope!=="j123-provider-binding-v1"||v.kind!=="subscription"||v.providerId!==subscriptionId||!validStudent(v.childId)||!validStudent(v.parentId))return {ok:false,status:"pending"};
   const state=decodeCheckout(await db.get(BILLING_COLLECTION,checkoutKey(v.childId)),v.childId),r=state.reservation;
-  if(r.providerId!==subscriptionId||r.parentId!==v.parentId||r.status!=="bound"||r.termsVersion!==J123_TERMS||!Number.isSafeInteger(r.termsAcceptedAt)||r.termsAcceptedAt<=0||!validEvent(e,clock(),r.termsAcceptedAt)||!await checkProviderBinding(db,"subscription",subscriptionId,r))return {ok:false,status:"pending"};
+  if(r.providerId!==subscriptionId||r.parentId!==v.parentId||r.status!=="bound"||r.termsVersion!==membershipTermsVersion(env)||!Number.isSafeInteger(r.termsAcceptedAt)||r.termsAcceptedAt<=0||!validEvent(e,clock(),r.termsAcceptedAt)||!await checkProviderBinding(db,"subscription",subscriptionId,r))return {ok:false,status:"pending"};
   async function paymentResult(status){
    const receiptStatus=await flushPaymentReceipts({env,db,studentId:v.childId,requestFn,clock});
    return {ok:true,status,...(receiptStatus==="disabled"?{}:{receiptStatus})};

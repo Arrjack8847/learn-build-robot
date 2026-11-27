@@ -2,7 +2,7 @@
 // The provider adapter must independently authenticate charge, subscription, method and billing-period evidence.
 // A normalized observation must never be accepted from a browser or inferred from a webhook payload.
 import {randomUUID} from "node:crypto";
-import {J123_PLAN,J123_TERMS} from "./infrastructure.mjs";
+import {J123_PLAN,membershipTermsVersion} from "./infrastructure.mjs";
 import {membershipProcessingEnabled as enabled,J123_MERCHANT as merchantId} from "./membership-provider.mjs";
 import {newPaymentReceipt} from "./payment-receipts.mjs";
 import {validateVerifiedMembershipPayment,readStudentMembershipStatus} from "../hitpay/verified-membership-contract.mjs";
@@ -21,7 +21,7 @@ export function createMembershipReconciler({env,db,provider,clock=()=>Date.now()
    const event=await db.get("PaymentWebhookEvents",eventKey);
    if(!signed(event,eventKey,clock())||event.eventType!=="charge.created")return fail("UNVERIFIED_EVENT");
    const key=checkoutKey(studentId),row=await db.get(BILLING_COLLECTION,key),state=decodeCheckout(row,studentId),r=state.reservation;
-   if(r.termsVersion!==J123_TERMS||!await checkProviderBinding(db,"subscription",r.providerId,r))return fail("INVALID_MEMBERSHIP_BINDING");
+   if(r.termsVersion!==membershipTermsVersion(env)||!await checkProviderBinding(db,"subscription",r.providerId,r))return fail("INVALID_MEMBERSHIP_BINDING");
    // Adapter is an internal trusted dependency, and receives only exact reservation and event identifiers.
    const o=await provider.reconcileVerifiedEvent({eventKey,chargeId:event.providerObjectId,subscriptionId:r.providerId,reference:r.reference,planId:r.planId});
    if(o?.paymentMethod!=="touch_n_go"||![1,2].includes(o?.cycleNumber)||o?.paidAt>clock())return fail("PROVIDER_EVIDENCE_REQUIRED");
@@ -67,7 +67,7 @@ export async function readIntegratedMembership({env,db,studentId,now=Date.now()}
  try{
   const row=await db.get(BILLING_COLLECTION,checkoutKey(studentId));if(!row)return null;
   const state=decodeCheckout(row,studentId),r=state.reservation,m=state.membership,p=state.payments?.at(-1);
-  if(!m||!p||r.status!=="bound"||m.studentId!==studentId||p.studentId!==studentId||p.providerSubscriptionId!==r.providerId||m.providerPaymentId!==p.providerPaymentId||m.validUntil!==p.periodEndAt||!await checkProviderBinding(db,"subscription",r.providerId,r)||!await checkProviderBinding(db,"charge",p.providerPaymentId,r))return null;
+  if(!m||!p||r.termsVersion!==membershipTermsVersion(env)||r.status!=="bound"||m.studentId!==studentId||p.studentId!==studentId||p.providerSubscriptionId!==r.providerId||m.providerPaymentId!==p.providerPaymentId||m.validUntil!==p.periodEndAt||!await checkProviderBinding(db,"subscription",r.providerId,r)||!await checkProviderBinding(db,"charge",p.providerPaymentId,r))return null;
   return readStudentMembershipStatus({studentId,record:m,now});
  }catch{return null;}
 }
@@ -83,7 +83,7 @@ export function createMembershipReviewProcessor({env,db,provider,clock=()=>Date.
    const e=await db.get("PaymentWebhookEvents",eventKey);
    if(!signed(e,eventKey,clock())||!["charge.updated","recurring_billing.subscription_updated","recurring_billing.method_detached"].includes(e.eventType))return fail("UNVERIFIED_EVENT");
    const k=checkoutKey(studentId),original=decodeCheckout(await db.get(BILLING_COLLECTION,k),studentId),r=original.reservation;
-   if(r.status!=="bound"||r.termsVersion!==J123_TERMS||!await checkProviderBinding(db,"subscription",r.providerId,r))return fail("INVALID_MEMBERSHIP_BINDING");
+   if(r.status!=="bound"||r.termsVersion!==membershipTermsVersion(env)||!await checkProviderBinding(db,"subscription",r.providerId,r))return fail("INVALID_MEMBERSHIP_BINDING");
    const charge=e.eventType==="charge.updated";
    if(charge?(!original.payments?.some(p=>p.providerPaymentId===e.providerObjectId)||!await checkProviderBinding(db,"charge",e.providerObjectId,r)):e.providerObjectId!==r.providerId)return fail("UNMATCHED_ADVERSE_EVENT");
    const o=await provider.reconcileAdverseEvent({eventKey,eventType:e.eventType,objectId:e.providerObjectId,subscriptionId:r.providerId,reference:r.reference,planId:r.planId});

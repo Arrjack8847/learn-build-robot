@@ -3,7 +3,7 @@ import {createHash,randomUUID} from "node:crypto";
 import {createAuthCrypto,previewRecipients,validPreviewEmail} from "../parent-auth/secure-auth-transport.mjs";
 import {createFamilyPreview} from "../parent-auth/family-preview.mjs";
 import {membershipProcessingEnabled} from "./membership-provider.mjs";
-import {J123_TERMS,billingIdentityEnv} from "./infrastructure.mjs";
+import {membershipTermsVersion,billingIdentityEnv} from "./infrastructure.mjs";
 import {BILLING_COLLECTION,validStudent,validProvider,checkoutKey,decodeCheckout,encodeCheckout,checkProviderBinding} from "./billing-records.mjs";
 const hash=x=>createHash("sha256").update(x).digest("hex");
 const digest=x=>typeof x==="string"&&/^[a-f0-9]{64}$/.test(x);
@@ -26,7 +26,7 @@ export function approvedReceiptRecipient(env,parentId){
 const myt=t=>new Date(t+8*3600000).toISOString().slice(0,16).replace("T"," ")+" MYT";
 async function messageFor({env,db,clock,state,job}){
  const r=state.reservation,p=state.payments?.find(x=>x.providerPaymentId===job.providerPaymentId);
- if(!p||job.id!==receiptKey(p.providerPaymentId)||job.eventKey!==p.eventKey||p.environment!=="sandbox"||p.purpose!=="membership"||p.studentId!==r.childId||p.parentId!==r.parentId||p.attemptId!==r.attemptId||p.reference!==r.reference||p.providerSubscriptionId!==r.providerId||p.currency!=="MYR"||p.amountMinor!==36000||![1,2].includes(p.cycleNumber)||![p.paidAt,p.periodStartAt,p.periodEndAt].every(time)||p.periodEndAt<=p.periodStartAt||p.paidAt>clock()||state.membership?.studentId!==r.childId||state.membership?.source!=="verified_membership_ledger"||state.membership?.state!=="paid"||state.membership?.policyReviewRequired===true||r.status!=="bound"||r.termsVersion!==J123_TERMS||!await checkProviderBinding(db,"subscription",r.providerId,r)||!await checkProviderBinding(db,"charge",p.providerPaymentId,r))return null;
+ if(!p||job.id!==receiptKey(p.providerPaymentId)||job.eventKey!==p.eventKey||p.environment!=="sandbox"||p.purpose!=="membership"||p.studentId!==r.childId||p.parentId!==r.parentId||p.attemptId!==r.attemptId||p.reference!==r.reference||p.providerSubscriptionId!==r.providerId||p.currency!=="MYR"||p.amountMinor!==36000||![1,2].includes(p.cycleNumber)||![p.paidAt,p.periodStartAt,p.periodEndAt].every(time)||p.periodEndAt<=p.periodStartAt||p.paidAt>clock()||state.membership?.studentId!==r.childId||state.membership?.source!=="verified_membership_ledger"||state.membership?.state!=="paid"||state.membership?.policyReviewRequired===true||r.status!=="bound"||r.termsVersion!==membershipTermsVersion(env)||!await checkProviderBinding(db,"subscription",r.providerId,r)||!await checkProviderBinding(db,"charge",p.providerPaymentId,r))return null;
  const e=await db.get("PaymentWebhookEvents",p.eventKey);
  if(!e||e.environment!=="sandbox"||e.eventType!=="charge.created"||e.providerObjectId!==p.providerPaymentId||e.payloadDigest!==p.eventKey||e.providerEventKey!==p.eventKey||!["pending","processed","duplicate"].includes(e.processingStatus)||!time(epoch(e.signatureVerifiedAt))||epoch(e.signatureVerifiedAt)>clock())return null;
  const recipient=approvedReceiptRecipient(env,r.parentId);if(!recipient)return null;

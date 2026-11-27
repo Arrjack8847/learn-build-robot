@@ -1,15 +1,15 @@
-import {combinedPreview} from "../combined/scope.mjs";
+import {combinedPreview,combinedRepositoryEnabled} from "../combined/scope.mjs";
 import {createHmac} from "node:crypto";
 import {validPreviewEmail} from "../parent-auth/secure-auth-transport.mjs";
 export const J12345_BRANCH="integration/j1-j2-j3-j4-j5-20261126";
 export const isJ12345Preview=e=>e?.VERCEL_ENV==="preview"&&e.VERCEL_TARGET_ENV!=="production"&&e.VERCEL_GIT_COMMIT_REF===J12345_BRANCH;
-export const isCombinedIdentityPreview=e=>combinedPreview(e)&&e.COMBINED_IDENTITY_ENABLED==="1";
+export const isCombinedIdentityPreview=e=>combinedPreview(e)&&combinedRepositoryEnabled(e)&&e.COMBINED_IDENTITY_ENABLED==="1"&&e.COMBINED_RUNTIME_ENABLED==="1";
 export const isFamilyPreview=e=>isJ12345Preview(e)||isCombinedIdentityPreview(e);
 export function createJ12345IdentityEnv(e){
  const combined=isCombinedIdentityPreview(e);
  if(!isFamilyPreview(e)||e.J12345_REGISTRATION_ENABLED!=="1"||e.STUDENT_AUTH_ENABLED!=="true"||e.WIX_DEV_SITE_ID!=="09d613aa-3a95-42ff-9ee3-2aa0c706c447"||!e.WIX_DEV_DATA_API_KEY?.trim()||!e.RESEND_API_KEY?.trim()||e.PARENT_PREVIEW_VERIFIED_SENDER!=="noreply@mail.bestemready.edu.my")throw Error("J12345_IDENTITY_DISABLED");
  const root=combined?e.COMBINED_AUTH_ROOT:e.J12345_AUTH_ROOT;
- if(!/^[a-fA-F0-9]{64}$/.test(root??"")||new Set(Buffer.from(root,"hex")).size<8||[...(combined?[e.J12345_AUTH_ROOT,e.COMBINED_STAFF_KEY,e.COMBINED_WORKER_KEY,e.COMBINED_CODE_SECRET]:[]),e.J1234_AUTH_ROOT,e.PARENT_AUTH_SECRET,e.STUDENT_AUTH_SECRET,e.J1234_TEST_OPERATOR_SECRET,e.J123_MEMBERSHIP_WORKER_SECRET,e.J12345_TEST_OPERATOR_SECRET,e.J12345_MEMBERSHIP_WORKER_SECRET].some(x=>typeof x==="string"&&x.toLowerCase()===root.toLowerCase()))throw Error("ISOLATED_ROOT_REQUIRED");
+ if(!/^[a-fA-F0-9]{64}$/.test(root??"")||new Set(Buffer.from(root,"hex")).size<8||[...(combined?[e.J12345_AUTH_ROOT,e.COMBINED_STAFF_KEY,e.COMBINED_WORKER_KEY,e.COMBINED_CODE_SECRET,e.COMBINED_MEMBERSHIP_WORKER_SECRET,e.NIZAR_FIXTURE_OPERATOR_KEY,e.NIZAR_STAFF_FIXTURE_KEY]:[]),e.J1234_AUTH_ROOT,e.PARENT_AUTH_SECRET,e.STUDENT_AUTH_SECRET,e.J1234_TEST_OPERATOR_SECRET,e.J123_MEMBERSHIP_WORKER_SECRET,e.J12345_TEST_OPERATOR_SECRET,e.J12345_MEMBERSHIP_WORKER_SECRET].some(x=>typeof x==="string"&&x.toLowerCase()===root.toLowerCase()))throw Error("ISOLATED_ROOT_REQUIRED");
  const emails=((combined?e.COMBINED_TEST_EMAILS:e.J12345_TEST_EMAILS)??"").split(",").map(x=>x.trim().toLowerCase());
  if(emails.length>5||new Set(emails).size!==emails.length||!emails.every(validPreviewEmail))throw Error("TEST_INBOXES_REQUIRED");
  const derive=d=>createHmac("sha256",Buffer.from(root,"hex")).update((combined?"combined-private-test-v1/":"j12345-private-test-v1/")+d).digest("hex");

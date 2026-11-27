@@ -7,7 +7,7 @@ import {readCompanyHitPayConfig} from "../hitpay/company-config.mjs";
 import {isAllowedSandboxCheckoutUrl} from "../hitpay/checkout-url.mjs";
 import {createIntegratedCheckoutStore} from "./checkout-store.mjs";
 import {reconcileStudentCheckoutStatus} from "./membership-runtime.mjs";
-import {J123_SITE as SITE,J123_TERMS as TERMS,j123InfrastructureStatus,isIntegratedBillingPreview} from "./infrastructure.mjs";
+import {J123_SITE as SITE,J123_TERMS as TERMS,membershipTermsVersion,j123InfrastructureStatus,isIntegratedBillingPreview} from "./infrastructure.mjs";
 import {scopeJ1234BillingStore} from "../j1234/billing-scope.mjs";
 export {TERMS};
 const json=(s,b)=>new Response(JSON.stringify(b),{status:s,headers:{"Content-Type":"application/json","Cache-Control":"private, no-store","X-Content-Type-Options":"nosniff","Referrer-Policy":"no-referrer"}});
@@ -20,7 +20,7 @@ export function createIntegratedCheckoutHttp({resolvePayer=resolveJ123CheckoutPa
   if(request.method!=="POST")return fail(405,"METHOD_NOT_ALLOWED");
   if(!env.VERCEL_URL||new URL(request.url).origin!==origin||request.headers.get("origin")!==origin||request.headers.get("sec-fetch-site")!=="same-origin"||request.headers.get("x-stem-j123")!=="1")return fail(403,"INVALID_REQUEST");
   // Provider mutation stays closed until genuine delivery and approved test terms are accepted.
-  const infrastructure=j123InfrastructureStatus(env);
+  const infrastructure=j123InfrastructureStatus(env),termsVersion=membershipTermsVersion(env);
   const enabled=infrastructure.checkoutReady;
   if(!statusOnly&&!enabled)return fail(503,"PAYMENT_TEST_NOT_ENABLED");
   if(!request.headers.get("content-type")?.startsWith("application/json")||!request.body)return fail(400,"INVALID_INPUT");
@@ -29,7 +29,7 @@ export function createIntegratedCheckoutHttp({resolvePayer=resolveJ123CheckoutPa
    try{for(;;){const part=await reader.read();if(part.done)break;total+=part.value.byteLength;if(total>1024){await reader.cancel();return fail(400,"INVALID_INPUT");}raw+=decoder.decode(part.value,{stream:true});}raw+=decoder.decode();}finally{reader.releaseLock();}
    let input;try{input=JSON.parse(raw);}catch{return fail(400,"INVALID_INPUT");}
    if(!input||typeof input!=="object"||Array.isArray(input)||!/^qa-j2-[a-f0-9]{64}$/.test(input.childId??""))return fail(400,"INVALID_INPUT");
-   const keys=statusOnly?["childId"]:["childId","requestKey","termsVersion"];if(Object.keys(input).length!==keys.length||!keys.every(k=>Object.hasOwn(input,k))||(!statusOnly&&(typeof input.requestKey!=="string"||!/^[-a-zA-Z0-9_]{1,128}$/.test(input.requestKey)||input.termsVersion!==TERMS)))return fail(400,"INVALID_INPUT");
+   const keys=statusOnly?["childId"]:["childId","requestKey","termsVersion"];if(Object.keys(input).length!==keys.length||!keys.every(k=>Object.hasOwn(input,k))||(!statusOnly&&(typeof input.requestKey!=="string"||!/^[-a-zA-Z0-9_]{1,128}$/.test(input.requestKey)||input.termsVersion!==termsVersion)))return fail(400,"INVALID_INPUT");
    const payer=await resolvePayer(request,env,input.childId);if(!payer||payer.childId!==input.childId)return fail(401,"NOT_AUTHORIZED");
    const db=scopeJ1234BillingStore(storeFactory(env,requestFn),env),store=createIntegratedCheckoutStore({db,resolvePayer,request,env,childId:input.childId,clock});
    if(statusOnly){
@@ -45,7 +45,7 @@ export function createIntegratedCheckoutHttp({resolvePayer=resolveJ123CheckoutPa
    if(!infrastructure.checkoutReady)return fail(503,"CONFIGURATION_REQUIRED");
    const providerEnv={...env,HITPAY_API_KEY:await secret("HITPAY_SANDBOX_API_KEY"),HITPAY_SALT:await secret("HITPAY_SANDBOX_WEBHOOK_SALT"),HITPAY_DEPOSIT_AMOUNT:"50.00"};
    const config=readCompanyHitPayConfig(providerEnv);
-   const identity={resolveParent:async()=>{const fresh=await resolvePayer(request,env,input.childId);return fresh?{accountType:"parent",emailVerified:true,parentId:fresh.parentId,email:fresh.email}:null;},hasCurrentConsentAndTerms:async(p,c)=>p===payer.parentId&&c===input.childId&&input.termsVersion===TERMS&&!!await resolvePayer(request,env,c)};
+   const identity={resolveParent:async()=>{const fresh=await resolvePayer(request,env,input.childId);return fresh?{accountType:"parent",emailVerified:true,parentId:fresh.parentId,email:fresh.email}:null;},hasCurrentConsentAndTerms:async(p,c)=>p===payer.parentId&&c===input.childId&&input.termsVersion===termsVersion&&!!await resolvePayer(request,env,c)};
    const provider=createCompanySandboxTransport(providerEnv,{request:requestFn,returnOrigin:origin,requiredChargeCount:2,beforeMembershipPost:async r=>{const fresh=await resolvePayer(request,env,r.childId);return !!fresh&&fresh.parentId===r.parentId&&fresh.childId===r.childId&&await store.claimDispatch(r);}});
    const transport={...provider,createMembership:async r=>{const fresh=await resolvePayer(request,env,r.childId);if(!fresh||fresh.parentId!==r.parentId||fresh.childId!==r.childId)throw Error("AUTH_EXPIRED");return provider.createMembership(r);}};
    const checkout=createAuthorizedCheckout({config,identity,store,transport,isAllowedCheckoutUrl:isAllowedSandboxCheckoutUrl});

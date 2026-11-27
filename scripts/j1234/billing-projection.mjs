@@ -1,7 +1,7 @@
 // Read-only staff projection. The J3 ledger, never a staff action, establishes paid coverage.
 // No provider calls, payment creation, receipts or entitlement writes in a dashboard refresh.
 import {BILLING_COLLECTION,checkoutKey,decodeCheckout,checkProviderBinding,validStudent,validProvider} from "../j123/billing-records.mjs";
-import {J123_PLAN,J123_TERMS} from "../j123/infrastructure.mjs";
+import {J123_PLAN,membershipTermsVersion} from "../j123/infrastructure.mjs";
 import {membershipProcessingEnabled} from "../j123/membership-provider.mjs";
 import {readStudentMembershipStatus} from "../hitpay/verified-membership-contract.mjs";
 import {isJ1234Preview} from "./identity-scope.mjs";
@@ -19,7 +19,7 @@ async function readBilling({env,db,studentId,parentId,now=Date.now(),includeElig
   const key=checkoutKey(studentId),row=await store.get(BILLING_COLLECTION,key);
   if(!row)return {...unavailable(),membershipStatus:"inactive",paymentStatus:"not_started"};
   const s=decodeCheckout(row,studentId),r=s.reservation;
-  if(r.childId!==studentId||r.parentId!==parentId||r.environment!=="sandbox"||r.kind!=="membership"||r.currency!=="MYR"||r.amountMinor!==36000||r.planId!==J123_PLAN||r.termsVersion!==J123_TERMS||!date(r.termsAcceptedAt)||r.termsAcceptedAt>now||!validProvider(r.reference)||!validProvider(r.attemptId))return review();
+  if(r.childId!==studentId||r.parentId!==parentId||r.environment!=="sandbox"||r.kind!=="membership"||r.currency!=="MYR"||r.amountMinor!==36000||r.planId!==J123_PLAN||r.termsVersion!==membershipTermsVersion(env)||!date(r.termsAcceptedAt)||r.termsAcceptedAt>now||!validProvider(r.reference)||!validProvider(r.attemptId))return review();
   if(r.status==="reserved"){
    if(s.membership||s.payments!==undefined&&(!Array.isArray(s.payments)||s.payments.length))return review();
    return {...unavailable(),membershipStatus:r.dispatchState==="retryable"?"inactive":"verification_required",paymentStatus:r.dispatchState==="retryable"?"not_submitted":"verification_required"};

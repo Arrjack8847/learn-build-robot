@@ -6,7 +6,7 @@ import {validProvider} from "./billing-records.mjs";
 import {minorUnits} from "../hitpay/company-config.mjs";
 import {reconcilePaymentMethod} from "../hitpay/j3-payment-method.mjs";
 export const J123_MERCHANT="a34ebd5e-6bd2-4c62-a13d-b19f58f68fd7";
-export const membershipProcessingEnabled=env=>{const s=j123InfrastructureStatus(env);return s.authReady&&s.providerConfigured&&s.rotationConfirmed&&s.webhookAccepted&&s.termsApproved&&env.J123_MEMBERSHIP_RECONCILIATION_ENABLED==="true";};
+export const membershipProcessingEnabled=env=>{const s=j123InfrastructureStatus(env);return s.authReady&&s.providerConfigured&&s.rotationConfirmed&&s.webhookAccepted&&s.periodAccepted&&s.termsApproved&&env.J123_MEMBERSHIP_RECONCILIATION_ENABLED==="true";};
 const currency=v=>typeof v==="string"?v.toUpperCase():null;
 const money=v=>{try{return minorUnits(String(v));}catch{return null;}};
 const refund=v=>typeof v==="number"&&v===0||typeof v==="string"&&/^0(?:\.0{1,2})?$/.test(v)?0:money(v);

@@ -2,12 +2,15 @@
 import {createAuthCrypto,openPreviewRecipients,validPreviewEmail} from "../parent-auth/secure-auth-transport.mjs";
 import {createStudentAuthCrypto} from "../student-auth/crypto.mjs";
 import {isJ1234Preview,createJ1234IdentityEnv} from "../j1234/identity-scope.mjs";
+import {isCombinedBranch} from "../combined/scope.mjs";
 import {isFamilyPreview as isJ12345Preview,isCombinedIdentityPreview,createJ12345IdentityEnv} from "../j12345/identity-scope.mjs";
 export const J123_BRANCH="integration/j1-j2-j3-20261126";
 export const J123_SITE="09d613aa-3a95-42ff-9ee3-2aa0c706c447";
 export const J123_ORIGIN="https://api.sandbox.hit-pay.com";
 export const J123_PLAN="a34f0707-c529-4c64-9f1f-e969c0d3de16";
 export const J123_TERMS="j123-sandbox-membership-v1";
+export const COMBINED_MEMBERSHIP_TERMS="combined-sandbox-membership-booking-v1";
+export const membershipTermsVersion=env=>isCombinedBranch(env)?COMBINED_MEMBERSHIP_TERMS:J123_TERMS;
 const SENTINEL="DISABLED_J3_WIX_VAULT_ONLY";
 const present=v=>typeof v==="string"&&v.trim().length>0;
 const testInbox=env=>typeof env.RESEND_TEST_RECIPIENT==="string"&&validPreviewEmail(env.RESEND_TEST_RECIPIENT.trim().toLowerCase());
@@ -33,13 +36,14 @@ export function j123InfrastructureStatus(env){
   sandbox:env.HITPAY_API_URL===J123_ORIGIN&&env.HITPAY_PLAN_ID===J123_PLAN&&env.HITPAY_CURRENCY==="MYR"&&env.HITPAY_MEMBERSHIP_AMOUNT==="360.00"&&env.HITPAY_SANDBOX_PAYMENT_METHOD==="touch_n_go",
   legacyDisabled:["HITPAY_API_KEY","HITPAY_SALT_KEY","HITPAY_API_BASE_URL"].every(k=>env[k]===SENTINEL),
   rotationConfirmed:env.J3_SANDBOX_ROTATION_CONFIRMED==="true",
-  webhookAccepted:env.J123_GENUINE_WEBHOOK_ACCEPTED==="true"&&(!isJ12345Preview(env)||env.J12345_PROVIDER_ACCEPTED==="1")&&(!isCombinedIdentityPreview(env)||env.COMBINED_PROVIDER_ACCEPTED==="1"),
-  termsApproved:env.J123_PAYMENT_TERMS_VERSION===J123_TERMS,
+  webhookAccepted:env.J123_GENUINE_WEBHOOK_ACCEPTED==="true"&&(isCombinedBranch(env)?isCombinedIdentityPreview(env)&&env.COMBINED_PROVIDER_ACCEPTED==="1":!isJ12345Preview(env)||env.J12345_PROVIDER_ACCEPTED==="1"),
+  periodAccepted:!isCombinedBranch(env)||env.J123_PROVIDER_PERIOD_SCHEMA==="confirmed_charge_billing_period_v1",
+  termsApproved:isCombinedBranch(env)?env.COMBINED_PAYMENT_TERMS_VERSION===COMBINED_MEMBERSHIP_TERMS:env.J123_PAYMENT_TERMS_VERSION===J123_TERMS,
   checkoutEnabled:env.J123_CHECKOUT_ENABLED==="true"
  };
  const authReady=["preview","wix","resend","parentSecret","studentSecret","distinctSecrets","studentEnabled"].every(k=>checks[k]);
  const providerConfigured=checks.preview&&checks.wix&&checks.sandbox&&checks.legacyDisabled;
- const checkoutReady=authReady&&providerConfigured&&checks.rotationConfirmed&&checks.webhookAccepted&&checks.termsApproved&&checks.checkoutEnabled;
+ const checkoutReady=authReady&&providerConfigured&&checks.rotationConfirmed&&checks.webhookAccepted&&checks.periodAccepted&&checks.termsApproved&&checks.checkoutEnabled;
  return Object.freeze({...checks,authReady,providerConfigured,checkoutReady});
 }
 export function requireJ123Identity(env){
