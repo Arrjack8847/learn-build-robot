@@ -52,7 +52,8 @@
     "test:nizar:n2": "node --test tests/nizar-n2.test.mjs",
     "test:nizar:n3": "node --test tests/nizar-n2.test.mjs tests/nizar-n3.test.mjs",
     "test:nizar:n4": "node --test tests/nizar-n2.test.mjs tests/nizar-n3.test.mjs tests/nizar-n4.test.mjs",
-    "test:nizar:n5": "node --test tests/nizar-n2.test.mjs tests/nizar-n3.test.mjs tests/nizar-n4.test.mjs tests/nizar-n5.test.mjs"
+    "test:nizar:n5": "node --test tests/nizar-n2.test.mjs tests/nizar-n3.test.mjs tests/nizar-n4.test.mjs tests/nizar-n5.test.mjs",
+    "test:combined:phase1": "node --test tests/combined-phase1.test.mjs"
   },
   "overrides": {
     "rolldown": "1.2.1"

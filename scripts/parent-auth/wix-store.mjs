@@ -1,3 +1,4 @@
+import {combinedRepositoryEnabled,COMBINED_RECORD} from "../combined/scope.mjs";
 // J2 private server-only Wix REST adapter, scoped to the development site.
 // Not mounted to a browser endpoint; requires a least-privileged Wix API key.
 // Conditional update semantics were checked with a temporary Wix QA record.
@@ -7,7 +8,7 @@ const allowed=new Set(["AuthenticationChallenges","Parents","AuthSessions","Priv
 export function createWixStore(env,request=fetch){
   if(env.VERCEL_ENV==="production"||env.VERCEL_TARGET_ENV==="production"||env.WIX_DEV_SITE_ID!==SITE||!env.WIX_DEV_DATA_API_KEY?.trim())throw Error("DEV_DATABASE_NOT_CONFIGURED");
   const validate=(collection,id)=>{
-    if(!(allowed.has(collection)||(collection==="NizarSchedulingPreview"&&env.VERCEL_ENV==="preview"&&env.VERCEL_TARGET_ENV!=="production"&&env.VERCEL_GIT_COMMIT_REF==="feat/nizar-scheduling-20261127"&&env.NIZAR_SCHEDULING_ENABLED==="1"&&id==="nizar-scheduling-preview-v1")||(collection==="J12345LearningProgress"&&env.VERCEL_ENV==="preview"&&env.VERCEL_GIT_COMMIT_REF==="integration/j1-j2-j3-j4-j5-20261126"&&env.J12345_PROGRESS_ENABLED==="1"))||typeof id!=="string"||!/^[a-zA-Z0-9_-]{1,128}$/.test(id))throw Error("INVALID_RECORD_ID");
+    if(!(allowed.has(collection)||(collection==="NizarSchedulingPreview"&&env.VERCEL_ENV==="preview"&&env.VERCEL_TARGET_ENV!=="production"&&env.VERCEL_GIT_COMMIT_REF==="feat/nizar-scheduling-20261127"&&env.NIZAR_SCHEDULING_ENABLED==="1"&&id==="nizar-scheduling-preview-v1")||(collection==="NizarSchedulingPreview"&&combinedRepositoryEnabled(env)&&id===COMBINED_RECORD)||(collection==="J12345LearningProgress"&&env.VERCEL_ENV==="preview"&&env.VERCEL_GIT_COMMIT_REF==="integration/j1-j2-j3-j4-j5-20261126"&&env.J12345_PROGRESS_ENABLED==="1"))||typeof id!=="string"||!/^[a-zA-Z0-9_-]{1,128}$/.test(id))throw Error("INVALID_RECORD_ID");
   };
   async function call(url,method,body){
     const r=await request(url,{method,headers:{Authorization:env.WIX_DEV_DATA_API_KEY,"wix-site-id":SITE,"Content-Type":"application/json",Accept:"application/json"},...(body===undefined?{}:{body:JSON.stringify(body)}),cache:"no-store",redirect:"error",signal:AbortSignal.timeout(10000)});

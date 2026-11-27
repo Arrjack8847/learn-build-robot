@@ -3,6 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import viteReact from "@vitejs/plugin-react";
 import { nitro } from "nitro/vite";
 import { defineConfig,loadEnv } from "vite";
+import {isCombinedBranch} from "./scripts/combined/scope.mjs";
 import {privateAssessmentBuildPlugin} from "./scripts/j12345/private-assessment-build.mjs";
 import { j5PrivatePdfPlugin } from "./scripts/j5/private-pdf-build.mjs";
 
@@ -10,6 +11,8 @@ import { j5PrivatePdfPlugin } from "./scripts/j5/private-pdf-build.mjs";
 const {VERCEL_ENV,VERCEL_TARGET_ENV,VERCEL_GIT_COMMIT_REF}=process.env;
 const privatePreview=VERCEL_ENV==="preview"&&VERCEL_TARGET_ENV!=="production"&&VERCEL_GIT_COMMIT_REF==="integration/j1-j2-j3-j4-j5-20261126";
 export default defineConfig(({mode,command})=>{
+  // A combined public artifact would bypass the unfinished private curriculum pipeline.
+  if(isCombinedBranch(process.env)||mode==="combined-private")throw Error("Combined build disabled until private runtime and artifact pipeline are integrated");
   const env=loadEnv(mode,process.cwd(),"VITE_");
   if(privatePreview&&(command!=="build"||process.env["J12345_PRIVATE_BUILD_PIPELINE"]!=="1"||mode!=="j12345-private"))throw Error("Use npm run build:j12345-private for the audited private preview");
   if(!privatePreview&&(mode==="j12345-private"||env["VITE_J5_PRIVATE_UI"]==="true"||process.env["VITE_J5_PRIVATE_UI"]==="true"))throw Error("Private J12345 UI requires the exact preview branch");

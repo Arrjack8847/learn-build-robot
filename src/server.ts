@@ -1,4 +1,5 @@
 import "./lib/error-capture";
+import {isCombinedBranch} from "../scripts/combined/scope.mjs";
 import {handleNizarFixture,fixtureEnabled} from "../scripts/nizar/fixture-http.mjs";
 import {renderNizarPreview} from "../scripts/nizar/preview-page.mjs";
 import {handleStaffFixture,staffFixtureEnabled} from "../scripts/nizar/staff-http.mjs";
@@ -78,6 +79,8 @@ export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       const path=new URL(request.url).pathname;
+      // Phase 1 has no mounted combined runtime: never fall through to legacy auth or course routes.
+      if(isCombinedBranch(process.env))return new Response(null,{status:404,headers:{"Cache-Control":"private, no-store","X-Robots-Tag":"noindex, nofollow"}});
       if(path==="/api/dev/nizar/booking")return await handleNizarFixture(request,process.env);
       if(path==="/api/dev/nizar/staff")return await handleStaffFixture(request,process.env);
       if(path==="/dev/nizar-staff"){const url=new URL(request.url);if(!staffFixtureEnabled(process.env)||request.method!=="GET"||url.search||!process.env["VERCEL_URL"]||url.origin!=="https://"+process.env["VERCEL_URL"])return new Response(null,{status:404,headers:{"Cache-Control":"no-store","X-Robots-Tag":"noindex, nofollow"}});return renderNizarStaffPreview();}
