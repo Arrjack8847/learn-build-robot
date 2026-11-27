@@ -3,6 +3,7 @@
 import {createHash,randomUUID} from "node:crypto";
 import {POLICY,DAY,businessDay,dayStart,slot,canBookSlot,canCancel} from "./policy.mjs";
 import {isChildId,parentBooking} from "./contract.mjs";
+import {effectiveEligibility,reservedOffers,hasQueue,n4} from "./automation-state.mjs";
 const hash=x=>createHash("sha256").update(JSON.stringify(x)).digest("hex");
 const requestId=x=>typeof x==="string"&&/^[a-zA-Z0-9_-]{16,128}$/.test(x);
 const exact=(x,keys)=>x&&typeof x==="object"&&!Array.isArray(x)&&Object.keys(x).length===keys.length&&keys.every(k=>Object.hasOwn(x,k));
@@ -30,8 +31,9 @@ export function createBookingService({repository,resolveChild,readEligibility,cl
    const day=businessDay(dayStart(businessDay(now))+d*DAY),slots=[];
    for(const h of POLICY.openHours)for(const activity of POLICY.activities){
     const s=slot(day,h,activity);if(!canBookSlot(s,now,{closedDays}))continue;
-    const used=state.bookings.filter(b=>occupying(b)&&b.startAt===s.startAt&&b.activity===activity).length;
-    slots.push({...s,hour:h,remaining:Math.max(0,POLICY.capacityPerActivity-used)});
+    const used=state.bookings.filter(b=>occupying(b)&&b.startAt===s.startAt&&b.activity===activity).length+reservedOffers(state,s);
+    const queued=hasQueue(state,s);
+    slots.push({...s,hour:h,remaining:queued?0:Math.max(0,POLICY.capacityPerActivity-used)});
    }
    days.push({day,slots});
   }
@@ -48,7 +50,7 @@ export function createBookingService({repository,resolveChild,readEligibility,cl
    for(let retry=0;retry<8;retry++){
     const snap=await repository.read(),owner=await resolveChild(actor,input.childId);
     if(!same(first,owner))return fail("NOT_AUTHORIZED");
-    const state=snap.state,now=clock(),eligibility=await readEligibility(owner);
+    const state=snap.state,now=clock(),eligibility=effectiveEligibility(state,owner,await readEligibility(owner),now);
     const fresh=await resolveChild(actor,input.childId);if(!same(owner,fresh))return fail("NOT_AUTHORIZED");
     if(input.action==="view")return view(state,owner,eligibility,clock());
     const prior=(state.commands??[]).find(c=>c.key===key);
@@ -62,11 +64,11 @@ export function createBookingService({repository,resolveChild,readEligibility,cl
      const others=state.bookings.filter(b=>b.bookingId!==old?.bookingId);
      if(others.some(b=>occupying(b)&&b.childId===owner.childId&&b.day===target.day))return fail("DAILY_LIMIT");
      if(others.filter(b=>b.childId===owner.childId&&upcoming(b,now)).length>=POLICY.maxUpcoming)return fail("UPCOMING_LIMIT");
-     if(others.filter(b=>occupying(b)&&b.activity===target.activity&&b.startAt===target.startAt).length>=POLICY.capacityPerActivity)return fail("SLOT_FULL");
+     if(hasQueue(state,target)||others.filter(b=>occupying(b)&&b.activity===target.activity&&b.startAt===target.startAt).length+reservedOffers(state,target)>=POLICY.capacityPerActivity)return fail("SLOT_FULL");
     }
     const finalOwner=await resolveChild(actor,input.childId);
     if(!same(owner,finalOwner))return fail("NOT_AUTHORIZED");
-    if(target){const finalEligibility=await readEligibility(finalOwner);if(!eligible(finalEligibility))return fail(reason(finalEligibility));}
+    if(target){const finalEligibility=effectiveEligibility(state,finalOwner,await readEligibility(finalOwner),clock());if(!eligible(finalEligibility))return fail(reason(finalEligibility));}
     const at=clock();
     if(at<now||old&&!canCancel(old.startAt,at)||target&&!canBookSlot(target,at,{closedDays}))return fail("SLOT_CHANGED");
     const id=old?.bookingId??newId();
