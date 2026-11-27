@@ -1,3 +1,4 @@
+import {createCombinedStaffReports} from "./staff-reports.mjs";
 import {createCombinedRuntime} from "./scheduling-runtime.mjs";
 import {n4,depositBalance} from "../nizar/automation-state.mjs";
 import {createN4Service} from "../nizar/automation-service.mjs";
@@ -31,6 +32,7 @@ export function createCombinedSchedulingHttp({runtimeFactory=createCombinedRunti
    }
    if(path.endsWith("/check-in")){if(!r.checkin||!exact(input,["bookingId","code"]))return fail(404,"NOT_AVAILABLE");return resultResponse(await r.checkin.redeem(request,input));}
    const actor=await r.resolveStaff(request);if(!actor)return fail(403,"NOT_AUTHORIZED");
+   if(["desk-overview","finance-export","visit-export"].includes(input.action)&&exact(input,["action","month"]))return resultResponse(await createCombinedStaffReports({env,runtime:r})(request,input));
    if(input.action==="issue-code"&&exact(input,["action","bookingId","revision","childId"])){if(!actor.permissions.includes("schedule:attendance"))return fail(403,"NOT_AUTHORIZED");return r.checkin?resultResponse(await r.checkin.issue(request,input)):fail(404,"NOT_AVAILABLE");}
    if(exact(input,["action"])&&input.action==="students"){const students=await r.listStudents(request);return students?json(200,{ok:true,students,staff:{staffId:actor.staffId,name:actor.name,permissions:actor.permissions}}):fail(403,"NOT_AUTHORIZED");}
    if(exact(input,["action","day"])&&input.action==="day")return resultResponse(await r.staff.dayView(request,input.day));

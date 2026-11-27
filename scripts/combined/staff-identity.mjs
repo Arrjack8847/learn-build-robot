@@ -1,7 +1,7 @@
 // Individually issued, high-entropy development staff capabilities; no shared-key fallback.
 import {createHash,timingSafeEqual} from "node:crypto";
 import {runtimeEnabled,mixed} from "./http-utils.mjs";
-const permissions=["schedule:read","schedule:walk-in","schedule:attendance","schedule:excuse","finance:refund"];
+const permissions=["schedule:read","schedule:walk-in","schedule:attendance","schedule:excuse","finance:refund","finance:read","reports:export"];
 const digest=value=>createHash("sha256").update(value,"utf8").digest("hex");
 const hex=x=>typeof x==="string"&&/^[a-f0-9]{64}$/.test(x);
 export function staffRoster(env){

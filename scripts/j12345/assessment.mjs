@@ -2,6 +2,7 @@
 import {createHash,randomInt,randomUUID} from "node:crypto";
 import {evaluateLevelOneFinalBuild} from "../j5/level-one-final-build.mjs";
 import {COLLECTION,createProgressRepository,progressEnabled} from "./progress.mjs";
+import {isCombinedBranch} from "../combined/scope.mjs";
 import {validJ12345Student} from "./identity-scope.mjs";
 const hash=x=>createHash("sha256").update(x).digest("hex");
 const id=x=>typeof x==="string"&&/^[a-zA-Z0-9_-]{1,128}$/.test(x);
@@ -43,7 +44,7 @@ export function createAssessmentService({db,env,resolveQuiz,resolveCandidates,cl
    const path=req.mode==="quiz"?"/quiz/"+req.resourceId:"/practical/level-"+req.level+"/final-build";
    const allowed=async()=>same(child,await recheck())&&await authorize(path);
    if(!await allowed())return fail("COURSE_UNAVAILABLE");
-   const key="j12345-assessment-v1-"+hash(child.childId+"/"+req.mode+"/"+req.resourceId);
+   const key=(isCombinedBranch(env)?"combined-assessment-v1-":"j12345-assessment-v1-")+hash(child.childId+"/"+req.mode+"/"+req.resourceId);
    const scope={studentId:child.childId,parentId:child.parentId,mode:req.mode,resourceId:req.resourceId,level:req.level,policyVersion:req.policyVersion,policyHash:req.policyHash};
    function decode(row){
     if(row?.environment!=="private-preview"||!id(row.stateVersion)||typeof row.stateJson!=="string"||row.stateJson.length>100000)throw Error("INVALID_ATTEMPT");

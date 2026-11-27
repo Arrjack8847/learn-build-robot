@@ -123,7 +123,9 @@ function MobileLogoIntro() {
   );
 }
 
+declare const __COMBINED_PREVIEW__:boolean;
 function CompetitionWelcomePage() {
+  if(__COMBINED_PREVIEW__)return <main className="min-h-[100dvh] bg-[#f3faff] p-5 text-[#132654]"><section className="mx-auto max-w-3xl space-y-5 py-8"><img src="/home/be-stem-ready-logo.svg" alt="BE STEM READY" className="h-14 w-auto"/><p className="text-xs font-bold uppercase tracking-widest text-sky-700">Private development preview</p><h1 className="text-3xl font-black">STEM Makers Lab</h1><p className="text-sm text-slate-600">Select your role. Use only approved fictional test profiles. No real payments.</p><div className="grid gap-3 sm:grid-cols-3">{[{href:"/parent/sign-in",title:"Parent registration & booking",body:"Verify email, register students, manage membership and reserve sessions."},{href:"/auth/",title:"Student sign-in",body:"Use parent email and individual student PIN; check in at the Lab."},{href:"/staff/admin",title:"Staff desk",body:"View bookings, attendance and authorized reports."}].map(x=><a key={x.href} href={x.href} className="rounded-2xl border border-sky-100 bg-white p-5 shadow-sm focus-visible:outline-2"><h2 className="font-black text-sky-700">{x.title}</h2><p className="mt-2 text-sm">{x.body}</p><p className="mt-4 text-xs font-bold">Continue →</p></a>)}</div></section></main>;
   return (
     <>
       <MobileLogoIntro />
