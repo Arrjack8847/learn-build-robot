@@ -39,3 +39,6 @@ dist-ssr
 .env
 .env.*
 !.env.example
+
+# Local, commit-bound verification evidence (never publish automatically).
+.j12345-verification/

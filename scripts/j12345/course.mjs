@@ -30,6 +30,7 @@ export function createJ12345CourseAuthority({resolveStudent,readVerifiedChild,re
    if(!a||a.reason==="verification-required")return fail(503,"COURSE_UNAVAILABLE");
    if(a.membershipEligible!==true)return fail(403,"MEMBERSHIP_REQUIRED");
    if(a.attendance!=="checked-in")return fail(403,"CHECK_IN_REQUIRED");
+   if(!progress)return fail(503,"COURSE_UNAVAILABLE");
    if(progress){
     if(progress.status!=="ready"||!Array.isArray(progress.levels)||progress.levels.length!==6)return fail(503,"COURSE_UNAVAILABLE");
     const level=progress.levels.find(l=>l.level===resource.level);
