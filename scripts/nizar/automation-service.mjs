@@ -184,7 +184,7 @@ export function createN4Service({repository,resolveChild,readEligibility,readOwn
      appendLedger(a,o,e.month,"refund-paid",e.receiptId,now);
     }else if(e.kind==="excuse"){
      const b=s.bookings.find(b=>b.bookingId===e.bookingId&&owns(b,o));
-     if(!b||!["booked","no-show","held-unpaid"].includes(b.bookingStatus)||!validId(e.staffId)||typeof e.reason!=="string"||e.reason.trim().length<3||e.reason.trim().length>300)return fail("INVALID_EXCUSE");
+     if(!b||(e.revision!==undefined&&e.revision!==b.revision)||!["booked","no-show","held-unpaid"].includes(b.bookingStatus)||!validId(e.staffId)||typeof e.reason!=="string"||e.reason.trim().length<3||e.reason.trim().length>300)return fail("INVALID_EXCUSE");
      // Reversing a forfeiture after another payment or month-end needs explicit financial reconciliation.
      if(a.ledger.some(x=>x.kind==="forfeit"&&x.reference===b.bookingId))return fail("EXCUSE_FINANCIAL_REVIEW_REQUIRED");
      s.bookings=s.bookings.map(x=>x.bookingId===b.bookingId?updateBooking(x,"excused",now,newId):x);

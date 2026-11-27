@@ -6,7 +6,7 @@ import {createBookingService} from "./booking-service.mjs";
 import {createN4Service} from "./automation-service.mjs";
 const path="/api/dev/nizar/booking";
 const id=x=>"qa-j2-"+createHash("sha256").update("nizar-n3-fictional-v1/"+x).digest("hex");
-const fixtures=[{name:"Test parent A",parentId:id("parent-a"),children:[{id:id("child-a1"),name:"Test student A1",paid:true},{id:id("child-a2"),name:"Test student A2",paid:false}]},{name:"Test parent B",parentId:id("parent-b"),children:[{id:id("child-b1"),name:"Test student B1",paid:true}]}];
+export const fixtures=[{name:"Test parent A",parentId:id("parent-a"),children:[{id:id("child-a1"),name:"Test student A1",paid:true},{id:id("child-a2"),name:"Test student A2",paid:false}]},{name:"Test parent B",parentId:id("parent-b"),children:[{id:id("child-b1"),name:"Test student B1",paid:true}]}];
 export const fixtureEnabled=e=>enabled(e)&&e.NIZAR_FIXTURE_ENABLED==="1"&&typeof e.NIZAR_FIXTURE_OPERATOR_KEY==="string"&&/^[a-f0-9]{64}$/.test(e.NIZAR_FIXTURE_OPERATOR_KEY)&&new Set(e.NIZAR_FIXTURE_OPERATOR_KEY).size>=8&&![e.J12345_AUTH_ROOT,e.J12345_TEST_OPERATOR_SECRET,e.J1234_AUTH_ROOT,e.J1234_TEST_OPERATOR_SECRET,e.PARENT_AUTH_SECRET,e.STUDENT_AUTH_SECRET].includes(e.NIZAR_FIXTURE_OPERATOR_KEY);
 const reply=(status,data)=>new Response(JSON.stringify(data),{status,headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"private, no-store","Vary":"X-STEM-Nizar-Operator","X-Content-Type-Options":"nosniff","X-Robots-Tag":"noindex, nofollow"}});
 const refuse=(status,code)=>reply(status,{ok:false,status:code});
