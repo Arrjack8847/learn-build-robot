@@ -2,7 +2,7 @@
 import {createAuthCrypto,openPreviewRecipients,validPreviewEmail} from "../parent-auth/secure-auth-transport.mjs";
 import {createStudentAuthCrypto} from "../student-auth/crypto.mjs";
 import {isJ1234Preview,createJ1234IdentityEnv} from "../j1234/identity-scope.mjs";
-import {isJ12345Preview,createJ12345IdentityEnv} from "../j12345/identity-scope.mjs";
+import {isFamilyPreview as isJ12345Preview,isCombinedIdentityPreview,createJ12345IdentityEnv} from "../j12345/identity-scope.mjs";
 export const J123_BRANCH="integration/j1-j2-j3-20261126";
 export const J123_SITE="09d613aa-3a95-42ff-9ee3-2aa0c706c447";
 export const J123_ORIGIN="https://api.sandbox.hit-pay.com";
@@ -33,7 +33,7 @@ export function j123InfrastructureStatus(env){
   sandbox:env.HITPAY_API_URL===J123_ORIGIN&&env.HITPAY_PLAN_ID===J123_PLAN&&env.HITPAY_CURRENCY==="MYR"&&env.HITPAY_MEMBERSHIP_AMOUNT==="360.00"&&env.HITPAY_SANDBOX_PAYMENT_METHOD==="touch_n_go",
   legacyDisabled:["HITPAY_API_KEY","HITPAY_SALT_KEY","HITPAY_API_BASE_URL"].every(k=>env[k]===SENTINEL),
   rotationConfirmed:env.J3_SANDBOX_ROTATION_CONFIRMED==="true",
-  webhookAccepted:env.J123_GENUINE_WEBHOOK_ACCEPTED==="true"&&(!isJ12345Preview(env)||env.J12345_PROVIDER_ACCEPTED==="1"),
+  webhookAccepted:env.J123_GENUINE_WEBHOOK_ACCEPTED==="true"&&(!isJ12345Preview(env)||env.J12345_PROVIDER_ACCEPTED==="1")&&(!isCombinedIdentityPreview(env)||env.COMBINED_PROVIDER_ACCEPTED==="1"),
   termsApproved:env.J123_PAYMENT_TERMS_VERSION===J123_TERMS,
   checkoutEnabled:env.J123_CHECKOUT_ENABLED==="true"
  };

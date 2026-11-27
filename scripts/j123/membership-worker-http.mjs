@@ -1,3 +1,4 @@
+import {isCombinedIdentityPreview} from "../j12345/identity-scope.mjs";
 // Disabled-by-default trusted worker endpoint. It cannot create payment requests,
 // accept browser payment evidence, bypass Vercel protection or set acceptance flags.
 import {timingSafeEqual} from "node:crypto";
@@ -15,8 +16,9 @@ export function createMembershipWorkerHttp({storeFactory=createWixStore,requestF
   if(request.method!=="POST")return json(405,{ok:false});
   // Worker access is separate from payer/student auth, and Vercel deployment protection remains intact.
   const next=env.VERCEL_GIT_COMMIT_REF==="integration/j1-j2-j3-j4-j5-20261126";
-  const key=next?env.J12345_MEMBERSHIP_WORKER_SECRET:env.J123_MEMBERSHIP_WORKER_SECRET,identity=billingIdentityEnv(env);
-  if(!validSecret(key)||[env.PARENT_AUTH_SECRET,env.STUDENT_AUTH_SECRET,env.J1234_AUTH_ROOT,env.J12345_AUTH_ROOT,env.J1234_TEST_OPERATOR_SECRET,env.J12345_TEST_OPERATOR_SECRET,...(next?[env.J123_MEMBERSHIP_WORKER_SECRET]:[]),identity.PARENT_AUTH_SECRET,identity.STUDENT_AUTH_SECRET].some(v=>typeof v==="string"&&v.toLowerCase()===key))return json(503,{ok:false});
+  const combined=isCombinedIdentityPreview(env);
+  const key=combined?env.COMBINED_MEMBERSHIP_WORKER_SECRET:next?env.J12345_MEMBERSHIP_WORKER_SECRET:env.J123_MEMBERSHIP_WORKER_SECRET,identity=billingIdentityEnv(env);
+  if(!validSecret(key)||[env.COMBINED_AUTH_ROOT,env.COMBINED_WORKER_KEY,env.COMBINED_STAFF_KEY,env.COMBINED_CODE_SECRET,...(combined?[env.J12345_MEMBERSHIP_WORKER_SECRET,env.J123_MEMBERSHIP_WORKER_SECRET]:[]),env.PARENT_AUTH_SECRET,env.STUDENT_AUTH_SECRET,env.J1234_AUTH_ROOT,env.J12345_AUTH_ROOT,env.J1234_TEST_OPERATOR_SECRET,env.J12345_TEST_OPERATOR_SECRET,...(next?[env.J123_MEMBERSHIP_WORKER_SECRET]:[]),identity.PARENT_AUTH_SECRET,identity.STUDENT_AUTH_SECRET].some(v=>typeof v==="string"&&v.toLowerCase()===key))return json(503,{ok:false});
   const auth=request.headers.get("authorization")??"";
   if(!/^Bearer [a-f0-9]{64}$/.test(auth)||!timingSafeEqual(Buffer.from(auth.slice(7),"hex"),Buffer.from(key,"hex")))return json(401,{ok:false});
   if(!request.headers.get("content-type")?.startsWith("application/json")||!request.body)return json(400,{ok:false});

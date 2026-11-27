@@ -6,7 +6,7 @@ import {membershipProcessingEnabled} from "../j123/membership-provider.mjs";
 import {readStudentMembershipStatus} from "../hitpay/verified-membership-contract.mjs";
 import {isJ1234Preview} from "./identity-scope.mjs";
 import {scopeJ1234BillingStore} from "./billing-scope.mjs";
-import {isJ12345Preview} from "../j12345/identity-scope.mjs";
+import {isFamilyPreview as isJ12345Preview} from "../j12345/identity-scope.mjs";
 const date=x=>Number.isSafeInteger(x)&&x>0;
 const eventTime=x=>date(x)?x:Date.parse(typeof x==="string"?x:x?.$date);
 const unavailable=()=>({membershipStatus:"unavailable",paymentStatus:"unavailable",activatedAt:null,validUntil:null,renewalStatus:"unverified",payments:[]});
