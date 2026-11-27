@@ -9,7 +9,7 @@ const bound=s=>s?.role==="student"&&s.environment==="private-preview"&&validJ123
 const mixed=r=>(r.headers.get("cookie")??"").split(";").some(p=>/^__Host-bsr-(?:parent-test|student-proof)\s*=\s*[^\s]/.test(p.trim()));
 const same=(a,b)=>a?.childId===b?.childId&&a?.parentId===b?.parentId&&a?.stateVersion===b?.stateVersion&&a?.accountStatus===b?.accountStatus;
 const enabled=e=>isJ12345Preview(e)&&e.J12345_COURSE_ENABLED==="1"&&e.J12345_PROFILE_ENABLED==="1"&&e.J12345_REGISTRATION_ENABLED==="1"&&e.STUDENT_AUTH_ENABLED==="true";
-export function createJ12345CourseAuthority({resolveStudent,readVerifiedChild,readAccess,resolveResource}){
+export function createJ12345CourseAuthority({resolveStudent,readVerifiedChild,readAccess,resolveResource,readProgress}){
  return async(request,env,path)=>{
   if(!enabled(env))return fail(404,"COURSE_UNAVAILABLE");
   if(mixed(request))return fail(401,"STUDENT_AUTH_REQUIRED");
@@ -23,14 +23,20 @@ export function createJ12345CourseAuthority({resolveStudent,readVerifiedChild,re
    const child=await readVerifiedChild(s.studentId,env);
    if(child?.childId!==s.studentId||!validJ12345Student(child.parentId)||child.accountStatus!=="preview-test"||!child.stateVersion)return fail(403,"COURSE_UNAVAILABLE");
    const a=await readAccess(child,env);
+   const progress=typeof readProgress==="function"?await readProgress(child,env):null;
    const again=await readVerifiedChild(s.studentId,env),fresh=await resolveStudent(request,env);
    if(!bound(fresh)||fresh.studentId!==s.studentId)return fail(401,"STUDENT_AUTH_REQUIRED");
    if(!same(child,again))return fail(503,"COURSE_UNAVAILABLE");
    if(!a||a.reason==="verification-required")return fail(503,"COURSE_UNAVAILABLE");
    if(a.membershipEligible!==true)return fail(403,"MEMBERSHIP_REQUIRED");
    if(a.attendance!=="checked-in")return fail(403,"CHECK_IN_REQUIRED");
-   // Phase 06 must supply committed individual level evidence, and an approved learning
-   // duration/termination policy must be wired. No private storage or course grant yet.
+   if(progress){
+    if(progress.status!=="ready"||!Array.isArray(progress.levels)||progress.levels.length!==6)return fail(503,"COURSE_UNAVAILABLE");
+    const level=progress.levels.find(l=>l.level===resource.level);
+    if(!level||!["unlocked","in-progress","completed"].includes(level.status))return fail(403,"LEVEL_LOCKED");
+   }
+   // The approved learning duration/termination policy is still required.
+   // Even verified individual level evidence cannot grant a course by itself.
    return fail(403,"LEARNING_POLICY_REQUIRED");
   }catch{return fail(503,"COURSE_UNAVAILABLE");}
  };

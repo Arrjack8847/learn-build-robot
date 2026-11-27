@@ -1,4 +1,5 @@
 import { useEffect,useRef,useState } from "react";
+import {j5Session} from "./j5-session";
 const privateJ5=import.meta.env["VITE_J5_PRIVATE_UI"]==="true";
 import { activitySyncEnabled,recordActivity,LmsError,type ActivityMode } from "./wix-lms";
 
@@ -24,9 +25,9 @@ export function useActivitySync(projectId:string,mode:ActivityMode,ready:boolean
   },[projectId,mode,ready]);
   useEffect(()=>{
     if(!privateJ5||!ready||!position||!Number.isInteger(position))return;
-    const ctrl=new AbortController();
-    const timer=window.setTimeout(()=>{void (async()=>{try{const r=await fetch("/api/dev/j5/progress",{method:"POST",credentials:"same-origin",cache:"no-store",redirect:"error",headers:{"Content-Type":"application/json","X-STEM-J5":"1"},body:JSON.stringify({kind:"checkpoint",resourceId:projectId,mode,position}),signal:ctrl.signal});const v=await r.json();if(!ctrl.signal.aborted)setError(r.ok&&v?.ok===true?"":"Learning position not saved.");}catch{if(!ctrl.signal.aborted)setError("Learning position not saved.");}})();},350);
-    return()=>{window.clearTimeout(timer);ctrl.abort();};
+    const ticket=j5Session.begin();
+    const timer=window.setTimeout(()=>{if(!ticket.current())return;void (async()=>{try{const r=await fetch("/api/dev/j5/progress",{method:"POST",credentials:"same-origin",cache:"no-store",redirect:"error",headers:{"Content-Type":"application/json","X-STEM-J5":"1"},body:JSON.stringify({kind:"checkpoint",resourceId:projectId,mode,position}),signal:ticket.signal});const v=await r.json();if(ticket.current())setError(r.ok&&v?.ok===true?"":"Learning position not saved.");}catch{if(ticket.current())setError("Learning position not saved.");}finally{ticket.finish();}})();},350);
+    return()=>{window.clearTimeout(timer);ticket.cancel();};
   },[projectId,mode,ready,position]);
   async function complete(){
     if(privateJ5){setError("Verified completion is not available yet. Your completion has not been saved.");return false;}

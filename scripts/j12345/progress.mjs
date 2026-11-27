@@ -33,13 +33,18 @@ export function createProgressRepository({db,env,clock=Date.now,newId=randomUUID
  function decode(row,c,p){
   if(row?.environment!=="private-preview"||!id(row.stateVersion)||typeof row.stateJson!=="string"||Buffer.byteLength(row.stateJson)>300000)throw Error("INVALID_PROGRESS_ROW");
   const s=JSON.parse(row.stateJson);
-  if(s.scope!==scope||s.studentId!==c.childId||s.parentId!==c.parentId||s.policyVersion!==p.version||!Array.isArray(s.records)||s.records.length>2000)throw Error("INVALID_PROGRESS_ROW");
+  if(s.scope!==scope||s.studentId!==c.childId||s.parentId!==c.parentId||s.policyVersion!==p.version||s.policyHash!==env.J12345_PROGRESS_POLICY_SHA256||!Array.isArray(s.records)||s.records.length>2000)throw Error("INVALID_PROGRESS_ROW");
   const v=projectCommittedProgress({studentId:c.childId,policy:p,records:s.records,levelStates:s.levels,currentLevel:s.currentLevel,now:clock()});
   if(!v.ok)throw Error(v.code);
-  return {s,v};
+  const ordered=v.levels;
+  const highest=ordered.filter(l=>l.allowed).at(-1)?.level;
+  if(highest!==s.currentLevel||ordered.some(l=>l.level<s.currentLevel&&l.status!=="completed"||l.level>s.currentLevel&&l.status!=="locked"))throw Error("INVALID_LEVEL_SEQUENCE");
+  const reqs=new Map(p.requirements.map(q=>[q.mode+":"+q.resourceId,q]));
+  const history=s.records.slice().sort((a,b)=>b.updatedAt-a.updatedAt).slice(0,20).map(r=>({title:reqs.get(r.mode+":"+r.resourceId).title,mode:r.mode,level:r.level,status:r.status,updatedAt:r.updatedAt,...(r.status==="started"&&Number.isSafeInteger(r.position)?{position:r.position}:{})}));
+  return {s,v:{...v,history}};
  }
  const encode=s=>{const stateJson=JSON.stringify(s);if(Buffer.byteLength(stateJson)>300000)throw Error("PROGRESS_CAPACITY_REVIEW");return {environment:"private-preview",stateVersion:newId(),stateJson};};
- const view=v=>({status:"ready",currentLevel:v.learning.currentLevel,overallCompleted:v.learning.overallCompleted,overallRequired:v.learning.overallRequired,learningCompleted:v.learning.learningCompleted,buildingCompleted:v.learning.buildingCompleted,quizzesPassed:v.learning.quizzesPassed,challengesPassed:v.learning.challengesPassed,latest:v.learning.latest,levels:v.levels.map(({level,status,completed,required})=>({level,status,completed,required}))});
+ const view=v=>({status:"ready",currentLevel:v.learning.currentLevel,overallCompleted:v.learning.overallCompleted,overallRequired:v.learning.overallRequired,learningCompleted:v.learning.learningCompleted,buildingCompleted:v.learning.buildingCompleted,quizzesPassed:v.learning.quizzesPassed,challengesPassed:v.learning.challengesPassed,latest:v.learning.latest,history:v.history,levels:v.levels.map(({level,status,completed,required})=>({level,status,completed,required}))});
  async function read(c){
   if(!owner(c))return unavailable();
   try{const p=await policy(),row=await db.get(COLLECTION,key(c.childId));if(!row)return {status:"not-initialized"};return view(decode(row,c,p).v);}catch{return unavailable();}
@@ -54,7 +59,7 @@ export function createProgressRepository({db,env,clock=Date.now,newId=randomUUID
     let s;
     if(action.kind==="initialize"){
      if(row)return {ok:true,progress:view(decode(row,c,p).v)};
-     s={scope,...binding(c),parentId:c.parentId,policyVersion:p.version,currentLevel:p.initialLevel,levels:levels(c,p.initialLevel),records:[]};
+     s={scope,...binding(c),parentId:c.parentId,policyVersion:p.version,policyHash:env.J12345_PROGRESS_POLICY_SHA256,currentLevel:p.initialLevel,levels:levels(c,p.initialLevel),records:[]};
     }else{
      if(!row)return {ok:false,code:"PROGRESS_NOT_INITIALIZED"};
      s=decode(row,c,p).s;
