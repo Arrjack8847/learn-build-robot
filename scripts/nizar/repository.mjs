@@ -7,6 +7,7 @@ import {POLICY} from "./policy.mjs";
 import {validateN4} from "./automation-state.mjs";
 import {validateN5} from "./staff-state.mjs";
 import {validateCheckins} from "../combined/checkin-state.mjs";
+import {validateDeposits} from "../combined/deposit-state.mjs";
 import {validateDeliveries} from "../combined/notice-delivery.mjs";
 import {combinedRepositoryEnabled,COMBINED_RECORD,COMBINED_SCOPE} from "../combined/scope.mjs";
 const MAX_BYTES=200000,MAX_ROWS=1000;
@@ -14,7 +15,7 @@ const fixtureScope="nizar-scheduling-preview-v1";
 const empty=scope=>({scope,bookings:[],commands:[]});
 const occupying=b=>["booked","attended","checked-out","held-unpaid","no-show","excused"].includes(b.bookingStatus);
 function validate(s,scope){
- if(s?.scope!==scope||Object.keys(s).some(k=>!["scope","bookings","commands","n4","n5","checkins","noticeDelivery"].includes(k))||!Array.isArray(s.bookings)||s.bookings.length>MAX_ROWS||s.bookings.some(b=>!validateBooking(b)))throw Error("INVALID_SCHEDULE");
+ if(s?.scope!==scope||Object.keys(s).some(k=>!["scope","bookings","commands","n4","n5","checkins","noticeDelivery","deposits","refunds"].includes(k))||!Array.isArray(s.bookings)||s.bookings.length>MAX_ROWS||s.bookings.some(b=>!validateBooking(b)))throw Error("INVALID_SCHEDULE");
  const commands=s.commands??[];
  if(!Array.isArray(commands)||commands.length>2000||commands.some(c=>!c||Object.keys(c).length!==4||!["key","fingerprint","bookingId","at"].every(k=>Object.hasOwn(c,k))||! /^[a-f0-9]{64}$/.test(c.key??"")||! /^[a-f0-9]{64}$/.test(c.fingerprint??"")||typeof c.bookingId!=="string"||!Number.isSafeInteger(c.at)||c.at<=0)||new Set(commands.map(c=>c.key)).size!==commands.length)throw Error("INVALID_COMMANDS");
  const ids=new Set(),days=new Set(),slots=new Map();
@@ -26,7 +27,7 @@ function validate(s,scope){
   const count=(slots.get(key)??0)+1;if(count>POLICY.capacityPerActivity)throw Error("CAPACITY");slots.set(key,count);
  }
  if(commands.some(c=>!ids.has(c.bookingId)))throw Error("ORPHAN_COMMAND");
- validateN4(s);validateN5(s);validateCheckins(s);validateDeliveries(s);
+ validateN4(s);validateN5(s);validateCheckins(s);validateDeliveries(s);validateDeposits(s);
  const json=JSON.stringify(s);if(Buffer.byteLength(json)>MAX_BYTES)throw Error("SCHEDULE_LIMIT");
  return json;
 }

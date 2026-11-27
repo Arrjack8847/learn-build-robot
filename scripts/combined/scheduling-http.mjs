@@ -1,4 +1,5 @@
 import {createCombinedRuntime} from "./scheduling-runtime.mjs";
+import {n4,depositBalance} from "../nizar/automation-state.mjs";
 import {createN4Service} from "../nizar/automation-service.mjs";
 import {runtimeEnabled,browserRequest,readBody,fail,json,exact,resultResponse,validId} from "./http-utils.mjs";
 export function createCombinedSchedulingHttp({runtimeFactory=createCombinedRuntime}={}){
@@ -11,6 +12,7 @@ export function createCombinedSchedulingHttp({runtimeFactory=createCombinedRunti
   try{
    const r=runtimeFactory(env);
    if(path.endsWith("/booking")){
+    if(input.action==="deposit-checkout"&&exact(input,["action","childId","requestId"]))return r.deposit?resultResponse(await r.deposit.checkout(request,input)):fail(404,"DEPOSIT_NOT_AVAILABLE");
     if(input.action==="overview"&&exact(input,["action","childId"])){
      for(let i=0;i<3;i++){
       const owner=await r.resolveChild(request,input.childId);if(!owner)return fail(403,"NOT_AUTHORIZED");
@@ -32,6 +34,19 @@ export function createCombinedSchedulingHttp({runtimeFactory=createCombinedRunti
    if(input.action==="issue-code"&&exact(input,["action","bookingId","revision","childId"])){if(!actor.permissions.includes("schedule:attendance"))return fail(403,"NOT_AUTHORIZED");return r.checkin?resultResponse(await r.checkin.issue(request,input)):fail(404,"NOT_AVAILABLE");}
    if(exact(input,["action"])&&input.action==="students"){const students=await r.listStudents(request);return students?json(200,{ok:true,students,staff:{staffId:actor.staffId,name:actor.name,permissions:actor.permissions}}):fail(403,"NOT_AUTHORIZED");}
    if(exact(input,["action","day"])&&input.action==="day")return resultResponse(await r.staff.dayView(request,input.day));
+   if(input.action==="refund-list"&&exact(input,["action"])){
+    if(!actor.permissions.includes("finance:refund"))return fail(403,"NOT_AUTHORIZED");
+    const snap=await r.repository.read(),rows=[];
+    for(const l of n4(snap.state).ledger.filter(x=>x.kind==="refund-due"))if(depositBalance(snap.state,l.childId,l.month).due===5000){const o=await r.readOwner(l.childId,l.parentId);if(!o)return fail(503,"OWNER_UNAVAILABLE");rows.push({childId:l.childId,name:o.name,month:l.month,amount:5000});}
+    const fresh=await r.resolveStaff(request);if(fresh?.staffId!==actor.staffId||fresh.version!==actor.version||(await r.repository.read()).version!==snap.version)return fail(503,"BOOKING_BUSY");return json(200,{ok:true,rows});
+   }
+   if(input.action==="record-refund"&&exact(input,["action","childId","month","receiptId","note","requestId"])&&validId(input.requestId)&&validId(input.receiptId)&&typeof input.note==="string"&&input.note.trim()===input.note&&input.note.length>=3&&input.note.length<=300){
+    if(!actor.permissions.includes("finance:refund"))return fail(403,"NOT_AUTHORIZED");
+    const o=await r.readOwner(input.childId);if(!o)return fail(403,"NOT_AUTHORIZED");
+    const event={kind:"refund-recorded",eventId:input.requestId,childId:o.childId,parentId:o.parentId,month:input.month,receiptId:input.receiptId,note:input.note,staffId:actor.staffId,currency:"MYR",amount:5000,at:r.clock()};
+    const service=createN4Service({...r,readAttendance:async()=>null,verifyEvent:async e=>{const a=await r.resolveStaff(request);return e===event&&a?.staffId===actor.staffId&&a.version===actor.version&&a.permissions.includes("finance:refund")?event:null;}});
+    return resultResponse(await service.event(event));
+   }
    if(input.action==="excuse"&&exact(input,["action","bookingId","revision","childId","reason","requestId"])&&validId(input.requestId)&&validId(input.revision)){
     if(!actor.permissions.includes("schedule:excuse"))return fail(403,"NOT_AUTHORIZED");
     const snap=await r.repository.read(),b=snap.state.bookings.find(b=>b.bookingId===input.bookingId&&b.childId===input.childId);

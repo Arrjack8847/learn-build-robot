@@ -9,6 +9,8 @@ import {createCombinedIdentityMembership} from "./identity-membership.mjs";
 import {createCombinedCheckin} from "./checkin-service.mjs";
 import {resolveJ2Student} from "../j2-runtime.mjs";
 import {runtimeEnabled,secret,cookie} from "./http-utils.mjs";
+import {createDepositService} from "./deposit-service.mjs";
+import {createDepositProvider,depositEnabled} from "./deposit-provider.mjs";
 import {createCombinedStaffResolver,staffRoster} from "./staff-identity.mjs";
 export function createCombinedRuntime(env,{db,clock=Date.now}={}){
  if(!runtimeEnabled(env))throw Error("COMBINED_DISABLED");
@@ -38,5 +40,7 @@ export function createCombinedRuntime(env,{db,clock=Date.now}={}){
  }
  const codeSecret=secret(env,"COMBINED_CODE_SECRET");
  const checkin=env.COMBINED_CHECKIN_ENABLED==="1"&&codeSecret?createCombinedCheckin({...deps,resolveStaff,secret:codeSecret,resolveStudent:async request=>{if((request.headers.get("cookie")??"").split(";").some(x=>/^__Host-bsr-(?:parent-test|student-proof)\s*=/.test(x.trim())))return null;const s=await resolveJ2Student(request,env);return s?.role==="student"?{childId:s.studentId,sessionToken:cookie(request,"__Host-bsr-student")}:null;}}):null;
- return {...deps,booking,automation,staff,attendance,resolveStaff,listStudents,store,checkin};
+ const depositProvider=depositEnabled(env)?createDepositProvider(env,{clock}):null;
+ const deposit=depositProvider?createDepositService({...deps,transport:depositProvider}):null;
+ return {...deps,booking,automation,staff,attendance,resolveStaff,listStudents,store,checkin,deposit,depositProvider};
 }

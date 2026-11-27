@@ -156,7 +156,7 @@ export function createN4Service({repository,resolveChild,readEligibility,readOwn
    return await transact(async(s,now)=>{
     if(e.at>now)return fail("UNVERIFIED_EVENT");
     const o=await readOwner(e.childId,e.parentId);if(!validOwner(o)||!owns(e,o))return fail("NOT_AUTHORIZED");
-    const a=s.n4,id=digest(e.kind==="excuse"?["staff-excuse",e.staffId,e.eventId]:[e.eventId]),fingerprint=digest(e.kind==="excuse"&&e.revision!==undefined?{kind:e.kind,eventId:e.eventId,childId:e.childId,parentId:e.parentId,bookingId:e.bookingId,revision:e.revision,staffId:e.staffId,reason:e.reason}:e),previous=a.events.find(x=>x.id===id);
+    const a=s.n4,id=digest(e.kind==="refund-recorded"?["staff-refund",e.staffId,e.eventId]:e.kind==="excuse"?["staff-excuse",e.staffId,e.eventId]:[e.eventId]),fingerprint=digest(e.kind==="refund-recorded"&&e.note!==undefined?{kind:e.kind,eventId:e.eventId,childId:e.childId,parentId:e.parentId,month:e.month,receiptId:e.receiptId,staffId:e.staffId,note:e.note,currency:e.currency,amount:e.amount}:e.kind==="excuse"&&e.revision!==undefined?{kind:e.kind,eventId:e.eventId,childId:e.childId,parentId:e.parentId,bookingId:e.bookingId,revision:e.revision,staffId:e.staffId,reason:e.reason}:e),previous=a.events.find(x=>x.id===id);
     if(previous)return previous.fingerprint===fingerprint?{ok:true,noWrite:true,status:"ALREADY_COMMITTED"}:fail("EVENT_CONFLICT");
     const m=businessDay(now).slice(0,7),balance=depositBalance(s,e.childId,m);
     if(e.kind==="renewal-failed"){
@@ -178,10 +178,16 @@ export function createN4Service({repository,resolveChild,readEligibility,readOwn
      h.status="restored";queueNotice(a,"membership-restored",o,e.cycleId,now);
     }else if(e.kind==="deposit-paid"){
      if(e.currency!=="MYR"||e.amount!==POLICY.depositMinor||businessDay(e.at).slice(0,7)!==m||!validId(e.paymentId)||monthlyNoShows(s,e.childId,m)<POLICY.noShowsBeforeDeposit||balance.held!==0||a.ledger.some(x=>x.kind==="paid"&&x.reference===e.paymentId))return fail("PAYMENT_RECONCILIATION_REQUIRED");
+     if(e.depositId!==undefined){
+      const r=(s.deposits??[]).find(x=>x.id===e.depositId&&owns(x,o));
+      if(!r||r.status!=="pending"||r.month!==m||!(/^[a-zA-Z0-9_-]{1,128}$/.test(e.providerPaymentId??""))||e.paymentId!==digest(["deposit-charge",e.providerPaymentId]))return fail("PAYMENT_RECONCILIATION_REQUIRED");
+      s.deposits=s.deposits.map(x=>x.id===r.id?{...x,status:"settled",paymentId:e.providerPaymentId,eventKey:e.eventId,paidAt:e.at}:x);
+     }
      appendLedger(a,o,m,"paid",e.paymentId,now);
     }else if(e.kind==="refund-recorded"){
      if(!validId(e.staffId)||!validId(e.receiptId)||typeof e.month!=="string"||e.month>=m||e.currency!=="MYR"||e.amount!==POLICY.depositMinor||depositBalance(s,e.childId,e.month).due!==POLICY.depositMinor||a.ledger.some(x=>x.kind==="refund-paid"&&x.reference===e.receiptId))return fail("REFUND_RECONCILIATION_REQUIRED");
      // The verified staff receipt reference is retained; the external audit maps it to staff identity.
+     if(e.note!==undefined){if(typeof e.note!=="string"||e.note.trim()!==e.note||e.note.length<3||e.note.length>300)return fail("INVALID_REFUND_NOTE");s.refunds=[...(s.refunds??[]),{childId:e.childId,parentId:e.parentId,month:e.month,receiptId:e.receiptId,staffId:e.staffId,note:e.note,eventKey:id,at:now}];}
      appendLedger(a,o,e.month,"refund-paid",e.receiptId,now);
     }else if(e.kind==="excuse"){
      const b=s.bookings.find(b=>b.bookingId===e.bookingId&&owns(b,o));
