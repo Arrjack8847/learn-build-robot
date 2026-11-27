@@ -59,7 +59,8 @@
     "test:combined:phase2": "node --test tests/combined-phase1.test.mjs tests/combined-phase2.test.mjs",
     "test:combined:phase3": "node --test tests/combined-phase1.test.mjs tests/combined-phase2.test.mjs tests/combined-phase3.test.mjs tests/nizar-n2.test.mjs tests/nizar-n3.test.mjs tests/nizar-n5.test.mjs",
     "test:combined:phase4": "node --test tests/combined-checkin.test.mjs tests/combined-phase4.test.mjs tests/j12345-course.test.mjs tests/combined-phase4-readiness.test.mjs",
-    "verify:combined:phase4": "node scripts/combined/phase4-readiness.mjs"
+    "verify:combined:phase4": "node scripts/combined/phase4-readiness.mjs",
+    "test:combined:phase5": "node --test tests/combined-phase5.test.mjs tests/nizar-n4.test.mjs"
   },
   "overrides": {
     "rolldown": "1.2.1"

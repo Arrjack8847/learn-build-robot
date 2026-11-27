@@ -93,5 +93,12 @@ export function createMembershipProviderReader(env,{request=fetch,clock=()=>Date
   if(binding.eventType==="recurring_billing.method_detached"&&typeof s.payment_method_attached==="boolean")return {...base,methodAttached:s.payment_method_attached};
   return null;
  }
- return {classify,resolveEventSubscription,reconcileVerifiedEvent,reconcileAdverseEvent};
+ // Strict proposed failed-charge mapping. Provider acceptance is independent of paid-cycle acceptance.
+ async function reconcileFailedRenewal(binding){
+  if(env.COMBINED_FAILED_RENEWAL_SCHEMA!=="confirmed_failed_charge_period_v1"||env.COMBINED_FAILED_RENEWAL_ACCEPTED!=="1")return null;
+  const d=await charge(binding.objectId),s=await verifiedSubscription(binding),period=periodReader(env,d,s),failedAt=time(d.closed_at);
+  if(d.target_type!=="business_recurring_plan"||d.target_id!==s.id||d.status!=="failed"||currency(d.currency)!=="MYR"||money(d.amount)!==36000||refund(d.refunded_amount)!==0||!reconcilePaymentMethod(d).verified||period?.cycleNumber!==2||!dateValid(failedAt)||failedAt>clock())return null;
+  return {subscriptionId:s.id,paymentId:d.id,failedAt,...period};
+ }
+ return {classify,resolveEventSubscription,reconcileVerifiedEvent,reconcileAdverseEvent,reconcileFailedRenewal};
 }

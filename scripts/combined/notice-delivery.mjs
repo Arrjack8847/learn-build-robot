@@ -52,5 +52,6 @@ export async function flushCombinedNotices({env,runtime,request=fetch,clock=Date
   const after=await repo.read();if(after.state.noticeDelivery?.find(x=>x.id===n.id)?.claimId!==claim.claimId||!await write(after,result)){pending++;continue;}
   if(result.status==="accepted")sent++;else pending++;
  }
- return {status:pending?"pending":"processed",sent,pending};
+ const end=await repo.read(),review=(end.state.noticeDelivery??[]).filter(x=>x.status==="review").length;
+ return {status:pending?"pending":review?"review":"processed",sent,pending,review};
 }

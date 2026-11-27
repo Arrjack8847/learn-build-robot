@@ -12,7 +12,7 @@ import {digest} from "../nizar/automation-state.mjs";
 const id=x=>typeof x==="string"&&/^[a-zA-Z0-9_-]{1,128}$/.test(x);
 const stamp=x=>typeof x==="string"&&/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?(?:Z|[+-]\d{2}:\d{2})$/.test(x)?Date.parse(x):NaN;
 const epoch=x=>Number.isSafeInteger(x)?x:Date.parse(typeof x==="string"?x:x?.$date);
-export const depositEnabled=e=>runtimeEnabled(e)&&e.COMBINED_DEPOSIT_ENABLED==="1"&&e.COMBINED_DEPOSIT_PROVIDER_ACCEPTED==="1"&&e.COMBINED_PAYMENT_BRIDGE_ENABLED==="1"&&e.COMBINED_DEPOSIT_CHARGE_SCHEMA==="verified_payment_request_charge_v1"&&j123InfrastructureStatus(e).checkoutReady;
+export const depositEnabled=e=>runtimeEnabled(e)&&e.COMBINED_DEPOSIT_ENABLED==="1"&&e.COMBINED_DEPOSIT_PROVIDER_ACCEPTED==="1"&&e.COMBINED_PAYMENT_BRIDGE_ENABLED==="1"&&e.COMBINED_DEPOSIT_CHARGE_SCHEMA==="verified_payment_request_charge_v1"&&(()=>{const s=j123InfrastructureStatus(e);return s.authReady&&s.providerConfigured&&s.rotationConfirmed&&s.webhookAccepted&&s.periodAccepted&&s.termsApproved&&s.ledgerReadReady;})();
 export function createDepositProvider(env,{request=fetch,clock=Date.now}={}){
  if(!depositEnabled(env))throw Error("DEPOSIT_DISABLED");
  let key;
@@ -22,7 +22,7 @@ export function createDepositProvider(env,{request=fetch,clock=Date.now}={}){
   if(!r.ok)throw Error("PROVIDER_UNCONFIRMED");const p=await r.json();if(!p||p.business_id!=null&&p.business_id!==J123_MERCHANT)throw Error("MERCHANT_MISMATCH");return p;
  }
  async function create(r){
-  if(r.status!=="dispatching"||r.amountMinor!==5000||r.currency!=="MYR"||!id(r.id)||!env.VERCEL_URL?.endsWith(".vercel.app"))throw Error("INVALID_RESERVATION");
+  if(!j123InfrastructureStatus(env).checkoutReady||r.status!=="dispatching"||r.amountMinor!==5000||r.currency!=="MYR"||!id(r.id)||!env.VERCEL_URL?.endsWith(".vercel.app"))throw Error("INVALID_RESERVATION");
   const p=await call("/v1/payment-requests",{amount:"50.00",currency:"MYR",purpose:"STEM Makers Lab sandbox refundable deposit",reference_number:r.id,redirect_url:"https://"+env.VERCEL_URL+"/parent/payment-return",allow_repeated_payments:"false","payment_methods[]":"touch_n_go"});
   if(!id(p.id)||p.reference_number!==r.id||p.status!=="pending"||String(p.currency).toUpperCase()!=="MYR"||minorUnits(String(p.amount))!==5000||!isAllowedSandboxCheckoutUrl(p.url))throw Error("PROVIDER_UNCONFIRMED");
   return {providerId:p.id,url:p.url};

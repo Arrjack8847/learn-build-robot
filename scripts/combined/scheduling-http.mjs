@@ -12,7 +12,7 @@ export function createCombinedSchedulingHttp({runtimeFactory=createCombinedRunti
   try{
    const r=runtimeFactory(env);
    if(path.endsWith("/booking")){
-    if(input.action==="deposit-checkout"&&exact(input,["action","childId","requestId"]))return r.deposit?resultResponse(await r.deposit.checkout(request,input)):fail(404,"DEPOSIT_NOT_AVAILABLE");
+    if(input.action==="deposit-checkout"&&exact(input,["action","childId","requestId"]))return r.deposit&&env.J123_CHECKOUT_ENABLED==="true"?resultResponse(await r.deposit.checkout(request,input)):fail(404,"DEPOSIT_NOT_AVAILABLE");
     if(input.action==="overview"&&exact(input,["action","childId"])){
      for(let i=0;i<3;i++){
       const owner=await r.resolveChild(request,input.childId);if(!owner)return fail(403,"NOT_AUTHORIZED");
