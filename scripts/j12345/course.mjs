@@ -6,6 +6,7 @@ import {createPrivatePdfHttp} from "../j5/pdf-http.mjs";
 import {lookupPrivatePdf} from "../j5/pdf-course-catalog.mjs";
 import {evaluateLearningSession} from "./learning-session.mjs";
 import {isCombinedBranch} from "../combined/scope.mjs";
+import {createCombinedPrivateDocuments} from "../combined/private-document-provider.mjs";
 const fail=(status,code)=>({ok:false,status,code});
 const bound=s=>s?.role==="student"&&s.environment==="private-preview"&&validJ12345Student(s.studentId);
 const mixed=r=>(r.headers.get("cookie")??"").split(";").some(p=>/^__Host-bsr-(?:parent-test|student-proof)\s*=/.test(p.trim()));
@@ -58,8 +59,8 @@ export function createJ12345CourseAuthority({resolveStudent,readVerifiedChild,re
 }
 export function createJ12345CourseBoundary({privateArtifact=false,...deps}){
  const authorize=createJ12345CourseAuthority(deps);
- const course=createCourseHttp({getAuthority:async()=>authorize});
- const pdf=createPrivatePdfHttp({lookupDocument:lookupPrivatePdf,getServices:async()=>null});
+ const course=createCourseHttp({getAuthority:async()=>authorize,now:deps.clock??Date.now});
+ const pdf=createPrivatePdfHttp({lookupDocument:lookupPrivatePdf,now:deps.clock??Date.now,getServices:async env=>isCombinedBranch(env)?createCombinedPrivateDocuments({env,authorize}):null});
  return async(request,env,next)=>{
   const u=new URL(request.url),api=u.pathname==="/api/dev/j5/course-access",document=u.pathname.startsWith("/api/dev/j5/pdf/");
   const route=classifyCoursePath(u.pathname),branch=env?.VERCEL_GIT_COMMIT_REF===J12345_BRANCH||isCombinedBranch(env);
