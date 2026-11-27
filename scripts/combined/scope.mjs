@@ -1,4 +1,4 @@
-// Exact combined branch scope. Phase 1 deliberately has no live route activation.
+// Exact combined branch scope. All combined runtime features default disabled.
 export const COMBINED_BRANCH="integration/j12345-n12345-20261127";
 export const COMBINED_SITE="09d613aa-3a95-42ff-9ee3-2aa0c706c447";
 export const COMBINED_RECORD="combined-scheduling-preview-v1";

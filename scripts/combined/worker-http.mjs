@@ -26,7 +26,8 @@ export function createCombinedWorkerHttp({runtimeFactory=createCombinedRuntime,f
    }
    const recovery=await renewal.recoverHolds(),tick=await r.automation.tick();if(!tick.ok)return fail(503,tick.status);
    const notices=await flush({env,runtime:r});
-   return json(notices.status==="pending"?503:200,{ok:notices.status!=="pending",automation:tick.status,renewalPending:recovery.pending??0,notices:notices.status,accepted:notices.sent});
+   const attention=["pending","review"].includes(notices.status);
+   return json(attention?503:200,{ok:!attention,automation:tick.status,renewalPending:recovery.pending??0,notices:notices.status,noticeReview: notices.review??0,accepted:notices.sent});
   }catch{return fail(503,"WORKER_UNAVAILABLE");}
  };
 }

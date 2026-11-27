@@ -16,3 +16,6 @@ Source foundation does not establish runtime integration or acceptance. No tests
 
 ## Source integration implementation status — 27 Nov 2026
 Phases 2–6 have source changes on the combined branch. See combined-phase2-identity-membership.md through combined-phase6-platform.md for exact scope and unresolved provider/acceptance gates. Runtime disabled by default; actual private build and tests not run. Existing branch snapshots and deployment-disabled configuration preserved.
+
+## Phase 6 final source integration handoff — 27 November 2026
+Combined role entry, staff finance/visit reporting, held-membership profile gating and isolated verification runner are implemented. See combined-phase6-platform.md for exact remaining acceptance and desk-policy scope. Source implementation is not a verified build or production completion. Runtime disabled; no tests run, no deployment, no real payments. Do not assign a production completion percentage based on these commits.
