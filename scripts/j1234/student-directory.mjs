@@ -5,6 +5,9 @@ import {readJ1234BillingProjection} from "./billing-projection.mjs";
 import {readAttendanceProjection,localDay} from "./attendance.mjs";
 import {buildDashboardStatistics} from "./dashboard-statistics.mjs";
 import {createJ1234IdentityEnv,scopeJ1234StudentCredentials} from "./identity-scope.mjs";
+import {isJ12345Preview,createJ12345IdentityEnv,scopeJ12345StudentCredentials} from "../j12345/identity-scope.mjs";
+import {createProgressRepository} from "../j12345/progress.mjs";
+import {staffLearningEnabled,buildLearningStatistics} from "../j12345/staff-learning.mjs";
 const ref=x=>typeof x==="string"?x:x?._id??x?.id;
 export function parseDirectoryQuery(v){
  if(!v||typeof v!=="object"||Array.isArray(v)||Object.keys(v).some(k=>!["page","pageSize","search","studentId"].includes(k)))return null;
@@ -13,8 +16,9 @@ export function parseDirectoryQuery(v){
  return {page,pageSize,search:search.trim().toLowerCase(),studentId};
 }
 export function createStudentDirectory({env,db,clock={now:()=>Date.now()}}){
- const cfg=createJ1234IdentityEnv(env);if(env.J1234_STUDENT_READ_ENABLED!=="1")throw Error("DIRECTORY_DISABLED");
- const auth=createAuthCrypto(cfg),scoped=scopeJ1234StudentCredentials(db);
+ const next=isJ12345Preview(env),cfg=next?createJ12345IdentityEnv(env):createJ1234IdentityEnv(env);if(next?!staffLearningEnabled(env)||env.J12345_PROFILE_ENABLED!=="1":env.J1234_STUDENT_READ_ENABLED!=="1")throw Error("DIRECTORY_DISABLED");
+ const auth=createAuthCrypto(cfg),scoped=next?scopeJ12345StudentCredentials(db):scopeJ1234StudentCredentials(db);
+ const progressRepo=next?createProgressRepository({db,env,clock:()=>clock.now()}):null;
  const parents=previewRecipients(cfg).map(e=>"qa-j2-"+auth.identityDigest("parent-preview-session",e));
  return {async list(query){
   const q=parseDirectoryQuery(query);if(!q)throw Error("INVALID_INPUT");
@@ -37,7 +41,8 @@ export function createStudentDirectory({env,db,clock={now:()=>Date.now()}}){
     const billing=await readJ1234BillingProjection({env,db,studentId:child.id,parentId,now:asOf});
     const attendance=await readAttendanceProjection({env,db,studentId:child.id,parentId,now:asOf});
     const fresh=await family.handle("internal","family-child-get",{childId:child.id});if(!fresh.ok||fresh.child.version!==child.version)throw Error("DIRECTORY_STALE");
-    rows.push({studentId:child.id,name:child.name,birthYear:child.birthYear,registeredAt:new Date(t+8*3600000).toISOString().slice(0,10),registrationStatus:pin?"ready":"pin-setup-required",...billing,attendance,checkInStatus:attendance.checkInStatus,level:null,latestActivity:null});
+    const learning=progressRepo?await progressRepo.staffRead({childId:child.id,parentId,accountStatus:"preview-test",stateVersion:child.version},{page:1,pageSize:20}):null;
+    rows.push({studentId:child.id,name:child.name,birthYear:child.birthYear,registeredAt:new Date(t+8*3600000).toISOString().slice(0,10),registrationStatus:pin?"ready":"pin-setup-required",...billing,attendance,checkInStatus:attendance.checkInStatus,level:learning?.status==="ready"?learning.currentLevel:null,latestActivity:learning?.status==="ready"?learning.latest:null,...(next?{progress:learning}:{})});
    }
   }
   // Detect profile, consent, list or credential changes during the multi-read snapshot.
@@ -45,6 +50,7 @@ export function createStudentDirectory({env,db,clock={now:()=>Date.now()}}){
   for(const {family,signature,expected} of families)if(signature(await family.handle("internal","family-status"))!==expected)throw Error("DIRECTORY_STALE");
   if(localDay(clock.now())!==localDay(asOf))throw Error("SNAPSHOT_DAY_CHANGED");
   const statistics=buildDashboardStatistics({env,rows,asOf});
+  if(next)statistics.learning=buildLearningStatistics({env,rows});
   const filtered=rows.filter(r=>(!q.studentId||q.studentId===r.studentId)&&(!q.search||r.name.toLowerCase().includes(q.search)||r.studentId.includes(q.search))).sort((a,b)=>a.name.localeCompare(b.name)||a.studentId.localeCompare(b.studentId));
   return {ok:true,status:"READY",total:filtered.length,page:q.page,pageSize:q.pageSize,statistics,rows:filtered.slice((q.page-1)*q.pageSize,q.page*q.pageSize)};
  }};

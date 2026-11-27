@@ -2,6 +2,7 @@
 import {membershipProcessingEnabled} from "../j123/membership-provider.mjs";
 import {attendanceEnabled,localDay} from "./attendance.mjs";
 import {validStudent,validProvider} from "../j123/billing-records.mjs";
+import {isJ12345Preview} from "../j12345/identity-scope.mjs";
 const memberStates=["active","payment_pending","inactive","expired","verification_required","unavailable"];
 const paymentStates=["verified","review_required","verification_required","pending","not_started","not_submitted","unavailable"];
 const attendanceStates=["not_booked","booked","attended","checked_out","no_show","excused","verification_required","unavailable"];
@@ -10,7 +11,7 @@ const coverage=(enabled,unknown)=>!enabled?"unavailable":unknown?"partial":"comp
 export function buildDashboardStatistics({env,rows,asOf}){
  if(!Number.isSafeInteger(asOf)||asOf<=0||!Array.isArray(rows)||rows.length>250)throw Error("INVALID_DASHBOARD_SNAPSHOT");
  const day=localDay(asOf),month=day.slice(0,7),ids=new Set(),charges=new Set();
- const billingReady=env.J1234_BILLING_READ_ENABLED==="1"&&membershipProcessingEnabled(env),attendanceReady=attendanceEnabled(env);
+ const next=isJ12345Preview(env),billingReady=(next?env.J12345_BILLING_READ_ENABLED==="1":env.J1234_BILLING_READ_ENABLED==="1")&&membershipProcessingEnabled(env),attendanceReady=attendanceEnabled(env);
  let verifiedCount=0,verifiedMinor=0,monthCount=0,monthMinor=0,heldCount=0,heldMinor=0,attended=0,bookings=0,open=0;
  for(const r of rows){
   if(!validStudent(r.studentId)||ids.has(r.studentId)||!["ready","pin-setup-required"].includes(r.registrationStatus)||!memberStates.includes(r.membershipStatus)||!paymentStates.includes(r.paymentStatus)||!attendanceStates.includes(r.attendance?.attendanceStatus)||!Array.isArray(r.payments)||r.payments.length>2)throw Error("INVALID_DASHBOARD_ROW");
@@ -37,7 +38,7 @@ export function buildDashboardStatistics({env,rows,asOf}){
  const paymentUnknown=payment.verification_required+payment.unavailable+payment.review_required;
  const attendanceUnknown=attendance.verification_required+attendance.unavailable;
  const ms=coverage(billingReady,memberUnknown),ps=coverage(billingReady,paymentUnknown),ats=coverage(attendanceReady,attendanceUnknown);
- return {scope:"approved_j1234_test_dataset",asOf,day,month,timeZone:"Asia/Kuala_Lumpur",registration:{total:rows.length,pinReady:rows.filter(r=>r.registrationStatus==="ready").length,pinSetupRequired:rows.filter(r=>r.registrationStatus==="pin-setup-required").length},
+ return {scope:next?"approved_j12345_test_dataset":"approved_j1234_test_dataset",asOf,day,month,timeZone:"Asia/Kuala_Lumpur",registration:{total:rows.length,pinReady:rows.filter(r=>r.registrationStatus==="ready").length,pinSetupRequired:rows.filter(r=>r.registrationStatus==="pin-setup-required").length},
  membership:{coverage:ms,counts:billingReady?membership:null,activeTotal:ms==="complete"?membership.active:null,unknownStudents:billingReady?memberUnknown:null},
  payments:{coverage:ps,currency:"MYR",evidenceType:"hitpay-sandbox",studentCounts:billingReady?payment:null,unknownStudents:billingReady?paymentUnknown:null,knownVerifiedCount:billingReady?verifiedCount:null,knownVerifiedMinor:billingReady?verifiedMinor:null,knownMonthVerifiedCount:billingReady?monthCount:null,knownMonthVerifiedMinor:billingReady?monthMinor:null,heldCount:billingReady?heldCount:null,heldMinor:billingReady?heldMinor:null,totalVerifiedMinor:ps==="complete"?verifiedMinor:null,monthVerifiedMinor:ps==="complete"?monthMinor:null,netRevenue:null,depositMinor:null},
  attendance:{coverage:ats,counts:attendanceReady?attendance:null,unknownStudents:attendanceReady?attendanceUnknown:null,knownBookings:attendanceReady?bookings:null,knownAttended:attendanceReady?attended:null,knownCheckedIn:attendanceReady?open:null,totalBookings:ats==="complete"?bookings:null,totalAttended:ats==="complete"?attended:null,currentCheckedIn:ats==="complete"?open:null,attendanceRate:ats==="complete"&&bookings>0?attended/bookings:null},

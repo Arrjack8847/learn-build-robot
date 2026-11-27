@@ -67,7 +67,9 @@ export function createAssessmentService({db,env,resolveQuiz,resolveCandidates,cl
      verifyEvidence:async({child:bound,requirement,evidenceId,policyVersion})=>{
       const stored=decode(await db.get(COLLECTION,key));
       if(bound.childId!==child.childId||requirement.resourceId!==req.resourceId||stored.attemptId!==evidenceId||stored.status!=="submitted"||stored.policyVersion!==policyVersion||!equal(stored.result,s.result))return null;
-      return {studentId:child.childId,resourceId:req.resourceId,mode:req.mode,evidenceId,policyVersion,verified:true,status:stored.result.passed?"passed":"failed"};
+      const r=stored.result;
+      const assessmentSummary=req.mode==="quiz"?{correctCount:r.correctCount,total:5}:{criteriaMet:r.criteriaMet,criteriaTotal:r.criteriaTotal,elapsedSeconds:r.elapsedSeconds,overtimeSeconds:r.overtimeSeconds,selfReported:true,acknowledgedFinish:stored.acknowledgedFinish};
+      return {studentId:child.childId,resourceId:req.resourceId,mode:req.mode,evidenceId,policyVersion,verified:true,status:r.passed?"passed":"failed",assessmentSummary};
      }
     });
     return result.ok?{ok:true,attempt:view(s),progressSaved:true}: {ok:true,attempt:view(s),progressSaved:false};
