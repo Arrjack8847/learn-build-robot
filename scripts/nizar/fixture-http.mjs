@@ -3,6 +3,7 @@ import {createHash,timingSafeEqual} from "node:crypto";
 import {enabled} from "./contract.mjs";
 import {createSchedulingRepository} from "./repository.mjs";
 import {createBookingService} from "./booking-service.mjs";
+import {createN4Service} from "./automation-service.mjs";
 const path="/api/dev/nizar/booking";
 const id=x=>"qa-j2-"+createHash("sha256").update("nizar-n3-fictional-v1/"+x).digest("hex");
 const fixtures=[{name:"Test parent A",parentId:id("parent-a"),children:[{id:id("child-a1"),name:"Test student A1",paid:true},{id:id("child-a2"),name:"Test student A2",paid:false}]},{name:"Test parent B",parentId:id("parent-b"),children:[{id:id("child-b1"),name:"Test student B1",paid:true}]}];
@@ -29,8 +30,14 @@ export function createNizarFixtureHttp({repositoryFactory=env=>createSchedulingR
   const resolveChild=async(actor,childId)=>{const p=fixtures[actor],c=p?.children.find(c=>c.id===childId);return c?{parentId:p.parentId,childId:c.id,stateVersion:"fictional-v1"}:null;};
   const readEligibility=async o=>({membership:fixtures.find(p=>p.parentId===o.parentId)?.children.find(c=>c.id===o.childId)?.paid?"active":"inactive",deposit:"clear"});
   try{
-   const execute=createBookingService({repository:repositoryFactory(env),resolveChild,readEligibility,clock});
-   const result=await execute(input,family);
+   const repository=repositoryFactory(env);
+   const execute=createBookingService({repository,resolveChild,readEligibility,clock});
+   const n4=createN4Service({repository,resolveChild,readEligibility,clock,readOwner:async(childId,parentId)=>resolveChild(fixtures.findIndex(p=>p.parentId===parentId),childId),readAttendance:async()=>null,verifyEvent:async()=>null});
+   // Fictional fixture can exercise waitlist/reminders only; no payment/no-show facts accepted.
+   let result;
+   if(input.action==="fixture-tick"&&Object.keys(input).length===1)result=await n4.tick();
+   else if(typeof input.action==="string"&&input.action.startsWith("waitlist-"))result=await n4.waitlist(input,family);
+   else result=await execute(input,family);
    return reply(result.ok?200:result.status==="NOT_AUTHORIZED"?403:result.status==="INVALID_INPUT"?400:result.status==="SCHEDULING_UNAVAILABLE"||result.status==="COMMIT_UNCONFIRMED"?503:409,result);
   }catch{return refuse(503,"SCHEDULING_UNAVAILABLE");}
  };

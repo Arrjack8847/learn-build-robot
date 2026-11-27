@@ -56,13 +56,15 @@ export function createN4Service({repository,resolveChild,readEligibility,readOwn
    if(w.status==="offered"&&now>=w.expiresAt||w.status==="queued"&&now>=w.startAt)w.status="expired";
   }
   const queue=a.waitlist.filter(w=>w.status==="queued").sort((a,b)=>a.joinedAt-b.joinedAt||a.id.localeCompare(b.id));
+  const blockedSlots=new Set();
   for(const w of queue){
+   if(blockedSlots.has(keyFor(w)))continue;
    if(!canBookSlot(w,now,{closedDays})){w.status="expired";continue;}
    if(used(s,w)>=POLICY.capacityPerActivity)continue;
    const o=await readOwner(w.childId,w.parentId);
-   if(!validOwner(o)||!owns(w,o))continue; // unresolved identity is not evidence of ineligibility
+   if(!validOwner(o)||!owns(w,o)){blockedSlots.add(keyFor(w));continue;} // unresolved identity: do not skip FIFO
    const e=await observed(s,o,now);
-   if(e.membership==="unavailable"||e.deposit==="unavailable")continue;
+   if(e.membership==="unavailable"||e.deposit==="unavailable"){blockedSlots.add(keyFor(w));continue;}
    if(!eligible(e)||hasDaily(s,w)||upcomingCount(s,w,now)>=POLICY.maxUpcoming){w.status="ineligible";continue;}
    const at=clock();if(at<now||at>=w.startAt)continue;
    w.status="offered";w.offeredAt=at;w.expiresAt=Math.min(at+POLICY.offerMs,w.startAt);
@@ -81,7 +83,7 @@ export function createN4Service({repository,resolveChild,readEligibility,readOwn
     const a=s.n4,m=businessDay(now).slice(0,7);
     if(action==="waitlist-view"){
      const balance=depositBalance(s,o.childId,m);
-     return {ok:true,noWrite:true,status:"READY",entries:a.waitlist.filter(w=>owns(w,o)&&["queued","offered"].includes(w.status)&&w.startAt>now).map(viewWait),noShows:monthlyNoShows(s,o.childId,m),depositHeld:balance.held,refundDue:a.ledger.filter(x=>owns(x,o)&&x.kind==="refund-due").reduce((sum,x)=>sum+depositBalance(s,o.childId,x.month).due,0)};
+     return {ok:true,noWrite:true,status:"READY",entries:a.waitlist.filter(w=>owns(w,o)&&["queued","offered"].includes(w.status)&&w.startAt>now).map(viewWait),noShows:monthlyNoShows(s,o.childId,m),depositHeld:balance.held,notices:a.notices.filter(x=>owns(x,o)).slice(-30).map(x=>({kind:x.kind,at:x.at})),refundDue:a.ledger.filter(x=>owns(x,o)&&x.kind==="refund-due").reduce((sum,x)=>sum+depositBalance(s,o.childId,x.month).due,0)};
     }
     if(action==="waitlist-join"){
      const requestKey=digest([o.parentId,input.requestId]),prior=a.waitlist.find(w=>w.requestKey===requestKey);
