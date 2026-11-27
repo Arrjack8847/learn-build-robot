@@ -61,7 +61,7 @@ function SyllabusLevelsPage() {
           <h1 className="mt-[clamp(4px,1dvh,14px)] text-[clamp(22px,3.8svh,40px)] font-black leading-tight tracking-tight text-[#21476c]">Choose Your Level</h1>
         </div>
         {privatePreview&&<p role="status" className="shrink-0 text-center text-xs text-slate-700">Learning access is not yet enabled. <a href="/student/dashboard" className="font-bold underline">My profile</a></p>}
-        <ul aria-label="Choose your syllabus level" className="mx-auto my-auto grid min-h-0 w-full max-w-[900px] flex-1 grid-cols-2 grid-rows-3 gap-[clamp(7px,1.2svh,16px)] py-[clamp(7px,1.2svh,14px)] landscape:grid-cols-3 landscape:grid-rows-2">
+        <ul aria-label="Choose your syllabus level" className={"mx-auto my-auto grid min-h-0 w-full max-w-[900px] flex-1 grid-cols-2 grid-rows-3 gap-[clamp(7px,1.2svh,16px)] py-[clamp(7px,1.2svh,14px)] "+(privatePreview?"landscape:grid-cols-3 landscape:grid-rows-2":"md:landscape:grid-cols-3 md:landscape:grid-rows-2")}>
           {levels.map((level) => {
             const totals = level.number === 1 ? { categories: 14, entries: 59 } : getLevelTotals(level.number);
             const card = (

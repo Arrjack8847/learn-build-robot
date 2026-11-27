@@ -9,7 +9,7 @@ const bound=s=>s?.role==="student"&&s.environment==="private-preview"&&validJ123
 const mixed=r=>(r.headers.get("cookie")??"").split(";").some(p=>/^__Host-bsr-(?:parent-test|student-proof)\s*=\s*[^\s]/.test(p.trim()));
 const same=(a,b)=>a?.childId===b?.childId&&a?.parentId===b?.parentId&&a?.stateVersion===b?.stateVersion&&a?.accountStatus===b?.accountStatus;
 const enabled=e=>isJ12345Preview(e)&&e.J12345_COURSE_ENABLED==="1"&&e.J12345_PROFILE_ENABLED==="1"&&e.J12345_REGISTRATION_ENABLED==="1"&&e.STUDENT_AUTH_ENABLED==="true";
-export function createJ12345CourseBoundary({resolveStudent,readVerifiedChild,readAccess,resolveResource}){
+export function createJ12345CourseBoundary({resolveStudent,readVerifiedChild,readAccess,resolveResource,privateArtifact=false}){
  const authorize=async(request,env,path)=>{
   if(!enabled(env))return fail(404,"COURSE_UNAVAILABLE");
   if(mixed(request))return fail(401,"STUDENT_AUTH_REQUIRED");
@@ -39,7 +39,7 @@ export function createJ12345CourseBoundary({resolveStudent,readVerifiedChild,rea
  return async(request,env,next)=>{
   const u=new URL(request.url),api=u.pathname==="/api/dev/j5/course-access",document=u.pathname.startsWith("/api/dev/j5/pdf/");
   const route=classifyCoursePath(u.pathname),branch=env?.VERCEL_GIT_COMMIT_REF===J12345_BRANCH;
-  if(!api&&!document&&(!branch||route.scope==="outside"||route.scope==="shell"))return next();
+  if(!api&&!document&&(!(branch||privateArtifact)||route.scope==="outside"||route.scope==="shell"))return next();
   // The generic J5 transport flag is supplied only internally, without changing the real branch.
   // Keep the route locked even when the new course flag is off.
   if(!isJ12345Preview(env)||!env.VERCEL_URL||u.origin!=="https://"+env.VERCEL_URL){

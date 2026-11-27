@@ -4,7 +4,8 @@ import { resolveJ2Student, readJ12345VerifiedChild } from "../scripts/j2-runtime
 import { readJ12345Access } from "../scripts/j12345/access.mjs";
 import {createJ12345CourseBoundary} from "../scripts/j12345/course.mjs";
 import {resolveJ5CourseResource} from "./lib/j5-course-catalog.server";
-const handleJ12345Course=createJ12345CourseBoundary({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readJ12345Access,resolveResource:resolveJ5CourseResource});
+declare const __J12345_STUDENT_PREVIEW__:boolean;
+const handleJ12345Course=createJ12345CourseBoundary({privateArtifact:__J12345_STUDENT_PREVIEW__,resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readJ12345Access,resolveResource:resolveJ5CourseResource});
 const handleJ12345Profile=createJ12345ProfileHttp({resolveStudent:resolveJ2Student,readVerifiedChild:readJ12345VerifiedChild,readAccess:readJ12345Access});
 import { handleIntegratedCheckout } from "../scripts/j123/checkout-http.mjs";
 import { handleMembershipWorker } from "../scripts/j123/membership-worker-http.mjs";
