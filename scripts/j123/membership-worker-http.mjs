@@ -14,8 +14,9 @@ export function createMembershipWorkerHttp({storeFactory=createWixStore,requestF
   if(url.pathname!=="/api/dev/j123/membership-worker"||url.search||!membershipProcessingEnabled(env)||env.J123_MEMBERSHIP_WORKER_ENABLED!=="true"||!env.VERCEL_URL||url.origin!=="https://"+env.VERCEL_URL)return json(404,{ok:false});
   if(request.method!=="POST")return json(405,{ok:false});
   // Worker access is separate from payer/student auth, and Vercel deployment protection remains intact.
-  const key=env.J123_MEMBERSHIP_WORKER_SECRET,identity=billingIdentityEnv(env);
-  if(!validSecret(key)||[env.PARENT_AUTH_SECRET,env.STUDENT_AUTH_SECRET,env.J1234_AUTH_ROOT,env.J12345_AUTH_ROOT,env.J1234_TEST_OPERATOR_SECRET,env.J12345_TEST_OPERATOR_SECRET,identity.PARENT_AUTH_SECRET,identity.STUDENT_AUTH_SECRET].some(v=>typeof v==="string"&&v.toLowerCase()===key))return json(503,{ok:false});
+  const next=env.VERCEL_GIT_COMMIT_REF==="integration/j1-j2-j3-j4-j5-20261126";
+  const key=next?env.J12345_MEMBERSHIP_WORKER_SECRET:env.J123_MEMBERSHIP_WORKER_SECRET,identity=billingIdentityEnv(env);
+  if(!validSecret(key)||[env.PARENT_AUTH_SECRET,env.STUDENT_AUTH_SECRET,env.J1234_AUTH_ROOT,env.J12345_AUTH_ROOT,env.J1234_TEST_OPERATOR_SECRET,env.J12345_TEST_OPERATOR_SECRET,...(next?[env.J123_MEMBERSHIP_WORKER_SECRET]:[]),identity.PARENT_AUTH_SECRET,identity.STUDENT_AUTH_SECRET].some(v=>typeof v==="string"&&v.toLowerCase()===key))return json(503,{ok:false});
   const auth=request.headers.get("authorization")??"";
   if(!/^Bearer [a-f0-9]{64}$/.test(auth)||!timingSafeEqual(Buffer.from(auth.slice(7),"hex"),Buffer.from(key,"hex")))return json(401,{ok:false});
   if(!request.headers.get("content-type")?.startsWith("application/json")||!request.body)return json(400,{ok:false});
