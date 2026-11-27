@@ -2,15 +2,14 @@
 // No server, deployment, payment, real student information or printed OTP/PIN/session.
 import {execFileSync} from "node:child_process";
 import {randomUUID} from "node:crypto";
-import {createInterface} from "node:readline/promises";
-import {Writable} from "node:stream";
+import {readTerminalAnswer} from "./terminal-input.mjs";
 import {handleParentOtpTest,handleStudentAuth,resolveJ2Student} from "../j2-runtime.mjs";
 import {createJ12345IdentityEnv} from "../j12345/identity-scope.mjs";
 import {NOTICE_VERSION} from "../parent-auth/family-preview.mjs";
 import {COMBINED_BRANCH,COMBINED_SITE} from "./scope.mjs";
 const git=(...a)=>execFileSync("git",a,{encoding:"utf8",stdio:["ignore","pipe","ignore"]}).trim();
 const P="__Host-bsr-parent-test",V="__Host-bsr-student-proof",S="__Host-bsr-student";
-let env,rl,p="",v="",s="",stage="PREFLIGHT";
+let env,p="",v="",s="",stage="PREFLIGHT";
 const results=[];
 const expect=(condition,label)=>{if(!condition)throw Error(label);results.push(label);console.log("PASS: "+label);};
 const token=(r,n)=>r.cookies.find(c=>c.startsWith(n+"="))?.split(";")[0].slice(n.length+1)??"";
@@ -23,9 +22,7 @@ async function call(kind,action,body,cookie=""){
 }
 const c=(name,value)=>name+"="+value;
 async function code(prompt){
- process.stdout.write(prompt+" (input hidden): ");
- const value=await rl.question("");
- process.stdout.write("\n");
+ const value=readTerminalAnswer(prompt+" (input hidden): ",{hidden:true});
  if(!/^\d{6}$/.test(value))throw Error("INVALID_SIX_DIGIT_INPUT");
  return value;
 }
@@ -37,11 +34,9 @@ try{
  const cfg=createJ12345IdentityEnv(env),email=cfg.RESEND_TEST_RECIPIENT;
  // Require a single controlled inbox for this first run; no automated retry.
  if(env.COMBINED_TEST_EMAILS.split(",").length!==1)throw Error("ONE_APPROVED_TEST_INBOX_REQUIRED");
- const muted=new Writable({write(_chunk,_enc,cb){cb();}});
- rl=createInterface({input:process.stdin,output:muted,terminal:true});
- process.stdout.write("This sends up to three test OTP emails and creates two fictional student records in the development Wix site. Type YES to authorize: ");
- if(await rl.question("")!=="YES")throw Error("NOT_AUTHORIZED");
- process.stdout.write("\n");
+ stage="AUTHORIZATION";
+ if(readTerminalAnswer("This sends up to three test OTP emails and creates two fictional student records in the development Wix site. Type YES to authorize: ")!=="YES")throw Error("NOT_AUTHORIZED");
+ stage="PIN_SETUP";
  const pins=[await code("Choose fictional student A PIN"),await code("Choose fictional student B PIN")];
  if(!pins.every(validPin)||pins[0]===pins[1])throw Error("DISTINCT_NONTRIVIAL_PINS_REQUIRED");
  stage="PARENT_OTP";
@@ -97,5 +92,4 @@ try{
 }finally{
  // Best-effort revoke only the sessions created by this invocation. Never delete durable test records.
  for(const [kind,name,value] of [["parent",P,p],["student",V,v],["student",S,s]])if(env&&checkToken(value)){try{const r=await call(kind,"logout",null,c(name,value));if(r.body.status!=="SIGNED_OUT")throw Error("REVOKE_UNCONFIRMED");}catch{console.error("Session revocation unconfirmed; do not retry automatically.");process.exitCode=1;}}
- rl?.close();
 }
