@@ -4,6 +4,7 @@ import {readJ12345MembershipObservation} from "../j1234/billing-projection.mjs";
 import {readAttendanceProjection,localDay} from "../j1234/attendance.mjs";
 import {normalizeJ3Membership,evaluateMembership} from "../j5/membership-policy.mjs";
 import {createWixStore} from "../parent-auth/wix-store.mjs";
+import {evaluateLearningSession} from "./learning-session.mjs";
 const unavailable=()=>({membership:"verification-required",membershipValidUntil:null,membershipEligible:false,attendance:"unavailable",checkInAt:null,learningAccess:"unavailable",reason:"verification-required"});
 export function createJ12345AccessReader({storeFactory=createWixStore,readMembership=readJ12345MembershipObservation,readAttendance=readAttendanceProjection,clock=()=>Date.now()}={}){
  return async function readAccess(child,env){
@@ -26,8 +27,9 @@ export function createJ12345AccessReader({storeFactory=createWixStore,readMember
     if(["no_show","excused"].includes(a2.attendanceStatus))attendance=a2.attendanceStatus.replace("_","-");
    }
    const reason=membership.status==="verification-required"||attendance==="unavailable"?"verification-required":!membership.eligible?"membership-required":attendance!=="checked-in"?"check-in-required":"learning-policy-required";
-   // A code's 5-minute validity is NOT the duration of a learning visit. No unapproved duration or entitlement.
-   return {membership:membership.status,membershipValidUntil:membership.validUntil,membershipEligible:membership.eligible,attendance,checkInAt,learningAccess:"unavailable",reason};
+   // This is a visit window projection, not a course grant. Course and storage gates remain separate.
+   const access={membership:membership.status,membershipValidUntil:membership.validUntil,membershipEligible:membership.eligible,attendance,checkInAt,learningAccess:"unavailable",reason};
+   return {...access,learningSession:evaluateLearningSession(access,fresh)};
   }catch{return unavailable();}
  };
 }

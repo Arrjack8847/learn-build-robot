@@ -1,15 +1,16 @@
-// Exact-branch production-safe course boundary. No invented level rows or visit lifetime.
+// Exact-branch course boundary with owner-approved one-hour maximum.
 import {isJ12345Preview,validJ12345Student,J12345_BRANCH} from "./identity-scope.mjs";
 import {classifyCoursePath} from "../../src/lib/j5-course-path.mjs";
 import {createCourseHttp} from "../j5/course-http.mjs";
 import {createPrivatePdfHttp} from "../j5/pdf-http.mjs";
 import {lookupPrivatePdf} from "../j5/pdf-course-catalog.mjs";
+import {evaluateLearningSession} from "./learning-session.mjs";
 const fail=(status,code)=>({ok:false,status,code});
 const bound=s=>s?.role==="student"&&s.environment==="private-preview"&&validJ12345Student(s.studentId);
 const mixed=r=>(r.headers.get("cookie")??"").split(";").some(p=>/^__Host-bsr-(?:parent-test|student-proof)\s*=\s*[^\s]/.test(p.trim()));
 const same=(a,b)=>a?.childId===b?.childId&&a?.parentId===b?.parentId&&a?.stateVersion===b?.stateVersion&&a?.accountStatus===b?.accountStatus;
 const enabled=e=>isJ12345Preview(e)&&e.J12345_COURSE_ENABLED==="1"&&e.J12345_PROFILE_ENABLED==="1"&&e.J12345_REGISTRATION_ENABLED==="1"&&e.STUDENT_AUTH_ENABLED==="true";
-export function createJ12345CourseAuthority({resolveStudent,readVerifiedChild,readAccess,resolveResource,readProgress}){
+export function createJ12345CourseAuthority({resolveStudent,readVerifiedChild,readAccess,resolveResource,readProgress,clock=Date.now}){
  return async(request,env,path)=>{
   if(!enabled(env))return fail(404,"COURSE_UNAVAILABLE");
   if(mixed(request))return fail(401,"STUDENT_AUTH_REQUIRED");
@@ -36,9 +37,19 @@ export function createJ12345CourseAuthority({resolveStudent,readVerifiedChild,re
     const level=progress.levels.find(l=>l.level===resource.level);
     if(!level||!["unlocked","in-progress","completed"].includes(level.status))return fail(403,"LEVEL_LOCKED");
    }
-   // The approved learning duration/termination policy is still required.
-   // Even verified individual level evidence cannot grant a course by itself.
-   return fail(403,"LEARNING_POLICY_REQUIRED");
+   // Owner approval of duration is NOT authorization to activate the private preview.
+   if(env.J12345_LEARNING_SESSION_ENABLED!=="1")return fail(403,"LEARNING_POLICY_REQUIRED");
+   // Re-read attendance and membership after the progress read; reject a changed visit.
+   const observed=await readAccess(child,env),lastChild=await readVerifiedChild(s.studentId,env),lastSession=await resolveStudent(request,env);
+   if(!bound(lastSession)||lastSession.studentId!==s.studentId)return fail(401,"STUDENT_AUTH_REQUIRED");
+   if(!same(child,lastChild)||!observed||observed.reason==="verification-required")return fail(503,"COURSE_UNAVAILABLE");
+   if(observed.membershipEligible!==true)return fail(403,"MEMBERSHIP_REQUIRED");
+   if(observed.attendance!=="checked-in")return fail(403,"CHECK_IN_REQUIRED");
+   if(observed.checkInAt!==a.checkInAt||observed.membershipValidUntil!==a.membershipValidUntil)return fail(503,"COURSE_UNAVAILABLE");
+   const decision=evaluateLearningSession(observed,clock());
+   if(decision.status==="expired")return fail(403,"LEARNING_SESSION_EXPIRED");
+   if(decision.status!=="eligible")return fail(503,"COURSE_UNAVAILABLE");
+   return {ok:true,status:200,code:"COURSE_AUTHORIZED",validUntil:decision.endsAt};
   }catch{return fail(503,"COURSE_UNAVAILABLE");}
  };
 }

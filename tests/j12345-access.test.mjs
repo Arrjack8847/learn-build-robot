@@ -20,3 +20,17 @@ test("midnight, expiry, and changing snapshot refuse stale authorization",async(
 test("wrong branch, production, disabled profile, or wrong identity deny before store",async()=>{let reads=0;const f=createJ12345AccessReader({storeFactory:()=>{reads++;throw Error();}});for(const env of [{...e,VERCEL_ENV:"production"},{...e,VERCEL_TARGET_ENV:"production"},{...e,VERCEL_GIT_COMMIT_REF:J123_BRANCH},{...e,J12345_PROFILE_ENABLED:"0"}])assert.equal((await f(child,env)).membershipEligible,false);assert.equal((await f({...child,childId:"invalid"},e)).membershipEligible,false);assert.equal(reads,0);});
 test("separate checkout and attendance namespaces, global provider ownership index",async()=>{const seen=[];const db={get:async(c,k)=>seen.push(k)};const k=checkoutKey(id),idx=providerKey("charge","fixture");await scopeJ1234BillingStore(db,e).get(BILLING_COLLECTION,k);await scopeJ1234BillingStore(db,e).get(BILLING_COLLECTION,idx);await scopeJ1234BillingStore(db,{...e,VERCEL_GIT_COMMIT_REF:"integration/j1-j2-j3-j4-20261126"}).get(BILLING_COLLECTION,k);assert.deepEqual(seen,["j12345-"+k,idx,"j1234-"+k]);assert.equal(scopedAttendanceKey(e,id,localDay(now)),"j12345-"+attendanceKey(id,localDay(now)));assert.equal(isIntegratedBillingPreview({...e,J12345_BILLING_ENABLED:"0"}),false);assert.equal(attendanceEnabled({...e,J12345_ATTENDANCE_ENABLED:"0"}),false);});
 test("operator requires independent J12345 capability, cannot inherit old secret",()=>{const req=(key,cookie="")=>new Request("https://fixture.invalid",{headers:{"x-stem-j1234-operator":key,cookie}});assert.equal(operatorAccess(req(e.J12345_TEST_OPERATOR_SECRET),e),200);assert.equal(operatorAccess(req(e.J12345_TEST_OPERATOR_SECRET,"__Host-bsr-student=fixture"),e),403);assert.equal(operatorAccess(req(e.J12345_TEST_OPERATOR_SECRET),{...e,J12345_TEST_OPERATOR_ENABLED:"0"}),404);assert.equal(operatorAccess(req(e.J12345_TEST_OPERATOR_SECRET),{...e,J1234_TEST_OPERATOR_SECRET:e.J12345_TEST_OPERATOR_SECRET}),503);});
+
+import {evaluateLearningSession} from "../scripts/j12345/learning-session.mjs";
+test("owner-approved one-hour session expires exactly at deadline and is not extended by refresh",()=>{
+ const start=Date.parse("2026-11-27T02:00:00Z"),a={membership:"active",membershipEligible:true,membershipValidUntil:start+7200000,attendance:"checked-in",checkInAt:start};
+ assert.deepEqual(evaluateLearningSession(a,start),{status:"eligible",endsAt:start+3600000});
+ assert.deepEqual(evaluateLearningSession(a,start+3599999),{status:"eligible",endsAt:start+3600000});
+ assert.deepEqual(evaluateLearningSession(a,start+3600000),{status:"expired",endsAt:start+3600000});
+ assert.equal(evaluateLearningSession({...a,attendance:"checked-out"},start+1000).status,"check-in-required");
+ assert.equal(evaluateLearningSession({...a,membershipEligible:false},start+1000).status,"membership-required");
+ assert.equal(evaluateLearningSession({...a,membershipValidUntil:start+30000},start).endsAt,start+30000);
+ const late=Date.parse("2026-11-27T15:45:00Z");
+ assert.equal(evaluateLearningSession({...a,checkInAt:late,membershipValidUntil:late+7200000},late).endsAt,Date.parse("2026-11-27T16:00:00Z"));
+ assert.equal(evaluateLearningSession({...a,checkInAt:start+1},start).status,"unavailable");
+});

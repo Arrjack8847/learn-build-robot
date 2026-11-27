@@ -14,3 +14,17 @@ test("private PDF never serves a public fallback; unknown ID and disabled branch
 test("encoded paths and browser identity injection refused",async()=>{const f=fixture();assert.equal((await f.run("/pract%69cal/robot")).status,404);assert.equal((await f.run(api("/projects/robot")+"&studentId="+p)).status,400);assert.equal((await f.run(api("/projects/robot"),env,{cookie:"__Host-bsr-parent-test=fixture"})).status,401);assert.equal(f.counts().renders,0);});
 
 test("private artifact cannot fall back to legacy course rendering when runtime metadata is missing or wrong",async()=>{const f=fixture({privateArtifact:true});for(const e of [{},{...env,VERCEL_GIT_COMMIT_REF:"main"},{...env,VERCEL_ENV:"production"}])assert.equal((await f.run("/projects/robot",e)).status,404);assert.equal(f.counts().renders,0);});
+
+test("one-hour grant is separately gated, fixed to check-in and revoked on checkout",async()=>{
+ const start=1795680000000;
+ let at=start+1000;
+ const a={...access,membership:"active",checkInAt:start,membershipValidUntil:start+7200000};
+ const on={...env,J12345_LEARNING_SESSION_ENABLED:"1"};
+ const f=fixture({clock:()=>at,readAccess:async()=>a});
+ const first=await f.run(api("/projects/robot"),on);assert.equal(first.status,200);assert.equal((await first.json()).validUntil,start+3600000);
+ at=start+3599999;assert.equal((await (await f.run(api("/projects/robot"),on)).json()).validUntil,start+3600000);
+ at=start+3600000;assert.equal((await (await f.run(api("/projects/robot"),on)).json()).code,"LEARNING_SESSION_EXPIRED");
+ let n=0;const changed=fixture({clock:()=>start+1000,readAccess:async()=>++n===1?a:{...a,attendance:"checked-out"}});
+ assert.equal((await (await changed.run(api("/projects/robot"),on)).json()).code,"CHECK_IN_REQUIRED");
+ assert.equal((await (await f.run(api("/projects/robot"),env)).json()).code,"LEARNING_POLICY_REQUIRED");
+});
