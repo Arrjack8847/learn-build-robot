@@ -21,3 +21,35 @@ test("three wrong attempts lock code, reissue grants exact-hour session only onc
  const s=(await x.repo.read()).state;assert.equal(s.bookings[0].bookingStatus,"attended");assert.equal(s.n5.length,1);assert.equal(JSON.stringify(s).includes(first.code),false);
  x.setPaid(false);assert.equal(await x.service.verifyPass("student"),null);x.setPaid(true);x.setNow(end);assert.equal(await x.service.verifyPass("student"),null);
 });
+
+test("100 parallel wrong guesses cannot bypass the persisted three-try count",async()=>{
+ const x=fixture(),i={bookingId:booking.bookingId,revision:booking.revision,childId};
+ await x.service.issue("staff",i);
+ const results=await Promise.all(Array.from({length:100},()=>x.service.redeem("student",{bookingId:i.bookingId,code:"00000000"})));
+ assert.ok(results.every(r=>!r.ok&&r.status==="REFUSED"));
+ let c=(await x.repo.read()).state.checkins[0];assert.ok(c.attempts>=1&&c.attempts<=3);
+ while(c.attempts<3){await x.service.redeem("student",{bookingId:i.bookingId,code:"00000000"});c=(await x.repo.read()).state.checkins[0];}
+ assert.equal(c.status,"locked");assert.equal((await x.service.redeem("student",{bookingId:i.bookingId,code:"12345678"})).ok,false);
+ assert.equal((await x.repo.read()).state.bookings[0].bookingStatus,"booked");
+});
+test("replacement revokes prior session; successful concurrent submissions mark attendance once",async()=>{
+ const x=fixture(),i={bookingId:booking.bookingId,revision:booking.revision,childId};
+ const first=await x.service.issue("staff",i);
+ const a=await Promise.all(Array.from({length:20},()=>x.service.redeem("student",{bookingId:i.bookingId,code:first.code})));
+ assert.equal(a.filter(r=>r.ok).length,1);
+ const b=(await x.repo.read()).state.bookings[0];assert.equal((await x.repo.read()).state.n5.length,1);
+ const second=await x.service.issue("staff",{...i,revision:b.revision});assert.equal(second.ok,true);
+ assert.equal(await x.service.verifyPass("student"),null);
+ assert.equal((await x.service.redeem("other-session",{bookingId:i.bookingId,code:second.code})).ok,true);
+ assert.equal(await x.service.verifyPass("student"),null);
+ assert.ok(await x.service.verifyPass("other-session"));assert.equal((await x.repo.read()).state.n5.length,1);
+ x.setPaid(false);assert.equal(await x.service.verifyPass("other-session"),null);
+ x.setPaid(true);assert.equal(await x.service.verifyPass("other-session"),null);
+});
+test("exact exclusive expiry, before-hour refusal and stale booking revision refusal",async()=>{
+ const x=fixture(),i={bookingId:booking.bookingId,revision:booking.revision,childId};
+ x.setNow(start-1);assert.equal((await x.service.issue("staff",i)).ok,false);
+ x.setNow(end-1000);const code=await x.service.issue("staff",i);assert.equal(code.expiresAt,end);
+ x.setNow(end);assert.equal((await x.service.redeem("student",{bookingId:i.bookingId,code:code.code})).ok,false);
+ assert.equal((await x.service.issue("staff",i)).ok,false);assert.equal(await x.service.verifyPass("student"),null);
+});
